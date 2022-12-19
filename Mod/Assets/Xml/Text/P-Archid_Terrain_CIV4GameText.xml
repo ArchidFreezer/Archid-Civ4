@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Game Text - New -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT> <!-- Coast -->
+		<Tag>TXT_KEY_TERRAIN_COAST_PEDIA</Tag>
+		<English>[TAB]The coastline is where the land meets the sea or ocean. A precise line that can be called a coastline cannot be determined due to the dynamic nature of tides. The term "coastal zone" can be used instead, which is a spatial zone where interaction of the sea and land processes occurs. Both the terms coast and coastal are often used to describe a geographic location or region; for example, New Zealand's West Coast, or the East and West Coasts of the United States.</English>
+	</TEXT>
+	<TEXT> <!-- Desert -->
+		<Tag>TXT_KEY_TERRAIN_DESERT_PEDIA</Tag>
+		<English>[TAB]A desert is a landscape or region that receives an extremely low amount of precipitation, less than enough to support growth of most plants. Deserts are defined as areas with an average annual precipitation of less than 250 millimetres (10 in) per year, or as areas where more water is lost by evapotranspiration than falls as precipitation. In the K0ppen climate classification system, deserts are classed as BWh (hot desert) or BWk (temperate desert). In the Thornthwaite climate classification system, deserts would be classified as arid megathermal climates.</English>
+	</TEXT>
+	<TEXT> <!-- Grass -->
+		<Tag>TXT_KEY_TERRAIN_GRASS_PEDIA</Tag>
+		<English>[TAB]Grasslands are areas where the vegetation is dominated by grasses (Poaceae) and other herbaceous (non-woody) plants (forbs). However, sedge (Cyperaceae) and rush (Juncaceae) families can also be found. Grasslands occur naturally on all continents except Antarctica. In temperate latitudes, such as northwest Europe and the Great Plains and California in North America, native grasslands are dominated by perennial bunch grass species, whereas in warmer climates annual species form a greater component of the vegetation.</English>
+	</TEXT>
+	<TEXT> <!-- Hill -->
+		<Tag>TXT_KEY_TERRAIN_HILL_PEDIA</Tag>
+		<English>[TAB]A hill is a landform that extends above the surrounding terrain. Hills often have a distinct summit, although in areas with scarp/dip topography a hill may refer to a particular section of flat terrain without a massive summit (e.g. Box Hill).</English>
+	</TEXT>
+	<TEXT> <!-- Ice -->
+		<Tag>TXT_KEY_TERRAIN_ICE_PEDIA</Tag>
+		<English>[TAB]Ice is water frozen into the solid state. Usually ice is the phase known as ice Ih, which is the most abundant of the varying solid phases on the Earth's surface. It can appear transparent or opaque bluish-white color, depending on the presence of impurities or air inclusions. The addition of other materials such as soil may further alter the appearance.</English>
+	</TEXT>
+	<TEXT> <!-- Ocean -->
+		<Tag>TXT_KEY_TERRAIN_OCEAN_PEDIA</Tag>
+		<English>[TAB]An ocean is a major body of saline water, and a principal component of the hydrosphere. Approximately 71% of the Earth's surface (~3.6 x 10 8 km 2) is covered by ocean, a continuous body of water that is customarily divided into several principal oceans and smaller seas.</English>
+	</TEXT>
+	<TEXT> <!-- Peak -->
+		<Tag>TXT_KEY_TERRAIN_PEAK_PEDIA</Tag>
+		<English>[TAB]Peak may refer to:A mountain peak, In topography, a summit is a point on a surface that is higher in elevation than all points immediately adjacent to it. Mathematically, a summit is a local maximum in elevation. The topographic terms "acme", "apex", "peak", and "zenith" are synonyms.</English>
+	</TEXT>
+	<TEXT> <!-- Plains -->
+		<Tag>TXT_KEY_TERRAIN_PLAINS_PEDIA</Tag>
+		<English>[TAB]Plains is the plural of plain, a geographical feature. It is a big flat area of a land.</English>
+	</TEXT>
+	<TEXT> <!-- Tundra -->
+		<Tag>TXT_KEY_TERRAIN_TUNDRA_PEDIA</Tag>
+		<English>[TAB]In physical geography, tundra is a biome where the tree growth is hindered by low temperatures and short growing seasons. The term tundra comes through Russian from the Kildin Sami word tundâr "uplands," "treeless mountain tract." There are three types of tundra: Arctic tundra, alpine tundra, and Antarctic tundra. In tundra, the vegetation is composed of dwarf shrubs, sedges and grasses, mosses, and lichens. Scattered trees grow in some tundra. The ecotone (or ecological boundary region) between the tundra and the forest is known as the tree line or timberline.</English>
+	</TEXT>
+</Civ4GameText>

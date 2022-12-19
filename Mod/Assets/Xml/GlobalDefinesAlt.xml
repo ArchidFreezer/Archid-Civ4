@@ -1,0 +1,439 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Tim McCracken (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Global Defines -->
+<Civ4Defines xmlns="x-schema:CIV4GlobalDefinesSchema.xml">
+	<Define>
+		<DefineName>SAVE_VERSION</DefineName>
+		<iDefineIntVal>303</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>INITIAL_GOLD_PER_UNIT</DefineName>
+		<iDefineIntVal>100</iDefineIntVal> <!-- this is now percent cost, so I've changed it from 1 to 100 -->
+	</Define>
+	<Define>
+		<DefineName>BASE_REVOLT_OCCUPATION_TURNS</DefineName>
+		<iDefineIntVal>3</iDefineIntVal> <!-- increased from 2, because of changes that I've made to its usage -->
+	</Define>
+	<Define>
+		<DefineName>EVENT_MESSAGE_STAGGER_TIME</DefineName>
+		<iDefineIntVal>2</iDefineIntVal> <!-- decreased from 3 -->
+	</Define>
+	<Define>
+		<DefineName>BARBARIAN_FREE_TECH_PERCENT</DefineName>
+		<iDefineIntVal>4</iDefineIntVal> <!-- increased from 3, to compensate for other changes -->
+	</Define>
+	<Define>
+		<DefineName>FROZEN_TERRAIN</DefineName>
+		<DefineTextVal>TERRAIN_SNOW</DefineTextVal>
+	</Define>
+	<Define>
+		<DefineName>COLD_TERRAIN</DefineName>
+		<DefineTextVal>TERRAIN_TUNDRA</DefineTextVal>
+	</Define>
+	<Define>
+		<DefineName>TEMPERATE_TERRAIN</DefineName>
+		<DefineTextVal>TERRAIN_GRASS</DefineTextVal>
+	</Define>
+	<Define>
+		<DefineName>DRY_TERRAIN</DefineName>
+		<DefineTextVal>TERRAIN_PLAINS</DefineTextVal>
+	</Define>
+	<Define>
+		<DefineName>BARREN_TERRAIN</DefineName>
+		<DefineTextVal>TERRAIN_DESERT</DefineTextVal>
+	</Define>
+	<Define>
+		<DefineName>COLD_FEATURE</DefineName>
+		<DefineTextVal>FEATURE_ICE</DefineTextVal>
+	</Define>
+	<Define>
+		<DefineName>TEMPERATE_FEATURE</DefineName>
+		<DefineTextVal>FEATURE_FOREST</DefineTextVal>
+	</Define>
+	<Define>
+		<DefineName>WARM_FEATURE</DefineName>
+		<DefineTextVal>FEATURE_JUNGLE</DefineTextVal>
+	</Define>
+	<!-- warming prob is out of 1000, not pecent. -->
+	<Define>
+		<DefineName>GLOBAL_WARMING_PROB</DefineName>
+		<iDefineIntVal>20</iDefineIntVal>
+	</Define>
+	<!-- global warming threshold is # land plots * resistance. -->
+	<Define>
+		<DefineName>GLOBAL_WARMING_RESISTANCE</DefineName>
+		<iDefineIntVal>10</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>GLOBAL_WARMING_INDEX_PER_CHANCE</DefineName>
+		<iDefineIntVal>450</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>GLOBAL_WARMING_BASE_ANGER_PERCENT</DefineName>
+		<iDefineIntVal>30</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>GLOBAL_WARMING_BUILDING_WEIGHT</DefineName>
+		<iDefineIntVal>20</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>GLOBAL_WARMING_BONUS_WEIGHT</DefineName>
+		<iDefineIntVal>20</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>GLOBAL_WARMING_POWER_WEIGHT</DefineName>
+		<iDefineIntVal>20</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>GLOBAL_WARMING_POPULATION_WEIGHT</DefineName>
+		<iDefineIntVal>10</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>RELIGION_SPREAD_DIVISOR_BASE</DefineName>
+		<iDefineIntVal>5</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>RELIGION_SPREAD_DISTANCE_FACTOR</DefineName>
+		<iDefineIntVal>11</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>RELIGION_INFLUENCE_POPULATION_WEIGHT</DefineName>
+		<iDefineIntVal>2</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>RELIGION_INFLUENCE_BUILDING_WEIGHT</DefineName>
+		<iDefineIntVal>20</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>RELIGION_INFLUENCE_DISTANCE_WEIGHT</DefineName>
+		<iDefineIntVal>40</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>RELIGION_INFLUENCE_TIME_WEIGHT</DefineName>
+		<iDefineIntVal>70</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>RELIGION_INFLUENCE_SHRINE_WEIGHT</DefineName>
+		<iDefineIntVal>15</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>RELIGION_INFLUENCE_STATE_RELIGION_WEIGHT</DefineName>
+		<iDefineIntVal>20</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>RELIGION_INFLUENCE_RANDOM_WEIGHT</DefineName>
+		<iDefineIntVal>80</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>WARLORD_EXTRA_EXPERIENCE_PER_UNIT_PERCENT</DefineName>
+		<iDefineIntVal>10</iDefineIntVal> <!-- increased from 0 -->
+	</Define>
+	<Define>
+		<DefineName>WARLORD_MAXIMUM_EXTRA_EXPERIENCE_PERCENT</DefineName>
+		<iDefineIntVal>100</iDefineIntVal> <!-- introduced by K-Mod -->
+	</Define>
+	<Define>
+		<DefineName>STANDARD_BATTLE_ANIMATION_ROUNDS</DefineName>
+		<iDefineIntVal>6</iDefineIntVal> <!-- introduced by K-Mod -->
+	</Define>
+<!-- BBAI Options -->
+	<Define>
+		<!-- Better BTS AI: Use new air combat mechanics -->
+		<DefineName>BBAI_AIR_COMBAT</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Better BTS AI: Allow AI to use Space victory strategy logic if space race victory is enabled -->
+		<DefineName>BBAI_VICTORY_STRATEGY_SPACE</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Better BTS AI: Allow AI to use Conquest victory strategy logic if conquest victory is enabled  -->
+		<DefineName>BBAI_VICTORY_STRATEGY_CONQUEST</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Better BTS AI: Allow AI to use Domination victory strategy logic if domination victory is enabled  -->
+		<DefineName>BBAI_VICTORY_STRATEGY_DOMINATION</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Better BTS AI: Allow AI to use Culture victory strategy logic if culture victory is enabled  -->
+		<DefineName>BBAI_VICTORY_STRATEGY_CULTURE</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Better BTS AI: Allow AI to use Diplomacy victory strategy logic if diplomacy victory is enabled  -->
+		<DefineName>BBAI_VICTORY_STRATEGY_DIPLOMACY</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Better BTS AI: Vassals of human player build some extra military units (recommended for multiplayer only) -->
+		<DefineName>BBAI_HUMAN_VASSAL_WAR_BUILD</DefineName>
+		<iDefineIntVal>0</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Better BTS AI: Changes behavior of defensive pacts (Def: 0) :
+			0 : Default BTS
+			1 : Defensive pacts do not cancel when a player has war declared on them
+			2 : Turns defensive pacts into alliances, so they are now also offensive pacts.  Plus pacts
+				do not cancel when war is declared.  Does not change name/description in game.
+		 -->
+		<DefineName>BBAI_DEFENSIVE_PACT_BEHAVIOR</DefineName>
+		<iDefineIntVal>0</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Better BTS AI: Allows human player to offer themselves as vassal to an AI.  The AI has been taught to value this appropriately.  (Def: 0) -->
+		<DefineName>BBAI_HUMAN_AS_VASSAL_OPTION</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+<!-- BBAI Variables -->
+	<Define>
+		<!-- War success value of capturing a city.  BBAI default: 25, BTS 10 -->
+		<DefineName>WAR_SUCCESS_CITY_CAPTURING</DefineName>
+		<iDefineIntVal>25</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Ratio of enemy power to team power for AI to consider running TURTLE (all out defense, no offensive forays) strategy.  
+		Equal power would be 100.  BBAI default: 250 -->
+		<DefineName>BBAI_TURTLE_ENEMY_POWER_RATIO</DefineName>
+		<iDefineIntVal>250</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Minimum stack strength ratio at which AI will attack enemy city it is next to, higher means less suicide.  BTS default: 120 -->
+		<DefineName>BBAI_ATTACK_CITY_STACK_RATIO</DefineName>
+		<iDefineIntVal>125</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Minimum attack odds of best attacker for AI to skip bombarding a city and just attack.  BBAI default: 12 -->
+		<DefineName>BBAI_SKIP_BOMBARD_BEST_ATTACK_ODDS</DefineName>
+		<iDefineIntVal>10</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Base ratio of stack strengths for AI considering skipping bombard and just attacking enemy city.
+		This ratio is reduced by the AI's best attacker odds and how long it will take to bombard the city.
+		Lower means AI will more readily skip bombarding.  BBAI default: 300 -->
+		<DefineName>BBAI_SKIP_BOMBARD_BASE_STACK_RATIO</DefineName>
+		<iDefineIntVal>260</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Minimum stack strength ratio for AI to skip bombarding city and just attack, higher is more conservative.  BBAI default: 150 -->
+		<DefineName>BBAI_SKIP_BOMBARD_MIN_STACK_RATIO</DefineName>
+		<iDefineIntVal>140</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Minimum city site value that the AI will consider settling. default: 600. (K-Mod) -->
+		<DefineName>BBAI_MINIMUM_FOUND_VALUE</DefineName>
+		<iDefineIntVal>600</iDefineIntVal>
+	</Define>
+<!-- Lead from Behind -->
+<Define>
+		<DefineName>LFB_ENABLE</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>LFB_BASEDONGENERAL</DefineName>
+		<iDefineIntVal>3</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>LFB_BASEDONEXPERIENCE</DefineName> <!-- note: in K-Mod this is given for each level worth of xp -->
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>LFB_BASEDONLIMITED</DefineName>
+		<iDefineIntVal>3</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>LFB_BASEDONHEALER</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>LFB_DEFENSIVEADJUSTMENT</DefineName>
+		<iDefineIntVal>1</iDefineIntVal> <!-- negative 'value' for defensive promotions when defending, to encourage defenders to actually fight -->
+	</Define>
+	<Define>
+		<DefineName>LFB_USESLIDINGSCALE</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>LFB_ADJUSTNUMERATOR</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>LFB_ADJUSTDENOMINATOR</DefineName>
+		<iDefineIntVal>6</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>LFB_USECOMBATODDS</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+<!-- TechDiffusion -->
+	<Define>
+		<!-- "I don't mind the normal BTS tech rules. So I'll set this to 0" - Karadoc -->
+		<DefineName>TECH_DIFFUSION_ENABLE</DefineName>
+		<iDefineIntVal>0</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Tech Diffusion: Power of research rate increase based on number of teams you know who already know the tech you're researching. -->
+		<DefineName>TECH_DIFFUSION_KNOWN_TEAM_MODIFIER</DefineName>
+		<iDefineIntVal>30</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Tech Diffusion: Threshold percentage of top known tech score at which extra tech welfare help begins. -->
+		<DefineName>TECH_DIFFUSION_WELFARE_THRESHOLD</DefineName>
+		<iDefineIntVal>88</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Tech Diffusion: Power of tech welfare assistance.  BBAI default: 30, for plain BTS: 0 -->
+		<DefineName>TECH_DIFFUSION_WELFARE_MODIFIER</DefineName>
+		<iDefineIntVal>30</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Research rate boost for knowing first OR tech prereq.  In vanilla BTS this is effectively 20, reducing the cost of most techs on the tech tree.  BBAI default: 20, for plain BTS: 20 -->
+		<DefineName>TECH_COST_FIRST_KNOWN_PREREQ_MODIFIER</DefineName>
+		<iDefineIntVal>20</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Research rate boost for knowing additional OR tech prereqs.  In vanilla BTS this is 20.  Default: 20 -->
+		<DefineName>TECH_COST_KNOWN_PREREQ_MODIFIER</DefineName>
+		<iDefineIntVal>20</iDefineIntVal>
+	</Define>
+	<!-- BBAI has also introduced a tech cost modifier by era, which can be found in CIV4EraInfos.xml -->
+	<Define>
+		<!-- This variable allows the throttling of research rates, effectively changing the cost of all techs.
+		10 decreases your research rate by 10%, -10 increases your research rate by 10%.  Values above 50
+		are not recommended as they can cause almost complete stop to research when other modifiers are
+		considered. -->
+		<DefineName>TECH_COST_MODIFIER</DefineName>
+		<iDefineIntVal>0</iDefineIntVal>
+	</Define>
+<!-- Advanced Combat Odds -->
+	<Define> <!-- When true, PieceOfMind's ACO shows more detailed combat odds information when you hover over a unit to attack. -->
+		<DefineName>ACO_ENABLED</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define> <!-- When true, shows debugging information in the combat odds calculations. -->
+		<DefineName>ACO_DEBUG</DefineName>
+		<iDefineIntVal>0</iDefineIntVal>
+	</Define>
+	<Define> <!-- When true, shows the original odds in addition to ACO's. -->
+		<DefineName>ACO_FORCE_ORIGINAL_ODDS</DefineName>
+		<iDefineIntVal>0</iDefineIntVal>
+	</Define>
+	<Define> <!-- When true, ignores any free wins versus barbarians you have left due to the difficulty level. -->
+		<DefineName>ACO_IGNORE_BARB_FREE_WINS</DefineName>
+		<iDefineIntVal>0</iDefineIntVal>
+	</Define>
+	<Define> <!-- When true, swaps the normal and alternate views. -->
+		<DefineName>ACO_SWAP_VIEWS</DefineName>
+		<iDefineIntVal>0</iDefineIntVal>
+	</Define>
+	<Define> <!-- When true, merges the bars of probabilities that are less than half of one percent. -->
+		<DefineName>ACO_MERGE_SHORT_BARS</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define> <!-- When true, displays "attacker" and "defender" labels before each non-empty set of modifiers. -->
+		<DefineName>ACO_SHOW_MODIFIER_LABELS</DefineName>
+		<iDefineIntVal>0</iDefineIntVal>
+	</Define>
+	<Define> <!-- Select when to show the odds that each unit will survive. -->
+		<DefineName>ACO_SHOW_SURVIVAL_ODDS</DefineName>
+		<iDefineIntVal>3</iDefineIntVal>
+	</Define>
+	<Define> <!-- Select when to show the probability bars of each possible ending health for the attacker. -->
+		<DefineName>ACO_SHOW_ATTACKER_HEALTH_BARS</DefineName>
+		<iDefineIntVal>2</iDefineIntVal>
+	</Define>
+	<Define> <!-- Select when to show the probability bars of each possible ending health for the defender. -->
+		<DefineName>ACO_SHOW_DEFENDER_HEALTH_BARS</DefineName>
+		<iDefineIntVal>2</iDefineIntVal>
+	</Define>
+	<Define> <!-- Select when to show the basic odds information. -->
+		<DefineName>ACO_SHOW_BASIC_INFO</DefineName>
+		<iDefineIntVal>3</iDefineIntVal>
+	</Define>
+	<Define> <!-- Select when to show the R values on either side of the actual value that will produce +/- 1 XP. -->
+		<DefineName>ACO_SHOW_EXPERIENCE_RANGE</DefineName>
+		<iDefineIntVal>2</iDefineIntVal>
+	</Define>
+	<Define> <!-- Select when to show the average (expected) health each unit will have after the battle. -->
+		<DefineName>ACO_SHOW_AVERAGE_HEALTH</DefineName>
+		<iDefineIntVal>2</iDefineIntVal>
+	</Define>
+	<Define> <!-- Select when to show the odds that each unit will survive without taking any damage. -->
+		<DefineName>ACO_SHOW_UNHARMED_ODDS</DefineName>
+		<iDefineIntVal>2</iDefineIntVal>
+	</Define>
+	<Define> <!-- Select when to show the unrounded XP values in addition to the actual rounded values the units will gain. -->
+		<DefineName>ACO_SHOW_UNROUNDED_EXPERIENCE</DefineName>
+		<iDefineIntVal>0</iDefineIntVal>
+	</Define>
+	<Define> <!-- Select when to show the instructions for pressing [SHIFT] to see the alternate view. -->
+		<DefineName>ACO_SHOW_SHIFT_INSTRUCTIONS</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define> <!-- Select when to show the attacking unit's information. -->
+		<DefineName>ACO_SHOW_ATTACKER_INFO</DefineName>
+		<iDefineIntVal>0</iDefineIntVal>
+	</Define>
+	<Define> <!-- Select when to show the defending unit's information. -->
+		<DefineName>ACO_SHOW_DEFENDER_INFO</DefineName>
+		<iDefineIntVal>3</iDefineIntVal>
+	</Define>
+	<Define> <!-- Select when to show the defence modifiers. -->
+		<DefineName>ACO_SHOW_DEFENCE_MODIFIERS</DefineName>
+		<iDefineIntVal>3</iDefineIntVal>
+	</Define>
+	<Define> <!-- Select when to show the total defence modifiers (includes attacker's non-combat modifiers that apply to the defender). -->
+		<DefineName>ACO_SHOW_TOTAL_DEFENCE_MODIFIER</DefineName>
+		<iDefineIntVal>2</iDefineIntVal>
+	</Define>
+<!-- BUG Additional City/Building Info -->
+	<Define> <!-- When true, the subtotal (total before modifiers) is shown when necessary for each commerce type in its hover. -->
+		<DefineName>BUG_CITY_SCREEN_BASE_COMMERCE_HOVER</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define> <!-- When checked, the actual change in Yields, Commerce, Happiness, Health, and GPP the specialist will produce for the city are displayed in the building hover text. -->
+		<DefineName>BUG_MISC_SPECIALIST_HOVER_ACTUAL_EFFECTS</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define> <!-- When checked, the actual yield of Commerce, Happiness, Health, GPP, and Defence the building will produce for the city are displayed in the building hover text. -->
+		<DefineName>BUG_BUILDING_HOVER_ACTUAL_EFFECTS</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define> <!-- When true, displays the buildings that will affect maintenance costs, and by how much. -->
+		<DefineName>BUG_BUILDING_SAVED_MAINTENANCE_HOVER</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define> <!-- When true, displays the buildings that will affect the health and unhealthy rates and by how much. -->
+		<DefineName>BUG_BUILDING_ADDITIONAL_HEALTH_HOVER</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define> <!-- When true, displays the buildings that will affect the happiness & anger rates and by how much. -->
+		<DefineName>BUG_BUILDING_ADDITIONAL_HAPPINESS_HOVER</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define> <!-- When true, displays the buildings that will affect the production rate and by how much. -->
+		<DefineName>BUG_BUILDING_ADDITIONAL_PRODUCTION_HOVER</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define> <!-- When true, displays the buildings that will affect the commerce rates and by how much. -->
+		<DefineName>BUG_BUILDING_ADDITIONAL_COMMERCE_HOVER</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define> <!-- When true, displays the buildings that will affect the GP rate and by how much. -->
+		<DefineName>BUG_BUILDING_ADDITIONAL_GREAT_PEOPLE_HOVER</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define> <!-- When true, selecting units with the [Shift] key will only ever add a single unit at a time. -->
+		<DefineName>SIMPLE_SELECTION_MODE</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define> <!-- When true, automatic unit selection happens instantly rather than with a delay. -->
+		<DefineName>RAPID_UNIT_CYCLING</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+</Civ4Defines>

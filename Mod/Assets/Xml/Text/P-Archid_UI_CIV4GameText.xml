@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Game Text - New -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_LIST</Tag>
+		<English>Vincent's Build List</English>
+		<French>Vincent's Build List</French>
+		<German>Vincent's Build List</German>
+		<Italian>Vincent's Build List</Italian>
+		<Spanish>Vincent's Build List</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ART_DEFINE_CHECKER</Tag>
+		<English>Art Define Checker</English>
+		<French>Art Define Checker</French>
+		<German>Art Define Checker</German>
+		<Italian>Art Define Checker</Italian>
+		<Spanish>Art Define Checker</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNUSED</Tag>
+		<English>Unused</English>
+		<French>Unused</French>
+		<German>Unused</German>
+		<Italian>Unused</Italian>
+		<Spanish>Unused</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSING</Tag>
+		<English>Missing</English>
+		<French>Missing</French>
+		<German>Missing</German>
+		<Italian>Missing</Italian>
+		<Spanish>Missing</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ALERT_CAN_HURRY</Tag>
+		<English>%s1 can hurry %s2 for %d3 %s4.</English>
+		<French>%s1 can hurry %s2 for %d3 %s4.</French>
+		<German>%s1 can hurry %s2 for %d3 %s4.</German>
+		<Italian>%s1 can hurry %s2 for %d3 %s4.</Italian>
+		<Spanish>%s1 can hurry %s2 for %d3 %s4.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ALERT_STARVE_SOON</Tag>
+		<English>%s1 will starve next turn.</English>
+		<French>%s1 will starve next turn.</French>
+		<German>%s1 will starve next turn.</German>
+		<Italian>%s1 will starve next turn.</Italian>
+		<Spanish>%s1 will starve next turn.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ALERT_CULTURE_SOON</Tag>
+		<English>%s1 will expand next turn.</English>
+		<French>%s1 will expand next turn.</French>
+		<German>%s1 will expand next turn.</German>
+		<Italian>%s1 will expand next turn.</Italian>
+		<Spanish>%s1 will expand next turn.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ALERT_UNHAPPY_NOW</Tag>
+		<English>%s1 is now unhappy.</English>
+		<French>%s1 is now unhappy.</French>
+		<German>%s1 is now unhappy.</German>
+		<Italian>%s1 is now unhappy.</Italian>
+		<Spanish>%s1 is now unhappy.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ALERT_UNHAPPY_SOON</Tag>
+		<English>%s1 will be unhappy next turn.</English>
+		<French>%s1 will be unhappy next turn.</French>
+		<German>%s1 will be unhappy next turn.</German>
+		<Italian>%s1 will be unhappy next turn.</Italian>
+		<Spanish>%s1 will be unhappy next turn.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ALERT_UNHEALTHY_NOW</Tag>
+		<English>%s1 is now unhealthy.</English>
+		<French>%s1 is now unhealthy.</French>
+		<German>%s1 is now unhealthy.</German>
+		<Italian>%s1 is now unhealthy.</Italian>
+		<Spanish>%s1 is now unhealthy.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ALERT_UNHEALTHY_SOON</Tag>
+		<English>%s1 will be unhealthy next turn.</English>
+		<French>%s1 will be unhealthy next turn.</French>
+		<German>%s1 will be unhealthy next turn.</German>
+		<Italian>%s1 will be unhealthy next turn.</Italian>
+		<Spanish>%s1 will be unhealthy next turn.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ALERT_GROW_NOW</Tag>
+		<English>%s1 has grown to size %d2.</English>
+		<French>%s1 has grown to size %d2.</French>
+		<German>%s1 has grown to size %d2.</German>
+		<Italian>%s1 has grown to size %d2.</Italian>
+		<Spanish>%s1 has grown to size %d2.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ALERT_GROW_SOON</Tag>
+		<English>%s1 will grow to size %d2 next turn.</English>
+		<French>%s1 will grow to size %d2 next turn.</French>
+		<German>%s1 will grow to size %d2 next turn.</German>
+		<Italian>%s1 will grow to size %d2 next turn.</Italian>
+		<Spanish>%s1 will grow to size %d2 next turn.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MIRROR_IMAGE</Tag>
+		<English>Mirror Image</English>
+		<French>Mirror Image</French>
+		<German>Mirror Image</German>
+		<Italian>Mirror Image</Italian>
+		<Spanish>Mirror Image</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_PLATY_UI</Tag>
+		<English>Platy User Interface</English>
+		<French>Platy User Interface</French>
+		<German>Platy User Interface</German>
+		<Italian>Platy User Interface</Italian>
+		<Spanish>Platy User Interface</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_PLATY_UI_PEDIA</Tag>
+		<English>[H1]Platy User Interface[\H1][H2][COLOR_HIGHLIGHT_TEXT]CTRL F1[COLOR_REVERT][\H2]Expands the help text section, saved into Event Log.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F2[COLOR_REVERT][\H2]Tracks Units led by Great Generals.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F9[COLOR_REVERT][\H2]Checks for unused and missing Art and Movie Defines.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F10[COLOR_REVERT][\H2]Displays location of XML tags and identify duplicates.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F11[COLOR_REVERT][\H2]Displays ID, icon, type and text for various items.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F12[COLOR_REVERT][\H2]Monitors time for gamespeed adjustments.</English>
+		<French>[H1]Platy User Interface[\H1][H2][COLOR_HIGHLIGHT_TEXT]CTRL F1[COLOR_REVERT][\H2]Expands the help text section, saved into Event Log.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F2[COLOR_REVERT][\H2]Tracks Units led by Great Generals.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F9[COLOR_REVERT][\H2]Checks for unused and missing Art and Movie Defines.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F10[COLOR_REVERT][\H2]Displays location of XML tags and identify duplicates.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F11[COLOR_REVERT][\H2]Displays ID, icon, type and text for various items.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F12[COLOR_REVERT][\H2]Monitors time for gamespeed adjustments.</French>
+		<German>[H1]Platy User Interface[\H1][H2][COLOR_HIGHLIGHT_TEXT]CTRL F1[COLOR_REVERT][\H2]Expands the help text section, saved into Event Log.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F2[COLOR_REVERT][\H2]Tracks Units led by Great Generals.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F9[COLOR_REVERT][\H2]Checks for unused and missing Art and Movie Defines.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F10[COLOR_REVERT][\H2]Displays location of XML tags and identify duplicates.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F11[COLOR_REVERT][\H2]Displays ID, icon, type and text for various items.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F12[COLOR_REVERT][\H2]Monitors time for gamespeed adjustments.</German>
+		<Italian>[H1]Platy User Interface[\H1][H2][COLOR_HIGHLIGHT_TEXT]CTRL F1[COLOR_REVERT][\H2]Expands the help text section, saved into Event Log.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F2[COLOR_REVERT][\H2]Tracks Units led by Great Generals.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F9[COLOR_REVERT][\H2]Checks for unused and missing Art and Movie Defines.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F10[COLOR_REVERT][\H2]Displays location of XML tags and identify duplicates.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F11[COLOR_REVERT][\H2]Displays ID, icon, type and text for various items.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F12[COLOR_REVERT][\H2]Monitors time for gamespeed adjustments.</Italian>
+		<Spanish>[H1]Platy User Interface[\H1][H2][COLOR_HIGHLIGHT_TEXT]CTRL F1[COLOR_REVERT][\H2]Expands the help text section, saved into Event Log.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F2[COLOR_REVERT][\H2]Tracks Units led by Great Generals.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F9[COLOR_REVERT][\H2]Checks for unused and missing Art and Movie Defines.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F10[COLOR_REVERT][\H2]Displays location of XML tags and identify duplicates.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F11[COLOR_REVERT][\H2]Displays ID, icon, type and text for various items.[NEWLINE][H2][COLOR_HIGHLIGHT_TEXT]CTRL F12[COLOR_REVERT][\H2]Monitors time for gamespeed adjustments.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PREREQ</Tag>
+		<English>Prereq Not Met</English>
+		<French>Prereq Not Met</French>
+		<German>Prereq Not Met</German>
+		<Italian>Prereq Not Met</Italian>
+		<Spanish>Prereq Not Met</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_HIDE_IRRELEVANT</Tag>
+		<English>Hides Irrevelant Benefits</English>
+		<French>Hides Irrevelant Benefits</French>
+		<German>Hides Irrevelant Benefits</German>
+		<Italian>Hides Irrevelant Benefits</Italian>
+		<Spanish>Hides Irrevelant Benefits</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_HIDE_RESEARCHED</Tag>
+		<English>Hides Researched Techs</English>
+		<French>Hides Researched Techs</French>
+		<German>Hides Researched Techs</German>
+		<Italian>Hides Researched Techs</Italian>
+		<Spanish>Hides Researched Techs</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_HIDE_DISABLED</Tag>
+		<English>Hides Disabled Techs</English>
+		<French>Hides Disabled Techs</French>
+		<German>Hides Disabled Techs</German>
+		<Italian>Hides Disabled Techs</Italian>
+		<Spanish>Hides Disabled Techs</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ORDER_LIST</Tag>
+		<English>Full Order List</English>
+		<French>Full Order List</French>
+		<German>Full Order List</German>
+		<Italian>Full Order List</Italian>
+		<Spanish>Full Order List</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_XML_TAGS</Tag>
+		<English>XML Tracker</English>
+		<French>XML Tracker</French>
+		<German>XML Tracker</German>
+		<Italian>XML Tracker</Italian>
+		<Spanish>XML Tracker</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TIMEKEEPER</Tag>
+		<English>Time Keeper</English>
+		<French>Time Keeper</French>
+		<German>Time Keeper</German>
+		<Italian>Time Keeper</Italian>
+		<Spanish>Time Keeper</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INCREMENT</Tag>
+		<English>Increment</English>
+		<French>Increment</French>
+		<German>Increment</German>
+		<Italian>Increment</Italian>
+		<Spanish>Increment</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DURATION</Tag>
+		<English>Duration</English>
+		<French>Duration</French>
+		<German>Duration</German>
+		<Italian>Duration</Italian>
+		<Spanish>Duration</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LOCAL</Tag>
+		<English>Local</English>
+		<French>Local</French>
+		<German>Local</German>
+		<Italian>Local</Italian>
+		<Spanish>Local</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FOREIGN</Tag>
+		<English>Foreign</English>
+		<French>Foreign</French>
+		<German>Foreign</German>
+		<Italian>Foreign</Italian>
+		<Spanish>Foreign</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_HURRY_TIMER</Tag>
+		<English>[NEWLINE]Hurry [ICON_UNHAPPY]: %d1 Turns</English>
+		<French>[NEWLINE]Hurry [ICON_UNHAPPY]: %d1 Turns</French>
+		<German>[NEWLINE]Hurry [ICON_UNHAPPY]: %d1 Turns</German>
+		<Italian>[NEWLINE]Hurry [ICON_UNHAPPY]: %d1 Turns</Italian>
+		<Spanish>[NEWLINE]Hurry [ICON_UNHAPPY]: %d1 Turns</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONSCRIPT_TIMER</Tag>
+		<English>[NEWLINE]Conscript [ICON_UNHAPPY]: %d1 Turns</English>
+		<French>[NEWLINE]Conscript [ICON_UNHAPPY]: %d1 Turns</French>
+		<German>[NEWLINE]Conscript [ICON_UNHAPPY]: %d1 Turns</German>
+		<Italian>[NEWLINE]Conscript [ICON_UNHAPPY]: %d1 Turns</Italian>
+		<Spanish>[NEWLINE]Conscript [ICON_UNHAPPY]: %d1 Turns</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RESOLUTION_TIMER</Tag>
+		<English>[NEWLINE]Defy Resolutions [ICON_UNHAPPY]: %d1 Turns</English>
+		<French>[NEWLINE]Defy Resolutions [ICON_UNHAPPY]: %d1 Turns</French>
+		<German>[NEWLINE]Defy Resolutions [ICON_UNHAPPY]: %d1 Turns</German>
+		<Italian>[NEWLINE]Defy Resolutions [ICON_UNHAPPY]: %d1 Turns</Italian>
+		<Spanish>[NEWLINE]Defy Resolutions [ICON_UNHAPPY]: %d1 Turns</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_HURRY_OVERFLOW</Tag>
+		<English>[NEWLINE]Overflow: %d1[ICON_PRODUCTION]</English>
+		<French>[NEWLINE]Overflow: %d1[ICON_PRODUCTION]</French>
+		<German>[NEWLINE]Overflow: %d1[ICON_PRODUCTION]</German>
+		<Italian>[NEWLINE]Overflow: %d1[ICON_PRODUCTION]</Italian>
+		<Spanish>[NEWLINE]Overflow: %d1[ICON_PRODUCTION]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_TOTAL</Tag>
+		<English>Total</English>
+		<French>Total</French>
+		<German>Total</German>
+		<Italian>Total</Italian>
+		<Spanish>Total</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RATE</Tag>
+		<English>Rate</English>
+		<French>Rate</French>
+		<German>Rate</German>
+		<Italian>Rate</Italian>
+		<Spanish>Rate</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ZOOM</Tag>
+		<English>(SHIFT) to zoom at faster rate</English>
+		<French>(SHIFT) to zoom at faster rate</French>
+		<German>(SHIFT) to zoom at faster rate</German>
+		<Italian>(SHIFT) to zoom at faster rate</Italian>
+		<Spanish>(SHIFT) to zoom at faster rate</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CAMERA_CITY_ZOOM_IN_DISTANCE</Tag>
+		<English>City Zoom In Distance</English>
+		<French>City Zoom In Distance</French>
+		<German>City Zoom In Distance</German>
+		<Italian>City Zoom In Distance</Italian>
+		<Spanish>City Zoom In Distance</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FIELD_OF_VIEW</Tag>
+		<English>Field of View</English>
+		<French>Field of View</French>
+		<German>Field of View</German>
+		<Italian>Field of View</Italian>
+		<Spanish>Field of View</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_COMMERCE_ADJUSTMENT</Tag>
+		<English>[NEWLINE](SHIFT) for %d1%%</English>
+		<French>[NEWLINE](SHIFT) for %d1%%</French>
+		<German>[NEWLINE](SHIFT) for %d1%%</German>
+		<Italian>[NEWLINE](SHIFT) for %d1%%</Italian>
+		<Spanish>[NEWLINE](SHIFT) for %d1%%</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_NO_WAR_PROBABILITY</Tag>
+		<English>[NEWLINE]No War Probability:</English>
+		<French>[NEWLINE]No War Probability:</French>
+		<German>[NEWLINE]No War Probability:</German>
+		<Italian>[NEWLINE]No War Probability:</Italian>
+		<Spanish>[NEWLINE]No War Probability:</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DECLARE_WAR_THEM_THRESHOLD</Tag>
+		<English>[NEWLINE]Declare War Them Threshold: %s1</English>
+		<French>[NEWLINE]Declare War Them Threshold: %s1</French>
+		<German>[NEWLINE]Declare War Them Threshold: %s1</German>
+		<Italian>[NEWLINE]Declare War Them Threshold: %s1</Italian>
+		<Spanish>[NEWLINE]Declare War Them Threshold: %s1</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DECLARE_WAR_THRESHOLD</Tag>
+		<English>[NEWLINE]Declare War Threshold: %s1</English>
+		<French>[NEWLINE]Declare War Threshold: %s1</French>
+		<German>[NEWLINE]Declare War Threshold: %s1</German>
+		<Italian>[NEWLINE]Declare War Threshold: %s1</Italian>
+		<Spanish>[NEWLINE]Declare War Threshold: %s1</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_NATIONALITY</Tag>
+		<English>Nationality</English>
+		<French>Nationality</French>
+		<German>Nationality</German>
+		<Italian>Nationality</Italian>
+		<Spanish>Nationality</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WORLD_TRACKER</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]World Tracker[COLOR_REVERT][NEWLINE]Tracks Wonders and Projects being Built</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]World Tracker[COLOR_REVERT][NEWLINE]Tracks Wonders and Projects being Built</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]World Tracker[COLOR_REVERT][NEWLINE]Tracks Wonders and Projects being Built</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]World Tracker[COLOR_REVERT][NEWLINE]Tracks Wonders and Projects being Built</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]World Tracker[COLOR_REVERT][NEWLINE]Tracks Wonders and Projects being Built</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WORLD_TRACKER_HEADER</Tag>
+		<English>WORLD TRACKER</English>
+		<French>WORLD TRACKER</French>
+		<German>WORLD TRACKER</German>
+		<Italian>WORLD TRACKER</Italian>
+		<Spanish>WORLD TRACKER</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PLATY_OPTIONS</Tag>
+		<English>Platy Options</English>
+		<French>Platy Options</French>
+		<German>Platy Options</German>
+		<Italian>Platy Options</Italian>
+		<Spanish>Platy Options</Spanish>
+		</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRANSPARENT_PANEL</Tag>
+		<English>Transparent Panels</English>
+		<French>Transparent Panels</French>
+		<German>Transparent Panels</German>
+		<Italian>Transparent Panels</Italian>
+		<Spanish>Transparent Panels</Spanish>
+		</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GREAT_PEOPLE_BAR</Tag>
+		<English>Great People Bar</English>
+		<French>Great People Bar</French>
+		<German>Great People Bar</German>
+		<Italian>Great People Bar</Italian>
+		<Spanish>Great People Bar</Spanish>
+		</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_SPECIFIC_COLOR_TEXT</Tag>
+		<English>Civ Specific Colored Text</English>
+		<French>Civ Specific Colored Text</French>
+		<German>Civ Specific Colored Text</German>
+		<Italian>Civ Specific Colored Text</Italian>
+		<Spanish>Civ Specific Colored Text</Spanish>
+		</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_SPECIFIC_BACKGROUND</Tag>
+		<English>Civ Specific Background</English>
+		<French>Civ Specific Background</French>
+		<German>Civ Specific Background</German>
+		<Italian>Civ Specific Background</Italian>
+		<Spanish>Civ Specific Background</Spanish>
+		</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ERA_SPECIFIC_BACKGROUND</Tag>
+		<English>Era Specific Background</English>
+		<French>Era Specific Background</French>
+		<German>Era Specific Background</German>
+		<Italian>Era Specific Background</Italian>
+		<Spanish>Era Specific Background</Spanish>
+		</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRADE_ROUTE_LABEL</Tag>
+		<English>; Latitude (%d1)</English>
+		<French>; Latitude (%d1)</French>
+		<German>; Latitude (%d1)</German>
+		<Italian>; Latitude (%d1)</Italian>
+		<Spanish>; Latitude (%d1)</Spanish>
+		</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_HIDE_TEAM</Tag>
+		<English>Hide Team Members</English>
+		<French>Hide Team Members</French>
+		<German>Hide Team Members</German>
+		<Italian>Hide Team Members</Italian>
+		<Spanish>Hide Team Members</Spanish>
+		</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_HIDE_VASSALS</Tag>
+		<English>Hide Vassals</English>
+		<French>Hide Vassals</French>
+		<German>Hide Vassals</German>
+		<Italian>Hide Vassals</Italian>
+		<Spanish>Hide Vassals</Spanish>
+		</TEXT>
+<!-- Environmental Advisor -->
+	<TEXT>
+		<Tag>TXT_KEY_ECONOMICS_ADVISOR_ENVIRONMENT_TAB</Tag>
+		<English>Environment</English>
+		<French>Environnement</French>
+		<German>Umwelt</German>
+		<Italian>Ecologico</Italian>
+		<Spanish>Entorno</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENVIRONMENT_DOMESTIC</Tag>
+		<English>Domestic</English>
+		<French>Domestic</French>
+		<German>Domestic</German>
+		<Italian>Domestic</Italian>
+		<Spanish>Nacional</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENVIRONMENT_GLOBAL</Tag>
+		<English>Global</English>
+		<French>Global</French>
+		<German>Global</German>
+		<Italian>Global</Italian>
+		<Spanish>Global</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENVIRONMENT_EFFECTS</Tag>
+		<English>Effects</English>
+		<French>Effects</French>
+		<German>Effects</German>
+		<Italian>Effects</Italian>
+		<Spanish>Efectos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TOTAL</Tag>
+		<English>Total</English>
+		<French>Total</French>
+		<German>Total</German>
+		<Italian>Total</Italian>
+		<Spanish>Total</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENVIRONMENT_TOTAL_IMPACT</Tag>
+		<English>Total Impact</English>
+		<French>Total Impact</French>
+		<German>Total Impact</German>
+		<Italian>Total Impact</Italian>
+		<Spanish>Impacto total</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENVIRONMENT_THRESHOLD</Tag>
+		<English>Sustainability Threshold</English>
+		<French>Sustainability Threshold</French>
+		<German>Sustainability Threshold</German>
+		<Italian>Il limite di sostenibilità</Italian>
+		<Spanish>Límite de sostenibilidad</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENVIRONMENT_LOCAL_THRESHOLD</Tag>
+		<English>Local Sustainability Threshold</English>
+		<French>Local Sustainability Threshold</French>
+		<German>Local Sustainability Threshold</German>
+		<Italian>Local Sustainability Threshold</Italian>
+		<Spanish>Límite de sostenibilidad local</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENVIRONMENT_TOTAL_POLLUTION</Tag>
+		<English>Total Pollution</English>
+		<French>Total Pollution</French>
+		<German>Total Pollution</German>
+		<Italian>Total Pollution</Italian>
+		<Spanish>Polución total</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENVIRONMENT_TOTAL_OFFSETS</Tag>
+		<English>Total Offsets</English>
+		<French>Total Offsets</French>
+		<German>Total Offsets</German>
+		<Italian>Total Offsets</Italian>
+		<Spanish>Compensaciones totales</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENVIRONMENT_GW_CHANGE_RATE</Tag>
+		<English>Change Rate of GW Index</English>
+		<French>Change Rate of GW Index</French>
+		<German>Change Rate of GW Index</German>
+		<Italian>Change Rate of GW Index</Italian>
+		<Spanish>Cambio en el índice del CG</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENVIRONMENT_RELATIVE_CONTRIBUTION</Tag>
+		<English>Our Relative Contribution</English>
+		<French>Our Relative Contribution</French>
+		<German>Our Relative Contribution</German>
+		<Italian>Our Relative Contribution</Italian>
+		<Spanish>Nuestra contribución relativa</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENVIRONMENT_GW_INDEX</Tag>
+		<English>Global Warming Index</English>
+		<French>Global Warming Index</French>
+		<German>Global Warming Index</German>
+		<Italian>Global Warming Index</Italian>
+		<Spanish>Índice del calentamiento global</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENVIRONMENT_EXPECTED_EVENTS</Tag>
+		<English>Expected Events per Turn</English>
+		<French>Expected Events per Turn</French>
+		<German>Expected Events per Turn</German>
+		<Italian>Expected Events per Turn</Italian>
+		<Spanish>Eventos esperados por turno</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENVIRONMENT_EVENT_TALLY</Tag>
+		<English>Event Tally</English>
+		<French>Event Tally</French>
+		<German>Event Tally</German>
+		<Italian>Event Tally</Italian>
+		<Spanish>Registro de eventos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENVIRONMENT_LOCAL_ANGER_LEVEL</Tag>
+		<English>Local Anger Level</English>
+		<French>Local Anger Level</French>
+		<German>Local Anger Level</German>
+		<Italian>Local Anger Level</Italian>
+		<Spanish>Nivel de enfado local</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CHANCES</Tag>
+		<English>Chances</English>
+		<French>Chances</French>
+		<German>Chances</German>
+		<Italian>Chances</Italian>
+		<Spanish>Probabilidades</Spanish>
+	</TEXT>
+	<!-- PlatyPedia -->
+	<TEXT>
+		<Tag>TXT_KEY_PEDIA_CREDITS</Tag>
+		<English>Credits</English>
+		<French>Credits</French>
+		<German>Credits</German>
+		<Italian>Credits</Italian>
+		<Spanish>Credits</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PEDIA_CATEGORY_INTRO</Tag>
+		<English>PlatyPedia</English>
+		<French>PlatyPedia</French>
+		<German>PlatyPedia</German>
+		<Italian>PlatyPedia</Italian>
+		<Spanish>PlatyPedia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PEDIA_INTRO_BODY</Tag>
+		<English>[H1]Version 4.0[\H1][NEWLINE][ICON_BULLET]Added this [COLOR_HIGHLIGHT_TEXT]Intro Section[COLOR_REVERT] for Modders to introduce their mods to new players.[NEWLINE][ICON_BULLET]No longer display buildings without relevant data in [COLOR_HIGHLIGHT_TEXT]Building Chart.[COLOR_REVERT]</English>
+		<French>[H1]Version 4.0[\H1][NEWLINE][ICON_BULLET]Added this [COLOR_HIGHLIGHT_TEXT]Intro Section[COLOR_REVERT] for Modders to introduce their mods to new players.[NEWLINE][ICON_BULLET]No longer display buildings without relevant data in [COLOR_HIGHLIGHT_TEXT]Building Chart.[COLOR_REVERT]</French>
+		<German>[H1]Version 4.0[\H1][NEWLINE][ICON_BULLET]Added this [COLOR_HIGHLIGHT_TEXT]Intro Section[COLOR_REVERT] for Modders to introduce their mods to new players.[NEWLINE][ICON_BULLET]No longer display buildings without relevant data in [COLOR_HIGHLIGHT_TEXT]Building Chart.[COLOR_REVERT]</German>
+		<Italian>[H1]Version 4.0[\H1][NEWLINE][ICON_BULLET]Added this [COLOR_HIGHLIGHT_TEXT]Intro Section[COLOR_REVERT] for Modders to introduce their mods to new players.[NEWLINE][ICON_BULLET]No longer display buildings without relevant data in [COLOR_HIGHLIGHT_TEXT]Building Chart.[COLOR_REVERT]</Italian>
+		<Spanish>[H1]Version 4.0[\H1][NEWLINE][ICON_BULLET]Added this [COLOR_HIGHLIGHT_TEXT]Intro Section[COLOR_REVERT] for Modders to introduce their mods to new players.[NEWLINE][ICON_BULLET]No longer display buildings without relevant data in [COLOR_HIGHLIGHT_TEXT]Building Chart.[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CREDIT_TESTORS</Tag>
+		<English>[H1]Testors[\H1][NEWLINE][COLOR_SELECTED_TEXT]Archid, Chinese American, Dancing Hoskuld, isenchine, keldath, Lib.Spi't, Roamty, stolenrays, vincentz[COLOR_REVERT]</English>
+		<French>[H1]Testors[\H1][NEWLINE][COLOR_SELECTED_TEXT]Archid, Chinese American, Dancing Hoskuld, isenchine, keldath, Lib.Spi't, Roamty, stolenrays, vincentz[COLOR_REVERT]</French>
+		<German>[H1]Testors[\H1][NEWLINE][COLOR_SELECTED_TEXT]Archid, Chinese American, Dancing Hoskuld, isenchine, keldath, Lib.Spi't, Roamty, stolenrays, vincentz[COLOR_REVERT]</German>
+		<Italian>[H1]Testors[\H1][NEWLINE][COLOR_SELECTED_TEXT]Archid, Chinese American, Dancing Hoskuld, isenchine, keldath, Lib.Spi't, Roamty, stolenrays, vincentz[COLOR_REVERT]</Italian>
+		<Spanish>[H1]Testors[\H1][NEWLINE][COLOR_SELECTED_TEXT]Archid, Chinese American, Dancing Hoskuld, isenchine, keldath, Lib.Spi't, Roamty, stolenrays, vincentz[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CREDIT_LANGUAGE_SUPPORT</Tag>
+		<English>[H1]Language Support[\H1][NEWLINE][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]English[COLOR_REVERT] by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT]</English>
+		<French>[H1]Language Support[\H1][NEWLINE][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]English[COLOR_REVERT] by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT]</French>
+		<German>[H1]Language Support[\H1][NEWLINE][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]English[COLOR_REVERT] by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT]</German>
+		<Italian>[H1]Language Support[\H1][NEWLINE][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]English[COLOR_REVERT] by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT]</Italian>
+		<Spanish>[H1]Language Support[\H1][NEWLINE][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]English[COLOR_REVERT] by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CREDIT_CODERS</Tag>
+		<English>[H1]Coders[\H1][NEWLINE][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Python[COLOR_REVERT] by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT]</English>
+		<French>[H1]Coders[\H1][NEWLINE][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Python[COLOR_REVERT] by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT]</French>
+		<German>[H1]Coders[\H1][NEWLINE][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Python[COLOR_REVERT] by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT]</German>
+		<Italian>[H1]Coders[\H1][NEWLINE][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Python[COLOR_REVERT] by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT]</Italian>
+		<Spanish>[H1]Coders[\H1][NEWLINE][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Python[COLOR_REVERT] by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CREDIT_GRAPHICS</Tag>
+		<English>[H1]Graphics[\H1][NEWLINE][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]All[COLOR_REVERT] from [COLOR_SELECTED_TEXT]Firaxis[COLOR_REVERT]</English>
+		<French>[H1]Graphics[\H1][NEWLINE][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]All[COLOR_REVERT] from [COLOR_SELECTED_TEXT]Firaxis[COLOR_REVERT]</French>
+		<German>[H1]Graphics[\H1][NEWLINE][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]All[COLOR_REVERT] from [COLOR_SELECTED_TEXT]Firaxis[COLOR_REVERT]</German>
+		<Italian>[H1]Graphics[\H1][NEWLINE][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]All[COLOR_REVERT] from [COLOR_SELECTED_TEXT]Firaxis[COLOR_REVERT]</Italian>
+		<Spanish>[H1]Graphics[\H1][NEWLINE][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]All[COLOR_REVERT] from [COLOR_SELECTED_TEXT]Firaxis[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CREDIT_MOD_COMP</Tag>
+		<English>[H1]Mod Components[\H1][H2][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Platy Pedia[COLOR_REVERT][\H2]Advanced Pedia with more information and sorting functions. Coded by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT]. Modified Upgrade Tree from Sevopedia originally by [COLOR_SELECTED_TEXT]Vovan[COLOR_REVERT].
+			[H2][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Platy Builder[COLOR_REVERT][\H2]Advanced World Builder with new functions and abilities. Coded by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT].</English>
+		<French>[H1]Mod Components[\H1][H2][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Platy Pedia[COLOR_REVERT][\H2]Advanced Pedia with more information and sorting functions. Coded by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT]. Modified Upgrade Tree from Sevopedia originally by [COLOR_SELECTED_TEXT]Vovan[COLOR_REVERT].
+			[H2][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Platy Builder[COLOR_REVERT][\H2]Advanced World Builder with new functions and abilities. Coded by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT].</French>
+		<German>[H1]Mod Components[\H1][H2][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Platy Pedia[COLOR_REVERT][\H2]Advanced Pedia with more information and sorting functions. Coded by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT]. Modified Upgrade Tree from Sevopedia originally by [COLOR_SELECTED_TEXT]Vovan[COLOR_REVERT].
+			[H2][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Platy Builder[COLOR_REVERT][\H2]Advanced World Builder with new functions and abilities. Coded by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT].</German>
+		<Italian>[H1]Mod Components[\H1][H2][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Platy Pedia[COLOR_REVERT][\H2]Advanced Pedia with more information and sorting functions. Coded by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT]. Modified Upgrade Tree from Sevopedia originally by [COLOR_SELECTED_TEXT]Vovan[COLOR_REVERT].
+			[H2][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Platy Builder[COLOR_REVERT][\H2]Advanced World Builder with new functions and abilities. Coded by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT].</Italian>
+		<Spanish>[H1]Mod Components[\H1][H2][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Platy Pedia[COLOR_REVERT][\H2]Advanced Pedia with more information and sorting functions. Coded by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT]. Modified Upgrade Tree from Sevopedia originally by [COLOR_SELECTED_TEXT]Vovan[COLOR_REVERT].
+			[H2][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Platy Builder[COLOR_REVERT][\H2]Advanced World Builder with new functions and abilities. Coded by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT].</Spanish>
+	</TEXT>
+</Civ4GameText>

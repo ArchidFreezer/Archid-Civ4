@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Game Text - New -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT> <!-- Fallout -->
+		<Tag>TXT_KEY_FEATURE_FALLOUT_PEDIA</Tag>
+		<English>[TAB]Fallout is the residual radiation hazard from a nuclear explosion, so called because it "falls out" of the atmosphere after the explosion. It commonly refers to the radioactive dust created when a nuclear weapon explodes. This radioactive dust, consisting of hot particles, is a kind of radioactive contamination. It can lead to the contamination of ground and the animal food chain.</English>
+	</TEXT>
+	<TEXT> <!-- Flood Plains -->
+		<Tag>TXT_KEY_FEATURE_FLOOD_PLAINS_PEDIA</Tag>
+		<English>[TAB]A floodplain, or flood plain, is a flat or nearly flat land adjacent to a stream or river that stretches from the banks of its channel to the base of the enclosing valley walls and experiences flooding during periods of high discharge. It includes the floodway, which consists of the stream channel and adjacent areas that carry flood flows, and the flood fringe, which are areas covered by the flood, but which do not experience a strong current.</English>
+	</TEXT>
+	<TEXT> <!-- Forest -->
+		<Tag>TXT_KEY_FEATURE_FOREST_PEDIA</Tag>
+		<English>[TAB]A forest, also referred to as a wood or the woods and less often as a "wold" (or "weald"), "holt", or "frith" (or "firth"), is an area with a high density of trees. There are many definitions for forest, based on the various criteria. These plant communities cover approximately 9.4% of the Earth's surface (or 30% of total land area), though they once covered much more (about 50% of total land area), in many different regions and function as habitats for organisms, hydrologic flow modulators, and soil conservers, constituting one of the most important aspects of the Earth's biosphere. Although a forest is classified primarily by trees a forest ecosystem is defined intrinsically with additional species such as fungi.</English>
+	</TEXT>
+	<TEXT> <!-- Ice -->
+		<Tag>TXT_KEY_FEATURE_ICE_PEDIA</Tag>
+		<English>[TAB]Ice is water frozen into the solid state. Usually ice is the phase known as ice Ih, which is the most abundant of the varying solid phases on the Earth's surface. It can appear transparent or opaque bluish-white color, depending on the presence of impurities or air inclusions. The addition of other materials such as soil may further alter the appearance.</English>
+	</TEXT>
+	<TEXT> <!-- Jungle -->
+		<Tag>TXT_KEY_FEATURE_JUNGLE_PEDIA</Tag>
+		<English>[TAB]Jungle or Tropical forest (Sanskrit) refers to the dense, more or less impenetrable tropical rainforest biome with an abundance of animal and plant life. The term jungle is technically a synonym to Tropical Rainforest. The word jungle originates from the Sanskrit word jangala  which referred to uncultivated land. Although the Sanskrit word refers to "dry land", it has been suggested that an Anglo-Indian interpretation led to its connotation as a dense "tangled thicket". while others have argued that a cognate word in Urdu did refer to forests. The term is prevalent in many languages of South Asia, and Iranian plateau, particularly in Bangla, Hindi, Marathi, Urdu, Punjabi and Persian.</English>
+	</TEXT>
+	<TEXT> <!-- Oasis -->
+		<Tag>TXT_KEY_FEATURE_OASIS_PEDIA</Tag>
+		<English>[TAB]In geography, an oasis (plural: oases) or cienega (Southwestern United States) is an isolated area of vegetation in a desert, typically surrounding a spring or similar water source. Oases also provide habitat for animals and even humans if the area is big enough. The location of oases has been of critical importance for trade and transportation routes in desert areas. Caravans must travel via oases so that supplies of water and food can be replenished. Thus, political or military control of an oasis has in many cases meant control of trade on a particular route. For example, the oases of Awjila, Ghadames and Kufra, situated in modern-day Libya, have at various times been vital to both North-South and East-West trade in the Sahara. The word oasis came into English via Greek oasis, borrowed directly from Egyptian or Demotic. It was not borrowed from Coptic, as is sometimes suggested; the Greek word is attested several centuries before Coptic existed as a written language.</English>
+	</TEXT>
+</Civ4GameText>
