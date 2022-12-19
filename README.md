@@ -26,3 +26,8 @@ There are many mods components that I have drawn either code or inspiration from
 - K-Mod by Karadoc [https://github.com/karadoc/Civ4-K-Mod]
 - Platy Ultrapack by platyping [https://forums.civfanatics.com/threads/platys-peculiar-pleasant-posh-python.497337/#post-12491187]
 - BUG [https://forums.civfanatics.com/forums/civ4-bts-unaltered-gameplay-bug-bat-and-bull.268/]
+
+## Issue Management
+Issue management is  primarily tracked in a personal JIRA repository that is not available publically. Issues that are raised in GitHub will be reviewed and added to JIRA if appropriate and the GitHub issue will be updated accordingly.
+
+For my reference the JIRA repository is located here: [https://archidfreezer.atlassian.net/jira/software/c/projects/AC4/issues]
