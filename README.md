@@ -31,3 +31,6 @@ There are many mods components that I have drawn either code or inspiration from
 Issue management is  primarily tracked in a personal JIRA repository that is not available publically. Issues that are raised in GitHub will be reviewed and added to JIRA if appropriate and the GitHub issue will be updated accordingly.
 
 For my reference the JIRA repository is located here: [https://archidfreezer.atlassian.net/jira/software/c/projects/AC4/issues]
+
+## Commit Message Format
+Commit messages should be in the format as described here [https://gist.github.com/tonibardina/9290fbc7d605b4f86919426e614fe692] 
