@@ -12691,8 +12691,8 @@ bool CvVoteInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bForceWar, "bForceWar");
 	pXML->GetChildXmlValByName(&m_bAssignCity, "bAssignCity");
 
-	pXML->SetListPairInfo(&m_pbForceCivic, "ForceCivics", GC.getNumCivicInfos());
-	pXML->SetListPairInfo(&m_abVoteSourceTypes, "DiploVotes", GC.getNumVoteSourceInfos());
+	pXML->SetListInfoBool(&m_pbForceCivic, "ForceCivics", GC.getNumCivicInfos());
+	pXML->SetListInfoBool(&m_abVoteSourceTypes, "DiploVotes", GC.getNumVoteSourceInfos());
 
 	return true;
 }

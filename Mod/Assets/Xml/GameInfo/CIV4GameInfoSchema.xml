@@ -127,21 +127,12 @@
 	<ElementType name="bForceWar" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bAssignCity" content="textOnly" dt:type="boolean"/>
 	<ElementType name="CivicType" content="textOnly"/>
-	<ElementType name="bForce" content="textOnly" dt:type="boolean"/>
-	<ElementType name="ForceCivic" content="eltOnly">
-		<element type="CivicType"/>
-		<element type="bForce"/>
-	</ElementType>
 	<ElementType name="ForceCivics" content="eltOnly">
-		<element type="ForceCivic" minOccurs="0" maxOccurs="*"/>
+		<element type="CivicType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="DiploVoteType" content="textOnly"/>
-	<ElementType name="DiploVote" content="eltOnly">
-		<element type="DiploVoteType"/>
-		<element type="bValid"/>
-	</ElementType>
 	<ElementType name="DiploVotes" content="eltOnly">
-		<element type="DiploVote" minOccurs="0" maxOccurs="*"/>
+		<element type="DiploVoteType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="VoteInfo" content="eltOnly">
 		<element type="Type"/>
