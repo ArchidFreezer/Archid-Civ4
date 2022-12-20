@@ -1644,6 +1644,41 @@ void CvXMLLoadUtility::SetImprovementBonuses(CvImprovementBonusInfo** ppImprovem
 	}
 }
 
+void CvXMLLoadUtility::SetListInfo(int** ppList, const TCHAR* szRootTagName, int iListLength) {
+	if (iListLength <= 0) {
+		char	szMessage[1024];
+		sprintf(szMessage, "Allocating zero or less memory in CvXMLLoadUtility::SetListInfo \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
+		gDLL->MessageBox(szMessage, "XML Error");
+	}
+	InitList(ppList, iListLength, -1);
+	if (gDLL->getXMLIFace()->SetToChildByTagName(m_pFXml, szRootTagName)) {
+		if (SkipToNextVal()) {
+			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
+			int* pList = *ppList;
+			if (0 < iNumSibs) {
+				if (iNumSibs > iListLength) {
+					char	szMessage[1024];
+					sprintf(szMessage, "There are more siblings than memory allocated for them in CvXMLLoadUtility::SetListInfo \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
+					gDLL->MessageBox(szMessage, "XML Error");
+				}
+				TCHAR szTextVal[256];
+				if (SkipToNextVal() && GetChildXmlVal(szTextVal)) // K-Mod. (without this, a comment in the xml could break this)
+				{
+					for (int i = 0; i < iNumSibs; ++i) {
+						pList[i] = GC.getInfoTypeForString(szTextVal);
+						if (!GetNextXmlVal(szTextVal)) {
+							break;
+						}
+					}
+					gDLL->getXMLIFace()->SetToParent(m_pFXml);
+				}
+			}
+		}
+
+		gDLL->getXMLIFace()->SetToParent(m_pFXml);
+	}
+}
+
 void CvXMLLoadUtility::SetListPairInfos(int** ppList, const TCHAR* szRootTagName, int iInfoBaseLength) {
 	if (!(0 < iInfoBaseLength)) {
 		char	szMessage[1024];

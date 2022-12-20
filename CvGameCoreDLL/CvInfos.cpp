@@ -1265,53 +1265,8 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "SoundMP");
 	setSoundMP(szTextVal);
 
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "OrPreReqs")) {
-		if (pXML->SkipToNextVal()) {
-			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
-			FAssertMsg((0 < GC.getNUM_OR_TECH_PREREQS()), "Allocating zero or less memory in SetGlobalUnitInfo");
-			pXML->InitList(&m_piPrereqOrTechs, GC.getNUM_OR_TECH_PREREQS(), -1);
-
-			if (0 < iNumSibs) {
-				if (pXML->GetChildXmlVal(szTextVal)) {
-					FAssertMsg((iNumSibs <= GC.getNUM_OR_TECH_PREREQS()), "There are more siblings than memory allocated for them in SetGlobalUnitInfo");
-					for (int j = 0; j < iNumSibs; ++j) {
-						m_piPrereqOrTechs[j] = GC.getInfoTypeForString(szTextVal);
-						if (!pXML->GetNextXmlVal(szTextVal)) {
-							break;
-						}
-					}
-
-					gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-				}
-			}
-		}
-
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "AndPreReqs")) {
-		if (pXML->SkipToNextVal()) {
-			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
-			FAssertMsg((0 < GC.getNUM_AND_TECH_PREREQS()), "Allocating zero or less memory in SetGlobalUnitInfo");
-			pXML->InitList(&m_piPrereqAndTechs, GC.getNUM_AND_TECH_PREREQS(), -1);
-
-			if (0 < iNumSibs) {
-				if (pXML->GetChildXmlVal(szTextVal)) {
-					FAssertMsg((iNumSibs <= GC.getNUM_AND_TECH_PREREQS()), "There are more siblings than memory allocated for them in SetGlobalUnitInfo");
-					for (int j = 0; j < iNumSibs; ++j) {
-						m_piPrereqAndTechs[j] = GC.getInfoTypeForString(szTextVal);
-						if (!pXML->GetNextXmlVal(szTextVal)) {
-							break;
-						}
-					}
-
-					gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-				}
-			}
-		}
-
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	}
+	pXML->SetListInfo(&m_piPrereqOrTechs, "OrPreReqs", GC.getNUM_OR_TECH_PREREQS());
+	pXML->SetListInfo(&m_piPrereqAndTechs, "AndPreReqs", GC.getNUM_AND_TECH_PREREQS());
 
 	return true;
 }
@@ -4130,56 +4085,12 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "PrereqTech");
 	m_iPrereqAndTech = pXML->FindInInfoClass(szTextVal);
 
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "TechTypes")) {
-		if (pXML->SkipToNextVal()) {
-			iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
-			FAssertMsg((0 < GC.getNUM_UNIT_AND_TECH_PREREQS()), "Allocating zero or less memory in SetGlobalUnitInfo");
-			pXML->InitList(&m_piPrereqAndTechs, GC.getNUM_UNIT_AND_TECH_PREREQS(), -1);
-
-			if (0 < iNumSibs) {
-				if (pXML->GetChildXmlVal(szTextVal)) {
-					FAssertMsg((iNumSibs <= GC.getNUM_UNIT_AND_TECH_PREREQS()), "There are more siblings than memory allocated for them in SetGlobalUnitInfo");
-					for (int j = 0; j < iNumSibs; j++) {
-						m_piPrereqAndTechs[j] = pXML->FindInInfoClass(szTextVal);
-						if (!pXML->GetNextXmlVal(szTextVal)) {
-							break;
-						}
-					}
-
-					gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-				}
-			}
-		}
-
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	}
+	pXML->SetListInfo(&m_piPrereqAndTechs, "TechTypes", GC.getNUM_UNIT_AND_TECH_PREREQS());
 
 	pXML->GetChildXmlValByName(szTextVal, "BonusType");
 	m_iPrereqAndBonus = pXML->FindInInfoClass(szTextVal);
 
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "PrereqBonuses")) {
-		if (pXML->SkipToNextVal()) {
-			iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
-			FAssertMsg((0 < GC.getNUM_UNIT_PREREQ_OR_BONUSES()), "Allocating zero or less memory in SetGlobalUnitInfo");
-			pXML->InitList(&m_piPrereqOrBonuses, GC.getNUM_UNIT_PREREQ_OR_BONUSES(), -1);
-
-			if (0 < iNumSibs) {
-				if (pXML->GetChildXmlVal(szTextVal)) {
-					FAssertMsg((iNumSibs <= GC.getNUM_UNIT_PREREQ_OR_BONUSES()), "There are more siblings than memory allocated for them in SetGlobalUnitInfo");
-					for (int j = 0; j < iNumSibs; j++) {
-						m_piPrereqOrBonuses[j] = pXML->FindInInfoClass(szTextVal);
-						if (!pXML->GetNextXmlVal(szTextVal)) {
-							break;
-						}
-					}
-
-					gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-				}
-			}
-		}
-
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	}
+	pXML->SetListInfo(&m_piPrereqOrBonuses, "PrereqBonuses", GC.getNUM_UNIT_PREREQ_OR_BONUSES());
 
 	pXML->SetListPairInfo(&m_piProductionTraits, "ProductionTraits", GC.getNumTraitInfos());
 
@@ -7067,69 +6978,12 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "PrereqTech");
 	m_iPrereqAndTech = pXML->FindInInfoClass(szTextVal);
 
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "TechTypes")) {
-		if (pXML->SkipToNextVal()) {
-			iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
-			pXML->InitList(&m_piPrereqAndTechs, GC.getNUM_BUILDING_AND_TECH_PREREQS(), -1);
-
-			if (0 < iNumSibs) {
-				if (pXML->GetChildXmlVal(szTextVal)) {
-					FAssertMsg((iNumSibs <= GC.getNUM_BUILDING_AND_TECH_PREREQS()), "For loop iterator is greater than array size");
-					for (int j = 0; j < iNumSibs; j++) {
-						m_piPrereqAndTechs[j] = pXML->FindInInfoClass(szTextVal);
-						if (!pXML->GetNextXmlVal(szTextVal)) {
-							break;
-						}
-					}
-
-					gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-				}
-			}
-		}
-
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	}
+	pXML->SetListInfo(&m_piPrereqAndTechs, "TechTypes", GC.getNUM_BUILDING_AND_TECH_PREREQS());
 
 	pXML->GetChildXmlValByName(szTextVal, "Bonus");
 	m_iPrereqAndBonus = pXML->FindInInfoClass(szTextVal);
 
-	// if we can set the current xml node to it's next sibling
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "PrereqBonuses")) {
-		// the next xml val in the buildinginfo tag set is the bonuses tag set
-		// Skip any comments and stop at the next value we might want
-		if (pXML->SkipToNextVal()) {
-			// get the total number of children the current xml node has
-			iNumChildren = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
-			pXML->InitList(&m_piPrereqOrBonuses, GC.getNUM_BUILDING_PREREQ_OR_BONUSES(), -1);
-
-			if (0 < iNumChildren) {
-				// if the call to the function that sets the current xml node to it's first non-comment
-				// child and sets the parameter with the new node's value succeeds
-				if (pXML->GetChildXmlVal(szTextVal)) {
-					FAssertMsg((iNumChildren <= GC.getNUM_BUILDING_PREREQ_OR_BONUSES()), "For loop iterator is greater than array size");
-					// loop through all the siblings
-					for (int j = 0; j < iNumChildren; j++) {
-						// call the find in list function to return either -1 if no value is found
-						// or the index in the list the match is found at
-						m_piPrereqOrBonuses[j] = pXML->FindInInfoClass(szTextVal);
-
-						// if the call to the function that sets the current xml node to it's first non-comment
-						// sibling and sets the parameter with the new node's value does not succeed
-						// we will break out of this for loop
-						if (!pXML->GetNextXmlVal(szTextVal)) {
-							break;
-						}
-					}
-
-					// set the current xml node to it's parent node
-					gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-				}
-			}
-		}
-
-		// set the current xml node to it's parent node
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	}
+	pXML->SetListInfo(&m_piPrereqOrBonuses, "PrereqBonuses", GC.getNUM_BUILDING_PREREQ_OR_BONUSES());
 
 	pXML->SetListPairInfo(&m_piProductionTraits, "ProductionTraits", GC.getNumTraitInfos());
 
@@ -8187,30 +8041,7 @@ bool CvCivilizationInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetListPairInfo(&m_pbCivilizationFreeBuildingClass, "FreeBuildingClasses", GC.getNumBuildingClassInfos());
 	pXML->SetListPairInfo(&m_pbCivilizationFreeTechs, "FreeTechs", GC.getNumTechInfos());
 	pXML->SetListPairInfo(&m_pbCivilizationDisableTechs, "DisableTechs", GC.getNumTechInfos());
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "InitialCivics")) {
-		if (pXML->SkipToNextVal()) {
-			iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
-			pXML->InitList(&m_piCivilizationInitialCivics, GC.getNumCivicOptionInfos());
-
-			if (0 < iNumSibs) {
-				if (pXML->GetChildXmlVal(szTextVal)) {
-					FAssertMsg((iNumSibs <= GC.getNumCivicOptionInfos()), "For loop iterator is greater than array size");
-					for (int j = 0; j < iNumSibs; j++) {
-						m_piCivilizationInitialCivics[j] = pXML->FindInInfoClass(szTextVal);
-						if (!pXML->GetNextXmlVal(szTextVal)) {
-							break;
-						}
-					}
-
-					gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-				}
-			}
-		}
-
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	}
-
+	pXML->SetListInfo(&m_piCivilizationInitialCivics, "InitialCivics", GC.getNumCivicOptionInfos());
 	pXML->SetListPairInfo(&m_pbLeaders, "Leaders", GC.getNumLeaderHeadInfos());
 	pXML->GetChildXmlValByName(szTextVal, "CivilizationSelectionSound");
 
@@ -13583,32 +13414,7 @@ bool CvCorporationInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetList(&m_paiHeadquarterCommerce, "HeadquarterCommerces", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_paiCommerceProduced, "CommercesProduced", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_paiYieldProduced, "YieldsProduced", NUM_YIELD_TYPES);
-
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "PrereqBonuses")) {
-		if (pXML->SkipToNextVal()) {
-			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
-			FAssertMsg(0 < GC.getNUM_CORPORATION_PREREQ_BONUSES(), "Allocating zero or less memory in CvCorporationInfo::read");
-			pXML->InitList(&m_paiPrereqBonuses, GC.getNUM_CORPORATION_PREREQ_BONUSES(), -1);
-
-			if (0 < iNumSibs) {
-				if (pXML->GetChildXmlVal(szTextVal)) {
-					FAssertMsg((iNumSibs <= GC.getNUM_CORPORATION_PREREQ_BONUSES()), "There are more siblings than memory allocated for them in CvCorporationInfo::read");
-					for (int j = 0; j < iNumSibs; ++j) {
-						m_paiPrereqBonuses[j] = pXML->FindInInfoClass(szTextVal);
-						if (!pXML->GetNextXmlVal(szTextVal)) {
-							break;
-						}
-					}
-
-					gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-				}
-			}
-		}
-
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	}
-
+	pXML->SetListInfo(&m_paiPrereqBonuses, "PrereqBonuses", GC.getNUM_CORPORATION_PREREQ_BONUSES());
 	pXML->GetChildXmlValByName(szTextVal, "BonusProduced");
 	m_iBonusProduced = pXML->FindInInfoClass(szTextVal);
 
