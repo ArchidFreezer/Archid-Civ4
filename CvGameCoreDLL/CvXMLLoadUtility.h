@@ -193,6 +193,7 @@ public:
 	// allocate and initialize a list from a tag pair in the xml
 	void SetListPairInfos(int** ppList, const TCHAR* szRootTagName, int iInfoBaseLength);
 	void SetListInfo(int** ppList, const TCHAR* szRootTagName, int iListLength);
+	void SetListInfoBool(bool** ppList, const TCHAR* szRootTagName, int iListLength);
 
 	void SetListPairEnumString(CvString** ppszList, const TCHAR* szRootTagName, int iTagListLength, CvString szDefaultListVal = "");
 	void SetListPairInfoForAudioScripts(int** ppiList, const TCHAR* szRootTagName, int iInfoBaseLength, int iDefaultListVal = -1);
