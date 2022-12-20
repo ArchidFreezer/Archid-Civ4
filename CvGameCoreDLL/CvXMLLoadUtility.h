@@ -279,9 +279,9 @@ private:
 	// a dynamic value for the list size
 #ifdef _USRDLL
 	template <class T>
-	void SetGlobalClassInfo(std::vector<T*>& aInfos, const char* szTagName, bool bTwoPass);
+	void SetGlobalClassInfo(std::vector<T*>& aInfos, const char* szTagName);
 	template <class T>
-	void LoadGlobalClassInfo(std::vector<T*>& aInfos, const char* szFileRoot, const char* szFileDirectory, const char* szXmlPath, bool bTwoPass, CvCacheObject* (CvDLLUtilityIFaceBase::* pArgFunction) (const TCHAR*) = NULL);
+	void LoadGlobalClassInfo(std::vector<T*>& aInfos, const char* szFileRoot, const char* szFileDirectory, const char* szXmlPath, CvCacheObject* (CvDLLUtilityIFaceBase::* pArgFunction) (const TCHAR*) = NULL);
 #endif
 	void SetDiplomacyInfo(std::vector<CvDiplomacyInfo*>& DiploInfos, const char* szTagName);
 	void LoadDiplomacyInfo(std::vector<CvDiplomacyInfo*>& DiploInfos, const char* szFileRoot, const char* szFileDirectory, const char* szXmlPath, CvCacheObject* (CvDLLUtilityIFaceBase::* pArgFunction) (const TCHAR*));
@@ -298,6 +298,13 @@ private:
 
 	void orderHotkeyInfo(int** ppiSortedIndex, int* pHotkeyIndex, int iLength);
 	void logMsg(char* format, ...);
+
+	/// XML type preloading - Nightinggale
+	template <class T>
+	void PreLoadGlobalClassInfo(std::vector<T*>& aInfos, const char* szFileRoot, const char* szFileDirectory, const char* szXmlPath, CvCacheObject* (CvDLLUtilityIFaceBase::* pArgFunction) (const TCHAR*) = NULL);
+	void PreUpdateProgressCB(const char* szMessage);
+	void readXMLfiles(bool bFirst);
+
 };
 
 #ifdef _USRDLL

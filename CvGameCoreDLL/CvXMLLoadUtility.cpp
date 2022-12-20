@@ -103,7 +103,7 @@ void CvXMLLoadUtility::ResetGlobalEffectInfo() {
 
 	GC.getEffectInfo().clear();
 
-	LoadGlobalClassInfo(GC.getEffectInfo(), "CIV4EffectInfos", "Misc", "Civ4EffectInfos/EffectInfos/EffectInfo", false, false);
+	LoadGlobalClassInfo(GC.getEffectInfo(), "CIV4EffectInfos", "Misc", "Civ4EffectInfos/EffectInfos/EffectInfo");
 }
 
 

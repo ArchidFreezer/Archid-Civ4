@@ -1284,12 +1284,6 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "SoundMP");
 	setSoundMP(szTextVal);
 
-	return true;
-}
-
-bool CvTechInfo::readPass2(CvXMLLoadUtility* pXML) {
-	CvString szTextVal;
-
 	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "OrPreReqs")) {
 		if (pXML->SkipToNextVal()) {
 			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
@@ -1861,6 +1855,15 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "LayerAnimationPath");
 	m_iLayerAnimationPath = pXML->FindInInfoClass(szTextVal);
 
+	pXML->GetChildXmlValByName(szTextVal, "PromotionPrereq");
+	m_iPrereqPromotion = GC.getInfoTypeForString(szTextVal);
+	pXML->GetChildXmlValByName(szTextVal, "PromotionPrereqOr1");
+	m_iPrereqOrPromotion1 = GC.getInfoTypeForString(szTextVal);
+	pXML->GetChildXmlValByName(szTextVal, "PromotionPrereqOr2");
+	m_iPrereqOrPromotion2 = GC.getInfoTypeForString(szTextVal);
+	pXML->GetChildXmlValByName(szTextVal, "PromotionPrereqOr3");
+	m_iPrereqOrPromotion3 = GC.getInfoTypeForString(szTextVal);
+
 	pXML->GetChildXmlValByName(szTextVal, "TechPrereq");
 	m_iTechPrereq = pXML->FindInInfoClass(szTextVal);
 
@@ -1917,21 +1920,6 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetVariableListTagPair(&m_pbTerrainDoubleMove, "TerrainDoubleMoves", sizeof(GC.getTerrainInfo((TerrainTypes)0)), GC.getNumTerrainInfos());
 	pXML->SetVariableListTagPair(&m_pbFeatureDoubleMove, "FeatureDoubleMoves", sizeof(GC.getFeatureInfo((FeatureTypes)0)), GC.getNumFeatureInfos());
 	pXML->SetVariableListTagPair(&m_pbUnitCombat, "UnitCombats", sizeof(GC.getUnitCombatInfo((UnitCombatTypes)0)), GC.getNumUnitCombatInfos());
-
-	return true;
-}
-
-bool CvPromotionInfo::readPass2(CvXMLLoadUtility* pXML) {
-	CvString szTextVal;
-
-	pXML->GetChildXmlValByName(szTextVal, "PromotionPrereq");
-	m_iPrereqPromotion = GC.getInfoTypeForString(szTextVal);
-	pXML->GetChildXmlValByName(szTextVal, "PromotionPrereqOr1");
-	m_iPrereqOrPromotion1 = GC.getInfoTypeForString(szTextVal);
-	pXML->GetChildXmlValByName(szTextVal, "PromotionPrereqOr2");
-	m_iPrereqOrPromotion2 = GC.getInfoTypeForString(szTextVal);
-	pXML->GetChildXmlValByName(szTextVal, "PromotionPrereqOr3");
-	m_iPrereqOrPromotion3 = GC.getInfoTypeForString(szTextVal);
 
 	return true;
 }
@@ -5550,23 +5538,10 @@ bool CvUnitClassInfo::read(CvXMLLoadUtility* pXML) {
 
 	CvString szTextVal;
 	pXML->GetChildXmlValByName(szTextVal, "DefaultUnit");
-	m_aszExtraXMLforPass3.push_back(szTextVal);
+	m_iDefaultUnitIndex = GC.getInfoTypeForString(szTextVal);
 
 	return true;
 }
-
-bool CvUnitClassInfo::readPass3() {
-	if (m_aszExtraXMLforPass3.size() < 1) {
-		FAssert(false);
-		return false;
-	}
-
-	m_iDefaultUnitIndex = GC.getInfoTypeForString(m_aszExtraXMLforPass3[0]);
-	m_aszExtraXMLforPass3.clear();
-
-	return true;
-}
-
 
 //======================================================================================================
 //					CvBuildingInfo
@@ -7763,23 +7738,10 @@ bool CvBuildingClassInfo::read(CvXMLLoadUtility* pXML) {
 
 	CvString szTextVal;
 	pXML->GetChildXmlValByName(szTextVal, "DefaultBuilding");
-	m_aszExtraXMLforPass3.push_back(szTextVal);
+	m_iDefaultBuildingIndex = GC.getInfoTypeForString(szTextVal);
 
 	return true;
 }
-
-bool CvBuildingClassInfo::readPass3() {
-	if (m_aszExtraXMLforPass3.size() < 1) {
-		FAssert(false);
-		return false;
-	}
-
-	m_iDefaultBuildingIndex = GC.getInfoTypeForString(m_aszExtraXMLforPass3[0]);
-	m_aszExtraXMLforPass3.clear();
-
-	return true;
-}
-
 
 //======================================================================================================
 //					CvRiverInfo
@@ -8308,6 +8270,9 @@ bool CvCivilizationInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "DefaultPlayerColor");
 	m_iDefaultPlayerColor = pXML->FindInInfoClass(szTextVal);
 
+	pXML->GetChildXmlValByName(szTextVal, "DerivativeCiv");
+	m_iDerivativeCiv = GC.getInfoTypeForString(szTextVal);
+
 	pXML->GetChildXmlValByName(szTextVal, "ArtDefineTag");
 	setArtDefineTag(szTextVal);
 
@@ -8466,15 +8431,6 @@ bool CvCivilizationInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetVariableListTagPair(&m_pbLeaders, "Leaders", sizeof(GC.getLeaderHeadInfo((LeaderHeadTypes)0)), GC.getNumLeaderHeadInfos());
 
 	pXML->GetChildXmlValByName(szTextVal, "CivilizationSelectionSound");
-
-	return true;
-}
-
-bool CvCivilizationInfo::readPass2(CvXMLLoadUtility* pXML) {
-	CvString szTextVal;
-
-	pXML->GetChildXmlValByName(szTextVal, "DerivativeCiv");
-	m_iDerivativeCiv = GC.getInfoTypeForString(szTextVal);
 
 	return true;
 }
@@ -10497,6 +10453,12 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "ArtDefineTag");
 	setArtDefineTag(szTextVal);
 
+	pXML->GetChildXmlValByName(szTextVal, "ImprovementPillage");
+	m_iImprovementPillage = GC.getInfoTypeForString(szTextVal);
+
+	pXML->GetChildXmlValByName(szTextVal, "ImprovementUpgrade");
+	m_iImprovementUpgrade = GC.getInfoTypeForString(szTextVal);
+
 	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "PrereqNatureYields")) {
 		// call the function that sets the yield change variable
 		pXML->SetYields(&m_piPrereqNatureYield);
@@ -10656,18 +10618,6 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML) {
 		m_iWorldSoundscapeScriptId = gDLL->getAudioTagIndex(szTextVal.GetCString(), AUDIOTAG_SOUNDSCAPE);
 	else
 		m_iWorldSoundscapeScriptId = -1;
-
-	return true;
-}
-
-bool CvImprovementInfo::readPass2(CvXMLLoadUtility* pXML) {
-	CvString szTextVal;
-
-	pXML->GetChildXmlValByName(szTextVal, "ImprovementPillage");
-	m_iImprovementPillage = GC.getInfoTypeForString(szTextVal);
-
-	pXML->GetChildXmlValByName(szTextVal, "ImprovementUpgrade");
-	m_iImprovementUpgrade = GC.getInfoTypeForString(szTextVal);
 
 	return true;
 }
@@ -13530,6 +13480,11 @@ bool CvProjectInfo::read(CvXMLLoadUtility* pXML) {
 		return false;
 	}
 
+	pXML->SetVariableListTagPair(&m_piProjectsNeeded, "PrereqProjects", sizeof(GC.getProjectInfo((ProjectTypes)0)), GC.getNumProjectInfos());
+
+	pXML->GetChildXmlValByName(szTextVal, "AnyonePrereqProject");
+	m_iAnyoneProjectPrereq = GC.getInfoTypeForString(szTextVal);
+
 	pXML->GetChildXmlValByName(szTextVal, "VictoryPrereq");
 	m_iVictoryPrereq = pXML->FindInInfoClass(szTextVal);
 
@@ -13560,17 +13515,6 @@ bool CvProjectInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(szTextVal, "CreateSound");
 	setCreateSound(szTextVal);
-
-	return true;
-}
-
-bool CvProjectInfo::readPass2(CvXMLLoadUtility* pXML) {
-	CvString szTextVal;
-
-	pXML->SetVariableListTagPair(&m_piProjectsNeeded, "PrereqProjects", sizeof(GC.getProjectInfo((ProjectTypes)0)), GC.getNumProjectInfos());
-
-	pXML->GetChildXmlValByName(szTextVal, "AnyonePrereqProject");
-	m_iAnyoneProjectPrereq = GC.getInfoTypeForString(szTextVal);
 
 	return true;
 }
@@ -19238,6 +19182,9 @@ bool CvEventInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetVariableListTagPair(&m_piTechFlavorValue, "TechFlavors", GC.getFlavorTypes(), GC.getNumFlavorTypes());
 	pXML->SetVariableListTagPair(&m_piPlotExtraYields, "PlotExtraYields", sizeof(GC.getYieldInfo((YieldTypes)0)), NUM_YIELD_TYPES, 0);
 	pXML->SetVariableListTagPair(&m_piFreeSpecialistCount, "FreeSpecialistCounts", sizeof(GC.getSpecialistInfo((SpecialistTypes)0)), GC.getNumSpecialistInfos());
+	pXML->SetVariableListTagPair(&m_piAdditionalEventChance, "AdditionalEvents", sizeof(GC.getEventInfo((EventTypes)0)), GC.getNumEventInfos(), 0);
+	pXML->SetVariableListTagPair(&m_piAdditionalEventTime, "EventTimes", sizeof(GC.getEventInfo((EventTypes)0)), GC.getNumEventInfos(), 0);
+	pXML->SetVariableListTagPair(&m_piClearEventChance, "ClearEvents", sizeof(GC.getEventInfo((EventTypes)0)), GC.getNumEventInfos(), 0);
 
 	pXML->GetChildXmlValByName(&m_iConvertOwnCities, "iConvertOwnCities");
 	pXML->GetChildXmlValByName(&m_iConvertOtherCities, "iConvertOtherCities");
@@ -19435,14 +19382,6 @@ bool CvEventInfo::read(CvXMLLoadUtility* pXML) {
 
 		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
 	}
-
-	return true;
-}
-
-bool CvEventInfo::readPass2(CvXMLLoadUtility* pXML) {
-	pXML->SetVariableListTagPair(&m_piAdditionalEventChance, "AdditionalEvents", sizeof(GC.getEventInfo((EventTypes)0)), GC.getNumEventInfos(), 0);
-	pXML->SetVariableListTagPair(&m_piAdditionalEventTime, "EventTimes", sizeof(GC.getEventInfo((EventTypes)0)), GC.getNumEventInfos(), 0);
-	pXML->SetVariableListTagPair(&m_piClearEventChance, "ClearEvents", sizeof(GC.getEventInfo((EventTypes)0)), GC.getNumEventInfos(), 0);
 
 	return true;
 }
@@ -19870,7 +19809,7 @@ bool CvVoteSourceInfo::read(CvXMLLoadUtility* pXML) {
 	m_iFreeSpecialist = GC.getInfoTypeForString(szTextVal);
 
 	pXML->GetChildXmlValByName(szTextVal, "Civic");
-	m_aszExtraXMLforPass3.push_back(szTextVal);
+	m_iCivic = GC.getInfoTypeForString(szTextVal);
 
 	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ReligionYields")) {
 		pXML->SetYields(&m_aiReligionYields);
@@ -19885,18 +19824,6 @@ bool CvVoteSourceInfo::read(CvXMLLoadUtility* pXML) {
 	} else {
 		pXML->InitList(&m_aiReligionCommerces, NUM_COMMERCE_TYPES);
 	}
-
-	return true;
-}
-
-bool CvVoteSourceInfo::readPass3() {
-	if (m_aszExtraXMLforPass3.size() < 1) {
-		FAssert(false);
-		return false;
-	}
-
-	m_iCivic = GC.getInfoTypeForString(m_aszExtraXMLforPass3[0]);
-	m_aszExtraXMLforPass3.clear();
 
 	return true;
 }

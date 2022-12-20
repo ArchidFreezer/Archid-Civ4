@@ -61,8 +61,6 @@ public:
 	virtual void write(FDataStreamBase* pStream);
 
 	virtual bool read(CvXMLLoadUtility* pXML);
-	virtual bool readPass2(CvXMLLoadUtility* pXML) { pXML; FAssertMsg(false, "Override this"); return false; }
-	virtual bool readPass3() { FAssertMsg(false, "Override this"); return false; }
 
 protected:
 
@@ -78,7 +76,7 @@ protected:
 	CvWString m_szStrategyKey;
 
 	// translated text
-	std::vector<CvString> m_aszExtraXMLforPass3;
+	std::vector<CvString> m_aszExtraXMLforPass3; // Even though this variable is not referenced in the dll the game will CTD if it does not exist
 	mutable std::vector<CvWString> m_aCachedDescriptions;
 	mutable CvWString m_szCachedText;
 	mutable CvWString m_szCachedHelp;
@@ -357,7 +355,6 @@ public:
 	void write(FDataStreamBase*);
 
 	bool read(CvXMLLoadUtility* pXML);
-	bool readPass2(CvXMLLoadUtility* pXML);
 
 	//---------------------------------------PROTECTED MEMBER VARIABLES---------------------------------
 
@@ -507,7 +504,6 @@ public:
 	void write(FDataStreamBase* stream);
 
 	bool read(CvXMLLoadUtility* pXML);
-	bool readPass2(CvXMLLoadUtility* pXML);
 
 	//---------------------------------------PROTECTED MEMBER VARIABLES---------------------------------
 
@@ -1496,7 +1492,6 @@ public:
 	void setDefaultUnitIndex(int i);
 
 	bool read(CvXMLLoadUtility* pXML);
-	bool readPass3();
 
 	//---------------------------------------PROTECTED MEMBER VARIABLES---------------------------------
 protected:
@@ -1963,7 +1958,6 @@ public:
 	int getVictoryThreshold(int i) const;				// Exposed to Python
 
 	bool read(CvXMLLoadUtility* pXML);
-	bool readPass3();
 
 	//---------------------------------------PROTECTED MEMBER VARIABLES---------------------------------
 protected:
@@ -2154,7 +2148,6 @@ public:
 	void setDerivativeCiv(int iCiv);
 
 	bool read(CvXMLLoadUtility* pXML);
-	DllExport bool readPass2(CvXMLLoadUtility* pXML);
 	DllExport void read(FDataStreamBase* stream);
 	DllExport void write(FDataStreamBase* stream);
 
@@ -2851,10 +2844,6 @@ public:
 	void write(FDataStreamBase* stream);
 
 	bool read(CvXMLLoadUtility* pXML);
-	bool readPass2(CvXMLLoadUtility* pXML);
-
-
-
 
 	//---------------------------------------PROTECTED MEMBER VARIABLES---------------------------------
 
@@ -3903,7 +3892,6 @@ public:
 	int getProjectsNeeded(int i) const;						// Exposed to Python
 
 	bool read(CvXMLLoadUtility* pXML);
-	bool readPass2(CvXMLLoadUtility* pXML);
 
 	//---------------------------------------PROTECTED MEMBER VARIABLES---------------------------------
 protected:
@@ -5977,7 +5965,6 @@ public:
 	void write(FDataStreamBase*);
 
 	bool read(CvXMLLoadUtility* pXML);
-	bool readPass2(CvXMLLoadUtility* pXML);
 
 private:
 	bool m_bQuest;
@@ -6206,7 +6193,6 @@ public:
 	int getReligionCommerce(int i) const;					// Exposed to Python
 
 	bool read(CvXMLLoadUtility* pXML);
-	bool readPass3();
 
 protected:
 	int m_iVoteInterval;
