@@ -25,8 +25,7 @@
 
 // Public Functions...
 
-CvTeam::CvTeam()
-{
+CvTeam::CvTeam() {
 	m_aiStolenVisibilityTimer = new int[MAX_TEAMS];
 	m_aiWarWeariness = new int[MAX_TEAMS];
 	m_aiTechShareCount = new int[MAX_TEAMS];
@@ -70,8 +69,7 @@ CvTeam::CvTeam()
 }
 
 
-CvTeam::~CvTeam()
-{
+CvTeam::~CvTeam() {
 	uninit();
 
 	SAFE_DELETE_ARRAY(m_aiStolenVisibilityTimer);
@@ -93,8 +91,7 @@ CvTeam::~CvTeam()
 }
 
 
-void CvTeam::init(TeamTypes eID)
-{
+void CvTeam::init(TeamTypes eID) {
 	//--------------------------------
 	// Init saved data
 	reset(eID);
@@ -106,18 +103,13 @@ void CvTeam::init(TeamTypes eID)
 	// Init other game data
 	AI_init();
 
-	if( GC.getGame().isFinalInitialized() )
-	{
-		for (int iI = 0; iI < MAX_TEAMS; iI++)
-		{
-			if( iI != getID() )
-			{
-				if( GET_TEAM((TeamTypes)iI).isMinorCiv() )
-				{
+	if (GC.getGame().isFinalInitialized()) {
+		for (int iI = 0; iI < MAX_TEAMS; iI++) {
+			if (iI != getID()) {
+				if (GET_TEAM((TeamTypes)iI).isMinorCiv()) {
 					GET_TEAM((TeamTypes)iI).declareWar(getID(), false, WARPLAN_LIMITED);
 				}
-				if( GET_TEAM((TeamTypes)iI).isBarbarian() )
-				{
+				if (GET_TEAM((TeamTypes)iI).isBarbarian()) {
 					GET_TEAM((TeamTypes)iI).declareWar(getID(), false, WARPLAN_LIMITED);
 				}
 			}
@@ -126,8 +118,7 @@ void CvTeam::init(TeamTypes eID)
 }
 
 
-void CvTeam::uninit()
-{
+void CvTeam::uninit() {
 	SAFE_DELETE_ARRAY(m_abCanLaunch);
 
 	SAFE_DELETE_ARRAY(m_paiRouteChange);
@@ -147,10 +138,8 @@ void CvTeam::uninit()
 	SAFE_DELETE_ARRAY(m_pabHasTech);
 	SAFE_DELETE_ARRAY(m_pabNoTradeTech);
 
-	if (m_ppaaiImprovementYieldChange != NULL)
-	{
-		for (int iI = 0; iI < GC.getNumImprovementInfos(); iI++)
-		{
+	if (m_ppaaiImprovementYieldChange != NULL) {
+		for (int iI = 0; iI < GC.getNumImprovementInfos(); iI++) {
 			SAFE_DELETE_ARRAY(m_ppaaiImprovementYieldChange[iI]);
 		}
 		SAFE_DELETE_ARRAY(m_ppaaiImprovementYieldChange);
@@ -160,8 +149,7 @@ void CvTeam::uninit()
 
 // FUNCTION: reset()
 // Initializes data members that are serialized.
-void CvTeam::reset(TeamTypes eID, bool bConstructorCall)
-{
+void CvTeam::reset(TeamTypes eID, bool bConstructorCall) {
 	//--------------------------------
 	// Uninit class
 	uninit();
@@ -196,8 +184,7 @@ void CvTeam::reset(TeamTypes eID, bool bConstructorCall)
 
 	m_eID = eID;
 
-	for (int iI = 0; iI < MAX_TEAMS; iI++)
-	{
+	for (int iI = 0; iI < MAX_TEAMS; iI++) {
 		m_aiStolenVisibilityTimer[iI] = 0;
 		m_aiWarWeariness[iI] = 0;
 		m_aiTechShareCount[iI] = 0;
@@ -213,9 +200,8 @@ void CvTeam::reset(TeamTypes eID, bool bConstructorCall)
 		m_abForcePeace[iI] = false;
 		m_abVassal[iI] = false;
 
-		if (!bConstructorCall && getID() != NO_TEAM)
-		{
-			CvTeam& kLoopTeam = GET_TEAM((TeamTypes) iI);
+		if (!bConstructorCall && getID() != NO_TEAM) {
+			CvTeam& kLoopTeam = GET_TEAM((TeamTypes)iI);
 			kLoopTeam.m_aiStolenVisibilityTimer[getID()] = 0;
 			kLoopTeam.m_aiWarWeariness[getID()] = 0;
 			kLoopTeam.m_aiTechShareCount[getID()] = 0;
@@ -233,117 +219,101 @@ void CvTeam::reset(TeamTypes eID, bool bConstructorCall)
 		}
 	}
 
-	for (int iI = 0; iI < NUM_COMMERCE_TYPES; iI++)
-	{
+	for (int iI = 0; iI < NUM_COMMERCE_TYPES; iI++) {
 		m_aiCommerceFlexibleCount[iI] = 0;
 	}
 
-	for (int iI = 0; iI < NUM_DOMAIN_TYPES; iI++)
-	{
+	for (int iI = 0; iI < NUM_DOMAIN_TYPES; iI++) {
 		m_aiExtraMoves[iI] = 0;
 	}
 
-	if (!bConstructorCall)
-	{
-		FAssertMsg(m_abCanLaunch==NULL, "about to leak memory, CvTeam::m_abCanLaunch");
+	if (!bConstructorCall) {
+		FAssertMsg(m_abCanLaunch == NULL, "about to leak memory, CvTeam::m_abCanLaunch");
 		m_abCanLaunch = new bool[GC.getNumVictoryInfos()];
-		for (int iI = 0; iI < GC.getNumVictoryInfos(); iI++)
-		{
+		for (int iI = 0; iI < GC.getNumVictoryInfos(); iI++) {
 			m_abCanLaunch[iI] = false;
 		}
 
-		FAssertMsg(m_paiRouteChange==NULL, "about to leak memory, CvTeam::m_paiRouteChange");
+		FAssertMsg(m_paiRouteChange == NULL, "about to leak memory, CvTeam::m_paiRouteChange");
 		m_paiRouteChange = new int[GC.getNumRouteInfos()];
-		for (int iI = 0; iI < GC.getNumRouteInfos(); iI++)
-		{
+		for (int iI = 0; iI < GC.getNumRouteInfos(); iI++) {
 			m_paiRouteChange[iI] = 0;
 		}
 
-		FAssertMsg(m_paiProjectCount==NULL, "about to leak memory, CvPlayer::m_paiProjectCount");
-		m_paiProjectCount = new int [GC.getNumProjectInfos()];
-		FAssertMsg(m_paiProjectDefaultArtTypes==NULL, "about to leak memory, CvPlayer::m_paiProjectDefaultArtTypes");
-		m_paiProjectDefaultArtTypes = new int [GC.getNumProjectInfos()];
-		FAssertMsg(m_pavProjectArtTypes==NULL, "about to leak memory, CvPlayer::m_pavProjectArtTypes");
-		m_pavProjectArtTypes = new std::vector<int> [GC.getNumProjectInfos()];
-		FAssertMsg(m_paiProjectMaking==NULL, "about to leak memory, CvPlayer::m_paiProjectMaking");
-		m_paiProjectMaking = new int [GC.getNumProjectInfos()];
-		for (int iI = 0; iI < GC.getNumProjectInfos(); iI++)
-		{
+		FAssertMsg(m_paiProjectCount == NULL, "about to leak memory, CvPlayer::m_paiProjectCount");
+		m_paiProjectCount = new int[GC.getNumProjectInfos()];
+		FAssertMsg(m_paiProjectDefaultArtTypes == NULL, "about to leak memory, CvPlayer::m_paiProjectDefaultArtTypes");
+		m_paiProjectDefaultArtTypes = new int[GC.getNumProjectInfos()];
+		FAssertMsg(m_pavProjectArtTypes == NULL, "about to leak memory, CvPlayer::m_pavProjectArtTypes");
+		m_pavProjectArtTypes = new std::vector<int>[GC.getNumProjectInfos()];
+		FAssertMsg(m_paiProjectMaking == NULL, "about to leak memory, CvPlayer::m_paiProjectMaking");
+		m_paiProjectMaking = new int[GC.getNumProjectInfos()];
+		for (int iI = 0; iI < GC.getNumProjectInfos(); iI++) {
 			m_paiProjectCount[iI] = 0;
 			m_paiProjectDefaultArtTypes[iI] = 0;
 			m_paiProjectMaking[iI] = 0;
 		}
 
-		FAssertMsg(m_paiUnitClassCount==NULL, "about to leak memory, CvTeam::m_paiUnitClassCount");
-		m_paiUnitClassCount = new int [GC.getNumUnitClassInfos()];
-		for (int iI = 0; iI < GC.getNumUnitClassInfos(); iI++)
-		{
+		FAssertMsg(m_paiUnitClassCount == NULL, "about to leak memory, CvTeam::m_paiUnitClassCount");
+		m_paiUnitClassCount = new int[GC.getNumUnitClassInfos()];
+		for (int iI = 0; iI < GC.getNumUnitClassInfos(); iI++) {
 			m_paiUnitClassCount[iI] = 0;
 		}
 
-		FAssertMsg(m_paiBuildingClassCount==NULL, "about to leak memory, CvTeam::m_paiBuildingClassCount");
-		m_paiBuildingClassCount = new int [GC.getNumBuildingClassInfos()];
-		for (int iI = 0; iI < GC.getNumBuildingClassInfos(); iI++)
-		{
+		FAssertMsg(m_paiBuildingClassCount == NULL, "about to leak memory, CvTeam::m_paiBuildingClassCount");
+		m_paiBuildingClassCount = new int[GC.getNumBuildingClassInfos()];
+		for (int iI = 0; iI < GC.getNumBuildingClassInfos(); iI++) {
 			m_paiBuildingClassCount[iI] = 0;
 		}
 
-		FAssertMsg(m_paiObsoleteBuildingCount==NULL, "about to leak memory, CvTeam::m_paiObsoleteBuildingCount");
+		FAssertMsg(m_paiObsoleteBuildingCount == NULL, "about to leak memory, CvTeam::m_paiObsoleteBuildingCount");
 		m_paiObsoleteBuildingCount = new int[GC.getNumBuildingInfos()];
-		for (int iI = 0; iI < GC.getNumBuildingInfos(); iI++)
-		{
+		for (int iI = 0; iI < GC.getNumBuildingInfos(); iI++) {
 			m_paiObsoleteBuildingCount[iI] = 0;
 		}
 
-		FAssertMsg(m_paiResearchProgress==NULL, "about to leak memory, CvPlayer::m_paiResearchProgress");
-		m_paiResearchProgress = new int [GC.getNumTechInfos()];
-		FAssertMsg(m_paiTechCount==NULL, "about to leak memory, CvPlayer::m_paiTechCount");
-		m_paiTechCount = new int [GC.getNumTechInfos()];
-		for (int iI = 0; iI < GC.getNumTechInfos(); iI++)
-		{
+		FAssertMsg(m_paiResearchProgress == NULL, "about to leak memory, CvPlayer::m_paiResearchProgress");
+		m_paiResearchProgress = new int[GC.getNumTechInfos()];
+		FAssertMsg(m_paiTechCount == NULL, "about to leak memory, CvPlayer::m_paiTechCount");
+		m_paiTechCount = new int[GC.getNumTechInfos()];
+		for (int iI = 0; iI < GC.getNumTechInfos(); iI++) {
 			m_paiResearchProgress[iI] = 0;
 			m_paiTechCount[iI] = 0;
 		}
 
-		FAssertMsg(m_paiTerrainTradeCount==NULL, "about to leak memory, CvTeam::m_paiTerrainTradeCount");
+		FAssertMsg(m_paiTerrainTradeCount == NULL, "about to leak memory, CvTeam::m_paiTerrainTradeCount");
 		m_paiTerrainTradeCount = new int[GC.getNumTerrainInfos()];
-		for (int iI = 0; iI < GC.getNumTerrainInfos(); iI++)
-		{
+		for (int iI = 0; iI < GC.getNumTerrainInfos(); iI++) {
 			m_paiTerrainTradeCount[iI] = 0;
 		}
 
-		FAssertMsg(m_aiVictoryCountdown==NULL, "about to leak memory, CvTeam::m_aiVictoryCountdown");
+		FAssertMsg(m_aiVictoryCountdown == NULL, "about to leak memory, CvTeam::m_aiVictoryCountdown");
 		m_aiVictoryCountdown = new int[GC.getNumVictoryInfos()];
-		for (int iI = 0; iI < GC.getNumVictoryInfos(); iI++)
-		{
+		for (int iI = 0; iI < GC.getNumVictoryInfos(); iI++) {
 			m_aiVictoryCountdown[iI] = -1;
 		}
 
-		FAssertMsg(m_pabHasTech==NULL, "about to leak memory, CvTeam::m_pabHasTech");
+		FAssertMsg(m_pabHasTech == NULL, "about to leak memory, CvTeam::m_pabHasTech");
 		m_pabHasTech = new bool[GC.getNumTechInfos()];
-		FAssertMsg(m_pabNoTradeTech==NULL, "about to leak memory, CvTeam::m_pabNoTradeTech");
+		FAssertMsg(m_pabNoTradeTech == NULL, "about to leak memory, CvTeam::m_pabNoTradeTech");
 		m_pabNoTradeTech = new bool[GC.getNumTechInfos()];
-		for (int iI = 0; iI < GC.getNumTechInfos(); iI++)
-		{
+		for (int iI = 0; iI < GC.getNumTechInfos(); iI++) {
 			m_pabHasTech[iI] = false;
 			m_pabNoTradeTech[iI] = false;
 		}
 
-		FAssertMsg(m_ppaaiImprovementYieldChange==NULL, "about to leak memory, CvTeam::m_ppaaiImprovementYieldChange");
-		m_ppaaiImprovementYieldChange = new int*[GC.getNumImprovementInfos()];
-		for (int iI = 0; iI < GC.getNumImprovementInfos(); iI++)
-		{
+		FAssertMsg(m_ppaaiImprovementYieldChange == NULL, "about to leak memory, CvTeam::m_ppaaiImprovementYieldChange");
+		m_ppaaiImprovementYieldChange = new int* [GC.getNumImprovementInfos()];
+		for (int iI = 0; iI < GC.getNumImprovementInfos(); iI++) {
 			m_ppaaiImprovementYieldChange[iI] = new int[NUM_YIELD_TYPES];
-			for (int iJ = 0; iJ < NUM_YIELD_TYPES; iJ++)
-			{
+			for (int iJ = 0; iJ < NUM_YIELD_TYPES; iJ++) {
 				m_ppaaiImprovementYieldChange[iI][iJ] = 0;
 			}
 		}
 
-		FAssertMsg(m_aiForceTeamVoteEligibilityCount==NULL, "about to leak memory, CvTeam::m_aiForceTeamVoteEligibilityCount");
+		FAssertMsg(m_aiForceTeamVoteEligibilityCount == NULL, "about to leak memory, CvTeam::m_aiForceTeamVoteEligibilityCount");
 		m_aiForceTeamVoteEligibilityCount = new int[GC.getNumVoteSourceInfos()];
-		for (int iI = 0; iI < GC.getNumVoteSourceInfos(); iI++)
-		{
+		for (int iI = 0; iI < GC.getNumVoteSourceInfos(); iI++) {
 			m_aiForceTeamVoteEligibilityCount[iI] = 0;
 		}
 
@@ -354,42 +324,34 @@ void CvTeam::reset(TeamTypes eID, bool bConstructorCall)
 }
 
 // for clearing data stored in plots and cities for this team
-void CvTeam::resetPlotAndCityData( )
-{
-	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++)
-	{
+void CvTeam::resetPlotAndCityData() {
+	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++) {
 		CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
-		
+
 		pLoopPlot->setRevealedOwner(getID(), NO_PLAYER);
 		pLoopPlot->setRevealedImprovementType(getID(), NO_IMPROVEMENT);
 		pLoopPlot->setRevealedRouteType(getID(), NO_ROUTE);
 		pLoopPlot->setRevealed(getID(), false, false, getID(), true);
 
 		CvCity* pLoopCity = pLoopPlot->getPlotCity();
-		if( pLoopCity != NULL )
-		{
+		if (pLoopCity != NULL) {
 			pLoopCity->setRevealed(getID(), false);
 			pLoopCity->setEspionageVisibility(getID(), false, true);
 		}
 	}
 }
 
-void CvTeam::addTeam(TeamTypes eTeam)
-{
+void CvTeam::addTeam(TeamTypes eTeam) {
 	FAssert(eTeam != NO_TEAM);
 	FAssert(eTeam != getID());
 
 	int iOriginalTeamSize = getNumMembers();// K-Mod
 
 	CvWString szBuffer;
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if ((GET_PLAYER((PlayerTypes)iI).getTeam() != getID()) && (GET_PLAYER((PlayerTypes)iI).getTeam() != eTeam))
-			{
-				if (GET_TEAM(GET_PLAYER((PlayerTypes)iI).getTeam()).isHasMet(getID()) && GET_TEAM(GET_PLAYER((PlayerTypes)iI).getTeam()).isHasMet(eTeam))
-				{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if ((GET_PLAYER((PlayerTypes)iI).getTeam() != getID()) && (GET_PLAYER((PlayerTypes)iI).getTeam() != eTeam)) {
+				if (GET_TEAM(GET_PLAYER((PlayerTypes)iI).getTeam()).isHasMet(getID()) && GET_TEAM(GET_PLAYER((PlayerTypes)iI).getTeam()).isHasMet(eTeam)) {
 					szBuffer = gDLL->getText("TXT_KEY_MISC_PLAYER_PERMANENT_ALLIANCE", getName().GetCString(), GET_TEAM(eTeam).getName().GetCString());
 					gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_THEIRALLIANCE", MESSAGE_TYPE_MINOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
 				}
@@ -406,73 +368,49 @@ void CvTeam::addTeam(TeamTypes eTeam)
 	shareItems(eTeam);
 	GET_TEAM(eTeam).shareItems(getID());
 
-	for (int iI = 0; iI < MAX_TEAMS; iI++)
-	{
-		if ((iI != getID()) && (iI != eTeam))
-		{
-			if (GET_TEAM((TeamTypes)iI).isAlive())
-			{
-				if (GET_TEAM(eTeam).isHasMet((TeamTypes)iI))
-				{
+	for (int iI = 0; iI < MAX_TEAMS; iI++) {
+		if ((iI != getID()) && (iI != eTeam)) {
+			if (GET_TEAM((TeamTypes)iI).isAlive()) {
+				if (GET_TEAM(eTeam).isHasMet((TeamTypes)iI)) {
 					meet(((TeamTypes)iI), false);
-				}
-				else if (isHasMet((TeamTypes)iI))
-				{
+				} else if (isHasMet((TeamTypes)iI)) {
 					GET_TEAM(eTeam).meet(((TeamTypes)iI), false);
 				}
 			}
 		}
 	}
 
-	for (int iI = 0; iI < MAX_TEAMS; iI++)
-	{
-		if ((iI != getID()) && (iI != eTeam))
-		{
-			if (GET_TEAM((TeamTypes)iI).isAlive())
-			{
-				if (GET_TEAM(eTeam).isAtWar((TeamTypes)iI))
-				{
+	for (int iI = 0; iI < MAX_TEAMS; iI++) {
+		if ((iI != getID()) && (iI != eTeam)) {
+			if (GET_TEAM((TeamTypes)iI).isAlive()) {
+				if (GET_TEAM(eTeam).isAtWar((TeamTypes)iI)) {
 					declareWar(((TeamTypes)iI), false, GET_TEAM(eTeam).AI_getWarPlan((TeamTypes)iI));
-				}
-				else if (isAtWar((TeamTypes)iI))
-				{
+				} else if (isAtWar((TeamTypes)iI)) {
 					GET_TEAM(eTeam).declareWar(((TeamTypes)iI), false, AI_getWarPlan((TeamTypes)iI));
 				}
 			}
 		}
 	}
 
-	for (int iI = 0; iI < MAX_TEAMS; iI++)
-	{
-		if ((iI != getID()) && (iI != eTeam))
-		{
-			if (GET_TEAM((TeamTypes)iI).isAlive())
-			{
-				if (GET_TEAM(eTeam).isPermanentWarPeace((TeamTypes)iI))
-				{
+	for (int iI = 0; iI < MAX_TEAMS; iI++) {
+		if ((iI != getID()) && (iI != eTeam)) {
+			if (GET_TEAM((TeamTypes)iI).isAlive()) {
+				if (GET_TEAM(eTeam).isPermanentWarPeace((TeamTypes)iI)) {
 					setPermanentWarPeace(((TeamTypes)iI), true);
-				}
-				else if (isPermanentWarPeace((TeamTypes)iI))
-				{
+				} else if (isPermanentWarPeace((TeamTypes)iI)) {
 					GET_TEAM(eTeam).setPermanentWarPeace(((TeamTypes)iI), true);
 				}
 			}
 		}
 	}
 
-	for (int iI = 0; iI < MAX_TEAMS; iI++)
-	{
-		if ((iI != getID()) && (iI != eTeam))
-		{
-			if (GET_TEAM((TeamTypes)iI).isAlive())
-			{
-				if (GET_TEAM(eTeam).isOpenBorders((TeamTypes)iI))
-				{
+	for (int iI = 0; iI < MAX_TEAMS; iI++) {
+		if ((iI != getID()) && (iI != eTeam)) {
+			if (GET_TEAM((TeamTypes)iI).isAlive()) {
+				if (GET_TEAM(eTeam).isOpenBorders((TeamTypes)iI)) {
 					setOpenBorders(((TeamTypes)iI), true);
 					GET_TEAM((TeamTypes)iI).setOpenBorders(getID(), true);
-				}
-				else if (isOpenBorders((TeamTypes)iI))
-				{
+				} else if (isOpenBorders((TeamTypes)iI)) {
 					GET_TEAM(eTeam).setOpenBorders(((TeamTypes)iI), true);
 					GET_TEAM((TeamTypes)iI).setOpenBorders(eTeam, true);
 				}
@@ -480,19 +418,13 @@ void CvTeam::addTeam(TeamTypes eTeam)
 		}
 	}
 
-	for (int iI = 0; iI < MAX_TEAMS; iI++)
-	{
-		if ((iI != getID()) && (iI != eTeam))
-		{
-			if (GET_TEAM((TeamTypes)iI).isAlive())
-			{
-				if (GET_TEAM(eTeam).isDefensivePact((TeamTypes)iI))
-				{
+	for (int iI = 0; iI < MAX_TEAMS; iI++) {
+		if ((iI != getID()) && (iI != eTeam)) {
+			if (GET_TEAM((TeamTypes)iI).isAlive()) {
+				if (GET_TEAM(eTeam).isDefensivePact((TeamTypes)iI)) {
 					setDefensivePact(((TeamTypes)iI), true);
 					GET_TEAM((TeamTypes)iI).setDefensivePact(getID(), true);
-				}
-				else if (isDefensivePact((TeamTypes)iI))
-				{
+				} else if (isDefensivePact((TeamTypes)iI)) {
 					GET_TEAM(eTeam).setDefensivePact(((TeamTypes)iI), true);
 					GET_TEAM((TeamTypes)iI).setDefensivePact(eTeam, true);
 				}
@@ -500,19 +432,13 @@ void CvTeam::addTeam(TeamTypes eTeam)
 		}
 	}
 
-	for (int iI = 0; iI < MAX_TEAMS; iI++)
-	{
-		if ((iI != getID()) && (iI != eTeam))
-		{
-			if (GET_TEAM((TeamTypes)iI).isAlive())
-			{
-				if (GET_TEAM(eTeam).isForcePeace((TeamTypes)iI))
-				{
+	for (int iI = 0; iI < MAX_TEAMS; iI++) {
+		if ((iI != getID()) && (iI != eTeam)) {
+			if (GET_TEAM((TeamTypes)iI).isAlive()) {
+				if (GET_TEAM(eTeam).isForcePeace((TeamTypes)iI)) {
 					setForcePeace(((TeamTypes)iI), true);
 					GET_TEAM((TeamTypes)iI).setForcePeace(getID(), true);
-				}
-				else if (isForcePeace((TeamTypes)iI))
-				{
+				} else if (isForcePeace((TeamTypes)iI)) {
 					GET_TEAM(eTeam).setForcePeace(((TeamTypes)iI), true);
 					GET_TEAM((TeamTypes)iI).setForcePeace(eTeam, true);
 				}
@@ -520,36 +446,24 @@ void CvTeam::addTeam(TeamTypes eTeam)
 		}
 	}
 
-	for (int iI = 0; iI < MAX_TEAMS; iI++)
-	{
-		if ((iI != getID()) && (iI != eTeam))
-		{
-			if (GET_TEAM((TeamTypes)iI).isAlive())
-			{
-				if (GET_TEAM(eTeam).isVassal((TeamTypes)iI))
-				{
+	for (int iI = 0; iI < MAX_TEAMS; iI++) {
+		if ((iI != getID()) && (iI != eTeam)) {
+			if (GET_TEAM((TeamTypes)iI).isAlive()) {
+				if (GET_TEAM(eTeam).isVassal((TeamTypes)iI)) {
 					setVassal(((TeamTypes)iI), true, GET_TEAM(eTeam).isCapitulated()); // K-Mod
-				}
-				else if (isVassal((TeamTypes)iI))
-				{
+				} else if (isVassal((TeamTypes)iI)) {
 					GET_TEAM(eTeam).setVassal(((TeamTypes)iI), true, isCapitulated());
 				}
 			}
 		}
 	}
 
-	for (int iI = 0; iI < MAX_TEAMS; iI++)
-	{
-		if ((iI != getID()) && (iI != eTeam))
-		{
-			if (GET_TEAM((TeamTypes)iI).isAlive())
-			{
-				if (GET_TEAM((TeamTypes)iI).isVassal(eTeam))
-				{
+	for (int iI = 0; iI < MAX_TEAMS; iI++) {
+		if ((iI != getID()) && (iI != eTeam)) {
+			if (GET_TEAM((TeamTypes)iI).isAlive()) {
+				if (GET_TEAM((TeamTypes)iI).isVassal(eTeam)) {
 					GET_TEAM((TeamTypes)iI).setVassal(getID(), true, GET_TEAM((TeamTypes)iI).isCapitulated());
-				}
-				else if (GET_TEAM((TeamTypes)iI).isVassal(getID()))
-				{
+				} else if (GET_TEAM((TeamTypes)iI).isVassal(getID())) {
 					GET_TEAM((TeamTypes)iI).setVassal(eTeam, true, GET_TEAM((TeamTypes)iI).isCapitulated());
 				}
 			}
@@ -559,10 +473,8 @@ void CvTeam::addTeam(TeamTypes eTeam)
 	shareCounters(eTeam);
 	// K-Mod note: eTeam is not going to be used after we've finished this merge, so the sharing does not need to be two-way.
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam)
-		{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam) {
 			GET_PLAYER((PlayerTypes)iI).setTeam(getID());
 		}
 	}
@@ -576,83 +488,68 @@ void CvTeam::addTeam(TeamTypes eTeam)
 
 		FAssert(iCostMultiplier >= 100);
 
-		for (TechTypes i = (TechTypes)0; i < GC.getNumTechInfos(); i=(TechTypes)(i+1))
-		{
+		for (TechTypes i = (TechTypes)0; i < GC.getNumTechInfos(); i = (TechTypes)(i + 1)) {
 			if (!isHasTech(i) && getResearchProgress(i) > 0)
-				setResearchProgress(i, getResearchProgress(i)*iCostMultiplier/100, getLeaderID());
+				setResearchProgress(i, getResearchProgress(i) * iCostMultiplier / 100, getLeaderID());
 		}
 	}
 
 	// K-Mod. The following cancel deals code has been moved from higher up.
 	// I've done this so that when open-borders is canceled, it doesn't bump our new allies out of our borders.
 	int iLoop;
-	for (CvDeal* pLoopDeal = GC.getGameINLINE().firstDeal(&iLoop); pLoopDeal != NULL; pLoopDeal = GC.getGameINLINE().nextDeal(&iLoop))
-	{
+	for (CvDeal* pLoopDeal = GC.getGameINLINE().firstDeal(&iLoop); pLoopDeal != NULL; pLoopDeal = GC.getGameINLINE().nextDeal(&iLoop)) {
 		// K-Mod. The player's teams have already been reassigned - so we don't check for eTeam anymore.
-		if (GET_PLAYER(pLoopDeal->getFirstPlayer()).getTeam() == getID() && GET_PLAYER(pLoopDeal->getSecondPlayer()).getTeam() == getID())
-			{
+		if (GET_PLAYER(pLoopDeal->getFirstPlayer()).getTeam() == getID() && GET_PLAYER(pLoopDeal->getSecondPlayer()).getTeam() == getID()) {
 			bool bValid = true;
 
-			if (pLoopDeal->getFirstTrades() != NULL)
-			{
-				for (CLLNode<TradeData>* pNode = pLoopDeal->getFirstTrades()->head(); pNode; pNode = pLoopDeal->getFirstTrades()->next(pNode))
-				{
+			if (pLoopDeal->getFirstTrades() != NULL) {
+				for (CLLNode<TradeData>* pNode = pLoopDeal->getFirstTrades()->head(); pNode; pNode = pLoopDeal->getFirstTrades()->next(pNode)) {
 					if ((pNode->m_data.m_eItemType == TRADE_OPEN_BORDERS) ||
-						  (pNode->m_data.m_eItemType == TRADE_DEFENSIVE_PACT) ||
-						  (pNode->m_data.m_eItemType == TRADE_PEACE_TREATY) ||
-						  (pNode->m_data.m_eItemType == TRADE_VASSAL) ||
-						  (pNode->m_data.m_eItemType == TRADE_SURRENDER))
-					{
+						(pNode->m_data.m_eItemType == TRADE_DEFENSIVE_PACT) ||
+						(pNode->m_data.m_eItemType == TRADE_PEACE_TREATY) ||
+						(pNode->m_data.m_eItemType == TRADE_VASSAL) ||
+						(pNode->m_data.m_eItemType == TRADE_SURRENDER)) {
 						bValid = false;
 					}
 				}
 			}
 
-			if (pLoopDeal->getSecondTrades() != NULL)
-			{
-				for (CLLNode<TradeData>* pNode = pLoopDeal->getSecondTrades()->head(); pNode; pNode = pLoopDeal->getSecondTrades()->next(pNode))
-				{
+			if (pLoopDeal->getSecondTrades() != NULL) {
+				for (CLLNode<TradeData>* pNode = pLoopDeal->getSecondTrades()->head(); pNode; pNode = pLoopDeal->getSecondTrades()->next(pNode)) {
 					if ((pNode->m_data.m_eItemType == TRADE_OPEN_BORDERS) ||
-						  (pNode->m_data.m_eItemType == TRADE_DEFENSIVE_PACT) ||
-						  (pNode->m_data.m_eItemType == TRADE_PEACE_TREATY) ||
-						  (pNode->m_data.m_eItemType == TRADE_VASSAL) ||
-						  (pNode->m_data.m_eItemType == TRADE_SURRENDER))
-					{
+						(pNode->m_data.m_eItemType == TRADE_DEFENSIVE_PACT) ||
+						(pNode->m_data.m_eItemType == TRADE_PEACE_TREATY) ||
+						(pNode->m_data.m_eItemType == TRADE_VASSAL) ||
+						(pNode->m_data.m_eItemType == TRADE_SURRENDER)) {
 						bValid = false;
 					}
 				}
 			}
 
-			if (!bValid)
-			{
+			if (!bValid) {
 				pLoopDeal->kill();
 			}
 		}
 	}
 
-	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++)
-	{
+	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++) {
 		CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
 
 		pLoopPlot->changeVisibilityCount(getID(), pLoopPlot->getVisibilityCount(eTeam), NO_INVISIBLE, false);
 
-		for (int iJ = 0; iJ < GC.getNumInvisibleInfos(); iJ++)
-		{
+		for (int iJ = 0; iJ < GC.getNumInvisibleInfos(); iJ++) {
 			pLoopPlot->changeInvisibleVisibilityCount(getID(), ((InvisibleTypes)iJ), pLoopPlot->getInvisibleVisibilityCount(eTeam, ((InvisibleTypes)iJ)));
 		}
 
-		if (pLoopPlot->isRevealed(eTeam, false))
-		{
+		if (pLoopPlot->isRevealed(eTeam, false)) {
 			pLoopPlot->setRevealed(getID(), true, false, eTeam, false);
 		}
 	}
 
 	GC.getGameINLINE().updatePlotGroups();
 
-	for (int iI = 0; iI < MAX_TEAMS; iI++)
-	{
-		if ((iI != getID()) && (iI != eTeam))
-		{
+	for (int iI = 0; iI < MAX_TEAMS; iI++) {
+		if ((iI != getID()) && (iI != eTeam)) {
 			CvTeamAI& kLoopTeam = GET_TEAM((TeamTypes)iI); // K-Mod
 			kLoopTeam.setWarWeariness(getID(), ((kLoopTeam.getWarWeariness(getID()) + kLoopTeam.getWarWeariness(eTeam)) / 2));
 			kLoopTeam.setStolenVisibilityTimer(getID(), ((kLoopTeam.getStolenVisibilityTimer(getID()) + kLoopTeam.getStolenVisibilityTimer(eTeam)) / 2));
@@ -666,8 +563,7 @@ void CvTeam::addTeam(TeamTypes eTeam)
 			kLoopTeam.AI_setEnemyPeacetimeGrantValue(getID(), ((kLoopTeam.AI_getEnemyPeacetimeGrantValue(getID()) + kLoopTeam.AI_getEnemyPeacetimeGrantValue(eTeam)) / 2));
 			kLoopTeam.setEspionagePointsAgainstTeam(getID(), std::max(kLoopTeam.getEspionagePointsAgainstTeam(getID()), kLoopTeam.getEspionagePointsAgainstTeam(eTeam))); // unofficial patch
 
-			if (kLoopTeam.isAlive())
-			{
+			if (kLoopTeam.isAlive()) {
 				kLoopTeam.AI_setWarPlan(getID(), NO_WARPLAN, false);
 				kLoopTeam.AI_setWarPlan(eTeam, NO_WARPLAN, false);
 			}
@@ -682,54 +578,38 @@ void CvTeam::addTeam(TeamTypes eTeam)
 }
 
 
-void CvTeam::shareItems(TeamTypes eTeam)
-{
+void CvTeam::shareItems(TeamTypes eTeam) {
 	FAssert(eTeam != NO_TEAM);
 	FAssert(eTeam != getID());
 
-	for (int iI = 0; iI < GC.getNumTechInfos(); iI++)
-	{
-		if (GET_TEAM(eTeam).isHasTech((TechTypes)iI))
-		{
+	for (int iI = 0; iI < GC.getNumTechInfos(); iI++) {
+		if (GET_TEAM(eTeam).isHasTech((TechTypes)iI)) {
 			setHasTech(((TechTypes)iI), true, NO_PLAYER, true, false);
 		}
 	}
 
-	for (int iI = 0; iI < GC.getNumBonusInfos(); ++iI)
-	{
-		if (GET_TEAM(eTeam).isForceRevealedBonus((BonusTypes)iI))
-		{
+	for (int iI = 0; iI < GC.getNumBonusInfos(); ++iI) {
+		if (GET_TEAM(eTeam).isForceRevealedBonus((BonusTypes)iI)) {
 			setForceRevealedBonus((BonusTypes)iI, true);
 		}
 	}
 
-	for (int iTeam = 0; iTeam < MAX_TEAMS; ++iTeam)
-	{
+	for (int iTeam = 0; iTeam < MAX_TEAMS; ++iTeam) {
 		setEspionagePointsAgainstTeam((TeamTypes)iTeam, std::max(GET_TEAM(eTeam).getEspionagePointsAgainstTeam((TeamTypes)iTeam), getEspionagePointsAgainstTeam((TeamTypes)iTeam)));
 	}
 	setEspionagePointsEver(std::max(GET_TEAM(eTeam).getEspionagePointsEver(), getEspionagePointsEver())); // K-Mod
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam)
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam) {
 				int iLoop;
-				for (CvCity* pLoopCity = GET_PLAYER((PlayerTypes)iI).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER((PlayerTypes)iI).nextCity(&iLoop))
-				{
-					for (int iJ = 0; iJ < GC.getNumBuildingInfos(); iJ++)
-					{
-						if (pLoopCity->getNumBuilding((BuildingTypes)iJ) > 0)
-						{
-							if (!isObsoleteBuilding((BuildingTypes)iJ))
-							{
-								if (GC.getBuildingInfo((BuildingTypes)iJ).isTeamShare())
-								{
-									for (int iK = 0; iK < MAX_PLAYERS; iK++)
-									{
-										if (GET_PLAYER((PlayerTypes)iK).getTeam() == getID())
-										{
+				for (CvCity* pLoopCity = GET_PLAYER((PlayerTypes)iI).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER((PlayerTypes)iI).nextCity(&iLoop)) {
+					for (int iJ = 0; iJ < GC.getNumBuildingInfos(); iJ++) {
+						if (pLoopCity->getNumBuilding((BuildingTypes)iJ) > 0) {
+							if (!isObsoleteBuilding((BuildingTypes)iJ)) {
+								if (GC.getBuildingInfo((BuildingTypes)iJ).isTeamShare()) {
+									for (int iK = 0; iK < MAX_PLAYERS; iK++) {
+										if (GET_PLAYER((PlayerTypes)iK).getTeam() == getID()) {
 											GET_PLAYER((PlayerTypes)iK).processBuilding(((BuildingTypes)iJ), pLoopCity->getNumBuilding((BuildingTypes)iJ), pLoopCity->area());
 										}
 									}
@@ -744,12 +624,9 @@ void CvTeam::shareItems(TeamTypes eTeam)
 		}
 	}
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam)
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam) {
 				GET_PLAYER((PlayerTypes)iI).AI_updateBonusValue();
 			}
 		}
@@ -757,13 +634,10 @@ void CvTeam::shareItems(TeamTypes eTeam)
 }
 
 // K-Mod. I've editted this function quite a lot. (for reasons that have been lost in the sands of time)
-void CvTeam::shareCounters(TeamTypes eTeam)
-{
+void CvTeam::shareCounters(TeamTypes eTeam) {
 	CvTeamAI& kShareTeam = GET_TEAM(eTeam); // K-Mod
-	for (TeamTypes eLoopTeam = (TeamTypes)0; eLoopTeam < MAX_TEAMS; eLoopTeam=(TeamTypes)(eLoopTeam+1))
-	{
-		if (eLoopTeam != getID() && eLoopTeam != eTeam)
-		{
+	for (TeamTypes eLoopTeam = (TeamTypes)0; eLoopTeam < MAX_TEAMS; eLoopTeam = (TeamTypes)(eLoopTeam + 1)) {
+		if (eLoopTeam != getID() && eLoopTeam != eTeam) {
 			if (kShareTeam.getWarWeariness(eLoopTeam) > getWarWeariness(eLoopTeam))
 				setWarWeariness(eLoopTeam, kShareTeam.getWarWeariness(eLoopTeam));
 
@@ -802,12 +676,10 @@ void CvTeam::shareCounters(TeamTypes eTeam)
 		}
 	}
 
-	for (ProjectTypes eProject = (ProjectTypes)0; eProject < GC.getNumProjectInfos(); eProject=(ProjectTypes)(eProject+1))
-	{
+	for (ProjectTypes eProject = (ProjectTypes)0; eProject < GC.getNumProjectInfos(); eProject = (ProjectTypes)(eProject + 1)) {
 		// set project counts to the max of the two teams.
 		int iDelta = kShareTeam.getProjectCount(eProject) - getProjectCount(eProject);
-		if (iDelta > 0)
-		{
+		if (iDelta > 0) {
 			changeProjectCount(eProject, iDelta);
 			// don't count the additional projects that have been added in thiw way
 			GC.getGameINLINE().incrementProjectCreatedCount(eProject, -iDelta);
@@ -818,55 +690,44 @@ void CvTeam::shareCounters(TeamTypes eTeam)
 		changeProjectMaking(eProject, kShareTeam.getProjectMaking(eProject));
 	}
 
-	for (UnitClassTypes eUnitClass = (UnitClassTypes)0; eUnitClass < GC.getNumUnitClassInfos(); eUnitClass=(UnitClassTypes)(eUnitClass+1))
-	{
+	for (UnitClassTypes eUnitClass = (UnitClassTypes)0; eUnitClass < GC.getNumUnitClassInfos(); eUnitClass = (UnitClassTypes)(eUnitClass + 1)) {
 		changeUnitClassCount(eUnitClass, kShareTeam.getUnitClassCount(eUnitClass));
 	}
 
-	for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass=(BuildingClassTypes)(eBuildingClass+1))
-	{
+	for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
 		changeBuildingClassCount(eBuildingClass, kShareTeam.getBuildingClassCount(eBuildingClass));
 	}
 
-	for (TechTypes eTech = (TechTypes)0; eTech < GC.getNumTechInfos(); eTech=(TechTypes)(eTech+1))
-	{
-		if (!isHasTech(eTech) && !kShareTeam.isHasTech(eTech))
-		{
+	for (TechTypes eTech = (TechTypes)0; eTech < GC.getNumTechInfos(); eTech = (TechTypes)(eTech + 1)) {
+		if (!isHasTech(eTech) && !kShareTeam.isHasTech(eTech)) {
 			// K-Mod note: it's difficult to do any combined proportionality adjustments here, because if we set
 			// the progress higher than the current cost then we'll get the tech right now before the cost is increased.
 			// We can however adjust for uneven tech costs before the teams are merged.
 			// (eg. suppose techs are more expensive for team 2; if team 2 almost has a tech - and if progress is
 			//  transfered without adjustment, team 1 will immediately get the tech even though team 2 didn't finish it.)
 
-			if (kShareTeam.getResearchProgress(eTech) * getResearchCost(eTech) > getResearchProgress(eTech) * kShareTeam.getResearchCost(eTech))
-			{
+			if (kShareTeam.getResearchProgress(eTech) * getResearchCost(eTech) > getResearchProgress(eTech) * kShareTeam.getResearchCost(eTech)) {
 				setResearchProgress(eTech, kShareTeam.getResearchProgress(eTech) * getResearchCost(eTech) / std::max(1, kShareTeam.getResearchCost(eTech)), getLeaderID());
 			}
 		}
 
 		// unofficial patch
-		if ( kShareTeam.isHasTech(eTech) && !(kShareTeam.isNoTradeTech(eTech)) )
-		{
+		if (kShareTeam.isHasTech(eTech) && !(kShareTeam.isNoTradeTech(eTech))) {
 			setNoTradeTech((eTech), false);
 		}
 	}
 }
 
 
-void CvTeam::processBuilding(BuildingTypes eBuilding, int iChange)
-{
-	for (int i = 0; i < GC.getNumVoteSourceInfos(); ++i)
-	{
-		if (GC.getBuildingInfo(eBuilding).getVoteSourceType() == i)
-		{
+void CvTeam::processBuilding(BuildingTypes eBuilding, int iChange) {
+	for (int i = 0; i < GC.getNumVoteSourceInfos(); ++i) {
+		if (GC.getBuildingInfo(eBuilding).getVoteSourceType() == i) {
 			changeForceTeamVoteEligibilityCount((VoteSourceTypes)i, (GC.getBuildingInfo(eBuilding).isForceTeamVoteEligible()) ? iChange : 0);
 		}
 	}
 
-	if (GC.getBuildingInfo(eBuilding).isMapCentering())
-	{
-		if (iChange > 0)
-		{
+	if (GC.getBuildingInfo(eBuilding).isMapCentering()) {
+		if (iChange > 0) {
 			setMapCentering(true);
 		}
 	}
@@ -875,34 +736,27 @@ void CvTeam::processBuilding(BuildingTypes eBuilding, int iChange)
 }
 
 
-void CvTeam::doTurn()
-{
+void CvTeam::doTurn() {
 	PROFILE("CvTeam::doTurn()")
 
-	FAssert(isAlive());
+		FAssert(isAlive());
 
 	AI_doTurnPre();
 
-	if (isBarbarian())
-	{
+	if (isBarbarian()) {
 		// K-Mod. Delay the start of the barbarian research. (This is an experimental change. It is currently compensated by an increase in the barbarian tech rate.)
 		const CvPlayerAI& kBarbPlayer = GET_PLAYER(getLeaderID());
 		const CvGame& kGame = GC.getGameINLINE();
-		if (kGame.getElapsedGameTurns() >= GC.getHandicapInfo(kGame.getHandicapType()).getBarbarianCreationTurnsElapsed() * GC.getGameSpeedInfo(kGame.getGameSpeedType()).getBarbPercent() / 200)
-		{
-			for (TechTypes i = (TechTypes)0; i < GC.getNumTechInfos(); i = (TechTypes)(i+1))
-			{
+		if (kGame.getElapsedGameTurns() >= GC.getHandicapInfo(kGame.getHandicapType()).getBarbarianCreationTurnsElapsed() * GC.getGameSpeedInfo(kGame.getGameSpeedType()).getBarbPercent() / 200) {
+			for (TechTypes i = (TechTypes)0; i < GC.getNumTechInfos(); i = (TechTypes)(i + 1)) {
 				if (!isHasTech(i) && kBarbPlayer.canResearch(i, 0, true)) // K-Mod. Make no progress on techs until prereqs are researched.
 				{
 					int iCount = 0;
 					int iPossibleCount = 0;
 
-					for (int iJ = 0; iJ < MAX_CIV_TEAMS; iJ++)
-					{
-						if (GET_TEAM((TeamTypes)iJ).isAlive())
-						{
-							if (GET_TEAM((TeamTypes)iJ).isHasTech(i))
-							{
+					for (int iJ = 0; iJ < MAX_CIV_TEAMS; iJ++) {
+						if (GET_TEAM((TeamTypes)iJ).isAlive()) {
+							if (GET_TEAM((TeamTypes)iJ).isHasTech(i)) {
 								iCount++;
 							}
 
@@ -910,44 +764,36 @@ void CvTeam::doTurn()
 						}
 					}
 
-					if (iCount > 0)
-					{
+					if (iCount > 0) {
 						FAssertMsg(iPossibleCount > 0, "iPossibleCount is expected to be greater than 0");
 
 						// K-Mod. Adjust research rate for game-speed & start-era - but _not_ world-size. And fix the rounding error.
 						int iBaseCost = getResearchCost(i, false) * GC.getWorldInfo(GC.getMapINLINE().getWorldSize()).getResearchPercent() / 100;
 						changeResearchProgress(i, std::max(1, iBaseCost * GC.getDefineINT("BARBARIAN_FREE_TECH_PERCENT") * iCount / (100 * iPossibleCount)), kBarbPlayer.getID());
-										}
+					}
 				}
 			}
 		}
 	}
 
-	for (int iI = 0; iI < MAX_TEAMS; iI++)
-	{
-		if (GET_TEAM((TeamTypes)iI).isAlive())
-		{
-			if (getStolenVisibilityTimer((TeamTypes)iI) > 0)
-			{
+	for (int iI = 0; iI < MAX_TEAMS; iI++) {
+		if (GET_TEAM((TeamTypes)iI).isAlive()) {
+			if (getStolenVisibilityTimer((TeamTypes)iI) > 0) {
 				changeStolenVisibilityTimer(((TeamTypes)iI), -1);
 			}
 
-			if (getCounterespionageTurnsLeftAgainstTeam((TeamTypes) iI) > 0)
-			{
-				changeCounterespionageTurnsLeftAgainstTeam((TeamTypes) iI, -1);
+			if (getCounterespionageTurnsLeftAgainstTeam((TeamTypes)iI) > 0) {
+				changeCounterespionageTurnsLeftAgainstTeam((TeamTypes)iI, -1);
 			}
 
-			if (getCounterespionageTurnsLeftAgainstTeam((TeamTypes) iI) == 0)
-			{
-				setCounterespionageModAgainstTeam((TeamTypes) iI, 0);
+			if (getCounterespionageTurnsLeftAgainstTeam((TeamTypes)iI) == 0) {
+				setCounterespionageModAgainstTeam((TeamTypes)iI, 0);
 			}
 		}
 	}
 
-	if (!GC.getGameINLINE().isOption(GAMEOPTION_NO_TECH_BROKERING))
-	{
-		for (int iI = 0; iI < GC.getNumTechInfos(); iI++)
-		{
+	if (!GC.getGameINLINE().isOption(GAMEOPTION_NO_TECH_BROKERING)) {
+		for (int iI = 0; iI < GC.getNumTechInfos(); iI++) {
 			setNoTradeTech(((TechTypes)iI), false);
 		}
 
@@ -961,14 +807,10 @@ void CvTeam::doTurn()
 }
 
 
-void CvTeam::updateYield()
-{
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-			{
+void CvTeam::updateYield() {
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 				GET_PLAYER((PlayerTypes)iI).updateYield();
 			}
 		}
@@ -976,14 +818,10 @@ void CvTeam::updateYield()
 }
 
 
-void CvTeam::updatePowerHealth()
-{
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-			{
+void CvTeam::updatePowerHealth() {
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 				GET_PLAYER((PlayerTypes)iI).updatePowerHealth();
 			}
 		}
@@ -991,14 +829,10 @@ void CvTeam::updatePowerHealth()
 }
 
 
-void CvTeam::updateCommerce()
-{
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-			{
+void CvTeam::updateCommerce() {
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 				GET_PLAYER((PlayerTypes)iI).updateCommerce();
 			}
 		}
@@ -1006,56 +840,42 @@ void CvTeam::updateCommerce()
 }
 
 
-bool CvTeam::canChangeWarPeace(TeamTypes eTeam, bool bAllowVassal) const
-{
-	if (GC.getGameINLINE().isOption(GAMEOPTION_NO_CHANGING_WAR_PEACE))
-	{
+bool CvTeam::canChangeWarPeace(TeamTypes eTeam, bool bAllowVassal) const {
+	if (GC.getGameINLINE().isOption(GAMEOPTION_NO_CHANGING_WAR_PEACE)) {
 		return false;
 	}
 
-	if (eTeam == getID())
-	{
+	if (eTeam == getID()) {
 		return false;
 	}
 
-	if (isPermanentWarPeace(eTeam) || GET_TEAM(eTeam).isPermanentWarPeace(getID()))
-	{
+	if (isPermanentWarPeace(eTeam) || GET_TEAM(eTeam).isPermanentWarPeace(getID())) {
 		return false;
 	}
 
-	for (int iLoopTeam = 0; iLoopTeam < MAX_CIV_TEAMS; ++iLoopTeam)
-	{
+	for (int iLoopTeam = 0; iLoopTeam < MAX_CIV_TEAMS; ++iLoopTeam) {
 		CvTeam& kLoopTeam = GET_TEAM((TeamTypes)iLoopTeam);
-		if (kLoopTeam.isAlive())
-		{
-			if (kLoopTeam.isVassal(getID()) && kLoopTeam.isPermanentWarPeace(eTeam))
-			{
+		if (kLoopTeam.isAlive()) {
+			if (kLoopTeam.isVassal(getID()) && kLoopTeam.isPermanentWarPeace(eTeam)) {
 				return false;
 			}
 
-			if (kLoopTeam.isVassal(eTeam) && kLoopTeam.isPermanentWarPeace(getID()))
-			{
+			if (kLoopTeam.isVassal(eTeam) && kLoopTeam.isPermanentWarPeace(getID())) {
 				return false;
 			}
 		}
 	}
 
-	if (isAVassal())
-	{
+	if (isAVassal()) {
 		return false;
 	}
 
-	if (bAllowVassal)
-	{
-		if (GET_TEAM(eTeam).isVassal(getID()))
-		{
+	if (bAllowVassal) {
+		if (GET_TEAM(eTeam).isVassal(getID())) {
 			return false;
 		}
-	}
-	else
-	{
-		if (GET_TEAM(eTeam).isAVassal())
-		{
+	} else {
+		if (GET_TEAM(eTeam).isAVassal()) {
 			return false;
 		}
 	}
@@ -1065,22 +885,17 @@ bool CvTeam::canChangeWarPeace(TeamTypes eTeam, bool bAllowVassal) const
 
 // K-Mod, I've removed the bulk of this function and replaced it with just a call to "canEventuallyDeclareWar",
 // which contains all of the original checks. I've done this to reduce code dupliation.
-bool CvTeam::canDeclareWar(TeamTypes eTeam) const
-{
+bool CvTeam::canDeclareWar(TeamTypes eTeam) const {
 	if (!canEventuallyDeclareWar(eTeam))
 		return false;
 
-	if (isForcePeace(eTeam))
-	{
+	if (isForcePeace(eTeam)) {
 		return false;
 	}
 
-	for (int i = 0; i < MAX_TEAMS; ++i)
-	{
-		if (i != eTeam && i != getID() && GET_TEAM(eTeam).isVassal((TeamTypes)i))
-		{
-			if (isForcePeace((TeamTypes)i))
-			{
+	for (int i = 0; i < MAX_TEAMS; ++i) {
+		if (i != eTeam && i != getID() && GET_TEAM(eTeam).isVassal((TeamTypes)i)) {
+			if (isForcePeace((TeamTypes)i)) {
 				return false;
 			}
 		}
@@ -1089,48 +904,39 @@ bool CvTeam::canDeclareWar(TeamTypes eTeam) const
 	return true;
 }
 
-bool CvTeam::canEventuallyDeclareWar(TeamTypes eTeam) const
-{
-	if (eTeam == getID())
-	{
+bool CvTeam::canEventuallyDeclareWar(TeamTypes eTeam) const {
+	if (eTeam == getID()) {
 		return false;
 	}
 
-	if (!(isAlive()) || !(GET_TEAM(eTeam).isAlive()))
-	{
+	if (!(isAlive()) || !(GET_TEAM(eTeam).isAlive())) {
 		return false;
 	}
 
-	if (isAtWar(eTeam))
-	{
+	if (isAtWar(eTeam)) {
 		return false;
 	}
 
-	if (!isHasMet(eTeam))
-	{
+	if (!isHasMet(eTeam)) {
 		return false;
 	}
 
-	if (!canChangeWarPeace(eTeam, true))
-	{
+	if (!canChangeWarPeace(eTeam, true)) {
 		return false;
 	}
 
-	if (GC.getGameINLINE().isOption(GAMEOPTION_ALWAYS_PEACE))
-	{
+	if (GC.getGameINLINE().isOption(GAMEOPTION_ALWAYS_PEACE)) {
 		return false;
 	}
 
-	if(GC.getUSE_CAN_DECLARE_WAR_CALLBACK())
-	{
+	if (GC.getUSE_CAN_DECLARE_WAR_CALLBACK()) {
 		CyArgsList argsList;
 		argsList.add(getID());	// Team ID
 		argsList.add(eTeam);	// pass in city class
-		long lResult=0;
+		long lResult = 0;
 		gDLL->getPythonIFace()->callFunction(PYGameModule, "canDeclareWar", argsList.makeFunctionArgs(), &lResult);
 
-		if (lResult == 0)
-		{
+		if (lResult == 0) {
 			return false;
 		}
 	}
@@ -1139,8 +945,7 @@ bool CvTeam::canEventuallyDeclareWar(TeamTypes eTeam) const
 }
 
 // K-Mod note: I've shuffled things around a bit in this function.
-void CvTeam::declareWar(TeamTypes eTeam, bool bNewDiplo, WarPlanTypes eWarPlan, bool bPrimaryDoW)
-{
+void CvTeam::declareWar(TeamTypes eTeam, bool bNewDiplo, WarPlanTypes eWarPlan, bool bPrimaryDoW) {
 	PROFILE_FUNC();
 
 	FAssertMsg(eTeam != NO_TEAM, "eTeam is not assigned a valid value");
@@ -1149,25 +954,20 @@ void CvTeam::declareWar(TeamTypes eTeam, bool bNewDiplo, WarPlanTypes eWarPlan, 
 	if (isAtWar(eTeam))
 		return;
 
-	if( gTeamLogLevel >= 1 )
-	{
+	if (gTeamLogLevel >= 1) {
 		logBBAI("  Team %d (%S) declares war on team %d", getID(), GET_PLAYER(getLeaderID()).getCivilizationDescription(0), eTeam);
 	}
 
 	int iLoop;
-	for (CvDeal* pLoopDeal = GC.getGameINLINE().firstDeal(&iLoop); pLoopDeal != NULL; pLoopDeal = GC.getGameINLINE().nextDeal(&iLoop))
-	{
+	for (CvDeal* pLoopDeal = GC.getGameINLINE().firstDeal(&iLoop); pLoopDeal != NULL; pLoopDeal = GC.getGameINLINE().nextDeal(&iLoop)) {
 		if (((GET_PLAYER(pLoopDeal->getFirstPlayer()).getTeam() == getID()) && (GET_PLAYER(pLoopDeal->getSecondPlayer()).getTeam() == eTeam)) ||
-				((GET_PLAYER(pLoopDeal->getFirstPlayer()).getTeam() == eTeam) && (GET_PLAYER(pLoopDeal->getSecondPlayer()).getTeam() == getID())))
-		{
+			((GET_PLAYER(pLoopDeal->getFirstPlayer()).getTeam() == eTeam) && (GET_PLAYER(pLoopDeal->getSecondPlayer()).getTeam() == getID()))) {
 			pLoopDeal->kill();
 		}
 	}
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) || (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam))
-		{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) || (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam)) {
 			GET_PLAYER((PlayerTypes)iI).updatePlunder(-1, false);
 		}
 	}
@@ -1181,10 +981,8 @@ void CvTeam::declareWar(TeamTypes eTeam, bool bNewDiplo, WarPlanTypes eWarPlan, 
 	GC.getMapINLINE().invalidateBorderDangerCache(getID());
 	//
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) || (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam))
-		{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) || (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam)) {
 			GET_PLAYER((PlayerTypes)iI).updatePlunder(1, false);
 		}
 	}
@@ -1199,67 +997,50 @@ void CvTeam::declareWar(TeamTypes eTeam, bool bNewDiplo, WarPlanTypes eWarPlan, 
 
 	GET_TEAM(eTeam).AI_setWarPlan(getID(), ((isBarbarian() || isMinorCiv()) ? WARPLAN_ATTACKED : WARPLAN_ATTACKED_RECENT));
 
-	for (int iI = 0; iI < MAX_TEAMS; iI++)
-	{
-		if (GET_TEAM((TeamTypes)iI).isAlive())
-		{
-			if (!GET_TEAM(eTeam).isAtWar((TeamTypes)iI) && GET_TEAM(eTeam).AI_isChosenWar((TeamTypes)iI))
-			{
+	for (int iI = 0; iI < MAX_TEAMS; iI++) {
+		if (GET_TEAM((TeamTypes)iI).isAlive()) {
+			if (!GET_TEAM(eTeam).isAtWar((TeamTypes)iI) && GET_TEAM(eTeam).AI_isChosenWar((TeamTypes)iI)) {
 				GET_TEAM(eTeam).AI_setWarPlan(((TeamTypes)iI), NO_WARPLAN);
 			}
 		}
 	}
 
-	if (NO_WARPLAN != eWarPlan)
-	{
+	if (NO_WARPLAN != eWarPlan) {
 		AI_setWarPlan(eTeam, eWarPlan);
 	}
 
 	FAssert(!(AI_isSneakAttackPreparing(eTeam)));
-	if ((AI_getWarPlan(eTeam) == NO_WARPLAN) || AI_isSneakAttackPreparing(eTeam))
-	{
+	if ((AI_getWarPlan(eTeam) == NO_WARPLAN) || AI_isSneakAttackPreparing(eTeam)) {
 		if (isHuman() || AI_getWarPlan(eTeam) == WARPLAN_PREPARING_TOTAL) // K-Mod. (for vassals that have been told to prepare for war)
 		{
 			AI_setWarPlan(eTeam, WARPLAN_TOTAL);
-		}
-		else if (isMinorCiv() || isBarbarian() || (GET_TEAM(eTeam).getAtWarCount(true) == 1))
-		{
+		} else if (isMinorCiv() || isBarbarian() || (GET_TEAM(eTeam).getAtWarCount(true) == 1)) {
 			AI_setWarPlan(eTeam, WARPLAN_LIMITED);
-		}
-		else
-		{
+		} else {
 			AI_setWarPlan(eTeam, WARPLAN_DOGPILE);
 		}
 	}
 
 	GC.getMapINLINE().verifyUnitValidPlot();
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-		{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 			GET_PLAYER((PlayerTypes)iI).verifyUnitStacksValid();
 		}
 	}
 
 	GC.getGameINLINE().AI_makeAssignWorkDirty();
 
-	if ((getID() == GC.getGameINLINE().getActiveTeam()) || (eTeam == GC.getGameINLINE().getActiveTeam()))
-	{
+	if ((getID() == GC.getGameINLINE().getActiveTeam()) || (eTeam == GC.getGameINLINE().getActiveTeam())) {
 		gDLL->getInterfaceIFace()->setDirty(Score_DIRTY_BIT, true);
 		gDLL->getInterfaceIFace()->setDirty(CityInfo_DIRTY_BIT, true);
 	}
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			for (int iJ = 0; iJ < MAX_PLAYERS; iJ++)
-			{
-				if (GET_PLAYER((PlayerTypes)iJ).isAlive())
-				{
-					if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) && (GET_PLAYER((PlayerTypes)iJ).getTeam() == eTeam))
-					{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			for (int iJ = 0; iJ < MAX_PLAYERS; iJ++) {
+				if (GET_PLAYER((PlayerTypes)iJ).isAlive()) {
+					if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) && (GET_PLAYER((PlayerTypes)iJ).getTeam() == eTeam)) {
 						GET_PLAYER((PlayerTypes)iI).AI_setFirstContact(((PlayerTypes)iJ), true);
 						GET_PLAYER((PlayerTypes)iJ).AI_setFirstContact(((PlayerTypes)iI), true);
 					}
@@ -1268,33 +1049,26 @@ void CvTeam::declareWar(TeamTypes eTeam, bool bNewDiplo, WarPlanTypes eWarPlan, 
 		}
 	}
 
-	for (PlayerTypes i = (PlayerTypes)0; i < MAX_PLAYERS; i = (PlayerTypes)(i+1))
-	{
+	for (PlayerTypes i = (PlayerTypes)0; i < MAX_PLAYERS; i = (PlayerTypes)(i + 1)) {
 		const CvPlayerAI& kPlayer_i = GET_PLAYER(i);
 
 		if (!kPlayer_i.isAlive() || kPlayer_i.getTeam() != getID())
 			continue;
 		// player i is a member of this team.
 
-		for (PlayerTypes j = (PlayerTypes)0; j < MAX_PLAYERS; j = (PlayerTypes)(j+1))
-		{
+		for (PlayerTypes j = (PlayerTypes)0; j < MAX_PLAYERS; j = (PlayerTypes)(j + 1)) {
 			CvPlayerAI& kPlayer_j = GET_PLAYER(j);
 
 			if (!kPlayer_j.isAlive())
 				continue;
 
-			if (kPlayer_j.getTeam() == eTeam)
-			{
+			if (kPlayer_j.getTeam() == eTeam) {
 				kPlayer_j.AI_changeMemoryCount(i, MEMORY_DECLARED_WAR, 1);
-			}
-			else if (kPlayer_j.getTeam() != getID())
-			{
+			} else if (kPlayer_j.getTeam() != getID()) {
 				const CvTeamAI& kTeam_j = GET_TEAM(kPlayer_j.getTeam());
 
-				if (kTeam_j.isHasMet(eTeam) && !kTeam_j.isAtWar(eTeam))
-				{
-					if (kTeam_j.AI_getAttitude(eTeam) >= ATTITUDE_PLEASED)
-					{
+				if (kTeam_j.isHasMet(eTeam) && !kTeam_j.isAtWar(eTeam)) {
+					if (kTeam_j.AI_getAttitude(eTeam) >= ATTITUDE_PLEASED) {
 						kPlayer_j.AI_changeMemoryCount(i, MEMORY_DECLARED_WAR_ON_FRIEND, 1);
 					}
 				}
@@ -1303,55 +1077,38 @@ void CvTeam::declareWar(TeamTypes eTeam, bool bNewDiplo, WarPlanTypes eWarPlan, 
 	}
 	// K-Mod end.
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) || (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam))
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) || (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam)) {
 				GET_PLAYER((PlayerTypes)iI).updateWarWearinessPercentAnger();
 			}
 		}
 	}
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) || (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam))
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) || (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam)) {
 				GET_PLAYER((PlayerTypes)iI).updatePlotGroups();
 			}
 		}
 	}
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) || (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam))
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) || (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam)) {
 				GET_PLAYER((PlayerTypes)iI).updateTradeRoutes();
 			}
 		}
 	}
 
-	if (GC.getGameINLINE().isFinalInitialized() && !(gDLL->GetWorldBuilderMode()))
-	{
-		if (bNewDiplo)
-		{
-			if (!isHuman())
-			{
-				for (iI = 0; iI < MAX_PLAYERS; iI++)
-				{
-					if (GET_PLAYER((PlayerTypes)iI).isAlive())
-					{
-						if (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam)
-						{
-							if (GET_PLAYER(getLeaderID()).canContact((PlayerTypes)iI))
-							{
-								if (GET_PLAYER((PlayerTypes)iI).isHuman())
-								{
+	if (GC.getGameINLINE().isFinalInitialized() && !(gDLL->GetWorldBuilderMode())) {
+		if (bNewDiplo) {
+			if (!isHuman()) {
+				for (iI = 0; iI < MAX_PLAYERS; iI++) {
+					if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+						if (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam) {
+							if (GET_PLAYER(getLeaderID()).canContact((PlayerTypes)iI)) {
+								if (GET_PLAYER((PlayerTypes)iI).isHuman()) {
 									CvDiploParameters* pDiplo = new CvDiploParameters(getLeaderID());
 									FAssertMsg(pDiplo != NULL, "pDiplo must be valid");
 									pDiplo->setDiploComment((DiploCommentTypes)GC.getInfoTypeForString("AI_DIPLOCOMMENT_DECLARE_WAR"));
@@ -1366,25 +1123,17 @@ void CvTeam::declareWar(TeamTypes eTeam, bool bNewDiplo, WarPlanTypes eWarPlan, 
 		}
 
 		if (!isBarbarian() && !(GET_TEAM(eTeam).isBarbarian()) &&
-			  !isMinorCiv() && !(GET_TEAM(eTeam).isMinorCiv()))
-		{
+			!isMinorCiv() && !(GET_TEAM(eTeam).isMinorCiv())) {
 			CvWString szBuffer;
-			for (int iI = 0; iI < MAX_PLAYERS; iI++)
-			{
-				if (GET_PLAYER((PlayerTypes)iI).isAlive())
-				{
-					if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-					{
+			for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+				if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+					if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 						szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_DECLARED_WAR_ON", GET_TEAM(eTeam).getName().GetCString());
 						gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_DECLAREWAR", MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_WARNING_TEXT"));
-					}
-					else if (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam)
-					{
+					} else if (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam) {
 						szBuffer = gDLL->getText("TXT_KEY_MISC_DECLARED_WAR_ON_YOU", getName().GetCString());
 						gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_DECLAREWAR", MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_WARNING_TEXT"));
-					}
-					else if (GET_TEAM(GET_PLAYER((PlayerTypes)iI).getTeam()).isHasMet(getID()) && GET_TEAM(GET_PLAYER((PlayerTypes)iI).getTeam()).isHasMet(eTeam))
-					{
+					} else if (GET_TEAM(GET_PLAYER((PlayerTypes)iI).getTeam()).isHasMet(getID()) && GET_TEAM(GET_PLAYER((PlayerTypes)iI).getTeam()).isHasMet(eTeam)) {
 						szBuffer = gDLL->getText("TXT_KEY_MISC_SOMEONE_DECLARED_WAR", getName().GetCString(), GET_TEAM(eTeam).getName().GetCString());
 						gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_THEIRDECLAREWAR", MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_WARNING_TEXT"));
 					}
@@ -1402,76 +1151,56 @@ void CvTeam::declareWar(TeamTypes eTeam, bool bNewDiplo, WarPlanTypes eWarPlan, 
 	// The original BtS code has been deleted.
 	CvEventReporter::getInstance().changeWar(true, getID(), eTeam);
 
-	if( GC.getBBAI_DEFENSIVE_PACT_BEHAVIOR() <= 1 )
-	{
+	if (GC.getBBAI_DEFENSIVE_PACT_BEHAVIOR() <= 1) {
 		cancelDefensivePacts();
 	}
 
-	for (int iI = 0; iI < MAX_TEAMS; iI++)
-	{
-		if (iI != getID() && iI != eTeam && GET_TEAM((TeamTypes)iI).isAlive())
-		{
-			if (GET_TEAM((TeamTypes)iI).isDefensivePact(eTeam))
-			{
+	for (int iI = 0; iI < MAX_TEAMS; iI++) {
+		if (iI != getID() && iI != eTeam && GET_TEAM((TeamTypes)iI).isAlive()) {
+			if (GET_TEAM((TeamTypes)iI).isDefensivePact(eTeam)) {
 				GET_TEAM((TeamTypes)iI).declareWar(getID(), bNewDiplo, WARPLAN_DOGPILE, false);
-			}
-			else if( (GC.getBBAI_DEFENSIVE_PACT_BEHAVIOR() > 1) && GET_TEAM((TeamTypes)iI).isDefensivePact(getID()))
-			{
+			} else if ((GC.getBBAI_DEFENSIVE_PACT_BEHAVIOR() > 1) && GET_TEAM((TeamTypes)iI).isDefensivePact(getID())) {
 				// For alliance option.  This teams pacts are canceled above if not using alliance option.
 				GET_TEAM((TeamTypes)iI).declareWar(eTeam, bNewDiplo, WARPLAN_DOGPILE, false);
 			}
 		}
 	}
 
-	if( GC.getBBAI_DEFENSIVE_PACT_BEHAVIOR() == 0 || (GC.getBBAI_DEFENSIVE_PACT_BEHAVIOR() == 1 && bPrimaryDoW))
-	{
+	if (GC.getBBAI_DEFENSIVE_PACT_BEHAVIOR() == 0 || (GC.getBBAI_DEFENSIVE_PACT_BEHAVIOR() == 1 && bPrimaryDoW)) {
 		GET_TEAM(eTeam).cancelDefensivePacts();
 	}
 	// K-Mod / BBAI end.
 
-	for (int iI = 0; iI < MAX_TEAMS; iI++)
-	{
-		if (iI != getID() && iI != eTeam)
-		{
-			if (GET_TEAM((TeamTypes)iI).isAlive())
-			{
-				if (GET_TEAM((TeamTypes)iI).isVassal(eTeam) || GET_TEAM(eTeam).isVassal((TeamTypes)iI))
-				{
+	for (int iI = 0; iI < MAX_TEAMS; iI++) {
+		if (iI != getID() && iI != eTeam) {
+			if (GET_TEAM((TeamTypes)iI).isAlive()) {
+				if (GET_TEAM((TeamTypes)iI).isVassal(eTeam) || GET_TEAM(eTeam).isVassal((TeamTypes)iI)) {
 					declareWar((TeamTypes)iI, bNewDiplo, AI_getWarPlan(eTeam), false);
-				}
-				else if (GET_TEAM((TeamTypes)iI).isVassal(getID()) || isVassal((TeamTypes)iI))
-				{
+				} else if (GET_TEAM((TeamTypes)iI).isVassal(getID()) || isVassal((TeamTypes)iI)) {
 					GET_TEAM((TeamTypes)iI).declareWar(eTeam, bNewDiplo, WARPLAN_DOGPILE, false);
 				}
 			}
 		}
 	}
 	// K-Mod. update attitude
-	if (bPrimaryDoW)
-	{
-		for (PlayerTypes i = (PlayerTypes)0; i < MAX_CIV_PLAYERS; i=(PlayerTypes)(i+1))
-		{
+	if (bPrimaryDoW) {
+		for (PlayerTypes i = (PlayerTypes)0; i < MAX_CIV_PLAYERS; i = (PlayerTypes)(i + 1)) {
 			GET_PLAYER(i).AI_updateAttitudeCache();
 		}
 	}
 }
 
-void CvTeam::makePeace(TeamTypes eTeam, bool bBumpUnits)
-{
+void CvTeam::makePeace(TeamTypes eTeam, bool bBumpUnits) {
 	FAssertMsg(eTeam != NO_TEAM, "eTeam is not assigned a valid value");
 	FAssertMsg(eTeam != getID(), "eTeam is not expected to be equal with getID()");
 
-	if (isAtWar(eTeam))
-	{
-		if( gTeamLogLevel >= 1 )
-		{
+	if (isAtWar(eTeam)) {
+		if (gTeamLogLevel >= 1) {
 			logBBAI("      Team %d (%S) and team %d (%S) make peace", getID(), GET_PLAYER(getLeaderID()).getCivilizationDescription(0), eTeam, GET_PLAYER(GET_TEAM(eTeam).getLeaderID()).getCivilizationDescription(0));
 		}
 
-		for (int iI = 0; iI < MAX_PLAYERS; iI++)
-		{
-			if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) || (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam))
-			{
+		for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+			if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) || (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam)) {
 				GET_PLAYER((PlayerTypes)iI).updatePlunder(-1, false);
 			}
 		}
@@ -1484,10 +1213,8 @@ void CvTeam::makePeace(TeamTypes eTeam, bool bBumpUnits)
 		GC.getMapINLINE().invalidateBorderDangerCache(eTeam);
 		GC.getMapINLINE().invalidateBorderDangerCache(getID());
 
-		for (int iI = 0; iI < MAX_PLAYERS; iI++)
-		{
-			if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) || (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam))
-			{
+		for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+			if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) || (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam)) {
 				GET_PLAYER((PlayerTypes)iI).updatePlunder(1, false);
 			}
 		}
@@ -1501,65 +1228,49 @@ void CvTeam::makePeace(TeamTypes eTeam, bool bBumpUnits)
 		AI_setWarPlan(eTeam, NO_WARPLAN);
 		GET_TEAM(eTeam).AI_setWarPlan(getID(), NO_WARPLAN);
 
-		if (bBumpUnits)
-		{
+		if (bBumpUnits) {
 			GC.getMapINLINE().verifyUnitValidPlot();
 		}
 
 		GC.getGameINLINE().AI_makeAssignWorkDirty();
 
-		if ((getID() == GC.getGameINLINE().getActiveTeam()) || (eTeam == GC.getGameINLINE().getActiveTeam()))
-		{
+		if ((getID() == GC.getGameINLINE().getActiveTeam()) || (eTeam == GC.getGameINLINE().getActiveTeam())) {
 			gDLL->getInterfaceIFace()->setDirty(Score_DIRTY_BIT, true);
 			gDLL->getInterfaceIFace()->setDirty(CityInfo_DIRTY_BIT, true);
 		}
 
-		for (int iI = 0; iI < MAX_PLAYERS; iI++)
-		{
-			if (GET_PLAYER((PlayerTypes)iI).isAlive())
-			{
-				if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) || (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam))
-				{
+		for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+			if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+				if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) || (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam)) {
 					GET_PLAYER((PlayerTypes)iI).updateWarWearinessPercentAnger();
 				}
 			}
 		}
 
-		for (int iI = 0; iI < MAX_PLAYERS; iI++)
-		{
-			if (GET_PLAYER((PlayerTypes)iI).isAlive())
-			{
-				if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) || (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam))
-				{
+		for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+			if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+				if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) || (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam)) {
 					GET_PLAYER((PlayerTypes)iI).updatePlotGroups();
 				}
 			}
 		}
 
-		for (int iI = 0; iI < MAX_PLAYERS; iI++)
-		{
-			if (GET_PLAYER((PlayerTypes)iI).isAlive())
-			{
-				if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) || (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam))
-				{
+		for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+			if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+				if ((GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) || (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam)) {
 					GET_PLAYER((PlayerTypes)iI).updateTradeRoutes();
 				}
 			}
 		}
 
 		// K-Mod. update attitude
-		if (GC.getGameINLINE().isFinalInitialized())
-		{
-			for (PlayerTypes i = (PlayerTypes)0; i < MAX_CIV_PLAYERS; i=(PlayerTypes)(i+1))
-			{
+		if (GC.getGameINLINE().isFinalInitialized()) {
+			for (PlayerTypes i = (PlayerTypes)0; i < MAX_CIV_PLAYERS; i = (PlayerTypes)(i + 1)) {
 				const CvTeam& kTeam_i = GET_TEAM(GET_PLAYER(i).getTeam());
-				if (kTeam_i.getID() == eTeam || kTeam_i.getID() == getID() || kTeam_i.isAtWar(eTeam) || kTeam_i.isAtWar(getID()))
-				{
-					for (PlayerTypes j = (PlayerTypes)0; j < MAX_CIV_PLAYERS; j=(PlayerTypes)(j+1))
-					{
+				if (kTeam_i.getID() == eTeam || kTeam_i.getID() == getID() || kTeam_i.isAtWar(eTeam) || kTeam_i.isAtWar(getID())) {
+					for (PlayerTypes j = (PlayerTypes)0; j < MAX_CIV_PLAYERS; j = (PlayerTypes)(j + 1)) {
 						TeamTypes eTeam_j = GET_PLAYER(j).getTeam();
-						if (eTeam_j == eTeam || eTeam_j == getID())
-						{
+						if (eTeam_j == eTeam || eTeam_j == getID()) {
 							GET_PLAYER(i).AI_updateAttitudeCache(j);
 						}
 					}
@@ -1568,22 +1279,15 @@ void CvTeam::makePeace(TeamTypes eTeam, bool bBumpUnits)
 		}
 
 		CvWString szBuffer;
-		for (int iI = 0; iI < MAX_PLAYERS; iI++)
-		{
-			if (GET_PLAYER((PlayerTypes)iI).isAlive())
-			{
-				if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-				{
+		for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+			if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+				if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 					szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_MADE_PEACE_WITH", GET_TEAM(eTeam).getName().GetCString());
 					gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_MAKEPEACE", MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
-				}
-				else if (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam)
-				{
+				} else if (GET_PLAYER((PlayerTypes)iI).getTeam() == eTeam) {
 					szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_MADE_PEACE_WITH", getName().GetCString());
 					gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_MAKEPEACE", MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
-				}
-				else if (GET_TEAM(GET_PLAYER((PlayerTypes)iI).getTeam()).isHasMet(getID()) && GET_TEAM(GET_PLAYER((PlayerTypes)iI).getTeam()).isHasMet(eTeam))
-				{
+				} else if (GET_TEAM(GET_PLAYER((PlayerTypes)iI).getTeam()).isHasMet(getID()) && GET_TEAM(GET_PLAYER((PlayerTypes)iI).getTeam()).isHasMet(eTeam)) {
 					szBuffer = gDLL->getText("TXT_KEY_MISC_SOMEONE_MADE_PEACE", getName().GetCString(), GET_TEAM(eTeam).getName().GetCString());
 					gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_THEIRMAKEPEACE", MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
 				}
@@ -1595,18 +1299,12 @@ void CvTeam::makePeace(TeamTypes eTeam, bool bBumpUnits)
 
 		CvEventReporter::getInstance().changeWar(false, getID(), eTeam);
 
-		for (int iI = 0; iI < MAX_TEAMS; iI++)
-		{
-			if (iI != getID() && iI != eTeam)
-			{
-				if (GET_TEAM((TeamTypes)iI).isAlive())
-				{
-					if (GET_TEAM((TeamTypes)iI).isVassal(eTeam))
-					{
+		for (int iI = 0; iI < MAX_TEAMS; iI++) {
+			if (iI != getID() && iI != eTeam) {
+				if (GET_TEAM((TeamTypes)iI).isAlive()) {
+					if (GET_TEAM((TeamTypes)iI).isVassal(eTeam)) {
 						GET_TEAM((TeamTypes)iI).makePeace(getID(), bBumpUnits);
-					}
-					else if (GET_TEAM((TeamTypes)iI).isVassal(getID()))
-					{
+					} else if (GET_TEAM((TeamTypes)iI).isVassal(getID())) {
 						GET_TEAM((TeamTypes)iI).makePeace(eTeam, bBumpUnits);
 					}
 				}
@@ -1619,24 +1317,16 @@ void CvTeam::makePeace(TeamTypes eTeam, bool bBumpUnits)
 // K-Mod. I've added bCheckWillingness.
 // note. I would have done this the same way in CvPlayer::canContact
 // but unfortunately, changing the signiture of that function causes the game to crash - because it's a dll export.
-bool CvTeam::canContact(TeamTypes eTeam, bool bCheckWillingness) const
-{
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-			{
-				for (int iJ = 0; iJ < MAX_PLAYERS; iJ++)
-				{
-					if (GET_PLAYER((PlayerTypes)iJ).isAlive())
-					{
-						if (GET_PLAYER((PlayerTypes)iJ).getTeam() == eTeam)
-						{
+bool CvTeam::canContact(TeamTypes eTeam, bool bCheckWillingness) const {
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
+				for (int iJ = 0; iJ < MAX_PLAYERS; iJ++) {
+					if (GET_PLAYER((PlayerTypes)iJ).isAlive()) {
+						if (GET_PLAYER((PlayerTypes)iJ).getTeam() == eTeam) {
 							if (bCheckWillingness
 								? GET_PLAYER((PlayerTypes)iI).canContactAndTalk((PlayerTypes)iJ)
-								: GET_PLAYER((PlayerTypes)iI).canContact((PlayerTypes)iJ))
-							{
+								: GET_PLAYER((PlayerTypes)iI).canContact((PlayerTypes)iJ)) {
 								return true;
 							}
 						}
@@ -1650,33 +1340,26 @@ bool CvTeam::canContact(TeamTypes eTeam, bool bCheckWillingness) const
 }
 
 
-void CvTeam::meet(TeamTypes eTeam, bool bNewDiplo)
-{
-	if (!isHasMet(eTeam))
-	{
+void CvTeam::meet(TeamTypes eTeam, bool bNewDiplo) {
+	if (!isHasMet(eTeam)) {
 		makeHasMet(eTeam, bNewDiplo);
 		GET_TEAM(eTeam).makeHasMet(getID(), bNewDiplo);
 
-		if( gTeamLogLevel >= 2 )
-		{
-			if( GC.getGameINLINE().isFinalInitialized() )
-			{
-				if( eTeam != getID() && isAlive() && GET_TEAM(eTeam).isAlive() )
-				{
-					logBBAI("    Team %d (%S) meets team %d (%S)", getID(), GET_PLAYER(getLeaderID()).getCivilizationDescription(0), eTeam, GET_PLAYER(GET_TEAM(eTeam).getLeaderID()).getCivilizationDescription(0) );
+		if (gTeamLogLevel >= 2) {
+			if (GC.getGameINLINE().isFinalInitialized()) {
+				if (eTeam != getID() && isAlive() && GET_TEAM(eTeam).isAlive()) {
+					logBBAI("    Team %d (%S) meets team %d (%S)", getID(), GET_PLAYER(getLeaderID()).getCivilizationDescription(0), eTeam, GET_PLAYER(GET_TEAM(eTeam).getLeaderID()).getCivilizationDescription(0));
 				}
 			}
 		}
 	}
 }
 
-void CvTeam::signPeaceTreaty(TeamTypes eTeam)
-{
+void CvTeam::signPeaceTreaty(TeamTypes eTeam) {
 	TradeData item;
 	setTradeItem(&item, TRADE_PEACE_TREATY);
 
-	if (GET_PLAYER(getLeaderID()).canTradeItem(GET_TEAM(eTeam).getLeaderID(), item) && GET_PLAYER(GET_TEAM(eTeam).getLeaderID()).canTradeItem(getLeaderID(), item))
-	{
+	if (GET_PLAYER(getLeaderID()).canTradeItem(GET_TEAM(eTeam).getLeaderID(), item) && GET_PLAYER(GET_TEAM(eTeam).getLeaderID()).canTradeItem(getLeaderID(), item)) {
 		CLinkList<TradeData> ourList;
 		CLinkList<TradeData> theirList;
 
@@ -1687,19 +1370,16 @@ void CvTeam::signPeaceTreaty(TeamTypes eTeam)
 	}
 }
 
-void CvTeam::signOpenBorders(TeamTypes eTeam)
-{
+void CvTeam::signOpenBorders(TeamTypes eTeam) {
 
 	FAssert(eTeam != NO_TEAM);
 	FAssert(eTeam != getID());
 
-	if (!isAtWar(eTeam) && (getID() != eTeam))
-	{
+	if (!isAtWar(eTeam) && (getID() != eTeam)) {
 		TradeData item;
 		setTradeItem(&item, TRADE_OPEN_BORDERS);
 
-		if (GET_PLAYER(getLeaderID()).canTradeItem(GET_TEAM(eTeam).getLeaderID(), item) && GET_PLAYER(GET_TEAM(eTeam).getLeaderID()).canTradeItem(getLeaderID(), item))
-		{
+		if (GET_PLAYER(getLeaderID()).canTradeItem(GET_TEAM(eTeam).getLeaderID(), item) && GET_PLAYER(GET_TEAM(eTeam).getLeaderID()).canTradeItem(getLeaderID(), item)) {
 			CLinkList<TradeData> ourList;
 			CLinkList<TradeData> theirList;
 			ourList.clear();
@@ -1714,18 +1394,15 @@ void CvTeam::signOpenBorders(TeamTypes eTeam)
 }
 
 
-void CvTeam::signDefensivePact(TeamTypes eTeam)
-{
+void CvTeam::signDefensivePact(TeamTypes eTeam) {
 	FAssert(eTeam != NO_TEAM);
 	FAssert(eTeam != getID());
 
-	if (!isAtWar(eTeam) && (getID() != eTeam))
-	{
+	if (!isAtWar(eTeam) && (getID() != eTeam)) {
 		TradeData item;
 		setTradeItem(&item, TRADE_DEFENSIVE_PACT);
 
-		if (GET_PLAYER(getLeaderID()).canTradeItem(GET_TEAM(eTeam).getLeaderID(), item) && GET_PLAYER(GET_TEAM(eTeam).getLeaderID()).canTradeItem(getLeaderID(), item))
-		{
+		if (GET_PLAYER(getLeaderID()).canTradeItem(GET_TEAM(eTeam).getLeaderID(), item) && GET_PLAYER(GET_TEAM(eTeam).getLeaderID()).canTradeItem(getLeaderID(), item)) {
 			CLinkList<TradeData> ourList;
 			CLinkList<TradeData> theirList;
 			ourList.clear();
@@ -1739,20 +1416,15 @@ void CvTeam::signDefensivePact(TeamTypes eTeam)
 	}
 }
 
-bool CvTeam::canSignDefensivePact(TeamTypes eTeam) const
-{
-	for (int iTeam = 0; iTeam < MAX_CIV_TEAMS; ++iTeam)
-	{
-		if (iTeam != getID() && iTeam != eTeam)
-		{
+bool CvTeam::canSignDefensivePact(TeamTypes eTeam) const {
+	for (int iTeam = 0; iTeam < MAX_CIV_TEAMS; ++iTeam) {
+		if (iTeam != getID() && iTeam != eTeam) {
 			CvTeam& kLoopTeam = GET_TEAM((TeamTypes)iTeam);
-			if (kLoopTeam.isPermanentWarPeace(eTeam) != kLoopTeam.isPermanentWarPeace(getID()))
-			{
+			if (kLoopTeam.isPermanentWarPeace(eTeam) != kLoopTeam.isPermanentWarPeace(getID())) {
 				return false;
 			}
 
-			if (isPermanentWarPeace((TeamTypes)iTeam) != GET_TEAM(eTeam).isPermanentWarPeace((TeamTypes)iTeam))
-			{
+			if (isPermanentWarPeace((TeamTypes)iTeam) != GET_TEAM(eTeam).isPermanentWarPeace((TeamTypes)iTeam)) {
 				return false;
 			}
 		}
@@ -1762,16 +1434,12 @@ bool CvTeam::canSignDefensivePact(TeamTypes eTeam) const
 }
 
 
-int CvTeam::getAssets() const
-{
+int CvTeam::getAssets() const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 				iCount += GET_PLAYER((PlayerTypes)iI).getAssets();
 			}
 		}
@@ -1781,17 +1449,13 @@ int CvTeam::getAssets() const
 }
 
 
-int CvTeam::getPower(bool bIncludeVassals) const
-{
+int CvTeam::getPower(bool bIncludeVassals) const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
 		CvPlayer& kLoopPlayer = GET_PLAYER((PlayerTypes)iI);
-		if (kLoopPlayer.isAlive())
-		{
-			if (kLoopPlayer.getTeam() == getID() || (bIncludeVassals && GET_TEAM(kLoopPlayer.getTeam()).isVassal(getID())))
-			{
+		if (kLoopPlayer.isAlive()) {
+			if (kLoopPlayer.getTeam() == getID() || (bIncludeVassals && GET_TEAM(kLoopPlayer.getTeam()).isVassal(getID()))) {
 				iCount += kLoopPlayer.getPower();
 			}
 		}
@@ -1801,16 +1465,14 @@ int CvTeam::getPower(bool bIncludeVassals) const
 }
 
 
-int CvTeam::getDefensivePower(TeamTypes eExcludeTeam) const
-{
+int CvTeam::getDefensivePower(TeamTypes eExcludeTeam) const {
 	int iCount = 0;
 
 	FAssert(eExcludeTeam != getID());
 
 	const CvTeam& kMasterTeam = GET_TEAM(getMasterTeam()); // K-Mod. only our master will have defensive pacts.
 
-	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++)
-	{
+	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++) {
 		const CvTeam& kLoopTeam = GET_TEAM((TeamTypes)iI);
 		//if (kLoopTeam.isAlive() && !kLoopTeam.isAVassal())
 		if (kLoopTeam.isAlive()) // K-Mod. (vassal check unnecessary, b/c vassals can't be the master team, and they can't have a pact.)
@@ -1827,17 +1489,13 @@ int CvTeam::getDefensivePower(TeamTypes eExcludeTeam) const
 }
 
 
-int CvTeam::getEnemyPower() const
-{
+int CvTeam::getEnemyPower() const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++)
-	{
+	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++) {
 		CvTeam& kLoopTeam = GET_TEAM((TeamTypes)iI);
-		if (kLoopTeam.isAlive())
-		{
-			if (getID() != iI && isAtWar((TeamTypes)iI))
-			{
+		if (kLoopTeam.isAlive()) {
+			if (getID() != iI && isAtWar((TeamTypes)iI)) {
 				iCount += kLoopTeam.getPower(false);
 			}
 		}
@@ -1847,17 +1505,13 @@ int CvTeam::getEnemyPower() const
 }
 
 
-int CvTeam::getNumNukeUnits() const
-{
+int CvTeam::getNumNukeUnits() const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
 		CvPlayer& kLoopPlayer = GET_PLAYER((PlayerTypes)iI);
-		if (kLoopPlayer.isAlive())
-		{
-			if (kLoopPlayer.getTeam() == getID() || GET_TEAM(kLoopPlayer.getTeam()).isVassal(getID()))
-			{
+		if (kLoopPlayer.isAlive()) {
+			if (kLoopPlayer.getTeam() == getID() || GET_TEAM(kLoopPlayer.getTeam()).isVassal(getID())) {
 				iCount += kLoopPlayer.getNumNukeUnits();
 			}
 		}
@@ -1866,15 +1520,12 @@ int CvTeam::getNumNukeUnits() const
 	return iCount;
 }
 
-int CvTeam::getVotes(VoteTypes eVote, VoteSourceTypes eVoteSource) const
-{
+int CvTeam::getVotes(VoteTypes eVote, VoteSourceTypes eVoteSource) const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
 		CvPlayer& kLoopPlayer = GET_PLAYER((PlayerTypes)iI);
-		if (kLoopPlayer.getTeam() == getID())
-		{
+		if (kLoopPlayer.getTeam() == getID()) {
 			iCount += kLoopPlayer.getVotes(eVote, eVoteSource);
 		}
 	}
@@ -1882,25 +1533,19 @@ int CvTeam::getVotes(VoteTypes eVote, VoteSourceTypes eVoteSource) const
 	return iCount;
 }
 
-bool CvTeam::isVotingMember(VoteSourceTypes eVoteSource) const
-{
+bool CvTeam::isVotingMember(VoteSourceTypes eVoteSource) const {
 	return (getVotes(NO_VOTE, eVoteSource) > 0);
 }
 
-bool CvTeam::isFullMember(VoteSourceTypes eVoteSource) const
-{
-	if (isForceTeamVoteEligible(eVoteSource))
-	{
+bool CvTeam::isFullMember(VoteSourceTypes eVoteSource) const {
+	if (isForceTeamVoteEligible(eVoteSource)) {
 		return true;
 	}
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
 		CvPlayer& kLoopPlayer = GET_PLAYER((PlayerTypes)iI);
-		if (kLoopPlayer.getTeam() == getID())
-		{
-			if (!kLoopPlayer.isFullMember(eVoteSource))
-			{
+		if (kLoopPlayer.getTeam() == getID()) {
+			if (!kLoopPlayer.isFullMember(eVoteSource)) {
 				return false;
 			}
 		}
@@ -1909,20 +1554,14 @@ bool CvTeam::isFullMember(VoteSourceTypes eVoteSource) const
 	return true;
 }
 
-int CvTeam::getAtWarCount(bool bIgnoreMinors, bool bIgnoreVassals) const
-{
+int CvTeam::getAtWarCount(bool bIgnoreMinors, bool bIgnoreVassals) const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++)
-	{
-		if (GET_TEAM((TeamTypes)iI).isAlive())
-		{
-			if (!bIgnoreMinors || !(GET_TEAM((TeamTypes)iI).isMinorCiv()))
-			{
-				if( !bIgnoreVassals || !(GET_TEAM((TeamTypes)iI).isAVassal()))
-				{
-					if (isAtWar((TeamTypes)iI))
-					{
+	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++) {
+		if (GET_TEAM((TeamTypes)iI).isAlive()) {
+			if (!bIgnoreMinors || !(GET_TEAM((TeamTypes)iI).isMinorCiv())) {
+				if (!bIgnoreVassals || !(GET_TEAM((TeamTypes)iI).isAVassal())) {
+					if (isAtWar((TeamTypes)iI)) {
 						FAssert(iI != getID());
 						FAssert(!(AI_isSneakAttackPreparing((TeamTypes)iI))); // K-Mod note. This assert can fail when in the process of declaring war
 						iCount++;
@@ -1935,18 +1574,13 @@ int CvTeam::getAtWarCount(bool bIgnoreMinors, bool bIgnoreVassals) const
 	return iCount;
 }
 
-int CvTeam::getWarPlanCount(WarPlanTypes eWarPlan, bool bIgnoreMinors) const
-{
+int CvTeam::getWarPlanCount(WarPlanTypes eWarPlan, bool bIgnoreMinors) const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++)
-	{
-		if (GET_TEAM((TeamTypes)iI).isAlive())
-		{
-			if (!bIgnoreMinors || !(GET_TEAM((TeamTypes)iI).isMinorCiv()))
-			{
-				if (AI_getWarPlan((TeamTypes)iI) == eWarPlan)
-				{
+	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++) {
+		if (GET_TEAM((TeamTypes)iI).isAlive()) {
+			if (!bIgnoreMinors || !(GET_TEAM((TeamTypes)iI).isMinorCiv())) {
+				if (AI_getWarPlan((TeamTypes)iI) == eWarPlan) {
 					FAssert(iI != getID());
 					iCount++;
 				}
@@ -1958,18 +1592,13 @@ int CvTeam::getWarPlanCount(WarPlanTypes eWarPlan, bool bIgnoreMinors) const
 }
 
 
-int CvTeam::getAnyWarPlanCount(bool bIgnoreMinors) const
-{
+int CvTeam::getAnyWarPlanCount(bool bIgnoreMinors) const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++)
-	{
-		if (GET_TEAM((TeamTypes)iI).isAlive())
-		{
-			if (!bIgnoreMinors || !(GET_TEAM((TeamTypes)iI).isMinorCiv()))
-			{
-				if (AI_getWarPlan((TeamTypes)iI) != NO_WARPLAN)
-				{
+	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++) {
+		if (GET_TEAM((TeamTypes)iI).isAlive()) {
+			if (!bIgnoreMinors || !(GET_TEAM((TeamTypes)iI).isMinorCiv())) {
+				if (AI_getWarPlan((TeamTypes)iI) != NO_WARPLAN) {
 					FAssert(iI != getID());
 					iCount++;
 				}
@@ -1983,18 +1612,13 @@ int CvTeam::getAnyWarPlanCount(bool bIgnoreMinors) const
 }
 
 
-int CvTeam::getChosenWarCount(bool bIgnoreMinors) const
-{
+int CvTeam::getChosenWarCount(bool bIgnoreMinors) const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++)
-	{
-		if (GET_TEAM((TeamTypes)iI).isAlive())
-		{
-			if (!bIgnoreMinors || !(GET_TEAM((TeamTypes)iI).isMinorCiv()))
-			{
-				if (AI_isChosenWar((TeamTypes)iI))
-				{
+	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++) {
+		if (GET_TEAM((TeamTypes)iI).isAlive()) {
+			if (!bIgnoreMinors || !(GET_TEAM((TeamTypes)iI).isMinorCiv())) {
+				if (AI_isChosenWar((TeamTypes)iI)) {
 					FAssert(iI != getID());
 					iCount++;
 				}
@@ -2006,20 +1630,14 @@ int CvTeam::getChosenWarCount(bool bIgnoreMinors) const
 }
 
 
-int CvTeam::getHasMetCivCount(bool bIgnoreMinors) const
-{
+int CvTeam::getHasMetCivCount(bool bIgnoreMinors) const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++)
-	{
-		if (GET_TEAM((TeamTypes)iI).isAlive())
-		{
-			if (iI != getID())
-			{
-				if (!bIgnoreMinors || !(GET_TEAM((TeamTypes)iI).isMinorCiv()))
-				{
-					if (isHasMet((TeamTypes)iI))
-					{
+	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++) {
+		if (GET_TEAM((TeamTypes)iI).isAlive()) {
+			if (iI != getID()) {
+				if (!bIgnoreMinors || !(GET_TEAM((TeamTypes)iI).isMinorCiv())) {
+					if (isHasMet((TeamTypes)iI)) {
 						FAssert(iI != getID());
 						iCount++;
 					}
@@ -2032,18 +1650,12 @@ int CvTeam::getHasMetCivCount(bool bIgnoreMinors) const
 }
 
 
-bool CvTeam::hasMetHuman() const
-{
-	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++)
-	{
-		if (GET_TEAM((TeamTypes)iI).isAlive())
-		{
-			if (iI != getID())
-			{
-				if (GET_TEAM((TeamTypes)iI).isHuman())
-				{
-					if (isHasMet((TeamTypes)iI))
-					{
+bool CvTeam::hasMetHuman() const {
+	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++) {
+		if (GET_TEAM((TeamTypes)iI).isAlive()) {
+			if (iI != getID()) {
+				if (GET_TEAM((TeamTypes)iI).isHuman()) {
+					if (isHasMet((TeamTypes)iI)) {
 						FAssert(iI != getID());
 						return true;
 					}
@@ -2056,20 +1668,14 @@ bool CvTeam::hasMetHuman() const
 }
 
 
-int CvTeam::getDefensivePactCount(TeamTypes eTeam) const
-{
+int CvTeam::getDefensivePactCount(TeamTypes eTeam) const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++)
-	{
-		if (GET_TEAM((TeamTypes)iI).isAlive())
-		{
-			if (iI != getID())
-			{
-				if (isDefensivePact((TeamTypes)iI))
-				{
-					if (NO_TEAM == eTeam || GET_TEAM(eTeam).isHasMet((TeamTypes)iI))
-					{
+	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++) {
+		if (GET_TEAM((TeamTypes)iI).isAlive()) {
+			if (iI != getID()) {
+				if (isDefensivePact((TeamTypes)iI)) {
+					if (NO_TEAM == eTeam || GET_TEAM(eTeam).isHasMet((TeamTypes)iI)) {
 						iCount++;
 					}
 				}
@@ -2080,21 +1686,15 @@ int CvTeam::getDefensivePactCount(TeamTypes eTeam) const
 	return iCount;
 }
 
-int CvTeam::getVassalCount(TeamTypes eTeam) const
-{
+int CvTeam::getVassalCount(TeamTypes eTeam) const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++)
-	{
+	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++) {
 		CvTeam& kLoopTeam = GET_TEAM((TeamTypes)iI);
-		if (kLoopTeam.isAlive())
-		{
-			if (iI != getID())
-			{
-				if (kLoopTeam.isVassal(getID()))
-				{
-					if (NO_TEAM == eTeam || GET_TEAM(eTeam).isHasMet((TeamTypes)iI))
-					{
+		if (kLoopTeam.isAlive()) {
+			if (iI != getID()) {
+				if (kLoopTeam.isVassal(getID())) {
+					if (NO_TEAM == eTeam || GET_TEAM(eTeam).isHasMet((TeamTypes)iI)) {
 						iCount++;
 					}
 				}
@@ -2105,18 +1705,13 @@ int CvTeam::getVassalCount(TeamTypes eTeam) const
 	return iCount;
 }
 
-bool CvTeam::isAVassal() const
-{
+bool CvTeam::isAVassal() const {
 	PROFILE_FUNC();
 
-	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++)
-	{
-		if (GET_TEAM((TeamTypes)iI).isAlive())
-		{
-			if (iI != getID())
-			{
-				if (isVassal((TeamTypes)iI))
-				{
+	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++) {
+		if (GET_TEAM((TeamTypes)iI).isAlive()) {
+			if (iI != getID()) {
+				if (isVassal((TeamTypes)iI)) {
 					FAssert(iI != getID());
 					return true;
 				}
@@ -2127,78 +1722,58 @@ bool CvTeam::isAVassal() const
 	return false;
 }
 
-bool CvTeam::canVassalRevolt(TeamTypes eMaster) const
-{
+bool CvTeam::canVassalRevolt(TeamTypes eMaster) const {
 	FAssert(NO_TEAM != eMaster);
 
 	CvTeam& kMaster = GET_TEAM(eMaster);
 
-	if (isVassal(eMaster))
-	{
-		if (100 * getTotalLand(false) < GC.getDefineINT("VASSAL_REVOLT_OWN_LOSSES_FACTOR") * getVassalPower())
-		{
+	if (isVassal(eMaster)) {
+		if (100 * getTotalLand(false) < GC.getDefineINT("VASSAL_REVOLT_OWN_LOSSES_FACTOR") * getVassalPower()) {
 			return true;
 		}
 
-		if (100 * kMaster.getTotalLand() < GC.getDefineINT("VASSAL_REVOLT_MASTER_LOSSES_FACTOR") * getMasterPower())
-		{
+		if (100 * kMaster.getTotalLand() < GC.getDefineINT("VASSAL_REVOLT_MASTER_LOSSES_FACTOR") * getMasterPower()) {
 			return true;
 		}
 	}
 
-	if (GC.getDefineINT("FREE_VASSAL_LAND_PERCENT") < 0 || 
-		100 * getTotalLand(false) < kMaster.getTotalLand(false) * GC.getDefineINT("FREE_VASSAL_LAND_PERCENT"))
-	{
+	if (GC.getDefineINT("FREE_VASSAL_LAND_PERCENT") < 0 ||
+		100 * getTotalLand(false) < kMaster.getTotalLand(false) * GC.getDefineINT("FREE_VASSAL_LAND_PERCENT")) {
 		return false;
 	}
 
-	if (GC.getDefineINT("FREE_VASSAL_POPULATION_PERCENT") < 0 || 
-		100 * getTotalPopulation(false) < kMaster.getTotalPopulation(false) * GC.getDefineINT("FREE_VASSAL_POPULATION_PERCENT"))
-	{
+	if (GC.getDefineINT("FREE_VASSAL_POPULATION_PERCENT") < 0 ||
+		100 * getTotalPopulation(false) < kMaster.getTotalPopulation(false) * GC.getDefineINT("FREE_VASSAL_POPULATION_PERCENT")) {
 		return false;
 	}
 
 	return true;
 }
 
-bool CvTeam::isMasterPlanningLandWar(CvArea* pArea)
-{
-	if( !isAVassal() )
-	{
+bool CvTeam::isMasterPlanningLandWar(CvArea* pArea) {
+	if (!isAVassal()) {
 		return false;
 	}
 
-	if( (pArea->getAreaAIType(getID()) == AREAAI_OFFENSIVE) || (pArea->getAreaAIType(getID()) == AREAAI_DEFENSIVE) || (pArea->getAreaAIType(getID()) == AREAAI_MASSING) )
-	{
+	if ((pArea->getAreaAIType(getID()) == AREAAI_OFFENSIVE) || (pArea->getAreaAIType(getID()) == AREAAI_DEFENSIVE) || (pArea->getAreaAIType(getID()) == AREAAI_MASSING)) {
 		return true;
 	}
 
-	for( int iI = 0; iI < MAX_CIV_TEAMS; iI++ )
-	{
-		if( isVassal((TeamTypes)iI) )
-		{
-			if( GET_TEAM((TeamTypes)iI).getAnyWarPlanCount(true) > 0 )
-			{
-				if( (pArea->getAreaAIType((TeamTypes)iI) == AREAAI_OFFENSIVE) || (pArea->getAreaAIType((TeamTypes)iI) == AREAAI_DEFENSIVE) || (pArea->getAreaAIType((TeamTypes)iI) == AREAAI_MASSING) )
-				{
+	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++) {
+		if (isVassal((TeamTypes)iI)) {
+			if (GET_TEAM((TeamTypes)iI).getAnyWarPlanCount(true) > 0) {
+				if ((pArea->getAreaAIType((TeamTypes)iI) == AREAAI_OFFENSIVE) || (pArea->getAreaAIType((TeamTypes)iI) == AREAAI_DEFENSIVE) || (pArea->getAreaAIType((TeamTypes)iI) == AREAAI_MASSING)) {
 					return true;
-				}
-				else if( pArea->getAreaAIType((TeamTypes)iI) == AREAAI_NEUTRAL )
-				{
+				} else if (pArea->getAreaAIType((TeamTypes)iI) == AREAAI_NEUTRAL) {
 					// Master has no presence here
-					if( (pArea->getNumCities() - countNumCitiesByArea(pArea)) > 2 )
-					{
-						return (GC.getGameINLINE().getSorenRandNum((isCapitulated() ? 6 : 4),"Vassal land war") == 0);
+					if ((pArea->getNumCities() - countNumCitiesByArea(pArea)) > 2) {
+						return (GC.getGameINLINE().getSorenRandNum((isCapitulated() ? 6 : 4), "Vassal land war") == 0);
 					}
 				}
-			}
-			else if( GET_TEAM((TeamTypes)iI).isHuman() )
-			{
-				if( GC.getBBAI_HUMAN_VASSAL_WAR_BUILD() )
-				{
-					if( (pArea->getNumCities() - countNumCitiesByArea(pArea) - GET_TEAM((TeamTypes)iI).countNumCitiesByArea(pArea)) > 2 )
-					{
-						return (GC.getGameINLINE().getSorenRandNum(4,"Vassal land war") == 0);
+			} else if (GET_TEAM((TeamTypes)iI).isHuman()) {
+				if (GC.getBBAI_HUMAN_VASSAL_WAR_BUILD()) {
+					if ((pArea->getNumCities() - countNumCitiesByArea(pArea) - GET_TEAM((TeamTypes)iI).countNumCitiesByArea(pArea)) > 2) {
+						return (GC.getGameINLINE().getSorenRandNum(4, "Vassal land war") == 0);
 					}
 				}
 			}
@@ -2210,37 +1785,26 @@ bool CvTeam::isMasterPlanningLandWar(CvArea* pArea)
 	return false;
 }
 
-bool CvTeam::isMasterPlanningSeaWar(CvArea* pArea)
-{
-	if( !isAVassal() )
-	{
+bool CvTeam::isMasterPlanningSeaWar(CvArea* pArea) {
+	if (!isAVassal()) {
 		return false;
 	}
 
-	if( (pArea->getAreaAIType(getID()) == AREAAI_ASSAULT) || (pArea->getAreaAIType(getID()) == AREAAI_ASSAULT_ASSIST) || (pArea->getAreaAIType(getID()) == AREAAI_ASSAULT_MASSING) )
-	{
+	if ((pArea->getAreaAIType(getID()) == AREAAI_ASSAULT) || (pArea->getAreaAIType(getID()) == AREAAI_ASSAULT_ASSIST) || (pArea->getAreaAIType(getID()) == AREAAI_ASSAULT_MASSING)) {
 		return true;
 	}
 
-	for( int iI = 0; iI < MAX_CIV_TEAMS; iI++ )
-	{
-		if( isVassal((TeamTypes)iI) )
-		{
-			if( GET_TEAM((TeamTypes)iI).getAnyWarPlanCount(true) > 0 )
-			{
-				if( (pArea->getAreaAIType((TeamTypes)iI) == AREAAI_ASSAULT) || (pArea->getAreaAIType((TeamTypes)iI) == AREAAI_ASSAULT_ASSIST) || (pArea->getAreaAIType((TeamTypes)iI) == AREAAI_ASSAULT_MASSING) )
-				{
-					return (GC.getGameINLINE().getSorenRandNum((isCapitulated() ? 3 : 2),"Vassal sea war") == 0);
-				}
-				else if( pArea->getAreaAIType((TeamTypes)iI) == AREAAI_NEUTRAL )
-				{
+	for (int iI = 0; iI < MAX_CIV_TEAMS; iI++) {
+		if (isVassal((TeamTypes)iI)) {
+			if (GET_TEAM((TeamTypes)iI).getAnyWarPlanCount(true) > 0) {
+				if ((pArea->getAreaAIType((TeamTypes)iI) == AREAAI_ASSAULT) || (pArea->getAreaAIType((TeamTypes)iI) == AREAAI_ASSAULT_ASSIST) || (pArea->getAreaAIType((TeamTypes)iI) == AREAAI_ASSAULT_MASSING)) {
+					return (GC.getGameINLINE().getSorenRandNum((isCapitulated() ? 3 : 2), "Vassal sea war") == 0);
+				} else if (pArea->getAreaAIType((TeamTypes)iI) == AREAAI_NEUTRAL) {
 					// Master has no presence here
 					return false;
 				}
 
-			}
-			else if( GET_TEAM((TeamTypes)iI).isHuman() )
-			{
+			} else if (GET_TEAM((TeamTypes)iI).isHuman()) {
 				return false;
 			}
 
@@ -2251,16 +1815,12 @@ bool CvTeam::isMasterPlanningSeaWar(CvArea* pArea)
 	return false;
 }
 
-int CvTeam::getUnitClassMaking(UnitClassTypes eUnitClass) const
-{
+int CvTeam::getUnitClassMaking(UnitClassTypes eUnitClass) const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 				iCount += GET_PLAYER((PlayerTypes)iI).getUnitClassMaking(eUnitClass);
 			}
 		}
@@ -2270,22 +1830,17 @@ int CvTeam::getUnitClassMaking(UnitClassTypes eUnitClass) const
 }
 
 
-int CvTeam::getUnitClassCountPlusMaking(UnitClassTypes eIndex) const
-{
+int CvTeam::getUnitClassCountPlusMaking(UnitClassTypes eIndex) const {
 	return (getUnitClassCount(eIndex) + getUnitClassMaking(eIndex));
 }
 
 
-int CvTeam::getBuildingClassMaking(BuildingClassTypes eBuildingClass) const
-{
+int CvTeam::getBuildingClassMaking(BuildingClassTypes eBuildingClass) const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 				iCount += GET_PLAYER((PlayerTypes)iI).getBuildingClassMaking(eBuildingClass);
 			}
 		}
@@ -2295,22 +1850,17 @@ int CvTeam::getBuildingClassMaking(BuildingClassTypes eBuildingClass) const
 }
 
 
-int CvTeam::getBuildingClassCountPlusMaking(BuildingClassTypes eIndex) const
-{
+int CvTeam::getBuildingClassCountPlusMaking(BuildingClassTypes eIndex) const {
 	return (getBuildingClassCount(eIndex) + getBuildingClassMaking(eIndex));
 }
 
 
-int CvTeam::getHasReligionCount(ReligionTypes eReligion) const
-{
+int CvTeam::getHasReligionCount(ReligionTypes eReligion) const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 				iCount += GET_PLAYER((PlayerTypes)iI).getHasReligionCount(eReligion);
 			}
 		}
@@ -2320,16 +1870,12 @@ int CvTeam::getHasReligionCount(ReligionTypes eReligion) const
 }
 
 
-int CvTeam::getHasCorporationCount(CorporationTypes eCorporation) const
-{
+int CvTeam::getHasCorporationCount(CorporationTypes eCorporation) const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 				iCount += GET_PLAYER((PlayerTypes)iI).getHasCorporationCount(eCorporation);
 			}
 		}
@@ -2339,16 +1885,12 @@ int CvTeam::getHasCorporationCount(CorporationTypes eCorporation) const
 }
 
 
-int CvTeam::countTotalCulture() const
-{
+int CvTeam::countTotalCulture() const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 				iCount += GET_PLAYER((PlayerTypes)iI).countTotalCulture();
 			}
 		}
@@ -2358,18 +1900,14 @@ int CvTeam::countTotalCulture() const
 }
 
 
-int CvTeam::countNumUnitsByArea(CvArea* pArea) const
-{
+int CvTeam::countNumUnitsByArea(CvArea* pArea) const {
 	PROFILE_FUNC();
 
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 				iCount += pArea->getUnitsPerPlayer((PlayerTypes)iI);
 			}
 		}
@@ -2379,18 +1917,14 @@ int CvTeam::countNumUnitsByArea(CvArea* pArea) const
 }
 
 
-int CvTeam::countNumCitiesByArea(CvArea* pArea) const
-{
+int CvTeam::countNumCitiesByArea(CvArea* pArea) const {
 	PROFILE_FUNC();
 
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 				iCount += pArea->getCitiesPerPlayer((PlayerTypes)iI);
 			}
 		}
@@ -2400,16 +1934,12 @@ int CvTeam::countNumCitiesByArea(CvArea* pArea) const
 }
 
 
-int CvTeam::countTotalPopulationByArea(CvArea* pArea) const
-{
+int CvTeam::countTotalPopulationByArea(CvArea* pArea) const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 				iCount += pArea->getPopulationPerPlayer((PlayerTypes)iI);
 			}
 		}
@@ -2419,16 +1949,12 @@ int CvTeam::countTotalPopulationByArea(CvArea* pArea) const
 }
 
 
-int CvTeam::countPowerByArea(CvArea* pArea) const
-{
+int CvTeam::countPowerByArea(CvArea* pArea) const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 				iCount += pArea->getPower((PlayerTypes)iI);
 			}
 		}
@@ -2438,19 +1964,14 @@ int CvTeam::countPowerByArea(CvArea* pArea) const
 }
 
 
-int CvTeam::countEnemyPowerByArea(CvArea* pArea) const
-{
+int CvTeam::countEnemyPowerByArea(CvArea* pArea) const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() != getID())
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() != getID()) {
 				// Count planned wars as well
-				if (AI_getWarPlan(GET_PLAYER((PlayerTypes)iI).getTeam()) != NO_WARPLAN)
-				{
+				if (AI_getWarPlan(GET_PLAYER((PlayerTypes)iI).getTeam()) != NO_WARPLAN) {
 					iCount += pArea->getPower((PlayerTypes)iI);
 				}
 			}
@@ -2462,11 +1983,9 @@ int CvTeam::countEnemyPowerByArea(CvArea* pArea) const
 
 // K-Mod
 // Note: this includes barbarian cities.
-int CvTeam::countEnemyCitiesByArea(CvArea* pArea) const
-{
+int CvTeam::countEnemyCitiesByArea(CvArea* pArea) const {
 	int iCount = 0;
-	for (PlayerTypes i = (PlayerTypes)0; i < MAX_PLAYERS; i=(PlayerTypes)(i+1))
-	{
+	for (PlayerTypes i = (PlayerTypes)0; i < MAX_PLAYERS; i = (PlayerTypes)(i + 1)) {
 		const CvPlayer& kLoopPlayer = GET_PLAYER(i);
 		if (kLoopPlayer.isAlive() && AI_getWarPlan(kLoopPlayer.getTeam()) != NO_WARPLAN)
 			iCount += pArea->getCitiesPerPlayer(i);
@@ -2474,18 +1993,13 @@ int CvTeam::countEnemyCitiesByArea(CvArea* pArea) const
 	return 0;
 }
 
-int CvTeam::countEnemyPopulationByArea(CvArea* pArea) const
-{
+int CvTeam::countEnemyPopulationByArea(CvArea* pArea) const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() != getID())
-			{
-				if( AI_getWarPlan(GET_PLAYER((PlayerTypes)iI).getTeam()) != NO_WARPLAN )
-				{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() != getID()) {
+				if (AI_getWarPlan(GET_PLAYER((PlayerTypes)iI).getTeam()) != NO_WARPLAN) {
 					iCount += pArea->getPopulationPerPlayer((PlayerTypes)iI);
 				}
 			}
@@ -2496,18 +2010,14 @@ int CvTeam::countEnemyPopulationByArea(CvArea* pArea) const
 }
 
 
-int CvTeam::countNumAIUnitsByArea(CvArea* pArea, UnitAITypes eUnitAI) const
-{
+int CvTeam::countNumAIUnitsByArea(CvArea* pArea, UnitAITypes eUnitAI) const {
 	PROFILE_FUNC();
 
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 				iCount += pArea->getNumAIUnits(((PlayerTypes)iI), eUnitAI);
 			}
 		}
@@ -2516,22 +2026,17 @@ int CvTeam::countNumAIUnitsByArea(CvArea* pArea, UnitAITypes eUnitAI) const
 	return iCount;
 }
 
-int CvTeam::countEnemyDangerByArea(CvArea* pArea, TeamTypes eEnemyTeam ) const
-{
+int CvTeam::countEnemyDangerByArea(CvArea* pArea, TeamTypes eEnemyTeam) const {
 	PROFILE_FUNC();
 
 	int iCount = 0;
 
-	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++)
-	{
+	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++) {
 		CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
 
-		if (pLoopPlot != NULL)
-		{
-			if (pLoopPlot->area() == pArea)
-			{
-				if (pLoopPlot->getTeam() == getID())
-				{
+		if (pLoopPlot != NULL) {
+			if (pLoopPlot->area() == pArea) {
+				if (pLoopPlot->getTeam() == getID()) {
 					iCount += pLoopPlot->plotCount(PUF_canDefendEnemy, getLeaderID(), false, NO_PLAYER, eEnemyTeam, PUF_isVisible, getLeaderID());
 				}
 			}
@@ -2541,13 +2046,10 @@ int CvTeam::countEnemyDangerByArea(CvArea* pArea, TeamTypes eEnemyTeam ) const
 	return iCount;
 }
 // K-Mod
-int CvTeam::getTypicalUnitValue(UnitAITypes eUnitAI, DomainTypes eDomain) const
-{
+int CvTeam::getTypicalUnitValue(UnitAITypes eUnitAI, DomainTypes eDomain) const {
 	int iMax = 0;
-	for (int iI = 0; iI < MAX_PLAYERS; ++iI)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-		{
+	for (int iI = 0; iI < MAX_PLAYERS; ++iI) {
+		if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 			iMax = std::max(iMax, GET_PLAYER((PlayerTypes)iI).getTypicalUnitValue(eUnitAI, eDomain));
 		}
 	}
@@ -2586,20 +2088,17 @@ int CvTeam::getResearchCost(TechTypes eTech, bool bGlobalModifiers, bool bTeamSi
 }
 
 
-int CvTeam::getResearchLeft(TechTypes eTech) const
-{
+int CvTeam::getResearchLeft(TechTypes eTech) const {
 	return std::max(0, (getResearchCost(eTech) - getResearchProgress(eTech)));
 }
 
 
-bool CvTeam::hasHolyCity(ReligionTypes eReligion) const
-{
+bool CvTeam::hasHolyCity(ReligionTypes eReligion) const {
 	FAssertMsg(eReligion != NO_RELIGION, "Religion is not assigned a valid value");
 
 	CvCity* pHolyCity = GC.getGameINLINE().getHolyCity(eReligion);
 
-	if (pHolyCity != NULL)
-	{
+	if (pHolyCity != NULL) {
 		return (pHolyCity->getTeam() == getID());
 	}
 
@@ -2607,28 +2106,22 @@ bool CvTeam::hasHolyCity(ReligionTypes eReligion) const
 }
 
 
-bool CvTeam::hasHeadquarters(CorporationTypes eCorporation) const
-{
+bool CvTeam::hasHeadquarters(CorporationTypes eCorporation) const {
 	FAssertMsg(eCorporation != NO_CORPORATION, "Corporation is not assigned a valid value");
 
 	CvCity* pHeadquarters = GC.getGameINLINE().getHeadquarters(eCorporation);
 
-	if (pHeadquarters != NULL)
-	{
+	if (pHeadquarters != NULL) {
 		return (pHeadquarters->getTeam() == getID());
 	}
 
 	return false;
 }
 
-bool CvTeam::hasBonus(BonusTypes eBonus) const
-{
-	for (int iI = 0; iI < MAX_PLAYERS; ++iI)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).hasBonus(eBonus))
-			{
+bool CvTeam::hasBonus(BonusTypes eBonus) const {
+	for (int iI = 0; iI < MAX_PLAYERS; ++iI) {
+		if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
+			if (GET_PLAYER((PlayerTypes)iI).hasBonus(eBonus)) {
 				return true;
 			}
 		}
@@ -2637,27 +2130,21 @@ bool CvTeam::hasBonus(BonusTypes eBonus) const
 	return false;
 }
 
-bool CvTeam::isBonusObsolete(BonusTypes eBonus) const
-{
-	TechTypes eObsoleteTech = (TechTypes) GC.getBonusInfo(eBonus).getTechObsolete();
-	if (eObsoleteTech != NO_TECH && isHasTech(eObsoleteTech))
-	{
+bool CvTeam::isBonusObsolete(BonusTypes eBonus) const {
+	TechTypes eObsoleteTech = (TechTypes)GC.getBonusInfo(eBonus).getTechObsolete();
+	if (eObsoleteTech != NO_TECH && isHasTech(eObsoleteTech)) {
 		return true;
 	}
 	return false;
 }
 
 
-bool CvTeam::isHuman() const
-{
+bool CvTeam::isHuman() const {
 	PROFILE_FUNC();
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).isHuman())
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
+			if (GET_PLAYER((PlayerTypes)iI).isHuman()) {
 				return true;
 			}
 		}
@@ -2667,26 +2154,19 @@ bool CvTeam::isHuman() const
 }
 
 
-bool CvTeam::isBarbarian() const
-{
+bool CvTeam::isBarbarian() const {
 	return (getID() == BARBARIAN_TEAM);
 }
 
 
-bool CvTeam::isMinorCiv() const
-{
+bool CvTeam::isMinorCiv() const {
 	bool bValid = false;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).isMinorCiv())
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
+			if (GET_PLAYER((PlayerTypes)iI).isMinorCiv()) {
 				bValid = true;
-			}
-			else
-			{
+			} else {
 				return false;
 			}
 		}
@@ -2696,23 +2176,17 @@ bool CvTeam::isMinorCiv() const
 }
 
 
-PlayerTypes CvTeam::getLeaderID() const
-{
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-			{
+PlayerTypes CvTeam::getLeaderID() const {
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 				return ((PlayerTypes)iI);
 			}
 		}
 	}
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-		{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 			return ((PlayerTypes)iI);
 		}
 	}
@@ -2721,16 +2195,11 @@ PlayerTypes CvTeam::getLeaderID() const
 }
 
 
-PlayerTypes CvTeam::getSecretaryID() const
-{
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).isHuman())
-			{
-				if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-				{
+PlayerTypes CvTeam::getSecretaryID() const {
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).isHuman()) {
+				if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 					return ((PlayerTypes)iI);
 				}
 			}
@@ -2741,44 +2210,34 @@ PlayerTypes CvTeam::getSecretaryID() const
 }
 
 
-HandicapTypes CvTeam::getHandicapType() const
-{
+HandicapTypes CvTeam::getHandicapType() const {
 	int iGameHandicap = 0;
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 				iGameHandicap += GET_PLAYER((PlayerTypes)iI).getHandicapType();
 				iCount++;
 			}
 		}
 	}
 
-	if (iCount > 0)
-	{
+	if (iCount > 0) {
 		FAssertMsg((iGameHandicap / iCount) >= 0, "(iGameHandicap / iCount) is expected to be non-negative (invalid Index)");
 		return ((HandicapTypes)(iGameHandicap / iCount));
-	}
-	else
-	{
+	} else {
 		return ((HandicapTypes)(GC.getDefineINT("STANDARD_HANDICAP")));
 	}
 }
 
 
-CvWString CvTeam::getName() const
-{
+CvWString CvTeam::getName() const {
 	CvWString szBuffer;
 	bool bFirst = true;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive() && GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-		{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive() && GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 			setListHelp(szBuffer, L"", GET_PLAYER((PlayerTypes)iI).getName(), L"/", bFirst);
 			bFirst = false;
 		}
@@ -2788,16 +2247,13 @@ CvWString CvTeam::getName() const
 }
 
 // K-Mod. Name to be used in replay
-CvWString CvTeam::getReplayName() const
-{
+CvWString CvTeam::getReplayName() const {
 	CvWString szBuffer;
 
 	bool bFirst = true;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive() && GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-		{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive() && GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 			setListHelp(szBuffer, L"", GET_PLAYER((PlayerTypes)iI).getReplayName(), L"/", bFirst);
 			bFirst = false;
 		}
@@ -2806,46 +2262,37 @@ CvWString CvTeam::getReplayName() const
 	return szBuffer;
 }
 
-int CvTeam::getNumMembers() const
-{
+int CvTeam::getNumMembers() const {
 	return m_iNumMembers;
 }
 
 
-void CvTeam::changeNumMembers(int iChange)
-{
+void CvTeam::changeNumMembers(int iChange) {
 	m_iNumMembers += iChange;
 	FAssert(getNumMembers() >= 0);
 }
 
 
-int CvTeam::getAliveCount() const
-{
+int CvTeam::getAliveCount() const {
 	return m_iAliveCount;
 }
 
 
-int CvTeam::isAlive() const
-{
+int CvTeam::isAlive() const {
 	return (getAliveCount() > 0);
 }
 
 
-void CvTeam::changeAliveCount(int iChange)
-{
+void CvTeam::changeAliveCount(int iChange) {
 	m_iAliveCount += iChange;
 	FAssert(getAliveCount() >= 0);
 
 	// free vassals
-	if (0 == m_iAliveCount)
-	{
-		for (int iTeam = 0; iTeam < MAX_TEAMS; iTeam++)
-		{
-			if (iTeam != getID())
-			{
+	if (0 == m_iAliveCount) {
+		for (int iTeam = 0; iTeam < MAX_TEAMS; iTeam++) {
+			if (iTeam != getID()) {
 				CvTeam& kLoopTeam = GET_TEAM((TeamTypes)iTeam);
-				if (kLoopTeam.isAlive() && kLoopTeam.isVassal(getID()))
-				{
+				if (kLoopTeam.isAlive() && kLoopTeam.isVassal(getID())) {
 					kLoopTeam.setVassal(getID(), false, false);
 				}
 			}
@@ -2854,56 +2301,45 @@ void CvTeam::changeAliveCount(int iChange)
 }
 
 
-int CvTeam::getEverAliveCount() const
-{
+int CvTeam::getEverAliveCount() const {
 	return m_iEverAliveCount;
 }
 
 
-int CvTeam::isEverAlive() const
-{
+int CvTeam::isEverAlive() const {
 	return (getEverAliveCount() > 0);
 }
 
 
-void CvTeam::changeEverAliveCount(int iChange)
-{
+void CvTeam::changeEverAliveCount(int iChange) {
 	m_iEverAliveCount += iChange;
 	FAssert(getEverAliveCount() >= 0);
 }
 
 
-int CvTeam::getNumCities() const														
-{
+int CvTeam::getNumCities() const {
 	return m_iNumCities;
 }
 
 
-void CvTeam::changeNumCities(int iChange)							
-{
+void CvTeam::changeNumCities(int iChange) {
 	m_iNumCities += iChange;
 	FAssert(getNumCities() >= 0);
 }
 
 
-int CvTeam::getTotalPopulation(bool bCheckVassals) const											
-{
+int CvTeam::getTotalPopulation(bool bCheckVassals) const {
 	int iVassalPop = 0;
 
-	if (bCheckVassals)
-	{
-		if (isAVassal())
-		{
+	if (bCheckVassals) {
+		if (isAVassal()) {
 			return m_iTotalPopulation / 2;
 		}
 
-		for (int iI = 0; iI < MAX_TEAMS; iI++)
-		{
-			if ((TeamTypes)iI != getID())
-			{
+		for (int iI = 0; iI < MAX_TEAMS; iI++) {
+			if ((TeamTypes)iI != getID()) {
 				CvTeam& kLoopTeam = GET_TEAM((TeamTypes)iI);
-				if (kLoopTeam.isAlive() && kLoopTeam.isVassal(getID()))
-				{
+				if (kLoopTeam.isAlive() && kLoopTeam.isVassal(getID())) {
 					iVassalPop += kLoopTeam.getTotalPopulation(false) / 2;
 				}
 			}
@@ -2914,31 +2350,24 @@ int CvTeam::getTotalPopulation(bool bCheckVassals) const
 }
 
 
-void CvTeam::changeTotalPopulation(int iChange)	
-{
+void CvTeam::changeTotalPopulation(int iChange) {
 	m_iTotalPopulation += iChange;
 	FAssert(getTotalPopulation() >= 0);
 }
 
 
-int CvTeam::getTotalLand(bool bCheckVassals) const
-{
+int CvTeam::getTotalLand(bool bCheckVassals) const {
 	int iVassalLand = 0;
 
-	if (bCheckVassals)
-	{
-		if (isAVassal())
-		{
+	if (bCheckVassals) {
+		if (isAVassal()) {
 			return m_iTotalLand / 2;
 		}
 
-		for (int iI = 0; iI < MAX_TEAMS; iI++)
-		{
-			if ((TeamTypes)iI != getID())
-			{
+		for (int iI = 0; iI < MAX_TEAMS; iI++) {
+			if ((TeamTypes)iI != getID()) {
 				CvTeam& kLoopTeam = GET_TEAM((TeamTypes)iI);
-				if (kLoopTeam.isAlive() && kLoopTeam.isVassal(getID()))
-				{
+				if (kLoopTeam.isAlive() && kLoopTeam.isVassal(getID())) {
 					iVassalLand += kLoopTeam.getTotalLand(false) / 2;
 				}
 			}
@@ -2949,61 +2378,51 @@ int CvTeam::getTotalLand(bool bCheckVassals) const
 }
 
 
-void CvTeam::changeTotalLand(int iChange)														
-{
+void CvTeam::changeTotalLand(int iChange) {
 	m_iTotalLand += iChange;
 	FAssert(getTotalLand() >= 0);
 }
 
 
-int CvTeam::getNukeInterception() const
-{
+int CvTeam::getNukeInterception() const {
 	return m_iNukeInterception;
 }
 
 
-void CvTeam::changeNukeInterception(int iChange)
-{
+void CvTeam::changeNukeInterception(int iChange) {
 	m_iNukeInterception += iChange;
 	FAssert(getNukeInterception() >= 0);
 }
 
 
-int CvTeam::getForceTeamVoteEligibilityCount(VoteSourceTypes eVoteSource) const
-{
+int CvTeam::getForceTeamVoteEligibilityCount(VoteSourceTypes eVoteSource) const {
 	return m_aiForceTeamVoteEligibilityCount[eVoteSource];
 }
 
 
-bool CvTeam::isForceTeamVoteEligible(VoteSourceTypes eVoteSource) const
-{
+bool CvTeam::isForceTeamVoteEligible(VoteSourceTypes eVoteSource) const {
 	return ((getForceTeamVoteEligibilityCount(eVoteSource) > 0) && !isMinorCiv());
 }
 
 
-void CvTeam::changeForceTeamVoteEligibilityCount(VoteSourceTypes eVoteSource, int iChange)
-{
+void CvTeam::changeForceTeamVoteEligibilityCount(VoteSourceTypes eVoteSource, int iChange) {
 	m_aiForceTeamVoteEligibilityCount[eVoteSource] += iChange;
 	FAssert(getForceTeamVoteEligibilityCount(eVoteSource) >= 0);
 }
 
 
-int CvTeam::getExtraWaterSeeFromCount() const
-{
+int CvTeam::getExtraWaterSeeFromCount() const {
 	return m_iExtraWaterSeeFromCount;
 }
 
 
-bool CvTeam::isExtraWaterSeeFrom() const
-{
+bool CvTeam::isExtraWaterSeeFrom() const {
 	return (getExtraWaterSeeFromCount() > 0);
 }
 
 
-void CvTeam::changeExtraWaterSeeFromCount(int iChange)
-{
-	if (iChange != 0)
-	{
+void CvTeam::changeExtraWaterSeeFromCount(int iChange) {
+	if (iChange != 0) {
 		GC.getMapINLINE().updateSight(false);
 
 		m_iExtraWaterSeeFromCount = (m_iExtraWaterSeeFromCount + iChange);
@@ -3014,111 +2433,93 @@ void CvTeam::changeExtraWaterSeeFromCount(int iChange)
 }
 
 
-int CvTeam::getMapTradingCount() const
-{
+int CvTeam::getMapTradingCount() const {
 	return m_iMapTradingCount;
 }
 
 
-bool CvTeam::isMapTrading()	const													
-{
+bool CvTeam::isMapTrading()	const {
 	return (getMapTradingCount() > 0);
 }
 
 
-void CvTeam::changeMapTradingCount(int iChange)						 
-{
+void CvTeam::changeMapTradingCount(int iChange) {
 	m_iMapTradingCount = (m_iMapTradingCount + iChange);
 	FAssert(getMapTradingCount() >= 0);
 }
 
 
-int CvTeam::getTechTradingCount() const
-{
+int CvTeam::getTechTradingCount() const {
 	return m_iTechTradingCount;
 }
 
 
-bool CvTeam::isTechTrading() const													 
-{
+bool CvTeam::isTechTrading() const {
 	return (getTechTradingCount() > 0);
 }
 
 
-void CvTeam::changeTechTradingCount(int iChange)						 
-{
+void CvTeam::changeTechTradingCount(int iChange) {
 	m_iTechTradingCount = (m_iTechTradingCount + iChange);
 	FAssert(getTechTradingCount() >= 0);
 }
 
 
-int CvTeam::getGoldTradingCount() const
-{
+int CvTeam::getGoldTradingCount() const {
 	return m_iGoldTradingCount;
 }
 
 
-bool CvTeam::isGoldTrading() const													 
-{
+bool CvTeam::isGoldTrading() const {
 	return (getGoldTradingCount() > 0);
 }
 
 
-void CvTeam::changeGoldTradingCount(int iChange)						 
-{
+void CvTeam::changeGoldTradingCount(int iChange) {
 	m_iGoldTradingCount = (m_iGoldTradingCount + iChange);
 	FAssert(getGoldTradingCount() >= 0);
 }
 
 
-int CvTeam::getOpenBordersTradingCount() const
-{
+int CvTeam::getOpenBordersTradingCount() const {
 	return m_iOpenBordersTradingCount;
 }
 
 
-bool CvTeam::isOpenBordersTrading() const
-{
+bool CvTeam::isOpenBordersTrading() const {
 	return (getOpenBordersTradingCount() > 0);
 }
 
 
-void CvTeam::changeOpenBordersTradingCount(int iChange)
-{
+void CvTeam::changeOpenBordersTradingCount(int iChange) {
 	m_iOpenBordersTradingCount = (m_iOpenBordersTradingCount + iChange);
 	FAssert(getOpenBordersTradingCount() >= 0);
 }
 
 
-int CvTeam::getDefensivePactTradingCount() const
-{
+int CvTeam::getDefensivePactTradingCount() const {
 	return m_iDefensivePactTradingCount;
 }
 
 
-bool CvTeam::isDefensivePactTrading() const
-{
+bool CvTeam::isDefensivePactTrading() const {
 	return (getDefensivePactTradingCount() > 0);
 }
 
 
-void CvTeam::changeDefensivePactTradingCount(int iChange)
-{
+void CvTeam::changeDefensivePactTradingCount(int iChange) {
 	m_iDefensivePactTradingCount = (m_iDefensivePactTradingCount + iChange);
 	FAssert(getDefensivePactTradingCount() >= 0);
 }
 
 
-int CvTeam::getPermanentAllianceTradingCount() const
-{
+int CvTeam::getPermanentAllianceTradingCount() const {
 	return m_iPermanentAllianceTradingCount;
 }
 
 
-bool CvTeam::isPermanentAllianceTrading() const
-{
-	if (!(GC.getGameINLINE().isOption(GAMEOPTION_PERMANENT_ALLIANCES)))
-	{
+bool CvTeam::isPermanentAllianceTrading() const {
+	if (!(GC.getGameINLINE().isOption(GAMEOPTION_PERMANENT_ALLIANCES))) {
 		return false;
 	}
 
@@ -3126,23 +2527,19 @@ bool CvTeam::isPermanentAllianceTrading() const
 }
 
 
-void CvTeam::changePermanentAllianceTradingCount(int iChange)
-{
+void CvTeam::changePermanentAllianceTradingCount(int iChange) {
 	m_iPermanentAllianceTradingCount = (m_iPermanentAllianceTradingCount + iChange);
 	FAssert(getPermanentAllianceTradingCount() >= 0);
 }
 
 
-int CvTeam::getVassalTradingCount() const
-{
+int CvTeam::getVassalTradingCount() const {
 	return m_iVassalTradingCount;
 }
 
 
-bool CvTeam::isVassalStateTrading() const
-{
-	if (GC.getGameINLINE().isOption(GAMEOPTION_NO_VASSAL_STATES))
-	{
+bool CvTeam::isVassalStateTrading() const {
+	if (GC.getGameINLINE().isOption(GAMEOPTION_NO_VASSAL_STATES)) {
 		return false;
 	}
 
@@ -3150,56 +2547,46 @@ bool CvTeam::isVassalStateTrading() const
 }
 
 
-void CvTeam::changeVassalTradingCount(int iChange)
-{
+void CvTeam::changeVassalTradingCount(int iChange) {
 	m_iVassalTradingCount += iChange;
 	FAssert(getVassalTradingCount() >= 0);
 }
 
 
-int CvTeam::getBridgeBuildingCount() const
-{
+int CvTeam::getBridgeBuildingCount() const {
 	return m_iBridgeBuildingCount;
 }
 
 
-bool CvTeam::isBridgeBuilding()	const											
-{
+bool CvTeam::isBridgeBuilding()	const {
 	return (getBridgeBuildingCount() > 0);
 }
 
 
-void CvTeam::changeBridgeBuildingCount(int iChange)				 
-{
-	if (iChange != 0)
-	{
+void CvTeam::changeBridgeBuildingCount(int iChange) {
+	if (iChange != 0) {
 		m_iBridgeBuildingCount = (m_iBridgeBuildingCount + iChange);
 		FAssert(getBridgeBuildingCount() >= 0);
 
-		if (GC.IsGraphicsInitialized())
-		{
+		if (GC.IsGraphicsInitialized()) {
 			gDLL->getEngineIFace()->MarkBridgesDirty();
 		}
 	}
 }
 
 
-int CvTeam::getIrrigationCount() const
-{
+int CvTeam::getIrrigationCount() const {
 	return m_iIrrigationCount;
 }
 
 
-bool CvTeam::isIrrigation() const
-{
+bool CvTeam::isIrrigation() const {
 	return (getIrrigationCount() > 0);
 }
 
 
-void CvTeam::changeIrrigationCount(int iChange)
-{
-	if (iChange != 0)
-	{
+void CvTeam::changeIrrigationCount(int iChange) {
+	if (iChange != 0) {
 		m_iIrrigationCount = (m_iIrrigationCount + iChange);
 		FAssert(getIrrigationCount() >= 0);
 
@@ -3208,41 +2595,34 @@ void CvTeam::changeIrrigationCount(int iChange)
 }
 
 
-int CvTeam::getIgnoreIrrigationCount() const
-{
+int CvTeam::getIgnoreIrrigationCount() const {
 	return m_iIgnoreIrrigationCount;
 }
 
 
-bool CvTeam::isIgnoreIrrigation() const
-{
+bool CvTeam::isIgnoreIrrigation() const {
 	return (getIgnoreIrrigationCount() > 0);
 }
 
 
-void CvTeam::changeIgnoreIrrigationCount(int iChange)
-{
+void CvTeam::changeIgnoreIrrigationCount(int iChange) {
 	m_iIgnoreIrrigationCount = (m_iIgnoreIrrigationCount + iChange);
 	FAssert(getIgnoreIrrigationCount() >= 0);
 }
 
 
-int CvTeam::getWaterWorkCount() const
-{
+int CvTeam::getWaterWorkCount() const {
 	return m_iWaterWorkCount;
 }
 
 
-bool CvTeam::isWaterWork() const
-{
+bool CvTeam::isWaterWork() const {
 	return (getWaterWorkCount() > 0);
 }
 
 
-void CvTeam::changeWaterWorkCount(int iChange)
-{
-	if (iChange != 0)
-	{
+void CvTeam::changeWaterWorkCount(int iChange) {
+	if (iChange != 0) {
 		m_iWaterWorkCount = (m_iWaterWorkCount + iChange);
 		FAssert(getWaterWorkCount() >= 0);
 
@@ -3250,64 +2630,52 @@ void CvTeam::changeWaterWorkCount(int iChange)
 	}
 }
 
-int CvTeam::getVassalPower() const
-{
+int CvTeam::getVassalPower() const {
 	return m_iVassalPower;
 }
 
-void CvTeam::setVassalPower(int iPower)
-{
+void CvTeam::setVassalPower(int iPower) {
 	m_iVassalPower = iPower;
 }
 
-int CvTeam::getMasterPower() const
-{
+int CvTeam::getMasterPower() const {
 	return m_iMasterPower;
 }
 
-void CvTeam::setMasterPower(int iPower)
-{
+void CvTeam::setMasterPower(int iPower) {
 	m_iMasterPower = iPower;
 }
 
-int CvTeam::getEnemyWarWearinessModifier() const
-{
+int CvTeam::getEnemyWarWearinessModifier() const {
 	return m_iEnemyWarWearinessModifier;
 }
 
-void CvTeam::changeEnemyWarWearinessModifier(int iChange)
-{
+void CvTeam::changeEnemyWarWearinessModifier(int iChange) {
 	m_iEnemyWarWearinessModifier += iChange;
 }
 
-bool CvTeam::isMapCentering() const
-{
+bool CvTeam::isMapCentering() const {
 	return m_bMapCentering;
 }
 
 
-void CvTeam::setMapCentering(bool bNewValue)
-{
-	if (isMapCentering() != bNewValue)
-	{
+void CvTeam::setMapCentering(bool bNewValue) {
+	if (isMapCentering() != bNewValue) {
 		m_bMapCentering = bNewValue;
 
-		if (getID() == GC.getGameINLINE().getActiveTeam())
-		{ 
+		if (getID() == GC.getGameINLINE().getActiveTeam()) {
 			gDLL->getInterfaceIFace()->setDirty(MinimapSection_DIRTY_BIT, true);
 		}
 	}
 }
 
 
-TeamTypes CvTeam::getID() const
-{
+TeamTypes CvTeam::getID() const {
 	return m_eID;
 }
 
 
-int CvTeam::getStolenVisibilityTimer(TeamTypes eIndex) const
-{
+int CvTeam::getStolenVisibilityTimer(TeamTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "iIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "iIndex is expected to be within maximum bounds (invalid Index)");
 
@@ -3315,8 +2683,7 @@ int CvTeam::getStolenVisibilityTimer(TeamTypes eIndex) const
 }
 
 
-bool CvTeam::isStolenVisibility(TeamTypes eIndex) const
-{
+bool CvTeam::isStolenVisibility(TeamTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "iIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "iIndex is expected to be within maximum bounds (invalid Index)");
 
@@ -3324,26 +2691,21 @@ bool CvTeam::isStolenVisibility(TeamTypes eIndex) const
 }
 
 
-void CvTeam::setStolenVisibilityTimer(TeamTypes eIndex, int iNewValue)
-{
+void CvTeam::setStolenVisibilityTimer(TeamTypes eIndex, int iNewValue) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 
-	if (getStolenVisibilityTimer(eIndex) != iNewValue)
-	{
+	if (getStolenVisibilityTimer(eIndex) != iNewValue) {
 		bool bOldStolenVisibility = isStolenVisibility(eIndex);
 
 		m_aiStolenVisibilityTimer[eIndex] = iNewValue;
 		FAssert(getStolenVisibilityTimer(eIndex) >= 0);
 
-		if (bOldStolenVisibility != isStolenVisibility(eIndex))
-		{
-			for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++)
-			{
+		if (bOldStolenVisibility != isStolenVisibility(eIndex)) {
+			for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++) {
 				CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
 
-				if (pLoopPlot->isVisible(eIndex, false))
-				{
+				if (pLoopPlot->isVisible(eIndex, false)) {
 					pLoopPlot->changeStolenVisibilityCount(getID(), ((isStolenVisibility(eIndex)) ? 1 : -1));
 				}
 			}
@@ -3352,44 +2714,38 @@ void CvTeam::setStolenVisibilityTimer(TeamTypes eIndex, int iNewValue)
 }
 
 
-void CvTeam::changeStolenVisibilityTimer(TeamTypes eIndex, int iChange)
-{
+void CvTeam::changeStolenVisibilityTimer(TeamTypes eIndex, int iChange) {
 	setStolenVisibilityTimer(eIndex, (getStolenVisibilityTimer(eIndex) + iChange));
 }
 
 
 // (K-Mod note: units are unhappiness per 100,000 population. ie. 1000 * percent unhappiness.)
-int CvTeam::getWarWeariness(TeamTypes eIndex, bool bUseEnemyModifer) const
-{
+int CvTeam::getWarWeariness(TeamTypes eIndex, bool bUseEnemyModifer) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 	//return m_aiWarWeariness[eIndex];
-	return bUseEnemyModifer ? m_aiWarWeariness[eIndex] * std::max(0, 100 + GET_TEAM(eIndex).getEnemyWarWearinessModifier())/100 : m_aiWarWeariness[eIndex]; // K-Mod
+	return bUseEnemyModifer ? m_aiWarWeariness[eIndex] * std::max(0, 100 + GET_TEAM(eIndex).getEnemyWarWearinessModifier()) / 100 : m_aiWarWeariness[eIndex]; // K-Mod
 }
 
 
-void CvTeam::setWarWeariness(TeamTypes eIndex, int iNewValue)
-{
+void CvTeam::setWarWeariness(TeamTypes eIndex, int iNewValue) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 	m_aiWarWeariness[eIndex] = std::max(0, iNewValue);
 }
 
 
-void CvTeam::changeWarWeariness(TeamTypes eIndex, int iChange)
-{
+void CvTeam::changeWarWeariness(TeamTypes eIndex, int iChange) {
 	FAssert(eIndex >= 0 && eIndex < MAX_TEAMS);
 	setWarWeariness(eIndex, getWarWeariness(eIndex) + iChange);
 }
 
-void CvTeam::changeWarWeariness(TeamTypes eOtherTeam, const CvPlot& kPlot, int iFactor)
-{
+void CvTeam::changeWarWeariness(TeamTypes eOtherTeam, const CvPlot& kPlot, int iFactor) {
 	int iOurCulture = kPlot.countFriendlyCulture(getID());
 	int iTheirCulture = kPlot.countFriendlyCulture(eOtherTeam);
 
 	int iRatio = 100;
-	if (0 != iOurCulture + iTheirCulture)
-	{
+	if (0 != iOurCulture + iTheirCulture) {
 		iRatio = (100 * iTheirCulture) / (iOurCulture + iTheirCulture);
 	}
 
@@ -3397,64 +2753,54 @@ void CvTeam::changeWarWeariness(TeamTypes eOtherTeam, const CvPlot& kPlot, int i
 }
 
 
-int CvTeam::getTechShareCount(int iIndex) const
-{
+int CvTeam::getTechShareCount(int iIndex) const {
 	FAssertMsg(iIndex >= 0, "iIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(iIndex < MAX_TEAMS, "iIndex is expected to be within maximum bounds (invalid Index)");
 	return m_aiTechShareCount[iIndex];
 }
 
 
-bool CvTeam::isTechShare(int iIndex) const
-{
+bool CvTeam::isTechShare(int iIndex) const {
 	return (getTechShareCount(iIndex) > 0);
 }
 
 
-void CvTeam::changeTechShareCount(int iIndex, int iChange)
-{
+void CvTeam::changeTechShareCount(int iIndex, int iChange) {
 	FAssertMsg(iIndex >= 0, "iIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(iIndex < MAX_TEAMS, "iIndex is expected to be within maximum bounds (invalid Index)");
 
-	if (iChange != 0)
-	{
+	if (iChange != 0) {
 		m_aiTechShareCount[iIndex] = (m_aiTechShareCount[iIndex] + iChange);
 		FAssert(getTechShareCount(iIndex) >= 0);
 
-		if (isTechShare(iIndex))
-		{
+		if (isTechShare(iIndex)) {
 			updateTechShare();
 		}
 	}
 }
 
 
-int CvTeam::getCommerceFlexibleCount(CommerceTypes eIndex) const
-{
+int CvTeam::getCommerceFlexibleCount(CommerceTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < NUM_COMMERCE_TYPES, "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_aiCommerceFlexibleCount[eIndex];
 }
 
 
-bool CvTeam::isCommerceFlexible(CommerceTypes eIndex) const
-{
+bool CvTeam::isCommerceFlexible(CommerceTypes eIndex) const {
 	return (getCommerceFlexibleCount(eIndex) > 0);
 }
 
 
-void CvTeam::changeCommerceFlexibleCount(CommerceTypes eIndex, int iChange)
-{
+void CvTeam::changeCommerceFlexibleCount(CommerceTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < NUM_COMMERCE_TYPES, "eIndex is expected to be within maximum bounds (invalid Index)");
 
-	if (iChange != 0)
-	{
+	if (iChange != 0) {
 		m_aiCommerceFlexibleCount[eIndex] = (m_aiCommerceFlexibleCount[eIndex] + iChange);
 		FAssert(getCommerceFlexibleCount(eIndex) >= 0);
 
-		if (getID() == GC.getGameINLINE().getActiveTeam())
-		{
+		if (getID() == GC.getGameINLINE().getActiveTeam()) {
 			gDLL->getInterfaceIFace()->setDirty(PercentButtons_DIRTY_BIT, true);
 			gDLL->getInterfaceIFace()->setDirty(GameData_DIRTY_BIT, true);
 		}
@@ -3462,16 +2808,14 @@ void CvTeam::changeCommerceFlexibleCount(CommerceTypes eIndex, int iChange)
 }
 
 
-int CvTeam::getExtraMoves(DomainTypes eIndex) const
-{
+int CvTeam::getExtraMoves(DomainTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < NUM_DOMAIN_TYPES, "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_aiExtraMoves[eIndex];
 }
 
 
-void CvTeam::changeExtraMoves(DomainTypes eIndex, int iChange)
-{
+void CvTeam::changeExtraMoves(DomainTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < NUM_DOMAIN_TYPES, "eIndex is expected to be within maximum bounds (invalid Index)");
 	m_aiExtraMoves[eIndex] = (m_aiExtraMoves[eIndex] + iChange);
@@ -3479,45 +2823,37 @@ void CvTeam::changeExtraMoves(DomainTypes eIndex, int iChange)
 }
 
 
-bool CvTeam::isHasMet(TeamTypes eIndex)	const														 
-{
+bool CvTeam::isHasMet(TeamTypes eIndex)	const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_abHasMet[eIndex];
 }
 
-void CvTeam::makeHasMet(TeamTypes eIndex, bool bNewDiplo)
-{
+void CvTeam::makeHasMet(TeamTypes eIndex, bool bNewDiplo) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 
-	if (!isHasMet(eIndex))
-	{
+	if (!isHasMet(eIndex)) {
 		makeHasSeen(eIndex); // K-mod
 		m_abHasMet[eIndex] = true;
 
 		updateTechShare();
 
-		for (int iI = 0; iI < MAX_CIV_TEAMS; iI++)
-		{
-			if (GET_TEAM((TeamTypes)iI).isAlive())
-			{
-				if (GET_TEAM((TeamTypes)iI).isVassal(getID()) || isVassal((TeamTypes)iI))
-				{
+		for (int iI = 0; iI < MAX_CIV_TEAMS; iI++) {
+			if (GET_TEAM((TeamTypes)iI).isAlive()) {
+				if (GET_TEAM((TeamTypes)iI).isVassal(getID()) || isVassal((TeamTypes)iI)) {
 					GET_TEAM((TeamTypes)iI).meet(eIndex, bNewDiplo);
 				}
 			}
 		}
 
 		// K-Mod. Initialize attitude cache for players on our team towards player's on their team.
-		for (PlayerTypes i = (PlayerTypes)0; i < MAX_CIV_PLAYERS; i=(PlayerTypes)(i+1))
-		{
+		for (PlayerTypes i = (PlayerTypes)0; i < MAX_CIV_PLAYERS; i = (PlayerTypes)(i + 1)) {
 			CvPlayerAI& kOurPlayer = GET_PLAYER(i);
 			if (!kOurPlayer.isAlive() || kOurPlayer.getTeam() != getID())
 				continue;
 
-			for (PlayerTypes j = (PlayerTypes)0; j < MAX_CIV_PLAYERS; j=(PlayerTypes)(j+1))
-			{
+			for (PlayerTypes j = (PlayerTypes)0; j < MAX_CIV_PLAYERS; j = (PlayerTypes)(j + 1)) {
 				CvPlayerAI& kTheirPlayer = GET_PLAYER(j);
 				if (!kTheirPlayer.isAlive() || kTheirPlayer.getTeam() != eIndex)
 					continue;
@@ -3525,39 +2861,25 @@ void CvTeam::makeHasMet(TeamTypes eIndex, bool bNewDiplo)
 				kOurPlayer.AI_updateAttitudeCache(j);
 			}
 		}
-	
-		if ((getID() == GC.getGameINLINE().getActiveTeam()) || (eIndex == GC.getGameINLINE().getActiveTeam()))
-		{
+
+		if ((getID() == GC.getGameINLINE().getActiveTeam()) || (eIndex == GC.getGameINLINE().getActiveTeam())) {
 			gDLL->getInterfaceIFace()->setDirty(Score_DIRTY_BIT, true);
 		}
 
-		if (GC.getGameINLINE().isOption(GAMEOPTION_ALWAYS_WAR))
-		{
-			if (isHuman() && getID() != eIndex)
-			{
+		if (GC.getGameINLINE().isOption(GAMEOPTION_ALWAYS_WAR)) {
+			if (isHuman() && getID() != eIndex) {
 				declareWar(eIndex, false, NO_WARPLAN);
 			}
-		}
-		else
-		{
-			if (GC.getGameINLINE().isFinalInitialized() && !(gDLL->GetWorldBuilderMode()))
-			{
-				if (bNewDiplo)
-				{
-					if (!isHuman())
-					{
-						if (!isAtWar(eIndex))
-						{
-							for (iI = 0; iI < MAX_PLAYERS; iI++)
-							{
-								if (GET_PLAYER((PlayerTypes)iI).isAlive())
-								{
-									if (GET_PLAYER((PlayerTypes)iI).getTeam() == eIndex)
-									{
-										if (GET_PLAYER(getLeaderID()).canContact((PlayerTypes)iI))
-										{
-											if (GET_PLAYER((PlayerTypes)iI).isHuman())
-											{
+		} else {
+			if (GC.getGameINLINE().isFinalInitialized() && !(gDLL->GetWorldBuilderMode())) {
+				if (bNewDiplo) {
+					if (!isHuman()) {
+						if (!isAtWar(eIndex)) {
+							for (iI = 0; iI < MAX_PLAYERS; iI++) {
+								if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+									if (GET_PLAYER((PlayerTypes)iI).getTeam() == eIndex) {
+										if (GET_PLAYER(getLeaderID()).canContact((PlayerTypes)iI)) {
+											if (GET_PLAYER((PlayerTypes)iI).isHuman()) {
 												CvDiploParameters* pDiplo = new CvDiploParameters(getLeaderID());
 												FAssertMsg(pDiplo != NULL, "pDiplo must be valid");
 												pDiplo->setDiploComment((DiploCommentTypes)GC.getInfoTypeForString("AI_DIPLOCOMMENT_FIRST_CONTACT"));
@@ -3580,47 +2902,40 @@ void CvTeam::makeHasMet(TeamTypes eIndex, bool bNewDiplo)
 }
 
 
-bool CvTeam::isAtWar(TeamTypes eIndex) const
-{
+bool CvTeam::isAtWar(TeamTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_abAtWar[eIndex];
 }
 
 
-void CvTeam::setAtWar(TeamTypes eIndex, bool bNewValue)
-{
+void CvTeam::setAtWar(TeamTypes eIndex, bool bNewValue) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 	m_abAtWar[eIndex] = bNewValue;
 }
 
 
-bool CvTeam::isPermanentWarPeace(TeamTypes eIndex) const
-{
+bool CvTeam::isPermanentWarPeace(TeamTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_abPermanentWarPeace[eIndex];
 }
 
 
-void CvTeam::setPermanentWarPeace(TeamTypes eIndex, bool bNewValue)
-{
+void CvTeam::setPermanentWarPeace(TeamTypes eIndex, bool bNewValue) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 	m_abPermanentWarPeace[eIndex] = bNewValue;
 }
 
 
-bool CvTeam::isFreeTrade(TeamTypes eIndex) const
-{
-	if (isAtWar(eIndex))
-	{
+bool CvTeam::isFreeTrade(TeamTypes eIndex) const {
+	if (isAtWar(eIndex)) {
 		return false;
 	}
 
-	if (!isHasMet(eIndex))
-	{
+	if (!isHasMet(eIndex)) {
 		return false;
 	}
 
@@ -3628,21 +2943,18 @@ bool CvTeam::isFreeTrade(TeamTypes eIndex) const
 }
 
 
-bool CvTeam::isOpenBorders(TeamTypes eIndex) const
-{
+bool CvTeam::isOpenBorders(TeamTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_abOpenBorders[eIndex];
 }
 
 
-void CvTeam::setOpenBorders(TeamTypes eIndex, bool bNewValue)
-{
+void CvTeam::setOpenBorders(TeamTypes eIndex, bool bNewValue) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 
-	if (isOpenBorders(eIndex) != bNewValue)
-	{
+	if (isOpenBorders(eIndex) != bNewValue) {
 		bool bOldFreeTrade = isFreeTrade(eIndex);
 
 		m_abOpenBorders[eIndex] = bNewValue;
@@ -3651,19 +2963,14 @@ void CvTeam::setOpenBorders(TeamTypes eIndex, bool bNewValue)
 
 		GC.getMapINLINE().verifyUnitValidPlot();
 
-		if ((getID() == GC.getGameINLINE().getActiveTeam()) || (eIndex == GC.getGameINLINE().getActiveTeam()))
-		{
+		if ((getID() == GC.getGameINLINE().getActiveTeam()) || (eIndex == GC.getGameINLINE().getActiveTeam())) {
 			gDLL->getInterfaceIFace()->setDirty(Score_DIRTY_BIT, true);
 		}
 
-		if (bOldFreeTrade != isFreeTrade(eIndex))
-		{
-			for (int iI = 0; iI < MAX_PLAYERS; iI++)
-			{
-				if (GET_PLAYER((PlayerTypes)iI).isAlive())
-				{
-					if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-					{
+		if (bOldFreeTrade != isFreeTrade(eIndex)) {
+			for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+				if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+					if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 						GET_PLAYER((PlayerTypes)iI).updateTradeRoutes();
 					}
 				}
@@ -3673,42 +2980,34 @@ void CvTeam::setOpenBorders(TeamTypes eIndex, bool bNewValue)
 }
 
 
-bool CvTeam::isDefensivePact(TeamTypes eIndex) const
-{
+bool CvTeam::isDefensivePact(TeamTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_abDefensivePact[eIndex];
 }
 
 
-void CvTeam::setDefensivePact(TeamTypes eIndex, bool bNewValue)
-{
+void CvTeam::setDefensivePact(TeamTypes eIndex, bool bNewValue) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 
-	if (isDefensivePact(eIndex) != bNewValue)
-	{
+	if (isDefensivePact(eIndex) != bNewValue) {
 		m_abDefensivePact[eIndex] = bNewValue;
 
-		if ((getID() == GC.getGameINLINE().getActiveTeam()) || (eIndex == GC.getGameINLINE().getActiveTeam()))
-		{
+		if ((getID() == GC.getGameINLINE().getActiveTeam()) || (eIndex == GC.getGameINLINE().getActiveTeam())) {
 			gDLL->getInterfaceIFace()->setDirty(Score_DIRTY_BIT, true);
 		}
 
-		if (bNewValue && !GET_TEAM(eIndex).isDefensivePact(getID()))
-		{
+		if (bNewValue && !GET_TEAM(eIndex).isDefensivePact(getID())) {
 			CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_PLAYERS_SIGN_DEFENSIVE_PACT", getReplayName().GetCString(), GET_TEAM(eIndex).getReplayName().GetCString());
 
 			GC.getGameINLINE().addReplayMessage(REPLAY_MESSAGE_MAJOR_EVENT, getLeaderID(), szBuffer, -1, -1, (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
 
 
-			for (int iI = 0; iI < MAX_PLAYERS; iI++)
-			{
+			for (int iI = 0; iI < MAX_PLAYERS; iI++) {
 				CvPlayer& kPlayer = GET_PLAYER((PlayerTypes)iI);
-				if (kPlayer.isAlive())
-				{
-					if (isHasMet(kPlayer.getTeam()) && GET_TEAM(eIndex).isHasMet(kPlayer.getTeam()))
-					{
+				if (kPlayer.isAlive()) {
+					if (isHasMet(kPlayer.getTeam()) && GET_TEAM(eIndex).isHasMet(kPlayer.getTeam())) {
 						gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_THEIRALLIANCE", MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
 					}
 				}
@@ -3716,44 +3015,35 @@ void CvTeam::setDefensivePact(TeamTypes eIndex, bool bNewValue)
 		}
 
 		// K-Mod. update attitude
-		if (GC.getGameINLINE().isFinalInitialized())
-		{
-			for (PlayerTypes i = (PlayerTypes)0; i < MAX_CIV_PLAYERS; i=(PlayerTypes)(i+1))
-			{
+		if (GC.getGameINLINE().isFinalInitialized()) {
+			for (PlayerTypes i = (PlayerTypes)0; i < MAX_CIV_PLAYERS; i = (PlayerTypes)(i + 1)) {
 				GET_PLAYER(i).AI_updateAttitudeCache();
 			}
 		}
-		}
+	}
 }
 
 
-bool CvTeam::isForcePeace(TeamTypes eIndex) const
-{
+bool CvTeam::isForcePeace(TeamTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_abForcePeace[eIndex];
 }
 
 
-void CvTeam::setForcePeace(TeamTypes eIndex, bool bNewValue)
-{
+void CvTeam::setForcePeace(TeamTypes eIndex, bool bNewValue) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 	m_abForcePeace[eIndex] = bNewValue;
 
-	if (isForcePeace(eIndex))
-	{
-		if (AI_isSneakAttackPreparing(eIndex))
-		{
+	if (isForcePeace(eIndex)) {
+		if (AI_isSneakAttackPreparing(eIndex)) {
 			AI_setWarPlan(eIndex, NO_WARPLAN);
 		}
 
-		for (int iTeam = 0; iTeam < MAX_TEAMS; ++iTeam)
-		{
-			if (GET_TEAM((TeamTypes)iTeam).isVassal(eIndex))
-			{
-				if (AI_isSneakAttackPreparing((TeamTypes)iTeam))
-				{
+		for (int iTeam = 0; iTeam < MAX_TEAMS; ++iTeam) {
+			if (GET_TEAM((TeamTypes)iTeam).isVassal(eIndex)) {
+				if (AI_isSneakAttackPreparing((TeamTypes)iTeam)) {
 					AI_setWarPlan((TeamTypes)iTeam, NO_WARPLAN);
 				}
 			}
@@ -3761,332 +3051,257 @@ void CvTeam::setForcePeace(TeamTypes eIndex, bool bNewValue)
 	}
 }
 
-bool CvTeam::isVassal(TeamTypes eIndex) const
-{
+bool CvTeam::isVassal(TeamTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_abVassal[eIndex];
 }
 
-void CvTeam::setVassal(TeamTypes eIndex, bool bNewValue, bool bCapitulated)
-{
+void CvTeam::setVassal(TeamTypes eIndex, bool bNewValue, bool bCapitulated) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 	FAssertMsg(!bNewValue || !GET_TEAM(eIndex).isAVassal(), "can't become a vassal of a vassal")
 
-	if (isVassal(eIndex) != bNewValue)
-	{
-		for (int i = 0; i < MAX_PLAYERS; i++)
-		{
-			if (GET_PLAYER((PlayerTypes)i).getTeam() == getID())
-			{
-				GET_PLAYER((PlayerTypes)i).updateCitySight(false, false);
+		if (isVassal(eIndex) != bNewValue) {
+			for (int i = 0; i < MAX_PLAYERS; i++) {
+				if (GET_PLAYER((PlayerTypes)i).getTeam() == getID()) {
+					GET_PLAYER((PlayerTypes)i).updateCitySight(false, false);
+				}
 			}
-		}
 
-		for (int iPlayer = 0; iPlayer < MAX_PLAYERS; ++iPlayer)
-		{
-			CvPlayer& kLoopPlayer = GET_PLAYER((PlayerTypes)iPlayer);
+			for (int iPlayer = 0; iPlayer < MAX_PLAYERS; ++iPlayer) {
+				CvPlayer& kLoopPlayer = GET_PLAYER((PlayerTypes)iPlayer);
 
-			if (kLoopPlayer.isAlive() && kLoopPlayer.getTeam() == eIndex)
-			{
+				if (kLoopPlayer.isAlive() && kLoopPlayer.getTeam() == eIndex) {
+					int iLoop;
+					for (CvUnit* pLoopUnit = kLoopPlayer.firstUnit(&iLoop); NULL != pLoopUnit; pLoopUnit = kLoopPlayer.nextUnit(&iLoop)) {
+						CvPlot* pPlot = pLoopUnit->plot();
+						if (pLoopUnit->getTeam() != pPlot->getTeam() && (pPlot->getTeam() == NO_TEAM || !GET_TEAM(pPlot->getTeam()).isVassal(pLoopUnit->getTeam()))) {
+							kLoopPlayer.changeNumOutsideUnits(-1);
+						}
+					}
+				}
+			}
+
+			m_abVassal[eIndex] = bNewValue;
+
+			for (int iPlayer = 0; iPlayer < MAX_PLAYERS; ++iPlayer) {
+				CvPlayer& kLoopPlayer = GET_PLAYER((PlayerTypes)iPlayer);
+
+				if (kLoopPlayer.isAlive() && kLoopPlayer.getTeam() == eIndex) {
+					int iLoop;
+					for (CvUnit* pLoopUnit = kLoopPlayer.firstUnit(&iLoop); NULL != pLoopUnit; pLoopUnit = kLoopPlayer.nextUnit(&iLoop)) {
+						CvPlot* pPlot = pLoopUnit->plot();
+						if (pLoopUnit->getTeam() != pPlot->getTeam() && (pPlot->getTeam() == NO_TEAM || !GET_TEAM(pPlot->getTeam()).isVassal(pLoopUnit->getTeam()))) {
+							kLoopPlayer.changeNumOutsideUnits(1);
+						}
+					}
+				}
+			}
+
+			for (int i = 0; i < MAX_PLAYERS; i++) {
+				if (GET_PLAYER((PlayerTypes)i).getTeam() == getID()) {
+					GET_PLAYER((PlayerTypes)i).updateCitySight(true, false);
+				}
+			}
+
+			for (int i = 0; i < GC.getMapINLINE().numPlotsINLINE(); ++i) {
+				CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(i);
+				if (pLoopPlot && (pLoopPlot->getTeam() == getID() || pLoopPlot->getTeam() == eIndex)) {
+					pLoopPlot->updateCulture(true, false);
+				}
+			}
+
+			GC.getGameINLINE().updatePlotGroups();
+
+			if (isVassal(eIndex)) {
+				m_bCapitulated = bCapitulated;
+
 				int iLoop;
-				for (CvUnit* pLoopUnit = kLoopPlayer.firstUnit(&iLoop); NULL != pLoopUnit; pLoopUnit = kLoopPlayer.nextUnit(&iLoop))
-				{
-					CvPlot* pPlot = pLoopUnit->plot();
-					if (pLoopUnit->getTeam() != pPlot->getTeam() && (pPlot->getTeam() == NO_TEAM || !GET_TEAM(pPlot->getTeam()).isVassal(pLoopUnit->getTeam())))
-					{
-						kLoopPlayer.changeNumOutsideUnits(-1);
-					}
-				}
-			}
-		}
+				for (CvDeal* pLoopDeal = GC.getGameINLINE().firstDeal(&iLoop); pLoopDeal != NULL; pLoopDeal = GC.getGameINLINE().nextDeal(&iLoop)) {
+					if ((GET_PLAYER(pLoopDeal->getFirstPlayer()).getTeam() == getID()) || (GET_PLAYER(pLoopDeal->getSecondPlayer()).getTeam() == getID())) {
+						bool bValid = true;
 
-		m_abVassal[eIndex] = bNewValue;
-
-		for (int iPlayer = 0; iPlayer < MAX_PLAYERS; ++iPlayer)
-		{
-			CvPlayer& kLoopPlayer = GET_PLAYER((PlayerTypes)iPlayer);
-
-			if (kLoopPlayer.isAlive() && kLoopPlayer.getTeam() == eIndex)
-			{
-				int iLoop;
-				for (CvUnit* pLoopUnit = kLoopPlayer.firstUnit(&iLoop); NULL != pLoopUnit; pLoopUnit = kLoopPlayer.nextUnit(&iLoop))
-				{
-					CvPlot* pPlot = pLoopUnit->plot();
-					if (pLoopUnit->getTeam() != pPlot->getTeam() && (pPlot->getTeam() == NO_TEAM || !GET_TEAM(pPlot->getTeam()).isVassal(pLoopUnit->getTeam())))
-					{
-						kLoopPlayer.changeNumOutsideUnits(1);
-					}
-				}
-			}
-		}
-
-		for (int i = 0; i < MAX_PLAYERS; i++)
-		{
-			if (GET_PLAYER((PlayerTypes)i).getTeam() == getID())
-			{
-				GET_PLAYER((PlayerTypes)i).updateCitySight(true, false);
-			}
-		}
-
-		for (int i = 0; i < GC.getMapINLINE().numPlotsINLINE(); ++i)
-		{
-			CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(i);
-			if (pLoopPlot && (pLoopPlot->getTeam() == getID() || pLoopPlot->getTeam() == eIndex))
-			{
-				pLoopPlot->updateCulture(true, false);
-			}
-		}
-
-		GC.getGameINLINE().updatePlotGroups();
-
-		if (isVassal(eIndex))
-		{
-			m_bCapitulated = bCapitulated;
-
-			int iLoop;
-			for (CvDeal* pLoopDeal = GC.getGameINLINE().firstDeal(&iLoop); pLoopDeal != NULL; pLoopDeal = GC.getGameINLINE().nextDeal(&iLoop))
-			{
-				if ((GET_PLAYER(pLoopDeal->getFirstPlayer()).getTeam() == getID()) || (GET_PLAYER(pLoopDeal->getSecondPlayer()).getTeam() == getID()))
-				{
-					bool bValid = true;
-
-					if (pLoopDeal->getFirstTrades() != NULL)
-					{
-						for (CLLNode<TradeData>* pNode = pLoopDeal->getFirstTrades()->head(); pNode; pNode = pLoopDeal->getFirstTrades()->next(pNode))
-						{
-							if ((pNode->m_data.m_eItemType == TRADE_DEFENSIVE_PACT) ||
-								(pNode->m_data.m_eItemType == TRADE_PEACE_TREATY))
-							{
-								bValid = false;
-								break;
+						if (pLoopDeal->getFirstTrades() != NULL) {
+							for (CLLNode<TradeData>* pNode = pLoopDeal->getFirstTrades()->head(); pNode; pNode = pLoopDeal->getFirstTrades()->next(pNode)) {
+								if ((pNode->m_data.m_eItemType == TRADE_DEFENSIVE_PACT) ||
+									(pNode->m_data.m_eItemType == TRADE_PEACE_TREATY)) {
+									bValid = false;
+									break;
+								}
 							}
 						}
-					}
 
-					if (bValid && pLoopDeal->getSecondTrades() != NULL)
-					{
-						for (CLLNode<TradeData>* pNode = pLoopDeal->getSecondTrades()->head(); pNode; pNode = pLoopDeal->getSecondTrades()->next(pNode))
-						{
-							if ((pNode->m_data.m_eItemType == TRADE_DEFENSIVE_PACT) ||
-								(pNode->m_data.m_eItemType == TRADE_PEACE_TREATY))
-							{
-								bValid = false;
-								break;
+						if (bValid && pLoopDeal->getSecondTrades() != NULL) {
+							for (CLLNode<TradeData>* pNode = pLoopDeal->getSecondTrades()->head(); pNode; pNode = pLoopDeal->getSecondTrades()->next(pNode)) {
+								if ((pNode->m_data.m_eItemType == TRADE_DEFENSIVE_PACT) ||
+									(pNode->m_data.m_eItemType == TRADE_PEACE_TREATY)) {
+									bValid = false;
+									break;
+								}
 							}
 						}
-					}
 
-					if (!bValid)
-					{
-						pLoopDeal->kill();
+						if (!bValid) {
+							pLoopDeal->kill();
+						}
 					}
 				}
-			}
 
-			setForcePeace(eIndex, false);
-			GET_TEAM(eIndex).setForcePeace(getID(), false);
+				setForcePeace(eIndex, false);
+				GET_TEAM(eIndex).setForcePeace(getID(), false);
 
-			// Declare war on teams you should be at war with
-			for (int iI = 0; iI < MAX_TEAMS; iI++)
-			{
-				if ((iI != getID()) && (iI != eIndex))
-				{
-					if (GET_TEAM((TeamTypes)iI).isAlive())
-					{
-						if (GET_TEAM(eIndex).isHasMet((TeamTypes)iI))
-						{
-							meet((TeamTypes)iI, true);
-						}
-
-						if (isHasMet((TeamTypes)iI))
-						{
-							GET_TEAM(eIndex).meet((TeamTypes)iI, true);
-						}
-
-						if (GET_TEAM(eIndex).isAtWar((TeamTypes)iI))
-						{
-							declareWar(((TeamTypes)iI), false, WARPLAN_DOGPILE);
-						}
-						else if (isAtWar((TeamTypes)iI))
-						{
-							if (bCapitulated)
-							{
-								makePeace((TeamTypes)iI);
+				// Declare war on teams you should be at war with
+				for (int iI = 0; iI < MAX_TEAMS; iI++) {
+					if ((iI != getID()) && (iI != eIndex)) {
+						if (GET_TEAM((TeamTypes)iI).isAlive()) {
+							if (GET_TEAM(eIndex).isHasMet((TeamTypes)iI)) {
+								meet((TeamTypes)iI, true);
 							}
-							else
-							{
-								GET_TEAM(eIndex).declareWar((TeamTypes)iI, false, WARPLAN_DOGPILE);
+
+							if (isHasMet((TeamTypes)iI)) {
+								GET_TEAM(eIndex).meet((TeamTypes)iI, true);
+							}
+
+							if (GET_TEAM(eIndex).isAtWar((TeamTypes)iI)) {
+								declareWar(((TeamTypes)iI), false, WARPLAN_DOGPILE);
+							} else if (isAtWar((TeamTypes)iI)) {
+								if (bCapitulated) {
+									makePeace((TeamTypes)iI);
+								} else {
+									GET_TEAM(eIndex).declareWar((TeamTypes)iI, false, WARPLAN_DOGPILE);
+								}
 							}
 						}
 					}
 				}
-			}
 
-			for (int iI = 0; iI < MAX_TEAMS; iI++)
-			{
-				CvTeam& kLoopTeam = GET_TEAM((TeamTypes)iI);
-				if (kLoopTeam.isAlive())
-				{
-					if (!kLoopTeam.isAtWar(getID()))
-					{
-						kLoopTeam.AI_setWarPlan(getID(), NO_WARPLAN);
-						AI_setWarPlan((TeamTypes)iI, NO_WARPLAN);
-					}
-
-					if (!kLoopTeam.isAtWar(eIndex))
-					{
-						kLoopTeam.AI_setWarPlan(eIndex, NO_WARPLAN);
-					}
-
-				}
-			}
-
-			// All our vassals now become free
-			for (int iI = 0; iI < MAX_TEAMS; iI++)
-			{
-				if ((iI != getID()) && (iI != eIndex))
-				{
+				for (int iI = 0; iI < MAX_TEAMS; iI++) {
 					CvTeam& kLoopTeam = GET_TEAM((TeamTypes)iI);
-					if (kLoopTeam.isAlive() && kLoopTeam.isVassal(getID()))
-					{
-						freeVassal((TeamTypes)iI);
+					if (kLoopTeam.isAlive()) {
+						if (!kLoopTeam.isAtWar(getID())) {
+							kLoopTeam.AI_setWarPlan(getID(), NO_WARPLAN);
+							AI_setWarPlan((TeamTypes)iI, NO_WARPLAN);
+						}
+
+						if (!kLoopTeam.isAtWar(eIndex)) {
+							kLoopTeam.AI_setWarPlan(eIndex, NO_WARPLAN);
+						}
+
 					}
+				}
+
+				// All our vassals now become free
+				for (int iI = 0; iI < MAX_TEAMS; iI++) {
+					if ((iI != getID()) && (iI != eIndex)) {
+						CvTeam& kLoopTeam = GET_TEAM((TeamTypes)iI);
+						if (kLoopTeam.isAlive() && kLoopTeam.isVassal(getID())) {
+							freeVassal((TeamTypes)iI);
+						}
+					}
+				}
+
+				setMasterPower(GET_TEAM(eIndex).getTotalLand());
+				setVassalPower(getTotalLand(false));
+
+				if (GC.getGameINLINE().isFinalInitialized() && !(gDLL->GetWorldBuilderMode())) {
+					CvWString szReplayMessage;
+
+					if (bCapitulated) {
+						szReplayMessage = gDLL->getText("TXT_KEY_MISC_CAPITULATE_AGREEMENT", getReplayName().GetCString(), GET_TEAM(eIndex).getReplayName().GetCString());
+					} else {
+						szReplayMessage = gDLL->getText("TXT_KEY_MISC_VASSAL_AGREEMENT", getReplayName().GetCString(), GET_TEAM(eIndex).getReplayName().GetCString());
+					}
+					GC.getGameINLINE().addReplayMessage(REPLAY_MESSAGE_MAJOR_EVENT, getLeaderID(), szReplayMessage, -1, -1, (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
+
+					for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+						CvPlayer& kPlayer = GET_PLAYER((PlayerTypes)iI);
+						if (kPlayer.isAlive()) {
+							if (isHasMet(kPlayer.getTeam()) && GET_TEAM(eIndex).isHasMet(kPlayer.getTeam())) {
+								gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szReplayMessage, "AS2D_WELOVEKING", MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
+							}
+						}
+					}
+				}
+			} else {
+				setMasterPower(0);
+				setVassalPower(0);
+
+				if (GC.getGameINLINE().isFinalInitialized() && !(gDLL->GetWorldBuilderMode()) && isAlive() && GET_TEAM(eIndex).isAlive()) {
+					CvWString szReplayMessage;
+
+					if (m_bCapitulated) {
+						szReplayMessage = gDLL->getText("TXT_KEY_MISC_SURRENDER_REVOLT", getReplayName().GetCString(), GET_TEAM(eIndex).getReplayName().GetCString());
+					} else {
+						szReplayMessage = gDLL->getText("TXT_KEY_MISC_VASSAL_REVOLT", getReplayName().GetCString(), GET_TEAM(eIndex).getReplayName().GetCString());
+					}
+
+					GC.getGameINLINE().addReplayMessage(REPLAY_MESSAGE_MAJOR_EVENT, getLeaderID(), szReplayMessage, -1, -1, (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
+
+					for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+						CvPlayer& kPlayer = GET_PLAYER((PlayerTypes)iI);
+						if (kPlayer.isAlive()) {
+							CvWString szBuffer;
+							if (getID() == kPlayer.getTeam() || eIndex == kPlayer.getTeam() || isHasMet(kPlayer.getTeam()) && GET_TEAM(eIndex).isHasMet(kPlayer.getTeam())) {
+								szBuffer = szReplayMessage;
+							}
+
+							if (!szBuffer.empty()) {
+								gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_REVOLTSTART", MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
+							}
+						}
+					}
+				}
+
+				m_bCapitulated = false;
+			}
+
+			for (int iPlayer = 0; iPlayer < MAX_PLAYERS; iPlayer++) {
+				CvPlayer& kLoopPlayer = GET_PLAYER((PlayerTypes)iPlayer);
+				if (kLoopPlayer.getTeam() == eIndex) {
+					kLoopPlayer.updateMaintenance();
 				}
 			}
 
-			setMasterPower(GET_TEAM(eIndex).getTotalLand());
-			setVassalPower(getTotalLand(false));
+			if (GC.getGameINLINE().isFinalInitialized() && !(gDLL->GetWorldBuilderMode())) {
+				CvEventReporter::getInstance().vassalState(eIndex, getID(), bNewValue);
+			}
 
-			if (GC.getGameINLINE().isFinalInitialized() && !(gDLL->GetWorldBuilderMode()))
-			{
-				CvWString szReplayMessage;
-				
-				if (bCapitulated)
-				{
-					szReplayMessage = gDLL->getText("TXT_KEY_MISC_CAPITULATE_AGREEMENT", getReplayName().GetCString(), GET_TEAM(eIndex).getReplayName().GetCString());
-				}
-				else
-				{
-					szReplayMessage = gDLL->getText("TXT_KEY_MISC_VASSAL_AGREEMENT", getReplayName().GetCString(), GET_TEAM(eIndex).getReplayName().GetCString());
-				}
-				GC.getGameINLINE().addReplayMessage(REPLAY_MESSAGE_MAJOR_EVENT, getLeaderID(), szReplayMessage, -1, -1, (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
-
-				for (int iI = 0; iI < MAX_PLAYERS; iI++)
-				{
-					CvPlayer& kPlayer = GET_PLAYER((PlayerTypes)iI);
-					if (kPlayer.isAlive())
-					{
-						if (isHasMet(kPlayer.getTeam()) && GET_TEAM(eIndex).isHasMet(kPlayer.getTeam()))
-						{
-							gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szReplayMessage, "AS2D_WELOVEKING", MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
+			// K-Mod. update attitude
+			for (PlayerTypes i = (PlayerTypes)0; i < MAX_CIV_PLAYERS; i = (PlayerTypes)(i + 1)) {
+				if (GET_PLAYER(i).getTeam() == getID() || GET_PLAYER(i).getTeam() == eIndex) {
+					for (PlayerTypes j = (PlayerTypes)0; j < MAX_CIV_PLAYERS; j = (PlayerTypes)(j + 1)) {
+						if (GET_PLAYER(j).getTeam() != GET_PLAYER(i).getTeam()) {
+							if (GET_PLAYER(j).getTeam() == getID() || GET_PLAYER(j).getTeam() == eIndex) {
+								GET_PLAYER(i).AI_updateAttitudeCache(j);
+								GET_PLAYER(j).AI_updateAttitudeCache(i);
+							}
 						}
 					}
 				}
 			}
-		}
-		else
-		{
-			setMasterPower(0);
-			setVassalPower(0);
-
-			if (GC.getGameINLINE().isFinalInitialized() && !(gDLL->GetWorldBuilderMode()) && isAlive() && GET_TEAM(eIndex).isAlive())
-			{
-				CvWString szReplayMessage;
-				
-				if (m_bCapitulated)
-				{
-					szReplayMessage = gDLL->getText("TXT_KEY_MISC_SURRENDER_REVOLT", getReplayName().GetCString(), GET_TEAM(eIndex).getReplayName().GetCString());
-				}
-				else
-				{
-					szReplayMessage = gDLL->getText("TXT_KEY_MISC_VASSAL_REVOLT", getReplayName().GetCString(), GET_TEAM(eIndex).getReplayName().GetCString());
-				}
-
-				GC.getGameINLINE().addReplayMessage(REPLAY_MESSAGE_MAJOR_EVENT, getLeaderID(), szReplayMessage, -1, -1, (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
-
-				for (int iI = 0; iI < MAX_PLAYERS; iI++)
-				{
-					CvPlayer& kPlayer = GET_PLAYER((PlayerTypes)iI);
-					if (kPlayer.isAlive())
-					{
-						CvWString szBuffer;
-						if (getID() == kPlayer.getTeam() || eIndex == kPlayer.getTeam() || isHasMet(kPlayer.getTeam()) && GET_TEAM(eIndex).isHasMet(kPlayer.getTeam()))
-						{
-							szBuffer = szReplayMessage;
-						}
-
-						if (!szBuffer.empty())
-						{
-							gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_REVOLTSTART", MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
-						}
-					}
-				}				
-			}
-
-			m_bCapitulated = false;
-		}
-
-		for (int iPlayer = 0; iPlayer < MAX_PLAYERS; iPlayer++)
-		{
-			CvPlayer& kLoopPlayer = GET_PLAYER((PlayerTypes)iPlayer);
-			if (kLoopPlayer.getTeam() == eIndex)
-			{
-				kLoopPlayer.updateMaintenance();
-			}
-		}
-
-		if (GC.getGameINLINE().isFinalInitialized() && !(gDLL->GetWorldBuilderMode()))
-		{
-			CvEventReporter::getInstance().vassalState(eIndex, getID(), bNewValue);
-		}
-
-		// K-Mod. update attitude
-		for (PlayerTypes i = (PlayerTypes)0; i < MAX_CIV_PLAYERS; i=(PlayerTypes)(i+1))
-		{
-			if (GET_PLAYER(i).getTeam() == getID() || GET_PLAYER(i).getTeam() == eIndex)
-			{
-				for (PlayerTypes j = (PlayerTypes)0; j < MAX_CIV_PLAYERS; j=(PlayerTypes)(j+1))
-				{
-					if (GET_PLAYER(j).getTeam() != GET_PLAYER(i).getTeam())
-					{
-						if (GET_PLAYER(j).getTeam() == getID() || GET_PLAYER(j).getTeam() == eIndex)
-						{
-							GET_PLAYER(i).AI_updateAttitudeCache(j);
-							GET_PLAYER(j).AI_updateAttitudeCache(i);
-						}
-					}
-				}
-			}
-		}
 		}
 }
 
 // K-Mod. Return the team which is the master of this team. (if this team is free, return getID())
-TeamTypes CvTeam::getMasterTeam() const
-{
-	for (TeamTypes i = (TeamTypes)0; i < MAX_CIV_TEAMS; i=(TeamTypes)(i+1))
-	{
+TeamTypes CvTeam::getMasterTeam() const {
+	for (TeamTypes i = (TeamTypes)0; i < MAX_CIV_TEAMS; i = (TeamTypes)(i + 1)) {
 		if (isVassal(i) && GET_TEAM(i).isAlive())
 			return i;
 	}
 	return getID();
 }
 
-void CvTeam::assignVassal(TeamTypes eVassal, bool bSurrender) const
-{
+void CvTeam::assignVassal(TeamTypes eVassal, bool bSurrender) const {
 	GET_TEAM(eVassal).setVassal(getID(), true, bSurrender);
 
 	TradeData item;
 	setTradeItem(&item, bSurrender ? TRADE_SURRENDER : TRADE_VASSAL);
 	item.m_iData = 1;
 
-	for (int iPlayer = 0; iPlayer < MAX_PLAYERS; iPlayer++)
-	{
+	for (int iPlayer = 0; iPlayer < MAX_PLAYERS; iPlayer++) {
 		CvPlayer& kLoopPlayer = GET_PLAYER((PlayerTypes)iPlayer);
-		if (kLoopPlayer.getTeam() == eVassal && kLoopPlayer.isAlive())
-		{
+		if (kLoopPlayer.getTeam() == eVassal && kLoopPlayer.isAlive()) {
 			CLinkList<TradeData> ourList;
 			CLinkList<TradeData> theirList;
 			ourList.clear();
@@ -4094,10 +3309,8 @@ void CvTeam::assignVassal(TeamTypes eVassal, bool bSurrender) const
 
 			theirList.insertAtEnd(item);
 
-			for (int jPlayer = 0; jPlayer < MAX_PLAYERS; jPlayer++)
-			{
-				if (GET_PLAYER((PlayerTypes)jPlayer).getTeam() == getID())
-				{
+			for (int jPlayer = 0; jPlayer < MAX_PLAYERS; jPlayer++) {
+				if (GET_PLAYER((PlayerTypes)jPlayer).getTeam() == getID()) {
 					GC.getGameINLINE().implementDeal(((PlayerTypes)jPlayer), ((PlayerTypes)iPlayer), &ourList, &theirList, true);
 				}
 			}
@@ -4106,40 +3319,29 @@ void CvTeam::assignVassal(TeamTypes eVassal, bool bSurrender) const
 }
 
 
-void CvTeam::freeVassal(TeamTypes eVassal) const
-{
+void CvTeam::freeVassal(TeamTypes eVassal) const {
 	int iLoop;
-	for (CvDeal* pLoopDeal = GC.getGameINLINE().firstDeal(&iLoop); pLoopDeal != NULL; pLoopDeal = GC.getGameINLINE().nextDeal(&iLoop))
-	{
+	for (CvDeal* pLoopDeal = GC.getGameINLINE().firstDeal(&iLoop); pLoopDeal != NULL; pLoopDeal = GC.getGameINLINE().nextDeal(&iLoop)) {
 		bool bValid = true;
 
-		if ((GET_PLAYER(pLoopDeal->getFirstPlayer()).getTeam() == eVassal) && (GET_PLAYER(pLoopDeal->getSecondPlayer()).getTeam() == getID()))
-		{
+		if ((GET_PLAYER(pLoopDeal->getFirstPlayer()).getTeam() == eVassal) && (GET_PLAYER(pLoopDeal->getSecondPlayer()).getTeam() == getID())) {
 
-			if (pLoopDeal->getFirstTrades() != NULL)
-			{
-				for (CLLNode<TradeData>* pNode = pLoopDeal->getFirstTrades()->head(); pNode; pNode = pLoopDeal->getFirstTrades()->next(pNode))
-				{
+			if (pLoopDeal->getFirstTrades() != NULL) {
+				for (CLLNode<TradeData>* pNode = pLoopDeal->getFirstTrades()->head(); pNode; pNode = pLoopDeal->getFirstTrades()->next(pNode)) {
 					if ((pNode->m_data.m_eItemType == TRADE_VASSAL) ||
-						(pNode->m_data.m_eItemType == TRADE_SURRENDER))
-					{
+						(pNode->m_data.m_eItemType == TRADE_SURRENDER)) {
 						bValid = false;
 					}
 				}
 			}
 		}
 
-		if (bValid)
-		{
-			if ((GET_PLAYER(pLoopDeal->getFirstPlayer()).getTeam() == getID()) && (GET_PLAYER(pLoopDeal->getSecondPlayer()).getTeam() == eVassal))
-			{
-				if (pLoopDeal->getSecondTrades() != NULL)
-				{
-					for (CLLNode<TradeData>* pNode = pLoopDeal->getSecondTrades()->head(); pNode; pNode = pLoopDeal->getSecondTrades()->next(pNode))
-					{
+		if (bValid) {
+			if ((GET_PLAYER(pLoopDeal->getFirstPlayer()).getTeam() == getID()) && (GET_PLAYER(pLoopDeal->getSecondPlayer()).getTeam() == eVassal)) {
+				if (pLoopDeal->getSecondTrades() != NULL) {
+					for (CLLNode<TradeData>* pNode = pLoopDeal->getSecondTrades()->head(); pNode; pNode = pLoopDeal->getSecondTrades()->next(pNode)) {
 						if ((pNode->m_data.m_eItemType == TRADE_VASSAL) ||
-							(pNode->m_data.m_eItemType == TRADE_SURRENDER))
-						{
+							(pNode->m_data.m_eItemType == TRADE_SURRENDER)) {
 							bValid = false;
 						}
 					}
@@ -4147,60 +3349,52 @@ void CvTeam::freeVassal(TeamTypes eVassal) const
 			}
 		}
 
-		if (!bValid)
-		{
+		if (!bValid) {
 			pLoopDeal->kill();
 		}
-	}	
+	}
 }
 
-bool CvTeam::isCapitulated() const
-{
+bool CvTeam::isCapitulated() const {
 	FAssert(!m_bCapitulated || isAVassal()); // K-Mod
 
 	return m_bCapitulated;
 }
 
 
-int CvTeam::getRouteChange(RouteTypes eIndex) const
-{
+int CvTeam::getRouteChange(RouteTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumRouteInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_paiRouteChange[eIndex];
 }
 
 
-void CvTeam::changeRouteChange(RouteTypes eIndex, int iChange)
-{
+void CvTeam::changeRouteChange(RouteTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumRouteInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	m_paiRouteChange[eIndex] = (m_paiRouteChange[eIndex] + iChange);
 }
 
 
-int CvTeam::getProjectCount(ProjectTypes eIndex) const																	 
-{
+int CvTeam::getProjectCount(ProjectTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumProjectInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_paiProjectCount[eIndex];
 }
 
-int CvTeam::getProjectDefaultArtType(ProjectTypes eIndex) const																	 
-{
+int CvTeam::getProjectDefaultArtType(ProjectTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumProjectInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_paiProjectDefaultArtTypes[eIndex];
 }
 
-void CvTeam::setProjectDefaultArtType(ProjectTypes eIndex, int value)
-{
+void CvTeam::setProjectDefaultArtType(ProjectTypes eIndex, int value) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumProjectInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	m_paiProjectDefaultArtTypes[eIndex] = value;
 }
 
-int CvTeam::getProjectArtType(ProjectTypes eIndex, int number) const
-{
+int CvTeam::getProjectArtType(ProjectTypes eIndex, int number) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumProjectInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	FAssertMsg(number >= 0, "number is expected to be non-negative (invalid Index)");
@@ -4208,8 +3402,7 @@ int CvTeam::getProjectArtType(ProjectTypes eIndex, int number) const
 	return m_pavProjectArtTypes[eIndex][number];
 }
 
-void CvTeam::setProjectArtType(ProjectTypes eIndex, int number, int value)
-{
+void CvTeam::setProjectArtType(ProjectTypes eIndex, int number, int value) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumProjectInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	FAssertMsg(number >= 0, "number is expected to be non-negative (invalid Index)");
@@ -4217,13 +3410,11 @@ void CvTeam::setProjectArtType(ProjectTypes eIndex, int number, int value)
 	m_pavProjectArtTypes[eIndex][number] = value;
 }
 
-bool CvTeam::isProjectMaxedOut(ProjectTypes eIndex, int iExtra) const
-{
+bool CvTeam::isProjectMaxedOut(ProjectTypes eIndex, int iExtra) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumProjectInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 
-	if (!isTeamProject(eIndex))
-	{
+	if (!isTeamProject(eIndex)) {
 		return false;
 	}
 
@@ -4232,39 +3423,31 @@ bool CvTeam::isProjectMaxedOut(ProjectTypes eIndex, int iExtra) const
 	return ((getProjectCount(eIndex) + iExtra) >= GC.getProjectInfo(eIndex).getMaxTeamInstances());
 }
 
-bool CvTeam::isProjectAndArtMaxedOut(ProjectTypes eIndex) const
-{
+bool CvTeam::isProjectAndArtMaxedOut(ProjectTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumProjectInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 
-	if(getProjectCount(eIndex) >= GC.getProjectInfo(eIndex).getMaxTeamInstances())
-	{
+	if (getProjectCount(eIndex) >= GC.getProjectInfo(eIndex).getMaxTeamInstances()) {
 		int count = getProjectCount(eIndex);
-		for(int i=0;i<count;i++)
-		{
-			if(getProjectArtType(eIndex, i) == -1) //undefined
+		for (int i = 0; i < count; i++) {
+			if (getProjectArtType(eIndex, i) == -1) //undefined
 				return false;
 		}
 
 		return true;
-	}
-	else
-	{
+	} else {
 		return false;
 	}
 }
 
-void CvTeam::finalizeProjectArtTypes()
-{
+void CvTeam::finalizeProjectArtTypes() {
 	//loop through each project and fill in default art values
-	for(int i=0;i<GC.getNumProjectInfos();i++)
-	{
-		ProjectTypes eProject = (ProjectTypes) i;
+	for (int i = 0; i < GC.getNumProjectInfos(); i++) {
+		ProjectTypes eProject = (ProjectTypes)i;
 		int projectCount = getProjectCount(eProject);
-		for(int j=0;j<projectCount;j++)
-		{
+		for (int j = 0; j < projectCount; j++) {
 			int projectArtType = getProjectArtType(eProject, j);
-			if(projectArtType == -1) //undefined
+			if (projectArtType == -1) //undefined
 			{
 				int defaultArtType = getProjectDefaultArtType(eProject);
 				setProjectArtType(eProject, j, defaultArtType);
@@ -4274,30 +3457,25 @@ void CvTeam::finalizeProjectArtTypes()
 }
 
 
-void CvTeam::changeProjectCount(ProjectTypes eIndex, int iChange)
-{
+void CvTeam::changeProjectCount(ProjectTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumProjectInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 
-	if (iChange != 0)
-	{
+	if (iChange != 0) {
 		GC.getGameINLINE().incrementProjectCreatedCount(eIndex, iChange);
 
 		int iOldProjectCount = getProjectCount(eIndex);
 
 		m_paiProjectCount[eIndex] = (m_paiProjectCount[eIndex] + iChange);
 		FAssert(getProjectCount(eIndex) >= 0);
-		
+
 		//adjust default art types
-		if(iChange >= 0)
-		{
+		if (iChange >= 0) {
 			int defaultType = -1;
-			for(int i=0;i<iChange;i++)
+			for (int i = 0; i < iChange; i++)
 				m_pavProjectArtTypes[eIndex].push_back(defaultType);
-		}
-		else
-		{
-			for(int i=0;i<-iChange;i++)
+		} else {
+			for (int i = 0; i < -iChange; i++)
 				m_pavProjectArtTypes[eIndex].pop_back();
 		}
 		FAssertMsg(getProjectCount(eIndex) == (int)m_pavProjectArtTypes[eIndex].size(), "[Jason] Unbalanced project art types.");
@@ -4306,58 +3484,44 @@ void CvTeam::changeProjectCount(ProjectTypes eIndex, int iChange)
 
 		changeNukeInterception(kProject.getNukeInterception() * iChange);
 
-		if ((kProject.getTechShare() > 0) && (kProject.getTechShare() <= MAX_TEAMS))
-		{
+		if ((kProject.getTechShare() > 0) && (kProject.getTechShare() <= MAX_TEAMS)) {
 			changeTechShareCount((kProject.getTechShare() - 1), iChange);
 		}
 
-		for (int iVictory = 0; iVictory < GC.getNumVictoryInfos(); ++iVictory)
-		{
-			if (kProject.getVictoryThreshold(iVictory) > 0)
-			{
+		for (int iVictory = 0; iVictory < GC.getNumVictoryInfos(); ++iVictory) {
+			if (kProject.getVictoryThreshold(iVictory) > 0) {
 				m_abCanLaunch[iVictory] = GC.getGameINLINE().testVictory((VictoryTypes)iVictory, getID());
 			}
 		}
 
-		if (iChange > 0)
-		{
-			if (kProject.getEveryoneSpecialUnit() != NO_SPECIALUNIT)
-			{
+		if (iChange > 0) {
+			if (kProject.getEveryoneSpecialUnit() != NO_SPECIALUNIT) {
 				GC.getGameINLINE().makeSpecialUnitValid((SpecialUnitTypes)(kProject.getEveryoneSpecialUnit()));
 			}
 
-			if (kProject.getEveryoneSpecialBuilding() != NO_SPECIALBUILDING)
-			{
+			if (kProject.getEveryoneSpecialBuilding() != NO_SPECIALBUILDING) {
 				GC.getGameINLINE().makeSpecialBuildingValid((SpecialBuildingTypes)(kProject.getEveryoneSpecialBuilding()));
 			}
 
-			if (kProject.isAllowsNukes())
-			{
+			if (kProject.isAllowsNukes()) {
 				GC.getGameINLINE().makeNukesValid(true);
-			}	
+			}
 
-			for (int iI = 0; iI < MAX_PLAYERS; iI++)
-			{
-				if (GET_PLAYER((PlayerTypes)iI).isAlive())
-				{
-					if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-					{
-						if (!(GET_PLAYER((PlayerTypes)iI).isHuman()))
-						{
+			for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+				if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+					if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
+						if (!(GET_PLAYER((PlayerTypes)iI).isHuman())) {
 							bool bChangeProduction = false;
 
-							for (int iJ = 0; iJ < GC.getNumProjectInfos(); iJ++)
-							{
+							for (int iJ = 0; iJ < GC.getNumProjectInfos(); iJ++) {
 								if ((getProjectCount(eIndex) >= GC.getProjectInfo((ProjectTypes)iJ).getProjectsNeeded(eIndex)) &&
-									  (iOldProjectCount < GC.getProjectInfo((ProjectTypes)iJ).getProjectsNeeded(eIndex)))
-								{
+									(iOldProjectCount < GC.getProjectInfo((ProjectTypes)iJ).getProjectsNeeded(eIndex))) {
 									bChangeProduction = true;
 									break;
 								}
 							}
 
-							if (bChangeProduction)
-							{
+							if (bChangeProduction) {
 								GET_PLAYER((PlayerTypes)iI).AI_makeProductionDirty();
 							}
 						}
@@ -4365,16 +3529,13 @@ void CvTeam::changeProjectCount(ProjectTypes eIndex, int iChange)
 				}
 			}
 
-			if (GC.getGameINLINE().isFinalInitialized() && !(gDLL->GetWorldBuilderMode()))
-			{
+			if (GC.getGameINLINE().isFinalInitialized() && !(gDLL->GetWorldBuilderMode())) {
 				CvWString szBuffer;
 				szBuffer = gDLL->getText("TXT_KEY_MISC_COMPLETES_PROJECT", getReplayName().GetCString(), kProject.getTextKeyWide());
 				GC.getGameINLINE().addReplayMessage(REPLAY_MESSAGE_MAJOR_EVENT, getLeaderID(), szBuffer, -1, -1, (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
 
-				for (int iI = 0; iI < MAX_PLAYERS; iI++)
-				{
-					if (GET_PLAYER((PlayerTypes)iI).isAlive())
-					{
+				for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+					if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
 						szBuffer = gDLL->getText("TXT_KEY_MISC_SOMEONE_HAS_COMPLETED", getName().GetCString(), kProject.getTextKeyWide());
 						gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_PROJECT_COMPLETED", MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
 					}
@@ -4385,16 +3546,14 @@ void CvTeam::changeProjectCount(ProjectTypes eIndex, int iChange)
 }
 
 
-int CvTeam::getProjectMaking(ProjectTypes eIndex) const																	 
-{
+int CvTeam::getProjectMaking(ProjectTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumProjectInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_paiProjectMaking[eIndex];
 }
 
 
-void CvTeam::changeProjectMaking(ProjectTypes eIndex, int iChange)										
-{
+void CvTeam::changeProjectMaking(ProjectTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumProjectInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	m_paiProjectMaking[eIndex] = (m_paiProjectMaking[eIndex] + iChange);
@@ -4402,21 +3561,18 @@ void CvTeam::changeProjectMaking(ProjectTypes eIndex, int iChange)
 }
 
 
-int CvTeam::getUnitClassCount(UnitClassTypes eIndex) const											
-{
+int CvTeam::getUnitClassCount(UnitClassTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumUnitClassInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_paiUnitClassCount[eIndex];
 }
 
 
-bool CvTeam::isUnitClassMaxedOut(UnitClassTypes eIndex, int iExtra) const
-{
+bool CvTeam::isUnitClassMaxedOut(UnitClassTypes eIndex, int iExtra) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumUnitClassInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 
-	if (!isTeamUnitClass(eIndex))
-	{
+	if (!isTeamUnitClass(eIndex)) {
 		return false;
 	}
 
@@ -4426,8 +3582,7 @@ bool CvTeam::isUnitClassMaxedOut(UnitClassTypes eIndex, int iExtra) const
 }
 
 
-void CvTeam::changeUnitClassCount(UnitClassTypes eIndex, int iChange)
-{
+void CvTeam::changeUnitClassCount(UnitClassTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumUnitClassInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	m_paiUnitClassCount[eIndex] = (m_paiUnitClassCount[eIndex] + iChange);
@@ -4435,21 +3590,18 @@ void CvTeam::changeUnitClassCount(UnitClassTypes eIndex, int iChange)
 }
 
 
-int CvTeam::getBuildingClassCount(BuildingClassTypes eIndex) const											
-{
+int CvTeam::getBuildingClassCount(BuildingClassTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumBuildingClassInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_paiBuildingClassCount[eIndex];
 }
 
 
-bool CvTeam::isBuildingClassMaxedOut(BuildingClassTypes eIndex, int iExtra) const
-{
+bool CvTeam::isBuildingClassMaxedOut(BuildingClassTypes eIndex, int iExtra) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumBuildingClassInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 
-	if (!isTeamWonderClass(eIndex))
-	{
+	if (!isTeamWonderClass(eIndex)) {
 		return false;
 	}
 
@@ -4459,8 +3611,7 @@ bool CvTeam::isBuildingClassMaxedOut(BuildingClassTypes eIndex, int iExtra) cons
 }
 
 
-void CvTeam::changeBuildingClassCount(BuildingClassTypes eIndex, int iChange)
-{
+void CvTeam::changeBuildingClassCount(BuildingClassTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumBuildingClassInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	m_paiBuildingClassCount[eIndex] = (m_paiBuildingClassCount[eIndex] + iChange);
@@ -4468,45 +3619,35 @@ void CvTeam::changeBuildingClassCount(BuildingClassTypes eIndex, int iChange)
 }
 
 
-int CvTeam::getObsoleteBuildingCount(BuildingTypes eIndex) const
-{
+int CvTeam::getObsoleteBuildingCount(BuildingTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumBuildingInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_paiObsoleteBuildingCount[eIndex];
 }
 
 
-bool CvTeam::isObsoleteBuilding(BuildingTypes eIndex) const				
-{
+bool CvTeam::isObsoleteBuilding(BuildingTypes eIndex) const {
 	return (getObsoleteBuildingCount(eIndex) > 0);
 }
 
 
-void CvTeam::changeObsoleteBuildingCount(BuildingTypes eIndex, int iChange)
-{
+void CvTeam::changeObsoleteBuildingCount(BuildingTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumBuildingInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 
-	if (iChange != 0)
-	{
+	if (iChange != 0) {
 		bool bOldObsoleteBuilding = isObsoleteBuilding(eIndex);
 
 		m_paiObsoleteBuildingCount[eIndex] = (m_paiObsoleteBuildingCount[eIndex] + iChange);
 		FAssert(getObsoleteBuildingCount(eIndex) >= 0);
 
-		if (bOldObsoleteBuilding != isObsoleteBuilding(eIndex))
-		{
-			for (int iI = 0; iI < MAX_PLAYERS; iI++)
-			{
-				if (GET_PLAYER((PlayerTypes)iI).isAlive())
-				{
-					if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-					{
+		if (bOldObsoleteBuilding != isObsoleteBuilding(eIndex)) {
+			for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+				if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+					if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 						int iLoop;
-						for (CvCity* pLoopCity = GET_PLAYER((PlayerTypes)iI).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER((PlayerTypes)iI).nextCity(&iLoop))
-						{
-							if (pLoopCity->getNumBuilding(eIndex) > 0)
-							{
+						for (CvCity* pLoopCity = GET_PLAYER((PlayerTypes)iI).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER((PlayerTypes)iI).nextCity(&iLoop)) {
+							if (pLoopCity->getNumBuilding(eIndex) > 0) {
 								pLoopCity->processBuilding(eIndex, ((isObsoleteBuilding(eIndex)) ? -pLoopCity->getNumBuilding(eIndex) : pLoopCity->getNumBuilding(eIndex)), true);
 							}
 						}
@@ -4518,39 +3659,31 @@ void CvTeam::changeObsoleteBuildingCount(BuildingTypes eIndex, int iChange)
 }
 
 
-int CvTeam::getResearchProgress(TechTypes eIndex) const							
-{
-	if (eIndex != NO_TECH)
-	{
+int CvTeam::getResearchProgress(TechTypes eIndex) const {
+	if (eIndex != NO_TECH) {
 		return m_paiResearchProgress[eIndex];
-	}
-	else
-	{
+	} else {
 		return 0;
 	}
 }
 
 
-void CvTeam::setResearchProgress(TechTypes eIndex, int iNewValue, PlayerTypes ePlayer)
-{
+void CvTeam::setResearchProgress(TechTypes eIndex, int iNewValue, PlayerTypes ePlayer) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumTechInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	FAssertMsg(ePlayer >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(ePlayer < MAX_PLAYERS, "ePlayer is expected to be within maximum bounds (invalid Index)");
 
-	if (getResearchProgress(eIndex) != iNewValue)
-	{
+	if (getResearchProgress(eIndex) != iNewValue) {
 		m_paiResearchProgress[eIndex] = iNewValue;
 		FAssert(getResearchProgress(eIndex) >= 0);
 
-		if (getID() == GC.getGameINLINE().getActiveTeam())
-		{
+		if (getID() == GC.getGameINLINE().getActiveTeam()) {
 			gDLL->getInterfaceIFace()->setDirty(GameData_DIRTY_BIT, true);
 			gDLL->getInterfaceIFace()->setDirty(Score_DIRTY_BIT, true);
 		}
 
-		if (getResearchProgress(eIndex) >= getResearchCost(eIndex))
-		{
+		if (getResearchProgress(eIndex) >= getResearchCost(eIndex)) {
 			int iOverflow = (100 * (getResearchProgress(eIndex) - getResearchCost(eIndex))) / std::max(1, GET_PLAYER(ePlayer).calculateResearchModifier(eIndex));
 			GET_PLAYER(ePlayer).changeOverflowResearch(iOverflow);
 			setHasTech(eIndex, true, ePlayer, true, true);
@@ -4559,23 +3692,17 @@ void CvTeam::setResearchProgress(TechTypes eIndex, int iNewValue, PlayerTypes eP
 }
 
 
-void CvTeam::changeResearchProgress(TechTypes eIndex, int iChange, PlayerTypes ePlayer)
-{
+void CvTeam::changeResearchProgress(TechTypes eIndex, int iChange, PlayerTypes ePlayer) {
 	setResearchProgress(eIndex, (getResearchProgress(eIndex) + iChange), ePlayer);
 }
 
-int CvTeam::changeResearchProgressPercent(TechTypes eIndex, int iPercent, PlayerTypes ePlayer)
-{
+int CvTeam::changeResearchProgressPercent(TechTypes eIndex, int iPercent, PlayerTypes ePlayer) {
 	int iBeakers = 0;
 
-	if (0 != iPercent && !isHasTech(eIndex))
-	{
-		if (iPercent > 0)
-		{
+	if (0 != iPercent && !isHasTech(eIndex)) {
+		if (iPercent > 0) {
 			iBeakers = std::min(getResearchLeft(eIndex), (getResearchCost(eIndex) * iPercent) / 100);
-		}
-		else
-		{
+		} else {
 			iBeakers = std::max(getResearchLeft(eIndex) - getResearchCost(eIndex), (getResearchCost(eIndex) * iPercent) / 100);
 		}
 
@@ -4586,68 +3713,54 @@ int CvTeam::changeResearchProgressPercent(TechTypes eIndex, int iPercent, Player
 }
 
 
-int CvTeam::getTechCount(TechTypes eIndex)		 const					
-{
+int CvTeam::getTechCount(TechTypes eIndex)		 const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumTechInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_paiTechCount[eIndex];
 }
 
-int CvTeam::getBestKnownTechScorePercent() const
-{
+int CvTeam::getBestKnownTechScorePercent() const {
 	int iOurTechScore = 0;
 	int iBestKnownTechScore = 0;
 
-	for (int iI = 0; iI < MAX_CIV_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if( GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-			{
-				iOurTechScore = std::max( iOurTechScore, GET_PLAYER((PlayerTypes)iI).getTechScore() );
-			}
-			else if (isHasMet(GET_PLAYER((PlayerTypes)iI).getTeam()))
-			{
-				iBestKnownTechScore = std::max( iBestKnownTechScore, GET_PLAYER((PlayerTypes)iI).getTechScore() );
+	for (int iI = 0; iI < MAX_CIV_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
+				iOurTechScore = std::max(iOurTechScore, GET_PLAYER((PlayerTypes)iI).getTechScore());
+			} else if (isHasMet(GET_PLAYER((PlayerTypes)iI).getTeam())) {
+				iBestKnownTechScore = std::max(iBestKnownTechScore, GET_PLAYER((PlayerTypes)iI).getTechScore());
 			}
 		}
 	}
 
-	iBestKnownTechScore = std::max( iBestKnownTechScore, iOurTechScore );
+	iBestKnownTechScore = std::max(iBestKnownTechScore, iOurTechScore);
 
-	return ((100*iOurTechScore)/std::max(iBestKnownTechScore, 1));
+	return ((100 * iOurTechScore) / std::max(iBestKnownTechScore, 1));
 }
 
-int CvTeam::getTerrainTradeCount(TerrainTypes eIndex) const
-{
+int CvTeam::getTerrainTradeCount(TerrainTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumTerrainInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_paiTerrainTradeCount[eIndex];
 }
 
 
-bool CvTeam::isTerrainTrade(TerrainTypes eIndex) const
-{
+bool CvTeam::isTerrainTrade(TerrainTypes eIndex) const {
 	return (getTerrainTradeCount(eIndex) > 0);
 }
 
 
-void CvTeam::changeTerrainTradeCount(TerrainTypes eIndex, int iChange)
-{
+void CvTeam::changeTerrainTradeCount(TerrainTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumTerrainInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 
-	if (iChange != 0)
-	{
+	if (iChange != 0) {
 		m_paiTerrainTradeCount[eIndex] = (m_paiTerrainTradeCount[eIndex] + iChange);
 		FAssert(getTerrainTradeCount(eIndex) >= 0);
 
-		for (int iI = 0; iI < MAX_PLAYERS; iI++)
-		{
-			if (GET_PLAYER((PlayerTypes)iI).isAlive())
-			{
-				if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-				{
+		for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+			if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+				if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 					GET_PLAYER((PlayerTypes)iI).updatePlotGroups();
 				}
 			}
@@ -4656,31 +3769,24 @@ void CvTeam::changeTerrainTradeCount(TerrainTypes eIndex, int iChange)
 }
 
 
-int CvTeam::getRiverTradeCount() const
-{
+int CvTeam::getRiverTradeCount() const {
 	return m_iRiverTradeCount;
 }
 
 
-bool CvTeam::isRiverTrade() const
-{
+bool CvTeam::isRiverTrade() const {
 	return (getRiverTradeCount() > 0);
 }
 
 
-void CvTeam::changeRiverTradeCount(int iChange)
-{
-	if (iChange != 0)
-	{
+void CvTeam::changeRiverTradeCount(int iChange) {
+	if (iChange != 0) {
 		m_iRiverTradeCount += iChange;
 		FAssert(getRiverTradeCount() >= 0);
 
-		for (int iI = 0; iI < MAX_PLAYERS; iI++)
-		{
-			if (GET_PLAYER((PlayerTypes)iI).isAlive())
-			{
-				if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-				{
+		for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+			if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+				if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 					GET_PLAYER((PlayerTypes)iI).updatePlotGroups();
 				}
 			}
@@ -4689,83 +3795,68 @@ void CvTeam::changeRiverTradeCount(int iChange)
 }
 
 
-int CvTeam::getVictoryCountdown(VictoryTypes eIndex) const
-{
+int CvTeam::getVictoryCountdown(VictoryTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumVictoryInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_aiVictoryCountdown[eIndex];
 }
 
-void CvTeam::setVictoryCountdown(VictoryTypes eIndex, int iTurnsLeft)
-{
+void CvTeam::setVictoryCountdown(VictoryTypes eIndex, int iTurnsLeft) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumVictoryInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	m_aiVictoryCountdown[eIndex] = iTurnsLeft;
 }
 
 
-void CvTeam::changeVictoryCountdown(VictoryTypes eIndex, int iChange)
-{
+void CvTeam::changeVictoryCountdown(VictoryTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumVictoryInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 
-	if (iChange != 0)
-	{
+	if (iChange != 0) {
 		m_aiVictoryCountdown[eIndex] += iChange;
 		FAssert(m_aiVictoryCountdown[eIndex] >= 0);
 	}
 }
 
-int CvTeam::getVictoryDelay(VictoryTypes eVictory) const
-{
+int CvTeam::getVictoryDelay(VictoryTypes eVictory) const {
 	int iExtraDelayPercent = 0;
-	for (int iProject = 0; iProject < GC.getNumProjectInfos(); ++iProject)
-	{
+	for (int iProject = 0; iProject < GC.getNumProjectInfos(); ++iProject) {
 		CvProjectInfo& kProject = GC.getProjectInfo((ProjectTypes)iProject);
 		int iCount = getProjectCount((ProjectTypes)iProject);
 
-		if (iCount < kProject.getVictoryMinThreshold(eVictory))
-		{
+		if (iCount < kProject.getVictoryMinThreshold(eVictory)) {
 			FAssert(false);
 			return -1;
 		}
-		
-		if (iCount < kProject.getVictoryThreshold(eVictory))
-		{
-			iExtraDelayPercent += ((kProject.getVictoryThreshold(eVictory)  - iCount) * kProject.getVictoryDelayPercent()) / kProject.getVictoryThreshold(eVictory);
+
+		if (iCount < kProject.getVictoryThreshold(eVictory)) {
+			iExtraDelayPercent += ((kProject.getVictoryThreshold(eVictory) - iCount) * kProject.getVictoryDelayPercent()) / kProject.getVictoryThreshold(eVictory);
 		}
 	}
 
-	return (GC.getGameINLINE().victoryDelay(eVictory)  * (100 + iExtraDelayPercent)) / 100;
+	return (GC.getGameINLINE().victoryDelay(eVictory) * (100 + iExtraDelayPercent)) / 100;
 }
 
-void CvTeam::setCanLaunch(VictoryTypes eVictory, bool bCan)
-{
+void CvTeam::setCanLaunch(VictoryTypes eVictory, bool bCan) {
 	m_abCanLaunch[eVictory] = bCan;
 }
 
-bool CvTeam::canLaunch(VictoryTypes eVictory) const
-{
+bool CvTeam::canLaunch(VictoryTypes eVictory) const {
 	return m_abCanLaunch[eVictory];
 }
 
-int CvTeam::getLaunchSuccessRate(VictoryTypes eVictory) const
-{
+int CvTeam::getLaunchSuccessRate(VictoryTypes eVictory) const {
 	int iSuccessRate = 100;
-	for (int iProject = 0; iProject < GC.getNumProjectInfos(); ++iProject)
-	{
+	for (int iProject = 0; iProject < GC.getNumProjectInfos(); ++iProject) {
 		CvProjectInfo& kProject = GC.getProjectInfo((ProjectTypes)iProject);
 		int iCount = getProjectCount((ProjectTypes)iProject);
 
-		if (iCount < kProject.getVictoryMinThreshold(eVictory))
-		{
+		if (iCount < kProject.getVictoryMinThreshold(eVictory)) {
 			return 0;
 		}
 
-		if (iCount < kProject.getVictoryThreshold(eVictory))
-		{
-			if (kProject.getSuccessRate() > 0)
-			{
+		if (iCount < kProject.getVictoryThreshold(eVictory)) {
+			if (kProject.getSuccessRate() > 0) {
 				iSuccessRate -= (kProject.getSuccessRate() * (kProject.getVictoryThreshold(eVictory) - iCount));
 			}
 		}
@@ -4774,36 +3865,28 @@ int CvTeam::getLaunchSuccessRate(VictoryTypes eVictory) const
 	return iSuccessRate;
 }
 
-void CvTeam::resetVictoryProgress()
-{
-	for (int iI = 0; iI < GC.getNumVictoryInfos(); ++iI)
-	{
-		if (getVictoryCountdown((VictoryTypes)iI) >= 0 && GC.getGameINLINE().getGameState() == GAMESTATE_ON)
-		{
+void CvTeam::resetVictoryProgress() {
+	for (int iI = 0; iI < GC.getNumVictoryInfos(); ++iI) {
+		if (getVictoryCountdown((VictoryTypes)iI) >= 0 && GC.getGameINLINE().getGameState() == GAMESTATE_ON) {
 			setVictoryCountdown((VictoryTypes)iI, -1);
 
-			for (int iK = 0; iK < GC.getNumProjectInfos(); iK++)
-			{
-				if (GC.getProjectInfo((ProjectTypes)iK).getVictoryMinThreshold((VictoryTypes)iI) > 0)
-				{
+			for (int iK = 0; iK < GC.getNumProjectInfos(); iK++) {
+				if (GC.getProjectInfo((ProjectTypes)iK).getVictoryMinThreshold((VictoryTypes)iI) > 0) {
 					changeProjectCount((ProjectTypes)iK, -getProjectCount((ProjectTypes)iK));
 				}
-			}				
+			}
 
 			CvWString szBuffer = gDLL->getText("TXT_KEY_VICTORY_RESET", getReplayName().GetCString(), GC.getVictoryInfo((VictoryTypes)iI).getTextKeyWide());
 
-			for (int iJ = 0; iJ < MAX_PLAYERS; ++iJ)
-			{
+			for (int iJ = 0; iJ < MAX_PLAYERS; ++iJ) {
 				CvPlayer& kPlayer = GET_PLAYER((PlayerTypes)iJ);
-				if (kPlayer.isAlive())
-				{
+				if (kPlayer.isAlive()) {
 					gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iJ), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_MELTDOWN", MESSAGE_TYPE_MAJOR_EVENT);
 
-					if (kPlayer.getTeam() == getID())
-					{
+					if (kPlayer.getTeam() == getID()) {
 						CvPopupInfo* pInfo = new CvPopupInfo();
 						pInfo->setText(szBuffer);
-						gDLL->getInterfaceIFace()->addPopup(pInfo, (PlayerTypes) iJ);
+						gDLL->getInterfaceIFace()->addPopup(pInfo, (PlayerTypes)iJ);
 					}
 				}
 			}
@@ -4814,14 +3897,11 @@ void CvTeam::resetVictoryProgress()
 }
 
 // K-Mod, code mvoed from CvPlayer::hasSpaceshipArrived. (it makes more sense to be here)
-bool CvTeam::hasSpaceshipArrived() const
-{
+bool CvTeam::hasSpaceshipArrived() const {
 	VictoryTypes eSpaceVictory = GC.getGameINLINE().getSpaceVictory();
-	if (eSpaceVictory != NO_VICTORY)
-	{
+	if (eSpaceVictory != NO_VICTORY) {
 		int iVictoryCountdown = getVictoryCountdown(eSpaceVictory);
-		if (iVictoryCountdown == 0 || (iVictoryCountdown > 0 && GC.getGameINLINE().getGameState() == GAMESTATE_EXTENDED))
-		{
+		if (iVictoryCountdown == 0 || (iVictoryCountdown > 0 && GC.getGameINLINE().getGameState() == GAMESTATE_EXTENDED)) {
 			return true;
 		}
 	}
@@ -4829,21 +3909,15 @@ bool CvTeam::hasSpaceshipArrived() const
 	return false;
 }
 
-bool CvTeam::isParent(TeamTypes eTeam) const
-{
+bool CvTeam::isParent(TeamTypes eTeam) const {
 	FAssert(eTeam != NO_TEAM);
 
-	if (GET_TEAM(eTeam).isVassal(getID()))
-	{
-		for (int i = 0; i < MAX_PLAYERS; ++i)
-		{
+	if (GET_TEAM(eTeam).isVassal(getID())) {
+		for (int i = 0; i < MAX_PLAYERS; ++i) {
 			CvPlayer& kLoopPlayer = GET_PLAYER((PlayerTypes)i);
-			if (kLoopPlayer.isAlive() && kLoopPlayer.getTeam() == eTeam)
-			{
-				if (kLoopPlayer.getParent() != NO_PLAYER)
-				{
-					if (GET_PLAYER(kLoopPlayer.getParent()).getTeam() == getID())
-					{
+			if (kLoopPlayer.isAlive() && kLoopPlayer.getTeam() == eTeam) {
+				if (kLoopPlayer.getParent() != NO_PLAYER) {
+					if (GET_PLAYER(kLoopPlayer.getParent()).getTeam() == getID()) {
 						return true;
 					}
 				}
@@ -4854,10 +3928,8 @@ bool CvTeam::isParent(TeamTypes eTeam) const
 	return false;
 }
 
-bool CvTeam::isHasTech(TechTypes eIndex) const
-{
-	if (eIndex == NO_TECH)
-	{
+bool CvTeam::isHasTech(TechTypes eIndex) const {
+	if (eIndex == NO_TECH) {
 		return true;
 	}
 
@@ -4867,39 +3939,32 @@ bool CvTeam::isHasTech(TechTypes eIndex) const
 	return m_pabHasTech[eIndex];
 }
 
-void CvTeam::announceTechToPlayers(TechTypes eIndex, bool bPartial)
-{
+void CvTeam::announceTechToPlayers(TechTypes eIndex, bool bPartial) {
 	bool bSound = ((GC.getGameINLINE().isNetworkMultiPlayer() || gDLL->getInterfaceIFace()->noTechSplash()) && !bPartial);
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 				CvWString szBuffer = gDLL->getText((bPartial ? "TXT_KEY_MISC_PROGRESS_TOWARDS_TECH" : "TXT_KEY_MISC_YOU_DISCOVERED_TECH"), GC.getTechInfo(eIndex).getTextKeyWide());
 
 				//gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, (bSound ? GC.getEVENT_MESSAGE_TIME() : -1), szBuffer, (bSound ? GC.getTechInfo(eIndex).getSoundMP() : NULL), MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_TECH_TEXT"));
 				// K-Mod. Play the quote sound always, the "MP" sound is boring.
 				gDLL->getInterfaceIFace()->addHumanMessage((PlayerTypes)iI, false, (bSound ? GC.getEVENT_MESSAGE_TIME() : -1), szBuffer, (bSound ? GC.getTechInfo(eIndex).getSound() : NULL), MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_TECH_TEXT"));
-						}
+			}
 		}
 	}
 }
 
-void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, bool bFirst, bool bAnnounce)
-{
+void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, bool bFirst, bool bAnnounce) {
 	PROFILE_FUNC();
 
 	CvWString szBuffer;
 
-	if (eIndex == NO_TECH)
-	{
+	if (eIndex == NO_TECH) {
 		return;
 	}
 
-	if (ePlayer == NO_PLAYER)
-	{
+	if (ePlayer == NO_PLAYER) {
 		ePlayer = getLeaderID();
 	}
 
@@ -4908,10 +3973,8 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 	FAssertMsg(ePlayer >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(ePlayer < MAX_PLAYERS, "ePlayer is expected to be within maximum bounds (invalid Index)");
 
-	if (isHasTech(eIndex) != bNewValue)
-	{
-		if (GC.getTechInfo(eIndex).isRepeat())
-		{
+	if (isHasTech(eIndex) != bNewValue) {
+		if (GC.getTechInfo(eIndex).isRepeat()) {
 			m_paiTechCount[eIndex]++;
 
 			setResearchProgress(eIndex, 0, ePlayer);
@@ -4919,31 +3982,22 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 			// report event to Python
 			CvEventReporter::getInstance().techAcquired(eIndex, getID(), ePlayer, bAnnounce && 1 == m_paiTechCount[eIndex]);
 
-			if (1 == m_paiTechCount[eIndex])
-			{
-				if (bAnnounce)
-				{
-					if (GC.getGameINLINE().isFinalInitialized() && !(gDLL->GetWorldBuilderMode()))
-					{
+			if (1 == m_paiTechCount[eIndex]) {
+				if (bAnnounce) {
+					if (GC.getGameINLINE().isFinalInitialized() && !(gDLL->GetWorldBuilderMode())) {
 						announceTechToPlayers(eIndex);
 					}
 				}
 			}
-		}
-		else
-		{
-			for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++)
-			{
+		} else {
+			for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++) {
 				CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
 
-				if (pLoopPlot->getBonusType() != NO_BONUS)
-				{
-					if (pLoopPlot->getTeam() == getID())
-					{
+				if (pLoopPlot->getBonusType() != NO_BONUS) {
+					if (pLoopPlot->getTeam() == getID()) {
 						if ((GC.getBonusInfo(pLoopPlot->getBonusType()).getTechReveal() == eIndex) ||
-							  (GC.getBonusInfo(pLoopPlot->getBonusType()).getTechCityTrade() == eIndex) ||
-								(GC.getBonusInfo(pLoopPlot->getBonusType()).getTechObsolete() == eIndex))
-						{
+							(GC.getBonusInfo(pLoopPlot->getBonusType()).getTechCityTrade() == eIndex) ||
+							(GC.getBonusInfo(pLoopPlot->getBonusType()).getTechObsolete() == eIndex)) {
 							pLoopPlot->updatePlotGroupBonus(false);
 						}
 					}
@@ -4952,18 +4006,14 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 
 			m_pabHasTech[eIndex] = bNewValue;
 
-			for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++)
-			{
+			for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++) {
 				CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
 
-				if (pLoopPlot->getBonusType() != NO_BONUS)
-				{
-					if (pLoopPlot->getTeam() == getID())
-					{
+				if (pLoopPlot->getBonusType() != NO_BONUS) {
+					if (pLoopPlot->getTeam() == getID()) {
 						if ((GC.getBonusInfo(pLoopPlot->getBonusType()).getTechReveal() == eIndex) ||
-							  (GC.getBonusInfo(pLoopPlot->getBonusType()).getTechCityTrade() == eIndex) ||
-							  (GC.getBonusInfo(pLoopPlot->getBonusType()).getTechObsolete() == eIndex))
-						{
+							(GC.getBonusInfo(pLoopPlot->getBonusType()).getTechCityTrade() == eIndex) ||
+							(GC.getBonusInfo(pLoopPlot->getBonusType()).getTechObsolete() == eIndex)) {
 							pLoopPlot->updatePlotGroupBonus(true);
 						}
 					}
@@ -4973,33 +4023,25 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 
 		processTech(eIndex, ((bNewValue) ? 1 : -1));
 
-		if (isHasTech(eIndex))
-		{
-			if( gTeamLogLevel >= 2 )
-			{
-				logBBAI("    Team %d (%S) acquires tech %S", getID(), getName().GetCString(), GC.getTechInfo(eIndex).getDescription() );
+		if (isHasTech(eIndex)) {
+			if (gTeamLogLevel >= 2) {
+				logBBAI("    Team %d (%S) acquires tech %S", getID(), getName().GetCString(), GC.getTechInfo(eIndex).getDescription());
 			}
 
-			for (int iI = 0; iI < MAX_PLAYERS; iI++)
-			{
-				if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-				{
-					if (GET_PLAYER((PlayerTypes)iI).getCurrentEra() < GC.getTechInfo(eIndex).getEra())
-					{
+			for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+				if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
+					if (GET_PLAYER((PlayerTypes)iI).getCurrentEra() < GC.getTechInfo(eIndex).getEra()) {
 						GET_PLAYER((PlayerTypes)iI).setCurrentEra((EraTypes)(GC.getTechInfo(eIndex).getEra()));
 					}
 				}
 			}
 
-			if (GC.getTechInfo(eIndex).isMapVisible())
-			{
+			if (GC.getTechInfo(eIndex).isMapVisible()) {
 				GC.getMapINLINE().setRevealedPlots(getID(), true, true);
 			}
 
-			for (int iI = 0; iI < GC.getNumSpecialBuildingInfos(); ++iI)
-			{
-				if (eIndex == GC.getSpecialBuildingInfo((SpecialBuildingTypes)iI).getTechPrereqAnyone())
-				{
+			for (int iI = 0; iI < GC.getNumSpecialBuildingInfos(); ++iI) {
+				if (eIndex == GC.getSpecialBuildingInfo((SpecialBuildingTypes)iI).getTechPrereqAnyone()) {
 					GC.getGameINLINE().makeSpecialBuildingValid((SpecialBuildingTypes)iI, bAnnounce);
 				}
 			}
@@ -5010,48 +4052,37 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 			bool bReligionFounded = false;
 			bool bFirstBonus = false;
 
-			if (bFirst)
-			{
-				if (GC.getGameINLINE().countKnownTechNumTeams(eIndex) == 1)
-				{
+			if (bFirst) {
+				if (GC.getGameINLINE().countKnownTechNumTeams(eIndex) == 1) {
 					CyArgsList argsList;
 					argsList.add(getID());
 					argsList.add(ePlayer);
 					argsList.add(eIndex);
 					argsList.add(bFirst);
-					long lResult=0;
+					long lResult = 0;
 					gDLL->getPythonIFace()->callFunction(PYGameModule, "doHolyCityTech", argsList.makeFunctionArgs(), &lResult);
-					if (lResult != 1)
-					{
-						for (int iI = 0; iI < GC.getNumReligionInfos(); iI++)
-						{
-							if (GC.getReligionInfo((ReligionTypes)iI).getTechPrereq() == eIndex)
-							{
+					if (lResult != 1) {
+						for (int iI = 0; iI < GC.getNumReligionInfos(); iI++) {
+							if (GC.getReligionInfo((ReligionTypes)iI).getTechPrereq() == eIndex) {
 								int iBestValue = MAX_INT;
 								PlayerTypes eBestPlayer = NO_PLAYER;
 
-								for (int iJ = 0; iJ < MAX_PLAYERS; iJ++)
-								{
-									if (GET_PLAYER((PlayerTypes)iJ).isAlive())
-									{
-										if (GET_PLAYER((PlayerTypes)iJ).getTeam() == getID())
-										{
+								for (int iJ = 0; iJ < MAX_PLAYERS; iJ++) {
+									if (GET_PLAYER((PlayerTypes)iJ).isAlive()) {
+										if (GET_PLAYER((PlayerTypes)iJ).getTeam() == getID()) {
 											int iValue = 10;
 
 											iValue += GC.getGameINLINE().getSorenRandNum(10, "Found Religion (Player)");
 
-											for (int iK = 0; iK < GC.getNumReligionInfos(); iK++)
-											{
+											for (int iK = 0; iK < GC.getNumReligionInfos(); iK++) {
 												iValue += (GET_PLAYER((PlayerTypes)iJ).getHasReligionCount((ReligionTypes)iK) * 10);
 											}
 
-											if (GET_PLAYER((PlayerTypes)iJ).getCurrentResearch() != eIndex)
-											{
+											if (GET_PLAYER((PlayerTypes)iJ).getCurrentResearch() != eIndex) {
 												iValue *= 10;
 											}
 
-											if (iValue < iBestValue)
-											{
+											if (iValue < iBestValue) {
 												iBestValue = iValue;
 												eBestPlayer = ((PlayerTypes)iJ);
 											}
@@ -5059,31 +4090,22 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 									}
 								}
 
-								if (eBestPlayer != NO_PLAYER)
-								{
+								if (eBestPlayer != NO_PLAYER) {
 									GC.getGameINLINE().setReligionSlotTaken((ReligionTypes)iI, true);
 
-									if (GC.getGameINLINE().isOption(GAMEOPTION_PICK_RELIGION))
-									{
-										if (GET_PLAYER(eBestPlayer).isHuman())
-										{
+									if (GC.getGameINLINE().isOption(GAMEOPTION_PICK_RELIGION)) {
+										if (GET_PLAYER(eBestPlayer).isHuman()) {
 											CvPopupInfo* pInfo = new CvPopupInfo(BUTTONPOPUP_FOUND_RELIGION, iI);
-											if (NULL != pInfo)
-											{
+											if (NULL != pInfo) {
 												gDLL->getInterfaceIFace()->addPopup(pInfo, eBestPlayer);
 											}
-										}
-										else
-										{
+										} else {
 											ReligionTypes eReligion = GET_PLAYER(eBestPlayer).AI_chooseReligion();
-											if (NO_RELIGION != eReligion)
-											{
+											if (NO_RELIGION != eReligion) {
 												GET_PLAYER(eBestPlayer).foundReligion(eReligion, (ReligionTypes)iI, true);
 											}
 										}
-									}
-									else
-									{
+									} else {
 										GET_PLAYER(eBestPlayer).foundReligion((ReligionTypes)iI, (ReligionTypes)iI, true);
 									}
 
@@ -5093,32 +4115,24 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 							}
 						}
 
-						for (int iI = 0; iI < GC.getNumCorporationInfos(); ++iI)
-						{
-							if (GC.getCorporationInfo((CorporationTypes)iI).getTechPrereq() == eIndex)
-							{
-								if (!(GC.getGameINLINE().isCorporationFounded((CorporationTypes)iI)))
-								{
+						for (int iI = 0; iI < GC.getNumCorporationInfos(); ++iI) {
+							if (GC.getCorporationInfo((CorporationTypes)iI).getTechPrereq() == eIndex) {
+								if (!(GC.getGameINLINE().isCorporationFounded((CorporationTypes)iI))) {
 									int iBestValue = MAX_INT;
 									PlayerTypes eBestPlayer = NO_PLAYER;
 
-									for (int iJ = 0; iJ < MAX_PLAYERS; iJ++)
-									{
-										if (GET_PLAYER((PlayerTypes)iJ).isAlive())
-										{
-											if (GET_PLAYER((PlayerTypes)iJ).getTeam() == getID())
-											{
+									for (int iJ = 0; iJ < MAX_PLAYERS; iJ++) {
+										if (GET_PLAYER((PlayerTypes)iJ).isAlive()) {
+											if (GET_PLAYER((PlayerTypes)iJ).getTeam() == getID()) {
 												int iValue = 10;
 
 												iValue += GC.getGameINLINE().getSorenRandNum(10, "Found Corporation (Player)");
 
-												if (GET_PLAYER((PlayerTypes)iJ).getCurrentResearch() != eIndex)
-												{
+												if (GET_PLAYER((PlayerTypes)iJ).getCurrentResearch() != eIndex) {
 													iValue *= 10;
 												}
 
-												if (iValue < iBestValue)
-												{
+												if (iValue < iBestValue) {
 													iBestValue = iValue;
 													eBestPlayer = ((PlayerTypes)iJ);
 												}
@@ -5126,8 +4140,7 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 										}
 									}
 
-									if (eBestPlayer != NO_PLAYER)
-									{
+									if (eBestPlayer != NO_PLAYER) {
 										GET_PLAYER(eBestPlayer).foundCorporation((CorporationTypes)iI);
 										bFirstBonus = true;
 									}
@@ -5138,15 +4151,12 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 				}
 			}
 
-			for (int iI = 0; iI < MAX_PLAYERS; iI++)
-			{
-				if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-				{
-					if (GET_PLAYER((PlayerTypes)iI).isResearchingTech(eIndex))
-					{
+			for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+				if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
+					if (GET_PLAYER((PlayerTypes)iI).isResearchingTech(eIndex)) {
 						GET_PLAYER((PlayerTypes)iI).popResearch(eIndex);
 					}
-					
+
 					// notify the player they now have the tech, if they want to make immediate changes
 					GET_PLAYER((PlayerTypes)iI).AI_nowHasTech(eIndex);
 
@@ -5154,49 +4164,35 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 				}
 			}
 
-			if (bFirst)
-			{
-				if (GC.getGameINLINE().countKnownTechNumTeams(eIndex) == 1)
-				{
+			if (bFirst) {
+				if (GC.getGameINLINE().countKnownTechNumTeams(eIndex) == 1) {
 					UnitTypes eFreeUnit = GET_PLAYER(ePlayer).getTechFreeUnit(eIndex);
-					if (eFreeUnit != NO_UNIT)
-					{
+					if (eFreeUnit != NO_UNIT) {
 						bFirstBonus = true;
 						CvCity* pCapitalCity = GET_PLAYER(ePlayer).getCapitalCity();
 
-						if (pCapitalCity != NULL)
-						{
+						if (pCapitalCity != NULL) {
 							pCapitalCity->createGreatPeople(eFreeUnit, false, false);
 						}
 					}
 
-					if (GC.getTechInfo(eIndex).getFirstFreeTechs() > 0)
-					{
+					if (GC.getTechInfo(eIndex).getFirstFreeTechs() > 0) {
 						bFirstBonus = true;
 
-						if (!isHuman())
-						{
-							for (int iI = 0; iI < GC.getTechInfo(eIndex).getFirstFreeTechs(); iI++)
-							{
+						if (!isHuman()) {
+							for (int iI = 0; iI < GC.getTechInfo(eIndex).getFirstFreeTechs(); iI++) {
 								GET_PLAYER(ePlayer).AI_chooseFreeTech();
 							}
-						}
-						else
-						{
+						} else {
 							szBuffer = gDLL->getText("TXT_KEY_MISC_FIRST_TECH_CHOOSE_FREE", GC.getTechInfo(eIndex).getTextKeyWide());
 							GET_PLAYER(ePlayer).chooseTech(GC.getTechInfo(eIndex).getFirstFreeTechs(), szBuffer.GetCString());
 						}
 
-						for (int iI = 0; iI < MAX_PLAYERS; iI++)
-						{
-							if (GET_PLAYER((PlayerTypes)iI).isAlive())
-							{
-								if (isHasMet(GET_PLAYER((PlayerTypes)iI).getTeam()))
-								{
+						for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+							if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+								if (isHasMet(GET_PLAYER((PlayerTypes)iI).getTeam())) {
 									szBuffer = gDLL->getText("TXT_KEY_MISC_SOMEONE_FIRST_TO_TECH", GET_PLAYER(ePlayer).getNameKey(), GC.getTechInfo(eIndex).getTextKeyWide());
-								}
-								else
-								{
+								} else {
 									szBuffer = gDLL->getText("TXT_KEY_MISC_UNKNOWN_FIRST_TO_TECH", GC.getTechInfo(eIndex).getTextKeyWide());
 								}
 								gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_FIRSTTOTECH", MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
@@ -5207,16 +4203,11 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 						GC.getGameINLINE().addReplayMessage(REPLAY_MESSAGE_MAJOR_EVENT, ePlayer, szBuffer, -1, -1, (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
 					}
 
-					if (bFirstBonus)
-					{
-						for (int iI = 0; iI < MAX_PLAYERS; iI++)
-						{
-							if (GET_PLAYER((PlayerTypes)iI).isAlive())
-							{
-								if (!(GET_PLAYER((PlayerTypes)iI).isHuman()))
-								{
-									if (GET_PLAYER((PlayerTypes)iI).isResearchingTech(eIndex))
-									{
+					if (bFirstBonus) {
+						for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+							if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+								if (!(GET_PLAYER((PlayerTypes)iI).isHuman())) {
+									if (GET_PLAYER((PlayerTypes)iI).isResearchingTech(eIndex)) {
 										GET_PLAYER((PlayerTypes)iI).clearResearchQueue(); // K-Mod note: we just want to flag it for re-evaluation. Clearing the queue is currently the only way to do that.
 									}
 								}
@@ -5226,28 +4217,21 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 				}
 			}
 
-			if (bAnnounce)
-			{
-				if (GC.getGameINLINE().isFinalInitialized() && !(gDLL->GetWorldBuilderMode()))
-				{
+			if (bAnnounce) {
+				if (GC.getGameINLINE().isFinalInitialized() && !(gDLL->GetWorldBuilderMode())) {
 					announceTechToPlayers(eIndex);
 
-					for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++)
-					{
+					for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++) {
 						CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
 
-						if (pLoopPlot->getTeam() == getID())
-						{
+						if (pLoopPlot->getTeam() == getID()) {
 							BonusTypes eBonus = pLoopPlot->getBonusType();
 
-							if (eBonus != NO_BONUS)
-							{
-								if (GC.getBonusInfo(eBonus).getTechReveal() == eIndex && !isForceRevealedBonus(eBonus))
-								{
+							if (eBonus != NO_BONUS) {
+								if (GC.getBonusInfo(eBonus).getTechReveal() == eIndex && !isForceRevealedBonus(eBonus)) {
 									CvCity* pCity = GC.getMapINLINE().findCity(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), NO_PLAYER, getID(), false);
 
-									if (pCity != NULL)
-									{
+									if (pCity != NULL) {
 										szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_DISCOVERED_BONUS", GC.getBonusInfo(eBonus).getTextKeyWide(), pCity->getNameKey());
 										gDLL->getInterfaceIFace()->addHumanMessage(pLoopPlot->getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_DISCOVERBONUS", MESSAGE_TYPE_INFO, GC.getBonusInfo(eBonus).getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), true, true);
 									}
@@ -5256,31 +4240,20 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 						}
 					}
 
-					for (int iI = 0; iI < MAX_PLAYERS; iI++)
-					{
-						if (GET_PLAYER((PlayerTypes)iI).isAlive())
-						{
-							if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-							{
-								if (GET_PLAYER((PlayerTypes)iI).isHuman())
-								{
-									if (!bReligionFounded || (GET_PLAYER((PlayerTypes)iI).getLastStateReligion() != NO_RELIGION) || (iI != ePlayer))
-									{
-										if (GET_PLAYER((PlayerTypes)iI).canRevolution(NULL))
-										{
+					for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+						if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+							if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
+								if (GET_PLAYER((PlayerTypes)iI).isHuman()) {
+									if (!bReligionFounded || (GET_PLAYER((PlayerTypes)iI).getLastStateReligion() != NO_RELIGION) || (iI != ePlayer)) {
+										if (GET_PLAYER((PlayerTypes)iI).canRevolution(NULL)) {
 											CivicOptionTypes eCivicOptionType = NO_CIVICOPTION;
 											CivicTypes eCivicType = NO_CIVIC;
 
-											for (int iJ = 0; iJ < GC.getNumCivicOptionInfos(); iJ++)
-											{
-												if (!(GET_PLAYER((PlayerTypes)iI).isHasCivicOption((CivicOptionTypes)iJ)))
-												{
-													for (int iK = 0; iK < GC.getNumCivicInfos(); iK++)
-													{
-														if (GC.getCivicInfo((CivicTypes)iK).getCivicOptionType() == iJ)
-														{
-															if (GC.getCivicInfo((CivicTypes)iK).getTechPrereq() == eIndex)
-															{
+											for (int iJ = 0; iJ < GC.getNumCivicOptionInfos(); iJ++) {
+												if (!(GET_PLAYER((PlayerTypes)iI).isHasCivicOption((CivicOptionTypes)iJ))) {
+													for (int iK = 0; iK < GC.getNumCivicInfos(); iK++) {
+														if (GC.getCivicInfo((CivicTypes)iK).getCivicOptionType() == iJ) {
+															if (GC.getCivicInfo((CivicTypes)iK).getTechPrereq() == eIndex) {
 																eCivicOptionType = ((CivicOptionTypes)iJ);
 																eCivicType = ((CivicTypes)iK);
 															}
@@ -5289,11 +4262,9 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 												}
 											}
 
-											if ((eCivicOptionType != NO_CIVICOPTION) && (eCivicType != NO_CIVIC))
-											{
+											if ((eCivicOptionType != NO_CIVICOPTION) && (eCivicType != NO_CIVIC)) {
 												CvPopupInfo* pInfo = new CvPopupInfo(BUTTONPOPUP_CHANGECIVIC);
-												if (NULL != pInfo)
-												{
+												if (NULL != pInfo) {
 													pInfo->setData1(eCivicOptionType);
 													pInfo->setData2(eCivicType);
 													gDLL->getInterfaceIFace()->addPopup(pInfo, (PlayerTypes)iI);
@@ -5308,24 +4279,18 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 				}
 			}
 
-			for (int iI = 0; iI < MAX_TEAMS; iI++)
-			{
-				if (GET_TEAM((TeamTypes)iI).isAlive())
-				{
-					if (iI != getID())
-					{
+			for (int iI = 0; iI < MAX_TEAMS; iI++) {
+				if (GET_TEAM((TeamTypes)iI).isAlive()) {
+					if (iI != getID()) {
 						GET_TEAM((TeamTypes)iI).updateTechShare(eIndex);
 					}
 				}
 			}
 		}
 
-		if (bNewValue)
-		{
-			if (bAnnounce)
-			{
-				if (GC.getGameINLINE().isFinalInitialized() && !(gDLL->GetWorldBuilderMode()))
-				{
+		if (bNewValue) {
+			if (bAnnounce) {
+				if (GC.getGameINLINE().isFinalInitialized() && !(gDLL->GetWorldBuilderMode())) {
 					FAssert(ePlayer != NO_PLAYER);
 					if (GET_PLAYER(ePlayer).isResearch() && GET_PLAYER(ePlayer).getCurrentResearch() == NO_TECH && GET_PLAYER(ePlayer).isHuman()) // K-Mod
 					{
@@ -5336,8 +4301,7 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 			}
 		}
 
-		if (getID() == GC.getGameINLINE().getActiveTeam())
-		{
+		if (getID() == GC.getGameINLINE().getActiveTeam()) {
 			gDLL->getInterfaceIFace()->setDirty(MiscButtons_DIRTY_BIT, true);
 			gDLL->getInterfaceIFace()->setDirty(SelectionButtons_DIRTY_BIT, true);
 			gDLL->getInterfaceIFace()->setDirty(ResearchButtons_DIRTY_BIT, true);
@@ -5347,24 +4311,21 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 }
 
 
-bool CvTeam::isNoTradeTech(TechTypes eIndex) const
-{
+bool CvTeam::isNoTradeTech(TechTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumTechInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_pabNoTradeTech[eIndex];
 }
 
 
-void CvTeam::setNoTradeTech(TechTypes eIndex, bool bNewValue)
-{
+void CvTeam::setNoTradeTech(TechTypes eIndex, bool bNewValue) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumTechInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 	m_pabNoTradeTech[eIndex] = bNewValue;
 }
 
 
-int CvTeam::getImprovementYieldChange(ImprovementTypes eIndex1, YieldTypes eIndex2) const
-{
+int CvTeam::getImprovementYieldChange(ImprovementTypes eIndex1, YieldTypes eIndex2) const {
 	FAssertMsg(eIndex1 >= 0, "eIndex1 is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex1 < GC.getNumImprovementInfos(), "eIndex1 is expected to be within maximum bounds (invalid Index)");
 	FAssertMsg(eIndex2 >= 0, "eIndex2 is expected to be non-negative (invalid Index)");
@@ -5373,15 +4334,13 @@ int CvTeam::getImprovementYieldChange(ImprovementTypes eIndex1, YieldTypes eInde
 }
 
 
-void CvTeam::changeImprovementYieldChange(ImprovementTypes eIndex1, YieldTypes eIndex2, int iChange)
-{
+void CvTeam::changeImprovementYieldChange(ImprovementTypes eIndex1, YieldTypes eIndex2, int iChange) {
 	FAssertMsg(eIndex1 >= 0, "eIndex1 is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex1 < GC.getNumImprovementInfos(), "eIndex1 is expected to be within maximum bounds (invalid Index)");
 	FAssertMsg(eIndex2 >= 0, "eIndex2 is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex2 < NUM_YIELD_TYPES, "eIndex2 is expected to be within maximum bounds (invalid Index)");
 
-	if (iChange != 0)
-	{
+	if (iChange != 0) {
 		m_ppaaiImprovementYieldChange[eIndex1][eIndex2] = (m_ppaaiImprovementYieldChange[eIndex1][eIndex2] + iChange);
 		FAssert(getImprovementYieldChange(eIndex1, eIndex2) >= 0);
 
@@ -5392,8 +4351,7 @@ void CvTeam::changeImprovementYieldChange(ImprovementTypes eIndex1, YieldTypes e
 // K-Mod. In the original code, there seems to be a lot of confusion about what the exact conditions are for a bonus being connected.
 // There were heaps of bugs where CvImprovementInfo::isImprovementBonusTrade was mistakenly used as the sole condition for a bonus being connected or not.
 // I created this function to make the situation a bit more clear...
-bool CvTeam::doesImprovementConnectBonus(ImprovementTypes eImprovement, BonusTypes eBonus) const
-{
+bool CvTeam::doesImprovementConnectBonus(ImprovementTypes eImprovement, BonusTypes eBonus) const {
 	FAssert(eImprovement < GC.getNumImprovementInfos());
 	FAssert(eBonus < GC.getNumBonusInfos());
 
@@ -5409,45 +4367,37 @@ bool CvTeam::doesImprovementConnectBonus(ImprovementTypes eImprovement, BonusTyp
 	return kImprovementInfo.isImprovementBonusTrade(eBonus) || kImprovementInfo.isActsAsCity();
 }
 
-bool CvTeam::isFriendlyTerritory(TeamTypes eTeam) const
-{
-	if (eTeam == NO_TEAM)
-	{
+bool CvTeam::isFriendlyTerritory(TeamTypes eTeam) const {
+	if (eTeam == NO_TEAM) {
 		return false;
 	}
 
-	if (eTeam == getID())
-	{
+	if (eTeam == getID()) {
 		return true;
 	}
 
-	if (GET_TEAM(eTeam).isVassal(getID()))
-	{
+	if (GET_TEAM(eTeam).isVassal(getID())) {
 		return true;
 	}
 
-	if (isVassal(eTeam) && isOpenBorders(eTeam))
-	{
+	if (isVassal(eTeam) && isOpenBorders(eTeam)) {
 		return true;
 	}
 
 	return false;
 }
 
-int CvTeam::getEspionagePointsAgainstTeam(TeamTypes eIndex) const
-{
+int CvTeam::getEspionagePointsAgainstTeam(TeamTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_aiEspionagePointsAgainstTeam[eIndex];
 }
 
-void CvTeam::setEspionagePointsAgainstTeam(TeamTypes eIndex, int iValue)
-{
+void CvTeam::setEspionagePointsAgainstTeam(TeamTypes eIndex, int iValue) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 
-	if (iValue != getEspionagePointsAgainstTeam(eIndex))
-	{
+	if (iValue != getEspionagePointsAgainstTeam(eIndex)) {
 		m_aiEspionagePointsAgainstTeam[eIndex] = iValue;
 
 		verifySpyUnitsValidPlot();
@@ -5455,8 +4405,7 @@ void CvTeam::setEspionagePointsAgainstTeam(TeamTypes eIndex, int iValue)
 	}
 }
 
-void CvTeam::changeEspionagePointsAgainstTeam(TeamTypes eIndex, int iChange)
-{
+void CvTeam::changeEspionagePointsAgainstTeam(TeamTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 
@@ -5464,110 +4413,89 @@ void CvTeam::changeEspionagePointsAgainstTeam(TeamTypes eIndex, int iChange)
 }
 
 // K-Mod
-int CvTeam::getTotalUnspentEspionage() const
-{
+int CvTeam::getTotalUnspentEspionage() const {
 	int iTotal = 0;
-	for (int i = 0; i < MAX_CIV_TEAMS; i++)
-	{
+	for (int i = 0; i < MAX_CIV_TEAMS; i++) {
 		iTotal += getEspionagePointsAgainstTeam((TeamTypes)i);
 	}
 	return iTotal;
 }
 
-int CvTeam::getEspionagePointsEver() const
-{
+int CvTeam::getEspionagePointsEver() const {
 	return m_iEspionagePointsEver;
 }
 
-void CvTeam::setEspionagePointsEver(int iValue)
-{
-	if (iValue != getEspionagePointsEver())
-	{
+void CvTeam::setEspionagePointsEver(int iValue) {
+	if (iValue != getEspionagePointsEver()) {
 		m_iEspionagePointsEver = iValue;
 	}
 }
 
-void CvTeam::changeEspionagePointsEver(int iChange)
-{
+void CvTeam::changeEspionagePointsEver(int iChange) {
 	setEspionagePointsEver(getEspionagePointsEver() + iChange);
 }
 
-int CvTeam::getCounterespionageTurnsLeftAgainstTeam(TeamTypes eIndex) const
-{
+int CvTeam::getCounterespionageTurnsLeftAgainstTeam(TeamTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_aiCounterespionageTurnsLeftAgainstTeam[eIndex];
 }
 
-void CvTeam::setCounterespionageTurnsLeftAgainstTeam(TeamTypes eIndex, int iValue)
-{
+void CvTeam::setCounterespionageTurnsLeftAgainstTeam(TeamTypes eIndex, int iValue) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 
-	if (iValue != getCounterespionageTurnsLeftAgainstTeam(eIndex))
-	{
+	if (iValue != getCounterespionageTurnsLeftAgainstTeam(eIndex)) {
 		m_aiCounterespionageTurnsLeftAgainstTeam[eIndex] = iValue;
 
 		gDLL->getInterfaceIFace()->setDirty(Espionage_Advisor_DIRTY_BIT, true);
 	}
 }
 
-void CvTeam::changeCounterespionageTurnsLeftAgainstTeam(TeamTypes eIndex, int iChange)
-{
+void CvTeam::changeCounterespionageTurnsLeftAgainstTeam(TeamTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 
 	setCounterespionageTurnsLeftAgainstTeam(eIndex, getCounterespionageTurnsLeftAgainstTeam(eIndex) + iChange);
 }
 
-int CvTeam::getCounterespionageModAgainstTeam(TeamTypes eIndex) const
-{
+int CvTeam::getCounterespionageModAgainstTeam(TeamTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 	return m_aiCounterespionageModAgainstTeam[eIndex];
 }
 
-void CvTeam::setCounterespionageModAgainstTeam(TeamTypes eIndex, int iValue)
-{
+void CvTeam::setCounterespionageModAgainstTeam(TeamTypes eIndex, int iValue) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 
-	if (iValue != getCounterespionageModAgainstTeam(eIndex))
-	{
+	if (iValue != getCounterespionageModAgainstTeam(eIndex)) {
 		m_aiCounterespionageModAgainstTeam[eIndex] = iValue;
 
 		gDLL->getInterfaceIFace()->setDirty(Espionage_Advisor_DIRTY_BIT, true);
 	}
 }
 
-void CvTeam::changeCounterespionageModAgainstTeam(TeamTypes eIndex, int iChange)
-{
+void CvTeam::changeCounterespionageModAgainstTeam(TeamTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
 
 	setCounterespionageModAgainstTeam(eIndex, getCounterespionageModAgainstTeam(eIndex) + iChange);
 }
 
-void CvTeam::verifySpyUnitsValidPlot()
-{
+void CvTeam::verifySpyUnitsValidPlot() {
 	std::vector<CvUnit*> aUnits;
 
-	for (int iPlayer = 0; iPlayer < MAX_PLAYERS; ++iPlayer)
-	{
+	for (int iPlayer = 0; iPlayer < MAX_PLAYERS; ++iPlayer) {
 		CvPlayer& kPlayer = GET_PLAYER((PlayerTypes)iPlayer);
 
-		if (kPlayer.isAlive() && kPlayer.getTeam() == getID())
-		{
+		if (kPlayer.isAlive() && kPlayer.getTeam() == getID()) {
 			int iLoop;
-			for (CvUnit* pUnit = kPlayer.firstUnit(&iLoop); pUnit != NULL; pUnit = kPlayer.nextUnit(&iLoop))
-			{
+			for (CvUnit* pUnit = kPlayer.firstUnit(&iLoop); pUnit != NULL; pUnit = kPlayer.nextUnit(&iLoop)) {
 				PlayerTypes eOwner = pUnit->plot()->getOwnerINLINE();
-				if (NO_PLAYER != eOwner)
-				{
-					if (pUnit->isSpy())
-					{
-						if (!kPlayer.canSpiesEnterBorders(eOwner))
-						{
+				if (NO_PLAYER != eOwner) {
+					if (pUnit->isSpy()) {
+						if (!kPlayer.canSpiesEnterBorders(eOwner)) {
 							aUnits.push_back(pUnit);
 						}
 					}
@@ -5576,83 +4504,64 @@ void CvTeam::verifySpyUnitsValidPlot()
 		}
 	}
 
-	for (uint i = 0; i < aUnits.size(); ++i)
-	{
+	for (uint i = 0; i < aUnits.size(); ++i) {
 		aUnits[i]->jumpToNearestValidPlot();
 	}
 }
 
-void CvTeam::setForceRevealedBonus(BonusTypes eBonus, bool bRevealed)
-{
-	if (isForceRevealedBonus(eBonus) == bRevealed)
-	{
+void CvTeam::setForceRevealedBonus(BonusTypes eBonus, bool bRevealed) {
+	if (isForceRevealedBonus(eBonus) == bRevealed) {
 		return;
 	}
 
-	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); ++iI)
-	{
+	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); ++iI) {
 		CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
 
-		if (pLoopPlot->getBonusType() == eBonus)
-		{
-			if (pLoopPlot->getTeam() == getID())
-			{
+		if (pLoopPlot->getBonusType() == eBonus) {
+			if (pLoopPlot->getTeam() == getID()) {
 				pLoopPlot->updatePlotGroupBonus(false);
 			}
 		}
 	}
 
-	if (bRevealed)
-	{
+	if (bRevealed) {
 		m_aeRevealedBonuses.push_back(eBonus);
-	}
-	else
-	{
+	} else {
 		std::vector<BonusTypes>::iterator it;
 
-		for (it = m_aeRevealedBonuses.begin(); it != m_aeRevealedBonuses.end(); ++it)
-		{
-			if (*it == eBonus)
-			{
+		for (it = m_aeRevealedBonuses.begin(); it != m_aeRevealedBonuses.end(); ++it) {
+			if (*it == eBonus) {
 				m_aeRevealedBonuses.erase(it);
 				break;
 			}
 		}
 	}
 
-	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); ++iI)
-	{
+	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); ++iI) {
 		CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
 
-		if (pLoopPlot->getBonusType() == eBonus)
-		{
-			if (pLoopPlot->getTeam() == getID())
-			{
+		if (pLoopPlot->getBonusType() == eBonus) {
+			if (pLoopPlot->getTeam() == getID()) {
 				pLoopPlot->updatePlotGroupBonus(true);
 			}
 		}
 	}
 
-	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); ++iI)
-	{
+	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); ++iI) {
 		CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
 
-		if (pLoopPlot->getBonusType() == eBonus)
-		{
+		if (pLoopPlot->getBonusType() == eBonus) {
 			pLoopPlot->updateYield();
 			pLoopPlot->setLayoutDirty(true);
 		}
 	}
 }
 
-bool CvTeam::isForceRevealedBonus(BonusTypes eBonus) const
-{
+bool CvTeam::isForceRevealedBonus(BonusTypes eBonus) const {
 	std::vector<BonusTypes>::const_iterator it;
 
-	for (it = m_aeRevealedBonuses.begin(); it != m_aeRevealedBonuses.end(); ++it)
-	{
-		if (*it == eBonus)
-		{
+	for (it = m_aeRevealedBonuses.begin(); it != m_aeRevealedBonuses.end(); ++it) {
+		if (*it == eBonus) {
 			return true;
 		}
 	}
@@ -5661,24 +4570,19 @@ bool CvTeam::isForceRevealedBonus(BonusTypes eBonus) const
 }
 
 // K-Mod
-bool CvTeam::isBonusRevealed(BonusTypes eBonus) const
-{
+bool CvTeam::isBonusRevealed(BonusTypes eBonus) const {
 	FAssert(eBonus >= 0 && eBonus < GC.getNumBonusInfos());
 	return isHasTech((TechTypes)GC.getBonusInfo(eBonus).getTechReveal()) || isForceRevealedBonus(eBonus);
 }
 
-int CvTeam::countNumHumanGameTurnActive() const
-{
+int CvTeam::countNumHumanGameTurnActive() const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_CIV_PLAYERS; iI++)
-	{
+	for (int iI = 0; iI < MAX_CIV_PLAYERS; iI++) {
 		CvPlayer& kLoopPlayer = GET_PLAYER((PlayerTypes)iI);
 
-		if (kLoopPlayer.isHuman() && kLoopPlayer.getTeam() == getID())
-		{
-			if (kLoopPlayer.isTurnActive())
-			{
+		if (kLoopPlayer.isHuman() && kLoopPlayer.getTeam() == getID()) {
+			if (kLoopPlayer.isTurnActive()) {
 				++iCount;
 			}
 		}
@@ -5687,31 +4591,24 @@ int CvTeam::countNumHumanGameTurnActive() const
 	return iCount;
 }
 
-void CvTeam::setTurnActive(bool bNewValue, bool bDoTurn)
-{
+void CvTeam::setTurnActive(bool bNewValue, bool bDoTurn) {
 	FAssert(GC.getGameINLINE().isSimultaneousTeamTurns());
 
-	for (int iPlayer = 0; iPlayer < MAX_PLAYERS; ++iPlayer)
-	{
+	for (int iPlayer = 0; iPlayer < MAX_PLAYERS; ++iPlayer) {
 		CvPlayer& kPlayer = GET_PLAYER((PlayerTypes)iPlayer);
-		if (kPlayer.isAlive() && kPlayer.getTeam() == getID())
-		{
+		if (kPlayer.isAlive() && kPlayer.getTeam() == getID()) {
 			kPlayer.setTurnActive(bNewValue, bDoTurn);
 		}
 	}
 }
 
-bool CvTeam::isTurnActive() const
-{
+bool CvTeam::isTurnActive() const {
 	FAssert(GC.getGameINLINE().isSimultaneousTeamTurns());
 
-	for (int iPlayer = 0; iPlayer < MAX_PLAYERS; ++iPlayer)
-	{
+	for (int iPlayer = 0; iPlayer < MAX_PLAYERS; ++iPlayer) {
 		CvPlayer& kPlayer = GET_PLAYER((PlayerTypes)iPlayer);
-		if (kPlayer.getTeam() == getID())
-		{
-			if (kPlayer.isTurnActive())
-			{
+		if (kPlayer.getTeam() == getID()) {
+			if (kPlayer.isTurnActive()) {
 				return true;
 			}
 		}
@@ -5722,51 +4619,38 @@ bool CvTeam::isTurnActive() const
 
 // Protected Functions...
 
-void CvTeam::doWarWeariness()
-{
-	for (int iI = 0; iI < MAX_TEAMS; iI++)
-	{
-		if (getWarWeariness((TeamTypes)iI) > 0)
-		{
+void CvTeam::doWarWeariness() {
+	for (int iI = 0; iI < MAX_TEAMS; iI++) {
+		if (getWarWeariness((TeamTypes)iI) > 0) {
 			changeWarWeariness(((TeamTypes)iI), 100 * GC.getDefineINT("WW_DECAY_RATE"));
 
-			if (!(GET_TEAM((TeamTypes)iI).isAlive()) || !isAtWar((TeamTypes)iI) || GC.getGameINLINE().isOption(GAMEOPTION_ALWAYS_WAR) || GC.getGameINLINE().isOption(GAMEOPTION_NO_CHANGING_WAR_PEACE))
-			{
+			if (!(GET_TEAM((TeamTypes)iI).isAlive()) || !isAtWar((TeamTypes)iI) || GC.getGameINLINE().isOption(GAMEOPTION_ALWAYS_WAR) || GC.getGameINLINE().isOption(GAMEOPTION_NO_CHANGING_WAR_PEACE)) {
 				setWarWeariness(((TeamTypes)iI), ((getWarWeariness((TeamTypes)iI) * GC.getDefineINT("WW_DECAY_PEACE_PERCENT")) / 100));
 			}
 		}
 	}
 }
 
-void CvTeam::updateTechShare(TechTypes eTech)
-{
-	if (isHasTech(eTech))
-	{
+void CvTeam::updateTechShare(TechTypes eTech) {
+	if (isHasTech(eTech)) {
 		return;
 	}
 
 	int iBestShare = MAX_INT;
 
-	for (int iI = 0; iI < MAX_TEAMS; iI++)
-	{
-		if (isTechShare(iI))
-		{
+	for (int iI = 0; iI < MAX_TEAMS; iI++) {
+		if (isTechShare(iI)) {
 			iBestShare = std::min(iBestShare, (iI + 1));
 		}
 	}
 
-	if (iBestShare != MAX_INT)
-	{
+	if (iBestShare != MAX_INT) {
 		int iCount = 0;
 
-		for (int iI = 0; iI < MAX_CIV_TEAMS; iI++)
-		{
-			if (GET_TEAM((TeamTypes)iI).isAlive())
-			{
-				if (GET_TEAM((TeamTypes)iI).isHasTech(eTech))
-				{
-					if (isHasMet((TeamTypes)iI))
-					{
+		for (int iI = 0; iI < MAX_CIV_TEAMS; iI++) {
+			if (GET_TEAM((TeamTypes)iI).isAlive()) {
+				if (GET_TEAM((TeamTypes)iI).isHasTech(eTech)) {
+					if (isHasMet((TeamTypes)iI)) {
 						FAssertMsg(iI != getID(), "iI is not expected to be equal with getID()");
 						iCount++;
 					}
@@ -5774,78 +4658,62 @@ void CvTeam::updateTechShare(TechTypes eTech)
 			}
 		}
 
-		if (iCount >= iBestShare)
-		{
+		if (iCount >= iBestShare) {
 			setHasTech(eTech, true, NO_PLAYER, true, true);
 		}
 	}
 }
 
 
-void CvTeam::updateTechShare()
-{
-	for (int iI = 0; iI < GC.getNumTechInfos(); iI++)
-	{
+void CvTeam::updateTechShare() {
+	for (int iI = 0; iI < GC.getNumTechInfos(); iI++) {
 		updateTechShare((TechTypes)iI);
 	}
 }
 
 
-void CvTeam::testCircumnavigated()
-{
-	if (isBarbarian())
-	{
+void CvTeam::testCircumnavigated() {
+	if (isBarbarian()) {
 		return;
 	}
 
-	if (!GC.getGameINLINE().circumnavigationAvailable())
-	{
+	if (!GC.getGameINLINE().circumnavigationAvailable()) {
 		return;
 	}
 
-	if (GC.getMapINLINE().isWrapXINLINE())
-	{
-		for (int iX = 0; iX < GC.getMapINLINE().getGridWidthINLINE(); iX++)
-		{
+	if (GC.getMapINLINE().isWrapXINLINE()) {
+		for (int iX = 0; iX < GC.getMapINLINE().getGridWidthINLINE(); iX++) {
 			bool bFoundVisible = false;
 
-			for (int iY = 0; iY < GC.getMapINLINE().getGridHeightINLINE(); iY++)
-			{
+			for (int iY = 0; iY < GC.getMapINLINE().getGridHeightINLINE(); iY++) {
 				CvPlot* pPlot = GC.getMapINLINE().plotSorenINLINE(iX, iY);
 
-				if (pPlot->isRevealed(getID(), false))
-				{
+				if (pPlot->isRevealed(getID(), false)) {
 					bFoundVisible = true;
 					break;
 				}
 			}
 
-			if (!bFoundVisible)
-			{
+			if (!bFoundVisible) {
 				return;
 			}
 		}
 	}
 
-	if (GC.getMapINLINE().isWrapYINLINE())
-	{
-		for (int iY = 0; iY < GC.getMapINLINE().getGridHeightINLINE(); iY++)
-		{
+	if (GC.getMapINLINE().isWrapYINLINE()) {
+		for (int iY = 0; iY < GC.getMapINLINE().getGridHeightINLINE(); iY++) {
 			bool bFoundVisible = false;
 
-			for (int iX = 0; iX < GC.getMapINLINE().getGridWidthINLINE(); iX++)
-			{
+			for (int iX = 0; iX < GC.getMapINLINE().getGridWidthINLINE(); iX++) {
 				CvPlot* pPlot = GC.getMapINLINE().plotSorenINLINE(iX, iY);
 
-				if (pPlot->isRevealed(getID(), false))
-				{
+				if (pPlot->isRevealed(getID(), false)) {
 					bFoundVisible = true;
 					break;
 				}
 			}
 
-			if (!bFoundVisible)
-			{
+			if (!bFoundVisible) {
 				return;
 			}
 		}
@@ -5855,25 +4723,17 @@ void CvTeam::testCircumnavigated()
 
 	if (GC.getGameINLINE().getElapsedGameTurns() > 1) // K-Mod (due to changes in when CvTeam::doTurn is called)
 	{
-		if (GC.getDefineINT("CIRCUMNAVIGATE_FREE_MOVES") != 0)
-		{
+		if (GC.getDefineINT("CIRCUMNAVIGATE_FREE_MOVES") != 0) {
 			CvWString szBuffer;
 			changeExtraMoves(DOMAIN_SEA, GC.getDefineINT("CIRCUMNAVIGATE_FREE_MOVES"));
 
-			for (int iI = 0; iI < MAX_PLAYERS; iI++)
-			{
-				if (GET_PLAYER((PlayerTypes)iI).isAlive())
-				{
-					if (getID() == GET_PLAYER((PlayerTypes)iI).getTeam())
-					{
+			for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+				if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+					if (getID() == GET_PLAYER((PlayerTypes)iI).getTeam()) {
 						szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_CIRC_GLOBE", GC.getDefineINT("CIRCUMNAVIGATE_FREE_MOVES"));
-					}
-					else if (isHasMet(GET_PLAYER((PlayerTypes)iI).getTeam()))
-					{
+					} else if (isHasMet(GET_PLAYER((PlayerTypes)iI).getTeam())) {
 						szBuffer = gDLL->getText("TXT_KEY_MISC_SOMEONE_CIRC_GLOBE", getName().GetCString());
-					}
-					else
-					{
+					} else {
 						szBuffer = gDLL->getText("TXT_KEY_MISC_UNKNOWN_CIRC_GLOBE");
 					}
 					gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_GLOBECIRCUMNAVIGATED", MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
@@ -5886,139 +4746,109 @@ void CvTeam::testCircumnavigated()
 	}
 }
 
-void CvTeam::processTech(TechTypes eTech, int iChange)
-{
+void CvTeam::processTech(TechTypes eTech, int iChange) {
 	PROFILE_FUNC();
 
 	const CvTechInfo& kTech = GC.getTechInfo(eTech);
 
-	if (kTech.isExtraWaterSeeFrom())
-	{
+	if (kTech.isExtraWaterSeeFrom()) {
 		changeExtraWaterSeeFromCount(iChange);
 	}
 
-	if (kTech.isMapCentering())
-	{
-		if (iChange > 0)
-		{
+	if (kTech.isMapCentering()) {
+		if (iChange > 0) {
 			setMapCentering(true);
 		}
 	}
 
-	if (kTech.isMapTrading())
-	{
+	if (kTech.isMapTrading()) {
 		changeMapTradingCount(iChange);
 	}
 
-	if (kTech.isTechTrading())
-	{
+	if (kTech.isTechTrading()) {
 		changeTechTradingCount(iChange);
 	}
 
-	if (kTech.isGoldTrading())
-	{
+	if (kTech.isGoldTrading()) {
 		changeGoldTradingCount(iChange);
 	}
 
-	if (kTech.isOpenBordersTrading())
-	{
+	if (kTech.isOpenBordersTrading()) {
 		changeOpenBordersTradingCount(iChange);
 	}
 
-	if (kTech.isDefensivePactTrading())
-	{
+	if (kTech.isDefensivePactTrading()) {
 		changeDefensivePactTradingCount(iChange);
 	}
 
-	if (kTech.isPermanentAllianceTrading())
-	{
+	if (kTech.isPermanentAllianceTrading()) {
 		changePermanentAllianceTradingCount(iChange);
 	}
 
-	if (kTech.isVassalStateTrading())
-	{
+	if (kTech.isVassalStateTrading()) {
 		changeVassalTradingCount(iChange);
 	}
 
-	if (kTech.isBridgeBuilding())
-	{
+	if (kTech.isBridgeBuilding()) {
 		changeBridgeBuildingCount(iChange);
 	}
 
-	if (kTech.isIrrigation())
-	{
+	if (kTech.isIrrigation()) {
 		changeIrrigationCount(iChange);
 	}
 
-	if (kTech.isIgnoreIrrigation())
-	{
+	if (kTech.isIgnoreIrrigation()) {
 		changeIgnoreIrrigationCount(iChange);
 	}
 
-	if (kTech.isWaterWork())
-	{
+	if (kTech.isWaterWork()) {
 		changeWaterWorkCount(iChange);
 	}
 
-	for (int iI = 0; iI < GC.getNumRouteInfos(); iI++)
-	{
-		changeRouteChange(((RouteTypes)iI), (GC.getRouteInfo((RouteTypes) iI).getTechMovementChange(eTech) * iChange));
+	for (int iI = 0; iI < GC.getNumRouteInfos(); iI++) {
+		changeRouteChange(((RouteTypes)iI), (GC.getRouteInfo((RouteTypes)iI).getTechMovementChange(eTech) * iChange));
 	}
 
-	for (int iI = 0; iI < NUM_DOMAIN_TYPES; iI++)
-	{
+	for (int iI = 0; iI < NUM_DOMAIN_TYPES; iI++) {
 		changeExtraMoves(((DomainTypes)iI), (kTech.getDomainExtraMoves(iI) * iChange));
 	}
 
-	for (int iI = 0; iI < NUM_COMMERCE_TYPES; iI++)
-	{
-		if (kTech.isCommerceFlexible(iI))
-		{
+	for (int iI = 0; iI < NUM_COMMERCE_TYPES; iI++) {
+		if (kTech.isCommerceFlexible(iI)) {
 			changeCommerceFlexibleCount(((CommerceTypes)iI), iChange);
 		}
 	}
 
-	for (int iI = 0; iI < GC.getNumTerrainInfos(); iI++)
-	{
-		if (kTech.isTerrainTrade(iI))
-		{
+	for (int iI = 0; iI < GC.getNumTerrainInfos(); iI++) {
+		if (kTech.isTerrainTrade(iI)) {
 			changeTerrainTradeCount(((TerrainTypes)iI), iChange);
 		}
 	}
 
-	if (kTech.isRiverTrade())
-	{
+	if (kTech.isRiverTrade()) {
 		changeRiverTradeCount(iChange);
 	}
 
-	for (int iI = 0; iI < GC.getNumBuildingInfos(); iI++)
-	{
-		if (GC.getBuildingInfo((BuildingTypes) iI).getObsoleteTech() == eTech)
-		{
+	for (int iI = 0; iI < GC.getNumBuildingInfos(); iI++) {
+		if (GC.getBuildingInfo((BuildingTypes)iI).getObsoleteTech() == eTech) {
 			changeObsoleteBuildingCount(((BuildingTypes)iI), iChange);
 		}
 
-		if (GC.getBuildingInfo((BuildingTypes) iI).getSpecialBuildingType() != NO_SPECIALBUILDING)
-		{
-			if (GC.getSpecialBuildingInfo((SpecialBuildingTypes) GC.getBuildingInfo((BuildingTypes) iI).getSpecialBuildingType()).getObsoleteTech() == eTech)
-			{
+		if (GC.getBuildingInfo((BuildingTypes)iI).getSpecialBuildingType() != NO_SPECIALBUILDING) {
+			if (GC.getSpecialBuildingInfo((SpecialBuildingTypes)GC.getBuildingInfo((BuildingTypes)iI).getSpecialBuildingType()).getObsoleteTech() == eTech) {
 				changeObsoleteBuildingCount(((BuildingTypes)iI), iChange);
 			}
 		}
 	}
 
-	for (int iI = 0; iI < GC.getNumImprovementInfos(); iI++)
-	{
-		for (int iJ = 0; iJ < NUM_YIELD_TYPES; iJ++)
-		{
+	for (int iI = 0; iI < GC.getNumImprovementInfos(); iI++) {
+		for (int iJ = 0; iJ < NUM_YIELD_TYPES; iJ++) {
 			changeImprovementYieldChange(((ImprovementTypes)iI), ((YieldTypes)iJ), (GC.getImprovementInfo((ImprovementTypes)iI).getTechYieldChanges(eTech, iJ) * iChange));
 		}
 	}
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-		{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 			GET_PLAYER((PlayerTypes)iI).changeFeatureProductionModifier(kTech.getFeatureProductionModifier() * iChange);
 			GET_PLAYER((PlayerTypes)iI).changeWorkerSpeedModifier(kTech.getWorkerSpeedModifier() * iChange);
 			GET_PLAYER((PlayerTypes)iI).changeTradeRoutes(kTech.getTradeRoutes() * iChange);
@@ -6031,38 +4861,29 @@ void CvTeam::processTech(TechTypes eTech, int iChange)
 		}
 	}
 
-	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++)
-	{
+	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++) {
 		CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
 
 		BonusTypes eBonus = pLoopPlot->getBonusType();
 
-		if (eBonus != NO_BONUS)
-		{
-			if (GC.getBonusInfo(eBonus).getTechReveal() == eTech)
-			{
+		if (eBonus != NO_BONUS) {
+			if (GC.getBonusInfo(eBonus).getTechReveal() == eTech) {
 				pLoopPlot->updateYield();
 				pLoopPlot->setLayoutDirty(true);
 			}
 		}
 	}
 
-	for (int iI = 0; iI < GC.getNumBuildInfos(); iI++)
-	{
-		if (GC.getBuildInfo((BuildTypes) iI).getTechPrereq() == eTech)
-		{
-			if (GC.getBuildInfo((BuildTypes) iI).getRoute() != NO_ROUTE)
-			{
-				for (iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++)
-				{
+	for (int iI = 0; iI < GC.getNumBuildInfos(); iI++) {
+		if (GC.getBuildInfo((BuildTypes)iI).getTechPrereq() == eTech) {
+			if (GC.getBuildInfo((BuildTypes)iI).getRoute() != NO_ROUTE) {
+				for (iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++) {
 					CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
 
 					CvCity* pCity = pLoopPlot->getPlotCity();
 
-					if (pCity != NULL)
-					{
-						if (pCity->getTeam() == getID())
-						{
+					if (pCity != NULL) {
+						if (pCity->getTeam() == getID()) {
 							pLoopPlot->updateCityRoute(true);
 						}
 					}
@@ -6071,41 +4892,31 @@ void CvTeam::processTech(TechTypes eTech, int iChange)
 		}
 	}
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
-		{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
 			GET_PLAYER((PlayerTypes)iI).updateCorporation();
 		}
 	}
 }
 
 
-void CvTeam::cancelDefensivePacts()
-{
+void CvTeam::cancelDefensivePacts() {
 	int iLoop;
-	for (CvDeal* pLoopDeal = GC.getGameINLINE().firstDeal(&iLoop); pLoopDeal != NULL; pLoopDeal = GC.getGameINLINE().nextDeal(&iLoop))
-	{
+	for (CvDeal* pLoopDeal = GC.getGameINLINE().firstDeal(&iLoop); pLoopDeal != NULL; pLoopDeal = GC.getGameINLINE().nextDeal(&iLoop)) {
 		bool bCancelDeal = false;
 
 		if ((GET_PLAYER(pLoopDeal->getFirstPlayer()).getTeam() == getID()) ||
-			(GET_PLAYER(pLoopDeal->getSecondPlayer()).getTeam() == getID()))
-		{
-			for (CLLNode<TradeData>* pNode = pLoopDeal->headFirstTradesNode(); (pNode != NULL); pNode = pLoopDeal->nextFirstTradesNode(pNode))
-			{
-				if (pNode->m_data.m_eItemType == TRADE_DEFENSIVE_PACT)
-				{
+			(GET_PLAYER(pLoopDeal->getSecondPlayer()).getTeam() == getID())) {
+			for (CLLNode<TradeData>* pNode = pLoopDeal->headFirstTradesNode(); (pNode != NULL); pNode = pLoopDeal->nextFirstTradesNode(pNode)) {
+				if (pNode->m_data.m_eItemType == TRADE_DEFENSIVE_PACT) {
 					bCancelDeal = true;
 					break;
 				}
 			}
 
-			if (!bCancelDeal)
-			{
-				for (CLLNode<TradeData>* pNode = pLoopDeal->headSecondTradesNode(); (pNode != NULL); pNode = pLoopDeal->nextSecondTradesNode(pNode))
-				{
-					if (pNode->m_data.m_eItemType == TRADE_DEFENSIVE_PACT)
-					{
+			if (!bCancelDeal) {
+				for (CLLNode<TradeData>* pNode = pLoopDeal->headSecondTradesNode(); (pNode != NULL); pNode = pLoopDeal->nextSecondTradesNode(pNode)) {
+					if (pNode->m_data.m_eItemType == TRADE_DEFENSIVE_PACT) {
 						bCancelDeal = true;
 						break;
 					}
@@ -6113,20 +4924,18 @@ void CvTeam::cancelDefensivePacts()
 			}
 		}
 
-		if (bCancelDeal)
-		{
+		if (bCancelDeal) {
 			pLoopDeal->kill();
 		}
 	}
 }
 
 
-void CvTeam::read(FDataStreamBase* pStream)
-{
+void CvTeam::read(FDataStreamBase* pStream) {
 	// Init data before load
 	reset();
 
-	uint uiFlag=0;
+	uint uiFlag = 0;
 	pStream->Read(&uiFlag);	// flags for expansion
 
 	pStream->Read(&m_iNumMembers);
@@ -6173,7 +4982,7 @@ void CvTeam::read(FDataStreamBase* pStream)
 	if (uiFlag >= 1)
 		pStream->Read(MAX_TEAMS, m_abHasSeen);
 	else
-		memcpy(m_abHasSeen, m_abHasMet, sizeof(*m_abHasSeen)*MAX_TEAMS);
+		memcpy(m_abHasSeen, m_abHasMet, sizeof(*m_abHasSeen) * MAX_TEAMS);
 	pStream->Read(MAX_TEAMS, m_abAtWar);
 	pStream->Read(MAX_TEAMS, m_abPermanentWarPeace);
 	pStream->Read(MAX_TEAMS, m_abOpenBorders);
@@ -6185,13 +4994,11 @@ void CvTeam::read(FDataStreamBase* pStream)
 	pStream->Read(GC.getNumRouteInfos(), m_paiRouteChange);
 	pStream->Read(GC.getNumProjectInfos(), m_paiProjectCount);
 	pStream->Read(GC.getNumProjectInfos(), m_paiProjectDefaultArtTypes);
-	
+
 	//project art types
-	for(int i=0;i<GC.getNumProjectInfos();i++)
-	{
+	for (int i = 0; i < GC.getNumProjectInfos(); i++) {
 		int temp;
-		for(int j=0;j<m_paiProjectCount[i];j++)
-		{
+		for (int j = 0; j < m_paiProjectCount[i]; j++) {
 			pStream->Read(&temp);
 			m_pavProjectArtTypes[i].push_back(temp);
 		}
@@ -6209,16 +5016,14 @@ void CvTeam::read(FDataStreamBase* pStream)
 	pStream->Read(GC.getNumTechInfos(), m_pabHasTech);
 	pStream->Read(GC.getNumTechInfos(), m_pabNoTradeTech);
 
-	for (int i = 0; i < GC.getNumImprovementInfos(); ++i)
-	{
+	for (int i = 0; i < GC.getNumImprovementInfos(); ++i) {
 		pStream->Read(NUM_YIELD_TYPES, m_ppaaiImprovementYieldChange[i]);
 	}
 
 	int iSize;
 	m_aeRevealedBonuses.clear();
 	pStream->Read(&iSize);
-	for (int i = 0; i < iSize; ++i)
-	{
+	for (int i = 0; i < iSize; ++i) {
 		BonusTypes eBonus;
 		pStream->Read((int*)&eBonus);
 		m_aeRevealedBonuses.push_back(eBonus);
@@ -6226,8 +5031,7 @@ void CvTeam::read(FDataStreamBase* pStream)
 }
 
 
-void CvTeam::write(FDataStreamBase* pStream)
-{
+void CvTeam::write(FDataStreamBase* pStream) {
 	uint uiFlag = 1;
 	pStream->Write(uiFlag);		// flag for expansion
 
@@ -6286,9 +5090,8 @@ void CvTeam::write(FDataStreamBase* pStream)
 	pStream->Write(GC.getNumProjectInfos(), m_paiProjectDefaultArtTypes);
 
 	//project art types
-	for(int i=0;i<GC.getNumProjectInfos();i++)
-	{
-		for(int j=0;j<m_paiProjectCount[i];j++)
+	for (int i = 0; i < GC.getNumProjectInfos(); i++) {
+		for (int j = 0; j < m_paiProjectCount[i]; j++)
 			pStream->Write(m_pavProjectArtTypes[i][j]);
 	}
 
@@ -6304,28 +5107,24 @@ void CvTeam::write(FDataStreamBase* pStream)
 	pStream->Write(GC.getNumTechInfos(), m_pabHasTech);
 	pStream->Write(GC.getNumTechInfos(), m_pabNoTradeTech);
 
-	for (int iI=0;iI<GC.getNumImprovementInfos();iI++)
-	{
+	for (int iI = 0; iI < GC.getNumImprovementInfos(); iI++) {
 		pStream->Write(NUM_YIELD_TYPES, m_ppaaiImprovementYieldChange[iI]);
 	}
 
 	pStream->Write(m_aeRevealedBonuses.size());
-	for (std::vector<BonusTypes>::iterator it = m_aeRevealedBonuses.begin(); it != m_aeRevealedBonuses.end(); ++it)
-	{
+	for (std::vector<BonusTypes>::iterator it = m_aeRevealedBonuses.begin(); it != m_aeRevealedBonuses.end(); ++it) {
 		pStream->Write(*it);
 	}
 }
 
 // CACHE: cache frequently used values
 ///////////////////////////////////////
-bool CvTeam::hasShrine(ReligionTypes eReligion)
-{
+bool CvTeam::hasShrine(ReligionTypes eReligion) {
 	bool bHasShrine = false;
-	
-	if (eReligion != NO_RELIGION)
-	{
+
+	if (eReligion != NO_RELIGION) {
 		CvCity* pHolyCity = GC.getGameINLINE().getHolyCity(eReligion);
-		
+
 		// if the holy city exists, and we own it
 		if (pHolyCity != NULL && GET_PLAYER(pHolyCity->getOwnerINLINE()).getTeam() == getID())
 			bHasShrine = pHolyCity->hasShrine(eReligion);
@@ -6334,33 +5133,26 @@ bool CvTeam::hasShrine(ReligionTypes eReligion)
 	return bHasShrine;
 }
 
-void CvTeam::getCompletedSpaceshipProjects(std::map<ProjectTypes, int>& mapProjects) const
-{
-	for (int i = 0; i < GC.getNumProjectInfos(); i++)
-	{
-		ProjectTypes eProject = (ProjectTypes) i;
-		if (GC.getProjectInfo(eProject).isSpaceship())
-		{
+void CvTeam::getCompletedSpaceshipProjects(std::map<ProjectTypes, int>& mapProjects) const {
+	for (int i = 0; i < GC.getNumProjectInfos(); i++) {
+		ProjectTypes eProject = (ProjectTypes)i;
+		if (GC.getProjectInfo(eProject).isSpaceship()) {
 			mapProjects[eProject] = getProjectCount(eProject);
 		}
 	}
 }
 
-int CvTeam::getProjectPartNumber(ProjectTypes eProject, bool bAssert) const
-{
+int CvTeam::getProjectPartNumber(ProjectTypes eProject, bool bAssert) const {
 	int iNumBuilt = getProjectCount(eProject);
-	for (int i = 0; i < iNumBuilt; i++)
-	{
+	for (int i = 0; i < iNumBuilt; i++) {
 		int artType = getProjectArtType(eProject, i);
-		if (artType < 0)
-		{
+		if (artType < 0) {
 			return i;
 		}
 	}
 
 	//didn't find empty part number
-	if (bAssert)
-	{
+	if (bAssert) {
 		FAssertMsg(false, "Unknown part number.");
 	}
 
@@ -6368,11 +5160,9 @@ int CvTeam::getProjectPartNumber(ProjectTypes eProject, bool bAssert) const
 	return std::min(iNumBuilt, GC.getProjectInfo(eProject).getMaxTeamInstances() - 1);
 }
 
-bool CvTeam::hasLaunched() const
-{
+bool CvTeam::hasLaunched() const {
 	VictoryTypes spaceVictory = GC.getGameINLINE().getSpaceVictory();
-	if (spaceVictory != NO_VICTORY)
-	{
+	if (spaceVictory != NO_VICTORY) {
 		return (getVictoryCountdown(spaceVictory) >= 0);
 	}
 	return false;

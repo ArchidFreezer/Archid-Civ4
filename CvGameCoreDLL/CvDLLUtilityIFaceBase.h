@@ -38,8 +38,7 @@ class CvReplayInfo;
 class CvPopupInfo;
 class CvMessageData;
 
-class CvDLLUtilityIFaceBase
-{
+class CvDLLUtilityIFaceBase {
 public:
 	// accessors for other abstract interfaces
 	virtual CvDLLEntityIFaceBase* getEntityIFace() = 0;
@@ -56,16 +55,16 @@ public:
 	virtual CvDLLFlagEntityIFaceBase* getFlagEntityIFace() = 0;
 	virtual CvDLLPythonIFaceBase* getPythonIFace() = 0;
 
-	virtual void delMem(void *p) = 0;
+	virtual void delMem(void* p) = 0;
 	virtual void* newMem(size_t size) = 0;
 
-	virtual void delMem(void *p, const char* pcFile, int iLine) = 0;
+	virtual void delMem(void* p, const char* pcFile, int iLine) = 0;
 	virtual void* newMem(size_t size, const char* pcFile, int iLine) = 0;
- 
-	virtual void delMemArray(void *p, const char* pcFile, int iLine) = 0;
+
+	virtual void delMemArray(void* p, const char* pcFile, int iLine) = 0;
 	virtual void* newMemArray(size_t size, const char* pcFile, int iLine) = 0;
 
-	virtual void* reallocMem(void* a, unsigned int uiBytes, const char* pcFile, int iLine) = 0; 
+	virtual void* reallocMem(void* a, unsigned int uiBytes, const char* pcFile, int iLine) = 0;
 	virtual unsigned int memSize(void* a) = 0;
 
 	virtual void clearVector(std::vector<int>& vec) = 0;
@@ -83,8 +82,8 @@ public:
 	virtual bool IsModem() = 0;
 	virtual void SetModem(bool bModem) = 0;
 
-	virtual void AcceptBuddy(const char * szName, int iRequestID) = 0;
-	virtual void RejectBuddy(const char * szName, int iRequestID) = 0;
+	virtual void AcceptBuddy(const char* szName, int iRequestID) = 0;
+	virtual void RejectBuddy(const char* szName, int iRequestID) = 0;
 
 	virtual void messageControlLog(char* s) = 0;
 	virtual int getChtLvl() = 0;
@@ -130,10 +129,10 @@ public:
 
 	virtual CvWString getMapScriptName() = 0;
 	virtual bool getTransferredMap() = 0;
-	virtual bool isDescFileName(const char * szFileName) = 0;
+	virtual bool isDescFileName(const char* szFileName) = 0;
 	virtual bool isWBMapScript() = 0;
 	virtual bool isWBMapNoPlayers() = 0;
-	virtual bool pythonMapExists(const char * szMapName) = 0;
+	virtual bool pythonMapExists(const char* szMapName) = 0;
 
 	virtual void stripSpecialCharacters(CvWString& szName) = 0;
 
@@ -142,8 +141,8 @@ public:
 
 	virtual void callUpdater() = 0;
 
-	virtual bool Uncompress(byte** bufIn, unsigned long* bufLenIn, unsigned long maxBufLenOut, int offset=0) = 0;
-	virtual bool Compress(byte** bufIn, unsigned long* bufLenIn, int offset=0) = 0;
+	virtual bool Uncompress(byte** bufIn, unsigned long* bufLenIn, unsigned long maxBufLenOut, int offset = 0) = 0;
+	virtual bool Compress(byte** bufIn, unsigned long* bufLenIn, int offset = 0) = 0;
 
 	virtual void NiTextOut(const TCHAR* szText) = 0;
 	virtual void MessageBox(const TCHAR* szText, const TCHAR* szCaption) = 0;
@@ -159,14 +158,14 @@ public:
 	virtual bool isMPDiplomacy() = 0;
 	virtual bool isMPDiplomacyScreenUp() = 0;
 	virtual int getMPDiplomacyPlayer() = 0;
-	virtual void beginMPDiplomacy( PlayerTypes eWhoTalkingTo, bool bRenegotiate = false, bool bSimultaneous = true) = 0;
+	virtual void beginMPDiplomacy(PlayerTypes eWhoTalkingTo, bool bRenegotiate = false, bool bSimultaneous = true) = 0;
 	virtual void endMPDiplomacy() = 0;
 
 	virtual bool getAudioDisabled() = 0;
 	virtual int getAudioTagIndex(const TCHAR* szTag, int iScriptType = -1) = 0;
 
-	virtual void DoSound( int iScriptId ) = 0;
-	virtual void Do3DSound( int iScriptId, NiPoint3 vPosition ) = 0;
+	virtual void DoSound(int iScriptId) = 0;
+	virtual void Do3DSound(int iScriptId, NiPoint3 vPosition) = 0;
 
 	virtual FDataStreamBase* createFileStream() = 0;
 	virtual void destroyDataStream(FDataStreamBase*& stream) = 0;
@@ -188,13 +187,13 @@ public:
 	virtual CvCacheObject* createBonusInfoCacheObject(const TCHAR* szCacheFileName) = 0;
 	virtual CvCacheObject* createImprovementInfoCacheObject(const TCHAR* szCacheFileName) = 0;
 
-	virtual bool cacheRead(CvCacheObject* pCache, const TCHAR* szSourceFileName=NULL) = 0;
+	virtual bool cacheRead(CvCacheObject* pCache, const TCHAR* szSourceFileName = NULL) = 0;
 	virtual bool cacheWrite(CvCacheObject* pCache) = 0;
 	virtual void destroyCache(CvCacheObject*& pCache) = 0;
 
 	virtual bool fileManagerEnabled() = 0;
 
-	virtual void logMsg(const TCHAR* pLogFileName, const TCHAR* pBuf, bool bWriteToConsole=false, bool bTimeStamp=true) = 0;
+	virtual void logMsg(const TCHAR* pLogFileName, const TCHAR* pBuf, bool bWriteToConsole = false, bool bTimeStamp = true) = 0;
 	virtual void logMemState(const char* msg) = 0;
 
 	virtual int getSymbolID(int iID) = 0;
@@ -202,7 +201,7 @@ public:
 
 	virtual CvWString getText(CvWString szIDTag, ...) = 0;
 	virtual CvWString getObjectText(CvWString szIDTag, uint uiForm, bool bNoSubs = false) = 0;
-	virtual void addText(const TCHAR* szIDTag, const wchar* szString, const wchar* szGender = L"N", const wchar* szPlural = L"false") = 0;		
+	virtual void addText(const TCHAR* szIDTag, const wchar* szString, const wchar* szGender = L"N", const wchar* szPlural = L"false") = 0;
 	virtual uint getNumForms(CvWString szIDTag) = 0;
 
 	virtual WorldSizeTypes getWorldSize() = 0;
@@ -215,14 +214,14 @@ public:
 	virtual bool capsLock() = 0;
 	virtual bool numLock() = 0;
 
-	virtual void ProfilerBegin()=0;
-	virtual void ProfilerEnd()=0;
-	virtual void BeginSample(ProfileSample *pSample)=0;
-	virtual void EndSample(ProfileSample *pSample)=0;
+	virtual void ProfilerBegin() = 0;
+	virtual void ProfilerEnd() = 0;
+	virtual void BeginSample(ProfileSample* pSample) = 0;
+	virtual void EndSample(ProfileSample* pSample) = 0;
 	virtual bool isGameInitializing() = 0;
 
 	virtual void enumerateFiles(std::vector<CvString>& files, const char* szPattern) = 0;
-	virtual void enumerateModuleFiles(std::vector<CvString>& aszFiles, const CvString& refcstrRootDirectory,	const CvString&	refcstrModularDirectory, const CvString& refcstrExtension, bool bSearchSubdirectories) = 0;
+	virtual void enumerateModuleFiles(std::vector<CvString>& aszFiles, const CvString& refcstrRootDirectory, const CvString& refcstrModularDirectory, const CvString& refcstrExtension, bool bSearchSubdirectories) = 0;
 
 	virtual void SaveGame(SaveGameTypes eSaveGame) = 0;
 	virtual void LoadGame() = 0;
@@ -235,7 +234,7 @@ public:
 	virtual bool getGraphicOption(GraphicOptionTypes eGraphicOption) = 0;
 	virtual bool getPlayerOption(PlayerOptionTypes ePlayerOption) = 0;
 	virtual int getMainMenu() = 0;
-	
+
 	virtual bool isFMPMgrHost() = 0;
 	virtual bool isFMPMgrPublic() = 0;
 	virtual void handleRetirement(PlayerTypes ePlayer) = 0;

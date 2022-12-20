@@ -13,17 +13,16 @@
 // published python interface for CyPlayer
 //
 
-void CyPlayerPythonInterface1(python::class_<CyPlayer>& x)
-{
+void CyPlayerPythonInterface1(python::class_<CyPlayer>& x) {
 	OutputDebugString("Python Extension Module - CyPlayerPythonInterface1\n");
 
 	// set the docstring of the current module scope 
-	python::scope().attr("__doc__") = "Civilization IV Player Class"; 
+	python::scope().attr("__doc__") = "Civilization IV Player Class";
 	x
 		.def("isNone", &CyPlayer::isNone, "checks for a null player")
-		.def( "changeLeader", &CyPlayer::changeLeader, "void ( int /*LeaderHeadTypes*/ eNewLeader ) - change leader of player")
-		.def( "changeCiv", &CyPlayer::changeCiv, "void ( int /*CivilizationTypes*/ eNewCiv ) - change civilization of player" )
-		.def( "setIsHuman", &CyPlayer::setIsHuman, "void ( bool bNewValue ) - set whether player is human" )
+		.def("changeLeader", &CyPlayer::changeLeader, "void ( int /*LeaderHeadTypes*/ eNewLeader ) - change leader of player")
+		.def("changeCiv", &CyPlayer::changeCiv, "void ( int /*CivilizationTypes*/ eNewCiv ) - change civilization of player")
+		.def("setIsHuman", &CyPlayer::setIsHuman, "void ( bool bNewValue ) - set whether player is human")
 		.def("startingPlotRange", &CyPlayer::startingPlotRange, "int ()")
 		.def("startingPlotWithinRange", &CyPlayer::startingPlotWithinRange, "bool (CyPlot *pPlot, int /*PlayerTypes*/ ePlayer, int iRange, int iPass)")
 

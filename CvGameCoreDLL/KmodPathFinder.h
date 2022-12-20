@@ -3,8 +3,7 @@
 #include <vector>
 #include "FAStarNode.h"
 
-struct CvPathSettings
-{
+struct CvPathSettings {
 	CvPathSettings(const CvSelectionGroup* pGroup = 0, int iFlags = 0, int iMaxPath = -1, int iHW = -1);
 
 	CvSelectionGroup* pGroup;
@@ -15,8 +14,7 @@ struct CvPathSettings
 
 class FAStarNode;
 
-class KmodPathFinder
-{
+class KmodPathFinder {
 public:
 	static void InitHeuristicWeights();
 	static int MinimumStepCost(int BaseMoves);
@@ -35,7 +33,7 @@ public:
 	CvPlot* GetPathFirstPlot() const;
 	CvPlot* GetPathEndTurnPlot() const;
 	void SetSettings(const CvPathSettings& new_settings);
-	void SetSettings(const CvSelectionGroup* pGroup, int iFlags = 0, int iMaxPath = -1, int iHW=-1) { SetSettings(CvPathSettings(pGroup, iFlags, iMaxPath, iHW)); }
+	void SetSettings(const CvSelectionGroup* pGroup, int iFlags = 0, int iMaxPath = -1, int iHW = -1) { SetSettings(CvPathSettings(pGroup, iFlags, iMaxPath, iHW)); }
 	void Reset();
 
 protected:
@@ -45,12 +43,11 @@ protected:
 	void ForwardPropagate(FAStarNode* head, int cost_delta);
 	typedef std::vector<FAStarNode*> OpenList_t;
 
-	struct OpenList_sortPred
-	{
-		bool operator()(const FAStarNode* &left, const FAStarNode* &right);
+	struct OpenList_sortPred {
+		bool operator()(const FAStarNode*& left, const FAStarNode*& right);
 	};
 
-	FAStarNode& GetNode(int x, int y) { return node_data[y*map_width+x]; }
+	FAStarNode& GetNode(int x, int y) { return node_data[y * map_width + x]; }
 	FAStarNode* node_data;
 	OpenList_t open_list;
 

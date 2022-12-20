@@ -5,25 +5,24 @@
 #include "LinkedList.h"
 #include "FVariableSystem.h"
 
-class CvDiploParameters
-{
+class CvDiploParameters {
 public:
 	DllExport CvDiploParameters(PlayerTypes ePlayer);
 	DllExport virtual ~CvDiploParameters();
 
 	DllExport void setWhoTalkingTo(PlayerTypes eWhoTalkingTo);
 	DllExport PlayerTypes getWhoTalkingTo() const;
-	DllExport void setDiploComment(DiploCommentTypes eCommentType, const std::vector<FVariable>* args=NULL);
+	DllExport void setDiploComment(DiploCommentTypes eCommentType, const std::vector<FVariable>* args = NULL);
 
 	// allow 3 args either int or string.  can't really use va_argslist here
-	DllExport void setDiploComment(DiploCommentTypes eCommentType, CvWString  arg1, CvWString  arg2="", CvWString  arg3="");
-	DllExport void setDiploComment(DiploCommentTypes eCommentType, CvWString  arg1, CvWString  arg2, int arg3=MAX_INT);
-	DllExport void setDiploComment(DiploCommentTypes eCommentType, CvWString  arg1, int arg2, CvWString  arg3="");
-	DllExport void setDiploComment(DiploCommentTypes eCommentType, CvWString  arg1, int arg2, int arg3=MAX_INT);
-	DllExport void setDiploComment(DiploCommentTypes eCommentType, int arg1, CvWString  arg2="", CvWString  arg3="");
-	DllExport void setDiploComment(DiploCommentTypes eCommentType, int arg1, CvWString  arg2, int arg3=MAX_INT);
-	DllExport void setDiploComment(DiploCommentTypes eCommentType, int arg1, int arg2=MAX_INT, CvWString  arg3="");
-	DllExport void setDiploComment(DiploCommentTypes eCommentType, int arg1, int arg2, int arg3=MAX_INT);
+	DllExport void setDiploComment(DiploCommentTypes eCommentType, CvWString  arg1, CvWString  arg2 = "", CvWString  arg3 = "");
+	DllExport void setDiploComment(DiploCommentTypes eCommentType, CvWString  arg1, CvWString  arg2, int arg3 = MAX_INT);
+	DllExport void setDiploComment(DiploCommentTypes eCommentType, CvWString  arg1, int arg2, CvWString  arg3 = "");
+	DllExport void setDiploComment(DiploCommentTypes eCommentType, CvWString  arg1, int arg2, int arg3 = MAX_INT);
+	DllExport void setDiploComment(DiploCommentTypes eCommentType, int arg1, CvWString  arg2 = "", CvWString  arg3 = "");
+	DllExport void setDiploComment(DiploCommentTypes eCommentType, int arg1, CvWString  arg2, int arg3 = MAX_INT);
+	DllExport void setDiploComment(DiploCommentTypes eCommentType, int arg1, int arg2 = MAX_INT, CvWString  arg3 = "");
+	DllExport void setDiploComment(DiploCommentTypes eCommentType, int arg1, int arg2, int arg3 = MAX_INT);
 
 	DllExport DiploCommentTypes getDiploComment() const;
 	DllExport void setOurOfferList(const CLinkList<TradeData>& ourOffer);

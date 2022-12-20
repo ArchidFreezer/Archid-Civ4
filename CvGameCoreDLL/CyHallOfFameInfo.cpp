@@ -2,23 +2,19 @@
 #include "CyHallOfFameInfo.h"
 #include "CyReplayInfo.h"
 
-CyHallOfFameInfo::CyHallOfFameInfo()
-{
+CyHallOfFameInfo::CyHallOfFameInfo() {
 }
 
 
-void CyHallOfFameInfo::loadReplays()
-{
+void CyHallOfFameInfo::loadReplays() {
 	m_hallOfFame.loadReplays();
 }
 
-int CyHallOfFameInfo::getNumGames() const
-{
+int CyHallOfFameInfo::getNumGames() const {
 	return m_hallOfFame.getNumGames();
 }
 
-CyReplayInfo* CyHallOfFameInfo::getReplayInfo(int i)
-{
+CyReplayInfo* CyHallOfFameInfo::getReplayInfo(int i) {
 	return (new CyReplayInfo(m_hallOfFame.getReplayInfo(i)));
 }
 

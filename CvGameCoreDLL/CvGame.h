@@ -15,8 +15,7 @@ class CvReplayInfo;
 
 typedef std::vector<const CvReplayMessage*> ReplayMessageList;
 
-class CvGame
-{
+class CvGame {
 
 public:
 
@@ -60,7 +59,7 @@ public:
 	DllExport void testExtendedGame();
 
 	DllExport CvUnit* getPlotUnit(const CvPlot* pPlot, int iIndex) const;
-	DllExport void getPlotUnits(const CvPlot *pPlot, std::vector<CvUnit*>& plotUnits) const;
+	DllExport void getPlotUnits(const CvPlot* pPlot, std::vector<CvUnit*>& plotUnits) const;
 
 	DllExport void cycleCities(bool bForward = true, bool bAdd = false) const;																				// Exposed to Python
 	DllExport void cycleSelectionGroups(bool bClear, bool bForward = true, bool bWorkers = false) const;							// Exposed to Python
@@ -411,27 +410,27 @@ public:
 	void setPlayerVote(PlayerTypes eOwnerIndex, int iVoteId, PlayerVoteTypes eNewValue);
 	DllExport void castVote(PlayerTypes eOwnerIndex, int iVoteId, PlayerVoteTypes ePlayerVote);
 
-	DllExport const CvWString & getName();
+	DllExport const CvWString& getName();
 	DllExport void setName(const TCHAR* szName);
 
 	// Script data needs to be a narrow string for pickling in Python
 	std::string getScriptData() const;																										// Exposed to Python	
 	void setScriptData(std::string szNewValue);																						// Exposed to Python	
-																																												
-	bool isDestroyedCityName(CvWString& szName) const;													
-	void addDestroyedCityName(const CvWString& szName);													
-																																												
-	bool isGreatPersonBorn(CvWString& szName) const;													
-	void addGreatPersonBornName(const CvWString& szName);													
+
+	bool isDestroyedCityName(CvWString& szName) const;
+	void addDestroyedCityName(const CvWString& szName);
+
+	bool isGreatPersonBorn(CvWString& szName) const;
+	void addGreatPersonBornName(const CvWString& szName);
 
 	DllExport int getIndexAfterLastDeal();																								// Exposed to Python	
 	DllExport int getNumDeals();																													// Exposed to Python	
 	DllExport CvDeal* getDeal(int iID);																										// Exposed to Python	
-	DllExport CvDeal* addDeal();																													
-	DllExport void deleteDeal(int iID);																										
+	DllExport CvDeal* addDeal();
+	DllExport void deleteDeal(int iID);
 	// iteration																																					
-	DllExport CvDeal* firstDeal(int *pIterIdx, bool bRev=false);													// Exposed to Python									
-	DllExport CvDeal* nextDeal(int *pIterIdx, bool bRev=false);														// Exposed to Python									
+	DllExport CvDeal* firstDeal(int* pIterIdx, bool bRev = false);													// Exposed to Python									
+	DllExport CvDeal* nextDeal(int* pIterIdx, bool bRev = false);														// Exposed to Python									
 
 	VoteSelectionData* getVoteSelection(int iID) const;
 	VoteSelectionData* addVoteSelection(VoteSourceTypes eVoteSource);
@@ -443,15 +442,15 @@ public:
 	void deleteVoteTriggered(int iID);
 
 	CvRandom& getMapRand();																											// Exposed to Python	
-	int getMapRandNum(int iNum, const char* pszLog);														
-																																												
+	int getMapRandNum(int iNum, const char* pszLog);
+
 	CvRandom& getSorenRand();																										// Exposed to Python	
-	int getSorenRandNum(int iNum, const char* pszLog);													
-																																												
+	int getSorenRandNum(int iNum, const char* pszLog);
+
 	DllExport int calculateSyncChecksum();																								// Exposed to Python	
 	DllExport int calculateOptionsChecksum();																							// Exposed to Python	
 
-	void addReplayMessage(ReplayMessageTypes eType = NO_REPLAY_MESSAGE, PlayerTypes ePlayer = NO_PLAYER, CvWString pszText = L"", 
+	void addReplayMessage(ReplayMessageTypes eType = NO_REPLAY_MESSAGE, PlayerTypes ePlayer = NO_PLAYER, CvWString pszText = L"",
 		int iPlotX = -1, int iPlotY = -1, ColorTypes eColor = NO_COLOR);
 	void clearReplayMessageMap();
 	int getReplayMessageTurn(uint i) const;
@@ -480,7 +479,7 @@ public:
 	bool hasSkippedSaveChecksum() const;
 
 	void addPlayer(PlayerTypes eNewPlayer, LeaderHeadTypes eLeader, CivilizationTypes eCiv);   // Exposed to Python
-	void changeHumanPlayer( PlayerTypes eNewHuman );
+	void changeHumanPlayer(PlayerTypes eNewHuman);
 
 	bool testVictory(VictoryTypes eVictory, TeamTypes eTeam, bool* pbEndScore = NULL) const;
 
@@ -631,7 +630,7 @@ protected:
 
 	bool* m_pabSpecialUnitValid;
 	bool* m_pabSpecialBuildingValid;
-	bool* m_abReligionSlotTaken; 
+	bool* m_abReligionSlotTaken;
 
 	IDInfo* m_paHolyCity;
 	IDInfo* m_paHeadquarters;
@@ -648,7 +647,7 @@ protected:
 	CvRandom m_mapRand;
 	CvRandom m_sorenRand;
 
-	ReplayMessageList m_listReplayMessages; 
+	ReplayMessageList m_listReplayMessages;
 	CvReplayInfo* m_pReplayInfo;
 
 	int m_iNumSessions;
@@ -660,8 +659,8 @@ protected:
 
 	// CACHE: cache frequently used values
 	int		m_iShrineBuildingCount;
-	int*	m_aiShrineBuilding;
-	int*	m_aiShrineReligion;
+	int* m_aiShrineBuilding;
+	int* m_aiShrineReligion;
 
 	int		m_iNumCultureVictoryCities;
 	int		m_eCultureVictoryCultureLevel;

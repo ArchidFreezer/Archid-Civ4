@@ -29,8 +29,7 @@
 //  PURPOSE :   Default constructor
 //
 //------------------------------------------------------------------------------------------------------
-CvWaterPlaneInfo::CvWaterPlaneInfo()
-{
+CvWaterPlaneInfo::CvWaterPlaneInfo() {
 
 }
 
@@ -41,8 +40,7 @@ CvWaterPlaneInfo::CvWaterPlaneInfo()
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvWaterPlaneInfo::~CvWaterPlaneInfo()
-{
+CvWaterPlaneInfo::~CvWaterPlaneInfo() {
 }
 //------------------------------------------------------------------------------------------------------
 float CvWaterPlaneInfo::getMaterialAlpha() const		// The water plane's material alpha
@@ -65,100 +63,86 @@ NiColor	CvWaterPlaneInfo::getMaterialEmmisive() const// The water plane's materi
 	return m_kMaterialEmmisive;
 }
 //------------------------------------------------------------------------------------------------------
-const TCHAR * CvWaterPlaneInfo::getBaseTexture() const
-{
+const TCHAR* CvWaterPlaneInfo::getBaseTexture() const {
 	return m_szBaseTexture;
 }
 //------------------------------------------------------------------------------------------------------
 void CvWaterPlaneInfo::setBaseTexture(const TCHAR* szVal)			// The filename of the base texture
 {
-	m_szBaseTexture=szVal;
+	m_szBaseTexture = szVal;
 }
 //------------------------------------------------------------------------------------------------------
-const TCHAR * CvWaterPlaneInfo::getTransitionTexture() const
-{
+const TCHAR* CvWaterPlaneInfo::getTransitionTexture() const {
 	return m_szTransitionTexture;
 }
 //------------------------------------------------------------------------------------------------------
 void CvWaterPlaneInfo::setTransitionTexture(const TCHAR* szVal)		// The filename of the detail texture
 {
-	m_szTransitionTexture=szVal;
+	m_szTransitionTexture = szVal;
 }
 //------------------------------------------------------------------------------------------------------
-float CvWaterPlaneInfo::getTextureScaling() const
-{
+float CvWaterPlaneInfo::getTextureScaling() const {
 	return m_BaseTextureScale;
 }
 //------------------------------------------------------------------------------------------------------
-float CvWaterPlaneInfo::getTextureScrollRateU() const
-{
+float CvWaterPlaneInfo::getTextureScrollRateU() const {
 	return m_fURate;
 }
 //------------------------------------------------------------------------------------------------------
-float CvWaterPlaneInfo::getTextureScrollRateV() const
-{
+float CvWaterPlaneInfo::getTextureScrollRateV() const {
 	return m_fVRate;
 }
 //------------------------------------------------------------------------------------------------------
-bool CvWaterPlaneInfo::read(CvXMLLoadUtility* pXML)
-{
+bool CvWaterPlaneInfo::read(CvXMLLoadUtility* pXML) {
 	CvString  szTextVal;
 	if (!CvInfoBase::read(pXML))
 		return false;
 
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(),"WaterMaterial"))
-	{
-		if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(),"MaterialColors"))
-		{
-			if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(),"DiffuseMaterialColor"))
-			{
-				pXML->GetChildXmlValByName( &m_kMaterialDiffuse.r, "r");
-				pXML->GetChildXmlValByName( &m_kMaterialDiffuse.g, "g");
-				pXML->GetChildXmlValByName( &m_kMaterialDiffuse.b, "b");
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "WaterMaterial")) {
+		if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "MaterialColors")) {
+			if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "DiffuseMaterialColor")) {
+				pXML->GetChildXmlValByName(&m_kMaterialDiffuse.r, "r");
+				pXML->GetChildXmlValByName(&m_kMaterialDiffuse.g, "g");
+				pXML->GetChildXmlValByName(&m_kMaterialDiffuse.b, "b");
 				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
 			}
-			if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(),"SpecularMaterialColor"))
-			{
-				pXML->GetChildXmlValByName( &m_kMaterialSpecular.r, "r");
-				pXML->GetChildXmlValByName( &m_kMaterialSpecular.g, "g");
-				pXML->GetChildXmlValByName( &m_kMaterialSpecular.b, "b");
+			if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "SpecularMaterialColor")) {
+				pXML->GetChildXmlValByName(&m_kMaterialSpecular.r, "r");
+				pXML->GetChildXmlValByName(&m_kMaterialSpecular.g, "g");
+				pXML->GetChildXmlValByName(&m_kMaterialSpecular.b, "b");
 				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
 			}
-			if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(),"EmmisiveMaterialColor"))
-			{
-				pXML->GetChildXmlValByName( &m_kMaterialEmmisive.r, "r");
-				pXML->GetChildXmlValByName( &m_kMaterialEmmisive.g, "g");
-				pXML->GetChildXmlValByName( &m_kMaterialEmmisive.b, "b");
+			if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "EmmisiveMaterialColor")) {
+				pXML->GetChildXmlValByName(&m_kMaterialEmmisive.r, "r");
+				pXML->GetChildXmlValByName(&m_kMaterialEmmisive.g, "g");
+				pXML->GetChildXmlValByName(&m_kMaterialEmmisive.b, "b");
 				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
 			}
 			gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
 		}
 
-		pXML->GetChildXmlValByName( &m_fMaterialAlpha, "MaterialAlpha");
+		pXML->GetChildXmlValByName(&m_fMaterialAlpha, "MaterialAlpha");
 
 		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
 	}
 
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(),"WaterTextures"))
-	{
-		if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(),"WaterBaseTexture"))
-		{
-			pXML->GetChildXmlValByName( szTextVal, "TextureFile");
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "WaterTextures")) {
+		if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "WaterBaseTexture")) {
+			pXML->GetChildXmlValByName(szTextVal, "TextureFile");
 			setBaseTexture(szTextVal);
 
-			pXML->GetChildXmlValByName( &m_BaseTextureScale, "TextureScaling");
-			pXML->GetChildXmlValByName( &m_fURate, "URate");
-			pXML->GetChildXmlValByName( &m_fVRate, "VRate");
+			pXML->GetChildXmlValByName(&m_BaseTextureScale, "TextureScaling");
+			pXML->GetChildXmlValByName(&m_fURate, "URate");
+			pXML->GetChildXmlValByName(&m_fVRate, "VRate");
 
 			gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
 
 		}
-		if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(),"WaterTransitionTexture"))
-		{
-			pXML->GetChildXmlValByName( szTextVal, "TextureFile");
+		if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "WaterTransitionTexture")) {
+			pXML->GetChildXmlValByName(szTextVal, "TextureFile");
 			setTransitionTexture(szTextVal);
 		}
-		
+
 		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
 	}
 
@@ -178,8 +162,7 @@ bool CvWaterPlaneInfo::read(CvXMLLoadUtility* pXML)
 //  PURPOSE :   Default constructor
 //
 //------------------------------------------------------------------------------------------------------
-CvTerrainPlaneInfo::CvTerrainPlaneInfo()
-{
+CvTerrainPlaneInfo::CvTerrainPlaneInfo() {
 
 }
 
@@ -190,17 +173,14 @@ CvTerrainPlaneInfo::CvTerrainPlaneInfo()
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvTerrainPlaneInfo::~CvTerrainPlaneInfo()
-{
+CvTerrainPlaneInfo::~CvTerrainPlaneInfo() {
 }
 //------------------------------------------------------------------------------------------------------
-bool CvTerrainPlaneInfo::isVisible() const
-{
+bool CvTerrainPlaneInfo::isVisible() const {
 	return m_bVisible;
 }
 //------------------------------------------------------------------------------------------------------
-bool CvTerrainPlaneInfo::isGroundPlane() const
-{
+bool CvTerrainPlaneInfo::isGroundPlane() const {
 	return m_bGroundPlane;
 }
 //------------------------------------------------------------------------------------------------------
@@ -214,75 +194,66 @@ float CvTerrainPlaneInfo::getCloseAlpha() const		// The water plane's material a
 	return m_fCloseAlpha;
 }
 //------------------------------------------------------------------------------------------------------
-const TCHAR * CvTerrainPlaneInfo::getBaseTexture() const
-{
+const TCHAR* CvTerrainPlaneInfo::getBaseTexture() const {
 	return m_szBaseTexture;
 }
 //------------------------------------------------------------------------------------------------------
 void CvTerrainPlaneInfo::setBaseTexture(const TCHAR* szVal)			// The filename of the base texture
 {
-	m_szBaseTexture=szVal;
+	m_szBaseTexture = szVal;
 }
 //------------------------------------------------------------------------------------------------------
-float CvTerrainPlaneInfo::getTextureScalingU() const
-{
+float CvTerrainPlaneInfo::getTextureScalingU() const {
 	return m_BaseTextureScaleU;
 }
 //------------------------------------------------------------------------------------------------------
-float CvTerrainPlaneInfo::getTextureScalingV() const
-{
+float CvTerrainPlaneInfo::getTextureScalingV() const {
 	return m_BaseTextureScaleV;
 }
 //------------------------------------------------------------------------------------------------------
-float CvTerrainPlaneInfo::getTextureScrollRateU() const
-{
+float CvTerrainPlaneInfo::getTextureScrollRateU() const {
 	return m_fURate;
 }
 //------------------------------------------------------------------------------------------------------
-float CvTerrainPlaneInfo::getTextureScrollRateV() const
-{
+float CvTerrainPlaneInfo::getTextureScrollRateV() const {
 	return m_fVRate;
 }
 //------------------------------------------------------------------------------------------------------
-float CvTerrainPlaneInfo::getZHeight() const
-{
+float CvTerrainPlaneInfo::getZHeight() const {
 	return m_fZHeight;
 }
 //------------------------------------------------------------------------------------------------------
-FogTypes CvTerrainPlaneInfo::getFogType() const
-{
+FogTypes CvTerrainPlaneInfo::getFogType() const {
 	return m_eFogType;
 }
 //------------------------------------------------------------------------------------------------------
-bool CvTerrainPlaneInfo::read(CvXMLLoadUtility* pXML)
-{
+bool CvTerrainPlaneInfo::read(CvXMLLoadUtility* pXML) {
 	CvString  szTextVal;
 	if (!CvInfoBase::read(pXML))
 		return false;
 
-	pXML->GetChildXmlValByName( &m_bVisible, "bVisible");
-	pXML->GetChildXmlValByName( &m_bGroundPlane, "bGroundPlane");
-	pXML->GetChildXmlValByName( &m_fMaterialAlpha, "MaterialAlpha");
-	pXML->GetChildXmlValByName( &m_fCloseAlpha, "CloseAlpha");
+	pXML->GetChildXmlValByName(&m_bVisible, "bVisible");
+	pXML->GetChildXmlValByName(&m_bGroundPlane, "bGroundPlane");
+	pXML->GetChildXmlValByName(&m_fMaterialAlpha, "MaterialAlpha");
+	pXML->GetChildXmlValByName(&m_fCloseAlpha, "CloseAlpha");
 
-	pXML->GetChildXmlValByName( szTextVal, "TextureFile");
+	pXML->GetChildXmlValByName(szTextVal, "TextureFile");
 	setBaseTexture(szTextVal);
 
-	pXML->GetChildXmlValByName( &m_BaseTextureScaleU, "TextureScalingU");
-	pXML->GetChildXmlValByName( &m_BaseTextureScaleV, "TextureScalingV");
-	pXML->GetChildXmlValByName( &m_fURate, "URate");
-	pXML->GetChildXmlValByName( &m_fVRate, "VRate");
-	pXML->GetChildXmlValByName( &m_fZHeight, "ZHeight");
+	pXML->GetChildXmlValByName(&m_BaseTextureScaleU, "TextureScalingU");
+	pXML->GetChildXmlValByName(&m_BaseTextureScaleV, "TextureScalingV");
+	pXML->GetChildXmlValByName(&m_fURate, "URate");
+	pXML->GetChildXmlValByName(&m_fVRate, "VRate");
+	pXML->GetChildXmlValByName(&m_fZHeight, "ZHeight");
 
-	pXML->GetChildXmlValByName( szTextVal, "FogType");
-	if(szTextVal.CompareNoCase("FOG_TYPE_NONE") == 0)
+	pXML->GetChildXmlValByName(szTextVal, "FogType");
+	if (szTextVal.CompareNoCase("FOG_TYPE_NONE") == 0)
 		m_eFogType = FOG_TYPE_NONE;
-	else if(szTextVal.CompareNoCase("FOG_TYPE_PARALLEL") == 0)
+	else if (szTextVal.CompareNoCase("FOG_TYPE_PARALLEL") == 0)
 		m_eFogType = FOG_TYPE_PARALLEL;
-	else if(szTextVal.CompareNoCase("FOG_TYPE_PROJECTED") == 0)
+	else if (szTextVal.CompareNoCase("FOG_TYPE_PROJECTED") == 0)
 		m_eFogType = FOG_TYPE_PROJECTED;
-	else
-	{
+	else {
 		FAssertMsg(false, "[Jason] Unknown fog type.");
 		m_eFogType = FOG_TYPE_NONE;
 	}
@@ -302,8 +273,7 @@ bool CvTerrainPlaneInfo::read(CvXMLLoadUtility* pXML)
 //  PURPOSE :   Default constructor
 //
 //------------------------------------------------------------------------------------------------------
-CvCameraOverlayInfo::CvCameraOverlayInfo()
-{
+CvCameraOverlayInfo::CvCameraOverlayInfo() {
 
 }
 
@@ -314,17 +284,14 @@ CvCameraOverlayInfo::CvCameraOverlayInfo()
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvCameraOverlayInfo::~CvCameraOverlayInfo()
-{
+CvCameraOverlayInfo::~CvCameraOverlayInfo() {
 }
 //------------------------------------------------------------------------------------------------------
-bool CvCameraOverlayInfo::isVisible() const
-{
+bool CvCameraOverlayInfo::isVisible() const {
 	return m_bVisible;
 }
 //------------------------------------------------------------------------------------------------------
-const TCHAR * CvCameraOverlayInfo::getBaseTexture() const
-{
+const TCHAR* CvCameraOverlayInfo::getBaseTexture() const {
 	return m_szBaseTexture;
 }
 //------------------------------------------------------------------------------------------------------
@@ -333,29 +300,26 @@ void CvCameraOverlayInfo::setBaseTexture(const TCHAR* szVal)			// The filename o
 	m_szBaseTexture = szVal;
 }
 //------------------------------------------------------------------------------------------------------
-CameraOverlayTypes CvCameraOverlayInfo::getCameraOverlayType() const
-{
+CameraOverlayTypes CvCameraOverlayInfo::getCameraOverlayType() const {
 	return m_eCameraOverlayType;
 }
 //------------------------------------------------------------------------------------------------------
-bool CvCameraOverlayInfo::read(CvXMLLoadUtility* pXML)
-{
+bool CvCameraOverlayInfo::read(CvXMLLoadUtility* pXML) {
 	CvString  szTextVal;
 	if (!CvInfoBase::read(pXML))
 		return false;
 
-	pXML->GetChildXmlValByName( &m_bVisible, "bVisible");
-	
-	pXML->GetChildXmlValByName( szTextVal, "TextureFile");
+	pXML->GetChildXmlValByName(&m_bVisible, "bVisible");
+
+	pXML->GetChildXmlValByName(szTextVal, "TextureFile");
 	setBaseTexture(szTextVal);
 
-	pXML->GetChildXmlValByName( szTextVal, "CameraOverlayType");
-	if(szTextVal.CompareNoCase("CAMERA_OVERLAY_DECAL") == 0)
+	pXML->GetChildXmlValByName(szTextVal, "CameraOverlayType");
+	if (szTextVal.CompareNoCase("CAMERA_OVERLAY_DECAL") == 0)
 		m_eCameraOverlayType = CAMERA_OVERLAY_DECAL;
-	else if(szTextVal.CompareNoCase("CAMERA_OVERLAY_ADDITIVE") == 0)
+	else if (szTextVal.CompareNoCase("CAMERA_OVERLAY_ADDITIVE") == 0)
 		m_eCameraOverlayType = CAMERA_OVERLAY_ADDITIVE;
-	else
-	{
+	else {
 		FAssertMsg(false, "[Jason] Unknown camera overlay type.");
 		m_eCameraOverlayType = CAMERA_OVERLAY_DECAL;
 	}

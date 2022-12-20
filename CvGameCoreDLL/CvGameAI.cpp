@@ -9,20 +9,17 @@
 
 // Public Functions...
 
-CvGameAI::CvGameAI()
-{
+CvGameAI::CvGameAI() {
 	AI_reset();
 }
 
 
-CvGameAI::~CvGameAI()
-{
+CvGameAI::~CvGameAI() {
 	AI_uninit();
 }
 
 
-void CvGameAI::AI_init()
-{
+void CvGameAI::AI_init() {
 	AI_reset();
 
 	//--------------------------------
@@ -30,54 +27,42 @@ void CvGameAI::AI_init()
 }
 
 
-void CvGameAI::AI_uninit()
-{
+void CvGameAI::AI_uninit() {
 }
 
 
-void CvGameAI::AI_reset()
-{
+void CvGameAI::AI_reset() {
 	AI_uninit();
 
 	m_iPad = 0;
 }
 
 
-void CvGameAI::AI_makeAssignWorkDirty()
-{
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
+void CvGameAI::AI_makeAssignWorkDirty() {
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
 			GET_PLAYER((PlayerTypes)iI).AI_makeAssignWorkDirty();
 		}
 	}
 }
 
 
-void CvGameAI::AI_updateAssignWork()
-{
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
+void CvGameAI::AI_updateAssignWork() {
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
 		CvPlayer& kLoopPlayer = GET_PLAYER((PlayerTypes)iI);
-		if (GET_TEAM(kLoopPlayer.getTeam()).isHuman() && kLoopPlayer.isAlive())
-		{
+		if (GET_TEAM(kLoopPlayer.getTeam()).isHuman() && kLoopPlayer.isAlive()) {
 			kLoopPlayer.AI_updateAssignWork();
 		}
 	}
 }
 
 
-int CvGameAI::AI_combatValue(UnitTypes eUnit) const
-{
+int CvGameAI::AI_combatValue(UnitTypes eUnit) const {
 	int iValue = 100;
 
-	if (GC.getUnitInfo(eUnit).getDomainType() == DOMAIN_AIR)
-	{
+	if (GC.getUnitInfo(eUnit).getDomainType() == DOMAIN_AIR) {
 		iValue *= GC.getUnitInfo(eUnit).getAirCombat();
-	}
-	else
-	{
+	} else {
 		iValue *= GC.getUnitInfo(eUnit).getCombat();
 
 		iValue *= ((((GC.getUnitInfo(eUnit).getFirstStrikes() * 2) + GC.getUnitInfo(eUnit).getChanceFirstStrikes()) * (GC.getCOMBAT_DAMAGE() / 5)) + 100);
@@ -90,11 +75,9 @@ int CvGameAI::AI_combatValue(UnitTypes eUnit) const
 }
 
 
-int CvGameAI::AI_turnsPercent(int iTurns, int iPercent)
-{
+int CvGameAI::AI_turnsPercent(int iTurns, int iPercent) {
 	FAssert(iPercent > 0);
-	if (iTurns != MAX_INT)
-	{
+	if (iTurns != MAX_INT) {
 		iTurns *= (iPercent);
 		iTurns /= 100;
 	}
@@ -103,22 +86,20 @@ int CvGameAI::AI_turnsPercent(int iTurns, int iPercent)
 }
 
 
-void CvGameAI::read(FDataStreamBase* pStream)
-{
+void CvGameAI::read(FDataStreamBase* pStream) {
 	CvGame::read(pStream);
 
-	uint uiFlag=0;
+	uint uiFlag = 0;
 	pStream->Read(&uiFlag);	// flags for expansion
 
 	pStream->Read(&m_iPad);
 }
 
 
-void CvGameAI::write(FDataStreamBase* pStream)
-{
+void CvGameAI::write(FDataStreamBase* pStream) {
 	CvGame::write(pStream);
 
-	uint uiFlag=0;
+	uint uiFlag = 0;
 	pStream->Write(uiFlag);		// flag for expansion
 
 	pStream->Write(m_iPad);

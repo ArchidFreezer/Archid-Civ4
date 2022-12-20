@@ -15,18 +15,15 @@
 #include "CvUnit.h"
 //#include "CvStructs.h"
 
-int EventTriggeredData::getID() const 
-{ 
-	return m_iId; 
+int EventTriggeredData::getID() const {
+	return m_iId;
 }
 
-void EventTriggeredData::setID(int iID) 
-{ 
-	m_iId = iID; 
+void EventTriggeredData::setID(int iID) {
+	m_iId = iID;
 }
 
-void EventTriggeredData::read(FDataStreamBase* pStream)
-{
+void EventTriggeredData::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iId);
 	pStream->Read((int*)&m_eTrigger);
 	pStream->Read(&m_iTurn);
@@ -44,8 +41,7 @@ void EventTriggeredData::read(FDataStreamBase* pStream)
 	pStream->ReadString(m_szGlobalText);
 }
 
-void EventTriggeredData::write(FDataStreamBase* pStream)
-{
+void EventTriggeredData::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iId);
 	pStream->Write(m_eTrigger);
 	pStream->Write(m_iTurn);
@@ -63,24 +59,20 @@ void EventTriggeredData::write(FDataStreamBase* pStream)
 	pStream->WriteString(m_szGlobalText);
 }
 
-int VoteSelectionData::getID() const 
-{ 
-	return iId; 
+int VoteSelectionData::getID() const {
+	return iId;
 }
 
-void VoteSelectionData::setID(int iID) 
-{ 
-	iId = iID; 
+void VoteSelectionData::setID(int iID) {
+	iId = iID;
 }
 
-void VoteSelectionData::read(FDataStreamBase* pStream)
-{
+void VoteSelectionData::read(FDataStreamBase* pStream) {
 	pStream->Read(&iId);
 	pStream->Read((int*)&eVoteSource);
 	int iSize;
 	pStream->Read(&iSize);
-	for (int i = 0; i < iSize; ++i)
-	{
+	for (int i = 0; i < iSize; ++i) {
 		VoteSelectionSubData kData;
 		pStream->Read((int*)&kData.eVote);
 		pStream->Read((int*)&kData.ePlayer);
@@ -91,13 +83,11 @@ void VoteSelectionData::read(FDataStreamBase* pStream)
 	}
 }
 
-void VoteSelectionData::write(FDataStreamBase* pStream)
-{
+void VoteSelectionData::write(FDataStreamBase* pStream) {
 	pStream->Write(iId);
 	pStream->Write(eVoteSource);
 	pStream->Write(aVoteOptions.size());
-	for (std::vector<VoteSelectionSubData>::iterator it = aVoteOptions.begin(); it != aVoteOptions.end(); ++it)
-	{
+	for (std::vector<VoteSelectionSubData>::iterator it = aVoteOptions.begin(); it != aVoteOptions.end(); ++it) {
 		pStream->Write((*it).eVote);
 		pStream->Write((*it).ePlayer);
 		pStream->Write((*it).iCityId);
@@ -106,18 +96,15 @@ void VoteSelectionData::write(FDataStreamBase* pStream)
 	}
 }
 
-int VoteTriggeredData::getID() const 
-{ 
-	return iId; 
+int VoteTriggeredData::getID() const {
+	return iId;
 }
 
-void VoteTriggeredData::setID(int iID) 
-{ 
-	iId = iID; 
+void VoteTriggeredData::setID(int iID) {
+	iId = iID;
 }
 
-void VoteTriggeredData::read(FDataStreamBase* pStream)
-{
+void VoteTriggeredData::read(FDataStreamBase* pStream) {
 	pStream->Read(&iId);
 	pStream->Read((int*)&eVoteSource);
 	pStream->Read((int*)&kVoteOption.eVote);
@@ -127,8 +114,7 @@ void VoteTriggeredData::read(FDataStreamBase* pStream)
 	pStream->ReadString(kVoteOption.szText);
 }
 
-void VoteTriggeredData::write(FDataStreamBase* pStream)
-{
+void VoteTriggeredData::write(FDataStreamBase* pStream) {
 	pStream->Write(iId);
 	pStream->Write(eVoteSource);
 	pStream->Write(kVoteOption.eVote);
@@ -138,86 +124,73 @@ void VoteTriggeredData::write(FDataStreamBase* pStream)
 	pStream->WriteString(kVoteOption.szText);
 }
 
-void PlotExtraYield::read(FDataStreamBase* pStream)
-{
+void PlotExtraYield::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iX);
 	pStream->Read(&m_iY);
 	m_aeExtraYield.clear();
-	for (int i = 0; i < NUM_YIELD_TYPES; ++i)
-	{
+	for (int i = 0; i < NUM_YIELD_TYPES; ++i) {
 		int iYield;
 		pStream->Read(&iYield);
 		m_aeExtraYield.push_back(iYield);
 	}
 }
 
-void PlotExtraYield::write(FDataStreamBase* pStream)
-{
+void PlotExtraYield::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iX);
 	pStream->Write(m_iY);
-	for (int i = 0; i < NUM_YIELD_TYPES; ++i)
-	{
+	for (int i = 0; i < NUM_YIELD_TYPES; ++i) {
 		pStream->Write(m_aeExtraYield[i]);
 	}
 }
 
-void PlotExtraCost::read(FDataStreamBase* pStream)
-{
+void PlotExtraCost::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iX);
 	pStream->Read(&m_iY);
 	pStream->Read(&m_iCost);
 }
 
-void PlotExtraCost::write(FDataStreamBase* pStream)
-{
+void PlotExtraCost::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iX);
 	pStream->Write(m_iY);
 	pStream->Write(m_iCost);
 }
 
-void BuildingYieldChange::read(FDataStreamBase* pStream)
-{
+void BuildingYieldChange::read(FDataStreamBase* pStream) {
 	pStream->Read((int*)&eBuildingClass);
 	pStream->Read((int*)&eYield);
 	pStream->Read(&iChange);
 }
 
-void BuildingYieldChange::write(FDataStreamBase* pStream)
-{
+void BuildingYieldChange::write(FDataStreamBase* pStream) {
 	pStream->Write(eBuildingClass);
 	pStream->Write(eYield);
 	pStream->Write(iChange);
 }
 
-void BuildingCommerceChange::read(FDataStreamBase* pStream)
-{
+void BuildingCommerceChange::read(FDataStreamBase* pStream) {
 	pStream->Read((int*)&eBuildingClass);
 	pStream->Read((int*)&eCommerce);
 	pStream->Read(&iChange);
 }
 
-void BuildingCommerceChange::write(FDataStreamBase* pStream)
-{
+void BuildingCommerceChange::write(FDataStreamBase* pStream) {
 	pStream->Write(eBuildingClass);
 	pStream->Write(eCommerce);
 	pStream->Write(iChange);
 }
 
-void checkBattleUnitType(BattleUnitTypes unitType)
-{
+void checkBattleUnitType(BattleUnitTypes unitType) {
 	FAssertMsg((unitType >= 0) && (unitType < BATTLE_UNIT_COUNT), "[Jason] Invalid battle unit type.");
 }
 
 CvBattleRound::CvBattleRound() :
 	m_iWaveSize(0),
-	m_bRangedRound(false) 
-{
+	m_bRangedRound(false) {
 	m_aNumKilled[BATTLE_UNIT_ATTACKER] = m_aNumKilled[BATTLE_UNIT_DEFENDER] = 0;
 	m_aNumAlive[BATTLE_UNIT_ATTACKER] = m_aNumAlive[BATTLE_UNIT_DEFENDER] = 0;
 }
 
-bool CvBattleRound::isValid() const
-{
+bool CvBattleRound::isValid() const {
 	bool bValid = true;
 
 	// Valid if no more than the wave size was killed, and didn't kill more attackers than were defenders or vv.
@@ -227,52 +200,43 @@ bool CvBattleRound::isValid() const
 	return bValid;
 }
 
-bool CvBattleRound::isRangedRound() const
-{
+bool CvBattleRound::isRangedRound() const {
 	return m_bRangedRound;
 }
 
-void CvBattleRound::setRangedRound(bool value)
-{
+void CvBattleRound::setRangedRound(bool value) {
 	m_bRangedRound = value;
 }
 
-int CvBattleRound::getWaveSize() const
-{
+int CvBattleRound::getWaveSize() const {
 	return m_iWaveSize;
 }
 
-void CvBattleRound::setWaveSize(int size)
-{
+void CvBattleRound::setWaveSize(int size) {
 	m_iWaveSize = size;
 }
 
-int CvBattleRound::getNumKilled(BattleUnitTypes unitType) const
-{
+int CvBattleRound::getNumKilled(BattleUnitTypes unitType) const {
 	checkBattleUnitType(unitType);
 	return m_aNumKilled[unitType];
 }
 
-void CvBattleRound::setNumKilled(BattleUnitTypes unitType, int value)
-{
+void CvBattleRound::setNumKilled(BattleUnitTypes unitType, int value) {
 	checkBattleUnitType(unitType);
 	m_aNumKilled[unitType] = value;
 }
 
-void CvBattleRound::addNumKilled(BattleUnitTypes unitType, int increment)
-{
+void CvBattleRound::addNumKilled(BattleUnitTypes unitType, int increment) {
 	checkBattleUnitType(unitType);
 	m_aNumKilled[unitType] += increment;
 }
 
-int CvBattleRound::getNumAlive(BattleUnitTypes unitType) const
-{
+int CvBattleRound::getNumAlive(BattleUnitTypes unitType) const {
 	checkBattleUnitType(unitType);
 	return m_aNumAlive[unitType];
 }
 
-void CvBattleRound::setNumAlive(BattleUnitTypes unitType, int value)
-{
+void CvBattleRound::setNumAlive(BattleUnitTypes unitType, int value) {
 	checkBattleUnitType(unitType);
 	m_aNumAlive[unitType] = value;
 }
@@ -284,51 +248,42 @@ void CvBattleRound::setNumAlive(BattleUnitTypes unitType, int value)
 CvMissionDefinition::CvMissionDefinition() :
 	m_fMissionTime(0.0f),
 	m_eMissionType(NO_MISSION),
-	m_pPlot(NULL)
-{
-	for(int i=0;i<BATTLE_UNIT_COUNT;i++)
+	m_pPlot(NULL) {
+	for (int i = 0; i < BATTLE_UNIT_COUNT; i++)
 		m_aUnits[i] = NULL;
 }
 
-MissionTypes CvMissionDefinition::getMissionType() const
-{
+MissionTypes CvMissionDefinition::getMissionType() const {
 	return m_eMissionType;
 }
 
-void CvMissionDefinition::setMissionType(MissionTypes missionType)
-{
+void CvMissionDefinition::setMissionType(MissionTypes missionType) {
 	m_eMissionType = missionType;
 }
 
-float CvMissionDefinition::getMissionTime() const
-{
+float CvMissionDefinition::getMissionTime() const {
 	return m_fMissionTime;
 }
 
-void CvMissionDefinition::setMissionTime(float time)
-{
+void CvMissionDefinition::setMissionTime(float time) {
 	m_fMissionTime = time;
 }
 
-CvUnit *CvMissionDefinition::getUnit(BattleUnitTypes unitType) const
-{
+CvUnit* CvMissionDefinition::getUnit(BattleUnitTypes unitType) const {
 	checkBattleUnitType(unitType);
 	return m_aUnits[unitType];
 }
 
-void CvMissionDefinition::setUnit(BattleUnitTypes unitType, CvUnit *unit)
-{
+void CvMissionDefinition::setUnit(BattleUnitTypes unitType, CvUnit* unit) {
 	checkBattleUnitType(unitType);
 	m_aUnits[unitType] = unit;
 }
 
-const CvPlot *CvMissionDefinition::getPlot() const
-{
+const CvPlot* CvMissionDefinition::getPlot() const {
 	return m_pPlot;
 }
 
-void CvMissionDefinition::setPlot(const CvPlot *plot)
-{
+void CvMissionDefinition::setPlot(const CvPlot* plot) {
 	m_pPlot = plot;
 }
 
@@ -336,20 +291,18 @@ void CvMissionDefinition::setPlot(const CvPlot *plot)
 // FUNCTION:    CvBattleDefinition::CvBattleDefinition
 //! \brief      Constructor.
 //------------------------------------------------------------------------------------------------
-CvBattleDefinition::CvBattleDefinition() : 
-	m_bAdvanceSquare(false), 
-	CvMissionDefinition()
-{
+CvBattleDefinition::CvBattleDefinition() :
+	m_bAdvanceSquare(false),
+	CvMissionDefinition() {
 	m_fMissionTime = 0.0f;
 	m_eMissionType = MISSION_BEGIN_COMBAT;
 	m_iNumMeleeRounds = 0;
 	m_iNumRangedRounds = 0;
 
-	for(int i=0;i<BATTLE_UNIT_COUNT;i++)
-	{
+	for (int i = 0; i < BATTLE_UNIT_COUNT; i++) {
 		m_aUnits[i] = NULL;
 		m_aFirstStrikes[i] = 0;
-		for(int j=0;j<BATTLE_TIME_COUNT;j++)
+		for (int j = 0; j < BATTLE_TIME_COUNT; j++)
 			m_aDamage[i][j] = 0;
 	}
 }
@@ -359,143 +312,119 @@ CvBattleDefinition::CvBattleDefinition() :
 //! \brief      Copy constructor
 //! \param      kCopy The object to copy
 //------------------------------------------------------------------------------------------------
-CvBattleDefinition::CvBattleDefinition( const CvBattleDefinition & kCopy ) :
-	m_bAdvanceSquare( kCopy.m_bAdvanceSquare )
-{
+CvBattleDefinition::CvBattleDefinition(const CvBattleDefinition& kCopy) :
+	m_bAdvanceSquare(kCopy.m_bAdvanceSquare) {
 	m_fMissionTime = kCopy.m_fMissionTime;
 	m_eMissionType = MISSION_BEGIN_COMBAT;
 	m_iNumMeleeRounds = kCopy.m_iNumMeleeRounds;
 	m_iNumRangedRounds = kCopy.m_iNumRangedRounds;
 
-	for(int i=0;i<BATTLE_UNIT_COUNT;i++)
-	{
+	for (int i = 0; i < BATTLE_UNIT_COUNT; i++) {
 		m_aUnits[i] = kCopy.m_aUnits[i];
 		m_aFirstStrikes[i] = kCopy.m_aFirstStrikes[i];
-		for(int j=0;j<BATTLE_TIME_COUNT;j++)
+		for (int j = 0; j < BATTLE_TIME_COUNT; j++)
 			m_aDamage[i][j] = kCopy.m_aDamage[i][j];
 	}
 
 	m_aBattleRounds.assign(kCopy.m_aBattleRounds.begin(), kCopy.m_aBattleRounds.end());
 }
 
-int CvBattleDefinition::getDamage(BattleUnitTypes unitType, BattleTimeTypes timeType) const
-{
+int CvBattleDefinition::getDamage(BattleUnitTypes unitType, BattleTimeTypes timeType) const {
 	checkBattleUnitType(unitType);
 	checkBattleTimeType(timeType);
 	return m_aDamage[unitType][timeType];
 }
 
-void CvBattleDefinition::setDamage(BattleUnitTypes unitType, BattleTimeTypes timeType, int damage)
-{
+void CvBattleDefinition::setDamage(BattleUnitTypes unitType, BattleTimeTypes timeType, int damage) {
 	checkBattleUnitType(unitType);
 	checkBattleTimeType(timeType);
 	m_aDamage[unitType][timeType] = damage;
 }
 
-void CvBattleDefinition::addDamage(BattleUnitTypes unitType, BattleTimeTypes timeType, int increment)
-{
+void CvBattleDefinition::addDamage(BattleUnitTypes unitType, BattleTimeTypes timeType, int increment) {
 	checkBattleUnitType(unitType);
 	checkBattleTimeType(timeType);
 	m_aDamage[unitType][timeType] += increment;
 }
 
-int CvBattleDefinition::getFirstStrikes(BattleUnitTypes unitType) const
-{
+int CvBattleDefinition::getFirstStrikes(BattleUnitTypes unitType) const {
 	checkBattleUnitType(unitType);
 	return m_aFirstStrikes[unitType];
 }
 
-void CvBattleDefinition::setFirstStrikes(BattleUnitTypes unitType, int firstStrikes)
-{
+void CvBattleDefinition::setFirstStrikes(BattleUnitTypes unitType, int firstStrikes) {
 	checkBattleUnitType(unitType);
 	m_aFirstStrikes[unitType] = firstStrikes;
 }
 
-void CvBattleDefinition::addFirstStrikes(BattleUnitTypes unitType, int increment)
-{
+void CvBattleDefinition::addFirstStrikes(BattleUnitTypes unitType, int increment) {
 	checkBattleUnitType(unitType);
 	m_aFirstStrikes[unitType] += increment;
 }
 
-bool CvBattleDefinition::isAdvanceSquare() const
-{
+bool CvBattleDefinition::isAdvanceSquare() const {
 	return m_bAdvanceSquare;
 }
 
-void CvBattleDefinition::setAdvanceSquare(bool advanceSquare)
-{
+void CvBattleDefinition::setAdvanceSquare(bool advanceSquare) {
 	m_bAdvanceSquare = advanceSquare;
 }
 
-int CvBattleDefinition::getNumRangedRounds() const
-{
+int CvBattleDefinition::getNumRangedRounds() const {
 	return m_iNumRangedRounds;
 }
 
-void CvBattleDefinition::setNumRangedRounds(int count)
-{
+void CvBattleDefinition::setNumRangedRounds(int count) {
 	m_iNumRangedRounds = count;
 }
 
-void CvBattleDefinition::addNumRangedRounds(int increment)
-{
+void CvBattleDefinition::addNumRangedRounds(int increment) {
 	m_iNumRangedRounds += increment;
 }
 
-int CvBattleDefinition::getNumMeleeRounds() const
-{
+int CvBattleDefinition::getNumMeleeRounds() const {
 	return m_iNumMeleeRounds;
 }
 
-void CvBattleDefinition::setNumMeleeRounds(int count)
-{
+void CvBattleDefinition::setNumMeleeRounds(int count) {
 	m_iNumMeleeRounds = count;
 }
 
-void CvBattleDefinition::addNumMeleeRounds(int increment)
-{
+void CvBattleDefinition::addNumMeleeRounds(int increment) {
 	m_iNumMeleeRounds += increment;
 }
 
-int CvBattleDefinition::getNumBattleRounds() const
-{
+int CvBattleDefinition::getNumBattleRounds() const {
 	return m_aBattleRounds.size();
 }
 
-void CvBattleDefinition::clearBattleRounds()
-{
+void CvBattleDefinition::clearBattleRounds() {
 	m_aBattleRounds.clear();
 }
 
-CvBattleRound &CvBattleDefinition::getBattleRound(int index)
-{
+CvBattleRound& CvBattleDefinition::getBattleRound(int index) {
 	checkBattleRound(index);
 	return m_aBattleRounds[index];
 }
 
-const CvBattleRound &CvBattleDefinition::getBattleRound(int index) const
-{
+const CvBattleRound& CvBattleDefinition::getBattleRound(int index) const {
 	checkBattleRound(index);
 	return m_aBattleRounds[index];
 }
 
-void CvBattleDefinition::addBattleRound(const CvBattleRound &round)
-{
+void CvBattleDefinition::addBattleRound(const CvBattleRound& round) {
 	m_aBattleRounds.push_back(round);
 }
 
-void CvBattleDefinition::setBattleRound(int index, const CvBattleRound &round)
-{
+void CvBattleDefinition::setBattleRound(int index, const CvBattleRound& round) {
 	m_aBattleRounds.assign(index, round);
 }
 
-void CvBattleDefinition::checkBattleTimeType(BattleTimeTypes timeType) const
-{
+void CvBattleDefinition::checkBattleTimeType(BattleTimeTypes timeType) const {
 	FAssertMsg((timeType >= 0) && (timeType < BATTLE_TIME_COUNT), "[Jason] Invalid battle time type.");
 }
 
-void CvBattleDefinition::checkBattleRound(int index) const
-{
+void CvBattleDefinition::checkBattleRound(int index) const {
 	FAssertMsg((index >= 0) && (index < (int)m_aBattleRounds.size()), "[Jason] Invalid battle round index.");
 }
 
@@ -504,8 +433,7 @@ void CvBattleDefinition::checkBattleRound(int index) const
 //! \brief      Constructor
 //------------------------------------------------------------------------------------------------
 CvAirMissionDefinition::CvAirMissionDefinition() :
-	CvMissionDefinition()
-{
+	CvMissionDefinition() {
 	m_fMissionTime = 0.0f;
 	m_eMissionType = MISSION_AIRPATROL;
 }
@@ -515,49 +443,41 @@ CvAirMissionDefinition::CvAirMissionDefinition() :
 //! \brief      Copy constructor
 //! \param      kCopy The object to copy
 //------------------------------------------------------------------------------------------------
-CvAirMissionDefinition::CvAirMissionDefinition( const CvAirMissionDefinition & kCopy )
-{
+CvAirMissionDefinition::CvAirMissionDefinition(const CvAirMissionDefinition& kCopy) {
 	m_fMissionTime = kCopy.m_fMissionTime;
 	m_eMissionType = kCopy.m_eMissionType;
 	m_pPlot = kCopy.m_pPlot;
 
-	for(int i=0;i<BATTLE_UNIT_COUNT;i++)
-	{
+	for (int i = 0; i < BATTLE_UNIT_COUNT; i++) {
 		m_aDamage[i] = kCopy.m_aDamage[i];
 		m_aUnits[i] = kCopy.m_aUnits[i];
 	}
 }
 
-int CvAirMissionDefinition::getDamage(BattleUnitTypes unitType) const
-{
+int CvAirMissionDefinition::getDamage(BattleUnitTypes unitType) const {
 	checkBattleUnitType(unitType);
 	return m_aDamage[unitType];
 }
 
-void CvAirMissionDefinition::setDamage(BattleUnitTypes unitType, int damage)
-{
+void CvAirMissionDefinition::setDamage(BattleUnitTypes unitType, int damage) {
 	checkBattleUnitType(unitType);
 	m_aDamage[unitType] = damage;
 }
 
-bool CvAirMissionDefinition::isDead(BattleUnitTypes unitType) const
-{
+bool CvAirMissionDefinition::isDead(BattleUnitTypes unitType) const {
 	checkBattleUnitType(unitType);
 	FAssertMsg(getUnit(unitType) != NULL, "[Jason] Invalid battle unit type.");
-	if(getDamage(unitType) >= getUnit(unitType)->maxHitPoints())
+	if (getDamage(unitType) >= getUnit(unitType)->maxHitPoints())
 		return true;
 	else
 		return false;
 }
 
-PBGameSetupData::PBGameSetupData()
-{
-	for (int i = 0; i < NUM_GAMEOPTION_TYPES; i++)
-	{
+PBGameSetupData::PBGameSetupData() {
+	for (int i = 0; i < NUM_GAMEOPTION_TYPES; i++) {
 		abOptions.push_back(false);
 	}
-	for (int i = 0; i < NUM_MPOPTION_TYPES; i++)
-	{
+	for (int i = 0; i < NUM_MPOPTION_TYPES; i++) {
 		abMPOptions.push_back(false);
 	}
 }

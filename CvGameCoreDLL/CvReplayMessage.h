@@ -2,8 +2,7 @@
 #ifndef CVREPLAYMESSAGE_H
 #define CVREPLAYMESSAGE_H
 
-class CvReplayMessage
-{
+class CvReplayMessage {
 public:
 	CvReplayMessage(int iTurn, ReplayMessageTypes eType = NO_REPLAY_MESSAGE, PlayerTypes ePlayer = NO_PLAYER);
 	virtual ~CvReplayMessage();

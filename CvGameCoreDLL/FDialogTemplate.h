@@ -6,15 +6,14 @@
 #if defined(WIN32) // only makes sense on win32
 
 #include <windows.h>	// This is needed just for the LPCSTR, DWORD, and WORD typedefs
-						// As a rule, I hate including windows.h in headers
+// As a rule, I hate including windows.h in headers
 
 // This class is a convenient wrapper around DLGTEMPLATE.  This can be used to
 // algorithmically create dialog boxes as opposed to creating them in a resource file.
 // The resource file method should be preferred, but that isn't possible for static libs.
 // Example uses for this--custom asserts, custom exception handlers, d3d device selection.
 // Basically dialog boxes you'd like to put into static libs and use in many projects
-class CDialogTemplate
-{
+class CDialogTemplate {
 public:
 	CDialogTemplate(LPCSTR caption, DWORD style, int x, int y, int w, int h,
 		LPCSTR font = NULL, WORD fontSize = 8);
@@ -46,8 +45,8 @@ public:
 
 private:
 	// disable copy and assignment
-	CDialogTemplate( const CDialogTemplate& );
-	CDialogTemplate& operator=( const CDialogTemplate& );
+	CDialogTemplate(const CDialogTemplate&);
+	CDialogTemplate& operator=(const CDialogTemplate&);
 
 	void AddStandardComponent(WORD type, LPCSTR caption, DWORD style,
 		DWORD exStyle, int x, int y, int w, int h, WORD id);

@@ -117,10 +117,8 @@ ART_INFO_DEFN(Interface);
 //----------------------------------------------------------------------------
 static CvArtFileMgr* gs_ArtFileMgr = NULL;
 
-CvArtFileMgr& CvArtFileMgr::GetInstance()
-{
-	if ( gs_ArtFileMgr == NULL )
-	{
+CvArtFileMgr& CvArtFileMgr::GetInstance() {
+	if (gs_ArtFileMgr == NULL) {
 		gs_ArtFileMgr = new CvArtFileMgr();
 
 		ART_INFO_INST(Asset);
@@ -147,10 +145,8 @@ CvArtFileMgr& CvArtFileMgr::GetInstance()
 //	PURPOSE:	Initializes the Maps
 //
 //----------------------------------------------------------------------------
-void CvArtFileMgr::Init()
-{
-	for(int i=0; i<(int)m_artInfoItems.size(); i++)
-	{
+void CvArtFileMgr::Init() {
+	for (int i = 0; i < (int)m_artInfoItems.size(); i++) {
 		m_artInfoItems[i]->init();
 	}
 }
@@ -162,10 +158,8 @@ void CvArtFileMgr::Init()
 //	PURPOSE:	Deletes the Maps
 //
 //----------------------------------------------------------------------------
-void CvArtFileMgr::DeInit()
-{
-	for(int i=0; i<(int)m_artInfoItems.size(); i++)
-	{
+void CvArtFileMgr::DeInit() {
+	for (int i = 0; i < (int)m_artInfoItems.size(); i++) {
 		m_artInfoItems[i]->deInit();
 	}
 }
@@ -177,8 +171,7 @@ void CvArtFileMgr::DeInit()
 //	PURPOSE:	Reloads the XML & Rebuilds the Maps
 //
 //----------------------------------------------------------------------------
-void CvArtFileMgr::Reset()
-{
+void CvArtFileMgr::Reset() {
 	DeInit();		// Cleans Art Defines
 	CvXMLLoadUtility XMLLoadUtility;
 	XMLLoadUtility.SetGlobalArtDefines();		// Reloads/allocs Art Defines
@@ -193,10 +186,8 @@ void CvArtFileMgr::Reset()
 //	PURPOSE:	Builds the Art File Maps
 //
 //----------------------------------------------------------------------------
-void CvArtFileMgr::buildArtFileInfoMaps()
-{
-	for(int i=0; i<(int)m_artInfoItems.size(); i++)
-	{
+void CvArtFileMgr::buildArtFileInfoMaps() {
+	for (int i = 0; i < (int)m_artInfoItems.size(); i++) {
 		m_artInfoItems[i]->buildMap();
 	}
 }

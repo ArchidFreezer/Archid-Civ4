@@ -9,14 +9,13 @@
 
 class CyCity;
 class CvArea;
-class CyArea 
-{
+class CyArea {
 public:
 
 	CyArea();
 	CyArea(CvArea* pArea);					// Call from C++
-	CvArea* getArea() { return m_pArea;	}	// Call from C++
-	bool isNone() { return (m_pArea==NULL); }
+	CvArea* getArea() { return m_pArea; }	// Call from C++
+	bool isNone() { return (m_pArea == NULL); }
 
 	int calculateTotalBestNatureYield();
 	int countCoastalLand();

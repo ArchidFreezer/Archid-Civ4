@@ -10,7 +10,7 @@
 //------------------------------------------------------------------------------------------------
 //  Copyright (c) 2005 Firaxis Games, Inc. All rights reserved.
 //------------------------------------------------------------------------------------------------
-	
+
 #pragma once
 #ifndef CvDLLFlagEntityIFaceBase_H
 #define CvDLLFlagEntityIFaceBase_H
@@ -26,19 +26,18 @@ class CvFlagEntity;
 //  CLASS:      CvDLLFlagEntityIFaceBase
 //!  \brief		abstract interface for CvFlagEntity functions used by DLL
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-class CvDLLFlagEntityIFaceBase : public CvDLLEntityIFaceBase
-{
-	public:
+class CvDLLFlagEntityIFaceBase : public CvDLLEntityIFaceBase {
+public:
 
-		virtual CvFlagEntity * create( PlayerTypes ePlayer) = 0;
+	virtual CvFlagEntity* create(PlayerTypes ePlayer) = 0;
 
-		virtual PlayerTypes getPlayer(CvFlagEntity * pkFlag) const = 0;
-		virtual CvPlot* getPlot( CvFlagEntity * pkFlag ) const = 0;
-		virtual void setPlot( CvFlagEntity * pkFlag, CvPlot * pkPlot, bool bOffset ) = 0;
-		virtual void updateUnitInfo( CvFlagEntity * pkFlag, const CvPlot * pkPlot, bool bOffset ) = 0;
-		virtual void updateGraphicEra(CvFlagEntity *pkFlag) = 0;
-		virtual void setVisible(CvFlagEntity* pEnt, bool bVis) { gDLL->getEntityIFace()->setVisible((CvEntity*)pEnt, bVis); }
-		virtual void destroy(CvFlagEntity*& pImp, bool bSafeDelete=true) = 0;
+	virtual PlayerTypes getPlayer(CvFlagEntity* pkFlag) const = 0;
+	virtual CvPlot* getPlot(CvFlagEntity* pkFlag) const = 0;
+	virtual void setPlot(CvFlagEntity* pkFlag, CvPlot* pkPlot, bool bOffset) = 0;
+	virtual void updateUnitInfo(CvFlagEntity* pkFlag, const CvPlot* pkPlot, bool bOffset) = 0;
+	virtual void updateGraphicEra(CvFlagEntity* pkFlag) = 0;
+	virtual void setVisible(CvFlagEntity* pEnt, bool bVis) { gDLL->getEntityIFace()->setVisible((CvEntity*)pEnt, bVis); }
+	virtual void destroy(CvFlagEntity*& pImp, bool bSafeDelete = true) = 0;
 };
 
 #endif // CvDLLFlagEntityIFaceBase_H

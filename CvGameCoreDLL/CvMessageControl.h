@@ -1,8 +1,7 @@
 #ifndef CV_MESSAGE_CONTROL
 #define CV_MESSAGE_CONTROL
 
-class CvMessageControl
-{
+class CvMessageControl {
 public:
 	DllExport static CvMessageControl& getInstance();
 	void sendExtendedGame();

@@ -14,7 +14,7 @@
 
 #ifdef WIN32
 
-bool FAssertDlg( const char*, const char*, const char*, unsigned int, bool& );
+bool FAssertDlg(const char*, const char*, const char*, unsigned int, bool&);
 
 #define FAssert( expr )	\
 { \

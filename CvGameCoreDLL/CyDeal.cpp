@@ -7,60 +7,47 @@
 #include "CvDeal.h"
 
 CyDeal::CyDeal(CvDeal* pDeal) :
-	m_pDeal(pDeal)
-{
+	m_pDeal(pDeal) {
 
 }
 
-CyDeal::~CyDeal()
-{
+CyDeal::~CyDeal() {
 }
 
-bool CyDeal::isNone()
-{ 
-	return (NULL == m_pDeal); 
+bool CyDeal::isNone() {
+	return (NULL == m_pDeal);
 }
 
-int CyDeal::getID() const
-{
+int CyDeal::getID() const {
 	return (m_pDeal ? m_pDeal->getID() : -1);
 }
 
-int CyDeal::getInitialGameTurn() const
-{
+int CyDeal::getInitialGameTurn() const {
 	return (m_pDeal ? m_pDeal->getInitialGameTurn() : -1);
 }
 
-int CyDeal::getFirstPlayer() const
-{
+int CyDeal::getFirstPlayer() const {
 	return (m_pDeal ? m_pDeal->getFirstPlayer() : -1);
 }
 
-int CyDeal::getSecondPlayer() const
-{
+int CyDeal::getSecondPlayer() const {
 	return (m_pDeal ? m_pDeal->getSecondPlayer() : -1);
 }
 
-int CyDeal::getLengthFirstTrades() const
-{
+int CyDeal::getLengthFirstTrades() const {
 	return (m_pDeal ? m_pDeal->getLengthFirstTrades() : 0);
 }
 
-int CyDeal::getLengthSecondTrades() const
-{
+int CyDeal::getLengthSecondTrades() const {
 	return (m_pDeal ? m_pDeal->getLengthSecondTrades() : 0);
 }
 
-TradeData* CyDeal::getFirstTrade(int i) const
-{
-	if (i < getLengthFirstTrades() && NULL != m_pDeal && NULL != m_pDeal->getFirstTrades())
-	{
+TradeData* CyDeal::getFirstTrade(int i) const {
+	if (i < getLengthFirstTrades() && NULL != m_pDeal && NULL != m_pDeal->getFirstTrades()) {
 		const CLinkList<TradeData>& listTradeData = *(m_pDeal->getFirstTrades());
 		int iCount = 0;
-		for (CLLNode<TradeData>* pNode = listTradeData.head(); NULL != pNode; pNode = listTradeData.next(pNode))
-		{
-			if (iCount == i)
-			{
+		for (CLLNode<TradeData>* pNode = listTradeData.head(); NULL != pNode; pNode = listTradeData.next(pNode)) {
+			if (iCount == i) {
 				return &(pNode->m_data);
 			}
 			iCount++;
@@ -69,16 +56,12 @@ TradeData* CyDeal::getFirstTrade(int i) const
 	return (NULL);
 }
 
-TradeData* CyDeal::getSecondTrade(int i) const
-{
-	if (i < getLengthSecondTrades() && NULL != m_pDeal && NULL != m_pDeal->getSecondTrades())
-	{
+TradeData* CyDeal::getSecondTrade(int i) const {
+	if (i < getLengthSecondTrades() && NULL != m_pDeal && NULL != m_pDeal->getSecondTrades()) {
 		const CLinkList<TradeData>& listTradeData = *(m_pDeal->getSecondTrades());
 		int iCount = 0;
-		for (CLLNode<TradeData>* pNode = listTradeData.head(); NULL != pNode; pNode = listTradeData.next(pNode))
-		{
-			if (iCount == i)
-			{
+		for (CLLNode<TradeData>* pNode = listTradeData.head(); NULL != pNode; pNode = listTradeData.next(pNode)) {
+			if (iCount == i) {
 				return &(pNode->m_data);
 			}
 			iCount++;
@@ -87,10 +70,8 @@ TradeData* CyDeal::getSecondTrade(int i) const
 	return (NULL);
 }
 
-void CyDeal::kill()
-{
-	if (NULL != m_pDeal)
-	{
+void CyDeal::kill() {
+	if (NULL != m_pDeal) {
 		m_pDeal->kill();
 	}
 }

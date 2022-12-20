@@ -7,8 +7,7 @@
 
 #include "CvSelectionGroup.h"
 
-class CvSelectionGroupAI : public CvSelectionGroup
-{
+class CvSelectionGroupAI : public CvSelectionGroup {
 
 public:
 
@@ -50,7 +49,7 @@ public:
 	CvUnit* AI_ejectBestDefender(CvPlot* pTargetPlot);
 
 	CvUnit* AI_getMissionAIUnit();
-	
+
 	bool AI_isFull();
 
 	void read(FDataStreamBase* pStream);

@@ -14,8 +14,7 @@
 // published python interface for CyUnit
 //
 
-void CyUnitPythonInterface1(python::class_<CyUnit>& x)
-{
+void CyUnitPythonInterface1(python::class_<CyUnit>& x) {
 	OutputDebugString("Python Extension Module - CyUnitPythonInterface1\n");
 
 	x
@@ -23,7 +22,7 @@ void CyUnitPythonInterface1(python::class_<CyUnit>& x)
 		.def("convert", &CyUnit::convert, "void (CyUnit* pUnit)")
 		.def("kill", &CyUnit::kill, "void (bool bDelay, int /*PlayerTypes*/ ePlayer)")
 		.def("NotifyEntity", &CyUnit::NotifyEntity, "void (int EntityEventType)")
-		
+
 		.def("isActionRecommended", &CyUnit::isActionRecommended, "int (int i)")
 		.def("isBetterDefenderThan", &CyUnit::isBetterDefenderThan, "bool (CyUnit* pDefender, CyUnit* pAttacker)")
 
@@ -197,8 +196,8 @@ void CyUnitPythonInterface1(python::class_<CyUnit>& x)
 		.def("isWaiting", &CyUnit::isWaiting, "bool ()")
 		.def("isFortifyable", &CyUnit::isFortifyable, "bool ()")
 		.def("fortifyModifier", &CyUnit::fortifyModifier, "int ()")
-		.def("experienceNeeded", &CyUnit::experienceNeeded, "int ()") 
-		.def("attackXPValue", &CyUnit::attackXPValue, "int ()") 
+		.def("experienceNeeded", &CyUnit::experienceNeeded, "int ()")
+		.def("attackXPValue", &CyUnit::attackXPValue, "int ()")
 		.def("defenseXPValue", &CyUnit::defenseXPValue, "int ()")
 		.def("maxXPValue", &CyUnit::maxXPValue, "int ()")
 		.def("firstStrikes", &CyUnit::firstStrikes, "int ()")
@@ -238,14 +237,14 @@ void CyUnitPythonInterface1(python::class_<CyUnit>& x)
 		.def("unitClassAttackModifier", &CyUnit::unitClassAttackModifier, "int (int /*UnitClassTypes*/ eUnitClass)")
 		.def("unitClassDefenseModifier", &CyUnit::unitClassDefenseModifier, "int (int /*UnitClassTypes*/ eUnitClass)")
 		.def("unitCombatModifier", &CyUnit::unitCombatModifier, "int (int /*UnitCombatTypes*/ eUnitCombat)")
-		.def("domainModifier", &CyUnit::domainModifier, "int (int /*DomainTypes*/ eDomain)") 
+		.def("domainModifier", &CyUnit::domainModifier, "int (int /*DomainTypes*/ eDomain)")
 
-		.def("bombardRate", &CyUnit::bombardRate, "int ()") 
+		.def("bombardRate", &CyUnit::bombardRate, "int ()")
 		.def("airBombBaseRate", &CyUnit::airBombBaseRate, "int ()")
 		.def("airBombCurrRate", &CyUnit::airBombCurrRate, "int ()")
 
-		.def("specialCargo", &CyUnit::specialCargo, "int ()") 
-		.def("domainCargo", &CyUnit::domainCargo, "int ()") 
+		.def("specialCargo", &CyUnit::specialCargo, "int ()")
+		.def("domainCargo", &CyUnit::domainCargo, "int ()")
 		.def("cargoSpace", &CyUnit::cargoSpace, "int ()")
 		.def("changeCargoSpace", &CyUnit::changeCargoSpace, "void (int)")
 		.def("isFull", &CyUnit::isFull, "bool ()")
@@ -271,7 +270,7 @@ void CyUnitPythonInterface1(python::class_<CyUnit>& x)
 		.def("plot", &CyUnit::plot, python::return_value_policy<python::manage_new_object>(), "CyPlot* ()")
 		.def("area", &CyUnit::area, python::return_value_policy<python::manage_new_object>(), "CyArea* ()")
 		.def("getReconPlot", &CyUnit::getReconPlot, python::return_value_policy<python::manage_new_object>(), "CyPlot* ()")
-		.def("setReconPlot", &CyUnit::setReconPlot, "void (CyPlot)")				 
+		.def("setReconPlot", &CyUnit::setReconPlot, "void (CyPlot)")
 
 		.def("getGameTurnCreated", &CyUnit::getGameTurnCreated, "int ()")
 
@@ -389,7 +388,7 @@ void CyUnitPythonInterface1(python::class_<CyUnit>& x)
 		.def("attackForDamage", &CyUnit::attackForDamage, "void attackForDamage(CyUnit *defender, int attakerDamageChange, int defenderDamageChange)")
 		.def("rangeStrike", &CyUnit::rangeStrike, "void rangeStrike(int iX, int iY)")
 
-		.def("getArtInfo", &CyUnit::getArtInfo,  python::return_value_policy<python::reference_existing_object>(), "CvArtInfoUnit* (int i, eEra)")
+		.def("getArtInfo", &CyUnit::getArtInfo, python::return_value_policy<python::reference_existing_object>(), "CvArtInfoUnit* (int i, eEra)")
 		.def("getButton", &CyUnit::getButton, "std::string ()")
 		;
 }

@@ -6,8 +6,7 @@
 // These are simple enough to be exposed directly - no wrappers
 //
 
-void CyInfoPythonInterface1()
-{
+void CyInfoPythonInterface1() {
 	OutputDebugString("Python Extension Module - CyInfoPythonInterface1\n");
 
 	python::class_<CvInfoBase>("CvInfoBase")
@@ -39,7 +38,7 @@ void CyInfoPythonInterface1()
 		.def("getMissionType", &CvSpecialistInfo::getMissionType, "int ()")
 
 		.def("isVisible", &CvSpecialistInfo::isVisible, "bool ()")
-		
+
 		.def("getYieldChange", &CvSpecialistInfo::getYieldChange, "int (int i)")
 		.def("getCommerceChange", &CvSpecialistInfo::getCommerceChange, "int (int i)")
 		.def("getExperience", &CvSpecialistInfo::getExperience, "int ()")
@@ -272,11 +271,11 @@ void CyInfoPythonInterface1()
 		.def("isAnimal", &CvUnitInfo::isAnimal, "bool ()")
 		.def("isFoodProduction", &CvUnitInfo::isFoodProduction, "bool ()")
 		.def("isNoBadGoodies", &CvUnitInfo::isNoBadGoodies, "bool ()")
-/************************************************************************************************/
-/* UNOFFICIAL_PATCH                       03/20/10                       Afforess & jdog5000    */
-/*                                                                                              */
-/* Bugfix                                                                                       */
-/************************************************************************************************/
+		/************************************************************************************************/
+		/* UNOFFICIAL_PATCH                       03/20/10                       Afforess & jdog5000    */
+		/*                                                                                              */
+		/* Bugfix                                                                                       */
+		/************************************************************************************************/
 		.def("isOnlyDefensive", &CvUnitInfo::isOnlyDefensive, "bool ()")
 		.def("isNoCapture", &CvUnitInfo::isNoCapture, "bool ()")
 		.def("isRivalTerritory", &CvUnitInfo::isRivalTerritory, "bool ()")
@@ -359,7 +358,7 @@ void CyInfoPythonInterface1()
 		.def("getLateArtDefineTag", &CvUnitInfo::getLateArtDefineTag, "string (int i, UnitArtStyleTypes eStyle)")
 		.def("getMiddleArtDefineTag", &CvUnitInfo::getMiddleArtDefineTag, "string (int i, UnitArtStyleTypes eStyle)")
 		.def("getUnitNames", &CvUnitInfo::getUnitNames, "string (int i)")
-		.def("getArtInfo", &CvUnitInfo::getArtInfo,  python::return_value_policy<python::reference_existing_object>(), "CvArtInfoUnit* (int i, bool bLate)")
+		.def("getArtInfo", &CvUnitInfo::getArtInfo, python::return_value_policy<python::reference_existing_object>(), "CvArtInfoUnit* (int i, bool bLate)")
 		;
 
 	python::class_<CvSpecialUnitInfo, python::bases<CvInfoBase> >("CvSpecialUnitInfo")
@@ -614,7 +613,7 @@ void CyInfoPythonInterface1()
 		.def("getSpecialistYieldChange", &CvBuildingInfo::getSpecialistYieldChange, "int (int i, int j)")
 		.def("getBonusYieldModifier", &CvBuildingInfo::getBonusYieldModifier, "int (int i, int j)")
 
-		.def("getArtInfo", &CvBuildingInfo::getArtInfo,  python::return_value_policy<python::reference_existing_object>())
+		.def("getArtInfo", &CvBuildingInfo::getArtInfo, python::return_value_policy<python::reference_existing_object>())
 		;
 
 	python::class_<CvSpecialBuildingInfo, python::bases<CvInfoBase> >("CvSpecialBuildingInfo")

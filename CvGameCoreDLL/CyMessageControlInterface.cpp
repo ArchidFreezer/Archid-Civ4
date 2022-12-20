@@ -5,8 +5,7 @@
 // published python interface for CyMessageControl
 //
 
-void CyMessageControlInterface()
-{
+void CyMessageControlInterface() {
 	python::class_<CyMessageControl>("CyMessageControl")
 		.def("sendPushOrder", &CyMessageControl::sendPushOrder, "void (int iCityID, int eOrder, int iData, bool bAlt, bool bShift, bool bCtrl)")
 		.def("sendDoTask", &CyMessageControl::sendDoTask, "void (int iCity, int eTask, int iData1, int iData2, bool bOption, bool bAlt, bool bShift, bool bCtrl)")
@@ -21,5 +20,5 @@ void CyMessageControlInterface()
 		.def("sendEmpireSplit", &CyMessageControl::sendEmpireSplit, "void (int /*PlayerTypes*/ ePlayer, int iAreaId)")
 		.def("GetFirstBadConnection", &CyMessageControl::GetFirstBadConnection, "int ()")
 		.def("GetConnState", &CyMessageControl::GetConnState, "int (int iPlayer)")
-	;
+		;
 }

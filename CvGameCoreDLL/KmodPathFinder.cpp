@@ -9,22 +9,19 @@ int KmodPathFinder::admissible_base_weight = 1;
 
 CvPathSettings::CvPathSettings(const CvSelectionGroup* pGroup, int iFlags, int iMaxPath, int iHW)
 	: pGroup(const_cast<CvSelectionGroup*>(pGroup)), iFlags(iFlags), iMaxPath(iMaxPath), iHeuristicWeight(iHW)
-// I'm really sorry about the const_cast. I can't fix the const-correctness of all the relevant functions,
-// because some of them are dllexports. The original code essentially does the same thing anyway, with void* casts.
+	// I'm really sorry about the const_cast. I can't fix the const-correctness of all the relevant functions,
+	// because some of them are dllexports. The original code essentially does the same thing anyway, with void* casts.
 {
 	// empty. (there use to be something here, but we don't need it anymore.)
 }
 
-void KmodPathFinder::InitHeuristicWeights()
-{
-	admissible_base_weight = GC.getMOVE_DENOMINATOR()/2;
-	admissible_scaled_weight = GC.getMOVE_DENOMINATOR()/2;
-	for (int r = 0; r < GC.getNumRouteInfos(); r++)
-	{
+void KmodPathFinder::InitHeuristicWeights() {
+	admissible_base_weight = GC.getMOVE_DENOMINATOR() / 2;
+	admissible_scaled_weight = GC.getMOVE_DENOMINATOR() / 2;
+	for (int r = 0; r < GC.getNumRouteInfos(); r++) {
 		const CvRouteInfo& kInfo = GC.getRouteInfo((RouteTypes)r);
 		int iCost = kInfo.getMovementCost();
-		for (int t = 0; t < GC.getNumTechInfos(); t++)
-		{
+		for (int t = 0; t < GC.getNumTechInfos(); t++) {
 			if (kInfo.getTechMovementChange(t) < 0)
 				iCost += kInfo.getTechMovementChange(t);
 		}
@@ -33,13 +30,11 @@ void KmodPathFinder::InitHeuristicWeights()
 	}
 }
 
-int KmodPathFinder::MinimumStepCost(int BaseMoves)
-{
+int KmodPathFinder::MinimumStepCost(int BaseMoves) {
 	return std::max(1, std::min(admissible_base_weight, BaseMoves * admissible_scaled_weight));
 }
 
-bool KmodPathFinder::OpenList_sortPred::operator()(const FAStarNode* &left, const FAStarNode* &right)
-{
+bool KmodPathFinder::OpenList_sortPred::operator()(const FAStarNode*& left, const FAStarNode*& right) {
 	return left->m_iTotalCost < right->m_iTotalCost;
 }
 
@@ -48,8 +43,7 @@ KmodPathFinder::KmodPathFinder() :
 	end_node(0),
 	map_width(0),
 	map_height(0),
-	node_data(0)
-{
+	node_data(0) {
 	// Unfortunately, the pathfinder is constructed before the map width and height are determined.
 
 	// Ideally the pathfinder would be initialised with a given CvMap, and then not refer to any global objects.
@@ -58,34 +52,30 @@ KmodPathFinder::KmodPathFinder() :
 
 }
 
-KmodPathFinder::~KmodPathFinder()
-{
+KmodPathFinder::~KmodPathFinder() {
 	free(node_data);
 }
 
-bool KmodPathFinder::ValidateNodeMap()
-{
+bool KmodPathFinder::ValidateNodeMap() {
 	PROFILE_FUNC();
 	if (!GC.getGameINLINE().isFinalInitialized())
 		return false;
 
-	if (map_width != GC.getMapINLINE().getGridWidthINLINE() || map_height != GC.getMapINLINE().getGridHeightINLINE())
-	{
+	if (map_width != GC.getMapINLINE().getGridWidthINLINE() || map_height != GC.getMapINLINE().getGridHeightINLINE()) {
 		map_width = GC.getMapINLINE().getGridWidthINLINE();
 		map_height = GC.getMapINLINE().getGridHeightINLINE();
-		node_data = (FAStarNode*)realloc(node_data, sizeof(*node_data)*map_width*map_height);
+		node_data = (FAStarNode*)realloc(node_data, sizeof(*node_data) * map_width * map_height);
 		end_node = NULL;
 	}
 	return true;
 }
 
-bool KmodPathFinder::GeneratePath(int x1, int y1, int x2, int y2)
-{
+bool KmodPathFinder::GeneratePath(int x1, int y1, int x2, int y2) {
 	PROFILE_FUNC();
 
-	FASSERT_BOUNDS(0, map_width , x1, "GeneratePath");
+	FASSERT_BOUNDS(0, map_width, x1, "GeneratePath");
 	FASSERT_BOUNDS(0, map_height, y1, "GeneratePath");
-	FASSERT_BOUNDS(0, map_width , x2, "GeneratePath");
+	FASSERT_BOUNDS(0, map_width, x2, "GeneratePath");
 	FASSERT_BOUNDS(0, map_height, y2, "GeneratePath");
 
 	end_node = NULL;
@@ -96,8 +86,7 @@ bool KmodPathFinder::GeneratePath(int x1, int y1, int x2, int y2)
 	if (!pathDestValid(x2, y2, &settings, 0))
 		return false;
 
-	if (x1 != start_x || y1 != start_y)
-	{
+	if (x1 != start_x || y1 != start_y) {
 		// Note: it may be possible to salvage some of the old data to get more speed.
 		// eg. If the moves recorded on the node match the group,
 		// just delete everything that isn't a direct descendant of the new start.
@@ -114,36 +103,32 @@ bool KmodPathFinder::GeneratePath(int x1, int y1, int x2, int y2)
 	dest_x = x2;
 	dest_y = y2;
 
-	if (GetNode(x1, y1).m_bOnStack)
-	{
+	if (GetNode(x1, y1).m_bOnStack) {
 		int iMoves = (settings.iFlags & MOVE_MAX_MOVES) ? settings.pGroup->maxMoves() : settings.pGroup->movesLeft();
-		if (iMoves != GetNode(x1,  y1).m_iData1)
-		{
+		if (iMoves != GetNode(x1, y1).m_iData1) {
 			Reset();
-			FAssert(!GetNode(x1,  y1).m_bOnStack);
+			FAssert(!GetNode(x1, y1).m_bOnStack);
 		}
 		// Note: This condition isn't actually enough to catch all signifiant changes.
 		// We really need to check max moves /and/ moves left /and/ base moves.
 		// but I don't feel like doing all that at the moment.
 	}
 
-	if (!GetNode(x1,  y1).m_bOnStack)
-	{
+	if (!GetNode(x1, y1).m_bOnStack) {
 		AddStartNode();
 		bRecalcHeuristics = true;
 	}
 	//else (not else. maybe start == dest)
 	{
 		// check if the end plot is already mapped.
-		if (GetNode(x2,  y2).m_bOnStack)
-			end_node = &GetNode(x2,  y2);
+		if (GetNode(x2, y2).m_bOnStack)
+			end_node = &GetNode(x2, y2);
 	}
 
 	if (bRecalcHeuristics)
 		RecalculateHeuristics();
 
-	while (ProcessNode())
-	{
+	while (ProcessNode()) {
 		// nothing
 	}
 
@@ -153,28 +138,24 @@ bool KmodPathFinder::GeneratePath(int x1, int y1, int x2, int y2)
 	return false;
 }
 
-bool KmodPathFinder::GeneratePath(const CvPlot* pToPlot)
-{
+bool KmodPathFinder::GeneratePath(const CvPlot* pToPlot) {
 	if (!settings.pGroup || !pToPlot)
 		return false;
 	return GeneratePath(settings.pGroup->plot()->getX_INLINE(), settings.pGroup->plot()->getY_INLINE(),
 		pToPlot->getX_INLINE(), pToPlot->getY_INLINE());
 }
 
-int KmodPathFinder::GetPathTurns() const
-{
+int KmodPathFinder::GetPathTurns() const {
 	FAssert(end_node);
 	return end_node ? end_node->m_iData2 : 0;
 }
 
-int KmodPathFinder::GetFinalMoves() const
-{
+int KmodPathFinder::GetFinalMoves() const {
 	FAssert(end_node);
 	return end_node ? end_node->m_iData1 : 0;
 }
 
-CvPlot* KmodPathFinder::GetPathFirstPlot() const
-{
+CvPlot* KmodPathFinder::GetPathFirstPlot() const {
 	FAssert(end_node);
 	if (!end_node)
 		return NULL;
@@ -184,35 +165,30 @@ CvPlot* KmodPathFinder::GetPathFirstPlot() const
 	if (!node->m_pParent)
 		return GC.getMapINLINE().plotSorenINLINE(node->m_iX, node->m_iY);
 
-	while (node->m_pParent->m_pParent)
-	{
+	while (node->m_pParent->m_pParent) {
 		node = node->m_pParent;
 	}
 
 	return GC.getMapINLINE().plotSorenINLINE(node->m_iX, node->m_iY);
 }
 
-CvPlot* KmodPathFinder::GetPathEndTurnPlot() const
-{
+CvPlot* KmodPathFinder::GetPathEndTurnPlot() const {
 	FAssert(end_node);
 
 	FAStarNode* node = end_node;
 
 	FAssert(!node || node->m_iData2 == 1 || node->m_pParent);
 
-	while (node && node->m_iData2 > 1)
-	{
+	while (node && node->m_iData2 > 1) {
 		node = node->m_pParent;
 	}
 	FAssert(node);
 	return node ? GC.getMapINLINE().plotSorenINLINE(node->m_iX, node->m_iY) : NULL;
 }
 
-void KmodPathFinder::SetSettings(const CvPathSettings& new_settings)
-{
+void KmodPathFinder::SetSettings(const CvPathSettings& new_settings) {
 	// whenever settings are changed, check that we have the right map size.
-	if (!ValidateNodeMap())
-	{
+	if (!ValidateNodeMap()) {
 		FAssertMsg(false, "Failed to validate node map for pathfinder.");
 		settings.pGroup = NULL;
 		return;
@@ -221,55 +197,42 @@ void KmodPathFinder::SetSettings(const CvPathSettings& new_settings)
 	// some flags are not relevant to pathfinder. We should try to strip those out to avoid unnecessary resets.
 	int relevant_flags = ~(MOVE_DIRECT_ATTACK | MOVE_SINGLE_ATTACK | MOVE_NO_ATTACK); // any bar these
 
-	if (settings.pGroup != new_settings.pGroup)
-	{
+	if (settings.pGroup != new_settings.pGroup) {
 		Reset();
-	}
-	else if ((settings.iFlags & relevant_flags) != (new_settings.iFlags & relevant_flags))
-	{
+	} else if ((settings.iFlags & relevant_flags) != (new_settings.iFlags & relevant_flags)) {
 		// there's one more chance to avoid a reset..
 		// If the war flag is the only difference, and we aren't sneak attack ready anyway - then there is effectively no difference.
 		relevant_flags &= ~MOVE_DECLARE_WAR;
 		if ((settings.iFlags & relevant_flags) != (new_settings.iFlags & relevant_flags)
-			|| GET_TEAM(settings.pGroup->getHeadTeam()).AI_isSneakAttackReady())
-		{
+			|| GET_TEAM(settings.pGroup->getHeadTeam()).AI_isSneakAttackReady()) {
 			Reset();
 		}
 	}
 	settings = new_settings;
 
-	if (settings.iHeuristicWeight < 0)
-	{
-		if (!settings.pGroup)
-		{
+	if (settings.iHeuristicWeight < 0) {
+		if (!settings.pGroup) {
 			settings.iHeuristicWeight = 1;
-		}
-		else
-		{
-			if (settings.pGroup->getDomainType() == DOMAIN_SEA)
-			{
+		} else {
+			if (settings.pGroup->getDomainType() == DOMAIN_SEA) {
 				// this assume there are no sea-roads, or promotions to reduce sea movement cost.
 				settings.iHeuristicWeight = GC.getMOVE_DENOMINATOR();
-			}
-			else
-			{
+			} else {
 				settings.iHeuristicWeight = MinimumStepCost(settings.pGroup->baseMoves());
 			}
 		}
 	}
 }
 
-void KmodPathFinder::Reset()
-{
-	memset(&node_data[0], 0, sizeof(*node_data)*map_width*map_height);
+void KmodPathFinder::Reset() {
+	memset(&node_data[0], 0, sizeof(*node_data) * map_width * map_height);
 	open_list.clear();
 	end_node = NULL;
 	// settings is set separately.
 }
 
-void KmodPathFinder::AddStartNode()
-{
-	FASSERT_BOUNDS(0, map_width , start_x, "KmodPathFinder::AddStartNode");
+void KmodPathFinder::AddStartNode() {
+	FASSERT_BOUNDS(0, map_width, start_x, "KmodPathFinder::AddStartNode");
 	FASSERT_BOUNDS(0, map_height, start_y, "KmodPathFinder::AddStartNode");
 
 	// add initial node.
@@ -289,27 +252,22 @@ void KmodPathFinder::AddStartNode()
 	start_node->m_bOnStack = true; // This means the node is connected and ready to be used.
 }
 
-void KmodPathFinder::RecalculateHeuristics()
-{
+void KmodPathFinder::RecalculateHeuristics() {
 	// recalculate heuristic cost for all open nodes.
-	for (OpenList_t::iterator i = open_list.begin(); i != open_list.end(); ++i)
-	{
+	for (OpenList_t::iterator i = open_list.begin(); i != open_list.end(); ++i) {
 		int h = settings.iHeuristicWeight * pathHeuristic((*i)->m_iX, (*i)->m_iY, dest_x, dest_y);
 		(*i)->m_iHeuristicCost = h;
 		(*i)->m_iTotalCost = h + (*i)->m_iKnownCost;
 	}
 }
 
-bool KmodPathFinder::ProcessNode()
-{
+bool KmodPathFinder::ProcessNode() {
 	OpenList_t::iterator best_it = open_list.end();
 	{
 		int iLowestCost = end_node ? end_node->m_iKnownCost : MAX_INT;
-		for (OpenList_t::iterator it = open_list.begin(); it != open_list.end(); ++it)
-		{
+		for (OpenList_t::iterator it = open_list.begin(); it != open_list.end(); ++it) {
 			if ((*it)->m_iTotalCost < iLowestCost &&
-				(settings.iMaxPath < 0 || (*it)->m_iData2 <= settings.iMaxPath))
-			{
+				(settings.iMaxPath < 0 || (*it)->m_iData2 <= settings.iMaxPath)) {
 				best_it = it;
 				iLowestCost = (*it)->m_iTotalCost;
 			}
@@ -330,8 +288,7 @@ bool KmodPathFinder::ProcessNode()
 	FAssert(&GetNode(parent_node->m_iX, parent_node->m_iY) == parent_node);
 
 	// open a new node for each direction coming off the chosen node.
-	for (int i = 0; i < NUM_DIRECTION_TYPES; i++)
-	{
+	for (int i = 0; i < NUM_DIRECTION_TYPES; i++) {
 		CvPlot* pAdjacentPlot = plotDirection(parent_node->m_iX, parent_node->m_iY, (DirectionTypes)i);
 		if (!pAdjacentPlot)
 			continue;
@@ -348,14 +305,12 @@ bool KmodPathFinder::ProcessNode()
 		FAStarNode* child_node = &GetNode(x, y);
 		bool bNewNode = !child_node->m_bOnStack;
 
-		if (bNewNode)
-		{
+		if (bNewNode) {
 			child_node->m_iX = x;
 			child_node->m_iY = y;
 			pathAdd(parent_node, child_node, ASNC_NEWADD, &settings, 0);
 
-			if (pathValid_join(parent_node, child_node, settings.pGroup , settings.iFlags))
-			{
+			if (pathValid_join(parent_node, child_node, settings.pGroup, settings.iFlags)) {
 				// This path to the new node is valid. So we need to fill in the data.
 				child_node->m_iKnownCost = MAX_INT;
 				child_node->m_iHeuristicCost = settings.iHeuristicWeight * pathHeuristic(x, y, dest_x, dest_y);
@@ -363,25 +318,18 @@ bool KmodPathFinder::ProcessNode()
 
 				child_node->m_bOnStack = true;
 
-				if (pathValid_source(child_node, settings.pGroup , settings.iFlags))
-				{
+				if (pathValid_source(child_node, settings.pGroup, settings.iFlags)) {
 					open_list.push_back(child_node);
 					child_node->m_eFAStarListType = FASTARLIST_OPEN;
-				}
-				else
-				{
+				} else {
 					child_node->m_eFAStarListType = FASTARLIST_CLOSED; // This node is a dead end.
 				}
-			}
-			else
-			{
+			} else {
 				// can't get to the plot from here.
 				child_node = NULL;
 			}
-		}
-		else
-		{
-			if (!pathValid_join(parent_node, child_node, settings.pGroup , settings.iFlags))
+		} else {
+			if (!pathValid_join(parent_node, child_node, settings.pGroup, settings.iFlags))
 				child_node = NULL;
 		}
 
@@ -393,39 +341,34 @@ bool KmodPathFinder::ProcessNode()
 		if (x == dest_x && y == dest_y)
 			end_node = child_node; // We've found our destination - but we still need to finish our calculations
 
-		if (parent_node->m_iKnownCost < child_node->m_iKnownCost)
-		{
+		if (parent_node->m_iKnownCost < child_node->m_iKnownCost) {
 			int iNewCost = parent_node->m_iKnownCost + pathCost(parent_node, child_node, 666, &settings, 0);
 			FAssert(iNewCost > 0);
 
-			if (iNewCost < child_node->m_iKnownCost)
-			{
+			if (iNewCost < child_node->m_iKnownCost) {
 				int cost_delta = iNewCost - child_node->m_iKnownCost; // new minus old. Negative value.
 
 				child_node->m_iKnownCost = iNewCost;
 				child_node->m_iTotalCost = child_node->m_iKnownCost + child_node->m_iHeuristicCost;
 
 				// remove child from the list of the previous parent.
-				if (child_node->m_pParent)
-				{
+				if (child_node->m_pParent) {
 					FAssert(!bNewNode);
 					FAStarNode* x_parent = child_node->m_pParent;
 					// x_parent just lost one of its children. We have to break the news to them.
 					// this would easier if we had stl instead of bog arrays.
 					int temp = x_parent->m_iNumChildren;
-					for (int j = 0; j < x_parent->m_iNumChildren; j++)
-					{
-						if (x_parent->m_apChildren[j] == child_node)
-						{
+					for (int j = 0; j < x_parent->m_iNumChildren; j++) {
+						if (x_parent->m_apChildren[j] == child_node) {
 							// found it.
-							for (j++ ; j < x_parent->m_iNumChildren; j++)
-								x_parent->m_apChildren[j-1] = x_parent->m_apChildren[j];
-							x_parent->m_apChildren[j-1] = 0; // not necessary, but easy enough to keep things neat.
+							for (j++; j < x_parent->m_iNumChildren; j++)
+								x_parent->m_apChildren[j - 1] = x_parent->m_apChildren[j];
+							x_parent->m_apChildren[j - 1] = 0; // not necessary, but easy enough to keep things neat.
 
 							x_parent->m_iNumChildren--;
 						}
 					}
-					FAssert(x_parent->m_iNumChildren == temp -1);
+					FAssert(x_parent->m_iNumChildren == temp - 1);
 					// recalculate movement points
 					pathAdd(parent_node, child_node, ASNC_PARENTADD_UP, &settings, 0);
 				}
@@ -448,8 +391,7 @@ bool KmodPathFinder::ProcessNode()
 	return true;
 }
 
-void KmodPathFinder::ForwardPropagate(FAStarNode* head, int cost_delta)
-{
+void KmodPathFinder::ForwardPropagate(FAStarNode* head, int cost_delta) {
 	//FAssert(cost_delta < 0 || head->m_iNumChildren == 0);
 	// Note: there are some legitimate cases in which the cost_delta can be positive.
 	// For example, suppose a shorter path is found to the parent plot, but the path involves
@@ -460,8 +402,7 @@ void KmodPathFinder::ForwardPropagate(FAStarNode* head, int cost_delta)
 	// (but I don't think it is very important.)
 
 	// change the known cost of all children by cost_delta, recursively
-	for (int i = 0; i < head->m_iNumChildren; i++)
-	{
+	for (int i = 0; i < head->m_iNumChildren; i++) {
 		FAssert(head->m_apChildren[i]->m_pParent == head);
 
 		// recalculate movement points.

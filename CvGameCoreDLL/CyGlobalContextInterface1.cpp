@@ -14,8 +14,7 @@
 #include "CyTeam.h"
 
 
-void CyGlobalContextPythonInterface1(python::class_<CyGlobalContext>& x)
-{
+void CyGlobalContextPythonInterface1(python::class_<CyGlobalContext>& x) {
 	OutputDebugString("Python Extension Module - CyGlobalContextPythonInterface1\n");
 
 	x
@@ -117,5 +116,5 @@ void CyGlobalContextPythonInterface1(python::class_<CyGlobalContext>& x)
 
 		.def("getNumActionInfos", &CyGlobalContext::getNumActionInfos, "() - Total Action Infos XML\\Units\\CIV4ActionInfos.xml")
 		.def("getActionInfo", &CyGlobalContext::getActionInfo, python::return_value_policy<python::reference_existing_object>(), "(ActionID) - CvInfo for ActionID")
-	;
+		;
 }

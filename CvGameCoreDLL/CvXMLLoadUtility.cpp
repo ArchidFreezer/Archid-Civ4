@@ -23,32 +23,26 @@ static const int kBufSize = 2048;
 //
 // for logging
 //
-void CvXMLLoadUtility::logMsg(char* format, ... )
-{
+void CvXMLLoadUtility::logMsg(char* format, ...) {
 	static char buf[kBufSize];
-	_vsnprintf( buf, kBufSize-4, format, (char*)(&format+1) );
+	_vsnprintf(buf, kBufSize - 4, format, (char*)(&format + 1));
 	gDLL->logMsg("xml.log", buf);
 }
 
-bool CvXMLLoadUtility::CreateFXml()
-{
+bool CvXMLLoadUtility::CreateFXml() {
 	PROFILE("CreateFXML");
-	try
-	{
+	try {
 		m_pFXml = gDLL->getXMLIFace()->CreateFXml(m_pSchemaCache);
-	}
-	catch(...)
-	{
+	} catch (...) {
 		char	szMessage[512];
-		sprintf( szMessage, "Caught unhandled exception creating XML parser object \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
-		gDLL->MessageBox( szMessage, "Loading Error" );
+		sprintf(szMessage, "Caught unhandled exception creating XML parser object \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
+		gDLL->MessageBox(szMessage, "Loading Error");
 		return false;
 	}
 	return true;
 }
 
-void CvXMLLoadUtility::DestroyFXml()
-{
+void CvXMLLoadUtility::DestroyFXml() {
 	PROFILE("DestroyFXML");
 	gDLL->getXMLIFace()->DestroyFXml(m_pFXml);
 }
@@ -61,10 +55,9 @@ void CvXMLLoadUtility::DestroyFXml()
 //
 //------------------------------------------------------------------------------------------------------
 CvXMLLoadUtility::CvXMLLoadUtility() :
-m_iCurProgressStep(0),
-m_pCBFxn(NULL),
-m_pFXml(NULL)
-{
+	m_iCurProgressStep(0),
+	m_pCBFxn(NULL),
+	m_pFXml(NULL) {
 	m_pSchemaCache = gDLL->getXMLIFace()->CreateFXmlSchemaCache();
 }
 
@@ -75,8 +68,7 @@ m_pFXml(NULL)
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvXMLLoadUtility::~CvXMLLoadUtility(void)
-{
+CvXMLLoadUtility::~CvXMLLoadUtility(void) {
 	gDLL->getXMLIFace()->DestroyFXmlSchemaCache(m_pSchemaCache);
 }
 
@@ -87,10 +79,8 @@ CvXMLLoadUtility::~CvXMLLoadUtility(void)
 //  PURPOSE :  Clean up items for in-game reloading
 //
 //------------------------------------------------------------------------------------------------------
-void CvXMLLoadUtility::ResetLandscapeInfo()
-{
-	for (int i = 0; i < GC.getNumLandscapeInfos(); ++i)
-	{
+void CvXMLLoadUtility::ResetLandscapeInfo() {
+	for (int i = 0; i < GC.getNumLandscapeInfos(); ++i) {
 		SAFE_DELETE(GC.getLandscapeInfo()[i]);
 	}
 
@@ -106,10 +96,8 @@ void CvXMLLoadUtility::ResetLandscapeInfo()
 //  PURPOSE :  Clean up items for in-game reloading
 //
 //------------------------------------------------------------------------------------------------------
-void CvXMLLoadUtility::ResetGlobalEffectInfo()
-{
-	for (int i = 0; i < GC.getNumEffectInfos(); ++i)
-	{
+void CvXMLLoadUtility::ResetGlobalEffectInfo() {
+	for (int i = 0; i < GC.getNumEffectInfos(); ++i) {
 		SAFE_DELETE(GC.getEffectInfo()[i]);
 	}
 
@@ -127,21 +115,17 @@ void CvXMLLoadUtility::ResetGlobalEffectInfo()
 //				mask value
 //
 //------------------------------------------------------------------------------------------------------
-void CvXMLLoadUtility::MakeMaskFromString(unsigned int *puiMask, char* szMask)
-{
+void CvXMLLoadUtility::MakeMaskFromString(unsigned int* puiMask, char* szMask) {
 	// loop through each character in the szMask parameter
-	for (int i=0;i<(int)strlen(szMask);i++)
-	{
+	for (int i = 0; i < (int)strlen(szMask); i++) {
 		// if the current character in the string is a zero
-		if (szMask[i] == '0')
-		{
+		if (szMask[i] == '0') {
 			// shift the current value of the mask to the left by 4 bits
 			*puiMask <<= 4;
 			// making the last 4 bits of the mask 0000
 		}
 		// if the current character in the string is a zero
-		else if (szMask[i] == '1')
-		{
+		else if (szMask[i] == '1') {
 			// shift the current value of the mask to the left by 4 bits
 			*puiMask <<= 4;
 			// add 1 to the adjusted value of the mask
@@ -149,8 +133,7 @@ void CvXMLLoadUtility::MakeMaskFromString(unsigned int *puiMask, char* szMask)
 			*puiMask += 1;
 		}
 		// if the current character in the string is a two
-		else if (szMask[i] == '2')
-		{
+		else if (szMask[i] == '2') {
 			// shift the current value of the mask to the left by 4 bits
 			*puiMask <<= 4;
 			// add 2 to the adjusted value of the mask
@@ -158,8 +141,7 @@ void CvXMLLoadUtility::MakeMaskFromString(unsigned int *puiMask, char* szMask)
 			*puiMask += 2;
 		}
 		// if the current character in the string is a three
-		else if (szMask[i] == '3')
-		{
+		else if (szMask[i] == '3') {
 			// shift the current value of the mask to the left by 4 bits
 			*puiMask <<= 4;
 			// add 3 to the adjusted value of the mask
@@ -167,8 +149,7 @@ void CvXMLLoadUtility::MakeMaskFromString(unsigned int *puiMask, char* szMask)
 			*puiMask += 3;
 		}
 		// if the current character in the string is a four
-		else if (szMask[i] == '4')
-		{
+		else if (szMask[i] == '4') {
 			// shift the current value of the mask to the left by 4 bits
 			*puiMask <<= 4;
 			// add 4 to the adjusted value of the mask
@@ -176,8 +157,7 @@ void CvXMLLoadUtility::MakeMaskFromString(unsigned int *puiMask, char* szMask)
 			*puiMask += 4;
 		}
 		// if the current character in the string is a five
-		else if (szMask[i] == '5')
-		{
+		else if (szMask[i] == '5') {
 			// shift the current value of the mask to the left by 4 bits
 			*puiMask <<= 4;
 			// add 5 to the adjusted value of the mask
@@ -185,8 +165,7 @@ void CvXMLLoadUtility::MakeMaskFromString(unsigned int *puiMask, char* szMask)
 			*puiMask += 5;
 		}
 		// if the current character in the string is a six
-		else if (szMask[i] == '6')
-		{
+		else if (szMask[i] == '6') {
 			// shift the current value of the mask to the left by 4 bits
 			*puiMask <<= 4;
 			// add 6 to the adjusted value of the mask
@@ -194,8 +173,7 @@ void CvXMLLoadUtility::MakeMaskFromString(unsigned int *puiMask, char* szMask)
 			*puiMask += 6;
 		}
 		// if the current character in the string is a seven
-		else if (szMask[i] == '7')
-		{
+		else if (szMask[i] == '7') {
 			// shift the current value of the mask to the left by 4 bits
 			*puiMask <<= 4;
 			// add 7 to the adjusted value of the mask
@@ -203,8 +181,7 @@ void CvXMLLoadUtility::MakeMaskFromString(unsigned int *puiMask, char* szMask)
 			*puiMask += 7;
 		}
 		// if the current character in the string is a eight
-		else if (szMask[i] == '8')
-		{
+		else if (szMask[i] == '8') {
 			// shift the current value of the mask to the left by 4 bits
 			*puiMask <<= 4;
 			// add 8 to the adjusted value of the mask
@@ -212,8 +189,7 @@ void CvXMLLoadUtility::MakeMaskFromString(unsigned int *puiMask, char* szMask)
 			*puiMask += 8;
 		}
 		// if the current character in the string is a nine
-		else if (szMask[i] == '9')
-		{
+		else if (szMask[i] == '9') {
 			// shift the current value of the mask to the left by 4 bits
 			*puiMask <<= 4;
 			// add 9 to the adjusted value of the mask
@@ -221,8 +197,7 @@ void CvXMLLoadUtility::MakeMaskFromString(unsigned int *puiMask, char* szMask)
 			*puiMask += 9;
 		}
 		// if the current character in the string is a A, 10
-		else if ((szMask[i] == 'a') || (szMask[i] == 'A'))
-		{
+		else if ((szMask[i] == 'a') || (szMask[i] == 'A')) {
 			// shift the current value of the mask to the left by 4 bits
 			*puiMask <<= 4;
 			// add 10 to the adjusted value of the mask
@@ -230,8 +205,7 @@ void CvXMLLoadUtility::MakeMaskFromString(unsigned int *puiMask, char* szMask)
 			*puiMask += 10;
 		}
 		// if the current character in the string is a B, 11
-		else if ((szMask[i] == 'b') || (szMask[i] == 'B'))
-		{
+		else if ((szMask[i] == 'b') || (szMask[i] == 'B')) {
 			// shift the current value of the mask to the left by 4 bits
 			*puiMask <<= 4;
 			// add 11 to the adjusted value of the mask
@@ -239,8 +213,7 @@ void CvXMLLoadUtility::MakeMaskFromString(unsigned int *puiMask, char* szMask)
 			*puiMask += 11;
 		}
 		// if the current character in the string is a C, 12
-		else if ((szMask[i] == 'c') || (szMask[i] == 'C'))
-		{
+		else if ((szMask[i] == 'c') || (szMask[i] == 'C')) {
 			// shift the current value of the mask to the left by 4 bits
 			*puiMask <<= 4;
 			// add 12 to the adjusted value of the mask
@@ -248,8 +221,7 @@ void CvXMLLoadUtility::MakeMaskFromString(unsigned int *puiMask, char* szMask)
 			*puiMask += 12;
 		}
 		// if the current character in the string is a D, 13
-		else if ((szMask[i] == 'd') || (szMask[i] == 'D'))
-		{
+		else if ((szMask[i] == 'd') || (szMask[i] == 'D')) {
 			// shift the current value of the mask to the left by 4 bits
 			*puiMask <<= 4;
 			// add 13 to the adjusted value of the mask
@@ -257,8 +229,7 @@ void CvXMLLoadUtility::MakeMaskFromString(unsigned int *puiMask, char* szMask)
 			*puiMask += 13;
 		}
 		// if the current character in the string is a E, 14
-		else if ((szMask[i] == 'd') || (szMask[i] == 'E'))
-		{
+		else if ((szMask[i] == 'd') || (szMask[i] == 'E')) {
 			// shift the current value of the mask to the left by 4 bits
 			*puiMask <<= 4;
 			// add 14 to the adjusted value of the mask
@@ -266,8 +237,7 @@ void CvXMLLoadUtility::MakeMaskFromString(unsigned int *puiMask, char* szMask)
 			*puiMask += 14;
 		}
 		// if the current character in the string is a F, 15
-		else if ((szMask[i] == 'f') || (szMask[i] == 'F'))
-		{
+		else if ((szMask[i] == 'f') || (szMask[i] == 'F')) {
 			// shift the current value of the mask to the left by 4 bits
 			*puiMask <<= 4;
 			// add 15 to the adjusted value of the mask
@@ -285,15 +255,12 @@ void CvXMLLoadUtility::MakeMaskFromString(unsigned int *puiMask, char* szMask)
 //		returns false if it can't find one
 //
 //------------------------------------------------------------------------------------------------------
-bool CvXMLLoadUtility::SkipToNextVal()
-{
+bool CvXMLLoadUtility::SkipToNextVal() {
 	// we will loop through and skip over any comment nodes
-	while (gDLL->getXMLIFace()->IsLastLocatedNodeCommentNode(m_pFXml))
-	{
+	while (gDLL->getXMLIFace()->IsLastLocatedNodeCommentNode(m_pFXml)) {
 		// if we cannot set the current xml node to it's next sibling then we will break out of the for loop
 		// otherwise we will continue looping
-		if (!gDLL->getXMLIFace()->NextSibling(m_pFXml))
-		{
+		if (!gDLL->getXMLIFace()->NextSibling(m_pFXml)) {
 			return false;	// couldn't find any non-comment nodes
 		}
 	}
@@ -309,21 +276,17 @@ bool CvXMLLoadUtility::SkipToNextVal()
 //				returns -1 if no match is found
 //
 //------------------------------------------------------------------------------------------------------
-int CvXMLLoadUtility::FindInInfoClass(const TCHAR* pszVal, bool hideAssert)
-{
+int CvXMLLoadUtility::FindInInfoClass(const TCHAR* pszVal, bool hideAssert) {
 	int idx = GC.getInfoTypeForString(pszVal, hideAssert);
 
 	// if we found a match in the list we will return the value of the loop counter
 	// which will hold the location of the match in the list
-	if (idx != -1)
-	{
+	if (idx != -1) {
 		return idx;
 	}
 
-	if(!hideAssert)
-	{
-		if (_tcscmp(pszVal,"NONE")!=0 && _tcscmp(pszVal,"")!=0)
-		{
+	if (!hideAssert) {
+		if (_tcscmp(pszVal, "NONE") != 0 && _tcscmp(pszVal, "") != 0) {
 			char errorMsg[1024];
 			sprintf(errorMsg, "Tag: %s in Info class was incorrect \n Current XML file is: %s", pszVal, GC.getCurrentXMLFile().GetCString());
 			gDLL->MessageBox(errorMsg, "XML Error");
@@ -343,8 +306,7 @@ int CvXMLLoadUtility::FindInInfoClass(const TCHAR* pszVal, bool hideAssert)
 //				from the function and a valid FXml pointer to the pFXml parameter.
 //
 //------------------------------------------------------------------------------------------------------
-bool CvXMLLoadUtility::LoadCivXml(FXml* pFXml, const TCHAR* szFilename)
-{
+bool CvXMLLoadUtility::LoadCivXml(FXml* pFXml, const TCHAR* szFilename) {
 	char szLog[256];
 	sprintf(szLog, "LoadCivXml (%s)", szFilename);
 	PROFILE(szLog);
@@ -354,15 +316,13 @@ bool CvXMLLoadUtility::LoadCivXml(FXml* pFXml, const TCHAR* szFilename)
 	CvString szPath = szFilename;
 	CvString fsFilename = szFilename;
 
-	if (!gDLL->fileManagerEnabled())
-	{
+	if (!gDLL->fileManagerEnabled()) {
 		szPath = "Assets//" + szPath;
 	}
 
 	logMsg("Loading XML file %s\n", szPath.c_str());
 
-	if (!gDLL->getXMLIFace()->LoadXml(pFXml, szPath))
-	{
+	if (!gDLL->getXMLIFace()->LoadXml(pFXml, szPath)) {
 		logMsg("Load XML file %s FAILED\n", szPath.c_str());
 		return false;
 	}
@@ -379,28 +339,23 @@ bool CvXMLLoadUtility::LoadCivXml(FXml* pFXml, const TCHAR* szFilename)
 //  PURPOSE :   create a hot key from a description and return it
 //
 //------------------------------------------------------------------------------------------------------
-CvWString CvXMLLoadUtility::CreateHotKeyFromDescription(const TCHAR* pszHotKey, bool bShift, bool bAlt, bool bCtrl)
-{
+CvWString CvXMLLoadUtility::CreateHotKeyFromDescription(const TCHAR* pszHotKey, bool bShift, bool bAlt, bool bCtrl) {
 	// Delete <COLOR:140,255,40,255>Shift+Delete</COLOR>
 	CvWString szHotKey;
 
-	if (pszHotKey && strcmp(pszHotKey,"") != 0)
-	{
+	if (pszHotKey && strcmp(pszHotKey, "") != 0) {
 		szHotKey += L" <color=140,255,40,255>";
 		szHotKey += L"&lt;";
 
-		if (bShift)
-		{
+		if (bShift) {
 			szHotKey += gDLL->getText("TXT_KEY_SHIFT");
 		}
 
-		if (bAlt)
-		{
+		if (bAlt) {
 			szHotKey += gDLL->getText("TXT_KEY_ALT");
 		}
 
-		if (bCtrl)
-		{
+		if (bCtrl) {
 			szHotKey += gDLL->getText("TXT_KEY_CTRL");
 		}
 
@@ -412,21 +367,16 @@ CvWString CvXMLLoadUtility::CreateHotKeyFromDescription(const TCHAR* pszHotKey, 
 	return szHotKey;
 }
 
-bool CvXMLLoadUtility::SetStringList(CvString** ppszStringArray, int* piSize)
-{
+bool CvXMLLoadUtility::SetStringList(CvString** ppszStringArray, int* piSize) {
 	FAssertMsg(*ppszStringArray == NULL, "Possible memory leak");
 	*piSize = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
 	*ppszStringArray = NULL;
-	if (*piSize > 0)
-	{
+	if (*piSize > 0) {
 		*ppszStringArray = new CvString[*piSize];
 		CvString* pszStringArray = *ppszStringArray;
-		if (GetChildXmlVal(pszStringArray[0]))
-		{
-			for (int i=1;i<*piSize;i++)
-			{
-				if (!GetNextXmlVal(pszStringArray[i]))
-				{
+		if (GetChildXmlVal(pszStringArray[0])) {
+			for (int i = 1; i < *piSize; i++) {
+				if (!GetNextXmlVal(pszStringArray[i])) {
 					break;
 				}
 			}
@@ -445,19 +395,17 @@ bool CvXMLLoadUtility::SetStringList(CvString** ppszStringArray, int* piSize)
 //  PURPOSE :   Create a keyboard string from a KB code, Delete would be returned for KB_DELETE
 //
 //------------------------------------------------------------------------------------------------------
-CvWString CvXMLLoadUtility::CreateKeyStringFromKBCode(const TCHAR* pszHotKey)
-{
+CvWString CvXMLLoadUtility::CreateKeyStringFromKBCode(const TCHAR* pszHotKey) {
 	// SPEEDUP
 	PROFILE("CreateKeyStringFromKBCode");
 
-	struct CvKeyBoardMapping
-	{
+	struct CvKeyBoardMapping {
 		TCHAR szDefineString[25];
 		CvWString szKeyString;
 	};
 
 	// TODO - this should be a stl map instead of looping strcmp
-	const int iNumKeyBoardMappings=108;
+	const int iNumKeyBoardMappings = 108;
 	const CvKeyBoardMapping asCvKeyBoardMapping[iNumKeyBoardMappings] =
 	{
 		{"KB_ESCAPE", gDLL->getText("TXT_KEY_KEYBOARD_ESCAPE")},
@@ -570,10 +518,8 @@ CvWString CvXMLLoadUtility::CreateKeyStringFromKBCode(const TCHAR* pszHotKey)
 		{"KB_DELETE",gDLL->getText("TXT_KEY_KEYBOARD_DELETE_KEY")},
 	};
 
-	for (int i=0;i<iNumKeyBoardMappings;i++)
-	{
-		if (strcmp(asCvKeyBoardMapping[i].szDefineString, pszHotKey) == 0)
-		{
+	for (int i = 0; i < iNumKeyBoardMappings; i++) {
+		if (strcmp(asCvKeyBoardMapping[i].szDefineString, pszHotKey) == 0) {
 			return asCvKeyBoardMapping[i].szKeyString;
 		}
 	}
@@ -584,15 +530,12 @@ CvWString CvXMLLoadUtility::CreateKeyStringFromKBCode(const TCHAR* pszHotKey)
 //
 // call the progress updater fxn if it exists
 //
-void CvXMLLoadUtility::UpdateProgressCB(const char* szMessage)
-{
-	if (m_iCurProgressStep>GetNumProgressSteps())
-	{
-		m_iCurProgressStep=1;	// wrap
+void CvXMLLoadUtility::UpdateProgressCB(const char* szMessage) {
+	if (m_iCurProgressStep > GetNumProgressSteps()) {
+		m_iCurProgressStep = 1;	// wrap
 	}
 
-	if (m_pCBFxn)
-	{
+	if (m_pCBFxn) {
 		m_pCBFxn(++m_iCurProgressStep, GetNumProgressSteps(), CvString::format("Reading XML %s",
 			szMessage ? szMessage : "").c_str());
 	}
@@ -601,7 +544,6 @@ void CvXMLLoadUtility::UpdateProgressCB(const char* szMessage)
 //
 // use for fast lookup of children by name
 //
-void CvXMLLoadUtility::MapChildren()
-{
+void CvXMLLoadUtility::MapChildren() {
 	gDLL->getXMLIFace()->MapChildren(m_pFXml);
 }

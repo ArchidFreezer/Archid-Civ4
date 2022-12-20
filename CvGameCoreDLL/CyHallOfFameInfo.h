@@ -7,8 +7,7 @@
 
 class CyReplayInfo;
 
-class CyHallOfFameInfo
-{
+class CyHallOfFameInfo {
 public:
 	CyHallOfFameInfo();
 

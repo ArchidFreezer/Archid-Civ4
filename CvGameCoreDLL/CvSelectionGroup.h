@@ -13,15 +13,14 @@ class CvPlot;
 class CvArea;
 class FAStarNode;
 
-class CvSelectionGroup
-{
+class CvSelectionGroup {
 public:
 
 	CvSelectionGroup();
 	virtual ~CvSelectionGroup();
 
 	DllExport void init(int iID, PlayerTypes eOwner);
-	DllExport void uninit();			
+	DllExport void uninit();
 	DllExport void reset(int iID = 0, PlayerTypes eOwner = NO_PLAYER, bool bConstructorCall = false);
 
 	void kill();
@@ -81,9 +80,9 @@ public:
 	bool canDefend();																																										// Exposed to Python
 	bool canBombard(const CvPlot* pPlot);
 	bool visibilityRange();
-	int getBombardTurns( CvCity* pCity );
-	bool isHasPathToAreaPlayerCity( PlayerTypes ePlayer, int iFlags = 0, int iMaxPathTurns = -1 );
-	bool isHasPathToAreaEnemyCity( bool bIgnoreMinors = true, int iFlags = 0, int iMaxPathTurns = -1 );
+	int getBombardTurns(CvCity* pCity);
+	bool isHasPathToAreaPlayerCity(PlayerTypes ePlayer, int iFlags = 0, int iMaxPathTurns = -1);
+	bool isHasPathToAreaEnemyCity(bool bIgnoreMinors = true, int iFlags = 0, int iMaxPathTurns = -1);
 	bool isStranded() const; // Note: K-Mod no longer uses the stranded cache. I have a new system.
 	bool canMoveAllTerrain() const;
 
@@ -127,7 +126,7 @@ public:
 	bool canDoMission(int iMission, int iData1, int iData2, CvPlot* pPlot, bool bTestVisible, bool bCheckMoves);
 
 	int getID() const;																																												// Exposed to Python
-	void setID(int iID);																			
+	void setID(int iID);
 
 	int getMissionTimer() const;
 	void setMissionTimer(int iNewValue);
@@ -139,8 +138,7 @@ public:
 
 	DllExport PlayerTypes getOwner() const;																															// Exposed to Python
 #ifdef _USRDLL
-	inline PlayerTypes getOwnerINLINE() const
-	{
+	inline PlayerTypes getOwnerINLINE() const {
 		return m_eOwner;
 	}
 #endif
@@ -246,12 +244,12 @@ protected:
 	CLinkList<IDInfo> m_units;
 
 	CLinkList<MissionData> m_missionQueue;
-	std::vector<CvUnit *> m_aDifferentUnitCache;
+	std::vector<CvUnit*> m_aDifferentUnitCache;
 	bool m_bIsBusyCache;
 
 	void activateHeadMission();
 	void deactivateHeadMission();
-	
+
 	bool sentryAlert() const;
 
 public:

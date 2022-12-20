@@ -31,8 +31,7 @@ class CvXMLLoadUtility;
 //  DESC:   
 //
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-class CvWaterPlaneInfo :public CvInfoBase
-{
+class CvWaterPlaneInfo :public CvInfoBase {
 public:
 
 	DllExport CvWaterPlaneInfo();
@@ -47,10 +46,10 @@ public:
 	DllExport float getTextureScrollRateU() const;			// The water plane's texture scroll rate in U
 	DllExport float getTextureScrollRateV() const;			// The water plane's texture scroll rate in V
 
-	DllExport const TCHAR * getBaseTexture() const;
+	DllExport const TCHAR* getBaseTexture() const;
 	DllExport void setBaseTexture(const TCHAR* szVal);		// The filename of the base texture
 
-	DllExport const TCHAR *getTransitionTexture() const;
+	DllExport const TCHAR* getTransitionTexture() const;
 	DllExport void setTransitionTexture(const TCHAR* szVal); // The transition texture for fading ocean into land
 
 	DllExport bool read(CvXMLLoadUtility*);
@@ -78,8 +77,7 @@ protected:
 //  DESC:   
 //
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-class CvTerrainPlaneInfo :public CvInfoBase
-{
+class CvTerrainPlaneInfo :public CvInfoBase {
 public:
 
 	DllExport CvTerrainPlaneInfo();
@@ -97,7 +95,7 @@ public:
 	DllExport float getZHeight() const;						// The terrain plane's z height in world units
 	DllExport FogTypes getFogType() const;
 
-	DllExport const TCHAR * getBaseTexture() const;
+	DllExport const TCHAR* getBaseTexture() const;
 	DllExport void setBaseTexture(const TCHAR* szVal);		// The filename of the base texture
 
 	DllExport bool read(CvXMLLoadUtility*);
@@ -127,8 +125,7 @@ protected:
 //  DESC:   
 //
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-class CvCameraOverlayInfo :public CvInfoBase
-{
+class CvCameraOverlayInfo :public CvInfoBase {
 public:
 
 	DllExport CvCameraOverlayInfo();
@@ -137,7 +134,7 @@ public:
 	DllExport bool isVisible() const;				// The terrain plane's material alpha
 	DllExport CameraOverlayTypes getCameraOverlayType() const;
 
-	DllExport const TCHAR * getBaseTexture() const;
+	DllExport const TCHAR* getBaseTexture() const;
 	DllExport void setBaseTexture(const TCHAR* szVal);		// The filename of the base texture
 
 	DllExport bool read(CvXMLLoadUtility*);

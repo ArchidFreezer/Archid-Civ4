@@ -5,13 +5,12 @@
 // published python interface for CyArea
 //
 
-void CyAreaPythonInterface()
-{
+void CyAreaPythonInterface() {
 	OutputDebugString("Python Extension Module - CyAreaPythonInterface\n");
 
 	python::class_<CyArea>("CyArea")
 		.def("isNone", &CyArea::isNone, "bool () - Returns whether the pointer points to a real Area")
-		
+
 		.def("calculateTotalBestNatureYield", &CyArea::calculateTotalBestNatureYield, "int () - Returns the total tile yield from the area")
 		.def("countCoastalLand", &CyArea::countCoastalLand)
 		.def("countNumUniqueBonusTypes", &CyArea::countNumUniqueBonusTypes, "int () - Returns the number of unique bonus types in this area")
@@ -55,5 +54,5 @@ void CyAreaPythonInterface()
 		.def("getNumBonuses", &CyArea::getNumBonuses, "int(BonusID) - total # of BonusID")
 		.def("getNumTotalBonuses", &CyArea::getNumTotalBonuses, "int () - total number of bonuses, of all types")
 		.def("getNumImprovements", &CyArea::getNumImprovements, "int(ImprovementID) - total # of ImprovementID")
-	;
+		;
 }

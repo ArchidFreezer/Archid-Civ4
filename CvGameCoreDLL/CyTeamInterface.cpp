@@ -6,8 +6,7 @@
 // published python interface for CyTeam
 //
 
-void CyTeamPythonInterface()
-{
+void CyTeamPythonInterface() {
 	OutputDebugString("Python Extension Module - CyTeamPythonInterface\n");
 
 	python::class_<CyTeam>("CyTeam")
@@ -158,7 +157,7 @@ void CyTeamPythonInterface()
 		.def("assignVassal", &CyTeam::assignVassal, "void (TeamTypes, bool)")
 		.def("freeVassal", &CyTeam::freeVassal, "void (TeamTypes)")
 		.def("isDefensivePact", &CyTeam::isDefensivePact, "bool (TeamTypes)")
-		.def("getRouteChange", &CyTeam::getRouteChange,	"int (RouteType) - Route Change caused by RouteType")
+		.def("getRouteChange", &CyTeam::getRouteChange, "int (RouteType) - Route Change caused by RouteType")
 		.def("changeRouteChange", &CyTeam::changeRouteChange, "void (int /*RouteType*/ eIndex, int iChange)")
 		.def("getProjectCount", &CyTeam::getProjectCount, "bool (int /*ProjectTypes*/ eIndex)")
 		.def("getProjectDefaultArtType", &CyTeam::getProjectDefaultArtType, "bool (int /*ProjectTypes*/ eIndex)")
@@ -188,7 +187,7 @@ void CyTeamPythonInterface()
 		.def("isNoTradeTech", &CyTeam::isNoTradeTech, "bool (TechID)")
 		.def("setNoTradeTech", &CyTeam::setNoTradeTech, "void (TechID, bNewValue)")
 
-		.def("getImprovementYieldChange", &CyTeam::getImprovementYieldChange,	"int (int /*ImprovementTypes*/ eIndex1, int /*YieldTypes*/ eIndex2)")
+		.def("getImprovementYieldChange", &CyTeam::getImprovementYieldChange, "int (int /*ImprovementTypes*/ eIndex1, int /*YieldTypes*/ eIndex2)")
 		.def("changeImprovementYieldChange", &CyTeam::changeImprovementYieldChange, "void (int /*ImprovementTypes*/ eIndex1, int /*YieldTypes*/ eIndex2, iChange)")
 
 		.def("getVictoryCountdown", &CyTeam::getVictoryCountdown, "int (int /*VictoryTypes*/)")
@@ -211,11 +210,11 @@ void CyTeamPythonInterface()
 		.def("changeCounterespionageModAgainstTeam", &CyTeam::changeCounterespionageModAgainstTeam, "void (TeamTypes eIndex, int iChange)")
 		.def("AI_shareWar", &CyTeam::AI_shareWar, "bool (TeamTypes)")
 		.def("AI_setWarPlan", &CyTeam::AI_setWarPlan, "void (int /*TeamTypes*/ eIndex, int /*WarPlanTypes*/ eNewValue)")
-/************************************************************************************************/
-/* BETTER_BTS_AI_MOD                      01/12/09                                jdog5000      */
-/*                                                                                              */
-/* Player Interface                                                                             */
-/************************************************************************************************/
+		/************************************************************************************************/
+		/* BETTER_BTS_AI_MOD                      01/12/09                                jdog5000      */
+		/*                                                                                              */
+		/* Player Interface                                                                             */
+		/************************************************************************************************/
 		.def("AI_getWarPlan", &CyTeam::AI_getWarPlan, "int (int /*TeamTypes*/ eIndex)")
 		.def("AI_getAtWarCounter", &CyTeam::AI_getAtWarCounter, "int (TeamTypes)")
 		.def("AI_getAtPeaceCounter", &CyTeam::AI_getAtPeaceCounter, "int (TeamTypes)")

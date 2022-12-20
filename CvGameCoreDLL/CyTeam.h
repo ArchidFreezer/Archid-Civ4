@@ -9,14 +9,13 @@
 // 
 class CvTeam;
 class CyArea;
-class CyTeam
-{
+class CyTeam {
 public:
 	CyTeam();
 	CyTeam(CvTeam* pTeam);		// Call from C++
-	CvTeam* getTeam() { return m_pTeam;	}	// Call from C++
+	CvTeam* getTeam() { return m_pTeam; }	// Call from C++
 
-	bool isNone() { return (m_pTeam==NULL); }
+	bool isNone() { return (m_pTeam == NULL); }
 
 	void addTeam(int /*TeamTypes*/ eTeam);
 
@@ -82,13 +81,13 @@ public:
 	int getTotalPopulation();
 	int getTotalLand();
 	int getNukeInterception();
-	void changeNukeInterception(int iChange);	 
+	void changeNukeInterception(int iChange);
 
 	int getForceTeamVoteEligibilityCount(int /*VoteSourceTypes*/ eVoteSource);
 	bool isForceTeamVoteEligible(int /*VoteSourceTypes*/ eVoteSource);
 	void changeForceTeamVoteEligibilityCount(int /*VoteSourceTypes*/ eVoteSource, int iChange);
 	int getExtraWaterSeeFromCount();
-	bool isExtraWaterSeeFrom();		 
+	bool isExtraWaterSeeFrom();
 	void changeExtraWaterSeeFromCount(int iChange);
 	int getMapTradingCount();
 	bool isMapTrading();
@@ -104,25 +103,25 @@ public:
 	void changeOpenBordersTradingCount(int iChange);
 	int getDefensivePactTradingCount();
 	bool isDefensivePactTrading();
-	void changeDefensivePactTradingCount(int iChange);															
+	void changeDefensivePactTradingCount(int iChange);
 	int getPermanentAllianceTradingCount();
 	bool isPermanentAllianceTrading();
-	void changePermanentAllianceTradingCount(int iChange);													
+	void changePermanentAllianceTradingCount(int iChange);
 	int getVassalTradingCount();
 	bool isVassalStateTrading();
-	void changeVassalTradingCount(int iChange);													
+	void changeVassalTradingCount(int iChange);
 	int getBridgeBuildingCount();
 	bool isBridgeBuilding();
-	void changeBridgeBuildingCount(int iChange);																		
+	void changeBridgeBuildingCount(int iChange);
 	int getIrrigationCount();
 	bool isIrrigation();
-	void changeIrrigationCount(int iChange);																				
+	void changeIrrigationCount(int iChange);
 	int getIgnoreIrrigationCount();
 	bool isIgnoreIrrigation();
-	void changeIgnoreIrrigationCount(int iChange);																	
+	void changeIgnoreIrrigationCount(int iChange);
 	int getWaterWorkCount();
 	bool isWaterWork();
-	void changeWaterWorkCount(int iChange);																	
+	void changeWaterWorkCount(int iChange);
 
 	int getVassalPower() const;
 	void setVassalPower(int iPower);
@@ -138,9 +137,9 @@ public:
 	int getID();
 
 	bool isStolenVisibility(int /*TeamTypes*/ eIndex);
-	int getWarWeariness(int /*TeamTypes*/ eIndex);								 
-	void setWarWeariness(int /*TeamTypes*/ eIndex, int iNewValue);	 
-	void changeWarWeariness(int /*TeamTypes*/ eIndex, int iChange);	 
+	int getWarWeariness(int /*TeamTypes*/ eIndex);
+	void setWarWeariness(int /*TeamTypes*/ eIndex, int iNewValue);
+	void changeWarWeariness(int /*TeamTypes*/ eIndex, int iChange);
 	int getTechShareCount(int iIndex);
 	bool isTechShare(int iIndex);
 	void changeTechShareCount(int iIndex, int iChange);

@@ -8,8 +8,7 @@
 // published python interface for CyMapGenerator
 //
 
-void CyMapGeneratorPythonInterface()
-{
+void CyMapGeneratorPythonInterface() {
 	OutputDebugString("Python Extension Module - CyMapGeneratorPythonInterface\n");
 
 	python::class_<CyMapGenerator>("CyMapGenerator")

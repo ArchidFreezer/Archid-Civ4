@@ -14,8 +14,7 @@
 #include "CyTeam.h"
 
 
-void CyGlobalContextPythonInterface4(python::class_<CyGlobalContext>& x)
-{
+void CyGlobalContextPythonInterface4(python::class_<CyGlobalContext>& x) {
 	OutputDebugString("Python Extension Module - CyGlobalContextPythonInterface1\n");
 
 	x

@@ -10,20 +10,17 @@
 #define RANDOM_C      (12345)
 #define RANDOM_SHIFT  (16)
 
-CvRandom::CvRandom()
-{ 
+CvRandom::CvRandom() {
 	reset();
 }
 
 
-CvRandom::~CvRandom()
-{ 
+CvRandom::~CvRandom() {
 	uninit();
 }
 
 
-void CvRandom::init(unsigned long ulSeed)
-{
+void CvRandom::init(unsigned long ulSeed) {
 	//--------------------------------
 	// Init saved data
 	reset(ulSeed);
@@ -33,15 +30,13 @@ void CvRandom::init(unsigned long ulSeed)
 }
 
 
-void CvRandom::uninit()
-{
+void CvRandom::uninit() {
 }
 
 
 // FUNCTION: reset()
 // Initializes data members that are serialized.
-void CvRandom::reset(unsigned long ulSeed)
-{
+void CvRandom::reset(unsigned long ulSeed) {
 	//--------------------------------
 	// Uninit class
 	uninit();
@@ -50,14 +45,10 @@ void CvRandom::reset(unsigned long ulSeed)
 }
 
 
-unsigned short CvRandom::get(unsigned short usNum, const TCHAR* pszLog)
-{
-	if (pszLog != NULL)
-	{
-		if (GC.getLogging() && GC.getRandLogging())
-		{
-			if (GC.getGameINLINE().getTurnSlice() > 0)
-			{
+unsigned short CvRandom::get(unsigned short usNum, const TCHAR* pszLog) {
+	if (pszLog != NULL) {
+		if (GC.getLogging() && GC.getRandLogging()) {
+			if (GC.getGameINLINE().getTurnSlice() > 0) {
 				TCHAR szOut[1024];
 				sprintf(szOut, "Rand = %ul / %hu (%s) on %d\n", getSeed(), usNum, pszLog, GC.getGameINLINE().getTurnSlice());
 				gDLL->messageControlLog(szOut);
@@ -73,33 +64,28 @@ unsigned short CvRandom::get(unsigned short usNum, const TCHAR* pszLog)
 }
 
 
-float CvRandom::getFloat()
-{
+float CvRandom::getFloat() {
 	return (((float)(get(MAX_UNSIGNED_SHORT))) / ((float)MAX_UNSIGNED_SHORT));
 }
 
 
-void CvRandom::reseed(unsigned long ulNewValue)
-{
+void CvRandom::reseed(unsigned long ulNewValue) {
 	m_ulRandomSeed = ulNewValue;
 }
 
 
-unsigned long CvRandom::getSeed()
-{
+unsigned long CvRandom::getSeed() {
 	return m_ulRandomSeed;
 }
 
 
-void CvRandom::read(FDataStreamBase* pStream)
-{
+void CvRandom::read(FDataStreamBase* pStream) {
 	reset();
 
 	pStream->Read(&m_ulRandomSeed);
 }
 
 
-void CvRandom::write(FDataStreamBase* pStream)
-{
+void CvRandom::write(FDataStreamBase* pStream) {
 	pStream->Write(m_ulRandomSeed);
 }

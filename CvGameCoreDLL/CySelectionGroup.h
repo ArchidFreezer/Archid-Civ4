@@ -14,14 +14,13 @@ class CyPlot;
 class CyArea;
 class CyUnit;
 class CvSelectionGroup;
-class CySelectionGroup
-{
+class CySelectionGroup {
 public:
 	CySelectionGroup();
 	CySelectionGroup(CvSelectionGroup* pSelectionGroup);		// Call from C++
-	CvSelectionGroup* getSelectionGroup() { return m_pSelectionGroup;	}	// Call from C++
+	CvSelectionGroup* getSelectionGroup() { return m_pSelectionGroup; }	// Call from C++
 
-	bool isNone() { return (m_pSelectionGroup==NULL); }
+	bool isNone() { return (m_pSelectionGroup == NULL); }
 	void pushMission(MissionTypes eMission, int iData1, int iData2, int iFlags, bool bAppend, bool bManual, MissionAITypes eMissionAI, CyPlot* pMissionAIPlot, CyUnit* pMissionAIUnit);
 	void pushMoveToMission(int iX, int iY);
 	void popMission();
@@ -34,7 +33,7 @@ public:
 	bool canDoCommand(CommandTypes eCommand, int iData1, int iData2, bool bTestVisible);
 
 	bool isHuman();
-	int baseMoves();	
+	int baseMoves();
 	bool isWaiting();
 	bool isFull();
 	bool hasCargo();
@@ -47,9 +46,9 @@ public:
 	bool canMoveOrAttackInto(CyPlot* pPlot, bool bDeclareWar);
 	bool canMoveThrough(CyPlot* pPlot);
 	bool canFight();
-	bool canDefend();	
-	bool alwaysInvisible();	
-	bool isInvisible(int /*TeamTypes*/ eTeam);	
+	bool canDefend();
+	bool alwaysInvisible();
+	bool isInvisible(int /*TeamTypes*/ eTeam);
 	int countNumUnitAIType(UnitAITypes eUnitAI);
 	bool hasWorker();
 	bool isStranded();
@@ -64,7 +63,7 @@ public:
 
 	bool readyToSelect(bool bAny);
 	bool readyToMove(bool bAny);
-	bool readyToAuto();	
+	bool readyToAuto();
 	int getID();
 	int /*PlayerTypes*/ getOwner();
 	int /*TeamTypes*/ getTeam();
@@ -79,9 +78,9 @@ public:
 	int getNumUnits();
 	void clearMissionQueue();
 	int getLengthMissionQueue();
-	int getMissionType( int iNode );
-	int getMissionData1( int iNode );
-	int getMissionData2( int iNode );
+	int getMissionType(int iNode);
+	int getMissionData1(int iNode);
+	int getMissionData2(int iNode);
 	MissionData* getMissionFromQueue(int iIndex);
 	CyUnit* getHeadUnit();
 	CyUnit* getUnitAt(int index);

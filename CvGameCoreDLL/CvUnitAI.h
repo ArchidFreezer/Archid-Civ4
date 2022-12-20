@@ -9,8 +9,7 @@
 
 class CvCity;
 
-class CvUnitAI : public CvUnit
-{
+class CvUnitAI : public CvUnit {
 
 public:
 
@@ -205,11 +204,11 @@ protected:
 	bool AI_airCarrier();
 	bool AI_missileLoad(UnitAITypes eTargetUnitAI, int iMaxOwnUnitAI = -1, bool bStealthOnly = false);
 	bool AI_airStrike(int iThreshold = 0); // K-Mod note. this function now handles bombing defences, and defensive strikes.
-	int AI_airOffenseBaseValue( CvPlot* pPlot );
+	int AI_airOffenseBaseValue(CvPlot* pPlot);
 	bool AI_defendBaseAirStrike();
 	bool AI_airBombPlots();
 	bool AI_exploreAir();
-	int AI_exploreAirPlotValue( CvPlot* pPlot );
+	int AI_exploreAirPlotValue(CvPlot* pPlot);
 	bool AI_exploreAir2();
 	void AI_exploreAirMove();
 	bool AI_nuke();
@@ -252,12 +251,12 @@ protected:
 	bool AI_moveIntoCity(int iRange);
 
 	bool AI_groupMergeRange(UnitAITypes eUnitAI, int iRange, bool bBiggerOnly = true, bool bAllowRegrouping = false, bool bIgnoreFaster = false);
-	
+
 	bool AI_poach();
 	bool AI_choke(int iRange = 1, bool bDefensive = false, int iFlags = 0);
 
 	bool AI_solveBlockageProblem(CvPlot* pDestPlot, bool bDeclareWar);
-	
+
 	int AI_calculatePlotWorkersNeeded(CvPlot* pPlot, BuildTypes eBuild);
 
 	int AI_getEspionageTargetValue(CvPlot* pPlot); // K-Mod

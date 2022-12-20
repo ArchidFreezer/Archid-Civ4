@@ -37,8 +37,7 @@ void CyMessageControlInterface();
 //
 //
 //
-DllExport void DLLPublishToPython()
-{
+DllExport void DLLPublishToPython() {
 	CyEnumsPythonInterface();
 	CyGamePythonInterface();
 	CyRandomPythonInterface();
@@ -60,20 +59,20 @@ DllExport void DLLPublishToPython()
 	//
 	// large interfaces which can be split across files if need be
 	//
-	python::class_<CyCity> city ("CyCity");		// define city class
+	python::class_<CyCity> city("CyCity");		// define city class
 	CyCityPythonInterface1(city);				// publish it's methods
 
-	python::class_<CyPlayer> player ("CyPlayer");	// define player class
+	python::class_<CyPlayer> player("CyPlayer");	// define player class
 	CyPlayerPythonInterface1(player);				// publish it's methods
 	CyPlayerPythonInterface2(player);				// publish it's methods
 
-	python::class_<CyUnit> unit ("CyUnit");		// define unit class
+	python::class_<CyUnit> unit("CyUnit");		// define unit class
 	CyUnitPythonInterface1(unit);				// publish it's methods
 
-	python::class_<CyPlot> plot ("CyPlot");		// define plot class
+	python::class_<CyPlot> plot("CyPlot");		// define plot class
 	CyPlotPythonInterface1(plot);				// publish it's methods
 
-	python::class_<CyGlobalContext> gc ("CyGlobalContext");	// define globals class 
+	python::class_<CyGlobalContext> gc("CyGlobalContext");	// define globals class 
 	CyGlobalContextPythonInterface1(gc);					// publish it's methods 
 	CyGlobalContextPythonInterface2(gc);					// publish it's methods
 	CyGlobalContextPythonInterface3(gc);					// publish it's methods

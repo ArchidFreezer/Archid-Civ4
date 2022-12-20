@@ -5,8 +5,7 @@
 
 #include "CvReplayInfo.h"
 
-class CvHallOfFameInfo
-{
+class CvHallOfFameInfo {
 public:
 	CvHallOfFameInfo();
 	virtual ~CvHallOfFameInfo();

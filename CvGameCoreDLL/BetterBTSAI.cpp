@@ -4,13 +4,12 @@
 
 // AI decision making logging
 
-void logBBAI(TCHAR* format, ... )
-{
+void logBBAI(TCHAR* format, ...) {
 #ifdef LOG_AI
 	static char buf[2048];
 	va_list args;
 	va_start(args, format);
-	_vsnprintf(buf, 2048-4, format, args);
+	_vsnprintf(buf, 2048 - 4, format, args);
 	gDLL->logMsg("BBAI.log", buf);
 #endif
 }

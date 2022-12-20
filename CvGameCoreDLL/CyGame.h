@@ -16,14 +16,13 @@ class CyDeal;
 class CyReplayInfo;
 class CyPlot;
 
-class CyGame
-{
+class CyGame {
 public:
 	CyGame();
 	CyGame(CvGame* pGame);			// Call from C++
 	CyGame(CvGameAI* pGame);			// Call from C++;
-	CvGame* getGame() { return m_pGame;	}	// Call from C++
-	bool isNone() { return (m_pGame==NULL); }
+	CvGame* getGame() { return m_pGame; }	// Call from C++
+	bool isNone() { return (m_pGame == NULL); }
 
 	void updateScore(bool bForce);
 	void cycleCities(bool bForward, bool bAdd);
@@ -63,9 +62,9 @@ public:
 	int countKnownTechNumTeams(int /*TechTypes*/ eTech);
 	int getNumFreeBonuses(int /*BuildingTypes*/ eBuilding);
 
-	int countReligionLevels(int /*ReligionTypes*/ eReligion);	
+	int countReligionLevels(int /*ReligionTypes*/ eReligion);
 	int calculateReligionPercent(int /* ReligionTypes*/ eReligion);
-	int countCorporationLevels(int /*CorporationTypes*/ eCorporation);	
+	int countCorporationLevels(int /*CorporationTypes*/ eCorporation);
 
 	int goldenAgeLength();
 	int victoryDelay(int /*VictoryTypes*/ eVictory);
@@ -90,7 +89,7 @@ public:
 	void setGameTurn(int iNewValue);
 	int getTurnYear(int iGameTurn);
 	int getGameTurnYear();
-	
+
 	int getElapsedGameTurns();
 	int getMaxTurns() const;
 	void setMaxTurns(int iNewValue);
@@ -172,7 +171,7 @@ public:
 	bool isPaused();
 	int /*UnitTypes*/ getBestLandUnit();
 	int getBestLandUnitCombat();
-	
+
 	int /*TeamTypes*/ getWinner();
 	int /*VictoryTypes*/ getVictory();
 	void setWinner(int /*TeamTypes*/ eNewWinner, int /*VictoryTypes*/ eNewVictory);
@@ -180,7 +179,7 @@ public:
 	int /*HandicapTypes*/ getHandicapType();
 	CalendarTypes getCalendar() const;
 	int /*EraTypes*/ getStartEra();
-	int /*GameSpeedTypes*/ getGameSpeedType();	
+	int /*GameSpeedTypes*/ getGameSpeedType();
 	/*PlayerTypes*/ int getRankPlayer(int iRank);
 	int getPlayerRank(int /*PlayerTypes*/ iIndex);
 	int getPlayerScore(int /*PlayerTypes*/ iIndex);
@@ -266,21 +265,21 @@ public:
 	void saveReplay(int iPlayer);
 
 	void addPlayer(int /*PlayerTypes*/ eNewPlayer, int /*LeaderHeadTypes*/ eLeader, int /*CivilizationTypes*/ eCiv);
-/********************************************************************************/
-/* 	BETTER_BTS_AI_MOD						8/1/08				jdog5000	*/
-/* 																			*/
-/* 	Debug																	*/
-/********************************************************************************/
-	void changeHumanPlayer( int /*PlayerTypes*/ eNewHuman );
-/********************************************************************************/
-/* 	BETTER_BTS_AI_MOD						END								*/
-/********************************************************************************/
+	/********************************************************************************/
+	/* 	BETTER_BTS_AI_MOD						8/1/08				jdog5000	*/
+	/* 																			*/
+	/* 	Debug																	*/
+	/********************************************************************************/
+	void changeHumanPlayer(int /*PlayerTypes*/ eNewHuman);
+	/********************************************************************************/
+	/* 	BETTER_BTS_AI_MOD						END								*/
+	/********************************************************************************/
 	int getCultureThreshold(int /*CultureLevelTypes*/ eLevel);
 
 	int getPlotExtraYield(int iX, int iY, int /*YieldTypes*/ eYield); // K-Mod
 	void setPlotExtraYield(int iX, int iY, int /*YieldTypes*/ eYield, int iExtraYield);
 	void changePlotExtraCost(int iX, int iY, int iExtraCost);
-	
+
 	bool isCivEverActive(int /*CivilizationTypes*/ eCivilization);
 	bool isLeaderEverActive(int /*LeaderHeadTypes*/ eLeader);
 	bool isUnitEverActive(int /*UnitTypes*/ eUnit);

@@ -15,8 +15,7 @@
 
 // Public Functions...
 
-CvArea::CvArea()
-{
+CvArea::CvArea() {
 	m_aiUnitsPerPlayer = new int[MAX_PLAYERS];
 	m_aiAnimalsPerPlayer = new int[MAX_PLAYERS];
 	m_aiCitiesPerPlayer = new int[MAX_PLAYERS];
@@ -35,19 +34,16 @@ CvArea::CvArea()
 
 	m_aTargetCities = new IDInfo[MAX_PLAYERS];
 
-	m_aaiYieldRateModifier = new int*[MAX_PLAYERS];
-	for (int i = 0; i < MAX_PLAYERS; i++)
-	{
+	m_aaiYieldRateModifier = new int* [MAX_PLAYERS];
+	for (int i = 0; i < MAX_PLAYERS; i++) {
 		m_aaiYieldRateModifier[i] = new int[NUM_YIELD_TYPES];
 	}
-	m_aaiNumTrainAIUnits = new int*[MAX_PLAYERS];
-	for (int i = 0; i < MAX_PLAYERS; i++)
-	{
+	m_aaiNumTrainAIUnits = new int* [MAX_PLAYERS];
+	for (int i = 0; i < MAX_PLAYERS; i++) {
 		m_aaiNumTrainAIUnits[i] = new int[NUM_UNITAI_TYPES];
 	}
-	m_aaiNumAIUnits = new int*[MAX_PLAYERS];
-	for (int i = 0; i < MAX_PLAYERS; i++)
-	{
+	m_aaiNumAIUnits = new int* [MAX_PLAYERS];
+	for (int i = 0; i < MAX_PLAYERS; i++) {
 		m_aaiNumAIUnits[i] = new int[NUM_UNITAI_TYPES];
 	}
 
@@ -59,8 +55,7 @@ CvArea::CvArea()
 }
 
 
-CvArea::~CvArea()
-{
+CvArea::~CvArea() {
 	uninit();
 
 	SAFE_DELETE_ARRAY(m_aiUnitsPerPlayer);
@@ -78,26 +73,22 @@ CvArea::~CvArea()
 	SAFE_DELETE_ARRAY(m_aiBorderObstacleCount);
 	SAFE_DELETE_ARRAY(m_aeAreaAIType);
 	SAFE_DELETE_ARRAY(m_aTargetCities);
-	for (int i = 0; i < MAX_PLAYERS; i++)
-	{
+	for (int i = 0; i < MAX_PLAYERS; i++) {
 		SAFE_DELETE_ARRAY(m_aaiYieldRateModifier[i]);
 	}
 	SAFE_DELETE_ARRAY(m_aaiYieldRateModifier);
-	for (int i = 0; i < MAX_PLAYERS; i++)
-	{
+	for (int i = 0; i < MAX_PLAYERS; i++) {
 		SAFE_DELETE_ARRAY(m_aaiNumTrainAIUnits[i]);
 	}
 	SAFE_DELETE_ARRAY(m_aaiNumTrainAIUnits);
-	for (int i = 0; i < MAX_PLAYERS; i++)
-	{
+	for (int i = 0; i < MAX_PLAYERS; i++) {
 		SAFE_DELETE_ARRAY(m_aaiNumAIUnits[i]);
 	}
 	SAFE_DELETE_ARRAY(m_aaiNumAIUnits);
 }
 
 
-void CvArea::init(int iID, bool bWater)
-{
+void CvArea::init(int iID, bool bWater) {
 	//--------------------------------
 	// Init saved data
 	reset(iID, bWater);
@@ -110,8 +101,7 @@ void CvArea::init(int iID, bool bWater)
 }
 
 
-void CvArea::uninit()
-{
+void CvArea::uninit() {
 	SAFE_DELETE_ARRAY(m_paiNumBonuses);
 	SAFE_DELETE_ARRAY(m_paiNumImprovements);
 }
@@ -119,8 +109,7 @@ void CvArea::uninit()
 
 // FUNCTION: reset()
 // Initializes data members that are serialized.
-void CvArea::reset(int iID, bool bWater, bool bConstructorCall)
-{
+void CvArea::reset(int iID, bool bWater, bool bConstructorCall) {
 	//--------------------------------
 	// Uninit class
 	uninit();
@@ -136,8 +125,7 @@ void CvArea::reset(int iID, bool bWater, bool bConstructorCall)
 
 	m_bWater = bWater;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
 		m_aiUnitsPerPlayer[iI] = 0;
 		m_aiAnimalsPerPlayer[iI] = 0;
 		m_aiCitiesPerPlayer[iI] = 0;
@@ -150,78 +138,64 @@ void CvArea::reset(int iID, bool bWater, bool bConstructorCall)
 		m_aiBestFoundValue[iI] = 0;
 	}
 
-	for (int iI = 0; iI < MAX_TEAMS; iI++)
-	{
+	for (int iI = 0; iI < MAX_TEAMS; iI++) {
 		m_aiNumRevealedTiles[iI] = 0;
 		m_aiCleanPowerCount[iI] = 0;
 		m_aiBorderObstacleCount[iI] = 0;
 	}
 
-	for (int iI = 0; iI < MAX_TEAMS; iI++)
-	{
+	for (int iI = 0; iI < MAX_TEAMS; iI++) {
 		m_aeAreaAIType[iI] = NO_AREAAI;
 	}
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
 		m_aTargetCities[iI].reset();
 	}
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		for (int iJ = 0; iJ < NUM_YIELD_TYPES; iJ++)
-		{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		for (int iJ = 0; iJ < NUM_YIELD_TYPES; iJ++) {
 			m_aaiYieldRateModifier[iI][iJ] = 0;
 		}
 
-		for (int iJ = 0; iJ < NUM_UNITAI_TYPES; iJ++)
-		{
+		for (int iJ = 0; iJ < NUM_UNITAI_TYPES; iJ++) {
 			m_aaiNumTrainAIUnits[iI][iJ] = 0;
 			m_aaiNumAIUnits[iI][iJ] = 0;
 		}
 	}
 
-	if (!bConstructorCall)
-	{
+	if (!bConstructorCall) {
 		FAssertMsg((0 < GC.getNumBonusInfos()) && "GC.getNumBonusInfos() is not greater than zero but an array is being allocated in CvArea::reset", "GC.getNumBonusInfos() is not greater than zero but an array is being allocated in CvArea::reset");
 		m_paiNumBonuses = new int[GC.getNumBonusInfos()];
-		for (int iI = 0; iI < GC.getNumBonusInfos(); iI++)
-		{
+		for (int iI = 0; iI < GC.getNumBonusInfos(); iI++) {
 			m_paiNumBonuses[iI] = 0;
 		}
 
 		FAssertMsg((0 < GC.getNumImprovementInfos()) && "GC.getNumImprovementInfos() is not greater than zero but an array is being allocated in CvArea::reset", "GC.getNumImprovementInfos() is not greater than zero but an array is being allocated in CvArea::reset");
 		m_paiNumImprovements = new int[GC.getNumImprovementInfos()];
-		for (int iI = 0; iI < GC.getNumImprovementInfos(); iI++)
-		{
+		for (int iI = 0; iI < GC.getNumImprovementInfos(); iI++) {
 			m_paiNumImprovements[iI] = 0;
 		}
 	}
 }
 
 
-int CvArea::getID() const						
-{
+int CvArea::getID() const {
 	return m_iID;
 }
 
 
-void CvArea::setID(int iID)														
-{
+void CvArea::setID(int iID) {
 	m_iID = iID;
 }
 
 
-int CvArea::calculateTotalBestNatureYield() const
-{
+int CvArea::calculateTotalBestNatureYield() const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++)
-	{
-		CvPlot*pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
+	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++) {
+		CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
 
-		if (pLoopPlot->getArea() == getID())
-		{
+		if (pLoopPlot->getArea() == getID()) {
 			iCount += pLoopPlot->calculateTotalBestNatureYield(NO_TEAM);
 		}
 	}
@@ -230,23 +204,18 @@ int CvArea::calculateTotalBestNatureYield() const
 }
 
 
-int CvArea::countCoastalLand() const
-{
-	if (isWater())
-	{
+int CvArea::countCoastalLand() const {
+	if (isWater()) {
 		return 0;
 	}
 
 	int iCount = 0;
 
-	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++)
-	{
+	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++) {
 		CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
 
-		if (pLoopPlot->getArea() == getID())
-		{
-			if (pLoopPlot->isCoastalLand())
-			{
+		if (pLoopPlot->getArea() == getID()) {
+			if (pLoopPlot->isCoastalLand()) {
 				iCount++;
 			}
 		}
@@ -256,16 +225,12 @@ int CvArea::countCoastalLand() const
 }
 
 
-int CvArea::countNumUniqueBonusTypes() const
-{
+int CvArea::countNumUniqueBonusTypes() const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < GC.getNumBonusInfos(); iI++)
-	{
-		if (getNumBonuses((BonusTypes)iI) > 0)
-		{
-			if (GC.getBonusInfo((BonusTypes)iI).isOneArea())
-			{
+	for (int iI = 0; iI < GC.getNumBonusInfos(); iI++) {
+		if (getNumBonuses((BonusTypes)iI) > 0) {
+			if (GC.getBonusInfo((BonusTypes)iI).isOneArea()) {
 				iCount++;
 			}
 		}
@@ -275,23 +240,16 @@ int CvArea::countNumUniqueBonusTypes() const
 }
 
 
-int CvArea::countHasReligion(ReligionTypes eReligion, PlayerTypes eOwner) const
-{
+int CvArea::countHasReligion(ReligionTypes eReligion, PlayerTypes eOwner) const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if ((eOwner == NO_PLAYER) || (iI == eOwner))
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if ((eOwner == NO_PLAYER) || (iI == eOwner)) {
 				int iLoop;
-				for (CvCity* pLoopCity = GET_PLAYER((PlayerTypes)iI).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER((PlayerTypes)iI).nextCity(&iLoop))
-				{
-					if (pLoopCity->area()->getID() == getID())
-					{
-						if (pLoopCity->isHasReligion(eReligion))
-						{
+				for (CvCity* pLoopCity = GET_PLAYER((PlayerTypes)iI).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER((PlayerTypes)iI).nextCity(&iLoop)) {
+					if (pLoopCity->area()->getID() == getID()) {
+						if (pLoopCity->isHasReligion(eReligion)) {
 							iCount++;
 						}
 					}
@@ -303,23 +261,16 @@ int CvArea::countHasReligion(ReligionTypes eReligion, PlayerTypes eOwner) const
 	return iCount;
 }
 
-int CvArea::countHasCorporation(CorporationTypes eCorporation, PlayerTypes eOwner) const
-{
+int CvArea::countHasCorporation(CorporationTypes eCorporation, PlayerTypes eOwner) const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < MAX_PLAYERS; ++iI)
-	{
-		if (GET_PLAYER((PlayerTypes)iI).isAlive())
-		{
-			if ((eOwner == NO_PLAYER) || (iI == eOwner))
-			{
+	for (int iI = 0; iI < MAX_PLAYERS; ++iI) {
+		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
+			if ((eOwner == NO_PLAYER) || (iI == eOwner)) {
 				int iLoop;
-				for (CvCity* pLoopCity = GET_PLAYER((PlayerTypes)iI).firstCity(&iLoop); NULL != pLoopCity; pLoopCity = GET_PLAYER((PlayerTypes)iI).nextCity(&iLoop))
-				{
-					if (pLoopCity->area()->getID() == getID())
-					{
-						if (pLoopCity->isHasCorporation(eCorporation))
-						{
+				for (CvCity* pLoopCity = GET_PLAYER((PlayerTypes)iI).firstCity(&iLoop); NULL != pLoopCity; pLoopCity = GET_PLAYER((PlayerTypes)iI).nextCity(&iLoop)) {
+					if (pLoopCity->area()->getID() == getID()) {
+						if (pLoopCity->isHasCorporation(eCorporation)) {
 							++iCount;
 						}
 					}
@@ -332,29 +283,24 @@ int CvArea::countHasCorporation(CorporationTypes eCorporation, PlayerTypes eOwne
 }
 
 
-int CvArea::getNumTiles() const
-{
+int CvArea::getNumTiles() const {
 	return m_iNumTiles;
 }
 
 
-bool CvArea::isLake() const							
-{
+bool CvArea::isLake() const {
 	return (isWater() && (getNumTiles() <= GC.getLAKE_MAX_AREA_SIZE()));
 }
 
 
-void CvArea::changeNumTiles(int iChange)
-{
-	if (iChange != 0)
-	{
+void CvArea::changeNumTiles(int iChange) {
+	if (iChange != 0) {
 		bool bOldLake = isLake();
 
 		m_iNumTiles = (m_iNumTiles + iChange);
 		FAssert(getNumTiles() >= 0);
 
-		if (bOldLake != isLake())
-		{
+		if (bOldLake != isLake()) {
 			GC.getMapINLINE().updateIrrigated();
 			GC.getMapINLINE().updateYield();
 		}
@@ -362,86 +308,73 @@ void CvArea::changeNumTiles(int iChange)
 }
 
 
-int CvArea::getNumOwnedTiles() const
-{
+int CvArea::getNumOwnedTiles() const {
 	return m_iNumOwnedTiles;
 }
 
 
-int CvArea::getNumUnownedTiles() const
-{
+int CvArea::getNumUnownedTiles() const {
 	return (getNumTiles() - getNumOwnedTiles());
 }
 
 
-void CvArea::changeNumOwnedTiles(int iChange)									
-{
+void CvArea::changeNumOwnedTiles(int iChange) {
 	m_iNumOwnedTiles = (m_iNumOwnedTiles + iChange);
 	FAssert(getNumOwnedTiles() >= 0);
 	FAssert(getNumUnownedTiles() >= 0);
 }
 
 
-int CvArea::getNumRiverEdges() const												
-{
+int CvArea::getNumRiverEdges() const {
 	return m_iNumRiverEdges;
 }
 
 
-void CvArea::changeNumRiverEdges(int iChange)									
-{
+void CvArea::changeNumRiverEdges(int iChange) {
 	m_iNumRiverEdges = (m_iNumRiverEdges + iChange);
 	FAssert(getNumRiverEdges() >= 0);
 }
 
 
-int CvArea::getNumUnits() const					
-{
+int CvArea::getNumUnits() const {
 	return m_iNumUnits;
 }
 
 
-int CvArea::getNumCities() const					
-{
+int CvArea::getNumCities() const {
 	return m_iNumCities;
 }
 
 
-int CvArea::getTotalPopulation() const					
-{
+int CvArea::getTotalPopulation() const {
 	return m_iTotalPopulation;
 }
 
 
-int CvArea::getNumStartingPlots() const
-{
+int CvArea::getNumStartingPlots() const {
 	return m_iNumStartingPlots;
 }
 
 
-void CvArea::changeNumStartingPlots(int iChange)
-{
+void CvArea::changeNumStartingPlots(int iChange) {
 	m_iNumStartingPlots = m_iNumStartingPlots + iChange;
 	FAssert(getNumStartingPlots() >= 0);
 }
 
 
-bool CvArea::isWater() const							
-{
+bool CvArea::isWater() const {
 	return m_bWater;
 }
 
 
-int CvArea::getUnitsPerPlayer(PlayerTypes eIndex) const												
-{
+int CvArea::getUnitsPerPlayer(PlayerTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 	return m_aiUnitsPerPlayer[eIndex];
 }
 
 
-void CvArea::changeUnitsPerPlayer(PlayerTypes eIndex, int iChange)							
-{
+void CvArea::changeUnitsPerPlayer(PlayerTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 	m_iNumUnits = (m_iNumUnits + iChange);
@@ -451,16 +384,14 @@ void CvArea::changeUnitsPerPlayer(PlayerTypes eIndex, int iChange)
 }
 
 
-int CvArea::getAnimalsPerPlayer(PlayerTypes eIndex) const			
-{
+int CvArea::getAnimalsPerPlayer(PlayerTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 	return m_aiAnimalsPerPlayer[eIndex];
 }
 
 
-void CvArea::changeAnimalsPerPlayer(PlayerTypes eIndex, int iChange)
-{
+void CvArea::changeAnimalsPerPlayer(PlayerTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 	m_aiAnimalsPerPlayer[eIndex] = (m_aiAnimalsPerPlayer[eIndex] + iChange);
@@ -468,16 +399,14 @@ void CvArea::changeAnimalsPerPlayer(PlayerTypes eIndex, int iChange)
 }
 
 
-int CvArea::getCitiesPerPlayer(PlayerTypes eIndex) const
-{
+int CvArea::getCitiesPerPlayer(PlayerTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 	return m_aiCitiesPerPlayer[eIndex];
 }
 
 
-void CvArea::changeCitiesPerPlayer(PlayerTypes eIndex, int iChange)							
-{
+void CvArea::changeCitiesPerPlayer(PlayerTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 	m_iNumCities = (m_iNumCities + iChange);
@@ -487,16 +416,14 @@ void CvArea::changeCitiesPerPlayer(PlayerTypes eIndex, int iChange)
 }
 
 
-int CvArea::getPopulationPerPlayer(PlayerTypes eIndex) const
-{
+int CvArea::getPopulationPerPlayer(PlayerTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 	return m_aiPopulationPerPlayer[eIndex];
 }
 
 
-void CvArea::changePopulationPerPlayer(PlayerTypes eIndex, int iChange)							
-{
+void CvArea::changePopulationPerPlayer(PlayerTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 	m_iTotalPopulation = (m_iTotalPopulation + iChange);
@@ -506,21 +433,18 @@ void CvArea::changePopulationPerPlayer(PlayerTypes eIndex, int iChange)
 }
 
 
-int CvArea::getBuildingGoodHealth(PlayerTypes eIndex) const 
-{
+int CvArea::getBuildingGoodHealth(PlayerTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 	return m_aiBuildingGoodHealth[eIndex];
 }
 
 
-void CvArea::changeBuildingGoodHealth(PlayerTypes eIndex, int iChange)
-{
+void CvArea::changeBuildingGoodHealth(PlayerTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 
-	if (iChange != 0)
-	{
+	if (iChange != 0) {
 		m_aiBuildingGoodHealth[eIndex] = (m_aiBuildingGoodHealth[eIndex] + iChange);
 		FAssert(getBuildingGoodHealth(eIndex) >= 0);
 
@@ -529,21 +453,18 @@ void CvArea::changeBuildingGoodHealth(PlayerTypes eIndex, int iChange)
 }
 
 
-int CvArea::getBuildingBadHealth(PlayerTypes eIndex) const
-{
+int CvArea::getBuildingBadHealth(PlayerTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 	return m_aiBuildingBadHealth[eIndex];
 }
 
 
-void CvArea::changeBuildingBadHealth(PlayerTypes eIndex, int iChange)
-{
+void CvArea::changeBuildingBadHealth(PlayerTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 
-	if (iChange != 0)
-	{
+	if (iChange != 0) {
 		m_aiBuildingBadHealth[eIndex] = (m_aiBuildingBadHealth[eIndex] + iChange);
 		FAssert(getBuildingBadHealth(eIndex) >= 0);
 
@@ -552,21 +473,18 @@ void CvArea::changeBuildingBadHealth(PlayerTypes eIndex, int iChange)
 }
 
 
-int CvArea::getBuildingHappiness(PlayerTypes eIndex) const
-{
+int CvArea::getBuildingHappiness(PlayerTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 	return m_aiBuildingHappiness[eIndex];
 }
 
 
-void CvArea::changeBuildingHappiness(PlayerTypes eIndex, int iChange)
-{
+void CvArea::changeBuildingHappiness(PlayerTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 
-	if (iChange != 0)
-	{
+	if (iChange != 0) {
 		m_aiBuildingHappiness[eIndex] = (m_aiBuildingHappiness[eIndex] + iChange);
 
 		GET_PLAYER(eIndex).AI_makeAssignWorkDirty();
@@ -574,21 +492,18 @@ void CvArea::changeBuildingHappiness(PlayerTypes eIndex, int iChange)
 }
 
 
-int CvArea::getFreeSpecialist(PlayerTypes eIndex) const
-{
+int CvArea::getFreeSpecialist(PlayerTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 	return m_aiFreeSpecialist[eIndex];
 }
 
 
-void CvArea::changeFreeSpecialist(PlayerTypes eIndex, int iChange)
-{
+void CvArea::changeFreeSpecialist(PlayerTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 
-	if (iChange != 0)
-	{
+	if (iChange != 0) {
 		m_aiFreeSpecialist[eIndex] = (m_aiFreeSpecialist[eIndex] + iChange);
 		FAssert(getFreeSpecialist(eIndex) >= 0);
 
@@ -597,16 +512,14 @@ void CvArea::changeFreeSpecialist(PlayerTypes eIndex, int iChange)
 }
 
 
-int CvArea::getPower(PlayerTypes eIndex) const
-{
+int CvArea::getPower(PlayerTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 	return m_aiPower[eIndex];
 }
 
 
-void CvArea::changePower(PlayerTypes eIndex, int iChange)
-{
+void CvArea::changePower(PlayerTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 	m_aiPower[eIndex] = (m_aiPower[eIndex] + iChange);
@@ -614,16 +527,14 @@ void CvArea::changePower(PlayerTypes eIndex, int iChange)
 }
 
 
-int CvArea::getBestFoundValue(PlayerTypes eIndex) const
-{
+int CvArea::getBestFoundValue(PlayerTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 	return m_aiBestFoundValue[eIndex];
 }
 
 
-void CvArea::setBestFoundValue(PlayerTypes eIndex, int iNewValue)
-{
+void CvArea::setBestFoundValue(PlayerTypes eIndex, int iNewValue) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 	m_aiBestFoundValue[eIndex] = iNewValue;
@@ -631,22 +542,19 @@ void CvArea::setBestFoundValue(PlayerTypes eIndex, int iNewValue)
 }
 
 
-int CvArea::getNumRevealedTiles(TeamTypes eIndex) const
-{
+int CvArea::getNumRevealedTiles(TeamTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 	return m_aiNumRevealedTiles[eIndex];
 }
 
 
-int CvArea::getNumUnrevealedTiles(TeamTypes eIndex) const
-{
+int CvArea::getNumUnrevealedTiles(TeamTypes eIndex) const {
 	return (getNumTiles() - getNumRevealedTiles(eIndex));
 }
 
 
-void CvArea::changeNumRevealedTiles(TeamTypes eIndex, int iChange)
-{
+void CvArea::changeNumRevealedTiles(TeamTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 	m_aiNumRevealedTiles[eIndex] = (m_aiNumRevealedTiles[eIndex] + iChange);
@@ -654,38 +562,32 @@ void CvArea::changeNumRevealedTiles(TeamTypes eIndex, int iChange)
 }
 
 
-int CvArea::getCleanPowerCount(TeamTypes eIndex) const
-{
+int CvArea::getCleanPowerCount(TeamTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be < MAX_TEAMS");
 	return m_aiCleanPowerCount[eIndex];
 }
 
 
-bool CvArea::isCleanPower(TeamTypes eIndex) const
-{
+bool CvArea::isCleanPower(TeamTypes eIndex) const {
 	return (getCleanPowerCount(eIndex) > 0);
 }
 
 
-void CvArea::changeCleanPowerCount(TeamTypes eIndex, int iChange)
-{
+void CvArea::changeCleanPowerCount(TeamTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be < MAX_TEAMS");
 
-	if (iChange != 0)
-	{
+	if (iChange != 0) {
 		bool bOldCleanPower = isCleanPower(eIndex);
 
 		m_aiCleanPowerCount[eIndex] = (m_aiCleanPowerCount[eIndex] + iChange);
 
-		if (bOldCleanPower != isCleanPower(eIndex))
-		{
+		if (bOldCleanPower != isCleanPower(eIndex)) {
 			GET_TEAM(eIndex).updateCommerce();
 			GET_TEAM(eIndex).updatePowerHealth();
 
-			if (eIndex == GC.getGameINLINE().getActiveTeam())
-			{
+			if (eIndex == GC.getGameINLINE().getActiveTeam()) {
 				gDLL->getInterfaceIFace()->setDirty(CityInfo_DIRTY_BIT, true);
 			}
 		}
@@ -693,76 +595,64 @@ void CvArea::changeCleanPowerCount(TeamTypes eIndex, int iChange)
 }
 
 
-int CvArea::getBorderObstacleCount(TeamTypes eIndex) const
-{
+int CvArea::getBorderObstacleCount(TeamTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be < MAX_TEAMS");
 	return m_aiBorderObstacleCount[eIndex];
 }
 
-bool CvArea::isBorderObstacle(TeamTypes eIndex) const
-{
+bool CvArea::isBorderObstacle(TeamTypes eIndex) const {
 	return (getBorderObstacleCount(eIndex) > 0);
 }
 
 
-void CvArea::changeBorderObstacleCount(TeamTypes eIndex, int iChange)
-{
+void CvArea::changeBorderObstacleCount(TeamTypes eIndex, int iChange) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be < MAX_TEAMS");
 
 	m_aiBorderObstacleCount[eIndex] += iChange;
 
-	if (iChange > 0 && m_aiBorderObstacleCount[eIndex] == iChange)
-	{
+	if (iChange > 0 && m_aiBorderObstacleCount[eIndex] == iChange) {
 		GC.getMapINLINE().verifyUnitValidPlot();
 	}
 }
 
 
 
-AreaAITypes CvArea::getAreaAIType(TeamTypes eIndex) const
-{
+AreaAITypes CvArea::getAreaAIType(TeamTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be < MAX_TEAMS");
 	return m_aeAreaAIType[eIndex];
 }
 
 
-void CvArea::setAreaAIType(TeamTypes eIndex, AreaAITypes eNewValue)
-{
+void CvArea::setAreaAIType(TeamTypes eIndex, AreaAITypes eNewValue) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be < MAX_TEAMS");
 	m_aeAreaAIType[eIndex] = eNewValue;
 }
 
 
-CvCity* CvArea::getTargetCity(PlayerTypes eIndex) const
-{
+CvCity* CvArea::getTargetCity(PlayerTypes eIndex) const {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 	return getCity(m_aTargetCities[eIndex]);
 }
 
 
-void CvArea::setTargetCity(PlayerTypes eIndex, CvCity* pNewValue)
-{
+void CvArea::setTargetCity(PlayerTypes eIndex, CvCity* pNewValue) {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
 	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
 
-	if (pNewValue != NULL)
-	{
+	if (pNewValue != NULL) {
 		m_aTargetCities[eIndex] = pNewValue->getIDInfo();
-	}
-	else
-	{
+	} else {
 		m_aTargetCities[eIndex].reset();
 	}
 }
 
 
-int CvArea::getYieldRateModifier(PlayerTypes eIndex1, YieldTypes eIndex2) const
-{
+int CvArea::getYieldRateModifier(PlayerTypes eIndex1, YieldTypes eIndex2) const {
 	FAssertMsg(eIndex1 >= 0, "eIndex1 is expected to be >= 0");
 	FAssertMsg(eIndex1 < MAX_PLAYERS, "eIndex1 is expected to be < MAX_PLAYERS");
 	FAssertMsg(eIndex2 >= 0, "eIndex2 is expected to be >= 0");
@@ -771,36 +661,31 @@ int CvArea::getYieldRateModifier(PlayerTypes eIndex1, YieldTypes eIndex2) const
 }
 
 
-void CvArea::changeYieldRateModifier(PlayerTypes eIndex1, YieldTypes eIndex2, int iChange)
-{
+void CvArea::changeYieldRateModifier(PlayerTypes eIndex1, YieldTypes eIndex2, int iChange) {
 	FAssertMsg(eIndex1 >= 0, "eIndex1 is expected to be >= 0");
 	FAssertMsg(eIndex1 < MAX_PLAYERS, "eIndex1 is expected to be < MAX_PLAYERS");
 	FAssertMsg(eIndex2 >= 0, "eIndex2 is expected to be >= 0");
 	FAssertMsg(eIndex2 < NUM_YIELD_TYPES, "eIndex2 is expected to be < NUM_YIELD_TYPES");
 
-	if (iChange != 0)
-	{
+	if (iChange != 0) {
 		m_aaiYieldRateModifier[eIndex1][eIndex2] = (m_aaiYieldRateModifier[eIndex1][eIndex2] + iChange);
-		
+
 		GET_PLAYER(eIndex1).invalidateYieldRankCache(eIndex2);
 
-		if (eIndex2 == YIELD_COMMERCE)
-		{
+		if (eIndex2 == YIELD_COMMERCE) {
 			GET_PLAYER(eIndex1).updateCommerce();
 		}
 
 		GET_PLAYER(eIndex1).AI_makeAssignWorkDirty();
 
-		if (GET_PLAYER(eIndex1).getTeam() == GC.getGameINLINE().getActiveTeam())
-		{
+		if (GET_PLAYER(eIndex1).getTeam() == GC.getGameINLINE().getActiveTeam()) {
 			gDLL->getInterfaceIFace()->setDirty(CityInfo_DIRTY_BIT, true);
 		}
 	}
 }
 
 
-int CvArea::getNumTrainAIUnits(PlayerTypes eIndex1, UnitAITypes eIndex2) const
-{
+int CvArea::getNumTrainAIUnits(PlayerTypes eIndex1, UnitAITypes eIndex2) const {
 	FAssertMsg(eIndex1 >= 0, "eIndex1 is expected to be >= 0");
 	FAssertMsg(eIndex1 < MAX_PLAYERS, "eIndex1 is expected to be < MAX_PLAYERS");
 	FAssertMsg(eIndex2 >= 0, "eIndex2 is expected to be >= 0");
@@ -809,8 +694,7 @@ int CvArea::getNumTrainAIUnits(PlayerTypes eIndex1, UnitAITypes eIndex2) const
 }
 
 
-void CvArea::changeNumTrainAIUnits(PlayerTypes eIndex1, UnitAITypes eIndex2, int iChange)
-{
+void CvArea::changeNumTrainAIUnits(PlayerTypes eIndex1, UnitAITypes eIndex2, int iChange) {
 	FAssertMsg(eIndex1 >= 0, "eIndex1 is expected to be >= 0");
 	FAssertMsg(eIndex1 < MAX_PLAYERS, "eIndex1 is expected to be < MAX_PLAYERS");
 	FAssertMsg(eIndex2 >= 0, "eIndex2 is expected to be >= 0");
@@ -820,8 +704,7 @@ void CvArea::changeNumTrainAIUnits(PlayerTypes eIndex1, UnitAITypes eIndex2, int
 }
 
 
-int CvArea::getNumAIUnits(PlayerTypes eIndex1, UnitAITypes eIndex2) const
-{
+int CvArea::getNumAIUnits(PlayerTypes eIndex1, UnitAITypes eIndex2) const {
 	FAssertMsg(eIndex1 >= 0, "eIndex1 is expected to be >= 0");
 	FAssertMsg(eIndex1 < MAX_PLAYERS, "eIndex1 is expected to be < MAX_PLAYERS");
 	FAssertMsg(eIndex2 >= 0, "eIndex2 is expected to be >= 0");
@@ -830,8 +713,7 @@ int CvArea::getNumAIUnits(PlayerTypes eIndex1, UnitAITypes eIndex2) const
 }
 
 
-void CvArea::changeNumAIUnits(PlayerTypes eIndex1, UnitAITypes eIndex2, int iChange)
-{
+void CvArea::changeNumAIUnits(PlayerTypes eIndex1, UnitAITypes eIndex2, int iChange) {
 	FAssertMsg(eIndex1 >= 0, "eIndex1 is expected to be >= 0");
 	FAssertMsg(eIndex1 < MAX_PLAYERS, "eIndex1 is expected to be < MAX_PLAYERS");
 	FAssertMsg(eIndex2 >= 0, "eIndex2 is expected to be >= 0");
@@ -841,20 +723,17 @@ void CvArea::changeNumAIUnits(PlayerTypes eIndex1, UnitAITypes eIndex2, int iCha
 }
 
 
-int CvArea::getNumBonuses(BonusTypes eBonus) const
-{
+int CvArea::getNumBonuses(BonusTypes eBonus) const {
 	FAssertMsg(eBonus >= 0, "eBonus expected to be >= 0");
 	FAssertMsg(eBonus < GC.getNumBonusInfos(), "eBonus expected to be < GC.getNumBonusInfos");
 	return m_paiNumBonuses[eBonus];
 }
 
 
-int CvArea::getNumTotalBonuses() const
-{
+int CvArea::getNumTotalBonuses() const {
 	int iTotal = 0;
 
-	for (int iI = 0; iI < GC.getNumBonusInfos(); iI++)
-	{
+	for (int iI = 0; iI < GC.getNumBonusInfos(); iI++) {
 		iTotal += m_paiNumBonuses[iI];
 	}
 
@@ -862,8 +741,7 @@ int CvArea::getNumTotalBonuses() const
 }
 
 
-void CvArea::changeNumBonuses(BonusTypes eBonus, int iChange)					
-{
+void CvArea::changeNumBonuses(BonusTypes eBonus, int iChange) {
 	FAssertMsg(eBonus >= 0, "eBonus expected to be >= 0");
 	FAssertMsg(eBonus < GC.getNumBonusInfos(), "eBonus expected to be < GC.getNumBonusInfos");
 	m_paiNumBonuses[eBonus] = (m_paiNumBonuses[eBonus] + iChange);
@@ -871,16 +749,14 @@ void CvArea::changeNumBonuses(BonusTypes eBonus, int iChange)
 }
 
 
-int CvArea::getNumImprovements(ImprovementTypes eImprovement) const
-{
+int CvArea::getNumImprovements(ImprovementTypes eImprovement) const {
 	FAssertMsg(eImprovement >= 0, "eImprovement expected to be >= 0");
 	FAssertMsg(eImprovement < GC.getNumImprovementInfos(), "eImprovement expected to be < GC.getNumImprovementInfos");
 	return m_paiNumImprovements[eImprovement];
 }
 
 
-void CvArea::changeNumImprovements(ImprovementTypes eImprovement, int iChange)	
-{
+void CvArea::changeNumImprovements(ImprovementTypes eImprovement, int iChange) {
 	FAssertMsg(eImprovement >= 0, "eImprovement expected to be >= 0");
 	FAssertMsg(eImprovement < GC.getNumImprovementInfos(), "eImprovement expected to be < GC.getNumImprovementInfos");
 	m_paiNumImprovements[eImprovement] = (m_paiNumImprovements[eImprovement] + iChange);
@@ -888,12 +764,11 @@ void CvArea::changeNumImprovements(ImprovementTypes eImprovement, int iChange)
 }
 
 
-void CvArea::read(FDataStreamBase* pStream)
-{
+void CvArea::read(FDataStreamBase* pStream) {
 	// Init saved data
 	reset();
 
-	uint uiFlag=0;
+	uint uiFlag = 0;
 	pStream->Read(&uiFlag);	// flags for expansion
 
 	pStream->Read(&m_iID);
@@ -923,22 +798,18 @@ void CvArea::read(FDataStreamBase* pStream)
 
 	pStream->Read(MAX_TEAMS, (int*)m_aeAreaAIType);
 
-	for (int iI=0;iI<MAX_PLAYERS;iI++)
-	{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
 		pStream->Read((int*)&m_aTargetCities[iI].eOwner);
 		pStream->Read(&m_aTargetCities[iI].iID);
 	}
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
 		pStream->Read(NUM_YIELD_TYPES, m_aaiYieldRateModifier[iI]);
 	}
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
 		pStream->Read(NUM_UNITAI_TYPES, m_aaiNumTrainAIUnits[iI]);
 	}
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
 		pStream->Read(NUM_UNITAI_TYPES, m_aaiNumAIUnits[iI]);
 	}
 
@@ -947,9 +818,8 @@ void CvArea::read(FDataStreamBase* pStream)
 }
 
 
-void CvArea::write(FDataStreamBase* pStream)
-{
-	uint uiFlag=0;
+void CvArea::write(FDataStreamBase* pStream) {
+	uint uiFlag = 0;
 	pStream->Write(uiFlag);		// flag for expansion
 
 	pStream->Write(m_iID);
@@ -979,22 +849,18 @@ void CvArea::write(FDataStreamBase* pStream)
 
 	pStream->Write(MAX_TEAMS, (int*)m_aeAreaAIType);
 
-	for (int iI=0;iI<MAX_PLAYERS;iI++)
-	{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
 		pStream->Write(m_aTargetCities[iI].eOwner);
 		pStream->Write(m_aTargetCities[iI].iID);
 	}
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
 		pStream->Write(NUM_YIELD_TYPES, m_aaiYieldRateModifier[iI]);
 	}
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
 		pStream->Write(NUM_UNITAI_TYPES, m_aaiNumTrainAIUnits[iI]);
 	}
-	for (int iI = 0; iI < MAX_PLAYERS; iI++)
-	{
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
 		pStream->Write(NUM_UNITAI_TYPES, m_aaiNumAIUnits[iI]);
 	}
 	pStream->Write(GC.getNumBonusInfos(), m_paiNumBonuses);

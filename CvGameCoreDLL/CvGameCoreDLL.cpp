@@ -15,15 +15,13 @@ void	ProfileTrackAlloc(void* ptr);
 
 void	ProfileTrackDeAlloc(void* ptr);
 
-void DumpMemUsage(const char* fn, int line)
-{
+void DumpMemUsage(const char* fn, int line) {
 	PROCESS_MEMORY_COUNTERS pmc;
 
-	if ( GetProcessMemoryInfo( GetCurrentProcess(), &pmc, sizeof(pmc)) )
-	{
+	if (GetProcessMemoryInfo(GetCurrentProcess(), &pmc, sizeof(pmc))) {
 		char buffer[200];
 
-		sprintf(buffer, "memory (%s,%d): %d Kbytes, peak %d\n", fn, line, (int)(pmc.WorkingSetSize/1024), (int)(pmc.PeakWorkingSetSize/1024));
+		sprintf(buffer, "memory (%s,%d): %d Kbytes, peak %d\n", fn, line, (int)(pmc.WorkingSetSize / 1024), (int)(pmc.PeakWorkingSetSize / 1024));
 		OutputDebugString(buffer);
 	}
 }
@@ -39,21 +37,16 @@ void DumpMemUsage(const char* fn, int line)
 //
 // operator global new and delete override for gamecore DLL 
 //
-void *__cdecl operator new(size_t size)
-{
-	if (gDLL)
-	{
+void* __cdecl operator new(size_t size) {
+	if (gDLL) {
 		void* result = NULL;
 
-		try
-		{
+		try {
 			result = gDLL->newMem(size, __FILE__, __LINE__);
-			memset(result,0,size);
+			memset(result, 0, size);
 
 			PROFILE_TRACK_ALLOC(result);
-		}
-		catch(std::exception ex)
-		{
+		} catch (std::exception ex) {
 			OutputDebugString("Allocation failure\n");
 		}
 
@@ -64,94 +57,77 @@ void *__cdecl operator new(size_t size)
 	return malloc(size);
 }
 
-void __cdecl operator delete (void *p)
-{
-	if (gDLL)
-	{
+void __cdecl operator delete (void* p) {
+	if (gDLL) {
 		PROFILE_TRACK_DEALLOC(p);
 
 		gDLL->delMem(p, __FILE__, __LINE__);
-	}
-	else
-	{
+	} else {
 		free(p);
 	}
 }
 
-void* operator new[](size_t size)
-{
-	if (gDLL)
-	{
+void* operator new[](size_t size) {
+	if (gDLL) {
 		//OutputDebugString("Alloc [safe]");
 		void* result = gDLL->newMemArray(size, __FILE__, __LINE__);
 
-		memset(result,0,size);
+		memset(result, 0, size);
 
 		return result;
 	}
 
 	OutputDebugString("Alloc [unsafe]");
-	::MessageBoxA(NULL,"UNsafe alloc","CvGameCore",MB_OK);
+	::MessageBoxA(NULL, "UNsafe alloc", "CvGameCore", MB_OK);
 	return malloc(size);
 }
 
-void operator delete[](void* pvMem)
-{
-	if (gDLL)
-	{
+void operator delete[](void* pvMem) {
+	if (gDLL) {
 		gDLL->delMemArray(pvMem, __FILE__, __LINE__);
-	}
-	else
-	{
+	} else {
 		free(pvMem);
 	}
 }
 
-void *__cdecl operator new(size_t size, char* pcFile, int iLine)
-{
+void* __cdecl operator new(size_t size, char* pcFile, int iLine) {
 	void* result = gDLL->newMem(size, pcFile, iLine);
 
-	memset(result,0,size);
+	memset(result, 0, size);
 	return result;
 }
 
-void *__cdecl operator new[](size_t size, char* pcFile, int iLine)
-{
+void* __cdecl operator new[](size_t size, char* pcFile, int iLine) {
 	void* result = gDLL->newMem(size, pcFile, iLine);
 
-	memset(result,0,size);
+	memset(result, 0, size);
 	return result;
 }
 
-void __cdecl operator delete(void* pvMem, char* pcFile, int iLine)
-{
+void __cdecl operator delete(void* pvMem, char* pcFile, int iLine) {
 	gDLL->delMem(pvMem, pcFile, iLine);
 }
 
-void __cdecl operator delete[](void* pvMem, char* pcFile, int iLine)
-{
+void __cdecl operator delete[](void* pvMem, char* pcFile, int iLine) {
 	gDLL->delMem(pvMem, pcFile, iLine);
 }
 
 
-void* reallocMem(void* a, unsigned int uiBytes, const char* pcFile, int iLine)
-{
+void* reallocMem(void* a, unsigned int uiBytes, const char* pcFile, int iLine) {
 	return gDLL->reallocMem(a, uiBytes, pcFile, iLine);
 }
 
-unsigned int memSize(void* a)
-{
+unsigned int memSize(void* a) {
 	return gDLL->memSize(a);
 }
 #endif // K-Mod
 
-BOOL APIENTRY DllMain(HANDLE hModule, 
-					  DWORD  ul_reason_for_call, 
-					  LPVOID lpReserved)
-{
-	switch( ul_reason_for_call ) {
+BOOL APIENTRY DllMain(HANDLE hModule,
+	DWORD  ul_reason_for_call,
+	LPVOID lpReserved) {
+	switch (ul_reason_for_call) {
 	case DLL_PROCESS_ATTACH:
-		{
+	{
 
 #ifdef _DEBUG
 		MessageBox(0, "DLL attached", "Message", 0);
@@ -162,9 +138,9 @@ BOOL APIENTRY DllMain(HANDLE hModule,
 
 		// set timer precision
 		MMRESULT iTimeSet = timeBeginPeriod(1);		// set timeGetTime and sleep resolution to 1 ms, otherwise it's 10-16ms
-		FAssertMsg(iTimeSet==TIMERR_NOERROR, "failed setting timer resolution to 1 ms");
-		}
-		break;
+		FAssertMsg(iTimeSet == TIMERR_NOERROR, "failed setting timer resolution to 1 ms");
+	}
+	break;
 	case DLL_THREAD_ATTACH:
 		// OutputDebugString("DLL_THREAD_ATTACH\n");
 		break;
@@ -177,7 +153,7 @@ BOOL APIENTRY DllMain(HANDLE hModule,
 		timeEndPeriod(1);
 		break;
 	}
-	
+
 	return TRUE;	// success
 }
 
@@ -199,10 +175,8 @@ static ProfileSample* lastExit = NULL;
 static int exitCount = 0;
 static bool detailedTraceEnabled = false;
 
-static void GenerateTabString(char* buffer,int n)
-{
-	while(n-- > 0)
-	{
+static void GenerateTabString(char* buffer, int n) {
+	while (n-- > 0) {
 		*buffer++ = '\t';
 	}
 
@@ -210,21 +184,17 @@ static void GenerateTabString(char* buffer,int n)
 }
 #endif
 
-void EnableDetailedTrace(bool enable)
-{
+void EnableDetailedTrace(bool enable) {
 #ifdef DETAILED_TRACE
 	detailedTraceEnabled = enable;
 #endif
 }
 
-void IFPBeginSample(ProfileSample* sample)
-{
-	if ( sample->Id == -1 )
-	{
-		if ( numSamples == MAX_SAMPLES )
-		{
+void IFPBeginSample(ProfileSample* sample) {
+	if (sample->Id == -1) {
+		if (numSamples == MAX_SAMPLES) {
 			dumpProfileStack();
-			::MessageBox(NULL,"Profile sample limit exceeded","CvGameCore",MB_OK);
+			::MessageBox(NULL, "Profile sample limit exceeded", "CvGameCore", MB_OK);
 			return;
 		}
 		sample->Id = numSamples;
@@ -235,26 +205,19 @@ void IFPBeginSample(ProfileSample* sample)
 		sampleList[numSamples++] = sample;
 	}
 
-	if ( ++depth == MAX_SAMPLES )
-	{
-		::MessageBox(NULL,"Sample stack overflow","CvGameCore",MB_OK);
-	}
-	else
-	{
+	if (++depth == MAX_SAMPLES) {
+		::MessageBox(NULL, "Sample stack overflow", "CvGameCore", MB_OK);
+	} else {
 		sampleStack[depth] = sample;
 	}
 
 	sample->ProfileInstances++;
 	sample->OpenProfiles++;
 
-	if ( sample->OpenProfiles == 1 )
-	{
-		if ( _currentSample == NULL )
-		{
+	if (sample->OpenProfiles == 1) {
+		if (_currentSample == NULL) {
 			sample->Parent = -1;
-		}
-		else
-		{
+		} else {
 			sample->Parent = _currentSample->Id;
 		}
 
@@ -264,50 +227,40 @@ void IFPBeginSample(ProfileSample* sample)
 	_currentSample = sample;
 
 #ifdef DETAILED_TRACE
-	if ( detailedTraceEnabled && lastExit != sample )
-	{
+	if (detailedTraceEnabled && lastExit != sample) {
 		char buffer[300];
 
-		if ( exitCount != 0 )
-		{
+		if (exitCount != 0) {
 			GenerateTabString(buffer, depth);
-			sprintf(buffer+depth, "[%d]\n", exitCount);
+			sprintf(buffer + depth, "[%d]\n", exitCount);
 			OutputDebugString(buffer);
 
 			exitCount = 0;
 		}
 
 		GenerateTabString(buffer, depth);
-		sprintf(buffer+depth, "-->%s\n", sample->Name);
+		sprintf(buffer + depth, "-->%s\n", sample->Name);
 
 		OutputDebugString(buffer);
 	}
 #endif
 }
 
-void IFPEndSample(ProfileSample* sample)
-{
-	if ( _currentSample != sample )
-	{
-		MessageBox(NULL,"Sample closure not matched","CvGameCore",MB_OK);
+void IFPEndSample(ProfileSample* sample) {
+	if (_currentSample != sample) {
+		MessageBox(NULL, "Sample closure not matched", "CvGameCore", MB_OK);
 	}
 
-	if ( depth < 0 )
-	{
-		MessageBox(NULL,"Too many end-samples","CvGameCore",MB_OK);
-	}
-	else if ( depth == 0 )
-	{
+	if (depth < 0) {
+		MessageBox(NULL, "Too many end-samples", "CvGameCore", MB_OK);
+	} else if (depth == 0) {
 		_currentSample = NULL;
 		depth = -1;
-	}
-	else
-	{
+	} else {
 		_currentSample = sampleStack[--depth];
 	}
 
-	if ( sample->OpenProfiles-- == 1 )
-	{
+	if (sample->OpenProfiles-- == 1) {
 		LARGE_INTEGER now;
 		LONGLONG ellapsed;
 
@@ -316,25 +269,21 @@ void IFPEndSample(ProfileSample* sample)
 		ellapsed = (now.QuadPart - sample->StartTime.QuadPart);
 		sample->Accumulator.QuadPart += ellapsed;
 
-		if ( _currentSample != NULL )
-		{
+		if (_currentSample != NULL) {
 			_currentSample->ChildrenSampleTime.QuadPart += ellapsed;
 		}
 	}
 
 #ifdef DETAILED_TRACE
-	if ( detailedTraceEnabled && lastExit != sample )
-	{
+	if (detailedTraceEnabled && lastExit != sample) {
 		char buffer[300];
 
-		GenerateTabString(buffer, depth+1);
-		strcpy(buffer+depth+1, "...\n");
+		GenerateTabString(buffer, depth + 1);
+		strcpy(buffer + depth + 1, "...\n");
 
 		OutputDebugString(buffer);
 		exitCount = 1;
-	}
-	else
-	{
+	} else {
 		exitCount++;
 	}
 
@@ -342,39 +291,34 @@ void IFPEndSample(ProfileSample* sample)
 #endif
 }
 
-void IFPBegin(void)
-{
-	for(int i = 0; i < numSamples; i++ )
-	{
+void IFPBegin(void) {
+	for (int i = 0; i < numSamples; i++) {
 		sampleList[i]->Accumulator.QuadPart = 0;
 		sampleList[i]->ChildrenSampleTime.QuadPart = 0;
 		sampleList[i]->ProfileInstances = sampleList[i]->OpenProfiles;
 	}
 }
 
-void IFPEnd(void)
-{
+void IFPEnd(void) {
 	//	Log the timings
 	char buffer[300];
 	LARGE_INTEGER freq;
 
 	QueryPerformanceFrequency(&freq);
 
-	gDLL->logMsg("IFP_log.txt","Fn\tTime (mS)\tAvg time\t#calls\tChild time\tParent\n");
+	gDLL->logMsg("IFP_log.txt", "Fn\tTime (mS)\tAvg time\t#calls\tChild time\tParent\n");
 
-	for(int i = 0; i < numSamples; i++ )
-	{
-		if ( sampleList[i]->ProfileInstances != 0 )
-		{
+	for (int i = 0; i < numSamples; i++) {
+		if (sampleList[i]->ProfileInstances != 0) {
 			sprintf(buffer,
-					"%s\t%d\t%d\t%d\t%d\t%s\n",
-					sampleList[i]->Name,
-					(int)((1000*sampleList[i]->Accumulator.QuadPart)/freq.QuadPart),
-					(int)((1000*sampleList[i]->Accumulator.QuadPart)/(freq.QuadPart*sampleList[i]->ProfileInstances)),
-					sampleList[i]->ProfileInstances,
-					(int)((1000*sampleList[i]->ChildrenSampleTime.QuadPart)/freq.QuadPart),
-					sampleList[i]->Parent == -1 ? "" : sampleList[sampleList[i]->Parent]->Name);
-			gDLL->logMsg("IFP_log.txt",buffer);
+				"%s\t%d\t%d\t%d\t%d\t%s\n",
+				sampleList[i]->Name,
+				(int)((1000 * sampleList[i]->Accumulator.QuadPart) / freq.QuadPart),
+				(int)((1000 * sampleList[i]->Accumulator.QuadPart) / (freq.QuadPart * sampleList[i]->ProfileInstances)),
+				sampleList[i]->ProfileInstances,
+				(int)((1000 * sampleList[i]->ChildrenSampleTime.QuadPart) / freq.QuadPart),
+				sampleList[i]->Parent == -1 ? "" : sampleList[sampleList[i]->Parent]->Name);
+			gDLL->logMsg("IFP_log.txt", buffer);
 		}
 	}
 }
@@ -385,24 +329,21 @@ static ProfileSample rootSample__("Root");
 //
 // dump the current (profile) call stack to debug output
 //
-void dumpProfileStack(void)
-{
+void dumpProfileStack(void) {
 	int i = 0;
 	int dumpDepth = depth;
 	char buffer[200];
 
 	OutputDebugString("Profile stack:\n");
 
-	while(dumpDepth >= 0)
-	{
+	while (dumpDepth >= 0) {
 		char* ptr = buffer;
 
 		i++;
-		for(int j = 0; j < i; j++)
-		{
+		for (int j = 0; j < i; j++) {
 			*ptr++ = '\t';
 		}
-		strcpy(ptr,sampleStack[dumpDepth--]->Name);
+		strcpy(ptr, sampleStack[dumpDepth--]->Name);
 		strcat(ptr, "\n");
 		OutputDebugString(buffer);
 	}
@@ -410,28 +351,26 @@ void dumpProfileStack(void)
 
 static int pythonDepth = 0;
 
-bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxnName, void* fxnArg)
-{
+bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxnName, void* fxnArg) {
 	PROFILE("IFPPythonCall1");
 
 	//OutputDebugString(CvString::format("Python call to %s::%s [%d]\n", moduleName, fxnName, pythonDepth++).c_str());
 
 	bool result = gDLL->getPythonIFace()->callFunction(moduleName, fxnName, fxnArg);
-	
+
 	//OutputDebugString("...complete\n");
 	pythonDepth--;
 
 	return result;
 }
 
-bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxnName, void* fxnArg, long* result)
-{
+bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxnName, void* fxnArg, long* result) {
 	PROFILE("IFPPythonCall2");
 
 	//OutputDebugString(CvString::format("Python call to %s::%s [%d]\n", moduleName, fxnName, pythonDepth++).c_str());
 
 	bool bResult = gDLL->getPythonIFace()->callFunction(moduleName, fxnName, fxnArg, result);
-	
+
 	//OutputDebugString("...complete\n");
 	pythonDepth--;
 
@@ -439,14 +378,13 @@ bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxn
 }
 
 
-bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxnName, void* fxnArg, CvString* result)
-{
+bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxnName, void* fxnArg, CvString* result) {
 	PROFILE("IFPPythonCall3");
 
 	//OutputDebugString(CvString::format("Python call to %s::%s [%d]\n", moduleName, fxnName, pythonDepth++).c_str());
 
 	bool bResult = gDLL->getPythonIFace()->callFunction(moduleName, fxnName, fxnArg, result);
-	
+
 	//OutputDebugString("...complete\n");
 	pythonDepth--;
 
@@ -454,14 +392,13 @@ bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxn
 }
 
 
-bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxnName, void* fxnArg, CvWString* result)
-{
+bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxnName, void* fxnArg, CvWString* result) {
 	PROFILE("IFPPythonCall4");
 
 	//OutputDebugString(CvString::format("Python call to %s::%s [%d]\n", moduleName, fxnName, pythonDepth++).c_str());
 
 	bool bResult = gDLL->getPythonIFace()->callFunction(moduleName, fxnName, fxnArg, result);
-	
+
 	//OutputDebugString("...complete\n");
 	pythonDepth--;
 
@@ -469,14 +406,13 @@ bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxn
 }
 
 
-bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxnName, void* fxnArg, std::vector<byte>* pList)
-{
+bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxnName, void* fxnArg, std::vector<byte>* pList) {
 	PROFILE("IFPPythonCall5");
 
 	//OutputDebugString(CvString::format("Python call to %s::%s [%d]\n", moduleName, fxnName, pythonDepth++).c_str());
 
 	bool result = gDLL->getPythonIFace()->callFunction(moduleName, fxnName, fxnArg, pList);
-	
+
 	//OutputDebugString("...complete\n");
 	pythonDepth--;
 
@@ -484,14 +420,13 @@ bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxn
 }
 
 
-bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxnName, void* fxnArg, std::vector<int> *pIntList)
-{
+bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxnName, void* fxnArg, std::vector<int>* pIntList) {
 	PROFILE("IFPPythonCall6");
 
 	//OutputDebugString(CvString::format("Python call to %s::%s [%d]\n", moduleName, fxnName, pythonDepth++).c_str());
 
 	bool result = gDLL->getPythonIFace()->callFunction(moduleName, fxnName, fxnArg, pIntList);
-	
+
 	//OutputDebugString("...complete\n");
 	pythonDepth--;
 
@@ -499,14 +434,13 @@ bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxn
 }
 
 
-bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxnName, void* fxnArg, int* pIntList, int* iListSize)
-{
+bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxnName, void* fxnArg, int* pIntList, int* iListSize) {
 	PROFILE("IFPPythonCall7");
 
 	//OutputDebugString(CvString::format("Python call to %s::%s [%d]\n", moduleName, fxnName, pythonDepth++).c_str());
 
 	bool result = gDLL->getPythonIFace()->callFunction(moduleName, fxnName, fxnArg, pIntList, iListSize);
-	
+
 	//OutputDebugString("...complete\n");
 	pythonDepth--;
 
@@ -514,14 +448,13 @@ bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxn
 }
 
 
-bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxnName, void* fxnArg, std::vector<float> *pFloatList)
-{
+bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxnName, void* fxnArg, std::vector<float>* pFloatList) {
 	PROFILE("IFPPythonCall8");
 
 	//OutputDebugString(CvString::format("Python call to %s::%s [%d]\n", moduleName, fxnName, pythonDepth++).c_str());
 
 	bool result = gDLL->getPythonIFace()->callFunction(moduleName, fxnName, fxnArg, pFloatList);
-	
+
 	//OutputDebugString("...complete\n");
 	pythonDepth--;
 
@@ -535,21 +468,16 @@ bool IFPPythonCall(const char* callerFn, const char* moduleName, const char* fxn
 //
 // enable dll profiler if necessary, clear history
 //
-void startProfilingDLL(bool longLived)
-{
+void startProfilingDLL(bool longLived) {
 #ifdef USE_INTERNAL_PROFILER
-	if ( longLived )
-	{
+	if (longLived) {
 		isInLongLivedSection = true;
-	}
-	else if (GC.isDLLProfilerEnabled() && !isInLongLivedSection)
-	{
+	} else if (GC.isDLLProfilerEnabled() && !isInLongLivedSection) {
 		IFPBegin();
 		IFPBeginSample(&rootSample__);
 	}
 #else
-	if (GC.isDLLProfilerEnabled())
-	{
+	if (GC.isDLLProfilerEnabled()) {
 		gDLL->ProfilerBegin();
 	}
 #endif
@@ -558,50 +486,39 @@ void startProfilingDLL(bool longLived)
 //
 // dump profile stats on-screen
 //
-void stopProfilingDLL(bool longLived)
-{
+void stopProfilingDLL(bool longLived) {
 #ifdef USE_INTERNAL_PROFILER
-	if ( longLived )
-	{
+	if (longLived) {
 		isInLongLivedSection = false;
-	}
-	else if (GC.isDLLProfilerEnabled() && !isInLongLivedSection)
-	{
+	} else if (GC.isDLLProfilerEnabled() && !isInLongLivedSection) {
 		IFPEndSample(&rootSample__);
 		IFPEnd();
 	}
 #else
-	if (GC.isDLLProfilerEnabled())
-	{
+	if (GC.isDLLProfilerEnabled()) {
 		gDLL->ProfilerEnd();
 	}
 #endif
 }
 
 #ifdef MEMORY_TRACKING
-CMemoryTrack*	CMemoryTrack::trackStack[MAX_TRACK_DEPTH];
+CMemoryTrack* CMemoryTrack::trackStack[MAX_TRACK_DEPTH];
 int CMemoryTrack::m_trackStackDepth = 0;
 
-CMemoryTrack::CMemoryTrack(const char* name, bool valid)
-{
+CMemoryTrack::CMemoryTrack(const char* name, bool valid) {
 	m_highWater = 0;
 	m_name = name;
 	m_valid = valid;
 
-	if ( m_trackStackDepth < MAX_TRACK_DEPTH )
-	{
+	if (m_trackStackDepth < MAX_TRACK_DEPTH) {
 		trackStack[m_trackStackDepth++] = this;
 	}
 }
 
-CMemoryTrack::~CMemoryTrack()
-{
-	if ( m_valid )
-	{
-		for(int i = 0; i < m_highWater; i++)
-		{
-			if ( m_track[i] != NULL )
-			{
+CMemoryTrack::~CMemoryTrack() {
+	if (m_valid) {
+		for (int i = 0; i < m_highWater; i++) {
+			if (m_track[i] != NULL) {
 				char buffer[200];
 
 				sprintf(buffer, "Apparent memory leak detected in %s\n", m_name);
@@ -610,32 +527,23 @@ CMemoryTrack::~CMemoryTrack()
 		}
 	}
 
-	if ( trackStack[m_trackStackDepth-1] == this )
-	{
+	if (trackStack[m_trackStackDepth - 1] == this) {
 		m_trackStackDepth--;
 	}
 }
 
-void CMemoryTrack::NoteAlloc(void* ptr)
-{
-	if ( m_valid )
-	{
-		for(int i = 0; i < m_highWater; i++)
-		{
-			if ( m_track[i] == NULL )
-			{
+void CMemoryTrack::NoteAlloc(void* ptr) {
+	if (m_valid) {
+		for (int i = 0; i < m_highWater; i++) {
+			if (m_track[i] == NULL) {
 				break;
 			}
 		}
 
-		if ( i == m_highWater )
-		{
-			if ( m_highWater < MAX_TRACKED_ALLOCS )
-			{
+		if (i == m_highWater) {
+			if (m_highWater < MAX_TRACKED_ALLOCS) {
 				m_highWater++;
-			}
-			else
-			{
+			} else {
 				m_valid = false;
 				return;
 			}
@@ -645,14 +553,10 @@ void CMemoryTrack::NoteAlloc(void* ptr)
 	}
 }
 
-void CMemoryTrack::NoteDeAlloc(void* ptr)
-{
-	if ( m_valid )
-	{
-		for(int i = 0; i < m_highWater; i++)
-		{
-			if ( m_track[i] == ptr )
-			{
+void CMemoryTrack::NoteDeAlloc(void* ptr) {
+	if (m_valid) {
+		for (int i = 0; i < m_highWater; i++) {
+			if (m_track[i] == ptr) {
 				m_track[i] = NULL;
 				break;
 			}
@@ -660,56 +564,45 @@ void CMemoryTrack::NoteDeAlloc(void* ptr)
 	}
 }
 
-CMemoryTrack* CMemoryTrack::GetCurrent(void)
-{
-	if ( 0 < m_trackStackDepth && m_trackStackDepth < MAX_TRACK_DEPTH )
-	{
-		return trackStack[m_trackStackDepth-1];
-	}
-	else
-	{
+CMemoryTrack* CMemoryTrack::GetCurrent(void) {
+	if (0 < m_trackStackDepth && m_trackStackDepth < MAX_TRACK_DEPTH) {
+		return trackStack[m_trackStackDepth - 1];
+	} else {
 		return NULL;
 	}
 }
 
-CMemoryTrace::CMemoryTrace(const char* name)
-{
+CMemoryTrace::CMemoryTrace(const char* name) {
 	PROCESS_MEMORY_COUNTERS pmc;
 
-	GetProcessMemoryInfo( GetCurrentProcess(), &pmc, sizeof(pmc));
+	GetProcessMemoryInfo(GetCurrentProcess(), &pmc, sizeof(pmc));
 	m_name = name;
 	m_start = pmc.WorkingSetSize;
 }
 
-CMemoryTrace::~CMemoryTrace()
-{
+CMemoryTrace::~CMemoryTrace() {
 	PROCESS_MEMORY_COUNTERS pmc;
 
-	if ( GetProcessMemoryInfo( GetCurrentProcess(), &pmc, sizeof(pmc)) )
-	{
+	if (GetProcessMemoryInfo(GetCurrentProcess(), &pmc, sizeof(pmc))) {
 		char buffer[200];
 
-		sprintf(buffer, "function %s added %dK bytes, total now %dK\n", m_name, (int)(pmc.WorkingSetSize - m_start)/1024, (int)pmc.WorkingSetSize/1024);
+		sprintf(buffer, "function %s added %dK bytes, total now %dK\n", m_name, (int)(pmc.WorkingSetSize - m_start) / 1024, (int)pmc.WorkingSetSize / 1024);
 		OutputDebugString(buffer);
 	}
 }
 
-void ProfileTrackAlloc(void* ptr)
-{
+void ProfileTrackAlloc(void* ptr) {
 	CMemoryTrack* current = CMemoryTrack::GetCurrent();
 
-	if ( current != NULL )
-	{
+	if (current != NULL) {
 		current->NoteAlloc(ptr);
 	}
 }
 
-void ProfileTrackDeAlloc(void* ptr)
-{
+void ProfileTrackDeAlloc(void* ptr) {
 	CMemoryTrack* current = CMemoryTrack::GetCurrent();
 
-	if ( current != NULL )
-	{
+	if (current != NULL) {
 		current->NoteDeAlloc(ptr);
 	}
 }

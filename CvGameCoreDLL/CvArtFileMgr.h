@@ -53,11 +53,9 @@ private: \
 	ArtInfo##name##MapType* m_map##name##ArtInfos; \
 	std::vector<CvArtInfo##name##*> m_pa##name##ArtInfo; \
 
-class CvArtFileMgr
-{
+class CvArtFileMgr {
 private:
-	class ArtInfoItem
-	{
+	class ArtInfoItem {
 	public:
 		ArtInfoItem() { CvArtFileMgr::GetInstance().addArtInfoItem(this); }
 		virtual void init() = 0;
@@ -76,17 +74,15 @@ public:
 
 	// Deletes Maps, Reloads Infos from XML, Rebuilds Maps
 	DllExport void Reset();																														// Exposed to Python
-	
+
 	// Builds Maps
 	DllExport void buildArtFileInfoMaps();																							// Exposed to Python
 
 	// Adds an Art File List
-	void addArtInfoItem(CvArtFileMgr::ArtInfoItem* item) { m_artInfoItems.push_back(item);	}
+	void addArtInfoItem(CvArtFileMgr::ArtInfoItem* item) { m_artInfoItems.push_back(item); }
 private:
-	struct ltstr
-	{
-		bool operator()(const char* s1, const char* s2) const
-		{
+	struct ltstr {
+		bool operator()(const char* s1, const char* s2) const {
 			return strcmp(s1, s2) < 0;
 		}
 	};

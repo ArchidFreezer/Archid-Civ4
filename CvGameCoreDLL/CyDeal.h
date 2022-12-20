@@ -10,8 +10,7 @@
 
 class CvDeal;
 
-class CyDeal
-{
+class CyDeal {
 
 public:
 	CyDeal(CvDeal* pDeal = NULL);

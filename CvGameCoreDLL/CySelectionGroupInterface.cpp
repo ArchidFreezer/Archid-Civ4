@@ -11,8 +11,7 @@
 // published python interface for CySelectionGroup
 //
 
-void CySelectionGroupInterface()
-{
+void CySelectionGroupInterface() {
 	OutputDebugString("Python Extension Module - CySelectionGroupInterface\n");
 
 	python::class_<CySelectionGroup>("CySelectionGroup")
@@ -47,11 +46,11 @@ void CySelectionGroupInterface()
 		.def("isInvisible", &CySelectionGroup::isInvisible, "bool (int eTeam)")
 		.def("countNumUnitAIType", &CySelectionGroup::countNumUnitAIType, "int (int (UnitAITypes) eUnitAI")
 		.def("hasWorker", &CySelectionGroup::hasWorker, "bool ()")
-/************************************************************************************************/
-/* BETTER_BTS_AI_MOD                      11/30/08                                jdog5000      */
-/*                                                                                              */
-/* General AI                                                                                   */
-/************************************************************************************************/
+		/************************************************************************************************/
+		/* BETTER_BTS_AI_MOD                      11/30/08                                jdog5000      */
+		/*                                                                                              */
+		/* General AI                                                                                   */
+		/************************************************************************************************/
 		.def("isStranded", &CySelectionGroup::isStranded, "bool ()")
 
 

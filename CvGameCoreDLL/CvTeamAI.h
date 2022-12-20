@@ -7,8 +7,7 @@
 
 #include "CvTeam.h"
 
-class CvTeamAI : public CvTeam
-{
+class CvTeamAI : public CvTeam {
 
 public:
 
@@ -17,11 +16,10 @@ public:
 
 #ifdef _USRDLL
 	// inlined for performance reasons, only in the dll
-	static CvTeamAI& getTeam(TeamTypes eTeam)
-	{
+	static CvTeamAI& getTeam(TeamTypes eTeam) {
 		FAssertMsg(eTeam != NO_TEAM, "eTeam is not assigned a valid value");
 		FAssertMsg(eTeam < MAX_TEAMS, "eTeam is not assigned a valid value");
-		return m_aTeams[eTeam]; 
+		return m_aTeams[eTeam];
 	}
 #endif
 	DllExport static CvTeamAI& getTeamNonInl(TeamTypes eTeam);
@@ -94,23 +92,23 @@ public:
 	DenialTypes AI_surrenderTrade(TeamTypes eTeam, int iPowerMultiplier = 100) const;
 
 	int AI_countMembersWithStrategy(int iStrategy) const; // K-Mod
-	bool AI_isAnyMemberDoVictoryStrategy( int iVictoryStrategy ) const;
+	bool AI_isAnyMemberDoVictoryStrategy(int iVictoryStrategy) const;
 	bool AI_isAnyMemberDoVictoryStrategyLevel4() const;
 	bool AI_isAnyMemberDoVictoryStrategyLevel3() const;
 
 	int AI_getWarSuccessRating() const; // K-Mod
 
-	int AI_getEnemyPowerPercent( bool bConsiderOthers = false ) const;
+	int AI_getEnemyPowerPercent(bool bConsiderOthers = false) const;
 	int AI_getAirPower() const; // K-Mod
-	int AI_getRivalAirPower( ) const;
+	int AI_getRivalAirPower() const;
 	bool AI_refusePeace(TeamTypes ePeaceTeam) const; // K-Mod. (refuse peace when we need war for conquest victory.)
 	bool AI_refuseWar(TeamTypes eWarTeam) const; // K-Mod. (is war an acceptable side effect for event choices, vassal deals, etc)
-	bool AI_acceptSurrender( TeamTypes eSurrenderTeam ) const;
-	bool AI_isOkayVassalTarget( TeamTypes eTeam ) const;
+	bool AI_acceptSurrender(TeamTypes eSurrenderTeam) const;
+	bool AI_isOkayVassalTarget(TeamTypes eTeam) const;
 
-	void AI_getWarRands( int &iMaxWarRand, int &iLimitedWarRand, int &iDogpileWarRand ) const;
-	void AI_getWarThresholds( int &iMaxWarThreshold, int &iLimitedWarThreshold, int &iDogpileWarThreshold ) const;
-	int AI_getTotalWarOddsTimes100( ) const;
+	void AI_getWarRands(int& iMaxWarRand, int& iLimitedWarRand, int& iDogpileWarRand) const;
+	void AI_getWarThresholds(int& iMaxWarThreshold, int& iLimitedWarThreshold, int& iDogpileWarThreshold) const;
+	int AI_getTotalWarOddsTimes100() const;
 
 	int AI_makePeaceTradeVal(TeamTypes ePeaceTeam, TeamTypes eTeam) const;
 	DenialTypes AI_makePeaceTrade(TeamTypes ePeaceTeam, TeamTypes eTeam) const;
@@ -177,17 +175,17 @@ public:
 	void AI_setWarPlan(TeamTypes eIndex, WarPlanTypes eNewValue, bool bWar = true);
 
 	int AI_teamCloseness(TeamTypes eIndex, int iMaxDistance = -1) const;
-	
+
 	bool AI_performNoWarRolls(TeamTypes eTeam);
-	
+
 	int AI_getAttitudeWeight(TeamTypes eTeam) const;
-	
+
 	int AI_getLowestVictoryCountdown() const;
 
 	int AI_getTechMonopolyValue(TechTypes eTech, TeamTypes eTeam) const;
-	
+
 	bool AI_isWaterAreaRelevant(CvArea* pArea);
-	
+
 	virtual void read(FDataStreamBase* pStream);
 	virtual void write(FDataStreamBase* pStream);
 

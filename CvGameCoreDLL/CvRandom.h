@@ -5,8 +5,7 @@
 #ifndef CIV4_RANDOM_H
 #define CIV4_RANDOM_H
 
-class CvRandom
-{
+class CvRandom {
 
 public:
 

@@ -8,8 +8,7 @@
 
 class CvArea;
 
-class CvTeam
-{
+class CvTeam {
 
 public:
 	CvTeam();
@@ -24,7 +23,7 @@ protected:
 
 public:
 
-	void resetPlotAndCityData( );
+	void resetPlotAndCityData();
 
 	void addTeam(TeamTypes eTeam);																								// Exposed to Python
 	void shareItems(TeamTypes eTeam);
@@ -121,13 +120,13 @@ public:
 	void changeEverAliveCount(int iChange);
 
 	int getNumCities() const;																														// Exposed to Python
-	void changeNumCities(int iChange);							
+	void changeNumCities(int iChange);
 
 	int getTotalPopulation(bool bCheckVassals = true) const;																											// Exposed to Python
-	void changeTotalPopulation(int iChange);	
+	void changeTotalPopulation(int iChange);
 
 	int getTotalLand(bool bCheckVassals = true) const;																														// Exposed to Python  
-	void changeTotalLand(int iChange);														
+	void changeTotalLand(int iChange);
 
 	int getNukeInterception() const;																										// Exposed to Python
 	void changeNukeInterception(int iChange);																			// Exposed to Python
@@ -135,35 +134,35 @@ public:
 	int getForceTeamVoteEligibilityCount(VoteSourceTypes eVoteSource) const;																				// Exposed to Python	
 	bool isForceTeamVoteEligible(VoteSourceTypes eVoteSource) const;																								// Exposed to Python	
 	void changeForceTeamVoteEligibilityCount(VoteSourceTypes eVoteSource, int iChange);												// Exposed to Python	
-																																								
+
 	int getExtraWaterSeeFromCount() const;																							// Exposed to Python	
 	bool isExtraWaterSeeFrom() const;																										// Exposed to Python	
 	void changeExtraWaterSeeFromCount(int iChange);																// Exposed to Python	
-																																								
+
 	int getMapTradingCount() const;																											// Exposed to Python	
 	bool isMapTrading() const;																													// Exposed to Python	
 	void changeMapTradingCount(int iChange);																			// Exposed to Python	
-																																								
+
 	int getTechTradingCount() const;																										// Exposed to Python	
 	bool isTechTrading() const;																													// Exposed to Python	
 	void changeTechTradingCount(int iChange);																			// Exposed to Python	
-																																								
+
 	int getGoldTradingCount() const;																										// Exposed to Python	
 	bool isGoldTrading() const;																													// Exposed to Python	
 	void changeGoldTradingCount(int iChange);																			// Exposed to Python	
-																																								
+
 	int getOpenBordersTradingCount() const;																							// Exposed to Python	
 	bool isOpenBordersTrading() const;																				// Exposed to Python	
 	void changeOpenBordersTradingCount(int iChange);															// Exposed to Python	
-																																								
+
 	int getDefensivePactTradingCount() const;																						// Exposed to Python	
 	bool isDefensivePactTrading() const;																								// Exposed to Python						
 	void changeDefensivePactTradingCount(int iChange);														// Exposed to Python	
-																																									
+
 	int getPermanentAllianceTradingCount() const;																				// Exposed to Python	
 	bool isPermanentAllianceTrading() const;																						// Exposed to Python						
 	void changePermanentAllianceTradingCount(int iChange);												// Exposed to Python	
-																																									
+
 	int getVassalTradingCount() const;																				// Exposed to Python	
 	bool isVassalStateTrading() const;																						// Exposed to Python						
 	void changeVassalTradingCount(int iChange);												// Exposed to Python	
@@ -171,15 +170,15 @@ public:
 	int getBridgeBuildingCount() const;																									// Exposed to Python	
 	bool isBridgeBuilding() const;																						// Exposed to Python						
 	void changeBridgeBuildingCount(int iChange);																	// Exposed to Python	
-																																								
+
 	int getIrrigationCount() const;																											// Exposed to Python	
 	bool isIrrigation() const;																								// Exposed to Python	
 	void changeIrrigationCount(int iChange);																			// Exposed to Python	
-																																								
+
 	int getIgnoreIrrigationCount() const;																								// Exposed to Python	
 	bool isIgnoreIrrigation() const;																					// Exposed to Python	
 	void changeIgnoreIrrigationCount(int iChange);																// Exposed to Python	
-																																								
+
 	int getWaterWorkCount() const;																											// Exposed to Python	
 	bool isWaterWork() const;																									// Exposed to Python	
 	void changeWaterWorkCount(int iChange);																				// Exposed to Python	
@@ -195,7 +194,7 @@ public:
 
 	bool isMapCentering() const;																							// Exposed to Python	
 	void setMapCentering(bool bNewValue);																					// Exposed to Python	
-																																								
+
 	TeamTypes getID() const;																											// Exposed to Python	
 
 	int getStolenVisibilityTimer(TeamTypes eIndex) const;
@@ -439,7 +438,7 @@ protected:
 	int* m_paiRouteChange;
 	int* m_paiProjectCount;
 	int* m_paiProjectDefaultArtTypes;
-	std::vector<int> *m_pavProjectArtTypes;
+	std::vector<int>* m_pavProjectArtTypes;
 	int* m_paiProjectMaking;
 	int* m_paiUnitClassCount;
 	int* m_paiBuildingClassCount;

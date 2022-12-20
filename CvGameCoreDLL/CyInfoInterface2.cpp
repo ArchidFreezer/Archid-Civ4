@@ -6,8 +6,7 @@
 // These are simple enough to be exposed directly - no wrappers
 //
 
-void CyInfoPythonInterface2()
-{
+void CyInfoPythonInterface2() {
 	OutputDebugString("Python Extension Module - CyInfoPythonInterface2\n");
 
 	python::class_<CvBuildingClassInfo, python::bases<CvInfoBase> >("CvBuildingClassInfo")
@@ -273,14 +272,14 @@ void CyInfoPythonInterface2()
 		.def("getUpgradeTime", &CvImprovementInfo::getUpgradeTime, "int ()")
 		.def("getAirBombDefense", &CvImprovementInfo::getAirBombDefense, "int ()")
 		.def("getDefenseModifier", &CvImprovementInfo::getDefenseModifier, "int ()")
-/************************************************************************************************/
-/* UNOFFICIAL_PATCH                       02/12/10                             jdog5000         */
-/*                                                                                              */
-/* Bugfix                                                                                       */
-/************************************************************************************************/
-/* original bts code
-		.def("getHappiness", &CvImprovementInfo::getDefenseModifier, "int ()")
-*/
+		/************************************************************************************************/
+		/* UNOFFICIAL_PATCH                       02/12/10                             jdog5000         */
+		/*                                                                                              */
+		/* Bugfix                                                                                       */
+		/************************************************************************************************/
+		/* original bts code
+				.def("getHappiness", &CvImprovementInfo::getDefenseModifier, "int ()")
+		*/
 		.def("getHappiness", &CvImprovementInfo::getHappiness, "int ()")
 		.def("getPillageGold", &CvImprovementInfo::getPillageGold, "int ()")
 		.def("getImprovementPillage", &CvImprovementInfo::getImprovementPillage, "int ()")
@@ -371,7 +370,7 @@ void CyInfoPythonInterface2()
 		.def("isFeatureTerrain", &CvBonusInfo::isFeatureTerrain, "bool (int i)")
 
 		.def("getButton", &CvBonusInfo::getButton, "string ()")
-		.def("getArtInfo", &CvBonusInfo::getArtInfo,  python::return_value_policy<python::reference_existing_object>(), "CvArtInfoBonus ()")
+		.def("getArtInfo", &CvBonusInfo::getArtInfo, python::return_value_policy<python::reference_existing_object>(), "CvArtInfoBonus ()")
 		;
 
 	python::class_<CvFeatureInfo, python::bases<CvInfoBase> >("CvFeatureInfo")
@@ -386,7 +385,7 @@ void CyInfoPythonInterface2()
 		.def("getAdvancedStartRemoveCost", &CvFeatureInfo::getAdvancedStartRemoveCost, "int ()")
 		.def("getTurnDamage", &CvFeatureInfo::getTurnDamage, "int ()")
 		.def("getWarmingDefense", &CvFeatureInfo::getWarmingDefense, "int ()") //GWMod new XML field M.A.
-		
+
 		.def("isNoCoast", &CvFeatureInfo::isNoCoast, "bool ()")
 		.def("isNoRiver", &CvFeatureInfo::isNoRiver, "bool ()")
 		.def("isNoAdjacent", &CvFeatureInfo::isNoAdjacent, "bool ()")

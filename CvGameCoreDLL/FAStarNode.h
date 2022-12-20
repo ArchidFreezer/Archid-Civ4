@@ -19,19 +19,18 @@
 #define		FASTARNODE_H
 #pragma		once
 
-#define ASNL_ADDOPEN			0
-#define ASNL_STARTOPEN		1
-#define ASNL_DELETEOPEN		2
-#define ASNL_ADDCLOSED		3
+#define ASNL_ADDOPEN        0
+#define ASNL_STARTOPEN      1
+#define ASNL_DELETEOPEN     2
+#define ASNL_ADDCLOSED      3
 
-#define ASNC_INITIALADD		0
-#define ASNC_OPENADD_UP		1
-#define ASNC_CLOSEDADD_UP	2
-#define ASNC_PARENTADD_UP	3
-#define ASNC_NEWADD				4
+#define ASNC_INITIALADD     0
+#define ASNC_OPENADD_UP     1
+#define ASNC_CLOSEDADD_UP   2
+#define ASNC_PARENTADD_UP   3
+#define ASNC_NEWADD         4
 
-enum FAStarListType
-{
+enum FAStarListType {
 	NO_FASTARLIST = -1,
 
 	FASTARLIST_OPEN,
@@ -48,11 +47,9 @@ enum FAStarListType
 //  DESC:       Used by FAStar pathfinding class
 //
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-class FAStarNode
-{
+class FAStarNode {
 public:
-	FAStarNode()
-	{
+	FAStarNode() {
 		int i;
 
 		m_iX = -1;
@@ -73,14 +70,12 @@ public:
 		m_pPrev = NULL;
 		m_pStack = NULL;
 
-		for (i = 0; i < 8; i++)
-		{
+		for (i = 0; i < 8; i++) {
 			m_apChildren[i] = NULL;
 		}
 	}
 
-	void clear()
-	{
+	void clear() {
 		int i;
 
 		m_iTotalCost = 0;
@@ -99,8 +94,7 @@ public:
 		m_pPrev = NULL;
 		m_pStack = NULL;
 
-		for (i = 0; i < 8; i++)
-		{
+		for (i = 0; i < 8; i++) {
 			m_apChildren[i] = NULL;
 		}
 	}

@@ -17,13 +17,11 @@
 //NOTE: This struct must be identical ot the same struct in  FireEngine/FProfiler.h if the
 //standard profiler is being used (USE_INTERNAL_PROFILER not defined)
 //---------------------------------------------------------------------------------------------------------------------
-struct ProfileSample
-{
-	ProfileSample(char *name)
-	{	
+struct ProfileSample {
+	ProfileSample(char* name) {
 		strcpy(Name, name);
-		Added=false;
-		Parent=-1;
+		Added = false;
+		Parent = -1;
 #ifdef USE_INTERNAL_PROFILER
 		Id = -1;
 #endif
@@ -55,12 +53,10 @@ struct ProfileSample
 //---------------------------------------------------------------------------------------------------------------------
 // Allows us to Profile based on Scope, to limit intrusion into code.
 // Simply use PROFLE("funcname") instead having to insert begin()/end() pairing
-class CProfileScope
-{
+class CProfileScope {
 public:
-	CProfileScope() { bValid= false;};
-	CProfileScope(ProfileSample *pSample)
-	{
+	CProfileScope() { bValid = false; };
+	CProfileScope(ProfileSample* pSample) {
 		m_pSample = pSample;
 		bValid = false;
 		//if (!giProfilerDisabled)
@@ -73,22 +69,20 @@ public:
 #endif
 		}
 	};
-	~CProfileScope()
-	{
-		if(bValid )
-		{
+	~CProfileScope() {
+		if (bValid) {
 #ifdef USE_INTERNAL_PROFILER
 			IFPEndSample(m_pSample);
 #else
 			gDLL->EndSample(m_pSample);
 #endif
 			bValid = false;
-		}	
+		}
 	};
 
 private:
 	bool bValid;
-	ProfileSample *m_pSample;
+	ProfileSample* m_pSample;
 };
 
 //---------------------------------------------------------------------------------------------------------------------

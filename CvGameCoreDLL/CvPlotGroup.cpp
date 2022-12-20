@@ -12,22 +12,19 @@
 
 // Public Functions...
 
-CvPlotGroup::CvPlotGroup()
-{
+CvPlotGroup::CvPlotGroup() {
 	m_paiNumBonuses = NULL;
 
 	reset(0, NO_PLAYER, true);
 }
 
 
-CvPlotGroup::~CvPlotGroup()
-{
+CvPlotGroup::~CvPlotGroup() {
 	uninit();
 }
 
 
-void CvPlotGroup::init(int iID, PlayerTypes eOwner, CvPlot* pPlot)
-{
+void CvPlotGroup::init(int iID, PlayerTypes eOwner, CvPlot* pPlot) {
 	//--------------------------------
 	// Init saved data
 	reset(iID, eOwner);
@@ -41,8 +38,7 @@ void CvPlotGroup::init(int iID, PlayerTypes eOwner, CvPlot* pPlot)
 }
 
 
-void CvPlotGroup::uninit()
-{
+void CvPlotGroup::uninit() {
 	SAFE_DELETE_ARRAY(m_paiNumBonuses);
 
 	m_plots.clear();
@@ -50,8 +46,7 @@ void CvPlotGroup::uninit()
 
 // FUNCTION: reset()
 // Initializes data members that are serialized.
-void CvPlotGroup::reset(int iID, PlayerTypes eOwner, bool bConstructorCall)
-{
+void CvPlotGroup::reset(int iID, PlayerTypes eOwner, bool bConstructorCall) {
 	//--------------------------------
 	// Uninit class
 	uninit();
@@ -59,20 +54,17 @@ void CvPlotGroup::reset(int iID, PlayerTypes eOwner, bool bConstructorCall)
 	m_iID = iID;
 	m_eOwner = eOwner;
 
-	if (!bConstructorCall)
-	{
+	if (!bConstructorCall) {
 		FAssertMsg((0 < GC.getNumBonusInfos()), "GC.getNumBonusInfos() is not greater than zero but an array is being allocated in CvPlotGroup::reset");
-		m_paiNumBonuses = new int [GC.getNumBonusInfos()];
-		for (int iI = 0; iI < GC.getNumBonusInfos(); iI++)
-		{
+		m_paiNumBonuses = new int[GC.getNumBonusInfos()];
+		for (int iI = 0; iI < GC.getNumBonusInfos(); iI++) {
 			m_paiNumBonuses[iI] = 0;
 		}
 	}
 }
 
 
-void CvPlotGroup::addPlot(CvPlot* pPlot)
-{
+void CvPlotGroup::addPlot(CvPlot* pPlot) {
 	XYCoords xy;
 	xy.iX = pPlot->getX_INLINE();
 	xy.iY = pPlot->getY_INLINE();
@@ -83,35 +75,28 @@ void CvPlotGroup::addPlot(CvPlot* pPlot)
 }
 
 
-void CvPlotGroup::removePlot(CvPlot* pPlot)
-{
+void CvPlotGroup::removePlot(CvPlot* pPlot) {
 	CLLNode<XYCoords>* pPlotNode = headPlotsNode();
-	while (pPlotNode != NULL)
-	{
-		if (GC.getMapINLINE().plotSorenINLINE(pPlotNode->m_data.iX, pPlotNode->m_data.iY) == pPlot)
-		{
+	while (pPlotNode != NULL) {
+		if (GC.getMapINLINE().plotSorenINLINE(pPlotNode->m_data.iX, pPlotNode->m_data.iY) == pPlot) {
 			pPlot->setPlotGroup(getOwnerINLINE(), NULL);
 
 			pPlotNode = deletePlotsNode(pPlotNode); // can delete this PlotGroup...
 			break;
-		}
-		else
-		{
+		} else {
 			pPlotNode = nextPlotsNode(pPlotNode);
 		}
 	}
 }
 
 
-void CvPlotGroup::recalculatePlots()
-{
+void CvPlotGroup::recalculatePlots() {
 	PROFILE_FUNC();
 
 	PlayerTypes eOwner = getOwnerINLINE();
 
 	CLLNode<XYCoords>* pPlotNode = headPlotsNode();
-	if (pPlotNode != NULL)
-	{
+	if (pPlotNode != NULL) {
 		CvPlot* pPlot = GC.getMapINLINE().plotSorenINLINE(pPlotNode->m_data.iX, pPlotNode->m_data.iY);
 
 		int iCount = 0;
@@ -119,8 +104,7 @@ void CvPlotGroup::recalculatePlots()
 		gDLL->getFAStarIFace()->SetData(&GC.getPlotGroupFinder(), &iCount);
 		gDLL->getFAStarIFace()->GeneratePath(&GC.getPlotGroupFinder(), pPlot->getX_INLINE(), pPlot->getY_INLINE(), -1, -1, false, eOwner);
 
-		if (iCount == getLengthPlots())
-		{
+		if (iCount == getLengthPlots()) {
 			return;
 		}
 	}
@@ -133,8 +117,7 @@ void CvPlotGroup::recalculatePlots()
 
 		pPlotNode = headPlotsNode();
 
-		while (pPlotNode != NULL)
-		{
+		while (pPlotNode != NULL) {
 			PROFILE("CvPlotGroup::recalculatePlots update 1");
 
 			CvPlot* pPlot = GC.getMapINLINE().plotSorenINLINE(pPlotNode->m_data.iX, pPlotNode->m_data.iY);
@@ -154,8 +137,7 @@ void CvPlotGroup::recalculatePlots()
 
 		pPlotNode = oldPlotGroup.head();
 
-		while (pPlotNode != NULL)
-		{
+		while (pPlotNode != NULL) {
 			PROFILE("CvPlotGroup::recalculatePlots update 2");
 
 			CvPlot* pPlot = GC.getMapINLINE().plotSorenINLINE(pPlotNode->m_data.iX, pPlotNode->m_data.iY);
@@ -170,45 +152,38 @@ void CvPlotGroup::recalculatePlots()
 }
 
 
-int CvPlotGroup::getID() const
-{
+int CvPlotGroup::getID() const {
 	return m_iID;
 }
 
 
-void CvPlotGroup::setID(int iID)
-{
+void CvPlotGroup::setID(int iID) {
 	m_iID = iID;
 }
 
 
-PlayerTypes CvPlotGroup::getOwner() const
-{
+PlayerTypes CvPlotGroup::getOwner() const {
 	return getOwnerINLINE();
 }
 
 
-int CvPlotGroup::getNumBonuses(BonusTypes eBonus) const
-{
+int CvPlotGroup::getNumBonuses(BonusTypes eBonus) const {
 	FAssertMsg(eBonus >= 0, "eBonus is expected to be non-negative (invalid Index)");
 	FAssertMsg(eBonus < GC.getNumBonusInfos(), "eBonus is expected to be within maximum bounds (invalid Index)");
 	return m_paiNumBonuses[eBonus];
 }
 
 
-bool CvPlotGroup::hasBonus(BonusTypes eBonus)
-{
+bool CvPlotGroup::hasBonus(BonusTypes eBonus) {
 	return(getNumBonuses(eBonus) > 0);
 }
 
 
-void CvPlotGroup::changeNumBonuses(BonusTypes eBonus, int iChange)
-{
+void CvPlotGroup::changeNumBonuses(BonusTypes eBonus, int iChange) {
 	FAssertMsg(eBonus >= 0, "eBonus is expected to be non-negative (invalid Index)");
 	FAssertMsg(eBonus < GC.getNumBonusInfos(), "eBonus is expected to be within maximum bounds (invalid Index)");
 
-	if (iChange != 0)
-	{
+	if (iChange != 0) {
 		m_paiNumBonuses[eBonus] = (m_paiNumBonuses[eBonus] + iChange);
 
 		// K-Mod note, m_paiNumBonuses[eBonus] is often temporarily negative while plot groups are being updated.
@@ -217,14 +192,11 @@ void CvPlotGroup::changeNumBonuses(BonusTypes eBonus, int iChange)
 
 		CLLNode<XYCoords>* pPlotNode = headPlotsNode();
 
-		while (pPlotNode != NULL)
-		{
+		while (pPlotNode != NULL) {
 			CvCity* pCity = GC.getMapINLINE().plotSorenINLINE(pPlotNode->m_data.iX, pPlotNode->m_data.iY)->getPlotCity();
 
-			if (pCity != NULL)
-			{
-				if (pCity->getOwnerINLINE() == getOwnerINLINE())
-				{
+			if (pCity != NULL) {
+				if (pCity->getOwnerINLINE() == getOwnerINLINE()) {
 					pCity->changeNumBonuses(eBonus, iChange);
 				}
 			}
@@ -235,49 +207,42 @@ void CvPlotGroup::changeNumBonuses(BonusTypes eBonus, int iChange)
 }
 
 
-void CvPlotGroup::insertAtEndPlots(XYCoords xy)
-{
+void CvPlotGroup::insertAtEndPlots(XYCoords xy) {
 	m_plots.insertAtEnd(xy);
 }
 
 
-CLLNode<XYCoords>* CvPlotGroup::deletePlotsNode(CLLNode<XYCoords>* pNode)
-{
+CLLNode<XYCoords>* CvPlotGroup::deletePlotsNode(CLLNode<XYCoords>* pNode) {
 	CLLNode<XYCoords>* pPlotNode = m_plots.deleteNode(pNode);
 
-	if (getLengthPlots() == 0)
-	{
+	if (getLengthPlots() == 0) {
 		GET_PLAYER(getOwnerINLINE()).deletePlotGroup(getID());
 	}
 
-  return pPlotNode;
+	return pPlotNode;
 }
 
 
-CLLNode<XYCoords>* CvPlotGroup::nextPlotsNode(CLLNode<XYCoords>* pNode)
-{
+CLLNode<XYCoords>* CvPlotGroup::nextPlotsNode(CLLNode<XYCoords>* pNode) {
 	return m_plots.next(pNode);
 }
 
 
-int CvPlotGroup::getLengthPlots()
-{
+int CvPlotGroup::getLengthPlots() {
 	return m_plots.getLength();
 }
 
 
-CLLNode<XYCoords>* CvPlotGroup::headPlotsNode()
-{
+CLLNode<XYCoords>* CvPlotGroup::headPlotsNode() {
 	return m_plots.head();
 }
 
 
-void CvPlotGroup::read(FDataStreamBase* pStream)
-{
+void CvPlotGroup::read(FDataStreamBase* pStream) {
 	// Init saved data
 	reset();
 
-	uint uiFlag=0;
+	uint uiFlag = 0;
 	pStream->Read(&uiFlag);	// flags for expansion
 
 	pStream->Read(&m_iID);
@@ -291,9 +256,8 @@ void CvPlotGroup::read(FDataStreamBase* pStream)
 }
 
 
-void CvPlotGroup::write(FDataStreamBase* pStream)
-{
-	uint uiFlag=0;
+void CvPlotGroup::write(FDataStreamBase* pStream) {
+	uint uiFlag = 0;
 	pStream->Write(uiFlag);		// flag for expansion
 
 	pStream->Write(m_iID);

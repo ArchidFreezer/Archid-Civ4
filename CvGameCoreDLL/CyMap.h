@@ -14,14 +14,13 @@ class CyCity;
 class CySelectionGroup;
 class CyUnit;
 class CyArea;
-class CyMap
-{
+class CyMap {
 public:
 	DllExport CyMap();
 	CyMap(CvMap* pMap);		// Call from C++
-	CvMap* getMap() { return m_pMap;	}	// Call from C++
-	bool isNone() { return (m_pMap==NULL); }
-	
+	CvMap* getMap() { return m_pMap; }	// Call from C++
+	bool isNone() { return (m_pMap == NULL); }
+
 	void erasePlots();
 	void setRevealedPlots(int /*TeamTypes*/ eTeam, bool bNewValue, bool bTerrainOnly);
 	void setAllPlotTypes(int /*PlotTypes*/ ePlotType);
@@ -67,7 +66,7 @@ public:
 	CyPlot* plotByIndex(int iIndex);
 	CyPlot* sPlotByIndex(int iIndex);
 	CyPlot* plot(int iX, int iY);
-	CyPlot* sPlot(int iX, int iY) ;
+	CyPlot* sPlot(int iX, int iY);
 	CyPlot* pointToPlot(float fX, float fY);
 	int getIndexAfterLastArea();
 	int getNumAreas();
@@ -77,7 +76,7 @@ public:
 	void resetPathDistance();
 
 	int calculatePathDistance(CyPlot* pSource, CyPlot* pDest);
-	void rebuild(int iGridW, int iGridH, int iTopLatitude, int iBottomLatitude, bool bWrapX, bool bWrapY, WorldSizeTypes eWorldSize, ClimateTypes eClimate, SeaLevelTypes eSeaLevel, int iNumCustomMapOptions, CustomMapOptionTypes * aeCustomMapOptions);
+	void rebuild(int iGridW, int iGridH, int iTopLatitude, int iBottomLatitude, bool bWrapX, bool bWrapY, WorldSizeTypes eWorldSize, ClimateTypes eClimate, SeaLevelTypes eSeaLevel, int iNumCustomMapOptions, CustomMapOptionTypes* aeCustomMapOptions);
 	void regenerateGameElements();
 	void updateFog();
 	void updateMinimapColor();

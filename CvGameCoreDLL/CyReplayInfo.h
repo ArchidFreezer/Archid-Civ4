@@ -5,8 +5,7 @@
 
 #include "CvReplayInfo.h"
 
-class CyReplayInfo
-{
+class CyReplayInfo {
 public:
 	CyReplayInfo();
 	CyReplayInfo(CvReplayInfo* pInfo);

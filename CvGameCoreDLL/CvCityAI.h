@@ -9,8 +9,7 @@
 
 typedef std::vector<std::pair<UnitAITypes, int> > UnitTypeWeightArray;
 
-class CvCityAI : public CvCity
-{
+class CvCityAI : public CvCity {
 
 public:
 
@@ -36,7 +35,7 @@ public:
 
 	BuildingTypes AI_bestBuilding(int iFocusFlags = 0, int iMaxTurns = 0, bool bAsync = false, AdvisorTypes eIgnoreAdvisor = NO_ADVISOR);
 	BuildingTypes AI_bestBuildingThreshold(int iFocusFlags = 0, int iMaxTurns = 0, int iMinThreshold = 0, bool bAsync = false, AdvisorTypes eIgnoreAdvisor = NO_ADVISOR);
-	
+
 	int AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags = 0, int iThreshold = 0, bool bConstCache = false, bool bAllowRecursion = true) const;
 
 	ProjectTypes AI_bestProject(int* piBestValue = 0);
@@ -92,7 +91,7 @@ public:
 	int AI_countGoodPlots() const;
 	int AI_countWorkedPoorPlots() const;
 	int AI_getTargetPopulation() const;
-	void AI_getYieldMultipliers(int &iFoodMultiplier, int &iProductionMultiplier, int &iCommerceMultiplier, int &iDesiredFoodChange) const;
+	void AI_getYieldMultipliers(int& iFoodMultiplier, int& iProductionMultiplier, int& iCommerceMultiplier, int& iDesiredFoodChange) const;
 	int AI_getImprovementValue(CvPlot* pPlot, ImprovementTypes eImprovement, int iFoodPriority, int iProductionPriority, int iCommercePriority, int iDesiredFoodChange, int iClearFeatureValue = 0, bool bEmphasizeIrrigation = false, BuildTypes* peBestBuild = 0) const;
 	BuildTypes AI_getBestBuild(int iIndex) const;
 	int AI_countBestBuilds(CvArea* pArea) const;
@@ -113,7 +112,7 @@ public:
 	void AI_setCultureWeight(int iWeight) { m_iCultureWeight = iWeight; } // K-Mod
 
 	int AI_countNumBonuses(BonusTypes eBonus, bool bIncludeOurs, bool bIncludeNeutral, int iOtherCultureThreshold, bool bLand = true, bool bWater = true);
-	int AI_countNumImprovableBonuses( bool bIncludeNeutral, TechTypes eExtraTech = NO_TECH, bool bLand = true, bool bWater = false ); // BBAI
+	int AI_countNumImprovableBonuses(bool bIncludeNeutral, TechTypes eExtraTech = NO_TECH, bool bLand = true, bool bWater = false); // BBAI
 
 	int AI_playerCloseness(PlayerTypes eIndex, int iMaxDistance);
 	int AI_highestTeamCloseness(TeamTypes eTeam); // K-Mod
@@ -176,9 +175,9 @@ protected:
 
 	bool AI_chooseUnit(UnitAITypes eUnitAI = NO_UNITAI, int iOdds = -1); // bbai added iOdds
 	bool AI_chooseUnit(UnitTypes eUnit, UnitAITypes eUnitAI);
-	
+
 	bool AI_chooseDefender();
-	bool AI_chooseLeastRepresentedUnit(UnitTypeWeightArray &allowedTypes, int iOdds = -1); // bbai added iOdds
+	bool AI_chooseLeastRepresentedUnit(UnitTypeWeightArray& allowedTypes, int iOdds = -1); // bbai added iOdds
 	bool AI_chooseBuilding(int iFocusFlags = 0, int iMaxTurns = MAX_INT, int iMinThreshold = 0, int iOdds = -1); // bbai added iOdds.
 	bool AI_chooseProject();
 	bool AI_chooseProcess(CommerceTypes eCommerceType = NO_COMMERCE);

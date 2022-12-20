@@ -6,9 +6,8 @@
 #define CIV4_GLOBALS_H
 
 // K-Mod. Created the following function for rounded integer division
-static inline int ROUND_DIVIDE(int a, int b)
-{
-	return (a+((a/b>0)?1:-1)*(b/2)) / b;
+static inline int ROUND_DIVIDE(int a, int b) {
+	return (a + ((a / b > 0) ? 1 : -1) * (b / 2)) / b;
 }
 
 //
@@ -135,9 +134,8 @@ class CvVoteSourceInfo;
 class CvMainMenuInfo;
 
 
-class CvGlobals
-{
-//	friend class CvDLLUtilityIFace;
+class CvGlobals {
+	//	friend class CvDLLUtilityIFace;
 	friend class CvXMLLoadUtility;
 public:
 
@@ -172,7 +170,7 @@ public:
 #endif
 	DllExport CvMap& getMap();
 	DllExport CvGameAI& getGame();
-	DllExport CvGameAI *getGamePointer();
+	DllExport CvGameAI* getGamePointer();
 	DllExport CvRandom& getASyncRand();
 	DllExport CMessageQueue& getMessageQueue();
 	DllExport CMessageQueue& getHotMessageQueue();
@@ -218,7 +216,7 @@ public:
 	DllExport int getInfoTypeForString(const char* szType, bool hideAssert = false) const;			// returns the infos index, use this when searching for an info type string
 	DllExport void setInfoTypeFromString(const char* szType, int idx);
 	DllExport void infoTypeFromStringReset();
-	DllExport void addToInfosVectors(void *infoVector);
+	DllExport void addToInfosVectors(void* infoVector);
 	DllExport void infosReset();
 
 	DllExport int getNumWorldInfos();
@@ -687,15 +685,15 @@ public:
 
 	// ***** EXPOSED TO PYTHON *****
 	bool getDefineBOOL(const char* szName, bool bDefault = false) const;
-	DllExport int getDefineINT( const char * szName ) const;
+	DllExport int getDefineINT(const char* szName) const;
 	int getDefineINT(const char* szName, int iDefault) const;
-	DllExport float getDefineFLOAT( const char * szName ) const;
+	DllExport float getDefineFLOAT(const char* szName) const;
 	float getDefineFLOAT(const char* szName, float fDefault) const;
-	DllExport const char * getDefineSTRING( const char * szName ) const;
-	const char * getDefineSTRING(const char* szName, const char * szDefault) const;
-	DllExport void setDefineINT( const char * szName, int iValue );
-	DllExport void setDefineFLOAT( const char * szName, float fValue );
-	DllExport void setDefineSTRING( const char * szName, const char * szValue );
+	DllExport const char* getDefineSTRING(const char* szName) const;
+	const char* getDefineSTRING(const char* szName, const char* szDefault) const;
+	DllExport void setDefineINT(const char* szName, int iValue);
+	DllExport void setDefineFLOAT(const char* szName, float fValue);
+	DllExport void setDefineSTRING(const char* szName, const char* szValue);
 
 	inline int getEXTRA_YIELD() { return m_iEXTRA_YIELD; } // K-Mod (why aren't all these functions inline?)
 	int getMOVE_DENOMINATOR();
@@ -789,10 +787,10 @@ public:
 	inline int getACO_SHOW_DEFENCE_MODIFIERS() { return m_iACO_SHOW_DEFENCE_MODIFIERS; }
 	inline int getACO_SHOW_TOTAL_DEFENCE_MODIFIER() { return m_iACO_SHOW_TOTAL_DEFENCE_MODIFIER; }
 	inline int getBBAI_DEFENSIVE_PACT_BEHAVIOR() { return m_iBBAI_DEFENSIVE_PACT_BEHAVIOR; }
-	inline int getBBAI_ATTACK_CITY_STACK_RATIO() {return m_iBBAI_ATTACK_CITY_STACK_RATIO; }
-	inline int getBBAI_SKIP_BOMBARD_BEST_ATTACK_ODDS() {return m_iBBAI_SKIP_BOMBARD_BEST_ATTACK_ODDS; }
-	inline int getBBAI_SKIP_BOMBARD_BASE_STACK_RATIO() {return m_iBBAI_SKIP_BOMBARD_BASE_STACK_RATIO; }
-	inline int getBBAI_SKIP_BOMBARD_MIN_STACK_RATIO() {return m_iBBAI_SKIP_BOMBARD_MIN_STACK_RATIO; }
+	inline int getBBAI_ATTACK_CITY_STACK_RATIO() { return m_iBBAI_ATTACK_CITY_STACK_RATIO; }
+	inline int getBBAI_SKIP_BOMBARD_BEST_ATTACK_ODDS() { return m_iBBAI_SKIP_BOMBARD_BEST_ATTACK_ODDS; }
+	inline int getBBAI_SKIP_BOMBARD_BASE_STACK_RATIO() { return m_iBBAI_SKIP_BOMBARD_BASE_STACK_RATIO; }
+	inline int getBBAI_SKIP_BOMBARD_MIN_STACK_RATIO() { return m_iBBAI_SKIP_BOMBARD_MIN_STACK_RATIO; }
 	inline int getCOMBAT_DAMAGE() { return m_iCOMBAT_DAMAGE; }
 	inline int getCOMBAT_DIE_SIDES() { return m_iCOMBAT_DIE_SIDES; }
 	inline int getLFBBasedOnGeneral() { return m_iLFBBasedOnGeneral; }
@@ -802,13 +800,13 @@ public:
 	inline int getLFBDefensiveAdjustment() { return m_iLFBDefensiveAdjustment; }
 	inline int getLFBAdjustNumerator() { return m_iLFBAdjustNumerator; }
 	inline int getLFBAdjustDenominator() { return m_iLFBAdjustDenominator; }
-	inline int getTECH_COST_FIRST_KNOWN_PREREQ_MODIFIER() {return m_iTECH_COST_FIRST_KNOWN_PREREQ_MODIFIER; }
-	inline int getTECH_COST_KNOWN_PREREQ_MODIFIER() {return m_iTECH_COST_KNOWN_PREREQ_MODIFIER; }
-	inline int getTECH_COST_MODIFIER() {return m_iTECH_COST_MODIFIER; }
-	inline int getTECH_DIFFUSION_KNOWN_TEAM_MODIFIER() {return m_iTECH_DIFFUSION_KNOWN_TEAM_MODIFIER; }
-	inline int getTECH_DIFFUSION_WELFARE_THRESHOLD() {return m_iTECH_DIFFUSION_WELFARE_THRESHOLD; }
-	inline int getTECH_DIFFUSION_WELFARE_MODIFIER() {return m_iTECH_DIFFUSION_WELFARE_MODIFIER; }
-	inline int getWAR_SUCCESS_CITY_CAPTURING() {return m_iWAR_SUCCESS_CITY_CAPTURING; }
+	inline int getTECH_COST_FIRST_KNOWN_PREREQ_MODIFIER() { return m_iTECH_COST_FIRST_KNOWN_PREREQ_MODIFIER; }
+	inline int getTECH_COST_KNOWN_PREREQ_MODIFIER() { return m_iTECH_COST_KNOWN_PREREQ_MODIFIER; }
+	inline int getTECH_COST_MODIFIER() { return m_iTECH_COST_MODIFIER; }
+	inline int getTECH_DIFFUSION_KNOWN_TEAM_MODIFIER() { return m_iTECH_DIFFUSION_KNOWN_TEAM_MODIFIER; }
+	inline int getTECH_DIFFUSION_WELFARE_THRESHOLD() { return m_iTECH_DIFFUSION_WELFARE_THRESHOLD; }
+	inline int getTECH_DIFFUSION_WELFARE_MODIFIER() { return m_iTECH_DIFFUSION_WELFARE_MODIFIER; }
+	inline int getWAR_SUCCESS_CITY_CAPTURING() { return m_iWAR_SUCCESS_CITY_CAPTURING; }
 
 	inline bool getACO_DEBUG() { return m_bACO_DEBUG; }
 	inline bool getACO_ENABLED() { return m_bACO_ENABLED; }
@@ -816,9 +814,9 @@ public:
 	inline bool getACO_IGNORE_BARB_FREE_WINS() { return m_bACO_IGNORE_BARB_FREE_WINS; }
 	inline bool getACO_MERGE_SHORT_BARS() { return m_bACO_MERGE_SHORT_BARS; }
 	inline bool getACO_SWAP_VIEWS() { return m_bACO_SWAP_VIEWS; }
-	inline bool getBBAI_AIR_COMBAT() {  return m_bBBAI_AIR_COMBAT; }
-	inline bool getBBAI_HUMAN_AS_VASSAL_OPTION() {  return m_bBBAI_HUMAN_AS_VASSAL_OPTION; }
-	inline bool getBBAI_HUMAN_VASSAL_WAR_BUILD() {  return m_bBBAI_HUMAN_VASSAL_WAR_BUILD; }
+	inline bool getBBAI_AIR_COMBAT() { return m_bBBAI_AIR_COMBAT; }
+	inline bool getBBAI_HUMAN_AS_VASSAL_OPTION() { return m_bBBAI_HUMAN_AS_VASSAL_OPTION; }
+	inline bool getBBAI_HUMAN_VASSAL_WAR_BUILD() { return m_bBBAI_HUMAN_VASSAL_WAR_BUILD; }
 	inline bool getBUG_BUILDING_ADDITIONAL_COMMERCE_HOVER() { return m_bBUG_BUILDING_ADDITIONAL_COMMERCE_HOVER; }
 	inline bool getBUG_BUILDING_ADDITIONAL_GREAT_PEOPLE_HOVER() { return m_bBUG_BUILDING_ADDITIONAL_GREAT_PEOPLE_HOVER; }
 	inline bool getBUG_BUILDING_ADDITIONAL_HAPPINESS_HOVER() { return m_bBUG_BUILDING_ADDITIONAL_HAPPINESS_HOVER; }
@@ -985,7 +983,7 @@ protected:
 	bool m_bZoomIn;
 	bool m_bLoadGameFromFile;
 
-	FMPIManager * m_pFMPMgr;
+	FMPIManager* m_pFMPMgr;
 
 	CvRandom* m_asyncRand;
 
@@ -998,10 +996,10 @@ protected:
 	CvInitCore* m_iniInitCore;
 	CvInitCore* m_loadedInitCore;
 	CvInitCore* m_initCore;
-	CvMessageCodeTranslator * m_messageCodes;
+	CvMessageCodeTranslator* m_messageCodes;
 	CvDropMgr* m_dropMgr;
 	CvPortal* m_portal;
-	CvStatsReporter * m_statsReporter;
+	CvStatsReporter* m_statsReporter;
 	CvInterface* m_interface;
 
 	CvArtFileMgr* m_pArtFileMgr;
@@ -1044,7 +1042,7 @@ protected:
 	// all type strings are upper case and are kept in this hash map for fast lookup, Moose
 	typedef stdext::hash_map<std::string /* type string */, int /* info index */> InfosMap;
 	InfosMap m_infosMap;
-	std::vector<std::vector<CvInfoBase *> *> m_aInfoVectors;
+	std::vector<std::vector<CvInfoBase*>*> m_aInfoVectors;
 
 	std::vector<CvColorInfo*> m_paColorInfo;
 	std::vector<CvPlayerColorInfo*> m_paPlayerColorInfo;
@@ -1148,7 +1146,7 @@ protected:
 	std::vector<CvEventTriggerInfo*> m_paEventTriggerInfo;
 	std::vector<CvEventInfo*> m_paEventInfo;
 	std::vector<CvEspionageMissionInfo*> m_paEspionageMissionInfo;
-    std::vector<CvUnitArtStyleTypeInfo*> m_paUnitArtStyleTypeInfo;
+	std::vector<CvUnitArtStyleTypeInfo*> m_paUnitArtStyleTypeInfo;
 
 	// Game Text
 	std::vector<CvGameText*> m_paGameTextXML;
@@ -1162,11 +1160,11 @@ protected:
 	TypesMap m_typesMap;
 
 	// XXX These are duplicates and are kept for enumeration convenience - most could be removed, Moose
-	CvString *m_paszEntityEventTypes2;
-	CvString *m_paszEntityEventTypes;
+	CvString* m_paszEntityEventTypes2;
+	CvString* m_paszEntityEventTypes;
 	int m_iNumEntityEventTypes;
 
-	CvString *m_paszAnimationOperatorTypes;
+	CvString* m_paszAnimationOperatorTypes;
 	int m_iNumAnimationOperatorTypes;
 
 	CvString* m_paszFunctionTypes;
@@ -1174,24 +1172,24 @@ protected:
 	CvString* m_paszFlavorTypes;
 	int m_iNumFlavorTypes;
 
-	CvString *m_paszArtStyleTypes;
+	CvString* m_paszArtStyleTypes;
 	int m_iNumArtStyleTypes;
 
-	CvString *m_paszCitySizeTypes;
+	CvString* m_paszCitySizeTypes;
 	int m_iNumCitySizeTypes;
 
-	CvString *m_paszContactTypes;
+	CvString* m_paszContactTypes;
 
-	CvString *m_paszDiplomacyPowerTypes;
+	CvString* m_paszDiplomacyPowerTypes;
 
-	CvString *m_paszAutomateTypes;
+	CvString* m_paszAutomateTypes;
 
-	CvString *m_paszDirectionTypes;
+	CvString* m_paszDirectionTypes;
 
-	CvString *m_paszFootstepAudioTypes;
+	CvString* m_paszFootstepAudioTypes;
 	int m_iNumFootstepAudioTypes;
 
-	CvString *m_paszFootstepAudioTags;
+	CvString* m_paszFootstepAudioTags;
 	int m_iNumFootstepAudioTags;
 
 	CvString m_szCurrentXMLFile;
@@ -1360,7 +1358,7 @@ protected:
 
 	FProfiler* m_Profiler;		// profiler
 	CvString m_szDllProfileText;
-	
+
 };
 
 extern CvGlobals gGlobals;	// for debugging
@@ -1368,8 +1366,7 @@ extern CvGlobals gGlobals;	// for debugging
 //
 // inlines
 //
-inline CvGlobals& CvGlobals::getInstance()
-{
+inline CvGlobals& CvGlobals::getInstance() {
 	return gGlobals;
 }
 

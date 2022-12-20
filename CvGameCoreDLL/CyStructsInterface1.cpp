@@ -9,8 +9,7 @@
 // Author - Mustafa Thamer
 //
 
-void CyStructsPythonInterface1()
-{
+void CyStructsPythonInterface1() {
 	OutputDebugString("Python Extension Module - CyStructsPythonInterface1\n");
 
 	python::class_<NiPoint3>("NiPoint3")
@@ -121,7 +120,7 @@ void CyStructsPythonInterface1()
 		.def("getOptionAt", &PBGameSetupData::getOptionAt)
 		.def("getMPOptionAt", &PBGameSetupData::getMPOptionAt)
 		;
-		
+
 	python::class_<PBPlayerSetupData>("PBPlayerSetupData")
 		.def_readwrite("iWho", &PBPlayerSetupData::iWho)
 		.def_readwrite("iCiv", &PBPlayerSetupData::iCiv)

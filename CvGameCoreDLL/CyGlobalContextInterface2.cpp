@@ -14,18 +14,17 @@
 #include "CyTeam.h"
 
 
-void CyGlobalContextPythonInterface2(python::class_<CyGlobalContext>& x)
-{
+void CyGlobalContextPythonInterface2(python::class_<CyGlobalContext>& x) {
 	OutputDebugString("Python Extension Module - CyGlobalContextPythonInterface2\n");
 
 	x
 		// global defines.xml
-		.def("getDefineINT", &CyGlobalContext::getDefineINT, "int ( string szName )" )
-		.def("getDefineFLOAT", &CyGlobalContext::getDefineFLOAT, "float ( string szName )" )
-		.def("getDefineSTRING", &CyGlobalContext::getDefineSTRING, "string getDefineSTRING( string szName )" )
-		.def("setDefineINT", &CyGlobalContext::setDefineINT, "void ( string szName, int iValue )" )
-		.def("setDefineFLOAT", &CyGlobalContext::setDefineFLOAT, "void setDefineFLOAT( string szName, float fValue )" )
-		.def("setDefineSTRING", &CyGlobalContext::setDefineSTRING, "void ( string szName, string szValue )" )
+		.def("getDefineINT", &CyGlobalContext::getDefineINT, "int ( string szName )")
+		.def("getDefineFLOAT", &CyGlobalContext::getDefineFLOAT, "float ( string szName )")
+		.def("getDefineSTRING", &CyGlobalContext::getDefineSTRING, "string getDefineSTRING( string szName )")
+		.def("setDefineINT", &CyGlobalContext::setDefineINT, "void ( string szName, int iValue )")
+		.def("setDefineFLOAT", &CyGlobalContext::setDefineFLOAT, "void setDefineFLOAT( string szName, float fValue )")
+		.def("setDefineSTRING", &CyGlobalContext::setDefineSTRING, "void ( string szName, string szValue )")
 
 		.def("getMOVE_DENOMINATOR", &CyGlobalContext::getMOVE_DENOMINATOR, "int ()")
 		.def("getNUM_UNIT_PREREQ_OR_BONUSES", &CyGlobalContext::getNUM_UNIT_PREREQ_OR_BONUSES, "int ()")

@@ -11,34 +11,31 @@
 template <class tVARTYPE> class CLinkList;
 
 
-template <class tVARTYPE> class CLLNode
-{
+template <class tVARTYPE> class CLLNode {
 
-friend class CLinkList<tVARTYPE>;
+	friend class CLinkList<tVARTYPE>;
 
 public:
 
-    CLLNode(const tVARTYPE& val)
-          {
-	          m_data = val;
+	CLLNode(const tVARTYPE& val) {
+		m_data = val;
 
-	          m_pNext = NULL;
-	          m_pPrev = NULL;
-          }
+		m_pNext = NULL;
+		m_pPrev = NULL;
+	}
 	virtual ~CLLNode() {}
 
 	tVARTYPE	m_data;		//list of vartype
 
 protected:
 
-	CLLNode<tVARTYPE>*	m_pNext;
-	CLLNode<tVARTYPE>*	m_pPrev;
+	CLLNode<tVARTYPE>* m_pNext;
+	CLLNode<tVARTYPE>* m_pPrev;
 
 };
 
 
-template <class tVARTYPE> class CLinkList
-{
+template <class tVARTYPE> class CLinkList {
 
 public:
 
@@ -61,21 +58,18 @@ public:
 
 	CLLNode<tVARTYPE>* nodeNum(int iNum) const;
 
-	void Read( FDataStreamBase* pStream );
-	void Write( FDataStreamBase* pStream ) const;
+	void Read(FDataStreamBase* pStream);
+	void Write(FDataStreamBase* pStream) const;
 
-	int getLength() const
-	{
+	int getLength() const {
 		return m_iLength;
 	}
 
-	CLLNode<tVARTYPE>* head() const
-	{
+	CLLNode<tVARTYPE>* head() const {
 		return m_pHead;
 	}
 
-	CLLNode<tVARTYPE>* tail() const
-	{
+	CLLNode<tVARTYPE>* tail() const {
 		return m_pTail;
 	}
 
@@ -91,8 +85,7 @@ protected:
 //constructor
 //resets local vars
 template <class tVARTYPE>
-inline CLinkList<tVARTYPE>::CLinkList()
-{
+inline CLinkList<tVARTYPE>::CLinkList() {
 	m_iLength = 0;
 
 	m_pHead = NULL;
@@ -103,21 +96,18 @@ inline CLinkList<tVARTYPE>::CLinkList()
 //Destructor
 //resets local vars
 template <class tVARTYPE>
-inline CLinkList<tVARTYPE>::~CLinkList()
-{
-  clear();
+inline CLinkList<tVARTYPE>::~CLinkList() {
+	clear();
 }
 
 
 template <class tVARTYPE>
-inline void CLinkList<tVARTYPE>::clear()
-{
+inline void CLinkList<tVARTYPE>::clear() {
 	CLLNode<tVARTYPE>* pCurrNode;
 	CLLNode<tVARTYPE>* pNextNode;
 
 	pCurrNode = m_pHead;
-	while (pCurrNode != NULL)
-	{
+	while (pCurrNode != NULL) {
 		pNextNode = pCurrNode->m_pNext;
 		SAFE_DELETE(pCurrNode);
 		pCurrNode = pNextNode;
@@ -132,8 +122,7 @@ inline void CLinkList<tVARTYPE>::clear()
 // K-Mod. (I wish they had just used the STL...)
 // swap the contents of two lists
 template <class tVARTYPE>
-inline void CLinkList<tVARTYPE>::swap(CLinkList<tVARTYPE>& list)
-{
+inline void CLinkList<tVARTYPE>::swap(CLinkList<tVARTYPE>& list) {
 	std::swap(m_pHead, list.m_pHead);
 	std::swap(m_pTail, list.m_pTail);
 	std::swap(m_iLength, list.m_iLength);
@@ -141,18 +130,14 @@ inline void CLinkList<tVARTYPE>::swap(CLinkList<tVARTYPE>& list)
 
 // move the contents from the argument list onto the end of this list
 template <class tVARTYPE>
-inline void CLinkList<tVARTYPE>::concatenate(CLinkList<tVARTYPE>& list)
-{
+inline void CLinkList<tVARTYPE>::concatenate(CLinkList<tVARTYPE>& list) {
 	if (list.m_pHead == NULL)
 		return;
 
-	if (m_pTail)
-	{
+	if (m_pTail) {
 		m_pTail->m_pNext = list.m_pHead;
 		list.m_pHead->m_pPrev = m_pTail;
-	}
-	else
-	{
+	} else {
 		assert(m_pHead == NULL && m_iLength == 0);
 		m_pHead = list.m_pHead;
 	}
@@ -169,22 +154,18 @@ inline void CLinkList<tVARTYPE>::concatenate(CLinkList<tVARTYPE>& list)
 
 //inserts at the tail of the list
 template <class tVARTYPE>
-inline void CLinkList<tVARTYPE>::insertAtBeginning(const tVARTYPE& val)
-{	
+inline void CLinkList<tVARTYPE>::insertAtBeginning(const tVARTYPE& val) {
 	CLLNode<tVARTYPE>* pNode;
 
 	assert((m_pHead == NULL) || (m_iLength > 0));
 
 	pNode = new CLLNode<tVARTYPE>(val);
 
-	if (m_pHead != NULL)
-	{
+	if (m_pHead != NULL) {
 		m_pHead->m_pPrev = pNode;
 		pNode->m_pNext = m_pHead;
 		m_pHead = pNode;
-	}
-	else
-	{
+	} else {
 		m_pHead = pNode;
 		m_pTail = pNode;
 	}
@@ -195,22 +176,18 @@ inline void CLinkList<tVARTYPE>::insertAtBeginning(const tVARTYPE& val)
 
 //inserts at the tail of the list
 template <class tVARTYPE>
-inline void CLinkList<tVARTYPE>::insertAtEnd(const tVARTYPE& val)
-{	
+inline void CLinkList<tVARTYPE>::insertAtEnd(const tVARTYPE& val) {
 	CLLNode<tVARTYPE>* pNode;
 
 	assert((m_pHead == NULL) || (m_iLength > 0));
 
 	pNode = new CLLNode<tVARTYPE>(val);
 
-	if (m_pTail != NULL)
-	{
+	if (m_pTail != NULL) {
 		m_pTail->m_pNext = pNode;
 		pNode->m_pPrev = m_pTail;
 		m_pTail = pNode;
-	}
-	else
-	{
+	} else {
 		m_pHead = pNode;
 		m_pTail = pNode;
 	}
@@ -221,14 +198,12 @@ inline void CLinkList<tVARTYPE>::insertAtEnd(const tVARTYPE& val)
 
 //inserts before the specified node
 template <class tVARTYPE>
-inline void CLinkList<tVARTYPE>::insertBefore(const tVARTYPE& val, CLLNode<tVARTYPE>* pThisNode)
-{
+inline void CLinkList<tVARTYPE>::insertBefore(const tVARTYPE& val, CLLNode<tVARTYPE>* pThisNode) {
 	CLLNode<tVARTYPE>* pNode;
 
 	assert((m_pHead == NULL) || (m_iLength > 0));
 
-	if ((pThisNode == NULL) || (pThisNode->m_pPrev == NULL))
-	{
+	if ((pThisNode == NULL) || (pThisNode->m_pPrev == NULL)) {
 		insertAtBeginning(val);
 		return;
 	}
@@ -246,14 +221,12 @@ inline void CLinkList<tVARTYPE>::insertBefore(const tVARTYPE& val, CLLNode<tVART
 
 //inserts after the specified node
 template <class tVARTYPE>
-inline void CLinkList<tVARTYPE>::insertAfter(const tVARTYPE& val, CLLNode<tVARTYPE>* pThisNode)
-{
+inline void CLinkList<tVARTYPE>::insertAfter(const tVARTYPE& val, CLLNode<tVARTYPE>* pThisNode) {
 	CLLNode<tVARTYPE>* pNode;
 
 	assert((m_pHead == NULL) || (m_iLength > 0));
 
-	if ((pThisNode == NULL) || (pThisNode->m_pNext == NULL))
-	{
+	if ((pThisNode == NULL) || (pThisNode->m_pNext == NULL)) {
 		insertAtEnd(val);
 		return;
 	}
@@ -261,17 +234,16 @@ inline void CLinkList<tVARTYPE>::insertAfter(const tVARTYPE& val, CLLNode<tVARTY
 	pNode = new CLLNode<tVARTYPE>(val);
 
 	pThisNode->m_pNext->m_pPrev = pNode;
-	pNode->m_pNext              = pThisNode->m_pNext;
-	pThisNode->m_pNext          = pNode;
-	pNode->m_pPrev			        = pThisNode;
+	pNode->m_pNext = pThisNode->m_pNext;
+	pThisNode->m_pNext = pNode;
+	pNode->m_pPrev = pThisNode;
 
 	m_iLength++;
 }
 
 
 template <class tVARTYPE>
-inline CLLNode<tVARTYPE>* CLinkList<tVARTYPE>::deleteNode(CLLNode<tVARTYPE>* pNode)
-{
+inline CLLNode<tVARTYPE>* CLinkList<tVARTYPE>::deleteNode(CLLNode<tVARTYPE>* pNode) {
 	CLLNode<tVARTYPE>* pPrevNode;
 	CLLNode<tVARTYPE>* pNextNode;
 
@@ -280,23 +252,16 @@ inline CLLNode<tVARTYPE>* CLinkList<tVARTYPE>::deleteNode(CLLNode<tVARTYPE>* pNo
 	pPrevNode = pNode->m_pPrev;
 	pNextNode = pNode->m_pNext;
 
-	if ((pPrevNode != NULL) && (pNextNode != NULL))
-	{
+	if ((pPrevNode != NULL) && (pNextNode != NULL)) {
 		pPrevNode->m_pNext = pNextNode;
 		pNextNode->m_pPrev = pPrevNode;
-	}
-	else if (pPrevNode != NULL)
-	{
+	} else if (pPrevNode != NULL) {
 		pPrevNode->m_pNext = NULL;
 		m_pTail = pPrevNode;
-	}
-	else if (pNextNode != NULL)
-	{
+	} else if (pNextNode != NULL) {
 		pNextNode->m_pPrev = NULL;
 		m_pHead = pNextNode;
-	}
-	else
-	{
+	} else {
 		m_pHead = NULL;
 		m_pTail = NULL;
 	}
@@ -310,43 +275,33 @@ inline CLLNode<tVARTYPE>* CLinkList<tVARTYPE>::deleteNode(CLLNode<tVARTYPE>* pNo
 
 
 template <class tVARTYPE>
-inline void CLinkList<tVARTYPE>::moveToEnd(CLLNode<tVARTYPE>* pNode)
-{
+inline void CLinkList<tVARTYPE>::moveToEnd(CLLNode<tVARTYPE>* pNode) {
 	CLLNode<tVARTYPE>* pPrevNode;
 	CLLNode<tVARTYPE>* pNextNode;
 
 	assert(pNode != NULL);
 
-	if (getLength() == 1)
-	{
-	return;
+	if (getLength() == 1) {
+		return;
 	}
 
-	if (pNode == m_pTail)
-	{
+	if (pNode == m_pTail) {
 		return;
 	}
 
 	pPrevNode = pNode->m_pPrev;
 	pNextNode = pNode->m_pNext;
 
-	if ((pPrevNode != NULL) && (pNextNode != NULL))
-	{
+	if ((pPrevNode != NULL) && (pNextNode != NULL)) {
 		pPrevNode->m_pNext = pNextNode;
 		pNextNode->m_pPrev = pPrevNode;
-	}
-	else if (pPrevNode != NULL)
-	{
+	} else if (pPrevNode != NULL) {
 		pPrevNode->m_pNext = NULL;
 		m_pTail = pPrevNode;
-	}
-	else if (pNextNode != NULL)
-	{
+	} else if (pNextNode != NULL) {
 		pNextNode->m_pPrev = NULL;
 		m_pHead = pNextNode;
-	}
-	else
-	{
+	} else {
 		m_pHead = NULL;
 		m_pTail = NULL;
 	}
@@ -359,17 +314,15 @@ inline void CLinkList<tVARTYPE>::moveToEnd(CLLNode<tVARTYPE>* pNode)
 
 
 template <class tVARTYPE>
-inline CLLNode<tVARTYPE>* CLinkList<tVARTYPE>::next(CLLNode<tVARTYPE>* pNode) const
-{
-  assert(pNode != NULL);
+inline CLLNode<tVARTYPE>* CLinkList<tVARTYPE>::next(CLLNode<tVARTYPE>* pNode) const {
+	assert(pNode != NULL);
 
-  return pNode->m_pNext;
+	return pNode->m_pNext;
 }
 
 
 template <class tVARTYPE>
-inline CLLNode<tVARTYPE>* CLinkList<tVARTYPE>::prev(CLLNode<tVARTYPE>* pNode) const
-{
+inline CLLNode<tVARTYPE>* CLinkList<tVARTYPE>::prev(CLLNode<tVARTYPE>* pNode) const {
 	assert(pNode != NULL);
 
 	return pNode->m_pPrev;
@@ -377,18 +330,15 @@ inline CLLNode<tVARTYPE>* CLinkList<tVARTYPE>::prev(CLLNode<tVARTYPE>* pNode) co
 
 
 template <class tVARTYPE>
-inline CLLNode<tVARTYPE>* CLinkList<tVARTYPE>::nodeNum(int iNum) const
-{
+inline CLLNode<tVARTYPE>* CLinkList<tVARTYPE>::nodeNum(int iNum) const {
 	CLLNode<tVARTYPE>* pNode;
 	int iCount;
 
 	iCount = 0;
 	pNode = m_pHead;
 
-	while (pNode != NULL)
-	{
-		if (iCount == iNum)
-		{
+	while (pNode != NULL) {
+		if (iCount == iNum) {
 			return pNode;
 		}
 
@@ -403,34 +353,29 @@ inline CLLNode<tVARTYPE>* CLinkList<tVARTYPE>::nodeNum(int iNum) const
 // use when linked list contains non-streamable types
 //
 template < class T >
-inline void CLinkList< T >::Read( FDataStreamBase* pStream )
-{
+inline void CLinkList< T >::Read(FDataStreamBase* pStream) {
 	int iLength;
-	pStream->Read( &iLength );
+	pStream->Read(&iLength);
 	clear();
 
-	if ( iLength )
-	{
+	if (iLength) {
 		T* pData = new T;
-		for ( int i = 0; i < iLength; i++ )
-		{
-			pStream->Read( sizeof ( T ), ( byte* )pData );
-			insertAtEnd( *pData );
+		for (int i = 0; i < iLength; i++) {
+			pStream->Read(sizeof(T), (byte*)pData);
+			insertAtEnd(*pData);
 		}
-		SAFE_DELETE( pData );
+		SAFE_DELETE(pData);
 	}
 }
 
 template < class T >
-inline void CLinkList< T >::Write( FDataStreamBase* pStream ) const
-{
+inline void CLinkList< T >::Write(FDataStreamBase* pStream) const {
 	int iLength = getLength();
-	pStream->Write( iLength );
+	pStream->Write(iLength);
 	CLLNode< T >* pNode = head();
-	while ( pNode )
-	{
-		pStream->Write( sizeof ( T ), ( byte* )&pNode->m_data );
-		pNode = next( pNode );
+	while (pNode) {
+		pStream->Write(sizeof(T), (byte*)&pNode->m_data);
+		pNode = next(pNode);
 	}
 }
 
@@ -442,34 +387,29 @@ inline void CLinkList< T >::Write( FDataStreamBase* pStream ) const
 // use when linked list contains streamable types
 //
 template < class T >
-inline void ReadStreamableLinkList( CLinkList< T >& llist, FDataStreamBase* pStream )
-{
+inline void ReadStreamableLinkList(CLinkList< T >& llist, FDataStreamBase* pStream) {
 	int iLength;
-	pStream->Read( &iLength );
+	pStream->Read(&iLength);
 	llist.init();
 
-	if ( iLength )
-	{
+	if (iLength) {
 		T* pData = new T;
-		for ( int i = 0; i < iLength; i++ )
-		{
-			pData->read( pStream );
-			llist.insertAtEnd( *pData );
+		for (int i = 0; i < iLength; i++) {
+			pData->read(pStream);
+			llist.insertAtEnd(*pData);
 		}
-		SAFE_DELETE( pData );
+		SAFE_DELETE(pData);
 	}
 }
 
 template < class T >
-inline void WriteStreamableLinkList( CLinkList< T >& llist, FDataStreamBase* pStream )
-{
+inline void WriteStreamableLinkList(CLinkList< T >& llist, FDataStreamBase* pStream) {
 	int iLength = llist.getLength();
-	pStream->Write( iLength );
+	pStream->Write(iLength);
 	CLLNode< T >* pNode = llist.head();
-	while ( pNode )
-	{
-		pNode->m_data.write( pStream );
-		pNode = llist.next( pNode );
+	while (pNode) {
+		pNode->m_data.write(pStream);
+		pNode = llist.next(pNode);
 	}
 }
 

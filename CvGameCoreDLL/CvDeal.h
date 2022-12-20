@@ -7,8 +7,7 @@
 
 #include "LinkedList.h"
 
-class CvDeal
-{
+class CvDeal {
 
 public:
 

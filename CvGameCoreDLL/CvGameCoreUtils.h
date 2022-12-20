@@ -40,64 +40,45 @@ class CvInfoBase;
 #undef min
 
 //sign function taken from FirePlace - JW
-template<class T> __forceinline T getSign( T x ) { return (( x < 0 ) ? T(-1) : x > 0 ? T(1) : T(0)); };
+template<class T> __forceinline T getSign(T x) { return ((x < 0) ? T(-1) : x > 0 ? T(1) : T(0)); };
 
-inline int range(int iNum, int iLow, int iHigh)
-{
+inline int range(int iNum, int iLow, int iHigh) {
 	FAssertMsg(iHigh >= iLow, "High should be higher than low");
 
-	if (iNum < iLow)
-	{
+	if (iNum < iLow) {
 		return iLow;
-	}
-	else if (iNum > iHigh)
-	{
+	} else if (iNum > iHigh) {
 		return iHigh;
-	}
-	else
-	{
+	} else {
 		return iNum;
 	}
 }
 
-inline float range(float fNum, float fLow, float fHigh)
-{
+inline float range(float fNum, float fLow, float fHigh) {
 	FAssertMsg(fHigh >= fLow, "High should be higher than low");
 
-	if (fNum < fLow)
-	{
+	if (fNum < fLow) {
 		return fLow;
-	}
-	else if (fNum > fHigh)
-	{
+	} else if (fNum > fHigh) {
 		return fHigh;
-	}
-	else
-	{
+	} else {
 		return fNum;
 	}
 }
 
-inline int coordDistance(int iFrom, int iTo, int iRange, bool bWrap)
-{
-	if (bWrap && (abs(iFrom - iTo) > (iRange / 2)))
-	{
+inline int coordDistance(int iFrom, int iTo, int iRange, bool bWrap) {
+	if (bWrap && (abs(iFrom - iTo) > (iRange / 2))) {
 		return (iRange - abs(iFrom - iTo));
 	}
 
 	return abs(iFrom - iTo);
 }
 
-inline int wrapCoordDifference(int iDiff, int iRange, bool bWrap)
-{
-	if (bWrap)
-	{
-		if (iDiff > (iRange / 2))
-		{
+inline int wrapCoordDifference(int iDiff, int iRange, bool bWrap) {
+	if (bWrap) {
+		if (iDiff > (iRange / 2)) {
 			return (iDiff - iRange);
-		}
-		else if (iDiff < -(iRange / 2))
-		{
+		} else if (iDiff < -(iRange / 2)) {
 			return (iDiff + iRange);
 		}
 	}
@@ -105,13 +86,11 @@ inline int wrapCoordDifference(int iDiff, int iRange, bool bWrap)
 	return iDiff;
 }
 
-inline int xDistance(int iFromX, int iToX)
-{
+inline int xDistance(int iFromX, int iToX) {
 	return coordDistance(iFromX, iToX, GC.getMapINLINE().getGridWidthINLINE(), GC.getMapINLINE().isWrapXINLINE());
 }
 
-inline int yDistance(int iFromY, int iToY)
-{
+inline int yDistance(int iFromY, int iToY) {
 	return coordDistance(iFromY, iToY, GC.getMapINLINE().getGridHeightINLINE(), GC.getMapINLINE().isWrapYINLINE());
 }
 
@@ -152,8 +131,7 @@ inline int plotDistance(int iX1, int iY1, int iX2, int iY2)													// Expos
 }
 
 // K-Mod, plot-to-plot alias for convenience:
-inline int plotDistance(const CvPlot* plot1, const CvPlot* plot2)
-{
+inline int plotDistance(const CvPlot* plot1, const CvPlot* plot2) {
 	return plotDistance(plot1->getX_INLINE(), plot1->getY_INLINE(), plot2->getX_INLINE(), plot2->getY_INLINE());
 }
 
@@ -178,19 +156,15 @@ inline int stepDistance(int iX1, int iY1, int iX2, int iY2)													// Expos
 }
 
 // K-Mod, plot-to-plot alias for convenience:
-inline int stepDistance(const CvPlot* plot1, const CvPlot* plot2)
-{
+inline int stepDistance(const CvPlot* plot1, const CvPlot* plot2) {
 	return stepDistance(plot1->getX_INLINE(), plot1->getY_INLINE(), plot2->getX_INLINE(), plot2->getY_INLINE());
 }
 
 inline CvPlot* plotDirection(int iX, int iY, DirectionTypes eDirection)							// Exposed to Python
 {
-	if(eDirection == NO_DIRECTION)
-	{
+	if (eDirection == NO_DIRECTION) {
 		return GC.getMapINLINE().plotINLINE(iX, iY);
-	}
-	else
-	{
+	} else {
 		return GC.getMapINLINE().plotINLINE((iX + GC.getPlotDirectionX()[eDirection]), (iY + GC.getPlotDirectionY()[eDirection]));
 	}
 }
@@ -209,12 +183,9 @@ inline CvPlot* plotXY(const CvPlot* pPlot, int iDX, int iDY) { return plotXY(pPl
 
 inline DirectionTypes directionXY(int iDX, int iDY)																		// Exposed to Python
 {
-	if ((abs(iDX) > DIRECTION_RADIUS) || (abs(iDY) > DIRECTION_RADIUS))
-	{
+	if ((abs(iDX) > DIRECTION_RADIUS) || (abs(iDY) > DIRECTION_RADIUS)) {
 		return NO_DIRECTION;
-	}
-	else
-	{
+	} else {
 		return GC.getXYDirection((iDX + DIRECTION_RADIUS), (iDY + DIRECTION_RADIUS));
 	}
 }
@@ -297,37 +268,37 @@ void setListHelp(CvWString& szBuffer, const wchar* szStart, const wchar* szItem,
 void setListHelp(CvWStringBuffer& szBuffer, const wchar* szStart, const wchar* szItem, const wchar* szSeparator, bool bFirst);
 
 // PlotUnitFunc's...
-bool PUF_isGroupHead( const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
-bool PUF_isPlayer( const CvUnit* pUnit, int iData1, int iData2 = -1);
-bool PUF_isTeam( const CvUnit* pUnit, int iData1, int iData2 = -1);
+bool PUF_isGroupHead(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
+bool PUF_isPlayer(const CvUnit* pUnit, int iData1, int iData2 = -1);
+bool PUF_isTeam(const CvUnit* pUnit, int iData1, int iData2 = -1);
 bool PUF_isCombatTeam(const CvUnit* pUnit, int iData1, int iData2);
-bool PUF_isOtherPlayer( const CvUnit* pUnit, int iData1, int iData2 = -1);
-bool PUF_isOtherTeam( const CvUnit* pUnit, int iData1, int iData2 = -1);
-bool PUF_isEnemy( const CvUnit* pUnit, int iData1, int iData2 = -1);
-bool PUF_isVisible( const CvUnit* pUnit, int iData1, int iData2 = -1);
-bool PUF_isVisibleDebug( const CvUnit* pUnit, int iData1, int iData2 = -1);
-bool PUF_canSiege( const CvUnit* pUnit, int iData1, int iData2 = -1);
-bool PUF_isPotentialEnemy( const CvUnit* pUnit, int iData1, int iData2 = -1);
-bool PUF_canDeclareWar( const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
-bool PUF_canDefend( const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
-bool PUF_cannotDefend( const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
-bool PUF_canDefendGroupHead( const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
-bool PUF_canDefendEnemy( const CvUnit* pUnit, int iData1, int iData2 = -1);
-bool PUF_canDefendPotentialEnemy( const CvUnit* pUnit, int iData1, int iData2 = -1);
-bool PUF_canAirAttack( const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
-bool PUF_canAirDefend( const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
-bool PUF_isFighting( const CvUnit* pUnit, int iData1, int iData2 = -1);
-bool PUF_isAnimal( const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
-bool PUF_isMilitaryHappiness( const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
-bool PUF_isInvestigate( const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
-bool PUF_isCounterSpy( const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
-bool PUF_isSpy( const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
-bool PUF_isUnitType( const CvUnit* pUnit, int iData1, int iData2 = -1);
-bool PUF_isDomainType( const CvUnit* pUnit, int iData1, int iData2 = -1);
-bool PUF_isUnitAIType( const CvUnit* pUnit, int iData1, int iData2 = -1);
-bool PUF_isCityAIType( const CvUnit* pUnit, int iData1, int iData2 = -1);
-bool PUF_isNotCityAIType( const CvUnit* pUnit, int iData1, int iData2 = -1);
-bool PUF_isSelected( const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
+bool PUF_isOtherPlayer(const CvUnit* pUnit, int iData1, int iData2 = -1);
+bool PUF_isOtherTeam(const CvUnit* pUnit, int iData1, int iData2 = -1);
+bool PUF_isEnemy(const CvUnit* pUnit, int iData1, int iData2 = -1);
+bool PUF_isVisible(const CvUnit* pUnit, int iData1, int iData2 = -1);
+bool PUF_isVisibleDebug(const CvUnit* pUnit, int iData1, int iData2 = -1);
+bool PUF_canSiege(const CvUnit* pUnit, int iData1, int iData2 = -1);
+bool PUF_isPotentialEnemy(const CvUnit* pUnit, int iData1, int iData2 = -1);
+bool PUF_canDeclareWar(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
+bool PUF_canDefend(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
+bool PUF_cannotDefend(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
+bool PUF_canDefendGroupHead(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
+bool PUF_canDefendEnemy(const CvUnit* pUnit, int iData1, int iData2 = -1);
+bool PUF_canDefendPotentialEnemy(const CvUnit* pUnit, int iData1, int iData2 = -1);
+bool PUF_canAirAttack(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
+bool PUF_canAirDefend(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
+bool PUF_isFighting(const CvUnit* pUnit, int iData1, int iData2 = -1);
+bool PUF_isAnimal(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
+bool PUF_isMilitaryHappiness(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
+bool PUF_isInvestigate(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
+bool PUF_isCounterSpy(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
+bool PUF_isSpy(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
+bool PUF_isUnitType(const CvUnit* pUnit, int iData1, int iData2 = -1);
+bool PUF_isDomainType(const CvUnit* pUnit, int iData1, int iData2 = -1);
+bool PUF_isUnitAIType(const CvUnit* pUnit, int iData1, int iData2 = -1);
+bool PUF_isCityAIType(const CvUnit* pUnit, int iData1, int iData2 = -1);
+bool PUF_isNotCityAIType(const CvUnit* pUnit, int iData1, int iData2 = -1);
+bool PUF_isSelected(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
 bool PUF_makeInfoBarDirty(CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
 bool PUF_isNoMission(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
 bool PUF_isFiniteRange(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
@@ -379,6 +350,6 @@ void getMissionTypeString(CvWString& szString, MissionTypes eMissionType);
 void getMissionAIString(CvWString& szString, MissionAITypes eMissionAI);
 void getUnitAIString(CvWString& szString, UnitAITypes eUnitAI);
 
-int LFBgetCombatOdds(int iAttackerLowFS,	int iAttackerHighFS, int iDefenderLowFS, int iDefenderHighFS, int iNeededRoundsAttacker, int iNeededRoundsDefender, int iAttackerOdds);
+int LFBgetCombatOdds(int iAttackerLowFS, int iAttackerHighFS, int iDefenderLowFS, int iDefenderHighFS, int iNeededRoundsAttacker, int iNeededRoundsDefender, int iAttackerOdds);
 
 #endif

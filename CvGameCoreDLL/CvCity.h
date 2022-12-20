@@ -17,8 +17,7 @@ class CvArtInfoBuilding;
 void addGoodOrBad(int iValue, int& iGood, int& iBad);
 void subtractGoodOrBad(int iValue, int& iGood, int& iBad);
 
-class CvCity : public CvDLLEntity
-{
+class CvCity : public CvDLLEntity {
 
 public:
 	CvCity();
@@ -110,7 +109,7 @@ public:
 	int getProductionNeeded() const;																						// Exposed to Python
 	int getProductionNeeded(UnitTypes eUnit) const;
 	int getProductionNeeded(BuildingTypes eBuilding) const;
-	int getProductionNeeded(ProjectTypes eProject) const;		
+	int getProductionNeeded(ProjectTypes eProject) const;
 	int getProductionTurnsLeft() const;																	// Exposed to Python 
 	int getProductionTurnsLeft(UnitTypes eUnit, int iNum) const;					// Exposed to Python
 	int getProductionTurnsLeft(BuildingTypes eBuilding, int iNum) const;	// Exposed to Python
@@ -217,7 +216,7 @@ public:
 	int cultureStrength(PlayerTypes ePlayer) const;								// Exposed to Python					 
 	int cultureGarrison(PlayerTypes ePlayer) const;								// Exposed to Python					 
 	int culturePressureFactor() const; // K-Mod
-																																		
+
 	int getNumBuilding(BuildingTypes eIndex) const;									// Exposed to Python					
 	int getNumActiveBuilding(BuildingTypes eIndex) const;						// Exposed to Python
 	bool hasActiveWorldWonder() const;																			// Exposed to Python
@@ -233,15 +232,13 @@ public:
 
 	DllExport int getX() const;																			// Exposed to Python
 #ifdef _USRDLL
-	inline int getX_INLINE() const
-	{
+	inline int getX_INLINE() const {
 		return m_iX;
 	}
 #endif
 	DllExport int getY() const;																			// Exposed to Python
 #ifdef _USRDLL
-	inline int getY_INLINE() const
-	{
+	inline int getY_INLINE() const {
 		return m_iY;
 	}
 #endif	
@@ -277,13 +274,13 @@ public:
 	void setHighestPopulation(int iNewValue);
 
 	int getWorkingPopulation() const;																			// Exposed to Python
-	void changeWorkingPopulation(int iChange);														
+	void changeWorkingPopulation(int iChange);
 
 	int getSpecialistPopulation() const;																	// Exposed to Python
-	void changeSpecialistPopulation(int iChange);													
+	void changeSpecialistPopulation(int iChange);
 
 	int getNumGreatPeople() const;																				// Exposed to Python
-	void changeNumGreatPeople(int iChange);															
+	void changeNumGreatPeople(int iChange);
 
 	int getBaseGreatPeopleRate() const;																		// Exposed to Python
 	int getGreatPeopleRate() const;																				// Exposed to Python
@@ -314,9 +311,9 @@ public:
 	int getNumBuildings() const;																					// Exposed to Python
 	void changeNumBuildings(int iChange);
 
-	int getGovernmentCenterCount() const;																	
+	int getGovernmentCenterCount() const;
 	bool isGovernmentCenter() const;														// Exposed to Python
-	void changeGovernmentCenterCount(int iChange);		
+	void changeGovernmentCenterCount(int iChange);
 
 	int getSavedMaintenanceTimes100ByBuilding(BuildingTypes eBuilding) const;
 
@@ -335,13 +332,13 @@ public:
 	int calculateCorporationMaintenanceTimes100() const;									// Exposed to Python
 	int calculateBaseMaintenanceTimes100() const;
 	int getMaintenanceModifier() const;													// Exposed to Python
-	void changeMaintenanceModifier(int iChange);													
+	void changeMaintenanceModifier(int iChange);
 
 	int getWarWearinessModifier() const;																	// Exposed to Python
-	void changeWarWearinessModifier(int iChange);													
+	void changeWarWearinessModifier(int iChange);
 
 	int getHurryAngerModifier() const;																	// Exposed to Python
-	void changeHurryAngerModifier(int iChange);													
+	void changeHurryAngerModifier(int iChange);
 
 	int getHealRate() const;																							// Exposed to Python
 	void changeHealRate(int iChange);
@@ -468,7 +465,7 @@ public:
 	void changeFeatureProduction(int iChange);
 
 	int getMilitaryProductionModifier() const;														// Exposed to Python
-	void changeMilitaryProductionModifier(int iChange);												
+	void changeMilitaryProductionModifier(int iChange);
 
 	int getSpaceProductionModifier() const;																// Exposed to Python
 	void changeSpaceProductionModifier(int iChange);
@@ -493,7 +490,7 @@ public:
 	void changeBuildingBombardDefense(int iChange);
 
 	int getFreeExperience() const;												// Exposed to Python
-	void changeFreeExperience(int iChange);															
+	void changeFreeExperience(int iChange);
 
 	int getCurrAirlift() const;													// Exposed to Python
 	void setCurrAirlift(int iNewValue);
@@ -569,7 +566,7 @@ public:
 	void setProductionAutomated(bool bNewValue, bool bClear);					// Exposed to Python 
 
 	/* allows you to programatically specify a cities walls rather than having them be generated automagically */
-	DllExport bool isWallOverride() const; 
+	DllExport bool isWallOverride() const;
 	void setWallOverride(bool bOverride);
 
 	DllExport bool isInfoDirty() const;
@@ -583,8 +580,7 @@ public:
 
 	DllExport PlayerTypes getOwner() const;										// Exposed to Python
 #ifdef _USRDLL
-	inline PlayerTypes getOwnerINLINE() const
-	{
+	inline PlayerTypes getOwnerINLINE() const {
 		return m_eOwner;
 	}
 #endif
@@ -867,7 +863,7 @@ public:
 	// fill the kVisible array with buildings that you want shown in city, as well as the number of generics
 	// This function is called whenever CvCity::setLayoutDirty() is called
 	DllExport void getVisibleBuildings(std::list<BuildingTypes>& kVisible, int& iNumGenerics);
-	
+
 	// Fill the kEffectNames array with references to effects in the CIV4EffectInfos.xml to have a
 	// city play a given set of effects. This is called whenever the interface updates the city billboard
 	// or when the zoom level changes
@@ -952,7 +948,7 @@ public:
 	virtual int AI_getBestBuildValue(int iIndex) = 0;
 	virtual int AI_getTargetPopulation() const = 0;
 	virtual int AI_countGoodPlots() const = 0;
-	virtual void AI_getYieldMultipliers( int &iFoodMultiplier, int &iProductionMultiplier, int &iCommerceMultiplier, int &iDesiredFoodChange ) const = 0;
+	virtual void AI_getYieldMultipliers(int& iFoodMultiplier, int& iProductionMultiplier, int& iCommerceMultiplier, int& iDesiredFoodChange) const = 0;
 	virtual int AI_getImprovementValue(CvPlot* pPlot, ImprovementTypes eImprovement, int iFoodPriority, int iProductionPriority, int iCommercePriority, int iDesiredFoodChange, int iClearFeatureValue = 0, bool bEmphasizeIrrigation = false, BuildTypes* peBestBuild = 0) const = 0;
 	virtual int AI_totalBestBuildValue(CvArea* pArea) = 0;
 	virtual int AI_countBestBuilds(CvArea* pArea) const = 0;													// Exposed to Python
@@ -970,7 +966,7 @@ public:
 	virtual int AI_highestTeamCloseness(TeamTypes eTeam) = 0; // K-Mod
 	virtual int AI_cityThreat(bool bDangerPercent = false) = 0;
 	virtual BuildingTypes AI_bestAdvancedStartBuilding(int iPass) = 0;
-	
+
 	virtual int AI_getWorkersHave() = 0;
 	virtual int AI_getWorkersNeeded() = 0;
 	virtual void AI_changeWorkersHave(int iChange) = 0;
@@ -1166,12 +1162,12 @@ protected:
 	// CACHE: cache frequently used values
 	mutable int	m_iPopulationRank;
 	mutable bool m_bPopulationRankValid;
-	int*	m_aiBaseYieldRank;
-	bool*	m_abBaseYieldRankValid;
-	int*	m_aiYieldRank;
-	bool*	m_abYieldRankValid;
-	int*	m_aiCommerceRank;
-	bool*	m_abCommerceRankValid;
+	int* m_aiBaseYieldRank;
+	bool* m_abBaseYieldRankValid;
+	int* m_aiYieldRank;
+	bool* m_abYieldRankValid;
+	int* m_aiCommerceRank;
+	bool* m_abCommerceRankValid;
 
 	void doGrowth();
 	void doCulture();

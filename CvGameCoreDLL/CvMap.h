@@ -21,18 +21,12 @@ class FAStar;
 class CvPlotGroup;
 
 
-inline int coordRange(int iCoord, int iRange, bool bWrap)
-{
-	if (bWrap)
-	{
-		if (iRange != 0)
-		{
-			if (iCoord < 0 )
-			{
+inline int coordRange(int iCoord, int iRange, bool bWrap) {
+	if (bWrap) {
+		if (iRange != 0) {
+			if (iCoord < 0) {
 				return (iRange + (iCoord % iRange));
-			}
-			else if (iCoord >= iRange)
-			{
+			} else if (iCoord >= iRange) {
 				return (iCoord % iRange);
 			}
 		}
@@ -45,8 +39,7 @@ inline int coordRange(int iCoord, int iRange, bool bWrap)
 //
 // holds initialization info
 //
-struct CvMapInitData
-{
+struct CvMapInitData {
 	int m_iGridW;						// in game plots
 	int m_iGridH;						// in game plots
 	int m_iTopLatitude;
@@ -55,9 +48,9 @@ struct CvMapInitData
 	bool m_bWrapX;
 	bool m_bWrapY;
 
-	CvMapInitData(int iGridW=0, int iGridH=0, int iTopLatitude=90, int iBottomLatitude=-90, bool bWrapX=false, bool bWrapY=false) :
-		m_iGridH(iGridH),m_iGridW(iGridW),m_iTopLatitude(iTopLatitude),m_iBottomLatitude(iBottomLatitude),m_bWrapY(bWrapY),m_bWrapX(bWrapX)
-	{ }
+	CvMapInitData(int iGridW = 0, int iGridH = 0, int iTopLatitude = 90, int iBottomLatitude = -90, bool bWrapX = false, bool bWrapY = false) :
+		m_iGridH(iGridH), m_iGridW(iGridW), m_iTopLatitude(iTopLatitude), m_iBottomLatitude(iBottomLatitude), m_bWrapY(bWrapY), m_bWrapX(bWrapX) {
+	}
 };
 
 
@@ -65,8 +58,7 @@ struct CvMapInitData
 // CvMap
 //
 class CvSelectionGroup;
-class CvMap
-{
+class CvMap {
 
 	friend class CyMap;
 
@@ -75,7 +67,7 @@ public:
 	DllExport CvMap();
 	DllExport virtual ~CvMap();
 
-	DllExport void init(CvMapInitData* pInitData=NULL);
+	DllExport void init(CvMapInitData* pInitData = NULL);
 	DllExport void setupGraphical();
 	DllExport void reset(CvMapInitData* pInitData);
 
@@ -90,7 +82,7 @@ public:
 	void setRevealedPlots(TeamTypes eTeam, bool bNewValue, bool bTerrainOnly = false);		// Exposed to Python
 	void setAllPlotTypes(PlotTypes ePlotType);												// Exposed to Python
 
-	void doTurn();																			
+	void doTurn();
 
 	void setFlagsDirty(); // K-Mod
 	DllExport void updateFlagSymbols();
@@ -109,7 +101,7 @@ public:
 
 	void verifyUnitValidPlot();
 
-	void combinePlotGroups(PlayerTypes ePlayer, CvPlotGroup* pPlotGroup1, CvPlotGroup* pPlotGroup2);	
+	void combinePlotGroups(PlayerTypes ePlayer, CvPlotGroup* pPlotGroup1, CvPlotGroup* pPlotGroup2);
 
 	CvPlot* syncRandPlot(int iFlags = 0, int iArea = -1, int iMinUnitDistance = -1, int iTimeout = 100);// Exposed to Python 
 
@@ -123,22 +115,19 @@ public:
 
 	DllExport bool isPlot(int iX, int iY) const;																		// Exposed to Python
 #ifdef _USRDLL
-	inline int isPlotINLINE(int iX, int iY) const
-	{
+	inline int isPlotINLINE(int iX, int iY) const {
 		return ((iX >= 0) && (iX < getGridWidthINLINE()) && (iY >= 0) && (iY < getGridHeightINLINE()));
 	}
 #endif
 	DllExport int numPlots() const; 																								// Exposed to Python
 #ifdef _USRDLL
-	inline int numPlotsINLINE() const
-	{
+	inline int numPlotsINLINE() const {
 		return getGridWidthINLINE() * getGridHeightINLINE();
 	}
 #endif
 	DllExport int plotNum(int iX, int iY) const;																		// Exposed to Python
 #ifdef _USRDLL
-	inline int plotNumINLINE(int iX, int iY) const
-	{
+	inline int plotNumINLINE(int iX, int iY) const {
 		return ((iY * getGridWidthINLINE()) + iX);
 	}
 #endif
@@ -159,15 +148,13 @@ public:
 
 	DllExport int getGridWidth() const;																		// Exposed to Python
 #ifdef _USRDLL
-	inline int getGridWidthINLINE() const
-	{
+	inline int getGridWidthINLINE() const {
 		return m_iGridWidth;
 	}
 #endif
 	DllExport int getGridHeight() const;																	// Exposed to Python
 #ifdef _USRDLL
-	inline int getGridHeightINLINE() const
-	{
+	inline int getGridHeightINLINE() const {
 		return m_iGridHeight;
 	}
 #endif
@@ -185,22 +172,19 @@ public:
 
 	DllExport bool isWrapX();																							// Exposed to Python
 #ifdef _USRDLL
-	inline bool isWrapXINLINE() const
-	{
+	inline bool isWrapXINLINE() const {
 		return m_bWrapX;
 	}
 #endif
 	DllExport bool isWrapY();																							// Exposed to Python
 #ifdef _USRDLL
-	inline bool isWrapYINLINE() const
-	{
+	inline bool isWrapYINLINE() const {
 		return m_bWrapY;
 	}
 #endif
 	DllExport bool isWrap();
 #ifdef _USRDLL
-	inline bool isWrapINLINE() const
-	{
+	inline bool isWrapINLINE() const {
 		return m_bWrapX || m_bWrapY;
 	}
 #endif
@@ -219,27 +203,22 @@ public:
 
 	DllExport CvPlot* plotByIndex(int iIndex) const;											// Exposed to Python
 #ifdef _USRDLL
-	inline CvPlot* plotByIndexINLINE(int iIndex) const
-	{
-		return (((iIndex >= 0) && (iIndex < (getGridWidthINLINE() * getGridHeightINLINE()))) ? &(m_pMapPlots[iIndex]) : NULL);
+	inline CvPlot* plotByIndexINLINE(int iIndex) const {
+		return (((iIndex >= 0) && (iIndex < (getGridWidthINLINE()* getGridHeightINLINE()))) ? &(m_pMapPlots[iIndex]) : NULL);
 	}
 #endif
 	DllExport CvPlot* plot(int iX, int iY) const;													// Exposed to Python
 #ifdef _USRDLL
-	__forceinline CvPlot* plotINLINE(int iX, int iY) const
-	{
-		if ((iX == INVALID_PLOT_COORD) || (iY == INVALID_PLOT_COORD))
-		{
+	__forceinline CvPlot* plotINLINE(int iX, int iY) const {
+		if ((iX == INVALID_PLOT_COORD) || (iY == INVALID_PLOT_COORD)) {
 			return NULL;
 		}
 		int iMapX = coordRange(iX, getGridWidthINLINE(), isWrapXINLINE());
 		int iMapY = coordRange(iY, getGridHeightINLINE(), isWrapYINLINE());
 		return ((isPlotINLINE(iMapX, iMapY)) ? &(m_pMapPlots[plotNumINLINE(iMapX, iMapY)]) : NULL);
 	}
-	__forceinline CvPlot* plotSorenINLINE(int iX, int iY) const
-	{
-		if ((iX == INVALID_PLOT_COORD) || (iY == INVALID_PLOT_COORD))
-		{
+	__forceinline CvPlot* plotSorenINLINE(int iX, int iY) const {
+		if ((iX == INVALID_PLOT_COORD) || (iY == INVALID_PLOT_COORD)) {
 			return NULL;
 		}
 		return &(m_pMapPlots[plotNumINLINE(iX, iY)]);
@@ -254,13 +233,13 @@ public:
 	CvArea* addArea();
 	void deleteArea(int iID);
 	// iteration
-	CvArea* firstArea(int *pIterIdx, bool bRev=false);								// Exposed to Python
-	CvArea* nextArea(int *pIterIdx, bool bRev=false);									// Exposed to Python
+	CvArea* firstArea(int* pIterIdx, bool bRev = false);								// Exposed to Python
+	CvArea* nextArea(int* pIterIdx, bool bRev = false);									// Exposed to Python
 
 	void recalculateAreas();																		// Exposed to Python
 
 	void resetPathDistance();																		// Exposed to Python
-	int calculatePathDistance(CvPlot *pSource, CvPlot *pDest);	// Exposed to Python
+	int calculatePathDistance(CvPlot* pSource, CvPlot* pDest);	// Exposed to Python
 
 	// Plot danger cache
 	void invalidateActivePlayerSafeRangeCache(); // K-Mod version
@@ -270,7 +249,7 @@ public:
 	DllExport virtual void read(FDataStreamBase* pStream);
 	DllExport virtual void write(FDataStreamBase* pStream);
 
-	void rebuild(int iGridW, int iGridH, int iTopLatitude, int iBottomLatitude, bool bWrapX, bool bWrapY, WorldSizeTypes eWorldSize, ClimateTypes eClimate, SeaLevelTypes eSeaLevel, int iNumCustomMapOptions, CustomMapOptionTypes * eCustomMapOptions);		// Exposed to Python
+	void rebuild(int iGridW, int iGridH, int iTopLatitude, int iBottomLatitude, bool bWrapX, bool bWrapY, WorldSizeTypes eWorldSize, ClimateTypes eClimate, SeaLevelTypes eSeaLevel, int iNumCustomMapOptions, CustomMapOptionTypes* eCustomMapOptions);		// Exposed to Python
 
 protected:
 

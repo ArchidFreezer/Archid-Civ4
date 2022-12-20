@@ -36,7 +36,7 @@ public:
 	// Set the last located xml node member variable to the prev sibling of the current
 	//	last located xml node, returns true if a next sibling was found and false otherwise
 	virtual bool PrevSibling(FXml* xml) = 0;
-	// Set the last located xml node member variable to the it's first child,
+	// Set the last located xml node member variable to the it's first child,a
 	//	returns true if a next child was found and set, false otherwise
 	virtual bool SetToChild(FXml* xml) = 0;
 	// set to the child node that has the tag name

@@ -7,16 +7,13 @@ CvReplayMessage::CvReplayMessage(int iTurn, ReplayMessageTypes eType, PlayerType
 	m_eType(eType),
 	m_iPlotX(-1),
 	m_iPlotY(-1),
-	m_eColor(NO_COLOR)
-{
+	m_eColor(NO_COLOR) {
 }
 
-CvReplayMessage::~CvReplayMessage()
-{
+CvReplayMessage::~CvReplayMessage() {
 }
 
-const CvReplayMessage& CvReplayMessage::operator=(const CvReplayMessage& other)
-{
+const CvReplayMessage& CvReplayMessage::operator=(const CvReplayMessage& other) {
 	m_iTurn = other.m_iTurn;
 	m_eType = other.m_eType;
 	m_iPlotX = other.m_iPlotX;
@@ -28,75 +25,61 @@ const CvReplayMessage& CvReplayMessage::operator=(const CvReplayMessage& other)
 	return (*this);
 }
 
-void CvReplayMessage::setTurn(int iTurn)
-{
+void CvReplayMessage::setTurn(int iTurn) {
 	m_iTurn = iTurn;
 }
 
-int CvReplayMessage::getTurn() const
-{
+int CvReplayMessage::getTurn() const {
 	return m_iTurn;
 }
 
-void CvReplayMessage::setType(ReplayMessageTypes eType)
-{
+void CvReplayMessage::setType(ReplayMessageTypes eType) {
 	m_eType = eType;
 }
 
-ReplayMessageTypes CvReplayMessage::getType() const
-{
+ReplayMessageTypes CvReplayMessage::getType() const {
 	return m_eType;
 }
 
-void CvReplayMessage::setPlot(int iX, int iY)
-{
+void CvReplayMessage::setPlot(int iX, int iY) {
 	m_iPlotX = iX;
 	m_iPlotY = iY;
 }
 
-int CvReplayMessage::getPlotX() const
-{
+int CvReplayMessage::getPlotX() const {
 	return m_iPlotX;
 }
 
-int CvReplayMessage::getPlotY() const
-{
+int CvReplayMessage::getPlotY() const {
 	return m_iPlotY;
 }
 
-void CvReplayMessage::setPlayer(PlayerTypes ePlayer)
-{
+void CvReplayMessage::setPlayer(PlayerTypes ePlayer) {
 	m_ePlayer = ePlayer;
 }
 
-PlayerTypes CvReplayMessage::getPlayer() const
-{
+PlayerTypes CvReplayMessage::getPlayer() const {
 	return m_ePlayer;
 }
 
-void CvReplayMessage::setText(CvWString pszText)
-{
+void CvReplayMessage::setText(CvWString pszText) {
 	m_szText = pszText;
 }
 
-const CvWString& CvReplayMessage::getText() const
-{
+const CvWString& CvReplayMessage::getText() const {
 	return m_szText;
 }
 
-void CvReplayMessage::setColor(ColorTypes eColor)
-{
+void CvReplayMessage::setColor(ColorTypes eColor) {
 	m_eColor = eColor;
 }
 
-ColorTypes CvReplayMessage::getColor() const
-{
+ColorTypes CvReplayMessage::getColor() const {
 	return m_eColor;
 }
 
 
-void CvReplayMessage::read(FDataStreamBase& stream)
-{
+void CvReplayMessage::read(FDataStreamBase& stream) {
 	int iType;
 
 	stream.Read(&m_iTurn);
@@ -114,8 +97,7 @@ void CvReplayMessage::read(FDataStreamBase& stream)
 	m_eColor = (ColorTypes)iType;
 }
 
-void CvReplayMessage::write(FDataStreamBase& stream) const
-{
+void CvReplayMessage::write(FDataStreamBase& stream) const {
 	stream.Write(m_iTurn);
 	stream.Write(m_eType);
 	stream.Write(m_iPlotX);

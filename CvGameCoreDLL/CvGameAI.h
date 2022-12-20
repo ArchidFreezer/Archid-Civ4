@@ -7,16 +7,15 @@
 
 #include "CvGame.h"
 
-class CvGameAI : public CvGame
-{
+class CvGameAI : public CvGame {
 
 public:
 
-  CvGameAI();
-  virtual ~CvGameAI();
+	CvGameAI();
+	virtual ~CvGameAI();
 
-  void AI_init();
-  void AI_uninit();
+	void AI_init();
+	void AI_uninit();
 	void AI_reset();
 
 	void AI_makeAssignWorkDirty();
@@ -31,7 +30,7 @@ public:
 
 protected:
 
-  int m_iPad;
+	int m_iPad;
 
 };
 

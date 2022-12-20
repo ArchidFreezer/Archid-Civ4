@@ -10,44 +10,36 @@ CvDiploParameters::CvDiploParameters(PlayerTypes ePlayer) :
 	m_iData(-1),
 	m_bHumanDiplo(false),
 	m_bOurOffering(false),
-	m_bTheirOffering(false)
-{
+	m_bTheirOffering(false) {
 	m_ourOffer.clear();
 	m_theirOffer.clear();
 }
 
-CvDiploParameters::~CvDiploParameters() 
-{
+CvDiploParameters::~CvDiploParameters() {
 	m_ourOffer.clear();
 	m_theirOffer.clear();
 }
 
-void CvDiploParameters::setWhoTalkingTo(PlayerTypes eWhoTalkingTo)
-{
+void CvDiploParameters::setWhoTalkingTo(PlayerTypes eWhoTalkingTo) {
 	m_eWhoTalkingTo = eWhoTalkingTo;
 }
 
-PlayerTypes CvDiploParameters::getWhoTalkingTo() const
-{
+PlayerTypes CvDiploParameters::getWhoTalkingTo() const {
 	return m_eWhoTalkingTo;
 }
 
-void addVar(std::vector<FVariable>& argsList, const wchar *arg)
-{
-	if (arg)
-	{
+void addVar(std::vector<FVariable>& argsList, const wchar* arg) {
+	if (arg) {
 		FVariable var;
 		var.m_eType = FVARTYPE_WSTRING;
-		var.m_wszValue = new wchar[wcslen(arg)+1];
+		var.m_wszValue = new wchar[wcslen(arg) + 1];
 		wcscpy(var.m_wszValue, arg);
 		argsList.push_back(var);
 	}
 }
 
-void addVar(std::vector<FVariable>& argsList, int arg)
-{
-	if (arg != MAX_INT)
-	{
+void addVar(std::vector<FVariable>& argsList, int arg) {
+	if (arg != MAX_INT) {
 		FVariable var;
 		var.m_eType = FVARTYPE_INT;
 		var.m_iValue = arg;
@@ -88,135 +80,110 @@ SET_DIPLO_COMMENT_ARGS
 void CvDiploParameters::setDiploComment(DiploCommentTypes eCommentType, int arg1, int arg2, int arg3)
 SET_DIPLO_COMMENT_ARGS
 
-void CvDiploParameters::setDiploComment(DiploCommentTypes eCommentType, const std::vector<FVariable>* args)
-{
+void CvDiploParameters::setDiploComment(DiploCommentTypes eCommentType, const std::vector<FVariable>* args) {
 	m_eCommentType = eCommentType;
 	if (args)
 		m_diploCommentArgs = *args;
 }
 
-DiploCommentTypes CvDiploParameters::getDiploComment() const
-{
+DiploCommentTypes CvDiploParameters::getDiploComment() const {
 	return m_eCommentType;
 }
 
-void CvDiploParameters::setOurOfferList(const CLinkList<TradeData>& ourOffer)
-{
+void CvDiploParameters::setOurOfferList(const CLinkList<TradeData>& ourOffer) {
 	m_ourOffer.clear();
 
-	for (CLLNode<TradeData>* pNode = ourOffer.head(); pNode; pNode = ourOffer.next(pNode))
-	{
+	for (CLLNode<TradeData>* pNode = ourOffer.head(); pNode; pNode = ourOffer.next(pNode)) {
 		m_ourOffer.insertAtEnd(pNode->m_data);
 	}
 }
 
-const CLinkList<TradeData>& CvDiploParameters::getOurOfferList() const
-{
+const CLinkList<TradeData>& CvDiploParameters::getOurOfferList() const {
 	return m_ourOffer;
 }
 
-void CvDiploParameters::setTheirOfferList(const CLinkList<TradeData>& theirOffer)
-{
+void CvDiploParameters::setTheirOfferList(const CLinkList<TradeData>& theirOffer) {
 	m_theirOffer.clear();
 
-	for (CLLNode<TradeData>* pNode = theirOffer.head(); pNode; pNode = theirOffer.next(pNode))
-	{
+	for (CLLNode<TradeData>* pNode = theirOffer.head(); pNode; pNode = theirOffer.next(pNode)) {
 		m_theirOffer.insertAtEnd(pNode->m_data);
 	}
 }
 
-const CLinkList<TradeData>& CvDiploParameters::getTheirOfferList() const
-{
+const CLinkList<TradeData>& CvDiploParameters::getTheirOfferList() const {
 	return m_theirOffer;
 }
 
-void CvDiploParameters::setRenegotiate(bool bValue)
-{
+void CvDiploParameters::setRenegotiate(bool bValue) {
 	m_bRenegotiate = bValue;
 }
 
-bool CvDiploParameters::getRenegotiate() const
-{
+bool CvDiploParameters::getRenegotiate() const {
 	return m_bRenegotiate;
 }
 
-void CvDiploParameters::setAIContact(bool bValue)
-{
+void CvDiploParameters::setAIContact(bool bValue) {
 	m_bAIContact = bValue;
 }
 
-bool CvDiploParameters::getAIContact() const
-{
+bool CvDiploParameters::getAIContact() const {
 	return m_bAIContact;
 }
 
 
-void CvDiploParameters::setPendingDelete(bool bPending)
-{
+void CvDiploParameters::setPendingDelete(bool bPending) {
 	m_bPendingDelete = bPending;
 }
 
-bool CvDiploParameters::getPendingDelete() const
-{
+bool CvDiploParameters::getPendingDelete() const {
 	return m_bPendingDelete;
 }
 
 
-void CvDiploParameters::setData(int iData)
-{
+void CvDiploParameters::setData(int iData) {
 	m_iData = iData;
 }
 
-int CvDiploParameters::getData() const
-{
+int CvDiploParameters::getData() const {
 	return m_iData;
 }
 
-void CvDiploParameters::setHumanDiplo(bool bValue)
-{
+void CvDiploParameters::setHumanDiplo(bool bValue) {
 	m_bHumanDiplo = bValue;
 }
 
-bool CvDiploParameters::getHumanDiplo() const
-{
+bool CvDiploParameters::getHumanDiplo() const {
 	return m_bHumanDiplo;
 }
 
-void CvDiploParameters::setOurOffering(bool bValue)
-{
+void CvDiploParameters::setOurOffering(bool bValue) {
 	m_bOurOffering = bValue;
 }
 
-bool CvDiploParameters::getOurOffering() const
-{
+bool CvDiploParameters::getOurOffering() const {
 	return m_bOurOffering;
 }
 
-void CvDiploParameters::setTheirOffering(bool bValue)
-{
+void CvDiploParameters::setTheirOffering(bool bValue) {
 	m_bTheirOffering = bValue;
 }
 
-bool CvDiploParameters::getTheirOffering() const
-{
+bool CvDiploParameters::getTheirOffering() const {
 	return m_bTheirOffering;
 }
 
-void CvDiploParameters::setChatText(const wchar* szText)
-{
+void CvDiploParameters::setChatText(const wchar* szText) {
 	m_szChatText = szText;
 }
 
-const wchar* CvDiploParameters::getChatText() const
-{
+const wchar* CvDiploParameters::getChatText() const {
 	return m_szChatText;
 }
 
 
-void CvDiploParameters::read(FDataStreamBase& stream)
-{
+void CvDiploParameters::read(FDataStreamBase& stream) {
 	int iType;
-	uint uiFlag=0;
+	uint uiFlag = 0;
 	stream.Read(&uiFlag);	// flags for expansion
 
 	stream.Read(&iType);
@@ -237,13 +204,12 @@ void CvDiploParameters::read(FDataStreamBase& stream)
 	int iSize;
 	stream.Read(&iSize);
 	m_diploCommentArgs.resize(iSize);
-	for(int i=0; i<iSize; i++)
+	for (int i = 0; i < iSize; i++)
 		m_diploCommentArgs[i].Read(&stream);
 }
 
-void CvDiploParameters::write(FDataStreamBase& stream) const
-{
-	uint uiFlag=0;
+void CvDiploParameters::write(FDataStreamBase& stream) const {
+	uint uiFlag = 0;
 	stream.Write(uiFlag);		// flag for expansion
 
 	stream.Write(m_eWhoTalkingTo);
@@ -261,6 +227,6 @@ void CvDiploParameters::write(FDataStreamBase& stream) const
 	// write diplo args vec
 	int iSize = m_diploCommentArgs.size();
 	stream.Write(iSize);
-	for(int i=0; i<iSize; i++)
+	for (int i = 0; i < iSize; i++)
 		m_diploCommentArgs[i].Write(&stream);
 }

@@ -6,10 +6,9 @@
 // These are simple enough to be exposed directly - no wrappers
 //
 
-void CyInfoPythonInterface3()
-{
+void CyInfoPythonInterface3() {
 	OutputDebugString("Python Extension Module - CyInfoPythonInterface3\n");
-	
+
 	python::class_<CvYieldInfo, python::bases<CvInfoBase> >("CvYieldInfo")
 		.def("getChar", &CvYieldInfo::getChar, "int ()")
 		.def("getHillsChange", &CvYieldInfo::getHillsChange, "int ()")
@@ -455,7 +454,7 @@ void CyInfoPythonInterface3()
 		;
 
 	python::class_<CvColorInfo, python::bases<CvInfoBase> >("CvColorInfo")
-		.def("getColor", &CvColorInfo::getColor,  python::return_value_policy<python::reference_existing_object>())
+		.def("getColor", &CvColorInfo::getColor, python::return_value_policy<python::reference_existing_object>())
 		;
 
 	python::class_<CvPlayerColorInfo, python::bases<CvInfoBase> >("CvPlayerColorInfo")
@@ -471,7 +470,7 @@ void CyInfoPythonInterface3()
 		;
 
 	python::class_<CvDiplomacyTextInfo, python::bases<CvInfoBase> >("CvDiplomacyTextInfo")
-		.def("getResponse", &CvDiplomacyTextInfo::getResponse,  python::return_value_policy<python::reference_existing_object>(), "Response (int iNum)")
+		.def("getResponse", &CvDiplomacyTextInfo::getResponse, python::return_value_policy<python::reference_existing_object>(), "Response (int iNum)")
 		.def("getNumResponses", &CvDiplomacyTextInfo::getNumResponses, "int ()")
 
 		.def("getCivilizationTypes", &CvDiplomacyTextInfo::getCivilizationTypes, "bool (int i, int j)")
@@ -485,7 +484,7 @@ void CyInfoPythonInterface3()
 		;
 
 	python::class_<CvDiplomacyInfo, python::bases<CvInfoBase> >("CvDiplomacyInfo")
-		.def("getResponse", &CvDiplomacyInfo::getResponse,  python::return_value_policy<python::reference_existing_object>(), "CvDiplomacyResponse (int iNum)")
+		.def("getResponse", &CvDiplomacyInfo::getResponse, python::return_value_policy<python::reference_existing_object>(), "CvDiplomacyResponse (int iNum)")
 		.def("getNumResponses", &CvDiplomacyInfo::getNumResponses, "int ()")
 
 		.def("getCivilizationTypes", &CvDiplomacyInfo::getCivilizationTypes, "bool (int i, int j)")
@@ -539,7 +538,7 @@ void CyInfoPythonInterface3()
 		.def("getNextTutorialInfoType", &CvTutorialInfo::getNextTutorialInfoType, "string ()")
 
 		.def("getNumTutorialMessages", &CvTutorialInfo::getNumTutorialMessages, "int ()")
-		.def("getTutorialMessage", &CvTutorialInfo::getTutorialMessage,  python::return_value_policy<python::reference_existing_object>(), "CvTutorialMessage* (int iIndex)")
+		.def("getTutorialMessage", &CvTutorialInfo::getTutorialMessage, python::return_value_policy<python::reference_existing_object>(), "CvTutorialMessage* (int iIndex)")
 		;
 
 	python::class_<CvAutomateInfo, python::bases<CvInfoBase> >("CvAutomateInfo")

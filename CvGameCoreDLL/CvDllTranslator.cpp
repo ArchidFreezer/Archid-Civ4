@@ -1,8 +1,7 @@
 #include "CvGameCoreDLL.h"
 #include "CvDllTranslator.h"
 
-void CvDllTranslator::initializeTags(CvWString& szTagStartIcon, CvWString& szTagStartOur, CvWString& szTagStartCT, CvWString& szTagStartColor, CvWString& szTagStartLink, CvWString& szTagEndLink, CvWString& szEndLinkReplacement, std::map<std::wstring, CvWString>& aIconMap, std::map<std::wstring, CvWString>& aColorMap)
-{
+void CvDllTranslator::initializeTags(CvWString& szTagStartIcon, CvWString& szTagStartOur, CvWString& szTagStartCT, CvWString& szTagStartColor, CvWString& szTagStartLink, CvWString& szTagEndLink, CvWString& szEndLinkReplacement, std::map<std::wstring, CvWString>& aIconMap, std::map<std::wstring, CvWString>& aColorMap) {
 	szTagStartIcon = L"[ICON_";
 	szTagStartOur = L"[OUR_";
 	szTagStartCT = L"[CT_";
@@ -47,90 +46,57 @@ void CvDllTranslator::initializeTags(CvWString& szTagStartIcon, CvWString& szTag
 
 	//create color map
 	aColorMap[L"[COLOR_REVERT]"] = CvWString(L"</color>");
-	for(int i=0; i < GC.getNumColorInfos(); i++)
-	{
-		const NiColorA& color = GC.getColorInfo((ColorTypes) i).getColor();
-		CvWString colorType(GC.getColorInfo((ColorTypes) i).getType());
+	for (int i = 0; i < GC.getNumColorInfos(); i++) {
+		const NiColorA& color = GC.getColorInfo((ColorTypes)i).getColor();
+		CvWString colorType(GC.getColorInfo((ColorTypes)i).getType());
 		CvWString wideColorType;
 		wideColorType.Format(L"[%s]", colorType.GetCString());
 		CvWString colorOut;
-		colorOut.Format(L"<color=%i,%i,%i,%i>", (int) (color.r * 255), (int) (color.g * 255), (int) (color.b * 255), (int) (color.a * 255));
+		colorOut.Format(L"<color=%i,%i,%i,%i>", (int)(color.r * 255), (int)(color.g * 255), (int)(color.b * 255), (int)(color.a * 255));
 		aColorMap[wideColorType.GetCString()] = colorOut;
 	}
 }
 
-bool CvDllTranslator::replaceOur(const CvWString& szKey, int iForm, CvWString& szReplacement)
-{
-	const CvPlayerAI& player = GET_PLAYER((PlayerTypes) gDLL->getDiplomacyPlayer());
-	if (szKey == L"[OUR_NAME")
-	{
+bool CvDllTranslator::replaceOur(const CvWString& szKey, int iForm, CvWString& szReplacement) {
+	const CvPlayerAI& player = GET_PLAYER((PlayerTypes)gDLL->getDiplomacyPlayer());
+	if (szKey == L"[OUR_NAME") {
 		szReplacement = player.getName(iForm);
-	}
-	else if (szKey == L"[OUR_EMPIRE")
-	{
+	} else if (szKey == L"[OUR_EMPIRE") {
 		szReplacement = player.getCivilizationDescription(iForm);
-	}
-	else if(szKey == L"[OUR_CIV_SHORT")
-	{
+	} else if (szKey == L"[OUR_CIV_SHORT") {
 		szReplacement = player.getCivilizationShortDescription(iForm);
-	}
-	else if(szKey == L"[OUR_CIV_ADJ")
-	{
+	} else if (szKey == L"[OUR_CIV_ADJ") {
 		szReplacement = player.getCivilizationAdjective(iForm);
-	}
-	else if(szKey == L"[OUR_STATE_RELIGION")
-	{
+	} else if (szKey == L"[OUR_STATE_RELIGION") {
 		szReplacement = player.getStateReligionName(iForm);
-	}
-	else if(szKey == L"[OUR_BEST_UNIT")
-	{
+	} else if (szKey == L"[OUR_BEST_UNIT") {
 		szReplacement = player.getBestAttackUnitName(iForm);
-	}
-	else if(szKey == L"[OUR_WORST_ENEMY")
-	{
+	} else if (szKey == L"[OUR_WORST_ENEMY") {
 		szReplacement = player.getWorstEnemyName();
-	}
-	else
-	{
+	} else {
 		FAssertMsg(false, "Unknown Diplomacy String");
 		return false;
 	}
 	return true;
 }
 
-bool CvDllTranslator::replaceCt(const CvWString& szKey, int iForm, CvWString& szReplacement)
-{
+bool CvDllTranslator::replaceCt(const CvWString& szKey, int iForm, CvWString& szReplacement) {
 	const CvPlayerAI& player = GET_PLAYER(GC.getGameINLINE().getActivePlayer());
-	if (szKey == L"[CT_NAME")
-	{
+	if (szKey == L"[CT_NAME") {
 		szReplacement = player.getName(iForm);
-	}
-	else if (szKey == L"[CT_EMPIRE")
-	{
+	} else if (szKey == L"[CT_EMPIRE") {
 		szReplacement = player.getCivilizationDescription(iForm);
-	}
-	else if(szKey == L"[CT_CIV_SHORT")
-	{
+	} else if (szKey == L"[CT_CIV_SHORT") {
 		szReplacement = player.getCivilizationShortDescription(iForm);
-	}
-	else if(szKey == L"[CT_CIV_ADJ")
-	{
+	} else if (szKey == L"[CT_CIV_ADJ") {
 		szReplacement = player.getCivilizationAdjective(iForm);
-	}
-	else if(szKey == L"[CT_STATE_RELIGION")
-	{
+	} else if (szKey == L"[CT_STATE_RELIGION") {
 		szReplacement = player.getStateReligionName(iForm);
-	}
-	else if(szKey == L"[CT_BEST_UNIT")
-	{
+	} else if (szKey == L"[CT_BEST_UNIT") {
 		szReplacement = player.getBestAttackUnitName(iForm);
-	}
-	else if(szKey == L"[CT_WORST_ENEMY")
-	{
+	} else if (szKey == L"[CT_WORST_ENEMY") {
 		szReplacement = player.getWorstEnemyName();
-	}
-	else
-	{
+	} else {
 		FAssertMsg(false, "Unknown Diplomacy String");
 		return false;
 	}

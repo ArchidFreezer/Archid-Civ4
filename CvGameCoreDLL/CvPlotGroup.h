@@ -8,8 +8,7 @@
 #include "LinkedList.h"
 
 class CvPlot;
-class CvPlotGroup
-{
+class CvPlotGroup {
 
 public:
 
@@ -18,27 +17,26 @@ public:
 
 	void init(int iID, PlayerTypes eOwner, CvPlot* pPlot);
 	void uninit();
-	void reset(int iID = 0, PlayerTypes eOwner = NO_PLAYER, bool bConstructorCall=false);
+	void reset(int iID = 0, PlayerTypes eOwner = NO_PLAYER, bool bConstructorCall = false);
 
 	void addPlot(CvPlot* pPlot);
 	void removePlot(CvPlot* pPlot);
-	void recalculatePlots();														
+	void recalculatePlots();
 
 	int getID() const;
 	void setID(int iID);
 
 	PlayerTypes getOwner() const;
 #ifdef _USRDLL
-	inline PlayerTypes getOwnerINLINE() const
-	{
+	inline PlayerTypes getOwnerINLINE() const {
 		return m_eOwner;
 	}
 #endif
 	int getNumBonuses(BonusTypes eBonus) const;
-	bool hasBonus(BonusTypes eBonus);										
+	bool hasBonus(BonusTypes eBonus);
 	void changeNumBonuses(BonusTypes eBonus, int iChange);
 
-	void insertAtEndPlots(XYCoords xy);			
+	void insertAtEndPlots(XYCoords xy);
 	CLLNode<XYCoords>* deletePlotsNode(CLLNode<XYCoords>* pNode);
 	CLLNode<XYCoords>* nextPlotsNode(CLLNode<XYCoords>* pNode);
 	int getLengthPlots();

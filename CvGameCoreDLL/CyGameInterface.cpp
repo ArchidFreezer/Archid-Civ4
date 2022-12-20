@@ -9,8 +9,7 @@
 // published python interface for CyGame
 // 
 
-void CyGamePythonInterface()
-{
+void CyGamePythonInterface() {
 	OutputDebugString("Python Extension Module - CyGamePythonInterface\n");
 
 	python::class_<CyGame>("CyGame")
@@ -66,7 +65,7 @@ void CyGamePythonInterface()
 		.def("getCurrentEra", &CyGame::getCurrentEra, "int /*EratTypes*/ ()")
 
 		.def("getActiveTeam", &CyGame::getActiveTeam, "int () - returns ID for the group")
-		.def("getActiveCivilizationType", &CyGame::getActiveCivilizationType, "int () - returns CivilizationID" )
+		.def("getActiveCivilizationType", &CyGame::getActiveCivilizationType, "int () - returns CivilizationID")
 		.def("isNetworkMultiPlayer", &CyGame::isNetworkMultiPlayer, "bool () - NetworkMultiplayer()? ")
 		.def("isGameMultiPlayer", &CyGame::isGameMultiPlayer, "bool () - GameMultiplayer()? ")
 		.def("isTeamGame", &CyGame::isTeamGame, "bool ()")
@@ -130,8 +129,8 @@ void CyGamePythonInterface()
 		.def("getAIAutoPlay", &CyGame::getAIAutoPlay)
 		.def("setAIAutoPlay", &CyGame::setAIAutoPlay)
 
-		.def("getGlobalWarmingIndex", &CyGame::getGlobalWarmingIndex)		.def("getGlobalWarmingChances", &CyGame::getGlobalWarmingChances)		.def("getGwEventTally", &CyGame::getGwEventTally)				.def("calculateGlobalPollution", &CyGame::calculateGlobalPollution) // K-Mod
-		.def("calculateGwLandDefence", &CyGame::calculateGwLandDefence)		.def("calculateGwSustainabilityThreshold", &CyGame::calculateGwSustainabilityThreshold)		.def("calculateGwSeverityRating", &CyGame::calculateGwSeverityRating)
+		.def("getGlobalWarmingIndex", &CyGame::getGlobalWarmingIndex).def("getGlobalWarmingChances", &CyGame::getGlobalWarmingChances).def("getGwEventTally", &CyGame::getGwEventTally).def("calculateGlobalPollution", &CyGame::calculateGlobalPollution) // K-Mod
+		.def("calculateGwLandDefence", &CyGame::calculateGwLandDefence).def("calculateGwSustainabilityThreshold", &CyGame::calculateGwSustainabilityThreshold).def("calculateGwSeverityRating", &CyGame::calculateGwSeverityRating)
 		.def("isScoreDirty", &CyGame::isScoreDirty, "bool ()")
 		.def("setScoreDirty", &CyGame::setScoreDirty)
 		.def("isCircumnavigated", &CyGame::isCircumnavigated, "bool () - is the globe circumnavigated?")
@@ -251,15 +250,15 @@ void CyGamePythonInterface()
 		.def("hasSkippedSaveChecksum", &CyGame::hasSkippedSaveChecksum)
 		.def("saveReplay", &CyGame::saveReplay)
 		.def("addPlayer", &CyGame::addPlayer, "void (int eNewPlayer, int eLeader, int eCiv)")
-/********************************************************************************/
-/* 	BETTER_BTS_AI_MOD						8/1/08				jdog5000	*/
-/* 																			*/
-/* 	Debug																	*/
-/********************************************************************************/
+		/********************************************************************************/
+		/* 	BETTER_BTS_AI_MOD						8/1/08				jdog5000	*/
+		/* 																			*/
+		/* 	Debug																	*/
+		/********************************************************************************/
 		.def("changeHumanPlayer", &CyGame::changeHumanPlayer, "void ( int /*PlayerTypes*/ eNewHuman )")
-/********************************************************************************/
-/* 	BETTER_BTS_AI_MOD						END								*/
-/********************************************************************************/
+		/********************************************************************************/
+		/* 	BETTER_BTS_AI_MOD						END								*/
+		/********************************************************************************/
 		.def("getCultureThreshold", &CyGame::getCultureThreshold, "int getCultureThreshold(CultureLevelTypes eLevel)")
 
 		.def("getPlotExtraYield", &CyGame::getPlotExtraYield, "int (int iX, int iY, int /*YieldTypes*/ eYield)") // K-Mod

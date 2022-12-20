@@ -8,8 +8,7 @@
 class CvReplayMessage;
 
 
-class CvReplayInfo
-{
+class CvReplayInfo {
 public:
 	DllExport CvReplayInfo();
 	DllExport virtual ~CvReplayInfo();
@@ -96,7 +95,7 @@ protected:
 	bool m_bMultiplayer;
 
 	typedef std::vector<const CvReplayMessage*> ReplayMessageList;
-	ReplayMessageList m_listReplayMessages; 
+	ReplayMessageList m_listReplayMessages;
 
 	int m_iInitialTurn;
 	int m_iFinalTurn;
@@ -105,8 +104,7 @@ protected:
 	CalendarTypes m_eCalendar;
 	int m_iNormalizedScore;
 
-	struct TurnData
-	{
+	struct TurnData {
 		int m_iScore;
 		int m_iEconomy;
 		int m_iIndustry;
@@ -114,8 +112,7 @@ protected:
 	};
 	typedef std::vector<TurnData> ScoreHistory;
 
-	struct PlayerInfo
-	{
+	struct PlayerInfo {
 		LeaderHeadTypes m_eLeader;
 		ColorTypes m_eColor;
 		ScoreHistory m_listScore;

@@ -21,8 +21,7 @@ class CyArtFileMgr;
 class CyUserProfile;
 class CyVariableSystem;
 
-class CyGlobalContext
-{
+class CyGlobalContext {
 public:
 	CyGlobalContext();
 	virtual ~CyGlobalContext();
@@ -79,18 +78,18 @@ public:
 	CvTechInfo* getTechInfo(int i) const;
 	CvSpecialBuildingInfo* getSpecialBuildingInfo(int i) const;
 	CvPromotionInfo* getPromotionInfo(int i) const;
-	CvAnimationPathInfo * getAnimationPathInfo(int i) const;
-	CvEmphasizeInfo * getEmphasizeInfo(int i) const;
-	CvUpkeepInfo * getUpkeepInfo(int i) const;
-	CvCultureLevelInfo * getCultureLevelInfo(int i) const;
-	CvEraInfo * getEraInfo(int i) const;
-	CvVictoryInfo * getVictoryInfo(int i) const;
-	CvWorldInfo * getWorldInfo(int i) const;
-	CvClimateInfo * getClimateInfo(int i) const;
-	CvSeaLevelInfo * getSeaLevelInfo(int i) const;
-	CvInfoBase * getUnitAIInfo(int i) const;
+	CvAnimationPathInfo* getAnimationPathInfo(int i) const;
+	CvEmphasizeInfo* getEmphasizeInfo(int i) const;
+	CvUpkeepInfo* getUpkeepInfo(int i) const;
+	CvCultureLevelInfo* getCultureLevelInfo(int i) const;
+	CvEraInfo* getEraInfo(int i) const;
+	CvVictoryInfo* getVictoryInfo(int i) const;
+	CvWorldInfo* getWorldInfo(int i) const;
+	CvClimateInfo* getClimateInfo(int i) const;
+	CvSeaLevelInfo* getSeaLevelInfo(int i) const;
+	CvInfoBase* getUnitAIInfo(int i) const;
 	CvColorInfo* getColorInfo(int i) const;
-    CvUnitArtStyleTypeInfo* getUnitArtStyleTypeInfo(int i) const;
+	CvUnitArtStyleTypeInfo* getUnitArtStyleTypeInfo(int i) const;
 
 	int getInfoTypeForString(const char* szInfoType) const;
 	int getTypesEnum(const char* szType) const;
@@ -142,16 +141,16 @@ public:
 
 	// Structs
 
-	const char* getEntityEventTypes(int i) const { return GC.getEntityEventTypes((EntityEventTypes) i); }
-	const char* getAnimationOperatorTypes(int i) const { return GC.getAnimationOperatorTypes((AnimationOperatorTypes) i); }
-	const char* getFunctionTypes(int i) const { return GC.getFunctionTypes((FunctionTypes) i); }
-	const char* getFlavorTypes(int i) const { return GC.getFlavorTypes((FlavorTypes) i); }
-	const char* getArtStyleTypes(int i) const { return GC.getArtStyleTypes((ArtStyleTypes) i); }
+	const char* getEntityEventTypes(int i) const { return GC.getEntityEventTypes((EntityEventTypes)i); }
+	const char* getAnimationOperatorTypes(int i) const { return GC.getAnimationOperatorTypes((AnimationOperatorTypes)i); }
+	const char* getFunctionTypes(int i) const { return GC.getFunctionTypes((FunctionTypes)i); }
+	const char* getFlavorTypes(int i) const { return GC.getFlavorTypes((FlavorTypes)i); }
+	const char* getArtStyleTypes(int i) const { return GC.getArtStyleTypes((ArtStyleTypes)i); }
 	const char* getCitySizeTypes(int i) const { return GC.getCitySizeTypes(i); }
-	const char* getContactTypes(int i) const { return GC.getContactTypes((ContactTypes) i); }
-	const char* getDiplomacyPowerTypes(int i) const { return GC.getDiplomacyPowerTypes((DiplomacyPowerTypes) i); }
-	const char *getFootstepAudioTypes(int i) { return GC.getFootstepAudioTypes(i); }
-	const char *getFootstepAudioTags(int i) { return GC.getFootstepAudioTags(i); }
+	const char* getContactTypes(int i) const { return GC.getContactTypes((ContactTypes)i); }
+	const char* getDiplomacyPowerTypes(int i) const { return GC.getDiplomacyPowerTypes((DiplomacyPowerTypes)i); }
+	const char* getFootstepAudioTypes(int i) { return GC.getFootstepAudioTypes(i); }
+	const char* getFootstepAudioTags(int i) { return GC.getFootstepAudioTags(i); }
 
 	int getNumEffectInfos() const { return GC.getNumEffectInfos(); }
 	int getNumTerrainInfos() const { return GC.getNumTerrainInfos(); }
@@ -250,12 +249,12 @@ public:
 	//////////////////////
 
 	CyVariableSystem* getCyDefinesVarSystem();
-	int getDefineINT( const char * szName ) const { return GC.getDefineINT( szName ); }
-	float getDefineFLOAT( const char * szName ) const { return GC.getDefineFLOAT( szName ); }
-	const char * getDefineSTRING( const char * szName ) const { return GC.getDefineSTRING( szName ); }
-	void setDefineINT( const char * szName, int iValue ) { return GC.setDefineINT( szName, iValue ); }
-	void setDefineFLOAT( const char * szName, float fValue ) { return GC.setDefineFLOAT( szName, fValue ); }
-	void setDefineSTRING( const char * szName, const char * szValue ) { return GC.setDefineSTRING( szName, szValue ); }
+	int getDefineINT(const char* szName) const { return GC.getDefineINT(szName); }
+	float getDefineFLOAT(const char* szName) const { return GC.getDefineFLOAT(szName); }
+	const char* getDefineSTRING(const char* szName) const { return GC.getDefineSTRING(szName); }
+	void setDefineINT(const char* szName, int iValue) { return GC.setDefineINT(szName, iValue); }
+	void setDefineFLOAT(const char* szName, float fValue) { return GC.setDefineFLOAT(szName, fValue); }
+	void setDefineSTRING(const char* szName, const char* szValue) { return GC.setDefineSTRING(szName, szValue); }
 
 	int getMOVE_DENOMINATOR() const { return GC.getMOVE_DENOMINATOR(); }
 	int getNUM_UNIT_PREREQ_OR_BONUSES() const { return GC.getNUM_UNIT_PREREQ_OR_BONUSES(); }

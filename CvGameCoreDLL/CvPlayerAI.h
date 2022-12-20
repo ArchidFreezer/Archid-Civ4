@@ -10,18 +10,16 @@
 
 class CvEventTriggerInfo;
 
-class CvPlayerAI : public CvPlayer
-{
+class CvPlayerAI : public CvPlayer {
 
 public:
 
 	CvPlayerAI();
 	virtual ~CvPlayerAI();
 
-  // inlined for performance reasons
+	// inlined for performance reasons
 #ifdef _USRDLL
-	static CvPlayerAI& getPlayer(PlayerTypes ePlayer)
-	{
+	static CvPlayerAI& getPlayer(PlayerTypes ePlayer) {
 		FAssertMsg(ePlayer != NO_PLAYER, "Player is not assigned a valid value");
 		FAssertMsg(ePlayer < MAX_PLAYERS, "Player is not assigned a valid value");
 		return m_aPlayers[ePlayer];
@@ -73,8 +71,7 @@ public:
 
 	short AI_foundValue(int iX, int iY, int iMinRivalRange = -1, bool bStartingLoc = false) const;
 	// K-Mod. (note, I also changed AI_foundValue to return short instead of int)
-	struct CvFoundSettings
-	{
+	struct CvFoundSettings {
 		CvFoundSettings(const CvPlayerAI& kPlayer, bool bStartingLoc);
 		int iMinRivalRange;
 		bool bStartingLoc;
@@ -112,11 +109,11 @@ public:
 	int AI_goldTarget(bool bUpgradeBudgetOnly = false) const; // K-Mod
 
 	TechTypes AI_bestTech(int iMaxPathLength = 1, bool bIgnoreCost = false, bool bAsync = false, TechTypes eIgnoreTech = NO_TECH, AdvisorTypes eIgnoreAdvisor = NO_ADVISOR) const;
-	int AI_techValue( TechTypes eTech, int iPathLength, bool bIgnoreCost, bool bAsync, int* paiBonusClassRevealed, int* paiBonusClassUnrevealed, int* paiBonusClassHave ) const;
+	int AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost, bool bAsync, int* paiBonusClassRevealed, int* paiBonusClassUnrevealed, int* paiBonusClassHave) const;
 	int AI_obsoleteBuildingPenalty(TechTypes eTech, bool bConstCache) const; // K-Mod
 	int AI_techBuildingValue(TechTypes eTech, bool bConstCache, bool& bEnablesWonder) const; // Rewritten for K-Mod
-	int AI_techBuildingValue_old( TechTypes eTech, int iPathLength, bool &bEnablesWonder ) const;
-	int AI_techUnitValue( TechTypes eTech, int iPathLength, bool &bEnablesUnitWonder ) const;
+	int AI_techBuildingValue_old(TechTypes eTech, int iPathLength, bool& bEnablesWonder) const;
+	int AI_techUnitValue(TechTypes eTech, int iPathLength, bool& bEnablesUnitWonder) const;
 	int AI_cultureVictoryTechValue(TechTypes eTech) const;
 
 	void AI_chooseFreeTech();
@@ -402,8 +399,8 @@ public:
 	int AI_getPlotAirbaseValue(CvPlot* pPlot) const;
 	int AI_getPlotCanalValue(CvPlot* pPlot) const;
 
-	int AI_getHappinessWeight(int iHappy, int iExtraPop, bool bPercent=false) const;
-	int AI_getHealthWeight(int iHealth, int iExtraPop, bool bPercent=false) const;
+	int AI_getHappinessWeight(int iHappy, int iExtraPop, bool bPercent = false) const;
+	int AI_getHealthWeight(int iHealth, int iExtraPop, bool bPercent = false) const;
 
 	bool AI_isPlotThreatened(CvPlot* pPlot, int iRange = -1, bool bTestMoves = true) const;
 
@@ -436,15 +433,15 @@ protected:
 
 	int m_iAverageCulturePressure; // K-Mod culture pressure
 
-	int *m_aiAverageYieldMultiplier;
-	int *m_aiAverageCommerceMultiplier;
-	int *m_aiAverageCommerceExchange;
+	int* m_aiAverageYieldMultiplier;
+	int* m_aiAverageCommerceMultiplier;
+	int* m_aiAverageCommerceExchange;
 
 	int m_iUpgradeUnitsCachedGold;
 	int m_iAvailableIncome;
 
-	int *m_aiNumTrainAIUnits;
-	int *m_aiNumAIUnits;
+	int* m_aiNumTrainAIUnits;
+	int* m_aiNumAIUnits;
 	int* m_aiSameReligionCounter;
 	int* m_aiDifferentReligionCounter;
 	int* m_aiFavoriteCivicCounter;

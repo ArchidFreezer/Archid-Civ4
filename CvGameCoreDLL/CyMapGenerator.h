@@ -16,13 +16,12 @@
 
 class CvMapGenerator;
 class CyPlot;
-class CyMapGenerator
-{	
+class CyMapGenerator {
 public:
 	CyMapGenerator();
 	CyMapGenerator(CvMapGenerator* pMapGenerator);		// Call from C++
-	CvMapGenerator* getMapGenerator() { return m_pMapGenerator;	}	// Call from C++
-	bool isNone() { return (m_pMapGenerator==NULL); }
+	CvMapGenerator* getMapGenerator() { return m_pMapGenerator; }	// Call from C++
+	bool isNone() { return (m_pMapGenerator == NULL); }
 
 	bool canPlaceBonusAt(int /*BonusTypes*/ eBonus, int iX, int iY, bool bIgnoreLatitude);
 	bool canPlaceGoodyAt(int /*ImprovementTypes*/ eImprovement, int iX, int iY);
