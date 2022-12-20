@@ -5053,7 +5053,6 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 	}
 
 	int iNumSibs = 0;				// the number of siblings the current xml node has
-	int iIndex;
 
 	pXML->GetChildXmlValByName(szTextVal, "CivicOptionType");
 	m_iCivicOptionType = pXML->FindInInfoClass(szTextVal);
@@ -5123,36 +5122,7 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetListPairInfo(&m_paiBuildingHealthChanges, "BuildingHealthChanges", GC.getNumBuildingClassInfos());
 	pXML->SetListPairInfo(&m_paiFeatureHappinessChanges, "FeatureHappinessChanges", GC.getNumFeatureInfos());
 
-	// initialize the boolean list to the correct size and all the booleans to false
-	FAssertMsg((GC.getNumImprovementInfos() > 0) && (NUM_YIELD_TYPES) > 0, "either the number of improvement infos is zero or less or the number of yield types is zero or less");
-	pXML->Init2DIntList(&m_ppiImprovementYieldChanges, GC.getNumImprovementInfos(), NUM_YIELD_TYPES);
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ImprovementYieldChanges")) {
-		if (pXML->SkipToNextVal()) {
-			iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
-			if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML())) {
-				if (0 < iNumSibs) {
-					for (int j = 0; j < iNumSibs; j++) {
-						pXML->GetChildXmlValByName(szTextVal, "ImprovementType");
-						iIndex = pXML->FindInInfoClass(szTextVal);
-
-						if (iIndex > -1) {
-							// delete the array since it will be reallocated
-							SAFE_DELETE_ARRAY(m_ppiImprovementYieldChanges[iIndex]);
-							pXML->SetList(&m_ppiImprovementYieldChanges[iIndex], "ImprovementYields", NUM_YIELD_TYPES);
-						}
-
-						if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML())) {
-							break;
-						}
-					}
-				}
-
-				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-			}
-		}
-
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	}
+	pXML->SetListPairInfoArray(&m_ppiImprovementYieldChanges, "ImprovementYieldChanges", GC.getNumImprovementInfos(), NUM_YIELD_TYPES);
 
 	pXML->GetChildXmlValByName(szTextVal, "WeLoveTheKing");
 	setWeLoveTheKingKey(szTextVal);
