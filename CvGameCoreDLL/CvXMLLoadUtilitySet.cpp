@@ -706,7 +706,8 @@ bool CvXMLLoadUtility::LoadGlobalText() {
 			if (bValid) {
 				const int& iLanguage = GAMETEXT.getCurrentLanguage();
 				const int iMax = GC.getDefineINT("MAX_NUM_LANGUAGES");
-				for (int i = 0; i < iMax; i++) {
+				int i;
+				for (i = 0; i < iMax; i++) {
 					SkipToNextVal();
 
 					if (!gDLL->getXMLIFace()->NextSibling(m_pFXml))
