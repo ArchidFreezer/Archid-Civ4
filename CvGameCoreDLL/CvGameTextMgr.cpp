@@ -493,7 +493,7 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 				szString.append(gDLL->getText("TXT_KEY_UNIT_INVISIBLE_MOST"));
 			}
 
-			for (iI = 0; iI < pUnit->getNumSeeInvisibleTypes(); ++iI) {
+			for (int iI = 0; iI < pUnit->getNumSeeInvisibleTypes(); ++iI) {
 				if (pUnit->getSeeInvisibleType(iI) != pUnit->getInvisibleType()) {
 					szString.append(NEWLINE);
 					szString.append(gDLL->getText("TXT_KEY_UNIT_SEE_INVISIBLE", GC.getInvisibleInfo(pUnit->getSeeInvisibleType(iI)).getTextKeyWide()));
@@ -8321,7 +8321,7 @@ void CvGameTextMgr::setProjectHelp(CvWStringBuffer& szBuffer, ProjectTypes eProj
 		if (pCity != NULL) {
 			if (GC.getGameINLINE().isNoNukes()) {
 				if (kProject.isAllowsNukes()) {
-					for (iI = 0; iI < GC.getNumUnitInfos(); ++iI) {
+					for (int iI = 0; iI < GC.getNumUnitInfos(); ++iI) {
 						if (GC.getUnitInfo((UnitTypes)iI).getNukeRange() != -1) {
 							szBuffer.append(NEWLINE);
 							szBuffer.append(gDLL->getText("TXT_KEY_PROJECT_NO_NUKES"));
@@ -8339,7 +8339,7 @@ void CvGameTextMgr::setProjectHelp(CvWStringBuffer& szBuffer, ProjectTypes eProj
 			}
 		}
 
-		for (iI = 0; iI < GC.getNumProjectInfos(); ++iI) {
+		for (int iI = 0; iI < GC.getNumProjectInfos(); ++iI) {
 			if (kProject.getProjectsNeeded(iI) > 0) {
 				if ((pCity == NULL) || (GET_TEAM(GET_PLAYER(ePlayer).getTeam()).getProjectCount((ProjectTypes)iI) < kProject.getProjectsNeeded(iI))) {
 					if (pCity != NULL) {
@@ -13642,7 +13642,7 @@ void CvGameTextMgr::assignFontIds(int iFirstSymbolCode, int iPadAmount) {
 	} while (iCurSymbolID % iPadAmount != 0);
 
 	// set commerce symbols
-	for (i = 0; i < GC.getNUM_COMMERCE_TYPES(); i++) {
+	for (int i = 0; i < GC.getNUM_COMMERCE_TYPES(); i++) {
 		GC.getCommerceInfo((CommerceTypes)i).setChar(iCurSymbolID);
 		++iCurSymbolID;
 	}
@@ -13663,7 +13663,7 @@ void CvGameTextMgr::assignFontIds(int iFirstSymbolCode, int iPadAmount) {
 		GC.getReligionInfo((ReligionTypes)i).setHolyCityChar(iCurSymbolID);
 		++iCurSymbolID;
 	}
-	for (i = 0; i < GC.getNumCorporationInfos(); i++) {
+	for (int i = 0; i < GC.getNumCorporationInfos(); i++) {
 		GC.getCorporationInfo((CorporationTypes)i).setChar(iCurSymbolID);
 		++iCurSymbolID;
 		GC.getCorporationInfo((CorporationTypes)i).setHeadquarterChar(iCurSymbolID);
