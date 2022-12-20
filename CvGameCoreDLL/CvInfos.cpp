@@ -7037,7 +7037,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iProductionCost, "iCost");
 	pXML->GetChildXmlValByName(&m_iHurryCostModifier, "iHurryCostModifier");
 	pXML->GetChildXmlValByName(&m_iHurryAngerModifier, "iHurryAngerModifier");
-	pXML->GetChildXmlValByName(&m_iAdvancedStartCost, "iAdvancedStartCost");
+	pXML->GetChildXmlValByName(&m_iAdvancedStartCost, "iAdvancedStartCost", -1);
 	pXML->GetChildXmlValByName(&m_iAdvancedStartCostIncrease, "iAdvancedStartCostIncrease");
 	pXML->GetChildXmlValByName(&m_iMinAreaSize, "iMinAreaSize", -1);
 	pXML->GetChildXmlValByName(&m_iConquestProbability, "iConquestProb");

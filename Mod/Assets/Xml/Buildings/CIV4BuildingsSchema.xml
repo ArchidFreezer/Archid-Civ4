@@ -443,7 +443,7 @@
 		<element type="iAIWeight" minOccurs="0"/>
 		<element type="iCost" minOccurs="0"/>
 		<element type="iHurryCostModifier" minOccurs="0"/>
-		<element type="iAdvancedStartCost" minOccurs="0"/>
+		<element type="iAdvancedStartCost" minOccurs="0"/> <!-- Default: -1 -->
 		<element type="iAdvancedStartCostIncrease" minOccurs="0"/>
 		<element type="iMinAreaSize" minOccurs="0"/> <!-- Default: -1 -->
 		<element type="iConquestProb" minOccurs="0"/>
@@ -499,7 +499,7 @@
 		<element type="iEspionageDefense" minOccurs="0"/>
 		<element type="iAsset" minOccurs="0"/>
 		<element type="iPower" minOccurs="0"/>
-		<element type="fVisibilityPriority" minOccurs="0"/>
+		<element type="fVisibilityPriority" minOccurs="0"/> <!-- Default: 1.0 -->
 		<element type="SeaPlotYieldChanges" minOccurs="0"/>
 		<element type="RiverPlotYieldChanges" minOccurs="0"/>
 		<element type="GlobalSeaPlotYieldChanges" minOccurs="0"/>
@@ -534,7 +534,7 @@
 		<element type="SpecialistYieldChanges" minOccurs="0"/>
 		<element type="BonusYieldModifiers" minOccurs="0"/>
 		<element type="ImprovementFreeSpecialists" minOccurs="0"/>
-		<element type="Flavors"/>
+		<element type="Flavors" minOccurs="0"/>
 		<element type="HotKey" minOccurs="0"/>
 		<element type="bAltDown" minOccurs="0"/>
 		<element type="bShiftDown" minOccurs="0"/>
