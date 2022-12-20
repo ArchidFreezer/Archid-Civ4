@@ -1511,7 +1511,7 @@ void CvXMLLoadUtility::orderHotkeyInfo(int** ppiSortedIndex, int* pHotkeyIndex, 
 	std::sort(viOrderPriority.begin(), viOrderPriority.end(), sortHotkeyPriority);
 
 	// insert new order into the array to return
-	for (iI = 0; iI < iLength; iI++) {
+	for (int iI = 0; iI < iLength; iI++) {
 		piSortedIndex[iI] = viOrderPriority[iI].m_iIndex;
 	}
 }
