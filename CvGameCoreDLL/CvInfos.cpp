@@ -662,11 +662,11 @@ void CvDiplomacyResponse::write(FDataStreamBase* stream) {
 }
 
 bool CvDiplomacyResponse::read(CvXMLLoadUtility* pXML) {
-	pXML->SetListPairInfo(&m_pbCivilizationTypes, "Civilizations", GC.getNumCivilizationInfos());
+	pXML->SetListInfoBool(&m_pbCivilizationTypes, "Civilizations", GC.getNumCivilizationInfos());
 	// Leaders
-	pXML->SetListPairInfo(&m_pbLeaderHeadTypes, "Leaders", GC.getNumLeaderHeadInfos());
+	pXML->SetListInfoBool(&m_pbLeaderHeadTypes, "Leaders", GC.getNumLeaderHeadInfos());
 	// AttitudeTypes
-	pXML->SetListPairInfo(&m_pbAttitudeTypes, "Attitudes", NUM_ATTITUDE_TYPES);
+	pXML->SetListInfoBool(&m_pbAttitudeTypes, "Attitudes", NUM_ATTITUDE_TYPES);
 	// PowerTypes
 	pXML->SetListPairEnum(&m_pbDiplomacyPowerTypes, "DiplomacyPowers", NUM_DIPLOMACYPOWER_TYPES);
 	// DiplomacyText
