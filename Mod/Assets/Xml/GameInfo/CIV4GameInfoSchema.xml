@@ -369,81 +369,76 @@
 		<element type="GoodyType" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="TechType" content="textOnly"/>
-	<ElementType name="bFreeTech" content="textOnly" dt:type="boolean"/>
-	<ElementType name="FreeTech" content="eltOnly">
-		<element type="TechType"/>
-		<element type="bFreeTech"/>
-	</ElementType>
 	<ElementType name="FreeTechs" content="eltOnly">
-		<element type="FreeTech" minOccurs="0" maxOccurs="*"/>
+		<element type="TechType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="AIFreeTechs" content="eltOnly">
-		<element type="FreeTech" minOccurs="0" maxOccurs="*"/>
+		<element type="TechType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="HandicapInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
 		<element type="Help"/>
-		<element type="iFreeWinsVsBarbs"/>
-		<element type="iAnimalAttackProb"/>
-		<element type="iStartingLocPercent"/>
-		<element type="iAdvancedStartPointsMod"/>
-		<element type="iGold"/>
-		<element type="iFreeUnits"/>
-		<element type="iUnitCostPercent"/>
-		<element type="iResearchPercent"/>
-		<element type="iDistanceMaintenancePercent"/>
-		<element type="iNumCitiesMaintenancePercent"/>
-		<element type="iMaxNumCitiesMaintenance"/>
-		<element type="iColonyMaintenancePercent"/>
-		<element type="iMaxColonyMaintenance"/>
-		<element type="iCorporationMaintenancePercent"/>
-		<element type="iCivicUpkeepPercent"/>
-		<element type="iInflationPercent"/>
-		<element type="iHealthBonus"/>
-		<element type="iHappyBonus"/>
-		<element type="iAttitudeChange"/>
-		<element type="iNoTechTradeModifier"/>
-		<element type="iTechTradeKnownModifier"/>
-		<element type="iUnownedTilesPerGameAnimal"/>
-		<element type="iUnownedTilesPerBarbarianUnit"/>
-		<element type="iUnownedWaterTilesPerBarbarianUnit"/>
-		<element type="iUnownedTilesPerBarbarianCity"/>
-		<element type="iBarbarianCreationTurnsElapsed"/>
-		<element type="iBarbarianCityCreationTurnsElapsed"/>
-		<element type="iBarbarianCityCreationProb"/>
-		<element type="iAnimalBonus"/>
-		<element type="iBarbarianBonus"/>
-		<element type="iAIAnimalBonus"/>
-		<element type="iAIBarbarianBonus"/>
-		<element type="iStartingDefenseUnits"/>
-		<element type="iStartingWorkerUnits"/>
-		<element type="iStartingExploreUnits"/>
-		<element type="iAIStartingUnitMultiplier"/>
-		<element type="iAIStartingDefenseUnits"/>
-		<element type="iAIStartingWorkerUnits"/>
-		<element type="iAIStartingExploreUnits"/>
-		<element type="iBarbarianDefenders"/>
-		<element type="iAIDeclareWarProb"/>
-		<element type="iAIWorkRateModifier"/>
-		<element type="iAIGrowthPercent"/>
-		<element type="iAITrainPercent"/>
-		<element type="iAIWorldTrainPercent"/>
-		<element type="iAIConstructPercent"/>
-		<element type="iAIWorldConstructPercent"/>
-		<element type="iAICreatePercent"/>
-		<element type="iAIWorldCreatePercent"/>
-		<element type="iAICivicUpkeepPercent"/>
-		<element type="iAIUnitCostPercent"/>
-		<element type="iAIUnitSupplyPercent"/>
-		<element type="iAIUnitUpgradePercent"/>
-		<element type="iAIInflationPercent"/>
-		<element type="iAIWarWearinessPercent"/>
-		<element type="iAIPerEraModifier"/>
-		<element type="iAIAdvancedStartPercent"/>
-		<element type="Goodies" maxOccurs="*"/>
-		<element type="FreeTechs" maxOccurs="*"/>
-		<element type="AIFreeTechs" maxOccurs="*"/>
+		<element type="iFreeWinsVsBarbs" minOccurs="0"/>
+		<element type="iAnimalAttackProb" minOccurs="0"/>
+		<element type="iStartingLocPercent" minOccurs="0"/>
+		<element type="iAdvancedStartPointsMod" minOccurs="0"/>
+		<element type="iGold" minOccurs="0"/>
+		<element type="iFreeUnits" minOccurs="0"/>
+		<element type="iUnitCostPercent" minOccurs="0"/>
+		<element type="iResearchPercent" minOccurs="0"/>
+		<element type="iDistanceMaintenancePercent" minOccurs="0"/>
+		<element type="iNumCitiesMaintenancePercent" minOccurs="0"/>
+		<element type="iMaxNumCitiesMaintenance" minOccurs="0"/>
+		<element type="iColonyMaintenancePercent" minOccurs="0"/>
+		<element type="iMaxColonyMaintenance" minOccurs="0"/>
+		<element type="iCorporationMaintenancePercent" minOccurs="0"/>
+		<element type="iCivicUpkeepPercent" minOccurs="0"/>
+		<element type="iInflationPercent" minOccurs="0"/>
+		<element type="iHealthBonus" minOccurs="0"/>
+		<element type="iHappyBonus" minOccurs="0"/>
+		<element type="iAttitudeChange" minOccurs="0"/>
+		<element type="iNoTechTradeModifier" minOccurs="0"/>
+		<element type="iTechTradeKnownModifier" minOccurs="0"/>
+		<element type="iUnownedTilesPerGameAnimal" minOccurs="0"/>
+		<element type="iUnownedTilesPerBarbarianUnit" minOccurs="0"/>
+		<element type="iUnownedWaterTilesPerBarbarianUnit" minOccurs="0"/>
+		<element type="iUnownedTilesPerBarbarianCity" minOccurs="0"/>
+		<element type="iBarbarianCreationTurnsElapsed" minOccurs="0"/>
+		<element type="iBarbarianCityCreationTurnsElapsed" minOccurs="0"/>
+		<element type="iBarbarianCityCreationProb" minOccurs="0"/>
+		<element type="iAnimalBonus" minOccurs="0"/>
+		<element type="iBarbarianBonus" minOccurs="0"/>
+		<element type="iAIAnimalBonus" minOccurs="0"/>
+		<element type="iAIBarbarianBonus" minOccurs="0"/>
+		<element type="iStartingDefenseUnits" minOccurs="0"/>
+		<element type="iStartingWorkerUnits" minOccurs="0"/>
+		<element type="iStartingExploreUnits" minOccurs="0"/>
+		<element type="iAIStartingUnitMultiplier" minOccurs="0"/>
+		<element type="iAIStartingDefenseUnits" minOccurs="0"/>
+		<element type="iAIStartingWorkerUnits" minOccurs="0"/>
+		<element type="iAIStartingExploreUnits" minOccurs="0"/>
+		<element type="iBarbarianDefenders" minOccurs="0"/>
+		<element type="iAIDeclareWarProb" minOccurs="0"/>
+		<element type="iAIWorkRateModifier" minOccurs="0"/>
+		<element type="iAIGrowthPercent" minOccurs="0"/> <!-- Default: 100 -->
+		<element type="iAITrainPercent" minOccurs="0"/> <!-- Default: 100 -->
+		<element type="iAIWorldTrainPercent" minOccurs="0"/> <!-- Default: 100 -->
+		<element type="iAIConstructPercent" minOccurs="0"/> <!-- Default: 100 -->
+		<element type="iAIWorldConstructPercent" minOccurs="0"/> <!-- Default: 100 -->
+		<element type="iAICreatePercent" minOccurs="0"/> <!-- Default: 100 -->
+		<element type="iAIWorldCreatePercent" minOccurs="0"/> <!-- Default: 100 -->
+		<element type="iAICivicUpkeepPercent" minOccurs="0"/> <!-- Default: 100 -->
+		<element type="iAIUnitCostPercent" minOccurs="0"/> <!-- Default: 100 -->
+		<element type="iAIUnitSupplyPercent" minOccurs="0"/> <!-- Default: 100 -->
+		<element type="iAIUnitUpgradePercent" minOccurs="0"/> <!-- Default: 100 -->
+		<element type="iAIInflationPercent" minOccurs="0"/> <!-- Default: 100 -->
+		<element type="iAIWarWearinessPercent" minOccurs="0"/> <!-- Default: 100 -->
+		<element type="iAIPerEraModifier" minOccurs="0"/>
+		<element type="iAIAdvancedStartPercent" minOccurs="0"/> <!-- Default: 100 -->
+		<element type="Goodies" minOccurs="0" maxOccurs="*"/>
+		<element type="FreeTechs" minOccurs="0" maxOccurs="*"/>
+		<element type="AIFreeTechs" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="HandicapInfos" content="eltOnly">
 		<element type="HandicapInfo" maxOccurs="*"/>

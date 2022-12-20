@@ -8694,21 +8694,21 @@ bool CvHandicapInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iBarbarianInitialDefenders, "iBarbarianDefenders");
 	pXML->GetChildXmlValByName(&m_iAIDeclareWarProb, "iAIDeclareWarProb");
 	pXML->GetChildXmlValByName(&m_iAIWorkRateModifier, "iAIWorkRateModifier");
-	pXML->GetChildXmlValByName(&m_iAIGrowthPercent, "iAIGrowthPercent");
-	pXML->GetChildXmlValByName(&m_iAITrainPercent, "iAITrainPercent");
-	pXML->GetChildXmlValByName(&m_iAIWorldTrainPercent, "iAIWorldTrainPercent");
-	pXML->GetChildXmlValByName(&m_iAIConstructPercent, "iAIConstructPercent");
-	pXML->GetChildXmlValByName(&m_iAIWorldConstructPercent, "iAIWorldConstructPercent");
-	pXML->GetChildXmlValByName(&m_iAICreatePercent, "iAICreatePercent");
-	pXML->GetChildXmlValByName(&m_iAIWorldCreatePercent, "iAIWorldCreatePercent");
-	pXML->GetChildXmlValByName(&m_iAICivicUpkeepPercent, "iAICivicUpkeepPercent");
-	pXML->GetChildXmlValByName(&m_iAIUnitCostPercent, "iAIUnitCostPercent");
-	pXML->GetChildXmlValByName(&m_iAIUnitSupplyPercent, "iAIUnitSupplyPercent");
-	pXML->GetChildXmlValByName(&m_iAIUnitUpgradePercent, "iAIUnitUpgradePercent");
-	pXML->GetChildXmlValByName(&m_iAIInflationPercent, "iAIInflationPercent");
-	pXML->GetChildXmlValByName(&m_iAIWarWearinessPercent, "iAIWarWearinessPercent");
+	pXML->GetChildXmlValByName(&m_iAIGrowthPercent, "iAIGrowthPercent", 100);
+	pXML->GetChildXmlValByName(&m_iAITrainPercent, "iAITrainPercent", 100);
+	pXML->GetChildXmlValByName(&m_iAIWorldTrainPercent, "iAIWorldTrainPercent", 100);
+	pXML->GetChildXmlValByName(&m_iAIConstructPercent, "iAIConstructPercent", 100);
+	pXML->GetChildXmlValByName(&m_iAIWorldConstructPercent, "iAIWorldConstructPercent", 100);
+	pXML->GetChildXmlValByName(&m_iAICreatePercent, "iAICreatePercent", 100);
+	pXML->GetChildXmlValByName(&m_iAIWorldCreatePercent, "iAIWorldCreatePercent", 100);
+	pXML->GetChildXmlValByName(&m_iAICivicUpkeepPercent, "iAICivicUpkeepPercent", 100);
+	pXML->GetChildXmlValByName(&m_iAIUnitCostPercent, "iAIUnitCostPercent", 100);
+	pXML->GetChildXmlValByName(&m_iAIUnitSupplyPercent, "iAIUnitSupplyPercent", 100);
+	pXML->GetChildXmlValByName(&m_iAIUnitUpgradePercent, "iAIUnitUpgradePercent", 100);
+	pXML->GetChildXmlValByName(&m_iAIInflationPercent, "iAIInflationPercent", 100);
+	pXML->GetChildXmlValByName(&m_iAIWarWearinessPercent, "iAIWarWearinessPercent", 100);
 	pXML->GetChildXmlValByName(&m_iAIPerEraModifier, "iAIPerEraModifier");
-	pXML->GetChildXmlValByName(&m_iAIAdvancedStartPercent, "iAIAdvancedStartPercent");
+	pXML->GetChildXmlValByName(&m_iAIAdvancedStartPercent, "iAIAdvancedStartPercent", 100);
 
 	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "Goodies")) {
 		CvString* pszGoodyNames = NULL;
@@ -8729,8 +8729,8 @@ bool CvHandicapInfo::read(CvXMLLoadUtility* pXML) {
 		SAFE_DELETE_ARRAY(pszGoodyNames);
 	}
 
-	pXML->SetListPairInfo(&m_pbFreeTechs, "FreeTechs", GC.getNumTechInfos());
-	pXML->SetListPairInfo(&m_pbAIFreeTechs, "AIFreeTechs", GC.getNumTechInfos());
+	pXML->SetListInfoBool(&m_pbFreeTechs, "FreeTechs", GC.getNumTechInfos());
+	pXML->SetListInfoBool(&m_pbAIFreeTechs, "AIFreeTechs", GC.getNumTechInfos());
 
 	return true;
 }
