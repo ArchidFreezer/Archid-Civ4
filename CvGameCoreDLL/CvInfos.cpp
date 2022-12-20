@@ -9356,30 +9356,7 @@ bool CvRouteInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->SetList(&m_piYieldChange, "Yields", NUM_YIELD_TYPES);
 	pXML->SetListPairInfo(&m_piTechMovementChange, "TechMovementChanges", GC.getNumTechInfos());
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "PrereqOrBonuses")) {
-		if (pXML->SkipToNextVal()) {
-			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
-			FAssertMsg((0 < GC.getNUM_ROUTE_PREREQ_OR_BONUSES()), "Allocating zero or less memory in SetGlobalUnitInfo");
-			pXML->InitList(&m_piPrereqOrBonuses, GC.getNUM_ROUTE_PREREQ_OR_BONUSES(), -1);
-
-			if (0 < iNumSibs) {
-				if (pXML->GetChildXmlVal(szTextVal)) {
-					FAssertMsg((iNumSibs <= GC.getNUM_ROUTE_PREREQ_OR_BONUSES()), "There are more siblings than memory allocated for them in SetGlobalUnitInfo");
-					for (int j = 0; j < iNumSibs; j++) {
-						m_piPrereqOrBonuses[j] = pXML->FindInInfoClass(szTextVal);
-						if (!pXML->GetNextXmlVal(szTextVal)) {
-							break;
-						}
-					}
-
-					gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-				}
-			}
-		}
-
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	}
+	pXML->SetListInfo(&m_piPrereqOrBonuses, "PrereqOrBonuses", GC.getNUM_ROUTE_PREREQ_OR_BONUSES());
 
 	return true;
 }
