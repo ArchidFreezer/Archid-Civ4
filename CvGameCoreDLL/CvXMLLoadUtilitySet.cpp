@@ -1644,6 +1644,31 @@ void CvXMLLoadUtility::SetImprovementBonuses(CvImprovementBonusInfo** ppImprovem
 	}
 }
 
+void CvXMLLoadUtility::SetVectorInfo(std::vector<int>& vList, const TCHAR* szRootTagName) {
+	if (gDLL->getXMLIFace()->SetToChildByTagName(GetXML(), szRootTagName)) {
+		if (SkipToNextVal()) {
+			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
+			vList.clear();
+
+			if (0 < iNumSibs) {
+				CvString szTextVal;
+				if (GetChildXmlVal(szTextVal)) {
+					for (int j = 0; j < iNumSibs; j++) {
+						vList.push_back(FindInInfoClass(szTextVal));
+						if (!GetNextXmlVal(szTextVal)) {
+							break;
+						}
+					}
+
+					gDLL->getXMLIFace()->SetToParent(m_pFXml);
+				}
+			}
+		}
+
+		gDLL->getXMLIFace()->SetToParent(m_pFXml);
+	}
+}
+
 bool CvXMLLoadUtility::SetListPairInfoArray(int*** pppList, const TCHAR* szRootTagName, int iOuterListLength, int iInnerListLength) {
 	bool bAnyChange = false;
 

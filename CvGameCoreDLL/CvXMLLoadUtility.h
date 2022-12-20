@@ -200,6 +200,8 @@ public:
 	void SetListPairInfoForAudioScripts(int** ppiList, const TCHAR* szRootTagName, int iInfoBaseLength, int iDefaultListVal = -1);
 	void SetListPairEnumForAudioScripts(int** ppiList, const TCHAR* szRootTagName, int iTagListLength, int iDefaultListVal = -1);
 
+	void SetVectorInfo(std::vector<int>& vList, const TCHAR* szRootTagName);
+
 	// create a hot key from a description
 	CvWString CreateHotKeyFromDescription(const TCHAR* pszHotKey, bool bShift = false, bool bAlt = false, bool bCtrl = false);
 
