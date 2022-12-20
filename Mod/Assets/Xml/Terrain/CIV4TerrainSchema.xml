@@ -128,13 +128,8 @@
 	<ElementType name="bNoImprovement" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bVisibleAlways" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bNukeImmune" content="textOnly" dt:type="boolean"/>
-	<ElementType name="bTerrain" content="textOnly" dt:type="boolean"/>
-	<ElementType name="TerrainBoolean" content="eltOnly">
-		<element type="TerrainType"/>
-		<element type="bTerrain"/>
-	</ElementType>
 	<ElementType name="TerrainBooleans" content="eltOnly">
-		<element type="TerrainBoolean" minOccurs="0" maxOccurs="*"/>
+		<element type="TerrainType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="EffectType" content="textOnly"/>
 	<ElementType name="iEffectProbability" content="textOnly" dt:type="int"/>
@@ -222,21 +217,11 @@
 	<ElementType name="bFlatlands" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bNoRiverSide" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bNormalize" content="textOnly" dt:type="boolean"/>
-	<ElementType name="bFeature" content="textOnly" dt:type="boolean"/>
-	<ElementType name="FeatureBoolean" content="eltOnly">
-		<element type="FeatureType"/>
-		<element type="bFeature"/>
-	</ElementType>
 	<ElementType name="FeatureBooleans" content="eltOnly">
-		<element type="FeatureBoolean" minOccurs="0" maxOccurs="*"/>
-	</ElementType>
-	<ElementType name="bFeatureTerrain" content="textOnly" dt:type="boolean"/>
-	<ElementType name="FeatureTerrainBoolean" content="eltOnly">
-		<element type="TerrainType"/>
-		<element type="bFeatureTerrain"/>
+		<element type="FeatureType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="FeatureTerrainBooleans" content="eltOnly">
-		<element type="FeatureTerrainBoolean" minOccurs="0" maxOccurs="*"/>
+		<element type="FeatureType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="bUseLSystem" content="textOnly" dt:type="boolean"/>
 	<ElementType name="BonusInfo" content="eltOnly">

@@ -34,18 +34,9 @@
 			<iPlayer>100</iPlayer>
 			<bHills>1</bHills>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_DESERT</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_TUNDRA</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+				<TerrainType>TERRAIN_DESERT</TerrainType>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
 			</TerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -74,14 +65,8 @@
 			<iUnique>4</iUnique>
 			<bHills>1</bHills>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</TerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -113,26 +98,11 @@
 			<bFlatlands>1</bFlatlands>
 			<bNoRiverSide>1</bNoRiverSide>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_DESERT</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_TUNDRA</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_SNOW</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+				<TerrainType>TERRAIN_DESERT</TerrainType>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
+				<TerrainType>TERRAIN_SNOW</TerrainType>
 			</TerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -163,18 +133,9 @@
 			<bFlatlands>1</bFlatlands>
 			<bNoRiverSide>1</bNoRiverSide>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_TUNDRA</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
 			</TerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -206,26 +167,11 @@
 			<bFlatlands>1</bFlatlands>
 			<bNoRiverSide>1</bNoRiverSide>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_DESERT</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_TUNDRA</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_SNOW</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+				<TerrainType>TERRAIN_DESERT</TerrainType>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
+				<TerrainType>TERRAIN_SNOW</TerrainType>
 			</TerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -256,18 +202,9 @@
 			<bNoRiverSide>1</bNoRiverSide>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_TUNDRA</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_SNOW</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
+				<TerrainType>TERRAIN_SNOW</TerrainType>
 			</TerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -299,34 +236,16 @@
 			<bFlatlands>1</bFlatlands>
 			<bNoRiverSide>1</bNoRiverSide>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_DESERT</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_TUNDRA</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_SNOW</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_OCEAN</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_DESERT</TerrainType>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
+				<TerrainType>TERRAIN_SNOW</TerrainType>
+				<TerrainType>TERRAIN_OCEAN</TerrainType>
 			</TerrainBooleans>
 			<FeatureBooleans>
-				<FeatureBoolean>
-					<FeatureType>FEATURE_JUNGLE</FeatureType>
-					<bFeature>1</bFeature>
-				</FeatureBoolean>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
 			</FeatureBooleans>
 			<FeatureTerrainBooleans>
-				<FeatureTerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bFeatureTerrain>1</bFeatureTerrain>
-				</FeatureTerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
 			</FeatureTerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -357,14 +276,8 @@
 			<bNoRiverSide>1</bNoRiverSide>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_DESERT</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+				<TerrainType>TERRAIN_DESERT</TerrainType>
 			</TerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -396,58 +309,22 @@
 			<bFlatlands>1</bFlatlands>
 			<bNoRiverSide>1</bNoRiverSide>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_DESERT</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_TUNDRA</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_SNOW</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+				<TerrainType>TERRAIN_DESERT</TerrainType>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
+				<TerrainType>TERRAIN_SNOW</TerrainType>
 			</TerrainBooleans>
 			<FeatureBooleans>
-				<FeatureBoolean>
-					<FeatureType>FEATURE_JUNGLE</FeatureType>
-					<bFeature>1</bFeature>
-				</FeatureBoolean>
-				<FeatureBoolean>
-					<FeatureType>FEATURE_FOREST</FeatureType>
-					<bFeature>1</bFeature>
-				</FeatureBoolean>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
+				<FeatureType>FEATURE_FOREST</FeatureType>
 			</FeatureBooleans>
 			<FeatureTerrainBooleans>
-				<FeatureTerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bFeatureTerrain>1</bFeatureTerrain>
-				</FeatureTerrainBoolean>
-				<FeatureTerrainBoolean>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bFeatureTerrain>1</bFeatureTerrain>
-				</FeatureTerrainBoolean>
-				<FeatureTerrainBoolean>
-					<TerrainType>TERRAIN_DESERT</TerrainType>
-					<bFeatureTerrain>1</bFeatureTerrain>
-				</FeatureTerrainBoolean>
-				<FeatureTerrainBoolean>
-					<TerrainType>TERRAIN_TUNDRA</TerrainType>
-					<bFeatureTerrain>1</bFeatureTerrain>
-				</FeatureTerrainBoolean>
-				<FeatureTerrainBoolean>
-					<TerrainType>TERRAIN_SNOW</TerrainType>
-					<bFeatureTerrain>1</bFeatureTerrain>
-				</FeatureTerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+				<TerrainType>TERRAIN_DESERT</TerrainType>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
+				<TerrainType>TERRAIN_SNOW</TerrainType>
 			</FeatureTerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -479,16 +356,10 @@
 			<bFlatlands>1</bFlatlands>
 			<bNormalize>1</bNormalize>
 			<FeatureBooleans>
-				<FeatureBoolean>
-					<FeatureType>FEATURE_JUNGLE</FeatureType>
-					<bFeature>1</bFeature>
-				</FeatureBoolean>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
 			</FeatureBooleans>
 			<FeatureTerrainBooleans>
-				<FeatureTerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bFeatureTerrain>1</bFeatureTerrain>
-				</FeatureTerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
 			</FeatureTerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -519,10 +390,7 @@
 			<iUnique>1</iUnique>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_COAST</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_COAST</TerrainType>
 			</TerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -554,10 +422,7 @@
 			<bNoRiverSide>1</bNoRiverSide>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
 			</TerrainBooleans>
 			<bUseLSystem>1</bUseLSystem>
 		</BonusInfo>
@@ -591,14 +456,8 @@
 			<bNoRiverSide>1</bNoRiverSide>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</TerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -629,10 +488,7 @@
 			<iUnique>1</iUnique>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_COAST</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_COAST</TerrainType>
 			</TerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -666,22 +522,13 @@
 			<bFlatlands>1</bFlatlands>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_TUNDRA</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
 			</TerrainBooleans>
 			<FeatureBooleans>
-				<FeatureBoolean>
-					<FeatureType>FEATURE_FOREST</FeatureType>
-					<bFeature>1</bFeature>
-				</FeatureBoolean>
+				<FeatureType>FEATURE_FOREST</FeatureType>
 			</FeatureBooleans>
 			<FeatureTerrainBooleans>
-				<FeatureTerrainBoolean>
-					<TerrainType>TERRAIN_TUNDRA</TerrainType>
-					<bFeatureTerrain>1</bFeatureTerrain>
-				</FeatureTerrainBoolean>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
 			</FeatureTerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -711,14 +558,8 @@
 			<iUnique>1</iUnique>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_COAST</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_OCEAN</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_COAST</TerrainType>
+				<TerrainType>TERRAIN_OCEAN</TerrainType>
 			</TerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -753,22 +594,13 @@
 			<bNoRiverSide>1</bNoRiverSide>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
 			</TerrainBooleans>
 			<FeatureBooleans>
-				<FeatureBoolean>
-					<FeatureType>FEATURE_JUNGLE</FeatureType>
-					<bFeature>1</bFeature>
-				</FeatureBoolean>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
 			</FeatureBooleans>
 			<FeatureTerrainBooleans>
-				<FeatureTerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bFeatureTerrain>1</bFeatureTerrain>
-				</FeatureTerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
 			</FeatureTerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -801,22 +633,13 @@
 			<bNoRiverSide>1</bNoRiverSide>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
 			</TerrainBooleans>
 			<FeatureBooleans>
-				<FeatureBoolean>
-					<FeatureType>FEATURE_JUNGLE</FeatureType>
-					<bFeature>1</bFeature>
-				</FeatureBoolean>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
 			</FeatureBooleans>
 			<FeatureTerrainBooleans>
-				<FeatureTerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bFeatureTerrain>1</bFeatureTerrain>
-				</FeatureTerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
 			</FeatureTerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -850,14 +673,8 @@
 			<bNoRiverSide>1</bNoRiverSide>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</TerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -889,10 +706,7 @@
 			<bNoRiverSide>1</bNoRiverSide>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</TerrainBooleans>
 			<bUseLSystem>0</bUseLSystem>
 		</BonusInfo>
@@ -926,16 +740,10 @@
 			<bFlatlands>1</bFlatlands>
 			<bNormalize>1</bNormalize>
 			<FeatureBooleans>
-				<FeatureBoolean>
-					<FeatureType>FEATURE_JUNGLE</FeatureType>
-					<bFeature>1</bFeature>
-				</FeatureBoolean>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
 			</FeatureBooleans>
 			<FeatureTerrainBooleans>
-				<FeatureTerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bFeatureTerrain>1</bFeatureTerrain>
-				</FeatureTerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
 			</FeatureTerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -970,30 +778,15 @@
 			<bFlatlands>1</bFlatlands>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_TUNDRA</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_SNOW</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
+				<TerrainType>TERRAIN_SNOW</TerrainType>
 			</TerrainBooleans>
 			<FeatureBooleans>
-				<FeatureBoolean>
-					<FeatureType>FEATURE_FOREST</FeatureType>
-					<bFeature>1</bFeature>
-				</FeatureBoolean>
+				<FeatureType>FEATURE_FOREST</FeatureType>
 			</FeatureBooleans>
 			<FeatureTerrainBooleans>
-				<FeatureTerrainBoolean>
-					<TerrainType>TERRAIN_TUNDRA</TerrainType>
-					<bFeatureTerrain>1</bFeatureTerrain>
-				</FeatureTerrainBoolean>
-				<FeatureTerrainBoolean>
-					<TerrainType>TERRAIN_SNOW</TerrainType>
-					<bFeatureTerrain>1</bFeatureTerrain>
-				</FeatureTerrainBoolean>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
+				<TerrainType>TERRAIN_SNOW</TerrainType>
 			</FeatureTerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -1027,16 +820,10 @@
 			<bFlatlands>1</bFlatlands>
 			<bNormalize>1</bNormalize>
 			<FeatureBooleans>
-				<FeatureBoolean>
-					<FeatureType>FEATURE_JUNGLE</FeatureType>
-					<bFeature>1</bFeature>
-				</FeatureBoolean>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
 			</FeatureBooleans>
 			<FeatureTerrainBooleans>
-				<FeatureTerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bFeatureTerrain>1</bFeatureTerrain>
-				</FeatureTerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
 			</FeatureTerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -1069,14 +856,8 @@
 			<bHills>1</bHills>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_DESERT</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+				<TerrainType>TERRAIN_DESERT</TerrainType>
 			</TerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -1109,10 +890,7 @@
 			<bFlatlands>1</bFlatlands>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_DESERT</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_DESERT</TerrainType>
 			</TerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -1147,22 +925,13 @@
 			<bFlatlands>1</bFlatlands>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</TerrainBooleans>
 			<FeatureBooleans>
-				<FeatureBoolean>
-					<FeatureType>FEATURE_JUNGLE</FeatureType>
-					<bFeature>1</bFeature>
-				</FeatureBoolean>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
 			</FeatureBooleans>
 			<FeatureTerrainBooleans>
-				<FeatureTerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bFeatureTerrain>1</bFeatureTerrain>
-				</FeatureTerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
 			</FeatureTerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -1195,20 +964,11 @@
 			<bFlatlands>1</bFlatlands>
 			<bNormalize>1</bNormalize>
 			<FeatureBooleans>
-				<FeatureBoolean>
-					<FeatureType>FEATURE_FOREST</FeatureType>
-					<bFeature>1</bFeature>
-				</FeatureBoolean>
+				<FeatureType>FEATURE_FOREST</FeatureType>
 			</FeatureBooleans>
 			<FeatureTerrainBooleans>
-				<FeatureTerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bFeatureTerrain>1</bFeatureTerrain>
-				</FeatureTerrainBoolean>
-				<FeatureTerrainBoolean>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bFeatureTerrain>1</bFeatureTerrain>
-				</FeatureTerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</FeatureTerrainBooleans>
 			<bUseLSystem>1</bUseLSystem>
 		</BonusInfo>
@@ -1242,14 +1002,8 @@
 			<bHills>1</bHills>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_TUNDRA</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_SNOW</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
+				<TerrainType>TERRAIN_SNOW</TerrainType>
 			</TerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -1283,24 +1037,12 @@
 			<bFlatlands>1</bFlatlands>
 			<bNormalize>1</bNormalize>
 			<FeatureBooleans>
-				<FeatureBoolean>
-					<FeatureType>FEATURE_JUNGLE</FeatureType>
-					<bFeature>1</bFeature>
-				</FeatureBoolean>
-				<FeatureBoolean>
-					<FeatureType>FEATURE_FOREST</FeatureType>
-					<bFeature>1</bFeature>
-				</FeatureBoolean>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
+				<FeatureType>FEATURE_FOREST</FeatureType>
 			</FeatureBooleans>
 			<FeatureTerrainBooleans>
-				<FeatureTerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bFeatureTerrain>1</bFeatureTerrain>
-				</FeatureTerrainBoolean>
-				<FeatureTerrainBoolean>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bFeatureTerrain>1</bFeatureTerrain>
-				</FeatureTerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</FeatureTerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -1333,16 +1075,10 @@
 			<bFlatlands>1</bFlatlands>
 			<bNormalize>1</bNormalize>
 			<FeatureBooleans>
-				<FeatureBoolean>
-					<FeatureType>FEATURE_JUNGLE</FeatureType>
-					<bFeature>1</bFeature>
-				</FeatureBoolean>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
 			</FeatureBooleans>
 			<FeatureTerrainBooleans>
-				<FeatureTerrainBoolean>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bFeatureTerrain>1</bFeatureTerrain>
-				</FeatureTerrainBoolean>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
 			</FeatureTerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
@@ -1378,10 +1114,7 @@
 			<bFlatlands>1</bFlatlands>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</TerrainBooleans>
 			<bUseLSystem>1</bUseLSystem>
 		</BonusInfo>
@@ -1414,10 +1147,7 @@
 			<iUnique>1</iUnique>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
-				<TerrainBoolean>
-					<TerrainType>TERRAIN_OCEAN</TerrainType>
-					<bTerrain>1</bTerrain>
-				</TerrainBoolean>
+				<TerrainType>TERRAIN_OCEAN</TerrainType>
 			</TerrainBooleans>
 		</BonusInfo>
 		<BonusInfo>
