@@ -6921,9 +6921,6 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 		return false;
 	}
 
-	int iNumSibs = 0;				// the number of siblings the current xml node has
-	int iNumChildren;				// the number of children the current node has
-
 	pXML->GetChildXmlValByName(szTextVal, "BuildingClass");
 	m_iBuildingClassType = pXML->FindInInfoClass(szTextVal);
 
@@ -7131,79 +7128,8 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetListPairInfo(&m_piPrereqNumOfBuildingClass, "PrereqBuildingClasses", GC.getNumBuildingClassInfos());
 	pXML->SetListPairInfo(&m_pbBuildingClassNeededInCity, "BuildingClassNeededs", GC.getNumBuildingClassInfos());
 
-	m_bAnySpecialistYieldChange = false;
-	pXML->Init2DIntList(&m_ppaiSpecialistYieldChange, GC.getNumSpecialistInfos(), NUM_YIELD_TYPES);
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "SpecialistYieldChanges")) {
-		iNumChildren = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
-
-		if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "SpecialistYieldChange")) {
-			for (int j = 0; j < iNumChildren; j++) {
-				pXML->GetChildXmlValByName(szTextVal, "SpecialistType");
-				int k = pXML->FindInInfoClass(szTextVal);
-				if (k > -1) {
-					// delete the array since it will be reallocated
-					SAFE_DELETE_ARRAY(m_ppaiSpecialistYieldChange[k]);
-					pXML->SetList(&m_ppaiSpecialistYieldChange[k], "YieldChanges", NUM_YIELD_TYPES);
-				}
-
-				if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML())) {
-					break;
-				}
-			}
-
-			for (int ii = 0; (!m_bAnySpecialistYieldChange) && ii < GC.getNumSpecialistInfos(); ii++) {
-				for (int ij = 0; ij < NUM_YIELD_TYPES; ij++) {
-					if (m_ppaiSpecialistYieldChange[ii][ij] != 0) {
-						m_bAnySpecialistYieldChange = true;
-						break;
-					}
-				}
-			}
-
-			// set the current xml node to it's parent node
-			gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-		}
-
-		// set the current xml node to it's parent node
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	}
-
-	m_bAnyBonusYieldModifier = false;
-	pXML->Init2DIntList(&m_ppaiBonusYieldModifier, GC.getNumBonusInfos(), NUM_YIELD_TYPES);
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "BonusYieldModifiers")) {
-		iNumChildren = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
-
-		if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "BonusYieldModifier")) {
-			for (int j = 0; j < iNumChildren; j++) {
-				pXML->GetChildXmlValByName(szTextVal, "BonusType");
-				int k = pXML->FindInInfoClass(szTextVal);
-				if (k > -1) {
-					// delete the array since it will be reallocated
-					SAFE_DELETE_ARRAY(m_ppaiBonusYieldModifier[k]);
-					pXML->SetList(&m_ppaiBonusYieldModifier[k], "YieldModifiers", NUM_YIELD_TYPES);
-				}
-
-				if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML())) {
-					break;
-				}
-			}
-
-			for (int ii = 0; (!m_bAnyBonusYieldModifier) && ii < GC.getNumBonusInfos(); ii++) {
-				for (int ij = 0; ij < NUM_YIELD_TYPES; ij++) {
-					if (m_ppaiBonusYieldModifier[ii][ij] != 0) {
-						m_bAnyBonusYieldModifier = true;
-						break;
-					}
-				}
-			}
-
-			// set the current xml node to it's parent node
-			gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-		}
-
-		// set the current xml node to it's parent node
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	}
+	m_bAnySpecialistYieldChange = pXML->SetListPairInfoArray(&m_ppaiSpecialistYieldChange, "SpecialistYieldChanges", GC.getNumSpecialistInfos(), NUM_YIELD_TYPES);
+	m_bAnyBonusYieldModifier = pXML->SetListPairInfoArray(&m_ppaiBonusYieldModifier, "BonusYieldModifiers", GC.getNumBonusInfos(), NUM_YIELD_TYPES);
 
 	pXML->SetListPairEnum(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());
 	pXML->SetListPairInfo(&m_piImprovementFreeSpecialist, "ImprovementFreeSpecialists", GC.getNumImprovementInfos());
@@ -10105,68 +10031,8 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML) {
 		pXML->InitImprovementBonusList(&m_paImprovementBonus, GC.getNumBonusInfos());
 	}
 
-	// initialize the boolean list to the correct size and all the booleans to false
-	FAssertMsg((GC.getNumTechInfos() > 0) && (NUM_YIELD_TYPES) > 0, "either the number of tech infos is zero or less or the number of yield types is zero or less");
-	pXML->Init2DIntList(&m_ppiTechYieldChanges, GC.getNumTechInfos(), NUM_YIELD_TYPES);
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "TechYieldChanges")) {
-		if (pXML->SkipToNextVal()) {
-			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
-			if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML())) {
-				if (0 < iNumSibs) {
-					for (int j = 0; j < iNumSibs; j++) {
-						pXML->GetChildXmlValByName(szTextVal, "PrereqTech");
-						int iIndex = pXML->FindInInfoClass(szTextVal);
-
-						if (iIndex > -1) {
-							// delete the array since it will be reallocated
-							SAFE_DELETE_ARRAY(m_ppiTechYieldChanges[iIndex]);
-							pXML->SetList(&m_ppiTechYieldChanges[iIndex], "TechYields", NUM_YIELD_TYPES);
-						}
-
-						if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML())) {
-							break;
-						}
-					}
-				}
-
-				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-			}
-		}
-
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	}
-
-	// initialize the boolean list to the correct size and all the booleans to false
-	FAssertMsg((GC.getNumRouteInfos() > 0) && (NUM_YIELD_TYPES) > 0, "either the number of route infos is zero or less or the number of yield types is zero or less");
-	pXML->Init2DIntList(&m_ppiRouteYieldChanges, GC.getNumRouteInfos(), NUM_YIELD_TYPES);
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "RouteYieldChanges")) {
-		if (pXML->SkipToNextVal()) {
-			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
-			if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML())) {
-
-				if (0 < iNumSibs) {
-					for (int j = 0; j < iNumSibs; j++) {
-						pXML->GetChildXmlValByName(szTextVal, "RouteType");
-						int iIndex = pXML->FindInInfoClass(szTextVal);
-
-						if (iIndex > -1) {
-							// delete the array since it will be reallocated
-							SAFE_DELETE_ARRAY(m_ppiRouteYieldChanges[iIndex]);
-							pXML->SetList(&m_ppiRouteYieldChanges[iIndex], "RouteYields", NUM_YIELD_TYPES);
-						}
-
-						if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML())) {
-							break;
-						}
-					}
-				}
-
-				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-			}
-		}
-
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	}
+	pXML->SetListPairInfoArray(&m_ppiTechYieldChanges, "TechYieldChanges", GC.getNumTechInfos(), NUM_YIELD_TYPES);
+	pXML->SetListPairInfoArray(&m_ppiRouteYieldChanges, "RouteYieldChanges", GC.getNumRouteInfos(), NUM_YIELD_TYPES);
 
 	pXML->GetChildXmlValByName(szTextVal, "WorldSoundscapeAudioScript");
 	if (szTextVal.GetLength() > 0)

@@ -191,6 +191,7 @@ public:
 	void InitPointerFloatList(float*** pppfList, int iSizeX);
 
 	// allocate and initialize a list from a tag pair in the xml
+	bool SetListPairInfoArray(int*** pppList, const TCHAR* szRootTagName, int iOuterListLength, int iInnerListLength);
 	void SetListPairInfos(int** ppList, const TCHAR* szRootTagName, int iInfoBaseLength);
 	void SetListInfo(int** ppList, const TCHAR* szRootTagName, int iListLength);
 	void SetListInfoBool(bool** ppList, const TCHAR* szRootTagName, int iListLength);

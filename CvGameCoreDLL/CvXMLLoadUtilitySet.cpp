@@ -1644,6 +1644,78 @@ void CvXMLLoadUtility::SetImprovementBonuses(CvImprovementBonusInfo** ppImprovem
 	}
 }
 
+bool CvXMLLoadUtility::SetListPairInfoArray(int*** pppList, const TCHAR* szRootTagName, int iOuterListLength, int iInnerListLength) {
+	bool bAnyChange = false;
+
+	Init2DIntList(pppList, iOuterListLength, iInnerListLength);
+
+	TCHAR szTextVal[256];
+	if (gDLL->getXMLIFace()->SetToChildByTagName(m_pFXml, szRootTagName)) {
+		if (SkipToNextVal()) {
+			int iNumWrapper = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
+			if (iNumWrapper > 0) {
+				if (iNumWrapper > iOuterListLength) {
+					char	szMessage[1024];
+					sprintf(szMessage, "There are more siblings than memory allocated for them in CvXMLLoadUtility::SetListPairInfoArray \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
+					gDLL->MessageBox(szMessage, "XML Error");
+				}
+				// Go to the wrapper tags that contain the info tag and array
+				if (gDLL->getXMLIFace()->SetToChild(m_pFXml)) {
+					// Loop through all the wrapper tags, we know we have at least 1 so a do loop works
+					do {
+						// Get the info tag value
+						if (SkipToNextVal() && GetChildXmlVal(szTextVal)) {
+							int iIndex = FindInInfoClass(szTextVal);
+							if (iIndex > -1) {
+								int** ppList = *pppList;
+								if (gDLL->getXMLIFace()->NextSibling(m_pFXml)) {
+									// Skip any comments and stop at the next value we might want
+									if (SkipToNextVal()) {
+										// get the total number of children the current xml node has
+										int iNumInner = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
+										if (0 < iNumInner) {
+											FAssertMsg((iNumInner <= iInnerListLength), "For loop iterator is greater than array size");
+											// if the call to the function that sets the current xml node to it's first non-comment
+											// child and sets the parameter with the new node's value succeeds
+											int iVal;
+											if (GetChildXmlVal(&iVal)) {
+												ppList[iIndex][0] = iVal;
+												if (!bAnyChange && iVal != 0) {
+													bAnyChange = true;
+												}
+												// loop through all the siblings, we start at 1 since we already have the first value
+												for (int i = 1; i < iNumInner; i++) {
+													if (!GetNextXmlVal(&iVal)) {
+														break;
+													}
+													ppList[iIndex][i] = iVal;
+													if (!bAnyChange && iVal != 0) {
+														bAnyChange = true;
+													}
+												}
+											}
+										}
+									}
+									// Back to wrapped array list tag
+									gDLL->getXMLIFace()->SetToParent(m_pFXml);
+								}
+							}
+						}
+						// Back to wrapper tag
+						gDLL->getXMLIFace()->SetToParent(m_pFXml);
+					} while (gDLL->getXMLIFace()->NextSibling(m_pFXml));
+
+					// Back out to szRootTagName		
+					gDLL->getXMLIFace()->SetToParent(m_pFXml);
+				}
+			}
+		}
+		// Back out to XML root
+		gDLL->getXMLIFace()->SetToParent(m_pFXml);
+	}
+	return bAnyChange;
+}
+
 void CvXMLLoadUtility::SetListInfoBool(bool** ppList, const TCHAR* szRootTagName, int iListLength) {
 	if (iListLength <= 0) {
 		char	szMessage[1024];
