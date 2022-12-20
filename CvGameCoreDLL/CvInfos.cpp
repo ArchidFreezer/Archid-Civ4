@@ -1253,7 +1253,7 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetList(&m_pbCommerceFlexible, "CommerceFlexible", NUM_COMMERCE_TYPES);
 
 	pXML->SetListPairInfo(&m_piDomainExtraMoves, "DomainExtraMoves", NUM_DOMAIN_TYPES);
-	pXML->SetListPairInfo(&m_pbTerrainTrade, "TerrainTrades", GC.getNumTerrainInfos());
+	pXML->SetListInfoBool(&m_pbTerrainTrade, "TerrainTrades", GC.getNumTerrainInfos());
 	pXML->SetListPairEnum(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());
 
 	pXML->GetChildXmlValByName(szTextVal, "Quote");
