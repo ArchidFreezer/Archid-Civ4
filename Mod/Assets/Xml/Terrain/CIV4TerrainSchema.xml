@@ -400,20 +400,11 @@
 	<ElementType name="iAdvancedStartCostIncrease" content="textOnly" dt:type="int"/>
 	<ElementType name="iTilesPerGoody" content="textOnly" dt:type="int"/>
 	<ElementType name="iUpgradeTime" content="textOnly" dt:type="int"/>
-	<ElementType name="bMakesValid" content="textOnly" dt:type="boolean"/>
-	<ElementType name="TerrainMakesValid" content="eltOnly">
-		<element type="TerrainType"/>
-		<element type="bMakesValid"/>
-	</ElementType>
 	<ElementType name="TerrainMakesValids" content="eltOnly">
-		<element type="TerrainMakesValid" minOccurs="0" maxOccurs="*"/>
-	</ElementType>
-	<ElementType name="FeatureMakesValid" content="eltOnly">
-		<element type="FeatureType"/>
-		<element type="bMakesValid"/>
+		<element type="TerrainType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="FeatureMakesValids" content="eltOnly">
-		<element type="FeatureMakesValid" minOccurs="0" maxOccurs="*"/>
+		<element type="FeatureType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="ImprovementInfo" content="eltOnly">
 		<element type="Type"/>

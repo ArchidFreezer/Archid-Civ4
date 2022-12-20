@@ -25,32 +25,14 @@
 			<iTilesPerGoody>40</iTilesPerGoody>
 			<iGoodyRange>3</iGoodyRange>
 			<TerrainMakesValids>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_DESERT</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_TUNDRA</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+				<TerrainType>TERRAIN_DESERT</TerrainType>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
 			</TerrainMakesValids>
 			<FeatureMakesValids>
-				<FeatureMakesValid>
-					<FeatureType>FEATURE_JUNGLE</FeatureType>
-					<bMakesValid>1</bMakesValid>
-				</FeatureMakesValid>
-				<FeatureMakesValid>
-					<FeatureType>FEATURE_FOREST</FeatureType>
-					<bMakesValid>1</bMakesValid>
-				</FeatureMakesValid>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
+				<FeatureType>FEATURE_FOREST</FeatureType>
 			</FeatureMakesValids>
 			<WorldSoundscapeAudioScript>ASSS_FOREST_SELECT_AMB</WorldSoundscapeAudioScript>
 		</ImprovementInfo>
@@ -94,14 +76,8 @@
 			<iAirBombDefense>5</iAirBombDefense>
 			<iPillageGold>10</iPillageGold>
 			<TerrainMakesValids>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</TerrainMakesValids>
 			<ImprovementUpgrade>IMPROVEMENT_HAMLET</ImprovementUpgrade>
 		</ImprovementInfo>
@@ -126,14 +102,8 @@
 			<iAirBombDefense>5</iAirBombDefense>
 			<iPillageGold>15</iPillageGold>
 			<TerrainMakesValids>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</TerrainMakesValids>
 			<ImprovementPillage>IMPROVEMENT_COTTAGE</ImprovementPillage>
 			<ImprovementUpgrade>IMPROVEMENT_VILLAGE</ImprovementUpgrade>
@@ -159,14 +129,8 @@
 			<iAirBombDefense>5</iAirBombDefense>
 			<iPillageGold>20</iPillageGold>
 			<TerrainMakesValids>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</TerrainMakesValids>
 			<ImprovementPillage>IMPROVEMENT_HAMLET</ImprovementPillage>
 			<ImprovementUpgrade>IMPROVEMENT_TOWN</ImprovementUpgrade>
@@ -201,14 +165,8 @@
 			<iAirBombDefense>5</iAirBombDefense>
 			<iPillageGold>25</iPillageGold>
 			<TerrainMakesValids>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</TerrainMakesValids>
 			<ImprovementPillage>IMPROVEMENT_VILLAGE</ImprovementPillage>
 			<TechYieldChanges>
@@ -244,14 +202,8 @@
 			<iAirBombDefense>20</iAirBombDefense>
 			<iHappiness>1</iHappiness>
 			<FeatureMakesValids>
-				<FeatureMakesValid>
-					<FeatureType>FEATURE_FOREST</FeatureType>
-					<bMakesValid>1</bMakesValid>
-				</FeatureMakesValid>
-				<FeatureMakesValid>
-					<FeatureType>FEATURE_JUNGLE</FeatureType>
-					<bMakesValid>1</bMakesValid>
-				</FeatureMakesValid>
+				<FeatureType>FEATURE_FOREST</FeatureType>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
 			</FeatureMakesValids>
 		</ImprovementInfo>
 		<ImprovementInfo> <!-- Fort -->
@@ -267,26 +219,11 @@
 			<iDefenseModifier>25</iDefenseModifier>
 			<bOutsideBorders>1</bOutsideBorders>
 			<TerrainMakesValids>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_DESERT</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_TUNDRA</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_SNOW</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+				<TerrainType>TERRAIN_DESERT</TerrainType>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
+				<TerrainType>TERRAIN_SNOW</TerrainType>
 			</TerrainMakesValids>
 		</ImprovementInfo>
 		<ImprovementInfo> <!-- Lumbermill -->
@@ -309,10 +246,7 @@
 			<iAirBombDefense>5</iAirBombDefense>
 			<iPillageGold>5</iPillageGold>
 			<FeatureMakesValids>
-				<FeatureMakesValid>
-					<FeatureType>FEATURE_FOREST</FeatureType>
-					<bMakesValid>1</bMakesValid>
-				</FeatureMakesValid>
+				<FeatureType>FEATURE_FOREST</FeatureType>
 			</FeatureMakesValids>
 			<RouteYieldChanges>
 				<RouteYieldChange>
@@ -414,14 +348,8 @@
 			<iAirBombDefense>5</iAirBombDefense>
 			<iPillageGold>5</iPillageGold>
 			<TerrainMakesValids>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</TerrainMakesValids>
 			<TechYieldChanges>
 				<TechYieldChange>
@@ -514,14 +442,8 @@
 			<iAirBombDefense>5</iAirBombDefense>
 			<iPillageGold>5</iPillageGold>
 			<TerrainMakesValids>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</TerrainMakesValids>
 			<BonusTypeStructs>
 				<BonusTypeStruct>

@@ -10019,8 +10019,8 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iPillageGold, "iPillageGold");
 	pXML->GetChildXmlValByName(&m_bOutsideBorders, "bOutsideBorders");
 
-	pXML->SetListPairInfo(&m_pbTerrainMakesValid, "TerrainMakesValids", GC.getNumTerrainInfos());
-	pXML->SetListPairInfo(&m_pbFeatureMakesValid, "FeatureMakesValids", GC.getNumFeatureInfos());
+	pXML->SetListInfoBool(&m_pbTerrainMakesValid, "TerrainMakesValids", GC.getNumTerrainInfos());
+	pXML->SetListInfoBool(&m_pbFeatureMakesValid, "FeatureMakesValids", GC.getNumFeatureInfos());
 
 	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "BonusTypeStructs")) {
 		// call the function that sets the bonus booleans
