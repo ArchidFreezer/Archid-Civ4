@@ -199,40 +199,16 @@ public:
 	void InitPointerFloatList(float*** pppfList, int iSizeX);
 
 	// allocate and initialize a list from a tag pair in the xml
-	void SetVariableListTagPair(int** ppiList, const TCHAR* szRootTagName,
-		int iInfoBaseSize, int iInfoBaseLength, int iDefaultListVal = 0);
+	void SetVariableListTagPair(int** ppiList, const TCHAR* szRootTagName, int iInfoBaseLength, int iDefaultListVal = 0);
+	void SetVariableListTagPair(bool** ppbList, const TCHAR* szRootTagName, int iInfoBaseLength, bool bDefaultListVal = false);
+	void SetVariableListTagPair(float** ppfList, const TCHAR* szRootTagName, int iInfoBaseLength, float fDefaultListVal = 0.0f);
+	void SetVariableListTagPair(CvString** ppszList, const TCHAR* szRootTagName, int iInfoBaseLength, CvString szDefaultListVal = "");
+	void SetVariableListTagPairForAudioScripts(int** ppiList, const TCHAR* szRootTagName, int iInfoBaseLength, int iDefaultListVal = -1);
 
-	// allocate and initialize a list from a tag pair in the xml
-	void SetVariableListTagPair(bool** ppbList, const TCHAR* szRootTagName,
-		int iInfoBaseSize, int iInfoBaseLength, bool bDefaultListVal = false);
-
-	// allocate and initialize a list from a tag pair in the xml
-	void SetVariableListTagPair(float** ppfList, const TCHAR* szRootTagName,
-		int iInfoBaseSize, int iInfoBaseLength, float fDefaultListVal = 0.0f);
-
-	// allocate and initialize a list from a tag pair in the xml
-	void SetVariableListTagPair(CvString** ppszList, const TCHAR* szRootTagName,
-		int iInfoBaseSize, int iInfoBaseLength, CvString szDefaultListVal = "");
-
-	// allocate and initialize a list from a tag pair in the xml
-	void SetVariableListTagPair(int** ppiList, const TCHAR* szRootTagName,
-		CvString* m_paszTagList, int iTagListLength, int iDefaultListVal = 0);
-
-	// allocate and initialize a list from a tag pair in the xml for audio scripts
-	void SetVariableListTagPairForAudioScripts(int** ppiList, const TCHAR* szRootTagName,
-		CvString* m_paszTagList, int iTagListLength, int iDefaultListVal = -1);
-
-	// allocate and initialize a list from a tag pair in the xml
-	void SetVariableListTagPairForAudioScripts(int** ppiList, const TCHAR* szRootTagName,
-		int iInfoBaseLength, int iDefaultListVal = -1);
-
-	// allocate and initialize a list from a tag pair in the xml
-	void SetVariableListTagPair(bool** ppbList, const TCHAR* szRootTagName,
-		CvString* m_paszTagList, int iTagListLength, bool bDefaultListVal = false);
-
-	// allocate and initialize a list from a tag pair in the xml
-	void SetVariableListTagPair(CvString** ppszList, const TCHAR* szRootTagName,
-		CvString* m_paszTagList, int iTagListLength, CvString szDefaultListVal = "");
+	void SetEnumListTagPair(int** ppiList, const TCHAR* szRootTagName, int iTagListLength, int iDefaultListVal = 0);
+	void SetEnumListTagPair(bool** ppbList, const TCHAR* szRootTagName, int iTagListLength, bool bDefaultListVal = false);
+	void SetEnumListTagPair(CvString** ppszList, const TCHAR* szRootTagName, int iTagListLength, CvString szDefaultListVal = "");
+	void SetEnumListTagPairForAudioScripts(int** ppiList, const TCHAR* szRootTagName, int iTagListLength, int iDefaultListVal = -1);
 
 	// create a hot key from a description
 	CvWString CreateHotKeyFromDescription(const TCHAR* pszHotKey, bool bShift = false, bool bAlt = false, bool bCtrl = false);
