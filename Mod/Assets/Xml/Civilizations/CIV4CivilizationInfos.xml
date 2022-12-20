@@ -99,22 +99,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_FISHING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_AGRICULTURE</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_FISHING</TechType>
+				<TechType>TECH_AGRICULTURE</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -123,18 +113,9 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_WASHINGTON</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
-				<Leader>
-					<LeaderName>LEADER_FRANKLIN_ROOSEVELT</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
-				<Leader>
-					<LeaderName>LEADER_LINCOLN</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_WASHINGTON</LeaderName>
+				<LeaderName>LEADER_FRANKLIN_ROOSEVELT</LeaderName>
+				<LeaderName>LEADER_LINCOLN</LeaderName>
 			</Leaders>
 			<DerivativeCiv>NONE</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_AMERICA_SELECT</CivilizationSelectionSound>
@@ -209,22 +190,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_THE_WHEEL</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_MYSTICISM</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_THE_WHEEL</TechType>
+				<TechType>TECH_MYSTICISM</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -233,10 +204,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_SALADIN</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_SALADIN</LeaderName>
 			</Leaders>
 			<DerivativeCiv>NONE</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_ARABIA_SELECT</CivilizationSelectionSound>
@@ -311,22 +279,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_MYSTICISM</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_HUNTING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_MYSTICISM</TechType>
+				<TechType>TECH_HUNTING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -335,10 +293,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_MONTEZUMA</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_MONTEZUMA</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_AMERICA</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_AZTEC_SELECT</CivilizationSelectionSound>
@@ -417,22 +372,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_AGRICULTURE</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_THE_WHEEL</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_AGRICULTURE</TechType>
+				<TechType>TECH_THE_WHEEL</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -441,10 +386,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_HAMMURABI</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_HAMMURABI</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_PERSIA</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_BABYLON_SELECT</CivilizationSelectionSound>
@@ -527,22 +469,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_THE_WHEEL</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_MYSTICISM</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_THE_WHEEL</TechType>
+				<TechType>TECH_MYSTICISM</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -551,10 +483,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_JUSTINIAN</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_JUSTINIAN</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_GREECE</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_BYZANTIUM_SELECT</CivilizationSelectionSound>
@@ -634,22 +563,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_FISHING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_MINING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_FISHING</TechType>
+				<TechType>TECH_MINING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -658,10 +577,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_HANNIBAL</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_HANNIBAL</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_SPAIN</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_CARTHAGE_SELECT</CivilizationSelectionSound>
@@ -745,22 +661,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_HUNTING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_MYSTICISM</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_HUNTING</TechType>
+				<TechType>TECH_MYSTICISM</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -769,14 +675,8 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_BRENNUS</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
-				<Leader>
-					<LeaderName>LEADER_BOUDICA</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_BRENNUS</LeaderName>
+				<LeaderName>LEADER_BOUDICA</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_ENGLAND</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_CELTS_SELECT</CivilizationSelectionSound>
@@ -859,22 +759,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_AGRICULTURE</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_MINING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_AGRICULTURE</TechType>
+				<TechType>TECH_MINING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -883,14 +773,8 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_QIN_SHI_HUANG</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
-				<Leader>
-					<LeaderName>LEADER_CHINESE_LEADER</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_QIN_SHI_HUANG</LeaderName>
+				<LeaderName>LEADER_CHINESE_LEADER</LeaderName>
 			</Leaders>
 			<DerivativeCiv>NONE</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_CHINA_SELECT</CivilizationSelectionSound>
@@ -985,22 +869,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_THE_WHEEL</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_AGRICULTURE</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_THE_WHEEL</TechType>
+				<TechType>TECH_AGRICULTURE</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -1009,14 +883,8 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_HATSHEPSUT</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
-				<Leader>
-					<LeaderName>LEADER_RAMESSES</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_HATSHEPSUT</LeaderName>
+				<LeaderName>LEADER_RAMESSES</LeaderName>
 			</Leaders>
 			<DerivativeCiv>NONE</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_EGYPT_SELECT</CivilizationSelectionSound>
@@ -1093,22 +961,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_FISHING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_MINING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_FISHING</TechType>
+				<TechType>TECH_MINING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -1117,18 +975,9 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_ELIZABETH</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
-				<Leader>
-					<LeaderName>LEADER_VICTORIA</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
-				<Leader>
-					<LeaderName>LEADER_CHURCHILL</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_ELIZABETH</LeaderName>
+				<LeaderName>LEADER_VICTORIA</LeaderName>
+				<LeaderName>LEADER_CHURCHILL</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_AMERICA</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_ENGLAND_SELECT</CivilizationSelectionSound>
@@ -1205,22 +1054,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_HUNTING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_MINING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_HUNTING</TechType>
+				<TechType>TECH_MINING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -1229,10 +1068,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_ZARA_YAQOB</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_ZARA_YAQOB</LeaderName>
 			</Leaders>
 			<DerivativeCiv>NONE</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_ETHIOPIA_SELECT</CivilizationSelectionSound>
@@ -1311,22 +1147,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_THE_WHEEL</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_AGRICULTURE</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_THE_WHEEL</TechType>
+				<TechType>TECH_AGRICULTURE</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -1335,18 +1161,9 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_LOUIS_XIV</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
-				<Leader>
-					<LeaderName>LEADER_NAPOLEON</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
-				<Leader>
-					<LeaderName>LEADER_DE_GAULLE</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_LOUIS_XIV</LeaderName>
+				<LeaderName>LEADER_NAPOLEON</LeaderName>
+				<LeaderName>LEADER_DE_GAULLE</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_AMERICA</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_FRANCE_SELECT</CivilizationSelectionSound>
@@ -1438,22 +1255,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_HUNTING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_MINING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_HUNTING</TechType>
+				<TechType>TECH_MINING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -1462,14 +1269,8 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_FREDERICK</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
-				<Leader>
-					<LeaderName>LEADER_BISMARCK</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_FREDERICK</LeaderName>
+				<LeaderName>LEADER_BISMARCK</LeaderName>
 			</Leaders>
 			<DerivativeCiv>NONE</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_GERMANY_SELECT</CivilizationSelectionSound>
@@ -1553,22 +1354,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_FISHING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_HUNTING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_FISHING</TechType>
+				<TechType>TECH_HUNTING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -1577,14 +1368,8 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_ALEXANDER</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
-				<Leader>
-					<LeaderName>LEADER_PERICLES</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_ALEXANDER</LeaderName>
+				<LeaderName>LEADER_PERICLES</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_BYZANTIUM</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_GREECE_SELECT</CivilizationSelectionSound>
@@ -1669,22 +1454,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_MYSTICISM</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_HUNTING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_MYSTICISM</TechType>
+				<TechType>TECH_HUNTING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -1693,10 +1468,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_CHARLEMAGNE</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_CHARLEMAGNE</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_GERMANY</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_HOLY_ROMAN_SELECT</CivilizationSelectionSound>
@@ -1769,22 +1541,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_AGRICULTURE</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_MYSTICISM</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_AGRICULTURE</TechType>
+				<TechType>TECH_MYSTICISM</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -1793,10 +1555,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_HUAYNA_CAPAC</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_HUAYNA_CAPAC</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_AMERICA</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_INCA_SELECT</CivilizationSelectionSound>
@@ -1932,22 +1691,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_MYSTICISM</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_MINING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_MYSTICISM</TechType>
+				<TechType>TECH_MINING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -1956,14 +1705,8 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_ASOKA</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
-				<Leader>
-					<LeaderName>LEADER_GANDHI</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_ASOKA</LeaderName>
+				<LeaderName>LEADER_GANDHI</LeaderName>
 			</Leaders>
 			<DerivativeCiv>NONE</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_INDIA_SELECT</CivilizationSelectionSound>
@@ -2037,22 +1780,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_FISHING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_THE_WHEEL</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_FISHING</TechType>
+				<TechType>TECH_THE_WHEEL</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -2061,10 +1794,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_TOKUGAWA</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_TOKUGAWA</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_KOREA</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_JAPAN_SELECT</CivilizationSelectionSound>
@@ -2144,22 +1874,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_HUNTING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_MINING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_HUNTING</TechType>
+				<TechType>TECH_MINING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -2168,10 +1888,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_SURYAVARMAN</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_SURYAVARMAN</LeaderName>
 			</Leaders>
 			<DerivativeCiv>NONE</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_KHMER_SELECT</CivilizationSelectionSound>
@@ -2240,22 +1957,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_MINING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_MYSTICISM</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_MINING</TechType>
+				<TechType>TECH_MYSTICISM</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -2264,10 +1971,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_WANGKON</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_WANGKON</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_JAPAN</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_KOREA_SELECT</CivilizationSelectionSound>
@@ -2336,22 +2040,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_THE_WHEEL</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_MINING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_THE_WHEEL</TechType>
+				<TechType>TECH_MINING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -2360,10 +2054,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_MANSA_MUSA</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_MANSA_MUSA</LeaderName>
 			</Leaders>
 			<DerivativeCiv>NONE</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_MALI_SELECT</CivilizationSelectionSound>
@@ -2446,22 +2137,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_MINING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_MYSTICISM</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_MINING</TechType>
+				<TechType>TECH_MYSTICISM</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -2470,10 +2151,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_PACAL</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_PACAL</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_AMERICA</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_MAYA_SELECT</CivilizationSelectionSound>
@@ -2545,22 +2223,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_THE_WHEEL</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_HUNTING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_THE_WHEEL</TechType>
+				<TechType>TECH_HUNTING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -2569,14 +2237,8 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_GENGHIS_KHAN</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
-				<Leader>
-					<LeaderName>LEADER_KUBLAI_KHAN</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_GENGHIS_KHAN</LeaderName>
+				<LeaderName>LEADER_KUBLAI_KHAN</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_CHINA</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_MONGOL_SELECT</CivilizationSelectionSound>
@@ -2665,22 +2327,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_AGRICULTURE</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_FISHING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_AGRICULTURE</TechType>
+				<TechType>TECH_FISHING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -2689,10 +2341,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_SITTING_BULL</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_SITTING_BULL</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_AMERICA</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_NATIVE_AMERICA_SELECT</CivilizationSelectionSound>
@@ -2776,22 +2425,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_AGRICULTURE</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_FISHING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_AGRICULTURE</TechType>
+				<TechType>TECH_FISHING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -2800,10 +2439,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_WILLEM_VAN_ORANJE</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_WILLEM_VAN_ORANJE</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_AMERICA</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_NETHERLANDS_SELECT</CivilizationSelectionSound>
@@ -2878,22 +2514,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_THE_WHEEL</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_AGRICULTURE</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_THE_WHEEL</TechType>
+				<TechType>TECH_AGRICULTURE</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -2902,14 +2528,8 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_MEHMED</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
-				<Leader>
-					<LeaderName>LEADER_SULEIMAN</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_MEHMED</LeaderName>
+				<LeaderName>LEADER_SULEIMAN</LeaderName>
 			</Leaders>
 			<DerivativeCiv>NONE</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_OTTOMAN_SELECT</CivilizationSelectionSound>
@@ -3013,22 +2633,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_AGRICULTURE</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_HUNTING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_AGRICULTURE</TechType>
+				<TechType>TECH_HUNTING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -3037,14 +2647,8 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_CYRUS</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
-				<Leader>
-					<LeaderName>LEADER_DARIUS</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_CYRUS</LeaderName>
+				<LeaderName>LEADER_DARIUS</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_ARABIA</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_PERSIA_SELECT</CivilizationSelectionSound>
@@ -3128,22 +2732,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_FISHING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_MINING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_FISHING</TechType>
+				<TechType>TECH_MINING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -3152,10 +2746,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_JOAO</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_JOAO</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_AMERICA</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_PORTUGAL_SELECT</CivilizationSelectionSound>
@@ -3249,22 +2840,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_FISHING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_MINING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_FISHING</TechType>
+				<TechType>TECH_MINING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -3273,14 +2854,8 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_JULIUS_CAESAR</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
-				<Leader>
-					<LeaderName>LEADER_AUGUSTUS</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_JULIUS_CAESAR</LeaderName>
+				<LeaderName>LEADER_AUGUSTUS</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_BYZANTIUM</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_ROME_SELECT</CivilizationSelectionSound>
@@ -3357,22 +2932,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_HUNTING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_MINING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_HUNTING</TechType>
+				<TechType>TECH_MINING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -3381,18 +2946,9 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_PETER</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
-				<Leader>
-					<LeaderName>LEADER_CATHERINE</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
-				<Leader>
-					<LeaderName>LEADER_STALIN</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_PETER</LeaderName>
+				<LeaderName>LEADER_CATHERINE</LeaderName>
+				<LeaderName>LEADER_STALIN</LeaderName>
 			</Leaders>
 			<DerivativeCiv>NONE</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_RUSSIA_SELECT</CivilizationSelectionSound>
@@ -3472,22 +3028,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_FISHING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_MYSTICISM</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_FISHING</TechType>
+				<TechType>TECH_MYSTICISM</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -3496,10 +3042,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_ISABELLA</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_ISABELLA</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_AMERICA</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_SPAIN_SELECT</CivilizationSelectionSound>
@@ -3575,22 +3118,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_AGRICULTURE</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_THE_WHEEL</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_AGRICULTURE</TechType>
+				<TechType>TECH_THE_WHEEL</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -3599,10 +3132,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_GILGAMESH</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_GILGAMESH</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_BABYLON</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_SUMERIA_SELECT</CivilizationSelectionSound>
@@ -3680,22 +3210,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_FISHING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_HUNTING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_FISHING</TechType>
+				<TechType>TECH_HUNTING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -3704,10 +3224,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_RAGNAR</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_RAGNAR</LeaderName>
 			</Leaders>
 			<DerivativeCiv>CIVILIZATION_AMERICA</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_VIKING_SELECT</CivilizationSelectionSound>
@@ -3782,22 +3299,12 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_AGRICULTURE</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_HUNTING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_AGRICULTURE</TechType>
+				<TechType>TECH_HUNTING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -3806,10 +3313,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_SHAKA</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_SHAKA</LeaderName>
 			</Leaders>
 			<DerivativeCiv>NONE</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_ZULU_SELECT</CivilizationSelectionSound>
@@ -3903,38 +3407,16 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<FreeBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-					<bFreeBuildingClass>1</bFreeBuildingClass>
-				</FreeBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<FreeTech>
-					<TechType>TECH_MINING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_MYSTICISM</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_FISHING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_THE_WHEEL</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_AGRICULTURE</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
-				<FreeTech>
-					<TechType>TECH_HUNTING</TechType>
-					<bFreeTech>1</bFreeTech>
-				</FreeTech>
+				<TechType>TECH_MINING</TechType>
+				<TechType>TECH_MYSTICISM</TechType>
+				<TechType>TECH_FISHING</TechType>
+				<TechType>TECH_THE_WHEEL</TechType>
+				<TechType>TECH_AGRICULTURE</TechType>
+				<TechType>TECH_HUNTING</TechType>
 			</FreeTechs>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -3943,10 +3425,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_BARBARIAN</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_BARBARIAN</LeaderName>
 			</Leaders>
 			<DerivativeCiv>NONE</DerivativeCiv>
 			<CivilizationSelectionSound/>
@@ -4649,7 +4128,6 @@
 			<FreeUnitClasses/>
 			<FreeBuildingClasses/>
 			<FreeTechs/>
-			<DisableTechs/>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -4658,10 +4136,7 @@
 				<CivicType>CIVIC_PAGANISM</CivicType>
 			</InitialCivics>
 			<Leaders>
-				<Leader>
-					<LeaderName>LEADER_BARBARIAN</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
+				<LeaderName>LEADER_BARBARIAN</LeaderName>
 			</Leaders>
 			<DerivativeCiv>NONE</DerivativeCiv>
 			<CivilizationSelectionSound/>

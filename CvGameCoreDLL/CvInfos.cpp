@@ -7964,11 +7964,11 @@ bool CvCivilizationInfo::read(CvXMLLoadUtility* pXML) {
 	}
 
 	pXML->SetListPairInfo(&m_piCivilizationFreeUnitsClass, "FreeUnitClasses", GC.getNumUnitClassInfos());
-	pXML->SetListPairInfo(&m_pbCivilizationFreeBuildingClass, "FreeBuildingClasses", GC.getNumBuildingClassInfos());
-	pXML->SetListPairInfo(&m_pbCivilizationFreeTechs, "FreeTechs", GC.getNumTechInfos());
-	pXML->SetListPairInfo(&m_pbCivilizationDisableTechs, "DisableTechs", GC.getNumTechInfos());
+	pXML->SetListInfoBool(&m_pbCivilizationFreeBuildingClass, "FreeBuildingClasses", GC.getNumBuildingClassInfos());
+	pXML->SetListInfoBool(&m_pbCivilizationFreeTechs, "FreeTechs", GC.getNumTechInfos());
+	pXML->SetListInfoBool(&m_pbCivilizationDisableTechs, "DisableTechs", GC.getNumTechInfos());
 	pXML->SetListInfo(&m_piCivilizationInitialCivics, "InitialCivics", GC.getNumCivicOptionInfos());
-	pXML->SetListPairInfo(&m_pbLeaders, "Leaders", GC.getNumLeaderHeadInfos());
+	pXML->SetListInfoBool(&m_pbLeaders, "Leaders", GC.getNumLeaderHeadInfos());
 	pXML->GetChildXmlValByName(szTextVal, "CivilizationSelectionSound");
 
 	return true;

@@ -394,30 +394,15 @@
 	<ElementType name="FreeUnitClasses" content="eltOnly">
 		<element type="FreeUnitClass" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
-	<ElementType name="bFreeBuildingClass" content="textOnly" dt:type="boolean"/>
-	<ElementType name="FreeBuildingClass" content="eltOnly">
-		<element type="BuildingClassType"/>
-		<element type="bFreeBuildingClass"/>
-	</ElementType>
 	<ElementType name="FreeBuildingClasses" content="eltOnly">
-		<element type="FreeBuildingClass" minOccurs="0" maxOccurs="*"/>
+		<element type="BuildingClassType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="TechType" content="textOnly"/>
-	<ElementType name="bFreeTech" content="textOnly" dt:type="boolean"/>
-	<ElementType name="FreeTech" content="eltOnly">
-		<element type="TechType"/>
-		<element type="bFreeTech"/>
-	</ElementType>
 	<ElementType name="FreeTechs" content="eltOnly">
-		<element type="FreeTech" minOccurs="0" maxOccurs="*"/>
-	</ElementType>
-	<ElementType name="bDisableTech" content="textOnly" dt:type="boolean"/>
-	<ElementType name="DisableTech" content="eltOnly">
-		<element type="TechType"/>
-		<element type="bDisableTech"/>
+		<element type="TechType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="DisableTechs" content="eltOnly">
-		<element type="DisableTech" minOccurs="0" maxOccurs="*"/>
+		<element type="TechType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="CivicType" content="textOnly"/>
 	<ElementType name="InitialCivics" content="eltOnly">
@@ -429,13 +414,8 @@
 	<ElementType name="bPlayable" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bAIPlayable" content="textOnly" dt:type="boolean"/>
 	<ElementType name="LeaderName" content="textOnly"/>
-	<ElementType name="bLeaderAvailability" content="textOnly" dt:type="boolean"/>
-	<ElementType name="Leader" content="eltOnly">
-		<element type="LeaderName"/>
-		<element type="bLeaderAvailability"/>
-	</ElementType>
 	<ElementType name="Leaders" content="eltOnly">
-		<element type="Leader" maxOccurs="*"/>
+		<element type="LeaderName" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="CivilizationSelectionSound" content="textOnly"/>
 	<ElementType name="CivilizationActionSound" content="textOnly"/>
@@ -453,12 +433,12 @@
 		<element type="bPlayable"/>
 		<element type="bAIPlayable"/>
 		<element type="Cities"/>
-		<element type="Buildings"/>
-		<element type="Units"/>
-		<element type="FreeUnitClasses"/>
-		<element type="FreeBuildingClasses"/>
-		<element type="FreeTechs"/>
-		<element type="DisableTechs"/>
+		<element type="Buildings" minOccurs="0" maxOccurs="1"/>
+		<element type="Units" minOccurs="0" maxOccurs="1"/>
+		<element type="FreeUnitClasses" minOccurs="0" maxOccurs="1"/>
+		<element type="FreeBuildingClasses" minOccurs="0" maxOccurs="1"/>
+		<element type="FreeTechs" minOccurs="0" maxOccurs="1"/>
+		<element type="DisableTechs" minOccurs="0" maxOccurs="1"/>
 		<element type="InitialCivics"/>
 		<element type="AnarchyCivics" minOccurs="0"/>
 		<element type="Leaders" minOccurs="0"/>
