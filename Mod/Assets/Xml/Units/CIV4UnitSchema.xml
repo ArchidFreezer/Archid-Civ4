@@ -804,29 +804,14 @@
 	<ElementType name="iSameTileHealChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iAdjacentTileHealChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iCombatPercent" content="textOnly" dt:type="int"/>
-	<ElementType name="bUnitCombat" content="textOnly" dt:type="boolean"/>
-	<ElementType name="UnitCombat" content="eltOnly">
-		<element type="UnitCombatType"/>
-		<element type="bUnitCombat"/>
-	</ElementType>
 	<ElementType name="UnitCombats" content="eltOnly">
-		<element type="UnitCombat" minOccurs="0" maxOccurs="*"/>
-	</ElementType>
-	<ElementType name="bTerrainDoubleMove" content="textOnly" dt:type="boolean"/>
-	<ElementType name="TerrainDoubleMove" content="eltOnly">
-		<element type="TerrainType"/>
-		<element type="bTerrainDoubleMove"/>
+		<element type="UnitCombatType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="TerrainDoubleMoves" content="eltOnly">
-		<element type="TerrainDoubleMove" minOccurs="0" maxOccurs="*"/>
-	</ElementType>
-	<ElementType name="bFeatureDoubleMove" content="textOnly" dt:type="boolean"/>
-	<ElementType name="FeatureDoubleMove" content="eltOnly">
-		<element type="FeatureType"/>
-		<element type="bFeatureDoubleMove"/>
+		<element type="TerrainType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="FeatureDoubleMoves" content="eltOnly">
-		<element type="FeatureDoubleMove" minOccurs="0" maxOccurs="*"/>
+		<element type="FeatureType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="PromotionInfo" content="eltOnly">
 		<element type="Type"/>

@@ -1853,9 +1853,9 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetListPairInfo(&m_piUnitCombatModifierPercent, "UnitCombatMods", GC.getNumUnitCombatInfos());
 	pXML->SetListPairInfo(&m_piDomainModifierPercent, "DomainMods", NUM_DOMAIN_TYPES);
 
-	pXML->SetListPairInfo(&m_pbTerrainDoubleMove, "TerrainDoubleMoves", GC.getNumTerrainInfos());
-	pXML->SetListPairInfo(&m_pbFeatureDoubleMove, "FeatureDoubleMoves", GC.getNumFeatureInfos());
-	pXML->SetListPairInfo(&m_pbUnitCombat, "UnitCombats", GC.getNumUnitCombatInfos());
+	pXML->SetListInfoBool(&m_pbTerrainDoubleMove, "TerrainDoubleMoves", GC.getNumTerrainInfos());
+	pXML->SetListInfoBool(&m_pbFeatureDoubleMove, "FeatureDoubleMoves", GC.getNumFeatureInfos());
+	pXML->SetListInfoBool(&m_pbUnitCombat, "UnitCombats", GC.getNumUnitCombatInfos());
 
 	return true;
 }
