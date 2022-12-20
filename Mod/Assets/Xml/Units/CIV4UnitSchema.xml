@@ -817,13 +817,8 @@
 	<ElementType name="Type" content="textOnly"/>
 	<ElementType name="bValid" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bCityLoad" content="textOnly" dt:type="boolean"/>
-	<ElementType name="bUnitAI" content="textOnly" dt:type="boolean"/>
-	<ElementType name="CarrierUnitAI" content="eltOnly">
-		<element type="UnitAIType"/>
-		<element type="bUnitAI"/>
-	</ElementType>
 	<ElementType name="CarrierUnitAIs" content="eltOnly">
-		<element type="CarrierUnitAI" minOccurs="0" maxOccurs="*"/>
+		<element type="UnitAIType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="SpecialUnitInfo" content="eltOnly">
 		<element type="Type"/>
