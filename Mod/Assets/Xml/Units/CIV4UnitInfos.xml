@@ -15,7 +15,9 @@
 			<Combat>UNITCOMBAT_AIR</Combat>
 			<Domain>DOMAIN_AIR</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_AIR</DefaultUnitAI>
-			<SeeInvisible>INVISIBLE_SUBMARINE</SeeInvisible>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SUBMARINE</InvisibleType>
+			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_AIRSHIP</Description>
 			<Civilopedia>TXT_KEY_UNIT_AIRSHIP_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_AIRSHIP_STRATEGY</Strategy>
@@ -5640,7 +5642,9 @@
 			<Combat>UNITCOMBAT_NAVAL</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_RESERVE_SEA</DefaultUnitAI>
-			<SeeInvisible>INVISIBLE_SUBMARINE</SeeInvisible>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SUBMARINE</InvisibleType>
+			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_DESTROYER</Description>
 			<Civilopedia>TXT_KEY_UNIT_DESTROYER_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_DESTROYER_STRATEGY</Strategy>
@@ -5912,7 +5916,9 @@
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_RESERVE_SEA</DefaultUnitAI>
 			<Invisible>INVISIBLE_STEALTH</Invisible>
-			<SeeInvisible>INVISIBLE_STEALTH</SeeInvisible>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_STEALTH</InvisibleType>
+			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_STEALTH_DESTROYER</Description>
 			<Civilopedia>TXT_KEY_UNIT_STEALTH_DESTROYER_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_STEALTH_DESTROYER_STRATEGY</Strategy>
@@ -5969,7 +5975,9 @@
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_RESERVE_SEA</DefaultUnitAI>
 			<Invisible>INVISIBLE_SUBMARINE</Invisible>
-			<SeeInvisible>INVISIBLE_SUBMARINE</SeeInvisible>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SUBMARINE</InvisibleType>
+			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_SUBMARINE</Description>
 			<Civilopedia>TXT_KEY_UNIT_SUBMARINE_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_SUBMARINE_STRATEGY</Strategy>
@@ -6035,7 +6043,9 @@
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_RESERVE_SEA</DefaultUnitAI>
 			<Invisible>INVISIBLE_SUBMARINE</Invisible>
-			<SeeInvisible>INVISIBLE_SUBMARINE</SeeInvisible>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SUBMARINE</InvisibleType>
+			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_ATTACK_SUBMARINE</Description>
 			<Civilopedia>TXT_KEY_UNIT_ATTACK_SUBMARINE_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ATTACK_SUBMARINE_STRATEGY</Strategy>

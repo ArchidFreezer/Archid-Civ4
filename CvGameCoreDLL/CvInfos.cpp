@@ -3990,15 +3990,7 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "Invisible");
 	m_iInvisibleType = pXML->FindInInfoClass(szTextVal);
 
-	pXML->GetChildXmlValByName(szTextVal, "SeeInvisible");
-	std::vector<CvString> tokens;
-	szTextVal.getTokens(",", tokens);
-	for (int i = 0; i < (int)tokens.size(); i++) {
-		int iInvisibleType = pXML->FindInInfoClass(tokens[i]);
-		if (iInvisibleType != NO_INVISIBLE) {
-			m_aiSeeInvisibleTypes.push_back(iInvisibleType);
-		}
-	}
+	pXML->SetVectorInfo(m_aiSeeInvisibleTypes, "SeeInvisibles");
 
 	pXML->GetChildXmlValByName(szTextVal, "Advisor");
 	m_iAdvisorType = pXML->FindInInfoClass(szTextVal);
