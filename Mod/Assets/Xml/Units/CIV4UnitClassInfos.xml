@@ -1,0 +1,549 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Alex Mantzaris (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- UnitClass Schema -->
+<Civ4UnitClassInfos xmlns="x-schema:CIV4UnitSchema.xml">
+	<UnitClassInfos>
+<!-- ************	-->
+<!-- Air          -->
+<!-- ************	-->
+		<UnitClassInfo> <!-- Airship -->
+			<Type>UNITCLASS_AIRSHIP</Type>
+			<Description>TXT_KEY_UNIT_AIRSHIP</Description>
+			<DefaultUnit>UNIT_AIRSHIP</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Fighter -->
+			<Type>UNITCLASS_FIGHTER</Type>
+			<Description>TXT_KEY_UNIT_FIGHTER</Description>
+			<DefaultUnit>UNIT_FIGHTER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Jet Fighter -->
+			<Type>UNITCLASS_JET_FIGHTER</Type>
+			<Description>TXT_KEY_UNIT_JET_FIGHTER</Description>
+			<DefaultUnit>UNIT_JET_FIGHTER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Bomber -->
+			<Type>UNITCLASS_BOMBER</Type>
+			<Description>TXT_KEY_UNIT_BOMBER</Description>
+			<DefaultUnit>UNIT_BOMBER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Stealth Bomber -->
+			<Type>UNITCLASS_STEALTH_BOMBER</Type>
+			<Description>TXT_KEY_UNIT_STEALTH_BOMBER</Description>
+			<DefaultUnit>UNIT_STEALTH_BOMBER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Helicopter -->
+			<Type>UNITCLASS_GUNSHIP</Type>
+			<Description>TXT_KEY_UNIT_GUNSHIP</Description>
+			<DefaultUnit>UNIT_GUNSHIP</DefaultUnit>
+		</UnitClassInfo>
+
+<!-- ************	-->
+<!-- Animals      -->
+<!-- ************	-->
+		<UnitClassInfo> <!-- Bear -->
+			<Type>UNITCLASS_BEAR</Type>
+			<Description>TXT_KEY_UNIT_BEAR</Description>
+			<DefaultUnit>UNIT_BEAR</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Lion -->
+			<Type>UNITCLASS_LION</Type>
+			<Description>TXT_KEY_UNIT_LION</Description>
+			<DefaultUnit>UNIT_LION</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Panther -->
+			<Type>UNITCLASS_PANTHER</Type>
+			<Description>TXT_KEY_UNIT_PANTHER</Description>
+			<DefaultUnit>UNIT_PANTHER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Wolf -->
+			<Type>UNITCLASS_WOLF</Type>
+			<Description>TXT_KEY_UNIT_WOLF</Description>
+			<DefaultUnit>UNIT_WOLF</DefaultUnit>
+		</UnitClassInfo>
+
+<!-- ************	-->
+<!-- Archer       -->
+<!-- ************	-->
+		<UnitClassInfo> <!-- Archer -->
+			<Type>UNITCLASS_ARCHER</Type>
+			<Description>TXT_KEY_UNIT_ARCHER</Description>
+			<DefaultUnit>UNIT_ARCHER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Longbowman -->
+			<Type>UNITCLASS_LONGBOWMAN</Type>
+			<Description>TXT_KEY_UNIT_LONGBOWMAN</Description>
+			<DefaultUnit>UNIT_LONGBOWMAN</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Crossbowman -->
+			<Type>UNITCLASS_CROSSBOWMAN</Type>
+			<Description>TXT_KEY_UNIT_CROSSBOWMAN</Description>
+			<DefaultUnit>UNIT_CROSSBOWMAN</DefaultUnit>
+		</UnitClassInfo>
+
+<!-- ************	-->
+<!-- Corporates   -->
+<!-- ************	-->
+		<UnitClassInfo> <!-- Executive 1 (Cereal Mills) -->
+			<Type>UNITCLASS_EXECUTIVE_1</Type>
+			<Description>TXT_KEY_UNIT_EXECUTIVE_1</Description>
+			<iMaxPlayerInstances>5</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_EXECUTIVE_1</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo>	<!-- Executive 2 (Sid's Sushi Co.) -->
+			<Type>UNITCLASS_EXECUTIVE_2</Type>
+			<Description>CHANGED_TXT_KEY_UNIT_EXECUTIVE_2</Description>
+			<iMaxPlayerInstances>5</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_EXECUTIVE_2</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo>	<!-- Executive 3 (Executive 1 (Std Ethanol) -->
+			<Type>UNITCLASS_EXECUTIVE_3</Type>
+			<Description>TXT_KEY_UNIT_EXECUTIVE_3</Description>
+			<iMaxPlayerInstances>5</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_EXECUTIVE_3</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo>	<!-- Executive 4 (Creative Constructions) -->
+			<Type>UNITCLASS_EXECUTIVE_4</Type>
+			<Description>TXT_KEY_UNIT_EXECUTIVE_4</Description>
+			<iMaxPlayerInstances>5</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_EXECUTIVE_4</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo>	<!-- Executive 5 (Mining Inc.) -->
+			<Type>UNITCLASS_EXECUTIVE_5</Type>
+			<Description>TXT_KEY_UNIT_EXECUTIVE_5</Description>
+			<iMaxPlayerInstances>5</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_EXECUTIVE_5</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo>	<!-- Executive 6 (Aluminium Co.) -->
+			<Type>UNITCLASS_EXECUTIVE_6</Type>
+			<Description>TXT_KEY_UNIT_EXECUTIVE_6</Description>
+			<iMaxPlayerInstances>5</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_EXECUTIVE_6</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo>	<!-- Executive 7 (Civilized Jewelers Inc.) -->
+			<Type>UNITCLASS_EXECUTIVE_7</Type>
+			<Description>TXT_KEY_UNIT_EXECUTIVE_7</Description>
+			<iMaxPlayerInstances>5</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_EXECUTIVE_7</DefaultUnit>
+		</UnitClassInfo>
+
+<!-- ************	-->
+<!-- Doomsday     -->
+<!-- ************	-->
+		<UnitClassInfo> <!-- Tactical Nuke -->
+			<Type>UNITCLASS_TACTICAL_NUKE</Type>
+			<Description>TXT_KEY_UNIT_TACTICAL_NUKE</Description>
+			<DefaultUnit>UNIT_TACTICAL_NUKE</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- ICBM -->
+			<Type>UNITCLASS_ICBM</Type>
+			<Description>TXT_KEY_UNIT_ICBM</Description>
+			<DefaultUnit>UNIT_ICBM</DefaultUnit>
+		</UnitClassInfo>
+
+<!-- ************	-->
+<!-- Espionage    -->
+<!-- ************	-->
+		<UnitClassInfo> <!-- Spy -->
+			<Type>UNITCLASS_SPY</Type>
+			<Description>TXT_KEY_UNIT_SPY</Description>
+			<DefaultUnit>UNIT_SPY</DefaultUnit>
+		</UnitClassInfo>
+
+<!-- ************	-->
+<!-- Great People -->
+<!-- ************	-->
+		<UnitClassInfo> <!-- Great Artist -->
+			<Type>UNITCLASS_ARTIST</Type>
+			<Description>TXT_KEY_UNIT_GREAT_ARTIST</Description>
+			<DefaultUnit>UNIT_ARTIST</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Great Engineer -->
+			<Type>UNITCLASS_ENGINEER</Type>
+			<Description>TXT_KEY_UNIT_GREAT_ENGINEER</Description>
+			<DefaultUnit>UNIT_ENGINEER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Great General -->
+			<Type>UNITCLASS_GREAT_GENERAL</Type>
+			<Description>TXT_KEY_UNIT_GREAT_GENERAL</Description>
+			<DefaultUnit>UNIT_GREAT_GENERAL</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Great Merchant -->
+			<Type>UNITCLASS_MERCHANT</Type>
+			<Description>TXT_KEY_UNIT_GREAT_TYCOON</Description>
+			<DefaultUnit>UNIT_MERCHANT</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Great Prophet -->
+			<Type>UNITCLASS_PROPHET</Type>
+			<Description>TXT_KEY_UNIT_GREAT_PROPHET</Description>
+			<DefaultUnit>UNIT_PROPHET</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Great Scientist -->
+			<Type>UNITCLASS_SCIENTIST</Type>
+			<Description>TXT_KEY_UNIT_GREAT_SCIENTIST</Description>
+			<DefaultUnit>UNIT_SCIENTIST</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Great Spy -->
+			<Type>UNITCLASS_GREAT_SPY</Type>
+			<Description>TXT_KEY_SPECIALIST_GREAT_SPY</Description>
+			<DefaultUnit>UNIT_GREAT_SPY</DefaultUnit>
+		</UnitClassInfo>
+
+<!-- ************	-->
+<!-- Gunpowder    -->
+<!-- ************	-->
+		<UnitClassInfo> <!-- Musketman -->
+			<Type>UNITCLASS_MUSKETMAN</Type>
+			<Description>TXT_KEY_UNIT_MUSKETMAN</Description>
+			<DefaultUnit>UNIT_MUSKETMAN</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Grenadier -->
+			<Type>UNITCLASS_GRENADIER</Type>
+			<Description>TXT_KEY_UNIT_GRENADIER</Description>
+			<DefaultUnit>UNIT_GRENADIER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Rifleman -->
+			<Type>UNITCLASS_RIFLEMAN</Type>
+			<Description>TXT_KEY_UNIT_RIFLEMAN</Description>
+			<DefaultUnit>UNIT_RIFLEMAN</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Infantry -->
+			<Type>UNITCLASS_INFANTRY</Type>
+			<Description>TXT_KEY_UNIT_INFANTRY</Description>
+			<DefaultUnit>UNIT_INFANTRY</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Marine -->
+			<Type>UNITCLASS_MARINE</Type>
+			<Description>TXT_KEY_UNIT_MARINE</Description>
+			<DefaultUnit>UNIT_MARINE</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Paratrooper -->
+			<Type>UNITCLASS_PARATROOPER</Type>
+			<Description>TXT_KEY_UNIT_PARATROOPER</Description>
+			<DefaultUnit>UNIT_PARATROOPER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- SAM Infantry -->
+			<Type>UNITCLASS_SAM_INFANTRY</Type>
+			<Description>TXT_KEY_UNIT_SAM_INFANTRY</Description>
+			<DefaultUnit>UNIT_SAM_INFANTRY</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Anti-Tank Infantry -->
+			<Type>UNITCLASS_AT_INFANTRY</Type>
+			<Description>TXT_KEY_UNIT_AT_INFANTRY</Description>
+			<DefaultUnit>UNIT_AT_INFANTRY</DefaultUnit>
+		</UnitClassInfo>
+
+<!-- ************	-->
+<!-- Melee        -->
+<!-- ************	-->
+		<UnitClassInfo> <!-- Warrior -->
+			<Type>UNITCLASS_WARRIOR</Type>
+			<Description>TXT_KEY_UNIT_WARRIOR</Description>
+			<DefaultUnit>UNIT_WARRIOR</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Spearman -->
+			<Type>UNITCLASS_SPEARMAN</Type>
+			<Description>TXT_KEY_UNIT_SPEARMAN</Description>
+			<DefaultUnit>UNIT_SPEARMAN</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Axeman -->
+			<Type>UNITCLASS_AXEMAN</Type>
+			<Description>TXT_KEY_UNIT_AXEMAN</Description>
+			<DefaultUnit>UNIT_AXEMAN</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Pikeman -->
+			<Type>UNITCLASS_PIKEMAN</Type>
+			<Description>TXT_KEY_UNIT_PIKEMAN</Description>
+			<DefaultUnit>UNIT_PIKEMAN</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Swordsman -->
+			<Type>UNITCLASS_SWORDSMAN</Type>
+			<Description>TXT_KEY_UNIT_SWORDSMAN</Description>
+			<DefaultUnit>UNIT_SWORDSMAN</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Maceman -->
+			<Type>UNITCLASS_MACEMAN</Type>
+			<Description>TXT_KEY_UNIT_MACEMAN</Description>
+			<DefaultUnit>UNIT_MACEMAN</DefaultUnit>
+		</UnitClassInfo>
+
+<!-- ************	-->
+<!-- Missile      -->
+<!-- ************	-->
+		<UnitClassInfo> <!-- Guided Missile -->
+			<Type>UNITCLASS_GUIDED_MISSILE</Type>
+			<Description>TXT_KEY_UNIT_GUIDED_MISSILE</Description>
+			<DefaultUnit>UNIT_GUIDED_MISSILE</DefaultUnit>
+		</UnitClassInfo>
+
+<!-- ************	-->
+<!-- Missionaries -->
+<!-- ************	-->
+		<UnitClassInfo> <!-- Buddhist Missionary -->
+			<Type>UNITCLASS_BUDDHIST_MISSIONARY</Type>
+			<Description>TXT_KEY_UNIT_BUDDHIST_MISSIONARY</Description>
+			<iMaxPlayerInstances>3</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_BUDDHIST_MISSIONARY</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Christian Missionary -->
+			<Type>UNITCLASS_CHRISTIAN_MISSIONARY</Type>
+			<Description>TXT_KEY_UNIT_CHRISTIAN_MISSIONARY</Description>
+			<iMaxPlayerInstances>3</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_CHRISTIAN_MISSIONARY</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Confucian Missionary -->
+			<Type>UNITCLASS_CONFUCIAN_MISSIONARY</Type>
+			<Description>TXT_KEY_UNIT_CONFUCIAN_MISSIONARY</Description>
+			<iMaxPlayerInstances>3</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_CONFUCIAN_MISSIONARY</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Hindu Missionary -->
+			<Type>UNITCLASS_HINDU_MISSIONARY</Type>
+			<Description>TXT_KEY_UNIT_HINDU_MISSIONARY</Description>
+			<iMaxPlayerInstances>3</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_HINDU_MISSIONARY</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Islamic Missionary -->
+			<Type>UNITCLASS_ISLAMIC_MISSIONARY</Type>
+			<Description>TXT_KEY_UNIT_ISLAMIC_MISSIONARY</Description>
+			<iMaxPlayerInstances>3</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_ISLAMIC_MISSIONARY</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Jewish Missionary -->
+			<Type>UNITCLASS_JEWISH_MISSIONARY</Type>
+			<Description>TXT_KEY_UNIT_JEWISH_MISSIONARY</Description>
+			<iMaxPlayerInstances>3</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_JEWISH_MISSIONARY</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Taoist Missionary -->
+			<Type>UNITCLASS_TAOIST_MISSIONARY</Type>
+			<Description>TXT_KEY_UNIT_TAOIST_MISSIONARY</Description>
+			<iMaxPlayerInstances>3</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_TAOIST_MISSIONARY</DefaultUnit>
+		</UnitClassInfo>
+
+<!-- ************	-->
+<!-- Mounted      -->
+<!-- ************	-->
+		<UnitClassInfo> <!-- Chariot -->
+			<Type>UNITCLASS_CHARIOT</Type>
+			<Description>TXT_KEY_UNIT_CHARIOT</Description>
+			<DefaultUnit>UNIT_CHARIOT</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Horse Archer -->
+			<Type>UNITCLASS_HORSE_ARCHER</Type>
+			<Description>TXT_KEY_UNIT_HORSE_ARCHER</Description>
+			<DefaultUnit>UNIT_HORSE_ARCHER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Knight -->
+			<Type>UNITCLASS_KNIGHT</Type>
+			<Description>TXT_KEY_UNIT_KNIGHT</Description>
+			<DefaultUnit>UNIT_KNIGHT</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Cuirassier -->
+			<Type>UNITCLASS_CUIRASSIER</Type>
+			<Description>TXT_KEY_UNIT_CUIRASSIER</Description>
+			<DefaultUnit>UNIT_CUIRASSIER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Cavalry -->
+			<Type>UNITCLASS_CAVALRY</Type>
+			<Description>TXT_KEY_UNIT_CAVALRY</Description>
+			<DefaultUnit>UNIT_CAVALRY</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- War Elephant -->
+			<Type>UNITCLASS_WAR_ELEPHANT</Type>
+			<Description>TXT_KEY_UNIT_WAR_ELEPHANT</Description>
+			<DefaultUnit>UNIT_WAR_ELEPHANT</DefaultUnit>
+		</UnitClassInfo>
+
+<!-- ************	-->
+<!-- Naval        -->
+<!-- ************	-->
+<!-- Wooden -->
+		<UnitClassInfo> <!-- Galley -->
+			<Type>UNITCLASS_GALLEY</Type>
+			<Description>TXT_KEY_UNIT_GALLEY</Description>
+			<DefaultUnit>UNIT_GALLEY</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Trireme -->
+			<Type>UNITCLASS_TRIREME</Type>
+			<Description>TXT_KEY_UNIT_TRIREME</Description>
+			<DefaultUnit>UNIT_TRIREME</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Caravel -->
+			<Type>UNITCLASS_CARAVEL</Type>
+			<Description>TXT_KEY_UNIT_CARAVEL</Description>
+			<DefaultUnit>UNIT_CARAVEL</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Galleon -->
+			<Type>UNITCLASS_GALLEON</Type>
+			<Description>TXT_KEY_UNIT_GALLEON</Description>
+			<DefaultUnit>UNIT_GALLEON</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Privateer -->
+			<Type>UNITCLASS_PRIVATEER</Type>
+			<Description>TXT_KEY_UNIT_PRIVATEER</Description>
+			<DefaultUnit>UNIT_PRIVATEER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Frigate -->
+			<Type>UNITCLASS_FRIGATE</Type>
+			<Description>TXT_KEY_UNIT_FRIGATE</Description>
+			<DefaultUnit>UNIT_FRIGATE</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Ship of the Line -->
+			<Type>UNITCLASS_SHIP_OF_THE_LINE</Type>
+			<Description>TXT_KEY_SHIP_OF_THE_LINE</Description>
+			<DefaultUnit>UNIT_SHIP_OF_THE_LINE</DefaultUnit>
+		</UnitClassInfo>
+<!-- Steam -->
+		<UnitClassInfo> <!-- Ironclad -->
+			<Type>UNITCLASS_IRONCLAD</Type>
+			<Description>TXT_KEY_UNIT_IRONCLAD</Description>
+			<DefaultUnit>UNIT_IRONCLAD</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Battleship -->
+			<Type>UNITCLASS_BATTLESHIP</Type>
+			<Description>TXT_KEY_UNIT_BATTLESHIP</Description>
+			<DefaultUnit>UNIT_BATTLESHIP</DefaultUnit>
+		</UnitClassInfo>
+<!-- Diesel -->
+		<UnitClassInfo> <!-- Transport -->
+			<Type>UNITCLASS_TRANSPORT</Type>
+			<Description>TXT_KEY_UNIT_TRANSPORT</Description>
+			<DefaultUnit>UNIT_TRANSPORT</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Carrier -->
+			<Type>UNITCLASS_CARRIER</Type>
+			<Description>TXT_KEY_UNIT_CARRIER</Description>
+			<DefaultUnit>UNIT_CARRIER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Destroyer -->
+			<Type>UNITCLASS_DESTROYER</Type>
+			<Description>TXT_KEY_UNIT_DESTROYER</Description>
+			<DefaultUnit>UNIT_DESTROYER</DefaultUnit>
+		</UnitClassInfo>
+<!-- Nuclear -->
+		<UnitClassInfo> <!-- Stealth Destroyer -->
+			<Type>UNITCLASS_STEALTH_DESTROYER</Type>
+			<Description>TXT_KEY_UNIT_STEALTH_DESTROYER</Description>
+			<DefaultUnit>UNIT_STEALTH_DESTROYER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Missile Cruiser -->
+			<Type>UNITCLASS_MISSILE_CRUISER</Type>
+			<Description>TXT_KEY_UNIT_MISSILE_CRUISER</Description>
+			<DefaultUnit>UNIT_MISSILE_CRUISER</DefaultUnit>
+		</UnitClassInfo>
+<!-- Submarine -->
+		<UnitClassInfo> <!-- Submarine -->
+			<Type>UNITCLASS_SUBMARINE</Type>
+			<Description>TXT_KEY_UNIT_SUBMARINE</Description>
+			<DefaultUnit>UNIT_SUBMARINE</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Attack Submarine -->
+			<Type>UNITCLASS_ATTACK_SUBMARINE</Type>
+			<Description>TXT_KEY_UNIT_ATTACK_SUBMARINE</Description>
+			<DefaultUnit>UNIT_ATTACK_SUBMARINE</DefaultUnit>
+		</UnitClassInfo>
+
+<!-- ************	-->
+<!-- Recon        -->
+<!-- ************	-->
+		<UnitClassInfo> <!-- Scout -->
+			<Type>UNITCLASS_SCOUT</Type>
+			<Description>TXT_KEY_UNIT_SCOUT</Description>
+			<DefaultUnit>UNIT_SCOUT</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Explorer -->
+			<Type>UNITCLASS_EXPLORER</Type>
+			<Description>TXT_KEY_UNIT_EXPLORER</Description>
+			<DefaultUnit>UNIT_EXPLORER</DefaultUnit>
+		</UnitClassInfo>
+
+<!-- ************	-->
+<!-- Settlers     -->
+<!-- ************	-->
+		<UnitClassInfo> <!-- Settler -->
+			<Type>UNITCLASS_SETTLER</Type>
+			<Description>TXT_KEY_UNIT_SETTLER</Description>
+			<DefaultUnit>UNIT_SETTLER</DefaultUnit>
+		</UnitClassInfo>
+
+<!-- ************	-->
+<!-- Siege        -->
+<!-- ************	-->
+		<UnitClassInfo> <!-- Catapult -->
+			<Type>UNITCLASS_CATAPULT</Type>
+			<Description>TXT_KEY_UNIT_CATAPULT</Description>
+			<DefaultUnit>UNIT_CATAPULT</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Trebuchet -->
+			<Type>UNITCLASS_TREBUCHET</Type>
+			<Description>TXT_KEY_UNIT_TREBUCHET</Description>
+			<DefaultUnit>UNIT_TREBUCHET</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Cannon -->
+			<Type>UNITCLASS_CANNON</Type>
+			<Description>TXT_KEY_UNIT_CANNON</Description>
+			<DefaultUnit>UNIT_CANNON</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Artillery -->
+			<Type>UNITCLASS_ARTILLERY</Type>
+			<Description>TXT_KEY_UNIT_ARTILLERY</Description>
+			<DefaultUnit>UNIT_ARTILLERY</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Machine Gun -->
+			<Type>UNITCLASS_MACHINE_GUN</Type>
+			<Description>TXT_KEY_UNIT_MACHINE_GUN</Description>
+			<DefaultUnit>UNIT_MACHINE_GUN</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Mobile Artillery -->
+			<Type>UNITCLASS_MOBILE_ARTILLERY</Type>
+			<Description>TXT_KEY_UNIT_MOBILE_ARTILLERY</Description>
+			<DefaultUnit>UNIT_MOBILE_ARTILLERY</DefaultUnit>
+		</UnitClassInfo>
+		
+<!-- ************	-->
+<!-- Tracked      -->
+<!-- ************	-->
+		<UnitClassInfo> <!-- Tank -->
+			<Type>UNITCLASS_TANK</Type>
+			<Description>TXT_KEY_UNIT_TANK</Description>
+			<DefaultUnit>UNIT_TANK</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Mechanised Infantry -->
+			<Type>UNITCLASS_MECHANIZED_INFANTRY</Type>
+			<Description>TXT_KEY_UNIT_MECHANIZED_INFANTRY</Description>
+			<DefaultUnit>UNIT_MECHANIZED_INFANTRY</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Modern Armour -->
+			<Type>UNITCLASS_MODERN_ARMOR</Type>
+			<Description>TXT_KEY_UNIT_MODERN_ARMOR</Description>
+			<DefaultUnit>UNIT_MODERN_ARMOR</DefaultUnit>
+		</UnitClassInfo>
+
+<!-- ************	-->
+<!-- Wheeled      -->
+<!-- ************	-->
+		<UnitClassInfo> <!-- Mobile SAM -->
+			<Type>UNITCLASS_MOBILE_SAM</Type>
+			<Description>TXT_KEY_UNIT_MOBILE_SAM</Description>
+			<DefaultUnit>UNIT_MOBILE_SAM</DefaultUnit>
+		</UnitClassInfo>
+		
+<!-- ************	-->
+<!-- Workers      -->
+<!-- ************	-->
+		<UnitClassInfo> <!-- Worker -->
+			<Type>UNITCLASS_WORKER</Type>
+			<Description>TXT_KEY_UNIT_WORKER</Description>
+			<DefaultUnit>UNIT_WORKER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Workboat -->
+			<Type>UNITCLASS_WORKBOAT</Type>
+			<Description>TXT_KEY_UNIT_WORK_BOAT</Description>
+			<DefaultUnit>UNIT_WORKBOAT</DefaultUnit>
+		</UnitClassInfo>
+	</UnitClassInfos>
+</Civ4UnitClassInfos>
