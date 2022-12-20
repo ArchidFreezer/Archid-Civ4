@@ -4042,16 +4042,16 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bAlwaysHostile, "bAlwaysHostile", false);
 	pXML->GetChildXmlValByName(&m_bNoRevealMap, "bNoRevealMap", false);
 
-	pXML->SetListPairInfo(&m_pbUpgradeUnitClass, "UnitClassUpgrades", GC.getNumUnitClassInfos());
-	pXML->SetListPairInfo(&m_pbTargetUnitClass, "UnitClassTargets", GC.getNumUnitClassInfos());
-	pXML->SetListPairInfo(&m_pbTargetUnitCombat, "UnitCombatTargets", GC.getNumUnitCombatInfos());
-	pXML->SetListPairInfo(&m_pbDefenderUnitClass, "UnitClassDefenders", GC.getNumUnitClassInfos());
-	pXML->SetListPairInfo(&m_pbDefenderUnitCombat, "UnitCombatDefenders", GC.getNumUnitCombatInfos());
+	pXML->SetListInfoBool(&m_pbUpgradeUnitClass, "UnitClassUpgrades", GC.getNumUnitClassInfos());
+	pXML->SetListInfoBool(&m_pbTargetUnitClass, "UnitClassTargets", GC.getNumUnitClassInfos());
+	pXML->SetListInfoBool(&m_pbTargetUnitCombat, "UnitCombatTargets", GC.getNumUnitCombatInfos());
+	pXML->SetListInfoBool(&m_pbDefenderUnitClass, "UnitClassDefenders", GC.getNumUnitClassInfos());
+	pXML->SetListInfoBool(&m_pbDefenderUnitCombat, "UnitCombatDefenders", GC.getNumUnitCombatInfos());
 	pXML->SetListPairInfo(&m_piFlankingStrikeUnitClass, "FlankingStrikes", GC.getNumUnitClassInfos());
-	pXML->SetListPairInfo(&m_pbUnitAIType, "UnitAIs", NUM_UNITAI_TYPES);
-	pXML->SetListPairInfo(&m_pbNotUnitAIType, "NotUnitAIs", NUM_UNITAI_TYPES);
+	pXML->SetListInfoBool(&m_pbUnitAIType, "UnitAIs", NUM_UNITAI_TYPES);
+	pXML->SetListInfoBool(&m_pbNotUnitAIType, "NotUnitAIs", NUM_UNITAI_TYPES);
 
-	pXML->SetListPairInfo(&m_pbBuilds, "Builds", GC.getNumBuildInfos());
+	pXML->SetListInfoBool(&m_pbBuilds, "Builds", GC.getNumBuildInfos());
 
 	pXML->SetListPairInfo(&m_piReligionSpreads, "ReligionSpreads", GC.getNumReligionInfos());
 	pXML->SetListPairInfo(&m_piCorporationSpreads, "CorporationSpreads", GC.getNumCorporationInfos());
@@ -4059,10 +4059,10 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetListPairInfos(&m_piTerrainPassableTech, "TerrainPassableTechs", GC.getNumTerrainInfos());
 	pXML->SetListPairInfos(&m_piFeaturePassableTech, "FeaturePassableTechs", GC.getNumFeatureInfos());
 
-	pXML->SetListPairInfo(&m_pbGreatPeoples, "GreatPeoples", GC.getNumSpecialistInfos());
+	pXML->SetListInfoBool(&m_pbGreatPeoples, "GreatPeoples", GC.getNumSpecialistInfos());
 
-	pXML->SetListPairInfo(&m_pbBuildings, "Buildings", GC.getNumBuildingInfos());
-	pXML->SetListPairInfo(&m_pbForceBuildings, "ForceBuildings", GC.getNumBuildingInfos());
+	pXML->SetListInfoBool(&m_pbBuildings, "Buildings", GC.getNumBuildingInfos());
+	pXML->SetListInfoBool(&m_pbForceBuildings, "ForceBuildings", GC.getNumBuildingInfos());
 
 	pXML->GetChildXmlValByName(szTextVal, "HolyCity");
 	m_iHolyCity = pXML->FindInInfoClass(szTextVal);
@@ -4117,8 +4117,8 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iGreatWorkCulture, "iGreatWorkCulture");
 	pXML->GetChildXmlValByName(&m_iEspionagePoints, "iEspionagePoints");
 
-	pXML->SetListPairInfo(&m_pbTerrainImpassable, "TerrainImpassables", GC.getNumTerrainInfos());
-	pXML->SetListPairInfo(&m_pbFeatureImpassable, "FeatureImpassables", GC.getNumFeatureInfos());
+	pXML->SetListInfoBool(&m_pbTerrainImpassable, "TerrainImpassables", GC.getNumTerrainInfos());
+	pXML->SetListInfoBool(&m_pbFeatureImpassable, "FeatureImpassables", GC.getNumFeatureInfos());
 
 	pXML->GetChildXmlValByName(&m_iCombat, "iCombat");
 	pXML->GetChildXmlValByName(&m_iCombatLimit, "iCombatLimit");
@@ -4140,8 +4140,8 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iHillsAttackModifier, "iHillsAttack");
 	pXML->GetChildXmlValByName(&m_iHillsDefenseModifier, "iHillsDefense");
 
-	pXML->SetListPairInfo(&m_pbTerrainNative, "TerrainNatives", GC.getNumTerrainInfos());
-	pXML->SetListPairInfo(&m_pbFeatureNative, "FeatureNatives", GC.getNumFeatureInfos());
+	pXML->SetListInfoBool(&m_pbTerrainNative, "TerrainNatives", GC.getNumTerrainInfos());
+	pXML->SetListInfoBool(&m_pbFeatureNative, "FeatureNatives", GC.getNumFeatureInfos());
 
 	pXML->SetListPairInfo(&m_piTerrainAttackModifier, "TerrainAttacks", GC.getNumTerrainInfos());
 	pXML->SetListPairInfo(&m_piTerrainDefenseModifier, "TerrainDefenses", GC.getNumTerrainInfos());
@@ -4209,7 +4209,7 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
 	}
 
-	pXML->SetListPairInfo(&m_pbFreePromotions, "FreePromotions", GC.getNumPromotionInfos());
+	pXML->SetListInfoBool(&m_pbFreePromotions, "FreePromotions", GC.getNumPromotionInfos());
 
 	pXML->GetChildXmlValByName(szTextVal, "LeaderPromotion");
 	m_iLeaderPromotion = pXML->FindInInfoClass(szTextVal);

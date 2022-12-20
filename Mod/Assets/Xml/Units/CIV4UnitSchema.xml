@@ -141,49 +141,20 @@
 	<ElementType name="bHiddenNationality" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bAlwaysHostile" content="textOnly" dt:type="boolean"/>
 	<ElementType name="UnitClassUpgradeType" content="textOnly"/>
-	<ElementType name="bUnitClassUpgrade" content="textOnly" dt:type="boolean"/>
-	<ElementType name="UnitClassUpgrade" content="eltOnly">
-		<element type="UnitClassUpgradeType"/>
-		<element type="bUnitClassUpgrade"/>
-	</ElementType>
 	<ElementType name="UnitClassUpgrades" content="eltOnly">
-		<element type="UnitClassUpgrade" minOccurs="0" maxOccurs="*"/>
-	</ElementType>
-	<ElementType name="UnitClassTargetType" content="textOnly"/>
-	<ElementType name="bUnitClassTarget" content="textOnly" dt:type="boolean"/>
-	<ElementType name="UnitClassTarget" content="eltOnly">
-		<element type="UnitClassTargetType"/>
-		<element type="bUnitClassTarget"/>
+		<element type="UnitClassType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="UnitClassTargets" content="eltOnly">
-		<element type="UnitClassTarget" minOccurs="0" maxOccurs="*"/>
-	</ElementType>
-	<ElementType name="UnitCombatTargetType" content="textOnly"/>
-	<ElementType name="bUnitCombatTarget" content="textOnly" dt:type="boolean"/>
-	<ElementType name="UnitCombatTarget" content="eltOnly">
-		<element type="UnitCombatTargetType"/>
-		<element type="bUnitCombatTarget"/>
+		<element type="UnitClassType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="UnitCombatTargets" content="eltOnly">
-		<element type="UnitCombatTarget" minOccurs="0" maxOccurs="*"/>
-	</ElementType>
-	<ElementType name="UnitClassDefenderType" content="textOnly"/>
-	<ElementType name="bUnitClassDefender" content="textOnly" dt:type="boolean"/>
-	<ElementType name="UnitClassDefender" content="eltOnly">
-		<element type="UnitClassDefenderType"/>
-		<element type="bUnitClassDefender"/>
+		<element type="UnitCombatType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="UnitClassDefenders" content="eltOnly">
-		<element type="UnitClassDefender" minOccurs="0" maxOccurs="*"/>
-	</ElementType>
-	<ElementType name="UnitCombatDefenderType" content="textOnly"/>
-	<ElementType name="bUnitCombatDefender" content="textOnly" dt:type="boolean"/>
-	<ElementType name="UnitCombatDefender" content="eltOnly">
-		<element type="UnitCombatDefenderType"/>
-		<element type="bUnitCombatDefender"/>
+		<element type="UnitClassType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="UnitCombatDefenders" content="eltOnly">
-		<element type="UnitCombatDefender" minOccurs="0" maxOccurs="*"/>
+		<element type="UnitCombatType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="FlankingStrikeUnitClass" content="textOnly"/>
 	<ElementType name="iFlankingStrength" content="textOnly" dt:type="int"/>
@@ -195,25 +166,15 @@
 		<element type="FlankingStrike" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="UnitAIType" content="textOnly"/>
-	<ElementType name="bUnitAI" content="textOnly" dt:type="boolean"/>
-	<ElementType name="UnitAI" content="eltOnly">
-		<element type="UnitAIType"/>
-		<element type="bUnitAI"/>
-	</ElementType>
 	<ElementType name="UnitAIs" content="eltOnly">
-		<element type="UnitAI" minOccurs="0" maxOccurs="*"/>
+		<element type="UnitAIType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="NotUnitAIs" content="eltOnly">
-		<element type="UnitAI" minOccurs="0" maxOccurs="*"/>
+		<element type="UnitAIType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="BuildType" content="textOnly"/>
-	<ElementType name="bBuild" content="textOnly" dt:type="boolean"/>
-	<ElementType name="Build" content="eltOnly">
-		<element type="BuildType"/>
-		<element type="bBuild"/>
-	</ElementType>
 	<ElementType name="Builds" content="eltOnly">
-		<element type="Build" minOccurs="0" maxOccurs="*"/>
+		<element type="BuildType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="ReligionType" content="textOnly"/>
 	<ElementType name="iReligionSpread" content="textOnly" dt:type="int"/>
@@ -234,30 +195,15 @@
 		<element type="CorporationSpread" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="GreatPeopleType" content="textOnly"/>
-	<ElementType name="bGreatPeople" content="textOnly" dt:type="boolean"/>
-	<ElementType name="GreatPeople" content="eltOnly">
-		<element type="GreatPeopleType"/>
-		<element type="bGreatPeople"/>
-	</ElementType>
 	<ElementType name="GreatPeoples" content="eltOnly">
-		<element type="GreatPeople" minOccurs="0" maxOccurs="*"/>
+		<element type="GreatPeopleType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="BuildingType" content="textOnly"/>
-	<ElementType name="bBuilding" content="textOnly" dt:type="boolean"/>
-	<ElementType name="Building" content="eltOnly">
-		<element type="BuildingType"/>
-		<element type="bBuilding"/>
-	</ElementType>
 	<ElementType name="Buildings" content="eltOnly">
-		<element type="Building" minOccurs="0" maxOccurs="*"/>
-	</ElementType>
-	<ElementType name="bForceBuilding" content="textOnly" dt:type="boolean"/>
-	<ElementType name="ForceBuilding" content="eltOnly">
-		<element type="BuildingType"/>
-		<element type="bForceBuilding"/>
+		<element type="BuildingType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="ForceBuildings" content="eltOnly">
-		<element type="ForceBuilding" minOccurs="0" maxOccurs="*"/>
+		<element type="BuildingType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="HolyCity" content="textOnly"/>
 	<ElementType name="StateReligion" content="textOnly"/>
@@ -309,21 +255,11 @@
 	<ElementType name="iTradeMultiplier" content="textOnly" dt:type="int"/>
 	<ElementType name="iGreatWorkCulture" content="textOnly" dt:type="int"/>
 	<ElementType name="iEspionagePoints" content="textOnly" dt:type="int"/>
-	<ElementType name="bTerrainImpassable" content="textOnly" dt:type="boolean"/>
-	<ElementType name="TerrainImpassable" content="eltOnly">
-		<element type="TerrainType"/>
-		<element type="bTerrainImpassable"/>
-	</ElementType>
 	<ElementType name="TerrainImpassables" content="eltOnly">
-		<element type="TerrainImpassable" minOccurs="0" maxOccurs="*"/>
-	</ElementType>
-	<ElementType name="bFeatureImpassable" content="textOnly" dt:type="boolean"/>
-	<ElementType name="FeatureImpassable" content="eltOnly">
-		<element type="FeatureType"/>
-		<element type="bFeatureImpassable"/>
+		<element type="TerrainType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="FeatureImpassables" content="eltOnly">
-		<element type="FeatureImpassable" minOccurs="0" maxOccurs="*"/>
+		<element type="FeatureType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="PassableTech" content="textOnly"/>
 	<ElementType name="TerrainPassableTech" content="eltOnly">
@@ -365,21 +301,11 @@
 	<ElementType name="iPillageChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iUpgradeDiscount" content="textOnly" dt:type="int"/>
 	<ElementType name="iExperiencePercent" content="textOnly" dt:type="int"/>
-	<ElementType name="bTerrainNative" content="textOnly" dt:type="boolean"/>
-	<ElementType name="TerrainNative" content="eltOnly">
-		<element type="TerrainType"/>
-		<element type="bTerrainNative"/>
-	</ElementType>
 	<ElementType name="TerrainNatives" content="eltOnly">
-		<element type="TerrainNative" minOccurs="0" maxOccurs="*"/>
-	</ElementType>
-	<ElementType name="bFeatureNative" content="textOnly" dt:type="boolean"/>
-	<ElementType name="FeatureNative" content="eltOnly">
-		<element type="FeatureType"/>
-		<element type="bFeatureNative"/>
+		<element type="TerrainType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="FeatureNatives" content="eltOnly">
-		<element type="FeatureNative" minOccurs="0" maxOccurs="*"/>
+		<element type="FeatureType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="iTerrainAttack" content="textOnly" dt:type="int"/>
 	<ElementType name="TerrainAttack" content="eltOnly">
@@ -499,13 +425,8 @@
 	<ElementType name="Sound" content="textOnly"/>
 	<ElementType name="LayerAnimationPath" content="textOnly"/>
 	<ElementType name="PromotionType" content="textOnly"/>
-	<ElementType name="bFreePromotion" content="textOnly" dt:type="boolean"/>
-	<ElementType name="FreePromotion" content="eltOnly">
-		<element type="PromotionType"/>
-		<element type="bFreePromotion"/>
-	</ElementType>
 	<ElementType name="FreePromotions" content="eltOnly">
-		<element type="FreePromotion" minOccurs="0" maxOccurs="*"/>
+		<element type="PromotionType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="LeaderPromotion" content="textOnly"/>
 	<ElementType name="iLeaderExperience" content="textOnly" dt:type="int"/>
@@ -674,6 +595,7 @@
 	<ElementType name="EntityEventType" content="textOnly"/>
 	<ElementType name="bTarget" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bSound" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bBuild" content="textOnly" dt:type="boolean"/>
 	<ElementType name="MissionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -895,6 +817,7 @@
 	<ElementType name="Type" content="textOnly"/>
 	<ElementType name="bValid" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bCityLoad" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bUnitAI" content="textOnly" dt:type="boolean"/>
 	<ElementType name="CarrierUnitAI" content="eltOnly">
 		<element type="UnitAIType"/>
 		<element type="bUnitAI"/>
