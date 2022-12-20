@@ -327,12 +327,8 @@
 		<element type="PrereqBuildingClass" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="bNeededInCity" content="textOnly" dt:type="boolean"/>
-	<ElementType name="BuildingClassNeeded" content="eltOnly">
-		<element type="BuildingClassType"/>
-		<element type="bNeededInCity"/>
-	</ElementType>
-	<ElementType name="BuildingClassNeededs" content="eltOnly">
-		<element type="BuildingClassNeeded" minOccurs="0" maxOccurs="*"/>
+	<ElementType name="BuildingClassesNeeded" content="eltOnly">
+		<element type="BuildingClassType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="SpecialistYieldChange" content="eltOnly">
 		<element type="SpecialistType"/>
@@ -530,7 +526,7 @@
 		<element type="DomainProductionModifiers" minOccurs="0"/>
 		<element type="BuildingHappinessChanges" minOccurs="0"/>
 		<element type="PrereqBuildingClasses" minOccurs="0"/>
-		<element type="BuildingClassNeededs" minOccurs="0"/>
+		<element type="BuildingClassesNeeded" minOccurs="0"/>
 		<element type="SpecialistYieldChanges" minOccurs="0"/>
 		<element type="BonusYieldModifiers" minOccurs="0"/>
 		<element type="ImprovementFreeSpecialists" minOccurs="0"/>
