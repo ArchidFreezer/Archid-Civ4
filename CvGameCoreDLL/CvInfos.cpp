@@ -4451,7 +4451,7 @@ bool CvCivicOptionInfo::read(CvXMLLoadUtility* pXML) {
 		return false;
 	}
 
-	pXML->SetListPairInfo(&m_pabTraitNoUpkeep, "TraitNoUpkeeps", GC.getNumTraitInfos());
+	pXML->SetListInfoBool(&m_pabTraitNoUpkeep, "TraitNoUpkeeps", GC.getNumTraitInfos());
 
 	return true;
 }

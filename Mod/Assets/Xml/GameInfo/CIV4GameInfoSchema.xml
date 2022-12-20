@@ -585,18 +585,13 @@
 	<ElementType name="CivicOptionType" content="textOnly"/>
 	<ElementType name="CivicOptionDescription" content="textOnly"/>
 	<ElementType name="TraitType" content="textOnly"/>
-	<ElementType name="bTraitNoUpkeep" content="textOnly" dt:type="boolean"/>
-	<ElementType name="TraitNoUpkeep" content="eltOnly">
-		<element type="TraitType"/>
-		<element type="bTraitNoUpkeep"/>
-	</ElementType>
 	<ElementType name="TraitNoUpkeeps" content="eltOnly">
-		<element type="TraitNoUpkeep" minOccurs="0" maxOccurs="*"/>
+		<element type="TraitType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="CivicOptionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
-		<element type="TraitNoUpkeeps"/>
+		<element type="TraitNoUpkeeps" minOccurs="0"/>
 	</ElementType>
 	<ElementType name="CivicOptionInfos" content="eltOnly">
 		<element type="CivicOptionInfo" maxOccurs="*"/>
