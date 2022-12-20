@@ -11053,7 +11053,7 @@ bool CvTerrainInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bFoundCoast, "bFoundCoast");
 	pXML->GetChildXmlValByName(&m_bFoundFreshWater, "bFoundFreshWater");
 
-	pXML->GetChildXmlValByName(&m_iMovementCost, "iMovement");
+	pXML->GetChildXmlValByName(&m_iMovementCost, "iMovement", 1);
 	pXML->GetChildXmlValByName(&m_iSeeFromLevel, "iSeeFrom");
 	pXML->GetChildXmlValByName(&m_iSeeThroughLevel, "iSeeThrough");
 	pXML->GetChildXmlValByName(&m_iBuildModifier, "iBuildModifier");
