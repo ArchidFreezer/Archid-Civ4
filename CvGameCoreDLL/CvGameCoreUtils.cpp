@@ -420,12 +420,8 @@ bool isTechRequiredForUnit(TechTypes eTech, UnitTypes eUnit) {
 bool isTechRequiredForBuilding(TechTypes eTech, BuildingTypes eBuilding) {
 	const CvBuildingInfo& info = GC.getBuildingInfo(eBuilding);
 
-	if (info.getPrereqAndTech() == eTech) {
-		return true;
-	}
-
-	for (int iI = 0; iI < GC.getNUM_BUILDING_AND_TECH_PREREQS(); iI++) {
-		if (info.getPrereqAndTechs(iI) == eTech) {
+	for (int iI = 0; iI < info.getNumPrereqAndTechs(); iI++) {
+		if (info.getPrereqAndTech(iI) == eTech) {
 			return true;
 		}
 	}

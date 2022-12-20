@@ -5360,7 +5360,6 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_iFreeStartEra(NO_ERA),
 	m_iMaxStartEra(NO_ERA),
 	m_iObsoleteTech(NO_TECH),
-	m_iPrereqAndTech(NO_TECH),
 	m_iNoBonus(NO_BONUS),
 	m_iPowerBonus(NO_BONUS),
 	m_iFreeBonus(NO_BONUS),
@@ -5465,7 +5464,6 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_bCenterInCity(false),
 	m_bStateReligion(false),
 	m_bAllowsNukes(false),
-	m_piPrereqAndTechs(NULL),
 	m_piPrereqOrBonuses(NULL),
 	m_piProductionTraits(NULL),
 	m_piHappinessTraits(NULL),
@@ -5516,7 +5514,6 @@ CvBuildingInfo::CvBuildingInfo() :
 //
 //------------------------------------------------------------------------------------------------------
 CvBuildingInfo::~CvBuildingInfo() {
-	SAFE_DELETE_ARRAY(m_piPrereqAndTechs);
 	SAFE_DELETE_ARRAY(m_piPrereqOrBonuses);
 	SAFE_DELETE_ARRAY(m_piProductionTraits);
 	SAFE_DELETE_ARRAY(m_piHappinessTraits);
@@ -5586,10 +5583,6 @@ int CvBuildingInfo::getMaxStartEra() const {
 
 int CvBuildingInfo::getObsoleteTech() const {
 	return m_iObsoleteTech;
-}
-
-int CvBuildingInfo::getPrereqAndTech() const {
-	return m_iPrereqAndTech;
 }
 
 int CvBuildingInfo::getNoBonus() const {
@@ -6248,12 +6241,6 @@ int CvBuildingInfo::getDomainProductionModifier(int i) const {
 	return m_piDomainProductionModifier ? m_piDomainProductionModifier[i] : -1;
 }
 
-int CvBuildingInfo::getPrereqAndTechs(int i) const {
-	FAssertMsg(i < GC.getNUM_BUILDING_AND_TECH_PREREQS(), "Index out of bounds");
-	FAssertMsg(i > -1, "Index out of bounds");
-	return m_piPrereqAndTechs ? m_piPrereqAndTechs[i] : -1;
-}
-
 int CvBuildingInfo::getPrereqOrBonuses(int i) const {
 	FAssertMsg(i < GC.getNUM_BUILDING_PREREQ_OR_BONUSES(), "Index out of bounds");
 	FAssertMsg(i > -1, "Index out of bounds");
@@ -6350,6 +6337,14 @@ int* CvBuildingInfo::getBonusYieldModifierArray(int i) const {
 	return m_ppaiBonusYieldModifier[i];
 }
 
+int CvBuildingInfo::getPrereqAndTech(int i) const {
+	return m_viPrereqAndTechs[i];
+}
+
+int CvBuildingInfo::getNumPrereqAndTechs() const {
+	return (int)m_viPrereqAndTechs.size();
+}
+
 const TCHAR* CvBuildingInfo::getButton() const {
 	const CvArtInfoBuilding* pBuildingArtInfo;
 	pBuildingArtInfo = getArtInfo();
@@ -6398,7 +6393,6 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iFreeStartEra);
 	stream->Read(&m_iMaxStartEra);
 	stream->Read(&m_iObsoleteTech);
-	stream->Read(&m_iPrereqAndTech);
 	stream->Read(&m_iNoBonus);
 	stream->Read(&m_iPowerBonus);
 	stream->Read(&m_iFreeBonus);
@@ -6510,9 +6504,14 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->ReadString(m_szArtDefineTag);
 	stream->ReadString(m_szMovieDefineTag);
 
-	SAFE_DELETE_ARRAY(m_piPrereqAndTechs);
-	m_piPrereqAndTechs = new int[GC.getNUM_BUILDING_AND_TECH_PREREQS()];
-	stream->Read(GC.getNUM_BUILDING_AND_TECH_PREREQS(), m_piPrereqAndTechs);
+	int iNumElements;
+	int iElement;
+	stream->Read(&iNumElements);
+	m_viPrereqAndTechs.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqAndTechs.push_back(iElement);
+	}
 
 	SAFE_DELETE_ARRAY(m_piPrereqOrBonuses);
 	m_piPrereqOrBonuses = new int[GC.getNUM_BUILDING_PREREQ_OR_BONUSES()];
@@ -6715,7 +6714,6 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iFreeStartEra);
 	stream->Write(m_iMaxStartEra);
 	stream->Write(m_iObsoleteTech);
-	stream->Write(m_iPrereqAndTech);
 	stream->Write(m_iNoBonus);
 	stream->Write(m_iPowerBonus);
 	stream->Write(m_iFreeBonus);
@@ -6827,7 +6825,11 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->WriteString(m_szArtDefineTag);
 	stream->WriteString(m_szMovieDefineTag);
 
-	stream->Write(GC.getNUM_BUILDING_AND_TECH_PREREQS(), m_piPrereqAndTechs);
+	stream->Write(m_viPrereqAndTechs.size());
+	for (std::vector<int>::iterator it = m_viPrereqAndTechs.begin(); it != m_viPrereqAndTechs.end(); ++it) {
+		stream->Write(*it);
+	}
+
 	stream->Write(GC.getNUM_BUILDING_PREREQ_OR_BONUSES(), m_piPrereqOrBonuses);
 	stream->Write(GC.getNumTraitInfos(), m_piProductionTraits);
 	stream->Write(GC.getNumTraitInfos(), m_piHappinessTraits);
@@ -6934,10 +6936,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "ObsoleteTech");
 	m_iObsoleteTech = pXML->FindInInfoClass(szTextVal);
 
-	pXML->GetChildXmlValByName(szTextVal, "PrereqTech");
-	m_iPrereqAndTech = pXML->FindInInfoClass(szTextVal);
-
-	pXML->SetListInfo(&m_piPrereqAndTechs, "TechTypes", GC.getNUM_BUILDING_AND_TECH_PREREQS());
+	pXML->SetVectorInfo(m_viPrereqAndTechs, "PrereqAndTechs");
 
 	pXML->GetChildXmlValByName(szTextVal, "Bonus");
 	m_iPrereqAndBonus = pXML->FindInInfoClass(szTextVal);

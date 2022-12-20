@@ -109,8 +109,8 @@ class CvPediaTechTree:
 				iItem = gc.getBuildingClassInfo(j).getDefaultBuildingIndex()
 			else:
 				iItem = gc.getCivilizationInfo(iCivilization).getCivilizationBuildings(j)
-			if iItem > -1:
-				iTech = gc.getBuildingInfo(iItem).getPrereqAndTech()
+			if iItem > -1 and gc.getBuildingInfo(iItem).getNumPrereqAndTechs() > 0:
+				iTech = gc.getBuildingInfo(iItem).getPrereqAndTech(0)
 				if iTech > -1:
 					self.TechBenefits[iTech].append(["UnlockBuilding", iItem])
 				iTech = gc.getBuildingInfo(iItem).getObsoleteTech()

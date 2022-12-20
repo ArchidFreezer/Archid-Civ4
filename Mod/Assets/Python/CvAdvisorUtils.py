@@ -71,11 +71,8 @@ def resetNoLiberateCities():
 		eCorporation = Info.getFoundsCorporation()
 		if eCorporation > -1 and not CyGame().isCorporationFounded(eCorporation):
 			lTechs = []
-			iTech = Info.getPrereqAndTech()
-			if iTech > -1:
-				lTechs.append(iTech)
-			for iPrereq in xrange(gc.getDefineINT("NUM_BUILDING_AND_TECH_PREREQS")):
-				iTech = Info.getPrereqAndTechs(iPrereq)
+			for iPrereq in xrange(Info.getNumPrereqAndTechs()):
+				iTech = Info.getPrereqAndTech(iPrereq)
 				if iTech > -1:
 					lTechs.append(iTech)
 

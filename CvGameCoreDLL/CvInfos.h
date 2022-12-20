@@ -1526,7 +1526,6 @@ public:
 	int getFreeStartEra() const;						// Exposed to Python
 	int getMaxStartEra() const;				// Exposed to Python
 	int getObsoleteTech() const;				// Exposed to Python
-	int getPrereqAndTech() const;				// Exposed to Python
 	int getNoBonus() const;				// Exposed to Python
 	int getPowerBonus() const;				// Exposed to Python
 	int getFreeBonus() const;				// Exposed to Python
@@ -1612,6 +1611,7 @@ public:
 	void setMissionType(int iNewType);
 	int getVoteSourceType() const;				// Exposed to Python
 	int getUnhealthyPopulationModifier() const;	// K-Mod, Exposed to Python
+	int getNumPrereqAndTechs() const;
 
 	float getVisibilityPriority() const;
 
@@ -1685,7 +1685,6 @@ public:
 	int getUnitCombatFreeExperience(int i) const;				// Exposed to Python
 	int getDomainFreeExperience(int i) const;						// Exposed to Python
 	int getDomainProductionModifier(int i) const;				// Exposed to Python
-	int getPrereqAndTechs(int i) const;				// Exposed to Python
 	int getPrereqOrBonuses(int i) const;				// Exposed to Python
 	int getProductionTraits(int i) const;				// Exposed to Python
 	int getHappinessTraits(int i) const;				// Exposed to Python
@@ -1693,6 +1692,7 @@ public:
 	int getPrereqNumOfBuildingClass(int i) const;				// Exposed to Python
 	int getFlavorValue(int i) const;				// Exposed to Python
 	int getImprovementFreeSpecialist(int i) const;				// Exposed to Python
+	int getPrereqAndTech(int i) const;
 
 	bool isCommerceFlexible(int i) const;				// Exposed to Python
 	bool isCommerceChangeOriginalOwner(int i) const;				// Exposed to Python
@@ -1727,7 +1727,6 @@ protected:
 	int m_iFreeStartEra;
 	int m_iMaxStartEra;
 	int m_iObsoleteTech;
-	int m_iPrereqAndTech;
 	int m_iNoBonus;
 	int m_iPowerBonus;
 	int m_iFreeBonus;
@@ -1841,7 +1840,6 @@ protected:
 
 	// Arrays
 
-	int* m_piPrereqAndTechs;
 	int* m_piPrereqOrBonuses;
 	int* m_piProductionTraits;
 	int* m_piHappinessTraits;
@@ -1883,6 +1881,9 @@ protected:
 	int** m_ppaiBonusYieldModifier;
 	bool m_bAnySpecialistYieldChange;
 	bool m_bAnyBonusYieldModifier;
+
+	// Vectors
+	std::vector<int> m_viPrereqAndTechs;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

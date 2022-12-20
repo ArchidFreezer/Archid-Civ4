@@ -5953,20 +5953,12 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 					if (!bPlayerContext || !(GET_PLAYER(GC.getGameINLINE().getActivePlayer()).canConstruct(eLoopBuilding, false, true))) {
 						CvWString szFirstBuffer;
 						CvWString szTempBuffer;
-						if (GC.getBuildingInfo(eLoopBuilding).getPrereqAndTech() == eTech) {
-							szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_TECH_CAN_CONSTRUCT").c_str());
-							szTempBuffer.Format(SETCOLR L"<link=literal>%s</link>" ENDCOLR, TEXT_COLOR("COLOR_BUILDING_TEXT"), GC.getBuildingInfo(eLoopBuilding).getDescription());
-							setListHelp(szBuffer, szFirstBuffer, szTempBuffer, L", ", bFirst);
-							bFirst = false;
-						} else {
-							for (int iJ = 0; iJ < GC.getNUM_BUILDING_AND_TECH_PREREQS(); iJ++) {
-								if (GC.getBuildingInfo(eLoopBuilding).getPrereqAndTechs(iJ) == eTech) {
-									szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_TECH_CAN_CONSTRUCT").c_str());
-									szTempBuffer.Format(SETCOLR L"<link=literal>%s</link>" ENDCOLR, TEXT_COLOR("COLOR_BUILDING_TEXT"), GC.getBuildingInfo(eLoopBuilding).getDescription());
-									setListHelp(szBuffer, szFirstBuffer, szTempBuffer, L", ", bFirst);
-									bFirst = false;
-									break;
-								}
+						for (int iI = 0; iI < GC.getBuildingInfo(eLoopBuilding).getNumPrereqAndTechs(); iI++) {
+							if (GC.getBuildingInfo(eLoopBuilding).getPrereqAndTech(iI) == eTech) {
+								szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_TECH_CAN_CONSTRUCT").c_str());
+								szTempBuffer.Format(SETCOLR L"<link=literal>%s</link>" ENDCOLR, TEXT_COLOR("COLOR_BUILDING_TEXT"), GC.getBuildingInfo(eLoopBuilding).getDescription());
+								setListHelp(szBuffer, szFirstBuffer, szTempBuffer, L", ", bFirst);
+								bFirst = false;
 							}
 						}
 					}
@@ -8141,22 +8133,21 @@ void CvGameTextMgr::buildBuildingRequiresString(CvWStringBuffer& szBuffer, Build
 			}
 		} else {
 			if (!bTechChooserText) {
-				if (kBuilding.getPrereqAndTech() != NO_TECH) {
-					if (ePlayer == NO_PLAYER || !(GET_TEAM(GET_PLAYER(ePlayer).getTeam()).isHasTech((TechTypes)(kBuilding.getPrereqAndTech())))) {
+				if (kBuilding.getNumPrereqAndTechs() > 0) {
+					if (ePlayer == NO_PLAYER || !(GET_TEAM(GET_PLAYER(ePlayer).getTeam()).isHasTech((TechTypes)(kBuilding.getPrereqAndTech(0))))) {
 						szBuffer.append(NEWLINE);
-						szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_REQUIRES_STRING", GC.getTechInfo((TechTypes)(kBuilding.getPrereqAndTech())).getTextKeyWide()));
+						szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_REQUIRES_STRING", GC.getTechInfo((TechTypes)(kBuilding.getPrereqAndTech(0))).getTextKeyWide()));
 					}
 				}
 			}
 
 			bool bFirst = true;
-
-			for (int iI = 0; iI < GC.getNUM_BUILDING_AND_TECH_PREREQS(); ++iI) {
-				if (kBuilding.getPrereqAndTechs(iI) != NO_TECH) {
-					if (bTechChooserText || ePlayer == NO_PLAYER || !(GET_TEAM(GET_PLAYER(ePlayer).getTeam()).isHasTech((TechTypes)(kBuilding.getPrereqAndTechs(iI))))) {
+			for (int iI = 1; iI < kBuilding.getNumPrereqAndTechs(); ++iI) {
+				if (kBuilding.getPrereqAndTech(iI) != NO_TECH) {
+					if (bTechChooserText || ePlayer == NO_PLAYER || !(GET_TEAM(GET_PLAYER(ePlayer).getTeam()).isHasTech((TechTypes)(kBuilding.getPrereqAndTech(iI))))) {
 						CvWString szTempBuffer;
 						szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_REQUIRES").c_str());
-						setListHelp(szBuffer, szTempBuffer, GC.getTechInfo(((TechTypes)(kBuilding.getPrereqAndTechs(iI)))).getDescription(), gDLL->getText("TXT_KEY_AND").c_str(), bFirst);
+						setListHelp(szBuffer, szTempBuffer, GC.getTechInfo(((TechTypes)(kBuilding.getPrereqAndTech(iI)))).getDescription(), gDLL->getText("TXT_KEY_AND").c_str(), bFirst);
 						bFirst = false;
 					}
 				}

@@ -59,9 +59,9 @@
 	<ElementType name="FreeStartEra" content="textOnly"/>
 	<ElementType name="MaxStartEra" content="textOnly"/>
 	<ElementType name="ObsoleteTech" content="textOnly"/>
-	<ElementType name="PrereqTech" content="textOnly"/>
-	<ElementType name="TechTypes" content="eltOnly">
-		<element type="PrereqTech" minOccurs="0" maxOccurs="*"/>
+	<ElementType name="TechType" content="textOnly"/>
+	<ElementType name="PrereqAndTechs" content="eltOnly">
+		<element type="TechType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="Bonus" content="textOnly"/>
 	<ElementType name="PrereqBonuses" content="eltOnly">
@@ -399,8 +399,7 @@
 		<element type="FreeStartEra" minOccurs="0"/>
 		<element type="MaxStartEra" minOccurs="0"/>
 		<element type="ObsoleteTech" minOccurs="0"/>
-		<element type="PrereqTech" minOccurs="0"/>
-		<element type="TechTypes" minOccurs="0"/>
+		<element type="PrereqAndTechs" minOccurs="0"/>
 		<element type="Bonus" minOccurs="0"/>
 		<element type="PrereqBonuses" minOccurs="0"/>
 		<element type="ProductionTraits" minOccurs="0"/>

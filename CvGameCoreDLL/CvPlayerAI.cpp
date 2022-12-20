@@ -3966,22 +3966,18 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 					// missing tech stays at 0, because this is a special case. (ie. no great person required)
 				} else if (corpHQs[iJ] != NO_BUILDING) {
 					const CvBuildingInfo& kBuildingInfo = GC.getBuildingInfo(corpHQs[iJ]);
-					if (kBuildingInfo.getPrereqAndTech() == eTech ||
-						kTeam.isHasTech((TechTypes)kBuildingInfo.getPrereqAndTech()) ||
-						canResearch((TechTypes)kBuildingInfo.getPrereqAndTech())) {
-						bCorpTech = true;
-						// Count the required techs. (cf. isTechRequiredForBuilding)
+					for (int iI = 0; iI < kBuildingInfo.getNumPrereqAndTechs(); iI++) {
+						if (kBuildingInfo.getPrereqAndTech(iI) == eTech || kTeam.isHasTech((TechTypes)kBuildingInfo.getPrereqAndTech(iI)) || canResearch((TechTypes)kBuildingInfo.getPrereqAndTech(iI))) {
+							bCorpTech = true;
+							// Count the required techs. (cf. isTechRequiredForBuilding)
 
-						iMissingTechs += !kTeam.isHasTech((TechTypes)kBuildingInfo.getPrereqAndTech()) ? 1 : 0;
+							iMissingTechs += !kTeam.isHasTech((TechTypes)kBuildingInfo.getPrereqAndTech(iI)) ? 1 : 0;
 
-						for (int iP = 0; iP < GC.getNUM_BUILDING_AND_TECH_PREREQS(); iP++) {
-							iMissingTechs += !kTeam.isHasTech((TechTypes)kBuildingInfo.getPrereqAndTechs(iP)) ? 1 : 0;
+							SpecialBuildingTypes eSpecial = (SpecialBuildingTypes)kBuildingInfo.getSpecialBuildingType();
+							iMissingTechs += eSpecial != NO_SPECIALBUILDING && !kTeam.isHasTech((TechTypes)GC.getSpecialBuildingInfo(eSpecial).getTechPrereq()) ? 1 : 0;
+
+							FAssert(iMissingTechs > 0);
 						}
-
-						SpecialBuildingTypes eSpecial = (SpecialBuildingTypes)kBuildingInfo.getSpecialBuildingType();
-						iMissingTechs += eSpecial != NO_SPECIALBUILDING && !kTeam.isHasTech((TechTypes)GC.getSpecialBuildingInfo(eSpecial).getTechPrereq()) ? 1 : 0;
-
-						FAssert(iMissingTechs > 0);
 					}
 				}
 				if (bCorpTech) {
@@ -4287,8 +4283,12 @@ int CvPlayerAI::AI_techBuildingValue(TechTypes eTech, bool bConstCache, bool& bE
 			if (GC.getGameINLINE().isBuildingClassMaxedOut(eClass) || kLoopBuilding.getProductionCost() < 0)
 				continue; // either maxed out, or it's a special building that we don't want to evaluate here.
 
-			if (kLoopBuilding.getPrereqAndTech() == eTech)
-				bEnablesWonder = true; // a buildable world wonder
+			for (int iI = 0; iI < kLoopBuilding.getNumPrereqAndTechs(); iI++) {
+				if (kLoopBuilding.getPrereqAndTech(iI) == eTech) {
+					bEnablesWonder = true; // a buildable world wonder
+					break;
+				}
+			}
 		}
 
 		bool bLimitedBuilding = isLimitedWonderClass(eClass) || kLoopBuilding.getProductionCost() < 0;
@@ -4479,24 +4479,27 @@ int CvPlayerAI::AI_techBuildingValue_old(TechTypes eTech, int iPathLength, bool&
 					iBuildingValue += kLoopBuilding.getHealth() * 100; // was 150
 				}
 
-				if (kLoopBuilding.getPrereqAndTech() == eTech) {
-					if (iPathLength <= 1) {
-						if (getTotalPopulation() > 5) {
-							if (isWorldWonderClass((BuildingClassTypes)iJ)) {
-								if (!(GC.getGameINLINE().isBuildingClassMaxedOut((BuildingClassTypes)iJ))) {
-									bEnablesWonder = true;
+				for (int iI = 0; iI < kLoopBuilding.getNumPrereqAndTechs(); iI++) {
+					if (kLoopBuilding.getPrereqAndTech(iI) == eTech) {
+						if (iPathLength <= 1) {
+							if (getTotalPopulation() > 5) {
+								if (isWorldWonderClass((BuildingClassTypes)iJ)) {
+									if (!(GC.getGameINLINE().isBuildingClassMaxedOut((BuildingClassTypes)iJ))) {
+										bEnablesWonder = true;
 
-									if (AI_isDoVictoryStrategy(AI_VICTORY_CULTURE1)) {
-										// K-Mod. Lets not fall over ourselves to get a small-culture wonder.
-										if (kLoopBuilding.getCommerceChange(COMMERCE_CULTURE) +
-											kLoopBuilding.getObsoleteSafeCommerceChange(COMMERCE_CULTURE) >= 4 ||
-											kLoopBuilding.getCommerceModifier(COMMERCE_CULTURE) >= 20) {
-											iValue += 400;
+										if (AI_isDoVictoryStrategy(AI_VICTORY_CULTURE1)) {
+											// K-Mod. Lets not fall over ourselves to get a small-culture wonder.
+											if (kLoopBuilding.getCommerceChange(COMMERCE_CULTURE) +
+												kLoopBuilding.getObsoleteSafeCommerceChange(COMMERCE_CULTURE) >= 4 ||
+												kLoopBuilding.getCommerceModifier(COMMERCE_CULTURE) >= 20) {
+												iValue += 400;
+											}
 										}
-									}
 
-									if (bCapitalAlone) {
-										iBuildingValue += 400;
+										if (bCapitalAlone) {
+											iBuildingValue += 400;
+										}
+										break;
 									}
 								}
 							}
@@ -7142,14 +7145,10 @@ int CvPlayerAI::AI_baseBonusVal(BonusTypes eBonus) const {
 					{
 						// determine whether we have the tech for this building
 						bool bHasTechForBuilding = true;
-						if (!(kTeam.isHasTech((TechTypes)(kLoopBuilding.getPrereqAndTech())))) {
-							bHasTechForBuilding = false;
-						}
-						for (int iPrereqIndex = 0; bHasTechForBuilding && iPrereqIndex < GC.getNUM_BUILDING_AND_TECH_PREREQS(); iPrereqIndex++) {
-							if (kLoopBuilding.getPrereqAndTechs(iPrereqIndex) != NO_TECH) {
-								if (!(kTeam.isHasTech((TechTypes)(kLoopBuilding.getPrereqAndTechs(iPrereqIndex))))) {
-									bHasTechForBuilding = false;
-								}
+						for (int iI = 0; iI < kLoopBuilding.getNumPrereqAndTechs(); iI++) {
+							if (!(kTeam.isHasTech((TechTypes)(kLoopBuilding.getPrereqAndTech(iI))))) {
+								bHasTechForBuilding = false;
+								break;
 							}
 						}
 
@@ -7176,14 +7175,17 @@ int CvPlayerAI::AI_baseBonusVal(BonusTypes eBonus) const {
 							iTempValue /= std::max(1, iCityCount / 2);
 						}
 
-						if (kLoopBuilding.getPrereqAndTech() != NO_TECH) {
-							int iDiff = abs(GC.getTechInfo((TechTypes)(kLoopBuilding.getPrereqAndTech())).getEra() - getCurrentEra());
-
-							if (iDiff == 0) {
+						if (kLoopBuilding.getNumPrereqAndTechs() > 0) {
+							int iMaxDiff = 0;
+							for (int iI = 0; iI < kLoopBuilding.getNumPrereqAndTechs(); iI++) {
+								int iDiff = abs(GC.getTechInfo((TechTypes)(kLoopBuilding.getPrereqAndTech(iI))).getEra() - getCurrentEra());
+								iMaxDiff = std::max(iMaxDiff, iDiff);
+							}
+							if (iMaxDiff == 0) {
 								iTempValue *= 3;
 								iTempValue /= 2;
 							} else {
-								iTempValue /= iDiff;
+								iTempValue /= iMaxDiff;
 							}
 						}
 
@@ -10063,10 +10065,12 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 								if (canDoCivics(eCivic)) {
 									// Only check the tech prereqs for the corp if we already have the prereqs for this civic.
 									// (This condition will help us research towards the corp tech rather than researching towards the civic that will block the corp.)
-									bHasPrereq = kTeam.isHasTech((TechTypes)kLoopBuilding.getPrereqAndTech()) || canResearch((TechTypes)kLoopBuilding.getPrereqAndTech());
-
-									for (int iI = 0; bHasPrereq && iI < GC.getNUM_BUILDING_AND_TECH_PREREQS(); iI++) {
-										bHasPrereq = kTeam.isHasTech((TechTypes)kLoopBuilding.getPrereqAndTechs(iI)) || canResearch((TechTypes)kLoopBuilding.getPrereqAndTechs(iI));
+									TechTypes eTech;
+									for (int iI = 0; bHasPrereq && iI < kLoopBuilding.getNumPrereqAndTechs(); iI++) {
+										eTech = (TechTypes)kLoopBuilding.getPrereqAndTech(iI);
+										if (!kTeam.isHasTech(eTech) || canResearch(eTech)) {
+											bHasPrereq = false;
+										}
 									}
 								}
 
@@ -10076,10 +10080,8 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 									for (PlayerTypes j = (PlayerTypes)0; j < MAX_CIV_PLAYERS; j = (PlayerTypes)(j + 1)) {
 										const CvTeam& kLoopTeam = GET_TEAM(GET_PLAYER(j).getTeam());
 										if (kLoopTeam.getID() != getTeam() && kTeam.isHasMet(kLoopTeam.getID())) {
-											bHasPrereq = kLoopTeam.isHasTech((TechTypes)kLoopBuilding.getPrereqAndTech());
-
-											for (int iI = 0; bHasPrereq && iI < GC.getNUM_BUILDING_AND_TECH_PREREQS(); iI++) {
-												bHasPrereq = kLoopTeam.isHasTech((TechTypes)kLoopBuilding.getPrereqAndTechs(iI));
+											for (int iI = 0; bHasPrereq && iI < kLoopBuilding.getNumPrereqAndTechs(); iI++) {
+												bHasPrereq = kLoopTeam.isHasTech((TechTypes)kLoopBuilding.getPrereqAndTech(iI));
 											}
 											if (bHasPrereq)
 												iSpeculation++;

@@ -2578,8 +2578,8 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		iItemEra = -1
 		if iBuilding > -1:
 			ItemInfo = gc.getBuildingInfo(iBuilding)
-			iTech = ItemInfo.getPrereqAndTech()
-			if iTech > -1:
+			if ItemInfo.getNumPrereqAndTechs() > 0:
+				iTech = ItemInfo.getPrereqAndTech(0)
 				iItemEra = max(iItemEra, gc.getTechInfo(iTech).getEra())
 			iSpecial = ItemInfo.getSpecialBuildingType()
 			if iSpecial > -1:

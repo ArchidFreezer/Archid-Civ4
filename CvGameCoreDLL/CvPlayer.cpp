@@ -4733,15 +4733,9 @@ bool CvPlayer::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestV
 
 	if (!bIgnoreTech) // K-Mod
 	{
-		if (!(currentTeam.isHasTech((TechTypes)(GC.getBuildingInfo(eBuilding).getPrereqAndTech())))) {
-			return false;
-		}
-
-		for (int iI = 0; iI < GC.getNUM_BUILDING_AND_TECH_PREREQS(); iI++) {
-			if (GC.getBuildingInfo(eBuilding).getPrereqAndTechs(iI) != NO_TECH) {
-				if (!(currentTeam.isHasTech((TechTypes)(GC.getBuildingInfo(eBuilding).getPrereqAndTechs(iI))))) {
-					return false;
-				}
+		for (int iI = 0; iI < GC.getBuildingInfo(eBuilding).getNumPrereqAndTechs(); iI++) {
+			if (!(currentTeam.isHasTech((TechTypes)(GC.getBuildingInfo(eBuilding).getPrereqAndTech(iI))))) {
+				return false;
 			}
 		}
 	}
@@ -13068,12 +13062,8 @@ int CvPlayer::getAdvancedStartTechCost(TechTypes eTech, bool bAdd) const {
 				BuildingTypes eBuilding = (BuildingTypes)iBuildingLoop;
 
 				if (pLoopCity->getNumRealBuilding(eBuilding) > 0) {
-					if (GC.getBuildingInfo(eBuilding).getPrereqAndTech() == eTech) {
-						return -1;
-					}
-
-					for (int iI = 0; iI < GC.getNUM_BUILDING_AND_TECH_PREREQS(); iI++) {
-						if (GC.getBuildingInfo(eBuilding).getPrereqAndTechs(iI) == eTech) {
+					for (int iI = 0; iI < GC.getBuildingInfo(eBuilding).getNumPrereqAndTechs(); iI++) {
+						if (GC.getBuildingInfo(eBuilding).getPrereqAndTech(iI) == eTech) {
 							return -1;
 						}
 					}

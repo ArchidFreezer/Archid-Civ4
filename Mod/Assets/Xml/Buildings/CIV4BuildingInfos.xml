@@ -56,7 +56,9 @@
 			<Strategy>TXT_KEY_BUILDING_AIRPORT_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_AIRPORT</ArtDefineTag>
-			<PrereqTech>TECH_FLIGHT</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_FLIGHT</TechType>
+			</PrereqAndTechs>
 			<iCost>250</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -93,10 +95,10 @@
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_AQUEDUCT</ArtDefineTag>
 			<FreeStartEra>ERA_RENAISSANCE</FreeStartEra>
-			<PrereqTech>TECH_MATHEMATICS</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_MASONRY</PrereqTech>
-			</TechTypes>
+			<PrereqAndTechs>
+				<TechType>TECH_MATHEMATICS</TechType>
+				<TechType>TECH_MASONRY</TechType>
+			</PrereqAndTechs>
 			<bCenterInCity>1</bCenterInCity>
 			<iCost>100</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
@@ -128,10 +130,10 @@
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_KHMER_BARAY</ArtDefineTag>
 			<FreeStartEra>ERA_RENAISSANCE</FreeStartEra>
-			<PrereqTech>TECH_MATHEMATICS</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_MASONRY</PrereqTech>
-			</TechTypes>
+			<PrereqAndTechs>
+				<TechType>TECH_MATHEMATICS</TechType>
+				<TechType>TECH_MASONRY</TechType>
+			</PrereqAndTechs>
 			<bCenterInCity>1</bCenterInCity>
 			<iCost>100</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
@@ -166,10 +168,10 @@
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_OTTOMAN_HAMMAM</ArtDefineTag>
 			<FreeStartEra>ERA_RENAISSANCE</FreeStartEra>
-			<PrereqTech>TECH_MATHEMATICS</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_MASONRY</PrereqTech>
-			</TechTypes>
+			<PrereqAndTechs>
+				<TechType>TECH_MATHEMATICS</TechType>
+				<TechType>TECH_MASONRY</TechType>
+			</PrereqAndTechs>
 			<bCenterInCity>1</bCenterInCity>
 			<iCost>100</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
@@ -199,7 +201,9 @@
 			<Strategy>TXT_KEY_BUILDING_BANK_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_BANK</ArtDefineTag>
-			<PrereqTech>TECH_BANKING</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_BANKING</TechType>
+			</PrereqAndTechs>
 			<iCost>200</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -229,7 +233,9 @@
 			<Strategy>TXT_KEY_BUILDING_ENGLISH_STOCK_EXCHANGE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_ENGLISH_STOCK_EXCHANGE</ArtDefineTag>
-			<PrereqTech>TECH_BANKING</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_BANKING</TechType>
+			</PrereqAndTechs>
 			<iCost>200</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -341,7 +347,9 @@
 			<Strategy>TXT_KEY_BUILDING_BOMB_SHELTER_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_BOMB_SHELTER</ArtDefineTag>
-			<PrereqTech>TECH_ELECTRICITY</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ELECTRICITY</TechType>
+			</PrereqAndTechs>
 			<bNukeImmune>1</bNukeImmune>
 			<iCost>100</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
@@ -369,7 +377,9 @@
 			<Strategy>TXT_KEY_BUILDING_BROADCAST_TOWER_STRATEGY</Strategy>
 			<Advisor>ADVISOR_CULTURE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_BROADCAST_TOWER</ArtDefineTag>
-			<PrereqTech>TECH_MASS_MEDIA</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MASS_MEDIA</TechType>
+			</PrereqAndTechs>
 			<HappinessTraits>
 				<HappinessTrait>
 					<HappinessTraitType>TRAIT_CHARISMATIC</HappinessTraitType>
@@ -432,7 +442,9 @@
 			<Strategy>TXT_KEY_BUILDING_BUNKER_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_BUNKER</ArtDefineTag>
-			<PrereqTech>TECH_ELECTRICITY</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ELECTRICITY</TechType>
+			</PrereqAndTechs>
 			<bNukeImmune>1</bNukeImmune>
 			<iCost>100</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
@@ -461,7 +473,9 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_CASTLE</ArtDefineTag>
 			<ObsoleteTech>TECH_ECONOMICS</ObsoleteTech>
-			<PrereqTech>TECH_ENGINEERING</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ENGINEERING</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_PROTECTIVE</ProductionTraitType>
@@ -532,7 +546,9 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_SPANISH_CITADEL</ArtDefineTag>
 			<ObsoleteTech>TECH_ECONOMICS</ObsoleteTech>
-			<PrereqTech>TECH_ENGINEERING</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ENGINEERING</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_PROTECTIVE</ProductionTraitType>
@@ -608,7 +624,9 @@
 			<Strategy>TXT_KEY_BUILDING_COAL_PLANT_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_COAL_PLANT</ArtDefineTag>
-			<PrereqTech>TECH_ASSEMBLY_LINE</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ASSEMBLY_LINE</TechType>
+			</PrereqAndTechs>
 			<PowerBonus>BONUS_COAL</PowerBonus>
 			<bDirtyPower>1</bDirtyPower>
 			<iCost>150</iCost>
@@ -639,7 +657,9 @@
 			<Strategy>TXT_KEY_BUILDING_JAPANESE_SHALE_PLANT_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_JAPANESE_SHALE_PLANT</ArtDefineTag>
-			<PrereqTech>TECH_ASSEMBLY_LINE</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ASSEMBLY_LINE</TechType>
+			</PrereqAndTechs>
 			<bPower>1</bPower>
 			<bDirtyPower>1</bDirtyPower>
 			<iCost>150</iCost>
@@ -675,7 +695,9 @@
 			<Strategy>TXT_KEY_BUILDING_COLOSSEUM_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_COLOSSEUM</ArtDefineTag>
-			<PrereqTech>TECH_CONSTRUCTION</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_CONSTRUCTION</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
@@ -713,7 +735,9 @@
 			<Strategy>TXT_KEY_BUILDING_BABYLON_GARDEN_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_BABYLON_GARDEN</ArtDefineTag>
-			<PrereqTech>TECH_CONSTRUCTION</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_CONSTRUCTION</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
@@ -752,7 +776,9 @@
 			<Strategy>TXT_KEY_BUILDING_GREEK_ODEON_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_GREEK_ODEON</ArtDefineTag>
-			<PrereqTech>TECH_CONSTRUCTION</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_CONSTRUCTION</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
@@ -811,7 +837,9 @@
 			<Strategy>TXT_KEY_BUILDING_MAYA_BALL_COURT_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_MAYA_BALL_COURT</ArtDefineTag>
-			<PrereqTech>TECH_CONSTRUCTION</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_CONSTRUCTION</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
@@ -850,7 +878,9 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_COURTHOUSE</ArtDefineTag>
 			<FreeStartEra>ERA_MODERN</FreeStartEra>
-			<PrereqTech>TECH_CODE_OF_LAWS</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_CODE_OF_LAWS</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
@@ -901,7 +931,9 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_AZTEC_SACRIFICIAL_ALTAR</ArtDefineTag>
 			<FreeStartEra>ERA_MODERN</FreeStartEra>
-			<PrereqTech>TECH_CODE_OF_LAWS</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_CODE_OF_LAWS</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
@@ -953,7 +985,9 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_HOLY_ROMAN_RATHAUS</ArtDefineTag>
 			<FreeStartEra>ERA_MODERN</FreeStartEra>
-			<PrereqTech>TECH_CODE_OF_LAWS</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_CODE_OF_LAWS</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
@@ -1004,7 +1038,9 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_SUMERIAN_ZIGGURAT</ArtDefineTag>
 			<FreeStartEra>ERA_MODERN</FreeStartEra>
-			<PrereqTech>TECH_PRIESTHOOD</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_PRIESTHOOD</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
@@ -1054,7 +1090,9 @@
 			<Strategy>TXT_KEY_BUILDING_CUSTOM_HOUSE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_CUSTOM_HOUSE</ArtDefineTag>
-			<PrereqTech>TECH_ECONOMICS</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ECONOMICS</TechType>
+			</PrereqAndTechs>
 			<bWater>1</bWater>
 			<iCost>180</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
@@ -1087,7 +1125,9 @@
 			<Strategy>TXT_KEY_BUILDING_PORTUGAL_FEITORIA_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_PORTUGAL_FEITORIA</ArtDefineTag>
-			<PrereqTech>TECH_ECONOMICS</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ECONOMICS</TechType>
+			</PrereqAndTechs>
 			<bWater>1</bWater>
 			<iCost>180</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
@@ -1125,7 +1165,9 @@
 			<Strategy>TXT_KEY_BUILDING_DRYDOCK_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_DRYDOCK</ArtDefineTag>
-			<PrereqTech>TECH_STEEL</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_STEEL</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_AGGRESSIVE</ProductionTraitType>
@@ -1175,7 +1217,9 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_FACTORY</ArtDefineTag>
 			<FreeStartEra>ERA_FUTURE</FreeStartEra>
-			<PrereqTech>TECH_ASSEMBLY_LINE</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ASSEMBLY_LINE</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
@@ -1237,7 +1281,9 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_GERMAN_ASSEMBLY_PLANT</ArtDefineTag>
 			<FreeStartEra>ERA_FUTURE</FreeStartEra>
-			<PrereqTech>TECH_ASSEMBLY_LINE</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ASSEMBLY_LINE</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
@@ -1309,7 +1355,9 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_FORGE</ArtDefineTag>
 			<FreeStartEra>ERA_RENAISSANCE</FreeStartEra>
-			<PrereqTech>TECH_METAL_CASTING</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_METAL_CASTING</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_INDUSTRIOUS</ProductionTraitType>
@@ -1370,7 +1418,9 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_MALI_MINT</ArtDefineTag>
 			<FreeStartEra>ERA_RENAISSANCE</FreeStartEra>
-			<PrereqTech>TECH_METAL_CASTING</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_METAL_CASTING</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_INDUSTRIOUS</ProductionTraitType>
@@ -1438,7 +1488,9 @@
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_GRANARY</ArtDefineTag>
 			<FreeStartEra>ERA_MEDIEVAL</FreeStartEra>
-			<PrereqTech>TECH_POTTERY</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_POTTERY</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_EXPANSIVE</ProductionTraitType>
@@ -1487,7 +1539,9 @@
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_INCAN_TERRACE</ArtDefineTag>
 			<FreeStartEra>ERA_MEDIEVAL</FreeStartEra>
-			<PrereqTech>TECH_POTTERY</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_POTTERY</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_EXPANSIVE</ProductionTraitType>
@@ -1545,10 +1599,10 @@
 			<Strategy>TXT_KEY_BUILDING_GROCER_STRATEGY</Strategy>
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_GROCER</ArtDefineTag>
-			<PrereqTech>TECH_GUILDS</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_CURRENCY</PrereqTech>
-			</TechTypes>
+			<PrereqAndTechs>
+				<TechType>TECH_GUILDS</TechType>
+				<TechType>TECH_CURRENCY</TechType>
+			</PrereqAndTechs>
 			<iCost>150</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -1602,10 +1656,10 @@
 			<Strategy>TXT_KEY_BUILDING_PERSIAN_APOTHECARY_STRATEGY</Strategy>
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_PERSIAN_APOTHECARY</ArtDefineTag>
-			<PrereqTech>TECH_GUILDS</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_CURRENCY</PrereqTech>
-			</TechTypes>
+			<PrereqAndTechs>
+				<TechType>TECH_GUILDS</TechType>
+				<TechType>TECH_CURRENCY</TechType>
+			</PrereqAndTechs>
 			<iCost>150</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -1661,7 +1715,9 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_HARBOR</ArtDefineTag>
 			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
-			<PrereqTech>TECH_COMPASS</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_COMPASS</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_EXPANSIVE</ProductionTraitType>
@@ -1712,7 +1768,9 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_CARTHAGE_COTHON</ArtDefineTag>
 			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
-			<PrereqTech>TECH_COMPASS</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_COMPASS</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_EXPANSIVE</ProductionTraitType>
@@ -1763,7 +1821,9 @@
 			<Strategy>TXT_KEY_BUILDING_HOSPITAL_STRATEGY</Strategy>
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_HOSPITAL</ArtDefineTag>
-			<PrereqTech>TECH_MEDICINE</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MEDICINE</TechType>
+			</PrereqAndTechs>
 			<iCost>200</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -1792,7 +1852,9 @@
 			<Strategy>TXT_KEY_BUILDING_HYDRO_PLANT_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_HYDRO_PLANT</ArtDefineTag>
-			<PrereqTech>TECH_PLASTICS</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_PLASTICS</TechType>
+			</PrereqAndTechs>
 			<bRiver>1</bRiver>
 			<bPower>1</bPower>
 			<iCost>200</iCost>
@@ -1823,7 +1885,9 @@
 			<Strategy>TXT_KEY_BUILDING_INDUSTRIAL_PARK_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_INDUSTRIAL_PARK</ArtDefineTag>
-			<PrereqTech>TECH_INDUSTRIALISM</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_INDUSTRIALISM</TechType>
+			</PrereqAndTechs>
 			<iCost>250</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -1879,7 +1943,9 @@
 			<Strategy>TXT_KEY_BUILDING_INTELLIGENCE_AGENCY_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_INTELLIGENCE_AGENCY</ArtDefineTag>
-			<PrereqTech>TECH_UTOPIA</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_UTOPIA</TechType>
+			</PrereqAndTechs>
 			<iCost>180</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -1925,7 +1991,9 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_JAIL</ArtDefineTag>
 			<FreeStartEra>ERA_MODERN</FreeStartEra>
-			<PrereqTech>TECH_CONSTITUTION</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_CONSTITUTION</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_AGGRESSIVE</ProductionTraitType>
@@ -1981,7 +2049,9 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_INDIAN_MAUSOLEUM</ArtDefineTag>
 			<FreeStartEra>ERA_MODERN</FreeStartEra>
-			<PrereqTech>TECH_CONSTITUTION</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_CONSTITUTION</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_AGGRESSIVE</ProductionTraitType>
@@ -2037,7 +2107,9 @@
 			<Strategy>TXT_KEY_BUILDING_LABORATORY_STRATEGY</Strategy>
 			<Advisor>ADVISOR_SCIENCE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_LABORATORY</ArtDefineTag>
-			<PrereqTech>TECH_SUPERCONDUCTORS</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_SUPERCONDUCTORS</TechType>
+			</PrereqAndTechs>
 			<iCost>250</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -2079,7 +2151,9 @@
 			<Strategy>TXT_KEY_BUILDING_RUSSIAN_RESEARCH_INSTITUTE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_SCIENCE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_RUSSIAN_RESEARCH_INSTITUTE</ArtDefineTag>
-			<PrereqTech>TECH_SUPERCONDUCTORS</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_SUPERCONDUCTORS</TechType>
+			</PrereqAndTechs>
 			<iCost>250</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -2127,7 +2201,9 @@
 			<Strategy>TXT_KEY_BUILDING_LEVEE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_LEVEE</ArtDefineTag>
-			<PrereqTech>TECH_STEAM_POWER</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_STEAM_POWER</TechType>
+			</PrereqAndTechs>
 			<bRiver>1</bRiver>
 			<iCost>180</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
@@ -2160,7 +2236,9 @@
 			<Strategy>TXT_KEY_BUILDING_NETHERLANDS_DIKE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_NETHERLANDS_DIKE</ArtDefineTag>
-			<PrereqTech>TECH_STEAM_POWER</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_STEAM_POWER</TechType>
+			</PrereqAndTechs>
 			<bWater>1</bWater>
 			<bRiver>1</bRiver>
 			<iCost>180</iCost>
@@ -2199,7 +2277,9 @@
 			<Advisor>ADVISOR_SCIENCE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_LIBRARY</ArtDefineTag>
 			<FreeStartEra>ERA_MODERN</FreeStartEra>
-			<PrereqTech>TECH_WRITING</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_WRITING</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
@@ -2253,7 +2333,9 @@
 			<Advisor>ADVISOR_SCIENCE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_ARABIAN_MADRASSA</ArtDefineTag>
 			<FreeStartEra>ERA_MODERN</FreeStartEra>
-			<PrereqTech>TECH_WRITING</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_WRITING</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
@@ -2311,7 +2393,9 @@
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_LIGHTHOUSE</ArtDefineTag>
 			<FreeStartEra>ERA_MEDIEVAL</FreeStartEra>
-			<PrereqTech>TECH_SAILING</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_SAILING</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
@@ -2350,7 +2434,9 @@
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_VIKING_TRADING_POST</ArtDefineTag>
 			<FreeStartEra>ERA_MEDIEVAL</FreeStartEra>
-			<PrereqTech>TECH_SAILING</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_SAILING</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
@@ -2391,7 +2477,9 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_MARKET</ArtDefineTag>
 			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
-			<PrereqTech>TECH_CURRENCY</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_CURRENCY</TechType>
+			</PrereqAndTechs>
 			<iCost>150</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -2446,7 +2534,9 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_ROMAN_FORUM</ArtDefineTag>
 			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
-			<PrereqTech>TECH_CURRENCY</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_CURRENCY</TechType>
+			</PrereqAndTechs>
 			<iCost>150</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -2501,7 +2591,9 @@
 			<Strategy>TXT_KEY_THIRD_ROUND_BUILDING_MILITARY_ACADEMY_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_MILITARY_ACADEMY</ArtDefineTag>
-			<PrereqTech>TECH_MILITARY_SCIENCE</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MILITARY_SCIENCE</TechType>
+			</PrereqAndTechs>
 			<iCost>-1</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iConquestProb>100</iConquestProb>
@@ -2539,7 +2631,9 @@
 			<Advisor>ADVISOR_CULTURE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_MONUMENT</ArtDefineTag>
 			<ObsoleteTech>TECH_ASTRONOMY</ObsoleteTech>
-			<PrereqTech>TECH_MYSTICISM</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MYSTICISM</TechType>
+			</PrereqAndTechs>
 			<HappinessTraits>
 				<HappinessTrait>
 					<HappinessTraitType>TRAIT_CHARISMATIC</HappinessTraitType>
@@ -2584,7 +2678,9 @@
 			<Advisor>ADVISOR_CULTURE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_EGYPTIAN_OBELISK</ArtDefineTag>
 			<ObsoleteTech>TECH_ASTRONOMY</ObsoleteTech>
-			<PrereqTech>TECH_MYSTICISM</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MYSTICISM</TechType>
+			</PrereqAndTechs>
 			<HappinessTraits>
 				<HappinessTrait>
 					<HappinessTraitType>TRAIT_CHARISMATIC</HappinessTraitType>
@@ -2635,7 +2731,9 @@
 			<Advisor>ADVISOR_CULTURE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_ETHIOPIAN_STELE</ArtDefineTag>
 			<ObsoleteTech>TECH_ASTRONOMY</ObsoleteTech>
-			<PrereqTech>TECH_MYSTICISM</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MYSTICISM</TechType>
+			</PrereqAndTechs>
 			<HappinessTraits>
 				<HappinessTrait>
 					<HappinessTraitType>TRAIT_CHARISMATIC</HappinessTraitType>
@@ -2685,7 +2783,9 @@
 			<Advisor>ADVISOR_CULTURE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_NATIVE_AMERICA_TOTEM</ArtDefineTag>
 			<ObsoleteTech>TECH_ASTRONOMY</ObsoleteTech>
-			<PrereqTech>TECH_MYSTICISM</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MYSTICISM</TechType>
+			</PrereqAndTechs>
 			<HappinessTraits>
 				<HappinessTrait>
 					<HappinessTraitType>TRAIT_CHARISMATIC</HappinessTraitType>
@@ -2736,7 +2836,9 @@
 			<Strategy>TXT_KEY_BUILDING_NUCLEAR_PLANT_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_NUCLEAR_PLANT</ArtDefineTag>
-			<PrereqTech>TECH_FISSION</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_FISSION</TechType>
+			</PrereqAndTechs>
 			<PowerBonus>BONUS_URANIUM</PowerBonus>
 			<iCost>250</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
@@ -2767,7 +2869,9 @@
 			<Strategy>TXT_KEY_BUILDING_OBSERVATORY_STRATEGY</Strategy>
 			<Advisor>ADVISOR_SCIENCE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_OBSERVATORY</ArtDefineTag>
-			<PrereqTech>TECH_ASTRONOMY</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ASTRONOMY</TechType>
+			</PrereqAndTechs>
 			<iCost>150</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -2804,7 +2908,9 @@
 			<Strategy>TXT_KEY_BUILDING_FRENCH_SALON_STRATEGY</Strategy>
 			<Advisor>ADVISOR_SCIENCE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_FRENCH_SALON</ArtDefineTag>
-			<PrereqTech>TECH_ASTRONOMY</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ASTRONOMY</TechType>
+			</PrereqAndTechs>
 			<iCost>150</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -2885,7 +2991,9 @@
 			<Strategy>TXT_KEY_BUILDING_PUBLIC_TRANSPORTATION_STRATEGY</Strategy>
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_PUBLIC_TRANSPORTATION</ArtDefineTag>
-			<PrereqTech>TECH_COMBUSTION</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_COMBUSTION</TechType>
+			</PrereqAndTechs>
 			<iUnhealthyPopulationModifier>-15</iUnhealthyPopulationModifier>
 			<iCost>200</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
@@ -2912,7 +3020,9 @@
 			<Strategy>TXT_KEY_BUILDING_RECYCLING_CENTER_STRATEGY</Strategy>
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_RECYCLING_CENTER</ArtDefineTag>
-			<PrereqTech>TECH_ECOLOGY</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ECOLOGY</TechType>
+			</PrereqAndTechs>
 			<bBuildingOnlyHealthy>1</bBuildingOnlyHealthy>
 			<iCost>300</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
@@ -2971,7 +3081,9 @@
 			<Strategy>TXT_KEY_BUILDING_NATIONAL_SECURITY_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_NATIONAL_SECURITY</ArtDefineTag>
-			<PrereqTech>TECH_DEMOCRACY</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_DEMOCRACY</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_PROTECTIVE</ProductionTraitType>
@@ -3018,7 +3130,9 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_STABLE</ArtDefineTag>
 			<ObsoleteTech>TECH_ADVANCED_FLIGHT</ObsoleteTech>
-			<PrereqTech>TECH_HORSEBACK_RIDING</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_HORSEBACK_RIDING</TechType>
+			</PrereqAndTechs>
 			<iCost>60</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -3052,7 +3166,9 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_MONGOL_GER</ArtDefineTag>
 			<ObsoleteTech>TECH_ADVANCED_FLIGHT</ObsoleteTech>
-			<PrereqTech>TECH_HORSEBACK_RIDING</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_HORSEBACK_RIDING</TechType>
+			</PrereqAndTechs>
 			<iCost>60</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -3085,7 +3201,9 @@
 			<Strategy>TXT_KEY_BUILDING_SUPERMARKET_STRATEGY</Strategy>
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_SUPERMARKET</ArtDefineTag>
-			<PrereqTech>TECH_REFRIGERATION</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_REFRIGERATION</TechType>
+			</PrereqAndTechs>
 			<iCost>150</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -3136,7 +3254,9 @@
 			<Strategy>TXT_KEY_BUILDING_AMERICAN_MALL_STRATEGY</Strategy>
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_AMERICAN_MALL</ArtDefineTag>
-			<PrereqTech>TECH_REFRIGERATION</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_REFRIGERATION</TechType>
+			</PrereqAndTechs>
 			<iCost>150</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -3204,7 +3324,9 @@
 			<Strategy>TXT_KEY_BUILDING_THEATRE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_CULTURE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_THEATRE</ArtDefineTag>
-			<PrereqTech>TECH_DRAMA</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_DRAMA</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
@@ -3264,7 +3386,9 @@
 			<Strategy>TXT_KEY_BUILDING_BYZANTINE_HIPPODROME_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_BYZANTINE_HIPPODROME</ArtDefineTag>
-			<PrereqTech>TECH_DRAMA</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_DRAMA</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
@@ -3325,7 +3449,9 @@
 			<Strategy>TXT_KEY_BUILDING_CHINESE_PAVILLION_STRATEGY</Strategy>
 			<Advisor>ADVISOR_CULTURE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_CHINESE_PAVILLION</ArtDefineTag>
-			<PrereqTech>TECH_DRAMA</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_DRAMA</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
@@ -3390,7 +3516,9 @@
 			<Strategy>TXT_KEY_BUILDING_UNIVERSITY_STRATEGY</Strategy>
 			<Advisor>ADVISOR_SCIENCE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_UNIVERSITY</ArtDefineTag>
-			<PrereqTech>TECH_EDUCATION</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_EDUCATION</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_PHILOSOPHICAL</ProductionTraitType>
@@ -3440,7 +3568,9 @@
 			<Strategy>TXT_KEY_BUILDING_KOREAN_SEOWON_STRATEGY</Strategy>
 			<Advisor>ADVISOR_SCIENCE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_KOREAN_SEOWON</ArtDefineTag>
-			<PrereqTech>TECH_EDUCATION</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_EDUCATION</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_PHILOSOPHICAL</ProductionTraitType>
@@ -3491,7 +3621,9 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_WALLS</ArtDefineTag>
 			<ObsoleteTech>TECH_RIFLING</ObsoleteTech>
-			<PrereqTech>TECH_MASONRY</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MASONRY</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_PROTECTIVE</ProductionTraitType>
@@ -3534,7 +3666,9 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_CELTIC_DUN</ArtDefineTag>
 			<ObsoleteTech>TECH_RIFLING</ObsoleteTech>
-			<PrereqTech>TECH_MASONRY</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MASONRY</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_PROTECTIVE</ProductionTraitType>
@@ -3666,7 +3800,7 @@
 			</BonusProductionModifiers>
 			<PrereqBuildingClasses>
 				<PrereqBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_BUDDHIST_TEMPLE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_BUDDHIST_TEMPLE</BuildingClassType>
 					<iNumBuildingNeeded>2</iNumBuildingNeeded>
 				</PrereqBuildingClass>
 			</PrereqBuildingClasses>
@@ -3870,7 +4004,7 @@
 			</BonusProductionModifiers>
 			<PrereqBuildingClasses>
 				<PrereqBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_CHRISTIAN_TEMPLE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CHRISTIAN_TEMPLE</BuildingClassType>
 					<iNumBuildingNeeded>2</iNumBuildingNeeded>
 				</PrereqBuildingClass>
 			</PrereqBuildingClasses>
@@ -4074,7 +4208,7 @@
 			</BonusProductionModifiers>
 			<PrereqBuildingClasses>
 				<PrereqBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_CONFUCIAN_TEMPLE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CONFUCIAN_TEMPLE</BuildingClassType>
 					<iNumBuildingNeeded>2</iNumBuildingNeeded>
 				</PrereqBuildingClass>
 			</PrereqBuildingClasses>
@@ -4278,7 +4412,7 @@
 			</BonusProductionModifiers>
 			<PrereqBuildingClasses>
 				<PrereqBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_HINDU_TEMPLE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_HINDU_TEMPLE</BuildingClassType>
 					<iNumBuildingNeeded>2</iNumBuildingNeeded>
 				</PrereqBuildingClass>
 			</PrereqBuildingClasses>
@@ -4482,7 +4616,7 @@
 			</BonusProductionModifiers>
 			<PrereqBuildingClasses>
 				<PrereqBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_ISLAMIC_TEMPLE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_ISLAMIC_TEMPLE</BuildingClassType>
 					<iNumBuildingNeeded>2</iNumBuildingNeeded>
 				</PrereqBuildingClass>
 			</PrereqBuildingClasses>
@@ -4686,7 +4820,7 @@
 			</BonusProductionModifiers>
 			<PrereqBuildingClasses>
 				<PrereqBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_JEWISH_TEMPLE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_JEWISH_TEMPLE</BuildingClassType>
 					<iNumBuildingNeeded>2</iNumBuildingNeeded>
 				</PrereqBuildingClass>
 			</PrereqBuildingClasses>
@@ -4890,7 +5024,7 @@
 			</BonusProductionModifiers>
 			<PrereqBuildingClasses>
 				<PrereqBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_TAOIST_TEMPLE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_TAOIST_TEMPLE</BuildingClassType>
 					<iNumBuildingNeeded>2</iNumBuildingNeeded>
 				</PrereqBuildingClass>
 			</PrereqBuildingClasses>
@@ -5022,7 +5156,9 @@
 			<MovieDefineTag>ART_DEF_MOVIE_ANGKOR_WAT</MovieDefineTag>
 			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra>
 			<ObsoleteTech>TECH_COMPUTERS</ObsoleteTech>
-			<PrereqTech>TECH_PHILOSOPHY</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_PHILOSOPHY</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -5093,7 +5229,9 @@
 			<VictoryPrereq>VICTORY_DIPLOMATIC</VictoryPrereq>
 			<MaxStartEra>ERA_INDUSTRIAL</MaxStartEra>
 			<ObsoleteTech>TECH_MASS_MEDIA</ObsoleteTech>
-			<PrereqTech>TECH_THEOLOGY</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_THEOLOGY</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -5136,7 +5274,9 @@
 			<Advisor>ADVISOR_CULTURE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_BROADWAY</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_BROADWAY</MovieDefineTag>
-			<PrereqTech>TECH_ELECTRICITY</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ELECTRICITY</TechType>
+			</PrereqAndTechs>
 			<FreeBonus>BONUS_DRAMA</FreeBonus>
 			<iNumFreeBonuses>-1</iNumFreeBonuses>
 			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
@@ -5180,7 +5320,9 @@
 			<MovieDefineTag>ART_DEF_MOVIE_CHICHEN_ITZA</MovieDefineTag>
 			<MaxStartEra>ERA_MEDIEVAL</MaxStartEra>
 			<ObsoleteTech>TECH_RIFLING</ObsoleteTech>
-			<PrereqTech>TECH_CODE_OF_LAWS</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_CODE_OF_LAWS</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -5233,7 +5375,9 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_CRISTO_REDENTOR</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_CHRIST_THE_REDEEMER</MovieDefineTag>
-			<PrereqTech>TECH_RADIO</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_RADIO</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_SPIRITUAL</ProductionTraitType>
@@ -5282,7 +5426,9 @@
 			<MovieDefineTag>ART_DEF_MOVIE_COLOSSUS</MovieDefineTag>
 			<MaxStartEra>ERA_MEDIEVAL</MaxStartEra>
 			<ObsoleteTech>TECH_ASTRONOMY</ObsoleteTech>
-			<PrereqTech>TECH_METAL_CASTING</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_METAL_CASTING</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_MERCHANT</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -5345,10 +5491,10 @@
 			<ArtDefineTag>ART_DEF_BUILDING_CORPORATION_1</ArtDefineTag>
 			<FoundsCorporation>CORPORATION_1</FoundsCorporation>
 			<GlobalCorporationCommerce>CORPORATION_1</GlobalCorporationCommerce>
-			<PrereqTech>TECH_MEDICINE</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_CORPORATION</PrereqTech>
-			</TechTypes>
+			<PrereqAndTechs>
+				<TechType>TECH_MEDICINE</TechType>
+				<TechType>TECH_CORPORATION</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_MERCHANT</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bNukeImmune>1</bNukeImmune>
@@ -5394,10 +5540,10 @@
 			<ArtDefineTag>ART_DEF_BUILDING_CORPORATION_2</ArtDefineTag>
 			<FoundsCorporation>CORPORATION_2</FoundsCorporation>
 			<GlobalCorporationCommerce>CORPORATION_2</GlobalCorporationCommerce>
-			<PrereqTech>TECH_REFRIGERATION</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_CORPORATION</PrereqTech>
-			</TechTypes>
+			<PrereqAndTechs>
+				<TechType>TECH_REFRIGERATION</TechType>
+				<TechType>TECH_CORPORATION</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_MERCHANT</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bNukeImmune>1</bNukeImmune>
@@ -5443,10 +5589,10 @@
 			<ArtDefineTag>ART_DEF_BUILDING_CORPORATION_3</ArtDefineTag>
 			<FoundsCorporation>CORPORATION_3</FoundsCorporation>
 			<GlobalCorporationCommerce>CORPORATION_3</GlobalCorporationCommerce>
-			<PrereqTech>TECH_COMBUSTION</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_CORPORATION</PrereqTech>
-			</TechTypes>
+			<PrereqAndTechs>
+				<TechType>TECH_COMBUSTION</TechType>
+				<TechType>TECH_CORPORATION</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_SCIENTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bNukeImmune>1</bNukeImmune>
@@ -5492,10 +5638,10 @@
 			<ArtDefineTag>ART_DEF_BUILDING_CORPORATION_4</ArtDefineTag>
 			<FoundsCorporation>CORPORATION_4</FoundsCorporation>
 			<GlobalCorporationCommerce>CORPORATION_4</GlobalCorporationCommerce>
-			<PrereqTech>TECH_STEEL</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_CORPORATION</PrereqTech>
-			</TechTypes>
+			<PrereqAndTechs>
+				<TechType>TECH_STEEL</TechType>
+				<TechType>TECH_CORPORATION</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_ENGINEER</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bNukeImmune>1</bNukeImmune>
@@ -5541,10 +5687,10 @@
 			<ArtDefineTag>ART_DEF_BUILDING_CORPORATION_5</ArtDefineTag>
 			<FoundsCorporation>CORPORATION_5</FoundsCorporation>
 			<GlobalCorporationCommerce>CORPORATION_5</GlobalCorporationCommerce>
-			<PrereqTech>TECH_RAILROAD</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_CORPORATION</PrereqTech>
-			</TechTypes>
+			<PrereqAndTechs>
+				<TechType>TECH_RAILROAD</TechType>
+				<TechType>TECH_CORPORATION</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_ENGINEER</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bNukeImmune>1</bNukeImmune>
@@ -5590,10 +5736,10 @@
 			<ArtDefineTag>ART_DEF_BUILDING_CORPORATION_6</ArtDefineTag>
 			<FoundsCorporation>CORPORATION_6</FoundsCorporation>
 			<GlobalCorporationCommerce>CORPORATION_6</GlobalCorporationCommerce>
-			<PrereqTech>TECH_ROCKETRY</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_CORPORATION</PrereqTech>
-			</TechTypes>
+			<PrereqAndTechs>
+				<TechType>TECH_ROCKETRY</TechType>
+				<TechType>TECH_CORPORATION</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_SCIENTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bNukeImmune>1</bNukeImmune>
@@ -5639,9 +5785,9 @@
 			<ArtDefineTag>ART_DEF_BUILDING_CORPORATION_7</ArtDefineTag>
 			<FoundsCorporation>CORPORATION_7</FoundsCorporation>
 			<GlobalCorporationCommerce>CORPORATION_7</GlobalCorporationCommerce>
-			<PrereqTech>TECH_CORPORATION</PrereqTech>
-			<TechTypes>
-				</TechTypes>
+			<PrereqAndTechs>
+				<TechType>TECH_CORPORATION</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bNukeImmune>1</bNukeImmune>
@@ -5686,7 +5832,9 @@
 			<Advisor>ADVISOR_CULTURE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_EIFFEL_TOWER</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_EIFFEL_TOWER</MovieDefineTag>
-			<PrereqTech>TECH_MASS_MEDIA</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MASS_MEDIA</TechType>
+			</PrereqAndTechs>
 			<FreeBuilding>BUILDINGCLASS_BROADCAST_TOWER</FreeBuilding>
 			<GreatPeopleUnitClass>UNITCLASS_MERCHANT</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
@@ -5743,7 +5891,9 @@
 			<MovieDefineTag>ART_DEF_MOVIE_GREAT_LIBRARY</MovieDefineTag>
 			<MaxStartEra>ERA_MEDIEVAL</MaxStartEra>
 			<ObsoleteTech>TECH_SCIENTIFIC_METHOD</ObsoleteTech>
-			<PrereqTech>TECH_LITERATURE</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_LITERATURE</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_SCIENTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -5806,10 +5956,10 @@
 			<MovieDefineTag>ART_DEF_MOVIE_GREAT_LIGHTHOUSE</MovieDefineTag>
 			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
 			<ObsoleteTech>TECH_CORPORATION</ObsoleteTech>
-			<PrereqTech>TECH_SAILING</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_MASONRY</PrereqTech>
-			</TechTypes>
+			<PrereqAndTechs>
+				<TechType>TECH_SAILING</TechType>
+				<TechType>TECH_MASONRY</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_MERCHANT</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -5862,7 +6012,9 @@
 			<ArtDefineTag>ART_DEF_BUILDING_GREAT_WALL</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_GREAT_WALL</MovieDefineTag>
 			<MaxStartEra>ERA_ANCIENT</MaxStartEra>
-			<PrereqTech>TECH_MASONRY</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MASONRY</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_GREAT_SPY</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bBorderObstacle>1</bBorderObstacle>
@@ -5918,7 +6070,9 @@
 			<MovieDefineTag>ART_DEF_MOVIE_HAGIA_SOPHIA</MovieDefineTag>
 			<MaxStartEra>ERA_MEDIEVAL</MaxStartEra>
 			<ObsoleteTech>TECH_STEAM_POWER</ObsoleteTech>
-			<PrereqTech>TECH_THEOLOGY</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_THEOLOGY</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_ENGINEER</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -5971,7 +6125,9 @@
 			<ArtDefineTag>ART_DEF_BUILDING_HANGING_GARDEN</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_HANGING_GARDENS</MovieDefineTag>
 			<MaxStartEra>ERA_MEDIEVAL</MaxStartEra>
-			<PrereqTech>TECH_MATHEMATICS</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MATHEMATICS</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_ENGINEER</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -6028,7 +6184,9 @@
 			<Advisor>ADVISOR_CULTURE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_HOLLYWOOD</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_HOLLYWOOD</MovieDefineTag>
-			<PrereqTech>TECH_MASS_MEDIA</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MASS_MEDIA</TechType>
+			</PrereqAndTechs>
 			<FreeBonus>BONUS_MOVIES</FreeBonus>
 			<iNumFreeBonuses>-1</iNumFreeBonuses>
 			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
@@ -6071,7 +6229,9 @@
 			<ArtDefineTag>ART_DEF_BUILDING_KREMLIN</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_KREMLIN</MovieDefineTag>
 			<ObsoleteTech>TECH_FIBER_OPTICS</ObsoleteTech>
-			<PrereqTech>TECH_UTOPIA</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_UTOPIA</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_GREAT_SPY</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -6134,7 +6294,9 @@
 			<ArtDefineTag>ART_DEF_BUILDING_MAUSOLEUM_OF_MAUSSOLLOS</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_MAUSOLEUM_OF_MAUSSOLLOS</MovieDefineTag>
 			<MaxStartEra>ERA_MEDIEVAL</MaxStartEra>
-			<PrereqTech>TECH_CALENDAR</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_CALENDAR</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -6181,7 +6343,9 @@
 			<ArtDefineTag>ART_DEF_BUILDING_NOTRE_DAME</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_NOTRE_DAME</MovieDefineTag>
 			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra>
-			<PrereqTech>TECH_ENGINEERING</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ENGINEERING</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -6234,7 +6398,9 @@
 			<ArtDefineTag>ART_DEF_BUILDING_ORACLE</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_ORACLE</MovieDefineTag>
 			<MaxStartEra>ERA_ANCIENT</MaxStartEra>
-			<PrereqTech>TECH_PRIESTHOOD</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_PRIESTHOOD</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -6289,10 +6455,10 @@
 			<MovieDefineTag>ART_DEF_MOVIE_PARTHENON</MovieDefineTag>
 			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
 			<ObsoleteTech>TECH_SCIENTIFIC_METHOD</ObsoleteTech>
-			<PrereqTech>TECH_AESTHETICS</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_POLYTHEISM</PrereqTech>
-			</TechTypes>
+			<PrereqAndTechs>
+				<TechType>TECH_AESTHETICS</TechType>
+				<TechType>TECH_POLYTHEISM</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -6339,7 +6505,9 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_PENTAGON</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_PENTAGON</MovieDefineTag>
-			<PrereqTech>TECH_ASSEMBLY_LINE</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ASSEMBLY_LINE</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_GREAT_SPY</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -6380,7 +6548,9 @@
 			<ArtDefineTag>ART_DEF_BUILDING_PYRAMID</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_PYRAMIDS</MovieDefineTag>
 			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
-			<PrereqTech>TECH_MASONRY</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MASONRY</TechType>
+			</PrereqAndTechs>
 			<CivicOption>CIVICOPTION_GOVERNMENT</CivicOption>
 			<GreatPeopleUnitClass>UNITCLASS_ENGINEER</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
@@ -6428,7 +6598,9 @@
 			<Advisor>ADVISOR_CULTURE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_ROCKNROLL</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_ROCK_AND_ROLL</MovieDefineTag>
-			<PrereqTech>TECH_RADIO</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_RADIO</TechType>
+			</PrereqAndTechs>
 			<FreeBonus>BONUS_MUSIC</FreeBonus>
 			<iNumFreeBonuses>-1</iNumFreeBonuses>
 			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
@@ -6471,10 +6643,10 @@
 			<ArtDefineTag>ART_DEF_BUILDING_SHWEDAGON_PAYA</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_SHWEDAGON_PAYA</MovieDefineTag>
 			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra>
-			<PrereqTech>TECH_AESTHETICS</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_MEDITATION</PrereqTech>
-			</TechTypes>
+			<PrereqAndTechs>
+				<TechType>TECH_AESTHETICS</TechType>
+				<TechType>TECH_MEDITATION</TechType>
+			</PrereqAndTechs>
 			<CivicOption>CIVICOPTION_RELIGION</CivicOption>
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
@@ -6527,7 +6699,9 @@
 			<ArtDefineTag>ART_DEF_BUILDING_SISTINE_CHAPEL</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_SISTINE_CHAPEL</MovieDefineTag>
 			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra>
-			<PrereqTech>TECH_MUSIC</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MUSIC</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -6589,10 +6763,10 @@
 			<ArtDefineTag>ART_DEF_BUILDING_SPACE_ELEVATOR</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_SPACE_ELEVATOR</MovieDefineTag>
 			<VictoryPrereq>VICTORY_SPACE_RACE</VictoryPrereq>
-			<PrereqTech>TECH_ROBOTICS</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_SATELLITES</PrereqTech>
-			</TechTypes>
+			<PrereqAndTechs>
+				<TechType>TECH_ROBOTICS</TechType>
+				<TechType>TECH_SATELLITES</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_SCIENTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -6637,7 +6811,9 @@
 			<MovieDefineTag>ART_DEF_MOVIE_SPIRAL_MINARET</MovieDefineTag>
 			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra>
 			<ObsoleteTech>TECH_COMPUTERS</ObsoleteTech>
-			<PrereqTech>TECH_DIVINE_RIGHT</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_DIVINE_RIGHT</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -6692,7 +6868,9 @@
 			<ArtDefineTag>ART_DEF_BUILDING_STATUE_OF_LIBERTY</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_STATUE_OF_LIBERTY</MovieDefineTag>
 			<MaxStartEra>ERA_INDUSTRIAL</MaxStartEra>
-			<PrereqTech>TECH_DEMOCRACY</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_DEMOCRACY</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_MERCHANT</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -6748,7 +6926,9 @@
 			<ArtDefineTag>ART_DEF_BUILDING_STATUE_OF_ZEUS</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_STATUE_OF_ZEUS</MovieDefineTag>
 			<MaxStartEra>ERA_ANCIENT</MaxStartEra>
-			<PrereqTech>TECH_AESTHETICS</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_AESTHETICS</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -6782,7 +6962,7 @@
 			</BonusProductionModifiers>
 			<PrereqBuildingClasses>
 				<PrereqBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType>
 					<iNumBuildingNeeded>2</iNumBuildingNeeded>
 				</PrereqBuildingClass>
 			</PrereqBuildingClasses>
@@ -6808,7 +6988,9 @@
 			<ArtDefineTag>ART_DEF_BUILDING_STONEHENGE</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_STONEHENGE</MovieDefineTag>
 			<MaxStartEra>ERA_ANCIENT</MaxStartEra>
-			<PrereqTech>TECH_MYSTICISM</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MYSTICISM</TechType>
+			</PrereqAndTechs>
 			<FreeBuilding>BUILDINGCLASS_OBELISK</FreeBuilding>
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
@@ -6863,7 +7045,9 @@
 			<ArtDefineTag>ART_DEF_BUILDING_TAJ_MAHAL</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_TAJ_MAHAL</MovieDefineTag>
 			<MaxStartEra>ERA_INDUSTRIAL</MaxStartEra>
-			<PrereqTech>TECH_NATIONALISM</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_NATIONALISM</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -6917,7 +7101,9 @@
 			<MovieDefineTag>ART_DEF_MOVIE_ARTEMIS</MovieDefineTag>
 			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
 			<ObsoleteTech>TECH_SCIENTIFIC_METHOD</ObsoleteTech>
-			<PrereqTech>TECH_POLYTHEISM</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_POLYTHEISM</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_MERCHANT</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bNukeImmune>1</bNukeImmune>
@@ -6974,7 +7160,9 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_GREAT_DAM</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_THREE_GORGES_DAM</MovieDefineTag>
-			<PrereqTech>TECH_PLASTICS</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_PLASTICS</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_ENGINEER</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -7012,7 +7200,9 @@
 			<ArtDefineTag>ART_DEF_BUILDING_UNITED_NATIONS</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_UNITED_NATIONS</MovieDefineTag>
 			<VictoryPrereq>VICTORY_DIPLOMATIC</VictoryPrereq>
-			<PrereqTech>TECH_MASS_MEDIA</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MASS_MEDIA</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_MERCHANT</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -7052,7 +7242,9 @@
 			<MovieDefineTag>ART_DEF_MOVIE_UNIVERSITY_SANKORE</MovieDefineTag>
 			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra>
 			<ObsoleteTech>TECH_COMPUTERS</ObsoleteTech>
-			<PrereqTech>TECH_PAPER</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_PAPER</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_SCIENTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -7108,7 +7300,9 @@
 			<ArtDefineTag>ART_DEF_BUILDING_VERSAILLES</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_VERSAILLES</MovieDefineTag>
 			<MaxStartEra>ERA_INDUSTRIAL</MaxStartEra>
-			<PrereqTech>TECH_DIVINE_RIGHT</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_DIVINE_RIGHT</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_MERCHANT</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -7183,7 +7377,7 @@
 			</CommerceChangeDoubleTimes>
 			<PrereqBuildingClasses>
 				<PrereqBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
 					<iNumBuildingNeeded>4</iNumBuildingNeeded>
 				</PrereqBuildingClass>
 			</PrereqBuildingClasses>
@@ -7214,7 +7408,9 @@
 			<Strategy>TXT_KEY_BUILDING_GLOBE_THEATRE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_CULTURE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_GLOBE_THEATRE</ArtDefineTag>
-			<PrereqTech>TECH_DRAMA</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_DRAMA</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bNoUnhappiness>1</bNoUnhappiness>
@@ -7239,7 +7435,7 @@
 			</SpecialistCounts>
 			<PrereqBuildingClasses>
 				<PrereqBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_THEATRE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_THEATRE</BuildingClassType>
 					<iNumBuildingNeeded>4</iNumBuildingNeeded>
 				</PrereqBuildingClass>
 			</PrereqBuildingClasses>
@@ -7266,7 +7462,9 @@
 			<Strategy>TXT_KEY_BUILDING_HERMITAGE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_CULTURE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_HERMITAGE</ArtDefineTag>
-			<PrereqTech>TECH_NATIONALISM</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_NATIONALISM</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<iCost>300</iCost>
@@ -7304,7 +7502,9 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_HEROIC_EPIC</ArtDefineTag>
 			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra>
-			<PrereqTech>TECH_LITERATURE</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_LITERATURE</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<iCost>200</iCost>
@@ -7352,7 +7552,9 @@
 			<Strategy>TXT_KEY_BUILDING_IRONWORKS_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_IRON_WORKS</ArtDefineTag>
-			<PrereqTech>TECH_STEEL</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_STEEL</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_ENGINEER</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<iCost>700</iCost>
@@ -7369,7 +7571,7 @@
 			<ConstructSound>AS2D_BUILD_IRONWORKS</ConstructSound>
 			<PrereqBuildingClasses>
 				<PrereqBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_FORGE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_FORGE</BuildingClassType>
 					<iNumBuildingNeeded>4</iNumBuildingNeeded>
 				</PrereqBuildingClass>
 			</PrereqBuildingClasses>
@@ -7415,7 +7617,9 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_MOAI_STATUES</ArtDefineTag>
 			<MaxStartEra>ERA_ANCIENT</MaxStartEra>
-			<PrereqTech>TECH_SAILING</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_SAILING</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bWater>1</bWater>
@@ -7470,7 +7674,9 @@
 			<Strategy>TXT_KEY_BUILDING_MT_RUSHMORE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_MT_RUSHMORE</ArtDefineTag>
-			<PrereqTech>TECH_FASCISM</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_FASCISM</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<iCost>500</iCost>
@@ -7515,7 +7721,9 @@
 			<Advisor>ADVISOR_CULTURE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_NATIONAL_EPIC</ArtDefineTag>
 			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra>
-			<PrereqTech>TECH_LITERATURE</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_LITERATURE</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<iCost>250</iCost>
@@ -7561,7 +7769,9 @@
 			<Strategy>TXT_KEY_BUILDING_NATIONAL_PARK_STRATEGY</Strategy>
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_NATIONAL_PARK</ArtDefineTag>
-			<PrereqTech>TECH_BIOLOGY</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_BIOLOGY</TechType>
+			</PrereqAndTechs>
 			<NoBonus>BONUS_COAL</NoBonus>
 			<GreatPeopleUnitClass>UNITCLASS_SCIENTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
@@ -7605,7 +7815,9 @@
 			<Strategy>TXT_KEY_BUILDING_OXFORD_UNIVERSITY_STRATEGY</Strategy>
 			<Advisor>ADVISOR_SCIENCE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_OXFORD_UNIVERSITY</ArtDefineTag>
-			<PrereqTech>TECH_EDUCATION</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_EDUCATION</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_SCIENTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<iCost>400</iCost>
@@ -7639,7 +7851,7 @@
 			</BonusProductionModifiers>
 			<PrereqBuildingClasses>
 				<PrereqBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
 					<iNumBuildingNeeded>4</iNumBuildingNeeded>
 				</PrereqBuildingClass>
 			</PrereqBuildingClasses>
@@ -7666,7 +7878,9 @@
 			<Strategy>TXT_KEY_BUILDING_RED_CROSS_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_RED_CROSS</ArtDefineTag>
-			<PrereqTech>TECH_MEDICINE</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MEDICINE</TechType>
+			</PrereqAndTechs>
 			<FreePromotion>PROMOTION_MEDIC1</FreePromotion>
 			<GreatPeopleUnitClass>UNITCLASS_SCIENTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
@@ -7686,7 +7900,7 @@
 			</CommerceChangeDoubleTimes>
 			<PrereqBuildingClasses>
 				<PrereqBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_HOSPITAL</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_HOSPITAL</BuildingClassType>
 					<iNumBuildingNeeded>4</iNumBuildingNeeded>
 				</PrereqBuildingClass>
 			</PrereqBuildingClasses>
@@ -7707,7 +7921,9 @@
 			<Strategy>TXT_KEY_BUILDING_WALL_STREET_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_WALL_STREET</ArtDefineTag>
-			<PrereqTech>TECH_CORPORATION</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_CORPORATION</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_MERCHANT</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<iCost>600</iCost>
@@ -7724,7 +7940,7 @@
 			</SpecialistCounts>
 			<PrereqBuildingClasses>
 				<PrereqBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
 					<iNumBuildingNeeded>4</iNumBuildingNeeded>
 				</PrereqBuildingClass>
 			</PrereqBuildingClasses>
@@ -7751,7 +7967,9 @@
 			<Strategy>TXT_KEY_BUILDING_WEST_POINT_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_WEST_POINT</ArtDefineTag>
-			<PrereqTech>TECH_MILITARY_TRADITION</PrereqTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MILITARY_TRADITION</TechType>
+			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_GREAT_SPY</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<iCost>800</iCost>
