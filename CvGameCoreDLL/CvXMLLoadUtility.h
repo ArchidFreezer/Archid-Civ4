@@ -159,14 +159,6 @@ public:
 	FXml* GetXML() { return m_pFXml; }
 #endif
 
-	// loads the local yield from the xml file
-	int SetYields(int** ppiYield);
-
-#ifdef _USRDLL
-	template <class T>
-	int SetCommerce(T** ppiCommerce);
-#endif
-
 	// allocate and set the feature struct variables for the CvBuildInfo class
 	void SetFeatureStruct(int** ppiFeatureTech, int** ppiFeatureTime, int** ppiFeatureProduction, bool** ppbFeatureRemove);
 	// loads the improvement bonuses from the xml file
@@ -213,15 +205,17 @@ public:
 	// create a hot key from a description
 	CvWString CreateHotKeyFromDescription(const TCHAR* pszHotKey, bool bShift = false, bool bAlt = false, bool bCtrl = false);
 
-	// set the variable to a default and load it from the xml if there are any children
-	bool SetAndLoadVar(int** ppiVar, int iDefault = 0);
-
 	// function that sets the number of strings in a list, initializes the string to the correct length, and fills it from the
 	// current xml file, it assumes that the current node is the parent node of the string list children
 	bool SetStringList(CvString** ppszStringArray, int* piSize);
 
 	// get the integer value for the keyboard mapping of the hotkey if it exists
 	int GetHotKeyInt(const TCHAR* pszHotKeyVal);
+
+#ifdef _USRDLL
+	template <class T>
+	int SetList(T** ppList, const TCHAR* szRootTagName, int iListLength, T tDefault = 0);
+#endif
 
 	//---------------------------------------PRIVATE MEMBER VARIABLES---------------------------------
 private:
@@ -296,37 +290,45 @@ void CvXMLLoadUtility::InitList(T** ppList, int iListLen, T val) {
 		(*ppList)[i] = val;
 }
 
+// allocate an array of fixed length with a default value and then populates from the current xml file
+// it assumes that the current node is the parent node of the string list children
 template <class T>
-int CvXMLLoadUtility::SetCommerce(T** ppbCommerce) {
-	int i = 0;			//loop counter
+int CvXMLLoadUtility::SetList(T** ppList, const TCHAR* szRootTagName, int iListLength, T tDefault) {
 	int iNumSibs = 0;		// the number of siblings the current xml node has
-	T* pbCommerce;	// local pointer for the Commerce memory
 
-	// Skip any comments and stop at the next value we might want
-	if (SkipToNextVal()) {
-		// get the total number of children the current xml node has
-		iNumSibs = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
-		InitList(ppbCommerce, NUM_COMMERCE_TYPES);
+	if (iListLength <= 0) {
+		char	szMessage[1024];
+		sprintf(szMessage, "Allocating zero or less memory in CvXMLLoadUtility::SetList \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
+		gDLL->MessageBox(szMessage, "XML Error");
+	}
+	InitList(ppList, iListLength, tDefault);
+	if (gDLL->getXMLIFace()->SetToChildByTagName(m_pFXml, szRootTagName)) {
+		// Skip any comments and stop at the next value we might want
+		if (SkipToNextVal()) {
+			// get the total number of children the current xml node has
+			iNumSibs = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
 
-		pbCommerce = *ppbCommerce;
-		if (0 < iNumSibs) {
-			// if the call to the function that sets the current xml node to it's first non-comment
-			// child and sets the parameter with the new node's value succeeds
-			if (GetChildXmlVal(&pbCommerce[0])) {
-				FAssertMsg((iNumSibs <= NUM_COMMERCE_TYPES), "For loop iterator is greater than array size");
-				// loop through all the siblings, we start at 1 since we already have the first value
-				for (i = 1; i < iNumSibs; i++) {
-					if (!GetNextXmlVal(&pbCommerce[i])) {
-						break;
+			T* pList = *ppList; // local pointer for the list memory
+			if (0 < iNumSibs) {
+				// if the call to the function that sets the current xml node to it's first non-comment
+				// child and sets the parameter with the new node's value succeeds
+				if (GetChildXmlVal(&pList[0])) {
+					FAssertMsg((iNumSibs <= iListLength), "For loop iterator is greater than array size");
+					// loop through all the siblings, we start at 1 since we already have the first value
+					for (int i = 1; i < iNumSibs; i++) {
+						if (!GetNextXmlVal(&pList[i])) {
+							break;
+						}
 					}
+					gDLL->getXMLIFace()->SetToParent(m_pFXml);
 				}
-				gDLL->getXMLIFace()->SetToParent(m_pFXml);
 			}
 		}
+		gDLL->getXMLIFace()->SetToParent(m_pFXml);
 	}
-
 	return iNumSibs;
 }
+
 #endif
 
 #endif	// XML_LOAD_UTILITY_H

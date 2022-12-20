@@ -1518,55 +1518,6 @@ void CvXMLLoadUtility::orderHotkeyInfo(int** ppiSortedIndex, int* pHotkeyIndex, 
 
 //------------------------------------------------------------------------------------------------------
 //
-//  FUNCTION:   SetYields(int** ppiYield)
-//
-//  PURPOSE :   Allocate memory for the yield parameter and set it to the values
-//				in the xml file.  The current/last located node must be the first child of the
-//				yield changes node
-//
-//------------------------------------------------------------------------------------------------------
-int CvXMLLoadUtility::SetYields(int** ppiYield) {
-	int iNumSibs = 0;		// the number of siblings the current xml node has
-
-	// Skip any comments and stop at the next value we might want
-	if (SkipToNextVal()) {
-		// get the total number of children the current xml node has
-		iNumSibs = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
-
-		InitList(ppiYield, NUM_YIELD_TYPES);
-
-		// set the local pointer to the memory we just allocated
-		int* piYield = *ppiYield;
-
-		if (0 < iNumSibs) {
-			// if the call to the function that sets the current xml node to it's first non-comment
-			// child and sets the parameter with the new node's value succeeds
-			if (GetChildXmlVal(&piYield[0])) {
-				if (!(iNumSibs <= NUM_YIELD_TYPES)) {
-					char	szMessage[1024];
-					sprintf(szMessage, "For loop iterator is greater than array size \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
-					gDLL->MessageBox(szMessage, "XML Error");
-				}
-				// loop through all the siblings, we start at 1 since we already have the first value
-				for (int i = 1; i < iNumSibs; i++) {
-					// if the call to the function that sets the current xml node to it's first non-comment
-					// sibling and sets the parameter with the new node's value does not succeed
-					// we will break out of this for loop
-					if (!GetNextXmlVal(&piYield[i])) {
-						break;
-					}
-				}
-				// set the current xml node to it's parent node
-				gDLL->getXMLIFace()->SetToParent(m_pFXml);
-			}
-		}
-	}
-
-	return iNumSibs;
-}
-
-//------------------------------------------------------------------------------------------------------
-//
 //  FUNCTION:   SetFeatureStruct(int** ppiFeatureTech, int** ppiFeatureTime, int** ppiFeatureProduction, bool** ppbFeatureRemove)
 //
 //  PURPOSE :   allocate and set the feature struct variables for the CvBuildInfo class
@@ -1672,12 +1623,7 @@ void CvXMLLoadUtility::SetImprovementBonuses(CvImprovementBonusInfo** ppImprovem
 							gDLL->getXMLIFace()->SetToParent(m_pFXml);
 
 							SAFE_DELETE_ARRAY(paImprovementBonus[iBonusIndex].m_piYieldChange);	// free memory - MT, since we are about to reallocate
-							if (gDLL->getXMLIFace()->SetToChildByTagName(m_pFXml, "YieldChanges")) {
-								SetYields(&paImprovementBonus[iBonusIndex].m_piYieldChange);
-								gDLL->getXMLIFace()->SetToParent(m_pFXml);
-							} else {
-								InitList(&paImprovementBonus[iBonusIndex].m_piYieldChange, NUM_YIELD_TYPES);
-							}
+							SetList(&paImprovementBonus[iBonusIndex].m_piYieldChange, "YieldChanges", NUM_YIELD_TYPES);
 						} else {
 							gDLL->getXMLIFace()->SetToParent(m_pFXml);
 						}
@@ -1696,50 +1642,6 @@ void CvXMLLoadUtility::SetImprovementBonuses(CvImprovementBonusInfo** ppImprovem
 			gDLL->getXMLIFace()->SetToParent(m_pFXml);
 		}
 	}
-}
-
-//------------------------------------------------------------------------------------------------------
-//
-//  FUNCTION:   SetAndLoadVar(int** ppiVar, int iDefault)
-//
-//  PURPOSE :   set the variable to a default and load it from the xml if there are any children
-//
-//------------------------------------------------------------------------------------------------------
-bool CvXMLLoadUtility::SetAndLoadVar(int** ppiVar, int iDefault) {
-	bool bReturn = false;
-
-	// Skip any comments and stop at the next value we might want
-	if (SkipToNextVal()) {
-		bReturn = true;
-
-		// get the total number of children the current xml node has
-		int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
-
-		// allocate memory
-		InitList(ppiVar, iNumSibs, iDefault);
-
-		// set the a local pointer to the newly allocated memory
-		int* piVar = *ppiVar;
-
-		// if the call to the function that sets the current xml node to it's first non-comment
-		// child and sets the parameter with the new node's value succeeds
-		if (GetChildXmlVal(&piVar[0])) {
-			// loop through all the siblings, we start at 1 since we already got the first sibling
-			for (int i = 1; i < iNumSibs; i++) {
-				// if the call to the function that sets the current xml node to it's next non-comment
-				// sibling and sets the parameter with the new node's value does not succeed
-				// we will break out of this for loop
-				if (!GetNextXmlVal(&piVar[i])) {
-					break;
-				}
-			}
-
-			// set the current xml node to it's parent node
-			gDLL->getXMLIFace()->SetToParent(m_pFXml);
-		}
-	}
-
-	return bReturn;
 }
 
 //------------------------------------------------------------------------------------------------------

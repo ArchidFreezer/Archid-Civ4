@@ -787,21 +787,8 @@ bool CvSpecialistInfo::read(CvXMLLoadUtility* pXML) {
 	m_iGreatPeopleUnitClass = pXML->FindInInfoClass(szTextVal);
 
 	pXML->GetChildXmlValByName(&m_iGreatPeopleRateChange, "iGreatPeopleRateChange");
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "Yields")) {
-		pXML->SetYields(&m_piYieldChange);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piYieldChange, NUM_YIELD_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "Commerces")) {
-		pXML->SetCommerce(&m_piCommerceChange);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piCommerceChange, NUM_COMMERCE_TYPES);
-	}
-
+	pXML->SetList(&m_piYieldChange, "Yields", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piCommerceChange, "Commerces", NUM_COMMERCE_TYPES);
 	pXML->GetChildXmlValByName(&m_iExperience, "iExperience");
 
 	pXML->SetEnumListTagPair(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());
@@ -1263,13 +1250,7 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bRiverTrade, "bRiverTrade");
 	pXML->GetChildXmlValByName(&m_iGridX, "iGridX");
 	pXML->GetChildXmlValByName(&m_iGridY, "iGridY");
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "CommerceFlexible")) {
-		pXML->SetCommerce(&m_pbCommerceFlexible);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_pbCommerceFlexible, NUM_COMMERCE_TYPES);
-	}
+	pXML->SetList(&m_pbCommerceFlexible, "CommerceFlexible", NUM_COMMERCE_TYPES);
 
 	pXML->SetVariableListTagPair(&m_piDomainExtraMoves, "DomainExtraMoves", NUM_DOMAIN_TYPES);
 	pXML->SetVariableListTagPair(&m_pbTerrainTrade, "TerrainTrades", GC.getNumTerrainInfos(), false);
@@ -5228,47 +5209,12 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iStateReligionFreeExperience, "iStateReligionFreeExperience");
 	pXML->GetChildXmlValByName(&m_iExpInBorderModifier, "iExpInBorderModifier");
 
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "YieldModifiers")) {
-		pXML->SetYields(&m_piYieldModifier);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piYieldModifier, NUM_YIELD_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "CapitalYieldModifiers")) {
-		pXML->SetYields(&m_piCapitalYieldModifier);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piCapitalYieldModifier, NUM_YIELD_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "TradeYieldModifiers")) {
-		pXML->SetYields(&m_piTradeYieldModifier);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piTradeYieldModifier, NUM_YIELD_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "CommerceModifiers")) {
-		pXML->SetCommerce(&m_piCommerceModifier);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piCommerceModifier, NUM_COMMERCE_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "CapitalCommerceModifiers")) {
-		pXML->SetCommerce(&m_piCapitalCommerceModifier);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piCapitalCommerceModifier, NUM_COMMERCE_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "SpecialistExtraCommerces")) {
-		pXML->SetCommerce(&m_piSpecialistExtraCommerce);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piSpecialistExtraCommerce, NUM_COMMERCE_TYPES);
-	}
+	pXML->SetList(&m_piYieldModifier, "YieldModifiers", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piCapitalYieldModifier, "CapitalYieldModifiers", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piTradeYieldModifier, "TradeYieldModifiers", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piCommerceModifier, "CommerceModifiers", NUM_COMMERCE_TYPES);
+	pXML->SetList(&m_piCapitalCommerceModifier, "CapitalCommerceModifiers", NUM_COMMERCE_TYPES);
+	pXML->SetList(&m_piSpecialistExtraCommerce, "SpecialistExtraCommerces", NUM_COMMERCE_TYPES);
 
 	pXML->SetVariableListTagPair(&m_pabHurry, "Hurrys", GC.getNumHurryInfos());
 	pXML->SetVariableListTagPair(&m_pabSpecialBuildingNotRequired, "SpecialBuildingNotRequireds", GC.getNumSpecialBuildingInfos());
@@ -5293,14 +5239,7 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 						if (iIndex > -1) {
 							// delete the array since it will be reallocated
 							SAFE_DELETE_ARRAY(m_ppiImprovementYieldChanges[iIndex]);
-							// if we can set the current xml node to it's next sibling
-							if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ImprovementYields")) {
-								// call the function that sets the yield change variable
-								pXML->SetYields(&m_ppiImprovementYieldChanges[iIndex]);
-								gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-							} else {
-								pXML->InitList(&m_ppiImprovementYieldChanges[iIndex], NUM_YIELD_TYPES);
-							}
+							pXML->SetList(&m_ppiImprovementYieldChanges[iIndex], "ImprovementYields", NUM_YIELD_TYPES);
 						}
 
 						if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML())) {
@@ -7316,153 +7255,29 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iAssetValue, "iAsset");
 	pXML->GetChildXmlValByName(&m_iPowerValue, "iPower");
 	pXML->GetChildXmlValByName(&m_fVisibilityPriority, "fVisibilityPriority", 1.0f);
-
-	// if we can set the current xml node to it's next sibling
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "SeaPlotYieldChanges")) {
-		// call the function that sets the yield change variable
-		pXML->SetYields(&m_piSeaPlotYieldChange);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piSeaPlotYieldChange, NUM_YIELD_TYPES);
-	}
-
-	// if we can set the current xml node to it's next sibling
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "RiverPlotYieldChanges")) {
-		// call the function that sets the yield change variable
-		pXML->SetYields(&m_piRiverPlotYieldChange);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piRiverPlotYieldChange, NUM_YIELD_TYPES);
-	}
-
-	// if we can set the current xml node to it's next sibling
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "GlobalSeaPlotYieldChanges")) {
-		// call the function that sets the yield change variable
-		pXML->SetYields(&m_piGlobalSeaPlotYieldChange);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piGlobalSeaPlotYieldChange, NUM_YIELD_TYPES);
-	}
-
-	// if we can set the current xml node to it's next sibling
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "YieldChanges")) {
-		// call the function that sets the yield change variable
-		pXML->SetYields(&m_piYieldChange);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piYieldChange, NUM_YIELD_TYPES);
-	}
-
-	// if we can set the current xml node to it's next sibling
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "YieldModifiers")) {
-		// call the function that sets the yield change variable
-		pXML->SetYields(&m_piYieldModifier);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piYieldModifier, NUM_YIELD_TYPES);
-	}
-
-	// if we can set the current xml node to it's next sibling
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "PowerYieldModifiers")) {
-		// call the function that sets the yield change variable
-		pXML->SetYields(&m_piPowerYieldModifier);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piPowerYieldModifier, NUM_YIELD_TYPES);
-	}
-
-	// if we can set the current xml node to it's next sibling
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "AreaYieldModifiers")) {
-		// call the function that sets the yield change variable
-		pXML->SetYields(&m_piAreaYieldModifier);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piAreaYieldModifier, NUM_YIELD_TYPES);
-	}
-
-	// if we can set the current xml node to it's next sibling
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "GlobalYieldModifiers")) {
-		// call the function that sets the yield change variable
-		pXML->SetYields(&m_piGlobalYieldModifier);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piGlobalYieldModifier, NUM_YIELD_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "CommerceChanges")) {
-		pXML->SetCommerce(&m_piCommerceChange);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piCommerceChange, NUM_COMMERCE_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ObsoleteSafeCommerceChanges")) {
-		pXML->SetCommerce(&m_piObsoleteSafeCommerceChange);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piObsoleteSafeCommerceChange, NUM_COMMERCE_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "CommerceChangeDoubleTimes")) {
-		pXML->SetCommerce(&m_piCommerceChangeDoubleTime);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piCommerceChangeDoubleTime, NUM_COMMERCE_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "CommerceModifiers")) {
-		pXML->SetCommerce(&m_piCommerceModifier);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piCommerceModifier, NUM_COMMERCE_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "GlobalCommerceModifiers")) {
-		pXML->SetCommerce(&m_piGlobalCommerceModifier);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piGlobalCommerceModifier, NUM_COMMERCE_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "SpecialistExtraCommerces")) {
-		pXML->SetCommerce(&m_piSpecialistExtraCommerce);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piSpecialistExtraCommerce, NUM_COMMERCE_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "StateReligionCommerces")) {
-		pXML->SetCommerce(&m_piStateReligionCommerce);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piStateReligionCommerce, NUM_COMMERCE_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "CommerceHappinesses")) {
-		pXML->SetCommerce(&m_piCommerceHappiness);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piCommerceHappiness, NUM_COMMERCE_TYPES);
-	}
+	pXML->SetList(&m_piSeaPlotYieldChange, "SeaPlotYieldChanges", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piRiverPlotYieldChange, "RiverPlotYieldChanges", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piGlobalSeaPlotYieldChange, "GlobalSeaPlotYieldChanges", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piYieldChange, "YieldChanges", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piYieldModifier, "YieldModifiers", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piPowerYieldModifier, "PowerYieldModifiers", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piAreaYieldModifier, "AreaYieldModifiers", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piGlobalYieldModifier, "GlobalYieldModifiers", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piCommerceChange, "CommerceChanges", NUM_COMMERCE_TYPES);
+	pXML->SetList(&m_piObsoleteSafeCommerceChange, "ObsoleteSafeCommerceChanges", NUM_COMMERCE_TYPES);
+	pXML->SetList(&m_piCommerceChangeDoubleTime, "CommerceChangeDoubleTimes", NUM_COMMERCE_TYPES);
+	pXML->SetList(&m_piCommerceModifier, "CommerceModifiers", NUM_COMMERCE_TYPES);
+	pXML->SetList(&m_piGlobalCommerceModifier, "GlobalCommerceModifiers", NUM_COMMERCE_TYPES);
+	pXML->SetList(&m_piSpecialistExtraCommerce, "SpecialistExtraCommerces", NUM_COMMERCE_TYPES);
+	pXML->SetList(&m_piStateReligionCommerce, "StateReligionCommerces", NUM_COMMERCE_TYPES);
+	pXML->SetList(&m_piCommerceHappiness, "CommerceHappinesses", NUM_COMMERCE_TYPES);
 
 	pXML->SetVariableListTagPair(&m_piReligionChange, "ReligionChanges", GC.getNumReligionInfos());
 
 	pXML->SetVariableListTagPair(&m_piSpecialistCount, "SpecialistCounts", GC.getNumSpecialistInfos());
 	pXML->SetVariableListTagPair(&m_piFreeSpecialistCount, "FreeSpecialistCounts", GC.getNumSpecialistInfos());
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "CommerceFlexibles")) {
-		pXML->SetCommerce(&m_pbCommerceFlexible);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_pbCommerceFlexible, NUM_COMMERCE_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "CommerceChangeOriginalOwners")) {
-		pXML->SetCommerce(&m_pbCommerceChangeOriginalOwner);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_pbCommerceChangeOriginalOwner, NUM_COMMERCE_TYPES);
-	}
+	pXML->SetList(&m_pbCommerceFlexible, "CommerceFlexibles", NUM_COMMERCE_TYPES);
+	pXML->SetList(&m_pbCommerceChangeOriginalOwner, "CommerceChangeOriginalOwners", NUM_COMMERCE_TYPES);
 
 	pXML->GetChildXmlValByName(szTextVal, "ConstructSound");
 	setConstructSound(szTextVal);
@@ -7491,13 +7306,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 				if (k > -1) {
 					// delete the array since it will be reallocated
 					SAFE_DELETE_ARRAY(m_ppaiSpecialistYieldChange[k]);
-					if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "YieldChanges")) {
-						// call the function that sets the yield change variable
-						pXML->SetYields(&m_ppaiSpecialistYieldChange[k]);
-						gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-					} else {
-						pXML->InitList(&m_ppaiSpecialistYieldChange[k], NUM_YIELD_TYPES);
-					}
+					pXML->SetList(&m_ppaiSpecialistYieldChange[k], "YieldChanges", NUM_YIELD_TYPES);
 				}
 
 				if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML())) {
@@ -7534,14 +7343,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 				if (k > -1) {
 					// delete the array since it will be reallocated
 					SAFE_DELETE_ARRAY(m_ppaiBonusYieldModifier[k]);
-					if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "YieldModifiers")) {
-						// call the function that sets the yield change variable
-						pXML->SetYields(&m_ppaiBonusYieldModifier[k]);
-						gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-					} else {
-						pXML->InitList(&m_ppaiBonusYieldModifier[k], NUM_YIELD_TYPES);
-					}
-
+					pXML->SetList(&m_ppaiBonusYieldModifier[k], "YieldModifiers", NUM_YIELD_TYPES);
 				}
 
 				if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML())) {
@@ -9815,15 +9617,7 @@ bool CvRouteInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "BonusType");
 	m_iPrereqBonus = pXML->FindInInfoClass(szTextVal);
 
-	// if we can set the current xml node to it's next sibling
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "Yields")) {
-		// call the function that sets the yield change variable
-		pXML->SetYields(&m_piYieldChange);
-		// set the current xml node to it's parent node
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piYieldChange, NUM_YIELD_TYPES);
-	}
+	pXML->SetList(&m_piYieldChange, "Yields", NUM_YIELD_TYPES);
 
 	pXML->SetVariableListTagPair(&m_piTechMovementChange, "TechMovementChanges", GC.getNumTechInfos());
 
@@ -10459,46 +10253,11 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "ImprovementUpgrade");
 	m_iImprovementUpgrade = GC.getInfoTypeForString(szTextVal);
 
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "PrereqNatureYields")) {
-		// call the function that sets the yield change variable
-		pXML->SetYields(&m_piPrereqNatureYield);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piPrereqNatureYield, NUM_YIELD_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "YieldChanges")) {
-		// call the function that sets the yield change variable
-		pXML->SetYields(&m_piYieldChange);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piYieldChange, NUM_YIELD_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "RiverSideYieldChange")) {
-		// call the function that sets the yield change variable
-		pXML->SetYields(&m_piRiverSideYieldChange);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piRiverSideYieldChange, NUM_YIELD_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "HillsYieldChange")) {
-		// call the function that sets the yield change variable
-		pXML->SetYields(&m_piHillsYieldChange);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piHillsYieldChange, NUM_YIELD_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "IrrigatedYieldChange")) {
-		// call the function that sets the yield change variable
-		pXML->SetYields(&m_piIrrigatedChange);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piIrrigatedChange, NUM_YIELD_TYPES);
-	}
-
+	pXML->SetList(&m_piPrereqNatureYield, "PrereqNatureYields", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piYieldChange, "YieldChanges", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piRiverSideYieldChange, "RiverSideYieldChange", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piHillsYieldChange, "HillsYieldChange", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piIrrigatedChange, "IrrigatedYieldChange", NUM_YIELD_TYPES);
 	pXML->GetChildXmlValByName(&m_iAdvancedStartCost, "iAdvancedStartCost", -1);
 	pXML->GetChildXmlValByName(&m_iAdvancedStartCostIncrease, "iAdvancedStartCostIncrease");
 	pXML->GetChildXmlValByName(&m_bActsAsCity, "bActsAsCity");
@@ -10551,14 +10310,7 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML) {
 						if (iIndex > -1) {
 							// delete the array since it will be reallocated
 							SAFE_DELETE_ARRAY(m_ppiTechYieldChanges[iIndex]);
-							// if we can set the current xml node to it's next sibling
-							if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "TechYields")) {
-								// call the function that sets the yield change variable
-								pXML->SetYields(&m_ppiTechYieldChanges[iIndex]);
-								gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-							} else {
-								pXML->InitList(&m_ppiTechYieldChanges[iIndex], NUM_YIELD_TYPES);
-							}
+							pXML->SetList(&m_ppiTechYieldChanges[iIndex], "TechYields", NUM_YIELD_TYPES);
 						}
 
 						if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML())) {
@@ -10590,14 +10342,7 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML) {
 						if (iIndex > -1) {
 							// delete the array since it will be reallocated
 							SAFE_DELETE_ARRAY(m_ppiRouteYieldChanges[iIndex]);
-							// if we can set the current xml node to it's next sibling
-							if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "RouteYields")) {
-								// call the function that sets the yield change variable
-								pXML->SetYields(&m_ppiRouteYieldChanges[iIndex]);
-								gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-							} else {
-								pXML->InitList(&m_ppiRouteYieldChanges[iIndex], NUM_YIELD_TYPES);
-							}
+							pXML->SetList(&m_ppiRouteYieldChanges[iIndex], "RouteYields", NUM_YIELD_TYPES);
 						}
 
 						if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML())) {
@@ -11029,13 +10774,7 @@ bool CvBonusInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "TechObsolete");
 	m_iTechObsolete = pXML->FindInInfoClass(szTextVal);
 
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "YieldChanges")) {
-		pXML->SetYields(&m_piYieldChange);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piYieldChange, NUM_YIELD_TYPES);
-	}
-
+	pXML->SetList(&m_piYieldChange, "YieldChanges", NUM_YIELD_TYPES);
 	pXML->GetChildXmlValByName(&m_iAITradeModifier, "iAITradeModifier");
 	pXML->GetChildXmlValByName(&m_iAIObjective, "iAIObjective");
 	pXML->GetChildXmlValByName(&m_iHealth, "iHealth");
@@ -11301,27 +11040,9 @@ bool CvFeatureInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "ArtDefineTag");
 	setArtDefineTag(szTextVal);
 
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "YieldChanges")) {
-		pXML->SetYields(&m_piYieldChange);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piYieldChange, NUM_YIELD_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "RiverYieldChange")) {
-		pXML->SetYields(&m_piRiverYieldChange);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piRiverYieldChange, NUM_YIELD_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "HillsYieldChange")) {
-		pXML->SetYields(&m_piHillsYieldChange);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piHillsYieldChange, NUM_YIELD_TYPES);
-	}
-
+	pXML->SetList(&m_piYieldChange, "YieldChanges", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piRiverYieldChange, "RiverYieldChange", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piHillsYieldChange, "HillsYieldChange", NUM_YIELD_TYPES);
 	pXML->GetChildXmlValByName(&m_iMovementCost, "iMovement", 1);
 	pXML->GetChildXmlValByName(&m_iSeeThroughChange, "iSeeThrough");
 	pXML->GetChildXmlValByName(&m_iHealthPercent, "iHealthPercent");
@@ -11710,27 +11431,9 @@ bool CvTerrainInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "ArtDefineTag");
 	setArtDefineTag(szTextVal);
 
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "Yields")) {
-		pXML->SetYields(&m_piYields);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piYields, NUM_YIELD_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "RiverYieldChange")) {
-		pXML->SetYields(&m_piRiverYieldChange);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piRiverYieldChange, NUM_YIELD_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "HillsYieldChange")) {
-		pXML->SetYields(&m_piHillsYieldChange);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piHillsYieldChange, NUM_YIELD_TYPES);
-	}
-
+	pXML->SetList(&m_piYields, "Yields", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piRiverYieldChange, "RiverYieldChange", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piHillsYieldChange, "HillsYieldChange", NUM_YIELD_TYPES);
 	pXML->GetChildXmlValByName(&m_bWater, "bWater");
 	pXML->GetChildXmlValByName(&m_bImpassable, "bImpassable");
 	pXML->GetChildXmlValByName(&m_bFound, "bFound");
@@ -13166,12 +12869,7 @@ bool CvProcessInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "TechPrereq");
 	m_iTechPrereq = pXML->FindInInfoClass(szTextVal);
 
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ProductionToCommerceModifiers")) {
-		pXML->SetCommerce(&m_paiProductionToCommerceModifier);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_paiProductionToCommerceModifier, NUM_COMMERCE_TYPES);
-	}
+	pXML->SetList(&m_paiProductionToCommerceModifier, "ProductionToCommerceModifiers", NUM_COMMERCE_TYPES);
 
 	return true;
 }
@@ -13708,27 +13406,9 @@ bool CvReligionInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(&m_iNumFreeUnits, "iFreeUnits");
 	pXML->GetChildXmlValByName(&m_iSpreadFactor, "iSpreadFactor");
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "GlobalReligionCommerces")) {
-		pXML->SetCommerce(&m_paiGlobalReligionCommerce);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_paiGlobalReligionCommerce, NUM_COMMERCE_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "HolyCityCommerces")) {
-		pXML->SetCommerce(&m_paiHolyCityCommerce);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_paiHolyCityCommerce, NUM_COMMERCE_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "StateReligionCommerces")) {
-		pXML->SetCommerce(&m_paiStateReligionCommerce);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_paiStateReligionCommerce, NUM_COMMERCE_TYPES);
-	}
+	pXML->SetList(&m_paiGlobalReligionCommerce, "GlobalReligionCommerces", NUM_COMMERCE_TYPES);
+	pXML->SetList(&m_paiHolyCityCommerce, "HolyCityCommerces", NUM_COMMERCE_TYPES);
+	pXML->SetList(&m_paiStateReligionCommerce, "StateReligionCommerces", NUM_COMMERCE_TYPES);
 
 	pXML->GetChildXmlValByName(szTextVal, "TechButton");
 	setTechButton(szTextVal);
@@ -13923,27 +13603,9 @@ bool CvCorporationInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iSpreadFactor, "iSpreadFactor");
 	pXML->GetChildXmlValByName(&m_iSpreadCost, "iSpreadCost");
 	pXML->GetChildXmlValByName(&m_iMaintenance, "iMaintenance");
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "HeadquarterCommerces")) {
-		pXML->SetCommerce(&m_paiHeadquarterCommerce);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_paiHeadquarterCommerce, NUM_COMMERCE_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "CommercesProduced")) {
-		pXML->SetCommerce(&m_paiCommerceProduced);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_paiCommerceProduced, NUM_COMMERCE_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "YieldsProduced")) {
-		pXML->SetYields(&m_paiYieldProduced);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_paiYieldProduced, NUM_YIELD_TYPES);
-	}
+	pXML->SetList(&m_paiHeadquarterCommerce, "HeadquarterCommerces", NUM_COMMERCE_TYPES);
+	pXML->SetList(&m_paiCommerceProduced, "CommercesProduced", NUM_COMMERCE_TYPES);
+	pXML->SetList(&m_paiYieldProduced, "YieldsProduced", NUM_YIELD_TYPES);
 
 
 	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "PrereqBonuses")) {
@@ -14130,35 +13792,10 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iMaxGlobalBuildingProductionModifier, "iMaxGlobalBuildingProductionModifier");
 	pXML->GetChildXmlValByName(&m_iMaxTeamBuildingProductionModifier, "iMaxTeamBuildingProductionModifier");
 	pXML->GetChildXmlValByName(&m_iMaxPlayerBuildingProductionModifier, "iMaxPlayerBuildingProductionModifier");
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ExtraYieldThresholds")) {
-		pXML->SetYields(&m_paiExtraYieldThreshold);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_paiExtraYieldThreshold, NUM_YIELD_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "TradeYieldModifiers")) {
-		pXML->SetYields(&m_paiTradeYieldModifier);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_paiTradeYieldModifier, NUM_YIELD_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "CommerceChanges")) {
-		pXML->SetCommerce(&m_paiCommerceChange);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_paiCommerceChange, NUM_COMMERCE_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "CommerceModifiers")) {
-		pXML->SetCommerce(&m_paiCommerceModifier);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_paiCommerceModifier, NUM_COMMERCE_TYPES);
-	}
-
+	pXML->SetList(&m_paiExtraYieldThreshold, "ExtraYieldThresholds", NUM_YIELD_TYPES);
+	pXML->SetList(&m_paiTradeYieldModifier, "TradeYieldModifiers", NUM_YIELD_TYPES);
+	pXML->SetList(&m_paiCommerceChange, "CommerceChanges", NUM_COMMERCE_TYPES);
+	pXML->SetList(&m_paiCommerceModifier, "CommerceModifiers", NUM_COMMERCE_TYPES);
 	pXML->SetVariableListTagPair(&m_pabFreePromotion, "FreePromotions", GC.getNumPromotionInfos());
 
 	pXML->SetVariableListTagPair(&m_pabFreePromotionUnitCombat, "FreePromotionUnitCombats", GC.getNumUnitCombatInfos());
@@ -15858,20 +15495,8 @@ bool CvEmphasizeInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(&m_bAvoidGrowth, "bAvoidGrowth");
 	pXML->GetChildXmlValByName(&m_bGreatPeople, "bGreatPeople");
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "YieldModifiers")) {
-		pXML->SetYields(&m_piYieldModifiers);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piYieldModifiers, NUM_YIELD_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "CommerceModifiers")) {
-		pXML->SetCommerce(&m_piCommerceModifiers);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_piCommerceModifiers, NUM_COMMERCE_TYPES);
-	}
+	pXML->SetList(&m_piYieldModifiers, "YieldModifiers", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piCommerceModifiers, "CommerceModifiers", NUM_COMMERCE_TYPES);
 
 	return true;
 }
@@ -19811,19 +19436,8 @@ bool CvVoteSourceInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "Civic");
 	m_iCivic = GC.getInfoTypeForString(szTextVal);
 
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ReligionYields")) {
-		pXML->SetYields(&m_aiReligionYields);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_aiReligionYields, NUM_YIELD_TYPES);
-	}
-
-	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ReligionCommerces")) {
-		pXML->SetCommerce(&m_aiReligionCommerces);
-		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
-	} else {
-		pXML->InitList(&m_aiReligionCommerces, NUM_COMMERCE_TYPES);
-	}
+	pXML->SetList(&m_aiReligionYields, "ReligionYields", NUM_YIELD_TYPES);
+	pXML->SetList(&m_aiReligionCommerces, "ReligionCommerces", NUM_COMMERCE_TYPES);
 
 	return true;
 }
