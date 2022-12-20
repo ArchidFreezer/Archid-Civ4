@@ -593,7 +593,7 @@
 		<element type="iHurryCostModifier" minOccurs="0"/>
 		<element type="iAdvancedStartCost" minOccurs="0"/>
 		<element type="iAdvancedStartCostIncrease" minOccurs="0"/>
-		<element type="iMinAreaSize" minOccurs="0"/>
+		<element type="iMinAreaSize" minOccurs="0"/> <!-- Default: -1 -->
 		<element type="iMoves" minOccurs="0"/>
 		<element type="bNoRevealMap" minOccurs="0"/>
 		<element type="iAirRange" minOccurs="0"/>

@@ -4101,12 +4101,12 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iHurryCostModifier, "iHurryCostModifier");
 	pXML->GetChildXmlValByName(&m_iAdvancedStartCost, "iAdvancedStartCost");
 	pXML->GetChildXmlValByName(&m_iAdvancedStartCostIncrease, "iAdvancedStartCostIncrease");
-	pXML->GetChildXmlValByName(&m_iMinAreaSize, "iMinAreaSize");
+	pXML->GetChildXmlValByName(&m_iMinAreaSize, "iMinAreaSize", -1);
 	pXML->GetChildXmlValByName(&m_iMoves, "iMoves");
 	pXML->GetChildXmlValByName(&m_iAirRange, "iAirRange");
 	pXML->GetChildXmlValByName(&m_iAirUnitCap, "iAirUnitCap");
 	pXML->GetChildXmlValByName(&m_iDropRange, "iDropRange");
-	pXML->GetChildXmlValByName(&m_iNukeRange, "iNukeRange");
+	pXML->GetChildXmlValByName(&m_iNukeRange, "iNukeRange", -1);
 	pXML->GetChildXmlValByName(&m_iWorkRate, "iWorkRate");
 	pXML->GetChildXmlValByName(&m_iBaseDiscover, "iBaseDiscover");
 	pXML->GetChildXmlValByName(&m_iDiscoverMultiplier, "iDiscoverMultiplier");
