@@ -87,13 +87,8 @@
 	<ElementType name="FavoriteCivic" content="textOnly"/>
 	<ElementType name="FavoriteReligion" content="textOnly"/>
 	<ElementType name="TraitType" content="textOnly"/>
-	<ElementType name="bTrait" content="textOnly" dt:type="boolean"/>
-	<ElementType name="Trait" content="eltOnly">
-		<element type="TraitType"/>
-		<element type="bTrait"/>
-	</ElementType>
 	<ElementType name="Traits" content="eltOnly">
-		<element type="Trait" minOccurs="0" maxOccurs="*"/>
+		<element type="TraitType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="FlavorType" content="textOnly"/>
 	<ElementType name="iFlavor" content="textOnly" dt:type="int"/>

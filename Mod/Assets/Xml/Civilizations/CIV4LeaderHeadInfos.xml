@@ -198,14 +198,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_VASSALAGE</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
+				<TraitType>TRAIT_AGGRESSIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -736,14 +730,8 @@
 			<FavoriteCivic>CIVIC_FREE_RELIGION</FavoriteCivic>
 			<FavoriteReligion>RELIGION_BUDDHISM</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_SPIRITUAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_ORGANIZED</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_SPIRITUAL</TraitType>
+				<TraitType>TRAIT_ORGANIZED</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -1288,14 +1276,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_REPRESENTATION</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_IMPERIALIST</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_IMPERIALIST</TraitType>
+				<TraitType>TRAIT_INDUSTRIOUS</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -1832,14 +1814,8 @@
 			<FavoriteCivic>CIVIC_NATIONHOOD</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_EXPANSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_EXPANSIVE</TraitType>
+				<TraitType>TRAIT_INDUSTRIOUS</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -2380,14 +2356,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_UNIVERSAL_SUFFRAGE</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_CHARISMATIC</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_CHARISMATIC</TraitType>
+				<TraitType>TRAIT_AGGRESSIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -2930,14 +2900,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_ORGANIZED_RELIGION</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_SPIRITUAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_CHARISMATIC</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_SPIRITUAL</TraitType>
+				<TraitType>TRAIT_CHARISMATIC</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -3486,14 +3450,8 @@
 			<FavoriteCivic>CIVIC_HEREDITARY_RULE</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_CREATIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_IMPERIALIST</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_CREATIVE</TraitType>
+				<TraitType>TRAIT_IMPERIALIST</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -4029,14 +3987,8 @@
 			<FavoriteCivic>CIVIC_VASSALAGE</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_IMPERIALIST</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_PROTECTIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_IMPERIALIST</TraitType>
+				<TraitType>TRAIT_PROTECTIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -4571,14 +4523,8 @@
 			<FavoriteCivic>CIVIC_NATIONHOOD</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_CHARISMATIC</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_PROTECTIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_CHARISMATIC</TraitType>
+				<TraitType>TRAIT_PROTECTIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -5123,14 +5069,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_VASSALAGE</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_CHARISMATIC</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_IMPERIALIST</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_CHARISMATIC</TraitType>
+				<TraitType>TRAIT_IMPERIALIST</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -5679,14 +5619,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_FREE_RELIGION</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_ORGANIZED</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_FINANCIAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_ORGANIZED</TraitType>
+				<TraitType>TRAIT_FINANCIAL</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -6233,14 +6167,8 @@
 			<FavoriteCivic>CIVIC_NATIONHOOD</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_CHARISMATIC</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+				<TraitType>TRAIT_CHARISMATIC</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -6782,14 +6710,8 @@
 			<FavoriteCivic>CIVIC_FREE_RELIGION</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_FINANCIAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
+				<TraitType>TRAIT_FINANCIAL</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -7335,14 +7257,8 @@
 			<FavoriteCivic>CIVIC_UNIVERSAL_SUFFRAGE</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_ORGANIZED</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
+				<TraitType>TRAIT_ORGANIZED</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -7877,14 +7793,8 @@
 			<FavoriteCivic>CIVIC_UNIVERSAL_SUFFRAGE</FavoriteCivic>
 			<FavoriteReligion>RELIGION_HINDUISM</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_SPIRITUAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_SPIRITUAL</TraitType>
+				<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -8395,14 +8305,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_POLICE_STATE</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_IMPERIALIST</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_AGGRESSIVE</TraitType>
+				<TraitType>TRAIT_IMPERIALIST</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -8941,14 +8845,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_HEREDITARY_RULE</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_PROTECTIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_CREATIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_PROTECTIVE</TraitType>
+				<TraitType>TRAIT_CREATIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -9485,14 +9383,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_BUREAUCRACY</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_ORGANIZED</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_ORGANIZED</TraitType>
+				<TraitType>TRAIT_AGGRESSIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -10037,14 +9929,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_FREE_MARKET</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_FINANCIAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_CHARISMATIC</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_FINANCIAL</TraitType>
+				<TraitType>TRAIT_CHARISMATIC</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -10592,14 +10478,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_ORGANIZED_RELIGION</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_SPIRITUAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_CREATIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_SPIRITUAL</TraitType>
+				<TraitType>TRAIT_CREATIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -11138,14 +11018,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_HEREDITARY_RULE</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_FINANCIAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+				<TraitType>TRAIT_FINANCIAL</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -11693,14 +11567,8 @@
 			<FavoriteCivic>CIVIC_THEOCRACY</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_SPIRITUAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_EXPANSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_SPIRITUAL</TraitType>
+				<TraitType>TRAIT_EXPANSIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -12251,14 +12119,8 @@
 			<FavoriteCivic>CIVIC_HEREDITARY_RULE</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_IMPERIALIST</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_EXPANSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_IMPERIALIST</TraitType>
+				<TraitType>TRAIT_EXPANSIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -12807,14 +12669,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_REPRESENTATION</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_ORGANIZED</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_IMPERIALIST</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_ORGANIZED</TraitType>
+				<TraitType>TRAIT_IMPERIALIST</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -13355,14 +13211,8 @@
 			<FavoriteCivic>CIVIC_THEOCRACY</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_SPIRITUAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_IMPERIALIST</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_SPIRITUAL</TraitType>
+				<TraitType>TRAIT_IMPERIALIST</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -13900,14 +13750,8 @@
 			<FavoriteCivic>CIVIC_BUREAUCRACY</FavoriteCivic>
 			<FavoriteReligion>RELIGION_BUDDHISM</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_CREATIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_AGGRESSIVE</TraitType>
+				<TraitType>TRAIT_CREATIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -14449,14 +14293,8 @@
 			<FavoriteCivic>CIVIC_EMANCIPATION</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_CHARISMATIC</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
+				<TraitType>TRAIT_CHARISMATIC</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -15006,14 +14844,8 @@
 			<FavoriteCivic>CIVIC_HEREDITARY_RULE</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_CREATIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+				<TraitType>TRAIT_CREATIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -15543,14 +15375,8 @@
 			<FavoriteCivic>CIVIC_FREE_MARKET</FavoriteCivic>
 			<FavoriteReligion>RELIGION_ISLAM</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_SPIRITUAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_FINANCIAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_SPIRITUAL</TraitType>
+				<TraitType>TRAIT_FINANCIAL</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -16095,14 +15921,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_STATE_PROPERTY</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_EXPANSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_PROTECTIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_EXPANSIVE</TraitType>
+				<TraitType>TRAIT_PROTECTIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -16649,14 +16469,8 @@
 			<FavoriteCivic>CIVIC_VASSALAGE</FavoriteCivic>
 			<FavoriteReligion>RELIGION_ISLAM</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_EXPANSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_ORGANIZED</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_EXPANSIVE</TraitType>
+				<TraitType>TRAIT_ORGANIZED</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -17204,14 +17018,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_POLICE_STATE</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_SPIRITUAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_AGGRESSIVE</TraitType>
+				<TraitType>TRAIT_SPIRITUAL</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -17754,14 +17562,8 @@
 			<FavoriteCivic>CIVIC_REPRESENTATION</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_ORGANIZED</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_CHARISMATIC</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_ORGANIZED</TraitType>
+				<TraitType>TRAIT_CHARISMATIC</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -18309,14 +18111,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_HEREDITARY_RULE</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_FINANCIAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_EXPANSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_FINANCIAL</TraitType>
+				<TraitType>TRAIT_EXPANSIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -18862,14 +18658,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_REPRESENTATION</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_CREATIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
+				<TraitType>TRAIT_CREATIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -19418,14 +19208,8 @@
 			<FavoriteCivic>CIVIC_BUREAUCRACY</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_EXPANSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
+				<TraitType>TRAIT_EXPANSIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -19982,14 +19766,8 @@
 			<FavoriteCivic>CIVIC_BUREAUCRACY</FavoriteCivic>
 			<FavoriteReligion>RELIGION_TAOISM</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_PROTECTIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+				<TraitType>TRAIT_PROTECTIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -20523,14 +20301,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_HEREDITARY_RULE</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_FINANCIAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_FINANCIAL</TraitType>
+				<TraitType>TRAIT_AGGRESSIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -21067,14 +20839,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_ORGANIZED_RELIGION</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_SPIRITUAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_SPIRITUAL</TraitType>
+				<TraitType>TRAIT_INDUSTRIOUS</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -21618,14 +21384,8 @@
 			<FavoriteCivic>CIVIC_MERCANTILISM</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_ORGANIZED</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+				<TraitType>TRAIT_ORGANIZED</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -22161,14 +21921,8 @@
 			<FavoriteCivic>CIVIC_THEOCRACY</FavoriteCivic>
 			<FavoriteReligion>RELIGION_ISLAM</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_PROTECTIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_SPIRITUAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_PROTECTIVE</TraitType>
+				<TraitType>TRAIT_SPIRITUAL</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -22714,14 +22468,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_POLICE_STATE</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_EXPANSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_AGGRESSIVE</TraitType>
+				<TraitType>TRAIT_EXPANSIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -23256,14 +23004,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_ENVIRONMENTALISM</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_PROTECTIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
+				<TraitType>TRAIT_PROTECTIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -23801,14 +23543,8 @@
 			<iFreedomAppreciation>10</iFreedomAppreciation>
 			<FavoriteCivic>CIVIC_STATE_PROPERTY</FavoriteCivic>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+				<TraitType>TRAIT_AGGRESSIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -24365,14 +24101,8 @@
 			<FavoriteCivic>CIVIC_HEREDITARY_RULE</FavoriteCivic>
 			<FavoriteReligion>RELIGION_ISLAM</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_IMPERIALIST</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_IMPERIALIST</TraitType>
+				<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -24939,14 +24669,8 @@
 			<FavoriteCivic>CIVIC_ORGANIZED_RELIGION</FavoriteCivic>
 			<FavoriteReligion>RELIGION_BUDDHISM</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_EXPANSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_CREATIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_EXPANSIVE</TraitType>
+				<TraitType>TRAIT_CREATIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -25501,14 +25225,8 @@
 			<FavoriteCivic>CIVIC_MERCANTILISM</FavoriteCivic>
 			<FavoriteReligion>RELIGION_BUDDHISM</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_PROTECTIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_PROTECTIVE</TraitType>
+				<TraitType>TRAIT_AGGRESSIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -26060,14 +25778,8 @@
 			<FavoriteCivic>CIVIC_REPRESENTATION</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_IMPERIALIST</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_FINANCIAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_IMPERIALIST</TraitType>
+				<TraitType>TRAIT_FINANCIAL</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -26623,14 +26335,8 @@
 			<FavoriteCivic>CIVIC_CASTE_SYSTEM</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CONFUCIANISM</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_FINANCIAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_PROTECTIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_FINANCIAL</TraitType>
+				<TraitType>TRAIT_PROTECTIVE</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -27191,14 +26897,8 @@
 			<FavoriteCivic>CIVIC_FREE_SPEECH</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_EXPANSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_CHARISMATIC</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_EXPANSIVE</TraitType>
+				<TraitType>TRAIT_CHARISMATIC</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -27768,14 +27468,8 @@
 			<FavoriteCivic>CIVIC_FREE_RELIGION</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_CREATIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_FINANCIAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_CREATIVE</TraitType>
+				<TraitType>TRAIT_FINANCIAL</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -28343,14 +28037,8 @@
 			<FavoriteCivic>CIVIC_THEOCRACY</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_CREATIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_ORGANIZED</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
+				<TraitType>TRAIT_CREATIVE</TraitType>
+				<TraitType>TRAIT_ORGANIZED</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>

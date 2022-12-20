@@ -12221,7 +12221,7 @@ bool CvLeaderHeadInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "FavoriteReligion");
 	m_iFavoriteReligion = pXML->FindInInfoClass(szTextVal);
 
-	pXML->SetListPairInfo(&m_pbTraits, "Traits", GC.getNumTraitInfos());
+	pXML->SetListInfoBool(&m_pbTraits, "Traits", GC.getNumTraitInfos());
 
 	pXML->SetListPairEnum(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());
 	pXML->SetListPairEnum(&m_piContactRand, "ContactRands", NUM_CONTACT_TYPES);
