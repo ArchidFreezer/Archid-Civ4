@@ -5115,9 +5115,9 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetList(&m_piCapitalCommerceModifier, "CapitalCommerceModifiers", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_piSpecialistExtraCommerce, "SpecialistExtraCommerces", NUM_COMMERCE_TYPES);
 
-	pXML->SetListPairInfo(&m_pabHurry, "Hurrys", GC.getNumHurryInfos());
-	pXML->SetListPairInfo(&m_pabSpecialBuildingNotRequired, "SpecialBuildingNotRequireds", GC.getNumSpecialBuildingInfos());
-	pXML->SetListPairInfo(&m_pabSpecialistValid, "SpecialistValids", GC.getNumSpecialistInfos());
+	pXML->SetListInfoBool(&m_pabHurry, "Hurrys", GC.getNumHurryInfos());
+	pXML->SetListInfoBool(&m_pabSpecialBuildingNotRequired, "SpecialBuildingNotRequireds", GC.getNumSpecialBuildingInfos());
+	pXML->SetListInfoBool(&m_pabSpecialistValid, "SpecialistValids", GC.getNumSpecialistInfos());
 
 	pXML->SetListPairInfo(&m_paiBuildingHappinessChanges, "BuildingHappinessChanges", GC.getNumBuildingClassInfos());
 	pXML->SetListPairInfo(&m_paiBuildingHealthChanges, "BuildingHealthChanges", GC.getNumBuildingClassInfos());

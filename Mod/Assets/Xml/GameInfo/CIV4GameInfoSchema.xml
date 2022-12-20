@@ -658,31 +658,16 @@
 		<element type="iCommerce" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="HurryType" content="textOnly"/>
-	<ElementType name="bHurry" content="textOnly" dt:type="boolean"/>
-	<ElementType name="Hurry" content="eltOnly">
-		<element type="HurryType"/>
-		<element type="bHurry"/>
-	</ElementType>
 	<ElementType name="Hurrys" content="eltOnly">
-		<element type="Hurry" minOccurs="0" maxOccurs="*"/>
+		<element type="HurryType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="SpecialBuildingType" content="textOnly"/>
-	<ElementType name="bNotRequired" content="textOnly" dt:type="boolean"/>
-	<ElementType name="SpecialBuildingNotRequired" content="eltOnly">
-		<element type="SpecialBuildingType"/>
-		<element type="bNotRequired"/>
-	</ElementType>
 	<ElementType name="SpecialBuildingNotRequireds" content="eltOnly">
-		<element type="SpecialBuildingNotRequired" minOccurs="0" maxOccurs="*"/>
+		<element type="SpecialBuildingType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="SpecialistType" content="textOnly"/>
-	<ElementType name="bValid" content="textOnly" dt:type="boolean"/>
-	<ElementType name="SpecialistValid" content="eltOnly">
-		<element type="SpecialistType"/>
-		<element type="bValid"/>
-	</ElementType>
 	<ElementType name="SpecialistValids" content="eltOnly">
-		<element type="SpecialistValid" minOccurs="0" maxOccurs="*"/>
+		<element type="SpecialistType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="BuildingType" content="textOnly"/>
 	<ElementType name="iHappinessChange" content="textOnly" dt:type="int"/>

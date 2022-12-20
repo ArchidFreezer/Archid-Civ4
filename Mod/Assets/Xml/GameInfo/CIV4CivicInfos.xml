@@ -68,10 +68,7 @@
 			<TechPrereq>TECH_DEMOCRACY</TechPrereq>
 			<Upkeep>UPKEEP_MEDIUM</Upkeep>
 			<Hurrys>
-				<Hurry>
-					<HurryType>HURRY_GOLD</HurryType>
-					<bHurry>1</bHurry>
-				</Hurry>
+				<HurryType>HURRY_GOLD</HurryType>
 			</Hurrys>
 			<ImprovementYieldChanges>
 				<ImprovementYieldChange>
@@ -196,10 +193,7 @@
 			<TechPrereq>TECH_BRONZE_WORKING</TechPrereq>
 			<Upkeep>UPKEEP_MEDIUM</Upkeep>
 			<Hurrys>
-				<Hurry>
-					<HurryType>HURRY_POPULATION</HurryType>
-					<bHurry>1</bHurry>
-				</Hurry>
+				<HurryType>HURRY_POPULATION</HurryType>
 			</Hurrys>
 			<WeLoveTheKing/>
 		</CivicInfo>
@@ -251,18 +245,9 @@
 			<TechPrereq>TECH_CODE_OF_LAWS</TechPrereq>
 			<Upkeep>UPKEEP_MEDIUM</Upkeep>
 			<SpecialistValids>
-				<SpecialistValid>
-					<SpecialistType>SPECIALIST_ARTIST</SpecialistType>
-					<bValid>1</bValid>
-				</SpecialistValid>
-				<SpecialistValid>
-					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
-					<bValid>1</bValid>
-				</SpecialistValid>
-				<SpecialistValid>
-					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
-					<bValid>1</bValid>
-				</SpecialistValid>
+				<SpecialistType>SPECIALIST_ARTIST</SpecialistType>
+				<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+				<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
 			</SpecialistValids>
 			<ImprovementYieldChanges>
 				<ImprovementYieldChange>
@@ -421,10 +406,7 @@
 			<bStateReligion>1</bStateReligion>
 			<iStateReligionBuildingProductionModifier>25</iStateReligionBuildingProductionModifier>
 			<SpecialBuildingNotRequireds>
-				<SpecialBuildingNotRequired>
-					<SpecialBuildingType>SPECIALBUILDING_MONASTERY</SpecialBuildingType>
-					<bNotRequired>1</bNotRequired>
-				</SpecialBuildingNotRequired>
+				<SpecialBuildingType>SPECIALBUILDING_MONASTERY</SpecialBuildingType>
 			</SpecialBuildingNotRequireds>
 			<WeLoveTheKing/>
 		</CivicInfo>
