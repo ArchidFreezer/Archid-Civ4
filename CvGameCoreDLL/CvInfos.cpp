@@ -13445,8 +13445,8 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetList(&m_paiTradeYieldModifier, "TradeYieldModifiers", NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiCommerceChange, "CommerceChanges", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_paiCommerceModifier, "CommerceModifiers", NUM_COMMERCE_TYPES);
-	pXML->SetListPairInfo(&m_pabFreePromotion, "FreePromotions", GC.getNumPromotionInfos());
-	pXML->SetListPairInfo(&m_pabFreePromotionUnitCombat, "FreePromotionUnitCombats", GC.getNumUnitCombatInfos());
+	pXML->SetListInfoBool(&m_pabFreePromotion, "FreePromotions", GC.getNumPromotionInfos());
+	pXML->SetListInfoBool(&m_pabFreePromotionUnitCombat, "FreePromotionUnitCombats", GC.getNumUnitCombatInfos());
 
 	return true;
 }

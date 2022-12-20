@@ -312,22 +312,12 @@
 		<element type="iCommerce" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="PromotionType" content="textOnly"/>
-	<ElementType name="bFreePromotion" content="textOnly" dt:type="boolean"/>
-	<ElementType name="FreePromotion" content="eltOnly">
-		<element type="PromotionType"/>
-		<element type="bFreePromotion"/>
-	</ElementType>
 	<ElementType name="FreePromotions" content="eltOnly">
-		<element type="FreePromotion" minOccurs="0" maxOccurs="*"/>
+		<element type="PromotionType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="UnitCombatType" content="textOnly"/>
-	<ElementType name="bFreePromotionUnitCombat" content="textOnly" dt:type="boolean"/>
-	<ElementType name="FreePromotionUnitCombat" content="eltOnly">
-		<element type="UnitCombatType"/>
-		<element type="bFreePromotionUnitCombat"/>
-	</ElementType>
 	<ElementType name="FreePromotionUnitCombats" content="eltOnly">
-		<element type="FreePromotionUnitCombat" minOccurs="0" maxOccurs="*"/>
+		<element type="UnitCombatType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="TraitInfo" content="eltOnly">
 		<element type="Type"/>
