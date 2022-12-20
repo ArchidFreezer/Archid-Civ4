@@ -3466,7 +3466,7 @@ void CvPlayer::handleDiploEvent(DiploEventTypes eDiploEvent, PlayerTypes ePlayer
 		AI_changeMemoryCount(ePlayer, MEMORY_ACCEPTED_STOP_TRADING, 1);
 		GET_PLAYER(ePlayer).stopTradingWithTeam((TeamTypes)iData1);
 
-		for (iI = 0; iI < MAX_PLAYERS; iI++) {
+		for (int iI = 0; iI < MAX_PLAYERS; iI++) {
 			if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
 				if (GET_PLAYER((PlayerTypes)iI).getTeam() == ((TeamTypes)iData1)) {
 					GET_PLAYER((PlayerTypes)iI).AI_changeMemoryCount(getID(), MEMORY_HIRED_TRADE_EMBARGO, 1);
