@@ -7291,9 +7291,9 @@ bool CvBuildingClassInfo::read(CvXMLLoadUtility* pXML) {
 		return false;
 	}
 
-	pXML->GetChildXmlValByName(&m_iMaxGlobalInstances, "iMaxGlobalInstances");
-	pXML->GetChildXmlValByName(&m_iMaxTeamInstances, "iMaxTeamInstances");
-	pXML->GetChildXmlValByName(&m_iMaxPlayerInstances, "iMaxPlayerInstances");
+	pXML->GetChildXmlValByName(&m_iMaxGlobalInstances, "iMaxGlobalInstances", -1);
+	pXML->GetChildXmlValByName(&m_iMaxTeamInstances, "iMaxTeamInstances", -1);
+	pXML->GetChildXmlValByName(&m_iMaxPlayerInstances, "iMaxPlayerInstances", -1);
 	pXML->GetChildXmlValByName(&m_iExtraPlayerInstances, "iExtraPlayerInstances");
 
 	pXML->GetChildXmlValByName(&m_bNoLimit, "bNoLimit");

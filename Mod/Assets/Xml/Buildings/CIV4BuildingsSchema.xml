@@ -25,10 +25,10 @@
 	<ElementType name="BuildingClassInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
-		<element type="iMaxGlobalInstances"/>
-		<element type="iMaxTeamInstances"/>
-		<element type="iMaxPlayerInstances"/>
-		<element type="iExtraPlayerInstances"/>
+		<element type="iMaxGlobalInstances" minOccurs="0"/> <!-- Default: -1 -->
+		<element type="iMaxTeamInstances" minOccurs="0"/> <!-- Default: -1 -->
+		<element type="iMaxPlayerInstances" minOccurs="0"/> <!-- Default: -1 -->
+		<element type="iExtraPlayerInstances" minOccurs="0"/>
 		<element type="bNoLimit" minOccurs="0"/>
 		<element type="bMonument" minOccurs="0"/>
 		<element type="DefaultBuilding"/>
