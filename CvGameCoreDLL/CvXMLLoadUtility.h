@@ -191,16 +191,11 @@ public:
 	void InitPointerFloatList(float*** pppfList, int iSizeX);
 
 	// allocate and initialize a list from a tag pair in the xml
-	void SetVariableListTagPair(int** ppiList, const TCHAR* szRootTagName, int iInfoBaseLength, int iDefaultListVal = 0);
-	void SetVariableListTagPair(bool** ppbList, const TCHAR* szRootTagName, int iInfoBaseLength, bool bDefaultListVal = false);
-	void SetVariableListTagPair(float** ppfList, const TCHAR* szRootTagName, int iInfoBaseLength, float fDefaultListVal = 0.0f);
-	void SetVariableListTagPair(CvString** ppszList, const TCHAR* szRootTagName, int iInfoBaseLength, CvString szDefaultListVal = "");
-	void SetVariableListTagPairForAudioScripts(int** ppiList, const TCHAR* szRootTagName, int iInfoBaseLength, int iDefaultListVal = -1);
+	void SetListPairInfos(int** ppList, const TCHAR* szRootTagName, int iInfoBaseLength);
 
-	void SetEnumListTagPair(int** ppiList, const TCHAR* szRootTagName, int iTagListLength, int iDefaultListVal = 0);
-	void SetEnumListTagPair(bool** ppbList, const TCHAR* szRootTagName, int iTagListLength, bool bDefaultListVal = false);
-	void SetEnumListTagPair(CvString** ppszList, const TCHAR* szRootTagName, int iTagListLength, CvString szDefaultListVal = "");
-	void SetEnumListTagPairForAudioScripts(int** ppiList, const TCHAR* szRootTagName, int iTagListLength, int iDefaultListVal = -1);
+	void SetListPairEnumString(CvString** ppszList, const TCHAR* szRootTagName, int iTagListLength, CvString szDefaultListVal = "");
+	void SetListPairInfoForAudioScripts(int** ppiList, const TCHAR* szRootTagName, int iInfoBaseLength, int iDefaultListVal = -1);
+	void SetListPairEnumForAudioScripts(int** ppiList, const TCHAR* szRootTagName, int iTagListLength, int iDefaultListVal = -1);
 
 	// create a hot key from a description
 	CvWString CreateHotKeyFromDescription(const TCHAR* pszHotKey, bool bShift = false, bool bAlt = false, bool bCtrl = false);
@@ -215,6 +210,10 @@ public:
 #ifdef _USRDLL
 	template <class T>
 	int SetList(T** ppList, const TCHAR* szRootTagName, int iListLength, T tDefault = 0);
+	template <class T>
+	void SetListPairInfo(T** ppList, const TCHAR* szRootTagName, int iListLength, T tDefault = 0);
+	template <class T>
+	void SetListPairEnum(T** ppList, const TCHAR* szRootTagName, int iListLength, T tDefault = 0);
 #endif
 
 	//---------------------------------------PRIVATE MEMBER VARIABLES---------------------------------
@@ -327,6 +326,94 @@ int CvXMLLoadUtility::SetList(T** ppList, const TCHAR* szRootTagName, int iListL
 		gDLL->getXMLIFace()->SetToParent(m_pFXml);
 	}
 	return iNumSibs;
+}
+
+template <class T>
+void CvXMLLoadUtility::SetListPairInfo(T** ppList, const TCHAR* szRootTagName, int iListLength, T tDefault) {
+	if (0 > iListLength) {
+		char	szMessage[1024];
+		sprintf(szMessage, "Allocating zero or less memory in CvXMLLoadUtility::SetListPairInfo \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
+		gDLL->MessageBox(szMessage, "XML Error");
+	}
+	InitList(ppList, iListLength, tDefault);
+	if (gDLL->getXMLIFace()->SetToChildByTagName(m_pFXml, szRootTagName)) {
+		if (SkipToNextVal()) {
+			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
+			T* pList = *ppList;
+			if (0 < iNumSibs) {
+				if (!(iNumSibs <= iListLength)) {
+					char	szMessage[1024];
+					sprintf(szMessage, "There are more siblings than memory allocated for them in CvXMLLoadUtility::SetListPairInfo \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
+					gDLL->MessageBox(szMessage, "XML Error");
+				}
+				if (gDLL->getXMLIFace()->SetToChild(m_pFXml)) {
+					TCHAR szTextVal[256];
+					for (int i = 0; i < iNumSibs; i++) {
+						if (SkipToNextVal() && GetChildXmlVal(szTextVal)) // K-Mod. (without this, a comment in the xml could break this)
+						{
+							int iIndexVal = FindInInfoClass(szTextVal);
+							if (iIndexVal != -1) {
+								GetNextXmlVal(&pList[iIndexVal]);
+							}
+							gDLL->getXMLIFace()->SetToParent(m_pFXml);
+						}
+
+						if (!gDLL->getXMLIFace()->NextSibling(m_pFXml)) {
+							break;
+						}
+					}
+
+					gDLL->getXMLIFace()->SetToParent(m_pFXml);
+				}
+			}
+		}
+
+		gDLL->getXMLIFace()->SetToParent(m_pFXml);
+	}
+}
+
+template <class T>
+void CvXMLLoadUtility::SetListPairEnum(T** ppList, const TCHAR* szRootTagName, int iListLength, T tDefault) {
+	if (0 > iListLength) {
+		char	szMessage[1024];
+		sprintf(szMessage, "Allocating zero or less memory in CvXMLLoadUtility::SetListPairEnum \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
+		gDLL->MessageBox(szMessage, "XML Error");
+	}
+	InitList(ppList, iListLength, tDefault);
+	if (gDLL->getXMLIFace()->SetToChildByTagName(m_pFXml, szRootTagName)) {
+		if (SkipToNextVal()) {
+			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
+			T* pList = *ppList;
+			if (0 < iNumSibs) {
+				if (!(iNumSibs <= iListLength)) {
+					char	szMessage[1024];
+					sprintf(szMessage, "There are more siblings than memory allocated for them in CvXMLLoadUtility::SetListPairEnum \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
+					gDLL->MessageBox(szMessage, "XML Error");
+				}
+				if (gDLL->getXMLIFace()->SetToChild(m_pFXml)) {
+					TCHAR szTextVal[256];
+					for (int i = 0; i < iNumSibs; i++) {
+						if (SkipToNextVal() && GetChildXmlVal(szTextVal)) // K-Mod. (without this, a comment in the xml could break this)
+						{
+							int iIndexVal = GC.getTypesEnum(szTextVal);
+							if (iIndexVal != -1) {
+								GetNextXmlVal(&pList[iIndexVal]);
+							}
+							gDLL->getXMLIFace()->SetToParent(m_pFXml);
+						}
+
+						if (!gDLL->getXMLIFace()->NextSibling(m_pFXml)) {
+							break;
+						}
+					}
+
+					gDLL->getXMLIFace()->SetToParent(m_pFXml);
+				}
+			}
+		}
+
+		gDLL->getXMLIFace()->SetToParent(m_pFXml);
+	}
 }
 
 #endif

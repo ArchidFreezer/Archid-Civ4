@@ -598,7 +598,7 @@ bool CvXMLLoadUtility::SetGlobalTypes() {
 
 		gDLL->getXMLIFace()->SetToParent(m_pFXml);
 		gDLL->getXMLIFace()->SetToParent(m_pFXml);
-		SetEnumListTagPair(&GC.getFootstepAudioTags(), "FootstepAudioTags", GC.getNumFootstepAudioTypes(), "");
+		SetListPairEnumString(&GC.getFootstepAudioTags(), "FootstepAudioTags", GC.getNumFootstepAudioTypes(), "");
 	}
 
 	// delete the pointer to the FXml variable
@@ -1644,24 +1644,17 @@ void CvXMLLoadUtility::SetImprovementBonuses(CvImprovementBonusInfo** ppImprovem
 	}
 }
 
-//------------------------------------------------------------------------------------------------------
-//
-//  FUNCTION:   SetVariableListTagPair(	int **ppiList, const TCHAR* szRootTagName, int iInfoBaseSize, int iInfoBaseLength, int iDefaultListVal)
-//
-//  PURPOSE :   allocate and initialize a list from a tag pair in the xml
-//
-//------------------------------------------------------------------------------------------------------
-void CvXMLLoadUtility::SetVariableListTagPair(int** ppiList, const TCHAR* szRootTagName, int iInfoBaseLength, int iDefaultListVal) {
-	if (0 > iInfoBaseLength) {
+void CvXMLLoadUtility::SetListPairInfos(int** ppList, const TCHAR* szRootTagName, int iInfoBaseLength) {
+	if (!(0 < iInfoBaseLength)) {
 		char	szMessage[1024];
 		sprintf(szMessage, "Allocating zero or less memory in CvXMLLoadUtility::SetVariableListTagPair \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
 		gDLL->MessageBox(szMessage, "XML Error");
 	}
-	InitList(ppiList, iInfoBaseLength, iDefaultListVal);
+	InitList(ppList, iInfoBaseLength, -1);
 	if (gDLL->getXMLIFace()->SetToChildByTagName(m_pFXml, szRootTagName)) {
 		if (SkipToNextVal()) {
 			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
-			int* piList = *ppiList;
+			int* pList = *ppList;
 			if (0 < iNumSibs) {
 				if (!(iNumSibs <= iInfoBaseLength)) {
 					char	szMessage[1024];
@@ -1674,11 +1667,14 @@ void CvXMLLoadUtility::SetVariableListTagPair(int** ppiList, const TCHAR* szRoot
 						if (SkipToNextVal() && GetChildXmlVal(szTextVal)) // K-Mod. (without this, a comment in the xml could break this)
 						{
 							int iIndexVal = FindInInfoClass(szTextVal);
-
 							if (iIndexVal != -1) {
-								GetNextXmlVal(&piList[iIndexVal]);
+								if (GetNextXmlVal(szTextVal)) {
+									int iIndexVal2 = FindInInfoClass(szTextVal);
+									if (iIndexVal2 != -1) {
+										pList[iIndexVal] = iIndexVal2;
+									}
+								}
 							}
-
 							gDLL->getXMLIFace()->SetToParent(m_pFXml);
 						}
 
@@ -1698,126 +1694,24 @@ void CvXMLLoadUtility::SetVariableListTagPair(int** ppiList, const TCHAR* szRoot
 
 //------------------------------------------------------------------------------------------------------
 //
-//  FUNCTION:   SetVariableListTagPair(	bool **ppbList, const TCHAR* szRootTagName, int iInfoBaseSize, int iInfoBaseLength, bool bDefaultListVal)
+//	FUNCTION:	SetListPairEnumString(CvString **ppszList, const TCHAR* szRootTagName, CvString* m_paszTagList, int iTagListLength, CvString szDefaultListVal = "")
 //
 //  PURPOSE :   allocate and initialize a list from a tag pair in the xml
 //
 //------------------------------------------------------------------------------------------------------
-void CvXMLLoadUtility::SetVariableListTagPair(bool** ppbList, const TCHAR* szRootTagName, int iInfoBaseLength, bool bDefaultListVal) {
-	if (!(0 < iInfoBaseLength)) {
+void CvXMLLoadUtility::SetListPairEnumString(CvString** ppszList, const TCHAR* szRootTagName, int iTagListLength, CvString szDefaultListVal) {
+	if (!(0 < iTagListLength)) {
 		char	szMessage[1024];
 		sprintf(szMessage, "Allocating zero or less memory in CvXMLLoadUtility::SetVariableListTagPair \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
 		gDLL->MessageBox(szMessage, "XML Error");
 	}
-	InitList(ppbList, iInfoBaseLength, bDefaultListVal);
-	if (gDLL->getXMLIFace()->SetToChildByTagName(m_pFXml, szRootTagName)) {
-		if (SkipToNextVal()) {
-			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
-			bool* pbList = *ppbList;
-			if (0 < iNumSibs) {
-				if (!(iNumSibs <= iInfoBaseLength)) {
-					char	szMessage[1024];
-					sprintf(szMessage, "There are more siblings than memory allocated for them in CvXMLLoadUtility::SetVariableListTagPair \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
-					gDLL->MessageBox(szMessage, "XML Error");
-				}
-				if (gDLL->getXMLIFace()->SetToChild(m_pFXml)) {
-					TCHAR szTextVal[256];
-					for (int i = 0; i < iNumSibs; i++) {
-						if (SkipToNextVal() && GetChildXmlVal(szTextVal)) // K-Mod. (without this, a comment in the xml could break this)
-						{
-							int iIndexVal = FindInInfoClass(szTextVal);
-							if (iIndexVal != -1) {
-								GetNextXmlVal(&pbList[iIndexVal]);
-							}
-
-							gDLL->getXMLIFace()->SetToParent(m_pFXml);
-						}
-
-						if (!gDLL->getXMLIFace()->NextSibling(m_pFXml)) {
-							break;
-						}
-					}
-
-					gDLL->getXMLIFace()->SetToParent(m_pFXml);
-				}
-			}
-		}
-
-		gDLL->getXMLIFace()->SetToParent(m_pFXml);
-	}
-}
-
-//------------------------------------------------------------------------------------------------------
-//
-//  FUNCTION:   SetVariableListTagPair(	float **ppfList, const TCHAR* szRootTagName, int iInfoBaseSize, int iInfoBaseLength, float fDefaultListVal)
-//
-//  PURPOSE :   allocate and initialize a list from a tag pair in the xml
-//
-//------------------------------------------------------------------------------------------------------
-void CvXMLLoadUtility::SetVariableListTagPair(float** ppfList, const TCHAR* szRootTagName, int iInfoBaseLength, float fDefaultListVal) {
-	if (!(0 < iInfoBaseLength)) {
-		char	szMessage[1024];
-		sprintf(szMessage, "Allocating zero or less memory in CvXMLLoadUtility::SetVariableListTagPair \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
-		gDLL->MessageBox(szMessage, "XML Error");
-	}
-	InitList(ppfList, iInfoBaseLength, fDefaultListVal);
-	if (gDLL->getXMLIFace()->SetToChildByTagName(m_pFXml, szRootTagName)) {
-		if (SkipToNextVal()) {
-			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
-			float* pfList = *ppfList;
-			if (0 < iNumSibs) {
-				if (!(iNumSibs <= iInfoBaseLength)) {
-					char	szMessage[1024];
-					sprintf(szMessage, "There are more siblings than memory allocated for them in CvXMLLoadUtility::SetVariableListTagPair \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
-					gDLL->MessageBox(szMessage, "XML Error");
-				}
-				if (gDLL->getXMLIFace()->SetToChild(m_pFXml)) {
-					TCHAR szTextVal[256];
-					for (int i = 0; i < iNumSibs; i++) {
-						if (SkipToNextVal() && GetChildXmlVal(szTextVal)) // K-Mod. (without this, a comment in the xml could break this)
-						{
-							int iIndexVal = FindInInfoClass(szTextVal);
-							if (iIndexVal != -1) {
-								GetNextXmlVal(&pfList[iIndexVal]);
-							}
-
-							gDLL->getXMLIFace()->SetToParent(m_pFXml);
-						}
-
-						if (!gDLL->getXMLIFace()->NextSibling(m_pFXml)) {
-							break;
-						}
-					}
-
-					gDLL->getXMLIFace()->SetToParent(m_pFXml);
-				}
-			}
-		}
-
-		gDLL->getXMLIFace()->SetToParent(m_pFXml);
-	}
-}
-
-//------------------------------------------------------------------------------------------------------
-//
-//  FUNCTION:   SetVariableListTagPair(	CvString **ppfList, const TCHAR* szRootTagName, int iInfoBaseSize, int iInfoBaseLength, CvString szDefaultListVal)
-//
-//  PURPOSE :   allocate and initialize a list from a tag pair in the xml
-//
-//------------------------------------------------------------------------------------------------------
-void CvXMLLoadUtility::SetVariableListTagPair(CvString** ppszList, const TCHAR* szRootTagName, int iInfoBaseLength, CvString szDefaultListVal) {
-	if (!(0 < iInfoBaseLength)) {
-		char	szMessage[1024];
-		sprintf(szMessage, "Allocating zero or less memory in CvXMLLoadUtility::SetVariableListTagPair \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
-		gDLL->MessageBox(szMessage, "XML Error");
-	}
-	InitStringList(ppszList, iInfoBaseLength, szDefaultListVal);
+	InitStringList(ppszList, iTagListLength, szDefaultListVal);
 	if (gDLL->getXMLIFace()->SetToChildByTagName(m_pFXml, szRootTagName)) {
 		if (SkipToNextVal()) {
 			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
 			CvString* pszList = *ppszList;
 			if (0 < iNumSibs) {
-				if (!(iNumSibs <= iInfoBaseLength)) {
+				if (!(iNumSibs <= iTagListLength)) {
 					char	szMessage[1024];
 					sprintf(szMessage, "There are more siblings than memory allocated for them in CvXMLLoadUtility::SetVariableListTagPair \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
 					gDLL->MessageBox(szMessage, "XML Error");
@@ -1828,7 +1722,7 @@ void CvXMLLoadUtility::SetVariableListTagPair(CvString** ppszList, const TCHAR* 
 						//if (GetChildXmlVal(szTextVal))
 						if (SkipToNextVal() && GetChildXmlVal(szTextVal)) // K-Mod. (without this, a comment in the xml could break this)
 						{
-							int iIndexVal = FindInInfoClass(szTextVal);
+							int iIndexVal = GC.getTypesEnum(szTextVal);
 							if (iIndexVal != -1) {
 								GetNextXmlVal(pszList[iIndexVal]);
 							}
@@ -1857,7 +1751,7 @@ void CvXMLLoadUtility::SetVariableListTagPair(CvString** ppszList, const TCHAR* 
 //  PURPOSE :   allocate and initialize a list from a tag pair in the xml for audio scripts
 //
 //------------------------------------------------------------------------------------------------------
-void CvXMLLoadUtility::SetVariableListTagPairForAudioScripts(int** ppiList, const TCHAR* szRootTagName, int iInfoBaseLength, int iDefaultListVal) {
+void CvXMLLoadUtility::SetListPairInfoForAudioScripts(int** ppiList, const TCHAR* szRootTagName, int iInfoBaseLength, int iDefaultListVal) {
 	if (gDLL->getXMLIFace()->SetToChildByTagName(m_pFXml, szRootTagName)) {
 		if (SkipToNextVal()) {
 			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
@@ -1910,62 +1804,10 @@ void CvXMLLoadUtility::SetVariableListTagPairForAudioScripts(int** ppiList, cons
 //
 //  FUNCTION:   SetVariableListTagPair(int **ppiList, const TCHAR* szRootTagName, CvString* m_paszTagList, int iTagListLength, int iDefaultListVal)
 //
-//  PURPOSE :   allocate and initialize a list from a tag pair in the xml
-//
-//------------------------------------------------------------------------------------------------------
-void CvXMLLoadUtility::SetEnumListTagPair(int** ppiList, const TCHAR* szRootTagName, int iTagListLength, int iDefaultListVal) {
-	if (!(0 < iTagListLength)) {
-		char	szMessage[1024];
-		sprintf(szMessage, "Allocating zero or less memory in CvXMLLoadUtility::SetVariableListTagPair \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
-		gDLL->MessageBox(szMessage, "XML Error");
-	}
-	InitList(ppiList, iTagListLength, iDefaultListVal);
-	if (gDLL->getXMLIFace()->SetToChildByTagName(m_pFXml, szRootTagName)) {
-		if (SkipToNextVal()) {
-			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
-			int* piList = *ppiList;
-			if (0 < iNumSibs) {
-				if (!(iNumSibs <= iTagListLength)) {
-					char	szMessage[1024];
-					sprintf(szMessage, "There are more siblings than memory allocated for them in CvXMLLoadUtility::SetVariableListTagPair \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
-					gDLL->MessageBox(szMessage, "XML Error");
-				}
-				if (gDLL->getXMLIFace()->SetToChild(m_pFXml)) {
-					TCHAR szTextVal[256];
-					for (int i = 0; i < iNumSibs; i++) {
-						//if (GetChildXmlVal(szTextVal))
-						if (SkipToNextVal() && GetChildXmlVal(szTextVal)) // K-Mod. (without this, a comment in the xml could break this)
-						{
-							int iIndexVal = GC.getTypesEnum(szTextVal);
-							if (iIndexVal != -1) {
-								GetNextXmlVal(&piList[iIndexVal]);
-							}
-
-							gDLL->getXMLIFace()->SetToParent(m_pFXml);
-						}
-
-						if (!gDLL->getXMLIFace()->NextSibling(m_pFXml)) {
-							break;
-						}
-					}
-
-					gDLL->getXMLIFace()->SetToParent(m_pFXml);
-				}
-			}
-		}
-
-		gDLL->getXMLIFace()->SetToParent(m_pFXml);
-	}
-}
-
-//------------------------------------------------------------------------------------------------------
-//
-//  FUNCTION:   SetVariableListTagPair(int **ppiList, const TCHAR* szRootTagName, CvString* m_paszTagList, int iTagListLength, int iDefaultListVal)
-//
 //  PURPOSE :   allocate and initialize a list from a tag pair in the xml for audio scripts
 //
 //------------------------------------------------------------------------------------------------------
-void CvXMLLoadUtility::SetEnumListTagPairForAudioScripts(int** ppiList, const TCHAR* szRootTagName, int iTagListLength, int iDefaultListVal) {
+void CvXMLLoadUtility::SetListPairEnumForAudioScripts(int** ppiList, const TCHAR* szRootTagName, int iTagListLength, int iDefaultListVal) {
 	if (gDLL->getXMLIFace()->SetToChildByTagName(m_pFXml, szRootTagName)) {
 		if (SkipToNextVal()) {
 			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
@@ -1995,109 +1837,6 @@ void CvXMLLoadUtility::SetEnumListTagPairForAudioScripts(int** ppiList, const TC
 									piList[iIndexVal] = gDLL->getAudioTagIndex(szTemp);
 								else
 									piList[iIndexVal] = -1;
-							}
-
-							gDLL->getXMLIFace()->SetToParent(m_pFXml);
-						}
-
-						if (!gDLL->getXMLIFace()->NextSibling(m_pFXml)) {
-							break;
-						}
-					}
-
-					gDLL->getXMLIFace()->SetToParent(m_pFXml);
-				}
-			}
-		}
-
-		gDLL->getXMLIFace()->SetToParent(m_pFXml);
-	}
-}
-
-//------------------------------------------------------------------------------------------------------
-//
-//  FUNCTION:   SetVariableListTagPair(bool **ppbList, const TCHAR* szRootTagName, CvString* m_paszTagList, int iTagListLength, int iDefaultListVal)
-//
-//  PURPOSE :   allocate and initialize a list from a tag pair in the xml
-//
-//------------------------------------------------------------------------------------------------------
-void CvXMLLoadUtility::SetEnumListTagPair(bool** ppbList, const TCHAR* szRootTagName, int iTagListLength, bool bDefaultListVal) {
-	if (!(0 < iTagListLength)) {
-		char	szMessage[1024];
-		sprintf(szMessage, "Allocating zero or less memory in CvXMLLoadUtility::SetVariableListTagPair \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
-		gDLL->MessageBox(szMessage, "XML Error");
-	}
-	InitList(ppbList, iTagListLength, bDefaultListVal);
-	if (gDLL->getXMLIFace()->SetToChildByTagName(m_pFXml, szRootTagName)) {
-		if (SkipToNextVal()) {
-			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
-			bool* pbList = *ppbList;
-			if (0 < iNumSibs) {
-				if (!(iNumSibs <= iTagListLength)) {
-					char	szMessage[1024];
-					sprintf(szMessage, "There are more siblings than memory allocated for them in CvXMLLoadUtility::SetVariableListTagPair \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
-					gDLL->MessageBox(szMessage, "XML Error");
-				}
-				if (gDLL->getXMLIFace()->SetToChild(m_pFXml)) {
-					TCHAR szTextVal[256];
-					for (int i = 0; i < iNumSibs; i++) {
-						if (SkipToNextVal() && GetChildXmlVal(szTextVal)) // K-Mod. (without this, a comment in the xml could break this)
-						{
-							int iIndexVal = GC.getTypesEnum(szTextVal);
-							if (iIndexVal != -1) {
-								GetNextXmlVal(&pbList[iIndexVal]);
-							}
-
-							gDLL->getXMLIFace()->SetToParent(m_pFXml);
-						}
-
-						if (!gDLL->getXMLIFace()->NextSibling(m_pFXml)) {
-							break;
-						}
-					}
-
-					gDLL->getXMLIFace()->SetToParent(m_pFXml);
-				}
-			}
-		}
-
-		gDLL->getXMLIFace()->SetToParent(m_pFXml);
-	}
-}
-
-//------------------------------------------------------------------------------------------------------
-//
-//	FUNCTION:	SetVariableListTagPair(CvString **ppszList, const TCHAR* szRootTagName, CvString* m_paszTagList, int iTagListLength, CvString szDefaultListVal = "")
-//
-//  PURPOSE :   allocate and initialize a list from a tag pair in the xml
-//
-//------------------------------------------------------------------------------------------------------
-void CvXMLLoadUtility::SetEnumListTagPair(CvString** ppszList, const TCHAR* szRootTagName, int iTagListLength, CvString szDefaultListVal) {
-	if (!(0 < iTagListLength)) {
-		char	szMessage[1024];
-		sprintf(szMessage, "Allocating zero or less memory in CvXMLLoadUtility::SetVariableListTagPair \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
-		gDLL->MessageBox(szMessage, "XML Error");
-	}
-	InitStringList(ppszList, iTagListLength, szDefaultListVal);
-	if (gDLL->getXMLIFace()->SetToChildByTagName(m_pFXml, szRootTagName)) {
-		if (SkipToNextVal()) {
-			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
-			CvString* pszList = *ppszList;
-			if (0 < iNumSibs) {
-				if (!(iNumSibs <= iTagListLength)) {
-					char	szMessage[1024];
-					sprintf(szMessage, "There are more siblings than memory allocated for them in CvXMLLoadUtility::SetVariableListTagPair \n Current XML file is: %s", GC.getCurrentXMLFile().GetCString());
-					gDLL->MessageBox(szMessage, "XML Error");
-				}
-				if (gDLL->getXMLIFace()->SetToChild(m_pFXml)) {
-					TCHAR szTextVal[256];
-					for (int i = 0; i < iNumSibs; i++) {
-						//if (GetChildXmlVal(szTextVal))
-						if (SkipToNextVal() && GetChildXmlVal(szTextVal)) // K-Mod. (without this, a comment in the xml could break this)
-						{
-							int iIndexVal = GC.getTypesEnum(szTextVal);
-							if (iIndexVal != -1) {
-								GetNextXmlVal(pszList[iIndexVal]);
 							}
 
 							gDLL->getXMLIFace()->SetToParent(m_pFXml);

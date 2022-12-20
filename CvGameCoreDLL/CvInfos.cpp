@@ -662,13 +662,13 @@ void CvDiplomacyResponse::write(FDataStreamBase* stream) {
 }
 
 bool CvDiplomacyResponse::read(CvXMLLoadUtility* pXML) {
-	pXML->SetVariableListTagPair(&m_pbCivilizationTypes, "Civilizations", GC.getNumCivilizationInfos());
+	pXML->SetListPairInfo(&m_pbCivilizationTypes, "Civilizations", GC.getNumCivilizationInfos());
 	// Leaders
-	pXML->SetVariableListTagPair(&m_pbLeaderHeadTypes, "Leaders", GC.getNumLeaderHeadInfos());
+	pXML->SetListPairInfo(&m_pbLeaderHeadTypes, "Leaders", GC.getNumLeaderHeadInfos());
 	// AttitudeTypes
-	pXML->SetVariableListTagPair(&m_pbAttitudeTypes, "Attitudes", NUM_ATTITUDE_TYPES);
+	pXML->SetListPairInfo(&m_pbAttitudeTypes, "Attitudes", NUM_ATTITUDE_TYPES);
 	// PowerTypes
-	pXML->SetEnumListTagPair(&m_pbDiplomacyPowerTypes, "DiplomacyPowers", NUM_DIPLOMACYPOWER_TYPES);
+	pXML->SetListPairEnum(&m_pbDiplomacyPowerTypes, "DiplomacyPowers", NUM_DIPLOMACYPOWER_TYPES);
 	// DiplomacyText
 	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "DiplomacyText")) {
 		pXML->SetStringList(&m_paszDiplomacyText, &m_iNumDiplomacyText);
@@ -791,7 +791,7 @@ bool CvSpecialistInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetList(&m_piCommerceChange, "Commerces", NUM_COMMERCE_TYPES);
 	pXML->GetChildXmlValByName(&m_iExperience, "iExperience");
 
-	pXML->SetEnumListTagPair(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());
+	pXML->SetListPairEnum(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());
 
 	return true;
 }
@@ -1252,9 +1252,9 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iGridY, "iGridY");
 	pXML->SetList(&m_pbCommerceFlexible, "CommerceFlexible", NUM_COMMERCE_TYPES);
 
-	pXML->SetVariableListTagPair(&m_piDomainExtraMoves, "DomainExtraMoves", NUM_DOMAIN_TYPES);
-	pXML->SetVariableListTagPair(&m_pbTerrainTrade, "TerrainTrades", GC.getNumTerrainInfos(), false);
-	pXML->SetEnumListTagPair(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());
+	pXML->SetListPairInfo(&m_piDomainExtraMoves, "DomainExtraMoves", NUM_DOMAIN_TYPES);
+	pXML->SetListPairInfo(&m_pbTerrainTrade, "TerrainTrades", GC.getNumTerrainInfos());
+	pXML->SetListPairEnum(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());
 
 	pXML->GetChildXmlValByName(szTextVal, "Quote");
 	setQuoteKey(szTextVal);
@@ -1891,16 +1891,16 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iExperiencePercent, "iExperiencePercent");
 	pXML->GetChildXmlValByName(&m_iKamikazePercent, "iKamikazePercent");
 
-	pXML->SetVariableListTagPair(&m_piTerrainAttackPercent, "TerrainAttacks", GC.getNumTerrainInfos());
-	pXML->SetVariableListTagPair(&m_piTerrainDefensePercent, "TerrainDefenses", GC.getNumTerrainInfos());
-	pXML->SetVariableListTagPair(&m_piFeatureAttackPercent, "FeatureAttacks", GC.getNumFeatureInfos());
-	pXML->SetVariableListTagPair(&m_piFeatureDefensePercent, "FeatureDefenses", GC.getNumFeatureInfos());
-	pXML->SetVariableListTagPair(&m_piUnitCombatModifierPercent, "UnitCombatMods", GC.getNumUnitCombatInfos());
-	pXML->SetVariableListTagPair(&m_piDomainModifierPercent, "DomainMods", NUM_DOMAIN_TYPES);
+	pXML->SetListPairInfo(&m_piTerrainAttackPercent, "TerrainAttacks", GC.getNumTerrainInfos());
+	pXML->SetListPairInfo(&m_piTerrainDefensePercent, "TerrainDefenses", GC.getNumTerrainInfos());
+	pXML->SetListPairInfo(&m_piFeatureAttackPercent, "FeatureAttacks", GC.getNumFeatureInfos());
+	pXML->SetListPairInfo(&m_piFeatureDefensePercent, "FeatureDefenses", GC.getNumFeatureInfos());
+	pXML->SetListPairInfo(&m_piUnitCombatModifierPercent, "UnitCombatMods", GC.getNumUnitCombatInfos());
+	pXML->SetListPairInfo(&m_piDomainModifierPercent, "DomainMods", NUM_DOMAIN_TYPES);
 
-	pXML->SetVariableListTagPair(&m_pbTerrainDoubleMove, "TerrainDoubleMoves", GC.getNumTerrainInfos());
-	pXML->SetVariableListTagPair(&m_pbFeatureDoubleMove, "FeatureDoubleMoves", GC.getNumFeatureInfos());
-	pXML->SetVariableListTagPair(&m_pbUnitCombat, "UnitCombats", GC.getNumUnitCombatInfos());
+	pXML->SetListPairInfo(&m_pbTerrainDoubleMove, "TerrainDoubleMoves", GC.getNumTerrainInfos());
+	pXML->SetListPairInfo(&m_pbFeatureDoubleMove, "FeatureDoubleMoves", GC.getNumFeatureInfos());
+	pXML->SetListPairInfo(&m_pbUnitCombat, "UnitCombats", GC.getNumUnitCombatInfos());
 
 	return true;
 }
@@ -4087,39 +4087,27 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bAlwaysHostile, "bAlwaysHostile", false);
 	pXML->GetChildXmlValByName(&m_bNoRevealMap, "bNoRevealMap", false);
 
-	pXML->SetVariableListTagPair(&m_pbUpgradeUnitClass, "UnitClassUpgrades", GC.getNumUnitClassInfos());
-	pXML->SetVariableListTagPair(&m_pbTargetUnitClass, "UnitClassTargets", GC.getNumUnitClassInfos());
-	pXML->SetVariableListTagPair(&m_pbTargetUnitCombat, "UnitCombatTargets", GC.getNumUnitCombatInfos());
-	pXML->SetVariableListTagPair(&m_pbDefenderUnitClass, "UnitClassDefenders", GC.getNumUnitClassInfos());
-	pXML->SetVariableListTagPair(&m_pbDefenderUnitCombat, "UnitCombatDefenders", GC.getNumUnitCombatInfos());
-	pXML->SetVariableListTagPair(&m_piFlankingStrikeUnitClass, "FlankingStrikes", GC.getNumUnitClassInfos());
-	pXML->SetVariableListTagPair(&m_pbUnitAIType, "UnitAIs", NUM_UNITAI_TYPES);
-	pXML->SetVariableListTagPair(&m_pbNotUnitAIType, "NotUnitAIs", NUM_UNITAI_TYPES);
+	pXML->SetListPairInfo(&m_pbUpgradeUnitClass, "UnitClassUpgrades", GC.getNumUnitClassInfos());
+	pXML->SetListPairInfo(&m_pbTargetUnitClass, "UnitClassTargets", GC.getNumUnitClassInfos());
+	pXML->SetListPairInfo(&m_pbTargetUnitCombat, "UnitCombatTargets", GC.getNumUnitCombatInfos());
+	pXML->SetListPairInfo(&m_pbDefenderUnitClass, "UnitClassDefenders", GC.getNumUnitClassInfos());
+	pXML->SetListPairInfo(&m_pbDefenderUnitCombat, "UnitCombatDefenders", GC.getNumUnitCombatInfos());
+	pXML->SetListPairInfo(&m_piFlankingStrikeUnitClass, "FlankingStrikes", GC.getNumUnitClassInfos());
+	pXML->SetListPairInfo(&m_pbUnitAIType, "UnitAIs", NUM_UNITAI_TYPES);
+	pXML->SetListPairInfo(&m_pbNotUnitAIType, "NotUnitAIs", NUM_UNITAI_TYPES);
 
-	pXML->SetVariableListTagPair(&m_pbBuilds, "Builds", GC.getNumBuildInfos());
+	pXML->SetListPairInfo(&m_pbBuilds, "Builds", GC.getNumBuildInfos());
 
-	pXML->SetVariableListTagPair(&m_piReligionSpreads, "ReligionSpreads", GC.getNumReligionInfos());
-	pXML->SetVariableListTagPair(&m_piCorporationSpreads, "CorporationSpreads", GC.getNumCorporationInfos());
+	pXML->SetListPairInfo(&m_piReligionSpreads, "ReligionSpreads", GC.getNumReligionInfos());
+	pXML->SetListPairInfo(&m_piCorporationSpreads, "CorporationSpreads", GC.getNumCorporationInfos());
 
-	CvString* pszTemp = NULL;
-	pXML->SetVariableListTagPair(&pszTemp, "TerrainPassableTechs", GC.getNumTerrainInfos());
-	m_piTerrainPassableTech = new int[GC.getNumTerrainInfos()];
-	for (int i = 0; i < GC.getNumTerrainInfos(); ++i) {
-		m_piTerrainPassableTech[i] = pszTemp[i].IsEmpty() ? NO_TECH : pXML->FindInInfoClass(pszTemp[i]);
-	}
-	SAFE_DELETE_ARRAY(pszTemp);
+	pXML->SetListPairInfos(&m_piTerrainPassableTech, "TerrainPassableTechs", GC.getNumTerrainInfos());
+	pXML->SetListPairInfos(&m_piFeaturePassableTech, "FeaturePassableTechs", GC.getNumFeatureInfos());
 
-	pXML->SetVariableListTagPair(&pszTemp, "FeaturePassableTechs", GC.getNumFeatureInfos());
-	m_piFeaturePassableTech = new int[GC.getNumFeatureInfos()];
-	for (int i = 0; i < GC.getNumFeatureInfos(); ++i) {
-		m_piFeaturePassableTech[i] = pszTemp[i].IsEmpty() ? NO_TECH : pXML->FindInInfoClass(pszTemp[i]);
-	}
-	SAFE_DELETE_ARRAY(pszTemp);
+	pXML->SetListPairInfo(&m_pbGreatPeoples, "GreatPeoples", GC.getNumSpecialistInfos());
 
-	pXML->SetVariableListTagPair(&m_pbGreatPeoples, "GreatPeoples", GC.getNumSpecialistInfos());
-
-	pXML->SetVariableListTagPair(&m_pbBuildings, "Buildings", GC.getNumBuildingInfos());
-	pXML->SetVariableListTagPair(&m_pbForceBuildings, "ForceBuildings", GC.getNumBuildingInfos());
+	pXML->SetListPairInfo(&m_pbBuildings, "Buildings", GC.getNumBuildingInfos());
+	pXML->SetListPairInfo(&m_pbForceBuildings, "ForceBuildings", GC.getNumBuildingInfos());
 
 	pXML->GetChildXmlValByName(szTextVal, "HolyCity");
 	m_iHolyCity = pXML->FindInInfoClass(szTextVal);
@@ -4193,9 +4181,9 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
 	}
 
-	pXML->SetVariableListTagPair(&m_piProductionTraits, "ProductionTraits", GC.getNumTraitInfos());
+	pXML->SetListPairInfo(&m_piProductionTraits, "ProductionTraits", GC.getNumTraitInfos());
 
-	pXML->SetEnumListTagPair(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());
+	pXML->SetListPairEnum(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());
 
 	pXML->GetChildXmlValByName(&m_iAIWeight, "iAIWeight");
 	pXML->GetChildXmlValByName(&m_iProductionCost, "iCost");
@@ -4218,8 +4206,8 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iGreatWorkCulture, "iGreatWorkCulture");
 	pXML->GetChildXmlValByName(&m_iEspionagePoints, "iEspionagePoints");
 
-	pXML->SetVariableListTagPair(&m_pbTerrainImpassable, "TerrainImpassables", GC.getNumTerrainInfos(), false);
-	pXML->SetVariableListTagPair(&m_pbFeatureImpassable, "FeatureImpassables", GC.getNumFeatureInfos(), false);
+	pXML->SetListPairInfo(&m_pbTerrainImpassable, "TerrainImpassables", GC.getNumTerrainInfos());
+	pXML->SetListPairInfo(&m_pbFeatureImpassable, "FeatureImpassables", GC.getNumFeatureInfos());
 
 	pXML->GetChildXmlValByName(&m_iCombat, "iCombat");
 	pXML->GetChildXmlValByName(&m_iCombatLimit, "iCombatLimit");
@@ -4241,22 +4229,22 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iHillsAttackModifier, "iHillsAttack");
 	pXML->GetChildXmlValByName(&m_iHillsDefenseModifier, "iHillsDefense");
 
-	pXML->SetVariableListTagPair(&m_pbTerrainNative, "TerrainNatives", GC.getNumTerrainInfos());
-	pXML->SetVariableListTagPair(&m_pbFeatureNative, "FeatureNatives", GC.getNumFeatureInfos());
+	pXML->SetListPairInfo(&m_pbTerrainNative, "TerrainNatives", GC.getNumTerrainInfos());
+	pXML->SetListPairInfo(&m_pbFeatureNative, "FeatureNatives", GC.getNumFeatureInfos());
 
-	pXML->SetVariableListTagPair(&m_piTerrainAttackModifier, "TerrainAttacks", GC.getNumTerrainInfos());
-	pXML->SetVariableListTagPair(&m_piTerrainDefenseModifier, "TerrainDefenses", GC.getNumTerrainInfos());
-	pXML->SetVariableListTagPair(&m_piFeatureAttackModifier, "FeatureAttacks", GC.getNumFeatureInfos());
-	pXML->SetVariableListTagPair(&m_piFeatureDefenseModifier, "FeatureDefenses", GC.getNumFeatureInfos());
+	pXML->SetListPairInfo(&m_piTerrainAttackModifier, "TerrainAttacks", GC.getNumTerrainInfos());
+	pXML->SetListPairInfo(&m_piTerrainDefenseModifier, "TerrainDefenses", GC.getNumTerrainInfos());
+	pXML->SetListPairInfo(&m_piFeatureAttackModifier, "FeatureAttacks", GC.getNumFeatureInfos());
+	pXML->SetListPairInfo(&m_piFeatureDefenseModifier, "FeatureDefenses", GC.getNumFeatureInfos());
 
-	pXML->SetVariableListTagPair(&m_piUnitClassAttackModifier, "UnitClassAttackMods", GC.getNumUnitClassInfos());
-	pXML->SetVariableListTagPair(&m_piUnitClassDefenseModifier, "UnitClassDefenseMods", GC.getNumUnitClassInfos());
+	pXML->SetListPairInfo(&m_piUnitClassAttackModifier, "UnitClassAttackMods", GC.getNumUnitClassInfos());
+	pXML->SetListPairInfo(&m_piUnitClassDefenseModifier, "UnitClassDefenseMods", GC.getNumUnitClassInfos());
 
-	pXML->SetVariableListTagPair(&m_piUnitCombatModifier, "UnitCombatMods", GC.getNumUnitCombatInfos());
-	pXML->SetVariableListTagPair(&m_piUnitCombatCollateralImmune, "UnitCombatCollateralImmunes", GC.getNumUnitCombatInfos());
-	pXML->SetVariableListTagPair(&m_piDomainModifier, "DomainMods", NUM_DOMAIN_TYPES);
+	pXML->SetListPairInfo(&m_piUnitCombatModifier, "UnitCombatMods", GC.getNumUnitCombatInfos());
+	pXML->SetListPairInfo(&m_piUnitCombatCollateralImmune, "UnitCombatCollateralImmunes", GC.getNumUnitCombatInfos());
+	pXML->SetListPairInfo(&m_piDomainModifier, "DomainMods", NUM_DOMAIN_TYPES);
 
-	pXML->SetVariableListTagPair(&m_piBonusProductionModifier, "BonusProductionModifiers", GC.getNumBonusInfos());
+	pXML->SetListPairInfo(&m_piBonusProductionModifier, "BonusProductionModifiers", GC.getNumBonusInfos());
 
 	pXML->GetChildXmlValByName(&m_iBombRate, "iBombRate");
 	pXML->GetChildXmlValByName(&m_iBombardRate, "iBombardRate");
@@ -4310,7 +4298,7 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
 	}
 
-	pXML->SetVariableListTagPair(&m_pbFreePromotions, "FreePromotions", GC.getNumPromotionInfos());
+	pXML->SetListPairInfo(&m_pbFreePromotions, "FreePromotions", GC.getNumPromotionInfos());
 
 	pXML->GetChildXmlValByName(szTextVal, "LeaderPromotion");
 	m_iLeaderPromotion = pXML->FindInInfoClass(szTextVal);
@@ -4508,9 +4496,9 @@ bool CvSpecialUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bValid, "bValid");
 	pXML->GetChildXmlValByName(&m_bCityLoad, "bCityLoad");
 
-	pXML->SetVariableListTagPair(&m_pbCarrierUnitAITypes, "CarrierUnitAITypes", NUM_UNITAI_TYPES);
+	pXML->SetListPairInfo(&m_pbCarrierUnitAITypes, "CarrierUnitAITypes", NUM_UNITAI_TYPES);
 
-	pXML->SetVariableListTagPair(&m_piProductionTraits, "ProductionTraits", GC.getNumTraitInfos());
+	pXML->SetListPairInfo(&m_piProductionTraits, "ProductionTraits", GC.getNumTraitInfos());
 
 	return true;
 }
@@ -4552,7 +4540,7 @@ bool CvCivicOptionInfo::read(CvXMLLoadUtility* pXML) {
 		return false;
 	}
 
-	pXML->SetVariableListTagPair(&m_pabTraitNoUpkeep, "TraitNoUpkeeps", GC.getNumTraitInfos());
+	pXML->SetListPairInfo(&m_pabTraitNoUpkeep, "TraitNoUpkeeps", GC.getNumTraitInfos());
 
 	return true;
 }
@@ -5216,13 +5204,13 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetList(&m_piCapitalCommerceModifier, "CapitalCommerceModifiers", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_piSpecialistExtraCommerce, "SpecialistExtraCommerces", NUM_COMMERCE_TYPES);
 
-	pXML->SetVariableListTagPair(&m_pabHurry, "Hurrys", GC.getNumHurryInfos());
-	pXML->SetVariableListTagPair(&m_pabSpecialBuildingNotRequired, "SpecialBuildingNotRequireds", GC.getNumSpecialBuildingInfos());
-	pXML->SetVariableListTagPair(&m_pabSpecialistValid, "SpecialistValids", GC.getNumSpecialistInfos());
+	pXML->SetListPairInfo(&m_pabHurry, "Hurrys", GC.getNumHurryInfos());
+	pXML->SetListPairInfo(&m_pabSpecialBuildingNotRequired, "SpecialBuildingNotRequireds", GC.getNumSpecialBuildingInfos());
+	pXML->SetListPairInfo(&m_pabSpecialistValid, "SpecialistValids", GC.getNumSpecialistInfos());
 
-	pXML->SetVariableListTagPair(&m_paiBuildingHappinessChanges, "BuildingHappinessChanges", GC.getNumBuildingClassInfos());
-	pXML->SetVariableListTagPair(&m_paiBuildingHealthChanges, "BuildingHealthChanges", GC.getNumBuildingClassInfos());
-	pXML->SetVariableListTagPair(&m_paiFeatureHappinessChanges, "FeatureHappinessChanges", GC.getNumFeatureInfos());
+	pXML->SetListPairInfo(&m_paiBuildingHappinessChanges, "BuildingHappinessChanges", GC.getNumBuildingClassInfos());
+	pXML->SetListPairInfo(&m_paiBuildingHealthChanges, "BuildingHealthChanges", GC.getNumBuildingClassInfos());
+	pXML->SetListPairInfo(&m_paiFeatureHappinessChanges, "FeatureHappinessChanges", GC.getNumFeatureInfos());
 
 	// initialize the boolean list to the correct size and all the booleans to false
 	FAssertMsg((GC.getNumImprovementInfos() > 0) && (NUM_YIELD_TYPES) > 0, "either the number of improvement infos is zero or less or the number of yield types is zero or less");
@@ -7143,9 +7131,9 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
 	}
 
-	pXML->SetVariableListTagPair(&m_piProductionTraits, "ProductionTraits", GC.getNumTraitInfos());
+	pXML->SetListPairInfo(&m_piProductionTraits, "ProductionTraits", GC.getNumTraitInfos());
 
-	pXML->SetVariableListTagPair(&m_piHappinessTraits, "HappinessTraits", GC.getNumTraitInfos());
+	pXML->SetListPairInfo(&m_piHappinessTraits, "HappinessTraits", GC.getNumTraitInfos());
 
 	pXML->GetChildXmlValByName(szTextVal, "NoBonus");
 	m_iNoBonus = pXML->FindInInfoClass(szTextVal);
@@ -7271,28 +7259,23 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetList(&m_piSpecialistExtraCommerce, "SpecialistExtraCommerces", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_piStateReligionCommerce, "StateReligionCommerces", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_piCommerceHappiness, "CommerceHappinesses", NUM_COMMERCE_TYPES);
-
-	pXML->SetVariableListTagPair(&m_piReligionChange, "ReligionChanges", GC.getNumReligionInfos());
-
-	pXML->SetVariableListTagPair(&m_piSpecialistCount, "SpecialistCounts", GC.getNumSpecialistInfos());
-	pXML->SetVariableListTagPair(&m_piFreeSpecialistCount, "FreeSpecialistCounts", GC.getNumSpecialistInfos());
+	pXML->SetListPairInfo(&m_piReligionChange, "ReligionChanges", GC.getNumReligionInfos());
+	pXML->SetListPairInfo(&m_piSpecialistCount, "SpecialistCounts", GC.getNumSpecialistInfos());
+	pXML->SetListPairInfo(&m_piFreeSpecialistCount, "FreeSpecialistCounts", GC.getNumSpecialistInfos());
 	pXML->SetList(&m_pbCommerceFlexible, "CommerceFlexibles", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_pbCommerceChangeOriginalOwner, "CommerceChangeOriginalOwners", NUM_COMMERCE_TYPES);
 
 	pXML->GetChildXmlValByName(szTextVal, "ConstructSound");
 	setConstructSound(szTextVal);
 
-	pXML->SetVariableListTagPair(&m_piBonusHealthChanges, "BonusHealthChanges", GC.getNumBonusInfos());
-	pXML->SetVariableListTagPair(&m_piBonusHappinessChanges, "BonusHappinessChanges", GC.getNumBonusInfos());
-	pXML->SetVariableListTagPair(&m_piBonusProductionModifier, "BonusProductionModifiers", GC.getNumBonusInfos());
-
-	pXML->SetVariableListTagPair(&m_piUnitCombatFreeExperience, "UnitCombatFreeExperiences", GC.getNumUnitCombatInfos());
-
-	pXML->SetVariableListTagPair(&m_piDomainFreeExperience, "DomainFreeExperiences", NUM_DOMAIN_TYPES);
-	pXML->SetVariableListTagPair(&m_piDomainProductionModifier, "DomainProductionModifiers", NUM_DOMAIN_TYPES);
-
-	pXML->SetVariableListTagPair(&m_piPrereqNumOfBuildingClass, "PrereqBuildingClasses", GC.getNumBuildingClassInfos());
-	pXML->SetVariableListTagPair(&m_pbBuildingClassNeededInCity, "BuildingClassNeededs", GC.getNumBuildingClassInfos());
+	pXML->SetListPairInfo(&m_piBonusHealthChanges, "BonusHealthChanges", GC.getNumBonusInfos());
+	pXML->SetListPairInfo(&m_piBonusHappinessChanges, "BonusHappinessChanges", GC.getNumBonusInfos());
+	pXML->SetListPairInfo(&m_piBonusProductionModifier, "BonusProductionModifiers", GC.getNumBonusInfos());
+	pXML->SetListPairInfo(&m_piUnitCombatFreeExperience, "UnitCombatFreeExperiences", GC.getNumUnitCombatInfos());
+	pXML->SetListPairInfo(&m_piDomainFreeExperience, "DomainFreeExperiences", NUM_DOMAIN_TYPES);
+	pXML->SetListPairInfo(&m_piDomainProductionModifier, "DomainProductionModifiers", NUM_DOMAIN_TYPES);
+	pXML->SetListPairInfo(&m_piPrereqNumOfBuildingClass, "PrereqBuildingClasses", GC.getNumBuildingClassInfos());
+	pXML->SetListPairInfo(&m_pbBuildingClassNeededInCity, "BuildingClassNeededs", GC.getNumBuildingClassInfos());
 
 	m_bAnySpecialistYieldChange = false;
 	pXML->Init2DIntList(&m_ppaiSpecialistYieldChange, GC.getNumSpecialistInfos(), NUM_YIELD_TYPES);
@@ -7368,10 +7351,10 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
 	}
 
-	pXML->SetEnumListTagPair(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());
-	pXML->SetVariableListTagPair(&m_piImprovementFreeSpecialist, "ImprovementFreeSpecialists", GC.getNumImprovementInfos());
+	pXML->SetListPairEnum(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());
+	pXML->SetListPairInfo(&m_piImprovementFreeSpecialist, "ImprovementFreeSpecialists", GC.getNumImprovementInfos());
 
-	pXML->SetVariableListTagPair(&m_piBuildingHappinessChanges, "BuildingHappinessChanges", GC.getNumBuildingClassInfos());
+	pXML->SetListPairInfo(&m_piBuildingHappinessChanges, "BuildingHappinessChanges", GC.getNumBuildingClassInfos());
 
 	return true;
 }
@@ -7445,7 +7428,7 @@ bool CvSpecialBuildingInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(&m_bValid, "bValid");
 
-	pXML->SetVariableListTagPair(&m_piProductionTraits, "ProductionTraits", GC.getNumTraitInfos());
+	pXML->SetListPairInfo(&m_piProductionTraits, "ProductionTraits", GC.getNumTraitInfos());
 
 	return true;
 }
@@ -7536,7 +7519,7 @@ bool CvBuildingClassInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bNoLimit, "bNoLimit");
 	pXML->GetChildXmlValByName(&m_bMonument, "bMonument");
 
-	pXML->SetVariableListTagPair(&m_piVictoryThreshold, "VictoryThresholds", GC.getNumVictoryInfos());
+	pXML->SetListPairInfo(&m_piVictoryThreshold, "VictoryThresholds", GC.getNumVictoryInfos());
 
 	CvString szTextVal;
 	pXML->GetChildXmlValByName(szTextVal, "DefaultBuilding");
@@ -8200,12 +8183,10 @@ bool CvCivilizationInfo::read(CvXMLLoadUtility* pXML) {
 		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
 	}
 
-	pXML->SetVariableListTagPair(&m_piCivilizationFreeUnitsClass, "FreeUnitClasses", GC.getNumUnitClassInfos());
-
-	pXML->SetVariableListTagPair(&m_pbCivilizationFreeBuildingClass, "FreeBuildingClasses", GC.getNumBuildingClassInfos());
-
-	pXML->SetVariableListTagPair(&m_pbCivilizationFreeTechs, "FreeTechs", GC.getNumTechInfos());
-	pXML->SetVariableListTagPair(&m_pbCivilizationDisableTechs, "DisableTechs", GC.getNumTechInfos());
+	pXML->SetListPairInfo(&m_piCivilizationFreeUnitsClass, "FreeUnitClasses", GC.getNumUnitClassInfos());
+	pXML->SetListPairInfo(&m_pbCivilizationFreeBuildingClass, "FreeBuildingClasses", GC.getNumBuildingClassInfos());
+	pXML->SetListPairInfo(&m_pbCivilizationFreeTechs, "FreeTechs", GC.getNumTechInfos());
+	pXML->SetListPairInfo(&m_pbCivilizationDisableTechs, "DisableTechs", GC.getNumTechInfos());
 
 	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "InitialCivics")) {
 		if (pXML->SkipToNextVal()) {
@@ -8230,8 +8211,7 @@ bool CvCivilizationInfo::read(CvXMLLoadUtility* pXML) {
 		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
 	}
 
-	pXML->SetVariableListTagPair(&m_pbLeaders, "Leaders", GC.getNumLeaderHeadInfos());
-
+	pXML->SetListPairInfo(&m_pbLeaders, "Leaders", GC.getNumLeaderHeadInfos());
 	pXML->GetChildXmlValByName(szTextVal, "CivilizationSelectionSound");
 
 	return true;
@@ -8992,8 +8972,8 @@ bool CvHandicapInfo::read(CvXMLLoadUtility* pXML) {
 		SAFE_DELETE_ARRAY(pszGoodyNames);
 	}
 
-	pXML->SetVariableListTagPair(&m_pbFreeTechs, "FreeTechs", GC.getNumTechInfos());
-	pXML->SetVariableListTagPair(&m_pbAIFreeTechs, "AIFreeTechs", GC.getNumTechInfos());
+	pXML->SetListPairInfo(&m_pbFreeTechs, "FreeTechs", GC.getNumTechInfos());
+	pXML->SetListPairInfo(&m_pbAIFreeTechs, "AIFreeTechs", GC.getNumTechInfos());
 
 	return true;
 }
@@ -9618,8 +9598,7 @@ bool CvRouteInfo::read(CvXMLLoadUtility* pXML) {
 	m_iPrereqBonus = pXML->FindInInfoClass(szTextVal);
 
 	pXML->SetList(&m_piYieldChange, "Yields", NUM_YIELD_TYPES);
-
-	pXML->SetVariableListTagPair(&m_piTechMovementChange, "TechMovementChanges", GC.getNumTechInfos());
+	pXML->SetListPairInfo(&m_piTechMovementChange, "TechMovementChanges", GC.getNumTechInfos());
 
 	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "PrereqOrBonuses")) {
 		if (pXML->SkipToNextVal()) {
@@ -10283,8 +10262,8 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iPillageGold, "iPillageGold");
 	pXML->GetChildXmlValByName(&m_bOutsideBorders, "bOutsideBorders");
 
-	pXML->SetVariableListTagPair(&m_pbTerrainMakesValid, "TerrainMakesValids", GC.getNumTerrainInfos());
-	pXML->SetVariableListTagPair(&m_pbFeatureMakesValid, "FeatureMakesValids", GC.getNumFeatureInfos());
+	pXML->SetListPairInfo(&m_pbTerrainMakesValid, "TerrainMakesValids", GC.getNumTerrainInfos());
+	pXML->SetListPairInfo(&m_pbFeatureMakesValid, "FeatureMakesValids", GC.getNumFeatureInfos());
 
 	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "BonusTypeStructs")) {
 		// call the function that sets the bonus booleans
@@ -10808,9 +10787,9 @@ bool CvBonusInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bNoRiverSide, "bNoRiverSide");
 	pXML->GetChildXmlValByName(&m_bNormalize, "bNormalize");
 
-	pXML->SetVariableListTagPair(&m_pbTerrain, "TerrainBooleans", GC.getNumTerrainInfos());
-	pXML->SetVariableListTagPair(&m_pbFeature, "FeatureBooleans", GC.getNumFeatureInfos());
-	pXML->SetVariableListTagPair(&m_pbFeatureTerrain, "FeatureTerrainBooleans", GC.getNumTerrainInfos());
+	pXML->SetListPairInfo(&m_pbTerrain, "TerrainBooleans", GC.getNumTerrainInfos());
+	pXML->SetListPairInfo(&m_pbFeature, "FeatureBooleans", GC.getNumFeatureInfos());
+	pXML->SetListPairInfo(&m_pbFeatureTerrain, "FeatureTerrainBooleans", GC.getNumTerrainInfos());
 
 	return true;
 }
@@ -11065,8 +11044,7 @@ bool CvFeatureInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bVisibleAlways, "bVisibleAlways");
 	pXML->GetChildXmlValByName(&m_bNukeImmune, "bNukeImmune");
 	pXML->GetChildXmlValByName(m_szOnUnitChangeTo, "OnUnitChangeTo");
-
-	pXML->SetEnumListTagPairForAudioScripts(&m_pi3DAudioScriptFootstepIndex, "FootstepSounds", GC.getNumFootstepAudioTypes());
+	pXML->SetListPairEnumForAudioScripts(&m_pi3DAudioScriptFootstepIndex, "FootstepSounds", GC.getNumFootstepAudioTypes());
 
 	pXML->GetChildXmlValByName(szTextVal, "WorldSoundscapeAudioScript");
 	if (szTextVal.GetLength() > 0) {
@@ -11077,8 +11055,7 @@ bool CvFeatureInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(m_szEffectType, "EffectType");
 	pXML->GetChildXmlValByName(&m_iEffectProbability, "iEffectProbability");
-
-	pXML->SetVariableListTagPair(&m_pbTerrain, "TerrainBooleans", GC.getNumTerrainInfos());
+	pXML->SetListPairInfo(&m_pbTerrain, "TerrainBooleans", GC.getNumTerrainInfos());
 
 	return true;
 }
@@ -11446,7 +11423,7 @@ bool CvTerrainInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iBuildModifier, "iBuildModifier");
 	pXML->GetChildXmlValByName(&m_iDefenseModifier, "iDefense");
 
-	pXML->SetEnumListTagPairForAudioScripts(&m_pi3DAudioScriptFootstepIndex, "FootstepSounds", GC.getNumFootstepAudioTypes());
+	pXML->SetListPairEnumForAudioScripts(&m_pi3DAudioScriptFootstepIndex, "FootstepSounds", GC.getNumFootstepAudioTypes());
 
 	pXML->GetChildXmlValByName(szTextVal, "WorldSoundscapeAudioScript");
 	if (szTextVal.GetLength() > 0)
@@ -12547,20 +12524,20 @@ bool CvLeaderHeadInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "FavoriteReligion");
 	m_iFavoriteReligion = pXML->FindInInfoClass(szTextVal);
 
-	pXML->SetVariableListTagPair(&m_pbTraits, "Traits", GC.getNumTraitInfos());
+	pXML->SetListPairInfo(&m_pbTraits, "Traits", GC.getNumTraitInfos());
 
-	pXML->SetEnumListTagPair(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());
-	pXML->SetEnumListTagPair(&m_piContactRand, "ContactRands", NUM_CONTACT_TYPES);
-	pXML->SetEnumListTagPair(&m_piContactDelay, "ContactDelays", NUM_CONTACT_TYPES);
-	pXML->SetVariableListTagPair(&m_piMemoryDecayRand, "MemoryDecays", NUM_MEMORY_TYPES);
-	pXML->SetVariableListTagPair(&m_piMemoryAttitudePercent, "MemoryAttitudePercents", NUM_MEMORY_TYPES);
-	pXML->SetVariableListTagPair(&m_piNoWarAttitudeProb, "NoWarAttitudeProbs", NUM_ATTITUDE_TYPES);
-	pXML->SetVariableListTagPair(&m_piUnitAIWeightModifier, "UnitAIWeightModifiers", NUM_UNITAI_TYPES);
-	pXML->SetVariableListTagPair(&m_piImprovementWeightModifier, "ImprovementWeightModifiers", GC.getNumImprovementInfos());
-	pXML->SetVariableListTagPairForAudioScripts(&m_piDiploPeaceIntroMusicScriptIds, "DiplomacyIntroMusicPeace", GC.getNumEraInfos());
-	pXML->SetVariableListTagPairForAudioScripts(&m_piDiploPeaceMusicScriptIds, "DiplomacyMusicPeace", GC.getNumEraInfos());
-	pXML->SetVariableListTagPairForAudioScripts(&m_piDiploWarIntroMusicScriptIds, "DiplomacyIntroMusicWar", GC.getNumEraInfos());
-	pXML->SetVariableListTagPairForAudioScripts(&m_piDiploWarMusicScriptIds, "DiplomacyMusicWar", GC.getNumEraInfos());
+	pXML->SetListPairEnum(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());
+	pXML->SetListPairEnum(&m_piContactRand, "ContactRands", NUM_CONTACT_TYPES);
+	pXML->SetListPairEnum(&m_piContactDelay, "ContactDelays", NUM_CONTACT_TYPES);
+	pXML->SetListPairInfo(&m_piMemoryDecayRand, "MemoryDecays", NUM_MEMORY_TYPES);
+	pXML->SetListPairInfo(&m_piMemoryAttitudePercent, "MemoryAttitudePercents", NUM_MEMORY_TYPES);
+	pXML->SetListPairInfo(&m_piNoWarAttitudeProb, "NoWarAttitudeProbs", NUM_ATTITUDE_TYPES);
+	pXML->SetListPairInfo(&m_piUnitAIWeightModifier, "UnitAIWeightModifiers", NUM_UNITAI_TYPES);
+	pXML->SetListPairInfo(&m_piImprovementWeightModifier, "ImprovementWeightModifiers", GC.getNumImprovementInfos());
+	pXML->SetListPairInfoForAudioScripts(&m_piDiploPeaceIntroMusicScriptIds, "DiplomacyIntroMusicPeace", GC.getNumEraInfos());
+	pXML->SetListPairInfoForAudioScripts(&m_piDiploPeaceMusicScriptIds, "DiplomacyMusicPeace", GC.getNumEraInfos());
+	pXML->SetListPairInfoForAudioScripts(&m_piDiploWarIntroMusicScriptIds, "DiplomacyIntroMusicWar", GC.getNumEraInfos());
+	pXML->SetListPairInfoForAudioScripts(&m_piDiploWarMusicScriptIds, "DiplomacyMusicWar", GC.getNumEraInfos());
 
 	return true;
 }
@@ -13017,8 +12994,8 @@ bool CvVoteInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bForceWar, "bForceWar");
 	pXML->GetChildXmlValByName(&m_bAssignCity, "bAssignCity");
 
-	pXML->SetVariableListTagPair(&m_pbForceCivic, "ForceCivics", GC.getNumCivicInfos());
-	pXML->SetVariableListTagPair(&m_abVoteSourceTypes, "DiploVotes", GC.getNumVoteSourceInfos());
+	pXML->SetListPairInfo(&m_pbForceCivic, "ForceCivics", GC.getNumCivicInfos());
+	pXML->SetListPairInfo(&m_abVoteSourceTypes, "DiploVotes", GC.getNumVoteSourceInfos());
 
 	return true;
 }
@@ -13178,7 +13155,7 @@ bool CvProjectInfo::read(CvXMLLoadUtility* pXML) {
 		return false;
 	}
 
-	pXML->SetVariableListTagPair(&m_piProjectsNeeded, "PrereqProjects", GC.getNumProjectInfos());
+	pXML->SetListPairInfo(&m_piProjectsNeeded, "PrereqProjects", GC.getNumProjectInfos());
 
 	pXML->GetChildXmlValByName(szTextVal, "AnyonePrereqProject");
 	m_iAnyoneProjectPrereq = GC.getInfoTypeForString(szTextVal);
@@ -13205,9 +13182,9 @@ bool CvProjectInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bAllowsNukes, "bAllowsNukes");
 	pXML->GetChildXmlValByName(m_szMovieArtDef, "MovieDefineTag");
 
-	pXML->SetVariableListTagPair(&m_piBonusProductionModifier, "BonusProductionModifiers", GC.getNumBonusInfos());
-	pXML->SetVariableListTagPair(&m_piVictoryThreshold, "VictoryThresholds", GC.getNumVictoryInfos());
-	pXML->SetVariableListTagPair(&m_piVictoryMinThreshold, "VictoryMinThresholds", GC.getNumVictoryInfos());
+	pXML->SetListPairInfo(&m_piBonusProductionModifier, "BonusProductionModifiers", GC.getNumBonusInfos());
+	pXML->SetListPairInfo(&m_piVictoryThreshold, "VictoryThresholds", GC.getNumVictoryInfos());
+	pXML->SetListPairInfo(&m_piVictoryMinThreshold, "VictoryMinThresholds", GC.getNumVictoryInfos());
 	pXML->GetChildXmlValByName(&m_iVictoryDelayPercent, "iVictoryDelayPercent");
 	pXML->GetChildXmlValByName(&m_iSuccessRate, "iSuccessRate");
 
@@ -13796,9 +13773,8 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetList(&m_paiTradeYieldModifier, "TradeYieldModifiers", NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiCommerceChange, "CommerceChanges", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_paiCommerceModifier, "CommerceModifiers", NUM_COMMERCE_TYPES);
-	pXML->SetVariableListTagPair(&m_pabFreePromotion, "FreePromotions", GC.getNumPromotionInfos());
-
-	pXML->SetVariableListTagPair(&m_pabFreePromotionUnitCombat, "FreePromotionUnitCombats", GC.getNumUnitCombatInfos());
+	pXML->SetListPairInfo(&m_pabFreePromotion, "FreePromotions", GC.getNumPromotionInfos());
+	pXML->SetListPairInfo(&m_pabFreePromotionUnitCombat, "FreePromotionUnitCombats", GC.getNumUnitCombatInfos());
 
 	return true;
 }
@@ -15564,7 +15540,7 @@ bool CvCultureLevelInfo::read(CvXMLLoadUtility* pXml) {
 
 	pXml->GetChildXmlValByName(&m_iCityDefenseModifier, "iCityDefenseModifier");
 
-	pXml->SetVariableListTagPair(&m_paiSpeedThreshold, "SpeedThresholds", GC.getNumGameSpeedInfos());
+	pXml->SetListPairInfo(&m_paiSpeedThreshold, "SpeedThresholds", GC.getNumGameSpeedInfos());
 
 	return true;
 }
@@ -15788,7 +15764,7 @@ bool CvEraInfo::read(CvXMLLoadUtility* pXML) {
 		SAFE_DELETE_ARRAY(pszSoundTrackNames);
 	}
 
-	pXML->SetEnumListTagPairForAudioScripts(&m_paiCitySoundscapeSciptIds, "CitySoundscapes", sizeof(GC.getCitySizeTypes((CitySizeTypes)0)));
+	pXML->SetListPairEnumForAudioScripts(&m_paiCitySoundscapeSciptIds, "CitySoundscapes", sizeof(GC.getCitySizeTypes((CitySizeTypes)0)));
 
 	return true;
 }
@@ -16328,13 +16304,13 @@ bool CvDiplomacyTextInfo::read(CvXMLLoadUtility* pXML) {
 				gDLL->getXMLIFace()->SetToChild(pXML->GetXML());
 			}
 			// Civilizations
-			pXML->SetVariableListTagPair(&m_pResponses[j].m_pbCivilizationTypes, "Civilizations", GC.getNumCivilizationInfos());
+			pXML->SetListPairInfo(&m_pResponses[j].m_pbCivilizationTypes, "Civilizations", GC.getNumCivilizationInfos());
 			// Leaders
-			pXML->SetVariableListTagPair(&m_pResponses[j].m_pbLeaderHeadTypes, "Leaders", GC.getNumLeaderHeadInfos());
+			pXML->SetListPairInfo(&m_pResponses[j].m_pbLeaderHeadTypes, "Leaders", GC.getNumLeaderHeadInfos());
 			// AttitudeTypes
-			pXML->SetVariableListTagPair(&m_pResponses[j].m_pbAttitudeTypes, "Attitudes", NUM_ATTITUDE_TYPES);
+			pXML->SetListPairInfo(&m_pResponses[j].m_pbAttitudeTypes, "Attitudes", NUM_ATTITUDE_TYPES);
 			// PowerTypes
-			pXML->SetEnumListTagPair(&m_pResponses[j].m_pbDiplomacyPowerTypes, "DiplomacyPowers", NUM_DIPLOMACYPOWER_TYPES);
+			pXML->SetListPairEnum(&m_pResponses[j].m_pbDiplomacyPowerTypes, "DiplomacyPowers", NUM_DIPLOMACYPOWER_TYPES);
 			// DiplomacyText
 			if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "DiplomacyText")) {
 				pXML->SetStringList(&m_pResponses[j].m_paszDiplomacyText, &m_pResponses[j].m_iNumDiplomacyText);
@@ -18804,12 +18780,12 @@ bool CvEventInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "BonusGift");
 	m_iBonusGift = pXML->FindInInfoClass(szTextVal);
 
-	pXML->SetEnumListTagPair(&m_piTechFlavorValue, "TechFlavors", GC.getNumFlavorTypes());
-	pXML->SetVariableListTagPair(&m_piPlotExtraYields, "PlotExtraYields", NUM_YIELD_TYPES, 0);
-	pXML->SetVariableListTagPair(&m_piFreeSpecialistCount, "FreeSpecialistCounts", GC.getNumSpecialistInfos());
-	pXML->SetVariableListTagPair(&m_piAdditionalEventChance, "AdditionalEvents", GC.getNumEventInfos(), 0);
-	pXML->SetVariableListTagPair(&m_piAdditionalEventTime, "EventTimes", GC.getNumEventInfos(), 0);
-	pXML->SetVariableListTagPair(&m_piClearEventChance, "ClearEvents", GC.getNumEventInfos(), 0);
+	pXML->SetListPairEnum(&m_piTechFlavorValue, "TechFlavors", GC.getNumFlavorTypes());
+	pXML->SetListPairInfo(&m_piPlotExtraYields, "PlotExtraYields", NUM_YIELD_TYPES);
+	pXML->SetListPairInfo(&m_piFreeSpecialistCount, "FreeSpecialistCounts", GC.getNumSpecialistInfos());
+	pXML->SetListPairInfo(&m_piAdditionalEventChance, "AdditionalEvents", GC.getNumEventInfos());
+	pXML->SetListPairInfo(&m_piAdditionalEventTime, "EventTimes", GC.getNumEventInfos());
+	pXML->SetListPairInfo(&m_piClearEventChance, "ClearEvents", GC.getNumEventInfos());
 
 	pXML->GetChildXmlValByName(&m_iConvertOwnCities, "iConvertOwnCities");
 	pXML->GetChildXmlValByName(&m_iConvertOtherCities, "iConvertOtherCities");
@@ -18828,22 +18804,8 @@ bool CvEventInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iSpaceProductionModifier, "iSpaceProductionMod");
 	pXML->GetChildXmlValByName(&m_iAIValue, "iAIValue");
 
-	CvString* pszPromotions = NULL;
-	FAssertMsg(NULL == m_piUnitCombatPromotions, "Memory leak");
-	m_piUnitCombatPromotions = new int[GC.getNumUnitCombatInfos()];
-	pXML->SetVariableListTagPair(&pszPromotions, "UnitCombatPromotions", GC.getNumUnitCombatInfos(), "NONE");
-	for (int i = 0; i < GC.getNumUnitCombatInfos(); ++i) {
-		m_piUnitCombatPromotions[i] = pXML->FindInInfoClass(pszPromotions[i]);
-	}
-	SAFE_DELETE_ARRAY(pszPromotions);
-
-	FAssertMsg(NULL == m_piUnitClassPromotions, "Memory leak");
-	m_piUnitClassPromotions = new int[GC.getNumUnitClassInfos()];
-	pXML->SetVariableListTagPair(&pszPromotions, "UnitClassPromotions", GC.getNumUnitClassInfos(), "NONE");
-	for (int i = 0; i < GC.getNumUnitClassInfos(); ++i) {
-		m_piUnitClassPromotions[i] = pXML->FindInInfoClass(pszPromotions[i]);
-	}
-	SAFE_DELETE_ARRAY(pszPromotions);
+	pXML->SetListPairInfos(&m_piUnitCombatPromotions, "UnitCombatPromotions", GC.getNumUnitCombatInfos());
+	pXML->SetListPairInfos(&m_piUnitClassPromotions, "UnitClassPromotions", GC.getNumUnitClassInfos());
 
 	pXML->GetChildXmlValByName(m_szUnitName, "UnitName");
 	pXML->GetChildXmlValByName(m_szOtherPlayerPopup, "OtherPlayerPopup");
