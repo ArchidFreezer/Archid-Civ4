@@ -15828,7 +15828,7 @@ bool CvPlayer::checkExpireEvent(EventTypes eEvent, const EventTriggeredData& kTr
 
 	const CvPlayer& kPlayer = GET_PLAYER(kTriggeredData.m_ePlayer);
 
-	if (kTrigger.isStateReligion() & kTrigger.isPickReligion()) {
+	if (kTrigger.isStateReligion() && kTrigger.isPickReligion()) {
 		if (kPlayer.getStateReligion() != kTriggeredData.m_eReligion) {
 			return true;
 		}
