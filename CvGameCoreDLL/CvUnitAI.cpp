@@ -14042,7 +14042,8 @@ bool CvUnitAI::AI_retreatToCity(bool bPrimary, bool bPrioritiseAirlift, int iMax
 	CvPlot* pBestPlot = NULL;
 	int iShortestPath = MAX_INT;
 
-	for (int iPass = (getGroup()->canDefend() ? 1 : 0); iPass < 3; iPass++) {
+	int iPass;
+	for (iPass = (getGroup()->canDefend() ? 1 : 0); iPass < 3; iPass++) {
 		int iLoop;
 		bool bNeedsAirlift = false;
 		for (CvCity* pLoopCity = GET_PLAYER(getOwnerINLINE()).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER(getOwnerINLINE()).nextCity(&iLoop)) {
