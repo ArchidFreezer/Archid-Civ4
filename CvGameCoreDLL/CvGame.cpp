@@ -270,25 +270,17 @@ void CvGame::regenerateMap() {
 
 	setFinalInitialized(false);
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-		GET_PLAYER((PlayerTypes)iI).killUnits();
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+		kPlayer.killUnits();
+		kPlayer.killCities();
+		kPlayer.killAllDeals();
+		kPlayer.setFoundedFirstCity(false);
+		kPlayer.setStartingPlot(NULL, false);
 	}
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-		GET_PLAYER((PlayerTypes)iI).killCities();
-	}
-
-	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-		GET_PLAYER((PlayerTypes)iI).killAllDeals();
-	}
-
-	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-		GET_PLAYER((PlayerTypes)iI).setFoundedFirstCity(false);
-		GET_PLAYER((PlayerTypes)iI).setStartingPlot(NULL, false);
-	}
-
-	for (int iI = 0; iI < MAX_TEAMS; iI++) {
-		GC.getMapINLINE().setRevealedPlots(((TeamTypes)iI), false);
+	for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_TEAMS; eTeam = (TeamTypes)(eTeam+1)) {
+		GC.getMapINLINE().setRevealedPlots(eTeam, false);
 	}
 
 	gDLL->getEngineIFace()->clearSigns();
