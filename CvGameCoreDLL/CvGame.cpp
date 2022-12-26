@@ -4890,7 +4890,8 @@ CvPlot* CvGame::getRandGWPlot(int iPool) {
 	// Currently we just choose the coldest tile; but I may include other tests in future versions
 	for (int i = 0; i < iPool; i++) {
 		// I want to be able to select a water tile with ice on it; so I can't just exclude water completely...
-		for (int j = 0; j < 100; j++) {
+		int j;
+		for (j = 0; j < 100; j++) {
 			pTestPlot = GC.getMapINLINE().syncRandPlot(RANDPLOT_NOT_CITY);
 
 			if (pTestPlot == NULL)
