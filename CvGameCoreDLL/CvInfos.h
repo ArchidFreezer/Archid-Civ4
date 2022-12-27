@@ -1336,6 +1336,8 @@ public:
 	int getStateReligionFreeExperience() const;								// Exposed to Python
 	int getExpInBorderModifier() const;				// Exposed to Python
 	int getUnhealthyPopulationModifier() const;	// K-Mod, Exposed to Python
+	int getUnitRangeChange() const;
+	int getUnitRangePercentChange() const;
 
 	bool isMilitaryFoodProduction() const;				// Exposed to Python
 	bool isBuildingOnlyHealthy() const;				// Exposed to Python
@@ -1344,6 +1346,8 @@ public:
 	bool isNoForeignCorporations() const;				// Exposed to Python
 	bool isStateReligion() const;				// Exposed to Python
 	bool isNoNonStateReligionSpread() const;				// Exposed to Python
+	bool isUnitRangeUnbound() const;
+	bool isUnitTerritoryUnbound() const;
 
 	std::wstring pyGetWeLoveTheKing() { return getWeLoveTheKing(); }			// Exposed to Python
 	const wchar* getWeLoveTheKing();
@@ -1418,6 +1422,8 @@ protected:
 	int m_iStateReligionBuildingProductionModifier;
 	int m_iStateReligionFreeExperience;
 	int m_iExpInBorderModifier;
+	int m_iUnitRangeChange;
+	int m_iUnitRangePercentChange;
 
 	bool m_bMilitaryFoodProduction;
 	int m_iUnhealthyPopulationModifier; // K-Mod
@@ -1427,6 +1433,8 @@ protected:
 	bool m_bNoForeignCorporations;
 	bool m_bStateReligion;
 	bool m_bNoNonStateReligionSpread;
+	bool m_bUnitRangeUnbound;
+	bool m_bUnitTerritoryUnbound;
 
 	CvWString m_szWeLoveTheKingKey;
 

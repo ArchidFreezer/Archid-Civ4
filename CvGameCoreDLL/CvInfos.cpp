@@ -4575,6 +4575,8 @@ CvCivicInfo::CvCivicInfo() :
 	m_iStateReligionBuildingProductionModifier(0),
 	m_iStateReligionFreeExperience(0),
 	m_iExpInBorderModifier(0),
+	m_iUnitRangeChange(0),
+	m_iUnitRangePercentChange(0),
 	m_bMilitaryFoodProduction(false),
 	m_iUnhealthyPopulationModifier(0), // K-Mod
 	m_bBuildingOnlyHealthy(false),
@@ -4583,6 +4585,8 @@ CvCivicInfo::CvCivicInfo() :
 	m_bNoForeignCorporations(false),
 	m_bStateReligion(false),
 	m_bNoNonStateReligionSpread(false),
+	m_bUnitRangeUnbound(false),
+	m_bUnitTerritoryUnbound(false),
 	m_piYieldModifier(NULL),
 	m_piCapitalYieldModifier(NULL),
 	m_piTradeYieldModifier(NULL),
@@ -4626,6 +4630,22 @@ CvCivicInfo::~CvCivicInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppiImprovementYieldChanges);
 	}
+}
+
+int CvCivicInfo::getUnitRangeChange() const {
+	return m_iUnitRangeChange;
+}
+
+int CvCivicInfo::getUnitRangePercentChange() const {
+	return m_iUnitRangePercentChange;
+}
+
+bool CvCivicInfo::isUnitRangeUnbound() const {
+	return m_bUnitRangeUnbound;
+}
+
+bool CvCivicInfo::isUnitTerritoryUnbound() const {
+	return m_bUnitTerritoryUnbound;
 }
 
 int CvCivicInfo::getCivicOptionType() const {
@@ -4966,6 +4986,8 @@ void CvCivicInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iStateReligionBuildingProductionModifier);
 	stream->Read(&m_iStateReligionFreeExperience);
 	stream->Read(&m_iExpInBorderModifier);
+	stream->Read(&m_iUnitRangeChange);
+	stream->Read(&m_iUnitRangePercentChange);
 
 	stream->Read(&m_bMilitaryFoodProduction);
 	stream->Read(&m_iUnhealthyPopulationModifier); // K-Mod
@@ -4975,6 +4997,8 @@ void CvCivicInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bNoForeignCorporations);
 	stream->Read(&m_bStateReligion);
 	stream->Read(&m_bNoNonStateReligionSpread);
+	stream->Read(&m_bUnitRangeUnbound);
+	stream->Read(&m_bUnitTerritoryUnbound);
 
 	// Arrays
 
@@ -5084,6 +5108,8 @@ void CvCivicInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iStateReligionBuildingProductionModifier);
 	stream->Write(m_iStateReligionFreeExperience);
 	stream->Write(m_iExpInBorderModifier);
+	stream->Write(m_iUnitRangeChange);
+	stream->Write(m_iUnitRangePercentChange);
 
 	stream->Write(m_bMilitaryFoodProduction);
 	stream->Write(m_iUnhealthyPopulationModifier); // K-Mod
@@ -5093,6 +5119,8 @@ void CvCivicInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bNoForeignCorporations);
 	stream->Write(m_bStateReligion);
 	stream->Write(m_bNoNonStateReligionSpread);
+	stream->Write(m_bUnitRangeUnbound);
+	stream->Write(m_bUnitTerritoryUnbound);
 
 	// Arrays
 
@@ -5176,6 +5204,10 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iStateReligionBuildingProductionModifier, "iStateReligionBuildingProductionModifier");
 	pXML->GetChildXmlValByName(&m_iStateReligionFreeExperience, "iStateReligionFreeExperience");
 	pXML->GetChildXmlValByName(&m_iExpInBorderModifier, "iExpInBorderModifier");
+	pXML->GetChildXmlValByName(&m_bUnitRangeUnbound, "bUnitRangeUnbound");
+	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
+	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
+	pXML->GetChildXmlValByName(&m_iUnitRangePercentChange, "iUnitRangePercentChange");
 
 	pXML->SetList(&m_piYieldModifier, "YieldModifiers", NUM_YIELD_TYPES);
 	pXML->SetList(&m_piCapitalYieldModifier, "CapitalYieldModifiers", NUM_YIELD_TYPES);

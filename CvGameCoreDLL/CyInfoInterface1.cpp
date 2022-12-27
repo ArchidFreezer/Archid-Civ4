@@ -422,6 +422,8 @@ void CyInfoPythonInterface1() {
 		.def("getStateReligionBuildingProductionModifier", &CvCivicInfo::getStateReligionBuildingProductionModifier, "int ()")
 		.def("getStateReligionFreeExperience", &CvCivicInfo::getStateReligionFreeExperience, "int ()")
 		.def("getExpInBorderModifier", &CvCivicInfo::getExpInBorderModifier, "bool ()")
+		.def("getUnitRangeChange", &CvCivicInfo::getUnitRangeChange, "int ()")
+		.def("getUnitRangePercentChange", &CvCivicInfo::getUnitRangePercentChange, "int ()")
 
 		.def("isMilitaryFoodProduction", &CvCivicInfo::isMilitaryFoodProduction, "bool ()")
 		//.def("isNoUnhealthyPopulation", &CvCivicInfo::isNoUnhealthyPopulation, "bool ()")
@@ -432,6 +434,8 @@ void CyInfoPythonInterface1() {
 		.def("isNoForeignCorporations", &CvCivicInfo::isNoForeignCorporations, "bool ()")
 		.def("isStateReligion", &CvCivicInfo::isStateReligion, "bool ()")
 		.def("isNoNonStateReligionSpread", &CvCivicInfo::isNoNonStateReligionSpread, "bool ()")
+		.def("isUnitRangeUnbound", &CvCivicInfo::isUnitRangeUnbound, "bool ()")
+		.def("isUnitTerritoryUnbound", &CvCivicInfo::isUnitTerritoryUnbound, "bool ()")
 
 		.def("pyGetWeLoveTheKing", &CvCivicInfo::pyGetWeLoveTheKing, "wstring ()")
 

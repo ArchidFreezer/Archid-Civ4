@@ -5352,26 +5352,46 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer& szHelpText, CivicTypes eCivi
 	}
 
 	// Special Building Not Required...
-	for (int iI = 0; iI < GC.getNumSpecialBuildingInfos(); ++iI) {
-		if (kCivic.isSpecialBuildingNotRequired(iI)) {
+	for (SpecialBuildingTypes eSpecialBuilding = (SpecialBuildingTypes)0; eSpecialBuilding < GC.getNumSpecialBuildingInfos(); eSpecialBuilding = (SpecialBuildingTypes)(eSpecialBuilding + 1)) {
+		if (kCivic.isSpecialBuildingNotRequired(eSpecialBuilding)) {
 			// XXX "Missionaries"??? - Now in XML
 			szHelpText.append(NEWLINE);
-			szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_BUILD_MISSIONARIES", GC.getSpecialBuildingInfo((SpecialBuildingTypes)iI).getTextKeyWide()));
+			szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_BUILD_MISSIONARIES", GC.getSpecialBuildingInfo(eSpecialBuilding).getTextKeyWide()));
 		}
 	}
 
 	// Valid Specialists...
 	bool bFirst = true;
 
-	for (int iI = 0; iI < GC.getNumSpecialistInfos(); ++iI) {
-		if (kCivic.isSpecialistValid(iI)) {
+	for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
+		if (kCivic.isSpecialistValid(eSpecialist)) {
 			CvWString szFirstBuffer;
 			szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_CIVIC_UNLIMTED").c_str());
 			CvWString szSpecialist;
-			szSpecialist.Format(L"<link=literal>%s</link>", GC.getSpecialistInfo((SpecialistTypes)iI).getDescription());
+			szSpecialist.Format(L"<link=literal>%s</link>", GC.getSpecialistInfo(eSpecialist).getDescription());
 			setListHelp(szHelpText, szFirstBuffer, szSpecialist, L", ", bFirst);
 			bFirst = false;
 		}
+	}
+
+	if (kCivic.isUnitRangeUnbound()) {
+		szHelpText.append(NEWLINE);
+		szHelpText.append(gDLL->getText("TXT_KEY_MISC_ENABLES_UNIT_RANGE_UNBOUND"));
+	}
+
+	if (kCivic.isUnitTerritoryUnbound()) {
+		szHelpText.append(NEWLINE);
+		szHelpText.append(gDLL->getText("TXT_KEY_MISC_ENABLES_UNIT_TERRITORY_UNBOUND"));
+	}
+
+	if (kCivic.getUnitRangeChange() != 0) {
+		szHelpText.append(NEWLINE);
+		szHelpText.append(gDLL->getText("TXT_KEY_MISC_UNIT_RANGE_CHANGE", kCivic.getUnitRangeChange()));
+	}
+
+	if (kCivic.getUnitRangePercentChange() != 0) {
+		szHelpText.append(NEWLINE);
+		szHelpText.append(gDLL->getText("TXT_KEY_MISC_UNIT_RANGE_MODIFY", kCivic.getUnitRangePercentChange()));
 	}
 
 	//	Great People Modifier...
@@ -5464,12 +5484,12 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer& szHelpText, CivicTypes eCivi
 	if (kCivic.getImprovementUpgradeRateModifier() != 0) {
 		bFirst = true;
 
-		for (int iI = 0; iI < GC.getNumImprovementInfos(); ++iI) {
-			if (GC.getImprovementInfo((ImprovementTypes)iI).getImprovementUpgrade() != NO_IMPROVEMENT) {
+		for (ImprovementTypes eImprovement = (ImprovementTypes)0; eImprovement < GC.getNumImprovementInfos(); eImprovement = (ImprovementTypes)(eImprovement + 1)) {
+			if (GC.getImprovementInfo(eImprovement).getImprovementUpgrade() != NO_IMPROVEMENT) {
 				CvWString szFirstBuffer;
 				szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_CIVIC_IMPROVEMENT_UPGRADE", kCivic.getImprovementUpgradeRateModifier()).c_str());
 				CvWString szImprovement;
-				szImprovement.Format(L"<link=literal>%s</link>", GC.getImprovementInfo((ImprovementTypes)iI).getDescription());
+				szImprovement.Format(L"<link=literal>%s</link>", GC.getImprovementInfo(eImprovement).getDescription());
 				setListHelp(szHelpText, szFirstBuffer, szImprovement, L", ", bFirst);
 				bFirst = false;
 			}
@@ -5598,8 +5618,8 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer& szHelpText, CivicTypes eCivi
 	if (!(kCivic.isStateReligion())) {
 		bool bFound = false;
 
-		for (int iI = 0; iI < GC.getNumCivicInfos(); ++iI) {
-			if ((GC.getCivicInfo((CivicTypes)iI).getCivicOptionType() == kCivic.getCivicOptionType()) && (GC.getCivicInfo((CivicTypes)iI).isStateReligion())) {
+		for (CivicTypes eCivic = (CivicTypes)0; eCivic < GC.getNumCivicInfos(); eCivic = (CivicTypes)(eCivic + 1)) {
+			if ((GC.getCivicInfo(eCivic).getCivicOptionType() == kCivic.getCivicOptionType()) && (GC.getCivicInfo(eCivic).isStateReligion())) {
 				bFound = true;
 			}
 		}
@@ -5694,72 +5714,76 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer& szHelpText, CivicTypes eCivi
 	}
 
 	//	Improvement Yields
-	for (int iI = 0; iI < NUM_YIELD_TYPES; ++iI) {
+	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 		int iLast = 0;
 
-		for (int iJ = 0; iJ < GC.getNumImprovementInfos(); iJ++) {
-			if (kCivic.getImprovementYieldChanges(iJ, iI) != 0) {
+		for (ImprovementTypes eImprovement = (ImprovementTypes)0; eImprovement < GC.getNumImprovementInfos(); eImprovement = (ImprovementTypes)(eImprovement + 1)) {
+			int iImprovementYieldChange = kCivic.getImprovementYieldChanges(eImprovement, eYield);
+			if (iImprovementYieldChange != 0) {
 				CvWString szFirstBuffer;
-				szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_CIVIC_IMPROVEMENT_YIELD_CHANGE", kCivic.getImprovementYieldChanges(iJ, iI), GC.getYieldInfo((YieldTypes)iI).getChar()).c_str());
+				szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_CIVIC_IMPROVEMENT_YIELD_CHANGE", iImprovementYieldChange, GC.getYieldInfo(eYield).getChar()).c_str());
 				CvWString szImprovement;
-				szImprovement.Format(L"<link=literal>%s</link>", GC.getImprovementInfo((ImprovementTypes)iJ).getDescription());
-				setListHelp(szHelpText, szFirstBuffer, szImprovement, L", ", (kCivic.getImprovementYieldChanges(iJ, iI) != iLast));
-				iLast = kCivic.getImprovementYieldChanges(iJ, iI);
+				szImprovement.Format(L"<link=literal>%s</link>", GC.getImprovementInfo(eImprovement).getDescription());
+				setListHelp(szHelpText, szFirstBuffer, szImprovement, L", ", (iImprovementYieldChange != iLast));
+				iLast = iImprovementYieldChange;
 			}
 		}
 	}
 
 	//	Building Happiness
-	for (int iI = 0; iI < GC.getNumBuildingClassInfos(); ++iI) {
-		if (kCivic.getBuildingHappinessChanges(iI) != 0) {
+	for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
+		int iBuildingHappinessChange = kCivic.getBuildingHappinessChanges(eBuildingClass);
+		if (iBuildingHappinessChange != 0) {
 			if (bPlayerContext && NO_PLAYER != GC.getGameINLINE().getActivePlayer()) {
-				BuildingTypes eBuilding = (BuildingTypes)GC.getCivilizationInfo(GC.getGameINLINE().getActiveCivilizationType()).getCivilizationBuildings(iI);
+				BuildingTypes eBuilding = (BuildingTypes)GC.getCivilizationInfo(GC.getGameINLINE().getActiveCivilizationType()).getCivilizationBuildings(eBuildingClass);
 				if (NO_BUILDING != eBuilding) {
 					szHelpText.append(NEWLINE);
 					// Use absolute value with unhappy face
-					szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_BUILDING_HAPPINESS", abs(kCivic.getBuildingHappinessChanges(iI)), ((kCivic.getBuildingHappinessChanges(iI) > 0) ? gDLL->getSymbolID(HAPPY_CHAR) : gDLL->getSymbolID(UNHAPPY_CHAR)), GC.getBuildingInfo(eBuilding).getTextKeyWide()));
+					szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_BUILDING_HAPPINESS", abs(iBuildingHappinessChange), ((iBuildingHappinessChange > 0) ? gDLL->getSymbolID(HAPPY_CHAR) : gDLL->getSymbolID(UNHAPPY_CHAR)), GC.getBuildingInfo(eBuilding).getTextKeyWide()));
 				}
 			} else {
 				szHelpText.append(NEWLINE);
 				// Use absolute value with unhappy face
-				szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_BUILDING_HAPPINESS", abs(kCivic.getBuildingHappinessChanges(iI)), ((kCivic.getBuildingHappinessChanges(iI) > 0) ? gDLL->getSymbolID(HAPPY_CHAR) : gDLL->getSymbolID(UNHAPPY_CHAR)), GC.getBuildingClassInfo((BuildingClassTypes)iI).getTextKeyWide()));
+				szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_BUILDING_HAPPINESS", abs(iBuildingHappinessChange), ((iBuildingHappinessChange > 0) ? gDLL->getSymbolID(HAPPY_CHAR) : gDLL->getSymbolID(UNHAPPY_CHAR)), GC.getBuildingClassInfo(eBuildingClass).getTextKeyWide()));
 			}
 		}
 
-		if (kCivic.getBuildingHealthChanges(iI) != 0) {
+		int iBuildingHealthChange = kCivic.getBuildingHealthChanges(eBuildingClass);
+		if (iBuildingHealthChange != 0) {
 			if (bPlayerContext && NO_PLAYER != GC.getGameINLINE().getActivePlayer()) {
-				BuildingTypes eBuilding = (BuildingTypes)GC.getCivilizationInfo(GC.getGameINLINE().getActiveCivilizationType()).getCivilizationBuildings(iI);
+				BuildingTypes eBuilding = (BuildingTypes)GC.getCivilizationInfo(GC.getGameINLINE().getActiveCivilizationType()).getCivilizationBuildings(eBuildingClass);
 				if (NO_BUILDING != eBuilding) {
 					szHelpText.append(NEWLINE);
 					// Use absolute value with unhealthy symbol
-					szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_BUILDING_HAPPINESS", abs(kCivic.getBuildingHealthChanges(iI)), ((kCivic.getBuildingHealthChanges(iI) > 0) ? gDLL->getSymbolID(HEALTHY_CHAR) : gDLL->getSymbolID(UNHEALTHY_CHAR)), GC.getBuildingInfo(eBuilding).getTextKeyWide()));
+					szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_BUILDING_HAPPINESS", abs(iBuildingHealthChange), ((iBuildingHealthChange > 0) ? gDLL->getSymbolID(HEALTHY_CHAR) : gDLL->getSymbolID(UNHEALTHY_CHAR)), GC.getBuildingInfo(eBuilding).getTextKeyWide()));
 				}
 			} else {
 				szHelpText.append(NEWLINE);
 				// Use absolute value with unhealthy symbol
-				szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_BUILDING_HAPPINESS", abs(kCivic.getBuildingHealthChanges(iI)), ((kCivic.getBuildingHealthChanges(iI) > 0) ? gDLL->getSymbolID(HEALTHY_CHAR) : gDLL->getSymbolID(UNHEALTHY_CHAR)), GC.getBuildingClassInfo((BuildingClassTypes)iI).getTextKeyWide()));
+				szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_BUILDING_HAPPINESS", abs(iBuildingHealthChange), ((iBuildingHealthChange > 0) ? gDLL->getSymbolID(HEALTHY_CHAR) : gDLL->getSymbolID(UNHEALTHY_CHAR)), GC.getBuildingClassInfo(eBuildingClass).getTextKeyWide()));
 			}
 		}
 	}
 
 	//	Feature Happiness
 	int iLast = 0;
-	for (int iI = 0; iI < GC.getNumFeatureInfos(); ++iI) {
-		if (kCivic.getFeatureHappinessChanges(iI) != 0) {
+	for (FeatureTypes eFeature = (FeatureTypes)0; eFeature < GC.getNumFeatureInfos(); eFeature = (FeatureTypes)(eFeature + 1)) {
+		int iFeatureHappinessChange = kCivic.getFeatureHappinessChanges(eFeature);
+		if (iFeatureHappinessChange != 0) {
 			// Use absolute value with unhappy face
 			CvWString szFirstBuffer;
-			szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_CIVIC_FEATURE_HAPPINESS", abs(kCivic.getFeatureHappinessChanges(iI)), ((kCivic.getFeatureHappinessChanges(iI) > 0) ? gDLL->getSymbolID(HAPPY_CHAR) : gDLL->getSymbolID(UNHAPPY_CHAR))).c_str());
+			szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_CIVIC_FEATURE_HAPPINESS", abs(iFeatureHappinessChange), ((iFeatureHappinessChange > 0) ? gDLL->getSymbolID(HAPPY_CHAR) : gDLL->getSymbolID(UNHAPPY_CHAR))).c_str());
 			CvWString szFeature;
-			szFeature.Format(L"<link=literal>%s</link>", GC.getFeatureInfo((FeatureTypes)iI).getDescription());
-			setListHelp(szHelpText, szFirstBuffer, szFeature, L", ", (kCivic.getFeatureHappinessChanges(iI) != iLast));
-			iLast = kCivic.getFeatureHappinessChanges(iI);
+			szFeature.Format(L"<link=literal>%s</link>", GC.getFeatureInfo(eFeature).getDescription());
+			setListHelp(szHelpText, szFirstBuffer, szFeature, L", ", (iFeatureHappinessChange != iLast));
+			iLast = iFeatureHappinessChange;
 		}
 	}
 
 	//	Hurry types
-	for (int iI = 0; iI < GC.getNumHurryInfos(); ++iI) {
-		if (kCivic.isHurry(iI)) {
-			szHelpText.append(CvWString::format(L"%s%c%s", NEWLINE, gDLL->getSymbolID(BULLET_CHAR), GC.getHurryInfo((HurryTypes)iI).getDescription()));
+	for (HurryTypes eHurry = (HurryTypes)0; eHurry < GC.getNumHurryInfos(); eHurry = (HurryTypes)(eHurry + 1)) {
+		if (kCivic.isHurry(eHurry)) {
+			szHelpText.append(CvWString::format(L"%s%c%s", NEWLINE, gDLL->getSymbolID(BULLET_CHAR), GC.getHurryInfo(eHurry).getDescription()));
 		}
 	}
 
