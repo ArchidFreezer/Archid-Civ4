@@ -2024,6 +2024,10 @@ class CvMainInterface:
 				if len(sName) == 0:
 					sName = pHeadSelectedUnit.getName()
 	## Hides Unit Type for Named Units ##
+				if not gc.getUnitInfo(pHeadSelectedUnit.getUnitType()).isHiddenNationality():
+					pHome = pHeadSelectedUnit.getHomeCity()
+					if pHome and pHome.getName() != "":
+						sName += " (" + pHome.getName() + ")"
 				if pHeadSelectedUnit.getHotKeyNumber() == -1:
 					szBuffer = localText.getText("INTERFACE_PANE_UNIT_NAME", (sName, ))
 				else:

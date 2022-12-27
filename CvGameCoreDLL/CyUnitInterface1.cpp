@@ -22,6 +22,8 @@ void CyUnitPythonInterface1(python::class_<CyUnit>& x) {
 		.def("convert", &CyUnit::convert, "void (CyUnit* pUnit)")
 		.def("kill", &CyUnit::kill, "void (bool bDelay, int /*PlayerTypes*/ ePlayer)")
 		.def("NotifyEntity", &CyUnit::NotifyEntity, "void (int EntityEventType)")
+		.def("getHomeCity", &CyUnit::getHomeCity, python::return_value_policy<python::manage_new_object>(), "CyCity* ()")
+		.def("setHomeCity", &CyUnit::setHomeCity, "void (CyCity* pCity)")
 
 		.def("isActionRecommended", &CyUnit::isActionRecommended, "int (int i)")
 		.def("isBetterDefenderThan", &CyUnit::isBetterDefenderThan, "bool (CyUnit* pDefender, CyUnit* pAttacker)")

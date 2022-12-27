@@ -82,6 +82,9 @@ public:
 
 	void doTurn();
 
+	void setHomeCity(const CvCity* pCity);
+	CvCity* getHomeCity() const;
+
 	void updateCombat(bool bQuick = false);
 	void updateAirCombat(bool bQuick = false);
 	void updateAirStrike(CvPlot* pPlot, bool bQuick, bool bFinish);
@@ -859,6 +862,8 @@ protected:
 	int* m_paiExtraFeatureAttackPercent;
 	int* m_paiExtraFeatureDefensePercent;
 	int* m_paiExtraUnitCombatModifier;
+
+	IDInfo m_homeCity;
 
 	bool canAdvance(const CvPlot* pPlot, int iThreshold) const;
 	void collateralCombat(const CvPlot* pPlot, CvUnit* pSkipUnit = NULL);

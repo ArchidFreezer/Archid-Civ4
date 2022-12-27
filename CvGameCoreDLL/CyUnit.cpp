@@ -1348,3 +1348,13 @@ const CvArtInfoUnit* CyUnit::getArtInfo(int i, EraTypes eEra) const {
 std::string CyUnit::getButton() const {
 	return m_pUnit ? m_pUnit->getButton() : "";
 }
+
+void CyUnit::setHomeCity(CyCity* pCity) {
+	if (m_pUnit != NULL) {
+		m_pUnit->setHomeCity(pCity->getCity());
+	}
+}
+
+CyCity* CyUnit::getHomeCity() {
+	return m_pUnit ? new CyCity(m_pUnit->getHomeCity()) : NULL;
+}

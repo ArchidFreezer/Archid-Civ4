@@ -371,6 +371,11 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 	szTempBuffer.Format(SETCOLR L"%s" ENDCOLR, TEXT_COLOR("COLOR_UNIT_TEXT"), pUnit->getName().GetCString());
 	szString.append(szTempBuffer);
 
+	if (pUnit->getHomeCity() != NULL && !pUnit->getUnitInfo().isHiddenNationality()) {
+		szTempBuffer.Format(SETCOLR L" (%s)" ENDCOLR, TEXT_COLOR("COLOR_HIGHLIGHT_TEXT"), pUnit->getHomeCity()->getName().GetCString());
+		szString.append(szTempBuffer);
+	}
+
 	szString.append(L", ");
 
 	if (pUnit->getDomainType() == DOMAIN_AIR) {

@@ -18151,3 +18151,24 @@ bool CvPlayer::canAddNewCity() const {
 	int iEraCityLimit = GC.getEraInfo(getCurrentEra()).getMaxCities();
 	return (iEraCityLimit == -1 || getNumCities() < iEraCityLimit);
 }
+
+CvCity* CvPlayer::findCity(int iX, int iY, bool bPreferSameArea, CvCity* pSkipCity) {
+	CvCity* pFoundCity = NULL;
+	if (bPreferSameArea) {
+		pFoundCity = GC.getMapINLINE().findCity(iX, iY, m_eID, NO_TEAM, true, false, NO_TEAM, NO_DIRECTION, pSkipCity);
+	}
+	// Check for a coastal city on another landmass
+	if (pFoundCity == NULL) {
+		pFoundCity = GC.getMapINLINE().findCity(iX, iY, m_eID, NO_TEAM, false, true, NO_TEAM, NO_DIRECTION, pSkipCity);
+	}
+	// Check for any city on another landmass
+	if (pFoundCity == NULL) {
+		pFoundCity = GC.getMapINLINE().findCity(iX, iY, m_eID, NO_TEAM, false, false, NO_TEAM, NO_DIRECTION, pSkipCity);
+	}
+	// Otherwise use the capital
+	if (pFoundCity == NULL) {
+		// We should never get here as the capital should have been selected previously
+		pFoundCity = getCapitalCity();
+	}
+	return pFoundCity;
+}

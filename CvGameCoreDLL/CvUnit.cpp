@@ -110,6 +110,15 @@ void CvUnit::init(int iID, UnitTypes eUnit, UnitAITypes eUnitAI, PlayerTypes eOw
 
 	plot()->setFlagDirty(true);
 
+	CvPlayer& kOwner = GET_PLAYER(getOwnerINLINE());
+
+	// If this unit is created in one of the owners cities then set that city as its home
+	// otherwise set the owners closest city, favouring cities on the same landmass
+	if (plot()->getPlotCity() != NULL && plot()->getPlotCity()->getOwnerINLINE() == getOwnerINLINE()) {
+		setHomeCity(plot()->getPlotCity());
+	} else {
+		setHomeCity(kOwner.findCity(getX_INLINE(), getY_INLINE(), true));
+	}
 	int iUnitName = GC.getGameINLINE().getUnitCreatedCount(getUnitType());
 	int iNumNames = m_pUnitInfo->getNumUnitNames();
 	if (iUnitName < iNumNames) {
@@ -132,35 +141,36 @@ void CvUnit::init(int iID, UnitTypes eUnit, UnitAITypes eUnitAI, PlayerTypes eOw
 
 	GC.getGameINLINE().incrementUnitClassCreatedCount((UnitClassTypes)(m_pUnitInfo->getUnitClassType()));
 	GET_TEAM(getTeam()).changeUnitClassCount(((UnitClassTypes)(m_pUnitInfo->getUnitClassType())), 1);
-	GET_PLAYER(getOwnerINLINE()).changeUnitClassCount(((UnitClassTypes)(m_pUnitInfo->getUnitClassType())), 1);
+	kOwner.changeUnitClassCount(((UnitClassTypes)(m_pUnitInfo->getUnitClassType())), 1);
 
-	GET_PLAYER(getOwnerINLINE()).changeExtraUnitCost(m_pUnitInfo->getExtraCost());
+	kOwner.changeExtraUnitCost(m_pUnitInfo->getExtraCost());
 
 	if (m_pUnitInfo->getNukeRange() != -1) {
-		GET_PLAYER(getOwnerINLINE()).changeNumNukeUnits(1);
+		kOwner.changeNumNukeUnits(1);
 	}
 
 	if (m_pUnitInfo->isMilitarySupport()) {
-		GET_PLAYER(getOwnerINLINE()).changeNumMilitaryUnits(1);
+		kOwner.changeNumMilitaryUnits(1);
 	}
 
-	GET_PLAYER(getOwnerINLINE()).changeAssets(m_pUnitInfo->getAssetValue());
+	kOwner.changeAssets(m_pUnitInfo->getAssetValue());
 
-	GET_PLAYER(getOwnerINLINE()).changePower(m_pUnitInfo->getPowerValue());
+	kOwner.changePower(m_pUnitInfo->getPowerValue());
 
-	for (int iI = 0; iI < GC.getNumPromotionInfos(); iI++) {
-		if (m_pUnitInfo->getFreePromotions(iI)) {
-			setHasPromotion(((PromotionTypes)iI), true);
+	for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumPromotionInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
+		if (m_pUnitInfo->getFreePromotions(ePromotion)) {
+			setHasPromotion(ePromotion, true);
 		}
 	}
 
 	FAssertMsg((GC.getNumTraitInfos() > 0), "GC.getNumTraitInfos() is less than or equal to zero but is expected to be larger than zero in CvUnit::init");
-	for (int iI = 0; iI < GC.getNumTraitInfos(); iI++) {
-		if (GET_PLAYER(getOwnerINLINE()).hasTrait((TraitTypes)iI)) {
-			for (int iJ = 0; iJ < GC.getNumPromotionInfos(); iJ++) {
-				if (GC.getTraitInfo((TraitTypes)iI).isFreePromotion(iJ)) {
-					if ((getUnitCombatType() != NO_UNITCOMBAT) && GC.getTraitInfo((TraitTypes)iI).isFreePromotionUnitCombat(getUnitCombatType())) {
-						setHasPromotion(((PromotionTypes)iJ), true);
+	for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
+		if (kOwner.hasTrait(eTrait)) {
+			const CvTraitInfo& kTrait = GC.getTraitInfo(eTrait);
+			for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumPromotionInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
+				if (kTrait.isFreePromotion(ePromotion)) {
+					if ((getUnitCombatType() != NO_UNITCOMBAT) && kTrait.isFreePromotionUnitCombat(getUnitCombatType())) {
+						setHasPromotion(ePromotion, true);
 					}
 				}
 			}
@@ -168,17 +178,17 @@ void CvUnit::init(int iID, UnitTypes eUnit, UnitAITypes eUnitAI, PlayerTypes eOw
 	}
 
 	if (NO_UNITCOMBAT != getUnitCombatType()) {
-		for (int iJ = 0; iJ < GC.getNumPromotionInfos(); iJ++) {
-			if (GET_PLAYER(getOwnerINLINE()).isFreePromotion(getUnitCombatType(), (PromotionTypes)iJ)) {
-				setHasPromotion(((PromotionTypes)iJ), true);
+		for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumPromotionInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
+			if (kOwner.isFreePromotion(getUnitCombatType(), ePromotion)) {
+				setHasPromotion(ePromotion, true);
 			}
 		}
 	}
 
 	if (NO_UNITCLASS != getUnitClassType()) {
-		for (int iJ = 0; iJ < GC.getNumPromotionInfos(); iJ++) {
-			if (GET_PLAYER(getOwnerINLINE()).isFreePromotion(getUnitClassType(), (PromotionTypes)iJ)) {
-				setHasPromotion(((PromotionTypes)iJ), true);
+		for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumPromotionInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
+			if (kOwner.isFreePromotion(getUnitClassType(), ePromotion)) {
+				setHasPromotion(ePromotion, true);
 			}
 		}
 	}
@@ -195,21 +205,22 @@ void CvUnit::init(int iID, UnitTypes eUnit, UnitAITypes eUnitAI, PlayerTypes eOw
 		gDLL->getInterfaceIFace()->setDirty(GameData_DIRTY_BIT, true);
 	}
 
-	if (isWorldUnitClass((UnitClassTypes)(m_pUnitInfo->getUnitClassType()))) {
+	if (isWorldUnitClass((UnitClassTypes)m_pUnitInfo->getUnitClassType())) {
 		CvWString szBuffer;
-		for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-			if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
-				if (GET_TEAM(getTeam()).isHasMet(GET_PLAYER((PlayerTypes)iI).getTeam())) {
-					szBuffer = gDLL->getText("TXT_KEY_MISC_SOMEONE_CREATED_UNIT", GET_PLAYER(getOwnerINLINE()).getNameKey(), getNameKey());
-					gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_WONDER_UNIT_BUILD", MESSAGE_TYPE_MAJOR_EVENT, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_UNIT_TEXT"), getX_INLINE(), getY_INLINE(), true, true);
+		for (PlayerTypes eLoopPlayer = (PlayerTypes)0; eLoopPlayer < MAX_PLAYERS; eLoopPlayer = (PlayerTypes)(eLoopPlayer + 1)) {
+			const CvPlayer& kLoopPlayer = GET_PLAYER(eLoopPlayer);
+			if (kLoopPlayer.isAlive()) {
+				if (GET_TEAM(getTeam()).isHasMet(kLoopPlayer.getTeam())) {
+					szBuffer = gDLL->getText("TXT_KEY_MISC_SOMEONE_CREATED_UNIT", kOwner.getNameKey(), getNameKey());
+					gDLL->getInterfaceIFace()->addHumanMessage(eLoopPlayer, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_WONDER_UNIT_BUILD", MESSAGE_TYPE_MAJOR_EVENT, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_UNIT_TEXT"), getX_INLINE(), getY_INLINE(), true, true);
 				} else {
 					szBuffer = gDLL->getText("TXT_KEY_MISC_UNKNOWN_CREATED_UNIT", getNameKey());
-					gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_WONDER_UNIT_BUILD", MESSAGE_TYPE_MAJOR_EVENT, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_UNIT_TEXT"));
+					gDLL->getInterfaceIFace()->addHumanMessage(eLoopPlayer, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_WONDER_UNIT_BUILD", MESSAGE_TYPE_MAJOR_EVENT, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_UNIT_TEXT"));
 				}
 			}
 		}
 
-		szBuffer = gDLL->getText("TXT_KEY_MISC_SOMEONE_CREATED_UNIT", GET_PLAYER(getOwnerINLINE()).getNameKey(), getNameKey());
+		szBuffer = gDLL->getText("TXT_KEY_MISC_SOMEONE_CREATED_UNIT", kOwner.getNameKey(), getNameKey());
 		GC.getGameINLINE().addReplayMessage(REPLAY_MESSAGE_MAJOR_EVENT, getOwnerINLINE(), szBuffer, getX_INLINE(), getY_INLINE(), (ColorTypes)GC.getInfoTypeForString("COLOR_UNIT_TEXT"));
 	}
 
@@ -314,9 +325,10 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 
 	m_combatUnit.reset();
 	m_transportUnit.reset();
+	m_homeCity.reset();
 
-	for (int iI = 0; iI < NUM_DOMAIN_TYPES; iI++) {
-		m_aiExtraDomainModifier[iI] = 0;
+	for (DomainTypes eDomain = (DomainTypes)0; eDomain < NUM_DOMAIN_TYPES; eDomain = (DomainTypes)(eDomain + 1)) {
+		m_aiExtraDomainModifier[eDomain] = 0;
 	}
 
 	m_szName.clear();
@@ -325,34 +337,34 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	if (!bConstructorCall) {
 		FAssertMsg((0 < GC.getNumPromotionInfos()), "GC.getNumPromotionInfos() is not greater than zero but an array is being allocated in CvUnit::reset");
 		m_pabHasPromotion = new bool[GC.getNumPromotionInfos()];
-		for (int iI = 0; iI < GC.getNumPromotionInfos(); iI++) {
-			m_pabHasPromotion[iI] = false;
+		for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumPromotionInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
+			m_pabHasPromotion[ePromotion] = false;
 		}
 
 		FAssertMsg((0 < GC.getNumTerrainInfos()), "GC.getNumTerrainInfos() is not greater than zero but a float array is being allocated in CvUnit::reset");
 		m_paiTerrainDoubleMoveCount = new int[GC.getNumTerrainInfos()];
 		m_paiExtraTerrainAttackPercent = new int[GC.getNumTerrainInfos()];
 		m_paiExtraTerrainDefensePercent = new int[GC.getNumTerrainInfos()];
-		for (int iI = 0; iI < GC.getNumTerrainInfos(); iI++) {
-			m_paiTerrainDoubleMoveCount[iI] = 0;
-			m_paiExtraTerrainAttackPercent[iI] = 0;
-			m_paiExtraTerrainDefensePercent[iI] = 0;
+		for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
+			m_paiTerrainDoubleMoveCount[eTerrain] = 0;
+			m_paiExtraTerrainAttackPercent[eTerrain] = 0;
+			m_paiExtraTerrainDefensePercent[eTerrain] = 0;
 		}
 
 		FAssertMsg((0 < GC.getNumFeatureInfos()), "GC.getNumFeatureInfos() is not greater than zero but a float array is being allocated in CvUnit::reset");
 		m_paiFeatureDoubleMoveCount = new int[GC.getNumFeatureInfos()];
 		m_paiExtraFeatureDefensePercent = new int[GC.getNumFeatureInfos()];
 		m_paiExtraFeatureAttackPercent = new int[GC.getNumFeatureInfos()];
-		for (int iI = 0; iI < GC.getNumFeatureInfos(); iI++) {
-			m_paiFeatureDoubleMoveCount[iI] = 0;
-			m_paiExtraFeatureAttackPercent[iI] = 0;
-			m_paiExtraFeatureDefensePercent[iI] = 0;
+		for (FeatureTypes eFeature = (FeatureTypes)0; eFeature < GC.getNumFeatureInfos(); eFeature = (FeatureTypes)(eFeature + 1)) {
+			m_paiFeatureDoubleMoveCount[eFeature] = 0;
+			m_paiExtraFeatureAttackPercent[eFeature] = 0;
+			m_paiExtraFeatureDefensePercent[eFeature] = 0;
 		}
 
 		FAssertMsg((0 < GC.getNumUnitCombatInfos()), "GC.getNumUnitCombatInfos() is not greater than zero but an array is being allocated in CvUnit::reset");
 		m_paiExtraUnitCombatModifier = new int[GC.getNumUnitCombatInfos()];
-		for (int iI = 0; iI < GC.getNumUnitCombatInfos(); iI++) {
-			m_paiExtraUnitCombatModifier[iI] = 0;
+		for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+			m_paiExtraUnitCombatModifier[eUnitCombat] = 0;
 		}
 
 		AI_reset();
@@ -571,10 +583,16 @@ void CvUnit::NotifyEntity(MissionTypes eMission) {
 void CvUnit::doTurn() {
 	PROFILE("CvUnit::doTurn()")
 
-		FAssertMsg(!isDead(), "isDead did not return false as expected");
+	FAssertMsg(!isDead(), "isDead did not return false as expected");
 	FAssertMsg(getGroup() != NULL, "getGroup() is not expected to be equal with NULL");
 
 	testPromotionReady();
+
+	// Set the home city if it does not have one, this will be the case for the first units
+	//  before the capital is founded
+	if (getHomeCity() == NULL) {
+		setHomeCity(GET_PLAYER(getOwnerINLINE()).findCity(getX_INLINE(), getY_INLINE()));
+	}
 
 	if (isBlockading()) {
 		collectBlockadeGold();
@@ -9288,6 +9306,8 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_combatUnit.iID);
 	pStream->Read((int*)&m_transportUnit.eOwner);
 	pStream->Read(&m_transportUnit.iID);
+	pStream->Read((int*)&m_homeCity.eOwner);
+	pStream->Read(&m_homeCity.iID);
 
 	pStream->Read(NUM_DOMAIN_TYPES, m_aiExtraDomainModifier);
 
@@ -9386,6 +9406,8 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_combatUnit.iID);
 	pStream->Write(m_transportUnit.eOwner);
 	pStream->Write(m_transportUnit.iID);
+	pStream->Write(m_homeCity.eOwner);
+	pStream->Write(m_homeCity.iID);
 
 	pStream->Write(NUM_DOMAIN_TYPES, m_aiExtraDomainModifier);
 
@@ -10633,3 +10655,14 @@ int CvUnit::LFBgetDefenderCombatOdds(const CvUnit* pAttacker) const {
 	return LFBgetCombatOdds(iDefenderLowFS, iDefenderHighFS, iAttackerLowFS, iAttackerHighFS, iNeededRoundsDefender, iNeededRoundsAttacker, iDefenderOdds);
 }
 
+CvCity* CvUnit::getHomeCity() const {
+	return getCity(m_homeCity);
+}
+
+void CvUnit::setHomeCity(const CvCity* pCity) {
+	if (pCity != NULL) {
+		m_homeCity = pCity->getIDInfo();
+	} else {
+		m_homeCity.reset();
+	}
+}

@@ -24,6 +24,9 @@ public:
 	void convert(CyUnit* pUnit);
 	void kill(bool bDelay, int /*PlayerTypes*/ ePlayer);
 
+	void setHomeCity(CyCity* pCity);
+	CyCity* getHomeCity();
+
 	void NotifyEntity(int /*MissionTypes*/ eMission);
 
 	bool isActionRecommended(int i);

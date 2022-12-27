@@ -630,8 +630,6 @@ void CvCity::kill(bool bUpdatePlotGroups) {
 		gDLL->getInterfaceIFace()->clearSelectedCities();
 	}
 
-	CvPlot* pPlot = plot();
-
 	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
 		CvPlot* pLoopPlot = getCityIndexPlot(iI);
 
@@ -644,33 +642,33 @@ void CvCity::kill(bool bUpdatePlotGroups) {
 
 	setCultureLevel(NO_CULTURELEVEL, false);
 
-	for (int iI = 0; iI < GC.getNumBuildingInfos(); iI++) {
-		setNumRealBuilding(((BuildingTypes)iI), 0);
-		setNumFreeBuilding(((BuildingTypes)iI), 0);
+	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+		setNumRealBuilding(eBuilding, 0);
+		setNumFreeBuilding(eBuilding, 0);
 	}
 
-	for (int iI = 0; iI < GC.getNumSpecialistInfos(); iI++) {
-		setFreeSpecialistCount(((SpecialistTypes)iI), 0);
+	for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
+		setFreeSpecialistCount(eSpecialist, 0);
 	}
 
-	for (int iI = 0; iI < NUM_YIELD_TYPES; iI++) {
-		setTradeYield(((YieldTypes)iI), 0);
-		setCorporationYield(((YieldTypes)iI), 0);
+	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+		setTradeYield(eYield, 0);
+		setCorporationYield(eYield, 0);
 	}
 
-	for (int iI = 0; iI < GC.getNumReligionInfos(); iI++) {
-		setHasReligion(((ReligionTypes)iI), false, false, true);
+	for (ReligionTypes eReligion = (ReligionTypes)0; eReligion < GC.getNumReligionInfos(); eReligion = (ReligionTypes)(eReligion + 1)) {
+		setHasReligion(eReligion, false, false, true);
 
-		if (isHolyCity((ReligionTypes)iI)) {
-			GC.getGameINLINE().setHolyCity(((ReligionTypes)iI), NULL, false);
+		if (isHolyCity(eReligion)) {
+			GC.getGameINLINE().setHolyCity(eReligion, NULL, false);
 		}
 	}
 
-	for (int iI = 0; iI < GC.getNumCorporationInfos(); iI++) {
-		setHasCorporation(((CorporationTypes)iI), false, false);
+	for (CorporationTypes eCorporation = (CorporationTypes)0; eCorporation < GC.getNumCorporationInfos(); eCorporation = (CorporationTypes)(eCorporation + 1)) {
+		setHasCorporation(eCorporation, false, false);
 
-		if (isHeadquarters((CorporationTypes)iI)) {
-			GC.getGameINLINE().setHeadquarters(((CorporationTypes)iI), NULL, false);
+		if (isHeadquarters(eCorporation)) {
+			GC.getGameINLINE().setHeadquarters(eCorporation, NULL, false);
 		}
 	}
 
@@ -682,22 +680,23 @@ void CvCity::kill(bool bUpdatePlotGroups) {
 
 	// remember the visibility before we take away the city from the plot below
 	std::vector<bool> abEspionageVisibility;
-	for (int iI = 0; iI < MAX_TEAMS; iI++) {
-		abEspionageVisibility.push_back(getEspionageVisibility((TeamTypes)iI));
+	for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_TEAMS; eTeam = (TeamTypes)(eTeam + 1)) {
+		abEspionageVisibility.push_back(getEspionageVisibility(eTeam));
 	}
 
 	// Need to clear trade routes of dead city, else they'll be claimed for the owner forever
 	clearTradeRoutes();
 
+	CvPlot* pPlot = plot();
 	pPlot->setPlotCity(NULL);
 
 	// Replace floodplains after city is removed
 	if (pPlot->getBonusType() == NO_BONUS) {
-		for (int iJ = 0; iJ < GC.getNumFeatureInfos(); iJ++) {
-			if (GC.getFeatureInfo((FeatureTypes)iJ).isRequiresRiver()) {
-				if (pPlot->canHaveFeature((FeatureTypes)iJ)) {
-					if (GC.getFeatureInfo((FeatureTypes)iJ).getAppearanceProbability() == 10000) {
-						pPlot->setFeatureType((FeatureTypes)iJ);
+		for (FeatureTypes eFeature = (FeatureTypes)0; eFeature < GC.getNumFeatureInfos(); eFeature = (FeatureTypes)(eFeature + 1)) {
+			if (GC.getFeatureInfo(eFeature).isRequiresRiver()) {
+				if (pPlot->canHaveFeature(eFeature)) {
+					if (GC.getFeatureInfo(eFeature).getAppearanceProbability() == 10000) {
+						pPlot->setFeatureType(eFeature);
 						break;
 					}
 				}
@@ -720,7 +719,8 @@ void CvCity::kill(bool bUpdatePlotGroups) {
 	FAssertMsg(getBaseYieldRate(YIELD_COMMERCE) == 0, "getBaseYieldRate(YIELD_COMMERCE) is expected to be 0");
 	FAssertMsg(!isProduction(), "isProduction is expected to be false");
 
-	PlayerTypes eOwner = getOwnerINLINE();
+	const PlayerTypes eOwner = getOwnerINLINE();
+	CvPlayer& kOwner = GET_PLAYER(eOwner);
 
 	bool bCapital = isCapital();
 
@@ -728,40 +728,47 @@ void CvCity::kill(bool bUpdatePlotGroups) {
 
 	CvEventReporter::getInstance().cityLost(this);
 
-	GET_PLAYER(getOwnerINLINE()).deleteCity(getID());
+	kOwner.deleteCity(getID());
 
 	pPlot->updateCulture(true, false);
 
-	for (int iI = 0; iI < NUM_DIRECTION_TYPES; iI++) {
-		CvPlot* pAdjacentPlot = plotDirection(pPlot->getX_INLINE(), pPlot->getY_INLINE(), ((DirectionTypes)iI));
+	for (DirectionTypes eDirection = (DirectionTypes)0; eDirection < NUM_DIRECTION_TYPES; eDirection = (DirectionTypes)(eDirection + 1)) {
+		CvPlot* pAdjacentPlot = plotDirection(pPlot->getX_INLINE(), pPlot->getY_INLINE(), eDirection);
 
 		if (pAdjacentPlot != NULL) {
 			pAdjacentPlot->updateCulture(true, false);
 		}
 	}
 
-	for (int iI = 0; iI < MAX_TEAMS; iI++) {
-		if (GET_TEAM(GET_PLAYER(eOwner).getTeam()).isVassal((TeamTypes)iI)) {
-			pPlot->changeAdjacentSight((TeamTypes)iI, GC.getDefineINT("PLOT_VISIBILITY_RANGE"), false, NULL, false);
+	for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_TEAMS; eTeam = (TeamTypes)(eTeam + 1)) {
+		if (GET_TEAM(kOwner.getTeam()).isVassal(eTeam)) {
+			pPlot->changeAdjacentSight(eTeam, GC.getDefineINT("PLOT_VISIBILITY_RANGE"), false, NULL, false);
 		}
 	}
 
-	for (int iI = 0; iI < MAX_TEAMS; iI++) {
-		if (abEspionageVisibility[iI]) {
-			pPlot->changeAdjacentSight((TeamTypes)iI, GC.getDefineINT("PLOT_VISIBILITY_RANGE"), false, NULL, false);
+	for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_TEAMS; eTeam = (TeamTypes)(eTeam + 1)) {
+		if (abEspionageVisibility[eTeam]) {
+			pPlot->changeAdjacentSight(eTeam, GC.getDefineINT("PLOT_VISIBILITY_RANGE"), false, NULL, false);
 		}
 	}
 
-	GET_PLAYER(eOwner).updateMaintenance();
+	kOwner.updateMaintenance();
 
 	GC.getMapINLINE().updateWorkingCity();
 
 	GC.getGameINLINE().AI_makeAssignWorkDirty();
 
-	if (bCapital) {
-		GET_PLAYER(eOwner).findNewCapital();
+	int iLoop;
+	for (CvUnit* pLoopUnit = kOwner.firstUnit(&iLoop); pLoopUnit != NULL; pLoopUnit = kOwner.nextUnit(&iLoop)) {
+		if (pLoopUnit->getHomeCity() == this) {
+			pLoopUnit->setHomeCity(kOwner.findCity(getX_INLINE(), getY_INLINE(), this));
+		}
+	}
 
-		GET_TEAM(GET_PLAYER(eOwner).getTeam()).resetVictoryProgress();
+	if (bCapital) {
+		kOwner.findNewCapital();
+
+		GET_TEAM(kOwner.getTeam()).resetVictoryProgress();
 	}
 
 	if (bUpdatePlotGroups) {
