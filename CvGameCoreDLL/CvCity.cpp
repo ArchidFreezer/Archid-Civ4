@@ -5390,7 +5390,7 @@ int CvCity::getAdditionalHappinessByBuilding(BuildingTypes eBuilding, int& iGood
 		iBaseAngerPercent += getHurryPercentAnger();
 		iBaseAngerPercent += getConscriptPercentAnger();
 		iBaseAngerPercent += getDefyResolutionPercentAnger();
-		for (iI = 0; iI < GC.getNumCivicInfos(); iI++) {
+		for (int iI = 0; iI < GC.getNumCivicInfos(); iI++) {
 			iBaseAngerPercent += GET_PLAYER(getOwnerINLINE()).getCivicPercentAnger((CivicTypes)iI);
 		}
 
