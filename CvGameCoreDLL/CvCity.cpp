@@ -7172,7 +7172,9 @@ int CvCity::getBaseCommerceRateTimes100(CommerceTypes eIndex) const {
 
 
 int CvCity::getTotalCommerceRateModifier(CommerceTypes eIndex) const {
-	return std::max(0, (getCommerceRateModifier(eIndex) + GET_PLAYER(getOwnerINLINE()).getCommerceRateModifier(eIndex) + ((isCapital()) ? GET_PLAYER(getOwnerINLINE()).getCapitalCommerceRateModifier(eIndex) : 0) + 100));
+	int iModifier = std::max(0, (getCommerceRateModifier(eIndex) + GET_PLAYER(getOwnerINLINE()).getCommerceRateModifier(eIndex) + ((isCapital()) ? GET_PLAYER(getOwnerINLINE()).getCapitalCommerceRateModifier(eIndex) : 0) + 100));
+	// This value is used as a multiplier so we should never return 0
+	return iModifier ? iModifier : 1;
 }
 
 
