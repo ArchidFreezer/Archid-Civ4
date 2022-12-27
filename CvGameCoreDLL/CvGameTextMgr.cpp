@@ -410,6 +410,24 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 	}
 	szString.append(szTempBuffer);
 
+	switch (pUnit->getRangeType()) {
+	case UNITRANGE_HOME:
+		szTempBuffer.Format(L", %c", gDLL->getSymbolID(HOME_BOUND_CHAR));
+		szString.append(szTempBuffer);
+		break;
+	case UNITRANGE_TERRITORY:
+		szTempBuffer.Format(L", %c", gDLL->getSymbolID(TERRITORY_BOUND_CHAR));
+		szString.append(szTempBuffer);
+		break;
+	case UNITRANGE_RANGE:
+		szTempBuffer.Format(L", %d %c", pUnit->getRange(), gDLL->getSymbolID(RANGE_BOUND_CHAR));
+		szString.append(szTempBuffer);
+		break;
+	case UNITRANGE_UNLIMITED:
+	default:
+		break;
+	}
+
 	if (pUnit->airRange() > 0) {
 		szString.append(gDLL->getText("TXT_KEY_UNIT_HELP_AIR_RANGE", pUnit->airRange()));
 	}

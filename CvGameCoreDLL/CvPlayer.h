@@ -80,6 +80,18 @@ public:
 
 	CvSelectionGroup* cycleSelectionGroups(CvUnit* pUnit, bool bForward, bool bWorkers, bool* pbWrap);
 
+	UnitRangeTypes getUnitRangeType(const CvUnitInfo* pUnitInfo) const;
+	bool isUnitTerritoryUnbound() const;
+	bool isUnitRangeUnbound() const;
+	void changeUnitRangeUnboundCount(int iChange);
+	void changeUnitTerritoryUnboundCount(int iChange);
+	void setExtraRange(int iRange);
+	void changeExtraRange(int iChange);
+	int getExtraRange() const;
+	void setExtraRangePercent(int iModifier);
+	void changeExtraRangePercent(int iChange);
+	int getExtraRangePercent() const;
+
 	bool hasTrait(TraitTypes eTrait) const;																																			// Exposed to Python						
 	void setHumanDisabled(bool newVal);
 	bool isHumanDisabled();
@@ -1177,6 +1189,10 @@ protected:
 	int m_iCombatExperience;
 	int m_iPopRushHurryCount;
 	int m_iInflationModifier;
+	int m_iExtraRange;
+	int m_iExtraRangePercent;
+	int m_iUnitRangeUnboundCount;
+	int m_iUnitTerritoryUnboundCount;
 
 	uint m_uiStartTime;  // XXX save these?
 

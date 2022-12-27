@@ -433,6 +433,7 @@
 	</ElementType>
 	<ElementType name="LeaderPromotion" content="textOnly"/>
 	<ElementType name="iLeaderExperience" content="textOnly" dt:type="int"/>
+	<ElementType name="UnitRangeType" content="textOnly"/>
 	<ElementType name="UnitInfo" content="eltOnly">
 		<element type="Class"/>
 		<element type="Type"/>
@@ -519,6 +520,7 @@
 		<element type="iAdvancedStartCostIncrease" minOccurs="0"/>
 		<element type="iMinAreaSize" minOccurs="0"/> <!-- Default: -1 -->
 		<element type="iMoves" minOccurs="0"/>
+		<element type="UnitRangeType" minOccurs="0"/> <!-- Default: UNITRANGE_UNLIMITED -->
 		<element type="bNoRevealMap" minOccurs="0"/>
 		<element type="iAirRange" minOccurs="0"/>
 		<element type="iAirUnitCap" minOccurs="0"/>

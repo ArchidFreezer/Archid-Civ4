@@ -1358,3 +1358,53 @@ void CyUnit::setHomeCity(CyCity* pCity) {
 CyCity* CyUnit::getHomeCity() {
 	return m_pUnit ? new CyCity(m_pUnit->getHomeCity()) : NULL;
 }
+
+int CyUnit::getRange() const {
+	return m_pUnit ? m_pUnit->getRange() : -1;
+}
+
+void CyUnit::setExtraRange(int iRange) {
+	if (m_pUnit != NULL) {
+		m_pUnit->setExtraRange(iRange);
+	}
+}
+
+void CyUnit::changeExtraRange(int iChange) {
+	if (m_pUnit != NULL) {
+		m_pUnit->changeExtraRange(iChange);
+	}
+}
+
+int CyUnit::getExtraRange() const {
+	return m_pUnit ? m_pUnit->getExtraRange() : -1;
+}
+
+void CyUnit::setExtraRangePercent(int iModifier) {
+	if (m_pUnit != NULL) {
+		m_pUnit->setExtraRangePercent(iModifier);
+	}
+}
+
+void CyUnit::changeExtraRangePercent(int iChange) {
+	if (m_pUnit != NULL) {
+		m_pUnit->changeExtraRangePercent(iChange);
+	}
+}
+
+int CyUnit::getExtraRangePercent() const {
+	return m_pUnit ? m_pUnit->getExtraRangePercent() : -1;
+}
+
+void CyUnit::changeRangeUnboundCount(int iChange) {
+	if (m_pUnit)
+		m_pUnit->changeRangeUnboundCount(iChange);
+}
+
+void CyUnit::changeTerritoryUnboundCount(int iChange) {
+	if (m_pUnit)
+		m_pUnit->changeTerritoryUnboundCount(iChange);
+}
+
+UnitRangeTypes CyUnit::getRangeType() const {
+	return m_pUnit ? m_pUnit->getRangeType() : UNITRANGE_RANGE;
+}

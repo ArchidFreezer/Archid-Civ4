@@ -305,6 +305,10 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iKamikazePercent = 0;
 	m_eFacingDirection = DIRECTION_SOUTH;
 	m_iImmobileTimer = 0;
+	m_iExtraRange = 0;
+	m_iExtraRangePercent = 0;
+	m_iRangeUnboundCount = 0;
+	m_iTerritoryUnboundCount = 0;
 
 	m_bMadeAttack = false;
 	m_bMadeInterception = false;
@@ -2128,6 +2132,39 @@ bool CvUnit::canMoveInto(const CvPlot* pPlot, bool bAttack, bool bDeclareWar, bo
 				return false;
 			} else if (!isHuman()) {
 				if (!GET_TEAM(getTeam()).AI_isSneakAttackReady(ePlotTeam) || !getGroup()->AI_isDeclareWar(pPlot)) {
+					return false;
+				}
+			}
+		}
+
+		// Is this outside the units range and not getting closer to the home city
+		// This check is done last as the range calculation is more expensive that the other
+		CvCity* kHomeCity = getCity(m_homeCity);
+		if (kHomeCity != NULL) {
+			bool bCheckRange = false;
+			switch (getRangeType()) {
+			case UNITRANGE_HOME:
+			{
+				// We need to create a temporary plot object as the canWork function will not take a const plot
+				CvPlot* pTempPlot = GC.getMapINLINE().plot(pPlot->getX_INLINE(), pPlot->getY_INLINE());
+				bCheckRange = !(kHomeCity->isWorkingPlot(pTempPlot) || kHomeCity->canWork(pTempPlot));
+			}
+			break;
+			case UNITRANGE_TERRITORY:
+			case UNITRANGE_RANGE:
+				bCheckRange = (pPlot->getOwnerINLINE() != getOwnerINLINE());
+				break;
+			case UNITRANGE_UNLIMITED:
+			default:
+				bCheckRange = false;
+				break;
+			}
+
+			if (bCheckRange) {
+				int iTargetRange = plotDistance(kHomeCity->plot(), pPlot);
+				int iCurrRange = plotDistance(kHomeCity->plot(), plot());
+				int iDiagonal = plotDistance(plot(), pPlot);
+				if (iTargetRange > getRange() && (iTargetRange >= iCurrRange || iDiagonal >= iCurrRange)) {
 					return false;
 				}
 			}
@@ -9290,6 +9327,10 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iBaseCombat);
 	pStream->Read((int*)&m_eFacingDirection);
 	pStream->Read(&m_iImmobileTimer);
+	pStream->Read(&m_iExtraRange);
+	pStream->Read(&m_iExtraRangePercent);
+	pStream->Read(&m_iRangeUnboundCount);
+	pStream->Read(&m_iTerritoryUnboundCount);
 
 	pStream->Read(&m_bMadeAttack);
 	pStream->Read(&m_bMadeInterception);
@@ -9394,6 +9435,10 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iBaseCombat);
 	pStream->Write(m_eFacingDirection);
 	pStream->Write(m_iImmobileTimer);
+	pStream->Write(m_iExtraRange);
+	pStream->Write(m_iExtraRangePercent);
+	pStream->Write(m_iRangeUnboundCount);
+	pStream->Write(m_iTerritoryUnboundCount);
 
 	pStream->Write(m_bMadeAttack);
 	pStream->Write(m_bMadeInterception);
@@ -10671,5 +10716,92 @@ void CvUnit::setHomeCity(const CvCity* pCity) {
 		m_homeCity = pCity->getIDInfo();
 	} else {
 		m_homeCity.reset();
+	}
+}
+
+int CvUnit::getRange() const {
+	int iRange = MAX_INT;
+	const CvPlayer& kOwner = GET_PLAYER(getOwnerINLINE());
+	switch (getRangeType()) {
+	case UNITRANGE_HOME:
+	case UNITRANGE_TERRITORY:
+		iRange = 0;
+		break;
+	case UNITRANGE_RANGE:
+		// Get the base range of the unit scaled to the world size
+		iRange = (GC.getINITIAL_UNIT_RANGE() + kOwner.getExtraRange() + getExtraRange()) * (GC.getMapINLINE().getWorldSize() + 1);
+		// Apply any percentage modifiers
+		iRange *= (100 + kOwner.getExtraRangePercent() + getExtraRangePercent());
+		iRange /= 100;
+		break;
+	case UNITRANGE_UNLIMITED:
+	default:
+		break;
+	}
+	return iRange;
+}
+
+void CvUnit::setExtraRange(int iRange) {
+	m_iExtraRange = iRange;
+}
+
+void CvUnit::changeExtraRange(int iChange) {
+	if (iChange != 0) {
+		m_iExtraRange += iChange;
+		FAssert(getExtraRange() >= 0);
+	}
+}
+
+int CvUnit::getExtraRange() const {
+	return m_iExtraRange;
+}
+
+void CvUnit::setExtraRangePercent(int iModifier) {
+	m_iExtraRangePercent = iModifier;
+}
+
+void CvUnit::changeExtraRangePercent(int iChange) {
+	if (iChange > 0) {
+		m_iExtraRangePercent += iChange;
+	}
+}
+
+int CvUnit::getExtraRangePercent() const {
+	return m_iExtraRangePercent;
+}
+
+void CvUnit::changeRangeUnboundCount(int iChange) {
+	m_iRangeUnboundCount += iChange;
+}
+
+void CvUnit::changeTerritoryUnboundCount(int iChange) {
+	m_iTerritoryUnboundCount += iChange;
+}
+
+UnitRangeTypes CvUnit::getRangeType() const {
+	UnitRangeTypes ePlayerUnitRangeType = GET_PLAYER(getOwnerINLINE()).getUnitRangeType(&(this->getUnitInfo()));
+
+	switch (m_pUnitInfo->getRangeType()) {
+	case UNITRANGE_HOME:
+		return UNITRANGE_HOME;
+		break;
+	case UNITRANGE_TERRITORY:
+		// If the unit is specifically NOT unbound or is neutral and the player is not unbound
+		// If the unit is specifically ubound then we drop down to the next case
+		if (m_iTerritoryUnboundCount == 0 && ePlayerUnitRangeType == UNITRANGE_TERRITORY) {
+			return UNITRANGE_TERRITORY;
+		}
+		// No break here deliberately
+	case UNITRANGE_RANGE:
+		// If the unit is specifically NOT unbound or is neutral and the player is not unbound
+		// If the unit is specifically ubound then we drop down to the next case
+		if (m_iRangeUnboundCount == 0 && ePlayerUnitRangeType == UNITRANGE_RANGE) {
+			return UNITRANGE_RANGE;
+		}
+		// No break here deliberately
+	case UNITRANGE_UNLIMITED:
+	default:
+		return UNITRANGE_UNLIMITED;
+		break;
 	}
 }

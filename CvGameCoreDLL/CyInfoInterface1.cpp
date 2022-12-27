@@ -313,6 +313,8 @@ void CyInfoPythonInterface1() {
 		.def("getUnitMaxSpeed", &CvUnitInfo::getUnitMaxSpeed, "float ()")
 		.def("getUnitPadTime", &CvUnitInfo::getUnitPadTime, "float ()")
 
+		.def("getRangeType", &CvUnitInfo::getRangeType, "UnitRangeTypes ()")
+
 		// Arrays
 
 		.def("getPrereqAndTechs", &CvUnitInfo::getPrereqAndTechs, "int (int i)")

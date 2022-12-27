@@ -601,6 +601,8 @@ bool CvXMLLoadUtility::SetGlobalTypes() {
 		iEnumVal = NUM_DIRECTION_TYPES;
 		SetGlobalStringArray(&GC.getDirectionTypes(), "Civ4Types/DirectionTypes/DirectionType", &iEnumVal, true);
 		SetGlobalStringArray(&GC.getFootstepAudioTypes(), "Civ4Types/FootstepAudioTypes/FootstepAudioType", &GC.getNumFootstepAudioTypes());
+		iEnumVal = NUM_UNITRANGES;
+		SetGlobalStringArray(&GC.getUnitRangeTypes(), "Civ4Types/UnitRangeTypes/UnitRangeType", &iEnumVal, true);
 
 		gDLL->getXMLIFace()->SetToParent(m_pFXml);
 		gDLL->getXMLIFace()->SetToParent(m_pFXml);

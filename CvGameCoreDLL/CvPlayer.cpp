@@ -640,6 +640,10 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iCombatExperience = 0;
 	m_iPopRushHurryCount = 0;
 	m_iInflationModifier = 0;
+	m_iExtraRange = 0;
+	m_iExtraRangePercent = 0;
+	m_iUnitRangeUnboundCount = 0;
+	m_iUnitTerritoryUnboundCount = 0;
 	m_uiStartTime = 0;
 
 	m_bAlive = false;
@@ -13424,6 +13428,10 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iWondersScore);
 	pStream->Read(&m_iTechScore);
 	pStream->Read(&m_iCombatExperience);
+	pStream->Read(&m_iExtraRange);
+	pStream->Read(&m_iExtraRangePercent);
+	pStream->Read(&m_iUnitRangeUnboundCount);
+	pStream->Read(&m_iUnitTerritoryUnboundCount);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -13863,6 +13871,10 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iWondersScore);
 	pStream->Write(m_iTechScore);
 	pStream->Write(m_iCombatExperience);
+	pStream->Write(m_iExtraRange);
+	pStream->Write(m_iExtraRangePercent);
+	pStream->Write(m_iUnitRangeUnboundCount);
+	pStream->Write(m_iUnitTerritoryUnboundCount);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -18171,4 +18183,72 @@ CvCity* CvPlayer::findCity(int iX, int iY, bool bPreferSameArea, CvCity* pSkipCi
 		pFoundCity = getCapitalCity();
 	}
 	return pFoundCity;
+}
+
+bool CvPlayer::isUnitTerritoryUnbound() const {
+	return m_iUnitTerritoryUnboundCount > 0;
+}
+
+bool CvPlayer::isUnitRangeUnbound() const {
+	return m_iUnitRangeUnboundCount > 0;
+}
+
+void CvPlayer::changeUnitRangeUnboundCount(int iChange) {
+	m_iUnitRangeUnboundCount += iChange;
+}
+
+void CvPlayer::changeUnitTerritoryUnboundCount(int iChange) {
+	m_iUnitTerritoryUnboundCount += iChange;
+}
+
+void CvPlayer::setExtraRange(int iRange) {
+	m_iExtraRange = iRange;
+}
+
+void CvPlayer::changeExtraRange(int iChange) {
+	if (iChange != 0) {
+		m_iExtraRange += iChange;
+		FAssert(getExtraRange() >= 0);
+	}
+}
+
+int CvPlayer::getExtraRange() const {
+	return m_iExtraRange;
+}
+
+void CvPlayer::setExtraRangePercent(int iModifier) {
+	m_iExtraRangePercent = iModifier;
+}
+
+void CvPlayer::changeExtraRangePercent(int iChange) {
+	if (iChange > 0) {
+		m_iExtraRangePercent += iChange;
+	}
+}
+
+int CvPlayer::getExtraRangePercent() const {
+	return m_iExtraRangePercent;
+}
+
+UnitRangeTypes CvPlayer::getUnitRangeType(const CvUnitInfo* pUnitInfo) const {
+	switch (pUnitInfo->getRangeType()) {
+	case UNITRANGE_HOME:
+		return UNITRANGE_HOME;
+		break;
+	case UNITRANGE_TERRITORY:
+		if (m_iUnitTerritoryUnboundCount <= 0) {
+			return UNITRANGE_TERRITORY;
+		}
+		// No break here deliberately
+	case UNITRANGE_RANGE:
+		if (m_iUnitRangeUnboundCount <= 0) {
+			return UNITRANGE_RANGE;
+		}
+		// No break here deliberately
+	case UNITRANGE_UNLIMITED:
+	default:
+		return UNITRANGE_UNLIMITED;
+		break;
+	}
+
 }

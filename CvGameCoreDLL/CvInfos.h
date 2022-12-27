@@ -909,6 +909,8 @@ public:
 	float getUnitMaxSpeed() const;					// Exposed to Python
 	float getUnitPadTime() const;					// Exposed to Python
 
+	UnitRangeTypes getRangeType() const;
+
 	// Arrays
 
 	int getPrereqAndTechs(int i) const;				// Exposed to Python
@@ -1087,6 +1089,8 @@ protected:
 	bool m_bAlwaysHostile;
 	bool m_bNoRevealMap;
 	int m_iLeaderPromotion;
+
+	UnitRangeTypes 	m_eRangeType;
 
 	float m_fUnitMaxSpeed;
 	float m_fUnitPadTime;

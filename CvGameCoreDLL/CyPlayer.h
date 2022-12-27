@@ -38,6 +38,18 @@ public:
 	CyUnit* initUnit(int /*UnitTypes*/ iIndex, int iX, int iY, UnitAITypes eUnitAI, DirectionTypes eFacingDirection);
 	void disbandUnit(bool bAnnounce);
 
+	UnitRangeTypes getUnitRangeType(const CyUnit* pUnit) const;
+	bool isUnitTerritoryUnbound() const;
+	bool isUnitRangeUnbound() const;
+	void changeUnitRangeUnboundCount(int iChange);
+	void changeUnitTerritoryUnboundCount(int iChange);
+	void setExtraRange(int iRange);
+	void changeExtraRange(int iChange);
+	int getExtraRange() const;
+	void setExtraRangePercent(int iModifier);
+	void changeExtraRangePercent(int iChange);
+	int getExtraRangePercent() const;
+
 	void killUnits();
 	bool hasTrait(int /*TraitTypes*/ iIndex);
 	bool isHuman();

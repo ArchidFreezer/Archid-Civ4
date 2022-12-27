@@ -84,5 +84,6 @@ void CyGlobalContextPythonInterface2(python::class_<CyGlobalContext>& x) {
 		.def("getINVALID_PLOT_COORD", &CyGlobalContext::getINVALID_PLOT_COORD, "int ()")
 		.def("getNUM_CITY_PLOTS", &CyGlobalContext::getNUM_CITY_PLOTS, "int ()")
 		.def("getCITY_HOME_PLOT", &CyGlobalContext::getCITY_HOME_PLOT, "int ()")
+		.def("getINITIAL_UNIT_RANGE", &CyGlobalContext::getINITIAL_UNIT_RANGE, "int ()")
 		;
 }

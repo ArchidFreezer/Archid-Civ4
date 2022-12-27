@@ -2559,6 +2559,7 @@ CvUnitInfo::CvUnitInfo() :
 	m_iUnitRangedWaveSize(0),
 	m_iNumUnitNames(0),
 	m_iCommandType(NO_COMMAND),
+	m_eRangeType(UNITRANGE_RANGE),
 	m_bAnimal(false),
 	m_bFoodProduction(false),
 	m_bNoBadGoodies(false),
@@ -2690,6 +2691,12 @@ CvUnitInfo::~CvUnitInfo() {
 	SAFE_DELETE_ARRAY(m_paszLateArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszMiddleArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszUnitNames);
+}
+
+UnitRangeTypes CvUnitInfo::getRangeType() const {
+	FAssertMsg(m_eRangeType > -1, "m_eRangeType out of bounds");
+	FAssertMsg(m_eRangeType < NUM_UNITRANGES, "m_eRangeType out of bounds");
+	return m_eRangeType;
 }
 
 int CvUnitInfo::getAIWeight() const {
@@ -3573,6 +3580,10 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iNumUnitNames);
 	stream->Read(&m_iCommandType);
 
+	int iTemp;
+	stream->Read(&iTemp);
+	m_eRangeType = (UnitRangeTypes)iTemp;
+
 	stream->Read(&m_bAnimal);
 	stream->Read(&m_bFoodProduction);
 	stream->Read(&m_bNoBadGoodies);
@@ -3867,6 +3878,8 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iNumUnitNames);
 	stream->Write(m_iCommandType);
 
+	stream->Write(m_eRangeType);
+
 	stream->Write(m_bAnimal);
 	stream->Write(m_bFoodProduction);
 	stream->Write(m_bNoBadGoodies);
@@ -4033,6 +4046,7 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bHiddenNationality, "bHiddenNationality", false);
 	pXML->GetChildXmlValByName(&m_bAlwaysHostile, "bAlwaysHostile", false);
 	pXML->GetChildXmlValByName(&m_bNoRevealMap, "bNoRevealMap", false);
+	pXML->GetChildXmlEnumValByName(&m_eRangeType, "UnitRangeType", UNITRANGE_UNLIMITED);
 
 	pXML->SetListInfoBool(&m_pbUpgradeUnitClass, "UnitClassUpgrades", GC.getNumUnitClassInfos());
 	pXML->SetListInfoBool(&m_pbTargetUnitClass, "UnitClassTargets", GC.getNumUnitClassInfos());

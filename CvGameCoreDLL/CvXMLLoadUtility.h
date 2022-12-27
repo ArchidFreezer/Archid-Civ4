@@ -230,6 +230,8 @@ public:
 	void SetListPairInfo(T** ppList, const TCHAR* szRootTagName, int iListLength, T tDefault = 0);
 	template <class T>
 	void SetListPairEnum(T** ppList, const TCHAR* szRootTagName, int iListLength, T tDefault = 0);
+	template <class T>
+	bool GetChildXmlEnumValByName(T* peVal, const TCHAR* szName, T eDefault = (T)0);
 #endif
 
 	//---------------------------------------PRIVATE MEMBER VARIABLES---------------------------------
@@ -429,6 +431,43 @@ void CvXMLLoadUtility::SetListPairEnum(T** ppList, const TCHAR* szRootTagName, i
 		}
 
 		gDLL->getXMLIFace()->SetToParent(m_pFXml);
+	}
+}
+
+template <class T>
+bool CvXMLLoadUtility::GetChildXmlEnumValByName(T* peVal, const TCHAR* szName, T eDefault) {
+	int iNumChildrenByTagName = 1;
+
+	// set the value to the default
+	*peVal = eDefault;
+
+	if (iNumChildrenByTagName == 1) {
+		if (gDLL->getXMLIFace()->SetToChildByTagName(m_pFXml, szName)) {
+			// skip to the next non-comment node
+			if (SkipToNextVal()) {
+				TCHAR szTextVal[256];
+				// get the string value of the current xml node
+				gDLL->getXMLIFace()->GetLastNodeValue(m_pFXml, szTextVal);
+				int iIndexVal = GC.getTypesEnum(szTextVal);
+				if (iIndexVal != -1) {
+					*peVal = (T)iIndexVal;
+				}
+				gDLL->getXMLIFace()->SetToParent(m_pFXml);
+				return true;
+			}
+			// otherwise we can't find a non-comment node on this level so we will FAssert and return false
+			else {
+				FAssertMsg(false, "Error in GetChildXmlValByName function, unable to find the next non-comment node");
+				gDLL->getXMLIFace()->SetToParent(m_pFXml);
+				return false;
+			}
+		}
+		// otherwise there are no child nodes but we were expecting them so FAssert and return false
+		else {
+			return false;
+		}
+	} else {
+		return false;
 	}
 }
 

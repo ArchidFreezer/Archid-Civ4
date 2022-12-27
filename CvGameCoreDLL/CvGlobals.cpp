@@ -182,6 +182,7 @@ CvGlobals::CvGlobals() :
 	m_iTGA_RELIGIONS(0),
 	m_iTGA_CORPORATIONS(0),
 	m_iREHOME_PERCENT_CHANCE(5),
+	m_iINITIAL_UNIT_RANGE(2),
 
 	m_bACO_ENABLED(false),
 	m_bACO_DEBUG(false),
@@ -2324,6 +2325,16 @@ CvString& CvGlobals::getCurrentXMLFile() {
 	return m_szCurrentXMLFile;
 }
 
+CvString*& CvGlobals::getUnitRangeTypes() {
+	return m_paszUnitRangeTypes;
+}
+
+CvString& CvGlobals::getUnitRangeTypes(UnitRangeTypes e) {
+	FAssert(e > -1);
+	FAssert(e < NUM_UNITRANGES);
+	return m_paszUnitRangeTypes[e];
+}
+
 FVariableSystem* CvGlobals::getDefinesVarSystem() {
 	return m_VarSystem;
 }
@@ -2363,6 +2374,7 @@ void CvGlobals::cacheGlobals() {
 	m_iPEAK_SEE_FROM_CHANGE = getDefineINT("PEAK_SEE_FROM_CHANGE");
 	m_iHILLS_SEE_FROM_CHANGE = getDefineINT("HILLS_SEE_FROM_CHANGE");
 	m_iUSE_SPIES_NO_ENTER_BORDERS = getDefineINT("USE_SPIES_NO_ENTER_BORDERS");
+	m_iINITIAL_UNIT_RANGE = getDefineINT("INITIAL_UNIT_RANGE");
 
 	m_fCAMERA_MIN_YAW = getDefineFLOAT("CAMERA_MIN_YAW");
 	m_fCAMERA_MAX_YAW = getDefineFLOAT("CAMERA_MAX_YAW");
