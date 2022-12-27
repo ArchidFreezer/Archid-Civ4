@@ -62,6 +62,8 @@ void CyInfoPythonInterface1() {
 		.def("getFirstFreeTechs", &CvTechInfo::getFirstFreeTechs, "int ()")
 		.def("getAssetValue", &CvTechInfo::getAssetValue, "int ()")
 		.def("getPowerValue", &CvTechInfo::getPowerValue, "int ()")
+		.def("getUnitRangeChange", &CvTechInfo::getUnitRangeChange, "int ()")
+		.def("getUnitRangePercentChange", &CvTechInfo::getUnitRangePercentChange, "int ()")
 
 		.def("getGridX", &CvTechInfo::getGridX, "int ()")
 		.def("getGridY", &CvTechInfo::getGridY, "int ()")
@@ -85,6 +87,8 @@ void CyInfoPythonInterface1() {
 		.def("isIgnoreIrrigation", &CvTechInfo::isIgnoreIrrigation, "bool ()")
 		.def("isWaterWork", &CvTechInfo::isWaterWork, "bool ()")
 		.def("isRiverTrade", &CvTechInfo::isRiverTrade, "bool ()")
+		.def("isUnitRangeUnbound", &CvTechInfo::isUnitRangeUnbound, "bool ()")
+		.def("isUnitTerritoryUnbound", &CvTechInfo::isUnitTerritoryUnbound, "bool ()")
 
 		.def("getQuote", &CvTechInfo::getQuote, "wstring ()")
 		.def("getSound", &CvTechInfo::getSound, "string ()")
@@ -138,6 +142,8 @@ void CyInfoPythonInterface1() {
 		.def("getUpgradeDiscount", &CvPromotionInfo::getUpgradeDiscount, "int ()")
 		.def("getExperiencePercent", &CvPromotionInfo::getExperiencePercent, "int ()")
 		.def("getKamikazePercent", &CvPromotionInfo::getKamikazePercent, "int ()")
+		.def("getUnitRangeChange", &CvPromotionInfo::getUnitRangeChange, "int ()")
+		.def("getUnitRangePercentChange", &CvPromotionInfo::getUnitRangePercentChange, "int ()")
 
 		.def("isLeader", &CvPromotionInfo::isLeader, "bool ()")
 		.def("isBlitz", &CvPromotionInfo::isBlitz, "bool ()")
@@ -147,6 +153,8 @@ void CyInfoPythonInterface1() {
 		.def("isAlwaysHeal", &CvPromotionInfo::isAlwaysHeal, "bool ()")
 		.def("isHillsDoubleMove", &CvPromotionInfo::isHillsDoubleMove, "bool ()")
 		.def("isImmuneToFirstStrikes", &CvPromotionInfo::isImmuneToFirstStrikes, "bool ()")
+		.def("isUnitRangeUnbound", &CvPromotionInfo::isUnitRangeUnbound, "bool ()")
+		.def("isUnitTerritoryUnbound", &CvPromotionInfo::isUnitTerritoryUnbound, "bool ()")
 
 		.def("getSound", &CvPromotionInfo::getSound, "string ()")
 
@@ -313,6 +321,8 @@ void CyInfoPythonInterface1() {
 		.def("getUnitMaxSpeed", &CvUnitInfo::getUnitMaxSpeed, "float ()")
 		.def("getUnitPadTime", &CvUnitInfo::getUnitPadTime, "float ()")
 
+		.def("getRangeType", &CvUnitInfo::getRangeType, "UnitRangeTypes ()")
+
 		// Arrays
 
 		.def("getPrereqAndTechs", &CvUnitInfo::getPrereqAndTechs, "int (int i)")
@@ -412,6 +422,8 @@ void CyInfoPythonInterface1() {
 		.def("getStateReligionBuildingProductionModifier", &CvCivicInfo::getStateReligionBuildingProductionModifier, "int ()")
 		.def("getStateReligionFreeExperience", &CvCivicInfo::getStateReligionFreeExperience, "int ()")
 		.def("getExpInBorderModifier", &CvCivicInfo::getExpInBorderModifier, "bool ()")
+		.def("getUnitRangeChange", &CvCivicInfo::getUnitRangeChange, "int ()")
+		.def("getUnitRangePercentChange", &CvCivicInfo::getUnitRangePercentChange, "int ()")
 
 		.def("isMilitaryFoodProduction", &CvCivicInfo::isMilitaryFoodProduction, "bool ()")
 		//.def("isNoUnhealthyPopulation", &CvCivicInfo::isNoUnhealthyPopulation, "bool ()")
@@ -422,6 +434,8 @@ void CyInfoPythonInterface1() {
 		.def("isNoForeignCorporations", &CvCivicInfo::isNoForeignCorporations, "bool ()")
 		.def("isStateReligion", &CvCivicInfo::isStateReligion, "bool ()")
 		.def("isNoNonStateReligionSpread", &CvCivicInfo::isNoNonStateReligionSpread, "bool ()")
+		.def("isUnitRangeUnbound", &CvCivicInfo::isUnitRangeUnbound, "bool ()")
+		.def("isUnitTerritoryUnbound", &CvCivicInfo::isUnitTerritoryUnbound, "bool ()")
 
 		.def("pyGetWeLoveTheKing", &CvCivicInfo::pyGetWeLoveTheKing, "wstring ()")
 

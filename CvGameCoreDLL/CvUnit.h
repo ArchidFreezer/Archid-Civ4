@@ -85,6 +85,17 @@ public:
 	void setHomeCity(const CvCity* pCity);
 	CvCity* getHomeCity() const;
 
+	UnitRangeTypes getRangeType() const;
+	void changeRangeUnboundCount(int iChange);
+	void changeTerritoryUnboundCount(int iChange);
+	int getRange() const;
+	void setExtraRange(int iRange);
+	void changeExtraRange(int iChange);
+	int getExtraRange() const;
+	void setExtraRangePercent(int iModifier);
+	void changeExtraRangePercent(int iChange);
+	int getExtraRangePercent() const;
+
 	void updateCombat(bool bQuick = false);
 	void updateAirCombat(bool bQuick = false);
 	void updateAirStrike(CvPlot* pPlot, bool bQuick, bool bFinish);
@@ -829,6 +840,10 @@ protected:
 	int m_iBaseCombat;
 	DirectionTypes m_eFacingDirection;
 	int m_iImmobileTimer;
+	int m_iExtraRange;
+	int m_iExtraRangePercent;
+	int m_iRangeUnboundCount;
+	int m_iTerritoryUnboundCount;
 
 	bool m_bMadeAttack;
 	bool m_bMadeInterception;

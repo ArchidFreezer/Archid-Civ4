@@ -27,6 +27,17 @@ public:
 	void setHomeCity(CyCity* pCity);
 	CyCity* getHomeCity();
 
+	UnitRangeTypes getRangeType() const;
+	void changeRangeUnboundCount(int iChange);
+	void changeTerritoryUnboundCount(int iChange);
+	int getRange() const;
+	void setExtraRange(int iRange);
+	void changeExtraRange(int iChange);
+	int getExtraRange() const;
+	void setExtraRangePercent(int iModifier);
+	void changeExtraRangePercent(int iChange);
+	int getExtraRangePercent() const;
+
 	void NotifyEntity(int /*MissionTypes*/ eMission);
 
 	bool isActionRecommended(int i);

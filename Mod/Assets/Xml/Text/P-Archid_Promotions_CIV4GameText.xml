@@ -6,4 +6,24 @@
 		<English>Disorganized</English>
 		<Spanish>Desorganizado</Spanish>
 	</TEXT>
+
+<!-- ************	-->
+<!-- Text         -->
+<!-- ************	-->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_RANGE_UNBOUND</Tag>
+		<English>Unlimited range</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_TERRITORY_UNBOUND</Tag>
+		<English>Can leave territory</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_RANGE_CHANGE</Tag>
+		<English>%D1_Change Range change</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_RANGE_MODIFY</Tag>
+		<English>%D1_Change% Range modification</English>
+	</TEXT>
 </Civ4GameText>

@@ -319,6 +319,10 @@
 	<ElementType name="FreePromotionUnitCombats" content="eltOnly">
 		<element type="UnitCombatType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="bUnitRangeUnbound" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bUnitTerritoryUnbound" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iUnitRangeChange" content="textOnly" dt:type="int"/>
+	<ElementType name="iUnitRangePercentChange" content="textOnly" dt:type="int"/>
 	<ElementType name="TraitInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -335,6 +339,10 @@
 		<element type="iMaxGlobalBuildingProductionModifier" minOccurs="0"/>
 		<element type="iMaxTeamBuildingProductionModifier" minOccurs="0"/>
 		<element type="iMaxPlayerBuildingProductionModifier" minOccurs="0"/>
+		<element type="bUnitRangeUnbound" minOccurs="0"/>
+		<element type="bUnitTerritoryUnbound" minOccurs="0"/>
+		<element type="iUnitRangeChange" minOccurs="0"/>
+		<element type="iUnitRangePercentChange" minOccurs="0"/>
 		<element type="ExtraYieldThresholds" minOccurs="0"/>
 		<element type="TradeYieldModifiers" minOccurs="0"/>
 		<element type="CommerceChanges" minOccurs="0"/>

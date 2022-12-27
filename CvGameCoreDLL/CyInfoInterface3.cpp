@@ -295,8 +295,12 @@ void CyInfoPythonInterface3() {
 		.def("getTradeYieldModifier", &CvTraitInfo::getTradeYieldModifier, "int (int i)")
 		.def("getCommerceChange", &CvTraitInfo::getCommerceChange, "int (int i)")
 		.def("getCommerceModifier", &CvTraitInfo::getCommerceModifier, "int (int i)")
+		.def("getUnitRangeChange", &CvTraitInfo::getUnitRangeChange, "int ()")
+		.def("getUnitRangePercentChange", &CvTraitInfo::getUnitRangePercentChange, "int ()")
 
 		.def("isFreePromotion", &CvTraitInfo::isFreePromotion, "int (int i)")
+		.def("getUnitRangeChange", &CvTraitInfo::getUnitRangeChange, "int ()")
+		.def("getUnitRangePercentChange", &CvTraitInfo::getUnitRangePercentChange, "int ()")
 		;
 
 	// CvWorldInfo

@@ -60,5 +60,17 @@ void CyPlayerPythonInterface2(python::class_<CyPlayer>& x) {
 		.def("canSplitArea", &CyPlayer::canSplitArea, "bool (int)")
 		.def("canHaveTradeRoutesWith", &CyPlayer::canHaveTradeRoutesWith, "bool (int)")
 		.def("forcePeace", &CyPlayer::forcePeace, "void (int)")
+
+		.def("getUnitRangeType", &CyPlayer::getUnitRangeType, "UnitRangeTypes (const CyUnit*)")
+		.def("isUnitTerritoryUnbound", &CyPlayer::isUnitTerritoryUnbound, "bool ()")
+		.def("isUnitRangeUnbound", &CyPlayer::isUnitRangeUnbound, "bool ()")
+		.def("changeUnitRangeUnboundCount", &CyPlayer::changeUnitRangeUnboundCount, "void (int)")
+		.def("changeUnitTerritoryUnboundCount", &CyPlayer::changeUnitTerritoryUnboundCount, "void (int)")
+		.def("setExtraRange", &CyPlayer::setExtraRange, "void (int)")
+		.def("changeExtraRange", &CyPlayer::changeExtraRange, "void (int)")
+		.def("getExtraRange", &CyPlayer::getExtraRange, "int ()")
+		.def("setExtraRangePercent", &CyPlayer::setExtraRangePercent, "void (int)")
+		.def("changeExtraRangePercent", &CyPlayer::changeExtraRangePercent, "void (int)")
+		.def("getExtraRangePercent", &CyPlayer::getExtraRangePercent, "int ()")
 		;
 }

@@ -25,6 +25,17 @@ void CyUnitPythonInterface1(python::class_<CyUnit>& x) {
 		.def("getHomeCity", &CyUnit::getHomeCity, python::return_value_policy<python::manage_new_object>(), "CyCity* ()")
 		.def("setHomeCity", &CyUnit::setHomeCity, "void (CyCity* pCity)")
 
+		.def("getRangeType", &CyUnit::getRangeType, "UnitRangeTypes ()")
+		.def("changeRangeUnboundCount", &CyUnit::changeRangeUnboundCount, "void (int iChange)")
+		.def("changeTerritoryUnboundCount", &CyUnit::changeTerritoryUnboundCount, "void (int iChange)")
+		.def("getRange", &CyUnit::getRange, "int ()")
+		.def("setExtraRange", &CyUnit::setExtraRange, "void (int iRange)")
+		.def("changeExtraRange", &CyUnit::changeExtraRange, "void (int iChange)")
+		.def("getExtraRange", &CyUnit::getExtraRange, "int ()")
+		.def("setExtraRangePercent", &CyUnit::setExtraRangePercent, "void (int iModifier)")
+		.def("changeExtraRangePercent", &CyUnit::changeExtraRangePercent, "void (int iChange)")
+		.def("getExtraRangePercent", &CyUnit::getExtraRangePercent, "int ()")
+
 		.def("isActionRecommended", &CyUnit::isActionRecommended, "int (int i)")
 		.def("isBetterDefenderThan", &CyUnit::isBetterDefenderThan, "bool (CyUnit* pDefender, CyUnit* pAttacker)")
 

@@ -709,6 +709,10 @@
 		<element type="ImprovementYieldChange" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="WeLoveTheKing" content="textOnly"/>
+	<ElementType name="bUnitRangeUnbound" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bUnitTerritoryUnbound" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iUnitRangeChange" content="textOnly" dt:type="int"/>
+	<ElementType name="iUnitRangePercentChange" content="textOnly" dt:type="int"/>
 	<ElementType name="CivicInfo" content="eltOnly">
 		<element type="CivicOptionType"/>
 		<element type="Type"/>
@@ -761,6 +765,10 @@
 		<element type="iStateReligionUnitProductionModifier" minOccurs="0"/>
 		<element type="iStateReligionBuildingProductionModifier" minOccurs="0"/>
 		<element type="iStateReligionFreeExperience" minOccurs="0"/>
+		<element type="bUnitRangeUnbound" minOccurs="0"/>
+		<element type="bUnitTerritoryUnbound" minOccurs="0"/>
+		<element type="iUnitRangeChange" minOccurs="0"/>
+		<element type="iUnitRangePercentChange" minOccurs="0"/>
 		<element type="YieldModifiers" minOccurs="0"/>
 		<element type="CapitalYieldModifiers" minOccurs="0"/>
 		<element type="TradeYieldModifiers" minOccurs="0"/>

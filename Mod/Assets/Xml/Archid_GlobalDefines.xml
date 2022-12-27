@@ -425,4 +425,9 @@
 		<DefineName>REHOME_PERCENT_CHANCE</DefineName>
 		<iDefineIntVal>5</iDefineIntVal>
 	</Define>
+<!-- Limited unit range -->
+	<Define>
+		<DefineName>INITIAL_UNIT_RANGE</DefineName>
+		<iDefineIntVal>2</iDefineIntVal>
+	</Define>
 </Civ4Defines>

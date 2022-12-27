@@ -89,6 +89,10 @@
 	<ElementType name="Sound" content="textOnly"/>
 	<ElementType name="SoundMP" content="textOnly"/>
 	<ElementType name="Button" content="textOnly"/>
+	<ElementType name="bUnitRangeUnbound" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bUnitTerritoryUnbound" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iUnitRangeChange" content="textOnly" dt:type="int"/>
+	<ElementType name="iUnitRangePercentChange" content="textOnly" dt:type="int"/>
 	<ElementType name="TechInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -135,6 +139,10 @@
 		<element type="CommerceFlexible" minOccurs="0"/>
 		<element type="TerrainTrades" minOccurs="0"/>
 		<element type="bRiverTrade" minOccurs="0"/>
+		<element type="bUnitRangeUnbound" minOccurs="0"/>
+		<element type="bUnitTerritoryUnbound" minOccurs="0"/>
+		<element type="iUnitRangeChange" minOccurs="0"/>
+		<element type="iUnitRangePercentChange" minOccurs="0"/>
 		<element type="Flavors"/>
 		<element type="OrPreReqs" minOccurs="0"/>
 		<element type="AndPreReqs" minOccurs="0"/>

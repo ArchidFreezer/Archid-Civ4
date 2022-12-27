@@ -1821,3 +1821,53 @@ void  CyPlayer::forcePeace(int iPlayer) {
 	if (m_pPlayer)
 		m_pPlayer->forcePeace((PlayerTypes)iPlayer);
 }
+
+UnitRangeTypes CyPlayer::getUnitRangeType(const CyUnit* pUnit) const {
+	return m_pPlayer ? m_pPlayer->getUnitRangeType(&(pUnit->getUnit()->getUnitInfo())) : UNITRANGE_RANGE;
+}
+
+bool CyPlayer::isUnitTerritoryUnbound() const {
+	return m_pPlayer ? m_pPlayer->isUnitTerritoryUnbound() : false;
+}
+
+bool CyPlayer::isUnitRangeUnbound() const {
+	return m_pPlayer ? m_pPlayer->isUnitRangeUnbound() : false;
+}
+
+void CyPlayer::changeUnitRangeUnboundCount(int iChange) {
+	if (m_pPlayer)
+		m_pPlayer->changeUnitRangeUnboundCount(iChange);
+}
+
+void CyPlayer::changeUnitTerritoryUnboundCount(int iChange) {
+	if (m_pPlayer)
+		m_pPlayer->changeUnitTerritoryUnboundCount(iChange);
+}
+
+void CyPlayer::setExtraRange(int iRange) {
+	if (m_pPlayer)
+		m_pPlayer->setExtraRange(iRange);
+}
+
+void CyPlayer::changeExtraRange(int iChange) {
+	if (m_pPlayer)
+		m_pPlayer->changeExtraRange(iChange);
+}
+
+int CyPlayer::getExtraRange() const {
+	return m_pPlayer ? m_pPlayer->getExtraRange() : 0;
+}
+
+void CyPlayer::setExtraRangePercent(int iModifier) {
+	if (m_pPlayer)
+		m_pPlayer->setExtraRangePercent(iModifier);
+}
+
+void CyPlayer::changeExtraRangePercent(int iChange) {
+	if (m_pPlayer)
+		m_pPlayer->changeExtraRangePercent(iChange);
+}
+
+int CyPlayer::getExtraRangePercent() const {
+	return m_pPlayer ? m_pPlayer->getExtraRangePercent() : 0;
+}

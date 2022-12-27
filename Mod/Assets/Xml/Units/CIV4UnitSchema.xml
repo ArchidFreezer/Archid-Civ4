@@ -433,6 +433,7 @@
 	</ElementType>
 	<ElementType name="LeaderPromotion" content="textOnly"/>
 	<ElementType name="iLeaderExperience" content="textOnly" dt:type="int"/>
+	<ElementType name="UnitRangeType" content="textOnly"/>
 	<ElementType name="UnitInfo" content="eltOnly">
 		<element type="Class"/>
 		<element type="Type"/>
@@ -519,6 +520,7 @@
 		<element type="iAdvancedStartCostIncrease" minOccurs="0"/>
 		<element type="iMinAreaSize" minOccurs="0"/> <!-- Default: -1 -->
 		<element type="iMoves" minOccurs="0"/>
+		<element type="UnitRangeType" minOccurs="0"/> <!-- Default: UNITRANGE_UNLIMITED -->
 		<element type="bNoRevealMap" minOccurs="0"/>
 		<element type="iAirRange" minOccurs="0"/>
 		<element type="iAirUnitCap" minOccurs="0"/>
@@ -738,6 +740,10 @@
 	<ElementType name="FeatureDoubleMoves" content="eltOnly">
 		<element type="FeatureType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="bUnitRangeUnbound" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bUnitTerritoryUnbound" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iUnitRangeChange" content="textOnly" dt:type="int"/>
+	<ElementType name="iUnitRangePercentChange" content="textOnly" dt:type="int"/>
 	<ElementType name="PromotionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -786,6 +792,10 @@
 		<element type="iPillageChange" minOccurs="0"/>
 		<element type="iUpgradeDiscount" minOccurs="0"/>
 		<element type="iExperiencePercent" minOccurs="0"/>
+		<element type="bUnitRangeUnbound" minOccurs="0"/>
+		<element type="bUnitTerritoryUnbound" minOccurs="0"/>
+		<element type="iUnitRangeChange" minOccurs="0"/>
+		<element type="iUnitRangePercentChange" minOccurs="0"/>
 		<element type="TerrainAttacks" minOccurs="0"/>
 		<element type="TerrainDefenses" minOccurs="0"/>
 		<element type="FeatureAttacks" minOccurs="0"/>

@@ -675,6 +675,9 @@ public:
 	CvString& getCurrentXMLFile();
 	void setCurrentXMLFile(const TCHAR* szFileName);
 
+	CvString*& getUnitRangeTypes();
+	CvString& getUnitRangeTypes(UnitRangeTypes e);
+
 	//
 	///////////////// BEGIN global defines
 	// THESE ARE READ-ONLY
@@ -809,6 +812,7 @@ public:
 	inline int getTGA_RELIGIONS() { return m_iTGA_RELIGIONS; }
 	inline int getTGA_CORPORATIONS() { return m_iTGA_CORPORATIONS; }
 	inline int getREHOME_PERCENT_CHANCE() { return m_iREHOME_PERCENT_CHANCE; }
+	inline int getINITIAL_UNIT_RANGE() { return m_iINITIAL_UNIT_RANGE; };
 
 	inline bool getACO_DEBUG() { return m_bACO_DEBUG; }
 	inline bool getACO_ENABLED() { return m_bACO_ENABLED; }
@@ -1194,6 +1198,8 @@ protected:
 	CvString* m_paszFootstepAudioTags;
 	int m_iNumFootstepAudioTags;
 
+	CvString* m_paszUnitRangeTypes;
+
 	CvString m_szCurrentXMLFile;
 	//////////////////////////////////////////////////////////////////////////
 	// Formerly Global Defines
@@ -1315,6 +1321,7 @@ protected:
 	int m_iTGA_RELIGIONS;
 	int m_iTGA_CORPORATIONS;
 	int m_iREHOME_PERCENT_CHANCE;
+	int m_iINITIAL_UNIT_RANGE;
 
 	bool m_bACO_ENABLED;
 	bool m_bACO_DEBUG;

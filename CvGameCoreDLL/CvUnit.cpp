@@ -305,6 +305,10 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iKamikazePercent = 0;
 	m_eFacingDirection = DIRECTION_SOUTH;
 	m_iImmobileTimer = 0;
+	m_iExtraRange = 0;
+	m_iExtraRangePercent = 0;
+	m_iRangeUnboundCount = 0;
+	m_iTerritoryUnboundCount = 0;
 
 	m_bMadeAttack = false;
 	m_bMadeInterception = false;
@@ -2128,6 +2132,39 @@ bool CvUnit::canMoveInto(const CvPlot* pPlot, bool bAttack, bool bDeclareWar, bo
 				return false;
 			} else if (!isHuman()) {
 				if (!GET_TEAM(getTeam()).AI_isSneakAttackReady(ePlotTeam) || !getGroup()->AI_isDeclareWar(pPlot)) {
+					return false;
+				}
+			}
+		}
+
+		// Is this outside the units range and not getting closer to the home city
+		// This check is done last as the range calculation is more expensive that the other
+		CvCity* kHomeCity = getCity(m_homeCity);
+		if (kHomeCity != NULL) {
+			bool bCheckRange = false;
+			switch (getRangeType()) {
+			case UNITRANGE_HOME:
+			{
+				// We need to create a temporary plot object as the canWork function will not take a const plot
+				CvPlot* pTempPlot = GC.getMapINLINE().plot(pPlot->getX_INLINE(), pPlot->getY_INLINE());
+				bCheckRange = !(kHomeCity->isWorkingPlot(pTempPlot) || kHomeCity->canWork(pTempPlot));
+			}
+			break;
+			case UNITRANGE_TERRITORY:
+			case UNITRANGE_RANGE:
+				bCheckRange = (pPlot->getOwnerINLINE() != getOwnerINLINE());
+				break;
+			case UNITRANGE_UNLIMITED:
+			default:
+				bCheckRange = false;
+				break;
+			}
+
+			if (bCheckRange) {
+				int iTargetRange = plotDistance(kHomeCity->plot(), pPlot);
+				int iCurrRange = plotDistance(kHomeCity->plot(), plot());
+				int iDiagonal = plotDistance(plot(), pPlot);
+				if (iTargetRange > getRange() && (iTargetRange >= iCurrRange || iDiagonal >= iCurrRange)) {
 					return false;
 				}
 			}
@@ -9115,63 +9152,68 @@ void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue) {
 	if (isHasPromotion(eIndex) != bNewValue) {
 		m_pabHasPromotion[eIndex] = bNewValue;
 
-		int iChange = ((isHasPromotion(eIndex)) ? 1 : -1);
+		int iChange = isHasPromotion(eIndex) ? 1 : -1;
 
-		changeBlitzCount((GC.getPromotionInfo(eIndex).isBlitz()) ? iChange : 0);
-		changeAmphibCount((GC.getPromotionInfo(eIndex).isAmphib()) ? iChange : 0);
-		changeRiverCount((GC.getPromotionInfo(eIndex).isRiver()) ? iChange : 0);
-		changeEnemyRouteCount((GC.getPromotionInfo(eIndex).isEnemyRoute()) ? iChange : 0);
-		changeAlwaysHealCount((GC.getPromotionInfo(eIndex).isAlwaysHeal()) ? iChange : 0);
-		changeHillsDoubleMoveCount((GC.getPromotionInfo(eIndex).isHillsDoubleMove()) ? iChange : 0);
-		changeImmuneToFirstStrikesCount((GC.getPromotionInfo(eIndex).isImmuneToFirstStrikes()) ? iChange : 0);
+		const CvPromotionInfo& kPromotion = GC.getPromotionInfo(eIndex);
+		changeBlitzCount(kPromotion.isBlitz() ? iChange : 0);
+		changeAmphibCount(kPromotion.isAmphib() ? iChange : 0);
+		changeRiverCount(kPromotion.isRiver() ? iChange : 0);
+		changeEnemyRouteCount(kPromotion.isEnemyRoute() ? iChange : 0);
+		changeAlwaysHealCount(kPromotion.isAlwaysHeal() ? iChange : 0);
+		changeHillsDoubleMoveCount(kPromotion.isHillsDoubleMove() ? iChange : 0);
+		changeImmuneToFirstStrikesCount(kPromotion.isImmuneToFirstStrikes() ? iChange : 0);
+		changeRangeUnboundCount(kPromotion.isUnitRangeUnbound() ? iChange : 0);
+		changeTerritoryUnboundCount(kPromotion.isUnitTerritoryUnbound() ? iChange : 0);
 
-		changeExtraVisibilityRange(GC.getPromotionInfo(eIndex).getVisibilityChange() * iChange);
-		changeExtraMoves(GC.getPromotionInfo(eIndex).getMovesChange() * iChange);
-		changeExtraMoveDiscount(GC.getPromotionInfo(eIndex).getMoveDiscountChange() * iChange);
-		changeExtraAirRange(GC.getPromotionInfo(eIndex).getAirRangeChange() * iChange);
-		changeExtraIntercept(GC.getPromotionInfo(eIndex).getInterceptChange() * iChange);
-		changeExtraEvasion(GC.getPromotionInfo(eIndex).getEvasionChange() * iChange);
-		changeExtraFirstStrikes(GC.getPromotionInfo(eIndex).getFirstStrikesChange() * iChange);
-		changeExtraChanceFirstStrikes(GC.getPromotionInfo(eIndex).getChanceFirstStrikesChange() * iChange);
-		changeExtraWithdrawal(GC.getPromotionInfo(eIndex).getWithdrawalChange() * iChange);
-		changeExtraCollateralDamage(GC.getPromotionInfo(eIndex).getCollateralDamageChange() * iChange);
-		changeExtraBombardRate(GC.getPromotionInfo(eIndex).getBombardRateChange() * iChange);
-		changeExtraEnemyHeal(GC.getPromotionInfo(eIndex).getEnemyHealChange() * iChange);
-		changeExtraNeutralHeal(GC.getPromotionInfo(eIndex).getNeutralHealChange() * iChange);
-		changeExtraFriendlyHeal(GC.getPromotionInfo(eIndex).getFriendlyHealChange() * iChange);
-		changeSameTileHeal(GC.getPromotionInfo(eIndex).getSameTileHealChange() * iChange);
-		changeAdjacentTileHeal(GC.getPromotionInfo(eIndex).getAdjacentTileHealChange() * iChange);
-		changeExtraCombatPercent(GC.getPromotionInfo(eIndex).getCombatPercent() * iChange);
-		changeExtraCityAttackPercent(GC.getPromotionInfo(eIndex).getCityAttackPercent() * iChange);
-		changeExtraCityDefensePercent(GC.getPromotionInfo(eIndex).getCityDefensePercent() * iChange);
-		changeExtraHillsAttackPercent(GC.getPromotionInfo(eIndex).getHillsAttackPercent() * iChange);
-		changeExtraHillsDefensePercent(GC.getPromotionInfo(eIndex).getHillsDefensePercent() * iChange);
-		changeRevoltProtection(GC.getPromotionInfo(eIndex).getRevoltProtection() * iChange);
-		changeCollateralDamageProtection(GC.getPromotionInfo(eIndex).getCollateralDamageProtection() * iChange);
-		changePillageChange(GC.getPromotionInfo(eIndex).getPillageChange() * iChange);
-		changeUpgradeDiscount(GC.getPromotionInfo(eIndex).getUpgradeDiscount() * iChange);
-		changeExperiencePercent(GC.getPromotionInfo(eIndex).getExperiencePercent() * iChange);
-		changeKamikazePercent((GC.getPromotionInfo(eIndex).getKamikazePercent()) * iChange);
-		changeCargoSpace(GC.getPromotionInfo(eIndex).getCargoChange() * iChange);
+		changeExtraVisibilityRange(kPromotion.getVisibilityChange() * iChange);
+		changeExtraMoves(kPromotion.getMovesChange() * iChange);
+		changeExtraMoveDiscount(kPromotion.getMoveDiscountChange() * iChange);
+		changeExtraAirRange(kPromotion.getAirRangeChange() * iChange);
+		changeExtraIntercept(kPromotion.getInterceptChange() * iChange);
+		changeExtraEvasion(kPromotion.getEvasionChange() * iChange);
+		changeExtraFirstStrikes(kPromotion.getFirstStrikesChange() * iChange);
+		changeExtraChanceFirstStrikes(kPromotion.getChanceFirstStrikesChange() * iChange);
+		changeExtraWithdrawal(kPromotion.getWithdrawalChange() * iChange);
+		changeExtraCollateralDamage(kPromotion.getCollateralDamageChange() * iChange);
+		changeExtraBombardRate(kPromotion.getBombardRateChange() * iChange);
+		changeExtraEnemyHeal(kPromotion.getEnemyHealChange() * iChange);
+		changeExtraNeutralHeal(kPromotion.getNeutralHealChange() * iChange);
+		changeExtraFriendlyHeal(kPromotion.getFriendlyHealChange() * iChange);
+		changeSameTileHeal(kPromotion.getSameTileHealChange() * iChange);
+		changeAdjacentTileHeal(kPromotion.getAdjacentTileHealChange() * iChange);
+		changeExtraCombatPercent(kPromotion.getCombatPercent() * iChange);
+		changeExtraCityAttackPercent(kPromotion.getCityAttackPercent() * iChange);
+		changeExtraCityDefensePercent(kPromotion.getCityDefensePercent() * iChange);
+		changeExtraHillsAttackPercent(kPromotion.getHillsAttackPercent() * iChange);
+		changeExtraHillsDefensePercent(kPromotion.getHillsDefensePercent() * iChange);
+		changeRevoltProtection(kPromotion.getRevoltProtection() * iChange);
+		changeCollateralDamageProtection(kPromotion.getCollateralDamageProtection() * iChange);
+		changePillageChange(kPromotion.getPillageChange() * iChange);
+		changeUpgradeDiscount(kPromotion.getUpgradeDiscount() * iChange);
+		changeExperiencePercent(kPromotion.getExperiencePercent() * iChange);
+		changeKamikazePercent((kPromotion.getKamikazePercent()) * iChange);
+		changeCargoSpace(kPromotion.getCargoChange() * iChange);
+		changeExtraRange(kPromotion.getUnitRangeChange() * iChange);
+		changeExtraRangePercent(kPromotion.getUnitRangePercentChange() * iChange);
 
-		for (int iI = 0; iI < GC.getNumTerrainInfos(); iI++) {
-			changeExtraTerrainAttackPercent(((TerrainTypes)iI), (GC.getPromotionInfo(eIndex).getTerrainAttackPercent(iI) * iChange));
-			changeExtraTerrainDefensePercent(((TerrainTypes)iI), (GC.getPromotionInfo(eIndex).getTerrainDefensePercent(iI) * iChange));
-			changeTerrainDoubleMoveCount(((TerrainTypes)iI), ((GC.getPromotionInfo(eIndex).getTerrainDoubleMove(iI)) ? iChange : 0));
+		for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
+			changeExtraTerrainAttackPercent(eTerrain, kPromotion.getTerrainAttackPercent(eTerrain) * iChange);
+			changeExtraTerrainDefensePercent(eTerrain, kPromotion.getTerrainDefensePercent(eTerrain) * iChange);
+			changeTerrainDoubleMoveCount(eTerrain, kPromotion.getTerrainDoubleMove(eTerrain) ? iChange : 0);
 		}
 
-		for (int iI = 0; iI < GC.getNumFeatureInfos(); iI++) {
-			changeExtraFeatureAttackPercent(((FeatureTypes)iI), (GC.getPromotionInfo(eIndex).getFeatureAttackPercent(iI) * iChange));
-			changeExtraFeatureDefensePercent(((FeatureTypes)iI), (GC.getPromotionInfo(eIndex).getFeatureDefensePercent(iI) * iChange));
-			changeFeatureDoubleMoveCount(((FeatureTypes)iI), ((GC.getPromotionInfo(eIndex).getFeatureDoubleMove(iI)) ? iChange : 0));
+		for (FeatureTypes eFeature = (FeatureTypes)0; eFeature < GC.getNumFeatureInfos(); eFeature = (FeatureTypes)(eFeature + 1)) {
+			changeExtraFeatureAttackPercent(eFeature, kPromotion.getFeatureAttackPercent(eFeature) * iChange);
+			changeExtraFeatureDefensePercent(eFeature, kPromotion.getFeatureDefensePercent(eFeature) * iChange);
+			changeFeatureDoubleMoveCount(eFeature, kPromotion.getFeatureDoubleMove(eFeature) ? iChange : 0);
 		}
 
-		for (int iI = 0; iI < GC.getNumUnitCombatInfos(); iI++) {
-			changeExtraUnitCombatModifier(((UnitCombatTypes)iI), (GC.getPromotionInfo(eIndex).getUnitCombatModifierPercent(iI) * iChange));
+		for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+			changeExtraUnitCombatModifier(eUnitCombat, kPromotion.getUnitCombatModifierPercent(eUnitCombat) * iChange);
 		}
 
-		for (int iI = 0; iI < NUM_DOMAIN_TYPES; iI++) {
-			changeExtraDomainModifier(((DomainTypes)iI), (GC.getPromotionInfo(eIndex).getDomainModifierPercent(iI) * iChange));
+		for (DomainTypes eDomain = (DomainTypes)0; eDomain < NUM_DOMAIN_TYPES; eDomain = (DomainTypes)(eDomain + 1)) {
+			changeExtraDomainModifier(eDomain, kPromotion.getDomainModifierPercent(eDomain) * iChange);
 		}
 
 		if (IsSelected()) {
@@ -9290,6 +9332,10 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iBaseCombat);
 	pStream->Read((int*)&m_eFacingDirection);
 	pStream->Read(&m_iImmobileTimer);
+	pStream->Read(&m_iExtraRange);
+	pStream->Read(&m_iExtraRangePercent);
+	pStream->Read(&m_iRangeUnboundCount);
+	pStream->Read(&m_iTerritoryUnboundCount);
 
 	pStream->Read(&m_bMadeAttack);
 	pStream->Read(&m_bMadeInterception);
@@ -9394,6 +9440,10 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iBaseCombat);
 	pStream->Write(m_eFacingDirection);
 	pStream->Write(m_iImmobileTimer);
+	pStream->Write(m_iExtraRange);
+	pStream->Write(m_iExtraRangePercent);
+	pStream->Write(m_iRangeUnboundCount);
+	pStream->Write(m_iTerritoryUnboundCount);
 
 	pStream->Write(m_bMadeAttack);
 	pStream->Write(m_bMadeInterception);
@@ -10671,5 +10721,92 @@ void CvUnit::setHomeCity(const CvCity* pCity) {
 		m_homeCity = pCity->getIDInfo();
 	} else {
 		m_homeCity.reset();
+	}
+}
+
+int CvUnit::getRange() const {
+	int iRange = MAX_INT;
+	const CvPlayer& kOwner = GET_PLAYER(getOwnerINLINE());
+	switch (getRangeType()) {
+	case UNITRANGE_HOME:
+	case UNITRANGE_TERRITORY:
+		iRange = 0;
+		break;
+	case UNITRANGE_RANGE:
+		// Get the base range of the unit scaled to the world size
+		iRange = (GC.getINITIAL_UNIT_RANGE() + kOwner.getExtraRange() + getExtraRange()) * (GC.getMapINLINE().getWorldSize() + 1);
+		// Apply any percentage modifiers
+		iRange *= (100 + kOwner.getExtraRangePercent() + getExtraRangePercent());
+		iRange /= 100;
+		break;
+	case UNITRANGE_UNLIMITED:
+	default:
+		break;
+	}
+	return iRange;
+}
+
+void CvUnit::setExtraRange(int iRange) {
+	m_iExtraRange = iRange;
+}
+
+void CvUnit::changeExtraRange(int iChange) {
+	if (iChange != 0) {
+		m_iExtraRange += iChange;
+		FAssert(getExtraRange() >= 0);
+	}
+}
+
+int CvUnit::getExtraRange() const {
+	return m_iExtraRange;
+}
+
+void CvUnit::setExtraRangePercent(int iModifier) {
+	m_iExtraRangePercent = iModifier;
+}
+
+void CvUnit::changeExtraRangePercent(int iChange) {
+	if (iChange > 0) {
+		m_iExtraRangePercent += iChange;
+	}
+}
+
+int CvUnit::getExtraRangePercent() const {
+	return m_iExtraRangePercent;
+}
+
+void CvUnit::changeRangeUnboundCount(int iChange) {
+	m_iRangeUnboundCount += iChange;
+}
+
+void CvUnit::changeTerritoryUnboundCount(int iChange) {
+	m_iTerritoryUnboundCount += iChange;
+}
+
+UnitRangeTypes CvUnit::getRangeType() const {
+	UnitRangeTypes ePlayerUnitRangeType = GET_PLAYER(getOwnerINLINE()).getUnitRangeType(&(this->getUnitInfo()));
+
+	switch (m_pUnitInfo->getRangeType()) {
+	case UNITRANGE_HOME:
+		return UNITRANGE_HOME;
+		break;
+	case UNITRANGE_TERRITORY:
+		// If the unit is specifically NOT unbound or is neutral and the player is not unbound
+		// If the unit is specifically ubound then we drop down to the next case
+		if (m_iTerritoryUnboundCount == 0 && ePlayerUnitRangeType == UNITRANGE_TERRITORY) {
+			return UNITRANGE_TERRITORY;
+		}
+		// No break here deliberately
+	case UNITRANGE_RANGE:
+		// If the unit is specifically NOT unbound or is neutral and the player is not unbound
+		// If the unit is specifically ubound then we drop down to the next case
+		if (m_iRangeUnboundCount == 0 && ePlayerUnitRangeType == UNITRANGE_RANGE) {
+			return UNITRANGE_RANGE;
+		}
+		// No break here deliberately
+	case UNITRANGE_UNLIMITED:
+	default:
+		return UNITRANGE_UNLIMITED;
+		break;
 	}
 }
