@@ -222,7 +222,7 @@ bool CvSelectionGroupAI::AI_update() {
 					if (bFirst)
 						path_finder.Reset();
 
-					if (pLoopUnit->canMove()) {
+					if (pLoopUnit != NULL && pLoopUnit->canMove()) {
 						if (pLoopUnit->AI_follow(bFirst)) {
 							bFollow = true;
 							bFirst = true; // let the next unit start fresh.
