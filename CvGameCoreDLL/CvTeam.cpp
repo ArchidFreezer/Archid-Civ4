@@ -4805,23 +4805,23 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 		changeWaterWorkCount(iChange);
 	}
 
-	for (int iI = 0; iI < GC.getNumRouteInfos(); iI++) {
-		changeRouteChange(((RouteTypes)iI), (GC.getRouteInfo((RouteTypes)iI).getTechMovementChange(eTech) * iChange));
+	for (RouteTypes eRoute = (RouteTypes)0; eRoute < GC.getNumRouteInfos(); eRoute = (RouteTypes)(eRoute + 1)) {
+		changeRouteChange(eRoute, (GC.getRouteInfo(eRoute).getTechMovementChange(eTech) * iChange));
 	}
 
-	for (int iI = 0; iI < NUM_DOMAIN_TYPES; iI++) {
-		changeExtraMoves(((DomainTypes)iI), (kTech.getDomainExtraMoves(iI) * iChange));
+	for (DomainTypes eDomain = (DomainTypes)0; eDomain < NUM_DOMAIN_TYPES; eDomain = (DomainTypes)(eDomain + 1)) {
+		changeExtraMoves(eDomain, (kTech.getDomainExtraMoves(eDomain) * iChange));
 	}
 
-	for (int iI = 0; iI < NUM_COMMERCE_TYPES; iI++) {
-		if (kTech.isCommerceFlexible(iI)) {
-			changeCommerceFlexibleCount(((CommerceTypes)iI), iChange);
+	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+		if (kTech.isCommerceFlexible(eCommerce)) {
+			changeCommerceFlexibleCount(eCommerce, iChange);
 		}
 	}
 
-	for (int iI = 0; iI < GC.getNumTerrainInfos(); iI++) {
-		if (kTech.isTerrainTrade(iI)) {
-			changeTerrainTradeCount(((TerrainTypes)iI), iChange);
+	for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
+		if (kTech.isTerrainTrade(eTerrain)) {
+			changeTerrainTradeCount(eTerrain, iChange);
 		}
 	}
 
@@ -4829,35 +4829,42 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 		changeRiverTradeCount(iChange);
 	}
 
-	for (int iI = 0; iI < GC.getNumBuildingInfos(); iI++) {
-		if (GC.getBuildingInfo((BuildingTypes)iI).getObsoleteTech() == eTech) {
-			changeObsoleteBuildingCount(((BuildingTypes)iI), iChange);
+	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+		if (GC.getBuildingInfo(eBuilding).getObsoleteTech() == eTech) {
+			changeObsoleteBuildingCount(eBuilding, iChange);
 		}
 
-		if (GC.getBuildingInfo((BuildingTypes)iI).getSpecialBuildingType() != NO_SPECIALBUILDING) {
-			if (GC.getSpecialBuildingInfo((SpecialBuildingTypes)GC.getBuildingInfo((BuildingTypes)iI).getSpecialBuildingType()).getObsoleteTech() == eTech) {
-				changeObsoleteBuildingCount(((BuildingTypes)iI), iChange);
+		if (GC.getBuildingInfo(eBuilding).getSpecialBuildingType() != NO_SPECIALBUILDING) {
+			if (GC.getSpecialBuildingInfo((SpecialBuildingTypes)GC.getBuildingInfo(eBuilding).getSpecialBuildingType()).getObsoleteTech() == eTech) {
+				changeObsoleteBuildingCount(eBuilding, iChange);
 			}
 		}
 	}
 
-	for (int iI = 0; iI < GC.getNumImprovementInfos(); iI++) {
-		for (int iJ = 0; iJ < NUM_YIELD_TYPES; iJ++) {
-			changeImprovementYieldChange(((ImprovementTypes)iI), ((YieldTypes)iJ), (GC.getImprovementInfo((ImprovementTypes)iI).getTechYieldChanges(eTech, iJ) * iChange));
+	for (ImprovementTypes eImprovement = (ImprovementTypes)0; eImprovement < GC.getNumImprovementInfos(); eImprovement = (ImprovementTypes)(eImprovement + 1)) {
+		for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+			changeImprovementYieldChange(eImprovement, eYield, (GC.getImprovementInfo(eImprovement).getTechYieldChanges(eTech, eYield) * iChange));
 		}
 	}
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-		if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
-			GET_PLAYER((PlayerTypes)iI).changeFeatureProductionModifier(kTech.getFeatureProductionModifier() * iChange);
-			GET_PLAYER((PlayerTypes)iI).changeWorkerSpeedModifier(kTech.getWorkerSpeedModifier() * iChange);
-			GET_PLAYER((PlayerTypes)iI).changeTradeRoutes(kTech.getTradeRoutes() * iChange);
-			GET_PLAYER((PlayerTypes)iI).changeExtraHealth(kTech.getHealth() * iChange);
-			GET_PLAYER((PlayerTypes)iI).changeExtraHappiness(kTech.getHappiness() * iChange);
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+		if (kPlayer.getTeam() == getID()) {
+			kPlayer.changeFeatureProductionModifier(kTech.getFeatureProductionModifier() * iChange);
+			kPlayer.changeWorkerSpeedModifier(kTech.getWorkerSpeedModifier() * iChange);
+			kPlayer.changeTradeRoutes(kTech.getTradeRoutes() * iChange);
+			kPlayer.changeExtraHealth(kTech.getHealth() * iChange);
+			kPlayer.changeExtraHappiness(kTech.getHappiness() * iChange);
+			if (kTech.isUnitRangeUnbound())
+				kPlayer.changeUnitRangeUnboundCount(iChange);
+			if (kTech.isUnitTerritoryUnbound())
+				kPlayer.changeUnitTerritoryUnboundCount(iChange);
+			kPlayer.changeExtraRange(kTech.getUnitRangeChange() * iChange);
+			kPlayer.changeExtraRangePercent(kTech.getUnitRangePercentChange() * iChange);
 
-			GET_PLAYER((PlayerTypes)iI).changeAssets(kTech.getAssetValue() * iChange);
-			GET_PLAYER((PlayerTypes)iI).changePower(kTech.getPowerValue() * iChange);
-			GET_PLAYER((PlayerTypes)iI).changeTechScore(getTechScore(eTech) * iChange);
+			kPlayer.changeAssets(kTech.getAssetValue() * iChange);
+			kPlayer.changePower(kTech.getPowerValue() * iChange);
+			kPlayer.changeTechScore(getTechScore(eTech) * iChange);
 		}
 	}
 
@@ -4874,10 +4881,11 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 		}
 	}
 
-	for (int iI = 0; iI < GC.getNumBuildInfos(); iI++) {
-		if (GC.getBuildInfo((BuildTypes)iI).getTechPrereq() == eTech) {
-			if (GC.getBuildInfo((BuildTypes)iI).getRoute() != NO_ROUTE) {
-				for (iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++) {
+	for (BuildTypes eBuild = (BuildTypes)0; eBuild < GC.getNumBuildInfos(); eBuild = (BuildTypes)(eBuild + 1)) {
+		const CvBuildInfo& kBuild = GC.getBuildInfo(eBuild);
+		if (kBuild.getTechPrereq() == eTech) {
+			if (kBuild.getRoute() != NO_ROUTE) {
+				for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++) {
 					CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
 
 					CvCity* pCity = pLoopPlot->getPlotCity();
@@ -4892,9 +4900,10 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 		}
 	}
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-		if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
-			GET_PLAYER((PlayerTypes)iI).updateCorporation();
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+		if (kPlayer.getTeam() == getID()) {
+			kPlayer.updateCorporation();
 		}
 	}
 }

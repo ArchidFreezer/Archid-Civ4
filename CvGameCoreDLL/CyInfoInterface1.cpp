@@ -62,6 +62,8 @@ void CyInfoPythonInterface1() {
 		.def("getFirstFreeTechs", &CvTechInfo::getFirstFreeTechs, "int ()")
 		.def("getAssetValue", &CvTechInfo::getAssetValue, "int ()")
 		.def("getPowerValue", &CvTechInfo::getPowerValue, "int ()")
+		.def("getUnitRangeChange", &CvTechInfo::getUnitRangeChange, "int ()")
+		.def("getUnitRangePercentChange", &CvTechInfo::getUnitRangePercentChange, "int ()")
 
 		.def("getGridX", &CvTechInfo::getGridX, "int ()")
 		.def("getGridY", &CvTechInfo::getGridY, "int ()")
@@ -85,6 +87,8 @@ void CyInfoPythonInterface1() {
 		.def("isIgnoreIrrigation", &CvTechInfo::isIgnoreIrrigation, "bool ()")
 		.def("isWaterWork", &CvTechInfo::isWaterWork, "bool ()")
 		.def("isRiverTrade", &CvTechInfo::isRiverTrade, "bool ()")
+		.def("isUnitRangeUnbound", &CvTechInfo::isUnitRangeUnbound, "bool ()")
+		.def("isUnitTerritoryUnbound", &CvTechInfo::isUnitTerritoryUnbound, "bool ()")
 
 		.def("getQuote", &CvTechInfo::getQuote, "wstring ()")
 		.def("getSound", &CvTechInfo::getSound, "string ()")

@@ -826,6 +826,8 @@ CvTechInfo::CvTechInfo() :
 	m_iPowerValue(0),
 	m_iGridX(0),
 	m_iGridY(0),
+	m_iUnitRangeChange(0),
+	m_iUnitRangePercentChange(0),
 	m_bRepeat(false),
 	m_bTrade(false),
 	m_bDisable(false),
@@ -845,6 +847,8 @@ CvTechInfo::CvTechInfo() :
 	m_bIgnoreIrrigation(false),
 	m_bWaterWork(false),
 	m_bRiverTrade(false),
+	m_bUnitRangeUnbound(false),
+	m_bUnitTerritoryUnbound(false),
 	m_piDomainExtraMoves(NULL),
 	m_piFlavorValue(NULL),
 	m_piPrereqOrTechs(NULL),
@@ -867,6 +871,22 @@ CvTechInfo::~CvTechInfo() {
 	SAFE_DELETE_ARRAY(m_piPrereqAndTechs);
 	SAFE_DELETE_ARRAY(m_pbCommerceFlexible);
 	SAFE_DELETE_ARRAY(m_pbTerrainTrade);
+}
+
+int CvTechInfo::getUnitRangeChange() const {
+	return m_iUnitRangeChange;
+}
+
+int CvTechInfo::getUnitRangePercentChange() const {
+	return m_iUnitRangePercentChange;
+}
+
+bool CvTechInfo::isUnitRangeUnbound() const {
+	return m_bUnitRangeUnbound;
+}
+
+bool CvTechInfo::isUnitTerritoryUnbound() const {
+	return m_bUnitTerritoryUnbound;
 }
 
 int CvTechInfo::getAdvisorType() const {
@@ -1093,6 +1113,8 @@ void CvTechInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iFirstFreeTechs);
 	stream->Read(&m_iAssetValue);
 	stream->Read(&m_iPowerValue);
+	stream->Read(&m_iUnitRangeChange);
+	stream->Read(&m_iUnitRangePercentChange);
 	stream->Read(&m_bRepeat);
 	stream->Read(&m_bTrade);
 	stream->Read(&m_bDisable);
@@ -1112,6 +1134,8 @@ void CvTechInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bIgnoreIrrigation);
 	stream->Read(&m_bWaterWork);
 	stream->Read(&m_bRiverTrade);
+	stream->Read(&m_bUnitRangeUnbound);
+	stream->Read(&m_bUnitTerritoryUnbound);
 	stream->Read(&m_iGridX);
 	stream->Read(&m_iGridY);
 
@@ -1166,6 +1190,8 @@ void CvTechInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iFirstFreeTechs);
 	stream->Write(m_iAssetValue);
 	stream->Write(m_iPowerValue);
+	stream->Write(m_iUnitRangeChange);
+	stream->Write(m_iUnitRangePercentChange);
 	stream->Write(m_bRepeat);
 	stream->Write(m_bTrade);
 	stream->Write(m_bDisable);
@@ -1185,6 +1211,8 @@ void CvTechInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bIgnoreIrrigation);
 	stream->Write(m_bWaterWork);
 	stream->Write(m_bRiverTrade);
+	stream->Write(m_bUnitRangeUnbound);
+	stream->Write(m_bUnitTerritoryUnbound);
 	stream->Write(m_iGridX);
 	stream->Write(m_iGridY);
 
@@ -1248,6 +1276,10 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bIgnoreIrrigation, "bIgnoreIrrigation");
 	pXML->GetChildXmlValByName(&m_bWaterWork, "bWaterWork");
 	pXML->GetChildXmlValByName(&m_bRiverTrade, "bRiverTrade");
+	pXML->GetChildXmlValByName(&m_bUnitRangeUnbound, "bUnitRangeUnbound");
+	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
+	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
+	pXML->GetChildXmlValByName(&m_iUnitRangePercentChange, "iUnitRangePercentChange");
 	pXML->GetChildXmlValByName(&m_iGridX, "iGridX");
 	pXML->GetChildXmlValByName(&m_iGridY, "iGridY");
 	pXML->SetList(&m_pbCommerceFlexible, "CommerceFlexible", NUM_COMMERCE_TYPES);

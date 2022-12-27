@@ -310,6 +310,8 @@ public:
 	int getFirstFreeTechs() const;				// Exposed to Python
 	int getAssetValue() const;						// Exposed to Python
 	int getPowerValue() const;						// Exposed to Python
+	int getUnitRangeChange() const;
+	int getUnitRangePercentChange() const;
 
 	int getGridX() const;									// Exposed to Python
 	int getGridY() const;									// Exposed to Python
@@ -333,6 +335,8 @@ public:
 	bool isIgnoreIrrigation() const;			// Exposed to Python
 	bool isWaterWork() const;							// Exposed to Python
 	bool isRiverTrade() const;							// Exposed to Python
+	bool isUnitRangeUnbound() const;
+	bool isUnitTerritoryUnbound() const;
 
 	std::wstring getQuote() const;	// Exposed to Python
 	void setQuoteKey(const TCHAR* szVal);
@@ -376,6 +380,8 @@ protected:
 	int m_iFirstFreeTechs;
 	int m_iAssetValue;
 	int m_iPowerValue;
+	int m_iUnitRangeChange;
+	int m_iUnitRangePercentChange;
 
 	int m_iGridX;
 	int m_iGridY;
@@ -399,6 +405,8 @@ protected:
 	bool m_bIgnoreIrrigation;
 	bool m_bWaterWork;
 	bool m_bRiverTrade;
+	bool m_bUnitRangeUnbound;
+	bool m_bUnitTerritoryUnbound;
 
 	CvString m_szQuoteKey;
 	CvString m_szSound;

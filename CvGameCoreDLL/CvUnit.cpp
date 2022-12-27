@@ -9152,9 +9152,9 @@ void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue) {
 	if (isHasPromotion(eIndex) != bNewValue) {
 		m_pabHasPromotion[eIndex] = bNewValue;
 
-		int iChange = ((isHasPromotion(eIndex)) ? 1 : -1);
+		int iChange = isHasPromotion(eIndex) ? 1 : -1;
 
-		const CvPromotionInfo& kPromotion = kPromotion;
+		const CvPromotionInfo& kPromotion = GC.getPromotionInfo(eIndex);
 		changeBlitzCount(kPromotion.isBlitz() ? iChange : 0);
 		changeAmphibCount(kPromotion.isAmphib() ? iChange : 0);
 		changeRiverCount(kPromotion.isRiver() ? iChange : 0);

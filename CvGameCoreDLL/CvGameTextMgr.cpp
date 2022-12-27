@@ -5868,6 +5868,18 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	//	Creates a free unit...
 	buildFreeUnitString(szBuffer, eTech, true, bPlayerContext);
 
+	//	Allows units to ignore movement limits...
+	buildUnitRangeUnboundString(szBuffer, eTech, true, bPlayerContext);
+
+	//	Allows units to change range limits...
+	buildUnitRangeChangeString(szBuffer, eTech, true, bPlayerContext);
+
+	//	Allows units to change range limits...
+	buildUnitRangePercentageChangeString(szBuffer, eTech, true, bPlayerContext);
+
+	//	Allows units to range outside the civ territory...
+	buildUnitTerritoryUnboundString(szBuffer, eTech, true, bPlayerContext);
+
 	//	Increases feature production...
 	buildFeatureProductionString(szBuffer, eTech, true, bPlayerContext);
 
@@ -14036,5 +14048,43 @@ void CvGameTextMgr::getCorporationDataForWB(bool bHeadquarters, std::vector<CvWB
 			strDescription = gDLL->getText("TXT_KEY_CORPORATION_HEADQUARTERS", strDescription.GetCString());
 		}
 		mapCorporationData.push_back(CvWBData(i, strDescription, kCorporation.getButton()));
+	}
+}
+
+void CvGameTextMgr::buildUnitRangeUnboundString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
+	if (GC.getTechInfo(eTech).isUnitRangeUnbound()) {
+		if (bList) {
+			szBuffer.append(NEWLINE);
+		}
+		szBuffer.append(gDLL->getText("TXT_KEY_MISC_ENABLES_UNIT_RANGE_UNBOUND"));
+	}
+}
+
+void CvGameTextMgr::buildUnitTerritoryUnboundString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
+	if (GC.getTechInfo(eTech).isUnitTerritoryUnbound()) {
+		if (bList) {
+			szBuffer.append(NEWLINE);
+		}
+		szBuffer.append(gDLL->getText("TXT_KEY_MISC_ENABLES_UNIT_TERRITORY_UNBOUND"));
+	}
+}
+
+void CvGameTextMgr::buildUnitRangeChangeString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
+	const CvTechInfo& kTech = GC.getTechInfo(eTech);
+	if (kTech.getUnitRangeChange() != 0) {
+		if (bList) {
+			szBuffer.append(NEWLINE);
+		}
+		szBuffer.append(gDLL->getText("TXT_KEY_MISC_UNIT_RANGE_CHANGE", kTech.getUnitRangeChange()));
+	}
+}
+
+void CvGameTextMgr::buildUnitRangePercentageChangeString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
+	const CvTechInfo& kTech = GC.getTechInfo(eTech);
+	if (kTech.getUnitRangePercentChange() != 0) {
+		if (bList) {
+			szBuffer.append(NEWLINE);
+		}
+		szBuffer.append(gDLL->getText("TXT_KEY_MISC_UNIT_RANGE_MODIFY", kTech.getUnitRangePercentChange()));
 	}
 }

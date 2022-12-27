@@ -610,5 +610,22 @@
 		<English>[ICON_BULLET]Can control [COLOR_HIGHLIGHT_TEXT]Unlimited Cities[COLOR_REVERT]</English>
 		<Spanish>[ICON_BULLET]Puedes controlar [COLOR_HIGHLIGHT_TEXT]Ciudades Ilimitadas[COLOR_REVERT]</Spanish>
 	</TEXT>
+<!-- Unit range -->
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ENABLES_UNIT_RANGE_UNBOUND</Tag>
+		<English>[ICON_BULLET]Unlimited unit range</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ENABLES_UNIT_TERRITORY_UNBOUND</Tag>
+		<English>[ICON_BULLET]Units can leave territory</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_UNIT_RANGE_CHANGE</Tag>
+		<English>[ICON_BULLET]%D1_Change Unit Range change</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_UNIT_RANGE_MODIFY</Tag>
+		<English>[ICON_BULLET]%D1_Change% Unit Range modification</English>
+	</TEXT>
 
 </Civ4GameText>
