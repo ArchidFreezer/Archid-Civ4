@@ -155,7 +155,7 @@ class CvPediaBuilding:
 		if iPrereq > -1:
 			screen.attachImageButton( panelName, "", gc.getBonusInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, iPrereq, -1, False )
 			
-		for k in xrange(gc.getNUM_BUILDING_PREREQ_OR_BONUSES()):
+		for k in xrange(Info.getNumPrereqOrBonuses()):
 			iPrereq = Info.getPrereqOrBonuses(k)
 			if iPrereq > -1:
 				screen.attachImageButton( panelName, "", gc.getBonusInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, iPrereq, -1, False )

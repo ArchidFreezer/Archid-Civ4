@@ -702,7 +702,6 @@ public:
 	inline int getEXTRA_YIELD() { return m_iEXTRA_YIELD; } // K-Mod (why aren't all these functions inline?)
 	int getMOVE_DENOMINATOR();
 	int getNUM_UNIT_PREREQ_OR_BONUSES();
-	int getNUM_BUILDING_PREREQ_OR_BONUSES();
 	int getFOOD_CONSUMPTION_PER_POPULATION();
 	int getMAX_HIT_POINTS();
 	int getPATH_DAMAGE_WEIGHT();

@@ -63,9 +63,9 @@
 	<ElementType name="PrereqAndTechs" content="eltOnly">
 		<element type="TechType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
-	<ElementType name="Bonus" content="textOnly"/>
-	<ElementType name="PrereqBonuses" content="eltOnly">
-		<element type="Bonus" minOccurs="0" maxOccurs="*"/>
+	<ElementType name="PrereqBonus" content="textOnly"/>
+	<ElementType name="PrereqOrBonuses" content="eltOnly">
+		<element type="BonusType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="ProductionTraitType" content="textOnly"/>
 	<ElementType name="iProductionTrait" content="textOnly" dt:type="int"/>
@@ -400,8 +400,8 @@
 		<element type="MaxStartEra" minOccurs="0"/>
 		<element type="ObsoleteTech" minOccurs="0"/>
 		<element type="PrereqAndTechs" minOccurs="0"/>
-		<element type="Bonus" minOccurs="0"/>
-		<element type="PrereqBonuses" minOccurs="0"/>
+		<element type="PrereqBonus" minOccurs="0"/>
+		<element type="PrereqOrBonuses" minOccurs="0"/>
 		<element type="ProductionTraits" minOccurs="0"/>
 		<element type="HappinessTraits" minOccurs="0"/>
 		<element type="NoBonus" minOccurs="0"/>

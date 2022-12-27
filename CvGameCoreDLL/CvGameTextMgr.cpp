@@ -8282,7 +8282,7 @@ void CvGameTextMgr::buildBuildingRequiresString(CvWStringBuffer& szBuffer, Build
 			CvWStringBuffer szBonusList;
 			bFirst = true;
 
-			for (int iI = 0; iI < GC.getNUM_BUILDING_PREREQ_OR_BONUSES(); ++iI) {
+			for (int iI = 0; iI < kBuilding.getNumPrereqOrBonuses(); ++iI) {
 				if (kBuilding.getPrereqOrBonuses(iI) != NO_BONUS) {
 					if ((pCity == NULL) || !(pCity->hasBonus((BonusTypes)kBuilding.getPrereqOrBonuses(iI)))) {
 						CvWString szTempBuffer;

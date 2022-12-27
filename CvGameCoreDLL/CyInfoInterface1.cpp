@@ -474,6 +474,7 @@ void CyInfoPythonInterface1() {
 		.def("getMaxStartEra", &CvBuildingInfo::getMaxStartEra, "int ()")
 		.def("getObsoleteTech", &CvBuildingInfo::getObsoleteTech, "int ()")
 		.def("getNumPrereqAndTechs", &CvBuildingInfo::getNumPrereqAndTechs, "int ()")
+		.def("getNumPrereqOrBonuses", &CvBuildingInfo::getNumPrereqOrBonuses, "int ()")
 		.def("getNoBonus", &CvBuildingInfo::getNoBonus, "int ()")
 		.def("getPowerBonus", &CvBuildingInfo::getPowerBonus, "int ()")
 		.def("getFreeBonus", &CvBuildingInfo::getFreeBonus, "int ()")

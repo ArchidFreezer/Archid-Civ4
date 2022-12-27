@@ -5574,7 +5574,6 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_bCenterInCity(false),
 	m_bStateReligion(false),
 	m_bAllowsNukes(false),
-	m_piPrereqOrBonuses(NULL),
 	m_piProductionTraits(NULL),
 	m_piHappinessTraits(NULL),
 	m_piSeaPlotYieldChange(NULL),
@@ -5624,7 +5623,6 @@ CvBuildingInfo::CvBuildingInfo() :
 //
 //------------------------------------------------------------------------------------------------------
 CvBuildingInfo::~CvBuildingInfo() {
-	SAFE_DELETE_ARRAY(m_piPrereqOrBonuses);
 	SAFE_DELETE_ARRAY(m_piProductionTraits);
 	SAFE_DELETE_ARRAY(m_piHappinessTraits);
 	SAFE_DELETE_ARRAY(m_piSeaPlotYieldChange);
@@ -6352,9 +6350,11 @@ int CvBuildingInfo::getDomainProductionModifier(int i) const {
 }
 
 int CvBuildingInfo::getPrereqOrBonuses(int i) const {
-	FAssertMsg(i < GC.getNUM_BUILDING_PREREQ_OR_BONUSES(), "Index out of bounds");
-	FAssertMsg(i > -1, "Index out of bounds");
-	return m_piPrereqOrBonuses ? m_piPrereqOrBonuses[i] : -1;
+	return m_viPrereqOrBonuses[i];
+}
+
+int CvBuildingInfo::getNumPrereqOrBonuses() const {
+	return (int)m_viPrereqOrBonuses.size();
 }
 
 int CvBuildingInfo::getProductionTraits(int i) const {
@@ -6623,9 +6623,12 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 		m_viPrereqAndTechs.push_back(iElement);
 	}
 
-	SAFE_DELETE_ARRAY(m_piPrereqOrBonuses);
-	m_piPrereqOrBonuses = new int[GC.getNUM_BUILDING_PREREQ_OR_BONUSES()];
-	stream->Read(GC.getNUM_BUILDING_PREREQ_OR_BONUSES(), m_piPrereqOrBonuses);
+	stream->Read(&iNumElements);
+	m_viPrereqOrBonuses.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqOrBonuses.push_back(iElement);
+	}
 
 	SAFE_DELETE_ARRAY(m_piProductionTraits);
 	m_piProductionTraits = new int[GC.getNumTraitInfos()];
@@ -6940,7 +6943,11 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 		stream->Write(*it);
 	}
 
-	stream->Write(GC.getNUM_BUILDING_PREREQ_OR_BONUSES(), m_piPrereqOrBonuses);
+	stream->Write(m_viPrereqOrBonuses.size());
+	for (std::vector<int>::iterator it = m_viPrereqOrBonuses.begin(); it != m_viPrereqOrBonuses.end(); ++it) {
+		stream->Write(*it);
+	}
+
 	stream->Write(GC.getNumTraitInfos(), m_piProductionTraits);
 	stream->Write(GC.getNumTraitInfos(), m_piHappinessTraits);
 	stream->Write(NUM_YIELD_TYPES, m_piSeaPlotYieldChange);
@@ -7048,10 +7055,10 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->SetVectorInfo(m_viPrereqAndTechs, "PrereqAndTechs");
 
-	pXML->GetChildXmlValByName(szTextVal, "Bonus");
+	pXML->GetChildXmlValByName(szTextVal, "PrereqBonus");
 	m_iPrereqAndBonus = pXML->FindInInfoClass(szTextVal);
 
-	pXML->SetListInfo(&m_piPrereqOrBonuses, "PrereqBonuses", GC.getNUM_BUILDING_PREREQ_OR_BONUSES());
+	pXML->SetVectorInfo(m_viPrereqOrBonuses, "PrereqOrBonuses");
 
 	pXML->SetListPairInfo(&m_piProductionTraits, "ProductionTraits", GC.getNumTraitInfos());
 

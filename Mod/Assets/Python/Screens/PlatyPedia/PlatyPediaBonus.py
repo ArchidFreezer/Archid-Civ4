@@ -331,7 +331,7 @@ class CvPediaBonus:
 			if Info.getPrereqAndBonus() == self.iBonus:
 				bFound = True	
 			else:
-				for j in xrange(gc.getNUM_BUILDING_PREREQ_OR_BONUSES()):
+				for j in xrange(Info.getNumPrereqOrBonuses()):
 					if Info.getPrereqOrBonuses(j) == self.iBonus:
 						bFound = True
 						break

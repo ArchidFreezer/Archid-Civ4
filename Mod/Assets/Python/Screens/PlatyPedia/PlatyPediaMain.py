@@ -2598,7 +2598,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 					iItemEra = max(iItemEra, gc.getTechInfo(iTech).getEra())
 			iItemEra = max(iItemEra, ItemInfo.getPrereqAndBonus())
 			iTemp = 999999
-			for i in xrange(gc.getNUM_BUILDING_PREREQ_OR_BONUSES()):
+			for i in xrange(ItemInfo.getNumPrereqOrBonuses()):
 				iBonus = ItemInfo.getPrereqOrBonuses(i)
 				if iBonus > -1:
 					iTemp = min(iTemp, self.getBonusEra(iBonus))

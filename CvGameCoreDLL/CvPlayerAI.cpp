@@ -7060,7 +7060,7 @@ int CvPlayerAI::AI_baseBonusVal(BonusTypes eBonus) const {
 
 
 			for (int iI = 0; iI < GC.getNumUnitClassInfos(); iI++) {
-				UnitTypes eLoopUnit = ((UnitTypes)(GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(iI)));
+				UnitTypes eLoopUnit = (UnitTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(iI);
 
 				if (eLoopUnit != NO_UNIT) {
 					CvUnitInfo& kLoopUnit = GC.getUnitInfo(eLoopUnit);
@@ -7142,7 +7142,7 @@ int CvPlayerAI::AI_baseBonusVal(BonusTypes eBonus) const {
 						iTempValue += 30;
 					}
 
-					for (int iJ = 0; iJ < GC.getNUM_BUILDING_PREREQ_OR_BONUSES(); iJ++) {
+					for (int iJ = 0; iJ < kLoopBuilding.getNumPrereqOrBonuses(); iJ++) {
 						if (kLoopBuilding.getPrereqOrBonuses(iJ) == eBonus) {
 							iTempValue += 20;
 						}
@@ -7171,7 +7171,7 @@ int CvPlayerAI::AI_baseBonusVal(BonusTypes eBonus) const {
 							}
 						}
 
-						bool bIsStateReligion = (((ReligionTypes)kLoopBuilding.getStateReligion()) != NO_RELIGION);
+						bool bIsStateReligion = (ReligionTypes)kLoopBuilding.getStateReligion() != NO_RELIGION;
 
 						//check if function call is cached
 						bool bCanConstruct = canConstruct(eLoopBuilding, false, /*bTestVisible*/ true, /*bIgnoreCost*/ true);
@@ -7213,8 +7213,7 @@ int CvPlayerAI::AI_baseBonusVal(BonusTypes eBonus) const {
 				}
 			}
 
-			for (int iI = 0; iI < GC.getNumProjectInfos(); iI++) {
-				ProjectTypes eProject = (ProjectTypes)iI;
+			for (ProjectTypes eProject = (ProjectTypes)0; eProject < GC.getNumProjectInfos(); eProject = (ProjectTypes)(eProject + 1)) {
 				CvProjectInfo& kLoopProject = GC.getProjectInfo(eProject);
 				int iTempValue = 0;
 
@@ -7246,8 +7245,8 @@ int CvPlayerAI::AI_baseBonusVal(BonusTypes eBonus) const {
 			}
 
 			RouteTypes eBestRoute = getBestRoute();
-			for (int iI = 0; iI < GC.getNumBuildInfos(); iI++) {
-				RouteTypes eRoute = (RouteTypes)(GC.getBuildInfo((BuildTypes)iI).getRoute());
+			for (BuildTypes eBuild = (BuildTypes)0; eBuild < GC.getNumBuildInfos(); eBuild = (BuildTypes)(eBuild+1)) {
+				RouteTypes eRoute = (RouteTypes)(GC.getBuildInfo(eBuild).getRoute());
 
 				if (eRoute != NO_ROUTE) {
 					int iTempValue = 0;
@@ -7337,38 +7336,39 @@ DenialTypes CvPlayerAI::AI_bonusTrade(BonusTypes eBonus, PlayerTypes ePlayer) co
 
 	FAssertMsg(ePlayer != getID(), "shouldn't call this function on ourselves");
 
-	if (isHuman() && GET_PLAYER(ePlayer).isHuman()) {
+	const CvPlayerAI& kTheirPlayer = GET_PLAYER(ePlayer);
+	if (isHuman() && kTheirPlayer.isHuman()) {
 		return NO_DENIAL;
 	}
 
-	if (GET_TEAM(getTeam()).isVassal(GET_PLAYER(ePlayer).getTeam())) {
+	if (GET_TEAM(getTeam()).isVassal(kTheirPlayer.getTeam())) {
 		return NO_DENIAL;
 	}
 
-	if (atWar(getTeam(), GET_PLAYER(ePlayer).getTeam())) {
+	if (atWar(getTeam(), kTheirPlayer.getTeam())) {
 		return NO_DENIAL;
 	}
 
-	//if (GET_PLAYER(ePlayer).getTeam() == getTeam())
-	if (GET_PLAYER(ePlayer).getTeam() == getTeam() && GET_PLAYER(ePlayer).isHuman()) // K-Mod
+	//if (kTheirPlayer.getTeam() == getTeam())
+	if (kTheirPlayer.getTeam() == getTeam() && kTheirPlayer.isHuman()) // K-Mod
 	{
 		return NO_DENIAL;
 	}
 
-	if (GET_PLAYER(ePlayer).getNumAvailableBonuses(eBonus) > 0 && GET_PLAYER(ePlayer).AI_corporationBonusVal(eBonus) <= 0) {
-		return (GET_PLAYER(ePlayer).isHuman() ? DENIAL_JOKING : DENIAL_NO_GAIN);
+	if (kTheirPlayer.getNumAvailableBonuses(eBonus) > 0 && kTheirPlayer.AI_corporationBonusVal(eBonus) <= 0) {
+		return (kTheirPlayer.isHuman() ? DENIAL_JOKING : DENIAL_NO_GAIN);
 	}
 
 	// K-Mod (The above case should be tested for humans trying to give stuff to AI teammates
 	// - otherwise the human won't know if the AI can actually use the resource.)
-	if (GET_PLAYER(ePlayer).getTeam() == getTeam())
+	if (kTheirPlayer.getTeam() == getTeam())
 		return NO_DENIAL;
 
 	if (isHuman()) {
 		return NO_DENIAL;
 	}
 
-	if (GET_TEAM(getTeam()).AI_getWorstEnemy() == GET_PLAYER(ePlayer).getTeam()) {
+	if (GET_TEAM(getTeam()).AI_getWorstEnemy() == kTheirPlayer.getTeam()) {
 		return DENIAL_WORST_ENEMY;
 	}
 
@@ -7378,25 +7378,27 @@ DenialTypes CvPlayerAI::AI_bonusTrade(BonusTypes eBonus, PlayerTypes ePlayer) co
 
 	bool bStrategic = false;
 
-	for (int iI = 0; iI < GC.getNumUnitInfos(); iI++) {
-		if (GC.getUnitInfo((UnitTypes)iI).getPrereqAndBonus() == eBonus) {
+	for (UnitTypes eUnit = (UnitTypes)0; eUnit < GC.getNumUnitInfos(); eUnit = (UnitTypes)(eUnit+1))
+	{
+		if (GC.getUnitInfo(eUnit).getPrereqAndBonus() == eBonus)
+		{
 			bStrategic = true;
 		}
 
 		for (int iJ = 0; iJ < GC.getNUM_UNIT_PREREQ_OR_BONUSES(); iJ++) {
-			if (GC.getUnitInfo((UnitTypes)iI).getPrereqOrBonuses(iJ) == eBonus) {
+			if (GC.getUnitInfo(eUnit).getPrereqOrBonuses(iJ) == eBonus) {
 				bStrategic = true;
 			}
 		}
 	}
 
-	for (int iI = 0; iI < GC.getNumBuildingInfos(); iI++) {
-		if (GC.getBuildingInfo((BuildingTypes)iI).getPrereqAndBonus() == eBonus) {
+	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+		if (GC.getBuildingInfo(eBuilding).getPrereqAndBonus() == eBonus) {
 			bStrategic = true;
 		}
 
-		for (int iJ = 0; iJ < GC.getNUM_BUILDING_PREREQ_OR_BONUSES(); iJ++) {
-			if (GC.getBuildingInfo((BuildingTypes)iI).getPrereqOrBonuses(iJ) == eBonus) {
+		for (int iJ = 0; iJ < GC.getBuildingInfo(eBuilding).getNumPrereqOrBonuses(); iJ++) {
+			if (GC.getBuildingInfo(eBuilding).getPrereqOrBonuses(iJ) == eBonus) {
 				bStrategic = true;
 			}
 		}
