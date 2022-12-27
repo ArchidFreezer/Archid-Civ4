@@ -594,6 +594,13 @@ void CvUnit::doTurn() {
 		setHomeCity(GET_PLAYER(getOwnerINLINE()).findCity(getX_INLINE(), getY_INLINE()));
 	}
 
+	// If we have enable rehoming and the unit is in a city that belongs to the player but is not it's home city check if it should rehome here
+	if (GC.getREHOME_PERCENT_CHANCE() > 0 && plot()->isCity() && plot()->getOwnerINLINE() == getOwnerINLINE() && plot()->getPlotCity() != getHomeCity()) {
+		if (GC.getGameINLINE().getSorenRandNum(100, "Rehome Unit") < GC.getREHOME_PERCENT_CHANCE()) {
+			setHomeCity(plot()->getPlotCity());
+		}
+	}
+
 	if (isBlockading()) {
 		collectBlockadeGold();
 	}

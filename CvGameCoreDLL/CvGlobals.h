@@ -808,6 +808,7 @@ public:
 	inline int getWAR_SUCCESS_CITY_CAPTURING() { return m_iWAR_SUCCESS_CITY_CAPTURING; }
 	inline int getTGA_RELIGIONS() { return m_iTGA_RELIGIONS; }
 	inline int getTGA_CORPORATIONS() { return m_iTGA_CORPORATIONS; }
+	inline int getREHOME_PERCENT_CHANCE() { return m_iREHOME_PERCENT_CHANCE; }
 
 	inline bool getACO_DEBUG() { return m_bACO_DEBUG; }
 	inline bool getACO_ENABLED() { return m_bACO_ENABLED; }
@@ -1313,6 +1314,7 @@ protected:
 	int m_iWAR_SUCCESS_CITY_CAPTURING;
 	int m_iTGA_RELIGIONS;
 	int m_iTGA_CORPORATIONS;
+	int m_iREHOME_PERCENT_CHANCE;
 
 	bool m_bACO_ENABLED;
 	bool m_bACO_DEBUG;

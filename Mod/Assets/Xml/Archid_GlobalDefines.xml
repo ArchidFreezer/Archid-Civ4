@@ -420,4 +420,9 @@
 		<DefineName>GAMEFONT_TGA_CORPORATIONS</DefineName>
 		<iDefineIntVal>138</iDefineIntVal>
 	</Define>
+<!-- Home City -->
+	<Define>
+		<DefineName>REHOME_PERCENT_CHANCE</DefineName>
+		<iDefineIntVal>5</iDefineIntVal>
+	</Define>
 </Civ4Defines>
