@@ -13323,6 +13323,10 @@ CvTraitInfo::CvTraitInfo() :
 	m_iMaxGlobalBuildingProductionModifier(0),
 	m_iMaxTeamBuildingProductionModifier(0),
 	m_iMaxPlayerBuildingProductionModifier(0),
+	m_iUnitRangeChange(0),
+	m_iUnitRangePercentChange(0),
+	m_bUnitRangeUnbound(false),
+	m_bUnitTerritoryUnbound(false),
 	m_paiExtraYieldThreshold(NULL),
 	m_paiTradeYieldModifier(NULL),
 	m_paiCommerceChange(NULL),
@@ -13345,6 +13349,22 @@ CvTraitInfo::~CvTraitInfo() {
 	SAFE_DELETE_ARRAY(m_paiCommerceModifier);
 	SAFE_DELETE_ARRAY(m_pabFreePromotionUnitCombat);
 	SAFE_DELETE_ARRAY(m_pabFreePromotion);
+}
+
+int CvTraitInfo::getUnitRangeChange() const {
+	return m_iUnitRangeChange;
+}
+
+int CvTraitInfo::getUnitRangePercentChange() const {
+	return m_iUnitRangePercentChange;
+}
+
+bool CvTraitInfo::isUnitRangeUnbound() const {
+	return m_bUnitRangeUnbound;
+}
+
+bool CvTraitInfo::isUnitTerritoryUnbound() const {
+	return m_bUnitTerritoryUnbound;
 }
 
 int CvTraitInfo::getHealth() const {
@@ -13445,6 +13465,10 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iMaxGlobalBuildingProductionModifier, "iMaxGlobalBuildingProductionModifier");
 	pXML->GetChildXmlValByName(&m_iMaxTeamBuildingProductionModifier, "iMaxTeamBuildingProductionModifier");
 	pXML->GetChildXmlValByName(&m_iMaxPlayerBuildingProductionModifier, "iMaxPlayerBuildingProductionModifier");
+	pXML->GetChildXmlValByName(&m_bUnitRangeUnbound, "bUnitRangeUnbound");
+	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
+	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
+	pXML->GetChildXmlValByName(&m_iUnitRangePercentChange, "iUnitRangePercentChange");
 	pXML->SetList(&m_paiExtraYieldThreshold, "ExtraYieldThresholds", NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiTradeYieldModifier, "TradeYieldModifiers", NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiCommerceChange, "CommerceChanges", NUM_COMMERCE_TYPES);

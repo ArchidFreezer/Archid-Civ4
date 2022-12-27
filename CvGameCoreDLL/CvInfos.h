@@ -4121,6 +4121,11 @@ public:
 	int getMaxGlobalBuildingProductionModifier() const;				// Exposed to Python
 	int getMaxTeamBuildingProductionModifier() const;				// Exposed to Python
 	int getMaxPlayerBuildingProductionModifier() const;				// Exposed to Python
+	int getUnitRangeChange() const;
+	int getUnitRangePercentChange() const;
+
+	bool isUnitRangeUnbound() const;
+	bool isUnitTerritoryUnbound() const;
 
 	const TCHAR* getShortDescription() const;				// Exposed to Python
 	void setShortDescription(const TCHAR* szVal);
@@ -4151,6 +4156,11 @@ protected:
 	int m_iMaxGlobalBuildingProductionModifier;
 	int m_iMaxTeamBuildingProductionModifier;
 	int m_iMaxPlayerBuildingProductionModifier;
+	int m_iUnitRangeChange;
+	int m_iUnitRangePercentChange;
+
+	bool m_bUnitRangeUnbound;
+	bool m_bUnitTerritoryUnbound;
 
 	CvString m_szShortDescription;
 
