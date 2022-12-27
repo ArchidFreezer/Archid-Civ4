@@ -9154,61 +9154,66 @@ void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue) {
 
 		int iChange = ((isHasPromotion(eIndex)) ? 1 : -1);
 
-		changeBlitzCount((GC.getPromotionInfo(eIndex).isBlitz()) ? iChange : 0);
-		changeAmphibCount((GC.getPromotionInfo(eIndex).isAmphib()) ? iChange : 0);
-		changeRiverCount((GC.getPromotionInfo(eIndex).isRiver()) ? iChange : 0);
-		changeEnemyRouteCount((GC.getPromotionInfo(eIndex).isEnemyRoute()) ? iChange : 0);
-		changeAlwaysHealCount((GC.getPromotionInfo(eIndex).isAlwaysHeal()) ? iChange : 0);
-		changeHillsDoubleMoveCount((GC.getPromotionInfo(eIndex).isHillsDoubleMove()) ? iChange : 0);
-		changeImmuneToFirstStrikesCount((GC.getPromotionInfo(eIndex).isImmuneToFirstStrikes()) ? iChange : 0);
+		const CvPromotionInfo& kPromotion = kPromotion;
+		changeBlitzCount(kPromotion.isBlitz() ? iChange : 0);
+		changeAmphibCount(kPromotion.isAmphib() ? iChange : 0);
+		changeRiverCount(kPromotion.isRiver() ? iChange : 0);
+		changeEnemyRouteCount(kPromotion.isEnemyRoute() ? iChange : 0);
+		changeAlwaysHealCount(kPromotion.isAlwaysHeal() ? iChange : 0);
+		changeHillsDoubleMoveCount(kPromotion.isHillsDoubleMove() ? iChange : 0);
+		changeImmuneToFirstStrikesCount(kPromotion.isImmuneToFirstStrikes() ? iChange : 0);
+		changeRangeUnboundCount(kPromotion.isUnitRangeUnbound() ? iChange : 0);
+		changeTerritoryUnboundCount(kPromotion.isUnitTerritoryUnbound() ? iChange : 0);
 
-		changeExtraVisibilityRange(GC.getPromotionInfo(eIndex).getVisibilityChange() * iChange);
-		changeExtraMoves(GC.getPromotionInfo(eIndex).getMovesChange() * iChange);
-		changeExtraMoveDiscount(GC.getPromotionInfo(eIndex).getMoveDiscountChange() * iChange);
-		changeExtraAirRange(GC.getPromotionInfo(eIndex).getAirRangeChange() * iChange);
-		changeExtraIntercept(GC.getPromotionInfo(eIndex).getInterceptChange() * iChange);
-		changeExtraEvasion(GC.getPromotionInfo(eIndex).getEvasionChange() * iChange);
-		changeExtraFirstStrikes(GC.getPromotionInfo(eIndex).getFirstStrikesChange() * iChange);
-		changeExtraChanceFirstStrikes(GC.getPromotionInfo(eIndex).getChanceFirstStrikesChange() * iChange);
-		changeExtraWithdrawal(GC.getPromotionInfo(eIndex).getWithdrawalChange() * iChange);
-		changeExtraCollateralDamage(GC.getPromotionInfo(eIndex).getCollateralDamageChange() * iChange);
-		changeExtraBombardRate(GC.getPromotionInfo(eIndex).getBombardRateChange() * iChange);
-		changeExtraEnemyHeal(GC.getPromotionInfo(eIndex).getEnemyHealChange() * iChange);
-		changeExtraNeutralHeal(GC.getPromotionInfo(eIndex).getNeutralHealChange() * iChange);
-		changeExtraFriendlyHeal(GC.getPromotionInfo(eIndex).getFriendlyHealChange() * iChange);
-		changeSameTileHeal(GC.getPromotionInfo(eIndex).getSameTileHealChange() * iChange);
-		changeAdjacentTileHeal(GC.getPromotionInfo(eIndex).getAdjacentTileHealChange() * iChange);
-		changeExtraCombatPercent(GC.getPromotionInfo(eIndex).getCombatPercent() * iChange);
-		changeExtraCityAttackPercent(GC.getPromotionInfo(eIndex).getCityAttackPercent() * iChange);
-		changeExtraCityDefensePercent(GC.getPromotionInfo(eIndex).getCityDefensePercent() * iChange);
-		changeExtraHillsAttackPercent(GC.getPromotionInfo(eIndex).getHillsAttackPercent() * iChange);
-		changeExtraHillsDefensePercent(GC.getPromotionInfo(eIndex).getHillsDefensePercent() * iChange);
-		changeRevoltProtection(GC.getPromotionInfo(eIndex).getRevoltProtection() * iChange);
-		changeCollateralDamageProtection(GC.getPromotionInfo(eIndex).getCollateralDamageProtection() * iChange);
-		changePillageChange(GC.getPromotionInfo(eIndex).getPillageChange() * iChange);
-		changeUpgradeDiscount(GC.getPromotionInfo(eIndex).getUpgradeDiscount() * iChange);
-		changeExperiencePercent(GC.getPromotionInfo(eIndex).getExperiencePercent() * iChange);
-		changeKamikazePercent((GC.getPromotionInfo(eIndex).getKamikazePercent()) * iChange);
-		changeCargoSpace(GC.getPromotionInfo(eIndex).getCargoChange() * iChange);
+		changeExtraVisibilityRange(kPromotion.getVisibilityChange() * iChange);
+		changeExtraMoves(kPromotion.getMovesChange() * iChange);
+		changeExtraMoveDiscount(kPromotion.getMoveDiscountChange() * iChange);
+		changeExtraAirRange(kPromotion.getAirRangeChange() * iChange);
+		changeExtraIntercept(kPromotion.getInterceptChange() * iChange);
+		changeExtraEvasion(kPromotion.getEvasionChange() * iChange);
+		changeExtraFirstStrikes(kPromotion.getFirstStrikesChange() * iChange);
+		changeExtraChanceFirstStrikes(kPromotion.getChanceFirstStrikesChange() * iChange);
+		changeExtraWithdrawal(kPromotion.getWithdrawalChange() * iChange);
+		changeExtraCollateralDamage(kPromotion.getCollateralDamageChange() * iChange);
+		changeExtraBombardRate(kPromotion.getBombardRateChange() * iChange);
+		changeExtraEnemyHeal(kPromotion.getEnemyHealChange() * iChange);
+		changeExtraNeutralHeal(kPromotion.getNeutralHealChange() * iChange);
+		changeExtraFriendlyHeal(kPromotion.getFriendlyHealChange() * iChange);
+		changeSameTileHeal(kPromotion.getSameTileHealChange() * iChange);
+		changeAdjacentTileHeal(kPromotion.getAdjacentTileHealChange() * iChange);
+		changeExtraCombatPercent(kPromotion.getCombatPercent() * iChange);
+		changeExtraCityAttackPercent(kPromotion.getCityAttackPercent() * iChange);
+		changeExtraCityDefensePercent(kPromotion.getCityDefensePercent() * iChange);
+		changeExtraHillsAttackPercent(kPromotion.getHillsAttackPercent() * iChange);
+		changeExtraHillsDefensePercent(kPromotion.getHillsDefensePercent() * iChange);
+		changeRevoltProtection(kPromotion.getRevoltProtection() * iChange);
+		changeCollateralDamageProtection(kPromotion.getCollateralDamageProtection() * iChange);
+		changePillageChange(kPromotion.getPillageChange() * iChange);
+		changeUpgradeDiscount(kPromotion.getUpgradeDiscount() * iChange);
+		changeExperiencePercent(kPromotion.getExperiencePercent() * iChange);
+		changeKamikazePercent((kPromotion.getKamikazePercent()) * iChange);
+		changeCargoSpace(kPromotion.getCargoChange() * iChange);
+		changeExtraRange(kPromotion.getUnitRangeChange() * iChange);
+		changeExtraRangePercent(kPromotion.getUnitRangePercentChange() * iChange);
 
-		for (int iI = 0; iI < GC.getNumTerrainInfos(); iI++) {
-			changeExtraTerrainAttackPercent(((TerrainTypes)iI), (GC.getPromotionInfo(eIndex).getTerrainAttackPercent(iI) * iChange));
-			changeExtraTerrainDefensePercent(((TerrainTypes)iI), (GC.getPromotionInfo(eIndex).getTerrainDefensePercent(iI) * iChange));
-			changeTerrainDoubleMoveCount(((TerrainTypes)iI), ((GC.getPromotionInfo(eIndex).getTerrainDoubleMove(iI)) ? iChange : 0));
+		for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
+			changeExtraTerrainAttackPercent(eTerrain, kPromotion.getTerrainAttackPercent(eTerrain) * iChange);
+			changeExtraTerrainDefensePercent(eTerrain, kPromotion.getTerrainDefensePercent(eTerrain) * iChange);
+			changeTerrainDoubleMoveCount(eTerrain, kPromotion.getTerrainDoubleMove(eTerrain) ? iChange : 0);
 		}
 
-		for (int iI = 0; iI < GC.getNumFeatureInfos(); iI++) {
-			changeExtraFeatureAttackPercent(((FeatureTypes)iI), (GC.getPromotionInfo(eIndex).getFeatureAttackPercent(iI) * iChange));
-			changeExtraFeatureDefensePercent(((FeatureTypes)iI), (GC.getPromotionInfo(eIndex).getFeatureDefensePercent(iI) * iChange));
-			changeFeatureDoubleMoveCount(((FeatureTypes)iI), ((GC.getPromotionInfo(eIndex).getFeatureDoubleMove(iI)) ? iChange : 0));
+		for (FeatureTypes eFeature = (FeatureTypes)0; eFeature < GC.getNumFeatureInfos(); eFeature = (FeatureTypes)(eFeature + 1)) {
+			changeExtraFeatureAttackPercent(eFeature, kPromotion.getFeatureAttackPercent(eFeature) * iChange);
+			changeExtraFeatureDefensePercent(eFeature, kPromotion.getFeatureDefensePercent(eFeature) * iChange);
+			changeFeatureDoubleMoveCount(eFeature, kPromotion.getFeatureDoubleMove(eFeature) ? iChange : 0);
 		}
 
-		for (int iI = 0; iI < GC.getNumUnitCombatInfos(); iI++) {
-			changeExtraUnitCombatModifier(((UnitCombatTypes)iI), (GC.getPromotionInfo(eIndex).getUnitCombatModifierPercent(iI) * iChange));
+		for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+			changeExtraUnitCombatModifier(eUnitCombat, kPromotion.getUnitCombatModifierPercent(eUnitCombat) * iChange);
 		}
 
-		for (int iI = 0; iI < NUM_DOMAIN_TYPES; iI++) {
-			changeExtraDomainModifier(((DomainTypes)iI), (GC.getPromotionInfo(eIndex).getDomainModifierPercent(iI) * iChange));
+		for (DomainTypes eDomain = (DomainTypes)0; eDomain < NUM_DOMAIN_TYPES; eDomain = (DomainTypes)(eDomain + 1)) {
+			changeExtraDomainModifier(eDomain, kPromotion.getDomainModifierPercent(eDomain) * iChange);
 		}
 
 		if (IsSelected()) {

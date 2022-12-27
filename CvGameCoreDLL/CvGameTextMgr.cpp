@@ -5061,17 +5061,27 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_IMMUNE_FIRST_STRIKES_TEXT"));
 	}
 
-	for (int iI = 0; iI < GC.getNumTerrainInfos(); ++iI) {
-		if (kPromotion.getTerrainDoubleMove(iI)) {
+	if (kPromotion.isUnitRangeUnbound()) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_RANGE_UNBOUND"));
+	}
+
+	if (kPromotion.isUnitTerritoryUnbound()) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_TERRITORY_UNBOUND"));
+	}
+
+	for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
+		if (kPromotion.getTerrainDoubleMove(eTerrain)) {
 			szBuffer.append(pcNewline);
-			szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_DOUBLE_MOVE_TEXT", GC.getTerrainInfo((TerrainTypes)iI).getTextKeyWide()));
+			szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_DOUBLE_MOVE_TEXT", GC.getTerrainInfo(eTerrain).getTextKeyWide()));
 		}
 	}
 
-	for (int iI = 0; iI < GC.getNumFeatureInfos(); ++iI) {
-		if (kPromotion.getFeatureDoubleMove(iI)) {
+	for (FeatureTypes eFeature = (FeatureTypes)0; eFeature < GC.getNumFeatureInfos(); eFeature = (FeatureTypes)(eFeature + 1)) {
+		if (kPromotion.getFeatureDoubleMove(eFeature)) {
 			szBuffer.append(pcNewline);
-			szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_DOUBLE_MOVE_TEXT", GC.getFeatureInfo((FeatureTypes)iI).getTextKeyWide()));
+			szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_DOUBLE_MOVE_TEXT", GC.getFeatureInfo(eFeature).getTextKeyWide()));
 		}
 	}
 
@@ -5088,6 +5098,16 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 	if (kPromotion.getMoveDiscountChange() != 0) {
 		szBuffer.append(pcNewline);
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_MOVE_DISCOUNT_TEXT", -(kPromotion.getMoveDiscountChange())));
+	}
+
+	if (kPromotion.getUnitRangeChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_RANGE_CHANGE", kPromotion.getUnitRangeChange()));
+	}
+
+	if (kPromotion.getUnitRangePercentChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_RANGE_MODIFY", kPromotion.getUnitRangePercentChange()));
 	}
 
 	if (kPromotion.getAirRangeChange() != 0) {
@@ -5230,41 +5250,41 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_KAMIKAZE_TEXT", kPromotion.getKamikazePercent()));
 	}
 
-	for (int iI = 0; iI < GC.getNumTerrainInfos(); ++iI) {
-		if (kPromotion.getTerrainAttackPercent(iI) != 0) {
+	for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
+		if (kPromotion.getTerrainAttackPercent(eTerrain) != 0) {
 			szBuffer.append(pcNewline);
-			szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_ATTACK_TEXT", kPromotion.getTerrainAttackPercent(iI), GC.getTerrainInfo((TerrainTypes)iI).getTextKeyWide()));
+			szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_ATTACK_TEXT", kPromotion.getTerrainAttackPercent(eTerrain), GC.getTerrainInfo(eTerrain).getTextKeyWide()));
 		}
 
-		if (kPromotion.getTerrainDefensePercent(iI) != 0) {
+		if (kPromotion.getTerrainDefensePercent(eTerrain) != 0) {
 			szBuffer.append(pcNewline);
-			szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_DEFENSE_TEXT", kPromotion.getTerrainDefensePercent(iI), GC.getTerrainInfo((TerrainTypes)iI).getTextKeyWide()));
-		}
-	}
-
-	for (int iI = 0; iI < GC.getNumFeatureInfos(); ++iI) {
-		if (kPromotion.getFeatureAttackPercent(iI) != 0) {
-			szBuffer.append(pcNewline);
-			szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_ATTACK_TEXT", kPromotion.getFeatureAttackPercent(iI), GC.getFeatureInfo((FeatureTypes)iI).getTextKeyWide()));
-		}
-
-		if (kPromotion.getFeatureDefensePercent(iI) != 0) {
-			szBuffer.append(pcNewline);
-			szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_DEFENSE_TEXT", kPromotion.getFeatureDefensePercent(iI), GC.getFeatureInfo((FeatureTypes)iI).getTextKeyWide()));
+			szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_DEFENSE_TEXT", kPromotion.getTerrainDefensePercent(eTerrain), GC.getTerrainInfo(eTerrain).getTextKeyWide()));
 		}
 	}
 
-	for (int iI = 0; iI < GC.getNumUnitCombatInfos(); ++iI) {
-		if (kPromotion.getUnitCombatModifierPercent(iI) != 0) {
+	for (FeatureTypes eFeature = (FeatureTypes)0; eFeature < GC.getNumFeatureInfos(); eFeature = (FeatureTypes)(eFeature + 1)) {
+		if (kPromotion.getFeatureAttackPercent(eFeature) != 0) {
 			szBuffer.append(pcNewline);
-			szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_VERSUS_TEXT", kPromotion.getUnitCombatModifierPercent(iI), GC.getUnitCombatInfo((UnitCombatTypes)iI).getTextKeyWide()));
+			szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_ATTACK_TEXT", kPromotion.getFeatureAttackPercent(eFeature), GC.getFeatureInfo(eFeature).getTextKeyWide()));
+		}
+
+		if (kPromotion.getFeatureDefensePercent(eFeature) != 0) {
+			szBuffer.append(pcNewline);
+			szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_DEFENSE_TEXT", kPromotion.getFeatureDefensePercent(eFeature), GC.getFeatureInfo(eFeature).getTextKeyWide()));
 		}
 	}
 
-	for (int iI = 0; iI < NUM_DOMAIN_TYPES; ++iI) {
-		if (kPromotion.getDomainModifierPercent(iI) != 0) {
+	for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+		if (kPromotion.getUnitCombatModifierPercent(eUnitCombat) != 0) {
 			szBuffer.append(pcNewline);
-			szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_VERSUS_TEXT", kPromotion.getDomainModifierPercent(iI), GC.getDomainInfo((DomainTypes)iI).getTextKeyWide()));
+			szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_VERSUS_TEXT", kPromotion.getUnitCombatModifierPercent(eUnitCombat), GC.getUnitCombatInfo(eUnitCombat).getTextKeyWide()));
+		}
+	}
+
+	for (DomainTypes eDomain = (DomainTypes)0; eDomain < NUM_DOMAIN_TYPES; eDomain = (DomainTypes)(eDomain + 1)) {
+		if (kPromotion.getDomainModifierPercent(eDomain) != 0) {
+			szBuffer.append(pcNewline);
+			szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_VERSUS_TEXT", kPromotion.getDomainModifierPercent(eDomain), GC.getDomainInfo(eDomain).getTextKeyWide()));
 		}
 	}
 

@@ -1319,6 +1319,8 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_iUpgradeDiscount(0),
 	m_iExperiencePercent(0),
 	m_iKamikazePercent(0),
+	m_iUnitRangeChange(0),
+	m_iUnitRangePercentChange(0),
 	m_bLeader(false),
 	m_bBlitz(false),
 	m_bAmphib(false),
@@ -1327,6 +1329,8 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_bAlwaysHeal(false),
 	m_bHillsDoubleMove(false),
 	m_bImmuneToFirstStrikes(false),
+	m_bUnitRangeUnbound(false),
+	m_bUnitTerritoryUnbound(false),
 	m_piTerrainAttackPercent(NULL),
 	m_piTerrainDefensePercent(NULL),
 	m_piFeatureAttackPercent(NULL),
@@ -1355,6 +1359,22 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_pbTerrainDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbUnitCombat);
+}
+
+int CvPromotionInfo::getUnitRangeChange() const {
+	return m_iUnitRangeChange;
+}
+
+int CvPromotionInfo::getUnitRangePercentChange() const {
+	return m_iUnitRangePercentChange;
+}
+
+bool CvPromotionInfo::isUnitRangeUnbound() const {
+	return m_bUnitRangeUnbound;
+}
+
+bool CvPromotionInfo::isUnitTerritoryUnbound() const {
+	return m_bUnitTerritoryUnbound;
 }
 
 int CvPromotionInfo::getLayerAnimationPath() const {
@@ -1660,6 +1680,8 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iUpgradeDiscount);
 	stream->Read(&m_iExperiencePercent);
 	stream->Read(&m_iKamikazePercent);
+	stream->Read(&m_iUnitRangeChange);
+	stream->Read(&m_iUnitRangePercentChange);
 
 	stream->Read(&m_bLeader);
 	stream->Read(&m_bBlitz);
@@ -1669,6 +1691,8 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bAlwaysHeal);
 	stream->Read(&m_bHillsDoubleMove);
 	stream->Read(&m_bImmuneToFirstStrikes);
+	stream->Read(&m_bUnitRangeUnbound);
+	stream->Read(&m_bUnitTerritoryUnbound);
 
 	stream->ReadString(m_szSound);
 
@@ -1754,6 +1778,8 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iUpgradeDiscount);
 	stream->Write(m_iExperiencePercent);
 	stream->Write(m_iKamikazePercent);
+	stream->Write(m_iUnitRangeChange);
+	stream->Write(m_iUnitRangePercentChange);
 
 	stream->Write(m_bLeader);
 	stream->Write(m_bBlitz);
@@ -1763,6 +1789,8 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bAlwaysHeal);
 	stream->Write(m_bHillsDoubleMove);
 	stream->Write(m_bImmuneToFirstStrikes);
+	stream->Write(m_bUnitRangeUnbound);
+	stream->Write(m_bUnitTerritoryUnbound);
 
 	stream->WriteString(m_szSound);
 
@@ -1845,6 +1873,10 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iUpgradeDiscount, "iUpgradeDiscount");
 	pXML->GetChildXmlValByName(&m_iExperiencePercent, "iExperiencePercent");
 	pXML->GetChildXmlValByName(&m_iKamikazePercent, "iKamikazePercent");
+	pXML->GetChildXmlValByName(&m_bUnitRangeUnbound, "bUnitRangeUnbound");
+	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
+	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
+	pXML->GetChildXmlValByName(&m_iUnitRangePercentChange, "iUnitRangePercentChange");
 
 	pXML->SetListPairInfo(&m_piTerrainAttackPercent, "TerrainAttacks", GC.getNumTerrainInfos());
 	pXML->SetListPairInfo(&m_piTerrainDefensePercent, "TerrainDefenses", GC.getNumTerrainInfos());

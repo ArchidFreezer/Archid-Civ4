@@ -138,6 +138,8 @@ void CyInfoPythonInterface1() {
 		.def("getUpgradeDiscount", &CvPromotionInfo::getUpgradeDiscount, "int ()")
 		.def("getExperiencePercent", &CvPromotionInfo::getExperiencePercent, "int ()")
 		.def("getKamikazePercent", &CvPromotionInfo::getKamikazePercent, "int ()")
+		.def("getUnitRangeChange", &CvPromotionInfo::getUnitRangeChange, "int ()")
+		.def("getUnitRangePercentChange", &CvPromotionInfo::getUnitRangePercentChange, "int ()")
 
 		.def("isLeader", &CvPromotionInfo::isLeader, "bool ()")
 		.def("isBlitz", &CvPromotionInfo::isBlitz, "bool ()")
@@ -147,6 +149,8 @@ void CyInfoPythonInterface1() {
 		.def("isAlwaysHeal", &CvPromotionInfo::isAlwaysHeal, "bool ()")
 		.def("isHillsDoubleMove", &CvPromotionInfo::isHillsDoubleMove, "bool ()")
 		.def("isImmuneToFirstStrikes", &CvPromotionInfo::isImmuneToFirstStrikes, "bool ()")
+		.def("isUnitRangeUnbound", &CvPromotionInfo::isUnitRangeUnbound, "bool ()")
+		.def("isUnitTerritoryUnbound", &CvPromotionInfo::isUnitTerritoryUnbound, "bool ()")
 
 		.def("getSound", &CvPromotionInfo::getSound, "string ()")
 
