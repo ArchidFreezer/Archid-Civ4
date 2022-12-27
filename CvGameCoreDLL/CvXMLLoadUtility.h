@@ -212,6 +212,17 @@ public:
 	// get the integer value for the keyboard mapping of the hotkey if it exists
 	int GetHotKeyInt(const TCHAR* pszHotKeyVal);
 
+	// reorganizing the Corporation and Religion vectors
+	template <class T>
+	void ArrangeTGA(std::vector<T*>& aInfos, const char* szInfo);
+	template <class T>
+	void AddTGABogus(std::vector<T*>& aInfos, const char* szInfo);
+	void cleanTGA();
+	template <class T>
+	void RemoveTGABogusReligion(std::vector<T*>& aInfos);
+	template <class T>
+	void RemoveTGABogusCorporation(std::vector<T*>& aInfos);
+
 #ifdef _USRDLL
 	template <class T>
 	int SetList(T** ppList, const TCHAR* szRootTagName, int iListLength, T tDefault = 0);

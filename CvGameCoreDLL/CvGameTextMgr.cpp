@@ -9483,15 +9483,15 @@ void CvGameTextMgr::setCorporationHelp(CvWStringBuffer& szBuffer, CorporationTyp
 	if (NO_CORPORATION == eCorporation) {
 		return;
 	}
-	CvCorporationInfo& kCorporation = GC.getCorporationInfo(eCorporation);
+	const CvCorporationInfo& kCorporation = GC.getCorporationInfo(eCorporation);
 
 	if (!bCivilopedia) {
 		szBuffer.append(CvWString::format(SETCOLR L"%s" ENDCOLR, TEXT_COLOR("COLOR_HIGHLIGHT_TEXT"), kCorporation.getDescription()));
 	}
 
 	szTempBuffer.clear();
-	for (int iI = 0; iI < NUM_YIELD_TYPES; ++iI) {
-		int iYieldProduced = GC.getCorporationInfo(eCorporation).getYieldProduced((YieldTypes)iI);
+	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+		int iYieldProduced = GC.getCorporationInfo(eCorporation).getYieldProduced(eYield);
 		if (NO_PLAYER != GC.getGameINLINE().getActivePlayer()) {
 			iYieldProduced *= GC.getWorldInfo(GC.getMapINLINE().getWorldSize()).getCorporationMaintenancePercent();
 			iYieldProduced /= 100;
@@ -9506,12 +9506,12 @@ void CvGameTextMgr::setCorporationHelp(CvWStringBuffer& szBuffer, CorporationTyp
 				szTempBuffer += CvWString::format(L"%s%d%c",
 					iYieldProduced > 0 ? L"+" : L"",
 					iYieldProduced / 100,
-					GC.getYieldInfo((YieldTypes)iI).getChar());
+					GC.getYieldInfo(eYield).getChar());
 			} else {
 				szTempBuffer += CvWString::format(L"%s%.2f%c",
 					iYieldProduced > 0 ? L"+" : L"",
 					0.01f * abs(iYieldProduced),
-					GC.getYieldInfo((YieldTypes)iI).getChar());
+					GC.getYieldInfo(eYield).getChar());
 			}
 		}
 	}
@@ -9522,8 +9522,8 @@ void CvGameTextMgr::setCorporationHelp(CvWStringBuffer& szBuffer, CorporationTyp
 	}
 
 	szTempBuffer.clear();
-	for (int iI = 0; iI < NUM_COMMERCE_TYPES; ++iI) {
-		int iCommerceProduced = GC.getCorporationInfo(eCorporation).getCommerceProduced((CommerceTypes)iI);
+	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+		int iCommerceProduced = GC.getCorporationInfo(eCorporation).getCommerceProduced(eCommerce);
 		if (NO_PLAYER != GC.getGameINLINE().getActivePlayer()) {
 			iCommerceProduced *= GC.getWorldInfo(GC.getMapINLINE().getWorldSize()).getCorporationMaintenancePercent();
 			iCommerceProduced /= 100;
@@ -9537,12 +9537,12 @@ void CvGameTextMgr::setCorporationHelp(CvWStringBuffer& szBuffer, CorporationTyp
 				szTempBuffer += CvWString::format(L"%s%d%c",
 					iCommerceProduced > 0 ? L"+" : L"",
 					iCommerceProduced / 100,
-					GC.getCommerceInfo((CommerceTypes)iI).getChar());
+					GC.getCommerceInfo(eCommerce).getChar());
 			} else {
 				szTempBuffer += CvWString::format(L"%s%.2f%c",
 					iCommerceProduced > 0 ? L"+" : L"",
 					0.01f * abs(iCommerceProduced),
-					GC.getCommerceInfo((CommerceTypes)iI).getChar());
+					GC.getCommerceInfo(eCommerce).getChar());
 			}
 
 		}
@@ -9560,18 +9560,20 @@ void CvGameTextMgr::setCorporationHelp(CvWStringBuffer& szBuffer, CorporationTyp
 		}
 	}
 
-	szBuffer.append(NEWLINE);
-	szBuffer.append(gDLL->getText("TXT_KEY_CORPORATION_BONUS_REQUIRED"));
 	bool bFirst = true;
-	for (int i = 0; i < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++i) {
-		if (NO_BONUS != kCorporation.getPrereqBonus(i)) {
-			if (bFirst) {
-				bFirst = false;
-			} else {
-				szBuffer.append(L", ");
-			}
+	{
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_CORPORATION_BONUS_REQUIRED"));
+		for (int iPrereqBonus = 0; iPrereqBonus < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++iPrereqBonus) {
+			if (NO_BONUS != kCorporation.getPrereqBonus(iPrereqBonus)) {
+				if (bFirst) {
+					bFirst = false;
+				} else {
+					szBuffer.append(L", ");
+				}
 
-			szBuffer.append(CvWString::format(L"%c", GC.getBonusInfo((BonusTypes)kCorporation.getPrereqBonus(i)).getChar()));
+				szBuffer.append(gDLL->getText("TXT_KEY_CORPORATION_BONUS_CONSUMES", GC.getBonusInfo((BonusTypes)kCorporation.getPrereqBonus(iPrereqBonus)).getTextKeyWide(), GC.getBonusInfo((BonusTypes)kCorporation.getPrereqBonus(iPrereqBonus)).getChar()));
+			}
 		}
 	}
 
@@ -9596,15 +9598,15 @@ void CvGameTextMgr::setCorporationHelp(CvWStringBuffer& szBuffer, CorporationTyp
 
 	std::vector<CorporationTypes> aCompetingCorps;
 	bFirst = true;
-	for (int iCorporation = 0; iCorporation < GC.getNumCorporationInfos(); ++iCorporation) {
-		if (iCorporation != eCorporation) {
+	for (CorporationTypes eLoopCorporation = (CorporationTypes)0; eLoopCorporation < GC.getNumCorporationInfos(); eLoopCorporation = (CorporationTypes)(eLoopCorporation + 1)) {
+		if (eLoopCorporation != eCorporation) {
 			bool bCompeting = false;
 
-			CvCorporationInfo& kLoopCorporation = GC.getCorporationInfo((CorporationTypes)iCorporation);
-			for (int i = 0; i < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++i) {
-				if (kCorporation.getPrereqBonus(i) != NO_BONUS) {
-					for (int j = 0; j < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++j) {
-						if (kLoopCorporation.getPrereqBonus(j) == kCorporation.getPrereqBonus(i)) {
+			CvCorporationInfo& kLoopCorporation = GC.getCorporationInfo(eLoopCorporation);
+			for (int iBonus1 = 0; iBonus1 < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++iBonus1) {
+				if (kCorporation.getPrereqBonus(iBonus1) != NO_BONUS) {
+					for (int iBonus2 = 0; iBonus2 < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++iBonus2) {
+						if (kLoopCorporation.getPrereqBonus(iBonus2) == kCorporation.getPrereqBonus(iBonus1)) {
 							bCompeting = true;
 							break;
 						}
@@ -12103,25 +12105,25 @@ void CvGameTextMgr::buildCityBillboardIconString(CvWStringBuffer& szBuffer, CvCi
 	}
 
 	// religion icons
-	for (int iI = 0; iI < GC.getNumReligionInfos(); ++iI) {
-		if (pCity->isHasReligion((ReligionTypes)iI)) {
-			if (pCity->isHolyCity((ReligionTypes)iI)) {
-				szBuffer.append(CvWString::format(L"%c", GC.getReligionInfo((ReligionTypes)iI).getHolyCityChar()));
+	for (ReligionTypes eReligion = (ReligionTypes)0; eReligion < GC.getNumReligionInfos(); eReligion = (ReligionTypes)(eReligion + 1)) {
+		if (pCity->isHasReligion(eReligion)) {
+			if (pCity->isHolyCity(eReligion)) {
+				szBuffer.append(CvWString::format(L"%c", GC.getReligionInfo(eReligion).getHolyCityChar()));
 			} else {
-				szBuffer.append(CvWString::format(L"%c", GC.getReligionInfo((ReligionTypes)iI).getChar()));
+				szBuffer.append(CvWString::format(L"%c", GC.getReligionInfo(eReligion).getChar()));
 			}
 		}
 	}
 
 	// corporation icons
-	for (int iI = 0; iI < GC.getNumCorporationInfos(); ++iI) {
-		if (pCity->isHeadquarters((CorporationTypes)iI)) {
-			if (pCity->isHasCorporation((CorporationTypes)iI)) {
-				szBuffer.append(CvWString::format(L"%c", GC.getCorporationInfo((CorporationTypes)iI).getHeadquarterChar()));
+	for (CorporationTypes eCorporation = (CorporationTypes)0; eCorporation < GC.getNumCorporationInfos(); eCorporation = (CorporationTypes)(eCorporation + 1)) {
+		if (pCity->isHeadquarters(eCorporation)) {
+			if (pCity->isHasCorporation(eCorporation)) {
+				szBuffer.append(CvWString::format(L"%c", GC.getCorporationInfo(eCorporation).getHeadquarterChar()));
 			}
 		} else {
-			if (pCity->isActiveCorporation((CorporationTypes)iI)) {
-				szBuffer.append(CvWString::format(L"%c", GC.getCorporationInfo((CorporationTypes)iI).getChar()));
+			if (pCity->isActiveCorporation(eCorporation)) {
+				szBuffer.append(CvWString::format(L"%c", GC.getCorporationInfo(eCorporation).getChar()));
 			}
 		}
 	}
@@ -13611,56 +13613,62 @@ void CvGameTextMgr::getTurnTimerText(CvWString& strText) {
 void CvGameTextMgr::getFontSymbols(std::vector< std::vector<wchar> >& aacSymbols, std::vector<int>& aiMaxNumRows) {
 	aacSymbols.push_back(std::vector<wchar>());
 	aiMaxNumRows.push_back(1);
-	for (int iI = 0; iI < NUM_YIELD_TYPES; iI++) {
-		aacSymbols[aacSymbols.size() - 1].push_back((wchar)GC.getYieldInfo((YieldTypes)iI).getChar());
+	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+		aacSymbols[aacSymbols.size() - 1].push_back((wchar)GC.getYieldInfo(eYield).getChar());
 	}
+
+	aacSymbols.push_back(std::vector<wchar>());
+	aiMaxNumRows.push_back(2); // There are 26 rows of 25 icons each from the start of religions to the start of the generic symbols, 23 to the beginning of property symbols
+	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+		aacSymbols[aacSymbols.size() - 1].push_back((wchar)GC.getCommerceInfo(eCommerce).getChar());
+	}
+
+	aacSymbols.push_back(std::vector<wchar>());
+	aiMaxNumRows.push_back(23); // There are 26 rows of 25 icons each from the start of religions to the start of the generic symbols, 23 to the beginning of property symbols
+	for (ReligionTypes eReligion = (ReligionTypes)0; eReligion < GC.getNumReligionInfos(); eReligion = (ReligionTypes)(eReligion + 1)) {
+		aacSymbols[aacSymbols.size() - 1].push_back((wchar)GC.getReligionInfo(eReligion).getChar());
+		aacSymbols[aacSymbols.size() - 1].push_back((wchar)GC.getReligionInfo(eReligion).getHolyCityChar());
+	}
+	for (CorporationTypes eCorporation = (CorporationTypes)0; eCorporation < GC.getNumCorporationInfos(); eCorporation = (CorporationTypes)(eCorporation + 1)) {
+		aacSymbols[aacSymbols.size() - 1].push_back((wchar)GC.getCorporationInfo(eCorporation).getChar());
+		aacSymbols[aacSymbols.size() - 1].push_back((wchar)GC.getCorporationInfo(eCorporation).getHeadquarterChar());
+	}
+
+	aacSymbols.push_back(std::vector<wchar>());
+	aiMaxNumRows.push_back(3); // There are 3 rows of 25 icons each from the start of property symbols to the start of the generic symbols
 
 	aacSymbols.push_back(std::vector<wchar>());
 	aiMaxNumRows.push_back(2);
-	for (int iI = 0; iI < NUM_COMMERCE_TYPES; iI++) {
-		aacSymbols[aacSymbols.size() - 1].push_back((wchar)GC.getCommerceInfo((CommerceTypes)iI).getChar());
-	}
-
-	aacSymbols.push_back(std::vector<wchar>());
-	aiMaxNumRows.push_back(2);
-	for (int iI = 0; iI < GC.getNumReligionInfos(); iI++) {
-		aacSymbols[aacSymbols.size() - 1].push_back((wchar)GC.getReligionInfo((ReligionTypes)iI).getChar());
-		aacSymbols[aacSymbols.size() - 1].push_back((wchar)GC.getReligionInfo((ReligionTypes)iI).getHolyCityChar());
-	}
-	for (int iI = 0; iI < GC.getNumCorporationInfos(); iI++) {
-		aacSymbols[aacSymbols.size() - 1].push_back((wchar)GC.getCorporationInfo((CorporationTypes)iI).getChar());
-		aacSymbols[aacSymbols.size() - 1].push_back((wchar)GC.getCorporationInfo((CorporationTypes)iI).getHeadquarterChar());
-	}
-
-	aacSymbols.push_back(std::vector<wchar>());
-	aiMaxNumRows.push_back(3);
-	for (int iI = 0; iI < GC.getNumBonusInfos(); iI++) {
-		aacSymbols[aacSymbols.size() - 1].push_back((wchar)GC.getBonusInfo((BonusTypes)iI).getChar());
-	}
-
-	aacSymbols.push_back(std::vector<wchar>());
-	aiMaxNumRows.push_back(3);
 	for (int iI = 0; iI < MAX_NUM_SYMBOLS; iI++) {
 		aacSymbols[aacSymbols.size() - 1].push_back((wchar)gDLL->getSymbolID(iI));
+	}
+
+	aacSymbols.push_back(std::vector<wchar>());
+	aiMaxNumRows.push_back(10);
+	for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
+		int iChar = GC.getBonusInfo(eBonus).getChar();
+		aacSymbols[aacSymbols.size() - 1].push_back((wchar)iChar);
 	}
 }
 
 void CvGameTextMgr::assignFontIds(int iFirstSymbolCode, int iPadAmount) {
-	int iCurSymbolID = iFirstSymbolCode;
+	int iCurSymbolID = iFirstSymbolCode;  // first symbol code = 8483
 
 	// set yield symbols
-	for (int i = 0; i < NUM_YIELD_TYPES; i++) {
-		GC.getYieldInfo((YieldTypes)i).setChar(iCurSymbolID);
+	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+		GC.getYieldInfo(eYield).setChar(iCurSymbolID);
 		++iCurSymbolID;
 	}
 
 	do {
 		++iCurSymbolID;
 	} while (iCurSymbolID % iPadAmount != 0);
+
+	//8500
 
 	// set commerce symbols
-	for (int i = 0; i < GC.getNUM_COMMERCE_TYPES(); i++) {
-		GC.getCommerceInfo((CommerceTypes)i).setChar(iCurSymbolID);
+	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+		GC.getCommerceInfo(eCommerce).setChar(iCurSymbolID);
 		++iCurSymbolID;
 	}
 
@@ -13668,66 +13676,65 @@ void CvGameTextMgr::assignFontIds(int iFirstSymbolCode, int iPadAmount) {
 		++iCurSymbolID;
 	} while (iCurSymbolID % iPadAmount != 0);
 
+	//8525
 	if (NUM_COMMERCE_TYPES < iPadAmount) {
 		do {
 			++iCurSymbolID;
 		} while (iCurSymbolID % iPadAmount != 0);
 	}
 
-	for (int i = 0; i < GC.getNumReligionInfos(); i++) {
-		GC.getReligionInfo((ReligionTypes)i).setChar(iCurSymbolID);
+	//8550
+	for (ReligionTypes eReligion = (ReligionTypes)0; eReligion < GC.getNumReligionInfos(); eReligion = (ReligionTypes)(eReligion + 1)) {
+		CvReligionInfo& kReligion = GC.getReligionInfo(eReligion);
+		kReligion.setChar(iCurSymbolID);
 		++iCurSymbolID;
-		GC.getReligionInfo((ReligionTypes)i).setHolyCityChar(iCurSymbolID);
-		++iCurSymbolID;
-	}
-	for (int i = 0; i < GC.getNumCorporationInfos(); i++) {
-		GC.getCorporationInfo((CorporationTypes)i).setChar(iCurSymbolID);
-		++iCurSymbolID;
-		GC.getCorporationInfo((CorporationTypes)i).setHeadquarterChar(iCurSymbolID);
+		kReligion.setHolyCityChar(iCurSymbolID);
 		++iCurSymbolID;
 	}
 
+	//8826
+	for (CorporationTypes eCorporation = (CorporationTypes)0; eCorporation < GC.getNumCorporationInfos(); eCorporation = (CorporationTypes)(eCorporation + 1)) {
+		CvCorporationInfo& kCorporation = GC.getCorporationInfo(eCorporation);
+		kCorporation.setChar(iCurSymbolID);
+		++iCurSymbolID;
+		kCorporation.setHeadquarterChar(iCurSymbolID);
+		++iCurSymbolID;
+	}
+
+	//9102
 	do {
 		++iCurSymbolID;
 	} while (iCurSymbolID % iPadAmount != 0);
-
+	//9125
 	if (2 * (GC.getNumReligionInfos() + GC.getNumCorporationInfos()) < iPadAmount) {
 		do {
 			++iCurSymbolID;
 		} while (iCurSymbolID % iPadAmount != 0);
 	}
 
-	// set bonus symbols
-	int bonusBaseID = iCurSymbolID;
-	++iCurSymbolID;
-	for (int i = 0; i < GC.getNumBonusInfos(); i++) {
-		int bonusID = bonusBaseID + GC.getBonusInfo((BonusTypes)i).getArtInfo()->getFontButtonIndex();
-		GC.getBonusInfo((BonusTypes)i).setChar(bonusID);
-		++iCurSymbolID;
-	}
+	int iSavePosition = iCurSymbolID;
 
+	// set bonus symbols
+	int bonusBaseID = iSavePosition + 125;
+	for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
+		CvBonusInfo& kBonus = GC.getBonusInfo(eBonus);
+		int bonusID = bonusBaseID + kBonus.getArtInfo()->getFontButtonIndex();
+		kBonus.setChar(bonusID);
+	}
+	// 9206
+	iCurSymbolID = iSavePosition + 125;
+	iCurSymbolID -= MAX_NUM_SYMBOLS;
 	do {
-		++iCurSymbolID;
+		--iCurSymbolID;
 	} while (iCurSymbolID % iPadAmount != 0);
 
-	if (GC.getNumBonusInfos() < iPadAmount) {
-		do {
-			++iCurSymbolID;
-		} while (iCurSymbolID % iPadAmount != 0);
-	}
-
-	if (GC.getNumBonusInfos() < 2 * iPadAmount) {
-		do {
-			++iCurSymbolID;
-		} while (iCurSymbolID % iPadAmount != 0);
-	}
-
-	// set extra symbols
-	for (int i = 0; i < MAX_NUM_SYMBOLS; i++) {
-		gDLL->setSymbolID(i, iCurSymbolID);
+	// modified Sephi
+		// set extra symbols
+	for (int iI = 0; iI < MAX_NUM_SYMBOLS; iI++) {
+		gDLL->setSymbolID(iI, iCurSymbolID);
 		++iCurSymbolID;
 	}
-}
+} // 9226
 
 void CvGameTextMgr::getCityDataForAS(std::vector<CvWBData>& mapCityList, std::vector<CvWBData>& mapBuildingList, std::vector<CvWBData>& mapAutomateList) {
 	const CvPlayer& kActivePlayer = GET_PLAYER(GC.getGameINLINE().getActivePlayer());

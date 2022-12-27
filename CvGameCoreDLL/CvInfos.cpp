@@ -12848,6 +12848,7 @@ CvReligionInfo::CvReligionInfo() :
 	m_iNumFreeUnits(0),
 	m_iSpreadFactor(0),
 	m_iMissionType(NO_MISSION),
+	m_iTGAIndex(-1),
 	m_paiGlobalReligionCommerce(NULL),
 	m_paiHolyCityCommerce(NULL),
 	m_paiStateReligionCommerce(NULL) {
@@ -12871,8 +12872,16 @@ int CvReligionInfo::getChar() const {
 	return m_iChar;
 }
 
+int CvReligionInfo::getTGAIndex() const {
+	return m_iTGAIndex;
+}
+
+void CvReligionInfo::setTGAIndex(int i) {
+	m_iTGAIndex = i;
+}
+
 void CvReligionInfo::setChar(int i) {
-	m_iChar = i;
+	m_iChar = 8550 + m_iTGAIndex * 2;
 }
 
 int CvReligionInfo::getHolyCityChar() const {
@@ -12880,7 +12889,7 @@ int CvReligionInfo::getHolyCityChar() const {
 }
 
 void CvReligionInfo::setHolyCityChar(int i) {
-	m_iHolyCityChar = i;
+	m_iHolyCityChar = 8551 + m_iTGAIndex * 2;
 }
 
 int CvReligionInfo::getTechPrereq() const {
@@ -13018,6 +13027,7 @@ bool CvReligionInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(&m_iNumFreeUnits, "iFreeUnits");
 	pXML->GetChildXmlValByName(&m_iSpreadFactor, "iSpreadFactor");
+	pXML->GetChildXmlValByName(&m_iTGAIndex, "iTGAIndex");
 	pXML->SetList(&m_paiGlobalReligionCommerce, "GlobalReligionCommerces", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_paiHolyCityCommerce, "HolyCityCommerces", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_paiStateReligionCommerce, "StateReligionCommerces", NUM_COMMERCE_TYPES);
@@ -13064,6 +13074,7 @@ CvCorporationInfo::CvCorporationInfo() :
 	m_iMaintenance(0),
 	m_iMissionType(NO_MISSION),
 	m_iBonusProduced(NO_BONUS),
+	m_iTGAIndex(-1),
 	m_paiPrereqBonuses(NULL),
 	m_paiHeadquarterCommerce(NULL),
 	m_paiCommerceProduced(NULL),
@@ -13089,8 +13100,16 @@ int CvCorporationInfo::getChar() const {
 	return m_iChar;
 }
 
+int CvCorporationInfo::getTGAIndex() const {
+	return m_iTGAIndex;
+}
+
+void CvCorporationInfo::setTGAIndex(int i) {
+	m_iTGAIndex = i;
+}
+
 void CvCorporationInfo::setChar(int i) {
-	m_iChar = i;
+	m_iChar = 8550 + (TGA_RELIGIONS + m_iTGAIndex) * 2;
 }
 
 int CvCorporationInfo::getHeadquarterChar() const {
@@ -13098,7 +13117,7 @@ int CvCorporationInfo::getHeadquarterChar() const {
 }
 
 void CvCorporationInfo::setHeadquarterChar(int i) {
-	m_iHeadquarterChar = i;
+	m_iHeadquarterChar = 8551 + (TGA_RELIGIONS + m_iTGAIndex) * 2;
 }
 
 int CvCorporationInfo::getTechPrereq() const {
@@ -13215,6 +13234,7 @@ bool CvCorporationInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iSpreadFactor, "iSpreadFactor");
 	pXML->GetChildXmlValByName(&m_iSpreadCost, "iSpreadCost");
 	pXML->GetChildXmlValByName(&m_iMaintenance, "iMaintenance");
+	pXML->GetChildXmlValByName(&m_iTGAIndex, "iTGAIndex");
 	pXML->SetList(&m_paiHeadquarterCommerce, "HeadquarterCommerces", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_paiCommerceProduced, "CommercesProduced", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_paiYieldProduced, "YieldsProduced", NUM_YIELD_TYPES);

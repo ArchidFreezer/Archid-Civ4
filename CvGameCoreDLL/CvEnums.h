@@ -6,6 +6,7 @@
 // enums.h
 
 #include "CvDefines.h"
+#include "Archid.h"
 
 enum GameStateTypes					// Exposed to Python
 {
@@ -932,6 +933,9 @@ enum FontSymbols					// Exposed to Python
 	MAP_CHAR,
 	OCCUPATION_CHAR,
 	POWER_CHAR,
+	CITIZEN_CHAR,
+	GREAT_GENERAL_CHAR,
+	AIRPORT_CHAR,
 
 #ifdef _USRDLL
 	MAX_NUM_SYMBOLS

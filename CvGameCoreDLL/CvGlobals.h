@@ -806,6 +806,8 @@ public:
 	inline int getTECH_DIFFUSION_WELFARE_THRESHOLD() { return m_iTECH_DIFFUSION_WELFARE_THRESHOLD; }
 	inline int getTECH_DIFFUSION_WELFARE_MODIFIER() { return m_iTECH_DIFFUSION_WELFARE_MODIFIER; }
 	inline int getWAR_SUCCESS_CITY_CAPTURING() { return m_iWAR_SUCCESS_CITY_CAPTURING; }
+	inline int getTGA_RELIGIONS() { return m_iTGA_RELIGIONS; }
+	inline int getTGA_CORPORATIONS() { return m_iTGA_CORPORATIONS; }
 
 	inline bool getACO_DEBUG() { return m_bACO_DEBUG; }
 	inline bool getACO_ENABLED() { return m_bACO_ENABLED; }
@@ -1309,6 +1311,8 @@ protected:
 	int m_iUSE_ON_UNIT_CREATED_CALLBACK;
 	int m_iUSE_ON_UNIT_LOST_CALLBACK;
 	int m_iWAR_SUCCESS_CITY_CAPTURING;
+	int m_iTGA_RELIGIONS;
+	int m_iTGA_CORPORATIONS;
 
 	bool m_bACO_ENABLED;
 	bool m_bACO_DEBUG;

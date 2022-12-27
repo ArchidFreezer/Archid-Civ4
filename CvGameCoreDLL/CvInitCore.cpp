@@ -9,6 +9,7 @@
 #include "CvDLLUtilityIFaceBase.h"
 #include "CvGameAI.h"
 #include "CvGameCoreUtils.h"
+#include "CvXMLLoadUtility.h"
 
 // Public Functions...
 
@@ -115,6 +116,10 @@ void CvInitCore::reset(GameMode eMode) {
 	if (getMode() != NO_GAMEMODE) {
 		setDefaults();
 	}
+
+	CvXMLLoadUtility* pXMLLoadUtility = new CvXMLLoadUtility;
+	pXMLLoadUtility->cleanTGA();
+	SAFE_DELETE(pXMLLoadUtility);
 }
 
 void CvInitCore::setDefaults() {

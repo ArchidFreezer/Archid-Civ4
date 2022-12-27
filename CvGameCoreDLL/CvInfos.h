@@ -3949,6 +3949,8 @@ public:
 	int getSpreadFactor() const;				// Exposed to Python
 	int getMissionType() const;					// Exposed to Python
 	void setMissionType(int iNewType);
+	int getTGAIndex() const;
+	void setTGAIndex(int i);
 
 	const TCHAR* getTechButton() const;				// Exposed to Python
 	void setTechButton(const TCHAR* szVal);
@@ -3988,6 +3990,7 @@ protected:
 	int m_iNumFreeUnits;
 	int m_iSpreadFactor;
 	int m_iMissionType;
+	int m_iTGAIndex;
 
 	CvString m_szTechButton;
 	CvString m_szGenericTechButton;
@@ -4029,6 +4032,8 @@ public:
 	int getMaintenance() const;				// Exposed to Python
 	int getMissionType() const;					// Exposed to Python
 	void setMissionType(int iNewType);
+	int getTGAIndex() const;
+	void setTGAIndex(int i);
 
 	int getBonusProduced() const;					// Exposed to Python
 
@@ -4063,6 +4068,7 @@ protected:
 	int m_iMaintenance;
 	int m_iMissionType;
 	int m_iBonusProduced;
+	int m_iTGAIndex;
 
 	CvString m_szMovieFile;
 	CvString m_szMovieSound;

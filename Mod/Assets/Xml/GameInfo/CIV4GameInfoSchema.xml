@@ -167,6 +167,7 @@
 	<ElementType name="iSpreadFactor" content="textOnly" dt:type="int"/>
 	<ElementType name="iSpreadCost" content="textOnly" dt:type="int"/>
 	<ElementType name="iMaintenance" content="textOnly" dt:type="int"/>
+	<ElementType name="iTGAIndex" content="textOnly" dt:type="int"/>
 	<ElementType name="iGlobalReligionCommerce" content="textOnly" dt:type="int"/>
 	<ElementType name="GlobalReligionCommerces" content="eltOnly">
 		<element type="iGlobalReligionCommerce" maxOccurs="*"/>
@@ -206,6 +207,7 @@
 		<element type="FreeUnitClass" minOccurs="0"/>
 		<element type="iFreeUnits" minOccurs="0"/>
 		<element type="iSpreadFactor" minOccurs="0"/>
+		<element type="iTGAIndex"/>
 		<element type="GlobalReligionCommerces" minOccurs="0"/>
 		<element type="HolyCityCommerces" minOccurs="0"/>
 		<element type="StateReligionCommerces" minOccurs="0"/>
@@ -229,6 +231,7 @@
 		<element type="iSpreadFactor" minOccurs="0"/>
 		<element type="iSpreadCost" minOccurs="0"/>
 		<element type="iMaintenance" minOccurs="0"/>
+		<element type="iTGAIndex"/>
 		<element type="PrereqBonuses" minOccurs="0"/>
 		<element type="HeadquarterCommerces" minOccurs="0"/>
 		<element type="BonusProduced" minOccurs="0"/>

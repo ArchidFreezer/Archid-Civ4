@@ -13,6 +13,7 @@
 			<iSpreadFactor>200</iSpreadFactor>
 			<iSpreadCost>50</iSpreadCost>
 			<iMaintenance>100</iMaintenance>
+			<iTGAIndex>0</iTGAIndex>
 			<PrereqBonuses>
 				<BonusType>BONUS_WHEAT</BonusType>
 				<BonusType>BONUS_CORN</BonusType>
@@ -37,6 +38,7 @@
 			<iSpreadFactor>200</iSpreadFactor>
 			<iSpreadCost>50</iSpreadCost>
 			<iMaintenance>100</iMaintenance>
+			<iTGAIndex>1</iTGAIndex>
 			<PrereqBonuses>
 				<BonusType>BONUS_CRAB</BonusType>
 				<BonusType>BONUS_CLAM</BonusType>
@@ -64,6 +66,7 @@
 			<iSpreadFactor>200</iSpreadFactor>
 			<iSpreadCost>50</iSpreadCost>
 			<iMaintenance>100</iMaintenance>
+			<iTGAIndex>2</iTGAIndex>
 			<PrereqBonuses>
 				<BonusType>BONUS_CORN</BonusType>
 				<BonusType>BONUS_SUGAR</BonusType>
@@ -87,6 +90,7 @@
 			<iSpreadFactor>200</iSpreadFactor>
 			<iSpreadCost>50</iSpreadCost>
 			<iMaintenance>100</iMaintenance>
+			<iTGAIndex>3</iTGAIndex>
 			<PrereqBonuses>
 				<BonusType>BONUS_IRON</BonusType>
 				<BonusType>BONUS_COPPER</BonusType>
@@ -116,6 +120,7 @@
 			<iSpreadFactor>200</iSpreadFactor>
 			<iSpreadCost>50</iSpreadCost>
 			<iMaintenance>120</iMaintenance>
+			<iTGAIndex>4</iTGAIndex>
 			<PrereqBonuses>
 				<BonusType>BONUS_COAL</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
@@ -140,6 +145,7 @@
 			<iSpreadFactor>200</iSpreadFactor>
 			<iSpreadCost>50</iSpreadCost>
 			<iMaintenance>100</iMaintenance>
+			<iTGAIndex>5</iTGAIndex>
 			<PrereqBonuses>
 				<BonusType>BONUS_COAL</BonusType>
 			</PrereqBonuses>
@@ -161,6 +167,7 @@
 			<iSpreadFactor>200</iSpreadFactor>
 			<iSpreadCost>50</iSpreadCost>
 			<iMaintenance>100</iMaintenance>
+			<iTGAIndex>6</iTGAIndex>
 			<PrereqBonuses>
 				<BonusType>BONUS_GOLD</BonusType>
 				<BonusType>BONUS_SILVER</BonusType>

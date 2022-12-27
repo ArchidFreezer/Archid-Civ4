@@ -214,6 +214,8 @@ void CvXMLLoadUtility::readXMLfiles(bool bFirst) {
 
 
 	if (!bFirst) {
+		ArrangeTGA(GC.getReligionInfo(), "CIV4ReligionInfo");
+		ArrangeTGA(GC.getCorporationInfo(), "CIV4CorporationInfo");
 		SetGlobalActionInfo();
 	}
 
@@ -830,6 +832,9 @@ bool CvXMLLoadUtility::LoadPreMenuGlobals() {
 			GC.getNumAIPlayableCivilizationInfos() += 1;
 		}
 	}
+
+	AddTGABogus(GC.getCorporationInfo(), "CIV4CorporationInfo");
+	AddTGABogus(GC.getReligionInfo(), "CIV4ReligionInfo");
 
 	UpdateProgressCB("GlobalOther");
 
@@ -2056,4 +2061,199 @@ DllExport bool CvXMLLoadUtility::LoadGraphicOptions() {
 
 	DestroyFXml();
 	return true;
+}
+
+// reorganizing the Corporation and Religion vectors
+template <class T>
+void CvXMLLoadUtility::ArrangeTGA(std::vector<T*>& aInfos, const char* szInfo) {
+	int iMinIndex;
+	CvString szDebugBuffer;
+
+	T* pTempClassInfo = new T;	// Temp to store while swapping positions
+
+	FAssert(NULL != pTempClassInfo);
+	if (NULL == pTempClassInfo) {
+		return;
+	}
+
+	CvString verify = CvString::format("%s", szInfo).GetCString();  //string comparison
+
+	if (verify == "CIV4ReligionInfo") {
+#ifdef DEBUG_TGA_LOADING
+		GC.logInfoTypeMap("Before religion game font rearranging");
+		// loop through the religions see what we've got
+		szDebugBuffer.Format("=== BEFORE %s TGA indices. ===", szInfo);
+		gDLL->logMsg("CvXMLLoadUtility_ArrangeTGA.log", szDebugBuffer.c_str());
+		for (std::vector<T*>::const_iterator it = aInfos.begin(); it != aInfos.end(); it++) {
+			szDebugBuffer.Format("* Religion %s: TGA index %i; type ID %i", (*it)->getType(), (*it)->getTGAIndex(), GC.getInfoTypeForString((*it)->getType()));
+			gDLL->logMsg("CvXMLLoadUtility_ArrangeTGA.log", szDebugBuffer.c_str());
+
+		}
+#endif
+		for (int iReligion = 0; iReligion < (int)aInfos.size(); iReligion++) {
+			iMinIndex = iReligion;
+
+			// if we found the Religion with the proper GTAIndex, make sure it's on the right spot in the aInfos vector
+			for (int iReligionCheck = iReligion + 1; iReligionCheck < (int)aInfos.size(); iReligionCheck++) {
+				if (GC.getReligionInfo((ReligionTypes)iReligionCheck).getTGAIndex() < GC.getReligionInfo((ReligionTypes)iMinIndex).getTGAIndex()) {
+					iMinIndex = iReligionCheck;
+				}
+			}
+
+			if (iMinIndex != iReligion) {
+#ifdef DEBUG_TGA_LOADING
+				szDebugBuffer.Format(" * Found candidates to swap: %i <-> %i", iMinIndex, iReligion);
+				gDLL->logMsg("CvXMLLoadUtility_ArrangeTGA.log", szDebugBuffer.c_str());
+#endif
+
+				int iOldType1 = GC.getInfoTypeForString(aInfos[iReligion]->getType());
+				int iOldType2 = GC.getInfoTypeForString(aInfos[iMinIndex]->getType());
+
+#ifdef DEBUG_TGA_LOADING
+				szDebugBuffer.Format(" -- Old info types: %s: %i <-> %s: %i", aInfos[iReligion]->getType(), iOldType1, aInfos[iMinIndex]->getType(), iOldType2);
+				gDLL->logMsg("CvXMLLoadUtility_ArrangeTGA.log", szDebugBuffer.c_str());
+#endif
+
+				GC.setInfoTypeFromString(aInfos[iReligion]->getType(), iOldType2);
+				GC.setInfoTypeFromString(aInfos[iMinIndex]->getType(), iOldType1);
+
+				pTempClassInfo = aInfos[iReligion];			//store in temp value
+				aInfos[iReligion] = aInfos[iMinIndex];		//move iReligion to proper place
+				aInfos[iMinIndex] = pTempClassInfo;			//finish the swap
+
+#ifdef DEBUG_TGA_LOADING
+				szDebugBuffer.Format(" -- NEW info types: %s: %i <-> %s: %i", aInfos[iReligion]->getType(), GC.getInfoTypeForString(aInfos[iReligion]->getType()), aInfos[iMinIndex]->getType(), GC.getInfoTypeForString(aInfos[iMinIndex]->getType()));
+				gDLL->logMsg("CvXMLLoadUtility_ArrangeTGA.log", szDebugBuffer.c_str());
+#endif
+			}
+		}
+#ifdef DEBUG_TGA_LOADING
+		szDebugBuffer.Format("=== AFTER %s TGA indices. ===", szInfo);
+		gDLL->logMsg("CvXMLLoadUtility_ArrangeTGA.log", szDebugBuffer.c_str());
+		for (std::vector<T*>::const_iterator it = aInfos.begin(); it != aInfos.end(); it++) {
+			szDebugBuffer.Format("* Religion %s: TGA index %i; type ID %i", (*it)->getType(), (*it)->getTGAIndex(), GC.getInfoTypeForString((*it)->getType()));
+			gDLL->logMsg("CvXMLLoadUtility_ArrangeTGA.log", szDebugBuffer.c_str());
+
+		}
+
+		GC.logInfoTypeMap("After religion game font rearranging");
+#endif
+	}
+
+
+	if (verify == "CIV4CorporationInfo") {
+		// loop through the religions see what we've got
+		for (int iCorporation = 0; iCorporation < (int)aInfos.size(); iCorporation++) {
+			iMinIndex = iCorporation;
+
+			// if we found the Religion with the proper GTAIndex, make sure it's on the right spot in the aInfos vector
+			for (int iCorporationCheck = iCorporation + 1; iCorporationCheck < (int)aInfos.size(); iCorporationCheck++) {
+				if (GC.getCorporationInfo((CorporationTypes)iCorporationCheck).getTGAIndex() < GC.getCorporationInfo((CorporationTypes)iMinIndex).getTGAIndex()) {
+					iMinIndex = iCorporationCheck;
+				}
+			}
+
+			if (iMinIndex != iCorporation) {
+				pTempClassInfo = aInfos[iCorporation];			//store in temp value
+				aInfos[iCorporation] = aInfos[iMinIndex];		//move iReligion to proper place
+				aInfos[iMinIndex] = pTempClassInfo;			//finish the swap
+				// Set the InfoTypeFromString map properly according to the new alphabetical order
+				if (NULL != aInfos[iCorporation]->getType()) {
+					// overwrite existing info maps with the proper id's
+					GC.setInfoTypeFromString(aInfos[iCorporation]->getType(), iMinIndex);
+				}
+				if (NULL != aInfos[iMinIndex]->getType()) {
+					// overwrite existing info maps with the proper id's
+					GC.setInfoTypeFromString(aInfos[iMinIndex]->getType(), iCorporation);
+				}
+			}
+		}
+	}
+}
+
+template <class T>
+void CvXMLLoadUtility::AddTGABogus(std::vector<T*>& aInfos, const char* szInfo) {
+	bool bTGAInfoTypeValid = false;
+
+	T* pTempClassInfo = new T;	// Temp to store while swapping positions
+	T* pClassInfo = new T;		// Bogus InfoType
+
+	FAssert(NULL != pTempClassInfo);
+	FAssert(NULL != pClassInfo);
+	if (NULL == pClassInfo || NULL == pTempClassInfo) {
+		return;
+	}
+
+	CvString verify = CvString::format("%s", szInfo).GetCString();  //string comparison
+
+	if (verify == "CIV4ReligionInfo") {
+		for (int iI = 0; iI < TGA_RELIGIONS; iI++) {
+			bTGAInfoTypeValid = false;
+			// loop through the religions see what we've got
+			for (int iReligion = 0; iReligion < (int)aInfos.size(); iReligion++) {
+				// if we found the Religion with the proper GTAIndex, make sure it's on the right spot in the aInfos vector
+				if (GC.getReligionInfo((ReligionTypes)iReligion).getTGAIndex() == iI) {
+					bTGAInfoTypeValid = true;
+				}
+			}
+			if (!bTGAInfoTypeValid) {
+				aInfos.insert(aInfos.begin() + iI, pClassInfo);
+			}
+		}
+	}
+
+	if (verify == "CIV4CorporationInfo") {
+		for (int iI = 0; iI < TGA_CORPORATIONS; iI++) {
+			bTGAInfoTypeValid = false;
+			// loop through the religions see what we've got
+			for (int iCorporation = 0; iCorporation < (int)aInfos.size(); iCorporation++) {
+				// if we found the Religion with the proper GTAIndex, make sure it's on the right spot in the aInfos vector
+				if (GC.getCorporationInfo((CorporationTypes)iCorporation).getTGAIndex() == iI) {
+					bTGAInfoTypeValid = true;
+				}
+			}
+			if (!bTGAInfoTypeValid) {
+				aInfos.insert(aInfos.begin() + iI, pClassInfo);
+			}
+		}
+	}
+}
+
+// Made an own little function for this one in case we have to clean up any further info vectors in future
+// principly any one can be added here in future, if everything is ok, nothing will be done anyway
+void CvXMLLoadUtility::cleanTGA() {
+	RemoveTGABogusReligion(GC.getReligionInfo());
+	RemoveTGABogusCorporation(GC.getCorporationInfo());
+}
+
+template <class T>
+void CvXMLLoadUtility::RemoveTGABogusReligion(std::vector<T*>& aInfos) {
+	std::vector <int> viDeletionVector;
+
+	for (int iI = 0; iI < GC.getNumReligionInfos(); iI++) {
+		if (NULL == GC.getReligionInfo((ReligionTypes)iI).getType()) {
+			viDeletionVector.push_back(iI);
+		}
+	}
+
+	for (int iI = (int)viDeletionVector.size() - 1; iI >= 0; iI--)	// gotta do this backwards
+	{
+		aInfos.erase(aInfos.begin() + viDeletionVector.at(iI));
+	}
+}
+
+template <class T>
+void CvXMLLoadUtility::RemoveTGABogusCorporation(std::vector<T*>& aInfos) {
+	std::vector <int> viDeletionVector;
+
+	for (int iI = 0; iI < GC.getNumCorporationInfos(); iI++) {
+		if (NULL == GC.getCorporationInfo((CorporationTypes)iI).getType()) {
+			viDeletionVector.push_back(iI);
+		}
+	}
+
+	for (int iI = (int)viDeletionVector.size() - 1; iI >= 0; iI--)	// gotta do this backwards
+	{
+		aInfos.erase(aInfos.begin() + viDeletionVector.at(iI));
+	}
 }

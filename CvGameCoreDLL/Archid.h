@@ -15,4 +15,7 @@
 #define MOD_VERSION      L"0.1"
 #define MOD_BUILD        L"1"
 
+#define TGA_RELIGIONS		GC.getTGA_RELIGIONS()
+#define TGA_CORPORATIONS	GC.getTGA_CORPORATIONS()
+
 #endif

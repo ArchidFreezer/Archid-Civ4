@@ -14,6 +14,7 @@
 			<TechPrereq>TECH_MONOTHEISM</TechPrereq>
 			<FreeUnitClass>UNITCLASS_JEWISH_MISSIONARY</FreeUnitClass>
 			<iSpreadFactor>100</iSpreadFactor>
+			<iTGAIndex>0</iTGAIndex>
 			<GlobalReligionCommerces>
 				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
 			</GlobalReligionCommerces>
@@ -43,6 +44,7 @@
 			<FreeUnitClass>UNITCLASS_CHRISTIAN_MISSIONARY</FreeUnitClass>
 			<iFreeUnits>1</iFreeUnits>
 			<iSpreadFactor>100</iSpreadFactor>
+			<iTGAIndex>5</iTGAIndex>
 			<GlobalReligionCommerces>
 				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
 			</GlobalReligionCommerces>
@@ -72,6 +74,7 @@
 			<FreeUnitClass>UNITCLASS_ISLAMIC_MISSIONARY</FreeUnitClass>
 			<iFreeUnits>1</iFreeUnits>
 			<iSpreadFactor>100</iSpreadFactor>
+			<iTGAIndex>9</iTGAIndex>
 			<GlobalReligionCommerces>
 				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
 			</GlobalReligionCommerces>
@@ -100,6 +103,7 @@
 			<TechPrereq>TECH_POLYTHEISM</TechPrereq>
 			<FreeUnitClass>UNITCLASS_HINDU_MISSIONARY</FreeUnitClass>
 			<iSpreadFactor>100</iSpreadFactor>
+			<iTGAIndex>16</iTGAIndex>
 			<GlobalReligionCommerces>
 				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
 			</GlobalReligionCommerces>
@@ -128,6 +132,7 @@
 			<TechPrereq>TECH_MEDITATION</TechPrereq>
 			<FreeUnitClass>UNITCLASS_BUDDHIST_MISSIONARY</FreeUnitClass>
 			<iSpreadFactor>100</iSpreadFactor>
+			<iTGAIndex>18</iTGAIndex>
 			<GlobalReligionCommerces>
 				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
 			</GlobalReligionCommerces>
@@ -157,6 +162,7 @@
 			<FreeUnitClass>UNITCLASS_CONFUCIAN_MISSIONARY</FreeUnitClass>
 			<iFreeUnits>1</iFreeUnits>
 			<iSpreadFactor>100</iSpreadFactor>
+			<iTGAIndex>22</iTGAIndex>
 			<GlobalReligionCommerces>
 				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
 			</GlobalReligionCommerces>
@@ -186,6 +192,7 @@
 			<FreeUnitClass>UNITCLASS_TAOIST_MISSIONARY</FreeUnitClass>
 			<iFreeUnits>1</iFreeUnits>
 			<iSpreadFactor>100</iSpreadFactor>
+			<iTGAIndex>23</iTGAIndex>
 			<GlobalReligionCommerces>
 				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
 			</GlobalReligionCommerces>

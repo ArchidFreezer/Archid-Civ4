@@ -237,6 +237,7 @@ void CyInfoPythonInterface3() {
 		.def("getNumFreeUnits", &CvReligionInfo::getNumFreeUnits, "int ()")
 		.def("getSpreadFactor", &CvReligionInfo::getSpreadFactor, "int ()")
 		.def("getMissionType", &CvReligionInfo::getMissionType, "int ()")
+		.def("getTGAIndex", &CvReligionInfo::getTGAIndex, "int ()")
 
 		.def("getTechButton", &CvReligionInfo::getTechButton, "string ()")
 		.def("getGenericTechButton", &CvReligionInfo::getGenericTechButton, "string ()")
@@ -262,6 +263,7 @@ void CyInfoPythonInterface3() {
 		.def("getSpreadCost", &CvCorporationInfo::getSpreadCost, "int ()")
 		.def("getMaintenance", &CvCorporationInfo::getMaintenance, "int ()")
 		.def("getMissionType", &CvCorporationInfo::getMissionType, "int ()")
+		.def("getTGAIndex", &CvCorporationInfo::getTGAIndex, "int ()")
 
 		.def("getMovieFile", &CvCorporationInfo::getMovieFile, "string ()")
 		.def("getMovieSound", &CvCorporationInfo::getMovieSound, "string ()")
