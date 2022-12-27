@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Game Text - New -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+<!-- System Wide -->
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_CREATED_BY_HEADER</Tag>
+		<English>Created by Archid Mod.</English>
+		<French>Created by Archid Mod.</French>
+		<German>Erstellt durch Archid Mod.</German>
+		<Italian>Creato dal Archid Mod.</Italian>
+		<Spanish>Created by Archid Mod.</Spanish>
+	</TEXT>
+</Civ4GameText>

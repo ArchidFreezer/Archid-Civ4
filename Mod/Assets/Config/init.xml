@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+	Main BUG Mod Initialization
+
+	This file initializes the BUG Core and all mods.
+
+	Copyright (c) 2008 The BUG Mod.
+-->
+<bug>
+	
+	<!-- BUG Core -->
+	
+	<load mod="BUG Config"/>
+	<load mod="BUG Core"/>
+	
+	<!-- Utility Modules -->
+	
+	<init module="FontUtil" immediate="True"/>
+	<symbol id="war" from="COMMERCE_GOLD" offset="25"/>
+	<symbol id="peace"/>
+	<symbol id="space"/>  <!-- blank symbol the same size as other standard symbols -->
+	<symbol id="militaryinstructor" name="MILITARY_INSTRUCTOR"/>
+	<symbol id="land" name="DOMAIN_LAND"/>
+	<symbol id="sea" name="DOMAIN_SEA"/>
+	<symbol id="air" name="DOMAIN_AIR"/>
+	<symbol id="sentry" name="ORDER_SENTRY"/>
+	<symbol id="fortify" name="ORDER_FORTIFY"/>
+	<symbol id="wait" name="ORDER_WAIT"/>
+	<symbol id="upgrade"/>
+	<symbol id="cancel"/>
+	<symbol id="ss casing" from="HAPPY" offset="-25"/>
+	<symbol id="ss cockpit"/>
+	<symbol id="ss docking bay"/>
+	<symbol id="ss engine"/>
+	<symbol id="ss life support"/>
+	<symbol id="ss stasis chamber"/>
+	<symbol id="ss thruster"/>
+	<symbol id="citizen" from="POWER" offset="1"/>
+	<symbol id="greatgeneral" name="GREAT_GENERAL"/>
+	
+	<init module="ColorUtil">
+		<!--
+			You can safely modify this list to change the color dropdown menus
+			for color options. You can change the text displayed in the menus by
+			adding translations for your new colors to Colors_CIV4GameText.xml
+			in the XML/Text directory. 
+		-->
+		<arg name="colors" type="tuple">
+			"COLOR_RED",
+			"COLOR_YELLOW",
+			"COLOR_CYAN",
+			"COLOR_GREEN",
+			"COLOR_BLUE",
+			"COLOR_MAGENTA",
+			"COLOR_WHITE",
+			"COLOR_LIGHT_GREY",
+			"COLOR_GREY",
+			"COLOR_DARK_GREY",
+			"COLOR_BLACK"
+		</arg>
+	</init>
+		
+</bug>

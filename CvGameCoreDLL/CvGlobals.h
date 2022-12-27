@@ -148,6 +148,7 @@ public:
 	DllExport void init();
 	DllExport void uninit();
 	DllExport void clearTypesMap();
+	void clearIniOptMaps();
 
 	DllExport CvDiplomacyScreen* getDiplomacyScreen();
 	DllExport CMPDiplomacyScreen* getMPDiplomacyScreen();
@@ -875,6 +876,19 @@ public:
 
 	// ***** END EXPOSED TO PYTHON *****
 
+	bool hasIniOptBool(const char* opt) const;
+	bool hasIniOptInt(const char* opt) const;
+	bool hasIniOptDouble(const char* opt) const;
+	bool hasIniOptString(const char* opt) const;
+	bool getIniOptBool(const char* opt) const;
+	int getIniOptInt(const char* opt) const;
+	double getIniOptDouble(const char* opt) const;
+	const char*  getIniOptString(const char* opt) const;
+	void setIniOpt(const char* opt, bool value);
+	void setIniOpt(const char* opt, int value);
+	void setIniOpt(const char* opt, double value);
+	void setIniOpt(const char* opt, CvString value);
+
 	////////////// END DEFINES //////////////////
 
 	DllExport void setDLLIFace(CvDLLUtilityIFaceBase* pDll);
@@ -1363,6 +1377,11 @@ protected:
 	bool m_bUSE_DO_RELIGION_CALLBACK;
 	bool m_bUSE_GET_EXPERIENCE_NEEDED_CALLBACK;
 	bool m_bUSE_UNIT_UPGRADE_PRICE_CALLBACK;
+
+	stdext::hash_map<std::string, bool> m_aIniOptsBool;
+	stdext::hash_map<std::string, int> m_aIniOptsInt;
+	stdext::hash_map<std::string, double> m_aIniOptsDouble;
+	stdext::hash_map<std::string, CvString> m_aIniOptsString;
 
 	// DLL interface
 	CvDLLUtilityIFaceBase* m_pDLL;

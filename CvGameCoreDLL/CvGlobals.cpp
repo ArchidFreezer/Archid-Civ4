@@ -489,6 +489,11 @@ void CvGlobals::uninit() {
 
 	m_typesMap.clear();
 	m_aInfoVectors.clear();
+	m_aIniOptsBool.clear();
+	m_aIniOptsInt.clear();
+	m_aIniOptsDouble.clear();
+	m_aIniOptsString.clear();
+
 }
 
 void CvGlobals::clearTypesMap() {
@@ -3326,3 +3331,99 @@ void CvGlobals::setBorderFinder(FAStar* pVal) { m_borderFinder = pVal; }
 void CvGlobals::setAreaFinder(FAStar* pVal) { m_areaFinder = pVal; }
 void CvGlobals::setPlotGroupFinder(FAStar* pVal) { m_plotGroupFinder = pVal; }
 CvDLLUtilityIFaceBase* CvGlobals::getDLLIFaceNonInl() { return m_pDLL; }
+
+///////////////// Cache Ini file values
+void CvGlobals::clearIniOptMaps() {
+	m_aIniOptsBool.clear();
+	m_aIniOptsInt.clear();
+	m_aIniOptsDouble.clear();
+	m_aIniOptsString.clear();
+}
+
+bool CvGlobals::hasIniOptBool(const char* opt) const {
+	FAssertMsg(opt, "null ini opt string");
+	stdext::hash_map<std::string, bool>::const_iterator it = m_aIniOptsBool.find(opt);
+	return it != m_aIniOptsBool.end();
+}
+
+bool CvGlobals::hasIniOptInt(const char* opt) const {
+	FAssertMsg(opt, "null ini opt string");
+	stdext::hash_map<std::string, int>::const_iterator it = m_aIniOptsInt.find(opt);
+	return it != m_aIniOptsInt.end();
+}
+
+bool CvGlobals::hasIniOptDouble(const char* opt) const {
+	FAssertMsg(opt, "null ini opt string");
+	stdext::hash_map<std::string, double>::const_iterator it = m_aIniOptsDouble.find(opt);
+	return it != m_aIniOptsDouble.end();
+}
+
+bool CvGlobals::hasIniOptString(const char* opt) const {
+	FAssertMsg(opt, "null ini opt string");
+	stdext::hash_map<std::string, CvString>::const_iterator it = m_aIniOptsString.find(opt);
+	return it != m_aIniOptsString.end();
+}
+
+bool CvGlobals::getIniOptBool(const char* opt) const {
+	FAssertMsg(opt, "null ini opt string");
+	stdext::hash_map<std::string, bool>::const_iterator it = m_aIniOptsBool.find(opt);
+	if (it != m_aIniOptsBool.end()) {
+		return it->second;
+	}
+
+	return false;
+}
+
+int CvGlobals::getIniOptInt(const char* opt) const {
+	FAssertMsg(opt, "null ini opt string");
+	stdext::hash_map<std::string, int>::const_iterator it = m_aIniOptsInt.find(opt);
+	if (it != m_aIniOptsInt.end()) {
+		return it->second;
+	}
+
+	return -1;
+}
+
+double CvGlobals::getIniOptDouble(const char* opt) const {
+	FAssertMsg(opt, "null ini opt string");
+	stdext::hash_map<std::string, double>::const_iterator it = m_aIniOptsDouble.find(opt);
+	if (it != m_aIniOptsDouble.end()) {
+		return it->second;
+	}
+
+	return -1;
+}
+
+const char* CvGlobals::getIniOptString(const char* opt) const {
+	FAssertMsg(opt, "null ini opt string");
+	stdext::hash_map<std::string, CvString>::const_iterator it = m_aIniOptsString.find(opt);
+	if (it != m_aIniOptsString.end()) {
+		return it->second;
+	}
+
+	return NULL;
+}
+
+void CvGlobals::setIniOpt(const char* opt, bool value) {
+	FAssertMsg(opt, "null ini opt string");
+	FAssertMsg(m_aIniOptsBool.find(opt) == m_aIniOptsBool.end(), "ini entry already exists");
+	m_aIniOptsBool[opt] = value;
+}
+
+void CvGlobals::setIniOpt(const char* opt, int value) {
+	FAssertMsg(opt, "null ini opt string");
+	FAssertMsg(m_aIniOptsInt.find(opt) == m_aIniOptsInt.end(), "ini entry already exists");
+	m_aIniOptsInt[opt] = value;
+}
+
+void CvGlobals::setIniOpt(const char* opt, double value) {
+	FAssertMsg(opt, "null ini opt string");
+	FAssertMsg(m_aIniOptsDouble.find(opt) == m_aIniOptsDouble.end(), "ini entry already exists");
+	m_aIniOptsDouble[opt] = value;
+}
+
+void CvGlobals::setIniOpt(const char* opt, CvString value) {
+	FAssertMsg(opt, "null ini opt string");
+	FAssertMsg(m_aIniOptsString.find(opt) == m_aIniOptsString.end(), "ini entry already exists");
+	m_aIniOptsString[opt] = value;
+}

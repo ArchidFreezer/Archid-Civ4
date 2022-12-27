@@ -624,4 +624,17 @@
 		<Spanish>[H1]Mod Components[\H1][H2][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Platy Pedia[COLOR_REVERT][\H2]Advanced Pedia with more information and sorting functions. Coded by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT]. Modified Upgrade Tree from Sevopedia originally by [COLOR_SELECTED_TEXT]Vovan[COLOR_REVERT].
 			[H2][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Platy Builder[COLOR_REVERT][\H2]Advanced World Builder with new functions and abilities. Coded by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT].</Spanish>
 	</TEXT>
+<!-- Archid Options -->
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_TITLE</Tag>
+		<English>Archid Options</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPTTAB_ERROR</Tag>
+		<English>Error</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPTTAB_ERROR_LABEL</Tag>
+		<English>Error</English>
+	</TEXT>
 </Civ4GameText>

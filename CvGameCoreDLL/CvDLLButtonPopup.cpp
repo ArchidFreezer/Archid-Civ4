@@ -40,6 +40,7 @@ static enum MainMenuOptions {
 	MM_LOAD_GAME,
 	MM_SAVE_GAME,
 	MM_OPTIONS,
+	MM_ARCHID_OPTIONS,
 	MM_ENTER_WB,
 	MM_GAME_DETAILS,
 	MM_PLAYER_DETAILS,
@@ -146,6 +147,9 @@ void CvDLLButtonPopup::OnOkClicked(CvPopup* pPopup, PopupReturn* pPopupReturn, C
 			break;
 		case MM_OPTIONS:
 			gDLL->getPythonIFace()->callFunction("CvScreensInterface", "showOptionsScreen");
+			break;
+		case MM_ARCHID_OPTIONS:
+			gDLL->getPythonIFace()->callFunction("CvScreensInterface", "showArchidOptionsScreen");
 			break;
 		case MM_ENTER_WB:
 			GC.getGameINLINE().doControl(CONTROL_WORLD_BUILDER); // K-Mod
@@ -1734,6 +1738,9 @@ bool CvDLLButtonPopup::launchMainMenuPopup(CvPopup* pPopup, CvPopupInfo& info) {
 		gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_POPUP_SAVE_GAME").c_str(), NULL, MM_SAVE_GAME, WIDGET_GENERAL, MM_SAVE_GAME, 0, true, POPUP_LAYOUT_STRETCH, DLL_FONT_CENTER_JUSTIFY);
 	}
 	gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_POPUP_OPTIONS").c_str(), NULL, MM_OPTIONS, WIDGET_GENERAL, MM_OPTIONS, 0, true, POPUP_LAYOUT_STRETCH, DLL_FONT_CENTER_JUSTIFY);
+
+	// Add the Archid options button
+	gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_ARCHID_OPT_TITLE").c_str(), NULL, MM_ARCHID_OPTIONS, WIDGET_GENERAL, MM_ARCHID_OPTIONS, 0, true, POPUP_LAYOUT_STRETCH, DLL_FONT_CENTER_JUSTIFY);
 
 	if (GC.getGameINLINE().canDoControl(CONTROL_WORLD_BUILDER)) {
 		gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_POPUP_ENTER_WB").c_str(), NULL, MM_ENTER_WB, WIDGET_GENERAL, MM_ENTER_WB, 0, true, POPUP_LAYOUT_STRETCH, DLL_FONT_CENTER_JUSTIFY);

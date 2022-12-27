@@ -529,3 +529,8 @@ CvGameSpeedInfo* CyGlobalContext::getGameSpeedInfo(int i) const {
 CvTurnTimerInfo* CyGlobalContext::getTurnTimerInfo(int i) const {
 	return &(GC.getTurnTimerInfo((TurnTimerTypes)i));
 }
+
+void CyGlobalContext::clearIniOptMaps() {
+	GC.clearIniOptMaps();
+}
+

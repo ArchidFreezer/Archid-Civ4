@@ -69,6 +69,7 @@
     <ClInclude Include="CvHallOfFameInfo.h" />
     <ClInclude Include="CvInfos.h" />
     <ClInclude Include="CvInfoWater.h" />
+    <ClInclude Include="CvIniOptions.h" />
     <ClInclude Include="CvInitCore.h" />
     <ClInclude Include="CvMap.h" />
     <ClInclude Include="CvMapGenerator.h" />
@@ -129,6 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BetterBTSAI.cpp" />
+    <ClCompile Include="CvIniOptions.cpp" />
     <ClCompile Include="KmodPathFinder.cpp" />
     <ClCompile Include="_precompile.cpp" />
     <ClCompile Include="CvArea.cpp" />

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- Game Text - New -->
 <Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_DEFAULT</Tag>
+		<English>Default</English>
+		<Italian>Predefinito</Italian>
+	</TEXT>
 <!-- Unofficial Patch -->
 	<TEXT>
 		<Tag>TXT_KEY_TERRAIN_TURN_DAMAGE</Tag>

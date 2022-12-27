@@ -1,0 +1,2 @@
+# CvModName.py
+modName = "Archid"

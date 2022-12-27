@@ -169,5 +169,7 @@ void CyGlobalContextPythonInterface4(python::class_<CyGlobalContext>& x) {
 		.def("getContactTypes", &CyGlobalContext::getContactTypes, "string () - Returns enum string")
 
 		.def("getDiplomacyPowerTypes", &CyGlobalContext::getDiplomacyPowerTypes, "string () - Returns enum string")
+
+		.def("clearIniOptMaps", &CyGlobalContext::clearIniOptMaps, "void () - Clears the DLL cache of ini file option values")
 		;
 }

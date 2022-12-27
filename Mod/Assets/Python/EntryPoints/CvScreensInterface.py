@@ -78,6 +78,8 @@ import WorldTracker
 import PlatyOptions
 import ArtDefChecker
 
+import ArchidOptionsScreen
+
 def showWorldTracker(argsList):
 	if CyGame().getActivePlayer() > -1:
 		WorldTracker.WorldTracker().interfaceScreen()
@@ -127,6 +129,10 @@ def showCorporationScreen():
 optionsScreen = CvOptionsScreen.CvOptionsScreen()
 def showOptionsScreen():
 	optionsScreen.interfaceScreen()
+
+archidOptionsScreen = ArchidOptionsScreen.ArchidOptionsScreen()
+def showArchidOptionsScreen():
+	archidOptionsScreen.interfaceScreen()
 
 foreignAdvisor = CvExoticForeignAdvisor.CvExoticForeignAdvisor()
 def showForeignAdvisorScreen(argsList):
