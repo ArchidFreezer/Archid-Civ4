@@ -1009,6 +1009,7 @@
 	<ElementType name="AudioUnitVictoryScript" content="textOnly"/>
 	<ElementType name="AudioUnitDefeatScript" content="textOnly"/>
 	<ElementType name="iAdvancedStartPoints" content="textOnly" dt:type="int"/>
+	<ElementType name="iMaxCities" content="textOnly" dt:type="int"/>
 	<ElementType name="EraInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -1023,6 +1024,7 @@
 		<element type="iStartingWorkerUnits" minOccurs="0"/>
 		<element type="iStartingExploreUnits" minOccurs="0"/>
 		<element type="iStartingGold" minOccurs="0"/>
+		<element type="iMaxCities" minOccurs="0"/>
 		<element type="iFreePopulation" minOccurs="0"/>
 		<element type="iStartPercent" minOccurs="0"/>
 		<element type="iGrowthPercent" minOccurs="0"/>

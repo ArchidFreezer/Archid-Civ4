@@ -1166,26 +1166,28 @@ bool CvDLLButtonPopup::launchDiploVotePopup(CvPopup* pPopup, CvPopupInfo& info) 
 
 
 bool CvDLLButtonPopup::launchRazeCityPopup(CvPopup* pPopup, CvPopupInfo& info) {
-	CvPlayer& player = GET_PLAYER(GC.getGameINLINE().getActivePlayer());
+	CvPlayer& kPlayer = GET_PLAYER(GC.getGameINLINE().getActivePlayer());
 
-	CvCity* pNewCity = player.getCity(info.getData1());
+	CvCity* pNewCity = kPlayer.getCity(info.getData1());
 	if (NULL == pNewCity) {
 		FAssert(false);
 		return (false);
 	}
 
 	if (0 != GC.getDefineINT("PLAYER_ALWAYS_RAZES_CITIES")) {
-		player.raze(pNewCity);
+		kPlayer.raze(pNewCity);
 		return false;
 	}
 
 	PlayerTypes eHighestCulturePlayer = (PlayerTypes)info.getData2();
 
+	TeamTypes eTeam = kPlayer.getTeam();
+
 	int iCaptureGold = info.getData3();
-	bool bRaze = player.canRaze(pNewCity);
-	bool bGift = ((eHighestCulturePlayer != NO_PLAYER)
-		&& (eHighestCulturePlayer != player.getID())
-		&& ((player.getTeam() == GET_PLAYER(eHighestCulturePlayer).getTeam()) || GET_TEAM(player.getTeam()).isOpenBorders(GET_PLAYER(eHighestCulturePlayer).getTeam()) || GET_TEAM(GET_PLAYER(eHighestCulturePlayer).getTeam()).isVassal(player.getTeam())));
+	bool bRaze = kPlayer.canRaze(pNewCity);
+	bool bGift = eHighestCulturePlayer != NO_PLAYER
+		&& eHighestCulturePlayer != kPlayer.getID()
+		&& (eTeam == GET_PLAYER(eHighestCulturePlayer).getTeam() || GET_TEAM(eTeam).isOpenBorders(GET_PLAYER(eHighestCulturePlayer).getTeam()) || GET_TEAM(GET_PLAYER(eHighestCulturePlayer).getTeam()).isVassal(eTeam));
 
 	CvWString szBuffer;
 	if (iCaptureGold > 0) {
@@ -1194,9 +1196,10 @@ bool CvDLLButtonPopup::launchRazeCityPopup(CvPopup* pPopup, CvPopupInfo& info) {
 		szBuffer = gDLL->getText("TXT_KEY_POPUP_CITY_CAPTURE_KEEP", pNewCity->getNameKey());
 	}
 	gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, szBuffer);
-	gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_POPUP_KEEP_CAPTURED_CITY").c_str(), NULL, 0, WIDGET_GENERAL);
-
-	if (bRaze) {
+	if (kPlayer.canAddNewCity()) {
+		gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_POPUP_KEEP_CAPTURED_CITY").c_str(), NULL, 0, WIDGET_GENERAL);
+	}
+	if (bRaze || !kPlayer.canAddNewCity()) {
 		gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_POPUP_RAZE_CAPTURED_CITY").c_str(), NULL, 1, WIDGET_GENERAL);
 	}
 	if (bGift) {

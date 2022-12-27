@@ -15182,6 +15182,7 @@ CvEraInfo::CvEraInfo() :
 	m_iEventChancePerTurn(0),
 	m_iSoundtrackSpace(0),
 	m_iNumSoundtracks(0),
+	m_iMaxCities(0),
 	m_bNoGoodies(false),
 	m_bNoAnimals(false),
 	m_bNoBarbUnits(false),
@@ -15194,6 +15195,10 @@ CvEraInfo::CvEraInfo() :
 CvEraInfo::~CvEraInfo() {
 	SAFE_DELETE_ARRAY(m_paiCitySoundscapeSciptIds);
 	SAFE_DELETE_ARRAY(m_paiSoundtracks);
+}
+
+int CvEraInfo::getMaxCities() const {
+	return m_iMaxCities;
 }
 
 int CvEraInfo::getStartingUnitMultiplier() const {
@@ -15337,6 +15342,7 @@ bool CvEraInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iStartingExploreUnits, "iStartingExploreUnits");
 	pXML->GetChildXmlValByName(&m_iAdvancedStartPoints, "iAdvancedStartPoints");
 	pXML->GetChildXmlValByName(&m_iStartingGold, "iStartingGold");
+	pXML->GetChildXmlValByName(&m_iMaxCities, "iMaxCities", -1);
 	pXML->GetChildXmlValByName(&m_iFreePopulation, "iFreePopulation");
 	pXML->GetChildXmlValByName(&m_iStartPercent, "iStartPercent");
 	pXML->GetChildXmlValByName(&m_iGrowthPercent, "iGrowthPercent");

@@ -4477,6 +4477,10 @@ bool CvPlayer::canFound(int iX, int iY, bool bTestVisible) const {
 		}
 	}
 
+	if (!canAddNewCity()) {
+		return false;
+	}
+
 	if (pPlot->isImpassable()) {
 		return false;
 	}
@@ -4636,7 +4640,9 @@ void CvPlayer::found(int iX, int iY) {
 bool CvPlayer::canTrain(UnitTypes eUnit, bool bContinue, bool bTestVisible, bool bIgnoreCost) const {
 	PROFILE_FUNC();
 
-	UnitClassTypes eUnitClass = ((UnitClassTypes)(GC.getUnitInfo(eUnit).getUnitClassType()));
+	const CvTeam& kTeam = GET_TEAM(getTeam());
+	const CvUnitInfo& kUnit = GC.getUnitInfo(eUnit);
+	UnitClassTypes eUnitClass = (UnitClassTypes)kUnit.getUnitClassType();
 
 	// K-Mod note. This assert can fail if team games when checking whether this city can upgrade a unit to one of our team member's UUs.
 	//FAssert(GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(eUnitClass) == eUnit);
@@ -4644,38 +4650,40 @@ bool CvPlayer::canTrain(UnitTypes eUnit, bool bContinue, bool bTestVisible, bool
 		return false;
 	}
 
-	if (!bIgnoreCost) {
-		if (GC.getUnitInfo(eUnit).getProductionCost() == -1) {
-			return false;
-		}
+	if (!bIgnoreCost && kUnit.getProductionCost() == -1) {
+		return false;
 	}
 
 	if (GC.getGameINLINE().isOption(GAMEOPTION_ONE_CITY_CHALLENGE) && isHuman()) {
-		if (GC.getUnitInfo(eUnit).isFound()) {
+		if (kUnit.isFound()) {
 			return false;
 		}
 	}
 
 	if (GC.getGameINLINE().isOption(GAMEOPTION_NO_ESPIONAGE)) {
-		if (GC.getUnitInfo(eUnit).isSpy() || GC.getUnitInfo(eUnit).getEspionagePoints() > 0) {
+		if (kUnit.isSpy() || kUnit.getEspionagePoints() > 0) {
 			return false;
 		}
 	}
 
-	if (!(GET_TEAM(getTeam()).isHasTech((TechTypes)(GC.getUnitInfo(eUnit).getPrereqAndTech())))) {
+	if (!kTeam.isHasTech((TechTypes)kUnit.getPrereqAndTech())) {
+		return false;
+	}
+
+	if (kUnit.isFound() && !canAddNewCity()) {
 		return false;
 	}
 
 	for (int iI = 0; iI < GC.getNUM_UNIT_AND_TECH_PREREQS(); iI++) {
-		if (GC.getUnitInfo(eUnit).getPrereqAndTechs(iI) != NO_TECH) {
-			if (!(GET_TEAM(getTeam()).isHasTech((TechTypes)(GC.getUnitInfo(eUnit).getPrereqAndTechs(iI))))) {
+		if (kUnit.getPrereqAndTechs(iI) != NO_TECH) {
+			if (!kTeam.isHasTech((TechTypes)kUnit.getPrereqAndTechs(iI))) {
 				return false;
 			}
 		}
 	}
 
-	if (GC.getUnitInfo(eUnit).getStateReligion() != NO_RELIGION) {
-		if (getStateReligion() != GC.getUnitInfo(eUnit).getStateReligion()) {
+	if (kUnit.getStateReligion() != NO_RELIGION) {
+		if (getStateReligion() != kUnit.getStateReligion()) {
 			return false;
 		}
 	}
@@ -4688,11 +4696,11 @@ bool CvPlayer::canTrain(UnitTypes eUnit, bool bContinue, bool bTestVisible, bool
 	// Therefore these limits should be ignored for the visibility test.
 
 	if (!bTestVisible) {
-		if (GC.getGameINLINE().isUnitClassMaxedOut(eUnitClass, (GET_TEAM(getTeam()).getUnitClassMaking(eUnitClass) + ((bContinue) ? -1 : 0)))) {
+		if (GC.getGameINLINE().isUnitClassMaxedOut(eUnitClass, kTeam.getUnitClassMaking(eUnitClass) + (bContinue ? -1 : 0))) {
 			return false;
 		}
 
-		if (GET_TEAM(getTeam()).isUnitClassMaxedOut(eUnitClass, (GET_TEAM(getTeam()).getUnitClassMaking(eUnitClass) + ((bContinue) ? -1 : 0)))) {
+		if (kTeam.isUnitClassMaxedOut(eUnitClass, kTeam.getUnitClassMaking(eUnitClass) + (bContinue ? -1 : 0))) {
 			return false;
 		}
 
@@ -4701,13 +4709,13 @@ bool CvPlayer::canTrain(UnitTypes eUnit, bool bContinue, bool bTestVisible, bool
 		}
 
 		if (GC.getGameINLINE().isNoNukes() || !GC.getGameINLINE().isNukesValid()) {
-			if (GC.getUnitInfo(eUnit).getNukeRange() != -1) {
+			if (kUnit.getNukeRange() != -1) {
 				return false;
 			}
 		}
 
-		if (GC.getUnitInfo(eUnit).getSpecialUnitType() != NO_SPECIALUNIT) {
-			if (!(GC.getGameINLINE().isSpecialUnitValid((SpecialUnitTypes)(GC.getUnitInfo(eUnit).getSpecialUnitType())))) {
+		if (kUnit.getSpecialUnitType() != NO_SPECIALUNIT) {
+			if (!(GC.getGameINLINE().isSpecialUnitValid((SpecialUnitTypes)(kUnit.getSpecialUnitType())))) {
 				return false;
 			}
 		}
@@ -18137,4 +18145,9 @@ const CvArtInfoUnit* CvPlayer::getUnitArtInfo(UnitTypes eUnit, int iMeshGroup) c
 // K-Mod. I've moved the original code to a new function: CvTeam::hasSpaceshipArrived
 bool CvPlayer::hasSpaceshipArrived() const {
 	return GET_TEAM(getTeam()).hasSpaceshipArrived();
+}
+
+bool CvPlayer::canAddNewCity() const {
+	int iEraCityLimit = GC.getEraInfo(getCurrentEra()).getMaxCities();
+	return (iEraCityLimit == -1 || getNumCities() < iEraCityLimit);
 }

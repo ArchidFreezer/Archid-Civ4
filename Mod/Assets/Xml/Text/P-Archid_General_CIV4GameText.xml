@@ -599,5 +599,16 @@
 		<Tag>INTERFACE_CITY_AUTO_AVOID_GROWTH</Tag>
 		<English>[COLOR_BLUE]Avoiding Growth[COLOR_REVERT]</English>
 	</TEXT>
+<!-- Era limits city count -->
+	<TEXT>
+		<Tag>TXT_KEY_ERA_CITY_RESTRICTION</Tag>
+		<English>[ICON_BULLET]Can control up to [COLOR_HIGHLIGHT_TEXT]%d1 Cities[COLOR_REVERT]</English>
+		<Spanish>[ICON_BULLET]Puedes controlar hasta [COLOR_HIGHLIGHT_TEXT]%d1 Ciudades[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ERA_NO_CITY_RESTRICTION</Tag>
+		<English>[ICON_BULLET]Can control [COLOR_HIGHLIGHT_TEXT]Unlimited Cities[COLOR_REVERT]</English>
+		<Spanish>[ICON_BULLET]Puedes controlar [COLOR_HIGHLIGHT_TEXT]Ciudades Ilimitadas[COLOR_REVERT]</Spanish>
+	</TEXT>
 
 </Civ4GameText>

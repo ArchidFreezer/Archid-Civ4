@@ -6033,7 +6033,8 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	}
 
 	if (GC.getGameINLINE().getActivePlayer() != NO_PLAYER) {
-		if (GET_PLAYER(GC.getGameINLINE().getActivePlayer()).canResearch(eTech)) {
+		const CvPlayer& kActivePlayer = GET_PLAYER(GC.getGameINLINE().getActivePlayer());
+		if (kActivePlayer.canResearch(eTech)) {
 			for (int iI = 0; iI < GC.getNumUnitInfos(); ++iI) {
 				CvUnitInfo& kUnit = GC.getUnitInfo((UnitTypes)iI);
 
@@ -6045,7 +6046,18 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 				}
 			}
 
-			if (GET_PLAYER(GC.getGameINLINE().getActivePlayer()).getCurrentEra() < kTech.getEra()) {
+			if (kActivePlayer.getCurrentEra() < kTech.getEra()) {
+				// Check if there is a change in the max number of cities allowed based on the Era
+				int iNextEraMaxCities = GC.getEraInfo((EraTypes)GC.getTechInfo(eTech).getEra()).getMaxCities();
+				if (iNextEraMaxCities != GC.getEraInfo(kActivePlayer.getCurrentEra()).getMaxCities()) {
+					if (iNextEraMaxCities > 0) {
+						szBuffer.append(NEWLINE);
+						szBuffer.append(gDLL->getText("TXT_KEY_ERA_CITY_RESTRICTION", iNextEraMaxCities));
+					} else if (iNextEraMaxCities == -1) {
+						szBuffer.append(NEWLINE);
+						szBuffer.append(gDLL->getText("TXT_KEY_ERA_NO_CITY_RESTRICTION"));
+					}
+				}
 				szBuffer.append(NEWLINE);
 				szBuffer.append(gDLL->getText("TXT_KEY_TECH_ERA_ADVANCE", GC.getEraInfo((EraTypes)kTech.getEra()).getTextKeyWide()));
 			}

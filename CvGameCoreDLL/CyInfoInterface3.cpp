@@ -436,6 +436,7 @@ void CyInfoPythonInterface3() {
 		.def("getGreatPeoplePercent", &CvEraInfo::getGreatPeoplePercent, "int () -")
 		.def("getAnarchyPercent", &CvEraInfo::getAnarchyPercent, "int () -")
 		.def("getEventChancePerTurn", &CvEraInfo::getEventChancePerTurn, "int () -")
+		.def("getMaxCities", &CvEraInfo::getMaxCities, "int () -")
 		.def("getSoundtrackSpace", &CvEraInfo::getSoundtrackSpace, "int () -")
 		.def("isFirstSoundtrackFirst", &CvEraInfo::isFirstSoundtrackFirst, "int () -")
 		.def("getNumSoundtracks", &CvEraInfo::getNumSoundtracks, "int () -")
