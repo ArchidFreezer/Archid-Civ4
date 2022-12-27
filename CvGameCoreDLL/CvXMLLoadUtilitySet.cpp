@@ -377,6 +377,10 @@ bool CvXMLLoadUtility::SetGlobalDefines() {
 		return false;
 	}
 
+	if (!ReadGlobalDefines("xml\\Archid_GlobalDefines.xml", cache)) {
+		return false;
+	}
+
 	if (gDLL->isModularXMLLoading()) {
 		std::vector<CvString> aszFiles;
 		gDLL->enumerateFiles(aszFiles, "modules\\*_GlobalDefines.xml");
