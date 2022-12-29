@@ -296,4 +296,233 @@
 		<Italian>When checked, shows how many turns until a city will lose population if it is shrinking.</Italian>
 		<Spanish>Muestra cuántos turnos faltan para que una ciudad pierda población.</Spanish>
 	</TEXT>
+<!-- Plot Status -->
+	<TEXT> <!-- CityBar__CityControlledPlots -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__CITYCONTROLLEDPLOTS_TEXT</Tag>
+		<English>Highlight Workable Area</English>
+		<German>Bearbeitbares Gebiet hervorheben</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__CITYCONTROLLEDPLOTS_HOVER</Tag>
+		<English>When checked, highlights the area of tiles controlled by the selected city, similar to when you select a Settler.</English>
+		<German>Hebt die von der gewählten Stadt bearbeitbaren Geländefelder hervor (ähnlich wie bei Auswahl eines Siedlers)</German>
+	</TEXT>
+	<TEXT> <!-- CityBar__CityPlotStatus -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__CITYPLOTSTATUS_TEXT</Tag>
+		<English>Highlight Tile Improvability</English>
+		<German>Modernisierbares Gebiet hervorheben</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__CITYPLOTSTATUS_HOVER</Tag>
+		<English>When checked, highlights each tile controlled by the selected city using a color based on whether it's being worked and your ability to improve it.</English>
+		<German>Hebt die von der gewählten Stadt bearbeitbaren Geländefelder mit farbigen Markierungen hervor, abhängig von der tatsächlichen Bewirtschaftung und den Möglichkeiten zur Modernisierung</German>
+	</TEXT>
+	<TEXT> <!-- CityBar__WorkingImprovedPlot -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGIMPROVEDPLOT_TEXT</Tag>
+		<English>Improved</English>
+		<German>Modernisiert</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGIMPROVEDPLOT_HOVER</Tag>
+		<English>When checked, highlights tiles being worked that have already been improved.</English>
+		<German>Hebt Geländefelder hervor, die bearbeitet werden und schon modernisiert wurden</German>
+	</TEXT>
+	<TEXT> <!-- CityBar__WorkingImprovedPlotColour -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGIMPROVEDPLOTCOLOUR_TEXT</Tag>
+		<English>Colour</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGIMPROVEDPLOTCOLOUR_HOVER</Tag>
+		<English>Highlight colour of tiles being worked that have already been improved.</English>
+	</TEXT>
+	<TEXT> <!-- CityBar__WorkingImprovedPlotAlpha -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGIMPROVEDPLOTALPHA_TEXT</Tag>
+		<English>Alpha</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGIMPROVEDPLOTALPHA_HOVER</Tag>
+		<English>Highlight colour alpha value of tiles being worked that have already been improved.</English>
+	</TEXT>
+	<TEXT> <!-- CityBar__WorkingImprovablePlot -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGIMPROVABLEPLOT_TEXT</Tag>
+		<English>Improvable</English>
+		<German>Modernisierbar</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGIMPROVABLEPLOT_HOVER</Tag>
+		<English>When checked, highlights tiles being worked that can be improved.</English>
+		<German>Hebt Geländefelder hervor, die bearbeitet werden und noch modernisiert werden können</German>
+	</TEXT>
+	<TEXT> <!-- CityBar__WorkingImprovablePlotColour -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGIMPROVABLEPLOTCOLOUR_TEXT</Tag>
+		<English>Colour</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGIMPROVABLEPLOTCOLOUR_HOVER</Tag>
+		<English>Highlight colour of tiles being worked that can be improved.</English>
+	</TEXT>
+	<TEXT> <!-- CityBar__WorkingImprovablePlotAlpha -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGIMPROVABLEPLOTALPHA_TEXT</Tag>
+		<English>Alpha</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGIMPROVABLEPLOTALPHA_HOVER</Tag>
+		<English>Highlight colour alpha value of tiles being worked that can be improved.</English>
+	</TEXT>
+	<TEXT> <!-- CityBar__WorkingImprovableBonusPlot -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGIMPROVABLEBONUSPLOT_TEXT</Tag>
+		<English>Improvable w. Bonus</English>
+		<German>Modernisierbar mit Bonus</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGIMPROVABLEBONUSPLOT_HOVER</Tag>
+		<English>When checked, highlights tiles being worked that can be improved to provide a bonus.</English>
+		<German>Hebt Geländefelder hervor, die bearbeitet werden und modernisiert werden können, um einen Bonus zu erhalten</German>
+	</TEXT>
+	<TEXT> <!-- CityBar__WorkingImprovableBonusPlotColour -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGIMPROVABLEBONUSPLOTCOLOUR_TEXT</Tag>
+		<English>Colour</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGIMPROVABLEBONUSPLOTCOLOUR_HOVER</Tag>
+		<English>Highlight colour of tiles being worked that can be improved to provide a bonus.</English>
+	</TEXT>
+	<TEXT> <!-- CityBar__WorkingImprovableBonusPlotAlpha -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGIMPROVABLEBONUSPLOTALPHA_TEXT</Tag>
+		<English>Alpha</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGIMPROVABLEBONUSPLOTALPHA_HOVER</Tag>
+		<English>Highlight colour alpha value of tiles being worked that can be improved to provide a bonus.</English>
+	</TEXT>
+	<TEXT> <!-- CityBar__WorkingUnimprovablePlot -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGUNIMPROVABLEPLOT_TEXT</Tag>
+		<English>Unimprovable</English>
+		<German>Nicht modernisierbar</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGUNIMPROVABLEPLOT_HOVER</Tag>
+		<English>When checked, highlights tiles being worked that cannot be improved.</English>
+		<German>Hebt Geländefelder hervor, die bearbeitet werden und nicht modernisiert werden können</German>
+	</TEXT>
+	<TEXT> <!-- CityBar__WorkingUnimprovablePlotColour -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGUNIMPROVABLEPLOTCOLOUR_TEXT</Tag>
+		<English>Colour</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGUNIMPROVABLEPLOTCOLOUR_HOVER</Tag>
+		<English>Highlight colour of tiles being worked that cannot be improved.</English>
+	</TEXT>
+	<TEXT> <!-- CityBar__WorkingUnimprovablePlotAlpha -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGUNIMPROVABLEPLOTALPHA_TEXT</Tag>
+		<English>Alpha</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__WORKINGUNIMPROVABLEPLOTALPHA_HOVER</Tag>
+		<English>Highlight colour alpha value of tiles being worked that cannot be improved.</English>
+	</TEXT>
+	<TEXT> <!-- CityBar__NotWorkingImprovedPlot -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGIMPROVEDPLOT_TEXT</Tag>
+		<English>Improved</English>
+		<German>Modernisiert</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGIMPROVEDPLOT_HOVER</Tag>
+		<English>When checked, highlights tiles not being worked that have already been improved.</English>
+		<German>Hebt Geländefelder hervor, die nicht bearbeitet werden und schon modernisiert wurden</German>
+	</TEXT>
+	<TEXT> <!-- CityBar__NotWorkingImprovedPlotColour -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGIMPROVEDPLOTCOLOUR_TEXT</Tag>
+		<English>Colour</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGIMPROVEDPLOTCOLOUR_HOVER</Tag>
+		<English>Highlight colour of tiles not being worked that have already been improved.</English>
+	</TEXT>
+	<TEXT> <!-- CityBar__NotWorkingImprovedPlotAlpha -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGIMPROVEDPLOTALPHA_TEXT</Tag>
+		<English>Alpha</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGIMPROVEDPLOTALPHA_HOVER</Tag>
+		<English>Highlight colour alpha value of tiles not being worked that have already been improved.</English>
+	</TEXT>
+	<TEXT> <!-- CityBar__NotWorkingImprovablePlot -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGIMPROVABLEPLOT_TEXT</Tag>
+		<English>Improvable</English>
+		<German>Modernisierbar</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGIMPROVABLEPLOT_HOVER</Tag>
+		<English>When checked, highlights tiles not being worked that can be improved.</English>
+		<German>Hebt Geländefelder hervor, die nicht bearbeitet werden und noch modernisiert werden können</German>
+	</TEXT>
+	<TEXT> <!-- CityBar__NotWorkingImprovablePlotColour -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGIMPROVABLEPLOTCOLOUR_TEXT</Tag>
+		<English>Colour</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGIMPROVABLEPLOTCOLOUR_HOVER</Tag>
+		<English>Highlight colour of tiles not being worked that can be improved.</English>
+	</TEXT>
+	<TEXT> <!-- CityBar__NotWorkingImprovablePlotAlpha -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGIMPROVABLEPLOTALPHA_TEXT</Tag>
+		<English>Alpha</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGIMPROVABLEPLOTALPHA_HOVER</Tag>
+		<English>Highlight colour alpha value of tiles not being worked that can be improved.</English>
+	</TEXT>
+	<TEXT> <!-- CityBar__NotWorkingImprovableBonusPlot -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGIMPROVABLEBONUSPLOT_TEXT</Tag>
+		<English>Improvable w. Bonus</English>
+		<German>Modernisierbar mit Bonus</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGIMPROVABLEBONUSPLOT_HOVER</Tag>
+		<English>When checked, highlights tiles not being worked that can be improved to provide a bonus.</English>
+		<German>Hebt Geländefelder hervor, die nicht bearbeitet werden und modernisiert werden können, um einen Bonus zu erhalten</German>
+	</TEXT>
+	<TEXT> <!-- CityBar__NotWorkingImprovableBonusPlotColour -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGIMPROVABLEBONUSPLOTCOLOUR_TEXT</Tag>
+		<English>Colour</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGIMPROVABLEBONUSPLOTCOLOUR_HOVER</Tag>
+		<English>Highlight colour of tiles not being worked that can be improved to provide a bonus.</English>
+	</TEXT>
+	<TEXT> <!-- CityBar__NotWorkingImprovableBonusPlotAlpha -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGIMPROVABLEBONUSPLOTALPHA_TEXT</Tag>
+		<English>Alpha</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGIMPROVABLEBONUSPLOTALPHA_HOVER</Tag>
+		<English>Highlight colour alpha value of tiles not being worked that can be improved to provide a bonus.</English>
+	</TEXT>
+	<TEXT> <!-- CityBar__NotWorkingUnimprovablePlot -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGUNIMPROVABLEPLOT_TEXT</Tag>
+		<English>Unimprovable</English>
+		<German>Nicht modernisierbar</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGUNIMPROVABLEPLOT_HOVER</Tag>
+		<English>When checked, highlights tiles not being worked that cannot be improved.</English>
+		<German>Hebt Geländefelder hervor, die nicht bearbeitet werden und nicht modernisiert werden können</German>
+	</TEXT>
+	<TEXT> <!-- CityBar__NotWorkingUnimprovablePlotColour -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGUNIMPROVABLEPLOTCOLOUR_TEXT</Tag>
+		<English>Colour</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGUNIMPROVABLEPLOTCOLOUR_HOVER</Tag>
+		<English>Highlight colour of tiles not being worked that cannot be improved.</English>
+	</TEXT>
+	<TEXT> <!-- CityBar__NotWorkingUnimprovablePlotAlpha -->
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGUNIMPROVABLEPLOTALPHA_TEXT</Tag>
+		<English>Alpha</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGUNIMPROVABLEPLOTALPHA_HOVER</Tag>
+		<English>Highlight colour alpha value of tiles not being worked that cannot be improved.</English>
+	</TEXT>
 </Civ4GameText>

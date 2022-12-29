@@ -45,6 +45,42 @@
 					
 			<option id="HideInstructions" key="Hide Instructions" type="boolean" default="True"/>
 		</section>
-		
+		<section id="Plot Status">
+			<option id="CityControlledPlots" key="City Controlled Plots" type="boolean" default="True" dirtyBit="ColoredPlots"/>
+
+			<option id="CityPlotStatus" key="City Plot Status" type="boolean" default="True" dirtyBit="ColoredPlots"/>
+			<option id="WorkingImprovedPlot" key="Working Improved Plot" type="boolean" default="True" dirtyBit="ColoredPlots"/>
+			<option id="WorkingImprovedPlotColour" key="Working Improved Plot Colour" type="color" default="COLOR_WHITE"/>
+			<list id="WorkingImprovedPlotAlpha" key="Working Improved Plot Alpha" type="float" default="1.0" listType="float" values="0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0" format="%.1f"/>
+
+			<option id="WorkingImprovablePlot" key="Working Improvable Plot" type="boolean" default="True" dirtyBit="ColoredPlots"/>
+			<option id="WorkingImprovablePlotColour" key="Working Improvable Plot Colour" type="color" default="COLOR_RED"/>
+			<list id="WorkingImprovablePlotAlpha" key="Working Improvable Plot Alpha" type="float" default="1.0" listType="float" values="0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0" format="%.1f"/>
+
+			<option id="WorkingImprovableBonusPlot" key="Working Improvable Bonus Plot" type="boolean" default="True" dirtyBit="ColoredPlots"/>
+			<option id="WorkingImprovableBonusPlotColour" key="Working Improvable Bonus Plot Colour" type="color" default="COLOR_RED"/>
+			<list id="WorkingImprovableBonusPlotAlpha" key="Working Improvable Bonus Plot Alpha" type="float" default="1.0" listType="float" values="0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0" format="%.1f"/>
+
+			<option id="WorkingUnimprovablePlot" key="Working Unimprovable Plot" type="boolean" default="True" dirtyBit="ColoredPlots"/>
+			<option id="WorkingUnimprovablePlotColour" key="Working Unimprovable Plot Colour" type="color" default="COLOR_DARK_GREY"/>
+			<list id="WorkingUnimprovablePlotAlpha" key="Working Unimprovable Plot Alpha" type="float" default="1.0" listType="float" values="0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0" format="%.1f"/>
+
+			<option id="NotWorkingImprovedPlot" key="Not Working Improved Plot" type="boolean" default="True" dirtyBit="ColoredPlots"/>
+			<option id="NotWorkingImprovedPlotColour" key="Not Working Improved Plot Colour" type="color" default="COLOR_GREEN"/>
+			<list id="NotWorkingImprovedPlotAlpha" key="Not Working Improved Plot Alpha" type="float" default="1.0" listType="float" values="0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0" format="%.1f"/>
+
+			<option id="NotWorkingImprovablePlot" key="Not Working Improvable Plot" type="boolean" default="True" dirtyBit="ColoredPlots"/>
+			<option id="NotWorkingImprovablePlotColour" key="Not Working Improvable Plot Colour" type="color" default="COLOR_BLUE"/>
+			<list id="NotWorkingImprovablePlotAlpha" key="Not Working Improvable Plot Alpha" type="float" default="1.0" listType="float" values="0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0" format="%.1f"/>
+
+			<option id="NotWorkingImprovableBonusPlot" key="Not Working Improvable Bonus Plot" type="boolean" default="True" dirtyBit="ColoredPlots"/>
+			<option id="NotWorkingImprovableBonusPlotColour" key="Not Working Improvable Bonus Plot Colour" type="color" default="COLOR_CYAN"/>
+			<list id="NotWorkingImprovableBonusPlotAlpha" key="Not Working Improvable Bonus Plot Alpha" type="float" default="1.0" listType="float" values="0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0" format="%.1f"/>
+
+			<option id="NotWorkingUnimprovablePlot" key="Not Working Unimprovable Plot" type="boolean" default="True" dirtyBit="ColoredPlots"/>
+			<option id="NotWorkingUnimprovablePlotColour" key="Not Working Unimprovable Plot Colour" type="color" default="COLOR_BLACK"/>
+			<list id="NotWorkingUnimprovablePlotAlpha" key="Not Working Unimprovable Plot Alpha" type="float" default="1.0" listType="float" values="0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0" format="%.1f"/>
+
+		</section>
 	</options>
 </mod>

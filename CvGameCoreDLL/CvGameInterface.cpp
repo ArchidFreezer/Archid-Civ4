@@ -10,6 +10,8 @@
 #include "FAStarNode.h"
 #include "CvGameTextMgr.h"
 #include "CvMessageControl.h"
+#include "CvIniOptions.h"
+#include "CvGlobals.h"
 
 void CvGame::updateColoredPlots() {
 	PROFILE_FUNC();
@@ -31,14 +33,15 @@ void CvGame::updateColoredPlots() {
 
 	// City circles for debugging
 	if (isDebugMode()) {
-		for (int iPlotLoop = 0; iPlotLoop < GC.getMap().numPlots(); iPlotLoop++) {
-			CvPlot* pLoopPlot = GC.getMap().plotByIndex(iPlotLoop);
+		for (int iLoopPlot = 0; iLoopPlot < GC.getMap().numPlots(); iLoopPlot++) {
+			CvPlot* pLoopPlot = GC.getMap().plotByIndex(iLoopPlot);
 
 			if (pLoopPlot != NULL) {
-				for (int iI = 0; iI < MAX_CIV_PLAYERS; iI++) {
-					if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
-						if (GET_PLAYER((PlayerTypes)iI).AI_isPlotCitySite(pLoopPlot)) {
-							gDLL->getEngineIFace()->addColoredPlot(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), GC.getColorInfo((ColorTypes)GC.getPlayerColorInfo(GET_PLAYER((PlayerTypes)iI).getPlayerColor()).getColorTypePrimary()).getColor(), PLOT_STYLE_CIRCLE, PLOT_LANDSCAPE_LAYER_BASE);
+				for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+					const CvPlayerAI& kPlayer = GET_PLAYER(ePlayer);
+					if (kPlayer.isAlive()) {
+						if (kPlayer.AI_isPlotCitySite(pLoopPlot)) {
+							gDLL->getEngineIFace()->addColoredPlot(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), GC.getColorInfo((ColorTypes)GC.getPlayerColorInfo(kPlayer.getPlayerColor()).getColorTypePrimary()).getColor(), PLOT_STYLE_CIRCLE, PLOT_LANDSCAPE_LAYER_BASE);
 						}
 					}
 				}
@@ -48,8 +51,8 @@ void CvGame::updateColoredPlots() {
 
 	// Plot improvement replacement circles for debugging
 	if (isDebugMode()) {
-		for (int iPlotLoop = 0; iPlotLoop < GC.getMap().numPlots(); iPlotLoop++) {
-			CvPlot* pLoopPlot = GC.getMap().plotByIndex(iPlotLoop);
+		for (int iLoopPlot = 0; iLoopPlot < GC.getMap().numPlots(); iLoopPlot++) {
+			CvPlot* pLoopPlot = GC.getMap().plotByIndex(iLoopPlot);
 
 			if (pLoopPlot != NULL) {
 				CvCity* pWorkingCity = pLoopPlot->getWorkingCity();
@@ -61,7 +64,8 @@ void CvGame::updateColoredPlots() {
 					BuildTypes eBestBuild = pWorkingCity->AI_getBestBuild(iPlotIndex);
 
 					if (NO_BUILD != eBestBuild) {
-						if (GC.getBuildInfo(eBestBuild).getImprovement() != NO_IMPROVEMENT && eImprovement != GC.getBuildInfo(eBestBuild).getImprovement()) {
+						const CvBuildInfo& kBestBuild = GC.getBuildInfo(eBestBuild);
+						if (kBestBuild.getImprovement() != NO_IMPROVEMENT && eImprovement != kBestBuild.getImprovement()) {
 							gDLL->getEngineIFace()->addColoredPlot(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), GC.getColorInfo((ColorTypes)GC.getInfoTypeForString("COLOR_RED")).getColor(), PLOT_STYLE_CIRCLE, PLOT_LANDSCAPE_LAYER_BASE);
 						}
 					}
@@ -73,14 +77,14 @@ void CvGame::updateColoredPlots() {
 
 	// City circles when in Advanced Start
 	if (gDLL->getInterfaceIFace()->isInAdvancedStart()) {
-		for (int iPlotLoop = 0; iPlotLoop < GC.getMap().numPlots(); iPlotLoop++) {
-			CvPlot* pLoopPlot = GC.getMap().plotByIndex(iPlotLoop);
+		for (int iLoopPlot = 0; iLoopPlot < GC.getMap().numPlots(); iLoopPlot++) {
+			CvPlot* pLoopPlot = GC.getMap().plotByIndex(iLoopPlot);
 
 			if (pLoopPlot != NULL) {
 				if (GET_PLAYER(getActivePlayer()).getAdvancedStartCityCost(true, pLoopPlot) > 0) {
 					bool bStartingPlot = false;
-					for (int iPlayer = 0; iPlayer < MAX_PLAYERS; ++iPlayer) {
-						CvPlayer& kPlayer = GET_PLAYER((PlayerTypes)iPlayer);
+					for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+						CvPlayer& kPlayer = GET_PLAYER(ePlayer);
 						if (kPlayer.isAlive() && getActiveTeam() == kPlayer.getTeam()) {
 							if (pLoopPlot == kPlayer.getStartingPlot()) {
 								bStartingPlot = true;
@@ -109,9 +113,9 @@ void CvGame::updateColoredPlots() {
 
 	if (pHeadSelectedCity != NULL) {
 		if (gDLL->getInterfaceIFace()->isCityScreenUp()) {
-			for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
-				if (pHeadSelectedCity->isWorkingPlot(iI)) {
-					CvPlot* pLoopPlot = plotCity(pHeadSelectedCity->getX_INLINE(), pHeadSelectedCity->getY_INLINE(), iI);
+			for (int iCityPlot = 0; iCityPlot < NUM_CITY_PLOTS; iCityPlot++) {
+				if (pHeadSelectedCity->isWorkingPlot(iCityPlot)) {
+					CvPlot* pLoopPlot = plotCity(pHeadSelectedCity->getX_INLINE(), pHeadSelectedCity->getY_INLINE(), iCityPlot);
 
 					if (pLoopPlot != NULL) {
 						NiColorA color(GC.getColorInfo((ColorTypes)GC.getInfoTypeForString("COLOR_WHITE")).getColor());
@@ -121,7 +125,195 @@ void CvGame::updateColoredPlots() {
 				}
 			}
 		} else {
-			CLLNode<IDInfo>* pSelectedCityNode = gDLL->getInterfaceIFace()->headSelectedCitiesNode();
+			CLLNode<IDInfo>* pSelectedCityNode;
+			if (getOptionBOOL("CityBar__CityControlledPlots", true)) {
+				NiColorA color(GC.getColorInfo((ColorTypes)GC.getInfoTypeForString(GC.getDefineSTRING("BUG_CITY_CONTROLLED_PLOTS_COLOR", "COLOR_HIGHLIGHT_TEXT"))).getColor());
+				color.a = GC.getDefineFLOAT("BUG_CITY_CONTROLLED_PLOTS_ALPHA", 1.0);
+
+				for (int iCityPlot = 0; iCityPlot < NUM_CITY_PLOTS; iCityPlot++) {
+					CvPlot* pLoopPlot = pHeadSelectedCity->getCityIndexPlot(iCityPlot);
+
+					if (pLoopPlot != NULL && pLoopPlot->getWorkingCity() == pHeadSelectedCity) {
+						gDLL->getEngineIFace()->fillAreaBorderPlot(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), color, AREA_BORDER_LAYER_CITY_RADIUS);
+					}
+				}
+			}
+			if (getOptionBOOL("CityBar__CityPlotStatus", true)) {
+				float fAlpha = 0.0;
+				bool bShowWorkingImprovedTile = getOptionBOOL("CityBar__WorkingImprovedPlot", false);
+				NiColorA workingImprovedTile(GC.getColorInfo((ColorTypes)GC.getInfoTypeForString(getOptionSTRING("CityBar__WorkingImprovedPlotColour", "COLOR_WHITE"))).getColor());
+				fAlpha = (float)getOptionDOUBLE("CityBar__WorkingImprovedPlotAlpha", 0.0);
+				if (fAlpha != 0) workingImprovedTile.a = fAlpha;
+
+				bool bShowWorkingImprovableTile = getOptionBOOL("CityBar__WorkingImprovablePlot", true);
+				NiColorA workingImprovableTile(GC.getColorInfo((ColorTypes)GC.getInfoTypeForString(getOptionSTRING("CityBar__WorkingImprovablePlotColour", "COLOR_RED"))).getColor());
+				fAlpha = (float)getOptionDOUBLE("CityBar__WorkingImprovablePlotAlpha", 0.0);
+				if (fAlpha != 0) workingImprovableTile.a = fAlpha;
+
+				bool bShowWorkingImprovableBonusTile = getOptionBOOL("CityBar__WorkingImprovableBonusPlot", true);
+				NiColorA workingImprovableBonusTile(GC.getColorInfo((ColorTypes)GC.getInfoTypeForString(getOptionSTRING("CityBar__WorkingImprovableBonusPlotColour", "COLOR_RED"))).getColor());
+				fAlpha = (float)getOptionDOUBLE("CityBar__WorkingImprovableBonusPlotAlpha", 0.0);
+				if (fAlpha != 0) workingImprovableBonusTile.a = fAlpha;
+
+				bool bShowWorkingUnimprovableTile = getOptionBOOL("CityBar__WorkingUnimprovablePlot", true);
+				NiColorA workingUnimprovableTile(GC.getColorInfo((ColorTypes)GC.getInfoTypeForString(getOptionSTRING("CityBar__WorkingUnimprovablePlotColour", "COLOR_YELLOW"))).getColor());
+				fAlpha = (float)getOptionDOUBLE("CityBar__WorkingUnimprovablePlotAlpha", 0.0);
+				if (fAlpha != 0) workingUnimprovableTile.a = fAlpha;
+
+				bool bShowNotWorkingImprovedTile = getOptionBOOL("CityBar__NotWorkingImprovedPlot", true);
+				NiColorA notWorkingImprovedTile(GC.getColorInfo((ColorTypes)GC.getInfoTypeForString(getOptionSTRING("CityBar__NotWorkingImprovedPlotColour", "COLOR_GREEN"))).getColor());
+				fAlpha = (float)getOptionDOUBLE("CityBar__NotWorkingImprovedPlotAlpha", 0.0);
+				if (fAlpha != 0) notWorkingImprovedTile.a = fAlpha;
+
+				bool bShowNotWorkingImprovableTile = getOptionBOOL("CityBar__NotWorkingImprovablePlot", true);
+				NiColorA notWorkingImprovableTile(GC.getColorInfo((ColorTypes)GC.getInfoTypeForString(getOptionSTRING("CityBar__NotWorkingImprovablePlotColour", "COLOR_BLUE"))).getColor());
+				fAlpha = (float)getOptionDOUBLE("CityBar__NotWorkingImprovablePlotAlpha", 0.0);
+				if (fAlpha != 0) notWorkingImprovableTile.a = fAlpha;
+
+				bool bShowNotWorkingImprovableBonusTile = getOptionBOOL("CityBar__NotWorkingImprovableBonusPlot", true);
+				NiColorA notWorkingImprovableBonusTile(GC.getColorInfo((ColorTypes)GC.getInfoTypeForString(getOptionSTRING("CityBar__NotWorkingImprovableBonusPlotColour", "COLOR_CYAN"))).getColor());
+				fAlpha = (float)getOptionDOUBLE("CityBar__NotWorkingImprovableBonusPlotAlpha", 0.0);
+				if (fAlpha != 0) notWorkingImprovableBonusTile.a = fAlpha;
+
+				bool bShowNotWorkingUnimprovableTile = getOptionBOOL("CityBar__NotWorkingUnimprovablePlot", false);
+				NiColorA notWorkingUnimprovableTile(GC.getColorInfo((ColorTypes)GC.getInfoTypeForString(getOptionSTRING("CityBar__NotWorkingUnimprovablePlotColour", "COLOR_BLACK"))).getColor());
+				fAlpha = (float)getOptionDOUBLE("CityBar__NotWorkingUnimprovablePlotAlpha", 0.0);
+				if (fAlpha != 0) notWorkingUnimprovableTile.a = fAlpha;
+
+				pSelectedCityNode = gDLL->getInterfaceIFace()->headSelectedCitiesNode();
+
+				while (pSelectedCityNode != NULL) {
+					CvCity* pSelectedCity = ::getCity(pSelectedCityNode->m_data);
+					pSelectedCityNode = gDLL->getInterfaceIFace()->nextSelectedCitiesNode(pSelectedCityNode);
+
+					if (pSelectedCity != NULL) {
+						TeamTypes eOwnerTeam = pSelectedCity->getTeam();
+
+						for (int iCityPlot = 0; iCityPlot < NUM_CITY_PLOTS; iCityPlot++) {
+							CvPlot* pLoopPlot = pSelectedCity->getCityIndexPlot(iCityPlot);
+
+							if (pLoopPlot != NULL && pLoopPlot->getWorkingCity() == pSelectedCity) {
+								bool bImproved = false;
+								bool bCanBeImproved = false;
+								bool bCanNeverBeImproved = false;
+								bool bCanProvideBonus = false;
+
+								if (pLoopPlot == pSelectedCity->plot()) {
+									// never highlight city itself as it cannot be improved
+									// can it have fallout? if so, it can be scrubbed (improved)
+									continue;
+								} else {
+									BonusTypes ePlotBonus = pLoopPlot->getBonusType(eOwnerTeam);
+									FeatureTypes ePlotFeature = pLoopPlot->getFeatureType();
+									ImprovementTypes ePlotImprovement = pLoopPlot->getImprovementType();
+
+									if (ePlotImprovement == GC.getDefineINT("RUINS_IMPROVEMENT")) {
+										ePlotImprovement = NO_IMPROVEMENT;
+									}
+
+									BuildTypes eBestBuild = pSelectedCity->AI_getBestBuild(iCityPlot);
+									ImprovementTypes eBestImprovement = NO_IMPROVEMENT;
+									RouteTypes eBestRoute = NO_ROUTE;
+									bool bBestBuildRemovesFeature = false;
+
+									if (eBestBuild != NO_BUILD) {
+										CvBuildInfo& kBestBuild = GC.getBuildInfo(eBestBuild);
+										eBestImprovement = (ImprovementTypes)kBestBuild.getImprovement();
+										eBestRoute = (RouteTypes)kBestBuild.getRoute();
+
+										if (ePlotFeature != NO_FEATURE && kBestBuild.isFeatureRemove(ePlotFeature)) {
+											bBestBuildRemovesFeature = true;
+										}
+
+										// will the best build provide a bonus?
+										if (ePlotBonus != NO_BONUS) {
+											if (eBestImprovement != NO_IMPROVEMENT && GC.getImprovementInfo(eBestImprovement).isImprovementBonusTrade(ePlotBonus)) {
+												bCanBeImproved = true;
+												bCanProvideBonus = true;
+											} else if (eBestRoute != NO_ROUTE && !pLoopPlot->isWater() && ePlotImprovement != NO_IMPROVEMENT
+												&& GC.getImprovementInfo(ePlotImprovement).isImprovementBonusTrade(ePlotBonus)) {
+												bCanProvideBonus = true;
+											}
+										}
+									}
+
+									if (!bCanProvideBonus) {
+										if (ePlotImprovement != NO_IMPROVEMENT) {
+											if (eBestBuild != NO_BUILD) {
+												CvImprovementInfo& kPlotImprovement = GC.getImprovementInfo(ePlotImprovement);
+
+												if (eBestRoute != NO_ROUTE) {
+													// will the route increase yields?
+													for (int iJ = 0; iJ < NUM_YIELD_TYPES; iJ++) {
+														if (kPlotImprovement.getRouteYieldChanges(eBestRoute, iJ) > 0) {
+															bCanBeImproved = true;
+															break;
+														}
+													}
+												} else {
+													// does the best build clear a bad feature?
+													if (bBestBuildRemovesFeature && !kPlotImprovement.isRequiresFeature()
+														&& GC.getFeatureInfo(ePlotFeature).isOnlyBad()) {
+														bCanBeImproved = true;
+													}
+												}
+											}
+
+											bImproved = !bCanBeImproved;
+										} else // no improvement
+										{
+											if (eBestBuild != NO_BUILD) {
+												if (bBestBuildRemovesFeature) {
+													if (GC.getFeatureInfo(ePlotFeature).isOnlyBad()) {
+														// does the best build clear a bad feature?
+														bCanBeImproved = true;
+													} else if (ePlotBonus != NO_BONUS && eBestImprovement != NO_IMPROVEMENT
+														&& GC.getImprovementInfo(eBestImprovement).isImprovementBonusTrade(ePlotBonus)) {
+														// does the best build provide a bonus
+														bCanBeImproved = true;
+														bCanProvideBonus = true;
+													}
+												} else if (eBestRoute == NO_ROUTE) {
+													// any other non-feature-clearing, non-route build is okay
+													bCanBeImproved = true;
+												}
+											} else {
+												if (ePlotFeature != NO_FEATURE && GC.getFeatureInfo(ePlotFeature).isNoImprovement()) {
+													bCanNeverBeImproved = true;
+												}
+											}
+										}
+									}
+								}
+
+								// bImproved is false if bCanBeImproved is true, even if the plot has an improvement
+								if (pSelectedCity->isWorkingPlot(pLoopPlot)) {
+									if (bImproved) {
+										if (bShowWorkingImprovedTile) gDLL->getEngineIFace()->addColoredPlot(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), workingImprovedTile, PLOT_STYLE_CIRCLE, PLOT_LANDSCAPE_LAYER_RECOMMENDED_PLOTS);
+									} else if (bCanProvideBonus) {
+										if (bShowWorkingImprovableBonusTile) gDLL->getEngineIFace()->addColoredPlot(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), workingImprovableBonusTile, PLOT_STYLE_CIRCLE, PLOT_LANDSCAPE_LAYER_RECOMMENDED_PLOTS);
+									} else if (bCanBeImproved) {
+										if (bShowWorkingImprovableTile) gDLL->getEngineIFace()->addColoredPlot(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), workingImprovableTile, PLOT_STYLE_CIRCLE, PLOT_LANDSCAPE_LAYER_RECOMMENDED_PLOTS);
+									} else if (!bCanNeverBeImproved) {
+										if (bShowWorkingUnimprovableTile) gDLL->getEngineIFace()->addColoredPlot(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), workingUnimprovableTile, PLOT_STYLE_CIRCLE, PLOT_LANDSCAPE_LAYER_RECOMMENDED_PLOTS);
+									}
+								} else if (pSelectedCity->canWork(pLoopPlot)) {
+									if (bImproved) {
+										if (bShowNotWorkingImprovedTile) gDLL->getEngineIFace()->addColoredPlot(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), notWorkingImprovedTile, PLOT_STYLE_CIRCLE, PLOT_LANDSCAPE_LAYER_RECOMMENDED_PLOTS);
+									} else if (bCanProvideBonus) {
+										if (bShowNotWorkingImprovableBonusTile) gDLL->getEngineIFace()->addColoredPlot(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), notWorkingImprovableBonusTile, PLOT_STYLE_CIRCLE, PLOT_LANDSCAPE_LAYER_RECOMMENDED_PLOTS);
+									} else if (bCanBeImproved) {
+										if (bShowNotWorkingImprovableTile) gDLL->getEngineIFace()->addColoredPlot(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), notWorkingImprovableTile, PLOT_STYLE_CIRCLE, PLOT_LANDSCAPE_LAYER_RECOMMENDED_PLOTS);
+									} else if (!bCanNeverBeImproved) {
+										if (bShowNotWorkingUnimprovableTile) gDLL->getEngineIFace()->addColoredPlot(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), notWorkingUnimprovableTile, PLOT_STYLE_CIRCLE, PLOT_LANDSCAPE_LAYER_RECOMMENDED_PLOTS);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			pSelectedCityNode = gDLL->getInterfaceIFace()->headSelectedCitiesNode();
 
 			while (pSelectedCityNode != NULL) {
 				CvCity* pSelectedCity = ::getCity(pSelectedCityNode->m_data);
@@ -139,12 +331,12 @@ void CvGame::updateColoredPlots() {
 	} else if (pHeadSelectedUnit != NULL) {
 		if (gDLL->getGraphicOption(GRAPHICOPTION_CITY_RADIUS)) {
 			if (gDLL->getInterfaceIFace()->canSelectionListFound()) {
-				for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++) {
-					CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
+				for (int iLoopPlot = 0; iLoopPlot < GC.getMapINLINE().numPlotsINLINE(); iLoopPlot++) {
+					CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iLoopPlot);
 
 					if (pLoopPlot->getOwnerINLINE() == pHeadSelectedUnit->getOwnerINLINE()) {
 						if (pLoopPlot->getWorkingCity() != NULL) {
-							NiColorA color(GC.getColorInfo((ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT")/*(GC.getPlayerColorInfo(GET_PLAYER(pHeadSelectedUnit->getOwnerINLINE()).getPlayerColor()).getColorTypePrimary())*/).getColor());
+							NiColorA color(GC.getColorInfo((ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT")).getColor());
 							color.a = 1.0f;
 							gDLL->getEngineIFace()->fillAreaBorderPlot(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), color, AREA_BORDER_LAYER_CITY_RADIUS);
 						}
@@ -225,7 +417,7 @@ void CvGame::updateColoredPlots() {
 				}
 			}
 
-			// K-Mod. I've rearranged the following code a bit, so that it is more efficient, and so that it shows city sites within 7 turns, rather than just the ones in 4 plot range.
+			// K-Mod. I've rearranged the following code a bit, so that it is more efficient, and so that it shows city sites within 7 plots, rather than just the ones in 4 plot range.
 			// the original code has been deleted, because it was quite bulky.
 
 			// city sites
@@ -234,8 +426,8 @@ void CvGame::updateColoredPlots() {
 			site_path.SetSettings(pHeadSelectedUnit->getGroup(), 0, 7, GC.getMOVE_DENOMINATOR());
 			if (pHeadSelectedUnit->isFound()) {
 
-				for (int i = 0; i < kActivePlayer.AI_getNumCitySites(); i++) {
-					CvPlot* pSite = kActivePlayer.AI_getCitySite(i);
+				for (int iCitySite = 0; iCitySite < kActivePlayer.AI_getNumCitySites(); iCitySite++) {
+					CvPlot* pSite = kActivePlayer.AI_getCitySite(iCitySite);
 					if (pSite && site_path.GeneratePath(pSite)) {
 						gDLL->getEngineIFace()->addColoredPlot(pSite->getX_INLINE(), pSite->getY_INLINE(), GC.getColorInfo((ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT")).getColor(), PLOT_STYLE_CIRCLE, PLOT_LANDSCAPE_LAYER_RECOMMENDED_PLOTS);
 					}
@@ -264,8 +456,8 @@ void CvGame::updateColoredPlots() {
 		if (pHeadSelectedUnit->isBlockading()) {
 			int iBlockadeRange = GC.getDefineINT("SHIP_BLOCKADE_RANGE");
 
-			for (int iPlayer = 0; iPlayer < MAX_CIV_PLAYERS; ++iPlayer) {
-				CvPlayer& kPlayer = GET_PLAYER((PlayerTypes)iPlayer);
+			for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+				CvPlayer& kPlayer = GET_PLAYER(ePlayer);
 
 				if (kPlayer.getTeam() == getActiveTeam()) {
 					int iLoop;

@@ -397,6 +397,7 @@ void CyInfoPythonInterface2() {
 		.def("isNoImprovement", &CvFeatureInfo::isNoImprovement, "bool ()")
 		.def("isVisibleAlways", &CvFeatureInfo::isVisibleAlways, "bool ()")
 		.def("isNukeImmune", &CvFeatureInfo::isNukeImmune, "bool ()")
+		.def("isOnlyBad", &CvFeatureInfo::isOnlyBad, "bool ()")
 
 		// Arrays
 

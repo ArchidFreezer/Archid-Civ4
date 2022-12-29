@@ -10688,6 +10688,19 @@ bool CvFeatureInfo::isNukeImmune() const {
 	return m_bNukeImmune;
 }
 
+bool CvFeatureInfo::isOnlyBad() const {
+	if (getHealthPercent() > 0 || isAddsFreshWater()) {
+		return false;
+	}
+	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+		if (getYieldChange(eYield) > 0) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
 const TCHAR* CvFeatureInfo::getOnUnitChangeTo() const {
 	return m_szOnUnitChangeTo;
 }

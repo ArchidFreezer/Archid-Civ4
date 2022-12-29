@@ -6,9 +6,10 @@
 from CvPythonExtensions import *
 import CvUtil
 import BugOptions
-import ArchidErrorOptionsTab
 import BugUtil
+import ArchidErrorOptionsTab
 import ArchidCityDisplayOptionsTab
+import ArchidMapOptionsTab
 
 # globals
 gc = CyGlobalContext()
@@ -53,6 +54,7 @@ class ArchidOptionsScreen:
 		
 		if self.options.isLoaded():
 			self.addTab(ArchidCityDisplayOptionsTab.ArchidCityDisplayOptionsTab(self))
+			self.addTab(ArchidMapOptionsTab.ArchidMapOptionsTab(self))
 		else:
 			self.addTab(ArchidErrorOptionsTab.ArchidErrorOptionsTab(self))
 
@@ -63,6 +65,11 @@ class ArchidOptionsScreen:
 			if not self.reopen or i % 2:
 				tab.create(self.pTabControl)
 		
+	def clearAllTranslations(self):
+		"Clear the translations of all tabs in response to the user choosing a language"
+		for tab in self.tabs:
+			tab.clearTranslation()
+	
 	def close(self, write=True):
 		# TODO: check for error
 		if (write):
