@@ -1890,21 +1890,32 @@ int CvPlot::getBuildTime(BuildTypes eBuild) const {
 }
 
 
-int CvPlot::getBuildTurnsLeft(BuildTypes eBuild, int iNowExtra, int iThenExtra) const {
+int CvPlot::getBuildTurnsLeft(BuildTypes eBuild, PlayerTypes ePlayer) const {
+	int iWorkRate = GET_PLAYER(ePlayer).getWorkRate(eBuild);
+	if (iWorkRate > 0) {
+		return getBuildTurnsLeft(eBuild, iWorkRate, iWorkRate, false);
+	} else {
+		return MAX_INT;
+	}
+}
+
+int CvPlot::getBuildTurnsLeft(BuildTypes eBuild, int iNowExtra, int iThenExtra, bool bIncludeUnits) const {
+
 	int iNowBuildRate = iNowExtra;
 	int iThenBuildRate = iThenExtra;
 
-	CLLNode<IDInfo>* pUnitNode = headUnitNode();
+	if (bIncludeUnits) {
+		CLLNode<IDInfo>* pUnitNode = headUnitNode();
+		while (pUnitNode != NULL) {
+			CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+			pUnitNode = nextUnitNode(pUnitNode);
 
-	while (pUnitNode != NULL) {
-		CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
-		pUnitNode = nextUnitNode(pUnitNode);
-
-		if (pLoopUnit->getBuildType() == eBuild) {
-			if (pLoopUnit->canMove()) {
-				iNowBuildRate += pLoopUnit->workRate(false);
+			if (pLoopUnit->getBuildType() == eBuild) {
+				if (pLoopUnit->canMove()) {
+					iNowBuildRate += pLoopUnit->workRate(false);
+				}
+				iThenBuildRate += pLoopUnit->workRate(true);
 			}
-			iThenBuildRate += pLoopUnit->workRate(true);
 		}
 	}
 
@@ -7796,4 +7807,13 @@ bool CvPlot::hasDefender(bool bCheckCanAttack, PlayerTypes eOwner, PlayerTypes e
 
 	// there are no defenders
 	return false;
+}
+
+/*
+ * Returns true if the build progress array has been created; false otherwise.
+ * A false return value implies that every build has zero progress.
+ * A true return value DOES NOT imply that any build has a non-zero progress--just the possibility.
+ */
+bool CvPlot::hasAnyBuildProgress() const {
+	return NULL != m_paiBuildProgress;
 }

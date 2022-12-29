@@ -559,4 +559,22 @@
 		<Spanish>When checked, if Sentry While Healing is enabled, units will awaken to danger only when in neutral territory. This stops your attacking force from waking up each turn outside an enemy city or your defenders inside friendly territory.</Spanish>
 	</TEXT>
 
+<!-- Plot -->
+	<TEXT> <!-- MiscHover__PartialBuilds -->
+		<Tag>TXT_KEY_ARCHID_OPT_MISCHOVER__PARTIALBUILDS_TEXT</Tag>
+		<English>Partial Builds</English>
+		<French>Partial Builds</French>
+		<German>Unvollständige Bauten</German>
+		<Italian>Costruzione parziale</Italian>
+		<Spanish>Construcción Parcial</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_MISCHOVER__PARTIALBUILDS_HOVER</Tag>
+		<English>When checked, hovering over a plot that has partially-completed builds (improvements, routes, and chops) will show how many worker turns are required to complete them as long as your workers can actually do so.</English>
+		<French>When checked, hovering over a plot that has partially-completed builds (improvements, routes, and chops) will show how many worker turns are required to complete them as long as your workers can actually do so.</French>
+		<German>Zeigt, wenn der Mauszeiger über ein Geländefeld mit teilweise fertig gestellten Bauten (Modernisierungen, Straßen und Waldrodungen) bewegt wird, an, wie viele Runden ein Bautrupp noch benötigt, um sie fertig zu stellen, wenn der Bautrupp diese Aktionen beherrscht</German>
+		<Italian>Quando è selezionato, posizionare il cursore su una casella che contiene costruzioni (miglioramenti, strade, eccetera) parzialmente completate mostrerà quanti turni di lavoro sono necessari per completare l'opera.</Italian>
+		<Spanish>Dejar el ratón sobre una casilla con mejoras no terminadas mostarará el número de turnos necesarios para terminar.</Spanish>
+	</TEXT>
+
 </Civ4GameText>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+	BULL Miscellaneous Hovers
+	by EmperorFool
+	
+	Copyright (c) 2009 The BUG Mod.
+-->
+<mod id="MiscHover" name="BULL Miscellaneous Hovers">
+	 
+	<options id="MiscHover" file="MiscHovers.ini">
+		<section id="Plot">
+			<option id="PartialBuilds" key="Plot Partial Builds" type="boolean" default="True"/>
+		</section>
+	</options>
+</mod>

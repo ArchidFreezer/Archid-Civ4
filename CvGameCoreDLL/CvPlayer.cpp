@@ -18275,3 +18275,30 @@ UnitRangeTypes CvPlayer::getUnitRangeType(const CvUnitInfo* pUnitInfo) const {
 	}
 
 }
+
+/*
+ * Returns the work rate for the first unit that can build <eBuild>.
+ */
+int CvPlayer::getWorkRate(BuildTypes eBuild) const {
+	int iRate = 0;
+	const CvCivilizationInfo& kCiv = GC.getCivilizationInfo(getCivilizationType());
+
+	for (UnitClassTypes eUnitClass = (UnitClassTypes)0; eUnitClass < GC.getNumUnitClassInfos(); eUnitClass = (UnitClassTypes)(eUnitClass + 1)) {
+		const CvUnitInfo& kUnit = GC.getUnitInfo((UnitTypes)kCiv.getCivilizationUnits(eUnitClass));
+
+		if (kUnit.getBuilds(eBuild)) {
+			iRate = kUnit.getWorkRate();
+			break;
+		}
+	}
+
+	iRate *= std::max(0, getWorkerSpeedModifier() + 100);
+	iRate /= 100;
+
+	if (!isHuman() && !isBarbarian()) {
+		iRate *= std::max(0, (GC.getHandicapInfo(GC.getGameINLINE().getHandicapType()).getAIWorkRateModifier() + 100));
+		iRate /= 100;
+	}
+
+	return iRate;
+}

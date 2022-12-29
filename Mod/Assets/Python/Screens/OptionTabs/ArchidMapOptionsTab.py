@@ -16,7 +16,9 @@ class ArchidMapOptionsTab(BugOptionsTab.BugOptionsTab):
 		panel = self.createMainPanel(screen)
 		column = self.addOneColumnLayout(screen, panel)
 		
-		self.createCityBarPanel(screen, column)
+		left, right = self.addTwoColumnLayout(screen, column, "Top", True)
+		self.createCityBarPanel(screen, left)
+		self.createTileHoverPanel(screen, right)
 		screen.attachHSeparator(column, column + "Sep1")
 		self.createCityTileStatusPanel(screen, column)
 		
@@ -24,6 +26,10 @@ class ArchidMapOptionsTab(BugOptionsTab.BugOptionsTab):
 		self.addLabel(screen, panel, "CityBar", "CityBar:")
 		self.addCheckbox(screen, panel, "CityBar__StarvationTurns")
 		
+	def createTileHoverPanel(self, screen, panel):
+		self.addLabel(screen, panel, "TileHover", "Tile Hover:")
+		self.addCheckbox(screen, panel, "MiscHover__PartialBuilds")
+
 	def createCityTileStatusPanel(self, screen, panel):
 		left, center, right = self.addThreeColumnLayout(screen, panel, "CityPlotsEnabled", True)
 		self.addLabel(screen, left, "CityPlots", "City Tiles:")
