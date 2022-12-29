@@ -9155,17 +9155,19 @@ void CvCity::setHasReligion(ReligionTypes eIndex, bool bNewValue, bool bAnnounce
 	FASSERT_BOUNDS(0, GC.getNumReligionInfos(), eIndex, "CvCity::setHasReligion");
 
 	if (isHasReligion(eIndex) != bNewValue) {
-		for (int iVoteSource = 0; iVoteSource < GC.getNumVoteSourceInfos(); ++iVoteSource) {
-			processVoteSourceBonus((VoteSourceTypes)iVoteSource, false);
+		CvPlayer& kOwner = GET_PLAYER(getOwnerINLINE());
+
+		for (VoteSourceTypes eVoteSource = (VoteSourceTypes)0; eVoteSource < GC.getNumVoteSourceInfos(); eVoteSource = (VoteSourceTypes)(eVoteSource + 1)) {
+			processVoteSourceBonus(eVoteSource, false);
 		}
 
 		m_pabHasReligion[eIndex] = bNewValue;
 
-		for (int iVoteSource = 0; iVoteSource < GC.getNumVoteSourceInfos(); ++iVoteSource) {
-			processVoteSourceBonus((VoteSourceTypes)iVoteSource, true);
+		for (VoteSourceTypes eVoteSource = (VoteSourceTypes)0; eVoteSource < GC.getNumVoteSourceInfos(); eVoteSource = (VoteSourceTypes)(eVoteSource + 1)) {
+			processVoteSourceBonus(eVoteSource, true);
 		}
 
-		GET_PLAYER(getOwnerINLINE()).changeHasReligionCount(eIndex, ((isHasReligion(eIndex)) ? 1 : -1));
+		kOwner.changeHasReligionCount(eIndex, ((isHasReligion(eIndex)) ? 1 : -1));
 
 		updateMaintenance();
 		updateReligionHappiness();
@@ -9175,27 +9177,28 @@ void CvCity::setHasReligion(ReligionTypes eIndex, bool bNewValue, bool bAnnounce
 
 		setInfoDirty(true);
 
+		const CvReligionInfo& kReligion = GC.getReligionInfo(eIndex);
 		if (isHasReligion(eIndex)) {
 			GC.getGameINLINE().makeReligionFounded(eIndex, getOwnerINLINE());
 
 			if (bAnnounce) {
 				if (GC.getGameINLINE().getHolyCity(eIndex) != this) {
-					for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-						if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
-							if (isRevealed(GET_PLAYER((PlayerTypes)iI).getTeam(), false)) {
-								if ((getOwnerINLINE() == iI) || (GET_PLAYER((PlayerTypes)iI).getStateReligion() == eIndex) || GET_PLAYER((PlayerTypes)iI).hasHolyCity(eIndex)) {
-									CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_RELIGION_SPREAD", GC.getReligionInfo(eIndex).getTextKeyWide(), getNameKey());
-									gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getReligionInfo(eIndex).getSound(), MESSAGE_TYPE_MAJOR_EVENT, GC.getReligionInfo(eIndex).getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE(), bArrows, bArrows);
-									// (K-Mod note: event time was originally "long".)
-								}
+					for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) // Include barbarians
+					{
+						const CvPlayer& kLoopPlayer = GET_PLAYER(ePlayer);
+						if (kLoopPlayer.isAlive() && isRevealed(kLoopPlayer.getTeam(), false)) {
+							if ((getOwnerINLINE() == ePlayer) || (kLoopPlayer.getStateReligion() == eIndex) || kLoopPlayer.hasHolyCity(eIndex)) {
+								CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_RELIGION_SPREAD", kReligion.getTextKeyWide(), getNameKey());
+								gDLL->getInterfaceIFace()->addHumanMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, kReligion.getSound(), MESSAGE_TYPE_MAJOR_EVENT, kReligion.getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE(), bArrows, bArrows);
+								// (K-Mod note: event time was originally "long".)
 							}
 						}
 					}
 				}
 
 				if (isHuman()) {
-					if (GET_PLAYER(getOwnerINLINE()).getHasReligionCount(eIndex) == 1) {
-						if (GET_PLAYER(getOwnerINLINE()).canConvert(eIndex) && (GET_PLAYER(getOwnerINLINE()).getStateReligion() == NO_RELIGION)) {
+					if (kOwner.getHasReligionCount(eIndex) == 1) {
+						if (kOwner.canConvert(eIndex) && (kOwner.getStateReligion() == NO_RELIGION)) {
 							CvPopupInfo* pInfo = new CvPopupInfo(BUTTONPOPUP_CHANGERELIGION);
 							if (NULL != pInfo) {
 								pInfo->setData1(eIndex);
@@ -9208,8 +9211,8 @@ void CvCity::setHasReligion(ReligionTypes eIndex, bool bNewValue, bool bAnnounce
 		} else // religion removed
 		{
 			if (bAnnounce) {
-				CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_RELIGION_REMOVE", GC.getReligionInfo(eIndex).getTextKeyWide(), getNameKey());
-				gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_BLIGHT", MESSAGE_TYPE_MAJOR_EVENT, GC.getReligionInfo(eIndex).getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), getX_INLINE(), getY_INLINE(), bArrows, bArrows);
+				CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_RELIGION_REMOVE", kReligion.getTextKeyWide(), getNameKey());
+				gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_BLIGHT", MESSAGE_TYPE_MAJOR_EVENT, kReligion.getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), getX_INLINE(), getY_INLINE(), bArrows, bArrows);
 			}
 		}
 
@@ -9219,6 +9222,16 @@ void CvCity::setHasReligion(ReligionTypes eIndex, bool bNewValue, bool bAnnounce
 		} else {
 			// Python Event
 			CvEventReporter::getInstance().religionRemove(eIndex, getOwnerINLINE(), this);
+		}
+
+		for (BuildingTypes eLoopBuilding = (BuildingTypes)0; eLoopBuilding < GC.getNumBuildingInfos(); eLoopBuilding = (BuildingTypes)(eLoopBuilding + 1)) {
+			if (GC.getBuildingInfo(eLoopBuilding).getPrereqReligion() == eIndex) {
+				if (bNewValue && isDisabledBuilding(eLoopBuilding)) {
+					setDisabledBuilding(eLoopBuilding, false);
+				} else if (!bNewValue && getNumBuilding(eLoopBuilding) > 0) {
+					setDisabledBuilding(eLoopBuilding, true);
+				}
+			}
 		}
 
 	}
@@ -9329,17 +9342,19 @@ void CvCity::setHasCorporation(CorporationTypes eIndex, bool bNewValue, bool bAn
 	FAssertMsg(eIndex >= 0, "eIndex expected to be >= 0");
 	FAssertMsg(eIndex < GC.getNumCorporationInfos(), "eIndex expected to be < GC.getNumCorporationInfos()");
 
+	const CvCorporationInfo& kCorporation = GC.getCorporationInfo(eIndex);
+
 	if (isHasCorporation(eIndex) != bNewValue) {
 		if (bNewValue) {
 			bool bReplacedHeadquarters = false;
-			for (int iCorp = 0; iCorp < GC.getNumCorporationInfos(); ++iCorp) {
-				if (iCorp != eIndex && isHasCorporation((CorporationTypes)iCorp)) {
-					if (GC.getGameINLINE().isCompetingCorporation((CorporationTypes)iCorp, eIndex)) {
-						if (GC.getGameINLINE().getHeadquarters((CorporationTypes)iCorp) == this) {
-							GC.getGameINLINE().replaceCorporation((CorporationTypes)iCorp, eIndex);
+			for (CorporationTypes eCorporation = (CorporationTypes)0; eCorporation < GC.getNumCorporationInfos(); eCorporation = (CorporationTypes)(eCorporation + 1)) {
+				if (eCorporation != eIndex && isHasCorporation(eCorporation)) {
+					if (GC.getGameINLINE().isCompetingCorporation(eCorporation, eIndex)) {
+						if (GC.getGameINLINE().getHeadquarters(eCorporation) == this) {
+							GC.getGameINLINE().replaceCorporation(eCorporation, eIndex);
 							bReplacedHeadquarters = true;
 						} else {
-							setHasCorporation((CorporationTypes)iCorp, false, false);
+							setHasCorporation(eCorporation, false, false);
 						}
 					}
 				}
@@ -9347,6 +9362,16 @@ void CvCity::setHasCorporation(CorporationTypes eIndex, bool bNewValue, bool bAn
 
 			if (bReplacedHeadquarters) {
 				return; // already set the corporation in this city
+			}
+		}
+
+		for (BuildingTypes eLoopBuilding = (BuildingTypes)0; eLoopBuilding < GC.getNumBuildingInfos(); eLoopBuilding = (BuildingTypes)(eLoopBuilding + 1)) {
+			if (GC.getBuildingInfo(eLoopBuilding).getPrereqCorporation() == eIndex) {
+				if (bNewValue && isDisabledBuilding(eLoopBuilding)) {
+					setDisabledBuilding(eLoopBuilding, false);
+				} else if (!bNewValue && getNumBuilding(eLoopBuilding) > 0) {
+					setDisabledBuilding(eLoopBuilding, true);
+				}
 			}
 		}
 
@@ -9371,34 +9396,36 @@ void CvCity::setHasCorporation(CorporationTypes eIndex, bool bNewValue, bool bAn
 		}
 
 		if (bAnnounce) {
-			for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-				if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
-					if (getOwnerINLINE() == iI || GET_PLAYER((PlayerTypes)iI).hasHeadquarters(eIndex)) {
+			for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) // Include barbarians
+			{
+				const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+				if (kPlayer.isAlive()) {
+					if (getOwnerINLINE() == ePlayer || kPlayer.hasHeadquarters(eIndex)) {
 
-						if (getOwnerINLINE() == iI) {
+						if (getOwnerINLINE() == ePlayer) {
 							CvWStringBuffer szBonusString;
 							GAMETEXT.setCorporationHelpCity(szBonusString, eIndex, this);
 
 							CvWString szBonusList;
 							bool bFirst = true;
 							for (int iJ = 0; iJ < GC.getDefineINT("NUM_CORPORATION_PREREQ_BONUSES"); ++iJ) {
-								int iBonus = GC.getCorporationInfo(eIndex).getPrereqBonus(iJ);
-								if (iBonus != NO_BONUS) {
+								BonusTypes eBonus = (BonusTypes)kCorporation.getPrereqBonus(iJ);
+								if (eBonus != NO_BONUS) {
 									CvWString szTemp;
-									szTemp.Format(L"%s", GC.getBonusInfo((BonusTypes)iBonus).getDescription());
+									szTemp.Format(L"%s", GC.getBonusInfo(eBonus).getDescription());
 									setListHelp(szBonusList, L"", szTemp, L", ", bFirst);
 									bFirst = false;
 								}
 							}
 
 							CvWString szBuffer;
-							szBuffer = gDLL->getText("TXT_KEY_MISC_CORPORATION_SPREAD_BONUS", GC.getCorporationInfo(eIndex).getTextKeyWide(), szBonusString.getCString(), getNameKey(), szBonusList.GetCString());
-							gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getCorporationInfo(eIndex).getSound(), MESSAGE_TYPE_MINOR_EVENT, GC.getCorporationInfo(eIndex).getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE(), bArrows, bArrows);
+							szBuffer = gDLL->getText("TXT_KEY_MISC_CORPORATION_SPREAD_BONUS", kCorporation.getTextKeyWide(), szBonusString.getCString(), getNameKey(), szBonusList.GetCString());
+							gDLL->getInterfaceIFace()->addHumanMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, kCorporation.getSound(), MESSAGE_TYPE_MINOR_EVENT, kCorporation.getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE(), bArrows, bArrows);
 						}
 						// K-Mod. We don't need two announcements every time a corp spreads. So I've put the general announcement inside this 'else' block.
 						else {
-							CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_CORPORATION_SPREAD", GC.getCorporationInfo(eIndex).getTextKeyWide(), getNameKey());
-							gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getCorporationInfo(eIndex).getSound(), MESSAGE_TYPE_MAJOR_EVENT, GC.getCorporationInfo(eIndex).getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE(), bArrows, bArrows);
+							CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_CORPORATION_SPREAD", kCorporation.getTextKeyWide(), getNameKey());
+							gDLL->getInterfaceIFace()->addHumanMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, kCorporation.getSound(), MESSAGE_TYPE_MAJOR_EVENT, kCorporation.getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE(), bArrows, bArrows);
 						}
 					}
 				}
