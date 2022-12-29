@@ -110,34 +110,43 @@ class CvPediaUnit:
 		screen.addPanel( panelName, CyTranslator().getText("TXT_KEY_PEDIA_REQUIRES", ()), "", false, true, self.top.X_ITEMS_PANE, self.Y_UPGRADES_TO_PANE, self.W_MAIN_PANE, self.H_PREREQ_PANE, PanelStyles.PANEL_STYLE_BLUE50 )
 		
 		Info = gc.getUnitInfo(self.iUnit)
+		
+		# Techs
+		szCatDelim = ""
 		iPrereq = Info.getPrereqAndTech()
 		if iPrereq > -1:
+			screen.attachLabel(panelName, "", "[")
+			szCatDelim = "]"
 			screen.attachImageButton( panelName, "", gc.getTechInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_TECH, iPrereq, 1, False )
-				
 		for j in xrange(gc.getDefineINT("NUM_UNIT_AND_TECH_PREREQS")):
 			iPrereq = Info.getPrereqAndTechs(j)
 			if iPrereq > -1:
 				screen.attachImageButton( panelName, "", gc.getTechInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_TECH, iPrereq, -1, False )
+		if len(szCatDelim):
+			screen.attachLabel(panelName, "", szCatDelim)
 
+		# Bonus
+		szCatDelim = ""
+		szOrDelim = ""
 		bFirst = True
 		iPrereq = Info.getPrereqAndBonus()
 		if iPrereq > -1:
+			screen.attachLabel(panelName, "", "[")
+			szCatDelim = "]"
 			bFirst = False
 			screen.attachImageButton( panelName, "", gc.getBonusInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, iPrereq, -1, False )
-
 		nOr = 0
 		for j in xrange(gc.getNUM_UNIT_PREREQ_OR_BONUSES()):
 			if Info.getPrereqOrBonuses(j) > -1:
 				nOr += 1
-
-		szRightDelimeter = ""
+				if len(szCatDelim) == 0:
+					screen.attachLabel(panelName, "", "[")
+					szCatDelim = "]"
+		szOrDelim = ""
 		if not bFirst:
 			if nOr > 1:
-				screen.attachLabel(panelName, "", CyTranslator().getText("TXT_KEY_AND", ()) + "( ")
-				szRightDelimeter = " ) "
-			elif nOr == 1:
-				screen.attachLabel(panelName, "", CyTranslator().getText("TXT_KEY_AND", ()))
-
+				screen.attachLabel(panelName, "", "( ")
+				szOrDelim = " ) "
 		bFirst = True
 		for j in xrange(gc.getNUM_UNIT_PREREQ_OR_BONUSES()):
 			eBonus = Info.getPrereqOrBonuses(j)
@@ -147,24 +156,29 @@ class CvPediaUnit:
 				else:
 					bFirst = False
 				screen.attachImageButton( panelName, "", gc.getBonusInfo(eBonus).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, eBonus, -1, False )					
+		if len(szOrDelim):
+			screen.attachLabel(panelName, "", szOrDelim)
+		if len(szCatDelim):
+			screen.attachLabel(panelName, "", szCatDelim)
 
-		if len(szRightDelimeter):
-			screen.attachLabel(panelName, "", szRightDelimeter)
-
+		# Civics
+		szCatDelim = ""
 		bFirst = True
+		if Info.getNumPrereqAndCivics() > 0:
+			screen.attachLabel(panelName, "", "[")
+			szCatDelim = "]"
 		for j in xrange(Info.getNumPrereqAndCivics()):
 			bFirst = False
 			eCivic = Info.getPrereqAndCivic(j)
 			screen.attachImageButton( panelName, "", gc.getCivicInfo(eCivic).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_CIVIC, eCivic, -1, False )
-
-		szRightDelimeter = ""
+		szOrDelim = ""
 		if not bFirst:
 			if Info.getNumPrereqOrCivics() > 1:
-				screen.attachLabel(panelName, "", CyTranslator().getText("TXT_KEY_AND", ()) + "( ")
-				szRightDelimeter = " ) "
-			elif Info.getNumPrereqOrCivics() == 1:
-				screen.attachLabel(panelName, "", CyTranslator().getText("TXT_KEY_AND", ()))
-
+				if len(szCatDelim) == 0:
+					screen.attachLabel(panelName, "", "[")
+					szCatDelim = "]"
+				screen.attachLabel(panelName, "", "( ")
+				szOrDelim = " ) "
 		bFirst = True
 		for j in xrange(Info.getNumPrereqOrCivics()):
 			eCivic = Info.getPrereqOrCivic(j)
@@ -173,21 +187,31 @@ class CvPediaUnit:
 			else:
 				bFirst = False
 			screen.attachImageButton( panelName, "", gc.getCivicInfo(eCivic).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_CIVIC, eCivic, -1, False )
+		if len(szOrDelim):
+			screen.attachLabel(panelName, "", szOrDelim)
+		if len(szCatDelim):
+			screen.attachLabel(panelName, "", szCatDelim)
 
-		if len(szRightDelimeter):
-			screen.attachLabel(panelName, "", szRightDelimeter)
-
+		# Religion
 		iPrereq = Info.getPrereqReligion()
 		if iPrereq > -1:
+			screen.attachLabel(panelName, "", "[")
 			screen.attachImageButton( panelName, "", gc.getReligionInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_RELIGION, iPrereq, -1, False )
+			screen.attachLabel(panelName, "", "]")
 
+		# Corporation
 		iPrereq = Info.getPrereqCorporation()
 		if iPrereq > -1:
+			screen.attachLabel(panelName, "", "[")
 			screen.attachImageButton( panelName, "", gc.getCorporationInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_CORPORATION, iPrereq, -1, False )
+			screen.attachLabel(panelName, "", "]")
 
+		# Building
 		iPrereq = Info.getPrereqBuilding()
 		if iPrereq > -1:
+			screen.attachLabel(panelName, "", "[")
 			screen.attachImageButton( panelName, "", gc.getBuildingInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BUILDING, iPrereq, -1, False )		
+			screen.attachLabel(panelName, "", "]")
 		
 	def placeUpgradesTo(self):
 		screen = self.top.getScreen()

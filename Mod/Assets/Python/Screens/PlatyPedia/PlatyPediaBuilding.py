@@ -147,38 +147,107 @@ class CvPediaBuilding:
 		screen.addPanel( panelName, CyTranslator().getText("TXT_KEY_PEDIA_REQUIRES", ()), "", false, true, self.top.X_ITEMS_PANE, self.Y_PREREQ_PANE, self.W_MAIN_PANE, self.H_PREREQ_PANE, PanelStyles.PANEL_STYLE_BLUE50 )
 
 		Info = gc.getBuildingInfo(self.iBuilding)
+		
+		# Techs
+		szCatDelim = ""
 		for iPrereq in xrange(gc.getNumTechInfos()):
 			if isTechRequiredForBuilding(iPrereq, self.iBuilding):
+				if len(szCatDelim) == 0:
+					screen.attachLabel(panelName, "", "[")
+					szCatDelim = "]"
 				screen.attachImageButton( panelName, "", gc.getTechInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_TECH, iPrereq, 1, False )
+		if len(szCatDelim):
+			screen.attachLabel(panelName, "", szCatDelim)
 
+		# Bonus
+		szCatDelim = ""
+		szOrDelim = ""
 		iPrereq = Info.getPrereqAndBonus()
 		if iPrereq > -1:
+			screen.attachLabel(panelName, "", "[")
+			szCatDelim = "]"
 			screen.attachImageButton( panelName, "", gc.getBonusInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, iPrereq, -1, False )
-			
+		if Info.getNumPrereqOrBonuses() > 0:
+			szOrDelim = " )"
+			if len(szCatDelim) == 0:
+				screen.attachLabel(panelName, "", "[")
+			screen.attachLabel(panelName, "", "( ")
+		bFirst = true
 		for k in xrange(Info.getNumPrereqOrBonuses()):
+			if not bFirst:
+				screen.attachLabel(panelName, "", CyTranslator().getText("TXT_KEY_OR", ()))
+			else:
+				bFirst = false
 			iPrereq = Info.getPrereqOrBonuses(k)
-			if iPrereq > -1:
-				screen.attachImageButton( panelName, "", gc.getBonusInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, iPrereq, -1, False )
-		
+			screen.attachImageButton( panelName, "", gc.getBonusInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, iPrereq, -1, False )
+		if len(szOrDelim):
+			screen.attachLabel(panelName, "", szOrDelim)
+		if len(szCatDelim):
+			screen.attachLabel(panelName, "", szCatDelim)
+
+		# Corporation
+		szCatDelim = ""
 		iCorporation = Info.getFoundsCorporation()
 		bFirst = true
 		if iCorporation > -1:
 			for k in xrange(gc.getNUM_CORPORATION_PREREQ_BONUSES()):
 				iPrereq = gc.getCorporationInfo(iCorporation).getPrereqBonus(k)
 				if iPrereq > -1:
+					if len(szCatDelim) == 0:
+						screen.attachLabel(panelName, "", "[")
+						szCatDelim = "]"
 					if not bFirst:
 						screen.attachLabel(panelName, "", CyTranslator().getText("TXT_KEY_OR", ()))
 					else:
 						bFirst = false
 					screen.attachImageButton( panelName, "", gc.getBonusInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, iPrereq, -1, False )
+		if len(szCatDelim):
+			screen.attachLabel(panelName, "", szCatDelim)
 
+		# Civics
+		szCatDelim = ""
+		bFirst = True
+		if Info.getNumPrereqAndCivics() > 0:
+			screen.attachLabel(panelName, "", "[")
+			szCatDelim = "]"
+		for j in xrange(Info.getNumPrereqAndCivics()):
+			bFirst = False
+			eCivic = Info.getPrereqAndCivic(j)
+			screen.attachImageButton( panelName, "", gc.getCivicInfo(eCivic).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_CIVIC, eCivic, -1, False )
+		szOrDelim = ""
+		if not bFirst:
+			if Info.getNumPrereqOrCivics() > 1:
+				if len(szCatDelim) == 0:
+					screen.attachLabel(panelName, "", "[")
+					szCatDelim = "]"
+				screen.attachLabel(panelName, "", "( ")
+				szOrDelim = " ) "
+		bFirst = True
+		for j in xrange(Info.getNumPrereqOrCivics()):
+			eCivic = Info.getPrereqOrCivic(j)
+			if not bFirst:
+				screen.attachLabel(panelName, "", CyTranslator().getText("TXT_KEY_OR", ()))
+			else:
+				bFirst = False
+			screen.attachImageButton( panelName, "", gc.getCivicInfo(eCivic).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_CIVIC, eCivic, -1, False )
+		if len(szOrDelim):
+			screen.attachLabel(panelName, "", szOrDelim)
+		if len(szCatDelim):
+			screen.attachLabel(panelName, "", szCatDelim)
+
+		# Religion
 		iPrereq = Info.getPrereqReligion()
 		if iPrereq > -1:
+			screen.attachLabel(panelName, "", "[")
 			screen.attachImageButton( panelName, "", gc.getReligionInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_RELIGION, iPrereq, -1, False )
+			screen.attachLabel(panelName, "", "]")
 
 		iPrereq = Info.getPrereqCorporation()
 		if iPrereq > -1:
+			screen.attachLabel(panelName, "", "[")
 			screen.attachImageButton( panelName, "", gc.getCorporationInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_CORPORATION, iPrereq, -1, False )
+			screen.attachLabel(panelName, "", "]")
+			
 ## Coastal and Rivers ##
 		if Info.isRiver():
 			screen.attachImageButton(panelName, "", CyArtFileMgr().getInterfaceArtInfo("WORLDBUILDER_RIVER_PLACEMENT").getPath(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PYTHON, 6783, -1, CvUtil.FONT_LEFT_JUSTIFY)
