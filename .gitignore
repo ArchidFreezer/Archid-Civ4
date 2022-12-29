@@ -5,6 +5,8 @@ Assert-fast/
 Debug/
 Profile/
 
+UserSettings/
+
 obj/
 temp_files/
 .vs/
