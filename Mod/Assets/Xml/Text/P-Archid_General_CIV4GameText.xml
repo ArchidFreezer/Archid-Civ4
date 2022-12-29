@@ -692,5 +692,10 @@
 		<Tag>TXT_KEY_CIVIC_ENABLED_UNIT</Tag>
 		<English>Your %s1 unit is happy with your choice of civics and has started working again.</English>
 	</TEXT>
+<!-- Single build unit -->
+	<TEXT> <!-- Single Build -->
+		<Tag>TXT_KEY_UNIT_SINGLE_BUILD</Tag>
+		<English>[ICON_BULLET]Consumed after build</English>
+	</TEXT>
 
 </Civ4GameText>

@@ -13437,7 +13437,7 @@ bool CvUnitAI::AI_fortTerritory(bool bCanal, bool bAirbase) {
 }
 
 // Returns true if a mission was pushed...
-bool CvUnitAI::AI_improveBonus() // K-Mod. (all that junk wasn't being used anyway.)
+bool CvUnitAI::AI_improveBonus(bool bSingleBuild) // K-Mod. (all that junk wasn't being used anyway.)
 {
 	PROFILE_FUNC();
 
@@ -13475,9 +13475,7 @@ bool CvUnitAI::AI_improveBonus() // K-Mod. (all that junk wasn't being used anyw
 						CvCity* pWorkingCity = pLoopPlot->getWorkingCity();
 						BuildTypes eBestTempBuild = NO_BUILD;
 
-						if (eImprovement != NO_IMPROVEMENT &&
-							((kOwner.isOption(PLAYEROPTION_SAFE_AUTOMATION) && eImprovement != GC.getDefineINT("RUINS_IMPROVEMENT")) ||
-								kOwner.doesImprovementConnectBonus(eImprovement, eNonObsoleteBonus))) {
+						if (eImprovement != NO_IMPROVEMENT && ((kOwner.isOption(PLAYEROPTION_SAFE_AUTOMATION) && eImprovement != GC.getDefineINT("RUINS_IMPROVEMENT")) || kOwner.doesImprovementConnectBonus(eImprovement, eNonObsoleteBonus) || (bSingleBuild && kOwner.hasBonus(eNonObsoleteBonus)))) {
 							bDoImprove = false;
 						} else if (pWorkingCity) {
 							// Let "best build" handle improvement replacements near cities.
@@ -13567,7 +13565,7 @@ bool CvUnitAI::AI_improveBonus() // K-Mod. (all that junk wasn't being used anyw
 											bBestBuildIsRoute = false;
 											iBestResourceValue = iValue;
 										}
-									} else {
+									} else if (!bSingleBuild || !kOwner.hasBonus(eNonObsoleteBonus)) {
 										FAssert(bCanRoute && !bIsConnected);
 										eImprovement = pLoopPlot->getImprovementType();
 										if (kOwner.doesImprovementConnectBonus(eImprovement, eNonObsoleteBonus)) {

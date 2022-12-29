@@ -2662,6 +2662,7 @@ CvUnitInfo::CvUnitInfo() :
 	m_bHiddenNationality(false),
 	m_bAlwaysHostile(false),
 	m_bNoRevealMap(false),
+	m_bSingleBuild(false),
 	m_fUnitMaxSpeed(0.0f),
 	m_fUnitPadTime(0.0f),
 	m_pbUpgradeUnitClass(NULL),
@@ -2755,6 +2756,10 @@ CvUnitInfo::~CvUnitInfo() {
 	SAFE_DELETE_ARRAY(m_paszLateArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszMiddleArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszUnitNames);
+}
+
+bool CvUnitInfo::isSingleBuild() const {
+	return m_bSingleBuild;
 }
 
 UnitRangeTypes CvUnitInfo::getRangeType() const {
@@ -3714,6 +3719,7 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bHiddenNationality);
 	stream->Read(&m_bAlwaysHostile);
 	stream->Read(&m_bNoRevealMap);
+	stream->Read(&m_bSingleBuild);
 
 	stream->Read(&m_fUnitMaxSpeed);
 	stream->Read(&m_fUnitPadTime);
@@ -4026,6 +4032,7 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bHiddenNationality);
 	stream->Write(m_bAlwaysHostile);
 	stream->Write(m_bNoRevealMap);
+	stream->Write(m_bSingleBuild);
 
 	stream->Write(m_fUnitMaxSpeed);
 	stream->Write(m_fUnitPadTime);
@@ -4160,6 +4167,7 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bRenderBelowWater, "bRenderBelowWater", false);
 	pXML->GetChildXmlValByName(&m_bRenderAlways, "bRenderAlways", false);
 	pXML->GetChildXmlValByName(&m_bSuicide, "bSuicide");
+	pXML->GetChildXmlValByName(&m_bSingleBuild, "bSingleBuild", false);
 	pXML->GetChildXmlValByName(&m_bLineOfSight, "bLineOfSight", false);
 	pXML->GetChildXmlValByName(&m_bHiddenNationality, "bHiddenNationality", false);
 	pXML->GetChildXmlValByName(&m_bAlwaysHostile, "bAlwaysHostile", false);

@@ -187,7 +187,7 @@ protected:
 	bool AI_nextCityToImproveAirlift();
 	bool AI_irrigateTerritory();
 	bool AI_fortTerritory(bool bCanal, bool bAirbase);
-	bool AI_improveBonus(); // K-Mod
+	bool AI_improveBonus(bool bSingleUse = false);
 	bool AI_improvePlot(CvPlot* pPlot, BuildTypes eBuild);
 	BuildTypes AI_betterPlotBuild(CvPlot* pPlot, BuildTypes eBuild);
 	bool AI_connectBonus(bool bTestTrade = true);

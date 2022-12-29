@@ -5395,7 +5395,7 @@ bool CvUnit::build(BuildTypes eBuild) {
 	finishMoves(); // needs to be at bottom because movesLeft() can affect workRate()...
 
 	if (bFinished) {
-		if (GC.getBuildInfo(eBuild).isKill()) {
+		if (GC.getBuildInfo(eBuild).isKill() || getUnitInfo().isSingleBuild()) {
 			kill(true);
 		}
 	}
