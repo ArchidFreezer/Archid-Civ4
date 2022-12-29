@@ -632,5 +632,14 @@
 		<Tag>TXT_KEY_MISC_UNIT_RANGE_MODIFY</Tag>
 		<English>[ICON_BULLET]%D1_Change% Unit Range modification</English>
 	</TEXT>
+<!-- Pre-Chop -->
+	<TEXT>
+		<Tag>TXT_KEY_BUG_PRECLEARING_FEATURE_BONUS</Tag>
+		<English>Clearing a %s1_FeatName will create %d2_Num [ICON_PRODUCTION] for %s3_CityName.</English>
+		<French>Le d&#233;frichage de %s1_FeatName fera rapport %d2_Num [ICON_PRODUCTION] &#224; %s3_CityName.</French>
+		<German>Bei Entfernung der Geländeart %s1_FeatName wird die Stadt %s3_CityName %d2_Num [ICON_PRODUCTION] erhalten.</German>
+		<Italian>Sgombrando una casella di %s1_FeatName si &#232; creerà %d2_Num [ICON_PRODUCTION] per %s3_CityName.</Italian>
+		<Spanish>Despejar [NUM1:el:la:los:las] %s1_FeatName generará %d2_Num [ICON_PRODUCTION] para %s3_CityName.</Spanish>
+	</TEXT>
 
 </Civ4GameText>

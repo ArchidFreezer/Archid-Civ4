@@ -2717,8 +2717,25 @@ bool CvSelectionGroup::groupBuild(BuildTypes eBuild) {
 		return false;
 	}
 
-	CLLNode<IDInfo>* pUnitNode = headUnitNode();
+	bool bCheckChop = false;
+	bool bStopOtherWorkers = false;
 
+	FeatureTypes eFeature = pPlot->getFeatureType();
+	CvBuildInfo& kBuildInfo = GC.getBuildInfo(eBuild);
+	if (eFeature != NO_FEATURE && isHuman() && kBuildInfo.isFeatureRemove(eFeature) && kBuildInfo.getFeatureProduction(eFeature) != 0) {
+		if (kBuildInfo.getImprovement() == NO_IMPROVEMENT) {
+			// clearing a forest or jungle
+			if (getOptionBOOL("Actions__PreChopForests", true)) {
+				bCheckChop = true;
+			}
+		} else {
+			if (getOptionBOOL("Actions__PreChopImprovements", true)) {
+				bCheckChop = true;
+			}
+		}
+	}
+
+	CLLNode<IDInfo>* pUnitNode = headUnitNode();
 	while (pUnitNode != NULL) {
 		CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
 		pUnitNode = nextUnitNode(pUnitNode);
@@ -2731,6 +2748,36 @@ bool CvSelectionGroup::groupBuild(BuildTypes eBuild) {
 			if (pLoopUnit->build(eBuild)) {
 				bContinue = false;
 				break;
+			}
+
+			if (bCheckChop && pPlot->getBuildTurnsLeft(eBuild, getOwnerINLINE()) == 1) {
+				// TODO: stop other worker groups
+				CvCity* pCity;
+				int iProduction = plot()->getFeatureProduction(eBuild, getTeam(), &pCity);
+
+				if (iProduction > 0) {
+					CvWString szBuffer = gDLL->getText("TXT_KEY_BUG_PRECLEARING_FEATURE_BONUS", GC.getFeatureInfo(eFeature).getTextKeyWide(), iProduction, pCity->getNameKey());
+					gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, ARTFILEMGR.getInterfaceArtInfo("WORLDBUILDER_CITY_EDIT")->getPath(), MESSAGE_TYPE_INFO, GC.getFeatureInfo(eFeature).getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX(), getY(), true, true);
+				}
+				bContinue = false;
+				bStopOtherWorkers = true;
+				break;
+			}
+		}
+	}
+
+	if (bStopOtherWorkers) {
+		pUnitNode = pPlot->headUnitNode();
+
+		while (pUnitNode != NULL) {
+			CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+			pUnitNode = pPlot->nextUnitNode(pUnitNode);
+			CvSelectionGroup* pSelectionGroup = pLoopUnit->getGroup();
+
+			if (pSelectionGroup != NULL && pSelectionGroup != this && pSelectionGroup->getOwnerINLINE() == getOwnerINLINE()
+				&& pSelectionGroup->getActivityType() == ACTIVITY_MISSION && pSelectionGroup->getLengthMissionQueue() > 0
+				&& pSelectionGroup->getMissionType(0) == kBuildInfo.getMissionType() && pSelectionGroup->getMissionData1(0) == eBuild) {
+				pSelectionGroup->deleteMissionQueueNode(pSelectionGroup->headMissionQueueNode());
 			}
 		}
 	}
