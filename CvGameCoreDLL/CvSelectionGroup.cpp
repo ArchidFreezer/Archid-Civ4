@@ -22,6 +22,7 @@
 #include "CvDLLPythonIFaceBase.h"
 #include <set>
 #include "CvEventReporter.h"
+#include "CvIniOptions.h"
 
 #include "BetterBTSAI.h"
 
@@ -163,6 +164,26 @@ void CvSelectionGroup::doTurn() {
 			(eActivityType == ACTIVITY_HEAL && (AI_isControlled() || !bHurt)) ||
 			(eActivityType == ACTIVITY_SENTRY && sentryAlert())) {
 			setActivityType(ACTIVITY_AWAKE);
+		}
+
+		if (isHuman()) {
+			if (((eActivityType == ACTIVITY_SENTRY_NAVAL_UNITS) && (sentryAlertSameDomainType())) ||
+				((eActivityType == ACTIVITY_SENTRY_LAND_UNITS) && (sentryAlertSameDomainType())) ||
+				((eActivityType == ACTIVITY_SENTRY_WHILE_HEAL) && (sentryAlertSameDomainType() || AI_isControlled() || !bHurt))) {
+				setActivityType(ACTIVITY_AWAKE);
+			}
+
+			if (isAutomated() && getAutomateType() == AUTOMATE_EXPLORE && getOptionBOOL("Actions__SentryHealing", true) && sentryAlert()) {
+				if (!(getOptionBOOL("Actions__SentryHealingOnlyNeutral", true) && plot()->isOwned())) {
+					setActivityType(ACTIVITY_AWAKE);
+				}
+			}
+
+			if (eActivityType == ACTIVITY_HEAL && getOptionBOOL("Actions__SentryHealing", true) && sentryAlert()) {
+				if (!(getOptionBOOL("Actions__SentryHealingOnlyNeutral", true) && plot()->isOwned())) {
+					setActivityType(ACTIVITY_AWAKE);
+				}
+			}
 		}
 
 		if (AI_isControlled()) {
@@ -468,6 +489,7 @@ CvPlot* CvSelectionGroup::lastMissionPlot() {
 	while (pMissionNode != NULL) {
 		switch (pMissionNode->m_data.eMissionType) {
 		case MISSION_MOVE_TO:
+		case MISSION_MOVE_TO_SENTRY:
 		case MISSION_ROUTE_TO:
 			return GC.getMapINLINE().plotINLINE(pMissionNode->m_data.iData1, pMissionNode->m_data.iData2);
 			break;
@@ -489,6 +511,9 @@ CvPlot* CvSelectionGroup::lastMissionPlot() {
 		case MISSION_SEAPATROL:
 		case MISSION_HEAL:
 		case MISSION_SENTRY:
+		case MISSION_SENTRY_WHILE_HEAL:
+		case MISSION_SENTRY_NAVAL_UNITS:
+		case MISSION_SENTRY_LAND_UNITS:
 		case MISSION_AIRLIFT:
 		case MISSION_NUKE:
 		case MISSION_RECON:
@@ -579,6 +604,7 @@ void CvSelectionGroup::startMission() {
 
 		switch (headMissionQueueNode()->m_data.eMissionType) {
 		case MISSION_MOVE_TO:
+		case MISSION_MOVE_TO_SENTRY:
 			// K-Mod. Prevent human players from accidentally attacking units that they can't see.
 			if (isHuman() && !GC.getMapINLINE().plotINLINE(headMissionQueueNode()->m_data.iData1, headMissionQueueNode()->m_data.iData2)->isVisible(getTeam(), false))
 				headMissionQueueNode()->m_data.iFlags |= MOVE_NO_ATTACK;
@@ -634,6 +660,24 @@ void CvSelectionGroup::startMission() {
 
 		case MISSION_SENTRY:
 			setActivityType(ACTIVITY_SENTRY);
+			bNotify = true;
+			bDelete = true;
+			break;
+
+		case MISSION_SENTRY_WHILE_HEAL:
+			setActivityType(ACTIVITY_SENTRY_WHILE_HEAL);
+			bNotify = true;
+			bDelete = true;
+			break;
+
+		case MISSION_SENTRY_NAVAL_UNITS:
+			setActivityType(ACTIVITY_SENTRY_NAVAL_UNITS);
+			bNotify = true;
+			bDelete = true;
+			break;
+
+		case MISSION_SENTRY_LAND_UNITS:
+			setActivityType(ACTIVITY_SENTRY_LAND_UNITS);
 			bNotify = true;
 			bDelete = true;
 			break;
@@ -760,6 +804,7 @@ void CvSelectionGroup::startMission() {
 						}
 						break;
 					case MISSION_MOVE_TO:
+					case MISSION_MOVE_TO_SENTRY:
 					case MISSION_ROUTE_TO:
 					case MISSION_MOVE_TO_UNIT:
 					case MISSION_SLEEP:
@@ -767,6 +812,9 @@ void CvSelectionGroup::startMission() {
 					case MISSION_SEAPATROL:
 					case MISSION_HEAL:
 					case MISSION_SENTRY:
+					case MISSION_SENTRY_WHILE_HEAL:
+					case MISSION_SENTRY_NAVAL_UNITS:
+					case MISSION_SENTRY_LAND_UNITS:
 						pUnitNode = 0; // K-Mod. Nothing to do, so we might as well abort the unit loop.
 						break;
 						// K-Mod. (this use to be a "do nothing" case.)
@@ -1069,6 +1117,7 @@ bool CvSelectionGroup::continueMission_bulk(int iSteps) {
 			{
 				switch (headMissionQueueNode()->m_data.eMissionType) {
 				case MISSION_MOVE_TO:
+				case MISSION_MOVE_TO_SENTRY:
 					if (getDomainType() == DOMAIN_AIR) {
 						groupPathTo(headMissionQueueNode()->m_data.iData1, headMissionQueueNode()->m_data.iData2, headMissionQueueNode()->m_data.iFlags);
 						bDone = true;
@@ -1142,6 +1191,9 @@ bool CvSelectionGroup::continueMission_bulk(int iSteps) {
 				case MISSION_SEAPATROL:
 				case MISSION_HEAL:
 				case MISSION_SENTRY:
+				case MISSION_SENTRY_WHILE_HEAL:
+				case MISSION_SENTRY_NAVAL_UNITS:
+				case MISSION_SENTRY_LAND_UNITS:
 					FAssert(false);
 					break;
 
@@ -1190,6 +1242,7 @@ bool CvSelectionGroup::continueMission_bulk(int iSteps) {
 		if (!bDone) {
 			switch (headMissionQueueNode()->m_data.eMissionType) {
 			case MISSION_MOVE_TO:
+			case MISSION_MOVE_TO_SENTRY:
 				headMissionQueueNode()->m_data.iFlags |= MOVE_HAS_STEPPED; // K-Mod
 				if (at(headMissionQueueNode()->m_data.iData1, headMissionQueueNode()->m_data.iData2)) {
 					bDone = true;
@@ -1221,6 +1274,9 @@ bool CvSelectionGroup::continueMission_bulk(int iSteps) {
 			case MISSION_SEAPATROL:
 			case MISSION_HEAL:
 			case MISSION_SENTRY:
+			case MISSION_SENTRY_WHILE_HEAL:
+			case MISSION_SENTRY_NAVAL_UNITS:
+			case MISSION_SENTRY_LAND_UNITS:
 				FAssert(false);
 				break;
 
@@ -1288,6 +1344,7 @@ bool CvSelectionGroup::continueMission_bulk(int iSteps) {
 			// Note: I've removed cycleSelectionGroups_delayed(1, true, canAnyMove()) from inside CvSelectionGroup::deactivateHeadMission
 			if (getOwnerINLINE() == GC.getGameINLINE().getActivePlayer() && IsSelected()) {
 				if ((headMissionQueueNode()->m_data.eMissionType == MISSION_MOVE_TO ||
+					headMissionQueueNode()->m_data.eMissionType == MISSION_MOVE_TO_SENTRY ||
 					headMissionQueueNode()->m_data.eMissionType == MISSION_ROUTE_TO ||
 					headMissionQueueNode()->m_data.eMissionType == MISSION_MOVE_TO_UNIT) && !isBusy()) {
 					GC.getGameINLINE().cycleSelectionGroups_delayed(GET_PLAYER(getOwnerINLINE()).isOption(PLAYEROPTION_QUICK_MOVES) ? 2 : 3, true, canAnyMove()); // (? 1 : 2) + 1
@@ -1454,6 +1511,11 @@ bool CvSelectionGroup::canDoInterfaceMode(InterfaceModeTypes eInterfaceMode) {
 		CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
 
 		switch (eInterfaceMode) {
+		case INTERFACEMODE_GO_TO_SENTRY:
+			if (sentryAlertSameDomainType()) {
+				return false;
+			}
+			// fall through to next case
 		case INTERFACEMODE_GO_TO:
 			if ((getDomainType() != DOMAIN_AIR) && (getDomainType() != DOMAIN_IMMOBILE)) {
 				return true;
@@ -2505,6 +2567,7 @@ void CvSelectionGroup::groupMove(CvPlot* pPlot, bool bCombat, CvUnit* pCombatUni
 	// K-Mod. Some variables to help us regroup appropriately if not everyone can move.
 	CvSelectionGroup* pStaticGroup = 0;
 	UnitAITypes eHeadAI = getHeadUnitAI();
+	bool bSentryAlert = isHuman() && NULL != headMissionQueueNode() && headMissionQueueNode()->m_data.eMissionType == MISSION_MOVE_TO_SENTRY && sentryAlertSameDomainType();
 
 	// Move the combat unit first, so that no-capture units don't get unneccarily left behind.
 	if (pCombatUnit)
@@ -2517,7 +2580,7 @@ void CvSelectionGroup::groupMove(CvPlot* pPlot, bool bCombat, CvUnit* pCombatUni
 		//if ((pLoopUnit->canMove() && ((bCombat && (!(pLoopUnit->isNoCapture()) || !(pPlot->isEnemyCity(*pLoopUnit)))) ? pLoopUnit->canMoveOrAttackInto(pPlot) : pLoopUnit->canMoveInto(pPlot))) || (pLoopUnit == pCombatUnit))
 		if (pLoopUnit == pCombatUnit)
 			continue; // this unit is moved before the loop.
-		if (pLoopUnit->canMove() && (bCombat ? pLoopUnit->canMoveOrAttackInto(pPlot) : pLoopUnit->canMoveInto(pPlot))) {
+		if (!bSentryAlert && pLoopUnit->canMove() && (bCombat ? pLoopUnit->canMoveOrAttackInto(pPlot) : pLoopUnit->canMoveInto(pPlot))) {
 			pLoopUnit->move(pPlot, true);
 		} else {
 			// K-Mod. all units left behind should stay in the same group. (unless it would mean a change of group AI)
@@ -2850,6 +2913,11 @@ bool CvSelectionGroup::canDoMission(int iMission, int iData1, int iData2, CvPlot
 		pUnitNode = nextUnitNode(pUnitNode);
 
 		switch (iMission) {
+		case MISSION_MOVE_TO_SENTRY:
+			if (!pLoopUnit->canSentry(NULL)) {
+				return false;
+			}
+			// fall through to next case
 		case MISSION_MOVE_TO:
 			if (!bValid) {
 				if (pPlot->at(iData1, iData2))
@@ -2936,6 +3004,21 @@ bool CvSelectionGroup::canDoMission(int iMission, int iData1, int iData2, CvPlot
 
 		case MISSION_SENTRY:
 			if (pLoopUnit->canSentry(pPlot))
+				return true;
+			break;
+
+		case MISSION_SENTRY_WHILE_HEAL:
+			if (pLoopUnit->canSentry(pPlot) && pLoopUnit->canHeal(pPlot))
+				return true;
+			break;
+
+		case MISSION_SENTRY_NAVAL_UNITS:
+			if (getDomainType() == DOMAIN_SEA && pLoopUnit->canSentry(pPlot))
+				return true;
+			break;
+
+		case MISSION_SENTRY_LAND_UNITS:
+			if (getDomainType() == DOMAIN_LAND && pLoopUnit->canSentry(pPlot))
 				return true;
 			break;
 
@@ -3148,6 +3231,7 @@ void CvSelectionGroup::updateMissionTimer(int iSteps) {
 		iTime = GC.getMissionInfo((MissionTypes)(headMissionQueueNode()->m_data.eMissionType)).getTime();
 
 		if ((headMissionQueueNode()->m_data.eMissionType == MISSION_MOVE_TO) ||
+			(headMissionQueueNode()->m_data.eMissionType == MISSION_MOVE_TO_SENTRY) ||
 			(headMissionQueueNode()->m_data.eMissionType == MISSION_ROUTE_TO) ||
 			(headMissionQueueNode()->m_data.eMissionType == MISSION_MOVE_TO_UNIT)) {
 			CvPlot* pTargetPlot = NULL;
@@ -3896,4 +3980,47 @@ void CvSelectionGroup::deactivateHeadMission() {
 
 		setMissionTimer(0);
 	}
+}
+
+/*
+ * Similar to sentryAlert() except only checks water/land plots based on the domain type of the head unit.
+ */
+bool CvSelectionGroup::sentryAlertSameDomainType() const {
+	int iMaxRange = 0;
+	CLLNode<IDInfo>* pUnitNode = headUnitNode();
+	int iIndex = -1;
+
+	while (pUnitNode != NULL) {
+		CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+		pUnitNode = nextUnitNode(pUnitNode);
+
+		int iRange = pLoopUnit->visibilityRange() + 1;
+
+		if (iRange > iMaxRange) {
+			iMaxRange = iRange;
+			iIndex = getUnitIndex(pLoopUnit);
+		}
+	}
+
+	CvUnit* pHeadUnit = ((iIndex == -1) ? NULL : getUnitAt(iIndex));
+	if (NULL != pHeadUnit) {
+		for (int iX = -iMaxRange; iX <= iMaxRange; ++iX) {
+			for (int iY = -iMaxRange; iY <= iMaxRange; ++iY) {
+				CvPlot* pPlot = ::plotXY(pHeadUnit->getX_INLINE(), pHeadUnit->getY_INLINE(), iX, iY);
+				if (NULL != pPlot) {
+					if (pHeadUnit->plot()->canSeePlot(pPlot, pHeadUnit->getTeam(), iMaxRange - 1, NO_DIRECTION)) {
+						if (pPlot->isVisibleEnemyUnit(pHeadUnit)) {
+							if ((getDomainType() == DOMAIN_SEA) && (pPlot->isWater())) {
+								return true;
+							} else if ((getDomainType() == DOMAIN_LAND) && (!(pPlot->isWater()))) {
+								return true;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return false;
 }

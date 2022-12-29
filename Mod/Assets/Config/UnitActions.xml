@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<mod id="Actions" name="Unit Actions">
+	 
+	<options id="Actions" file="UnitActions.ini">
+		<section id="Units">
+			<!-- Sentry Healing by Unofficial Patch -->
+			<option id="SentryHealing" key="Sentry Healing" type="boolean" default="True"/>
+			<option id="SentryHealingOnlyNeutral" key="Sentry Healing Only Neutral" type="boolean" default="True"/>
+		</section>
+	</options>
+</mod>

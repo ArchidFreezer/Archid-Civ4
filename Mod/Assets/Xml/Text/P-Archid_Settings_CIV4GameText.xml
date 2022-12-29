@@ -525,4 +525,38 @@
 		<Tag>TXT_KEY_ARCHID_OPT_CITYBAR__NOTWORKINGUNIMPROVABLEPLOTALPHA_HOVER</Tag>
 		<English>Highlight colour alpha value of tiles not being worked that cannot be improved.</English>
 	</TEXT>
+<!-- Actions -->
+	<TEXT><!-- Actions__SentryHealing -->
+		<Tag>TXT_KEY_ARCHID_OPT_ACTIONS__SENTRYHEALING_TEXT</Tag>
+		<English>Sentry While Healing</English>
+		<French>Sentry While Healing</French>
+		<German>Wache bei Heilung</German>
+		<Italian>Sentinella durante la guarigione</Italian>
+		<Spanish>Sentry While Healing</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_ACTIONS__SENTRYHEALING_HOVER</Tag>
+		<English>When checked, units ordered to heal will awaken when they spot danger, acting like sentries.</English>
+		<French>When checked, units ordered to heal will awaken when they spot danger, acting like sentries.</French>
+		<German>Veranlasst Einheiten, die sich gerade heilen, bei Gefahr aktiv zu werden</German>
+		<Italian>Quando è selezionato, le Unità che hanno ricevuto l'ordine di curarsi si riattiveranno quando avvertono un pericolo, fungendo da sentinelle.</Italian>
+		<Spanish>When checked, units ordered to heal will awaken when they spot danger, acting like sentries.</Spanish>
+	</TEXT>
+	<TEXT><!-- Actions__SentryHealingOnlyNeutral -->
+		<Tag>TXT_KEY_ARCHID_OPT_ACTIONS__SENTRYHEALINGONLYNEUTRAL_TEXT</Tag>
+		<English>Only Neutral Territory</English>
+		<French>Only Neutral Territory</French>
+		<German>Nur in neutralem Gebiet</German>
+		<Italian>Solo in territorio neutrale</Italian>
+		<Spanish>Only Neutral Territory</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_ACTIONS__SENTRYHEALINGONLYNEUTRAL_HOVER</Tag>
+		<English>When checked, if Sentry While Healing is enabled, units will awaken to danger only when in neutral territory. This stops your attacking force from waking up each turn outside an enemy city or your defenders inside friendly territory.</English>
+		<French>When checked, if Sentry While Healing is enabled, units will awaken to danger only when in neutral territory. This stops your attacking force from waking up each turn outside an enemy city or your defenders inside friendly territory.</French>
+		<German>Falls die Option "Wache bei Heilung" gewählt wurde, werden Einheiten nur bei Gefahr aktiv, wenn sie sich in neutralem Gebiet befinden (verhindert beispielsweise, dass sich heilende Einheiten während eines Angriffs auf eine feindliche Stadt oder verteidigende Einheiten in befreundetem Gebiet jede Runde wieder aktiv werden)</German>
+		<Italian>Quando è selezionato, se è stata abilitata l'opzione 'Sentinella durante la guarigione', le Unità che hanno ricevuto l'ordine di curarsi si riattiveranno quando avvertono un pericolo solamente se si trovano in territorio neutrale. Ciò vi eviterà alle vostre forze d'attacco di attivarsi ogni turno in prossimità di una Città nemica ed alle vostre forze di difesa di riattivarsi in territorio nemico.</Italian>
+		<Spanish>When checked, if Sentry While Healing is enabled, units will awaken to danger only when in neutral territory. This stops your attacking force from waking up each turn outside an enemy city or your defenders inside friendly territory.</Spanish>
+	</TEXT>
+
 </Civ4GameText>

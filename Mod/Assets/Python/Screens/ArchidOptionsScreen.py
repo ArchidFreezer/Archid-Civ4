@@ -9,6 +9,7 @@ import BugOptions
 import BugUtil
 import ArchidErrorOptionsTab
 import ArchidCityDisplayOptionsTab
+import ArchidGeneralOptionsTab
 import ArchidMapOptionsTab
 
 # globals
@@ -53,6 +54,7 @@ class ArchidOptionsScreen:
 		self.pTabControl.setColumnLength(self.iScreenHeight)
 		
 		if self.options.isLoaded():
+			self.addTab(ArchidGeneralOptionsTab.ArchidGeneralOptionsTab(self))
 			self.addTab(ArchidCityDisplayOptionsTab.ArchidCityDisplayOptionsTab(self))
 			self.addTab(ArchidMapOptionsTab.ArchidMapOptionsTab(self))
 		else:

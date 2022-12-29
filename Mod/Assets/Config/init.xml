@@ -61,4 +61,5 @@
 	</init>
 		
 	<load mod="CityBar"/>
+	<load mod="UnitActions"/>
 </bug>

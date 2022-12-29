@@ -1386,7 +1386,8 @@ bool CvUnit::isActionRecommended(int iAction) {
 		pPlot = plot();
 	}
 
-	if (GC.getActionInfo(iAction).getMissionType() == MISSION_FORTIFY) {
+	MissionTypes eMissionType = (MissionTypes)GC.getActionInfo(iAction).getMissionType();
+	if (eMissionType == MISSION_FORTIFY) {
 		if (pPlot->isCity(true, getTeam())) {
 			if (canDefend(pPlot)) {
 				if (pPlot->getNumDefenders(getOwnerINLINE()) < ((atPlot(pPlot)) ? 2 : 1)) {
@@ -1396,7 +1397,7 @@ bool CvUnit::isActionRecommended(int iAction) {
 		}
 	}
 
-	if (GC.getActionInfo(iAction).getMissionType() == MISSION_HEAL) {
+	if (eMissionType == MISSION_HEAL || eMissionType == MISSION_SENTRY_WHILE_HEAL) {
 		if (isHurt()) {
 			if (!hasMoved()) {
 				if ((pPlot->getTeam() == getTeam()) || (healTurns(pPlot) < 4)) {
@@ -1406,7 +1407,7 @@ bool CvUnit::isActionRecommended(int iAction) {
 		}
 	}
 
-	if (GC.getActionInfo(iAction).getMissionType() == MISSION_FOUND) {
+	if (eMissionType == MISSION_FOUND) {
 		if (canFound(pPlot)) {
 			if (pPlot->isBestAdjacentFound(getOwnerINLINE())) {
 				return true;
@@ -1414,7 +1415,7 @@ bool CvUnit::isActionRecommended(int iAction) {
 		}
 	}
 
-	if (GC.getActionInfo(iAction).getMissionType() == MISSION_BUILD) {
+	if (eMissionType == MISSION_BUILD) {
 		if (pPlot->getOwnerINLINE() == getOwnerINLINE()) {
 			BuildTypes eBuild = (BuildTypes)GC.getActionInfo(iAction).getMissionData();
 			FAssert(eBuild != NO_BUILD);
@@ -1476,9 +1477,8 @@ bool CvUnit::isActionRecommended(int iAction) {
 					ImprovementTypes eFinalImprovement = finalImprovementUpgrade(eImprovement != NO_IMPROVEMENT ? eImprovement : pPlot->getImprovementType());
 
 					if (eFinalImprovement != NO_IMPROVEMENT) {
-						if ((GC.getImprovementInfo(eFinalImprovement).getRouteYieldChanges(eRoute, YIELD_FOOD) > 0) ||
-							(GC.getImprovementInfo(eFinalImprovement).getRouteYieldChanges(eRoute, YIELD_PRODUCTION) > 0) ||
-							(GC.getImprovementInfo(eFinalImprovement).getRouteYieldChanges(eRoute, YIELD_COMMERCE) > 0)) {
+						const CvImprovementInfo& kFinalImprovement = GC.getImprovementInfo(eFinalImprovement);
+						if (kFinalImprovement.getRouteYieldChanges(eRoute, YIELD_FOOD) > 0 || kFinalImprovement.getRouteYieldChanges(eRoute, YIELD_PRODUCTION) > 0 || kFinalImprovement.getRouteYieldChanges(eRoute, YIELD_COMMERCE) > 0) {
 							return true;
 						}
 					}
@@ -5975,6 +5975,7 @@ BuildTypes CvUnit::getBuildType() const {
 	if (getGroup()->headMissionQueueNode() != NULL) {
 		switch (getGroup()->headMissionQueueNode()->m_data.eMissionType) {
 		case MISSION_MOVE_TO:
+		case MISSION_MOVE_TO_SENTRY:
 			break;
 
 		case MISSION_ROUTE_TO:
@@ -5995,6 +5996,9 @@ BuildTypes CvUnit::getBuildType() const {
 		case MISSION_SEAPATROL:
 		case MISSION_HEAL:
 		case MISSION_SENTRY:
+		case MISSION_SENTRY_WHILE_HEAL:
+		case MISSION_SENTRY_NAVAL_UNITS:
+		case MISSION_SENTRY_LAND_UNITS:
 		case MISSION_AIRLIFT:
 		case MISSION_NUKE:
 		case MISSION_RECON:

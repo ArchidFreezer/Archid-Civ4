@@ -251,6 +251,7 @@ protected:
 	void deactivateHeadMission();
 
 	bool sentryAlert() const;
+	bool sentryAlertSameDomainType() const;
 
 public:
 	static KmodPathFinder path_finder; // K-Mod! I'd rather this not be static, but I can't do that here.
