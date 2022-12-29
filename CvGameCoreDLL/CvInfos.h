@@ -1730,6 +1730,7 @@ public:
 	bool isCommerceFlexible(int i) const;				// Exposed to Python
 	bool isCommerceChangeOriginalOwner(int i) const;				// Exposed to Python
 	bool isBuildingClassNeededInCity(int i) const;				// Exposed to Python
+	bool isReplacedByBuildingClass(int i) const;
 
 	int getSpecialistYieldChange(int i, int j) const;			// Exposed to Python
 	int* getSpecialistYieldChangeArray(int i) const;
@@ -1919,6 +1920,7 @@ protected:
 	std::vector<int> m_viPrereqOrBonuses;
 	std::vector<int> m_viPrereqAndCivics;
 	std::vector<int> m_viPrereqOrCivics;
+	std::vector<int> m_viReplacementBuildingClasses;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -382,6 +382,9 @@
 	<ElementType name="PrereqAndCivics" content="eltOnly">
 		<element type="CivicType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="ReplacedByBuildingClasses" content="eltOnly">
+		<element type="BuildingClassType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="BuildingInfo" content="eltOnly">
 		<element type="BuildingClass"/>
 		<element type="Type"/>
@@ -535,6 +538,7 @@
 		<element type="BuildingHappinessChanges" minOccurs="0"/>
 		<element type="PrereqBuildingClasses" minOccurs="0"/>
 		<element type="BuildingClassesNeeded" minOccurs="0"/>
+		<element type="ReplacedByBuildingClasses" minOccurs="0"/>
 		<element type="SpecialistYieldChanges" minOccurs="0"/>
 		<element type="BonusYieldModifiers" minOccurs="0"/>
 		<element type="ImprovementFreeSpecialists" minOccurs="0"/>

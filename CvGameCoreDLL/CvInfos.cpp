@@ -6471,6 +6471,12 @@ int CvBuildingInfo::getNumPrereqOrCivics() const {
 	return (int)m_viPrereqOrCivics.size();
 }
 
+bool CvBuildingInfo::isReplacedByBuildingClass(int i) const {
+	FAssertMsg(i < GC.getNumBuildingClassInfos(), "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	return (std::find(m_viReplacementBuildingClasses.begin(), m_viReplacementBuildingClasses.end(), i) != m_viReplacementBuildingClasses.end());
+}
+
 const TCHAR* CvBuildingInfo::getButton() const {
 	const CvArtInfoBuilding* pBuildingArtInfo;
 	pBuildingArtInfo = getArtInfo();
@@ -6657,6 +6663,13 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	for (int i = 0; i < iNumElements; ++i) {
 		stream->Read(&iElement);
 		m_viPrereqOrCivics.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viReplacementBuildingClasses.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viReplacementBuildingClasses.push_back(iElement);
 	}
 
 	SAFE_DELETE_ARRAY(m_piProductionTraits);
@@ -6987,6 +7000,11 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 		stream->Write(*it);
 	}
 
+	stream->Write(m_viReplacementBuildingClasses.size());
+	for (std::vector<int>::iterator it = m_viReplacementBuildingClasses.begin(); it != m_viReplacementBuildingClasses.end(); ++it) {
+		stream->Write(*it);
+	}
+
 	stream->Write(GC.getNumTraitInfos(), m_piProductionTraits);
 	stream->Write(GC.getNumTraitInfos(), m_piHappinessTraits);
 	stream->Write(NUM_YIELD_TYPES, m_piSeaPlotYieldChange);
@@ -7247,6 +7265,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetListPairInfo(&m_piDomainProductionModifier, "DomainProductionModifiers", NUM_DOMAIN_TYPES);
 	pXML->SetListPairInfo(&m_piPrereqNumOfBuildingClass, "PrereqBuildingClasses", GC.getNumBuildingClassInfos());
 	pXML->SetListInfoBool(&m_pbBuildingClassNeededInCity, "BuildingClassesNeeded", GC.getNumBuildingClassInfos());
+	pXML->SetVectorInfo(m_viReplacementBuildingClasses, "ReplacedByBuildingClasses");
 
 	m_bAnySpecialistYieldChange = pXML->SetListPairInfoArray(&m_ppaiSpecialistYieldChange, "SpecialistYieldChanges", GC.getNumSpecialistInfos(), NUM_YIELD_TYPES);
 	m_bAnyBonusYieldModifier = pXML->SetListPairInfoArray(&m_ppaiBonusYieldModifier, "BonusYieldModifiers", GC.getNumBonusInfos(), NUM_YIELD_TYPES);

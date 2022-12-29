@@ -1574,6 +1574,17 @@ bool CvCity::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestVis
 		return false;
 	}
 
+	for (BuildingClassTypes eLoopBuildingClass = (BuildingClassTypes)0; eLoopBuildingClass < GC.getNumBuildingClassInfos(); eLoopBuildingClass = (BuildingClassTypes)(eLoopBuildingClass + 1)) {
+		if (kBuilding.isReplacedByBuildingClass(eLoopBuildingClass)) {
+			BuildingTypes eLoopBuilding = (BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(eLoopBuildingClass);
+			if (eLoopBuilding != NO_BUILDING) {
+				if (getNumActiveBuilding(eLoopBuilding) > 0) {
+					return false;
+				}
+			}
+		}
+	}
+
 	if (kBuilding.isPrereqReligion()) {
 		if (getReligionCount() == 0) // K-Mod
 		{
@@ -3179,6 +3190,24 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 		GET_TEAM(getTeam()).processBuilding(eBuilding, iChange);
 
 		GC.getGameINLINE().processBuilding(eBuilding, iChange);
+
+		// Remove any building that this is a replacement for
+		for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
+			BuildingTypes eLoopBuilding = NO_BUILDING;
+			if (getOwnerINLINE() != NO_PLAYER) {
+				eLoopBuilding = (BuildingTypes)GC.getCivilizationInfo(GET_PLAYER(getOwnerINLINE()).getCivilizationType()).getCivilizationBuildings(eBuildingClass);
+			} else {
+				eLoopBuilding = (BuildingTypes)GC.getBuildingClassInfo(eBuildingClass).getDefaultBuildingIndex();
+			}
+
+			if (eLoopBuilding != NO_BUILDING) {
+				if (GC.getBuildingInfo(eLoopBuilding).isReplacedByBuildingClass(kBuilding.getBuildingClassType())) {
+					if (getNumRealBuilding(eLoopBuilding) > 0) {
+						setNumRealBuilding(eLoopBuilding, 0);
+					}
+				}
+			}
+		}
 	}
 
 	if (!bObsolete) {

@@ -664,5 +664,16 @@
 		<English>The %s1 in the City of %s2 is no longer functioning and has ceased doing business. Your civic changes have ended its usefulness. Change your social policies to restore the %s3 back to working order.</English>
 		<French>[NUM1:Le:La:Les:Les] %s1 de la Ville de %s2 ne fonctionne plus. Les changements de Doctrines l'ont rendu inutile. Changez à nouveau ces doctrines pour permettre [NUM3:au:à la:aux:aux] %s3 de fonctionner à nouveau.</French>
 	</TEXT>
+<!-- Replaceable Buildings -->
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_REPLACES_BUILDING</Tag>
+		<English>[ICON_BULLET][COLOR_WARNING_TEXT]Replaces[COLOR_REVERT][SPACE]</English>
+		<French>[ICON_BULLET][COLOR_WARNING_TEXT]Remplace[COLOR_REVERT][SPACE]</French>
+		<German>[ICON_BULLET][COLOR_WARNING_TEXT]Ersetzt[COLOR_REVERT][SPACE]</German>
+	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_REPLACED_BY_BUILDING</Tag>
+		<English>[ICON_BULLET][COLOR_WARNING_TEXT]Replaced by[COLOR_REVERT][SPACE]</English>
+	</TEXT>	
 
 </Civ4GameText>
