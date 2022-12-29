@@ -4754,22 +4754,27 @@ bool CvPlayer::canTrain(UnitTypes eUnit, bool bContinue, bool bTestVisible, bool
 
 bool CvPlayer::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestVisible, bool bIgnoreCost, bool bIgnoreTech) const {
 	const CvTeamAI& currentTeam = GET_TEAM(getTeam());
-	BuildingClassTypes eBuildingClass = ((BuildingClassTypes)(GC.getBuildingInfo(eBuilding).getBuildingClassType()));
+	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+	BuildingClassTypes eBuildingClass = ((BuildingClassTypes)(kBuilding.getBuildingClassType()));
+
+	if (!hasValidCivics(eBuilding)) {
+		return false;
+	}
 
 	if (GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(eBuildingClass) != eBuilding) {
 		return false;
 	}
 
 	if (!bIgnoreCost) {
-		if (GC.getBuildingInfo(eBuilding).getProductionCost() == -1) {
+		if (kBuilding.getProductionCost() == -1) {
 			return false;
 		}
 	}
 
 	if (!bIgnoreTech) // K-Mod
 	{
-		for (int iI = 0; iI < GC.getBuildingInfo(eBuilding).getNumPrereqAndTechs(); iI++) {
-			if (!(currentTeam.isHasTech((TechTypes)(GC.getBuildingInfo(eBuilding).getPrereqAndTech(iI))))) {
+		for (int iI = 0; iI < kBuilding.getNumPrereqAndTechs(); iI++) {
+			if (!(currentTeam.isHasTech((TechTypes)(kBuilding.getPrereqAndTech(iI))))) {
 				return false;
 			}
 		}
@@ -4779,24 +4784,24 @@ bool CvPlayer::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestV
 		return false;
 	}
 
-	if (GC.getBuildingInfo(eBuilding).getSpecialBuildingType() != NO_SPECIALBUILDING) {
-		if (!(currentTeam.isHasTech((TechTypes)(GC.getSpecialBuildingInfo((SpecialBuildingTypes)GC.getBuildingInfo(eBuilding).getSpecialBuildingType()).getTechPrereq())))) {
+	if (kBuilding.getSpecialBuildingType() != NO_SPECIALBUILDING) {
+		if (!(currentTeam.isHasTech((TechTypes)(GC.getSpecialBuildingInfo((SpecialBuildingTypes)kBuilding.getSpecialBuildingType()).getTechPrereq())))) {
 			return false;
 		}
 	}
 
-	if (GC.getBuildingInfo(eBuilding).getStateReligion() != NO_RELIGION) {
-		if (getStateReligion() != GC.getBuildingInfo(eBuilding).getStateReligion()) {
+	if (kBuilding.getStateReligion() != NO_RELIGION) {
+		if (getStateReligion() != kBuilding.getStateReligion()) {
 			return false;
 		}
 	}
 
-	if (GC.getGameINLINE().countCivTeamsEverAlive() < GC.getBuildingInfo(eBuilding).getNumTeamsPrereq()) {
+	if (GC.getGameINLINE().countCivTeamsEverAlive() < kBuilding.getNumTeamsPrereq()) {
 		return false;
 	}
 
-	if (GC.getBuildingInfo(eBuilding).getVictoryPrereq() != NO_VICTORY) {
-		if (!(GC.getGameINLINE().isVictoryValid((VictoryTypes)(GC.getBuildingInfo(eBuilding).getVictoryPrereq())))) {
+	if (kBuilding.getVictoryPrereq() != NO_VICTORY) {
+		if (!(GC.getGameINLINE().isVictoryValid((VictoryTypes)(kBuilding.getVictoryPrereq())))) {
 			return false;
 		}
 
@@ -4804,13 +4809,13 @@ bool CvPlayer::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestV
 			return false;
 		}
 
-		if (currentTeam.getVictoryCountdown((VictoryTypes)GC.getBuildingInfo(eBuilding).getVictoryPrereq()) >= 0) {
+		if (currentTeam.getVictoryCountdown((VictoryTypes)kBuilding.getVictoryPrereq()) >= 0) {
 			return false;
 		}
 	}
 
-	if (GC.getBuildingInfo(eBuilding).getMaxStartEra() != NO_ERA) {
-		if (GC.getGameINLINE().getStartEra() > GC.getBuildingInfo(eBuilding).getMaxStartEra()) {
+	if (kBuilding.getMaxStartEra() != NO_ERA) {
+		if (GC.getGameINLINE().getStartEra() > kBuilding.getMaxStartEra()) {
 			return false;
 		}
 	}
@@ -4828,11 +4833,11 @@ bool CvPlayer::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestV
 	}
 
 	const CvCivilizationInfo& civilizationInfo = GC.getCivilizationInfo(getCivilizationType());
-	for (int iI = 0; iI < GC.getNumBuildingClassInfos(); iI++) {
-		BuildingTypes ePrereqBuilding = (BuildingTypes)civilizationInfo.getCivilizationBuildings(iI);
+	for (BuildingClassTypes eLoopBuildingClass = (BuildingClassTypes)0; eLoopBuildingClass < GC.getNumBuildingClassInfos(); eLoopBuildingClass = (BuildingClassTypes)(eLoopBuildingClass + 1)) {
+		BuildingTypes ePrereqBuilding = (BuildingTypes)civilizationInfo.getCivilizationBuildings(eLoopBuildingClass);
 
 		if (NO_BUILDING != ePrereqBuilding && currentTeam.isObsoleteBuilding(ePrereqBuilding)) {
-			if (getBuildingClassCount((BuildingClassTypes)iI) < getBuildingClassPrereqBuilding(eBuilding, (BuildingClassTypes)iI, 0)) {
+			if (getBuildingClassCount(eLoopBuildingClass) < getBuildingClassPrereqBuilding(eBuilding, eLoopBuildingClass, 0)) {
 				return false;
 			}
 		}
@@ -4852,31 +4857,31 @@ bool CvPlayer::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestV
 		}
 
 		if (GC.getGameINLINE().isNoNukes()) {
-			if (GC.getBuildingInfo(eBuilding).isAllowsNukes()) {
-				for (int iI = 0; iI < GC.getNumUnitInfos(); iI++) {
-					if (GC.getUnitInfo((UnitTypes)iI).getNukeRange() != -1) {
+			if (kBuilding.isAllowsNukes()) {
+				for (UnitTypes eUnit = (UnitTypes)0; eUnit < GC.getNumUnitInfos(); eUnit = (UnitTypes)(eUnit + 1)) {
+					if (GC.getUnitInfo(eUnit).getNukeRange() != -1) {
 						return false;
 					}
 				}
 			}
 		}
 
-		if (GC.getBuildingInfo(eBuilding).getSpecialBuildingType() != NO_SPECIALBUILDING) {
-			if (!(GC.getGameINLINE().isSpecialBuildingValid((SpecialBuildingTypes)(GC.getBuildingInfo(eBuilding).getSpecialBuildingType())))) {
+		if (kBuilding.getSpecialBuildingType() != NO_SPECIALBUILDING) {
+			if (!(GC.getGameINLINE().isSpecialBuildingValid((SpecialBuildingTypes)(kBuilding.getSpecialBuildingType())))) {
 				return false;
 			}
 		}
 
-		if (getNumCities() < GC.getBuildingInfo(eBuilding).getNumCitiesPrereq()) {
+		if (getNumCities() < kBuilding.getNumCitiesPrereq()) {
 			return false;
 		}
 
-		if (getHighestUnitLevel() < GC.getBuildingInfo(eBuilding).getUnitLevelPrereq()) {
+		if (getHighestUnitLevel() < kBuilding.getUnitLevelPrereq()) {
 			return false;
 		}
 
-		for (int iI = 0; iI < GC.getNumBuildingClassInfos(); iI++) {
-			if (getBuildingClassCount((BuildingClassTypes)iI) < getBuildingClassPrereqBuilding(eBuilding, ((BuildingClassTypes)iI), ((bContinue) ? 0 : getBuildingClassMaking(eBuildingClass)))) {
+		for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
+			if (getBuildingClassCount(eBuildingClass) < getBuildingClassPrereqBuilding(eBuilding, eBuildingClass, ((bContinue) ? 0 : getBuildingClassMaking(eBuildingClass)))) {
 				return false;
 			}
 		}
@@ -10089,6 +10094,11 @@ void CvPlayer::setCivics(CivicOptionTypes eIndex, CivicTypes eNewValue) {
 			processCivics(getCivics(eIndex), 1);
 		}
 
+		int iLoop;
+		for (CvCity* pLoopCity = firstCity(&iLoop); NULL != pLoopCity; pLoopCity = nextCity(&iLoop)) {
+			pLoopCity->checkBuildings();
+		}
+
 		GC.getGameINLINE().updateSecretaryGeneral();
 
 		GC.getGameINLINE().AI_makeAssignWorkDirty();
@@ -10104,11 +10114,12 @@ void CvPlayer::setCivics(CivicOptionTypes eIndex, CivicTypes eNewValue) {
 					if (getCivics(eIndex) != GC.getCivilizationInfo(getCivilizationType()).getCivilizationInitialCivics(eIndex))*/
 					if (eOldCivic != NO_CIVIC) {
 						CvWString szBuffer;
-						for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-							if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
-								if (GET_TEAM(getTeam()).isHasMet(GET_PLAYER((PlayerTypes)iI).getTeam())) {
+						for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+							const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+							if (kPlayer.isAlive()) {
+								if (GET_TEAM(getTeam()).isHasMet(kPlayer.getTeam())) {
 									szBuffer = gDLL->getText("TXT_KEY_MISC_PLAYER_ADOPTED_CIVIC", getNameKey(), GC.getCivicInfo(getCivics(eIndex)).getTextKeyWide());
-									gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_CIVIC_ADOPT", MESSAGE_TYPE_MAJOR_EVENT);
+									gDLL->getInterfaceIFace()->addHumanMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_CIVIC_ADOPT", MESSAGE_TYPE_MAJOR_EVENT);
 								}
 							}
 						}
@@ -18302,3 +18313,35 @@ int CvPlayer::getWorkRate(BuildTypes eBuild) const {
 
 	return iRate;
 }
+
+bool CvPlayer::hasValidCivics(BuildingTypes eBuilding) const {
+	bool bValidOrCivic = false;
+	bool bNoReqOrCivic = true;
+	bool bValidAndCivic = true;
+	bool bReqAndCivic = true;
+
+	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+	for (int iI = 0; iI < kBuilding.getNumPrereqAndCivics(); iI++) {
+		bNoReqOrCivic = false;
+		if (isCivic((CivicTypes)kBuilding.getPrereqAndCivic(iI))) {
+			bValidOrCivic = true;
+		}
+	}
+	for (int iI = 0; iI < kBuilding.getNumPrereqOrCivics(); iI++) {
+		bReqAndCivic = true;
+		if (!isCivic((CivicTypes)kBuilding.getPrereqOrCivic(iI))) {
+			bValidAndCivic = false;
+		}
+	}
+
+	if (!bNoReqOrCivic && !bValidOrCivic) {
+		return false;
+	}
+
+	if (bReqAndCivic && !bValidAndCivic) {
+		return false;
+	}
+
+	return true;
+}
+

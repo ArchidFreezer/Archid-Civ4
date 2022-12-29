@@ -375,6 +375,13 @@
 	<ElementType name="GenericBuildingInfos" content="eltOnly">
 		<element type="GenericBuildingInfo" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="CivicType" content="textOnly"/>
+	<ElementType name="PrereqOrCivics" content="eltOnly">
+		<element type="CivicType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="PrereqAndCivics" content="eltOnly">
+		<element type="CivicType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="BuildingInfo" content="eltOnly">
 		<element type="BuildingClass"/>
 		<element type="Type"/>
@@ -402,6 +409,8 @@
 		<element type="PrereqAndTechs" minOccurs="0"/>
 		<element type="PrereqBonus" minOccurs="0"/>
 		<element type="PrereqOrBonuses" minOccurs="0"/>
+		<element type="PrereqAndCivics" minOccurs="0"/>
+		<element type="PrereqOrCivics" minOccurs="0"/>
 		<element type="ProductionTraits" minOccurs="0"/>
 		<element type="HappinessTraits" minOccurs="0"/>
 		<element type="NoBonus" minOccurs="0"/>

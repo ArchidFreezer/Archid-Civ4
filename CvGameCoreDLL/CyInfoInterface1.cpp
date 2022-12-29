@@ -555,6 +555,8 @@ void CyInfoPythonInterface1() {
 		.def("getEspionageDefenseModifier", &CvBuildingInfo::getEspionageDefenseModifier, "int ()")
 		.def("getMissionType", &CvBuildingInfo::getMissionType, "int ()")
 		.def("getVoteSourceType", &CvBuildingInfo::getVoteSourceType, "int ()")
+		.def("getNumPrereqAndCivics", &CvBuildingInfo::getNumPrereqAndCivics, "int ()")
+		.def("getNumPrereqOrCivics", &CvBuildingInfo::getNumPrereqOrCivics, "int ()")
 
 		.def("isTeamShare", &CvBuildingInfo::isTeamShare, "bool ()")
 		.def("isWater", &CvBuildingInfo::isWater, "bool ()")
@@ -620,6 +622,8 @@ void CyInfoPythonInterface1() {
 		.def("getPrereqNumOfBuildingClass", &CvBuildingInfo::getPrereqNumOfBuildingClass, "int (int i)")
 		.def("getFlavorValue", &CvBuildingInfo::getFlavorValue, "int (int i)")
 		.def("getImprovementFreeSpecialist", &CvBuildingInfo::getImprovementFreeSpecialist, "int (int i)")
+		.def("getPrereqAndCivic", &CvBuildingInfo::getPrereqAndCivic, "int (int i)")
+		.def("getPrereqOrCivic", &CvBuildingInfo::getPrereqOrCivic, "int (int i)")
 
 		.def("isCommerceFlexible", &CvBuildingInfo::isCommerceFlexible, "bool (int i)")
 		.def("isCommerceChangeOriginalOwner", &CvBuildingInfo::isCommerceChangeOriginalOwner, "bool (int i)")

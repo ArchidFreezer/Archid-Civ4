@@ -6455,6 +6455,22 @@ int CvBuildingInfo::getNumPrereqAndTechs() const {
 	return (int)m_viPrereqAndTechs.size();
 }
 
+int CvBuildingInfo::getPrereqAndCivic(int i) const {
+	return m_viPrereqAndCivics[i];
+}
+
+int CvBuildingInfo::getNumPrereqAndCivics() const {
+	return (int)m_viPrereqAndCivics.size();
+}
+
+int CvBuildingInfo::getPrereqOrCivic(int i) const {
+	return m_viPrereqOrCivics[i];
+}
+
+int CvBuildingInfo::getNumPrereqOrCivics() const {
+	return (int)m_viPrereqOrCivics.size();
+}
+
 const TCHAR* CvBuildingInfo::getButton() const {
 	const CvArtInfoBuilding* pBuildingArtInfo;
 	pBuildingArtInfo = getArtInfo();
@@ -6628,6 +6644,19 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	for (int i = 0; i < iNumElements; ++i) {
 		stream->Read(&iElement);
 		m_viPrereqOrBonuses.push_back(iElement);
+	}
+
+	m_viPrereqAndCivics.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqAndCivics.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqOrCivics.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqOrCivics.push_back(iElement);
 	}
 
 	SAFE_DELETE_ARRAY(m_piProductionTraits);
@@ -6948,6 +6977,16 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 		stream->Write(*it);
 	}
 
+	stream->Write(m_viPrereqAndCivics.size());
+	for (std::vector<int>::iterator it = m_viPrereqAndCivics.begin(); it != m_viPrereqAndCivics.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqOrCivics.size());
+	for (std::vector<int>::iterator it = m_viPrereqOrCivics.begin(); it != m_viPrereqOrCivics.end(); ++it) {
+		stream->Write(*it);
+	}
+
 	stream->Write(GC.getNumTraitInfos(), m_piProductionTraits);
 	stream->Write(GC.getNumTraitInfos(), m_piHappinessTraits);
 	stream->Write(NUM_YIELD_TYPES, m_piSeaPlotYieldChange);
@@ -7034,6 +7073,9 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(szTextVal, "FoundsCorporation");
 	m_iFoundsCorporation = pXML->FindInInfoClass(szTextVal);
+
+	pXML->SetVectorInfo(m_viPrereqAndCivics, "PrereqAndCivics");
+	pXML->SetVectorInfo(m_viPrereqOrCivics, "PrereqOrCivics");
 
 	pXML->GetChildXmlValByName(szTextVal, "GlobalReligionCommerce");
 	m_iGlobalReligionCommerce = pXML->FindInInfoClass(szTextVal);

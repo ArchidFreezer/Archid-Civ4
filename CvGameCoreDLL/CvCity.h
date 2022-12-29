@@ -36,6 +36,10 @@ public:
 	DllExport bool canBeSelected() const;
 	DllExport void updateSelectedCity(bool bTestProduction);
 
+	void checkBuildings(bool bCivics = true);
+	void setDisabledBuilding(BuildingTypes eIndex, bool bNewValue);
+	bool isDisabledBuilding(BuildingTypes eIndex) const;
+
 	void updateYield();
 
 	void updateVisibility();
@@ -1148,6 +1152,7 @@ protected:
 	bool* m_pabWorkingPlot;
 	bool* m_pabHasReligion;
 	bool* m_pabHasCorporation;
+	bool* m_pabDisabledBuilding;
 
 	IDInfo* m_paTradeCities;
 

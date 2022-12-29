@@ -6113,6 +6113,97 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer& szHelpText, CivicTypes eCivi
 			gDLL->getText("TXT_KEY_CIVIC_MILITARY_SUPPORT_COSTS").GetCString()));
 	}
 
+	BuildingTypes eLoopBuilding;
+	bFirst = true;
+	bool bNewPrereqAnd = false;
+	bool bNewPrereqOr = false;
+	bool bCurrPrereqAnd = false;
+	bool bCurrPrereqOr = false;
+
+	for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
+		bNewPrereqAnd = false;
+		bNewPrereqOr = false;
+		if (bPlayerContext && NO_PLAYER != GC.getGameINLINE().getActivePlayer()) {
+			eLoopBuilding = (BuildingTypes)GC.getCivilizationInfo(GC.getGameINLINE().getActiveCivilizationType()).getCivilizationBuildings(eBuildingClass);
+		} else {
+			eLoopBuilding = (BuildingTypes)GC.getBuildingClassInfo(eBuildingClass).getDefaultBuildingIndex();
+		}
+		if (eLoopBuilding != NO_BUILDING) {
+			const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eLoopBuilding);
+			for (int iI = 0; iI < kBuilding.getNumPrereqAndCivics(); iI++) {
+				if (eCivic == (CivicTypes)kBuilding.getPrereqAndCivic(iI)) {
+					bNewPrereqAnd = true;
+					break;
+				}
+			}
+			for (int iI = 0; !bNewPrereqAnd && iI < kBuilding.getNumPrereqOrCivics(); iI++) {
+				if (eCivic == (CivicTypes)kBuilding.getPrereqOrCivic(iI)) {
+					bNewPrereqOr = true;
+					break;
+				}
+			}
+			if (bNewPrereqAnd || bNewPrereqOr) {
+				CvWString szBuilding;
+				CvWString szFirstBuffer;
+				szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_CIVIC_UNLOCKS_BUILDING").c_str());
+				szBuilding.Format(L"<link=literal>%s</link>", kBuilding.getDescription());
+				setListHelp(szHelpText, szFirstBuffer, szBuilding, L", ", bFirst);
+				bFirst = false;
+			}
+		}
+	}
+	bFirst = true;
+	if (NO_PLAYER != GC.getGameINLINE().getActivePlayer()) {
+		const CvPlayer& kActivePlayer = GET_PLAYER(GC.getGameINLINE().getActivePlayer());
+		if (!kActivePlayer.isCivic(eCivic)) {
+			for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
+				bCurrPrereqAnd = false;
+				bCurrPrereqOr = false;
+				eLoopBuilding = (BuildingTypes)GC.getCivilizationInfo(GC.getGameINLINE().getActiveCivilizationType()).getCivilizationBuildings(eBuildingClass);
+
+				if (eLoopBuilding != NO_BUILDING) {
+					const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eLoopBuilding);
+					CivicTypes eCurCivic = kActivePlayer.getCivics((CivicOptionTypes)GC.getCivicInfo(eCivic).getCivicOptionType());
+					for (int iI = 0; iI < kBuilding.getNumPrereqAndCivics(); iI++) {
+						if (eCurCivic == (CivicTypes)kBuilding.getPrereqAndCivic(iI)) {
+							bCurrPrereqAnd = true;
+							break;
+						}
+					}
+					for (int iI = 0; iI < kBuilding.getNumPrereqOrCivics(); iI++) {
+						if (eCurCivic == (CivicTypes)kBuilding.getPrereqOrCivic(iI)) {
+							bCurrPrereqOr = true;
+							break;
+						}
+					}
+					bool bObsolete = false;
+					if (bCurrPrereqAnd) {
+						bObsolete = true;
+					} else if (bCurrPrereqOr && !bNewPrereqOr) {
+						bObsolete = true;
+						for (CivicTypes eLoopCivic = (CivicTypes)0; bObsolete && eLoopCivic < GC.getNumCivicInfos(); eLoopCivic = (CivicTypes)(eLoopCivic + 1)) {
+							if (eLoopCivic != eCurCivic && eLoopCivic != eCivic) {
+								for (int iI = 0; bObsolete && iI < kBuilding.getNumPrereqOrCivics(); iI++) {
+									if (eLoopCivic == (CivicTypes)kBuilding.getPrereqOrCivic(iI) && kActivePlayer.isCivic(eLoopCivic)) {
+										bObsolete = false;
+									}
+								}
+							}
+						}
+					}
+					if (bObsolete) {
+						CvWString szBuilding;
+						CvWString szFirstBuffer;
+						szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_CIVIC_BLOCKS_BUILDING").c_str());
+						szBuilding.Format(L"<link=literal>%s</link>", kBuilding.getDescription());
+						setListHelp(szHelpText, szFirstBuffer, szBuilding, L", ", bFirst);
+						bFirst = false;
+					}
+				}
+			}
+		}
+	}
+
 	if (!CvWString(kCivic.getHelp()).empty()) {
 		szHelpText.append(CvWString::format(L"%s%s", NEWLINE, kCivic.getHelp()).c_str());
 	}
@@ -8613,6 +8704,55 @@ void CvGameTextMgr::buildBuildingRequiresString(CvWStringBuffer& szBuffer, Build
 			if (!bFirst) {
 				szBonusList.append(ENDCOLR);
 				szBuffer.append(szBonusList);
+			}
+
+			// AND Civics
+			bFirst = true;
+			bool bValid = true;
+			for (int iI = 0; iI < kBuilding.getNumPrereqAndCivics() && bValid; ++iI) {
+				CivicTypes eCivic = (CivicTypes)kBuilding.getPrereqAndCivic(iI);
+				if ((GC.getGameINLINE().getActivePlayer() == NO_PLAYER) || !(GET_PLAYER(GC.getGameINLINE().getActivePlayer()).isCivic(eCivic))) {
+					bValid = false;
+				}
+			}
+			if (!bValid) {
+				for (int iI = 0; iI < kBuilding.getNumPrereqAndCivics() && bValid; ++iI) {
+					CivicTypes eCivic = (CivicTypes)kBuilding.getPrereqAndCivic(iI);
+					if ((GC.getGameINLINE().getActivePlayer() == NO_PLAYER) || !(GET_PLAYER(GC.getGameINLINE().getActivePlayer()).isCivic(eCivic))) {
+						CvWString szTempBuffer;
+						szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_REQUIRES").c_str());
+						CvWString szCivic;
+						szCivic.Format(L"<link=literal>%s</link>", GC.getCivicInfo(eCivic).getDescription());
+						setListHelp(szBuffer, szTempBuffer, szCivic, gDLL->getText("TXT_KEY_AND").c_str(), bFirst);
+						bFirst = false;
+					}
+				}
+			}
+
+			// OR Civics
+			bFirst = true;
+			bValid = false;
+			if (pCity != NULL) {
+				for (int iI = 0; iI < kBuilding.getNumPrereqOrCivics() && !bValid; ++iI) {
+					CivicTypes eCivic = (CivicTypes)kBuilding.getPrereqOrCivic(iI);
+					if ((GC.getGameINLINE().getActivePlayer() == NO_PLAYER) || !(GET_PLAYER(GC.getGameINLINE().getActivePlayer()).isCivic(eCivic))) {
+						bValid = true;
+						break;
+					}
+				}
+			}
+			if (!bValid) {
+				for (int iI = 0; iI < kBuilding.getNumPrereqOrCivics() && !bValid; ++iI) {
+					CivicTypes eCivic = (CivicTypes)kBuilding.getPrereqOrCivic(iI);
+					if ((GC.getGameINLINE().getActivePlayer() == NO_PLAYER) || !(GET_PLAYER(GC.getGameINLINE().getActivePlayer()).isCivic(eCivic))) {
+						CvWString szTempBuffer;
+						szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_REQUIRES").c_str());
+						CvWString szCivic;
+						szCivic.Format(L"<link=literal>%s</link>", GC.getCivicInfo(eCivic).getDescription());
+						setListHelp(szBuffer, szTempBuffer, szCivic, gDLL->getText("TXT_KEY_OR").c_str(), bFirst);
+						bFirst = false;
+					}
+				}
 			}
 
 			if (NO_CORPORATION != kBuilding.getFoundsCorporation()) {

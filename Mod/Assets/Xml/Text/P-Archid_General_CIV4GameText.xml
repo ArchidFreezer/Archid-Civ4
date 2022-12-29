@@ -642,4 +642,27 @@
 		<Spanish>Despejar [NUM1:el:la:los:las] %s1_FeatName generará %d2_Num [ICON_PRODUCTION] para %s3_CityName.</Spanish>
 	</TEXT>
 
+<!-- CivicBuilding prereqs -->
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_BLOCKS_BUILDING</Tag>
+		<English>[ICON_BULLET]Disables construction of[SPACE]</English>
+		<French>[ICON_BULLET]Désactive la construction de[SPACE]</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_UNLOCKS_BUILDING</Tag>
+		<English>[ICON_BULLET]Allows construction of[SPACE]</English>
+		<French>[ICON_BULLET]Permet la construction de[SPACE]</French>
+		<German>[ICON_BULLET]Ermöglicht die Konstruktion von[SPACE]</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_RESTORED_BUILDINGS</Tag>
+		<English>The City of %s1 has had its %s2 restored and the %s3 is in working condition again.</English>
+		<French>La Ville de %s1 a restauré [NUM2:son:sa:ses:ses] %s2 et [NUM3:le:la:les:les] %s3 est à nouveau fonctionnel.</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_REMOVED_BUILDINGS_CIVICS</Tag>
+		<English>The %s1 in the City of %s2 is no longer functioning and has ceased doing business. Your civic changes have ended its usefulness. Change your social policies to restore the %s3 back to working order.</English>
+		<French>[NUM1:Le:La:Les:Les] %s1 de la Ville de %s2 ne fonctionne plus. Les changements de Doctrines l'ont rendu inutile. Changez à nouveau ces doctrines pour permettre [NUM3:au:à la:aux:aux] %s3 de fonctionner à nouveau.</French>
+	</TEXT>
+
 </Civ4GameText>

@@ -1641,6 +1641,8 @@ public:
 	int getUnhealthyPopulationModifier() const;	// K-Mod, Exposed to Python
 	int getNumPrereqAndTechs() const;
 	int getNumPrereqOrBonuses() const;
+	int getNumPrereqAndCivics() const;
+	int getNumPrereqOrCivics() const;
 
 	float getVisibilityPriority() const;
 
@@ -1722,6 +1724,8 @@ public:
 	int getFlavorValue(int i) const;				// Exposed to Python
 	int getImprovementFreeSpecialist(int i) const;				// Exposed to Python
 	int getPrereqAndTech(int i) const;
+	int getPrereqAndCivic(int i) const;
+	int getPrereqOrCivic(int i) const;
 
 	bool isCommerceFlexible(int i) const;				// Exposed to Python
 	bool isCommerceChangeOriginalOwner(int i) const;				// Exposed to Python
@@ -1913,6 +1917,8 @@ protected:
 	// Vectors
 	std::vector<int> m_viPrereqAndTechs;
 	std::vector<int> m_viPrereqOrBonuses;
+	std::vector<int> m_viPrereqAndCivics;
+	std::vector<int> m_viPrereqOrCivics;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
