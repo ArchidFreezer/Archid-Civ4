@@ -881,6 +881,8 @@ public:
 	int getNumUnitNames() const;							// Exposed to Python
 	int getCommandType() const;								// Exposed to Python
 	void setCommandType(int iNewType);
+	int getNumPrereqAndCivics() const;
+	int getNumPrereqOrCivics() const;
 
 	bool isAnimal() const;				// Exposed to Python
 	bool isFoodProduction() const;				// Exposed to Python
@@ -949,6 +951,8 @@ public:
 	int getTerrainPassableTech(int i) const;		// Exposed to Python
 	int getFeaturePassableTech(int i) const;		// Exposed to Python
 	int getFlankingStrikeUnitClass(int i) const;	// Exposed to Python
+	int getPrereqAndCivic(int i) const;
+	int getPrereqOrCivic(int i) const;
 
 	bool getUpgradeUnitClass(int i) const;	// Exposed to Python
 	bool getTargetUnitClass(int i) const;	// Exposed to Python
@@ -966,6 +970,8 @@ public:
 	bool getTerrainNative(int i) const;			// Exposed to Python
 	bool getFeatureNative(int i) const;			// Exposed to Python
 	bool getFreePromotions(int i) const;		// Exposed to Python
+	bool isPrereqAndCivic(int i) const;
+	bool isPrereqOrCivic(int i) const;
 	int getLeaderPromotion() const;   // Exposed to Python
 	int getLeaderExperience() const;				// Exposed to Python
 
@@ -1159,6 +1165,8 @@ protected:
 	CvString m_szArtDefineButton;
 
 	std::vector<int> m_aiSeeInvisibleTypes;
+	std::vector<int> m_viPrereqAndCivics;
+	std::vector<int> m_viPrereqOrCivics;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

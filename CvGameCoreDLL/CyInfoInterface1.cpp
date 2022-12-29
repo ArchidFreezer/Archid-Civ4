@@ -275,6 +275,8 @@ void CyInfoPythonInterface1() {
 		.def("getRangedWaveSize", &CvUnitInfo::getRangedWaveSize, "int ()")
 		.def("getNumUnitNames", &CvUnitInfo::getNumUnitNames, "int ()")
 		.def("getCommandType", &CvUnitInfo::getCommandType, "int ()")
+		.def("getNumPrereqOrCivics", &CvUnitInfo::getNumPrereqOrCivics, "int ()")
+		.def("getNumPrereqAndCivics", &CvUnitInfo::getNumPrereqAndCivics, "int ()")
 
 		.def("isAnimal", &CvUnitInfo::isAnimal, "bool ()")
 		.def("isFoodProduction", &CvUnitInfo::isFoodProduction, "bool ()")
@@ -339,6 +341,8 @@ void CyInfoPythonInterface1() {
 		.def("getDomainModifier", &CvUnitInfo::getDomainModifier, "int (int i)")
 		.def("getBonusProductionModifier", &CvUnitInfo::getBonusProductionModifier, "int (int i)")
 		.def("getUnitGroupRequired", &CvUnitInfo::getUnitGroupRequired, "int (int i)")
+		.def("getPrereqOrCivic", &CvUnitInfo::getPrereqOrCivic, "int (int i)")
+		.def("getPrereqAndCivic", &CvUnitInfo::getPrereqAndCivic, "int (int i)")
 
 		.def("getUpgradeUnitClass", &CvUnitInfo::getUpgradeUnitClass, "bool (int i)")
 		.def("getTargetUnitClass", &CvUnitInfo::getTargetUnitClass, "bool (int i)")
@@ -363,6 +367,8 @@ void CyInfoPythonInterface1() {
 		.def("getFreePromotions", &CvUnitInfo::getFreePromotions, "bool (int i)")
 		.def("getLeaderPromotion", &CvUnitInfo::getLeaderPromotion, "int ()")
 		.def("getLeaderExperience", &CvUnitInfo::getLeaderExperience, "int ()")
+		.def("isPrereqOrCivic", &CvUnitInfo::isPrereqOrCivic, "bool (int i)")
+		.def("isPrereqAndCivic", &CvUnitInfo::isPrereqAndCivic, "bool (int i)")
 
 		.def("getEarlyArtDefineTag", &CvUnitInfo::getEarlyArtDefineTag, "string (int i, UnitArtStyleTypes eStyle)")
 		.def("getLateArtDefineTag", &CvUnitInfo::getLateArtDefineTag, "string (int i, UnitArtStyleTypes eStyle)")

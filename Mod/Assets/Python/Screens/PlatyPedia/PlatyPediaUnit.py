@@ -109,24 +109,25 @@ class CvPediaUnit:
 		panelName = self.top.getNextWidgetName()
 		screen.addPanel( panelName, CyTranslator().getText("TXT_KEY_PEDIA_REQUIRES", ()), "", false, true, self.top.X_ITEMS_PANE, self.Y_UPGRADES_TO_PANE, self.W_MAIN_PANE, self.H_PREREQ_PANE, PanelStyles.PANEL_STYLE_BLUE50 )
 		
-		iPrereq = gc.getUnitInfo(self.iUnit).getPrereqAndTech()
+		Info = gc.getUnitInfo(self.iUnit)
+		iPrereq = Info.getPrereqAndTech()
 		if iPrereq > -1:
 			screen.attachImageButton( panelName, "", gc.getTechInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_TECH, iPrereq, 1, False )
 				
 		for j in xrange(gc.getDefineINT("NUM_UNIT_AND_TECH_PREREQS")):
-			iPrereq = gc.getUnitInfo(self.iUnit).getPrereqAndTechs(j)
+			iPrereq = Info.getPrereqAndTechs(j)
 			if iPrereq > -1:
 				screen.attachImageButton( panelName, "", gc.getTechInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_TECH, iPrereq, -1, False )
 
 		bFirst = True
-		iPrereq = gc.getUnitInfo(self.iUnit).getPrereqAndBonus()
+		iPrereq = Info.getPrereqAndBonus()
 		if iPrereq > -1:
 			bFirst = False
 			screen.attachImageButton( panelName, "", gc.getBonusInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, iPrereq, -1, False )
 
 		nOr = 0
 		for j in xrange(gc.getNUM_UNIT_PREREQ_OR_BONUSES()):
-			if gc.getUnitInfo(self.iUnit).getPrereqOrBonuses(j) > -1:
+			if Info.getPrereqOrBonuses(j) > -1:
 				nOr += 1
 
 		szRightDelimeter = ""
@@ -139,7 +140,7 @@ class CvPediaUnit:
 
 		bFirst = True
 		for j in xrange(gc.getNUM_UNIT_PREREQ_OR_BONUSES()):
-			eBonus = gc.getUnitInfo(self.iUnit).getPrereqOrBonuses(j)
+			eBonus = Info.getPrereqOrBonuses(j)
 			if eBonus > -1:
 				if not bFirst:
 					screen.attachLabel(panelName, "", CyTranslator().getText("TXT_KEY_OR", ()))
@@ -150,15 +151,41 @@ class CvPediaUnit:
 		if len(szRightDelimeter):
 			screen.attachLabel(panelName, "", szRightDelimeter)
 
-		iPrereq = gc.getUnitInfo(self.iUnit).getPrereqReligion()
+		bFirst = True
+		for j in xrange(Info.getNumPrereqAndCivics()):
+			bFirst = False
+			eCivic = Info.getPrereqAndCivic(j)
+			screen.attachImageButton( panelName, "", gc.getCivicInfo(eCivic).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_CIVIC, eCivic, -1, False )
+
+		szRightDelimeter = ""
+		if not bFirst:
+			if Info.getNumPrereqOrCivics() > 1:
+				screen.attachLabel(panelName, "", CyTranslator().getText("TXT_KEY_AND", ()) + "( ")
+				szRightDelimeter = " ) "
+			elif Info.getNumPrereqOrCivics() == 1:
+				screen.attachLabel(panelName, "", CyTranslator().getText("TXT_KEY_AND", ()))
+
+		bFirst = True
+		for j in xrange(Info.getNumPrereqOrCivics()):
+			eCivic = Info.getPrereqOrCivic(j)
+			if not bFirst:
+				screen.attachLabel(panelName, "", CyTranslator().getText("TXT_KEY_OR", ()))
+			else:
+				bFirst = False
+			screen.attachImageButton( panelName, "", gc.getCivicInfo(eCivic).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_CIVIC, eCivic, -1, False )
+
+		if len(szRightDelimeter):
+			screen.attachLabel(panelName, "", szRightDelimeter)
+
+		iPrereq = Info.getPrereqReligion()
 		if iPrereq > -1:
 			screen.attachImageButton( panelName, "", gc.getReligionInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_RELIGION, iPrereq, -1, False )
 
-		iPrereq = gc.getUnitInfo(self.iUnit).getPrereqCorporation()
+		iPrereq = Info.getPrereqCorporation()
 		if iPrereq > -1:
 			screen.attachImageButton( panelName, "", gc.getCorporationInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_CORPORATION, iPrereq, -1, False )
 
-		iPrereq = gc.getUnitInfo(self.iUnit).getPrereqBuilding()
+		iPrereq = Info.getPrereqBuilding()
 		if iPrereq > -1:
 			screen.attachImageButton( panelName, "", gc.getBuildingInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BUILDING, iPrereq, -1, False )		
 		

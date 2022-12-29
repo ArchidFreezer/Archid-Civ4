@@ -3557,6 +3557,34 @@ const CvArtInfoUnit* CvUnitInfo::getArtInfo(int i, EraTypes eEra, UnitArtStyleTy
 	}
 }
 
+int CvUnitInfo::getPrereqAndCivic(int i) const {
+	return m_viPrereqAndCivics[i];
+}
+
+int CvUnitInfo::getNumPrereqAndCivics() const {
+	return (int)m_viPrereqAndCivics.size();
+}
+
+int CvUnitInfo::getPrereqOrCivic(int i) const {
+	return m_viPrereqOrCivics[i];
+}
+
+int CvUnitInfo::getNumPrereqOrCivics() const {
+	return (int)m_viPrereqOrCivics.size();
+}
+
+bool CvUnitInfo::isPrereqAndCivic(int i) const {
+	FAssertMsg(i < GC.getNumCivicInfos(), "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	return (std::find(m_viPrereqAndCivics.begin(), m_viPrereqAndCivics.end(), i) != m_viPrereqAndCivics.end());
+}
+
+bool CvUnitInfo::isPrereqOrCivic(int i) const {
+	FAssertMsg(i < GC.getNumCivicInfos(), "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	return (std::find(m_viPrereqOrCivics.begin(), m_viPrereqOrCivics.end(), i) != m_viPrereqOrCivics.end());
+}
+
 void CvUnitInfo::read(FDataStreamBase* stream) {
 	CvHotkeyInfo::read(stream);
 
@@ -3853,6 +3881,22 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	m_paszUnitNames = new CvString[m_iNumUnitNames];
 	stream->ReadString(m_iNumUnitNames, m_paszUnitNames);
 
+	int iNumElements;
+	int iElement;
+	stream->Read(&iNumElements);
+	m_viPrereqAndCivics.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqAndCivics.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqOrCivics.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqOrCivics.push_back(iElement);
+	}
+
 	stream->ReadString(m_szFormationType);
 
 	updateArtDefineButton();
@@ -4031,6 +4075,16 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->WriteString(m_iGroupDefinitions, m_paszMiddleArtDefineTags);
 	stream->WriteString(m_iNumUnitNames, m_paszUnitNames);
 
+	stream->Write(m_viPrereqAndCivics.size());
+	for (std::vector<int>::iterator it = m_viPrereqAndCivics.begin(); it != m_viPrereqAndCivics.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqOrCivics.size());
+	for (std::vector<int>::iterator it = m_viPrereqOrCivics.begin(); it != m_viPrereqOrCivics.end(); ++it) {
+		stream->Write(*it);
+	}
+
 	stream->WriteString(m_szFormationType);
 }
 
@@ -4161,6 +4215,9 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	m_iPrereqAndBonus = pXML->FindInInfoClass(szTextVal);
 
 	pXML->SetListInfo(&m_piPrereqOrBonuses, "PrereqBonuses", GC.getNUM_UNIT_PREREQ_OR_BONUSES());
+
+	pXML->SetVectorInfo(m_viPrereqAndCivics, "PrereqAndCivics");
+	pXML->SetVectorInfo(m_viPrereqOrCivics, "PrereqOrCivics");
 
 	pXML->SetListPairInfo(&m_piProductionTraits, "ProductionTraits", GC.getNumTraitInfos());
 

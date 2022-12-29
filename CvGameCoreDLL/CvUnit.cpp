@@ -318,6 +318,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_bInfoBarDirty = false;
 	m_bBlockading = false;
 	m_bAirCombat = false;
+	m_bCivicEnabled = true;
 
 	m_eOwner = eOwner;
 	m_eCapturingPlayer = NO_PLAYER;
@@ -2862,6 +2863,10 @@ bool CvUnit::canAirPatrol(const CvPlot* pPlot) const {
 		return false;
 	}
 
+	if (!isEnabled()) {
+		return false;
+	}
+
 	if (!canAirDefend(pPlot)) {
 		return false;
 	}
@@ -2877,6 +2882,10 @@ bool CvUnit::canAirPatrol(const CvPlot* pPlot) const {
 
 bool CvUnit::canSeaPatrol(const CvPlot* pPlot) const {
 	if (!pPlot->isWater()) {
+		return false;
+	}
+
+	if (!isEnabled()) {
 		return false;
 	}
 
@@ -3355,6 +3364,10 @@ bool CvUnit::canRecon(const CvPlot* pPlot) const {
 		return false;
 	}
 
+	if (!isEnabled()) {
+		return false;
+	}
+
 	if (airRange() == 0) {
 		return false;
 	}
@@ -3411,6 +3424,10 @@ bool CvUnit::recon(int iX, int iY) {
 
 bool CvUnit::canParadrop(const CvPlot* pPlot) const {
 	if (getDropRange() <= 0) {
+		return false;
+	}
+
+	if (!isEnabled()) {
 		return false;
 	}
 
@@ -3503,6 +3520,10 @@ bool CvUnit::canAirBomb(const CvPlot* pPlot) const {
 	}
 
 	if (airBombBaseRate() == 0) {
+		return false;
+	}
+
+	if (!isEnabled()) {
 		return false;
 	}
 
@@ -3666,6 +3687,10 @@ bool CvUnit::canBombard(const CvPlot* pPlot) const {
 		return false;
 	}
 
+	if (!isEnabled()) {
+		return false;
+	}
+
 	if (isMadeAttack()) {
 		return false;
 	}
@@ -3732,6 +3757,10 @@ bool CvUnit::bombard() {
 
 bool CvUnit::canPillage(const CvPlot* pPlot) const {
 	if (!(m_pUnitInfo->isPillage())) {
+		return false;
+	}
+
+	if (!isEnabled()) {
 		return false;
 	}
 
@@ -3879,7 +3908,11 @@ bool CvUnit::canPlunder(const CvPlot* pPlot, bool bTestVisible) const {
 		return false;
 	}
 
-	if (!(m_pUnitInfo->isPillage())) {
+	if (!isEnabled()) {
+		return false;
+	}
+
+	if (!m_pUnitInfo->isPillage()) {
 		return false;
 	}
 
@@ -4010,7 +4043,11 @@ int CvUnit::sabotageProb(const CvPlot* pPlot, ProbabilityTypes eProbStyle) const
 
 
 bool CvUnit::canSabotage(const CvPlot* pPlot, bool bTestVisible) const {
-	if (!(m_pUnitInfo->isSabotage())) {
+	if (!m_pUnitInfo->isSabotage()) {
+		return false;
+	}
+
+	if (!isEnabled()) {
 		return false;
 	}
 
@@ -4149,7 +4186,11 @@ int CvUnit::destroyProb(const CvPlot* pPlot, ProbabilityTypes eProbStyle) const 
 
 
 bool CvUnit::canDestroy(const CvPlot* pPlot, bool bTestVisible) const {
-	if (!(m_pUnitInfo->isDestroy())) {
+	if (!m_pUnitInfo->isDestroy()) {
+		return false;
+	}
+
+	if (!isEnabled()) {
 		return false;
 	}
 
@@ -4269,7 +4310,11 @@ int CvUnit::stealPlansProb(const CvPlot* pPlot, ProbabilityTypes eProbStyle) con
 
 
 bool CvUnit::canStealPlans(const CvPlot* pPlot, bool bTestVisible) const {
-	if (!(m_pUnitInfo->isStealPlans())) {
+	if (!m_pUnitInfo->isStealPlans()) {
+		return false;
+	}
+
+	if (!isEnabled()) {
 		return false;
 	}
 
@@ -4347,7 +4392,11 @@ bool CvUnit::canFound(const CvPlot* pPlot, bool bTestVisible) const {
 		return false;
 	}
 
-	if (!(GET_PLAYER(getOwnerINLINE()).canFound(pPlot->getX_INLINE(), pPlot->getY_INLINE(), bTestVisible))) {
+	if (!isEnabled()) {
+		return false;
+	}
+
+	if (!GET_PLAYER(getOwnerINLINE()).canFound(pPlot->getX_INLINE(), pPlot->getY_INLINE(), bTestVisible)) {
 		return false;
 	}
 
@@ -4382,6 +4431,10 @@ bool CvUnit::canSpread(const CvPlot* pPlot, ReligionTypes eReligion, bool bTestV
 	}
 
 	if (m_pUnitInfo->getReligionSpreads(eReligion) <= 0) {
+		return false;
+	}
+
+	if (!isEnabled()) {
 		return false;
 	}
 
@@ -4501,6 +4554,10 @@ bool CvUnit::canSpreadCorporation(const CvPlot* pPlot, CorporationTypes eCorpora
 		return false;
 	}
 
+	if (!isEnabled()) {
+		return false;
+	}
+
 	CvCity* pCity = pPlot->getPlotCity();
 	if (NULL == pCity) {
 		return false;
@@ -4615,7 +4672,11 @@ bool CvUnit::canJoin(const CvPlot* pPlot, SpecialistTypes eSpecialist) const {
 		return false;
 	}
 
-	if (!(m_pUnitInfo->getGreatPeoples(eSpecialist))) {
+	if (!m_pUnitInfo->getGreatPeoples(eSpecialist)) {
+		return false;
+	}
+
+	if (!isEnabled()) {
 		return false;
 	}
 
@@ -4662,6 +4723,10 @@ bool CvUnit::join(SpecialistTypes eSpecialist) {
 
 bool CvUnit::canConstruct(const CvPlot* pPlot, BuildingTypes eBuilding, bool bTestVisible) const {
 	if (eBuilding == NO_BUILDING) {
+		return false;
+	}
+
+	if (!isEnabled()) {
 		return false;
 	}
 
@@ -4743,6 +4808,10 @@ bool CvUnit::canDiscover(const CvPlot* pPlot) const {
 		return false;
 	}
 
+	if (!isEnabled()) {
+		return false;
+	}
+
 	if (getDiscoverResearch(eTech) == 0) {
 		return false;
 	}
@@ -4810,6 +4879,10 @@ bool CvUnit::canHurry(const CvPlot* pPlot, bool bTestVisible) const {
 		return false;
 	}
 
+	if (!isEnabled()) {
+		return false;
+	}
+
 	if (getHurryProduction(pPlot) == 0) {
 		return false;
 	}
@@ -4874,6 +4947,10 @@ bool CvUnit::canTrade(const CvPlot* pPlot, bool bTestVisible) const {
 		return false;
 	}
 
+	if (!isEnabled()) {
+		return false;
+	}
+
 	CvCity* pCity = pPlot->getPlotCity();
 	if (pCity == NULL) {
 		return false;
@@ -4927,6 +5004,10 @@ int CvUnit::getGreatWorkCulture(const CvPlot* pPlot) const {
 
 bool CvUnit::canGreatWork(const CvPlot* pPlot) const {
 	if (isDelayedDeath()) {
+		return false;
+	}
+
+	if (!isEnabled()) {
 		return false;
 	}
 
@@ -4989,6 +5070,10 @@ bool CvUnit::canInfiltrate(const CvPlot* pPlot, bool bTestVisible) const {
 		return false;
 	}
 
+	if (!isEnabled()) {
+		return false;
+	}
+
 	if (getEspionagePoints(NULL) == 0) {
 		return false;
 	}
@@ -5029,6 +5114,10 @@ bool CvUnit::infiltrate() {
 
 bool CvUnit::canEspionage(const CvPlot* pPlot, bool bTestVisible) const {
 	if (isDelayedDeath()) {
+		return false;
+	}
+
+	if (!isEnabled()) {
 		return false;
 	}
 
@@ -5232,6 +5321,10 @@ bool CvUnit::canGoldenAge(const CvPlot* pPlot, bool bTestVisible) const {
 		return false;
 	}
 
+	if (!isEnabled()) {
+		return false;
+	}
+
 	if (!bTestVisible) {
 		if (GET_PLAYER(getOwnerINLINE()).unitsRequiredForGoldenAge() > GET_PLAYER(getOwnerINLINE()).unitsGoldenAgeReady()) {
 			return false;
@@ -5264,11 +5357,15 @@ bool CvUnit::goldenAge() {
 
 bool CvUnit::canBuild(const CvPlot* pPlot, BuildTypes eBuild, bool bTestVisible) const {
 	FAssertMsg(eBuild < GC.getNumBuildInfos(), "Index out of bounds");
-	if (!(m_pUnitInfo->getBuilds(eBuild))) {
+	if (!m_pUnitInfo->getBuilds(eBuild)) {
 		return false;
 	}
 
-	if (!(GET_PLAYER(getOwnerINLINE()).canBuild(pPlot, eBuild, false, bTestVisible))) {
+	if (!isEnabled()) {
+		return false;
+	}
+
+	if (!GET_PLAYER(getOwnerINLINE()).canBuild(pPlot, eBuild, false, bTestVisible)) {
 		return false;
 	}
 
@@ -5440,6 +5537,10 @@ int CvUnit::canLead(const CvPlot* pPlot, int iUnitId) const {
 		return 0;
 	}
 
+	if (!isEnabled()) {
+		return false;
+	}
+
 	int iNumUnits = 0;
 	CvUnitInfo& kUnitInfo = getUnitInfo();
 
@@ -5586,6 +5687,10 @@ bool CvUnit::upgradeAvailable(UnitTypes eFromUnit, UnitClassTypes eToUnitClass, 
 
 bool CvUnit::canUpgrade(UnitTypes eUnit, bool bTestVisible) const {
 	if (eUnit == NO_UNIT) {
+		return false;
+	}
+
+	if (!isEnabled()) {
 		return false;
 	}
 
@@ -6600,6 +6705,10 @@ bool CvUnit::canAttack() const {
 		return false;
 	}
 
+	if (!isEnabled()) {
+		return false;
+	}
+
 	if (isOnlyDefensive()) {
 		return false;
 	}
@@ -6646,6 +6755,10 @@ bool CvUnit::canDefend(const CvPlot* pPlot) const {
 
 bool CvUnit::canSiege(TeamTypes eTeam) const {
 	if (!canDefend()) {
+		return false;
+	}
+
+	if (!isEnabled()) {
 		return false;
 	}
 
@@ -9351,6 +9464,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	if (uiFlag > 0) {
 		pStream->Read(&m_bAirCombat);
 	}
+	pStream->Read(&m_bCivicEnabled);
 
 	pStream->Read((int*)&m_eOwner);
 	pStream->Read((int*)&m_eCapturingPlayer);
@@ -9457,6 +9571,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	// m_bInfoBarDirty not saved...
 	pStream->Write(m_bBlockading);
 	pStream->Write(m_bAirCombat);
+	pStream->Write(m_bCivicEnabled);
 
 	pStream->Write(m_eOwner);
 	pStream->Write(m_eCapturingPlayer);
@@ -9694,6 +9809,10 @@ bool CvUnit::canAirStrike(const CvPlot* pPlot) const {
 		return false;
 	}
 
+	if (!isEnabled()) {
+		return false;
+	}
+
 	if (!canAirAttack()) {
 		return false;
 	}
@@ -9756,6 +9875,10 @@ bool CvUnit::airStrike(CvPlot* pPlot) {
 
 bool CvUnit::canRangeStrike() const {
 	if (getDomainType() == DOMAIN_AIR) {
+		return false;
+	}
+
+	if (!isEnabled()) {
 		return false;
 	}
 
@@ -10788,8 +10911,10 @@ void CvUnit::changeTerritoryUnboundCount(int iChange) {
 }
 
 UnitRangeTypes CvUnit::getRangeType() const {
-	UnitRangeTypes ePlayerUnitRangeType = GET_PLAYER(getOwnerINLINE()).getUnitRangeType(&(this->getUnitInfo()));
+	if (!isEnabled())
+		return UNITRANGE_HOME;
 
+	UnitRangeTypes ePlayerUnitRangeType = GET_PLAYER(getOwnerINLINE()).getUnitRangeType(&(this->getUnitInfo()));
 	switch (m_pUnitInfo->getRangeType()) {
 	case UNITRANGE_HOME:
 		return UNITRANGE_HOME;
@@ -10813,4 +10938,17 @@ UnitRangeTypes CvUnit::getRangeType() const {
 		return UNITRANGE_UNLIMITED;
 		break;
 	}
+}
+
+
+void CvUnit::setCivicEnabled(bool bEnable) {
+	m_bCivicEnabled = bEnable;
+}
+
+bool CvUnit::isCivicEnabled() const {
+	return m_bCivicEnabled;
+}
+
+bool CvUnit::isEnabled() const {
+	return isCivicEnabled();
 }

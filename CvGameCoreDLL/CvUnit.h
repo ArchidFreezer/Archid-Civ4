@@ -96,6 +96,10 @@ public:
 	void changeExtraRangePercent(int iChange);
 	int getExtraRangePercent() const;
 
+	void setCivicEnabled(bool bEnable);
+	bool isCivicEnabled() const;
+	bool isEnabled() const;
+
 	void updateCombat(bool bQuick = false);
 	void updateAirCombat(bool bQuick = false);
 	void updateAirStrike(CvPlot* pPlot, bool bQuick, bool bFinish);
@@ -853,6 +857,7 @@ protected:
 	bool m_bInfoBarDirty;
 	bool m_bBlockading;
 	bool m_bAirCombat;
+	bool m_bCivicEnabled;
 
 	PlayerTypes m_eOwner;
 	PlayerTypes m_eCapturingPlayer;

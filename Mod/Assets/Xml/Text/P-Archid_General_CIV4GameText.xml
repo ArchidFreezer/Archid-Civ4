@@ -675,5 +675,22 @@
 		<Tag>TXT_KEY_BUILDING_REPLACED_BY_BUILDING</Tag>
 		<English>[ICON_BULLET][COLOR_WARNING_TEXT]Replaced by[COLOR_REVERT][SPACE]</English>
 	</TEXT>	
+<!-- Civic Unit prereq -->
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_BLOCKS_UNIT</Tag>
+		<English>[ICON_BULLET]Disables training of[SPACE]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_UNLOCKS_UNIT</Tag>
+		<English>[ICON_BULLET]Allows training of[SPACE]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_DISABLED_UNIT</Tag>
+		<English>Your %s1 unit is unhappy with your choice of civics and is thinking of going home.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_ENABLED_UNIT</Tag>
+		<English>Your %s1 unit is happy with your choice of civics and has started working again.</English>
+	</TEXT>
 
 </Civ4GameText>

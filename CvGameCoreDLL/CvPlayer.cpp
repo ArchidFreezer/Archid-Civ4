@@ -4681,6 +4681,10 @@ bool CvPlayer::canTrain(UnitTypes eUnit, bool bContinue, bool bTestVisible, bool
 		return false;
 	}
 
+	if (!hasValidCivics(eUnit)) {
+		return false;
+	}
+
 	if (GC.getGameINLINE().isOption(GAMEOPTION_ONE_CITY_CHALLENGE) && isHuman()) {
 		if (kUnit.isFound()) {
 			return false;
@@ -10097,6 +10101,20 @@ void CvPlayer::setCivics(CivicOptionTypes eIndex, CivicTypes eNewValue) {
 		int iLoop;
 		for (CvCity* pLoopCity = firstCity(&iLoop); NULL != pLoopCity; pLoopCity = nextCity(&iLoop)) {
 			pLoopCity->checkBuildings();
+		}
+
+		CvWString szBuffer;
+		for (CvUnit* pLoopUnit = firstUnit(&iLoop); NULL != pLoopUnit; pLoopUnit = nextUnit(&iLoop)) {
+			bool validCivics = hasValidCivics(pLoopUnit->getUnitType());
+			if (!validCivics && pLoopUnit->isCivicEnabled()) {
+				pLoopUnit->setCivicEnabled(false);
+				szBuffer = gDLL->getText("TXT_KEY_CIVIC_DISABLED_UNIT", pLoopUnit->getNameKey());
+				gDLL->getInterfaceIFace()->addMessage(getID(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, NULL, MESSAGE_TYPE_MINOR_EVENT, pLoopUnit->getUnitInfo().getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), pLoopUnit->getX(), pLoopUnit->getY(), true, true);
+			} else if (validCivics && !pLoopUnit->isCivicEnabled()) {
+				pLoopUnit->setCivicEnabled(true);
+				szBuffer = gDLL->getText("TXT_KEY_CIVIC_ENABLED_UNIT", pLoopUnit->getNameKey());
+				gDLL->getInterfaceIFace()->addMessage(getID(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, NULL, MESSAGE_TYPE_MINOR_EVENT, pLoopUnit->getUnitInfo().getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), pLoopUnit->getX(), pLoopUnit->getY(), true, true);
+			}
 		}
 
 		GC.getGameINLINE().updateSecretaryGeneral();
@@ -18345,3 +18363,34 @@ bool CvPlayer::hasValidCivics(BuildingTypes eBuilding) const {
 	return true;
 }
 
+bool CvPlayer::hasValidCivics(UnitTypes eUnit) const {
+	bool bValidOrCivic = false;
+	bool bNoReqOrCivic = true;
+	bool bValidAndCivic = true;
+	bool bReqAndCivic = true;
+	for (CivicTypes eCivic = (CivicTypes)0; eCivic < GC.getNumCivicInfos(); eCivic = (CivicTypes)(eCivic + 1)) {
+		if (GC.getUnitInfo(eUnit).isPrereqOrCivic(eCivic)) {
+			bNoReqOrCivic = false;
+			if (isCivic(eCivic)) {
+				bValidOrCivic = true;
+			}
+		}
+
+		if (GC.getUnitInfo(eUnit).isPrereqAndCivic(eCivic)) {
+			bReqAndCivic = true;
+			if (!isCivic(eCivic)) {
+				bValidAndCivic = false;
+			}
+		}
+	}
+
+	if (!bNoReqOrCivic && !bValidOrCivic) {
+		return false;
+	}
+
+	if (bReqAndCivic && !bValidAndCivic) {
+		return false;
+	}
+
+	return true;
+}
