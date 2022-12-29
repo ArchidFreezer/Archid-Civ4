@@ -30,6 +30,7 @@
 #include "FProfiler.h"
 #include "CyArgsList.h"
 #include "CvDLLPythonIFaceBase.h"
+#include "CvIniOptions.h"
 
 int shortenID(int iId) {
 	return iId;
@@ -4356,39 +4357,226 @@ void CvGameTextMgr::setCityBarHelp(CvWStringBuffer& szString, CvCity* pCity) {
 	int iFoodDifference = pCity->foodDifference();
 	szString.append(pCity->getName());
 
-	if (iFoodDifference <= 0) {
-		szString.append(gDLL->getText("TXT_KEY_CITY_BAR_GROWTH", pCity->getFood(), pCity->growthThreshold()));
-	} else {
-		szString.append(gDLL->getText("TXT_KEY_CITY_BAR_FOOD_GROWTH", iFoodDifference, pCity->getFood(), pCity->growthThreshold(), pCity->getFoodTurnsLeft()));
+	CvWString szTempBuffer;
+	int iRate = 0;
+	// Health icon
+	if (getOptionBOOL("CityBar__Health", "False")) {
+		iRate = pCity->goodHealth() - pCity->badHealth();
+		if (iRate > 0) {
+			szTempBuffer.Format(L", %d %c", iRate, gDLL->getSymbolID(HEALTHY_CHAR));
+			szString.append(szTempBuffer);
+		} else if (iRate < 0) {
+			szTempBuffer.Format(L", %d %c", -iRate, gDLL->getSymbolID(UNHEALTHY_CHAR));
+			szString.append(szTempBuffer);
+		}
 	}
+
+	// Happiness icon
+	if (getOptionBOOL("CityBar__Happiness", "False")) {
+		if (pCity->isDisorder()) {
+			int iAngryPop = pCity->angryPopulation();
+			if (iAngryPop > 0) {
+				szTempBuffer.Format(L", %d %c", iAngryPop, gDLL->getSymbolID(ANGRY_POP_CHAR));
+				szString.append(szTempBuffer);
+			}
+		} else {
+			iRate = pCity->happyLevel() - pCity->unhappyLevel();
+			if (iRate > 0) {
+				szTempBuffer.Format(L", %d %c", iRate, gDLL->getSymbolID(HAPPY_CHAR));
+				szString.append(szTempBuffer);
+			} else if (iRate < 0) {
+				szTempBuffer.Format(L", %d %c", -iRate, gDLL->getSymbolID(UNHAPPY_CHAR));
+				szString.append(szTempBuffer);
+			}
+		}
+	}
+
+	// Hurry anger turns
+	if (getOptionBOOL("CityBar__HurryAnger", "False") && pCity->getOwnerINLINE() == GC.getGameINLINE().getActivePlayer()) {
+		iRate = pCity->getHurryAngerTimer();
+		if (iRate > 0) {
+			int iPop = ((iRate - 1) / pCity->flatHurryAngerLength() + 1) * GC.getDefineINT("HURRY_POP_ANGER");
+			szTempBuffer.Format(L" (%d %c %d)", iPop, gDLL->getSymbolID(ANGRY_POP_CHAR), iRate);
+			szString.append(szTempBuffer);
+		}
+	}
+
+	// Draft anger turns
+	if (getOptionBOOL("CityBar__DraftAnger", "False") && pCity->getOwnerINLINE() == GC.getGameINLINE().getActivePlayer()) {
+		iRate = pCity->getConscriptAngerTimer();
+		if (iRate > 0) {
+			int iPop = ((iRate - 1) / pCity->flatConscriptAngerLength() + 1) * GC.getDefineINT("CONSCRIPT_POP_ANGER");
+			szTempBuffer.Format(L" (%d %c %d)", iPop, gDLL->getSymbolID(CITIZEN_CHAR), iRate);
+			szString.append(szTempBuffer);
+		}
+	}
+
+	// Food assist
+	if ((iFoodDifference != 0 || !pCity->isFoodProduction()) && getOptionBOOL("CityBar__FoodAssist", "False")) {
+		if (iFoodDifference > 0) {
+			szString.append(gDLL->getText("TXT_KEY_CITY_BAR_FOOD_GROW", iFoodDifference, pCity->getFood(), pCity->growthThreshold(), pCity->getFoodTurnsLeft()));
+		} else if (iFoodDifference == 0) {
+			szString.append(gDLL->getText("TXT_KEY_CITY_BAR_FOOD_STAGNATE", pCity->getFood(), pCity->growthThreshold()));
+		} else if (pCity->getFood() + iFoodDifference >= 0) {
+			int iTurnsToStarve = pCity->getFood() / -iFoodDifference + 1;
+			szString.append(gDLL->getText("TXT_KEY_CITY_BAR_FOOD_SHRINK", iFoodDifference, pCity->getFood(), pCity->growthThreshold(), iTurnsToStarve));
+		} else {
+			szString.append(gDLL->getText("TXT_KEY_CITY_BAR_FOOD_STARVE", iFoodDifference, pCity->getFood(), pCity->growthThreshold()));
+		}
+	} else {
+		if (iFoodDifference <= 0) {
+			szString.append(gDLL->getText("TXT_KEY_CITY_BAR_GROWTH", pCity->getFood(), pCity->growthThreshold()));
+		} else {
+			szString.append(gDLL->getText("TXT_KEY_CITY_BAR_FOOD_GROWTH", iFoodDifference, pCity->getFood(), pCity->growthThreshold(), pCity->getFoodTurnsLeft()));
+		}
+	}
+
+	// Base production
+	bool bBaseValues = (gDLL->ctrlKey() && getOptionBOOL("CityBar__BaseValues", "True"));
+	bool bBaseProduction = getOptionBOOL("CityBar__BaseProduction", "False");
 	if (pCity->getProductionNeeded() != MAX_INT) {
+		int iBaseProductionDiffNoFood;
+		if (bBaseValues) {
+			iBaseProductionDiffNoFood = pCity->getBaseYieldRate(YIELD_PRODUCTION);
+		} else {
+			iBaseProductionDiffNoFood = pCity->getCurrentProductionDifference(true, false);
+		}
 		int iProductionDiffNoFood = pCity->getCurrentProductionDifference(true, true);
 		int iProductionDiffJustFood = (pCity->getCurrentProductionDifference(false, true) - iProductionDiffNoFood);
 
 		if (iProductionDiffJustFood > 0) {
-			szString.append(gDLL->getText("TXT_KEY_CITY_BAR_FOOD_HAMMER_PRODUCTION", iProductionDiffJustFood, iProductionDiffNoFood, pCity->getProductionName(), pCity->getProduction(), pCity->getProductionNeeded(), pCity->getProductionTurnsLeft()));
+			if ((iProductionDiffNoFood != iBaseProductionDiffNoFood) && bBaseProduction) {
+				szString.append(gDLL->getText("TXT_KEY_CITY_BAR_FOOD_HAMMER_PRODUCTION_WITH_BASE", iProductionDiffJustFood, iProductionDiffNoFood, pCity->getProductionName(), pCity->getProduction(), pCity->getProductionNeeded(), pCity->getProductionTurnsLeft(), iBaseProductionDiffNoFood));
+			} else {
+				szString.append(gDLL->getText("TXT_KEY_CITY_BAR_FOOD_HAMMER_PRODUCTION", iProductionDiffJustFood, iProductionDiffNoFood, pCity->getProductionName(), pCity->getProduction(), pCity->getProductionNeeded(), pCity->getProductionTurnsLeft()));
+			}
 		} else if (iProductionDiffNoFood > 0) {
-			szString.append(gDLL->getText("TXT_KEY_CITY_BAR_HAMMER_PRODUCTION", iProductionDiffNoFood, pCity->getProductionName(), pCity->getProduction(), pCity->getProductionNeeded(), pCity->getProductionTurnsLeft()));
+			if ((iProductionDiffNoFood != iBaseProductionDiffNoFood) && bBaseProduction) {
+				szString.append(gDLL->getText("TXT_KEY_CITY_BAR_HAMMER_PRODUCTION_WITH_BASE", iProductionDiffNoFood, pCity->getProductionName(), pCity->getProduction(), pCity->getProductionNeeded(), pCity->getProductionTurnsLeft(), iBaseProductionDiffNoFood));
+			} else {
+				szString.append(gDLL->getText("TXT_KEY_CITY_BAR_HAMMER_PRODUCTION", iProductionDiffNoFood, pCity->getProductionName(), pCity->getProduction(), pCity->getProductionNeeded(), pCity->getProductionTurnsLeft()));
+			}
 		} else {
 			szString.append(gDLL->getText("TXT_KEY_CITY_BAR_PRODUCTION", pCity->getProductionName(), pCity->getProduction(), pCity->getProductionNeeded()));
 		}
+	} else if (bBaseProduction) {
+		int iOverflow = pCity->getOverflowProduction();
+		int iBaseProductionDiffNoFood;
+		if (bBaseValues) {
+			iBaseProductionDiffNoFood = pCity->getBaseYieldRate(YIELD_PRODUCTION);
+		} else {
+			iBaseProductionDiffNoFood = pCity->getCurrentProductionDifference(true, false);
+		}
+		if (iOverflow > 0 || iBaseProductionDiffNoFood > 0) {
+			if (iOverflow > 0) {
+				szString.append(gDLL->getText("TXT_KEY_CITY_BAR_BASE_PRODUCTION_WITH_OVERFLOW", iOverflow, iBaseProductionDiffNoFood));
+			} else {
+				szString.append(gDLL->getText("TXT_KEY_CITY_BAR_BASE_PRODUCTION", iBaseProductionDiffNoFood));
+			}
+		}
 	}
 
-	CvWString szTempBuffer;
+	// Hurry assist
 	bool bFirst = true;
-	int iRate = 0;
-	for (int iI = 0; iI < NUM_COMMERCE_TYPES; ++iI) {
-		iRate = pCity->getCommerceRateTimes100((CommerceTypes)iI);
+	if (getOptionBOOL("CityBar__HurryAssist", "False") && pCity->getOwnerINLINE() == GC.getGameINLINE().getActivePlayer()) {
+		bool bFirstHurry = true;
+		for (HurryTypes eHurry = (HurryTypes)0; eHurry < GC.getNumHurryInfos(); eHurry = (HurryTypes)(eHurry + 1)) {
+			if (pCity->canHurry(eHurry)) {
+				if (bFirstHurry) {
+					szString.append(NEWLINE);
+					szString.append("Hurry:");
+					bFirstHurry = false;
+				}
+				bFirst = true;
+				szString.append(L" (");
+				int iPopulation = pCity->hurryPopulation(eHurry);
+				if (iPopulation > 0) {
+					szTempBuffer.Format(L"%d %c", -iPopulation, gDLL->getSymbolID(CITIZEN_CHAR));
+					setListHelp(szString, NULL, szTempBuffer, L", ", bFirst);
+					bFirst = false;
+				}
+				int iGold = pCity->hurryGold(eHurry);
+				if (iGold > 0) {
+					szTempBuffer.Format(L"%d %c", -iGold, GC.getCommerceInfo(COMMERCE_GOLD).getChar());
+					setListHelp(szString, NULL, szTempBuffer, L", ", bFirst);
+					bFirst = false;
+				}
+				int iOverflowProduction = 0;
+				int iOverflowGold = 0;
+				if (pCity->hurryOverflow(eHurry, &iOverflowProduction, &iOverflowGold, getOptionBOOL("CityBar__HurryAssistIncludeCurrent", "False"))) {
+					if (iOverflowProduction > 0) {
+						szTempBuffer.Format(L"%d %c", iOverflowProduction, GC.getYieldInfo(YIELD_PRODUCTION).getChar());
+						setListHelp(szString, NULL, szTempBuffer, L", ", bFirst);
+						bFirst = false;
+					}
+					if (iOverflowGold > 0) {
+						szTempBuffer.Format(L"%d %c", iOverflowGold, GC.getCommerceInfo(COMMERCE_GOLD).getChar());
+						setListHelp(szString, NULL, szTempBuffer, L", ", bFirst);
+						bFirst = false;
+					}
+				}
+				szString.append(L")");
+			}
+		}
+	}
 
-		if (iRate != 0) {
-			szTempBuffer.Format(L"%d.%02d %c", iRate / 100, iRate % 100, GC.getCommerceInfo((CommerceTypes)iI).getChar());
+	// Trade Detail
+	if (getOptionBOOL("CityBar__TradeDetail", "False")) {
+		int iTotalTrade = 0;
+		int iDomesticTrade = 0;
+		int iDomesticRoutes = 0;
+		int iForeignTrade = 0;
+		int iForeignRoutes = 0;
+		pCity->calculateTradeTotals(YIELD_COMMERCE, iDomesticTrade, iDomesticRoutes, iForeignTrade, iForeignRoutes, NO_PLAYER, bBaseValues);
+		iTotalTrade = iDomesticTrade + iForeignTrade;
+
+		bFirst = true;
+		if (iTotalTrade != 0) {
+			szTempBuffer.Format(L"%c: %d %c", gDLL->getSymbolID(TRADE_CHAR), iTotalTrade, GC.getYieldInfo(YIELD_COMMERCE).getChar());
+			setListHelp(szString, NEWLINE, szTempBuffer, L", ", bFirst);
+			bFirst = false;
+		}
+		if (iDomesticTrade != 0) {
+			szTempBuffer.Format(L"%c: %d %c", gDLL->getSymbolID(STAR_CHAR), iDomesticTrade, GC.getYieldInfo(YIELD_COMMERCE).getChar());
+			setListHelp(szString, NEWLINE, szTempBuffer, L", ", bFirst);
+			bFirst = false;
+		}
+		if (iForeignTrade != 0) {
+			szTempBuffer.Format(L"%c: %d %c", gDLL->getSymbolID(SILVER_STAR_CHAR), iForeignTrade, GC.getYieldInfo(YIELD_COMMERCE).getChar());
 			setListHelp(szString, NEWLINE, szTempBuffer, L", ", bFirst);
 			bFirst = false;
 		}
 	}
 
-	iRate = pCity->getGreatPeopleRate();
+	// Commerce
+	if (getOptionBOOL("CityBar__Commerce", "False")) {
+		if (bBaseValues) {
+			iRate = pCity->getBaseYieldRate(YIELD_COMMERCE);
+		} else {
+			iRate = pCity->getYieldRate(YIELD_COMMERCE);
+		}
+		if (iRate != 0) {
+			szTempBuffer.Format(L"%d %c", iRate, GC.getYieldInfo(YIELD_COMMERCE).getChar());
+			setListHelp(szString, NEWLINE, szTempBuffer, L", ", bFirst);
+			bFirst = false;
+		}
+	}
 
+	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+		if (bBaseValues) {
+			iRate = pCity->getBaseCommerceRateTimes100(eCommerce);
+		} else {
+			iRate = pCity->getCommerceRateTimes100(eCommerce);
+		}
+
+		if (iRate != 0) {
+			szTempBuffer.Format(L"%d.%02d %c", iRate / 100, iRate % 100, GC.getCommerceInfo(eCommerce).getChar());
+			setListHelp(szString, NEWLINE, szTempBuffer, L", ", bFirst);
+			bFirst = false;
+		}
+	}
+
+	iRate = bBaseValues ? pCity->getBaseGreatPeopleRate() : pCity->getGreatPeopleRate();
 	if (iRate != 0) {
 		szTempBuffer.Format(L"%d%c", iRate, gDLL->getSymbolID(GREAT_PEOPLE_CHAR));
 		setListHelp(szString, NEWLINE, szTempBuffer, L", ", bFirst);
@@ -4404,20 +4592,100 @@ void CvGameTextMgr::setCityBarHelp(CvWStringBuffer& szString, CvCity* pCity) {
 	int iMaintenance = pCity->getMaintenanceTimes100();
 	szString.append(CvWString::format(L" -%d.%02d %c", iMaintenance / 100, iMaintenance % 100, GC.getCommerceInfo(COMMERCE_GOLD).getChar()));
 
-	bFirst = true;
-	for (int iI = 0; iI < GC.getNumBuildingInfos(); ++iI) {
-		if (pCity->getNumRealBuilding((BuildingTypes)iI) > 0) {
-			setListHelp(szString, NEWLINE, GC.getBuildingInfo((BuildingTypes)iI).getDescription(), L", ", bFirst);
-			bFirst = false;
+	// Building icons
+	if (getOptionBOOL("CityBar__BuildingIcons", "False")) {
+		bFirst = true;
+		for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+			if (pCity->getNumRealBuilding(eBuilding) > 0) {
+				if (bFirst) {
+					szString.append(NEWLINE);
+					bFirst = false;
+				}
+				szTempBuffer.Format(L"<img=%S size=24></img>", GC.getBuildingInfo(eBuilding).getButton());
+				szString.append(szTempBuffer);
+			}
+		}
+	} else {
+		bFirst = true;
+		for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+			if (pCity->getNumRealBuilding(eBuilding) > 0) {
+				setListHelp(szString, NEWLINE, GC.getBuildingInfo(eBuilding).getDescription(), L", ", bFirst);
+				bFirst = false;
+			}
 		}
 	}
 
-	if (pCity->getCultureLevel() != NO_CULTURELEVEL) {
-		szString.append(gDLL->getText("TXT_KEY_CITY_BAR_CULTURE", pCity->getCulture(pCity->getOwnerINLINE()), pCity->getCultureThreshold(), GC.getCultureLevelInfo(pCity->getCultureLevel()).getTextKeyWide()));
+	// Culture turns
+	int iCultureRate = pCity->getCommerceRateTimes100(COMMERCE_CULTURE);
+	if (iCultureRate > 0 && getOptionBOOL("CityBar__CultureTurns", "False")) {
+		if (pCity->getCultureLevel() != NO_CULTURELEVEL) {
+			szString.append(gDLL->getText("TXT_KEY_CITY_BAR_CULTURE", pCity->getCulture(pCity->getOwnerINLINE()), pCity->getCultureThreshold(), GC.getCultureLevelInfo(pCity->getCultureLevel()).getTextKeyWide()));
+		} else {
+			szString.append(gDLL->getText("TXT_KEY_CITY_BAR_CULTURE_NO_LEVEL", pCity->getCulture(pCity->getOwnerINLINE()), pCity->getCultureThreshold()));
+		}
+		// all values are *100
+		int iCulture = pCity->getCultureTimes100(pCity->getOwnerINLINE());
+		int iCultureLeft = 100 * pCity->getCultureThreshold() - iCulture;
+		int iCultureTurns = (iCultureLeft + iCultureRate - 1) / iCultureRate;
+		szString.append(L" ");
+		szString.append(gDLL->getText("INTERFACE_CITY_TURNS", iCultureTurns));
+	} else {
+		if (pCity->getCultureLevel() != NO_CULTURELEVEL) {
+			szString.append(gDLL->getText("TXT_KEY_CITY_BAR_CULTURE", pCity->getCulture(pCity->getOwnerINLINE()), pCity->getCultureThreshold(), GC.getCultureLevelInfo(pCity->getCultureLevel()).getTextKeyWide()));
+		}
 	}
 
-	if (pCity->getGreatPeopleProgress() > 0) {
-		szString.append(gDLL->getText("TXT_KEY_CITY_BAR_GREAT_PEOPLE", pCity->getGreatPeopleProgress(), GET_PLAYER(pCity->getOwnerINLINE()).greatPeopleThreshold(false)));
+	// Great People turns
+	int iGppRate = pCity->getGreatPeopleRate();
+	if (iGppRate > 0 && getOptionBOOL("CityBar__GreatPersonTurns", "False")) {
+		int iGpp = pCity->getGreatPeopleProgress();
+		int iGppTotal = GET_PLAYER(pCity->getOwnerINLINE()).greatPeopleThreshold(false);
+		szString.append(gDLL->getText("TXT_KEY_CITY_BAR_GREAT_PEOPLE", iGpp, iGppTotal));
+		int iGppLeft = iGppTotal - iGpp;
+		int iGppTurns = (iGppLeft + iGppRate - 1) / iGppRate;
+		szString.append(L" ");
+		szString.append(gDLL->getText("INTERFACE_CITY_TURNS", iGppTurns));
+	} else {
+		if (pCity->getGreatPeopleProgress() > 0) {
+			szString.append(gDLL->getText("TXT_KEY_CITY_BAR_GREAT_PEOPLE", pCity->getGreatPeopleProgress(), GET_PLAYER(pCity->getOwnerINLINE()).greatPeopleThreshold(false)));
+		}
+	}
+
+	// Specialists
+	if (getOptionBOOL("CityBar__Specialists", "False")) {
+		// regular specialists
+		bFirst = true;
+		for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
+			int iCount = pCity->getSpecialistCount(eSpecialist);
+			if (iCount > 0) {
+				if (bFirst) {
+					szString.append(NEWLINE);
+					bFirst = false;
+				}
+				CvSpecialistInfo& kSpecialistInfo = GC.getSpecialistInfo(eSpecialist);
+				for (int iJ = 0; iJ < iCount; ++iJ) {
+					szTempBuffer.Format(L"<img=%S size=24></img>", kSpecialistInfo.getButton());
+					szString.append(szTempBuffer);
+				}
+			}
+		}
+
+		// free specialists (ToA, GL) and settled great people
+		bFirst = true;
+		for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
+			int iCount = pCity->getFreeSpecialistCount(eSpecialist);
+			if (iCount > 0) {
+				if (bFirst) {
+					szString.append(NEWLINE);
+					bFirst = false;
+				}
+				CvSpecialistInfo& kSpecialistInfo = GC.getSpecialistInfo(eSpecialist);
+				for (int iJ = 0; iJ < iCount; ++iJ) {
+					szTempBuffer.Format(L"<img=%S size=24></img>", kSpecialistInfo.getButton());
+					szString.append(szTempBuffer);
+				}
+			}
+		}
 	}
 
 	int iNumUnits = pCity->plot()->countNumAirUnits(GC.getGameINLINE().getActiveTeam());
@@ -4426,11 +4694,34 @@ void CvGameTextMgr::setCityBarHelp(CvWStringBuffer& szString, CvCity* pCity) {
 		szString.append(gDLL->getText("TXT_KEY_CITY_BAR_AIR_UNIT_CAPACITY", iNumUnits, pCity->getAirUnitCapacity(GC.getGameINLINE().getActiveTeam())));
 	}
 
-	szString.append(NEWLINE);
+	// Revolt Chance
+	if (getOptionBOOL("CityBar__RevoltChance", "False")) {
+		PlayerTypes eCulturalOwner = pCity->plot()->calculateCulturalOwner();
 
-	szString.append(gDLL->getText("TXT_KEY_CITY_BAR_SELECT", pCity->getNameKey()));
-	szString.append(gDLL->getText("TXT_KEY_CITY_BAR_SELECT_CTRL"));
-	szString.append(gDLL->getText("TXT_KEY_CITY_BAR_SELECT_ALT"));
+		if (eCulturalOwner != NO_PLAYER) {
+			if (GET_PLAYER(eCulturalOwner).getTeam() != pCity->getTeam()) {
+				int iCityStrength = pCity->cultureStrength(eCulturalOwner);
+				int iGarrison = pCity->cultureGarrison(eCulturalOwner);
+
+				if (iCityStrength > iGarrison) {
+					szTempBuffer.Format(L"%.2f", std::max(0.0f, (1.0f - (float)iGarrison / (float)iCityStrength)) * std::min(100.0f, (float)pCity->getRevoltTestProbability()));
+					szString.append(NEWLINE);
+					szString.append(gDLL->getText("TXT_KEY_MISC_CHANCE_OF_REVOLT", szTempBuffer.GetCString()));
+				}
+			}
+		}
+	}
+
+	// Hide UI Instructions
+	if (!getOptionBOOL("CityBar__HideInstructions", "False")) {
+		if (bBaseValues) {
+			szString.append(gDLL->getText("TXT_KEY_CITY_BAR_CTRL_BASE_VALUES"));
+		}
+		// unchanged
+		szString.append(gDLL->getText("TXT_KEY_CITY_BAR_SELECT", pCity->getNameKey()));
+		szString.append(gDLL->getText("TXT_KEY_CITY_BAR_SELECT_CTRL"));
+		szString.append(gDLL->getText("TXT_KEY_CITY_BAR_SELECT_ALT"));
+	}
 }
 
 
@@ -12259,6 +12550,14 @@ void CvGameTextMgr::buildCityBillboardCityNameString(CvWStringBuffer& szBuffer, 
 					if (iTurns < MAX_INT) {
 						szBuffer.append(CvWString::format(L" (%d)", iTurns));
 					}
+				}
+			} else if (pCity->foodDifference() < 0 && getOptionBOOL("CityBar__StarvationTurns", false)) {
+				int iFoodDifference = pCity->foodDifference();
+				if (pCity->getFood() + iFoodDifference >= 0) {
+					int iTurns = pCity->getFood() / -iFoodDifference + 1;
+					szBuffer.append(CvWString::format(L" (%d)", iTurns));
+				} else {
+					szBuffer.append(L" (!!!)");
 				}
 			}
 		}

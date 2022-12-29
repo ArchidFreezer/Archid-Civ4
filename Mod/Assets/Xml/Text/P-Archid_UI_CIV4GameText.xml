@@ -624,6 +624,90 @@
 		<Spanish>[H1]Mod Components[\H1][H2][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Platy Pedia[COLOR_REVERT][\H2]Advanced Pedia with more information and sorting functions. Coded by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT]. Modified Upgrade Tree from Sevopedia originally by [COLOR_SELECTED_TEXT]Vovan[COLOR_REVERT].
 			[H2][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Platy Builder[COLOR_REVERT][\H2]Advanced World Builder with new functions and abilities. Coded by [COLOR_SELECTED_TEXT]Platyping[COLOR_REVERT].</Spanish>
 	</TEXT>
+<!-- City Bar Hover text -->
+	<TEXT>
+		<Tag>TXT_KEY_CITY_BAR_CTRL_BASE_VALUES</Tag>
+		<English>[NEWLINE]Hold &lt;CTRL&gt; to see base values.</English>
+		<French>[NEWLINE]Hold &lt;CTRL&gt; to see base values.</French>
+		<German>[NEWLINE][BOLD]&lt;STRG&gt;[\BOLD] drücken, um die Basiswerte zu sehen</German>
+		<Italian>[NEWLINE]Tieni premuto &lt;CTRL&gt; per visualizzare i valori base.</Italian>
+		<Spanish>[NEWLINE]Pulsa &lt;CTRL&gt; para ver los valores base.</Spanish>
+	</TEXT>
+	<!-- Food Assist -->
+	<TEXT>
+		<Tag>TXT_KEY_CITY_BAR_FOOD_GROW</Tag>
+		<English>[NEWLINE]%d1 [ICON_FOOD]/Turn[NEWLINE]Growing: %d2/%d3 [ICON_FOOD] (%d4 [NUM4:Turn:Turns])</English>
+		<French>[NEWLINE]%d1 [ICON_FOOD]/tour[NEWLINE]Croissance : %d2/%d3 [ICON_FOOD] (%d4 [NUM4:tour:tours])</French>
+		<German>[NEWLINE]%d1 [ICON_FOOD]/Runde[NEWLINE]Wachstum: %d2/%d3 [ICON_FOOD] (%d4 [NUM4:Runde:Runden])</German>
+		<Italian>[NEWLINE]%d1 [ICON_FOOD]/Turno[NEWLINE]Crescita: %d2/%d3 [ICON_FOOD] (%d4 [NUM4:turno:turni])</Italian>
+		<Spanish>[NEWLINE]%d1 [ICON_FOOD]/turno[NEWLINE]Creciendo: %d2/%d3 [ICON_FOOD] (%d4 [NUM4:turno:turnos])</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_BAR_FOOD_STAGNATE</Tag>
+		<English>[NEWLINE]Stagnant: %d1/%d2 [ICON_FOOD]</English>
+		<French>[NEWLINE]Pas de croissance : %d1/%d2 [ICON_FOOD]</French>
+		<German>[NEWLINE]Stagnation: %d1/%d2 [ICON_FOOD]</German>
+		<Italian>[NEWLINE]Stagnante: %d1/%d2 [ICON_FOOD]</Italian>
+		<Spanish>[NEWLINE]Estancada: %d1/%d2 [ICON_FOOD]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_BAR_FOOD_SHRINK</Tag>
+		<English>[NEWLINE]%d1 [ICON_BAD_FOOD]/Turn[NEWLINE][COLOR_YELLOW]Shrinking: %d2/%d3 [ICON_FOOD] (%d4 [NUM4:Turn:Turns])[COLOR_REVERT]</English>
+		<French>[NEWLINE]%d1 [ICON_BAD_FOOD]/tour[NEWLINE][COLOR_YELLOW]Rétrécissement : %d2/%d3 [ICON_FOOD] (%d4 [NUM4:tour:tours])[COLOR_REVERT]</French>
+		<German>[NEWLINE]%d1 [ICON_BAD_FOOD]/Runde[NEWLINE][COLOR_YELLOW]Schrumpfung: %d2/%d3 [ICON_FOOD] (%d4 [NUM4:Runde:Runden])[COLOR_REVERT]</German>
+		<Italian>[NEWLINE]%d1 [ICON_BAD_FOOD]/Turno[NEWLINE][COLOR_YELLOW]Crescita: %d2/%d3 [ICON_FOOD] (%d4 [NUM4:turno:turni])[COLOR_REVERT]</Italian>
+		<Spanish>[NEWLINE]%d1 [ICON_BAD_FOOD]/turno[NEWLINE][COLOR_YELLOW]Crecimiento: %d2/%d3 [ICON_FOOD] (%d4 [NUM4:turno:turnos])[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_BAR_FOOD_STARVE</Tag>
+		<English>[NEWLINE]%d1 [ICON_BAD_FOOD]/Turn[NEWLINE][COLOR_WARNING_TEXT]STARVATION: %d2/%d3 [ICON_FOOD][COLOR_REVERT]</English>
+		<French>[NEWLINE]%d1 [ICON_BAD_FOOD]/tour[NEWLINE][COLOR_WARNING_TEXT]FAMINE : %d2/%d3 [ICON_FOOD][COLOR_REVERT]</French>
+		<German>[NEWLINE]%d1 [ICON_BAD_FOOD]/Runde[NEWLINE][COLOR_WARNING_TEXT]HUNGERSNOT: %d2/%d3 [ICON_FOOD][COLOR_REVERT]</German>
+		<Italian>[NEWLINE]%d1 [ICON_BAD_FOOD]/Turno[NEWLINE][COLOR_WARNING_TEXT]CARESTIA: %d2/%d3 [ICON_FOOD][COLOR_REVERT]</Italian>
+		<Spanish>[NEWLINE]%d1 [ICON_BAD_FOOD]/turno[NEWLINE][COLOR_WARNING_TEXT]&#161;HAMBRUNA: %d2/%d3 [ICON_FOOD][COLOR_REVERT]</Spanish>
+	</TEXT>
+	<!-- Base Production -->
+	<TEXT>
+		<Tag>TXT_KEY_CITY_BAR_HAMMER_PRODUCTION_WITH_BASE</Tag>
+		<English>[NEWLINE]%d1 [ICON_PRODUCTION]/Turn (%d6 [ICON_PRODUCTION]/Turn)[NEWLINE]%s2: %d3/%d4 [ICON_PRODUCTION] (%d5 [NUM5:Turn:Turns])</English>
+		<French>[NEWLINE]%d1 [ICON_PRODUCTION]/tour (%d6 [ICON_PRODUCTION]/tour)[NEWLINE]%s2 : %d3/%d4 [ICON_PRODUCTION] (%d5 [NUM5:tour:tours])</French>
+		<German>[NEWLINE]%d1 [ICON_PRODUCTION]/Runde (%d6 [ICON_PRODUCTION]/Runde)[NEWLINE]%s2: %d3/%d4 [ICON_PRODUCTION] (%d5 [NUM5:Runde:Runden])</German>
+		<Italian>[NEWLINE]%d1 [ICON_PRODUCTION]/Turno (%d6 [ICON_PRODUCTION]/Turno)[NEWLINE]%s2: %d3/%d4 [ICON_PRODUCTION] (%d5 [NUM5:turno:turni])</Italian>
+		<Spanish>[NEWLINE]%d1 [ICON_PRODUCTION]/turno (%d6 [ICON_PRODUCTION]/turno)[NEWLINE]%s2: %d3/%d4 [ICON_PRODUCTION] (%d5 [NUM5:turno:turnos])</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_BAR_FOOD_HAMMER_PRODUCTION_WITH_BASE</Tag>
+		<English>[NEWLINE]%d1 [ICON_FOOD] + %d2 [ICON_PRODUCTION]/Turn (%d7 [ICON_PRODUCTION]/Turn)[NEWLINE]%s3: %d4/%d5 [ICON_PRODUCTION] (%d6 [NUM6:Turn:Turns])</English>
+		<French>[NEWLINE]%d1 [ICON_FOOD] + %d2 [ICON_PRODUCTION]/tour (%d7 [ICON_PRODUCTION]/tour)[NEWLINE]%s3 : %d4/%d5 [ICON_PRODUCTION] (%d6 [NUM6:tour:tours])</French>
+		<German>[NEWLINE]%d1 [ICON_FOOD] + %d2 [ICON_PRODUCTION]/Runde (%d7 [ICON_PRODUCTION]/Runde)[NEWLINE]%s3: %d4/%d5 [ICON_PRODUCTION] (%d6 [NUM6:Runde:Runden])</German>
+		<Italian>[NEWLINE]%d1 [ICON_FOOD] + %d2 [ICON_PRODUCTION]/Turno (%d7 [ICON_PRODUCTION]/Turno)[NEWLINE]%s3: %d4/%d5 [ICON_PRODUCTION] (%d6 [NUM6:turno:turni])</Italian>
+		<Spanish>[NEWLINE]%d1 [ICON_FOOD] + %d2 [ICON_PRODUCTION]/turno (%d7 [ICON_PRODUCTION]/turno)[NEWLINE]%s3: %d4/%d5 [ICON_PRODUCTION] (%d6 [NUM6:turno:turnos])</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_BAR_BASE_PRODUCTION</Tag>
+		<English>[NEWLINE]%d1 [ICON_PRODUCTION]/Turn</English>
+		<French>[NEWLINE]%d1 [ICON_PRODUCTION]/tour</French>
+		<German>[NEWLINE]%d1 [ICON_PRODUCTION]/Runde</German>
+		<Italian>[NEWLINE]%d1 [ICON_PRODUCTION]/Turno</Italian>
+		<Spanish>[NEWLINE]%d1 [ICON_PRODUCTION]/turno</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_BAR_BASE_PRODUCTION_WITH_OVERFLOW</Tag>
+		<English>[NEWLINE]%d1 [ICON_PRODUCTION] (%d2 [ICON_PRODUCTION]/Turn)</English>
+		<French>[NEWLINE]%d1 [ICON_PRODUCTION] (%d2 [ICON_PRODUCTION]/tour)</French>
+		<German>[NEWLINE]%d1 [ICON_PRODUCTION] (%d2 [ICON_PRODUCTION]/Runde)</German>
+		<Italian>[NEWLINE]%d1 [ICON_PRODUCTION] (%d2 [ICON_PRODUCTION]/Turno)</Italian>
+		<Spanish>[NEWLINE]%d1 [ICON_PRODUCTION] (%d2 [ICON_PRODUCTION]/turno)</Spanish>
+	</TEXT>
+	<!-- Culture Turns -->
+	<TEXT>
+		<Tag>TXT_KEY_CITY_BAR_CULTURE_NO_LEVEL</Tag>
+		<English>[NEWLINE][ICON_CULTURE]: %d1/%d2</English>
+		<French>[NEWLINE][ICON_CULTURE] : %d1/%d2</French>
+		<German>[NEWLINE][ICON_CULTURE]: %d1/%d2</German>
+		<Italian>[NEWLINE][ICON_CULTURE]: %d1/%d2</Italian>
+		<Spanish>[NEWLINE][ICON_CULTURE]: %d1/%d2</Spanish>
+	</TEXT>
 <!-- Archid Options -->
 	<TEXT>
 		<Tag>TXT_KEY_ARCHID_OPT_TITLE</Tag>

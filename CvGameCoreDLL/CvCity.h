@@ -130,6 +130,7 @@ public:
 
 	bool canHurry(HurryTypes eHurry, bool bTestVisible = false) const;		// Exposed to Python
 	void hurry(HurryTypes eHurry);																						// Exposed to Python
+	bool hurryOverflow(HurryTypes eHurry, int* iProduction, int* iGold, bool bCountThisTurn = false) const;
 
 	UnitTypes getConscriptUnit() const;																// Exposed to Python
 	CvUnit* initConscriptedUnit();
@@ -633,6 +634,7 @@ public:
 	int getBaseTradeProfit(CvCity* pCity) const;
 	int calculateTradeProfit(CvCity* pCity) const;								// Exposed to Python
 	int calculateTradeYield(YieldTypes eIndex, int iTradeProfit) const;			// Exposed to Python
+	void calculateTradeTotals(YieldTypes eIndex, int& iDomesticYield, int& iDomesticRoutes, int& iForeignYield, int& iForeignRoutes, PlayerTypes eWithPlayer = NO_PLAYER, bool bBase = false) const;
 	void setTradeYield(YieldTypes eIndex, int iNewValue);
 
 	int getExtraSpecialistYield(YieldTypes eIndex) const;						// Exposed to Python

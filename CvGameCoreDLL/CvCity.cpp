@@ -12259,3 +12259,104 @@ void CvCity::getBuildQueue(std::vector<std::string>& astrQueue) const {
 	}
 }
 
+bool CvCity::hurryOverflow(HurryTypes eHurry, int* iProduction, int* iGold, bool bCountThisTurn) const {
+	if (!canHurry(eHurry)) {
+		return false;
+	}
+
+	if (GC.getHurryInfo(eHurry).getProductionPerPopulation() == 0) {
+		*iProduction = 0;
+		*iGold = 0;
+		return true;
+	}
+
+	int iTotal, iCurrent, iModifier, iGoldPercent;
+
+	if (isProductionUnit()) {
+		UnitTypes eUnit = getProductionUnit();
+		FAssertMsg(eUnit != NO_UNIT, "eUnit is expected to be assigned a valid unit type");
+		iTotal = getProductionNeeded(eUnit);
+		iCurrent = getUnitProduction(eUnit);
+		iModifier = getProductionModifier(eUnit);
+		iGoldPercent = GC.getDefineINT("MAXED_UNIT_GOLD_PERCENT");
+	} else if (isProductionBuilding()) {
+		BuildingTypes eBuilding = getProductionBuilding();
+		FAssertMsg(eBuilding != NO_BUILDING, "eBuilding is expected to be assigned a valid building type");
+		iTotal = getProductionNeeded(eBuilding);
+		iCurrent = getBuildingProduction(eBuilding);
+		iModifier = getProductionModifier(eBuilding);
+		iGoldPercent = GC.getDefineINT("MAXED_BUILDING_GOLD_PERCENT");
+	} else if (isProductionProject()) {
+		ProjectTypes eProject = getProductionProject();
+		FAssertMsg(eProject != NO_PROJECT, "eProject is expected to be assigned a valid project type");
+		iTotal = getProductionNeeded(eProject);
+		iCurrent = getProjectProduction(eProject);
+		iModifier = getProductionModifier(eProject);
+		iGoldPercent = GC.getDefineINT("MAXED_PROJECT_GOLD_PERCENT");
+	} else {
+		return false;
+	}
+
+	int iHurry = hurryProduction(eHurry);
+	int iOverflow = iCurrent + iHurry - iTotal;
+	if (bCountThisTurn) {
+		// include chops and previous overflow here
+		iOverflow += getCurrentProductionDifference(false, true);
+	}
+	int iMaxOverflow = std::max(iTotal, getCurrentProductionDifference(false, false));
+	int iLostProduction = std::max(0, iOverflow - iMaxOverflow);
+	int iBaseModifier = getBaseYieldRateModifier(YIELD_PRODUCTION);
+	int iTotalModifier = getBaseYieldRateModifier(YIELD_PRODUCTION, iModifier);
+
+	iOverflow = std::min(iOverflow, iMaxOverflow);
+	iLostProduction *= iBaseModifier;
+	iLostProduction /= std::max(1, iTotalModifier);
+
+	*iProduction = (iBaseModifier * iOverflow) / std::max(1, iTotalModifier);
+	*iGold = ((iLostProduction * iGoldPercent) / 100);
+
+	return true;
+}
+
+/*
+ * Adds the yield and count for each trade route with eWithPlayer.
+ *
+ * The yield and counts are not reset to zero.
+ */
+void CvCity::calculateTradeTotals(YieldTypes eIndex, int& iDomesticYield, int& iDomesticRoutes, int& iForeignYield, int& iForeignRoutes, PlayerTypes eWithPlayer, bool bBase) const {
+	if (!isDisorder()) {
+		int iCityDomesticYield = 0;
+		int iCityDomesticRoutes = 0;
+		int iCityForeignYield = 0;
+		int iCityForeignRoutes = 0;
+		int iNumTradeRoutes = getTradeRoutes();
+		PlayerTypes ePlayer = getOwnerINLINE();
+
+		for (int iI = 0; iI < iNumTradeRoutes; ++iI) {
+			CvCity* pTradeCity = getTradeCity(iI);
+			if (pTradeCity && pTradeCity->getOwnerINLINE() >= 0 && (NO_PLAYER == eWithPlayer || pTradeCity->getOwnerINLINE() == eWithPlayer)) {
+				int iTradeYield;
+
+				if (bBase) {
+					iTradeYield = getBaseTradeProfit(pTradeCity) / 100;
+				} else {
+					int iTradeProfit = calculateTradeProfit(pTradeCity);
+					iTradeYield = calculateTradeYield(eIndex, iTradeProfit);
+				}
+
+				if (pTradeCity->getOwnerINLINE() == ePlayer) {
+					iCityDomesticYield += iTradeYield;
+					iCityDomesticRoutes++;
+				} else {
+					iCityForeignYield += iTradeYield;
+					iCityForeignRoutes++;
+				}
+			}
+		}
+
+		iDomesticYield += iCityDomesticYield;
+		iDomesticRoutes += iCityDomesticRoutes;
+		iForeignYield += iCityForeignYield;
+		iForeignRoutes += iCityForeignRoutes;
+	}
+}

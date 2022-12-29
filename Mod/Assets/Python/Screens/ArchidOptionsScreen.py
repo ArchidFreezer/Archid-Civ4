@@ -8,6 +8,7 @@ import CvUtil
 import BugOptions
 import ArchidErrorOptionsTab
 import BugUtil
+import ArchidCityDisplayOptionsTab
 
 # globals
 gc = CyGlobalContext()
@@ -51,7 +52,7 @@ class ArchidOptionsScreen:
 		self.pTabControl.setColumnLength(self.iScreenHeight)
 		
 		if self.options.isLoaded():
-			self.addTab(ArchidDummyOptionsTab.ArchidDummyOptionsTab(self))
+			self.addTab(ArchidCityDisplayOptionsTab.ArchidCityDisplayOptionsTab(self))
 		else:
 			self.addTab(ArchidErrorOptionsTab.ArchidErrorOptionsTab(self))
 

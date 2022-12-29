@@ -60,4 +60,5 @@
 		</arg>
 	</init>
 		
+	<load mod="CityBar"/>
 </bug>
