@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- Game Text - New -->
 <Civ4GameText xmlns="http://www.firaxis.com">
+<!-- ********************	-->
+<!-- Unit Types						-->
+<!-- ********************	-->
+	<TEXT> <!-- Animal Units -->
+		<Tag>TXT_KEY_UNITCOMBAT_ANIMAL</Tag>
+		<English>Animal Units</English>
+	</TEXT>
+
+<!-- ********************	-->
+<!-- Units								-->
+<!-- ********************	-->
+	<TEXT> <!-- Cave Bear -->
+		<Tag>TXT_KEY_UNIT_CAVEBEAR</Tag>
+		<English>Cave Bear</English>
+	</TEXT>
+
+	<TEXT> <!-- Deer -->
+		<Tag>TXT_KEY_UNIT_DEER</Tag>
+		<English>Deer</English>
+		<French>Cervidé</French>
+		<German>Hirsch</German>
+		<Italian>Deer</Italian>
+		<Spanish>Deer</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Elephant -->
+		<Tag>TXT_KEY_UNIT_ELEPHANT</Tag>
+		<English>Elephant</English>
+		<French>Éléphant</French>
+		<German>Elefanten</German>
+		<Italian>Elephant</Italian>
+		<Spanish>Elephant</Spanish>
+	</TEXT>
+
 	<TEXT> <!-- Great Merchant -->
 		<Tag>TXT_KEY_UNIT_GREAT_TYCOON</Tag>
 		<English>Great Merchant</English>
@@ -25,4 +59,43 @@
 			<Plural>0:1</Plural>
 		</Spanish>
 	</TEXT>
+
+	<TEXT> <!-- Gorilla -->
+		<Tag>TXT_KEY_UNIT_GORILLA</Tag>
+		<English>Gorilla</English>
+	</TEXT>
+
+	<TEXT> <!-- Horse -->
+		<Tag>TXT_KEY_UNIT_HORSE</Tag>
+		<English>Horse</English>
+		<French>Cheval</French>
+		<German>Hauspferd</German>
+		<Italian>Horse</Italian>
+		<Spanish>Horse</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Lion Pride -->
+		<Tag>TXT_KEY_UNIT_PRIDE_OF_LIONS</Tag>
+		<English>Pride of Lions</English>
+	</TEXT>
+
+	<TEXT> <!-- Polar Bear -->
+		<Tag>TXT_KEY_UNIT_POLAR_BEAR</Tag>
+		<English>Polar Bear</English>
+	</TEXT>
+
+	<TEXT> <!-- Sabretooth Tiger -->
+		<Tag>TXT_KEY_UNIT_SABRETOOTH_TIGER</Tag>
+		<English>Sabretooth Tiger</English>
+	</TEXT>
+
+	<TEXT> <!-- Tiger -->
+		<Tag>TXT_KEY_UNIT_TIGER</Tag>
+		<English>Tiger</English>
+		<French>Tigre</French>
+		<German>Tiger</German>
+		<Italian>Tigre</Italian>
+		<Spanish>Tigre</Spanish>
+	</TEXT>
+
 </Civ4GameText>

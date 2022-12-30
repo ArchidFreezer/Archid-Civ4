@@ -6,9 +6,9 @@
 <!-- Unit Infos -->
 <Civ4UnitInfos xmlns="x-schema:CIV4UnitSchema.xml">
 	<UnitInfos>
-<!-- ************	-->
+<!-- ************ -->
 <!-- Air          -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitInfo> <!-- Airship -->
 			<Class>UNITCLASS_AIRSHIP</Class>
 			<Type>UNIT_AIRSHIP</Type>
@@ -356,12 +356,13 @@
 			<HotKey/>
 		</UnitInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Animals      -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitInfo> <!-- Bear -->
 			<Class>UNITCLASS_BEAR</Class>
 			<Type>UNIT_BEAR</Type>
+			<Combat>UNITCOMBAT_ANIMAL</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_BEAR</Description>
@@ -382,6 +383,108 @@
 			<FeatureNatives>
 				<FeatureType>FEATURE_FOREST</FeatureType>
 			</FeatureNatives>
+			<FeatureAttacks>
+				<FeatureAttack>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<iFeatureAttack>20</iFeatureAttack>
+				</FeatureAttack>
+			</FeatureAttacks>
+			<FeatureDefenses>
+				<FeatureDefense>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<iFeatureDefense>20</iFeatureDefense>
+				</FeatureDefense>
+			</FeatureDefenses>
+			<iAsset>1</iAsset>
+			<iPower>1</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>3</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_BEAR</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
+			<HotKey/>
+		</UnitInfo>
+		<UnitInfo> <!-- Cave Bear -->
+			<Class>UNITCLASS_CAVEBEAR</Class>
+			<Type>UNIT_CAVEBEAR</Type>
+			<Combat>UNITCOMBAT_ANIMAL</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_CAVEBEAR</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
+			<Advisor>NONE</Advisor>
+			<bAnimal>1</bAnimal>
+			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
+			</UnitAIs>
+			<iCost>-1</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<iCombat>4</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<iHillsAttack>25</iHillsAttack>
+			<iHillsDefense>25</iHillsDefense>
+			<TerrainNatives>
+				<TerrainType>TERRAIN_HILL</TerrainType>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+			</TerrainNatives>
+				<UnitMeshGroups>
+					<iGroupSize>1</iGroupSize>
+					<fMaxSpeed>1.75</fMaxSpeed>
+					<fPadTime>1</fPadTime>
+					<iMeleeWaveSize>1</iMeleeWaveSize>
+					<iRangedWaveSize>0</iRangedWaveSize>
+					<UnitMeshGroup>
+						<iRequired>1</iRequired>
+						<EarlyArtDefineTag>ART_DEF_UNIT_CAVEBEAR</EarlyArtDefineTag>
+					</UnitMeshGroup>
+				</UnitMeshGroups>
+				<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
+				<HotKey/>
+			</UnitInfo>
+		<UnitInfo> <!-- Deer -->
+			<Class>UNITCLASS_DEER</Class>
+			<Type>UNIT_DEER</Type>
+			<Combat>UNITCOMBAT_ANIMAL</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_DEER</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
+			<bAnimal>1</bAnimal>
+			<bOnlyDefensive>1</bOnlyDefensive>
+			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<bIgnoreTerrainCost>1</bIgnoreTerrainCost>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
+			</UnitAIs>
+			<iCost>-1</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMoves>2</iMoves>
+			<iCombat>1</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<iWithdrawalProb>50</iWithdrawalProb>
+			<TerrainNatives>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
+				<TerrainType>TERRAIN_SNOW</TerrainType>
+			</TerrainNatives>
+			<FeatureNatives>
+				<FeatureType>FEATURE_FOREST</FeatureType>
+			</FeatureNatives>
 			<iAsset>1</iAsset>
 			<iPower>1</iPower>
 			<UnitMeshGroups>
@@ -392,15 +495,163 @@
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_BEAR</EarlyArtDefineTag>
+					<EarlyArtDefineTag>ART_DEF_UNIT_DEER</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
+		</UnitInfo>
+		<UnitInfo> <!-- Elephant -->
+			<Class>UNITCLASS_ELEPHANT</Class>
+			<Type>UNIT_ELEPHANT</Type>
+			<Combat>UNITCOMBAT_ANIMAL</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_ELEPHANT</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
+			<bAnimal>1</bAnimal>
+			<bOnlyDefensive>1</bOnlyDefensive>
+			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
+			</UnitAIs>
+			<iCost>-1</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<iCombat>4</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<iCollateralDamage>25</iCollateralDamage>
+			<iCollateralDamageLimit>50</iCollateralDamageLimit>
+			<iCollateralDamageMaxUnits>2</iCollateralDamageMaxUnits>
+			<TerrainNatives>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+				<TerrainType>TERRAIN_DESERT</TerrainType>
+			</TerrainNatives>
+			<FeatureNatives>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
+			</FeatureNatives>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+					<iUnitCombatMod>25</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<iAsset>1</iAsset>
+			<iPower>1</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_ELEPHANT</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
+		</UnitInfo>
+		<UnitInfo> <!-- Gorilla -->
+			<Class>UNITCLASS_GORILLA</Class>
+			<Type>UNIT_GORILLA</Type>
+			<Combat>UNITCOMBAT_ANIMAL</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_GORILLA</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
+			<bAnimal>1</bAnimal>
+			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
+			</UnitAIs>
+			<iCost>-1</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<iCombat>4</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<TerrainNatives>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+			</TerrainNatives>
+			<FeatureNatives>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
+			</FeatureNatives>
+			<FeatureAttacks>
+				<FeatureAttack>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureAttack>25</iFeatureAttack>
+				</FeatureAttack>
+			</FeatureAttacks>
+			<FeatureDefenses>
+				<FeatureDefense>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureDefense>25</iFeatureDefense>
+				</FeatureDefense>
+			</FeatureDefenses>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_GORILLA</EarlyArtDefineTag>
 				</UnitMeshGroup>
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
 			<HotKey/>
 		</UnitInfo>
+		<UnitInfo> <!-- Horse -->
+			<Class>UNITCLASS_HORSE</Class>
+			<Type>UNIT_HORSE</Type>
+			<Combat>UNITCOMBAT_ANIMAL</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_HORSE</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
+			<bAnimal>1</bAnimal>
+			<bOnlyDefensive>1</bOnlyDefensive>
+			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
+			</UnitAIs>
+			<iCost>-1</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMoves>2</iMoves>
+			<iCombat>2</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<TerrainNatives>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+			</TerrainNatives>
+			<iAsset>1</iAsset>
+			<iPower>1</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>4</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>4</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>4</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_HORSE</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
+		</UnitInfo>
 		<UnitInfo> <!-- Lion -->
 			<Class>UNITCLASS_LION</Class>
 			<Type>UNIT_LION</Type>
+			<Combat>UNITCOMBAT_ANIMAL</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_LION</Description>
@@ -414,7 +665,7 @@
 			<iCost>-1</iCost>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>2</iCombat>
+			<iCombat>3</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -429,22 +680,23 @@
 				<iGroupSize>3</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1</fPadTime>
-				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
-					<iRequired>3</iRequired>
+					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_LION</EarlyArtDefineTag>
 				</UnitMeshGroup>
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
 			<HotKey/>
 		</UnitInfo>
-		<UnitInfo> <!-- Panther -->
-			<Class>UNITCLASS_PANTHER</Class>
-			<Type>UNIT_PANTHER</Type>
+		<UnitInfo> <!-- Lion Pride -->
+			<Class>UNITCLASS_PRIDE_OF_LIONS</Class>
+			<Type>UNIT_PRIDE_OF_LIONS</Type>
+			<Combat>UNITCOMBAT_ANIMAL</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_PANTHER</Description>
+			<Description>TXT_KEY_UNIT_PRIDE_OF_LIONS</Description>
 			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
 			<bAnimal>1</bAnimal>
@@ -453,17 +705,20 @@
 				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
 			</UnitAIs>
 			<iCost>-1</iCost>
-			<iAdvancedStartCost>-1</iAdvancedStartCost>
-			<iMoves>2</iMoves>
-			<iCombat>2</iCombat>
+			<iMoves>1</iMoves>
+			<iCombat>4</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
-			<FeatureNatives>
-				<FeatureType>FEATURE_JUNGLE</FeatureType>
-			</FeatureNatives>
-			<iAsset>1</iAsset>
-			<iPower>1</iPower>
+			<iCollateralDamage>25</iCollateralDamage>
+			<iCollateralDamageLimit>50</iCollateralDamageLimit>
+			<iCollateralDamageMaxUnits>2</iCollateralDamageMaxUnits>
+			<TerrainNatives>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+				<TerrainType>TERRAIN_DESERT</TerrainType>
+			</TerrainNatives>
+			<FeatureNatives/>
 			<UnitMeshGroups>
 				<iGroupSize>3</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
@@ -471,8 +726,229 @@
 				<iMeleeWaveSize>3</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
-					<iRequired>3</iRequired>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_LION</EarlyArtDefineTag>
+				</UnitMeshGroup>
+				<UnitMeshGroup>
+					<iRequired>2</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_LIONESS</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
+			<HotKey/>
+		</UnitInfo>
+		<UnitInfo> <!-- Panther -->
+			<Class>UNITCLASS_PANTHER</Class>
+			<Type>UNIT_PANTHER</Type>
+			<Combat>UNITCOMBAT_ANIMAL</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_PANTHER</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
+			<bAnimal>1</bAnimal>
+			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<bIgnoreTerrainCost>1</bIgnoreTerrainCost>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
+			</UnitAIs>
+			<iCost>-1</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMoves>2</iMoves>
+			<iCombat>3</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<iWithdrawalProb>50</iWithdrawalProb>
+			<FeatureNatives>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
+			</FeatureNatives>
+			<FeatureAttacks>
+				<FeatureAttack>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureAttack>35</iFeatureAttack>
+				</FeatureAttack>
+			</FeatureAttacks>
+			<FeatureDefenses>
+				<FeatureDefense>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureDefense>35</iFeatureDefense>
+				</FeatureDefense>
+			</FeatureDefenses>
+			<iAsset>1</iAsset>
+			<iPower>1</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>3</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>2</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>2</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_PANTHER</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
+			<HotKey/>
+		</UnitInfo>
+		<UnitInfo> <!-- Polar Bear -->
+			<Class>UNITCLASS_POLAR_BEAR</Class>
+			<Type>UNIT_POLAR_BEAR</Type>
+			<Combat>UNITCOMBAT_ANIMAL</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_POLAR_BEAR</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
+			<bAnimal>1</bAnimal>
+			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
+			</UnitAIs>
+			<iCost>-1</iCost>
+			<iMoves>1</iMoves>
+			<TerrainImpassables>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+			</TerrainImpassables>
+			<iCombat>4</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<TerrainNatives>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
+				<TerrainType>TERRAIN_SNOW</TerrainType>
+			</TerrainNatives>
+			<TerrainAttacks>
+				<TerrainAttack>
+					<TerrainType>TERRAIN_SNOW</TerrainType>
+					<iTerrainAttack>25</iTerrainAttack>
+				</TerrainAttack>
+				<TerrainAttack>
+					<TerrainType>TERRAIN_TUNDRA</TerrainType>
+					<iTerrainAttack>10</iTerrainAttack>
+				</TerrainAttack>
+			</TerrainAttacks>
+			<TerrainDefenses>
+				<TerrainDefense>
+					<TerrainType>TERRAIN_SNOW</TerrainType>
+					<iTerrainDefense>25</iTerrainDefense>
+				</TerrainDefense>
+				<TerrainDefense>
+					<TerrainType>TERRAIN_TUNDRA</TerrainType>
+					<iTerrainDefense>10</iTerrainDefense>
+				</TerrainDefense>
+			</TerrainDefenses>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_POLAR_BEAR</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
+			<HotKey/>
+		</UnitInfo>
+		<UnitInfo> <!-- Sabretooth Tiger -->
+			<Class>UNITCLASS_SABRETOOTH_TIGER</Class>
+			<Type>UNIT_SABRETOOTH_TIGER</Type>
+			<Combat>UNITCOMBAT_ANIMAL</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_SABRETOOTH_TIGER</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
+			<bAnimal>1</bAnimal>
+			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<bIgnoreTerrainCost>1</bIgnoreTerrainCost>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
+			</UnitAIs>
+			<iCost>-1</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMoves>2</iMoves>
+			<iCombat>4</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<TerrainNatives>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+			</TerrainNatives>
+			<FeatureNatives>
+				<FeatureType>FEATURE_FOREST</FeatureType>
+			</FeatureNatives>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_SABRETOOTH_TIGER</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
+			<HotKey/>
+		</UnitInfo>
+		<UnitInfo> <!-- Tiger -->
+			<Class>UNITCLASS_TIGER</Class>
+			<Type>UNIT_TIGER</Type>
+			<Combat>UNITCOMBAT_ANIMAL</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_TIGER</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
+			<bAnimal>1</bAnimal>
+			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
+			</UnitAIs>
+			<iCost>-1</iCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iMoves>2</iMoves>
+			<iCombat>3</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<FeatureNatives>
+				<FeatureType>FEATURE_FOREST</FeatureType>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
+			</FeatureNatives>
+			<FeatureAttacks>
+				<FeatureAttack>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<iFeatureAttack>35</iFeatureAttack>
+				</FeatureAttack>
+				<FeatureAttack>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureAttack>35</iFeatureAttack>
+				</FeatureAttack>
+			</FeatureAttacks>
+			<FeatureDefenses>
+				<FeatureDefense>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<iFeatureDefense>35</iFeatureDefense>
+				</FeatureDefense>
+				<FeatureDefense>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureDefense>35</iFeatureDefense>
+				</FeatureDefense>
+			</FeatureDefenses>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>2</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_TIGER</EarlyArtDefineTag>
 				</UnitMeshGroup>
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
@@ -481,6 +957,7 @@
 		<UnitInfo> <!-- Wolf -->
 			<Class>UNITCLASS_WOLF</Class>
 			<Type>UNIT_WOLF</Type>
+			<Combat>UNITCOMBAT_ANIMAL</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_WOLF</Description>
@@ -522,9 +999,9 @@
 			<HotKey/>
 		</UnitInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Archery      -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitInfo> <!-- Archer -->
 			<Class>UNITCLASS_ARCHER</Class>
 			<Type>UNIT_ARCHER</Type>
@@ -858,9 +1335,9 @@
 			<HotKey/>
 		</UnitInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Corporates   -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitInfo> <!-- Corporate Executive 1 (Cereal Mills) -->
 			<Class>UNITCLASS_EXECUTIVE_1</Class>
 			<Type>UNIT_EXECUTIVE_1</Type>
@@ -1121,9 +1598,9 @@
 			<HotKey/>
 		</UnitInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Doomsday     -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitInfo> <!-- Tactical Nuke -->
 			<Class>UNITCLASS_TACTICAL_NUKE</Class>
 			<Type>UNIT_TACTICAL_NUKE</Type>
@@ -1214,9 +1691,9 @@
 			<HotKey/>
 		</UnitInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Espionage    -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitInfo> <!-- Spy -->
 			<Class>UNITCLASS_SPY</Class>
 			<Type>UNIT_SPY</Type>
@@ -1265,9 +1742,9 @@
 			</FreePromotions>
 		</UnitInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Great People -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitInfo> <!-- Great Artist -->
 			<Class>UNITCLASS_ARTIST</Class>
 			<Type>UNIT_ARTIST</Type>
@@ -1878,10 +2355,10 @@
 				<PromotionType>PROMOTION_COMMANDO</PromotionType>
 			</FreePromotions>
 		</UnitInfo>
-		
-<!-- ************	-->
+
+<!-- ************ -->
 <!-- Gunpowder    -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitInfo> <!-- Musketman -->
 			<Class>UNITCLASS_MUSKETMAN</Class>
 			<Type>UNIT_MUSKETMAN</Type>
@@ -2640,9 +3117,9 @@
 			</FreePromotions>
 		</UnitInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Melee        -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitInfo> <!-- Warrior -->
 			<Class>UNITCLASS_WARRIOR</Class>
 			<Type>UNIT_WARRIOR</Type>
@@ -2779,7 +3256,7 @@
 			<PrereqBonuses>
 				<BonusType>BONUS_COPPER</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
-					</PrereqBonuses>
+			</PrereqBonuses>
 			<iCost>35</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -2896,7 +3373,7 @@
 			<PrereqBonuses>
 				<BonusType>BONUS_COPPER</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
-					</PrereqBonuses>
+			</PrereqBonuses>
 			<iCost>35</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
@@ -2958,7 +3435,7 @@
 			<PrereqBonuses>
 				<BonusType>BONUS_COPPER</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
-					</PrereqBonuses>
+			</PrereqBonuses>
 			<iCost>35</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -3017,7 +3494,7 @@
 			<PrereqBonuses>
 				<BonusType>BONUS_COPPER</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
-					</PrereqBonuses>
+			</PrereqBonuses>
 			<iCost>35</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -3137,7 +3614,7 @@
 			<PrereqBonuses>
 				<BonusType>BONUS_COPPER</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
-					</PrereqBonuses>
+			</PrereqBonuses>
 			<iCost>35</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -3415,7 +3892,7 @@
 			<PrereqBonuses>
 				<BonusType>BONUS_COPPER</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
-					</PrereqBonuses>
+			</PrereqBonuses>
 			<iCost>40</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -3529,7 +4006,7 @@
 			<PrereqBonuses>
 				<BonusType>BONUS_COPPER</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
-					</PrereqBonuses>
+			</PrereqBonuses>
 			<iCost>70</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -3658,7 +4135,7 @@
 			<PrereqBonuses>
 				<BonusType>BONUS_COPPER</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
-					</PrereqBonuses>
+			</PrereqBonuses>
 			<iCost>70</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -3695,9 +4172,9 @@
 			</FreePromotions>
 		</UnitInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Missile      -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitInfo> <!-- Guided Missile -->
 			<Class>UNITCLASS_GUIDED_MISSILE</Class>
 			<Type>UNIT_GUIDED_MISSILE</Type>
@@ -3746,9 +4223,9 @@
 			<HotKey/>
 		</UnitInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Missionary   -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitInfo> <!-- Buddhist Missionary -->
 			<Class>UNITCLASS_BUDDHIST_MISSIONARY</Class>
 			<Type>UNIT_BUDDHIST_MISSIONARY</Type>
@@ -4009,9 +4486,9 @@
 			<HotKey/>
 		</UnitInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Mounted      -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitInfo> <!-- Chariot -->
 			<Class>UNITCLASS_CHARIOT</Class>
 			<Type>UNIT_CHARIOT</Type>
@@ -5046,9 +5523,9 @@
 			<HotKey/>
 		</UnitInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Naval        -->
-<!-- ************	-->
+<!-- ************ -->
 <!-- Wooden -->
 		<UnitInfo> <!-- Galley -->
 			<Class>UNITCLASS_GALLEY</Class>
@@ -5422,7 +5899,7 @@
 			<PrereqBonuses>
 				<BonusType>BONUS_COPPER</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
-					</PrereqBonuses>
+			</PrereqBonuses>
 			<iCost>80</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -5537,7 +6014,7 @@
 			<PrereqBonuses>
 				<BonusType>BONUS_IRON</BonusType>
 				<BonusType>BONUS_COPPER</BonusType>
-					</PrereqBonuses>
+			</PrereqBonuses>
 			<iCost>120</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -5665,7 +6142,7 @@
 			<PrereqBonuses>
 				<BonusType>BONUS_OIL</BonusType>
 				<BonusType>BONUS_URANIUM</BonusType>
-					</PrereqBonuses>
+			</PrereqBonuses>
 			<iCost>200</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -5717,7 +6194,7 @@
 			<PrereqBonuses>
 				<BonusType>BONUS_OIL</BonusType>
 				<BonusType>BONUS_URANIUM</BonusType>
-					</PrereqBonuses>
+			</PrereqBonuses>
 			<iCost>125</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -5767,7 +6244,7 @@
 			<PrereqBonuses>
 				<BonusType>BONUS_OIL</BonusType>
 				<BonusType>BONUS_URANIUM</BonusType>
-					</PrereqBonuses>
+			</PrereqBonuses>
 			<iCost>175</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -5822,7 +6299,7 @@
 			<PrereqBonuses>
 				<BonusType>BONUS_OIL</BonusType>
 				<BonusType>BONUS_URANIUM</BonusType>
-					</PrereqBonuses>
+			</PrereqBonuses>
 			<iCost>225</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -5877,7 +6354,7 @@
 			<PrereqBonuses>
 				<BonusType>BONUS_OIL</BonusType>
 				<BonusType>BONUS_URANIUM</BonusType>
-					</PrereqBonuses>
+			</PrereqBonuses>
 			<iCost>260</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -5941,7 +6418,7 @@
 			<PrereqBonuses>
 				<BonusType>BONUS_OIL</BonusType>
 				<BonusType>BONUS_URANIUM</BonusType>
-					</PrereqBonuses>
+			</PrereqBonuses>
 			<iCost>220</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -6001,7 +6478,7 @@
 			<PrereqBonuses>
 				<BonusType>BONUS_OIL</BonusType>
 				<BonusType>BONUS_URANIUM</BonusType>
-					</PrereqBonuses>
+			</PrereqBonuses>
 			<iCost>150</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -6117,9 +6594,9 @@
 			<HotKey/>
 		</UnitInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Recon        -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitInfo> <!-- Scout -->
 			<Class>UNITCLASS_SCOUT</Class>
 			<Type>UNIT_SCOUT</Type>
@@ -6212,10 +6689,10 @@
 				<PromotionType>PROMOTION_WOODSMAN1</PromotionType>
 			</FreePromotions>
 		</UnitInfo>
-		
-<!-- ************	-->
+
+<!-- ************ -->
 <!-- Siege        -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitInfo> <!-- Catapult -->
 			<Class>UNITCLASS_CATAPULT</Class>
 			<Type>UNIT_CATAPULT</Type>
@@ -6655,9 +7132,9 @@
 			<HotKey/>
 		</UnitInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Settlers     -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitInfo> <!-- Settler -->
 			<Class>UNITCLASS_SETTLER</Class>
 			<Type>UNIT_SETTLER</Type>
@@ -6704,10 +7181,10 @@
 			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
 			<HotKey/>
 		</UnitInfo>
-		
-<!-- ************	-->
+
+<!-- ************ -->
 <!-- Tracked      -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitInfo> <!-- Tank -->
 			<Class>UNITCLASS_TANK</Class>
 			<Type>UNIT_TANK</Type>
@@ -6950,9 +7427,9 @@
 			</FreePromotions>
 		</UnitInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Wheeled      -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitInfo> <!-- Mobile SAM -->
 			<Class>UNITCLASS_MOBILE_SAM</Class>
 			<Type>UNIT_MOBILE_SAM</Type>
@@ -7008,10 +7485,10 @@
 			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
 			<HotKey/>
 		</UnitInfo>
-		
-<!-- ************	-->
+
+<!-- ************ -->
 <!-- Workers      -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitInfo> <!-- Worker -->
 			<Class>UNITCLASS_WORKER</Class>
 			<Type>UNIT_WORKER</Type>

@@ -6,7 +6,7 @@
 <!-- Basic Infos -->
 <Civ4UnitCombatInfos xmlns="x-schema:CIV4BasicInfoSchema.xml">
 	<UnitCombatInfos>
-<!-- +++ Air +++ -->	
+<!-- +++ Air +++ -->
 		<UnitCombatInfo> <!-- Air -->
 			<Type>UNITCOMBAT_AIR</Type>
 			<Description>TXT_KEY_UNITCOMBAT_AIR</Description>
@@ -18,7 +18,7 @@
 			<Button>,Art/Interface/Buttons/Promotion/Helicopter_Units.dds,Art/Interface/Buttons/Promotions_Atlas.dds,2,7</Button>
 		</UnitCombatInfo>
 
-<!-- +++ Land +++ -->	
+<!-- +++ Land +++ -->
 		<UnitCombatInfo> <!-- Archer -->
 			<Type>UNITCOMBAT_ARCHER</Type>
 			<Description>TXT_KEY_UNITCOMBAT_ARCHER</Description>
@@ -63,5 +63,10 @@
 		</UnitCombatInfo>
 
 <!-- +++ Special +++ -->
+		<UnitCombatInfo> <!-- Animal -->
+			<Type>UNITCOMBAT_ANIMAL</Type>
+			<Description>TXT_KEY_UNITCOMBAT_ANIMAL</Description>
+			<Button>Art/Interface/Buttons/Promotions/animal.dds</Button>
+		</UnitCombatInfo>
 	</UnitCombatInfos>
 </Civ4UnitCombatInfos>

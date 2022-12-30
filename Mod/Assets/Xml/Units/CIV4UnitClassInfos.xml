@@ -6,9 +6,9 @@
 <!-- UnitClass Schema -->
 <Civ4UnitClassInfos xmlns="x-schema:CIV4UnitSchema.xml">
 	<UnitClassInfos>
-<!-- ************	-->
+<!-- ************ -->
 <!-- Air          -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitClassInfo> <!-- Airship -->
 			<Type>UNITCLASS_AIRSHIP</Type>
 			<Description>TXT_KEY_UNIT_AIRSHIP</Description>
@@ -40,23 +40,68 @@
 			<DefaultUnit>UNIT_GUNSHIP</DefaultUnit>
 		</UnitClassInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Animals      -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitClassInfo> <!-- Bear -->
 			<Type>UNITCLASS_BEAR</Type>
 			<Description>TXT_KEY_UNIT_BEAR</Description>
 			<DefaultUnit>UNIT_BEAR</DefaultUnit>
 		</UnitClassInfo>
 		<UnitClassInfo> <!-- Lion -->
+			<Type>UNITCLASS_CAVEBEAR</Type>
+			<Description>TXT_KEY_UNIT_CAVEBEAR</Description>
+			<DefaultUnit>UNIT_CAVEBEAR</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Deer -->
+			<Type>UNITCLASS_DEER</Type>
+			<Description>TXT_KEY_UNIT_DEER</Description>
+			<DefaultUnit>UNIT_DEER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Elephant -->
+			<Type>UNITCLASS_ELEPHANT</Type>
+			<Description>TXT_KEY_UNIT_ELEPHANT</Description>
+			<DefaultUnit>UNIT_ELEPHANT</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Gorilla -->
+			<Type>UNITCLASS_GORILLA</Type>
+			<Description>TXT_KEY_UNIT_GORILLA</Description>
+			<DefaultUnit>UNIT_GORILLA</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Horse -->
+			<Type>UNITCLASS_HORSE</Type>
+			<Description>TXT_KEY_UNIT_HORSE</Description>
+			<DefaultUnit>UNIT_HORSE</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Lion -->
 			<Type>UNITCLASS_LION</Type>
 			<Description>TXT_KEY_UNIT_LION</Description>
 			<DefaultUnit>UNIT_LION</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Lion Pride -->
+			<Type>UNITCLASS_PRIDE_OF_LIONS</Type>
+			<Description>TXT_KEY_UNIT_PRIDE_OF_LIONS</Description>
+			<DefaultUnit>UNIT_PRIDE_OF_LIONS</DefaultUnit>
 		</UnitClassInfo>
 		<UnitClassInfo> <!-- Panther -->
 			<Type>UNITCLASS_PANTHER</Type>
 			<Description>TXT_KEY_UNIT_PANTHER</Description>
 			<DefaultUnit>UNIT_PANTHER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Polar Bear -->
+			<Type>UNITCLASS_POLAR_BEAR</Type>
+			<Description>TXT_KEY_UNIT_POLAR_BEAR</Description>
+			<DefaultUnit>UNIT_POLAR_BEAR</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Sabretooth Tiger -->
+			<Type>UNITCLASS_SABRETOOTH_TIGER</Type>
+			<Description>TXT_KEY_UNIT_SABRETOOTH_TIGER</Description>
+			<DefaultUnit>UNIT_SABRETOOTH_TIGER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Tiger -->
+			<Type>UNITCLASS_TIGER</Type>
+			<Description>TXT_KEY_UNIT_TIGER</Description>
+			<DefaultUnit>UNIT_TIGER</DefaultUnit>
 		</UnitClassInfo>
 		<UnitClassInfo> <!-- Wolf -->
 			<Type>UNITCLASS_WOLF</Type>
@@ -64,9 +109,9 @@
 			<DefaultUnit>UNIT_WOLF</DefaultUnit>
 		</UnitClassInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Archer       -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitClassInfo> <!-- Archer -->
 			<Type>UNITCLASS_ARCHER</Type>
 			<Description>TXT_KEY_UNIT_ARCHER</Description>
@@ -83,9 +128,9 @@
 			<DefaultUnit>UNIT_CROSSBOWMAN</DefaultUnit>
 		</UnitClassInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Corporates   -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitClassInfo> <!-- Executive 1 (Cereal Mills) -->
 			<Type>UNITCLASS_EXECUTIVE_1</Type>
 			<Description>TXT_KEY_UNIT_EXECUTIVE_1</Description>
@@ -129,9 +174,9 @@
 			<DefaultUnit>UNIT_EXECUTIVE_7</DefaultUnit>
 		</UnitClassInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Doomsday     -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitClassInfo> <!-- Tactical Nuke -->
 			<Type>UNITCLASS_TACTICAL_NUKE</Type>
 			<Description>TXT_KEY_UNIT_TACTICAL_NUKE</Description>
@@ -143,18 +188,18 @@
 			<DefaultUnit>UNIT_ICBM</DefaultUnit>
 		</UnitClassInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Espionage    -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitClassInfo> <!-- Spy -->
 			<Type>UNITCLASS_SPY</Type>
 			<Description>TXT_KEY_UNIT_SPY</Description>
 			<DefaultUnit>UNIT_SPY</DefaultUnit>
 		</UnitClassInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Great People -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitClassInfo> <!-- Great Artist -->
 			<Type>UNITCLASS_ARTIST</Type>
 			<Description>TXT_KEY_UNIT_GREAT_ARTIST</Description>
@@ -191,9 +236,9 @@
 			<DefaultUnit>UNIT_GREAT_SPY</DefaultUnit>
 		</UnitClassInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Gunpowder    -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitClassInfo> <!-- Musketman -->
 			<Type>UNITCLASS_MUSKETMAN</Type>
 			<Description>TXT_KEY_UNIT_MUSKETMAN</Description>
@@ -235,9 +280,9 @@
 			<DefaultUnit>UNIT_AT_INFANTRY</DefaultUnit>
 		</UnitClassInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Melee        -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitClassInfo> <!-- Warrior -->
 			<Type>UNITCLASS_WARRIOR</Type>
 			<Description>TXT_KEY_UNIT_WARRIOR</Description>
@@ -269,18 +314,18 @@
 			<DefaultUnit>UNIT_MACEMAN</DefaultUnit>
 		</UnitClassInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Missile      -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitClassInfo> <!-- Guided Missile -->
 			<Type>UNITCLASS_GUIDED_MISSILE</Type>
 			<Description>TXT_KEY_UNIT_GUIDED_MISSILE</Description>
 			<DefaultUnit>UNIT_GUIDED_MISSILE</DefaultUnit>
 		</UnitClassInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Missionaries -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitClassInfo> <!-- Buddhist Missionary -->
 			<Type>UNITCLASS_BUDDHIST_MISSIONARY</Type>
 			<Description>TXT_KEY_UNIT_BUDDHIST_MISSIONARY</Description>
@@ -324,9 +369,9 @@
 			<DefaultUnit>UNIT_TAOIST_MISSIONARY</DefaultUnit>
 		</UnitClassInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Mounted      -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitClassInfo> <!-- Chariot -->
 			<Type>UNITCLASS_CHARIOT</Type>
 			<Description>TXT_KEY_UNIT_CHARIOT</Description>
@@ -358,9 +403,9 @@
 			<DefaultUnit>UNIT_WAR_ELEPHANT</DefaultUnit>
 		</UnitClassInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Naval        -->
-<!-- ************	-->
+<!-- ************ -->
 <!-- Wooden -->
 		<UnitClassInfo> <!-- Galley -->
 			<Type>UNITCLASS_GALLEY</Type>
@@ -447,9 +492,9 @@
 			<DefaultUnit>UNIT_ATTACK_SUBMARINE</DefaultUnit>
 		</UnitClassInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Recon        -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitClassInfo> <!-- Scout -->
 			<Type>UNITCLASS_SCOUT</Type>
 			<Description>TXT_KEY_UNIT_SCOUT</Description>
@@ -461,18 +506,18 @@
 			<DefaultUnit>UNIT_EXPLORER</DefaultUnit>
 		</UnitClassInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Settlers     -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitClassInfo> <!-- Settler -->
 			<Type>UNITCLASS_SETTLER</Type>
 			<Description>TXT_KEY_UNIT_SETTLER</Description>
 			<DefaultUnit>UNIT_SETTLER</DefaultUnit>
 		</UnitClassInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Siege        -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitClassInfo> <!-- Catapult -->
 			<Type>UNITCLASS_CATAPULT</Type>
 			<Description>TXT_KEY_UNIT_CATAPULT</Description>
@@ -503,10 +548,10 @@
 			<Description>TXT_KEY_UNIT_MOBILE_ARTILLERY</Description>
 			<DefaultUnit>UNIT_MOBILE_ARTILLERY</DefaultUnit>
 		</UnitClassInfo>
-		
-<!-- ************	-->
+
+<!-- ************ -->
 <!-- Tracked      -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitClassInfo> <!-- Tank -->
 			<Type>UNITCLASS_TANK</Type>
 			<Description>TXT_KEY_UNIT_TANK</Description>
@@ -523,18 +568,18 @@
 			<DefaultUnit>UNIT_MODERN_ARMOR</DefaultUnit>
 		</UnitClassInfo>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Wheeled      -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitClassInfo> <!-- Mobile SAM -->
 			<Type>UNITCLASS_MOBILE_SAM</Type>
 			<Description>TXT_KEY_UNIT_MOBILE_SAM</Description>
 			<DefaultUnit>UNIT_MOBILE_SAM</DefaultUnit>
 		</UnitClassInfo>
-		
-<!-- ************	-->
+
+<!-- ************ -->
 <!-- Workers      -->
-<!-- ************	-->
+<!-- ************ -->
 		<UnitClassInfo> <!-- Worker -->
 			<Type>UNITCLASS_WORKER</Type>
 			<Description>TXT_KEY_UNIT_WORKER</Description>
