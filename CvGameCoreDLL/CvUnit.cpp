@@ -10942,7 +10942,12 @@ UnitRangeTypes CvUnit::getRangeType() const {
 
 
 void CvUnit::setCivicEnabled(bool bEnable) {
-	m_bCivicEnabled = bEnable;
+	if (m_bCivicEnabled != bEnable) {
+		m_bCivicEnabled = bEnable;
+		CvWString	szBuffer = bEnable ? gDLL->getText("TXT_KEY_CIVIC_ENABLED_UNIT", getNameKey()) : gDLL->getText("TXT_KEY_CIVIC_DISABLED_UNIT", getNameKey());
+		gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, NULL, MESSAGE_TYPE_MINOR_EVENT, getUnitInfo().getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX(), getY(), true, true);
+
+	}
 }
 
 bool CvUnit::isCivicEnabled() const {

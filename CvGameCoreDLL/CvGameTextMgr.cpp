@@ -7418,7 +7418,7 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit, bool
 
 			if (!bTechChooserText) {
 				if (kUnit.getPrereqAndTech() != NO_TECH) {
-					if (GC.getGameINLINE().getActivePlayer() == NO_PLAYER || !(kTeam.isHasTech((TechTypes)(kUnit.getPrereqAndTech())))) {
+					if (ePlayer == NO_PLAYER || !(kTeam.isHasTech((TechTypes)(kUnit.getPrereqAndTech())))) {
 						szBuffer.append(NEWLINE);
 						szBuffer.append(gDLL->getText("TXT_KEY_UNIT_REQUIRES_STRING", GC.getTechInfo((TechTypes)(kUnit.getPrereqAndTech())).getTextKeyWide()));
 					}
@@ -7428,7 +7428,7 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit, bool
 			bFirst = true;
 			for (int iPrereqIndex = 0; iPrereqIndex < GC.getNUM_UNIT_AND_TECH_PREREQS(); ++iPrereqIndex) {
 				if (kUnit.getPrereqAndTechs(iPrereqIndex) != NO_TECH) {
-					if (bTechChooserText || GC.getGameINLINE().getActivePlayer() == NO_PLAYER || !kTeam.isHasTech((TechTypes)kUnit.getPrereqAndTechs(iPrereqIndex))) {
+					if (bTechChooserText || ePlayer == NO_PLAYER || !kTeam.isHasTech((TechTypes)kUnit.getPrereqAndTechs(iPrereqIndex))) {
 						szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_REQUIRES").c_str());
 						setListHelp(szBuffer, szTempBuffer, GC.getTechInfo((TechTypes)kUnit.getPrereqAndTechs(iPrereqIndex)).getDescription(), gDLL->getText("TXT_KEY_AND").c_str(), bFirst);
 						bFirst = false;
@@ -7440,13 +7440,12 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit, bool
 			}
 
 			bFirst = true;
-			for (CivicTypes eLoopCivic = (CivicTypes)0; eLoopCivic < GC.getNumCivicInfos(); eLoopCivic = (CivicTypes)(eLoopCivic + 1)) {
-				if (kUnit.isPrereqAndCivic(eLoopCivic)) {
-					if ((GC.getGameINLINE().getActivePlayer() == NO_PLAYER) || !(GET_PLAYER(GC.getGameINLINE().getActivePlayer()).isCivic(eLoopCivic))) {
-						szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_REQUIRES").c_str());
-						setListHelp(szBuffer, szTempBuffer, GC.getCivicInfo(eLoopCivic).getDescription(), gDLL->getText("TXT_KEY_AND").c_str(), bFirst);
-						bFirst = false;
-					}
+			for (int iI = 0; iI < kUnit.getNumPrereqAndCivics(); iI++) {
+				CivicTypes eLoopCivic = (CivicTypes)kUnit.getPrereqAndCivic(iI);
+				if ((ePlayer == NO_PLAYER) || !(GET_PLAYER(ePlayer).isCivic(eLoopCivic))) {
+					szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_REQUIRES").c_str());
+					setListHelp(szBuffer, szTempBuffer, GC.getCivicInfo(eLoopCivic).getDescription(), gDLL->getText("TXT_KEY_AND").c_str(), bFirst);
+					bFirst = false;
 				}
 			}
 			if (!bFirst) {
@@ -7454,13 +7453,12 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit, bool
 			}
 
 			bFirst = true;
-			for (CivicTypes eLoopCivic = (CivicTypes)0; eLoopCivic < GC.getNumCivicInfos(); eLoopCivic = (CivicTypes)(eLoopCivic + 1)) {
-				if (kUnit.isPrereqOrCivic(eLoopCivic)) {
-					if ((GC.getGameINLINE().getActivePlayer() == NO_PLAYER) || !(GET_PLAYER(GC.getGameINLINE().getActivePlayer()).isCivic(eLoopCivic))) {
-						szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_REQUIRES").c_str());
-						setListHelp(szBuffer, szTempBuffer, GC.getCivicInfo(eLoopCivic).getDescription(), gDLL->getText("TXT_KEY_OR").c_str(), bFirst);
-						bFirst = false;
-					}
+			for (int iI = 0; iI < kUnit.getNumPrereqOrCivics(); iI++) {
+				CivicTypes eLoopCivic = (CivicTypes)kUnit.getPrereqOrCivic(iI);
+				if ((ePlayer == NO_PLAYER) || !(GET_PLAYER(ePlayer).isCivic(eLoopCivic))) {
+					szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_REQUIRES").c_str());
+					setListHelp(szBuffer, szTempBuffer, GC.getCivicInfo(eLoopCivic).getDescription(), gDLL->getText("TXT_KEY_OR").c_str(), bFirst);
+					bFirst = false;
 				}
 			}
 			if (!bFirst) {
