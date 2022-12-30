@@ -24,3 +24,4 @@ class ArchidGeneralOptionsTab(BugOptionsTab.BugOptionsTab):
 		self.addCheckbox(screen, panel, "Actions__SentryHealingOnlyNeutral", True)
 		self.addCheckbox(screen, panel, "Actions__PreChopForests")
 		self.addCheckbox(screen, panel, "Actions__PreChopImprovements")
+		self.addCheckbox(screen, panel, "Actions__IgnoreHarmlessBarbarians")

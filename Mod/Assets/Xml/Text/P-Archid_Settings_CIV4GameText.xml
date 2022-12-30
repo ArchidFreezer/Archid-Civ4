@@ -590,6 +590,17 @@
 		<Italian>Quando è selezionato, i Lavoratori a cui è stato ordinato di tagliare una Foresta e successivamente costruire un miglioramento si fermeranno quando mancherà un turno al completamento dell'incarico. Per terminare la costruzione è necessario impartire nuovamente l'ordine.</Italian>
 		<Spanish>When checked, Workers ordered to build an improvement that will remove a forest will stop with 1 turn remaining. Issue the order again to finish the improvement.</Spanish>
 	</TEXT>
+	<!-- Ignore Harmless Barbarians -->
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_ACTIONS__IGNOREHARMLESSBARBARIANS_TEXT</Tag>
+		<English>Ignore Harmless Barbarians</English>
+		<German>Harmlose Barbaren ignorieren</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_ACTIONS__IGNOREHARMLESSBARBARIANS_HOVER</Tag>
+		<English>When checked, barbarian units adjacent to your borders will not trigger a warning if they cannot enter.</English>
+		<German>Lässt keine Warnung erscheinen, wenn sich Barbaren nahe der eigenen Grenzen befinden, diese aber nicht überqueren können</German>
+	</TEXT>
 
 <!-- Plot -->
 	<TEXT> <!-- MiscHover__PartialBuilds -->

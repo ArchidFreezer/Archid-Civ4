@@ -33,6 +33,7 @@
 #include "CvDLLPythonIFaceBase.h"
 #include "CvDLLFlagEntityIFaceBase.h"
 #include "BetterBTSAI.h"
+#include "CvIniOptions.h"
 
 // Public Functions...
 
@@ -13225,22 +13226,30 @@ void CvPlayer::doWarnings() {
 	}
 
 	//update enemy units close to your territory
+	bool bIgnoreHarmless = isHuman() ? getOptionBOOL("Actions__IgnoreHarmlessBarbarians", true) : false;
 	int iMaxCount = range(((getNumCities() + 4) / 7), 2, 5);
-	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++) {
+	for (int iMapPlot = 0; iMapPlot < GC.getMapINLINE().numPlotsINLINE(); iMapPlot++) {
 		if (iMaxCount == 0) {
 			break;
 		}
 
-		CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
+		CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iMapPlot);
 
 		if (pLoopPlot->isAdjacentPlayer(getID())) {
-			if (!(pLoopPlot->isCity())) {
+			if (!pLoopPlot->isCity()) {
 				if (pLoopPlot->isVisible(getTeam(), false)) {
 					CvUnit* pUnit = pLoopPlot->getVisibleEnemyDefender(getID());
 					if (pUnit != NULL) {
 						if (!pUnit->isAnimal()) {
-							CvCity* pNearestCity = GC.getMapINLINE().findCity(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), getID(), NO_TEAM, !(pLoopPlot->isWater()));
+							if (bIgnoreHarmless && pUnit->isBarbarian() && pUnit->getDomainType() == DOMAIN_LAND) {
+								CvArea* pArea = pUnit->area();
+								if (pArea && pArea->isBorderObstacle(getTeam())) {
+									// don't show warning for land-based barbarians when player has Great Wall
+									continue;
+								}
+							}
 
+							CvCity* pNearestCity = GC.getMapINLINE().findCity(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), getID(), NO_TEAM, !pLoopPlot->isWater());
 							if (pNearestCity != NULL) {
 								wchar szBuffer[1024];
 								swprintf(szBuffer, gDLL->getText("TXT_KEY_MISC_ENEMY_TROOPS_SPOTTED", pNearestCity->getNameKey()).GetCString());
