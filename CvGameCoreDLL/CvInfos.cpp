@@ -2698,6 +2698,8 @@ CvUnitInfo::CvUnitInfo() :
 	m_piDomainModifier(NULL),
 	m_piBonusProductionModifier(NULL),
 	m_piUnitGroupRequired(NULL),
+	m_piYieldFromKill(NULL),
+	m_piCommerceFromKill(NULL),
 	m_pbTerrainNative(NULL),
 	m_pbFeatureNative(NULL),
 	m_pbFreePromotions(NULL),
@@ -2749,6 +2751,8 @@ CvUnitInfo::~CvUnitInfo() {
 	SAFE_DELETE_ARRAY(m_piDomainModifier);
 	SAFE_DELETE_ARRAY(m_piBonusProductionModifier);
 	SAFE_DELETE_ARRAY(m_piUnitGroupRequired);
+	SAFE_DELETE_ARRAY(m_piYieldFromKill);
+	SAFE_DELETE_ARRAY(m_piCommerceFromKill);
 	SAFE_DELETE_ARRAY(m_pbTerrainNative);
 	SAFE_DELETE_ARRAY(m_pbFeatureNative);
 	SAFE_DELETE_ARRAY(m_pbFreePromotions);
@@ -2756,6 +2760,18 @@ CvUnitInfo::~CvUnitInfo() {
 	SAFE_DELETE_ARRAY(m_paszLateArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszMiddleArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszUnitNames);
+}
+
+int CvUnitInfo::getYieldFromKill(int i) const {
+	FAssertMsg(i < NUM_YIELD_TYPES, "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	return m_piYieldFromKill ? m_piYieldFromKill[i] : -1;
+}
+
+int CvUnitInfo::getCommerceFromKill(int i) const {
+	FAssertMsg(i < NUM_COMMERCE_TYPES, "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	return m_piCommerceFromKill ? m_piCommerceFromKill[i] : -1;
 }
 
 bool CvUnitInfo::isSingleBuild() const {
@@ -3868,6 +3884,14 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	m_pbFreePromotions = new bool[GC.getNumPromotionInfos()];
 	stream->Read(GC.getNumPromotionInfos(), m_pbFreePromotions);
 
+	SAFE_DELETE_ARRAY(m_piYieldFromKill);
+	m_piYieldFromKill = new int[NUM_YIELD_TYPES];
+	stream->Read(NUM_YIELD_TYPES, m_piYieldFromKill);
+
+	SAFE_DELETE_ARRAY(m_piCommerceFromKill);
+	m_piCommerceFromKill = new int[NUM_COMMERCE_TYPES];
+	stream->Read(NUM_COMMERCE_TYPES, m_piCommerceFromKill);
+
 	stream->Read(&m_iLeaderPromotion);
 	stream->Read(&m_iLeaderExperience);
 
@@ -4074,6 +4098,8 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(GC.getNumTerrainInfos(), m_pbTerrainImpassable);
 	stream->Write(GC.getNumFeatureInfos(), m_pbFeatureImpassable);
 	stream->Write(GC.getNumPromotionInfos(), m_pbFreePromotions);
+	stream->Write(NUM_YIELD_TYPES, m_piYieldFromKill);
+	stream->Write(NUM_COMMERCE_TYPES, m_piCommerceFromKill);
 	stream->Write(m_iLeaderPromotion);
 	stream->Write(m_iLeaderExperience);
 
@@ -4291,6 +4317,8 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetListPairInfo(&m_piDomainModifier, "DomainMods", NUM_DOMAIN_TYPES);
 
 	pXML->SetListPairInfo(&m_piBonusProductionModifier, "BonusProductionModifiers", GC.getNumBonusInfos());
+	pXML->SetList(&m_piYieldFromKill, "YieldsFromKill", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piCommerceFromKill, "CommercesFromKill", NUM_COMMERCE_TYPES);
 
 	pXML->GetChildXmlValByName(&m_iBombRate, "iBombRate");
 	pXML->GetChildXmlValByName(&m_iBombardRate, "iBombardRate");
@@ -13549,6 +13577,10 @@ CvTraitInfo::CvTraitInfo() :
 	m_paiTradeYieldModifier(NULL),
 	m_paiCommerceChange(NULL),
 	m_paiCommerceModifier(NULL),
+	m_paiBaseYieldFromUnit(NULL),
+	m_paiYieldFromUnitModifier(NULL),
+	m_paiBaseCommerceFromUnit(NULL),
+	m_paiCommerceFromUnitModifier(NULL),
 	m_pabFreePromotionUnitCombat(NULL),
 	m_pabFreePromotion(NULL) {
 }
@@ -13565,8 +13597,28 @@ CvTraitInfo::~CvTraitInfo() {
 	SAFE_DELETE_ARRAY(m_paiTradeYieldModifier);
 	SAFE_DELETE_ARRAY(m_paiCommerceChange);
 	SAFE_DELETE_ARRAY(m_paiCommerceModifier);
+	SAFE_DELETE_ARRAY(m_paiBaseYieldFromUnit);
+	SAFE_DELETE_ARRAY(m_paiYieldFromUnitModifier);
+	SAFE_DELETE_ARRAY(m_paiBaseCommerceFromUnit);
+	SAFE_DELETE_ARRAY(m_paiCommerceFromUnitModifier);
 	SAFE_DELETE_ARRAY(m_pabFreePromotionUnitCombat);
 	SAFE_DELETE_ARRAY(m_pabFreePromotion);
+}
+
+int CvTraitInfo::getBaseYieldFromUnit(int i) const {
+	return m_paiBaseYieldFromUnit ? m_paiBaseYieldFromUnit[i] : -1;
+}
+
+int CvTraitInfo::getYieldFromUnitModifier(int i) const {
+	return m_paiYieldFromUnitModifier ? m_paiYieldFromUnitModifier[i] : -1;
+}
+
+int CvTraitInfo::getBaseCommerceFromUnit(int i) const {
+	return m_paiBaseCommerceFromUnit ? m_paiBaseCommerceFromUnit[i] : -1;
+}
+
+int CvTraitInfo::getCommerceFromUnitModifier(int i) const {
+	return m_paiCommerceFromUnitModifier ? m_paiCommerceFromUnitModifier[i] : -1;
 }
 
 int CvTraitInfo::getUnitRangeChange() const {
@@ -13689,8 +13741,12 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iUnitRangePercentChange, "iUnitRangePercentChange");
 	pXML->SetList(&m_paiExtraYieldThreshold, "ExtraYieldThresholds", NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiTradeYieldModifier, "TradeYieldModifiers", NUM_YIELD_TYPES);
+	pXML->SetList(&m_paiBaseYieldFromUnit, "BaseYieldFromUnits", NUM_YIELD_TYPES);
+	pXML->SetList(&m_paiYieldFromUnitModifier, "YieldFromUnitModifiers", NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiCommerceChange, "CommerceChanges", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_paiCommerceModifier, "CommerceModifiers", NUM_COMMERCE_TYPES);
+	pXML->SetList(&m_paiBaseCommerceFromUnit, "BaseCommerceFromUnits", NUM_COMMERCE_TYPES);
+	pXML->SetList(&m_paiCommerceFromUnitModifier, "CommerceFromUnitModifiers", NUM_COMMERCE_TYPES);
 	pXML->SetListInfoBool(&m_pabFreePromotion, "FreePromotions", GC.getNumPromotionInfos());
 	pXML->SetListInfoBool(&m_pabFreePromotionUnitCombat, "FreePromotionUnitCombats", GC.getNumUnitCombatInfos());
 

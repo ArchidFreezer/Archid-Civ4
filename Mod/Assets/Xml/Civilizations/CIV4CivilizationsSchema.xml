@@ -323,6 +323,18 @@
 	<ElementType name="bUnitTerritoryUnbound" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iUnitRangeChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iUnitRangePercentChange" content="textOnly" dt:type="int"/>
+	<ElementType name="BaseYieldFromUnits" content="eltOnly">
+		<element type="iYield" minOccurs="0"/>
+	</ElementType>
+	<ElementType name="BaseCommerceFromUnits" content="eltOnly">
+		<element type="iCommerce" minOccurs="0"/>
+	</ElementType>
+	<ElementType name="YieldFromUnitModifiers" content="eltOnly">
+		<element type="iYield" minOccurs="0"/>
+	</ElementType>
+	<ElementType name="CommerceFromUnitModifiers" content="eltOnly">
+		<element type="iCommerce" minOccurs="0"/>
+	</ElementType>
 	<ElementType name="TraitInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -345,8 +357,12 @@
 		<element type="iUnitRangePercentChange" minOccurs="0"/>
 		<element type="ExtraYieldThresholds" minOccurs="0"/>
 		<element type="TradeYieldModifiers" minOccurs="0"/>
+		<element type="BaseYieldFromUnits" minOccurs="0"/>
+		<element type="YieldFromUnitModifiers" minOccurs="0"/>
 		<element type="CommerceChanges" minOccurs="0"/>
 		<element type="CommerceModifiers" minOccurs="0"/>
+		<element type="BaseCommerceFromUnits" minOccurs="0"/>
+		<element type="CommerceFromUnitModifiers" minOccurs="0"/>
 		<element type="FreePromotions" minOccurs="0"/>
 		<element type="FreePromotionUnitCombats" minOccurs="0"/>
 	</ElementType>

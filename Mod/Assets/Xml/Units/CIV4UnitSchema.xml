@@ -81,9 +81,9 @@
 	<ElementType name="UnitClassInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
-		<element type="iMaxGlobalInstances" minOccurs="0"/>  <!-- Default: -1 -->
-		<element type="iMaxTeamInstances" minOccurs="0"/>  <!-- Default: -1 -->
-		<element type="iMaxPlayerInstances" minOccurs="0"/>  <!-- Default: -1 -->
+		<element type="iMaxGlobalInstances" minOccurs="0"/> <!-- Default: -1 -->
+		<element type="iMaxTeamInstances" minOccurs="0"/> <!-- Default: -1 -->
+		<element type="iMaxPlayerInstances" minOccurs="0"/> <!-- Default: -1 -->
 		<element type="iInstanceCostModifier" minOccurs="0"/>
 		<element type="DefaultUnit" minOccurs="0"/>
 	</ElementType>
@@ -442,6 +442,13 @@
 		<element type="CivicType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="bSingleBuild" content="textOnly" dt:type="boolean"/>
+	<ElementType name="YieldsFromKill" content="eltOnly">
+		<element type="iYield" minOccurs="0"/>
+	</ElementType>
+	<ElementType name="iCommerce" content="textOnly" dt:type="int"/>
+	<ElementType name="CommercesFromKill" content="eltOnly">
+		<element type="iCommerce" minOccurs="0"/>
+	</ElementType>
 	<ElementType name="UnitInfo" content="eltOnly">
 		<element type="Class"/>
 		<element type="Type"/>
@@ -581,6 +588,8 @@
 		<element type="UnitCombatCollateralImmunes" minOccurs="0"/>
 		<element type="DomainMods" minOccurs="0"/>
 		<element type="BonusProductionModifiers" minOccurs="0"/>
+		<element type="YieldsFromKill" minOccurs="0"/>
+		<element type="CommercesFromKill" minOccurs="0"/>
 		<element type="iBombRate" minOccurs="0"/>
 		<element type="iBombardRate" minOccurs="0"/>
 		<element type="SpecialCargo" minOccurs="0"/>
@@ -600,7 +609,7 @@
 		<element type="iHotKeyPriority" minOccurs="0"/>
 		<element type="FreePromotions" minOccurs="0"/>
 		<element type="LeaderPromotion" minOccurs="0"/>
-		<element type="iLeaderExperience" minOccurs="0"/>		
+		<element type="iLeaderExperience" minOccurs="0"/>
 		<element type="iOrderPriority" minOccurs="0"/>
 	</ElementType>
 	<ElementType name="UnitInfos" content="eltOnly">

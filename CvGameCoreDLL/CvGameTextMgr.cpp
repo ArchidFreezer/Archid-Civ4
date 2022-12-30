@@ -4888,6 +4888,108 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer& szHelpString, TraitTypes eTrait
 			}
 		}
 
+		//Yield From Unit Modifiers
+		szTempBuffer.clear();
+		bool bFoundKillYield = false;
+		int iLast = 0;
+
+		for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+			int iYield = kTrait.getYieldFromUnitModifier(eYield);
+			if (iYield != 0) {
+				if (iYield != iLast) {
+					szTempBuffer += CvWString::format(L"%d%% %c", iYield, GC.getYieldInfo(eYield).getChar());
+					iLast = iYield;
+				} else {
+					szTempBuffer += L", ";
+					szTempBuffer += CvWString::format(L"%c", GC.getYieldInfo(eYield).getChar());
+				}
+				bFoundKillYield = true;
+			}
+		}
+
+		if (bFoundKillYield) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_FROM_UNIT_MODS", szTempBuffer.GetCString()));
+		}
+
+		// Base Yield From Units
+		szTempBuffer.clear();
+		bool bFirst = true;
+		bFoundKillYield = false;
+		iLast = 0;
+
+		for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+			int iYield = kTrait.getBaseYieldFromUnit(eYield);
+			if (iYield != 0) {
+				if (bFirst) {
+					szTempBuffer += gDLL->getText("TXT_KEY_TRAIT_BASE_FROM_UNIT");
+					bFirst = false;
+				}
+				if (iYield != iLast) {
+					szTempBuffer += CvWString::format(L"%d %c", iYield, GC.getYieldInfo(eYield).getChar());
+					iLast = iYield;
+				} else {
+					szTempBuffer += L", ";
+					szTempBuffer += CvWString::format(L"%c", GC.getYieldInfo(eYield).getChar());
+				}
+				bFoundKillYield = true;
+			}
+		}
+
+		if (bFoundKillYield) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_BASE_FROM_UNIT", szTempBuffer.GetCString()));
+		}
+
+		//Commerce From Unit Modifiers
+		szTempBuffer.clear();
+		bool bFoundKillCommerce = false;
+		iLast = 0;
+
+		for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+			int iCommerce = kTrait.getCommerceFromUnitModifier(eCommerce);
+			if (iCommerce != 0) {
+				if (iCommerce != iLast) {
+					szTempBuffer += CvWString::format(L"%d%% %c", iCommerce, GC.getCommerceInfo(eCommerce).getChar());
+					iLast = iCommerce;
+				} else {
+					szTempBuffer += L", ";
+					szTempBuffer += CvWString::format(L"%c", GC.getCommerceInfo(eCommerce).getChar());
+				}
+				bFoundKillCommerce = true;
+			}
+		}
+
+		if (bFoundKillCommerce) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_FROM_UNIT_MODS", szTempBuffer.GetCString()));
+		}
+
+		// Base Commerce From Units
+		szTempBuffer.clear();
+		bFirst = true;
+		bFoundKillCommerce = false;
+		iLast = 0;
+
+		for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+			int iCommerce = kTrait.getBaseCommerceFromUnit(eCommerce);
+			if (iCommerce != 0) {
+				if (bFirst) {
+					szTempBuffer += gDLL->getText("TXT_KEY_TRAIT_BASE_FROM_UNIT");
+					bFirst = false;
+				}
+				if (iCommerce != iLast) {
+					szTempBuffer += CvWString::format(L"%d %c", iCommerce, GC.getCommerceInfo(eCommerce).getChar());
+					iLast = iCommerce;
+				} else {
+					szTempBuffer += L", ";
+					szTempBuffer += CvWString::format(L"%c", GC.getCommerceInfo(eCommerce).getChar());
+				}
+				bFoundKillCommerce = true;
+			}
+		}
+
+		if (bFoundKillCommerce) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_BASE_FROM_UNIT", szTempBuffer.GetCString()));
+		}
+
 		// Free Promotions
 		bool bFoundPromotion = false;
 		szTempBuffer.clear();
@@ -4922,7 +5024,7 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer& szHelpString, TraitTypes eTrait
 		}
 
 		// Increase Building/Unit Production Speeds
-		int iLast = 0;
+		iLast = 0;
 		for (SpecialUnitTypes eSpecialUnit = (SpecialUnitTypes)0; eSpecialUnit < GC.getNumSpecialUnitInfos(); eSpecialUnit = (SpecialUnitTypes)(eSpecialUnit + 1)) {
 			const CvSpecialUnitInfo& kSpecialUnit = GC.getSpecialUnitInfo(eSpecialUnit);
 			if (kSpecialUnit.getProductionTraits(eTrait) != 0) {

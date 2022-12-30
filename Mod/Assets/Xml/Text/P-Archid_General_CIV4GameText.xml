@@ -695,5 +695,46 @@
 		<Tag>TXT_KEY_UNIT_SINGLE_BUILD</Tag>
 		<English>[ICON_BULLET]Consumed after build</English>
 	</TEXT>
+<!-- Yield from Units -->
+	<TEXT>
+		<Tag>TXT_KEY_MISC_YIELD_FROM_UNIT</Tag>
+		<English>Your %s1_Unit has given %d2 %F3_Yield to %s4_City</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_PRODUCTION_FROM_UNIT</Tag>
+		<English>Your %s1_Unit has given %d2_Num[ICON_PRODUCTION] %s3_YieldName to %s4_City</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_YIELD_FROM_KILL</Tag>
+		<English>[ICON_BULLET]%d1 %F2_Yield to Nearest City</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_GOLD_FROM_UNIT</Tag>
+		<English>Our forces have plundered %d1 %F2_Commerce from a %s3_Adj %s4_Unit.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_CULTURE_FROM_UNIT</Tag>
+		<English>Our forces have stolen %d1 %F2_Commerce from a %s3_Adj %s4_Unit and sent it to %s5_City</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ACQUIRE_RESEARCH_FROM_UNIT</Tag>
+		<English>Investigation of a %s3_Adj %s4_Unit has yielded %d1 %F2_Commerce toward %s5_Tech.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_GATHERED_INTELLIGENCE_FROM_UNIT</Tag>
+		<English>After interrogations, we have gained %d1 %F2_Commerce from a %s3_Adj %s4_Unit against %s5_Leader.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_FROM_UNIT_MODS</Tag>
+		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]+%s1 from killed units.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_BASE_FROM_UNIT</Tag>
+		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]+%s1 from all killed units.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_BASE_FROM_UNIT</Tag>
+		<English>At least</English>
+	</TEXT>
 
 </Civ4GameText>

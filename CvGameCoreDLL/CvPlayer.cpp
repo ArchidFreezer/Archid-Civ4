@@ -53,6 +53,10 @@ CvPlayer::CvPlayer() {
 	m_aiCommerceFlexibleCount = new int[NUM_COMMERCE_TYPES];
 	m_aiGoldPerTurnByPlayer = new int[MAX_PLAYERS];
 	m_aiEspionageSpendingWeightAgainstTeam = new int[MAX_TEAMS];
+	m_aiBaseYieldFromUnit = new int[NUM_YIELD_TYPES];
+	m_aiYieldFromUnitModifier = new int[NUM_YIELD_TYPES];
+	m_aiBaseCommerceFromUnit = new int[NUM_COMMERCE_TYPES];
+	m_aiCommerceFromUnitModifier = new int[NUM_COMMERCE_TYPES];
 
 	m_abFeatAccomplished = new bool[NUM_FEAT_TYPES];
 	m_abOptions = new bool[NUM_PLAYEROPTION_TYPES];
@@ -112,6 +116,10 @@ CvPlayer::~CvPlayer() {
 	SAFE_DELETE_ARRAY(m_aiCommerceFlexibleCount);
 	SAFE_DELETE_ARRAY(m_aiGoldPerTurnByPlayer);
 	SAFE_DELETE_ARRAY(m_aiEspionageSpendingWeightAgainstTeam);
+	SAFE_DELETE_ARRAY(m_aiBaseYieldFromUnit);
+	SAFE_DELETE_ARRAY(m_aiYieldFromUnitModifier);
+	SAFE_DELETE_ARRAY(m_aiBaseCommerceFromUnit);
+	SAFE_DELETE_ARRAY(m_aiCommerceFromUnitModifier);
 	SAFE_DELETE_ARRAY(m_abFeatAccomplished);
 	SAFE_DELETE_ARRAY(m_abOptions);
 }
@@ -523,6 +531,8 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 		m_aiCapitalYieldRateModifier[eYield] = 0;
 		m_aiExtraYieldThreshold[eYield] = 0;
 		m_aiTradeYieldModifier[eYield] = 0;
+		m_aiBaseYieldFromUnit[eYield] = 0;
+		m_aiYieldFromUnitModifier[eYield] = 0;
 	}
 
 	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
@@ -534,6 +544,8 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 		m_aiStateReligionBuildingCommerce[eCommerce] = 0;
 		m_aiSpecialistExtraCommerce[eCommerce] = 0;
 		m_aiCommerceFlexibleCount[eCommerce] = 0;
+		m_aiBaseCommerceFromUnit[eCommerce] = 0;
+		m_aiCommerceFromUnitModifier[eCommerce] = 0;
 	}
 
 	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
@@ -13307,6 +13319,10 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(NUM_YIELD_TYPES, m_aiCapitalYieldRateModifier);
 	pStream->Read(NUM_YIELD_TYPES, m_aiExtraYieldThreshold);
 	pStream->Read(NUM_YIELD_TYPES, m_aiTradeYieldModifier);
+	pStream->Read(NUM_YIELD_TYPES, m_aiBaseYieldFromUnit);
+	pStream->Read(NUM_YIELD_TYPES, m_aiYieldFromUnitModifier);
+	pStream->Read(NUM_COMMERCE_TYPES, m_aiBaseCommerceFromUnit);
+	pStream->Read(NUM_COMMERCE_TYPES, m_aiCommerceFromUnitModifier);
 	pStream->Read(NUM_COMMERCE_TYPES, m_aiFreeCityCommerce);
 	pStream->Read(NUM_COMMERCE_TYPES, m_aiCommercePercent);
 	pStream->Read(NUM_COMMERCE_TYPES, m_aiCommerceRate);
@@ -13767,6 +13783,10 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(NUM_YIELD_TYPES, m_aiCapitalYieldRateModifier);
 	pStream->Write(NUM_YIELD_TYPES, m_aiExtraYieldThreshold);
 	pStream->Write(NUM_YIELD_TYPES, m_aiTradeYieldModifier);
+	pStream->Write(NUM_YIELD_TYPES, m_aiBaseYieldFromUnit);
+	pStream->Write(NUM_YIELD_TYPES, m_aiYieldFromUnitModifier);
+	pStream->Write(NUM_COMMERCE_TYPES, m_aiBaseCommerceFromUnit);
+	pStream->Write(NUM_COMMERCE_TYPES, m_aiCommerceFromUnitModifier);
 	pStream->Write(NUM_COMMERCE_TYPES, m_aiFreeCityCommerce);
 	pStream->Write(NUM_COMMERCE_TYPES, m_aiCommercePercent);
 	pStream->Write(NUM_COMMERCE_TYPES, m_aiCommerceRate);
@@ -18304,10 +18324,60 @@ void CvPlayer::setHasTrait(TraitTypes eTrait, bool bNewValue) {
 	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
 		changeFreeCityCommerce(eCommerce, kTrait.getCommerceChange(eCommerce) * iChange);
 		changeCommerceRateModifier(eCommerce, kTrait.getCommerceModifier(eCommerce) * iChange);
+		changeBaseCommerceFromUnit(eCommerce, kTrait.getBaseCommerceFromUnit(eCommerce) * iChange);
+		changeCommerceFromUnitModifier(eCommerce, kTrait.getCommerceFromUnitModifier(eCommerce) * iChange);
 	}
 
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 		changeTradeYieldModifier(eYield, kTrait.getTradeYieldModifier(eYield) * iChange);
+		changeBaseYieldFromUnit(eYield, kTrait.getBaseYieldFromUnit(eYield) * iChange);
+		changeYieldFromUnitModifier(eYield, kTrait.getYieldFromUnitModifier(eYield) * iChange);
 	}
+}
 
+int CvPlayer::getBaseYieldFromUnit(YieldTypes eIndex) const {
+	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
+	FAssertMsg(eIndex < NUM_YIELD_TYPES, "eIndex is expected to be within maximum bounds (invalid Index)");
+	return m_aiBaseYieldFromUnit[eIndex];
+}
+
+void CvPlayer::changeBaseYieldFromUnit(YieldTypes eIndex, int iChange) {
+	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
+	FAssertMsg(eIndex < NUM_YIELD_TYPES, "eIndex is expected to be within maximum bounds (invalid Index)");
+	m_aiBaseYieldFromUnit[eIndex] += iChange;
+}
+int CvPlayer::getYieldFromUnitModifier(YieldTypes eIndex) const {
+	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
+	FAssertMsg(eIndex < NUM_YIELD_TYPES, "eIndex is expected to be within maximum bounds (invalid Index)");
+	return m_aiYieldFromUnitModifier[eIndex];
+}
+
+void CvPlayer::changeYieldFromUnitModifier(YieldTypes eIndex, int iChange) {
+	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
+	FAssertMsg(eIndex < NUM_YIELD_TYPES, "eIndex is expected to be within maximum bounds (invalid Index)");
+	m_aiYieldFromUnitModifier[eIndex] += iChange;
+}
+
+int CvPlayer::getBaseCommerceFromUnit(CommerceTypes eIndex) const {
+	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
+	FAssertMsg(eIndex < NUM_COMMERCE_TYPES, "eIndex is expected to be within maximum bounds (invalid Index)");
+	return m_aiBaseCommerceFromUnit[eIndex];
+}
+
+void CvPlayer::changeBaseCommerceFromUnit(CommerceTypes eIndex, int iChange) {
+	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
+	FAssertMsg(eIndex < NUM_COMMERCE_TYPES, "eIndex is expected to be within maximum bounds (invalid Index)");
+	m_aiBaseCommerceFromUnit[eIndex] += iChange;
+}
+
+int CvPlayer::getCommerceFromUnitModifier(CommerceTypes eIndex) const {
+	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
+	FAssertMsg(eIndex < NUM_COMMERCE_TYPES, "eIndex is expected to be within maximum bounds (invalid Index)");
+	return m_aiCommerceFromUnitModifier[eIndex];
+}
+
+void CvPlayer::changeCommerceFromUnitModifier(CommerceTypes eIndex, int iChange) {
+	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
+	FAssertMsg(eIndex < NUM_COMMERCE_TYPES, "eIndex is expected to be within maximum bounds (invalid Index)");
+	m_aiCommerceFromUnitModifier[eIndex] += iChange;
 }

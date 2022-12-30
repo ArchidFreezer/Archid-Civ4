@@ -887,6 +887,10 @@ void CvUnit::updateAirCombat(bool bQuick) {
 
 			szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_UNIT_SHOT_DOWN", getNameKey(), pInterceptor->getNameKey());
 			gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_INTERCEPTED", MESSAGE_TYPE_INFO, pInterceptor->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), pPlot->getX_INLINE(), pPlot->getY_INLINE());
+
+			if (pPlot->getOwnerINLINE() == pInterceptor->getOwnerINLINE()) {
+				pInterceptor->salvage(this);
+			}
 		} else if (kAirMission.getDamage(BATTLE_UNIT_ATTACKER) > 0) {
 			CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_HURT_ENEMY_AIR", pInterceptor->getNameKey(), getNameKey(), -(kAirMission.getDamage(BATTLE_UNIT_ATTACKER)), getVisualCivAdjective(pInterceptor->getTeam()));
 			gDLL->getInterfaceIFace()->addHumanMessage(pInterceptor->getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_INTERCEPT", MESSAGE_TYPE_INFO, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), pPlot->getX_INLINE(), pPlot->getY_INLINE(), true, true);
@@ -1259,6 +1263,10 @@ void CvUnit::updateCombat(bool bQuick) {
 				GET_PLAYER(pDefender->getOwnerINLINE()).changeWinsVsBarbs(1);
 			}
 
+			if (!pDefender->isBarbarian()) {
+				pDefender->salvage(this);
+			}
+
 			if (!m_pUnitInfo->isHiddenNationality() && !pDefender->getUnitInfo().isHiddenNationality()) {
 				GET_TEAM(getTeam()).changeWarWeariness(pDefender->getTeam(), *pPlot, GC.getDefineINT("WW_UNIT_KILLED_ATTACKING"));
 				GET_TEAM(pDefender->getTeam()).changeWarWeariness(getTeam(), *pPlot, GC.getDefineINT("WW_KILLED_UNIT_DEFENDING"));
@@ -1276,6 +1284,10 @@ void CvUnit::updateCombat(bool bQuick) {
 		} else if (pDefender->isDead()) {
 			if (pDefender->isBarbarian()) {
 				GET_PLAYER(getOwnerINLINE()).changeWinsVsBarbs(1);
+			}
+
+			if (!isBarbarian()) {
+				salvage(pDefender);
 			}
 
 			if (!m_pUnitInfo->isHiddenNationality() && !pDefender->getUnitInfo().isHiddenNationality()) {
@@ -10956,4 +10968,140 @@ bool CvUnit::isCivicEnabled() const {
 
 bool CvUnit::isEnabled() const {
 	return isCivicEnabled();
+}
+
+void CvUnit::salvage(CvUnit* pDeadUnit) {
+	if (pDeadUnit == NULL)
+		return;
+
+	CvPlayer& kOwner = GET_PLAYER(getOwnerINLINE());
+	const CvPlayer& kDeadOwner = GET_PLAYER(pDeadUnit->getOwnerINLINE());
+	const CvUnitInfo& kDeadUnit = GC.getUnitInfo(pDeadUnit->getUnitType());
+
+	CvCity* pNearestCity = kOwner.findCity(getX_INLINE(), getY_INLINE());
+	if (pNearestCity != NULL) {
+		for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+			if (kDeadUnit.getYieldFromKill(eYield) > 0 || kOwner.getBaseYieldFromUnit(eYield) > 0) {
+				int iYield = std::max(kDeadUnit.getYieldFromKill(eYield), kOwner.getBaseYieldFromUnit(eYield));
+				iYield *= std::max(0, kOwner.getYieldFromUnitModifier(eYield) + 100);
+				iYield /= 100;
+
+				switch (eYield) {
+				case YIELD_FOOD:
+					pNearestCity->changeFood(iYield);
+					break;
+
+				case YIELD_PRODUCTION:
+					pNearestCity->changeProduction(iYield);
+					break;
+				}
+				CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_YIELD_FROM_UNIT", getNameKey(), iYield, GC.getYieldInfo(eYield).getChar(), pNearestCity->getNameKey());
+				gDLL->getInterfaceIFace()->addMessage(pNearestCity->getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, ARTFILEMGR.getInterfaceArtInfo("WORLDBUILDER_CITY_EDIT")->getPath(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), pDeadUnit->getX_INLINE(), pDeadUnit->getY_INLINE(), true, true);
+			}
+		}
+	}
+
+	std::vector<TechTypes> aeAvailableTechs;
+	std::vector<CommerceTypes> aeValidCommerces;
+
+	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+		int iJ;
+		bool bValid = true;
+		if (kDeadUnit.getCommerceFromKill(eCommerce) > 0 || kOwner.getBaseCommerceFromUnit(eCommerce)) {
+			if (eCommerce == COMMERCE_RESEARCH) {
+				TechTypes eTempTech = (TechTypes)kDeadUnit.getPrereqAndTech();
+
+				if (eTempTech != NO_TECH) {
+					if (kOwner.canResearch(eTempTech, true) && GET_TEAM(kDeadOwner.getTeam()).isHasTech(eTempTech)) {
+						aeAvailableTechs.push_back(eTempTech);
+					}
+				}
+
+				for (iJ = 0; iJ < GC.getNUM_UNIT_AND_TECH_PREREQS(); iJ++) {
+					eTempTech = (TechTypes)kDeadUnit.getPrereqAndTechs(iJ);
+					if (eTempTech != NO_TECH) {
+						if (kOwner.canResearch(eTempTech, true) && GET_TEAM(kDeadOwner.getTeam()).isHasTech(eTempTech)) {
+							aeAvailableTechs.push_back(eTempTech);
+						}
+					}
+				}
+
+				for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumPromotionInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
+					if (pDeadUnit->isHasPromotion(ePromotion)) {
+						eTempTech = (TechTypes)GC.getPromotionInfo(ePromotion).getTechPrereq();
+						if (eTempTech != NO_TECH) {
+							if (kOwner.canResearch(eTempTech, true) && GET_TEAM(kDeadOwner.getTeam()).isHasTech(eTempTech)) {
+								aeAvailableTechs.push_back(eTempTech);
+							}
+						}
+					}
+				}
+
+				bValid = (aeAvailableTechs.size() > 0);
+			}
+
+			if (eCommerce == COMMERCE_ESPIONAGE && pDeadUnit->isBarbarian()) {
+				bValid = false;
+			}
+
+			if (bValid) {
+				aeValidCommerces.push_back(eCommerce);
+			}
+		}
+	}
+
+	if (aeValidCommerces.size() > 0) {
+		int iRoll = (CommerceTypes)GC.getGameINLINE().getSorenRandNum(aeValidCommerces.size(), "Pillage");
+
+		CommerceTypes eCommerce = aeValidCommerces[iRoll];
+
+		int iCommerce = std::max(kDeadUnit.getCommerceFromKill(eCommerce), kOwner.getBaseCommerceFromUnit(eCommerce));
+		iCommerce *= std::max(0, kOwner.getCommerceFromUnitModifier(eCommerce) + 100);
+		iCommerce /= 100;
+
+		int iCommerceVariable = (GC.getGameINLINE().getSorenRandNum(iCommerce, "Commerce Variable") * GC.getDefineINT("UNIT_SALVAGE_COMM_VARIABLE_PERCENT"));
+		iCommerceVariable /= 100;
+
+		int iTotalCommerce = iCommerce + iCommerceVariable;
+
+		if (iTotalCommerce > 0) {
+			CvWString szBuffer;
+			switch (eCommerce) {
+			case COMMERCE_GOLD:
+				kOwner.changeGold(iTotalCommerce);
+				szBuffer = gDLL->getText("TXT_KEY_MISC_GOLD_FROM_UNIT", iTotalCommerce, GC.getCommerceInfo(eCommerce).getChar(), kDeadOwner.getCivilizationAdjectiveKey(), pDeadUnit->getNameKey());
+				gDLL->getInterfaceIFace()->addMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_PILLAGE", MESSAGE_TYPE_INFO, m_pUnitInfo->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), getX_INLINE(), getY_INLINE());
+				break;
+			case COMMERCE_CULTURE:
+				if (pNearestCity != NULL) {
+					pNearestCity->changeCulture(getOwnerINLINE(), iTotalCommerce, true, true);
+					szBuffer = gDLL->getText("TXT_KEY_MISC_CULTURE_FROM_UNIT", iTotalCommerce, GC.getCommerceInfo(eCommerce).getChar(), kDeadOwner.getCivilizationAdjectiveKey(), pDeadUnit->getNameKey(), pNearestCity->getNameKey());
+					gDLL->getInterfaceIFace()->addMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_PILLAGE", MESSAGE_TYPE_INFO, m_pUnitInfo->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), getX_INLINE(), getY_INLINE());
+				}
+				break;
+			case COMMERCE_RESEARCH:
+				{
+					TechTypes eRewardTech = aeAvailableTechs[GC.getGameINLINE().getSorenRandNum(aeAvailableTechs.size(), "Choose Tech")];
+					if (eRewardTech != NO_TECH) {
+						if (kOwner.getCurrentResearch() == eRewardTech) {
+							iTotalCommerce *= GC.getDefineINT("UNIT_SALVAGE_CURRENT_TECH_PERCENT");
+							iTotalCommerce /= 100;
+						}
+
+						GET_TEAM(getTeam()).changeResearchProgress(eRewardTech, iTotalCommerce, getOwnerINLINE());
+						szBuffer = gDLL->getText("TXT_KEY_MISC_ACQUIRE_RESEARCH_FROM_UNIT", iTotalCommerce, GC.getCommerceInfo(eCommerce).getChar(), kDeadOwner.getCivilizationAdjectiveKey(), pDeadUnit->getNameKey(), GC.getTechInfo(eRewardTech).getTextKeyWide());
+						gDLL->getInterfaceIFace()->addMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_PILLAGE", MESSAGE_TYPE_INFO, m_pUnitInfo->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), getX_INLINE(), getY_INLINE());
+					}
+				}
+				break;
+			case COMMERCE_ESPIONAGE:
+				if (!pDeadUnit->isBarbarian()) {
+					GET_TEAM(getTeam()).changeEspionagePointsAgainstTeam(kDeadOwner.getTeam(), iTotalCommerce);
+					szBuffer = gDLL->getText("TXT_KEY_MISC_GATHERED_INTELLIGENCE_FROM_UNIT", iTotalCommerce, GC.getCommerceInfo(eCommerce).getChar(), kDeadOwner.getCivilizationAdjectiveKey(), pDeadUnit->getNameKey(), kDeadOwner.getNameKey());
+					gDLL->getInterfaceIFace()->addMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_PILLAGE", MESSAGE_TYPE_INFO, m_pUnitInfo->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), getX_INLINE(), getY_INLINE());
+				}
+				break;
+			}
+		}
+	}
 }

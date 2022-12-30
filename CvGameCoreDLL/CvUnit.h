@@ -77,6 +77,7 @@ public:
 
 	void convert(CvUnit* pUnit);																																	// Exposed to Python
 	void kill(bool bDelay, PlayerTypes ePlayer = NO_PLAYER);														// Exposed to Python
+	void salvage(CvUnit* pDeadUnit);
 
 	DllExport void NotifyEntity(MissionTypes eMission);
 

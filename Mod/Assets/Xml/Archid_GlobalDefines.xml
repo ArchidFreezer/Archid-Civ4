@@ -172,7 +172,7 @@
 		<iDefineIntVal>25</iDefineIntVal>
 	</Define>
 	<Define>
-		<!-- Ratio of enemy power to team power for AI to consider running TURTLE (all out defense, no offensive forays) strategy.  
+		<!-- Ratio of enemy power to team power for AI to consider running TURTLE (all out defense, no offensive forays) strategy.
 		Equal power would be 100.  BBAI default: 250 -->
 		<DefineName>BBAI_TURTLE_ENEMY_POWER_RATIO</DefineName>
 		<iDefineIntVal>250</iDefineIntVal>
@@ -434,5 +434,14 @@
 	<Define>
 		<DefineName>ANIMALS_SPAWN_WITH_BARBARIANS</DefineName>
 		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+<!-- Resources from Units -->
+	<Define>
+		<DefineName>UNIT_SALVAGE_COMM_VARIABLE_PERCENT</DefineName>
+		<iDefineIntVal>50</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>UNIT_SALVAGE_CURRENT_TECH_PERCENT</DefineName>
+		<iDefineIntVal>150</iDefineIntVal>
 	</Define>
 </Civ4Defines>

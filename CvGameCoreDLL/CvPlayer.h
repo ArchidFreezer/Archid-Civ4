@@ -51,6 +51,18 @@ protected:
 
 public:
 
+	int getBaseYieldFromUnit(YieldTypes eIndex) const;
+	void changeBaseYieldFromUnit(YieldTypes eIndex, int iChange);
+
+	int getYieldFromUnitModifier(YieldTypes eIndex) const;
+	void changeYieldFromUnitModifier(YieldTypes eIndex, int iChange);
+
+	int getBaseCommerceFromUnit(CommerceTypes eIndex) const;
+	void changeBaseCommerceFromUnit(CommerceTypes eIndex, int iChange);
+
+	int getCommerceFromUnitModifier(CommerceTypes eIndex) const;
+	void changeCommerceFromUnitModifier(CommerceTypes eIndex, int iChange);
+
 	int getObsoleteBuildingCount(BuildingTypes eIndex) const;
 	bool isObsoleteBuilding(BuildingTypes eIndex) const;																// Exposed to Python
 	void changeObsoleteBuildingCount(BuildingTypes eIndex, int iChange);
@@ -1242,6 +1254,10 @@ protected:
 	int* m_aiCommerceFlexibleCount;
 	int* m_aiGoldPerTurnByPlayer;
 	int* m_aiEspionageSpendingWeightAgainstTeam;
+	int* m_aiBaseYieldFromUnit;
+	int* m_aiYieldFromUnitModifier;
+	int* m_aiBaseCommerceFromUnit;
+	int* m_aiCommerceFromUnitModifier;
 
 	bool* m_abFeatAccomplished;
 	bool* m_abOptions;

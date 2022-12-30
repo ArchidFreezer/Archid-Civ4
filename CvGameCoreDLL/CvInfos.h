@@ -954,6 +954,8 @@ public:
 	int getFlankingStrikeUnitClass(int i) const;	// Exposed to Python
 	int getPrereqAndCivic(int i) const;
 	int getPrereqOrCivic(int i) const;
+	int getYieldFromKill(int i) const;
+	int getCommerceFromKill(int i) const;
 
 	bool getUpgradeUnitClass(int i) const;	// Exposed to Python
 	bool getTargetUnitClass(int i) const;	// Exposed to Python
@@ -1141,6 +1143,8 @@ protected:
 	int* m_piTerrainPassableTech;
 	int* m_piFeaturePassableTech;
 	int* m_piFlankingStrikeUnitClass;
+	int* m_piYieldFromKill;
+	int* m_piCommerceFromKill;
 
 	bool* m_pbUpgradeUnitClass;
 	bool* m_pbTargetUnitClass;
@@ -4175,6 +4179,10 @@ public:
 	int getTradeYieldModifier(int i) const;				// Exposed to Python
 	int getCommerceChange(int i) const;				// Exposed to Python
 	int getCommerceModifier(int i) const;				// Exposed to Python
+	int getBaseYieldFromUnit(int i) const;
+	int getYieldFromUnitModifier(int i) const;
+	int getBaseCommerceFromUnit(int i) const;
+	int getCommerceFromUnitModifier(int i) const;
 
 	int isFreePromotion(int i) const;				// Exposed to Python
 	int isFreePromotionUnitCombat(int i) const;
@@ -4209,6 +4217,10 @@ protected:
 	int* m_paiTradeYieldModifier;
 	int* m_paiCommerceChange;
 	int* m_paiCommerceModifier;
+	int* m_paiBaseYieldFromUnit;
+	int* m_paiYieldFromUnitModifier;
+	int* m_paiBaseCommerceFromUnit;
+	int* m_paiCommerceFromUnitModifier;
 
 	bool* m_pabFreePromotion;
 	bool* m_pabFreePromotionUnitCombat;
