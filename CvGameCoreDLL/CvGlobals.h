@@ -854,6 +854,7 @@ public:
 	inline bool getRAPID_UNIT_CYCLING() { return m_bRAPID_UNIT_CYCLING; }
 	inline bool getSIMPLE_SELECTION_MODE() { return m_bSIMPLE_SELECTION_MODE; }
 	inline bool getTECH_DIFFUSION_ENABLE() { return m_bTECH_DIFFUSION_ENABLE; }
+	inline bool getANIMALS_SPAWN_WITH_BARBARIANS() { return m_bANIMALS_SPAWN_WITH_BARBARIANS; }
 
 	// more reliable versions of the 'gDLL->xxxKey' functions:
 	inline bool altKey() { return (GetKeyState(VK_MENU) & 0x8000); }
@@ -1376,6 +1377,7 @@ protected:
 	bool m_bUSE_DO_RELIGION_CALLBACK;
 	bool m_bUSE_GET_EXPERIENCE_NEEDED_CALLBACK;
 	bool m_bUSE_UNIT_UPGRADE_PRICE_CALLBACK;
+	bool m_bANIMALS_SPAWN_WITH_BARBARIANS;
 
 	stdext::hash_map<std::string, bool> m_aIniOptsBool;
 	stdext::hash_map<std::string, int> m_aIniOptsInt;

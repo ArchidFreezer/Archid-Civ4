@@ -5264,9 +5264,20 @@ void CvGame::createBarbarianUnits() {
 		bAnimals = true;
 	}
 
-	if (bAnimals) {
+	bool bCreateBarbs = false;
+	if (GC.getANIMALS_SPAWN_WITH_BARBARIANS()) {
 		createAnimals();
+		// Only create barbarians if we wouldn't normally have created animals
+		bCreateBarbs = !bAnimals;
 	} else {
+		if (bAnimals) {
+			createAnimals();
+		} else {
+			bCreateBarbs = true;
+		}
+	}
+
+	if (bCreateBarbs) {
 		int iLoop;
 		for (CvArea* pLoopArea = GC.getMapINLINE().firstArea(&iLoop); pLoopArea != NULL; pLoopArea = GC.getMapINLINE().nextArea(&iLoop)) {
 			UnitAITypes eBarbUnitAI;
@@ -5284,7 +5295,9 @@ void CvGame::createBarbarianUnits() {
 			}
 
 			if (iDivisor > 0) {
-				int iNeededBarbs = ((pLoopArea->getNumUnownedTiles() / iDivisor) - pLoopArea->getUnitsPerPlayer(BARBARIAN_PLAYER)); // XXX eventually need to measure how many barbs of eBarbUnitAI we have in this area...
+				// Don't include animals when working out how many barbs to create
+				// This will increase the number of units out there
+				int iNeededBarbs = ((pLoopArea->getNumUnownedTiles() / iDivisor) - pLoopArea->getUnitsPerPlayer(BARBARIAN_PLAYER) + pLoopArea->getAnimalsPerPlayer(BARBARIAN_PLAYER));
 
 				if (iNeededBarbs > 0) {
 					iNeededBarbs = ((iNeededBarbs / 4) + 1);
@@ -5398,13 +5411,6 @@ void CvGame::createBarbarianUnits() {
 						}
 					}
 				}
-			}
-		}
-
-		for (CvUnit* pLoopUnit = GET_PLAYER(BARBARIAN_PLAYER).firstUnit(&iLoop); pLoopUnit != NULL; pLoopUnit = GET_PLAYER(BARBARIAN_PLAYER).nextUnit(&iLoop)) {
-			if (pLoopUnit->isAnimal()) {
-				pLoopUnit->kill(false);
-				break;
 			}
 		}
 	}

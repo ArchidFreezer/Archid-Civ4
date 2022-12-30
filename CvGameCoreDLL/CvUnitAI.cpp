@@ -9537,12 +9537,16 @@ bool CvUnitAI::AI_patrol() {
 					if (generatePath(pAdjacentPlot, 0, true)) {
 						int iValue = (1 + GC.getGameINLINE().getSorenRandNum(10000, "AI Patrol"));
 
-						if (isBarbarian()) {
-							if (!(pAdjacentPlot->isOwned())) {
+						if (isAnimal()) {
+							if ((pAdjacentPlot->getFeatureType() != NO_FEATURE && getUnitInfo().getFeatureNative(pAdjacentPlot->getFeatureType())) || getUnitInfo().getTerrainNative(pAdjacentPlot->getTerrainType())) {
+								iValue += 20000;
+							}
+						} else if (isBarbarian()) {
+							if (!pAdjacentPlot->isOwned()) {
 								iValue += 20000;
 							}
 
-							if (!(pAdjacentPlot->isAdjacentOwned())) {
+							if (!pAdjacentPlot->isAdjacentOwned()) {
 								iValue += 10000;
 							}
 						} else {

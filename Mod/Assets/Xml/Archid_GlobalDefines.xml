@@ -430,4 +430,9 @@
 		<DefineName>INITIAL_UNIT_RANGE</DefineName>
 		<iDefineIntVal>2</iDefineIntVal>
 	</Define>
+<!-- Animals keep spawning -->
+	<Define>
+		<DefineName>ANIMALS_SPAWN_WITH_BARBARIANS</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
 </Civ4Defines>
