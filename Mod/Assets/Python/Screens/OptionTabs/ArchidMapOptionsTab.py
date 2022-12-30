@@ -7,7 +7,7 @@ import BugOptionsTab
 
 class ArchidMapOptionsTab(BugOptionsTab.BugOptionsTab):
 	"Archid Map Options Screen Tab"
-	
+
 	def __init__(self, screen):
 		BugOptionsTab.BugOptionsTab.__init__(self, "Map", "Map")
 
@@ -15,19 +15,22 @@ class ArchidMapOptionsTab(BugOptionsTab.BugOptionsTab):
 		tab = self.createTab(screen)
 		panel = self.createMainPanel(screen)
 		column = self.addOneColumnLayout(screen, panel)
-		
+
 		left, right = self.addTwoColumnLayout(screen, column, "Top", True)
 		self.createCityBarPanel(screen, left)
 		self.createTileHoverPanel(screen, right)
 		screen.attachHSeparator(column, column + "Sep1")
 		self.createCityTileStatusPanel(screen, column)
-		
+
 	def createCityBarPanel(self, screen, panel):
 		self.addLabel(screen, panel, "CityBar", "CityBar:")
 		self.addCheckbox(screen, panel, "CityBar__StarvationTurns")
-		
+
 	def createTileHoverPanel(self, screen, panel):
 		self.addLabel(screen, panel, "TileHover", "Tile Hover:")
+		self.addCheckbox(screen, panel, "MiscHover__PlotWorkingCity")
+		self.addCheckbox(screen, panel, "MiscHover__PlotRecommendedBuild")
+		self.addCheckbox(screen, panel, "MiscHover__ShowCoords")
 		self.addCheckbox(screen, panel, "MiscHover__PartialBuilds")
 
 	def createCityTileStatusPanel(self, screen, panel):
@@ -35,7 +38,7 @@ class ArchidMapOptionsTab(BugOptionsTab.BugOptionsTab):
 		self.addLabel(screen, left, "CityPlots", "City Tiles:")
 		self.addCheckbox(screen, center, "CityBar__CityControlledPlots")
 		self.addCheckbox(screen, right, "CityBar__CityPlotStatus")
-		
+
 		working = self.addOneColumnLayout(screen, panel)
 		self.addLabel(screen, working, "WorkingPlots", "Working:")
 		wone, wtwo, wthree, wfour = self.addMultiColumnLayout(screen, working, 4, "CityPlotsOptionsWorking")
@@ -75,4 +78,3 @@ class ArchidMapOptionsTab(BugOptionsTab.BugOptionsTab):
 		nwup1, nwup2 = self.addTwoColumnLayout(screen, nwfour)
 		self.addColorDropdown(screen, nwup1, nwup2, "CityBar__NotWorkingUnimprovablePlotColour", True, "LAYOUT_RIGHT")
 		self.addFloatDropdown(screen, nwup1, nwup2, "CityBar__NotWorkingUnimprovablePlotAlpha", True, "LAYOUT_RIGHT")
-		

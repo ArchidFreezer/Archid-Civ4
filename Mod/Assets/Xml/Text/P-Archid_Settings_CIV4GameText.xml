@@ -604,6 +604,14 @@
 
 <!-- Plot -->
 	<TEXT> <!-- MiscHover__PartialBuilds -->
+		<Tag>TXT_KEY_ARCHID_OPT_MISCHOVER__SHOWCOORDS_TEXT</Tag>
+		<English>Show Co-ords</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_MISCHOVER__SHOWCOORDS_HOVER</Tag>
+		<English>When checked, the plot co-ordinates are shown when hovering over a plot once you have centred the map.</English>
+	</TEXT>
+	<TEXT> <!-- MiscHover__PartialBuilds -->
 		<Tag>TXT_KEY_ARCHID_OPT_MISCHOVER__PARTIALBUILDS_TEXT</Tag>
 		<English>Partial Builds</English>
 		<French>Partial Builds</French>
@@ -618,6 +626,38 @@
 		<German>Zeigt, wenn der Mauszeiger über ein Geländefeld mit teilweise fertig gestellten Bauten (Modernisierungen, Straßen und Waldrodungen) bewegt wird, an, wie viele Runden ein Bautrupp noch benötigt, um sie fertig zu stellen, wenn der Bautrupp diese Aktionen beherrscht</German>
 		<Italian>Quando è selezionato, posizionare il cursore su una casella che contiene costruzioni (miglioramenti, strade, eccetera) parzialmente completate mostrerà quanti turni di lavoro sono necessari per completare l'opera.</Italian>
 		<Spanish>Dejar el ratón sobre una casilla con mejoras no terminadas mostarará el número de turnos necesarios para terminar.</Spanish>
+	</TEXT>
+	<TEXT> <!-- MiscHover__RecommendedBuilds -->
+		<Tag>TXT_KEY_ARCHID_OPT_MISCHOVER__PLOTRECOMMENDEDBUILD_TEXT</Tag>
+		<English>Recommended Build</English>
+		<French>Recommended Build</French>
+		<German>Empfohlene Bauten</German>
+		<Italian>Recommended Build</Italian>
+		<Spanish>Recommended Build</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_MISCHOVER__PLOTRECOMMENDEDBUILD_HOVER</Tag>
+		<English>When checked, hovering over a tile you own shows the improvement or route an automated worker would build.</English>
+		<French>When checked, hovering over a tile you own shows the improvement or route an automated worker would build.</French>
+		<German>Zeigt, wenn der Mauszeiger über ein eigenes Geländefeld bewegt wird, die Modernisierungen oder Straßen an, die ein automatisierter Bautrupp errichten würde</German>
+		<Italian>When checked, hovering over a tile you own shows the improvement or route an automated worker would build.</Italian>
+		<Spanish>When checked, hovering over a tile you own shows the improvement or route an automated worker would build.</Spanish>
+	</TEXT>
+	<TEXT> <!-- MiscHover__PlotWorkingCity -->
+		<Tag>TXT_KEY_ARCHID_OPT_MISCHOVER__PLOTWORKINGCITY_TEXT</Tag>
+		<English>Working City</English>
+		<French>Working City</French>
+		<German>Bearbeitende Stadt</German>
+		<Italian>Working City</Italian>
+		<Spanish>Working City</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_MISCHOVER__PLOTWORKINGCITY_HOVER</Tag>
+		<English>When checked, hovering over a tile your team owns shows which city controls it, in cyan if it is being worked.</English>
+		<French>When checked, hovering over a tile your team owns shows which city controls it, in cyan if it is being worked.</French>
+		<German>Zeigt, wenn der Mauszeiger über ein Geländefeld im Bereich mehrerer Städte bewegt wird, an, welche Stadt es kontrolliert (erscheint in Cyan, falls es auch bearbeitet wird)</German>
+		<Italian>When checked, hovering over a tile your team owns shows which city controls it, in cyan if it is being worked.</Italian>
+		<Spanish>When checked, hovering over a tile your team owns shows which city controls it, in cyan if it is being worked.</Spanish>
 	</TEXT>
 
 </Civ4GameText>

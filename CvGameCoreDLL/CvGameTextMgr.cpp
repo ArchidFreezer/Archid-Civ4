@@ -4075,6 +4075,19 @@ void CvGameTextMgr::setPlotHelp(CvWStringBuffer& szString, CvPlot* pPlot) {
 		if (eRevealOwner != NO_PLAYER) {
 			if (pPlot->isActiveVisible(true)) {
 				szTempBuffer.Format(L"%d%% " SETCOLR L"%s" ENDCOLR, pPlot->calculateCulturePercent(eRevealOwner), GET_PLAYER(eRevealOwner).getPlayerTextColorR(), GET_PLAYER(eRevealOwner).getPlayerTextColorG(), GET_PLAYER(eRevealOwner).getPlayerTextColorB(), GET_PLAYER(eRevealOwner).getPlayerTextColorA(), GET_PLAYER(eRevealOwner).getCivilizationAdjective());
+				if (getOptionBOOL("MiscHover__PlotWorkingCity", true)) {
+					CvCity* pWorkingCity = pPlot->getWorkingCity();
+
+					if (pWorkingCity != NULL && pWorkingCity->getOwnerINLINE() == GC.getGameINLINE().getActivePlayer()) {
+						szTempBuffer.append(L", ");
+
+						if (pWorkingCity->isWorkingPlot(pPlot)) {
+							szTempBuffer.append(CvWString::format(SETCOLR L"%s" ENDCOLR, TEXT_COLOR("COLOR_HIGHLIGHT_TEXT"), pWorkingCity->getName().GetCString()));
+						} else {
+							szTempBuffer.append(CvWString::format(L"%s", pWorkingCity->getName().GetCString()));
+						}
+					}
+				}
 				szString.append(szTempBuffer);
 				szString.append(NEWLINE);
 
@@ -4280,6 +4293,36 @@ void CvGameTextMgr::setPlotHelp(CvWStringBuffer& szString, CvPlot* pPlot) {
 		if (pPlot->getRevealedRouteType(GC.getGameINLINE().getActiveTeam(), true) != NO_ROUTE) {
 			szString.append(NEWLINE);
 			szString.append(GC.getRouteInfo(pPlot->getRevealedRouteType(GC.getGameINLINE().getActiveTeam(), true)).getDescription());
+		}
+
+		if (GET_TEAM(GC.getGameINLINE().getActiveTeam()).isMapCentering() && getOptionBOOL("MiscHover__ShowCoords", true)) {
+			szTempBuffer.Format(L"\nCoords: (%d, %d)", pPlot->getX_INLINE(), pPlot->getY_INLINE());
+			szString.append(szTempBuffer);
+		}
+
+		BuildTypes eBestBuild = NO_BUILD;
+		bool bBestPartiallyBuilt = false;
+
+		if (getOptionBOOL("MiscHover__PlotRecommendedBuild", true)) {
+			CvCity* pWorkingCity = pPlot->getWorkingCity();
+			if (pWorkingCity != NULL && pWorkingCity->getOwnerINLINE() == GC.getGameINLINE().getActivePlayer()) {
+				eBestBuild = pWorkingCity->AI_getBestBuild(pWorkingCity->getCityPlotIndex(pPlot));
+
+				if (eBestBuild != NO_BUILD) {
+					CvBuildInfo& kBestBuild = GC.getBuildInfo(eBestBuild);
+					ImprovementTypes ePlotImprovement = pPlot->getImprovementType();
+
+					if (ePlotImprovement != NO_IMPROVEMENT && ePlotImprovement == kBestBuild.getImprovement()) {
+						eBestBuild = NO_BUILD;
+					} else if (kBestBuild.getRoute() != NO_ROUTE && (pPlot->isWater() || kBestBuild.getRoute() == pPlot->getRouteType())) {
+						eBestBuild = NO_BUILD;
+					}
+				}
+			}
+			if (eBestBuild != NO_BUILD) {
+				szTempBuffer.Format(L"\nAI Recommends: %s", GC.getBuildInfo(eBestBuild).getDescription());
+				szString.append(szTempBuffer);
+			}
 		}
 
 		if (pPlot->hasAnyBuildProgress() && getOptionBOOL("MiscHover__PartialBuilds", true)) {
