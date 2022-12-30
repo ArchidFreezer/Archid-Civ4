@@ -1741,6 +1741,8 @@ public:
 	bool isCommerceChangeOriginalOwner(int i) const;				// Exposed to Python
 	bool isBuildingClassNeededInCity(int i) const;				// Exposed to Python
 	bool isReplacedByBuildingClass(int i) const;
+	bool isPrereqAndCivic(CivicTypes eCivic) const;
+	bool isPrereqOrCivic(CivicTypes eCivic) const;
 
 	int getSpecialistYieldChange(int i, int j) const;			// Exposed to Python
 	int* getSpecialistYieldChangeArray(int i) const;

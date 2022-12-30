@@ -52,6 +52,10 @@ protected:
 
 public:
 
+	int getObsoleteBuildingCount(BuildingTypes eIndex) const;
+	bool isObsoleteBuilding(BuildingTypes eIndex) const;																// Exposed to Python
+	void changeObsoleteBuildingCount(BuildingTypes eIndex, int iChange);
+
 	void initFreeState();
 	void initFreeUnits();
 	void addFreeUnitAI(UnitAITypes eUnitAI, int iCount);
@@ -74,6 +78,7 @@ public:
 	bool canAddNewCity() const;
 	CvCity* findCity(int iX, int iY, bool bPreferSameArea = true, CvCity* pSkipCity = NULL);
 
+	void updateCivicValids();
 	bool hasValidCivics(BuildingTypes eBuilding) const;
 	bool hasValidCivics(UnitTypes eUnit) const;
 
@@ -1265,11 +1270,14 @@ protected:
 	int* m_paiHasCorporationCount;
 	int* m_paiUpkeepCount;
 	int* m_paiSpecialistValidCount;
+	int* m_paiObsoleteBuildingCount;
 
 	bool* m_pabResearchingTech;
 	bool* m_pabLoyalMember;
 
 	std::vector<EventTriggerTypes> m_triggersFired;
+	std::vector<BuildingTypes> m_civicDisabledBuildings;
+	std::vector<UnitTypes> m_civicDisabledUnits;
 
 	CivicTypes* m_paeCivics;
 

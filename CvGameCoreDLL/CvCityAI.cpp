@@ -3636,9 +3636,7 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 					for (BuildingClassTypes eLoopClass = (BuildingClassTypes)0; eLoopClass < GC.getNumBuildingClassInfos(); eLoopClass = (BuildingClassTypes)(eLoopClass + 1)) {
 						BuildingTypes eLoopBuilding = (BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(eLoopClass); // K-Mod
 
-						if (eLoopBuilding != NO_BUILDING &&
-							GC.getBuildingInfo(eLoopBuilding).getReligionType() == eStateReligion &&
-							!GET_TEAM(kOwner.getTeam()).isObsoleteBuilding(eLoopBuilding)) {
+						if (eLoopBuilding != NO_BUILDING && GC.getBuildingInfo(eLoopBuilding).getReligionType() == eStateReligion && !isObsoleteBuilding(eLoopBuilding)) {
 							iCount += kOwner.getBuildingClassCountPlusMaking(eLoopClass);
 						}
 					}

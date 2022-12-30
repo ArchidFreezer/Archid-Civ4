@@ -4295,7 +4295,7 @@ int CvPlayerAI::AI_techBuildingValue(TechTypes eTech, bool bConstCache, bool& bE
 
 		const CvBuildingInfo& kLoopBuilding = GC.getBuildingInfo(eLoopBuilding);
 
-		if (GET_TEAM(getTeam()).isObsoleteBuilding(eLoopBuilding))
+		if (isObsoleteBuilding(eLoopBuilding))
 			continue; // already obsolete
 
 		if (isWorldWonderClass(eClass)) {

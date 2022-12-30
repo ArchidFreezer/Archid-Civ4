@@ -12335,20 +12335,21 @@ void CvGameTextMgr::setCommerceHelp(CvWStringBuffer& szBuffer, CvCity& city, Com
 
 	// Buildings
 	int iBuildingMod = 0;
-	for (int i = 0; i < GC.getNumBuildingInfos(); i++) {
-		const CvBuildingInfo& kCommerceBuilding = GC.getBuildingInfo((BuildingTypes)i);
-		if (city.getNumBuilding((BuildingTypes)i) > 0 && !GET_TEAM(city.getTeam()).isObsoleteBuilding((BuildingTypes)i)) {
-			for (int iLoop = 0; iLoop < city.getNumBuilding((BuildingTypes)i); iLoop++) {
+	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+		const CvBuildingInfo& kCommerceBuilding = GC.getBuildingInfo(eBuilding);
+		if (city.getNumBuilding(eBuilding) > 0 && !city.isObsoleteBuilding(eBuilding)) {
+			for (int iLoop = 0; iLoop < city.getNumBuilding(eBuilding); iLoop++) {
 				iBuildingMod += kCommerceBuilding.getCommerceModifier(eCommerceType);
 			}
 		}
-		for (int j = 0; j < MAX_PLAYERS; j++) {
-			if (GET_PLAYER((PlayerTypes)j).isAlive()) {
-				if (GET_PLAYER((PlayerTypes)j).getTeam() == owner.getTeam()) {
+		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+			const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+			if (kPlayer.isAlive()) {
+				if (kPlayer.getTeam() == owner.getTeam()) {
 					int iLoop;
-					for (CvCity* pLoopCity = GET_PLAYER((PlayerTypes)j).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER((PlayerTypes)j).nextCity(&iLoop)) {
-						if (pLoopCity->getNumBuilding((BuildingTypes)i) > 0 && !GET_TEAM(pLoopCity->getTeam()).isObsoleteBuilding((BuildingTypes)i)) {
-							for (int iLoop = 0; iLoop < pLoopCity->getNumBuilding((BuildingTypes)i); iLoop++) {
+					for (CvCity* pLoopCity = kPlayer.firstCity(&iLoop); pLoopCity != NULL; pLoopCity = kPlayer.nextCity(&iLoop)) {
+						if (pLoopCity->getNumBuilding(eBuilding) > 0 && !pLoopCity->isObsoleteBuilding(eBuilding)) {
+							for (int iLoop = 0; iLoop < pLoopCity->getNumBuilding(eBuilding); iLoop++) {
 								iBuildingMod += kCommerceBuilding.getGlobalCommerceModifier(eCommerceType);
 							}
 						}
@@ -12365,9 +12366,9 @@ void CvGameTextMgr::setCommerceHelp(CvWStringBuffer& szBuffer, CvCity& city, Com
 
 
 	// Trait
-	for (int i = 0; i < GC.getNumTraitInfos(); i++) {
-		if (city.hasTrait((TraitTypes)i)) {
-			const CvTraitInfo& kTrait = GC.getTraitInfo((TraitTypes)i);
+	for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
+		if (city.hasTrait(eTrait)) {
+			const CvTraitInfo& kTrait = GC.getTraitInfo(eTrait);
 			int iTraitMod = kTrait.getCommerceModifier(eCommerceType);
 			if (0 != iTraitMod) {
 				szBuffer.append(gDLL->getText("TXT_KEY_MISC_HELP_COMMERCE_TRAIT", iTraitMod, kCommerce.getChar(), kTrait.getTextKeyWide()));
@@ -12388,9 +12389,9 @@ void CvGameTextMgr::setCommerceHelp(CvWStringBuffer& szBuffer, CvCity& city, Com
 
 	// Civics
 	int iCivicMod = 0;
-	for (int i = 0; i < GC.getNumCivicOptionInfos(); i++) {
-		if (NO_CIVIC != owner.getCivics((CivicOptionTypes)i)) {
-			iCivicMod += GC.getCivicInfo(owner.getCivics((CivicOptionTypes)i)).getCommerceModifier(eCommerceType);
+	for (CivicOptionTypes eCivicOption = (CivicOptionTypes)0; eCivicOption < GC.getNumCivicOptionInfos(); eCivicOption = (CivicOptionTypes)(eCivicOption + 1)) {
+		if (NO_CIVIC != owner.getCivics(eCivicOption)) {
+			iCivicMod += GC.getCivicInfo(owner.getCivics(eCivicOption)).getCommerceModifier(eCommerceType);
 		}
 	}
 	if (0 != iCivicMod) {
@@ -12460,20 +12461,21 @@ void CvGameTextMgr::setYieldHelp(CvWStringBuffer& szBuffer, CvCity& city, YieldT
 
 	// Buildings
 	int iBuildingMod = 0;
-	for (int i = 0; i < GC.getNumBuildingInfos(); i++) {
-		const CvBuildingInfo& kYieldBuilding = GC.getBuildingInfo((BuildingTypes)i);
-		if (city.getNumBuilding((BuildingTypes)i) > 0 && !GET_TEAM(city.getTeam()).isObsoleteBuilding((BuildingTypes)i)) {
-			for (int iLoop = 0; iLoop < city.getNumBuilding((BuildingTypes)i); iLoop++) {
+	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+		const CvBuildingInfo& kYieldBuilding = GC.getBuildingInfo(eBuilding);
+		if (city.getNumBuilding(eBuilding) > 0 && !city.isObsoleteBuilding(eBuilding)) {
+			for (int iLoop = 0; iLoop < city.getNumBuilding(eBuilding); iLoop++) {
 				iBuildingMod += kYieldBuilding.getYieldModifier(eYieldType);
 			}
 		}
-		for (int j = 0; j < MAX_PLAYERS; j++) {
-			if (GET_PLAYER((PlayerTypes)j).isAlive()) {
-				if (GET_PLAYER((PlayerTypes)j).getTeam() == kOwner.getTeam()) {
+		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+			const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+			if (kPlayer.isAlive()) {
+				if (kPlayer.getTeam() == kOwner.getTeam()) {
 					int iLoop;
-					for (CvCity* pLoopCity = GET_PLAYER((PlayerTypes)j).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER((PlayerTypes)j).nextCity(&iLoop)) {
-						if (pLoopCity->getNumBuilding((BuildingTypes)i) > 0 && !GET_TEAM(pLoopCity->getTeam()).isObsoleteBuilding((BuildingTypes)i)) {
-							for (int iLoop = 0; iLoop < pLoopCity->getNumBuilding((BuildingTypes)i); iLoop++) {
+					for (CvCity* pLoopCity = kPlayer.firstCity(&iLoop); pLoopCity != NULL; pLoopCity = kPlayer.nextCity(&iLoop)) {
+						if (pLoopCity->getNumBuilding(eBuilding) > 0 && !pLoopCity->isObsoleteBuilding(eBuilding)) {
+							for (int iLoop = 0; iLoop < pLoopCity->getNumBuilding(eBuilding); iLoop++) {
 								iBuildingMod += kYieldBuilding.getGlobalYieldModifier(eYieldType);
 							}
 						}
@@ -12521,9 +12523,9 @@ void CvGameTextMgr::setYieldHelp(CvWStringBuffer& szBuffer, CvCity& city, YieldT
 
 	// Civics
 	int iCivicMod = 0;
-	for (int i = 0; i < GC.getNumCivicOptionInfos(); i++) {
-		if (NO_CIVIC != kOwner.getCivics((CivicOptionTypes)i)) {
-			iCivicMod += GC.getCivicInfo(kOwner.getCivics((CivicOptionTypes)i)).getYieldModifier(eYieldType);
+	for (CivicOptionTypes eCivicOption = (CivicOptionTypes)0; eCivicOption < GC.getNumCivicOptionInfos(); eCivicOption = (CivicOptionTypes)(eCivicOption + 1)) {
+		if (NO_CIVIC != kOwner.getCivics(eCivicOption)) {
+			iCivicMod += GC.getCivicInfo(kOwner.getCivics(eCivicOption)).getYieldModifier(eYieldType);
 		}
 	}
 	if (0 != iCivicMod) {
@@ -12607,7 +12609,6 @@ void CvGameTextMgr::setVassalRevoltHelp(CvWStringBuffer& szBuffer, TeamTypes eMa
 
 void CvGameTextMgr::parseGreatPeopleHelp(CvWStringBuffer& szBuffer, CvCity& city) {
 	int iTotalGreatPeopleUnitProgress;
-	int iI;
 
 	if (NO_PLAYER == city.getOwnerINLINE()) {
 		return;
@@ -12633,8 +12634,8 @@ void CvGameTextMgr::parseGreatPeopleHelp(CvWStringBuffer& szBuffer, CvCity& city
 
 	iTotalGreatPeopleUnitProgress = 0;
 
-	for (iI = 0; iI < GC.getNumUnitInfos(); ++iI) {
-		iTotalGreatPeopleUnitProgress += city.getGreatPeopleUnitProgress((UnitTypes)iI);
+	for (UnitTypes eUnit = (UnitTypes)0; eUnit < GC.getNumUnitInfos(); eUnit = (UnitTypes)(eUnit + 1)) {
+		iTotalGreatPeopleUnitProgress += city.getGreatPeopleUnitProgress(eUnit);
 	}
 
 	if (iTotalGreatPeopleUnitProgress > 0) {
@@ -12644,11 +12645,11 @@ void CvGameTextMgr::parseGreatPeopleHelp(CvWStringBuffer& szBuffer, CvCity& city
 
 		std::vector< std::pair<UnitTypes, int> > aUnitProgress;
 		int iTotalTruncated = 0;
-		for (iI = 0; iI < GC.getNumUnitInfos(); ++iI) {
-			int iProgress = ((city.getGreatPeopleUnitProgress((UnitTypes)iI) * 100) / iTotalGreatPeopleUnitProgress);
+		for (UnitTypes eUnit = (UnitTypes)0; eUnit < GC.getNumUnitInfos(); eUnit = (UnitTypes)(eUnit + 1)) {
+			int iProgress = ((city.getGreatPeopleUnitProgress(eUnit) * 100) / iTotalGreatPeopleUnitProgress);
 			if (iProgress > 0) {
 				iTotalTruncated += iProgress;
-				aUnitProgress.push_back(std::make_pair((UnitTypes)iI, iProgress));
+				aUnitProgress.push_back(std::make_pair(eUnit, iProgress));
 			}
 		}
 
@@ -12656,7 +12657,7 @@ void CvGameTextMgr::parseGreatPeopleHelp(CvWStringBuffer& szBuffer, CvCity& city
 			aUnitProgress[0].second += 100 - iTotalTruncated;
 		}
 
-		for (iI = 0; iI < (int)aUnitProgress.size(); ++iI) {
+		for (int iI = 0; iI < (int)aUnitProgress.size(); ++iI) {
 			szBuffer.append(CvWString::format(L"%s%s - %d%%", NEWLINE, GC.getUnitInfo(aUnitProgress[iI].first).getDescription(), aUnitProgress[iI].second));
 		}
 	}
@@ -12675,20 +12676,21 @@ void CvGameTextMgr::parseGreatPeopleHelp(CvWStringBuffer& szBuffer, CvCity& city
 
 	// Buildings
 	int iBuildingMod = 0;
-	for (int i = 0; i < GC.getNumBuildingInfos(); i++) {
-		const CvBuildingInfo& infoBuilding = GC.getBuildingInfo((BuildingTypes)i);
-		if (city.getNumBuilding((BuildingTypes)i) > 0 && !GET_TEAM(city.getTeam()).isObsoleteBuilding((BuildingTypes)i)) {
-			for (int iLoop = 0; iLoop < city.getNumBuilding((BuildingTypes)i); iLoop++) {
+	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+		const CvBuildingInfo& infoBuilding = GC.getBuildingInfo(eBuilding);
+		if (city.getNumBuilding(eBuilding) > 0 && !city.isObsoleteBuilding(eBuilding)) {
+			for (int iLoop = 0; iLoop < city.getNumBuilding(eBuilding); iLoop++) {
 				iBuildingMod += infoBuilding.getGreatPeopleRateModifier();
 			}
 		}
-		for (int j = 0; j < MAX_PLAYERS; j++) {
-			if (GET_PLAYER((PlayerTypes)j).isAlive()) {
-				if (GET_PLAYER((PlayerTypes)j).getTeam() == kOwner.getTeam()) {
+		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+			const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+			if (kPlayer.isAlive()) {
+				if (kPlayer.getTeam() == kOwner.getTeam()) {
 					int iLoop;
-					for (CvCity* pLoopCity = GET_PLAYER((PlayerTypes)j).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER((PlayerTypes)j).nextCity(&iLoop)) {
-						if (pLoopCity->getNumBuilding((BuildingTypes)i) > 0 && !GET_TEAM(pLoopCity->getTeam()).isObsoleteBuilding((BuildingTypes)i)) {
-							for (int iLoop = 0; iLoop < pLoopCity->getNumBuilding((BuildingTypes)i); iLoop++) {
+					for (CvCity* pLoopCity = kPlayer.firstCity(&iLoop); pLoopCity != NULL; pLoopCity = kPlayer.nextCity(&iLoop)) {
+						if (pLoopCity->getNumBuilding(eBuilding) > 0 && !pLoopCity->isObsoleteBuilding(eBuilding)) {
+							for (int iLoop = 0; iLoop < pLoopCity->getNumBuilding(eBuilding); iLoop++) {
 								iBuildingMod += infoBuilding.getGlobalGreatPeopleRateModifier();
 							}
 						}
@@ -12705,11 +12707,11 @@ void CvGameTextMgr::parseGreatPeopleHelp(CvWStringBuffer& szBuffer, CvCity& city
 
 	// Civics
 	int iCivicMod = 0;
-	for (int i = 0; i < GC.getNumCivicOptionInfos(); i++) {
-		if (NO_CIVIC != kOwner.getCivics((CivicOptionTypes)i)) {
-			iCivicMod += GC.getCivicInfo(kOwner.getCivics((CivicOptionTypes)i)).getGreatPeopleRateModifier();
+	for (CivicOptionTypes eCivicOption = (CivicOptionTypes)0; eCivicOption < GC.getNumCivicOptionInfos(); eCivicOption = (CivicOptionTypes)(eCivicOption + 1)) {
+		if (NO_CIVIC != kOwner.getCivics(eCivicOption)) {
+			iCivicMod += GC.getCivicInfo(kOwner.getCivics(eCivicOption)).getGreatPeopleRateModifier();
 			if (kOwner.getStateReligion() != NO_RELIGION && city.isHasReligion(kOwner.getStateReligion())) {
-				iCivicMod += GC.getCivicInfo(kOwner.getCivics((CivicOptionTypes)i)).getStateReligionGreatPeopleRateModifier();
+				iCivicMod += GC.getCivicInfo(kOwner.getCivics(eCivicOption)).getStateReligionGreatPeopleRateModifier();
 			}
 		}
 	}
@@ -12720,9 +12722,9 @@ void CvGameTextMgr::parseGreatPeopleHelp(CvWStringBuffer& szBuffer, CvCity& city
 	}
 
 	// Trait
-	for (int i = 0; i < GC.getNumTraitInfos(); i++) {
-		if (city.hasTrait((TraitTypes)i)) {
-			const CvTraitInfo& kTrait = GC.getTraitInfo((TraitTypes)i);
+	for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
+		if (city.hasTrait(eTrait)) {
+			const CvTraitInfo& kTrait = GC.getTraitInfo(eTrait);
 			int iTraitMod = kTrait.getGreatPeopleRateModifier();
 			if (0 != iTraitMod) {
 				szBuffer.append(gDLL->getText("TXT_KEY_MISC_HELP_GREATPEOPLE_TRAIT", iTraitMod, kTrait.getTextKeyWide()));

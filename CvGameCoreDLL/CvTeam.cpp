@@ -3636,22 +3636,16 @@ void CvTeam::changeObsoleteBuildingCount(BuildingTypes eIndex, int iChange) {
 	FAssertMsg(eIndex < GC.getNumBuildingInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
 
 	if (iChange != 0) {
-		bool bOldObsoleteBuilding = isObsoleteBuilding(eIndex);
-
+		// Continue to track the team obsolecence count for existing team based decisions, but the functional 
+		//  changes are at the player level so we pass on the change to all team members
 		m_paiObsoleteBuildingCount[eIndex] = (m_paiObsoleteBuildingCount[eIndex] + iChange);
 		FAssert(getObsoleteBuildingCount(eIndex) >= 0);
 
-		if (bOldObsoleteBuilding != isObsoleteBuilding(eIndex)) {
-			for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-				if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
-					if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
-						int iLoop;
-						for (CvCity* pLoopCity = GET_PLAYER((PlayerTypes)iI).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER((PlayerTypes)iI).nextCity(&iLoop)) {
-							if (pLoopCity->getNumBuilding(eIndex) > 0) {
-								pLoopCity->processBuilding(eIndex, ((isObsoleteBuilding(eIndex)) ? -pLoopCity->getNumBuilding(eIndex) : pLoopCity->getNumBuilding(eIndex)), true);
-							}
-						}
-					}
+		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+			CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+			if (kPlayer.isAlive()) {
+				if (kPlayer.getTeam() == getID()) {
+					kPlayer.changeObsoleteBuildingCount(eIndex, iChange);
 				}
 			}
 		}

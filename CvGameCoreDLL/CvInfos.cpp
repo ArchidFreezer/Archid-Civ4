@@ -6528,12 +6528,20 @@ int CvBuildingInfo::getNumPrereqAndCivics() const {
 	return (int)m_viPrereqAndCivics.size();
 }
 
+bool CvBuildingInfo::isPrereqAndCivic(CivicTypes eCivic) const {
+	return (std::find(m_viPrereqAndCivics.begin(), m_viPrereqAndCivics.end(), eCivic) != m_viPrereqAndCivics.end());
+}
+
 int CvBuildingInfo::getPrereqOrCivic(int i) const {
 	return m_viPrereqOrCivics[i];
 }
 
 int CvBuildingInfo::getNumPrereqOrCivics() const {
 	return (int)m_viPrereqOrCivics.size();
+}
+
+bool CvBuildingInfo::isPrereqOrCivic(CivicTypes eCivic) const {
+	return (std::find(m_viPrereqOrCivics.begin(), m_viPrereqOrCivics.end(), eCivic) != m_viPrereqOrCivics.end());
 }
 
 bool CvBuildingInfo::isReplacedByBuildingClass(int i) const {

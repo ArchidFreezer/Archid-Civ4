@@ -36,9 +36,9 @@ public:
 	DllExport bool canBeSelected() const;
 	DllExport void updateSelectedCity(bool bTestProduction);
 
-	void checkBuildings(bool bCivics = true);
-	void setDisabledBuilding(BuildingTypes eIndex, bool bNewValue);
+	void changeDisabledBuildingCount(BuildingTypes eIndex, int iChange);
 	bool isDisabledBuilding(BuildingTypes eIndex) const;
+	bool isObsoleteBuilding(BuildingTypes eIndex) const;
 
 	void updateYield();
 
@@ -150,7 +150,7 @@ public:
 	int getBonusYieldRateModifier(YieldTypes eIndex, BonusTypes eBonus) const;	// Exposed to Python 
 
 	void processBonus(BonusTypes eBonus, int iChange);
-	void processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolete = false);
+	void processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolete = false, bool bDisable = false);
 	void processProcess(ProcessTypes eProcess, int iChange);
 	void processSpecialist(SpecialistTypes eSpecialist, int iChange);
 
@@ -1148,11 +1148,11 @@ protected:
 	int* m_paiFreePromotionCount;
 	int* m_paiNumRealBuilding;
 	int* m_paiNumFreeBuilding;
+	int* m_paiDisabledBuildingCount;
 
 	bool* m_pabWorkingPlot;
 	bool* m_pabHasReligion;
 	bool* m_pabHasCorporation;
-	bool* m_pabDisabledBuilding;
 
 	IDInfo* m_paTradeCities;
 
