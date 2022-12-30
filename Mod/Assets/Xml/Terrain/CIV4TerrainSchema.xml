@@ -330,12 +330,12 @@
 	<ElementType name="RouteYieldChanges" content="eltOnly">
 		<element type="RouteYieldChange" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
-	<ElementType name="PrereqTech" content="textOnly"/>
+	<ElementType name="TechType" content="textOnly"/>
 	<ElementType name="TechYields" content="eltOnly">
 		<element type="iYield" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="TechYieldChange" content="eltOnly">
-		<element type="PrereqTech"/>
+		<element type="TechType"/>
 		<element type="TechYields"/>
 	</ElementType>
 	<ElementType name="TechYieldChanges" content="eltOnly">

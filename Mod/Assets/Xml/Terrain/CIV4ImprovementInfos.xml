@@ -7,9 +7,9 @@
 <!-- Improvement -->
 <Civ4ImprovementInfos xmlns="x-schema:CIV4TerrainSchema.xml">
 	<ImprovementInfos>
-<!-- ******************	-->
+<!-- ****************** -->
 <!-- No Construct       -->
-<!-- ******************	-->
+<!-- ****************** -->
 		<ImprovementInfo> <!-- City Ruins -->
 			<Type>IMPROVEMENT_CITY_RUINS</Type>
 			<Description>TXT_KEY_IMPROVEMENT_CITY_RUINS</Description>
@@ -51,9 +51,9 @@
 			<bGraphicalOnly>1</bGraphicalOnly>
 		</ImprovementInfo>
 
-<!-- ******************	-->
+<!-- ****************** -->
 <!-- Worker             -->
-<!-- ******************	-->
+<!-- ****************** -->
 		<ImprovementInfo> <!-- Cottage -->
 			<Type>IMPROVEMENT_COTTAGE</Type>
 			<Description>TXT_KEY_IMPROVEMENT_COTTAGE</Description>
@@ -90,7 +90,7 @@
 				<iYield>1</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
-			</PrereqNatureYields>			
+			</PrereqNatureYields>
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>0</iYieldChange>
@@ -117,7 +117,7 @@
 				<iYield>1</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
-			</PrereqNatureYields>			
+			</PrereqNatureYields>
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>0</iYieldChange>
@@ -136,7 +136,7 @@
 			<ImprovementUpgrade>IMPROVEMENT_TOWN</ImprovementUpgrade>
 			<TechYieldChanges>
 				<TechYieldChange>
-					<PrereqTech>TECH_PRINTING_PRESS</PrereqTech>
+					<TechType>TECH_PRINTING_PRESS</TechType>
 					<TechYields>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
@@ -154,7 +154,7 @@
 				<iYield>1</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
-			</PrereqNatureYields>			
+			</PrereqNatureYields>
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>0</iYieldChange>
@@ -171,7 +171,7 @@
 			<ImprovementPillage>IMPROVEMENT_VILLAGE</ImprovementPillage>
 			<TechYieldChanges>
 				<TechYieldChange>
-					<PrereqTech>TECH_PRINTING_PRESS</PrereqTech>
+					<TechType>TECH_PRINTING_PRESS</TechType>
 					<TechYields>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
@@ -277,7 +277,7 @@
 			<iPillageGold>5</iPillageGold>
 			<TechYieldChanges>
 				<TechYieldChange>
-					<PrereqTech>TECH_REPLACEABLE_PARTS</PrereqTech>
+					<TechType>TECH_REPLACEABLE_PARTS</TechType>
 					<TechYields>
 						<iYield>0</iYield>
 						<iYield>1</iYield>
@@ -285,7 +285,7 @@
 					</TechYields>
 				</TechYieldChange>
 				<TechYieldChange>
-					<PrereqTech>TECH_ELECTRICITY</PrereqTech>
+					<TechType>TECH_ELECTRICITY</TechType>
 					<TechYields>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
@@ -310,7 +310,7 @@
 			<iPillageGold>5</iPillageGold>
 			<TechYieldChanges>
 				<TechYieldChange>
-					<PrereqTech>TECH_REPLACEABLE_PARTS</PrereqTech>
+					<TechType>TECH_REPLACEABLE_PARTS</TechType>
 					<TechYields>
 						<iYield>0</iYield>
 						<iYield>1</iYield>
@@ -318,7 +318,7 @@
 					</TechYields>
 				</TechYieldChange>
 				<TechYieldChange>
-					<PrereqTech>TECH_ELECTRICITY</PrereqTech>
+					<TechType>TECH_ELECTRICITY</TechType>
 					<TechYields>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
@@ -353,7 +353,7 @@
 			</TerrainMakesValids>
 			<TechYieldChanges>
 				<TechYieldChange>
-					<PrereqTech>TECH_GUILDS</PrereqTech>
+					<TechType>TECH_GUILDS</TechType>
 					<TechYields>
 						<iYield>0</iYield>
 						<iYield>1</iYield>
@@ -361,7 +361,7 @@
 					</TechYields>
 				</TechYieldChange>
 				<TechYieldChange>
-					<PrereqTech>TECH_CHEMISTRY</PrereqTech>
+					<TechType>TECH_CHEMISTRY</TechType>
 					<TechYields>
 						<iYield>0</iYield>
 						<iYield>1</iYield>
@@ -371,9 +371,9 @@
 			</TechYieldChanges>
 		</ImprovementInfo>
 
-<!-- ******************	-->
+<!-- ****************** -->
 <!-- Resource Gathering -->
-<!-- ******************	-->
+<!-- ****************** -->
 		<ImprovementInfo> <!-- Camp -->
 			<Type>IMPROVEMENT_CAMP</Type>
 			<Description>TXT_KEY_IMPROVEMENT_CAMP</Description>
@@ -482,7 +482,7 @@
 			</BonusTypeStructs>
 			<TechYieldChanges>
 				<TechYieldChange>
-					<PrereqTech>TECH_BIOLOGY</PrereqTech>
+					<TechType>TECH_BIOLOGY</TechType>
 					<TechYields>
 						<iYield>1</iYield>
 						<iYield>0</iYield>
