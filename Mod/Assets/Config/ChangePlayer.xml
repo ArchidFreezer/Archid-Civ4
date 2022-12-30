@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<mod id="ChangePlayer" name="ChangePlayer" module="ChangePlayer" url="http://forums.civfanatics.com/forumdisplay.php?f=245">
+	 
+	<options id="ChangePlayer" file="ChangePlayer.ini">
+		<section id="ChangePlayer">
+			<option id="Debug" key="Logging" type="boolean" default="False"/>
+		</section>
+	</options>
+
+	<events class="ChangePlayerEventHandler" />
+
+	<shortcut key="Ctrl Shift P" function="changeCivPopup"/>
+	<shortcut key="Ctrl Shift L" function="changeHumanPopup"/>
+	<shortcut key="Ctrl Shift U" function="updateGraphics"/>
+</mod>

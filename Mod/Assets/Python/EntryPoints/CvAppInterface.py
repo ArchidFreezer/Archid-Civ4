@@ -42,21 +42,21 @@ def castOptionValue(func, id, default):
 	except:
 		return default
 
-	
+
 # don't make this an event - Moose
 def init():
 	# for PythonExtensions Help File
 	PythonHelp = 0		# doesn't work on systems which haven't installed Python
-			
+
 	# dump Civ python module directory
-	if PythonHelp:		
+	if PythonHelp:
 		import CvPythonExtensions
 		helpFile=file("CvPythonExtensions.hlp.txt", "w")
 		sys.stdout=helpFile
-		import pydoc                  
+		import pydoc
 		pydoc.help(CvPythonExtensions)
 		helpFile.close()
-	
+
 	sys.stderr=CvUtil.RedirectError()
 	sys.excepthook = CvUtil.myExceptHook
 	sys.stdout=CvUtil.RedirectDebug()
@@ -64,23 +64,23 @@ def init():
 def onSave():
 	'Here is your chance to save data.  This function should return a string'
 	import CvWBDesc
-	import pickle	
+	import pickle
 	import CvEventInterface
 	# if the tutorial is active, it will save out the Shown Messages list
 	saveDataStr = pickle.dumps( CvEventInterface.onEvent( ('OnSave',0,0,0,0,0 ) ) )
 	return saveDataStr
-	
+
 def onLoad(argsList):
 	'Called when a file is loaded'
-	import pickle	
+	import pickle
 	import CvEventInterface
-	loadDataStr=argsList[0]	
+	loadDataStr=argsList[0]
 	if len(loadDataStr):
-		CvEventInterface.onEvent( ('OnLoad',pickle.loads(loadDataStr),0,0,0,0,0 ) )	
+		CvEventInterface.onEvent( ('OnLoad',pickle.loads(loadDataStr),0,0,0,0,0 ) )
 
 def preGameStart():
 	import CvScreensInterface
-	
+
 	BugInit.init()
 
 	if not CyGame().isPitbossHost():
@@ -94,22 +94,22 @@ def preGameStart():
 			NiTextOut("Preloading tech chooser")
 			CvScreensInterface.showTechChooser()
 			CvScreensInterface.techChooser.hideScreen()
-		
+
 	NiTextOut("Loading main interface...")
-	CvScreensInterface.showMainInterface()	
+	CvScreensInterface.showMainInterface()
 
 def onPbemSend(argsList):
 	import sys, smtplib, MimeWriter, base64, StringIO
-			
-	szToAddr = argsList[0]	
-	szFromAddr = argsList[1]	
-	szSubject = argsList[2]	
+
+	szToAddr = argsList[0]
+	szFromAddr = argsList[1]
+	szSubject = argsList[2]
 	szPath = argsList[3]
 	szFilename = argsList[4]
 	szHost = argsList[5]
 	szUser = argsList[6]
 	szPassword = argsList[7]
-	
+
 	print 'sending e-mail'
 	print 'To:', szToAddr
 	print 'From:', szFromAddr
@@ -118,7 +118,7 @@ def onPbemSend(argsList):
 	print 'File:', szFilename
 	print 'Server:', szHost
 	print 'User:', szUser
-	
+
 	if len(szFromAddr) == 0 or len(szHost) == 0:
 		print 'host or address empty'
 		return 1
@@ -158,33 +158,33 @@ def onPbemSend(argsList):
 		smtp.sendmail(szFromAddr, szToAddr, message.getvalue())
 		smtp.quit()
 	except smtplib.SMTPAuthenticationError, e:
-		CyInterface().addImmediateMessage("Authentication Error: The server didn't accept the username/password combination provided.", "")	
-		CyInterface().addImmediateMessage("Error %d: %s" % (e.smtp_code, e.smtp_error), "")	
+		CyInterface().addImmediateMessage("Authentication Error: The server didn't accept the username/password combination provided.", "")
+		CyInterface().addImmediateMessage("Error %d: %s" % (e.smtp_code, e.smtp_error), "")
 		return 1
 	except smtplib.SMTPHeloError, e:
-		CyInterface().addImmediateMessage("The server refused our HELO reply.", "")	
-		CyInterface().addImmediateMessage("Error %d: %s" % (e.smtp_code, e.smtp_error), "")	
+		CyInterface().addImmediateMessage("The server refused our HELO reply.", "")
+		CyInterface().addImmediateMessage("Error %d: %s" % (e.smtp_code, e.smtp_error), "")
 		return 1
 	except smtplib.SMTPConnectError, e:
-		CyInterface().addImmediateMessage("Error establishing connection.", "")	
-		CyInterface().addImmediateMessage("Error %d: %s" % (e.smtp_code, e.smtp_error), "")	
+		CyInterface().addImmediateMessage("Error establishing connection.", "")
+		CyInterface().addImmediateMessage("Error %d: %s" % (e.smtp_code, e.smtp_error), "")
 		return 1
 	except smtplib.SMTPDataError, e:
-		CyInterface().addImmediateMessage("The SMTP server didn't accept the data.", "")	
-		CyInterface().addImmediateMessage("Error %d: %s" % (e.smtp_code, e.smtp_error), "")	
+		CyInterface().addImmediateMessage("The SMTP server didn't accept the data.", "")
+		CyInterface().addImmediateMessage("Error %d: %s" % (e.smtp_code, e.smtp_error), "")
 		return 1
 	except smtplib.SMTPRecipientsRefused, e:
-		CyInterface().addImmediateMessage("All recipient addresses refused.", "")	
+		CyInterface().addImmediateMessage("All recipient addresses refused.", "")
 		return 1
 	except smtplib.SMTPSenderRefused, e:
-		CyInterface().addImmediateMessage("Sender address refused.", "")	
-		CyInterface().addImmediateMessage("Error %d: %s" % (e.smtp_code, e.smtp_error), "")	
+		CyInterface().addImmediateMessage("Sender address refused.", "")
+		CyInterface().addImmediateMessage("Error %d: %s" % (e.smtp_code, e.smtp_error), "")
 		return 1
 	except smtplib.SMTPResponseException, e:
-		CyInterface().addImmediateMessage("Error %d: %s" % (e.smtp_code, e.smtp_error), "")	
+		CyInterface().addImmediateMessage("Error %d: %s" % (e.smtp_code, e.smtp_error), "")
 		return 1
 	except smtplib.SMTPServerDisconnected:
-		CyInterface().addImmediateMessage("Not connected to any SMTP server", "")	
+		CyInterface().addImmediateMessage("Not connected to any SMTP server", "")
 		return 1
 	except:
 		return 1

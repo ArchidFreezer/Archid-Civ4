@@ -65,7 +65,7 @@ NORMALIZED_TYPES = {
 	STRING: STRING,
 	"str": STRING,
 	COLOR: COLOR,
-	
+
 	TUPLE: TUPLE,
 	"vector": TUPLE,
 	LIST: LIST,
@@ -78,7 +78,7 @@ NORMALIZED_TYPES = {
 def normalize(type):
 	"""
 	Returns the canonical type or raises an exception if not found.
-	
+
 	If <type> is None or empty (""), returns None.
 	"""
 	if not type:
@@ -109,7 +109,7 @@ DEFAULTS = {
 def default(type):
 	"""
 	Returns the default value for <type> after normalizing it.
-	
+
 	If <type> is None or empty (""), None is returned.
 	"""
 	type = normalize(type)
@@ -145,7 +145,7 @@ CONVERT_FROM_STRING = {
 def isTrue(value, noneIsFalse=True):
 	"""
 	Returns True if <value> is one of the valid string representations for True.
-	
+
 	By default, None is considered False.
 	"""
 	if not value:
@@ -159,13 +159,13 @@ def isTrue(value, noneIsFalse=True):
 def to(type, value, noneIsDefault=True, emptyIsDefault=True):
 	"""
 	Converts <value> from a string to <type>.
-	
+
 	If <type> is None or empty (""), the value is evaluated directly using eval();
 	otherwise <type> is normalized first. If <value> is None or empty ("") as well,
 	the special value None is returned.
-	
+
 	If <value> is None or empty (""), the default is used based on the optional parameters.
-	
+
 	The <type> is normalized first, and line endings (\r\n) are replaced with spaces in <value>.
 	"""
 	if type:

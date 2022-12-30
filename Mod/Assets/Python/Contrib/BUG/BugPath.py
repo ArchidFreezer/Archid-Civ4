@@ -13,7 +13,7 @@
 ##   Returns True if running as a mod, False otherwise.
 ##
 ## isNoCustomAssets()
-##   Returns True if the NoCustomAssets setting is 1 in the mod's INI file, 
+##   Returns True if the NoCustomAssets setting is 1 in the mod's INI file,
 ##   False if 0 or when not running as a mod.
 ##
 ## getModName()
@@ -102,7 +102,7 @@ def isMac():
 def getModName():
 	"""
 	Returns the name of the mod as specified in CvModName.
-	
+
 	See the file "Assets/Python/Contrib/CvModName.py" for more information.
 	"""
 	initModName()
@@ -117,7 +117,7 @@ def isMod():
 
 def isNoCustomAssets():
 	"""
-	Returns True if the NoCustomAssets setting is 1 in the mod's INI file, 
+	Returns True if the NoCustomAssets setting is 1 in the mod's INI file,
 	False if 0 or when not running as a mod.
 	"""
 	initNoCustomAssetsSetting()
@@ -126,7 +126,7 @@ def isNoCustomAssets():
 def getModDir():
 	"""
 	Returns the full path of the mod directory if running as a mod.
-	
+
 	Can be overridden using a CvModFolder module, but this shouldn't be necessary
 	as the folder's name is acquired from BTS itself.
 	"""
@@ -143,7 +143,7 @@ def getModFolder():
 def getUserDir():
 	"""
 	Returns the full path of the user's Documents/My Games directory.
-	
+
 	See the file "Info/CvAltRoot.py" for more information.
 	"""
 	initRootFolder()
@@ -152,7 +152,7 @@ def getUserDir():
 def getRootDir():
 	"""
 	Returns the full path of the directory containing the file "CivilizationIV.ini".
-	
+
 	See the file "Info/CvAltRoot.py" for more information.
 	"""
 	initRootFolder()
@@ -226,7 +226,7 @@ def findSettingsFile(name, subdir=None):
 def findIniFile(name, subdir=None):
 	"""
 	Locates and returns the path to the named configuration file or None if not found.
-	
+
 	Deprecated: Use findSettingsFile() instead.
 	"""
 	return findSettingsFile(name, subdir)
@@ -262,7 +262,7 @@ def createSettingsFile(name, subdir=None):
 def createIniFile(name, subdir=None):
 	"""
 	Returns the path to the named configuration file.
-	
+
 	Deprecated: Use createSettingsFile() instead.
 	"""
 	return createSettingsFile(name, subdir)
@@ -334,7 +334,7 @@ def initAppFolder():
 		return
 	BugUtil.debug("BugPath - initializing application folder")
 	global _appDir, _appFolder
-	
+
 	# Determine the app directory that holds the executable and Mods
 	# as well as the folder name inside MY_GAMES_FOLDER that holds CustomAssets and Mods.
 	if isMac():
@@ -374,7 +374,7 @@ def initModName():
 		BugUtil.error("CvModName.py module has no modName setting")
 	_modNameInitDone = True
 
-	
+
 ## Mod Directory
 
 _isMod = False
@@ -477,7 +477,7 @@ def initRootFolder():
 		return
 	BugUtil.debug("BugPath - initializing system folders")
 	global _rootDir, _userDir
-	
+
 	# override root dir from CvAltRoot
 	try:
 		import CvAltRoot
@@ -575,7 +575,7 @@ def initDataFolder():
 	if _dataFolderInitDone:
 		return
 	BugUtil.debug("BugPath - initializing data folder")
-	
+
 	# K-Mod. If it doesn't already exist, create the folder in the mod directory.
 	dir = join(getModDir(), SETTINGS_FOLDER)
 	if dir != None:
@@ -586,7 +586,7 @@ def initDataFolder():
 				os.makedirs(dir)
 			except OSError:
 				BugUtil.trace("Failed to create directory '%s'", dir)
-	
+
 	dataDirs = (
 		join(getRootDir(), getModName()),	# My Games\BTS\Archid
 		join(getUserDir(), getModName()),	# My Games\Archid
@@ -594,16 +594,16 @@ def initDataFolder():
 		join(getModDir(), DATA_FOLDER),		# Civ4\BTS\Mods\Archid\Data
 		join(getModDir()),								# Civ4\BTS\Mods\Archid
 	)
-	
+
 	for dir in dataDirs:
 		if setDataDir(dir):
 			break
 	else:
 		BugUtil.error("No data directory containing %s found", SETTINGS_FOLDER)
 		# Create a folder in the MyDocs\BTS folder as we should have write permission there
-		
-	
-		
+
+
+
 	_dataFolderInitDone = True
 
 def setDataDir(dir):
@@ -632,7 +632,7 @@ def initSearchPaths():
 	if _searchPathsInitDone:
 		return
 	BugUtil.debug("BugPath - initializing asset search paths")
-	
+
 	assetDirs = [
 		join(getModDir(), ASSETS_FOLDER),
 		join(getAppDir(), ASSETS_FOLDER),
@@ -642,7 +642,7 @@ def initSearchPaths():
 		assetDirs.insert(0, join(getRootDir(), CUSTOM_ASSETS_FOLDER))
 	for dir in assetDirs:
 		addAssetFileSearchPath(dir)
-	
+
 	if not _assetFileSearchPaths:
 		BugUtil.error("No asset directories found")
 	_searchPathsInitDone = True

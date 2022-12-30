@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<mod id="Tester" module="Tester" name="Tester">
+	 
+	<shortcut key="Ctrl Shift S" function="showStrandedPopup"/>
+	<shortcut key="Ctrl Shift Z" function="reloadOptions"/>
+
+</mod>

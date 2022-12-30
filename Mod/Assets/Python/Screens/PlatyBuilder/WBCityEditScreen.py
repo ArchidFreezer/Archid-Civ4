@@ -544,7 +544,7 @@ class WBCityEditScreen:
 			self.placeProduction()
 
 		elif inputClass.getFunctionName().find("CityEditScriptData") > -1:
-			popup = Popup.PyPopup(2222, EventContextTypes.EVENTCONTEXT_ALL)
+			popup = Popup.PyPopup(CvUtil.EventWBCityScriptPopup, EventContextTypes.EVENTCONTEXT_ALL)
 			popup.setHeaderString(CyTranslator().getText("TXT_KEY_WB_SCRIPT", ()))
 			popup.setUserData((pCity.getOwner(), pCity.getID()))
 			popup.createEditBox(pCity.getScriptData())

@@ -398,14 +398,14 @@ class CvTeamDesc:
 			iTeamY = gc.getPlayer(pDeal.getSecondPlayer()).getTeam()
 			if (iTeam1 == iTeamX and iTeam2 == iTeamY) or (iTeam2 == iTeamX and iTeam1 == iTeamY):
 				for j in xrange(pDeal.getLengthFirstTrades()):
-					if pDeal.getFirstTrade(j).ItemType == TradeableItems.TRADE_VASSAL:	
+					if pDeal.getFirstTrade(j).ItemType == TradeableItems.TRADE_VASSAL:
 						return 1
-					if pDeal.getFirstTrade(j).ItemType == TradeableItems.TRADE_SURRENDER:	
+					if pDeal.getFirstTrade(j).ItemType == TradeableItems.TRADE_SURRENDER:
 						return 0
 				for j in xrange(pDeal.getLengthSecondTrades()):
-					if pDeal.getSecondTrade(j).ItemType == TradeableItems.TRADE_VASSAL:	
+					if pDeal.getSecondTrade(j).ItemType == TradeableItems.TRADE_VASSAL:
 						return 1
-					if pDeal.getSecondTrade(j).ItemType == TradeableItems.TRADE_SURRENDER:	
+					if pDeal.getSecondTrade(j).ItemType == TradeableItems.TRADE_SURRENDER:
 						return 0
 		return -1
 
@@ -681,7 +681,7 @@ class CvPlayerDesc:
 			if pPlayer.getStateReligionBuildingProductionModifier() != 0:
 				f.write("\tStateReligionBuilding=%d\n" %(pPlayer.getStateReligionBuildingProductionModifier()))
 			if pPlayer.getScriptData() != "":
-				f.write("\tScriptData=%s\n" %(pPlayer.getScriptData()))	
+				f.write("\tScriptData=%s\n" %(pPlayer.getScriptData()))
 		f.write("EndPlayer\n")
 
 	def read(self, f):

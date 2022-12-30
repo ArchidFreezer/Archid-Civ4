@@ -7,14 +7,14 @@
 	Copyright (c) 2008 The BUG Mod.
 -->
 <bug>
-	
+
 	<!-- BUG Core -->
-	
+
 	<load mod="BUG Config"/>
 	<load mod="BUG Core"/>
-	
+
 	<!-- Utility Modules -->
-	
+
 	<init module="FontUtil" immediate="True"/>
 	<symbol id="war" from="COMMERCE_GOLD" offset="25"/>
 	<symbol id="peace"/>
@@ -37,13 +37,13 @@
 	<symbol id="ss thruster"/>
 	<symbol id="citizen" from="POWER" offset="1"/>
 	<symbol id="greatgeneral" name="GREAT_GENERAL"/>
-	
+
 	<init module="ColorUtil">
 		<!--
 			You can safely modify this list to change the color dropdown menus
 			for color options. You can change the text displayed in the menus by
 			adding translations for your new colors to Colors_CIV4GameText.xml
-			in the XML/Text directory. 
+			in the XML/Text directory.
 		-->
 		<arg name="colors" type="tuple">
 			"COLOR_RED",
@@ -59,9 +59,20 @@
 			"COLOR_BLACK"
 		</arg>
 	</init>
-		
+
+	<gameutils module="WidgetUtil" handler="getWidgetHelp"/>
+	<!-- Platy UI should be at the start as it overrides several existing event handlers -->
+	<!--   so that they are not called if the world builder is active, these tend to be  -->
+	<!--   events that log the creation of objects -->
+	<load mod="PlatyUI"/>
+
 	<load mod="AdvancedCombatOdds"/>
+	<load mod="AIAutoPlay"/>
+	<load mod="ChangePlayer"/>
 	<load mod="CityBar"/>
 	<load mod="MiscHovers"/>
 	<load mod="UnitActions"/>
+
+	<load mod="Tester"/>
+
 </bug>

@@ -1197,5 +1197,56 @@
 		<Italian>When checked, hovering over a tile your team owns shows which city controls it, in cyan if it is being worked.</Italian>
 		<Spanish>When checked, hovering over a tile your team owns shows which city controls it, in cyan if it is being worked.</Spanish>
 	</TEXT>
+<!-- AI AutoPlay -->
+	<TEXT> <!-- AIAutoPlay__Debug -->
+		<Tag>TXT_KEY_ARCHID_OPT_AIAUTOPLAY__DEBUG_TEXT</Tag>
+		<English>Logging</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_AIAUTOPLAY__DEBUG_HOVER</Tag>
+		<English>Adds debugging statements into the python log</English>
+	</TEXT>
+	<TEXT> <!-- AIAutoPlay__BlockPopups -->
+		<Tag>TXT_KEY_ARCHID_OPT_AIAUTOPLAY__BLOCKPOPUPS_TEXT</Tag>
+		<English>Block Popups</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_AIAUTOPLAY__BLOCKPOPUPS_HOVER</Tag>
+		<English>Eat the cityBuilt and BeginGameTurn events to suppress popups</English>
+	</TEXT>
+	<TEXT> <!-- AIAutoPlay__Refortify -->
+		<Tag>TXT_KEY_ARCHID_OPT_AIAUTOPLAY__REFORTIFY_TEXT</Tag>
+		<English>Refortify</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_AIAUTOPLAY__REFORTIFY_HOVER</Tag>
+		<English>Refortify city troops when autoplay finishes</English>
+	</TEXT>
+	<TEXT> <!-- AIAutoPlay__SaveAllDeaths -->
+		<Tag>TXT_KEY_ARCHID_OPT_AIAUTOPLAY__SAVEALLDEATHS_TEXT</Tag>
+		<English>Halt On Death</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_AIAUTOPLAY__SAVEALLDEATHS_HOVER</Tag>
+		<English>Check with the user when a player dies</English>
+	</TEXT>
+	<TEXT> <!-- AIAutoPlay__DefaultTurnsToAuto -->
+		<Tag>TXT_KEY_ARCHID_OPT_AIAUTOPLAY__DEFAULTTURNSTOAUTO_TEXT</Tag>
+		<English>Default Turns</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_AIAUTOPLAY__DEFAULTTURNSTOAUTO_HOVER</Tag>
+		<English>Default number of turns in autoplay dialog</English>
+	</TEXT>
+
+<!-- Change Player -->
+	<TEXT> <!-- ChangePlayer__Debug -->
+		<Tag>TXT_KEY_ARCHID_OPT_CHANGEPLAYER__DEBUG_TEXT</Tag>
+		<English>Logging</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_CHANGEPLAYER__DEBUG_HOVER</Tag>
+		<English>Adds debugging statements into the python log</English>
+	</TEXT>
 
 </Civ4GameText>

@@ -105,10 +105,10 @@ class WBPlayerScreen:
 					sText += "/"
 			sText += "]"
 		sText += " (ID: " + str(pPlayer.getID()) + ")"
-		
+
 		screen.setLabel("PlayerName", "Background", "<font=4b>" + sText + "</font>", CvUtil.FONT_CENTER_JUSTIFY, screen.getXResolution()/2, 20, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
 		screen.setLabel("CivilizationName", "Background", "<font=4b>" + pPlayer.getCivilizationDescription(0) + "</font>", CvUtil.FONT_CENTER_JUSTIFY, screen.getXResolution()/2, 50, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
-		
+
 		iY = 110
 		screen.setButtonGFC("PlayerGoldPlus", "", "", 20, iY, 24, 24, WidgetTypes.WIDGET_PYTHON, 1030, -1, ButtonStyles.BUTTON_STYLE_CITY_PLUS)
 		screen.setButtonGFC("PlayerGoldMinus", "", "", 45, iY, 24, 24, WidgetTypes.WIDGET_PYTHON, 1031, -1, ButtonStyles.BUTTON_STYLE_CITY_MINUS)
@@ -428,7 +428,7 @@ class WBPlayerScreen:
 			self.interfaceScreen(iPlayer)
 
 		elif inputClass.getFunctionName() == "PlayerEditScriptData":
-			popup = Popup.PyPopup(1111, EventContextTypes.EVENTCONTEXT_ALL)
+			popup = Popup.PyPopup(CvUtil.EventWBPlayerScriptPopup, EventContextTypes.EVENTCONTEXT_ALL)
 			popup.setHeaderString(CyTranslator().getText("TXT_KEY_WB_SCRIPT", ()))
 			popup.setUserData((pPlayer.getID(),))
 			popup.createEditBox(pPlayer.getScriptData())

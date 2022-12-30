@@ -50,7 +50,7 @@ def hasTable(*keys):
 def findTable(*keys):
 	"""
 	If the key(s) lead to an existing table, it is returned. Otherwise None is returned.
-	
+
 	This function will not create any new tables. You must check the return value for None
 	or you will get an exception.
 	"""
@@ -59,7 +59,7 @@ def findTable(*keys):
 def getTable(*keys):
 	"""
 	Returns the table at the end of the chain of key(s), creating any missing tables along the way.
-	
+
 	This function always returns a valid table.
 	"""
 	return getGameData().getTable(*keys)
@@ -130,7 +130,7 @@ class Table(object):
 	def __del__(self):
 		if self.dirty:
 			BugUtil.warn("Data not saved: %s", self)
-	
+
 	def setData(self, data):
 		self.data = data
 		self.dirty = True
@@ -152,7 +152,7 @@ class Table(object):
 			self.dirty = True
 		except:
 			pass
-	
+
 	def hasValue(self, key):
 		return key in self
 	def getValue(self, key):
@@ -161,7 +161,7 @@ class Table(object):
 		self[key] = value
 	def delValue(self, key):
 		del self[key]
-	
+
 	def hasTable(self, *keys):
 		if len(keys) == 1:
 			return self._hasTable(keys[0])
@@ -213,7 +213,7 @@ class Table(object):
 		if self._hasTable(key):
 			BugUtil.debug("BugData - deleting %s.%s", self, key)
 			del self[key]
-	
+
 	def _isOpen(self, key):
 		return key in self.children
 	def _openTable(self, key, data):

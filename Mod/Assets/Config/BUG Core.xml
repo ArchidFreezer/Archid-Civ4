@@ -2,19 +2,19 @@
 <!--
 	BUG Core
 	by EmperorFool
-	
+
 	Holds state and options used by the BUG Core.
 
 	Copyright (c) 2008 The BUG Mod.
 -->
-<mod id="Core" 
-	 name="BUG Core" 
-	 author="EmperorFool" 
-	 version="3.5" 
-	 build="1324" 
-	 date="09/11/2008"
-	 url="http://forums.civfanatics.com/forumdisplay.php?f=268">
-	 
+<mod id="Core"
+	name="BUG Core"
+	author="EmperorFool"
+	version="3.5"
+	build="1324"
+	date="09/11/2008"
+	url="http://forums.civfanatics.com/forumdisplay.php?f=268">
+
 	<options id="Core" file="BUG Core.ini">
 		<section id="Logging">
 			<list id="ScreenLogLevel" key="Screen Level" type="int" default="2" listType="string" values="Debug|Info|Warning|Error|None">
@@ -31,5 +31,19 @@
 
 	<init module="BugUtil" function="readLoggingOptions" immediate="true"/>
 	<init module="BugDll" immediate="true"/>
-	
+	<init module="BugEventManager" function="configure" immediate="true">
+		<arg name="logging" type="boolean" value="false"/>
+		<arg name="noLogEvents" type="set">
+			"gameUpdate",
+			"mouseEvent",
+			"kbdEvent"
+		</arg>
+	</init>
+
+	<event type="gameUpdate" module="BugUtil" function="doDeferredCalls"/>
+	<event type="BeginPlayerTurn" module="BugUtil" function="doHotSeatCheck"/>
+	<!-- Game ScriptData -->
+	<event type="GameStart" module="BugData" function="onGameStart"/>
+	<event type="OnLoad" module="BugData" function="onGameLoad"/>
+	<event type="LanguageChanged" module="BugOptions" function="clearAllTranslations"/>
 </mod>

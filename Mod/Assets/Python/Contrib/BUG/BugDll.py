@@ -88,27 +88,27 @@ def widget(bugWidget, bugData1=None, bugData2=None, *args):
 def widgetVersion(version, bugWidget, bugData1=None, bugData2=None, *args):
 	"""
 	Picks one of two WidgetTypes and parameters to return based on presence of BUG DLL and <version>.
-	
+
 	The bugWidget must be the name of the desired widget, e.g. "WIDGET_SET_PERCENT";
 	the other widget should be the WidgetTypes constant, e.g. WidgetTypes.WIDGET_CHANGE_PERCENT.
-	
+
 	The default widget values are WidgetTypes.WIDGET_GENERAL, -1, -1. To specify a different set,
 	pass them in as the 4th, 5th and 6th arguments.
-	
+
 	To return zero or one data values, pass None for the BUG values you want not to have returned;
 	the same ones won't be returned if the BUG DLL isn't present. When overriding the non-BUG widget
 	type, you must always pass in three values: the WidgetTypes and its two data values. The matching
 	BUG ones that are None will not be returned, regardless of their own values.
-	
+
 	Any arguments after the widget arguments are added at the end of the returned tuple; use this
 	when the function you are passing the arguments to takes more arguments after the widget values.
-	
+
 	Make sure to use a * to unpack the returned tuple when passing the arguments to your function.
-	
+
 	Example:
-		screen.setButtonGFC( "MinCommerceRate", u"", "", 130, 50, 20, 20, 
-							 *BugDll.widget("WIDGET_SET_PERCENT", eCommerce, 0, 
-							 				WidgetTypes.WIDGET_CHANGE_PERCENT, eCommerce, -100, 
+		screen.setButtonGFC( "MinCommerceRate", u"", "", 130, 50, 20, 20,
+							 *BugDll.widget("WIDGET_SET_PERCENT", eCommerce, 0,
+							 				WidgetTypes.WIDGET_CHANGE_PERCENT, eCommerce, -100,
 							 				ButtonStyles.BUTTON_STYLE_CITY_MINUS) )
 	"""
 	realArgs = []
@@ -150,7 +150,7 @@ def isWidget(widget, bugWidget):
 def isWidgetVersion(version, widget, bugWidget):
 	"""
 	Returns True if <widget> has the same value as <bugWidget>, False otherwise.
-	
+
 	If the BUG DLL isn't present, doesn't have the correct version, or the widget
 	doesn't exist, False is safely returned.
 	"""

@@ -752,7 +752,7 @@ class WBPlotScreen:
 			self.placeRoutes()
 
 		elif inputClass.getFunctionName() == "PlotEditScriptData":
-			popup = Popup.PyPopup(5555, EventContextTypes.EVENTCONTEXT_ALL)
+			popup = Popup.PyPopup(CvUtil.EventWBPlotScriptPopup, EventContextTypes.EVENTCONTEXT_ALL)
 			popup.setHeaderString(CyTranslator().getText("TXT_KEY_WB_SCRIPT", ()))
 			popup.setUserData((pPlot.getX(), pPlot.getY()))
 			popup.createEditBox(pPlot.getScriptData())

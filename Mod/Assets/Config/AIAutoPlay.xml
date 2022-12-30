@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<mod id="AIAutoPlay" module="AIAutoPlay" name="AIAutoPlay" url="http://forums.civfanatics.com/forumdisplay.php?f=245">
+	 
+	<options id="AIAutoPlay" file="AIAutoPlay.ini">
+		<section id="AIAutoPlay">
+			<option id="Debug" key="Logging" type="boolean" default="False"/>
+			<option id="BlockPopups" key="Block event popups" type="boolean" default="True"/>
+			<option id="Refortify" key="Refortify units" type="boolean" default="False"/>
+			<option id="SaveAllDeaths" key="Stop on player death" type="boolean" default="True"/>
+			<option id="DefaultTurnsToAuto" key="Default turns" type="int" default="10"/>
+		</section>
+	</options>
+
+	<events class="AIAutoPlayEventHandler" />
+	
+	<shortcut key="Space" function="haltAutoPlay"/>
+	<shortcut key="Ctrl Shift M" function="finishMyTurn"/>
+	<shortcut key="Ctrl Shift O" function="refortify"/>
+	<shortcut key="Ctrl Shift X" function="startAutoPlay"/>
+</mod>

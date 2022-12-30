@@ -29,8 +29,8 @@
 ##   alert(message, args...)
 ##     Displays a formatted message on-screen. Use this sparingly as it's lame.
 ##
-##   debug(message, args...) 
-##   info(message, args...) 
+##   debug(message, args...)
+##   info(message, args...)
 ##   warn(message, args...)
 ##   error(message, args...)
 ##     Logs a message with optional arguments (percent substitutions) to the
@@ -270,11 +270,11 @@ def error(message, *args):
 def log(level, message, args=()):
 	"""
 	Logs a message on-screen and/or to a file depending on the current levels.
-	
+
 	The message is sent to each if the level is at least that of the destination.
-	The level of the message is prepended to the message, and if logTime is True, 
+	The level of the message is prepended to the message, and if logTime is True,
 	the current time in HH:MM:SS format is prepended as well.
-	
+
 	Any encoding errors are swallowed and no message is logged.
 	"""
 	if level >= minimumLogLevel:
@@ -321,40 +321,40 @@ def readLoggingOptions(option=None, value=None):
 ## Event Tracking and Output
 
 INPUT_CODES = {
-	NotifyCode.NOTIFY_MOUSEMOVE             : "Mouse Move", 
-	NotifyCode.NOTIFY_MOUSEWHEELDOWN        : "Mouse Wheel Down", 
-	NotifyCode.NOTIFY_MOUSEWHEELUP          : "Mouse Wheel Up", 
-	NotifyCode.NOTIFY_CURSOR_MOVE_ON        : "Mouse Enter", 
- 	NotifyCode.NOTIFY_CURSOR_MOVE_OFF       : "Mouse Leave", 
-    NotifyCode.NOTIFY_CLICKED               : "Click",
-    NotifyCode.NOTIFY_DBL_CLICKED           : "Double Click",
-    
-	NotifyCode.NOTIFY_CHARACTER             : "Character", 
-    
-    NotifyCode.NOTIFY_TABLE_HEADER_SELECTED : "Table Header Select",
-    NotifyCode.NOTIFY_LISTBOX_ITEM_SELECTED : "List Select",
-    NotifyCode.NOTIFY_SCROLL_DOWN           : "Scroll Down",
-    NotifyCode.NOTIFY_SCROLL_UP             : "Scroll Up",
-    
-    NotifyCode.NOTIFY_NEW_HORIZONTAL_STOP   : "New Horizontal Stop",
-    NotifyCode.NOTIFY_NEW_VERTICAL_STOP     : "New Vertical Stop",
-    NotifyCode.NOTIFY_SLIDER_NEWSTOP        : "Slider New Stop",
-    
-    NotifyCode.NOTIFY_FOCUS                 : "Focus",
-    NotifyCode.NOTIFY_UNFOCUS               : "Unfocus",
-    
-    NotifyCode.NOTIFY_LINKEXECUTE           : "Link Execute",
-    NotifyCode.NOTIFY_FLYOUT_ITEM_SELECTED  : "Flyout Item Selected",
-    NotifyCode.NOTIFY_MOVIE_DONE            : "Movie Done",
+	NotifyCode.NOTIFY_MOUSEMOVE             : "Mouse Move",
+	NotifyCode.NOTIFY_MOUSEWHEELDOWN        : "Mouse Wheel Down",
+	NotifyCode.NOTIFY_MOUSEWHEELUP          : "Mouse Wheel Up",
+	NotifyCode.NOTIFY_CURSOR_MOVE_ON        : "Mouse Enter",
+	NotifyCode.NOTIFY_CURSOR_MOVE_OFF       : "Mouse Leave",
+	NotifyCode.NOTIFY_CLICKED               : "Click",
+	NotifyCode.NOTIFY_DBL_CLICKED           : "Double Click",
+
+	NotifyCode.NOTIFY_CHARACTER             : "Character",
+
+	NotifyCode.NOTIFY_TABLE_HEADER_SELECTED : "Table Header Select",
+	NotifyCode.NOTIFY_LISTBOX_ITEM_SELECTED : "List Select",
+	NotifyCode.NOTIFY_SCROLL_DOWN           : "Scroll Down",
+	NotifyCode.NOTIFY_SCROLL_UP             : "Scroll Up",
+
+	NotifyCode.NOTIFY_NEW_HORIZONTAL_STOP   : "New Horizontal Stop",
+	NotifyCode.NOTIFY_NEW_VERTICAL_STOP     : "New Vertical Stop",
+	NotifyCode.NOTIFY_SLIDER_NEWSTOP        : "Slider New Stop",
+
+	NotifyCode.NOTIFY_FOCUS                 : "Focus",
+	NotifyCode.NOTIFY_UNFOCUS               : "Unfocus",
+
+	NotifyCode.NOTIFY_LINKEXECUTE           : "Link Execute",
+	NotifyCode.NOTIFY_FLYOUT_ITEM_SELECTED  : "Flyout Item Selected",
+	NotifyCode.NOTIFY_MOVIE_DONE            : "Movie Done",
 }
 
 def debugInput(inputClass, flags=False):
 	"""
 	Logs a debug message detailing the given input event.
-	
+
 	Add this to the handleInput function to log all events to disk.
 	Pass True for flags to output the mouse flags, if any.
-	
+
 	def handleInput(self, inputClass):
 		BugUtil.debugInput(inputClass)
 	"""
@@ -363,10 +363,10 @@ def debugInput(inputClass, flags=False):
 def alertInput(inputClass, flags=False):
 	"""
 	Prints a debug message to the screen detailing the given input event.
-	
+
 	Add this to the handleInput function to see all events as they occur.
 	Pass True for flags to output the mouse flags, if any.
-	
+
 	def handleInput(self, inputClass):
 		BugUtil.alertInput(inputClass)
 	"""
@@ -375,14 +375,14 @@ def alertInput(inputClass, flags=False):
 def logInput(fxn, inputClass, flags=False):
 	"""
 	Prints or logs a debug message detailing the given input event.
-	
+
 	fxn should be alert() or debug().
 	"""
 	if inputClass.getNotifyCode() in INPUT_CODES:
 		fxn("%s - %s #%d, data %d, widget %d %d %d",
-			INPUT_CODES[inputClass.getNotifyCode()], 
+			INPUT_CODES[inputClass.getNotifyCode()],
 			inputClass.getFunctionName(),
-			inputClass.getID(), 
+			inputClass.getID(),
 			inputClass.getData(),
 			inputClass.getButtonType(),
 			inputClass.getData1(),
@@ -424,7 +424,7 @@ MOUSE_FLAGS = {
 def debugInputFlags(inputClass):
 	"""
 	Logs a debug message detailing the given input event's mouse flags, if any.
-	
+
 	def handleInput(self, inputClass):
 		BugUtil.debugInputFlags(inputClass)
 	"""
@@ -433,7 +433,7 @@ def debugInputFlags(inputClass):
 def alertInputFlags(inputClass):
 	"""
 	Prints a debug message to the screen detailing the given input event's mouse flags, if any.
-	
+
 	def handleInput(self, inputClass):
 		BugUtil.alertInputFlags(inputClass)
 	"""
@@ -442,7 +442,7 @@ def alertInputFlags(inputClass):
 def logInputFlags(fxn, inputClass):
 	"""
 	Prints or logs a debug message detailing the given input event's mouse flags, if any.
-	
+
 	fxn should be alert() or debug().
 	"""
 	flags = inputClass.getFlags()
@@ -460,22 +460,22 @@ def logInputFlags(fxn, inputClass):
 class Timer:
 	"""
 	Stopwatch for timing code execution and logging the results.
-	
+
 	timer = BugUtil.Timer('function')
 	... code to time ...
 	timer.log()
-	
+
 	In a loop, log() will display each iteration's time. Since Timers are started
 	when created, call reset() before entering the loop or pass in False.
 	Use logTotal() at the end if you want to see the sum of all iterations.
-	
+
 	timer = BugUtil.Timer('draw loop', False)
 	for/while ...
 		timer.start()
 		... code to time ...
 		timer.log()
 	timer.logTotal()
-	
+
 	A single Timer can be reused for timing loops without creating a new Timer
 	for each iteration by calling restart().
 	"""
@@ -485,7 +485,7 @@ class Timer:
 		self.reset()
 		if start:
 			self.start()
-	
+
 	def reset(self):
 		"""Resets all times to zero and stops the timer."""
 		self._initial = None
@@ -493,18 +493,18 @@ class Timer:
 		self._time = 0
 		self._total = 0
 		return self
-	
+
 	def start(self):
 		"""Starts the timer or starts it again if it is already running."""
 		self._start = time.clock()
 		if self._initial is None:
 			self._initial = self._start
 		return self
-	
+
 	def restart(self):
 		"""Resets all times to zero and starts the timer."""
 		return self.reset().start()
-	
+
 	def stop(self):
 		"""
 		Stops the timer if it is running and returns the elapsed time since start,
@@ -517,19 +517,19 @@ class Timer:
 			self._start = None
 			return self._time
 		return 0
-	
+
 	def running(self):
 		"""Returns True if the timer is running."""
 		return self._start is not None
-	
+
 	def time(self):
 		"""Returns the most recent timing or 0 if none has completed."""
 		return self._time
-	
+
 	def total(self):
 		"""Returns the sum of all the individual timings."""
 		return self._total
-	
+
 	def span(self):
 		"""Returns the span of time from the first start() to the last stop()."""
 		if self._initial is None:
@@ -539,34 +539,34 @@ class Timer:
 			return time.clock() - self._initial
 		else:
 			return self._final - self._initial
-	
+
 	def log(self, extra=None):
 		"""
 		Stops the timer and logs the time of the current timing.
-		
+
 		This is the same as calling logTotal() or logSpan() for the first time.
 		"""
 		self.stop()
 		return self._log(self.time(), extra)
-	
+
 	def logTotal(self, extra="total"):
 		"""
 		Stops the timer and logs the sum of all timing steps.
-		
+
 		This is the same as calling log() or logSpan() for the first time.
 		"""
 		self.stop()
 		return self._log(self.total(), extra)
-	
+
 	def logSpan(self, extra=None):
 		"""
 		Stops the timer and logs the span of time covering all timings.
-		
+
 		This is the same as calling log() or logTotal() for the first time.
 		"""
 		self.stop()
 		return self._log(self.span(), extra)
-	
+
 	def _log(self, runtime, extra):
 		"""Logs the passed in runtime value."""
 		if extra is None:
@@ -582,31 +582,31 @@ class Timer:
 ## and passing in arguments set up at time of creation or when called)
 
 class Function:
-	
+
 	def __init__(self, module, functionOrClass, *args, **kwargs):
 		self.__module__ = module
 		self.__name__ = functionOrClass
 		self.function = None
 		self.setArguments(*args, **kwargs)
-	
+
 	def bind(self):
 		if self.function is None:
 			self.function = lookupFunction(self.__module__, self.__name__)
-	
+
 	def setArguments(self, *args, **kwargs):
 		self.args = args
 		self.kwargs = kwargs
-	
+
 	def call(self, *args, **kwargs):
 		self.bind()
 		if args or kwargs:
 			self.setArguments(*args, **kwargs)
 		debug("BugUtil - calling %r" % self)
 		return self.function(*self.args, **self.kwargs)
-	
+
 	def __call__(self, *args, **kwargs):
 		return self.call(*args, **kwargs)
-	
+
 	def __repr__(self):
 		if self.args or self.kwargs:
 			return "<func %s.%s (%r, %r)>" % \
@@ -735,7 +735,7 @@ def extendInsteadFunction(module, name, toModule, asName=None, log=True):
 def fixSets(namespace):
 	"""
 	If running on a Mac, imports "set" and "frozenset" from the sets module.
-	
+
 	Usage:
 	  fixSets(globals())
 	"""
@@ -805,7 +805,7 @@ class BugError(Exception):
 class ConfigError(BugError):
 	"""
 	Error related to configuration problems.
-	
+
 	These are caught and reported during BUG initialization, and initizliation
 	is allowed to continue so most problems can be reported at once. This may
 	result in false-positive errors being reported.
@@ -829,7 +829,7 @@ def doHotSeatCheck(args):
 def isNoEspionage():
 	"""
 	Returns True if using at least 3.17 and the 'No Espionage' option is enabled.
-	
+
 	Depreated: Use GameUtil.isEspionage() instead.
 	"""
 	try:

@@ -39,7 +39,7 @@ class WBUnitScreen:
 
 	def interfaceScreen(self, pUnitX):
 		screen = CyGInterfaceScreen( "WBUnitScreen", CvScreenEnums.WB_UNIT)
-		
+
 		global pUnit
 		global pPlot
 
@@ -50,13 +50,13 @@ class WBUnitScreen:
 		if self.top.iTargetPlotX == -1 or self.top.iTargetPlotY == -1:
 			self.top.iTargetPlotX = pPlot.getX()
 			self.top.iTargetPlotY = pPlot.getY()
-		
+
 		screen.setRenderInterfaceOnly(True)
 		screen.addPanel( "MainBG", u"", u"", True, False, -10, -10, screen.getXResolution() + 20, screen.getYResolution() + 20, PanelStyles.PANEL_STYLE_MAIN )
 		screen.showScreen(PopupStates.POPUPSTATE_IMMEDIATE, False)
 
 		screen.setText("UnitExit", "Background", "<font=4>" + CyTranslator().getText("TXT_KEY_PEDIA_SCREEN_EXIT", ()).upper() + "</font>", CvUtil.FONT_RIGHT_JUSTIFY, screen.getXResolution() - 30, screen.getYResolution() - 42, -0.1, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_CLOSE_SCREEN, -1, -1 )
-		
+
 		screen.addDropDownBoxGFC("OwnerType", 20, self.iTable_Y - 90, iWidth, WidgetTypes.WIDGET_GENERAL, -1, -1, FontTypes.GAME_FONT)
 		screen.addPullDownString("OwnerType", CyTranslator().getText("TXT_KEY_WB_CITY_ALL", ()), 0, 0, 0 == iOwnerType)
 		screen.addPullDownString("OwnerType", CyTranslator().getText("TXT_KEY_PITBOSS_TEAM", ()), 2, 2, 2 == iOwnerType)
@@ -103,7 +103,7 @@ class WBUnitScreen:
 		iX += iWidth
 		sText = CyTranslator().getText("[COLOR_SELECTED_TEXT]", ()) + "<font=3b>" + CyTranslator().getText("TXT_KEY_WB_COPY_ALL", (CyTranslator().getText("TXT_KEY_PEDIA_CATEGORY_UNIT", ()),)) + "</color></font>"
 		screen.setText("CopyStats", "Background", sText, CvUtil.FONT_LEFT_JUSTIFY, iX, screen.getYResolution() - 42, -0.1, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
-		
+
 		global lUnitAI
 		lUnitAI = []
 		for i in xrange(UnitAITypes.NUM_UNITAI_TYPES):
@@ -148,7 +148,7 @@ class WBUnitScreen:
 		screen.setText("PushMission", "Background", "<font=3b>" + CyTranslator().getText("[COLOR_SELECTED_TEXT]", ()) + CyTranslator().getText("TXT_KEY_WB_PUSH_MISSION", ()) + "</color></font>", CvUtil.FONT_CENTER_JUSTIFY, screen.getXResolution() *7/10, iY - 30, -0.1, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
 		sText = (CyTranslator().getText("[COLOR_SELECTED_TEXT]", ()) + "<font=3>" + CyTranslator().getText("TXT_KEY_WB_TARGET_PLOT", ()) + ": " + "(%d,%d)" + "</color></font>") % (self.top.iTargetPlotX, self.top.iTargetPlotY)
 		screen.setText("TargetPlot", "Background", sText, CvUtil.FONT_CENTER_JUSTIFY, screen.getXResolution() *7/10, iY, -0.1, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
-		
+
 		iY += 30
 		screen.addDropDownBoxGFC("Missions", iX, iY, iWidth, WidgetTypes.WIDGET_GENERAL, -1, -1, FontTypes.GAME_FONT)
 		UnitInfo = gc.getUnitInfo(pUnit.getUnitType())
@@ -548,7 +548,7 @@ class WBUnitScreen:
 					(loopUnit, iter) = pPlayerX.nextUnit(iter, False)
 		lUnits.sort()
 		self.placeCurrentUnit()
-		
+
 	def placeCurrentUnit(self):
 		screen = CyGInterfaceScreen("WBUnitScreen", CvScreenEnums.WB_UNIT)
 
@@ -816,7 +816,7 @@ class WBUnitScreen:
 			self.placeDirection()
 
 		elif sName == "UnitEditScriptData":
-			popup = Popup.PyPopup(3333, EventContextTypes.EVENTCONTEXT_ALL)
+			popup = Popup.PyPopup(CvUtil.EventWBUnitScriptPopup, EventContextTypes.EVENTCONTEXT_ALL)
 			popup.setHeaderString(CyTranslator().getText("TXT_KEY_WB_SCRIPT", ()))
 			popup.setUserData((pUnit.getOwner(), pUnit.getID()))
 			popup.createEditBox(pUnit.getScriptData())

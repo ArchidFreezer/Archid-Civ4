@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<mod id="PlatyUI" name="PlatyUI" module="PlatyUIUtils">
+
+	<gameutils module="PlatyUIUtils" handler="getWidgetHelp"/>
+	
+	<events class="PlatyUIEventHandler"/>
+
+	<shortcut key="Ctrl F1" function="showInterfaceHelp"/>
+	<shortcut key="Ctrl F2" function="showLeaders"/>
+	<shortcut key="Ctrl F9" function="showArtDefChecker"/>
+	<shortcut key="Ctrl F10" function="showMirrorImage"/>
+	<shortcut key="Ctrl F11" function="showForgetful"/>
+	<shortcut key="Ctrl F12" function="showTimeKeeper"/>
+
+</mod>
