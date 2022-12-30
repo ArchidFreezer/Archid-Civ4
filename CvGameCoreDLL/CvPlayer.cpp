@@ -117,127 +117,17 @@ CvPlayer::~CvPlayer() {
 }
 
 
+//
+// This has been combined with the old initInGame function into init(PlayerTypes eID, bool bInGame)
+//
 void CvPlayer::init(PlayerTypes eID) {
-	//--------------------------------
-	// Init saved data
-	reset(eID);
-
-	//--------------------------------
-	// Init containers
-	m_plotGroups.init();
-
-	m_cities.init();
-
-	m_units.init();
-
-	m_selectionGroups.init();
-
-	m_eventsTriggered.init();
-
-	//--------------------------------
-	// Init non-saved data
-	setupGraphical();
-
-	//--------------------------------
-	// Init other game data
-	FAssert(getTeam() != NO_TEAM);
-	GET_TEAM(getTeam()).changeNumMembers(1);
-
-	if ((GC.getInitCore().getSlotStatus(getID()) == SS_TAKEN) || (GC.getInitCore().getSlotStatus(getID()) == SS_COMPUTER)) {
-		setAlive(true);
-
-		if (GC.getGameINLINE().isOption(GAMEOPTION_RANDOM_PERSONALITIES)) {
-			if (!isBarbarian() && !isMinorCiv()) {
-				int iBestValue = 0;
-				LeaderHeadTypes eBestPersonality = NO_LEADER;
-
-				for (LeaderHeadTypes eLeaderHead = (LeaderHeadTypes)0; eLeaderHead < GC.getNumLeaderHeadInfos(); eLeaderHead = (LeaderHeadTypes)(eLeaderHead + 1)) {
-					if (eLeaderHead != GC.getDefineINT("BARBARIAN_LEADER")) // XXX minor civ???
-					{
-						int iValue = (1 + GC.getGameINLINE().getSorenRandNum(10000, "Choosing Personality"));
-
-						for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
-							const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
-							if (kPlayer.isAlive()) {
-								if (kPlayer.getPersonalityType() == eLeaderHead) {
-									iValue /= 2;
-								}
-							}
-						}
-
-						if (iValue > iBestValue) {
-							iBestValue = iValue;
-							eBestPersonality = eLeaderHead;
-						}
-					}
-				}
-
-				if (eBestPersonality != NO_LEADER) {
-					setPersonalityType(eBestPersonality);
-				}
-			}
-		}
-
-		changeBaseFreeUnits(GC.getDefineINT("INITIAL_BASE_FREE_UNITS"));
-		changeBaseFreeMilitaryUnits(GC.getDefineINT("INITIAL_BASE_FREE_MILITARY_UNITS"));
-		changeFreeUnitsPopulationPercent(GC.getDefineINT("INITIAL_FREE_UNITS_POPULATION_PERCENT"));
-		changeFreeMilitaryUnitsPopulationPercent(GC.getDefineINT("INITIAL_FREE_MILITARY_UNITS_POPULATION_PERCENT"));
-		changeGoldPerUnit(GC.getDefineINT("INITIAL_GOLD_PER_UNIT"));
-		changeTradeRoutes(GC.getDefineINT("INITIAL_TRADE_ROUTES"));
-		changeStateReligionHappiness(GC.getDefineINT("INITIAL_STATE_RELIGION_HAPPINESS"));
-		changeNonStateReligionHappiness(GC.getDefineINT("INITIAL_NON_STATE_RELIGION_HAPPINESS"));
-
-		for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
-			changeTradeYieldModifier(eYield, GC.getYieldInfo(eYield).getTradeModifier());
-		}
-
-		for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
-			setCommercePercent(eCommerce, GC.getCommerceInfo(eCommerce).getInitialPercent(), true);
-		}
-
-		FAssertMsg((GC.getNumTraitInfos() > 0), "GC.getNumTraitInfos() is less than or equal to zero but is expected to be larger than zero in CvPlayer::init");
-		for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
-			if (GC.getLeaderHeadInfo(getLeaderType()).hasTrait(eTrait)) {
-				setHasTrait(eTrait, true);
-			}
-		}
-
-		updateMaxAnarchyTurns();
-
-		for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
-			updateExtraYieldThreshold(eYield);
-		}
-
-		for (CivicOptionTypes eCivicOption = (CivicOptionTypes)0; eCivicOption < GC.getNumCivicOptionInfos(); eCivicOption = (CivicOptionTypes)(eCivicOption + 1)) {
-			setCivics(eCivicOption, ((CivicTypes)(GC.getCivilizationInfo(getCivilizationType()).getCivilizationInitialCivics(eCivicOption))));
-		}
-
-		for (EventTypes eEvent = (EventTypes)0; eEvent < GC.getNumEventInfos(); eEvent = (EventTypes)(eEvent + 1)) {
-			resetEventOccured(eEvent, false);
-		}
-
-		for (EventTriggerTypes eEventTrigger = (EventTriggerTypes)0; eEventTrigger < GC.getNumEventTriggerInfos(); eEventTrigger = (EventTriggerTypes)(eEventTrigger + 1)) {
-			resetTriggerFired(eEventTrigger);
-		}
-
-		for (UnitClassTypes eUnitClass = (UnitClassTypes)0; eUnitClass < GC.getNumUnitClassInfos(); eUnitClass = (UnitClassTypes)(eUnitClass + 1)) {
-			UnitTypes eUnit = ((UnitTypes)(GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(eUnitClass)));
-
-			if (NO_UNIT != eUnit) {
-				if (GC.getUnitInfo(eUnit).isFound()) {
-					setUnitExtraCost(eUnitClass, getNewCityProductionValue());
-				}
-			}
-		}
-	}
-
-	AI_init();
+	init(eID, false);
 }
 
 //
 // Copy of CvPlayer::init but with modifications for use in the middle of a game
 //
-void CvPlayer::initInGame(PlayerTypes eID) {
+void CvPlayer::init(PlayerTypes eID, bool bInGame) {
 	//--------------------------------
 	// Init saved data
 	reset(eID);
@@ -262,24 +152,28 @@ void CvPlayer::initInGame(PlayerTypes eID) {
 	// Init other game data
 	FAssert(getTeam() != NO_TEAM);
 
-	// Some effects on team necessary if this is the only member of the team
-	int iOtherTeamMembers = 0;
-	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
-		if (ePlayer != getID()) {
-			if (GET_PLAYER(ePlayer).getTeam() == getTeam()) {
-				iOtherTeamMembers++;
+	if (bInGame) {
+		// Some effects on team necessary if this is the only member of the team
+		int iOtherTeamMembers = 0;
+		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+			if (ePlayer != getID()) {
+				if (GET_PLAYER(ePlayer).getTeam() == getTeam()) {
+					iOtherTeamMembers++;
+				}
 			}
 		}
-	}
 
-	bool bTeamInit = false;
-	if ((iOtherTeamMembers == 0) || GET_TEAM(getTeam()).getNumMembers() == 0) {
-		bTeamInit = true;
-		GET_TEAM(getTeam()).init(getTeam());
-		GET_TEAM(getTeam()).resetPlotAndCityData();
-	}
+		bool bTeamInit = false;
+		if ((iOtherTeamMembers == 0) || GET_TEAM(getTeam()).getNumMembers() == 0) {
+			bTeamInit = true;
+			GET_TEAM(getTeam()).init(getTeam());
+			GET_TEAM(getTeam()).resetPlotAndCityData();
+		}
 
-	if (bTeamInit || (GET_TEAM(getTeam()).getNumMembers() == iOtherTeamMembers)) {
+		if (bTeamInit || (GET_TEAM(getTeam()).getNumMembers() == iOtherTeamMembers)) {
+			GET_TEAM(getTeam()).changeNumMembers(1);
+		}
+	} else {
 		GET_TEAM(getTeam()).changeNumMembers(1);
 	}
 
@@ -358,25 +252,26 @@ void CvPlayer::initInGame(PlayerTypes eID) {
 		}
 
 		for (EventTypes eEvent = (EventTypes)0; eEvent < GC.getNumEventInfos(); eEvent = (EventTypes)(eEvent + 1)) {
-			// Has global trigger fired already?
-			const EventTriggeredData* pEvent = NULL;
-			for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
-				const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
-				if (ePlayer != getID()) {
-					pEvent = kPlayer.getEventOccured(eEvent);
-					if (pEvent != NULL) {
-						CvEventTriggerInfo& kTrigger = GC.getEventTriggerInfo(pEvent->m_eTrigger);
-						if (kTrigger.isGlobal()) {
-							setTriggerFired(*pEvent, false, false);
-							break;
-						} else if (kTrigger.isTeam() && kPlayer.getTeam() == getTeam()) {
-							setTriggerFired(*pEvent, false, false);
-							break;
+			if (bInGame) {
+				// Has global trigger fired already?
+				const EventTriggeredData* pEvent = NULL;
+				for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+					const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+					if (ePlayer != getID()) {
+						pEvent = kPlayer.getEventOccured(eEvent);
+						if (pEvent != NULL) {
+							CvEventTriggerInfo& kTrigger = GC.getEventTriggerInfo(pEvent->m_eTrigger);
+							if (kTrigger.isGlobal()) {
+								setTriggerFired(*pEvent, false, false);
+								break;
+							} else if (kTrigger.isTeam() && kPlayer.getTeam() == getTeam()) {
+								setTriggerFired(*pEvent, false, false);
+								break;
+							}
 						}
 					}
 				}
 			}
-
 			resetEventOccured(eEvent, false);
 		}
 
@@ -391,7 +286,8 @@ void CvPlayer::initInGame(PlayerTypes eID) {
 		}
 	}
 
-	resetPlotAndCityData();
+	if (bInGame)
+		resetPlotAndCityData();
 
 	AI_init();
 }

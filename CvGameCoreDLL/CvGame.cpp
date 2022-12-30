@@ -6792,23 +6792,23 @@ void CvGame::addPlayer(PlayerTypes eNewPlayer, LeaderHeadTypes eLeader, Civiliza
 	}
 	PlayerColorTypes eColor = (PlayerColorTypes)GC.getCivilizationInfo(eCiv).getDefaultPlayerColor();
 
-	for (int iI = 0; iI < MAX_CIV_PLAYERS; iI++) {
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
 		// Don't invalidate color choice if it's taken by this player
-		if (eColor == NO_PLAYERCOLOR || (GET_PLAYER((PlayerTypes)iI).getPlayerColor() == eColor && (PlayerTypes)iI != eNewPlayer)) {
-			for (int iK = 0; iK < GC.getNumPlayerColorInfos(); iK++) {
-				if (iK != GC.getCivilizationInfo((CivilizationTypes)GC.getDefineINT("BARBARIAN_CIVILIZATION")).getDefaultPlayerColor()) {
+		if (eColor == NO_PLAYERCOLOR || (GET_PLAYER(ePlayer).getPlayerColor() == eColor && ePlayer != eNewPlayer)) {
+			for (PlayerColorTypes ePlayerColour = (PlayerColorTypes)0; ePlayerColour < GC.getNumPlayerColorInfos(); ePlayerColour = (PlayerColorTypes)(ePlayerColour + 1)) {
+				if (ePlayerColour != GC.getCivilizationInfo((CivilizationTypes)GC.getDefineINT("BARBARIAN_CIVILIZATION")).getDefaultPlayerColor()) {
 					bool bValid = true;
 
-					for (int iL = 0; iL < MAX_CIV_PLAYERS; iL++) {
-						if (GET_PLAYER((PlayerTypes)iL).getPlayerColor() == iK) {
+					for (PlayerTypes eComparePlayer = (PlayerTypes)0; eComparePlayer < MAX_CIV_PLAYERS; eComparePlayer = (PlayerTypes)(eComparePlayer + 1)) {
+						if (GET_PLAYER(eComparePlayer).getPlayerColor() == ePlayerColour) {
 							bValid = false;
 							break;
 						}
 					}
 
 					if (bValid) {
-						eColor = (PlayerColorTypes)iK;
-						iI = MAX_CIV_PLAYERS;
+						eColor = ePlayerColour;
+						ePlayer = (PlayerTypes)MAX_CIV_PLAYERS;
 						break;
 					}
 				}
@@ -6821,9 +6821,9 @@ void CvGame::addPlayer(PlayerTypes eNewPlayer, LeaderHeadTypes eLeader, Civiliza
 	GC.getInitCore().setCiv(eNewPlayer, eCiv);
 	GC.getInitCore().setSlotStatus(eNewPlayer, SS_COMPUTER);
 	GC.getInitCore().setColor(eNewPlayer, eColor);
-	// Team init now handled when appropriate in player initInGame
+	// Team init now handled when appropriate in player init(PlayerTypes, bool)
 	// Standard player init is written for beginning of game, it resets global random events for this player only among other flaws
-	GET_PLAYER(eNewPlayer).initInGame(eNewPlayer);
+	GET_PLAYER(eNewPlayer).init(eNewPlayer, true);
 }
 
 void CvGame::changeHumanPlayer(PlayerTypes eNewHuman) {

@@ -35,7 +35,7 @@ public:
 	DllExport void setupGraphical();
 	DllExport void reset(PlayerTypes eID = NO_PLAYER, bool bConstructorCall = false);
 
-	void initInGame(PlayerTypes eID);
+	void init(PlayerTypes eID, bool bInGame);
 	void resetPlotAndCityData();
 
 	void setHasTrait(TraitTypes eTrait, bool bNewValue);
