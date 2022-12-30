@@ -5053,8 +5053,22 @@ void CvGameTextMgr::parseLeaderTraits(CvWStringBuffer& szHelpString, LeaderHeadT
 			"GC.getNumTraitInfos() is less than or equal to zero but is expected to be larger than zero in CvSimpleCivPicker::setLeaderText");
 
 		bool bFirst = true;
-		for (int iI = 0; iI < GC.getNumTraitInfos(); ++iI) {
-			if (GC.getLeaderHeadInfo(eLeader).hasTrait(iI)) {
+		for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
+			if (GC.getGame().isLeaderEverActive(eLeader)) {
+				for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+					CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+					if (kPlayer.isEverAlive() && kPlayer.getLeaderType() == eLeader && kPlayer.hasTrait(eTrait)) {
+						if (!bFirst) {
+							if (bDawnOfMan) {
+								szHelpString.append(L", ");
+							}
+						} else {
+							bFirst = false;
+						}
+						parseTraits(szHelpString, eTrait, eCivilization, bDawnOfMan);
+					}
+				}
+			} else if (GC.getLeaderHeadInfo(eLeader).hasTrait(eTrait)) {
 				if (!bFirst) {
 					if (bDawnOfMan) {
 						szHelpString.append(L", ");
@@ -5062,7 +5076,7 @@ void CvGameTextMgr::parseLeaderTraits(CvWStringBuffer& szHelpString, LeaderHeadT
 				} else {
 					bFirst = false;
 				}
-				parseTraits(szHelpString, ((TraitTypes)iI), eCivilization, bDawnOfMan);
+				parseTraits(szHelpString, eTrait, eCivilization, bDawnOfMan);
 			}
 		}
 	} else {

@@ -21,6 +21,8 @@ public:
 	CvPlayer* getPlayer() { return m_pPlayer; }	// Call from C++
 	bool isNone() { return (m_pPlayer == NULL); }
 
+	void setHasTrait(int /*TraitTypes*/ iIndex, bool bNewValue);
+
 	void changeLeader(int /*LeaderHeadTypes*/ eNewLeader);
 	void changeCiv(int /*CivilizationTypes*/ eNewCiv);
 	void setIsHuman(bool bNewValue);

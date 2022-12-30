@@ -80,6 +80,7 @@ CvPlayer::CvPlayer() {
 
 	m_pabResearchingTech = NULL;
 	m_pabLoyalMember = NULL;
+	m_pbTrait = NULL;
 
 	m_paeCivics = NULL;
 
@@ -196,43 +197,8 @@ void CvPlayer::init(PlayerTypes eID) {
 
 		FAssertMsg((GC.getNumTraitInfos() > 0), "GC.getNumTraitInfos() is less than or equal to zero but is expected to be larger than zero in CvPlayer::init");
 		for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
-			const CvTraitInfo& kTrait = GC.getTraitInfo(eTrait);
-			if (hasTrait(eTrait)) {
-				changeExtraHealth(kTrait.getHealth());
-				changeExtraHappiness(kTrait.getHappiness());
-
-				for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
-					changeExtraBuildingHappiness(eBuilding, GC.getBuildingInfo(eBuilding).getHappinessTraits(eTrait));
-				}
-
-				changeUpkeepModifier(kTrait.getUpkeepModifier());
-				changeLevelExperienceModifier(kTrait.getLevelExperienceModifier());
-				changeGreatPeopleRateModifier(kTrait.getGreatPeopleRateModifier());
-				changeGreatGeneralRateModifier(kTrait.getGreatGeneralRateModifier());
-				changeDomesticGreatGeneralRateModifier(kTrait.getDomesticGreatGeneralRateModifier());
-
-				changeMaxGlobalBuildingProductionModifier(kTrait.getMaxGlobalBuildingProductionModifier());
-				changeMaxTeamBuildingProductionModifier(kTrait.getMaxTeamBuildingProductionModifier());
-				changeMaxPlayerBuildingProductionModifier(kTrait.getMaxPlayerBuildingProductionModifier());
-				changeUnitRangeUnboundCount(kTrait.isUnitRangeUnbound() ? 1 : 0);
-				changeUnitTerritoryUnboundCount(kTrait.isUnitTerritoryUnbound() ? 1 : 0);
-				changeExtraRange(kTrait.getUnitRangeChange());
-				changeExtraRangePercent(kTrait.getUnitRangePercentChange());
-
-				for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
-					changeTradeYieldModifier(eYield, kTrait.getTradeYieldModifier(eYield));
-				}
-
-				for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
-					changeFreeCityCommerce(eCommerce, kTrait.getCommerceChange(eCommerce));
-					changeCommerceRateModifier(eCommerce, kTrait.getCommerceModifier(eCommerce));
-				}
-
-				for (CivicOptionTypes eCivicOption = (CivicOptionTypes)0; eCivicOption < GC.getNumCivicOptionInfos(); eCivicOption = (CivicOptionTypes)(eCivicOption + 1)) {
-					if (GC.getCivicOptionInfo(eCivicOption).getTraitNoUpkeep(eTrait)) {
-						changeNoCivicUpkeepCount(eCivicOption, 1);
-					}
-				}
+			if (GC.getLeaderHeadInfo(getLeaderType()).hasTrait(eTrait)) {
+				setHasTrait(eTrait, true);
 			}
 		}
 
@@ -371,43 +337,8 @@ void CvPlayer::initInGame(PlayerTypes eID) {
 
 		FAssertMsg((GC.getNumTraitInfos() > 0), "GC.getNumTraitInfos() is less than or equal to zero but is expected to be larger than zero in CvPlayer::init");
 		for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
-			const CvTraitInfo& kTrait = GC.getTraitInfo(eTrait);
-			if (hasTrait(eTrait)) {
-				changeExtraHealth(kTrait.getHealth());
-				changeExtraHappiness(kTrait.getHappiness());
-
-				for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
-					changeExtraBuildingHappiness(eBuilding, GC.getBuildingInfo(eBuilding).getHappinessTraits(eTrait));
-				}
-
-				changeUpkeepModifier(kTrait.getUpkeepModifier());
-				changeLevelExperienceModifier(kTrait.getLevelExperienceModifier());
-				changeGreatPeopleRateModifier(kTrait.getGreatPeopleRateModifier());
-				changeGreatGeneralRateModifier(kTrait.getGreatGeneralRateModifier());
-				changeDomesticGreatGeneralRateModifier(kTrait.getDomesticGreatGeneralRateModifier());
-
-				changeMaxGlobalBuildingProductionModifier(kTrait.getMaxGlobalBuildingProductionModifier());
-				changeMaxTeamBuildingProductionModifier(kTrait.getMaxTeamBuildingProductionModifier());
-				changeMaxPlayerBuildingProductionModifier(kTrait.getMaxPlayerBuildingProductionModifier());
-				changeUnitRangeUnboundCount(kTrait.isUnitRangeUnbound() ? 1 : 0);
-				changeUnitTerritoryUnboundCount(kTrait.isUnitTerritoryUnbound() ? 1 : 0);
-				changeExtraRange(kTrait.getUnitRangeChange());
-				changeExtraRangePercent(kTrait.getUnitRangePercentChange());
-
-				for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
-					changeTradeYieldModifier(eYield, kTrait.getTradeYieldModifier(eYield));
-				}
-
-				for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
-					changeFreeCityCommerce(eCommerce, kTrait.getCommerceChange(eCommerce));
-					changeCommerceRateModifier(eCommerce, kTrait.getCommerceModifier(eCommerce));
-				}
-
-				for (CivicOptionTypes eCivicOption = (CivicOptionTypes)0; eCivicOption < GC.getNumCivicOptionInfos(); eCivicOption = (CivicOptionTypes)(eCivicOption + 1)) {
-					if (GC.getCivicOptionInfo(eCivicOption).getTraitNoUpkeep(eTrait)) {
-						changeNoCivicUpkeepCount(eCivicOption, 1);
-					}
-				}
+			if (GC.getLeaderHeadInfo(getLeaderType()).hasTrait(eTrait)) {
+				setHasTrait(eTrait, true);
 			}
 		}
 
@@ -510,6 +441,7 @@ void CvPlayer::uninit() {
 
 	SAFE_DELETE_ARRAY(m_pabResearchingTech);
 	SAFE_DELETE_ARRAY(m_pabLoyalMember);
+	SAFE_DELETE_ARRAY(m_pbTrait);
 
 	SAFE_DELETE_ARRAY(m_paeCivics);
 
@@ -849,6 +781,12 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 			m_paiUpkeepCount[eUpkeep] = 0;
 		}
 
+		FAssertMsg(m_pbTrait == NULL, "about to leak memory, CvPlayer::m_pbTrait");
+		m_pbTrait = new bool[GC.getNumTraitInfos()];
+		for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
+			m_pbTrait[eTrait] = false;
+		}
+
 		FAssertMsg(0 < GC.getNumSpecialistInfos(), "GC.getNumSpecialistInfos() is not greater than zero but it is used to allocate memory in CvPlayer::reset");
 		FAssertMsg(m_paiSpecialistValidCount == NULL, "about to leak memory, CvPlayer::m_paiSpecialistValidCount");
 		m_paiSpecialistValidCount = new int[GC.getNumSpecialistInfos()];
@@ -898,107 +836,6 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 
 	if (!bConstructorCall) {
 		AI_reset(false);
-	}
-}
-
-//
-// for stripping obsolete trait bonuses
-// for complete reset, use in conjunction with addTraitBonuses
-//
-void CvPlayer::clearTraitBonuses() {
-	FAssertMsg((GC.getNumTraitInfos() > 0), "GC.getNumTraitInfos() is less than or equal to zero but is expected to be larger than zero in CvPlayer::init");
-	for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
-		const CvTraitInfo& kTrait = GC.getTraitInfo(eTrait);
-		if (hasTrait(eTrait)) {
-			changeExtraHealth(-kTrait.getHealth());
-			changeExtraHappiness(-kTrait.getHappiness());
-
-			for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
-				changeExtraBuildingHappiness(eBuilding, -GC.getBuildingInfo(eBuilding).getHappinessTraits(eTrait));
-			}
-
-			changeUpkeepModifier(-kTrait.getUpkeepModifier());
-			changeLevelExperienceModifier(-kTrait.getLevelExperienceModifier());
-			changeGreatPeopleRateModifier(-kTrait.getGreatPeopleRateModifier());
-			changeGreatGeneralRateModifier(-kTrait.getGreatGeneralRateModifier());
-			changeDomesticGreatGeneralRateModifier(-kTrait.getDomesticGreatGeneralRateModifier());
-
-			changeMaxGlobalBuildingProductionModifier(-kTrait.getMaxGlobalBuildingProductionModifier());
-			changeMaxTeamBuildingProductionModifier(-kTrait.getMaxTeamBuildingProductionModifier());
-			changeMaxPlayerBuildingProductionModifier(-kTrait.getMaxPlayerBuildingProductionModifier());
-			changeUnitRangeUnboundCount(kTrait.isUnitRangeUnbound() ? -1 : 0);
-			changeUnitTerritoryUnboundCount(kTrait.isUnitTerritoryUnbound() ? -1 : 0);
-			changeExtraRange(-kTrait.getUnitRangeChange());
-			changeExtraRangePercent(-kTrait.getUnitRangePercentChange());
-
-			for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
-				changeTradeYieldModifier(eYield, -kTrait.getTradeYieldModifier(eYield));
-			}
-
-			for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
-				changeFreeCityCommerce(eCommerce, -kTrait.getCommerceChange(eCommerce));
-				changeCommerceRateModifier(eCommerce, -kTrait.getCommerceModifier(eCommerce));
-			}
-
-			for (CivicOptionTypes eCivicOption = (CivicOptionTypes)0; eCivicOption < GC.getNumCivicOptionInfos(); eCivicOption = (CivicOptionTypes)(eCivicOption + 1)) {
-				if (GC.getCivicOptionInfo(eCivicOption).getTraitNoUpkeep(eTrait)) {
-					changeNoCivicUpkeepCount(eCivicOption, -1);
-				}
-			}
-		}
-	}
-}
-
-//
-// for adding new trait bonuses
-//
-void CvPlayer::addTraitBonuses() {
-	FAssertMsg((GC.getNumTraitInfos() > 0), "GC.getNumTraitInfos() is less than or equal to zero but is expected to be larger than zero in CvPlayer::init");
-	for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
-		const CvTraitInfo& kTrait = GC.getTraitInfo(eTrait);
-		if (hasTrait(eTrait)) {
-			changeExtraHealth(kTrait.getHealth());
-			changeExtraHappiness(kTrait.getHappiness());
-
-			for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
-				changeExtraBuildingHappiness(eBuilding, GC.getBuildingInfo(eBuilding).getHappinessTraits(eTrait));
-			}
-
-			changeUpkeepModifier(kTrait.getUpkeepModifier());
-			changeLevelExperienceModifier(kTrait.getLevelExperienceModifier());
-			changeGreatPeopleRateModifier(kTrait.getGreatPeopleRateModifier());
-			changeGreatGeneralRateModifier(kTrait.getGreatGeneralRateModifier());
-			changeDomesticGreatGeneralRateModifier(kTrait.getDomesticGreatGeneralRateModifier());
-
-			changeMaxGlobalBuildingProductionModifier(kTrait.getMaxGlobalBuildingProductionModifier());
-			changeMaxTeamBuildingProductionModifier(kTrait.getMaxTeamBuildingProductionModifier());
-			changeMaxPlayerBuildingProductionModifier(kTrait.getMaxPlayerBuildingProductionModifier());
-			changeUnitRangeUnboundCount(kTrait.isUnitRangeUnbound() ? 1 : 0);
-			changeUnitTerritoryUnboundCount(kTrait.isUnitTerritoryUnbound() ? 1 : 0);
-			changeExtraRange(kTrait.getUnitRangeChange());
-			changeExtraRangePercent(kTrait.getUnitRangePercentChange());
-
-			for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
-				changeTradeYieldModifier(eYield, kTrait.getTradeYieldModifier(eYield));
-			}
-
-			for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
-				changeFreeCityCommerce(eCommerce, kTrait.getCommerceChange(eCommerce));
-				changeCommerceRateModifier(eCommerce, kTrait.getCommerceModifier(eCommerce));
-			}
-
-			for (CivicOptionTypes eCivicOption = (CivicOptionTypes)0; eCivicOption < GC.getNumCivicOptionInfos(); eCivicOption = (CivicOptionTypes)(eCivicOption + 1)) {
-				if (GC.getCivicOptionInfo(eCivicOption).getTraitNoUpkeep(eTrait)) {
-					changeNoCivicUpkeepCount(eCivicOption, 1);
-				}
-			}
-		}
-	}
-
-	updateMaxAnarchyTurns();
-
-	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
-		updateExtraYieldThreshold(eYield);
 	}
 }
 
@@ -1080,13 +917,27 @@ void CvPlayer::changeLeader(LeaderHeadTypes eNewLeader) {
 	if (eOldLeader == eNewLeader)
 		return;
 
-	// Clear old traits
-	clearTraitBonuses();
+	// Clear old leaderhead traits
+	for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
+		if (GC.getLeaderHeadInfo(getLeaderType()).hasTrait(eTrait)) {
+			setHasTrait(eTrait, false);
+		}
+	}
 
 	GC.getInitCore().setLeader(getID(), eNewLeader);
 
-	// Add new traits
-	addTraitBonuses();
+	// Add new leaderhead traits
+	for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
+		if (GC.getLeaderHeadInfo(getLeaderType()).hasTrait(eTrait)) {
+			setHasTrait(eTrait, true);
+		}
+	}
+
+	updateMaxAnarchyTurns();
+
+	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+		updateExtraYieldThreshold(eYield);
+	}
 
 	// Set new personality
 	changePersonalityType();
@@ -2389,9 +2240,8 @@ CvSelectionGroup* CvPlayer::cycleSelectionGroups(CvUnit* pUnit, bool bForward, b
 
 
 bool CvPlayer::hasTrait(TraitTypes eTrait) const {
-	FAssertMsg((getLeaderType() >= 0), "getLeaderType() is less than zero");
 	FAssertMsg((eTrait >= 0), "eTrait is less than zero");
-	return GC.getLeaderHeadInfo(getLeaderType()).hasTrait(eTrait);
+	return m_pbTrait[eTrait];
 }
 
 void CvPlayer::setHumanDisabled(bool newVal) {
@@ -13603,6 +13453,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(GC.getNumTechInfos(), m_pabResearchingTech);
 
 	pStream->Read(GC.getNumVoteSourceInfos(), m_pabLoyalMember);
+	pStream->Read(GC.getNumTraitInfos(), m_pbTrait);
 
 	for (int iI = 0; iI < GC.getNumCivicOptionInfos(); iI++) {
 		pStream->Read((int*)&m_paeCivics[iI]);
@@ -14062,6 +13913,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(GC.getNumTechInfos(), m_pabResearchingTech);
 
 	pStream->Write(GC.getNumVoteSourceInfos(), m_pabLoyalMember);
+	pStream->Write(GC.getNumTraitInfos(), m_pbTrait);
 
 	for (int iI = 0; iI < GC.getNumCivicOptionInfos(); iI++) {
 		pStream->Write(m_paeCivics[iI]);
@@ -18513,3 +18365,53 @@ void CvPlayer::changeObsoleteBuildingCount(BuildingTypes eIndex, int iChange) {
 	}
 }
 
+void CvPlayer::setHasTrait(TraitTypes eTrait, bool bNewValue) {
+	FAssertMsg((eTrait >= 0), "eTrait is expected to be non-negative (invalid Index)");
+	FAssertMsg((eTrait < GC.getNumTraitInfos()), "eTrait is expected to be within maximum bounds (invalid Index)");
+
+	if (eTrait == NO_TRAIT)
+		return;
+
+	if (m_pbTrait[eTrait] == bNewValue)
+		return;
+
+	int iChange = bNewValue ? 1 : -1;
+	m_pbTrait[eTrait] = bNewValue;
+
+	const CvTraitInfo& kTrait = GC.getTraitInfo(eTrait);
+
+	changeExtraHealth(kTrait.getHealth() * iChange);
+	changeExtraHappiness(kTrait.getHappiness() * iChange);
+	changeUpkeepModifier(kTrait.getUpkeepModifier() * iChange);
+	changeLevelExperienceModifier(kTrait.getLevelExperienceModifier() * iChange);
+	changeGreatPeopleRateModifier(kTrait.getGreatPeopleRateModifier() * iChange);
+	changeGreatGeneralRateModifier(kTrait.getGreatGeneralRateModifier() * iChange);
+	changeDomesticGreatGeneralRateModifier(kTrait.getDomesticGreatGeneralRateModifier() * iChange);
+	changeMaxGlobalBuildingProductionModifier(kTrait.getMaxGlobalBuildingProductionModifier() * iChange);
+	changeMaxTeamBuildingProductionModifier(kTrait.getMaxTeamBuildingProductionModifier() * iChange);
+	changeMaxPlayerBuildingProductionModifier(kTrait.getMaxPlayerBuildingProductionModifier() * iChange);
+	changeUnitRangeUnboundCount(kTrait.isUnitRangeUnbound() ? iChange : 0);
+	changeUnitTerritoryUnboundCount(kTrait.isUnitTerritoryUnbound() ? iChange : 0);
+	changeExtraRange(kTrait.getUnitRangeChange() * iChange);
+	changeExtraRangePercent(kTrait.getUnitRangePercentChange() * iChange);
+
+	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+		changeExtraBuildingHappiness(eBuilding, GC.getBuildingInfo(eBuilding).getHappinessTraits(eTrait) * iChange);
+	}
+
+	for (CivicOptionTypes eCivicOption = (CivicOptionTypes)0; eCivicOption < GC.getNumCivicOptionInfos(); eCivicOption = (CivicOptionTypes)(eCivicOption + 1)) {
+		if (GC.getCivicOptionInfo(eCivicOption).getTraitNoUpkeep(eTrait)) {
+			changeNoCivicUpkeepCount(eCivicOption, iChange);
+		}
+	}
+
+	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+		changeFreeCityCommerce(eCommerce, kTrait.getCommerceChange(eCommerce) * iChange);
+		changeCommerceRateModifier(eCommerce, kTrait.getCommerceModifier(eCommerce) * iChange);
+	}
+
+	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+		changeTradeYieldModifier(eYield, kTrait.getTradeYieldModifier(eYield) * iChange);
+	}
+
+}

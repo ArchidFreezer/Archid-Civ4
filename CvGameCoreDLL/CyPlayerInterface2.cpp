@@ -72,5 +72,7 @@ void CyPlayerPythonInterface2(python::class_<CyPlayer>& x) {
 		.def("setExtraRangePercent", &CyPlayer::setExtraRangePercent, "void (int)")
 		.def("changeExtraRangePercent", &CyPlayer::changeExtraRangePercent, "void (int)")
 		.def("getExtraRangePercent", &CyPlayer::getExtraRangePercent, "int ()")
+
+		.def("setHasTrait", &CyPlayer::setHasTrait, "TraitTypes (eTrait), bool (bNewValue)")
 		;
 }
