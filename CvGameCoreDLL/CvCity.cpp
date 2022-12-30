@@ -12451,3 +12451,15 @@ void CvCity::changeDisabledBuildingCount(BuildingTypes eIndex, int iChange) {
 bool CvCity::isObsoleteBuilding(BuildingTypes eBuilding) const {
 	return GET_PLAYER(getOwnerINLINE()).isObsoleteBuilding(eBuilding);
 }
+
+
+int CvCity::getAdditionalBombardDefenseByBuilding(BuildingTypes eBuilding) const {
+	FAssertMsg(eBuilding >= 0, "eBuilding expected to be >= 0");
+	FAssertMsg(eBuilding < GC.getNumBuildingInfos(), "eBuilding expected to be < GC.getNumBuildingInfos()");
+
+	CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+	int iBaseDefense = getBuildingBombardDefense();
+
+	// cap total bombard defense at 100
+	return std::min(kBuilding.getBombardDefenseModifier() + iBaseDefense, 100) - iBaseDefense;
+}

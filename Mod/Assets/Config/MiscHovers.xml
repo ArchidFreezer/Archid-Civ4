@@ -2,17 +2,36 @@
 <!--
 	BULL Miscellaneous Hovers
 	by EmperorFool
-	
+
 	Copyright (c) 2009 The BUG Mod.
 -->
 <mod id="MiscHover" name="BULL Miscellaneous Hovers">
-	 
+
 	<options id="MiscHover" file="MiscHovers.ini">
 		<section id="Plot">
 			<option id="ShowCoords" key="Show Coords" type="boolean" default="False"/>
 			<option id="PlotWorkingCity" key="Plot Working City" type="boolean" default="True"/>
 			<option id="PlotRecommendedBuild" key="Plot Recommended Build" type="boolean" default="True"/>
 			<option id="PartialBuilds" key="Plot Partial Builds" type="boolean" default="True"/>
+		</section>
+
+		<section id="Building">
+			<option id="BuildingActualEffects" key="Building Actual Effects" type="boolean" default="True"/>
+		</section>
+
+		<section id="City Screen">
+			<option id="BaseCommerce" key="Base Commerce" type="boolean" default="True"/>
+			<option id="GreatPeopleRateBreakdown" key="Great People Rate Breakdown" type="boolean" default="True"/>
+			<option id="SpecialistActualEffects" key="Specialist Actual Effects" type="boolean" default="True"/>
+
+			<option id="BuildingSavedMaintenance" key="Building Saved Maintenance" type="boolean" default="True"/>
+			<option id="BuildingAdditionalFood" key="Building Additional Food" type="boolean" default="True"/>
+			<option id="BuildingAdditionalProduction" key="Building Additional Production" type="boolean" default="True"/>
+			<option id="BuildingAdditionalCommerce" key="Building Additional Commerce" type="boolean" default="True"/>
+			<option id="BuildingAdditionalHealth" key="Building Additional Health" type="boolean" default="True"/>
+			<option id="BuildingAdditionalHappiness" key="Building Additional Happiness" type="boolean" default="True"/>
+			<option id="BuildingAdditionalGreatPeople" key="Building Additional Great People" type="boolean" default="True"/>
+			<option id="BuildingAdditionalDefence" key="Building Additional Defence" type="boolean" default="True"/>
 		</section>
 	</options>
 </mod>

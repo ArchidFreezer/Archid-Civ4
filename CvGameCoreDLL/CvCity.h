@@ -493,6 +493,7 @@ public:
 
 	int getBuildingBombardDefense() const;										// Exposed to Python
 	void changeBuildingBombardDefense(int iChange);
+	int getAdditionalBombardDefenseByBuilding(BuildingTypes eBuilding) const;
 
 	int getFreeExperience() const;												// Exposed to Python
 	void changeFreeExperience(int iChange);

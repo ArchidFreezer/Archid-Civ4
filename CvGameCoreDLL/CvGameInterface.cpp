@@ -752,7 +752,7 @@ void CvGame::cycleSelectionGroups_delayed(int iDelay, bool bIncremental, bool bD
 	// Also note, cycleSelectionGroups currently causes a crash if the game is not initialised.
 	// (and this function is indirectly called during the set of up a new game - so we currently need that init check.)
 	PlayerTypes eActive = getActivePlayer();
-	if (GC.getGameINLINE().isFinalInitialized() && eActive != NO_PLAYER && GET_PLAYER(eActive).isHuman() && GC.getRAPID_UNIT_CYCLING()) {
+	if (GC.getGameINLINE().isFinalInitialized() && eActive != NO_PLAYER && GET_PLAYER(eActive).isHuman() && getOptionBOOL("Actions__RapidUnitCycling", false)) {
 		if (!bDelayOnly) {
 			if (GET_PLAYER(eActive).isOption(PLAYEROPTION_NO_UNIT_CYCLING)) // (for the non-rapid case, this option is handled elsewhere.)
 				return;

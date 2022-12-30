@@ -60,6 +60,7 @@
 		</arg>
 	</init>
 		
+	<load mod="AdvancedCombatOdds"/>
 	<load mod="CityBar"/>
 	<load mod="MiscHovers"/>
 	<load mod="UnitActions"/>

@@ -234,7 +234,7 @@
 		<French>[ICON_BULLET]%D1_Mod%% [ICON_UNHEALTHY] (population)</French>
 		<German>[ICON_BULLET]%D1_Mod%% [ICON_UNHEALTHY] durch Bev&#246;lkerung</German>
 		<Italian>[ICON_BULLET]%D1_Mod%% [ICON_UNHEALTHY] tra la popolazione</Italian>
-		<Spanish>[ICON_BULLET]%D1_Mod%% [ICON_UNHEALTHY] por poblaci&#243;n</Spanish>		
+		<Spanish>[ICON_BULLET]%D1_Mod%% [ICON_UNHEALTHY] por poblaci&#243;n</Spanish>
 	</TEXT>
 <!-- Corporation bonus prereqs -->
 	<TEXT>
@@ -549,7 +549,7 @@
 		<German>[COLOR_UNIT_TEXT]TP[COLOR_REVERT]</German>
 		<Italian>[COLOR_UNIT_TEXT]PV[COLOR_REVERT]</Italian>
 		<Spanish>[COLOR_UNIT_TEXT]PV[COLOR_REVERT]</Spanish>
-	</TEXT>	
+	</TEXT>
 	<TEXT>
 		<Tag>TXT_ACO_XP</Tag>
 		<English>XP</English>
@@ -565,23 +565,6 @@
 		<German>&#x0D7;</German>
 		<Italian>&#x0D7;</Italian>
 		<Spanish>&#x0D7;</Spanish>
-	</TEXT>
-<!-- BUG Additional City/Building Info -->
-	<TEXT>
-		<Tag>TXT_KEY_ACTUAL_EFFECTS</Tag>
-		<English>Net Effect</English>
-		<French>Net Effect</French>
-		<German>Effektiv</German>
-		<Italian>Effettivo</Italian>
-		<Spanish>Efecto neto</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_MISC_HELP_COMMERCE_SUBTOTAL_YIELD_FLOAT</Tag>
-		<English>-----------------------[NEWLINE]Base %s1_commerce_type: %s2%F3</English>
-		<French>-----------------------[NEWLINE]Total partiel %s1_commerce_type : %s2%F3</French>
-		<German>-----------------------[NEWLINE]Grundertrag %s1_commerce_type: %s2%F3</German>
-		<Italian>-----------------------[NEWLINE]%s1_commerce_type totale parziale: %s2%F3</Italian>
-		<Spanish>-----------------------[NEWLINE]Subtotal %s1_commerce_type: %s2%F3</Spanish>
 	</TEXT>
 <!-- Auto-avoid Growth -->
 	<TEXT>
@@ -668,11 +651,11 @@
 		<English>[ICON_BULLET][COLOR_WARNING_TEXT]Replaces[COLOR_REVERT][SPACE]</English>
 		<French>[ICON_BULLET][COLOR_WARNING_TEXT]Remplace[COLOR_REVERT][SPACE]</French>
 		<German>[ICON_BULLET][COLOR_WARNING_TEXT]Ersetzt[COLOR_REVERT][SPACE]</German>
-	</TEXT>	
+	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_REPLACED_BY_BUILDING</Tag>
 		<English>[ICON_BULLET][COLOR_WARNING_TEXT]Replaced by[COLOR_REVERT][SPACE]</English>
-	</TEXT>	
+	</TEXT>
 <!-- Civic Unit prereq -->
 	<TEXT>
 		<Tag>TXT_KEY_CIVIC_BLOCKS_UNIT</Tag>

@@ -19,6 +19,7 @@
 #include "CvPopupInfo.h"
 #include "FProfiler.h"
 #include "CvMessageControl.h"
+#include "CvIniOptions.h"
 
 CvDLLWidgetData* CvDLLWidgetData::m_pInst = NULL;
 
@@ -203,6 +204,7 @@ void CvDLLWidgetData::parseHelp(CvWStringBuffer& szBuffer, CvWidgetDataStruct& w
 		break;
 
 	case WIDGET_HELP_DEFENSE:
+		parseDefenseHelp(widgetDataStruct, szBuffer);
 		break;
 
 	case WIDGET_HELP_HEALTH:
@@ -580,6 +582,9 @@ void CvDLLWidgetData::parseHelp(CvWStringBuffer& szBuffer, CvWidgetDataStruct& w
 		break;
 	case WIDGET_HELP_GW_UNHAPPY:
 		szBuffer.assign(gDLL->getText("TXT_KEY_GW_UNHAPPY_HELP"));
+		break;
+	case WIDGET_FOOD_MOD_HELP:
+		parseFoodModHelp(widgetDataStruct, szBuffer);
 		break;
 	}
 }
@@ -1950,7 +1955,7 @@ void CvDLLWidgetData::parseActionHelp(CvWidgetDataStruct& widgetDataStruct, CvWS
 					}
 				}
 			} else if (GC.getActionInfo(widgetDataStruct.m_iData1).getMissionType() == MISSION_JOIN) {
-				GAMETEXT.parseSpecialistHelp(szBuffer, ((SpecialistTypes)(GC.getActionInfo(widgetDataStruct.m_iData1).getMissionData())), pMissionCity, true);
+				GAMETEXT.parseSpecialistHelpActual(szBuffer, ((SpecialistTypes)(GC.getActionInfo(widgetDataStruct.m_iData1).getMissionData())), pMissionCity, true);
 			} else if (GC.getActionInfo(widgetDataStruct.m_iData1).getMissionType() == MISSION_CONSTRUCT) {
 				BuildingTypes eBuilding = ((BuildingTypes)(GC.getActionInfo(widgetDataStruct.m_iData1).getMissionData()));
 
@@ -2531,7 +2536,7 @@ void CvDLLWidgetData::parseDisabledCitizenHelp(CvWidgetDataStruct& widgetDataStr
 	CvCity* pHeadSelectedCity = gDLL->getInterfaceIFace()->getHeadSelectedCity();
 	if (pHeadSelectedCity != NULL) {
 		if (widgetDataStruct.m_iData1 != NO_SPECIALIST) {
-			GAMETEXT.parseSpecialistHelp(szBuffer, ((SpecialistTypes)(widgetDataStruct.m_iData1)), pHeadSelectedCity);
+			GAMETEXT.parseSpecialistHelpActual(szBuffer, ((SpecialistTypes)(widgetDataStruct.m_iData1)), pHeadSelectedCity);
 
 			if (!(pHeadSelectedCity->isSpecialistValid(((SpecialistTypes)(widgetDataStruct.m_iData1)), 1))) {
 				bool bFirst = true;
@@ -2576,7 +2581,7 @@ void CvDLLWidgetData::parseChangeSpecialistHelp(CvWidgetDataStruct& widgetDataSt
 	CvCity* pHeadSelectedCity = gDLL->getInterfaceIFace()->getHeadSelectedCity();
 	if (pHeadSelectedCity != NULL) {
 		if (widgetDataStruct.m_iData2 > 0) {
-			GAMETEXT.parseSpecialistHelp(szBuffer, ((SpecialistTypes)(widgetDataStruct.m_iData1)), pHeadSelectedCity);
+			GAMETEXT.parseSpecialistHelpActual(szBuffer, ((SpecialistTypes)(widgetDataStruct.m_iData1)), pHeadSelectedCity);
 
 			if (widgetDataStruct.m_iData1 != GC.getDefineINT("DEFAULT_SPECIALIST")) {
 				if (!(GET_PLAYER(pHeadSelectedCity->getOwnerINLINE()).isSpecialistValid((SpecialistTypes)(widgetDataStruct.m_iData1)))) {
@@ -3745,7 +3750,7 @@ void CvDLLWidgetData::parseMaintenanceHelp(CvWidgetDataStruct& widgetDataStruct,
 				szBuffer.append(szTempBuffer);
 			}
 
-			if (pHeadSelectedCity->getOwnerINLINE() == GC.getGame().getActivePlayer() && GC.getBUG_BUILDING_SAVED_MAINTENANCE_HOVER()) {
+			if (pHeadSelectedCity->getOwnerINLINE() == GC.getGame().getActivePlayer() && getOptionBOOL("MiscHover__BuildingSavedMaintenance", true)) {
 				GAMETEXT.setBuildingSavedMaintenanceHelp(szBuffer, *pHeadSelectedCity, DOUBLE_SEPARATOR);
 			}
 		}
@@ -3760,7 +3765,7 @@ void CvDLLWidgetData::parseHealthHelp(CvWidgetDataStruct& widgetDataStruct, CvWS
 		szBuffer.append(L"\n=======================\n");
 		GAMETEXT.setGoodHealthHelp(szBuffer, *pHeadSelectedCity);
 
-		if (pHeadSelectedCity->getOwnerINLINE() == GC.getGame().getActivePlayer() && GC.getBUG_BUILDING_ADDITIONAL_HEALTH_HOVER()) {
+		if (pHeadSelectedCity->getOwnerINLINE() == GC.getGame().getActivePlayer() && getOptionBOOL("MiscHover__BuildingAdditionalHealth", true)) {
 			GAMETEXT.setBuildingAdditionalHealthHelp(szBuffer, *pHeadSelectedCity, DOUBLE_SEPARATOR);
 		}
 	}
@@ -3812,7 +3817,7 @@ void CvDLLWidgetData::parseHappinessHelp(CvWidgetDataStruct& widgetDataStruct, C
 		szBuffer.append(L"\n=======================\n");
 		GAMETEXT.setHappyHelp(szBuffer, *pHeadSelectedCity);
 
-		if (pHeadSelectedCity->getOwnerINLINE() == GC.getGame().getActivePlayer() && GC.getBUG_BUILDING_ADDITIONAL_HAPPINESS_HOVER()) {
+		if (pHeadSelectedCity->getOwnerINLINE() == GC.getGame().getActivePlayer() && getOptionBOOL("MiscHover__BuildingAdditionalHappiness", true)) {
 			GAMETEXT.setBuildingAdditionalHappinessHelp(szBuffer, *pHeadSelectedCity, DOUBLE_SEPARATOR);
 		}
 	}
@@ -4504,5 +4509,19 @@ void CvDLLWidgetData::parsePollutionHelp(CvWidgetDataStruct& widgetDataStruct, C
 	if (iFlags & POLLUTION_POWER) {
 		szBuffer.append(NEWLINE);
 		szBuffer.append(gDLL->getText("TXT_KEY_POLLUTION_FROM_POWER", GC.getDefineINT("GLOBAL_WARMING_POWER_WEIGHT")));
+	}
+}
+
+void CvDLLWidgetData::parseFoodModHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
+	CvCity* pCity = gDLL->getInterfaceIFace()->getHeadSelectedCity();
+	if (NULL != pCity) {
+		GAMETEXT.setFoodHelp(szBuffer, *pCity);
+	}
+}
+
+void CvDLLWidgetData::parseDefenseHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
+	CvCity* pHeadSelectedCity = gDLL->getInterfaceIFace()->getHeadSelectedCity();
+	if (NULL != pHeadSelectedCity) {
+		GAMETEXT.setDefenseHelp(szBuffer, *pHeadSelectedCity);
 	}
 }

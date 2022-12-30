@@ -24,6 +24,7 @@
 #include <set>
 #include "CvEventReporter.h"
 #include "CvMessageControl.h"
+#include "CvIniOptions.h"
 
 // interface uses
 #include "CvDLLInterfaceIFaceBase.h"
@@ -1879,7 +1880,7 @@ void CvGame::selectUnit(CvUnit* pUnit, bool bClear, bool bToggle, bool bSound) c
 
 	// K-Mod. Redesigned to make selection more sensible and predictable
 	// In 'simple mode', shift always groups and always targets a only a single unit.
-	bool bSimpleMode = GC.getSIMPLE_SELECTION_MODE();
+	bool bSimpleMode = getOptionBOOL("Actions__SimpleSelectionMode", false);
 
 	bool bExplicitDeselect = false;
 

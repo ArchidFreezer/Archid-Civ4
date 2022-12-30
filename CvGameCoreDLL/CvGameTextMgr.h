@@ -64,6 +64,7 @@ public:
 	DllExport void parseLeaderShortTraits(CvWStringBuffer& szInfoText, LeaderHeadTypes eLeader);
 	DllExport void parseCivInfos(CvWStringBuffer& szHelpString, CivilizationTypes eCivilization, bool bDawnOfMan = false, bool bLinks = true);
 	DllExport void parseSpecialistHelp(CvWStringBuffer& szHelpString, SpecialistTypes eSpecialist, CvCity* pCity, bool bCivilopediaText = false);
+	void parseSpecialistHelpActual(CvWStringBuffer& szHelpString, SpecialistTypes eSpecialist, CvCity* pCity, bool bCivilopediaText = false, int iChange = 0);
 	DllExport void parseFreeSpecialistHelp(CvWStringBuffer& szHelpString, const CvCity& kCity);
 	DllExport void parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes ePromotion, const wchar* pcNewline = NEWLINE);
 	DllExport void parseCivicInfo(CvWStringBuffer& szBuffer, CivicTypes eCivic, bool bCivilopediaText = false, bool bPlayerContext = false, bool bSkipName = false);
@@ -120,6 +121,10 @@ public:
 	DllExport void setTradeRouteHelp(CvWStringBuffer& szBuffer, int iRoute, CvCity* pCity);
 	DllExport void setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, const CvPlot* pPlot, int iExtraData, const CvUnit* pSpyUnit);
 	DllExport void setEspionageMissionHelp(CvWStringBuffer& szBuffer, const CvUnit* pUnit);
+	void setFoodHelp(CvWStringBuffer& szBuffer, CvCity& city);
+	void setDefenseHelp(CvWStringBuffer& szBuffer, CvCity& city);
+	bool setBuildingAdditionalDefenceHelp(CvWStringBuffer& szBuffer, const CvCity& city, const CvWString& szStart, bool bStarted = false);
+	bool setBuildingAdditionalBombardDefenceHelp(CvWStringBuffer& szBuffer, const CvCity& city, const CvWString& szStart, bool bStarted = false);
 
 	DllExport void buildObsoleteString(CvWStringBuffer& szBuffer, int iItem, bool bList = false, bool bPlayerContext = false);
 	DllExport void buildObsoleteBonusString(CvWStringBuffer& szBuffer, int iItem, bool bList = false, bool bPlayerContext = false);

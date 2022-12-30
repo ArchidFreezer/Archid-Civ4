@@ -1853,3 +1853,7 @@ bool CyCity::isAutoAvoidGrowth() {
 	}
 	return false;
 }
+
+int CyCity::getAdditionalBombardDefenseByBuilding(int /*BuildingTypes*/ eBuilding) {
+	return m_pCity ? m_pCity->getAdditionalBombardDefenseByBuilding((BuildingTypes)eBuilding) : -1;
+}

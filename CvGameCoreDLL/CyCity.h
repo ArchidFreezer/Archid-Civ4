@@ -279,6 +279,7 @@ public:
 	int getTradeCultureRateTimes100(int iLevel) const; // K-Mod
 	int getBuildingDefense();
 	int getBuildingBombardDefense();
+	int getAdditionalBombardDefenseByBuilding(int /*BuildingTypes*/ eBuilding);
 	int getFreeExperience();
 	int getCurrAirlift();
 	int getMaxAirlift();
