@@ -413,6 +413,7 @@
 	<ElementType name="iMinPopulation" content="textOnly" dt:type="int"/>
 	<ElementType name="MinCultureLevel" content="textOnly"/>
 	<ElementType name="bPrereqPower" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iWorkableRadius" content="textOnly" dt:type="int"/>
 	<ElementType name="BuildingInfo" content="eltOnly">
 		<element type="BuildingClass"/>
 		<element type="Type"/>
@@ -496,6 +497,7 @@
 		<element type="iLevelPrereq" minOccurs="0"/>
 		<element type="iMinLatitude" minOccurs="0"/>
 		<element type="iMaxLatitude" minOccurs="0"/> <!-- Default: 90 -->
+		<element type="iWorkableRadius" minOccurs="0"/>
 		<element type="iGreatPeopleRateModifier" minOccurs="0"/>
 		<element type="iGreatGeneralRateModifier" minOccurs="0"/>
 		<element type="iDomesticGreatGeneralRateModifier" minOccurs="0"/>

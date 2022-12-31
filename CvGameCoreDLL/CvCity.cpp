@@ -419,6 +419,7 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 	m_iCitySizeBoost = 0;
 	m_iSpecialistFreeExperience = 0;
 	m_iEspionageDefenseModifier = 0;
+	m_iWorkableRadiusOverride = 0;
 
 	m_bNeverLost = true;
 	m_bBombarded = false;
@@ -826,7 +827,7 @@ void CvCity::doTurn() {
 	updateEspionageVisibility(true);
 
 	if (!isDisorder()) {
-		for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+		for (int iI = 0; iI < getNumCityPlots(); iI++) {
 			CvPlot* pLoopPlot = getCityIndexPlot(iI);
 
 			if (pLoopPlot != NULL) {
@@ -891,7 +892,7 @@ void CvCity::doTurn() {
 
 			int iCount = 0;
 
-			for (int iJ = 0; iJ < NUM_CITY_PLOTS; iJ++) {
+			for (int iJ = 0; iJ < getNumCityPlots(); iJ++) {
 				if (isWorkingPlot(iJ)) {
 					CvPlot* pPlot = getCityIndexPlot(iJ);
 
@@ -964,7 +965,7 @@ bool CvCity::canBeSelected() const {
 
 
 void CvCity::updateSelectedCity(bool bTestProduction) {
-	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+	for (int iI = 0; iI < getNumCityPlots(); iI++) {
 		CvPlot* pLoopPlot = getCityIndexPlot(iI);
 		if (pLoopPlot != NULL) {
 			pLoopPlot->updateShowCitySymbols();
@@ -981,7 +982,7 @@ void CvCity::updateSelectedCity(bool bTestProduction) {
 
 
 void CvCity::updateYield() {
-	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+	for (int iI = 0; iI < getNumCityPlots(); iI++) {
 		CvPlot* pLoopPlot = getCityIndexPlot(iI);
 
 		if (pLoopPlot != NULL) {
@@ -1132,6 +1133,7 @@ bool CvCity::canWork(CvPlot* pPlot) const {
 	}
 
 	FAssertMsg(getCityPlotIndex(pPlot) != -1, "getCityPlotIndex(pPlot) is expected to be assigned (not -1)");
+	if (getCityPlotIndex(pPlot) >= getNumCityPlots()) return false;
 
 	if (pPlot->plotCheck(PUF_canSiege, getOwnerINLINE()) != NULL) {
 		return false;
@@ -1194,7 +1196,7 @@ void CvCity::clearWorkingOverride(int iIndex) {
 int CvCity::countNumImprovedPlots(ImprovementTypes eImprovement, bool bPotential) const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+	for (int iI = 0; iI < getNumCityPlots(); iI++) {
 		CvPlot* pLoopPlot = getCityIndexPlot(iI);
 
 		if (pLoopPlot != NULL) {
@@ -1218,7 +1220,7 @@ int CvCity::countNumImprovedPlots(ImprovementTypes eImprovement, bool bPotential
 int CvCity::countNumWaterPlots() const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+	for (int iI = 0; iI < getNumCityPlots(); iI++) {
 		CvPlot* pLoopPlot = getCityIndexPlot(iI);
 
 		if (pLoopPlot != NULL) {
@@ -1236,7 +1238,7 @@ int CvCity::countNumWaterPlots() const {
 int CvCity::countNumRiverPlots() const {
 	int iCount = 0;
 
-	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+	for (int iI = 0; iI < getNumCityPlots(); iI++) {
 		CvPlot* pLoopPlot = getCityIndexPlot(iI);
 
 		if (pLoopPlot != NULL) {
@@ -3108,6 +3110,10 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 			changeFreePromotionCount(((PromotionTypes)(kBuilding.getFreePromotion())), iChange);
 		}
 
+		if (kBuilding.getWorkableRadius() != 0) {
+			updateWorkableRadiusOverride();
+		}
+
 		changeEspionageDefenseModifier(kBuilding.getEspionageDefenseModifier() * iChange);
 		changeGreatPeopleRateModifier(kBuilding.getGreatPeopleRateModifier() * iChange);
 		changeFreeExperience(kBuilding.getFreeExperience() * iChange);
@@ -4081,7 +4087,7 @@ int CvCity::culturePressureFactor() const {
 	int iAnswer = 0;
 	const int iDivisor = 60;
 
-	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+	for (int iI = 0; iI < getNumCityPlots(); iI++) {
 		CvPlot* pLoopPlot = getCityIndexPlot(iI);
 
 		if (pLoopPlot != NULL && pLoopPlot->isWithinCultureRange(getOwner())) {
@@ -5056,7 +5062,7 @@ void CvCity::updateFeatureHealth() {
 	int iNewGoodHealth = 0;
 	int iNewBadHealth = 0;
 
-	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+	for (int iI = 0; iI < getNumCityPlots(); iI++) {
 		CvPlot* pLoopPlot = getCityIndexPlot(iI);
 
 		if (pLoopPlot != NULL) {
@@ -5639,7 +5645,7 @@ void CvCity::updateFeatureHappiness() {
 	int iNewFeatureGoodHappiness = 0;
 	int iNewFeatureBadHappiness = 0;
 
-	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+	for (int iI = 0; iI < getNumCityPlots(); iI++) {
 		CvPlot* pLoopPlot = getCityIndexPlot(iI);
 
 		if (pLoopPlot != NULL) {
@@ -6608,6 +6614,7 @@ int CvCity::getCultureThreshold(CultureLevelTypes eLevel) {
 
 void CvCity::setCultureLevel(CultureLevelTypes eNewValue, bool bUpdatePlotGroups) {
 	CultureLevelTypes eOldValue = getCultureLevel();
+	int iOldNumCityPlots = getNumCityPlots();
 
 	if (eOldValue != eNewValue) {
 		m_eCultureLevel = eNewValue;
@@ -6679,6 +6686,10 @@ void CvCity::setCultureLevel(CultureLevelTypes eNewValue, bool bUpdatePlotGroups
 				//Stop Build Culture
 				// K-Mod does this in a different way, to avoid an overflow bug. (And a different way to the Unofficial Patch, to avoid OOS)
 			}
+		}
+		// If the number of plots has changed then check for any changes in features from the new size
+		if (getNumCityPlots() != iOldNumCityPlots) {
+			doWorkableRadiusChanged();
 		}
 	}
 }
@@ -6773,7 +6784,7 @@ int CvCity::getAdditionalBaseYieldRateByBuilding(YieldTypes eIndex, BuildingType
 	if (!isObsoleteBuilding(eBuilding)) {
 		if (kBuilding.getSeaPlotYieldChange(eIndex) != 0) {
 			int iChange = kBuilding.getSeaPlotYieldChange(eIndex);
-			for (int iPlot = 0; iPlot < NUM_CITY_PLOTS; ++iPlot) {
+			for (int iPlot = 0; iPlot < getNumCityPlots(); ++iPlot) {
 				if (isWorkingPlot(iPlot) && getCityIndexPlot(iPlot)->isWater()) {
 					iExtraRate += iChange;
 				}
@@ -6781,7 +6792,7 @@ int CvCity::getAdditionalBaseYieldRateByBuilding(YieldTypes eIndex, BuildingType
 		}
 		if (kBuilding.getRiverPlotYieldChange(eIndex) != 0) {
 			int iChange = kBuilding.getRiverPlotYieldChange(eIndex);
-			for (int iPlot = 0; iPlot < NUM_CITY_PLOTS; ++iPlot) {
+			for (int iPlot = 0; iPlot < getNumCityPlots(); ++iPlot) {
 				if (isWorkingPlot(iPlot) && getCityIndexPlot(iPlot)->isRiver()) {
 					iExtraRate += iChange;
 				}
@@ -8125,7 +8136,7 @@ void CvCity::setRevealed(TeamTypes eIndex, bool bNewValue) {
 		updateVisibility();
 
 		if (eIndex == GC.getGameINLINE().getActiveTeam()) {
-			for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+			for (int iI = 0; iI < getNumCityPlots(); iI++) {
 				CvPlot* pLoopPlot = getCityIndexPlot(iI);
 
 				if (pLoopPlot != NULL) {
@@ -8650,7 +8661,7 @@ void CvCity::alterSpecialistCount(SpecialistTypes eIndex, int iChange) {
 						AI_addBestCitizen(false, true);
 					} else {
 						int iNumCanWorkPlots = 0;
-						for (int iJ = 0; iJ < NUM_CITY_PLOTS; iJ++) {
+						for (int iJ = 0; iJ < getNumCityPlots(); iJ++) {
 							if (iJ != CITY_HOME_PLOT) {
 								if (!isWorkingPlot(iJ)) {
 									CvPlot* pLoopPlot = getCityIndexPlot(iJ);
@@ -8971,7 +8982,7 @@ void CvCity::setWorkingPlot(CvPlot* pPlot, bool bNewValue) {
 
 void CvCity::alterWorkingPlot(int iIndex) {
 	FAssertMsg(iIndex >= 0, "iIndex expected to be >= 0");
-	FAssertMsg(iIndex < NUM_CITY_PLOTS, "iIndex expected to be < NUM_CITY_PLOTS");
+	FAssertMsg(iIndex < getNumCityPlots(), "iIndex expected to be < getNumCityPlots()");
 
 	if (iIndex == CITY_HOME_PLOT) {
 		setCitizensAutomated(true);
@@ -10823,6 +10834,7 @@ void CvCity::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iCitySizeBoost);
 	pStream->Read(&m_iSpecialistFreeExperience);
 	pStream->Read(&m_iEspionageDefenseModifier);
+	pStream->Read(&m_iWorkableRadiusOverride);
 
 	pStream->Read(&m_bNeverLost);
 	pStream->Read(&m_bBombarded);
@@ -11056,6 +11068,7 @@ void CvCity::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iCitySizeBoost);
 	pStream->Write(m_iSpecialistFreeExperience);
 	pStream->Write(m_iEspionageDefenseModifier);
+	pStream->Write(m_iWorkableRadiusOverride);
 
 	pStream->Write(m_bNeverLost);
 	pStream->Write(m_bBombarded);
@@ -11704,7 +11717,7 @@ bool CvCity::canApplyEvent(EventTypes eEvent, const EventTriggeredData& kTrigger
 
 	if (kEvent.getMinPillage() > 0) {
 		int iNumImprovements = 0;
-		for (int i = 0; i < NUM_CITY_PLOTS; ++i) {
+		for (int i = 0; i < getNumCityPlots(); ++i) {
 			if (CITY_HOME_PLOT != i) {
 				CvPlot* pPlot = getCityIndexPlot(i);
 				if (NULL != pPlot && pPlot->getOwnerINLINE() == getOwnerINLINE()) {
@@ -11772,9 +11785,9 @@ void CvCity::applyEvent(EventTypes eEvent, const EventTriggeredData& kTriggeredD
 
 			int iNumPillaged = 0;
 			for (int i = 0; i < iNumPillage; ++i) {
-				int iRandOffset = GC.getGameINLINE().getSorenRandNum(NUM_CITY_PLOTS, "Pick event pillage plot");
-				for (int j = 0; j < NUM_CITY_PLOTS; ++j) {
-					int iPlot = (j + iRandOffset) % NUM_CITY_PLOTS;
+				int iRandOffset = GC.getGameINLINE().getSorenRandNum(getNumCityPlots(), "Pick event pillage plot");
+				for (int j = 0; j < getNumCityPlots(); ++j) {
+					int iPlot = (j + iRandOffset) % getNumCityPlots();
 					if (CITY_HOME_PLOT != iPlot) {
 						CvPlot* pPlot = getCityIndexPlot(iPlot);
 						if (NULL != pPlot && pPlot->getOwnerINLINE() == getOwnerINLINE()) {
@@ -12214,13 +12227,13 @@ PlayerTypes CvCity::getLiberationPlayer(bool bConquest) const {
 		return NO_PLAYER;
 	}
 
-	for (int iPlayer = 0; iPlayer < MAX_CIV_PLAYERS; ++iPlayer) {
-		const CvPlayer& kLoopPlayer = GET_PLAYER((PlayerTypes)iPlayer);
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		const CvPlayer& kLoopPlayer = GET_PLAYER(ePlayer);
 		if (kLoopPlayer.isAlive() && kLoopPlayer.getParent() == getOwnerINLINE()) {
 			CvCity* pLoopCapital = kLoopPlayer.getCapitalCity();
 			if (NULL != pLoopCapital) {
 				if (pLoopCapital->area() == area()) {
-					return (PlayerTypes)iPlayer;
+					return ePlayer;
 				}
 			}
 		}
@@ -12301,7 +12314,7 @@ PlayerTypes CvCity::getLiberationPlayer(bool bConquest) const {
 			return NO_PLAYER;
 		}
 
-		for (int iPlot = 0; iPlot < NUM_CITY_PLOTS; ++iPlot) {
+		for (int iPlot = 0; iPlot < getNumCityPlots(); ++iPlot) {
 			CvPlot* pLoopPlot = ::plotCity(getX_INLINE(), getY_INLINE(), iPlot);
 
 			if (NULL != pLoopPlot) {
@@ -12318,7 +12331,7 @@ PlayerTypes CvCity::getLiberationPlayer(bool bConquest) const {
 int CvCity::getBestYieldAvailable(YieldTypes eYield) const {
 	int iBestYieldAvailable = 0;
 
-	for (int iJ = 0; iJ < NUM_CITY_PLOTS; ++iJ) {
+	for (int iJ = 0; iJ < getNumCityPlots(); ++iJ) {
 		if (iJ != CITY_HOME_PLOT) {
 			if (!isWorkingPlot(iJ)) {
 				CvPlot* pPlot = getCityIndexPlot(iJ);
@@ -12701,7 +12714,7 @@ bool CvCity::hasVicinityTerrain(TerrainTypes eTerrain, CvPlot* pExcludePlot) con
 		return true;
 	}
 
-	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+	for (int iI = 0; iI < getNumCityPlots(); iI++) {
 		CvPlot* pLoopPlot = plotCity(getX_INLINE(), getY_INLINE(), iI);
 		if (pLoopPlot != NULL && pLoopPlot != pExcludePlot && pLoopPlot->getWorkingCity() == this) {
 			if (pLoopPlot->getTerrainType() == eTerrain || pLoopPlot->isPeak() && (eTerrain == iTerrainPeak) || pLoopPlot->isHills() && (eTerrain == iTerrainHill)) {
@@ -12716,7 +12729,7 @@ bool CvCity::hasVicinityTerrain(TerrainTypes eTerrain, CvPlot* pExcludePlot) con
 bool CvCity::hasVicinityImprovement(ImprovementTypes eImprovement, CvPlot* pExcludePlot) const {
 	PROFILE_FUNC();
 
-	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+	for (int iI = 0; iI < getNumCityPlots(); iI++) {
 		CvPlot* pLoopPlot = plotCity(getX_INLINE(), getY_INLINE(), iI);
 		if (pLoopPlot != NULL && pLoopPlot != pExcludePlot && pLoopPlot->getWorkingCity() == this) {
 			if (pLoopPlot->getImprovementType() == eImprovement) {
@@ -12731,7 +12744,7 @@ bool CvCity::hasVicinityImprovement(ImprovementTypes eImprovement, CvPlot* pExcl
 bool CvCity::hasVicinityFeature(FeatureTypes eFeature, CvPlot* pExcludePlot) const {
 	PROFILE_FUNC();
 
-	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+	for (int iI = 0; iI < getNumCityPlots(); iI++) {
 		CvPlot* pLoopPlot = plotCity(getX_INLINE(), getY_INLINE(), iI);
 		if (pLoopPlot != NULL && pLoopPlot != pExcludePlot && pLoopPlot->getWorkingCity() == this) {
 			if (pLoopPlot->getFeatureType() == eFeature) {
@@ -12753,7 +12766,7 @@ bool CvCity::hasVicinityBonus(BonusTypes eBonus, CvPlot* pExcludePlot) const {
 	if (plot()->getBonusType() == eBonus)
 		return true;
 
-	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+	for (int iI = 0; iI < getNumCityPlots(); iI++) {
 		CvPlot* pLoopPlot = plotCity(getX_INLINE(), getY_INLINE(), iI);
 		if (pLoopPlot != NULL && pLoopPlot != pExcludePlot && pLoopPlot->getWorkingCity() == this) {
 			if (pLoopPlot->getBonusType() == eBonus && pLoopPlot->isTeamBonus(getTeam()) && pLoopPlot->isConnectedTo(this)) {
@@ -12963,4 +12976,64 @@ void CvCity::checkBuildingPowerPrereqs(bool bAcquire) {
 			}
 		}
 	}
+}
+
+int CvCity::getWorkableRadiusOverride() const {
+	return m_iWorkableRadiusOverride;
+}
+
+void CvCity::updateWorkableRadiusOverride() {
+	int iOldNumPlots = getNumCityPlots();
+	int iMaxVal = 0;
+	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+		if (getNumActiveBuilding(eBuilding) > 0) {
+			if (GC.getBuildingInfo(eBuilding).getWorkableRadius() > 0) {
+				iMaxVal = std::max(iMaxVal, GC.getBuildingInfo(eBuilding).getWorkableRadius());
+			}
+		}
+	}
+	m_iWorkableRadiusOverride = iMaxVal;
+
+	if (iOldNumPlots != getNumCityPlots()) {
+		doWorkableRadiusChanged();
+	}
+}
+
+/*
+Checks the cities culture level and if it meets the criteria specified in the CultureLevelsInfo.xml, or has overrides, the city radius expands
+ and the number of workable plots increases. NUM_CITY_PLOTS is the largest, with a radius of 3, NUM_CITY_PLOTS_2 is the standard BTS radius of 2,
+ NUM_CITY_PLOTS_1 is a city of radius of 1 and NUM_CITY_PLOTS_0 has a radius of 0 which is the city plot only.
+*/
+int CvCity::getNumCityPlots() const {
+	if (getCultureLevel() == NO_CULTURELEVEL) {
+		return NUM_CITY_PLOTS_0;
+	}
+
+	int iRadius = std::min(CITY_PLOTS_RADIUS, std::max(GC.getCultureLevelInfo(getCultureLevel()).getCityRadius(), getWorkableRadiusOverride()));
+
+	int var_city_plots;
+	switch (iRadius) {
+	case 3:
+		var_city_plots = NUM_CITY_PLOTS;
+		break;
+	case 2:
+		var_city_plots = NUM_CITY_PLOTS_2;
+		break;
+	case 1:
+		var_city_plots = NUM_CITY_PLOTS_1;
+		break;
+	case 0:
+		var_city_plots = NUM_CITY_PLOTS_0;
+		break;
+	default:
+		var_city_plots = NUM_CITY_PLOTS_0;
+		break;
+	}
+	return var_city_plots;
+}
+
+void CvCity::doWorkableRadiusChanged() {
+	updateFeatureHappiness();
+	updateFeatureHealth();
+	AI_setAssignWorkDirty(true);
 }

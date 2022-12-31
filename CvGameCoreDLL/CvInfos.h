@@ -1667,6 +1667,7 @@ public:
 	int getNumPrereqOrBuildingClasses() const;
 	int getNumPrereqNotBuildingClasses() const;
 	int getMinPopulation() const;
+	int getWorkableRadius() const;
 
 	float getVisibilityPriority() const;
 
@@ -1891,6 +1892,7 @@ protected:
 	int m_iVoteSourceType;
 	int m_iUnhealthyPopulationModifier; // K-Mod
 	int m_iMinPopulation;
+	int m_iWorkableRadius;
 
 	float m_fVisibilityPriority;
 
@@ -5150,6 +5152,7 @@ public:
 	virtual ~CvCultureLevelInfo();
 
 	int getCityDefenseModifier() const;		//	Exposed to Python
+	int getCityRadius() const;
 
 	int getSpeedThreshold(int i) const;		//	Exposed to Python
 
@@ -5159,6 +5162,7 @@ public:
 protected:
 
 	int m_iCityDefenseModifier;
+	int m_iCityRadius;
 
 	int* m_paiSpeedThreshold;
 

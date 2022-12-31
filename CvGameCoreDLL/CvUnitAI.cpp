@@ -775,7 +775,7 @@ bool CvUnitAI::AI_bestCityBuild(CvCity* pCity, CvPlot** ppBestPlot, BuildTypes* 
 	}
 
 	for (int iPass = 0; iPass < 2; iPass++) {
-		for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+		for (int iI = 0; iI < pCity->getNumCityPlots(); iI++) {
 			CvPlot* pLoopPlot = plotCity(pCity->getX_INLINE(), pCity->getY_INLINE(), iI);
 
 			if (pLoopPlot && pLoopPlot != pIgnorePlot && pLoopPlot->getWorkingCity() == pCity && AI_plotValid(pLoopPlot)) // K-Mod
@@ -10368,7 +10368,7 @@ bool CvUnitAI::AI_pillageAroundCity(CvCity* pTargetCity, int iBonusValueThreshol
 		return false;
 	}
 
-	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+	for (int iI = 0; iI < pTargetCity->getNumCityPlots(); iI++) {
 		CvPlot* pLoopPlot = pTargetCity->getCityIndexPlot(iI);
 		if (pLoopPlot != NULL) {
 			if (AI_plotValid(pLoopPlot) && !(pLoopPlot->isBarbarian())) {

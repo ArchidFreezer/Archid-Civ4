@@ -3038,7 +3038,7 @@ int CvPlayer::countCityFeatures(FeatureTypes eFeature) const {
 
 	int iLoop;
 	for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop)) {
-		for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+		for (int iI = 0; iI < pLoopCity->getNumCityPlots(); iI++) {
 			CvPlot* pLoopPlot = plotCity(pLoopCity->getX_INLINE(), pLoopCity->getY_INLINE(), iI);
 
 			if (pLoopPlot != NULL) {

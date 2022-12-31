@@ -1865,3 +1865,7 @@ int CyCity::getNumBuildingClass(int /*BuildingClassTypes*/ iIndex) {
 int CyCity::getNumActiveBuildingClass(int /*BuildingClassTypes*/ iIndex) {
 	return m_pCity ? m_pCity->getNumActiveBuildingClass((BuildingClassTypes)iIndex) : -1;
 }
+
+int CyCity::getNumCityPlots() const {
+	return (m_pCity ? m_pCity->getNumCityPlots() : 0);
+}

@@ -567,6 +567,7 @@ void CyInfoPythonInterface1() {
 		.def("getNumPrereqVicinityFeatures", &CvBuildingInfo::getNumPrereqVicinityFeatures, "int ()")
 		.def("getNumPrereqAndBuildingClasses", &CvBuildingInfo::getNumPrereqAndBuildingClasses, "int ()")
 		.def("getNumPrereqOrBuildingClasses", &CvBuildingInfo::getNumPrereqOrBuildingClasses, "int ()")
+		.def("getWorkableRadius", &CvBuildingInfo::getWorkableRadius, "int ()")
 
 		.def("isTeamShare", &CvBuildingInfo::isTeamShare, "bool ()")
 		.def("isWater", &CvBuildingInfo::isWater, "bool ()")

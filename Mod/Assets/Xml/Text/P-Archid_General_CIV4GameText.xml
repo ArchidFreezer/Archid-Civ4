@@ -748,5 +748,11 @@
 		<Tag>TXT_KEY_TRAIT_BASE_FROM_UNIT</Tag>
 		<English>At least</English>
 	</TEXT>
+<!-- Expandable City Radius -->
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_EXPANDS_WORKABLE_RADIUS</Tag>
+		<English>[ICON_BULLET]Expands the city workable radius to %d1</English>
+		<French>[ICON_BULLET]Augmente la zone d'activité de la Ville à %d1</French>
+	</TEXT>
 
 </Civ4GameText>

@@ -30,6 +30,11 @@ public:
 
 	void kill(bool bUpdatePlotGroups);																								// Exposed to Python
 
+	int getNumCityPlots() const;
+	int getWorkableRadiusOverride() const;
+	void updateWorkableRadiusOverride();
+	void doWorkableRadiusChanged();
+
 	void doTurn();
 
 	bool isCitySelected();
@@ -1089,6 +1094,7 @@ protected:
 	int m_iCitySizeBoost;
 	int m_iSpecialistFreeExperience;
 	int m_iEspionageDefenseModifier;
+	int m_iWorkableRadiusOverride;
 
 	bool m_bNeverLost;
 	bool m_bBombarded;

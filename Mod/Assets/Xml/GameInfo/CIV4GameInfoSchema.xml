@@ -889,10 +889,12 @@
 	<ElementType name="SpeedThresholds" content="eltOnly">
 		<element type="SpeedThreshold" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="iCityRadius" content="textOnly" dt:type="int"/>
 	<ElementType name="CultureLevelInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
 		<element type="iCityDefenseModifier"/>
+		<element type="iCityRadius" minOccurs="0"/>
 	</ElementType>
 	<ElementType name="CultureLevelInfos" content="eltOnly">
 		<element type="CultureLevelInfo" maxOccurs="*"/>

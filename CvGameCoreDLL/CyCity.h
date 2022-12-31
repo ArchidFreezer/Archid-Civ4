@@ -23,6 +23,8 @@ public:
 	bool isNone() { return (m_pCity == NULL); }
 	void kill();
 
+	int getNumCityPlots() const;
+
 	void createGreatPeople(int /*UnitTypes*/ eGreatPersonUnit, bool bIncrementThreshold, bool bIncrementExperience);
 
 	void doTask(int /*TaskTypes*/ eTask, int iData1, int iData2, bool bOption);

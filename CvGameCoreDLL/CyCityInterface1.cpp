@@ -472,5 +472,6 @@ void CyCityPythonInterface1(python::class_<CyCity>& x) {
 
 		.def("getNumBuildingClass", &CyCity::getNumBuildingClass, "int - (BuildingClassID) - How many BuildingID does this city have (real or free)?")
 		.def("getNumActiveBuildingClass", &CyCity::getNumActiveBuildingClass, "int - (BuildingClassID) - How many BuildingID does this city have (real or free)?")
+		.def("getNumCityPlots", &CyCity::getNumCityPlots, "int ()")
 		;
 }

@@ -8035,6 +8035,11 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 		}
 	}
 
+	if (kBuilding.getWorkableRadius() > 0) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_EXPANDS_WORKABLE_RADIUS", kBuilding.getWorkableRadius()));
+	}
+
 	if (kBuilding.getFreePromotion() != NO_PROMOTION) {
 		szBuffer.append(NEWLINE);
 		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_FREE_PROMOTION", GC.getPromotionInfo((PromotionTypes)(kBuilding.getFreePromotion())).getTextKeyWide()));
@@ -9597,7 +9602,7 @@ void CvGameTextMgr::setBadHealthHelp(CvWStringBuffer& szBuffer, CvCity& city) {
 		if (iHealth > 0) {
 			FeatureTypes eFeature = NO_FEATURE;
 
-			for (int iI = 0; iI < NUM_CITY_PLOTS; ++iI) {
+			for (int iI = 0; iI < city.getNumCityPlots(); ++iI) {
 				CvPlot* pLoopPlot = plotCity(city.getX_INLINE(), city.getY_INLINE(), iI);
 
 				if (pLoopPlot != NULL) {
@@ -9690,7 +9695,7 @@ void CvGameTextMgr::setGoodHealthHelp(CvWStringBuffer& szBuffer, CvCity& city) {
 		if (iHealth > 0) {
 			FeatureTypes eFeature = NO_FEATURE;
 
-			for (int iI = 0; iI < NUM_CITY_PLOTS; ++iI) {
+			for (int iI = 0; iI < city.getNumCityPlots(); ++iI) {
 				CvPlot* pLoopPlot = plotCity(city.getX_INLINE(), city.getY_INLINE(), iI);
 
 				if (pLoopPlot != NULL) {
@@ -15220,7 +15225,7 @@ void CvGameTextMgr::setFoodHelp(CvWStringBuffer& szBuffer, CvCity& city) {
 
 	// Worked Tiles
 	int iTileFood = 0;
-	for (int i = 0; i < NUM_CITY_PLOTS; i++) {
+	for (int i = 0; i < city.getNumCityPlots(); i++) {
 		if (city.isWorkingPlot(i)) {
 			CvPlot* pPlot = city.getCityIndexPlot(i);
 

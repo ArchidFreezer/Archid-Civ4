@@ -113,7 +113,7 @@ void CvGame::updateColoredPlots() {
 
 	if (pHeadSelectedCity != NULL) {
 		if (gDLL->getInterfaceIFace()->isCityScreenUp()) {
-			for (int iCityPlot = 0; iCityPlot < NUM_CITY_PLOTS; iCityPlot++) {
+			for (int iCityPlot = 0; iCityPlot < pHeadSelectedCity->getNumCityPlots(); iCityPlot++) {
 				if (pHeadSelectedCity->isWorkingPlot(iCityPlot)) {
 					CvPlot* pLoopPlot = plotCity(pHeadSelectedCity->getX_INLINE(), pHeadSelectedCity->getY_INLINE(), iCityPlot);
 
@@ -130,7 +130,7 @@ void CvGame::updateColoredPlots() {
 				NiColorA color(GC.getColorInfo((ColorTypes)GC.getInfoTypeForString(GC.getDefineSTRING("BUG_CITY_CONTROLLED_PLOTS_COLOR", "COLOR_HIGHLIGHT_TEXT"))).getColor());
 				color.a = GC.getDefineFLOAT("BUG_CITY_CONTROLLED_PLOTS_ALPHA", 1.0);
 
-				for (int iCityPlot = 0; iCityPlot < NUM_CITY_PLOTS; iCityPlot++) {
+				for (int iCityPlot = 0; iCityPlot < pHeadSelectedCity->getNumCityPlots(); iCityPlot++) {
 					CvPlot* pLoopPlot = pHeadSelectedCity->getCityIndexPlot(iCityPlot);
 
 					if (pLoopPlot != NULL && pLoopPlot->getWorkingCity() == pHeadSelectedCity) {
@@ -189,7 +189,7 @@ void CvGame::updateColoredPlots() {
 					if (pSelectedCity != NULL) {
 						TeamTypes eOwnerTeam = pSelectedCity->getTeam();
 
-						for (int iCityPlot = 0; iCityPlot < NUM_CITY_PLOTS; iCityPlot++) {
+						for (int iCityPlot = 0; iCityPlot < pHeadSelectedCity->getNumCityPlots(); iCityPlot++) {
 							CvPlot* pLoopPlot = pSelectedCity->getCityIndexPlot(iCityPlot);
 
 							if (pLoopPlot != NULL && pLoopPlot->getWorkingCity() == pSelectedCity) {

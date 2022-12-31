@@ -5646,6 +5646,7 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_iMissionType(NO_MISSION),
 	m_iVoteSourceType(NO_VOTESOURCE),
 	m_iMinPopulation(0),
+	m_iWorkableRadius(0),
 	m_fVisibilityPriority(0.0f),
 	m_bTeamShare(false),
 	m_bWater(false),
@@ -5765,6 +5766,10 @@ CvBuildingInfo::~CvBuildingInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppaiBonusYieldModifier);
 	}
+}
+
+int CvBuildingInfo::getWorkableRadius() const {
+	return m_iWorkableRadius;
 }
 
 int CvBuildingInfo::getBuildingClassType() const {
@@ -6824,6 +6829,7 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iMissionType);
 	stream->Read(&m_iVoteSourceType);
 	stream->Read(&m_iMinPopulation);
+	stream->Read(&m_iWorkableRadius);
 
 	stream->Read(&m_fVisibilityPriority);
 
@@ -7233,7 +7239,7 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iMissionType);
 	stream->Write(m_iVoteSourceType);
 	stream->Write(m_iMinPopulation);
-	stream->Write(m_bPrereqPower);
+	stream->Write(m_iWorkableRadius);
 
 	stream->Write(m_eMinCultureLevel);
 
@@ -7260,6 +7266,7 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bCenterInCity);
 	stream->Write(m_bStateReligion);
 	stream->Write(m_bAllowsNukes);
+	stream->Write(m_bPrereqPower);
 
 	stream->WriteString(m_szConstructSound);
 	stream->WriteString(m_szArtDefineTag);
@@ -7523,6 +7530,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iUnitLevelPrereq, "iLevelPrereq");
 	pXML->GetChildXmlValByName(&m_iMinLatitude, "iMinLatitude");
 	pXML->GetChildXmlValByName(&m_iMaxLatitude, "iMaxLatitude", 90);
+	pXML->GetChildXmlValByName(&m_iWorkableRadius, "iWorkableRadius");
 	pXML->GetChildXmlValByName(&m_iGreatPeopleRateModifier, "iGreatPeopleRateModifier");
 	pXML->GetChildXmlValByName(&m_iGreatGeneralRateModifier, "iGreatGeneralRateModifier");
 	pXML->GetChildXmlValByName(&m_iDomesticGreatGeneralRateModifier, "iDomesticGreatGeneralRateModifier");
@@ -15730,11 +15738,16 @@ bool CvUpkeepInfo::read(CvXMLLoadUtility* pXml) {
 
 CvCultureLevelInfo::CvCultureLevelInfo() :
 	m_iCityDefenseModifier(0),
+	m_iCityRadius(0),
 	m_paiSpeedThreshold(NULL) {
 }
 
 CvCultureLevelInfo::~CvCultureLevelInfo() {
 	SAFE_DELETE_ARRAY(m_paiSpeedThreshold);
+}
+
+int CvCultureLevelInfo::getCityRadius() const {
+	return m_iCityRadius;
 }
 
 int CvCultureLevelInfo::getCityDefenseModifier() const {
@@ -15753,6 +15766,7 @@ bool CvCultureLevelInfo::read(CvXMLLoadUtility* pXml) {
 	}
 
 	pXml->GetChildXmlValByName(&m_iCityDefenseModifier, "iCityDefenseModifier");
+	pXml->GetChildXmlValByName(&m_iCityRadius, "iCityRadius", 1);
 
 	pXml->SetListPairInfo(&m_paiSpeedThreshold, "SpeedThresholds", GC.getNumGameSpeedInfos());
 

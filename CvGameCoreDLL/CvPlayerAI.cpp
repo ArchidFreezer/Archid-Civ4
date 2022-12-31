@@ -1070,6 +1070,7 @@ void CvPlayerAI::AI_makeProductionDirty() {
 
 void CvPlayerAI::AI_conquerCity(CvCity* pCity) {
 	bool bRaze = false;
+	const CvPlayer& kPreviousOwner = GET_PLAYER(pCity->getPreviousOwner());
 
 	if (canRaze(pCity)) {
 		int iRazeValue = 0;
@@ -1081,7 +1082,7 @@ void CvPlayerAI::AI_conquerCity(CvCity* pCity) {
 			int iLoop;
 			int iHighCultureCount = 1;
 
-			for (pLoopCity = GET_PLAYER(pCity->getPreviousOwner()).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER(pCity->getPreviousOwner()).nextCity(&iLoop)) {
+			for (pLoopCity = kPreviousOwner.firstCity(&iLoop); pLoopCity != NULL; pLoopCity = kPreviousOwner.nextCity(&iLoop)) {
 				if (2 * pLoopCity->getCulture(pCity->getPreviousOwner()) > pLoopCity->getCultureThreshold(GC.getGameINLINE().culturalVictoryCultureLevel())) {
 					iHighCultureCount++;
 					if (iHighCultureCount >= GC.getGameINLINE().culturalVictoryNumCultureCities()) {
@@ -1115,7 +1116,7 @@ void CvPlayerAI::AI_conquerCity(CvCity* pCity) {
 				bool bFinancialTrouble = AI_isFinancialTrouble();
 				bool bBarbCity = (pCity->getPreviousOwner() == BARBARIAN_PLAYER) && (pCity->getOriginalOwner() == BARBARIAN_PLAYER);
 				bool bPrevOwnerBarb = (pCity->getPreviousOwner() == BARBARIAN_PLAYER);
-				bool bTotalWar = GET_TEAM(getTeam()).AI_getWarPlan(GET_PLAYER(pCity->getPreviousOwner()).getTeam()) == WARPLAN_TOTAL; // K-Mod
+				bool bTotalWar = GET_TEAM(getTeam()).AI_getWarPlan(kPreviousOwner.getTeam()) == WARPLAN_TOTAL; // K-Mod
 
 				{
 					// K-Mod (moved this from above)
@@ -1136,7 +1137,7 @@ void CvPlayerAI::AI_conquerCity(CvCity* pCity) {
 						CvCity* pNearestTeamAreaCity = GC.getMapINLINE().findCity(pCity->getX_INLINE(), pCity->getY_INLINE(), NO_PLAYER, getTeam(), true, false, NO_TEAM, NO_DIRECTION, pCity);
 
 						if (pNearestTeamAreaCity == NULL) {
-							if (bTotalWar && GET_TEAM(GET_PLAYER(pCity->getPreviousOwner()).getTeam()).AI_isPrimaryArea(pCity->area()))
+							if (bTotalWar && GET_TEAM(kPreviousOwner.getTeam()).AI_isPrimaryArea(pCity->area()))
 								iRazeValue += 5;
 							else
 								iRazeValue += 30;
@@ -1180,22 +1181,22 @@ void CvPlayerAI::AI_conquerCity(CvCity* pCity) {
 				}
 
 
-				for (int iI = 0; iI < GC.getNumReligionInfos(); iI++) {
-					if (pCity->isHolyCity((ReligionTypes)iI)) {
+				for (ReligionTypes eReligion = (ReligionTypes)0; eReligion < GC.getNumReligionInfos(); eReligion = (ReligionTypes)(eReligion + 1)) {
+					if (pCity->isHolyCity(eReligion)) {
 						logBBAI("      Reduction for holy city");
-						if (getStateReligion() == iI) {
+						if (getStateReligion() == eReligion) {
 							iRazeValue -= 150;
 						} else {
-							iRazeValue -= 5 + GC.getGameINLINE().calculateReligionPercent((ReligionTypes)iI);
+							iRazeValue -= 5 + GC.getGameINLINE().calculateReligionPercent(eReligion);
 						}
 					}
 				}
 
 				// corp HQ value.
-				for (int iI = 0; iI < GC.getNumCorporationInfos(); iI++) {
-					if (pCity->isHeadquarters((CorporationTypes)iI)) {
+				for (CorporationTypes eCorporation = (CorporationTypes)0; eCorporation < GC.getNumCorporationInfos(); eCorporation = (CorporationTypes)(eCorporation + 1)) {
+					if (pCity->isHeadquarters(eCorporation)) {
 						logBBAI("      Reduction for corp headquarters");
-						iRazeValue -= 10 + 100 * GC.getGameINLINE().countCorporationLevels((CorporationTypes)iI) / GC.getGameINLINE().getNumCities();
+						iRazeValue -= 10 + 100 * GC.getGameINLINE().countCorporationLevels(eCorporation) / GC.getGameINLINE().getNumCities();
 					}
 				}
 				// great people
@@ -1205,7 +1206,7 @@ void CvPlayerAI::AI_conquerCity(CvCity* pCity) {
 				iRazeValue -= 15 * pCity->getNumActiveWorldWonders();
 
 				CvPlot* pLoopPlot = NULL;
-				for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+				for (int iI = 0; iI < pCity->getNumCityPlots(); iI++) {
 					pLoopPlot = plotCity(pCity->getX_INLINE(), pCity->getY_INLINE(), iI);
 
 					if (pLoopPlot != NULL) {
@@ -1216,9 +1217,9 @@ void CvPlayerAI::AI_conquerCity(CvCity* pCity) {
 				}
 
 				// More inclined to raze if we're unlikely to hold it
-				if (GET_TEAM(getTeam()).getPower(false) * 10 < GET_TEAM(GET_PLAYER(pCity->getPreviousOwner()).getTeam()).getPower(true) * 8) {
+				if (GET_TEAM(getTeam()).getPower(false) * 10 < GET_TEAM(kPreviousOwner.getTeam()).getPower(true) * 8) {
 					int iTempValue = 20;
-					iTempValue *= (GET_TEAM(GET_PLAYER(pCity->getPreviousOwner()).getTeam()).getPower(true) - GET_TEAM(getTeam()).getPower(false));
+					iTempValue *= (GET_TEAM(kPreviousOwner.getTeam()).getPower(true) - GET_TEAM(getTeam()).getPower(false));
 					iTempValue /= std::max(100, GET_TEAM(getTeam()).getPower(false));
 
 					logBBAI("      Low power, so boost raze odds by %d", std::min(75, iTempValue));
@@ -1892,7 +1893,8 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 			return 0;
 		}
 
-		for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+		// Work on the standard BFC radius and not expanded cities
+		for (int iI = 0; iI < NUM_CITY_PLOTS_2; iI++) {
 			CvPlot* pLoopPlot = plotCity(iX, iY, iI);
 
 			if (pLoopPlot == NULL) {
@@ -1903,7 +1905,7 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 
 	int iOwnedTiles = 0;
 
-	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+	for (int iI = 0; iI < NUM_CITY_PLOTS_2; iI++) {
 		CvPlot* pLoopPlot = plotCity(iX, iY, iI);
 
 		if (pLoopPlot == NULL || (pLoopPlot->isOwned() && pLoopPlot->getTeam() != getTeam())) {
@@ -1911,7 +1913,7 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 		}
 	}
 
-	if (iOwnedTiles > (NUM_CITY_PLOTS / 3)) {
+	if (iOwnedTiles > (NUM_CITY_PLOTS_2 / 3)) {
 		return 0;
 	}
 
@@ -2692,14 +2694,14 @@ int CvPlayerAI::AI_targetCityValue(CvCity* pCity, bool bRandomize, bool bIgnoreA
 
 	iValue += 4 * pCity->getNumActiveWorldWonders();
 
-	for (int iI = 0; iI < GC.getNumReligionInfos(); iI++) {
-		if (pCity->isHolyCity((ReligionTypes)iI)) {
-			iValue += 2 + ((GC.getGameINLINE().calculateReligionPercent((ReligionTypes)iI)) / 5);
+	for (ReligionTypes eReligion = (ReligionTypes)0; eReligion < GC.getNumReligionInfos(); eReligion = (ReligionTypes)(eReligion + 1)) {
+		if (pCity->isHolyCity(eReligion)) {
+			iValue += 2 + ((GC.getGameINLINE().calculateReligionPercent(eReligion)) / 5);
 
-			if (kOwner.getStateReligion() == iI) {
+			if (kOwner.getStateReligion() == eReligion) {
 				iValue += 2;
 			}
-			if (getStateReligion() == iI) {
+			if (getStateReligion() == eReligion) {
 				iValue += 8;
 			}
 		}
@@ -2717,7 +2719,7 @@ int CvPlayerAI::AI_targetCityValue(CvCity* pCity, bool bRandomize, bool bIgnoreA
 		iValue += std::min(8, (AI_adjacentPotentialAttackers(pCity->plot()) + 2) / 3);
 	}
 
-	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+	for (int iI = 0; iI < pCity->getNumCityPlots(); iI++) {
 		CvPlot* pLoopPlot = plotCity(pCity->getX_INLINE(), pCity->getY_INLINE(), iI);
 
 		if (pLoopPlot != NULL) {
@@ -7452,7 +7454,7 @@ int CvPlayerAI::AI_cityTradeVal(CvCity* pCity) const {
 	iCityTurns = iCityTurns * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getVictoryDelayPercent() / 100;
 	iValue += ((pCity->getPopulation() * 20 + pCity->getHighestPopulation() * 30 + iCityTurns * 3 / 2 + 80) * 4 * (pCity->plot()->calculateCulturePercent(pCity->getOwnerINLINE()) + 10)) / 110;
 
-	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+	for (int iI = 0; iI < pCity->getNumCityPlots(); iI++) {
 		CvPlot* pLoopPlot = plotCity(pCity->getX_INLINE(), pCity->getY_INLINE(), iI);
 
 		if (pLoopPlot != NULL) {
@@ -7478,17 +7480,17 @@ int CvPlayerAI::AI_cityTradeVal(CvCity* pCity) const {
 	{
 		int iCityValue = 0;
 		// holy city value
-		for (ReligionTypes i = (ReligionTypes)0; i < GC.getNumReligionInfos(); i = (ReligionTypes)(i + 1)) {
-			if (pCity->isHolyCity(i))
-				iCityValue += std::max(0, GC.getGameINLINE().countReligionLevels(i) / (pCity->hasShrine(i) ? 1 : 2) - 4);
+		for (ReligionTypes eReligion = (ReligionTypes)0; eReligion < GC.getNumReligionInfos(); eReligion = (ReligionTypes)(eReligion + 1)) {
+			if (pCity->isHolyCity(eReligion))
+				iCityValue += std::max(0, GC.getGameINLINE().countReligionLevels(eReligion) / (pCity->hasShrine(eReligion) ? 1 : 2) - 4);
 			// note: the -4 at the end is mostly there to offset the 'wonder' value that will be added later.
 			// I don't want to double-count the value of the shrine, and the religion without the shrine isn't worth much anyway.
 		}
 
 		// corp HQ value
-		for (CorporationTypes i = (CorporationTypes)0; i < GC.getNumCorporationInfos(); i = (CorporationTypes)(i + 1)) {
-			if (pCity->isHeadquarters(i))
-				iCityValue += std::max(0, 2 * GC.getGameINLINE().countCorporationLevels(i) - 4);
+		for (CorporationTypes eCorporation = (CorporationTypes)0; eCorporation < GC.getNumCorporationInfos(); eCorporation = (CorporationTypes)(eCorporation + 1)) {
+			if (pCity->isHeadquarters(eCorporation))
+				iCityValue += std::max(0, 2 * GC.getGameINLINE().countCorporationLevels(eCorporation) - 4);
 		}
 
 		// wonders
@@ -15498,8 +15500,8 @@ int CvPlayerAI::AI_countDeadlockedBonuses(CvPlot* pPlot) const {
 							bool bCanFound = false;
 							bool bNeverFound = true;
 							//potentially blockable resource
-							//look for a city site within a city radius
-							for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+							//look for a city site within a city radius - only work on the standard sized city BFC
+							for (int iI = 0; iI < NUM_CITY_PLOTS_2; iI++) {
 								CvPlot* pLoopPlot2 = plotCity(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), iI);
 								if (pLoopPlot2 != NULL) {
 									//canFound usually returns very quickly
@@ -15691,7 +15693,7 @@ void CvPlayerAI::AI_calculateAverages() {
 
 	int iLoop;
 	for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop)) {
-		int iPopulation = std::max(pLoopCity->getPopulation(), NUM_CITY_PLOTS);
+		int iPopulation = std::max(pLoopCity->getPopulation(), pLoopCity->getNumCityPlots());
 		iTotalPopulation += iPopulation;
 
 		for (int iI = 0; iI < NUM_YIELD_TYPES; iI++) {
@@ -16310,7 +16312,7 @@ bool CvPlayerAI::AI_advancedStartPlaceCity(CvPlot* pPlot) {
 	pCity->AI_updateBestBuild();
 
 	int iPlotsImproved = 0;
-	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+	for (int iI = 0; iI < pCity->getNumCityPlots(); iI++) {
 		if (iI != CITY_HOME_PLOT) {
 			CvPlot* pLoopPlot = plotCity(pPlot->getX_INLINE(), pPlot->getY_INLINE(), iI);
 			if ((pLoopPlot != NULL) && (pLoopPlot->getWorkingCity() == pCity)) {
@@ -16327,7 +16329,7 @@ bool CvPlayerAI::AI_advancedStartPlaceCity(CvPlot* pPlot) {
 		CvPlot* pBestPlot = NULL;
 		ImprovementTypes eBestImprovement = NO_IMPROVEMENT;
 		int iBestValue = 0;
-		for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+		for (int iI = 0; iI < pCity->getNumCityPlots(); iI++) {
 			int iValue = pCity->AI_getBestBuildValue(iI);
 			if (iValue > iBestValue) {
 				BuildTypes eBuild = pCity->AI_getBestBuild(iI);

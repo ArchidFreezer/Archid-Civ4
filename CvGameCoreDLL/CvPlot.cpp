@@ -4504,6 +4504,9 @@ void CvPlot::updateWorkingCity() {
 	if ((pBestCity == NULL) && isOwned()) {
 		int iBestPlot = 0;
 
+		// We loop through all the possible plots around this plot looking for a city.
+		// The city we find may not actually have the current range to work this plot if its culture level is
+		//  not high enough so we then need to do a reverse check to see if this plot is in the cities range
 		for (int iI = 0; iI < NUM_CITY_PLOTS; ++iI) {
 			CvPlot* pLoopPlot = plotCity(getX_INLINE(), getY_INLINE(), iI);
 
@@ -4512,15 +4515,28 @@ void CvPlot::updateWorkingCity() {
 
 				if (pLoopCity != NULL) {
 					if (pLoopCity->getOwnerINLINE() == getOwnerINLINE()) {
-						// XXX use getGameTurnAcquired() instead???
-						if ((pBestCity == NULL) ||
-							(GC.getCityPlotPriority()[iI] < GC.getCityPlotPriority()[iBestPlot]) ||
-							((GC.getCityPlotPriority()[iI] == GC.getCityPlotPriority()[iBestPlot]) &&
-								((pLoopCity->getGameTurnFounded() < pBestCity->getGameTurnFounded()) ||
-									((pLoopCity->getGameTurnFounded() == pBestCity->getGameTurnFounded()) &&
-										(pLoopCity->getID() < pBestCity->getID()))))) {
-							iBestPlot = iI;
-							pBestCity = pLoopCity;
+						// Do the reverse check to see if the found city has enough culture to work this tile
+						bool bFound = false;
+						int iNumLoopCityPlots = pLoopCity->getNumCityPlots();
+						for (int iJ = 0; iJ < iNumLoopCityPlots; ++iJ) {
+							CvPlot* pCheckPlot = plotCity(pLoopCity->getX_INLINE(), pLoopCity->getY_INLINE(), iJ);
+							if (pCheckPlot != NULL && pCheckPlot == this) {
+								bFound = true;
+								break;
+							}
+						}
+
+						if (bFound) {
+							// XXX use getGameTurnAcquired() instead???
+							if ((pBestCity == NULL) ||
+								(GC.getCityPlotPriority()[iI] < GC.getCityPlotPriority()[iBestPlot]) ||
+								((GC.getCityPlotPriority()[iI] == GC.getCityPlotPriority()[iBestPlot]) &&
+									((pLoopCity->getGameTurnFounded() < pBestCity->getGameTurnFounded()) ||
+										((pLoopCity->getGameTurnFounded() == pBestCity->getGameTurnFounded()) &&
+											(pLoopCity->getID() < pBestCity->getID()))))) {
+								iBestPlot = iI;
+								pBestCity = pLoopCity;
+							}
 						}
 					}
 				}
