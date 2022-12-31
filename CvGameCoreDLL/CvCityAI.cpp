@@ -3231,7 +3231,7 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 					const CvBuildingInfo& kLoopBuilding = GC.getBuildingInfo(eLoopBuilding);
 					int iLimitForLoopBuilding = limitedWonderClassLimit(eLoopClass);
 
-					if ((kLoopBuilding.getPrereqNumOfBuildingClass(eBuildingClass) <= 0 && !kLoopBuilding.isBuildingClassNeededInCity(eBuildingClass)) ||
+					if ((kLoopBuilding.getPrereqNumOfBuildingClass(eBuildingClass) <= 0 && !kLoopBuilding.isPrereqAndBuildingClass(eBuildingClass)) ||
 						!kLoopBuilding.isPrereqOrBuildingClass(eBuildingClass) ||
 						iLimitForLoopBuilding > 0 && kOwner.getBuildingClassMaking(eLoopClass) >= iLimitForLoopBuilding ||
 						!kOwner.canConstruct(eLoopBuilding, false, true, false)) {
@@ -3251,8 +3251,7 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 					}
 
 					// only score the local building requirement if the civ-wide requirement is already met
-					if (kLoopBuilding.isBuildingClassNeededInCity(kBuilding.getBuildingClassType()) &&
-						getNumBuilding(eBuilding) == 0 && iPrereqBuildings <= 0) {
+					if (kLoopBuilding.isPrereqAndBuildingClass(eBuildingClass) && getNumBuilding(eBuilding) == 0 && iPrereqBuildings <= 0) {
 						if (kBuilding.getProductionCost() > 0 && kLoopBuilding.getProductionCost() > 0) {
 							int iTempValue = AI_buildingValue(eLoopBuilding, 0, 0, bConstCache, false);
 							if (iTempValue > 0) {

@@ -5703,7 +5703,6 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_piImprovementFreeSpecialist(NULL),
 	m_pbCommerceFlexible(NULL),
 	m_pbCommerceChangeOriginalOwner(NULL),
-	m_pbBuildingClassNeededInCity(NULL),
 	m_ppaiSpecialistYieldChange(NULL),
 	m_ppaiBonusYieldModifier(NULL),
 	m_bAnySpecialistYieldChange(false),
@@ -5752,7 +5751,6 @@ CvBuildingInfo::~CvBuildingInfo() {
 	SAFE_DELETE_ARRAY(m_piImprovementFreeSpecialist);
 	SAFE_DELETE_ARRAY(m_pbCommerceFlexible);
 	SAFE_DELETE_ARRAY(m_pbCommerceChangeOriginalOwner);
-	SAFE_DELETE_ARRAY(m_pbBuildingClassNeededInCity);
 
 	if (m_ppaiSpecialistYieldChange != NULL) {
 		for (int i = 0; i < GC.getNumSpecialistInfos(); i++) {
@@ -6501,12 +6499,6 @@ bool CvBuildingInfo::isCommerceChangeOriginalOwner(int i) const {
 	return m_pbCommerceChangeOriginalOwner ? m_pbCommerceChangeOriginalOwner[i] : false;
 }
 
-bool CvBuildingInfo::isBuildingClassNeededInCity(int i) const {
-	FAssertMsg(i < GC.getNumBuildingClassInfos(), "Index out of bounds");
-	FAssertMsg(i > -1, "Index out of bounds");
-	return m_pbBuildingClassNeededInCity ? m_pbBuildingClassNeededInCity[i] : false;
-}
-
 int CvBuildingInfo::getSpecialistYieldChange(int i, int j) const {
 	FAssertMsg(i < GC.getNumSpecialistInfos(), "Index out of bounds");
 	FAssertMsg(i > -1, "Index out of bounds");
@@ -6645,6 +6637,18 @@ bool CvBuildingInfo::isPrereqVicinityAndBonus(BonusTypes eBonus) const {
 
 bool CvBuildingInfo::isPrereqVicinityOrBonus(BonusTypes eBonus) const {
 	return (std::find(m_viPrereqVicinityOrBonus.begin(), m_viPrereqVicinityOrBonus.end(), eBonus) != m_viPrereqVicinityOrBonus.end());
+}
+
+int CvBuildingInfo::getPrereqAndBuildingClass(int i) const {
+	return m_viPrereqAndBuildingClasses[i];
+}
+
+int CvBuildingInfo::getNumPrereqAndBuildingClasses() const {
+	return (int)m_viPrereqAndBuildingClasses.size();
+}
+
+bool CvBuildingInfo::isPrereqAndBuildingClass(BuildingClassTypes eBuildingClass) const {
+	return (std::find(m_viPrereqAndBuildingClasses.begin(), m_viPrereqAndBuildingClasses.end(), eBuildingClass) != m_viPrereqAndBuildingClasses.end());
 }
 
 int CvBuildingInfo::getPrereqOrBuildingClass(int i) const {
@@ -6933,6 +6937,13 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	}
 
 	stream->Read(&iNumElements);
+	m_viPrereqAndBuildingClasses.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqAndBuildingClasses.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
 	m_viPrereqOrBuildingClasses.clear();
 	for (int i = 0; i < iNumElements; ++i) {
 		stream->Read(&iElement);
@@ -7077,10 +7088,6 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	SAFE_DELETE_ARRAY(m_pbCommerceChangeOriginalOwner);
 	m_pbCommerceChangeOriginalOwner = new bool[NUM_COMMERCE_TYPES];
 	stream->Read(NUM_COMMERCE_TYPES, m_pbCommerceChangeOriginalOwner);
-
-	SAFE_DELETE_ARRAY(m_pbBuildingClassNeededInCity);
-	m_pbBuildingClassNeededInCity = new bool[GC.getNumBuildingClassInfos()];
-	stream->Read(GC.getNumBuildingClassInfos(), m_pbBuildingClassNeededInCity);
 
 	if (m_ppaiSpecialistYieldChange != NULL) {
 		for (int i = 0; i < GC.getNumSpecialistInfos(); i++) {
@@ -7313,6 +7320,11 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 		stream->Write(*it);
 	}
 
+	stream->Write(m_viPrereqAndBuildingClasses.size());
+	for (std::vector<int>::iterator it = m_viPrereqAndBuildingClasses.begin(); it != m_viPrereqAndBuildingClasses.end(); ++it) {
+		stream->Write(*it);
+	}
+
 	stream->Write(m_viPrereqOrBuildingClasses.size());
 	for (std::vector<int>::iterator it = m_viPrereqOrBuildingClasses.begin(); it != m_viPrereqOrBuildingClasses.end(); ++it) {
 		stream->Write(*it);
@@ -7357,7 +7369,6 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 
 	stream->Write(NUM_COMMERCE_TYPES, m_pbCommerceFlexible);
 	stream->Write(NUM_COMMERCE_TYPES, m_pbCommerceChangeOriginalOwner);
-	stream->Write(GC.getNumBuildingClassInfos(), m_pbBuildingClassNeededInCity);
 
 	for (int i = 0; i < GC.getNumSpecialistInfos(); i++) {
 		stream->Write(NUM_YIELD_TYPES, m_ppaiSpecialistYieldChange[i]);
@@ -7591,8 +7602,8 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetListPairInfo(&m_piUnitCombatFreeExperience, "UnitCombatFreeExperiences", GC.getNumUnitCombatInfos());
 	pXML->SetListPairInfo(&m_piDomainFreeExperience, "DomainFreeExperiences", NUM_DOMAIN_TYPES);
 	pXML->SetListPairInfo(&m_piDomainProductionModifier, "DomainProductionModifiers", NUM_DOMAIN_TYPES);
-	pXML->SetListPairInfo(&m_piPrereqNumOfBuildingClass, "PrereqBuildingClasses", GC.getNumBuildingClassInfos());
-	pXML->SetListInfoBool(&m_pbBuildingClassNeededInCity, "BuildingClassesNeeded", GC.getNumBuildingClassInfos());
+	pXML->SetListPairInfo(&m_piPrereqNumOfBuildingClass, "PrereqNumOfBuildingClasses", GC.getNumBuildingClassInfos());
+	pXML->SetVectorInfo(m_viPrereqAndBuildingClasses, "PrereqAndBuildingClasses");
 	pXML->SetVectorInfo(m_viPrereqOrBuildingClasses, "PrereqOrBuildingClasses");
 	pXML->SetVectorInfo(m_viPrereqNotBuildingClasses, "PrereqNotBuildingClasses");
 	pXML->SetVectorInfo(m_viReplacementBuildingClasses, "ReplacedByBuildingClasses");

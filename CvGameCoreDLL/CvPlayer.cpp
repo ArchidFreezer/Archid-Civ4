@@ -12578,16 +12578,17 @@ int CvPlayer::getAdvancedStartBuildingCost(BuildingTypes eBuilding, bool bAdd, C
 	if (0 == getNumCities()) {
 		return -1;
 	}
+	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
 
 	int iNumBuildingType = 0;
 
-	int iCost = (getProductionNeeded(eBuilding) * GC.getBuildingInfo(eBuilding).getAdvancedStartCost()) / 100;
+	int iCost = (getProductionNeeded(eBuilding) * kBuilding.getAdvancedStartCost()) / 100;
 
 	if (iCost < 0) {
 		return -1;
 	}
 
-	if (GC.getBuildingInfo(eBuilding).getFreeStartEra() != NO_ERA && GC.getGameINLINE().getStartEra() >= GC.getBuildingInfo(eBuilding).getFreeStartEra()) {
+	if (kBuilding.getFreeStartEra() != NO_ERA && GC.getGameINLINE().getStartEra() >= kBuilding.getFreeStartEra()) {
 		// you get this building for free
 		return -1;
 	}
@@ -12626,16 +12627,13 @@ int CvPlayer::getAdvancedStartBuildingCost(BuildingTypes eBuilding, bool bAdd, C
 			}
 
 			// Check other buildings in this city and make sure none of them require this one
-
 			// Loop through Buildings to see which are present
-			for (int iBuildingLoop = 0; iBuildingLoop < GC.getNumBuildingInfos(); iBuildingLoop++) {
-				BuildingTypes eBuildingLoop = (BuildingTypes)iBuildingLoop;
-
-				if (pCity->getNumBuilding(eBuildingLoop) > 0) {
+			for (BuildingTypes eLoopBuilding = (BuildingTypes)0; eLoopBuilding < GC.getNumBuildingInfos(); eLoopBuilding = (BuildingTypes)(eLoopBuilding + 1)) {
+				if (pCity->getNumBuilding(eLoopBuilding) > 0) {
 					// Loop through present Building's requirements
-					for (int iBuildingClassPrereqLoop = 0; iBuildingClassPrereqLoop < GC.getNumBuildingClassInfos(); iBuildingClassPrereqLoop++) {
-						if (GC.getBuildingInfo(eBuildingLoop).isBuildingClassNeededInCity(iBuildingClassPrereqLoop)) {
-							if ((BuildingTypes)(GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(iBuildingClassPrereqLoop)) == eBuilding) {
+					for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
+						if (GC.getBuildingInfo(eLoopBuilding).isPrereqAndBuildingClass(eBuildingClass)) {
+							if ((BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(eBuildingClass) == eBuilding) {
 								return -1;
 							}
 						}
@@ -12646,7 +12644,7 @@ int CvPlayer::getAdvancedStartBuildingCost(BuildingTypes eBuilding, bool bAdd, C
 	}
 
 	// Increase cost if the XML defines that additional Buildings will cost more
-	if (0 != GC.getBuildingInfo(eBuilding).getAdvancedStartCostIncrease()) {
+	if (0 != kBuilding.getAdvancedStartCostIncrease()) {
 		iNumBuildingType = countNumBuildings(eBuilding);
 
 		if (!bAdd) {
@@ -12654,7 +12652,7 @@ int CvPlayer::getAdvancedStartBuildingCost(BuildingTypes eBuilding, bool bAdd, C
 		}
 
 		if (iNumBuildingType > 0) {
-			iCost *= 100 + GC.getBuildingInfo(eBuilding).getAdvancedStartCostIncrease() * std::max(0, iNumBuildingType - getNumCities());
+			iCost *= 100 + kBuilding.getAdvancedStartCostIncrease() * std::max(0, iNumBuildingType - getNumCities());
 			iCost /= 100;
 		}
 	}

@@ -6,9 +6,9 @@
 <!-- Building Infos -->
 <Civ4BuildingInfos xmlns="x-schema:CIV4BuildingsSchema.xml">
 	<BuildingInfos>
-		<!-- ****************	-->
+		<!-- **************** -->
 		<!-- Buildings        -->
-		<!-- ****************	-->
+		<!-- **************** -->
 		<BuildingInfo> <!-- Academy -->
 			<BuildingClass>BUILDINGCLASS_ACADEMY</BuildingClass>
 			<Type>BUILDING_ACADEMY</Type>
@@ -514,9 +514,9 @@
 					<iProductonModifier>100</iProductonModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_WALLS</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
@@ -593,9 +593,9 @@
 					<iExperience>5</iExperience>
 				</UnitCombatFreeExperience>
 			</UnitCombatFreeExperiences>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_WALLS</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
@@ -634,9 +634,9 @@
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>66</iConquestProb>
 			<ConstructSound>AS2D_BUILD_PLANTCOAL</ConstructSound>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_FACTORY</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -672,9 +672,9 @@
 				<iYield>10</iYield>
 				<iYield>0</iYield>
 			</YieldModifiers>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_FACTORY</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -1102,9 +1102,9 @@
 			<iForeignTradeRouteModifier>100</iForeignTradeRouteModifier>
 			<iAsset>4</iAsset>
 			<ConstructSound>AS2D_BUILD_BANK</ConstructSound>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_HARBOR</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
@@ -1142,9 +1142,9 @@
 				<iYield>1</iYield>
 			</SeaPlotYieldChanges>
 			<ConstructSound>AS2D_BUILD_BANK</ConstructSound>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_HARBOR</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
@@ -1862,9 +1862,9 @@
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>66</iConquestProb>
 			<ConstructSound>AS2D_BUILD_PLANTHYDRO</ConstructSound>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_FACTORY</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -1920,9 +1920,9 @@
 					<iHealthChange>-1</iHealthChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_FACTORY</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -2128,9 +2128,9 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_LABORATORY</ConstructSound>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_OBSERVATORY</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>
@@ -2178,9 +2178,9 @@
 				</FreeSpecialistCount>
 			</FreeSpecialistCounts>
 			<ConstructSound>AS2D_BUILD_LABORATORY</ConstructSound>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_OBSERVATORY</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>
@@ -2846,9 +2846,9 @@
 			<iConquestProb>66</iConquestProb>
 			<iNukeExplosionRand>2000</iNukeExplosionRand>
 			<ConstructSound>AS2D_BUILD_PLANTNUCLEAR</ConstructSound>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_FACTORY</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -3231,9 +3231,9 @@
 					<iHealthChange>1</iHealthChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
@@ -3301,9 +3301,9 @@
 					<iHappinessChange>1</iHappinessChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
@@ -3545,9 +3545,9 @@
 				<iCommerce>25</iCommerce>
 			</CommerceModifiers>
 			<ConstructSound>AS2D_BUILD_UNIVERSITY</ConstructSound>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>
@@ -3597,9 +3597,9 @@
 				<iCommerce>35</iCommerce>
 			</CommerceModifiers>
 			<ConstructSound>AS2D_BUILD_UNIVERSITY</ConstructSound>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>
@@ -3710,9 +3710,9 @@
 			<iHotKeyPriority>0</iHotKeyPriority>
 		</BuildingInfo>
 
-		<!-- ****************	-->
+		<!-- **************** -->
 		<!-- Religious        -->
-		<!-- ****************	-->
+		<!-- **************** -->
 		<BuildingInfo> <!-- Buddhist Temple -->
 			<BuildingClass>BUILDINGCLASS_BUDDHIST_TEMPLE</BuildingClass>
 			<Type>BUILDING_BUDDHIST_TEMPLE</Type>
@@ -3798,12 +3798,12 @@
 					<iProductonModifier>100</iProductonModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<PrereqBuildingClasses>
-				<PrereqBuildingClass>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
 				<BuildingClassType>BUILDINGCLASS_BUDDHIST_TEMPLE</BuildingClassType>
 					<iNumBuildingNeeded>2</iNumBuildingNeeded>
-				</PrereqBuildingClass>
-			</PrereqBuildingClasses>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -4002,12 +4002,12 @@
 					<iProductonModifier>100</iProductonModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<PrereqBuildingClasses>
-				<PrereqBuildingClass>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
 				<BuildingClassType>BUILDINGCLASS_CHRISTIAN_TEMPLE</BuildingClassType>
 					<iNumBuildingNeeded>2</iNumBuildingNeeded>
-				</PrereqBuildingClass>
-			</PrereqBuildingClasses>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -4206,12 +4206,12 @@
 					<iProductonModifier>100</iProductonModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<PrereqBuildingClasses>
-				<PrereqBuildingClass>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
 				<BuildingClassType>BUILDINGCLASS_CONFUCIAN_TEMPLE</BuildingClassType>
 					<iNumBuildingNeeded>2</iNumBuildingNeeded>
-				</PrereqBuildingClass>
-			</PrereqBuildingClasses>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -4410,12 +4410,12 @@
 					<iProductonModifier>100</iProductonModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<PrereqBuildingClasses>
-				<PrereqBuildingClass>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
 				<BuildingClassType>BUILDINGCLASS_HINDU_TEMPLE</BuildingClassType>
 					<iNumBuildingNeeded>2</iNumBuildingNeeded>
-				</PrereqBuildingClass>
-			</PrereqBuildingClasses>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -4614,12 +4614,12 @@
 					<iProductonModifier>100</iProductonModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<PrereqBuildingClasses>
-				<PrereqBuildingClass>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
 				<BuildingClassType>BUILDINGCLASS_ISLAMIC_TEMPLE</BuildingClassType>
 					<iNumBuildingNeeded>2</iNumBuildingNeeded>
-				</PrereqBuildingClass>
-			</PrereqBuildingClasses>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -4818,12 +4818,12 @@
 					<iProductonModifier>100</iProductonModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<PrereqBuildingClasses>
-				<PrereqBuildingClass>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
 				<BuildingClassType>BUILDINGCLASS_JEWISH_TEMPLE</BuildingClassType>
 					<iNumBuildingNeeded>2</iNumBuildingNeeded>
-				</PrereqBuildingClass>
-			</PrereqBuildingClasses>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -5022,12 +5022,12 @@
 					<iProductonModifier>100</iProductonModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<PrereqBuildingClasses>
-				<PrereqBuildingClass>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
 				<BuildingClassType>BUILDINGCLASS_TAOIST_TEMPLE</BuildingClassType>
 					<iNumBuildingNeeded>2</iNumBuildingNeeded>
-				</PrereqBuildingClass>
-			</PrereqBuildingClasses>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -5142,9 +5142,9 @@
 			<iHotKeyPriority>0</iHotKeyPriority>
 		</BuildingInfo>
 
-		<!-- ****************	-->
+		<!-- **************** -->
 		<!-- Great Wonder     -->
-		<!-- ****************	-->
+		<!-- **************** -->
 		<BuildingInfo> <!-- Angkor Wat -->
 			<BuildingClass>BUILDINGCLASS_ANGKOR_WAT</BuildingClass>
 			<Type>BUILDING_ANGKOR_WAT</Type>
@@ -5466,9 +5466,9 @@
 					<iProductonModifier>100</iProductonModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_FORGE</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
@@ -5865,9 +5865,9 @@
 					<iProductonModifier>100</iProductonModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_FORGE</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_CULTURE</FlavorType>
@@ -5930,9 +5930,9 @@
 					<iProductonModifier>100</iProductonModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>
@@ -5987,9 +5987,9 @@
 				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
 			</CommerceChangeOriginalOwners>
 			<ConstructSound>AS2D_BUILD_LIGHTHOUSE</ConstructSound>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_LIGHTHOUSE</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
@@ -6160,9 +6160,9 @@
 					<iProductonModifier>100</iProductonModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_AQUEDUCT</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
@@ -6901,9 +6901,9 @@
 					<iProductonModifier>100</iProductonModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_FORGE</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
@@ -6960,12 +6960,12 @@
 					<iProductonModifier>100</iProductonModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<PrereqBuildingClasses>
-				<PrereqBuildingClass>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
 				<BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType>
 					<iNumBuildingNeeded>2</iNumBuildingNeeded>
-				</PrereqBuildingClass>
-			</PrereqBuildingClasses>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
@@ -7346,9 +7346,9 @@
 			<iHotKeyPriority>0</iHotKeyPriority>
 		</BuildingInfo>
 
-		<!-- ****************	-->
+		<!-- **************** -->
 		<!-- National Wonder  -->
-		<!-- ****************	-->
+		<!-- **************** -->
 		<BuildingInfo> <!-- Forbidden Palace -->
 			<BuildingClass>BUILDINGCLASS_GREAT_PALACE</BuildingClass>
 			<Type>BUILDING_GREAT_PALACE</Type>
@@ -7375,15 +7375,15 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>1000</iCommerce>
 			</CommerceChangeDoubleTimes>
-			<PrereqBuildingClasses>
-				<PrereqBuildingClass>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
 				<BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
 					<iNumBuildingNeeded>4</iNumBuildingNeeded>
-				</PrereqBuildingClass>
-			</PrereqBuildingClasses>
-			<BuildingClassesNeeded>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
@@ -7433,15 +7433,15 @@
 					<iSpecialistCount>3</iSpecialistCount>
 				</SpecialistCount>
 			</SpecialistCounts>
-			<PrereqBuildingClasses>
-				<PrereqBuildingClass>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
 				<BuildingClassType>BUILDINGCLASS_THEATRE</BuildingClassType>
 					<iNumBuildingNeeded>4</iNumBuildingNeeded>
-				</PrereqBuildingClass>
-			</PrereqBuildingClasses>
-			<BuildingClassesNeeded>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_THEATRE</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
@@ -7529,9 +7529,9 @@
 					<iProductonModifier>100</iProductonModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_BARRACKS</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
@@ -7569,15 +7569,15 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_IRONWORKS</ConstructSound>
-			<PrereqBuildingClasses>
-				<PrereqBuildingClass>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
 				<BuildingClassType>BUILDINGCLASS_FORGE</BuildingClassType>
 					<iNumBuildingNeeded>4</iNumBuildingNeeded>
-				</PrereqBuildingClass>
-			</PrereqBuildingClasses>
-			<BuildingClassesNeeded>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_FORGE</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<BonusYieldModifiers>
 				<BonusYieldModifier>
 					<BonusType>BONUS_COAL</BonusType>
@@ -7746,9 +7746,9 @@
 					<iProductonModifier>100</iProductonModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<BuildingClassesNeeded>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_CULTURE</FlavorType>
@@ -7849,15 +7849,15 @@
 					<iProductonModifier>100</iProductonModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<PrereqBuildingClasses>
-				<PrereqBuildingClass>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
 				<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
 					<iNumBuildingNeeded>4</iNumBuildingNeeded>
-				</PrereqBuildingClass>
-			</PrereqBuildingClasses>
-			<BuildingClassesNeeded>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>
@@ -7898,15 +7898,15 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>1000</iCommerce>
 			</CommerceChangeDoubleTimes>
-			<PrereqBuildingClasses>
-				<PrereqBuildingClass>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
 				<BuildingClassType>BUILDINGCLASS_HOSPITAL</BuildingClassType>
 					<iNumBuildingNeeded>4</iNumBuildingNeeded>
-				</PrereqBuildingClass>
-			</PrereqBuildingClasses>
-			<BuildingClassesNeeded>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_HOSPITAL</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<HotKey/>
 			<bAltDown>0</bAltDown>
 			<bShiftDown>0</bShiftDown>
@@ -7938,15 +7938,15 @@
 					<iSpecialistCount>3</iSpecialistCount>
 				</SpecialistCount>
 			</SpecialistCounts>
-			<PrereqBuildingClasses>
-				<PrereqBuildingClass>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
 				<BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
 					<iNumBuildingNeeded>4</iNumBuildingNeeded>
-				</PrereqBuildingClass>
-			</PrereqBuildingClasses>
-			<BuildingClassesNeeded>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
+			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
-			</BuildingClassesNeeded>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>

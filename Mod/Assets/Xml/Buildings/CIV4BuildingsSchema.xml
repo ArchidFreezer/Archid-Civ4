@@ -319,16 +319,12 @@
 	</ElementType>
 	<ElementType name="BuildingClassType" content="textOnly"/>
 	<ElementType name="iNumBuildingNeeded" content="textOnly" dt:type="int"/>
-	<ElementType name="PrereqBuildingClass" content="eltOnly">
+	<ElementType name="PrereqNumOfBuildingClass" content="eltOnly">
 		<element type="BuildingClassType"/>
 		<element type="iNumBuildingNeeded"/>
 	</ElementType>
-	<ElementType name="PrereqBuildingClasses" content="eltOnly">
-		<element type="PrereqBuildingClass" minOccurs="0" maxOccurs="*"/>
-	</ElementType>
-	<ElementType name="bNeededInCity" content="textOnly" dt:type="boolean"/>
-	<ElementType name="BuildingClassesNeeded" content="eltOnly">
-		<element type="BuildingClassType" minOccurs="0" maxOccurs="*"/>
+	<ElementType name="PrereqNumOfBuildingClasses" content="eltOnly">
+		<element type="PrereqNumOfBuildingClass" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="SpecialistYieldChange" content="eltOnly">
 		<element type="SpecialistType"/>
@@ -404,6 +400,9 @@
 	</ElementType>
 	<ElementType name="PrereqVicinityAndBonus" content="eltOnly">
 		<element type="BonusType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="PrereqAndBuildingClasses" content="eltOnly">
+		<element type="BuildingClass" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="PrereqOrBuildingClasses" content="eltOnly">
 		<element type="BuildingClass" minOccurs="0" maxOccurs="*"/>
@@ -574,8 +573,8 @@
 		<element type="DomainFreeExperiences" minOccurs="0"/>
 		<element type="DomainProductionModifiers" minOccurs="0"/>
 		<element type="BuildingHappinessChanges" minOccurs="0"/>
-		<element type="PrereqBuildingClasses" minOccurs="0"/>
-		<element type="BuildingClassesNeeded" minOccurs="0"/>
+		<element type="PrereqNumOfBuildingClasses" minOccurs="0"/>
+		<element type="PrereqAndBuildingClasses" minOccurs="0"/>
 		<element type="PrereqOrBuildingClasses" minOccurs="0"/>
 		<element type="PrereqNotBuildingClasses" minOccurs="0"/>
 		<element type="ReplacedByBuildingClasses" minOccurs="0"/>

@@ -1744,15 +1744,11 @@ bool CvCity::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestVis
 			return false;
 		}
 
-		for (int iI = 0; iI < GC.getNumBuildingClassInfos(); iI++) {
-			if (kBuilding.isBuildingClassNeededInCity(iI)) {
-				BuildingTypes ePrereqBuilding = (BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(iI);
-
-				if (ePrereqBuilding != NO_BUILDING) {
-					if (0 == getNumBuilding(ePrereqBuilding) /* && (bContinue || (getFirstBuildingOrder(ePrereqBuilding) == -1))*/) {
-						return false;
-					}
-				}
+		// AND Building Classes
+		int iNumPrereqAndBuildingClasses = kBuilding.getNumPrereqAndBuildingClasses();
+		for (int iI = 0; iI < iNumPrereqAndBuildingClasses; iI++) {
+			if (getNumActiveBuildingClass((BuildingClassTypes)kBuilding.getPrereqAndBuildingClass(iI)) <= 0) {
+				return false;
 			}
 		}
 
@@ -12809,6 +12805,33 @@ void CvCity::checkBuildingCityPrereqs(BuildingTypes eIndex, bool bAcquire) {
 		if (!GET_TEAM(getTeam()).isObsoleteBuilding(eLoopBuilding)) {
 			if (getNumRealBuilding(eLoopBuilding) > 0) {
 				const CvBuildingInfo& kLoopBuilding = GC.getBuildingInfo(eLoopBuilding);
+
+				// Check AND BuildingClasses
+				int iNumPrereqAndBuildingClasses = kLoopBuilding.getNumPrereqAndBuildingClasses();
+				if (iNumPrereqAndBuildingClasses > 0 && !bDisable) {
+					int iValidPreCount = 0;
+					for (int iI = 0; iI < iNumPrereqAndBuildingClasses; iI++) {
+						BuildingClassTypes ePrereqBuildingClass = (BuildingClassTypes)kLoopBuilding.getPrereqAndBuildingClass(iI);
+						// If the prereq class is one that has been updated then we know it is significant, but it is only
+						//  if it has been removed that it was signifcant before the update
+						if (ePrereqBuildingClass == eUpdatedBuildingClass) {
+							if (!bAcquire) iValidPreCount++;
+						} else {
+							if (getNumActiveBuildingClass(ePrereqBuildingClass) > 0) iValidPreCount++;
+						}
+					}
+					bool bValidPre = (iValidPreCount == iNumPrereqAndBuildingClasses);
+					int iValidPostCount = 0;
+					for (int iI = 0; iI < iNumPrereqAndBuildingClasses; iI++) {
+						BuildingClassTypes ePrereqBuildingClass = (BuildingClassTypes)kLoopBuilding.getPrereqAndBuildingClass(iI);
+						if (getNumActiveBuildingClass(ePrereqBuildingClass) > 0) iValidPostCount++;
+					}
+					bool bValidPost = (iValidPostCount == iNumPrereqAndBuildingClasses);
+					if (bValidPre != bValidPost) {
+						bDisable = bValidPre && !bValidPost;
+						bEnable = !bValidPre && bValidPost;
+					}
+				}
 
 				// Check OR BuildingClasses
 				int iNumPrereqOrBuildingClasses = kLoopBuilding.getNumPrereqOrBuildingClasses();

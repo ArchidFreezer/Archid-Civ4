@@ -8618,28 +8618,6 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 		}
 	}
 
-	bFirst = true;
-	for (BuildingClassTypes eLoopBuildingClass = (BuildingClassTypes)0; eLoopBuildingClass < GC.getNumBuildingClassInfos(); eLoopBuildingClass = (BuildingClassTypes)(eLoopBuildingClass + 1)) {
-		BuildingTypes eLoopBuilding = NO_BUILDING;
-		if (ePlayer != NO_PLAYER) {
-			eLoopBuilding = ((BuildingTypes)(GC.getCivilizationInfo(kPlayer.getCivilizationType()).getCivilizationBuildings(eLoopBuildingClass)));
-		} else {
-			eLoopBuilding = (BuildingTypes)GC.getBuildingClassInfo(eLoopBuildingClass).getDefaultBuildingIndex();
-		}
-
-		if (eLoopBuilding != NO_BUILDING) {
-			const CvBuildingInfo& kLoopBuilding = GC.getBuildingInfo(eLoopBuilding);
-			if (kLoopBuilding.isBuildingClassNeededInCity(kBuilding.getBuildingClassType())) {
-				if (pCity == NULL || pCity->canConstruct(eLoopBuilding, false, true)) {
-					szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_BUILDING_REQUIRED_TO_BUILD").c_str());
-					szTempBuffer.Format(SETCOLR L"<link=literal>%s</link>" ENDCOLR, TEXT_COLOR("COLOR_BUILDING_TEXT"), kLoopBuilding.getDescription());
-					setListHelp(szBuffer, szFirstBuffer, szTempBuffer, L", ", bFirst);
-					bFirst = false;
-				}
-			}
-		}
-	}
-
 	if (bCivilopediaText) {
 		// Trait
 		for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
@@ -8916,13 +8894,6 @@ void CvGameTextMgr::buildBuildingRequiresString(CvWStringBuffer& szBuffer, Build
 
 					szBuffer.append(szTempBuffer);
 					bShowedPrereq = true;
-				}
-			}
-
-			if (!bShowedPrereq && kBuilding.isBuildingClassNeededInCity(eBuildingClass)) {
-				if ((pCity == NULL) || (pCity->getNumBuilding(eLoopBuilding) <= 0)) {
-					szBuffer.append(NEWLINE);
-					szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_REQUIRES_STRING", kLoopBuilding.getTextKeyWide()));
 				}
 			}
 		}
@@ -9225,6 +9196,33 @@ void CvGameTextMgr::buildBuildingRequiresString(CvWStringBuffer& szBuffer, Build
 				}
 				if (!bFirst) {
 					szBuffer.append(gDLL->getText("TXT_KEY_IN_CITY_VICINITY"));
+				}
+			}
+
+			// AND BuildingClass
+			bFirst = true;
+			bValid = false;
+			if (pCity != NULL) {
+				bValid = true;
+				for (int iI = 0; iI < kBuilding.getNumPrereqAndBuildingClasses() && bValid; ++iI) {
+					BuildingClassTypes eBuildingClass = (BuildingClassTypes)kBuilding.getPrereqAndBuildingClass(iI);
+					if (pCity->getNumActiveBuildingClass(eBuildingClass) <= 0) {
+						bValid = false;
+					}
+				}
+			}
+			if (!bValid) {
+				for (int iI = 0; iI < kBuilding.getNumPrereqAndBuildingClasses(); ++iI) {
+					BuildingClassTypes eBuildingClass = (BuildingClassTypes)kBuilding.getPrereqAndBuildingClass(iI);
+					if (pCity == NULL || !(pCity->getNumActiveBuildingClass(eBuildingClass) > 0)) {
+						BuildingTypes ePrereqBuilding = (ePlayer != NO_PLAYER) ? (BuildingTypes)(GC.getCivilizationInfo(kPlayer.getCivilizationType()).getCivilizationBuildings(eBuildingClass)) : (BuildingTypes)GC.getBuildingClassInfo(eBuildingClass).getDefaultBuildingIndex();
+						CvWString szTempBuffer;
+						szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_REQUIRES").c_str());
+						CvWString szBuildingClass;
+						szBuildingClass.Format(L"<link=literal>%s</link>", GC.getBuildingInfo(ePrereqBuilding).getDescription());
+						setListHelp(szBuffer, szTempBuffer, szBuildingClass, gDLL->getText("TXT_KEY_OR").c_str(), bFirst);
+						bFirst = false;
+					}
 				}
 			}
 

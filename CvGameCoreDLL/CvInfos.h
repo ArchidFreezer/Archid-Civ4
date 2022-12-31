@@ -1663,6 +1663,7 @@ public:
 	int getNumPrereqVicinityFeatures() const;
 	int getNumPrereqVicinityAndBonus() const;
 	int getNumPrereqVicinityOrBonus() const;
+	int getNumPrereqAndBuildingClasses() const;
 	int getNumPrereqOrBuildingClasses() const;
 	int getNumPrereqNotBuildingClasses() const;
 	int getMinPopulation() const;
@@ -1758,12 +1759,12 @@ public:
 	int getPrereqVicinityFeature(int i) const;
 	int getPrereqVicinityAndBonus(int i) const;
 	int getPrereqVicinityOrBonus(int i) const;
+	int getPrereqAndBuildingClass(int i) const;
 	int getPrereqOrBuildingClass(int i) const;
 	int getPrereqNotBuildingClass(int i) const;
 
 	bool isCommerceFlexible(int i) const;				// Exposed to Python
 	bool isCommerceChangeOriginalOwner(int i) const;				// Exposed to Python
-	bool isBuildingClassNeededInCity(int i) const;				// Exposed to Python
 	bool isReplacedByBuildingClass(int i) const;
 	bool isPrereqAndCivic(CivicTypes eCivic) const;
 	bool isPrereqOrCivic(CivicTypes eCivic) const;
@@ -1773,6 +1774,7 @@ public:
 	bool isPrereqVicinityFeature(FeatureTypes eImprovement) const;
 	bool isPrereqVicinityAndBonus(BonusTypes eTerrain) const;
 	bool isPrereqVicinityOrBonus(BonusTypes eTerrain) const;
+	bool isPrereqAndBuildingClass(BuildingClassTypes eBuildingClass) const;
 	bool isPrereqOrBuildingClass(BuildingClassTypes eBuildingClass) const;
 	bool isPrereqNotBuildingClass(BuildingClassTypes eBuildingClass) const;
 
@@ -1956,7 +1958,6 @@ protected:
 
 	bool* m_pbCommerceFlexible;
 	bool* m_pbCommerceChangeOriginalOwner;
-	bool* m_pbBuildingClassNeededInCity;
 
 	int** m_ppaiSpecialistYieldChange;
 	int** m_ppaiBonusYieldModifier;
@@ -1975,6 +1976,7 @@ protected:
 	std::vector<int> m_viPrereqVicinityFeatures;
 	std::vector<int> m_viPrereqVicinityAndBonus;
 	std::vector<int> m_viPrereqVicinityOrBonus;
+	std::vector<int> m_viPrereqAndBuildingClasses;
 	std::vector<int> m_viPrereqOrBuildingClasses;
 	std::vector<int> m_viPrereqNotBuildingClasses;
 };

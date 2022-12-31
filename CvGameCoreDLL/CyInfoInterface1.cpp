@@ -281,11 +281,6 @@ void CyInfoPythonInterface1() {
 		.def("isAnimal", &CvUnitInfo::isAnimal, "bool ()")
 		.def("isFoodProduction", &CvUnitInfo::isFoodProduction, "bool ()")
 		.def("isNoBadGoodies", &CvUnitInfo::isNoBadGoodies, "bool ()")
-		/************************************************************************************************/
-		/* UNOFFICIAL_PATCH                       03/20/10                       Afforess & jdog5000    */
-		/*                                                                                              */
-		/* Bugfix                                                                                       */
-		/************************************************************************************************/
 		.def("isOnlyDefensive", &CvUnitInfo::isOnlyDefensive, "bool ()")
 		.def("isNoCapture", &CvUnitInfo::isNoCapture, "bool ()")
 		.def("isRivalTerritory", &CvUnitInfo::isRivalTerritory, "bool ()")
@@ -570,6 +565,7 @@ void CyInfoPythonInterface1() {
 		.def("getNumPrereqVicinityOrBonus", &CvBuildingInfo::getNumPrereqVicinityOrBonus, "int ()")
 		.def("getNumPrereqVicinityImprovements", &CvBuildingInfo::getNumPrereqVicinityImprovements, "int ()")
 		.def("getNumPrereqVicinityFeatures", &CvBuildingInfo::getNumPrereqVicinityFeatures, "int ()")
+		.def("getNumPrereqAndBuildingClasses", &CvBuildingInfo::getNumPrereqAndBuildingClasses, "int ()")
 		.def("getNumPrereqOrBuildingClasses", &CvBuildingInfo::getNumPrereqOrBuildingClasses, "int ()")
 
 		.def("isTeamShare", &CvBuildingInfo::isTeamShare, "bool ()")
@@ -644,11 +640,11 @@ void CyInfoPythonInterface1() {
 		.def("getPrereqVicinityOrBonus", &CvBuildingInfo::getPrereqVicinityOrBonus, "int (int i)")
 		.def("getPrereqVicinityImprovement", &CvBuildingInfo::getPrereqVicinityImprovement, "int (int i)")
 		.def("getPrereqVicinityFeature", &CvBuildingInfo::getPrereqVicinityFeature, "int (int i)")
+		.def("getPrereqAndBuildingClass", &CvBuildingInfo::getPrereqAndBuildingClass, "int (int i)")
 		.def("getPrereqOrBuildingClass", &CvBuildingInfo::getPrereqOrBuildingClass, "int (int i)")
 
 		.def("isCommerceFlexible", &CvBuildingInfo::isCommerceFlexible, "bool (int i)")
 		.def("isCommerceChangeOriginalOwner", &CvBuildingInfo::isCommerceChangeOriginalOwner, "bool (int i)")
-		.def("isBuildingClassNeededInCity", &CvBuildingInfo::isBuildingClassNeededInCity, "bool (int i)")
 		.def("isReplacedByBuildingClass", &CvBuildingInfo::isReplacedByBuildingClass, "bool (int i)")
 		.def("isPrereqOrTerrain", &CvBuildingInfo::isPrereqOrTerrain, "bool (int i)")
 		.def("isPrereqAndTerrain", &CvBuildingInfo::isPrereqAndTerrain, "bool (int i)")
@@ -656,6 +652,7 @@ void CyInfoPythonInterface1() {
 		.def("isPrereqVicinityOrBonus", &CvBuildingInfo::isPrereqVicinityOrBonus, "bool (int i)")
 		.def("isPrereqVicinityImprovement", &CvBuildingInfo::isPrereqVicinityImprovement, "bool (int i)")
 		.def("isPrereqVicinityFeature", &CvBuildingInfo::isPrereqVicinityFeature, "bool (int i)")
+		.def("isPrereqAndBuildingClass", &CvBuildingInfo::isPrereqAndBuildingClass, "bool (BuildingClassTypes eBuildingClass)")
 		.def("isPrereqOrBuildingClass", &CvBuildingInfo::isPrereqOrBuildingClass, "bool (BuildingClassTypes eBuildingClass)")
 
 		.def("getSpecialistYieldChange", &CvBuildingInfo::getSpecialistYieldChange, "int (int i, int j)")
