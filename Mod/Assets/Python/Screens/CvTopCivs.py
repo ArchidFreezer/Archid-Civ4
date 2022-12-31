@@ -35,13 +35,13 @@ class CvTopCivs:
 		self.X_MAIN_PANEL = (screen.getXResolution() - self.W_MAIN_PANEL)/2
 		self.X_HEADER_PANEL = self.X_MAIN_PANEL + self.iMarginSpace
 		self.W_HEADER_PANEL = self.W_MAIN_PANEL - self.iMarginSpace * 2
-		
+
 		self.X_EXIT = (screen.getXResolution()/2) - (self.W_EXIT/2)
 		self.Y_EXIT = self.Y_TEXT_PANEL + self.H_TEXT_PANEL + self.iMarginSpace
 
 		self.TITLE_TEXT = u"<font=3>" + CyTranslator().getText("TXT_KEY_TOPCIVS_TITLE", ()).upper() + u"</font>"
 		self.EXIT_TEXT = CyTranslator().getText("TXT_KEY_PEDIA_SCREEN_EXIT", ()).upper()
-		
+
 		self.HistorianList = [	CyTranslator().getText("TXT_KEY_TOPCIVS_HISTORIAN1", ()),
 					CyTranslator().getText("TXT_KEY_TOPCIVS_HISTORIAN2", ()),
 					CyTranslator().getText("TXT_KEY_TOPCIVS_HISTORIAN3", ()),
@@ -53,9 +53,9 @@ class CvTopCivs:
 					CyTranslator().getText("TXT_KEY_TOPCIVS_HISTORIAN9", ()),
 					CyTranslator().getText("TXT_KEY_TOPCIVS_HISTORIAN10", ()),
 					CyTranslator().getText("TXT_KEY_TOPCIVS_HISTORIAN11", ())
-				    ]
-					
-		self.RankList =     [	CyTranslator().getText("TXT_KEY_TOPCIVS_RANK1", ()),
+					]
+
+		self.RankList =	 [	CyTranslator().getText("TXT_KEY_TOPCIVS_RANK1", ()),
 					CyTranslator().getText("TXT_KEY_TOPCIVS_RANK2", ()),
 					CyTranslator().getText("TXT_KEY_TOPCIVS_RANK3", ()),
 					CyTranslator().getText("TXT_KEY_TOPCIVS_RANK4", ()),
@@ -63,37 +63,37 @@ class CvTopCivs:
 					CyTranslator().getText("TXT_KEY_TOPCIVS_RANK6", ()),
 					CyTranslator().getText("TXT_KEY_TOPCIVS_RANK7", ()),
 					CyTranslator().getText("TXT_KEY_TOPCIVS_RANK8", ())
-				    ]
+					]
 
-		self.TypeList =    [	CyTranslator().getText("TXT_KEY_TOPCIVS_WEALTH", ()),
+		self.TypeList =	[	CyTranslator().getText("TXT_KEY_TOPCIVS_WEALTH", ()),
 					CyTranslator().getText("TXT_KEY_TOPCIVS_POWER", ()),
 					CyTranslator().getText("TXT_KEY_TOPCIVS_TECH", ()),
 					CyTranslator().getText("TXT_KEY_TOPCIVS_CULTURE", ()),
 					CyTranslator().getText("TXT_KEY_TOPCIVS_SIZE", ()),
-				    ]
+					]
 
-		self.SymbolList =    [	CyTranslator().getText("[ICON_GOLD]", ()),
+		self.SymbolList =	[	CyTranslator().getText("[ICON_GOLD]", ()),
 					CyTranslator().getText("[ICON_STRENGTH]", ()),
 					CyTranslator().getText("[ICON_RESEARCH]", ()),
 					CyTranslator().getText("[ICON_CULTURE]", ()),
 					CyTranslator().getText("[ICON_MAP]", ()),
-				    ]
+					]
 
 		iType = CyGame().getSorenRandNum(len(self.TypeList), "Select Type")
 		sType = self.TypeList[iType]
 		szHistorianRand = self.HistorianList[CyGame().getSorenRandNum(len(self.HistorianList), "Select Historian")]
-		
+
 		# Create screen
 		screen.setSound("AS2D_TOP_CIVS")
 		screen.showScreen(PopupStates.POPUPSTATE_QUEUED, False)
 		screen.showWindowBackground( False )
-		
+
 		# Create panels
 		szMainPanel = "TopCivsMainPanel"
 		screen.addPanel( szMainPanel, "", "", true, true, self.X_MAIN_PANEL, self.Y_MAIN_PANEL, self.W_MAIN_PANEL, self.H_MAIN_PANEL, PanelStyles.PANEL_STYLE_MAIN )
 		szHeaderPanel = "TopCivsHeaderPanel"
 		screen.addPanel( szHeaderPanel, "", "", true, true, self.X_HEADER_PANEL, self.Y_HEADER_PANEL, self.W_HEADER_PANEL, self.H_HEADER_PANEL, PanelStyles.PANEL_STYLE_DAWNBOTTOM )
-		
+
 		screen.setButtonGFC("Exit", self.EXIT_TEXT, "", self.X_EXIT,self.Y_EXIT, self.W_EXIT, self.H_EXIT, WidgetTypes.WIDGET_CLOSE_SCREEN, -1, -1, ButtonStyles.BUTTON_STYLE_STANDARD )
 		self.X_TITLE_TEXT = self.X_HEADER_PANEL + (self.W_HEADER_PANEL / 2)
 		self.Y_TITLE_TEXT = self.Y_HEADER_PANEL + 15
@@ -103,7 +103,7 @@ class CvTopCivs:
 		screen.setLabel("InfoTextA", "Background", szText, CvUtil.FONT_CENTER_JUSTIFY, screen.getXResolution()/2, self.Y_TITLE_TEXT + 40, -0.1, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
 		szText = "<font=3>" + self.SymbolList[iType] + CyTranslator().getText("TXT_KEY_TOPCIVS_TEXT2", (sType,)) + self.SymbolList[iType] + "</font>"
 		screen.setLabel("InfoTextB", "Background", szText, CvUtil.FONT_CENTER_JUSTIFY, screen.getXResolution()/2, self.Y_TITLE_TEXT + 60, -0.1, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
-		
+
 		self.aiTopCivsValues = []
 		for iPlayer in xrange(gc.getMAX_PLAYERS()):
 			pPlayer = gc.getPlayer(iPlayer)
@@ -111,7 +111,7 @@ class CvTopCivs:
 			if pPlayer.isAlive():
 				if (sType == CyTranslator().getText("TXT_KEY_TOPCIVS_WEALTH", ())):
 					self.aiTopCivsValues.append([pPlayer.getGold(), iPlayer])
-					
+
 				if (sType == CyTranslator().getText("TXT_KEY_TOPCIVS_POWER", ())):
 					self.aiTopCivsValues.append([pPlayer.getPower(), iPlayer])
 
@@ -163,9 +163,9 @@ class CvTopCivs:
 			iY += iSize
 
 	#####################################################################################################################################
-	      
+
 	def handleInput( self, inputClass ):
-		screen = CyGInterfaceScreen( "CvTopCivs", CvScreenEnums.TOP_CIVS )		
+		screen = CyGInterfaceScreen( "CvTopCivs", CvScreenEnums.TOP_CIVS )
 		if inputClass.getData() == int(InputTypes.KB_RETURN):
 			screen.hideScreen()
 			return 1
