@@ -586,6 +586,7 @@ void CvArea::changeCleanPowerCount(TeamTypes eIndex, int iChange) {
 		if (bOldCleanPower != isCleanPower(eIndex)) {
 			GET_TEAM(eIndex).updateCommerce();
 			GET_TEAM(eIndex).updatePowerHealth();
+			GET_TEAM(eIndex).updatePowerStatus(isCleanPower(eIndex));
 
 			if (eIndex == GC.getGameINLINE().getActiveTeam()) {
 				gDLL->getInterfaceIFace()->setDirty(CityInfo_DIRTY_BIT, true);

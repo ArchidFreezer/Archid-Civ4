@@ -149,6 +149,7 @@ public:
 	void updateYield();
 	void updateMaintenance();
 	void updatePowerHealth();
+	void updatePowerStatus(bool bAcquire);
 	void updateExtraBuildingHappiness();
 	void updateExtraBuildingHealth();
 	void updateFeatureHappiness();

@@ -159,8 +159,10 @@ public:
 	int cultureStrength(int /*PlayerTypes*/ ePlayer);
 	int cultureGarrison(int /*PlayerTypes*/ ePlayer);
 	int getNumBuilding(int /*BuildingTypes*/ iIndex);
+	int getNumBuildingClass(int /*BuildingClassTypes*/ iIndex);
 	bool isHasBuilding(int /*BuildingTypes*/ iIndex);		// This is a function to help modders out, since it was replaced with getNumBuildings() in the C++
 	int getNumActiveBuilding(int /*BuildingTypes*/ iIndex);
+	int getNumActiveBuildingClass(int /*BuildingClassTypes*/ iIndex);
 	int getID();
 	int getX();
 	int getY();

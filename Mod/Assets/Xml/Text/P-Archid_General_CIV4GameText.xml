@@ -656,6 +656,35 @@
 		<Tag>TXT_KEY_BUILDING_REPLACED_BY_BUILDING</Tag>
 		<English>[ICON_BULLET][COLOR_WARNING_TEXT]Replaced by[COLOR_REVERT][SPACE]</English>
 	</TEXT>
+<!-- Building Prereqs -->
+	<TEXT>
+		<Tag>TXT_KEY_IN_CITY_VICINITY</Tag>
+		<English>[SPACE]in city vicinity</English>
+		<French>[SPACE]dans le périmètre de la Ville</French>
+		<German>[SPACE]Im Stadtbereich</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NOT_REQUIRED_TO_BUILD</Tag>
+		<English>[COLOR_WARNING_TEXT]Can't co-exist in a City with[SPACE][COLOR_REVERT]</English>
+		<French>[COLOR_WARNING_TEXT]Ne peut être construit dans la même Ville que[SPACE][COLOR_REVERT]</French>
+		<German>[COLOR_WARNING_TEXT]Kann nicht in derselben Stadt gebaut werden wie[SPACE][COLOR_REVERT]</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_REQUIRES_POPULATION</Tag>
+		<English>[COLOR_WARNING_TEXT]Requires minimum city size of %d1[COLOR_REVERT]</English>
+		<French>[COLOR_WARNING_TEXT]Requiert une taille de Ville d'au moins %d1[COLOR_REVERT]</French>
+	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_REQUIRES_CULTURE</Tag>
+		<English>[COLOR_WARNING_TEXT]Requires %s1 city culture[COLOR_REVERT]</English>
+		<French>[COLOR_WARNING_TEXT]Requiert un Niveau Culturel Level de %s1 ou mieux[COLOR_REVERT]</French>
+	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_REQUIRES_POWER</Tag>
+		<English>[COLOR_WARNING_TEXT]Requires access to Power[COLOR_REVERT]</English>
+		<French>[COLOR_WARNING_TEXT]Requiert de l'Electricité[COLOR_REVERT]</French>
+		<German>[COLOR_WARNING_TEXT]Ben&#246;tigt Zugang zu Energie[COLOR_REVERT]</German>
+	</TEXT>	
 <!-- Civic Unit prereq -->
 	<TEXT>
 		<Tag>TXT_KEY_CIVIC_BLOCKS_UNIT</Tag>

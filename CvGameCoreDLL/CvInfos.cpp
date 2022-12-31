@@ -5645,6 +5645,7 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_iEspionageDefenseModifier(0),
 	m_iMissionType(NO_MISSION),
 	m_iVoteSourceType(NO_VOTESOURCE),
+	m_iMinPopulation(0),
 	m_fVisibilityPriority(0.0f),
 	m_bTeamShare(false),
 	m_bWater(false),
@@ -5667,6 +5668,8 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_bCenterInCity(false),
 	m_bStateReligion(false),
 	m_bAllowsNukes(false),
+	m_bPrereqPower(false),
+	m_eMinCultureLevel(NO_CULTURELEVEL),
 	m_piProductionTraits(NULL),
 	m_piHappinessTraits(NULL),
 	m_piSeaPlotYieldChange(NULL),
@@ -6572,6 +6575,114 @@ bool CvBuildingInfo::isPrereqOrCivic(CivicTypes eCivic) const {
 	return (std::find(m_viPrereqOrCivics.begin(), m_viPrereqOrCivics.end(), eCivic) != m_viPrereqOrCivics.end());
 }
 
+int CvBuildingInfo::getPrereqAndTerrain(int i) const {
+	return m_viPrereqAndTerrains[i];
+}
+
+int CvBuildingInfo::getNumPrereqAndTerrains() const {
+	return (int)m_viPrereqAndTerrains.size();
+}
+
+int CvBuildingInfo::getPrereqOrTerrain(int i) const {
+	return m_viPrereqOrTerrains[i];
+}
+
+int CvBuildingInfo::getNumPrereqOrTerrains() const {
+	return (int)m_viPrereqOrTerrains.size();
+}
+
+bool CvBuildingInfo::isPrereqAndTerrain(TerrainTypes eTerrain) const {
+	return (std::find(m_viPrereqAndTerrains.begin(), m_viPrereqAndTerrains.end(), eTerrain) != m_viPrereqAndTerrains.end());
+}
+
+bool CvBuildingInfo::isPrereqOrTerrain(TerrainTypes eTerrain) const {
+	return (std::find(m_viPrereqOrTerrains.begin(), m_viPrereqOrTerrains.end(), eTerrain) != m_viPrereqOrTerrains.end());
+}
+
+int CvBuildingInfo::getPrereqVicinityImprovement(int i) const {
+	return m_viPrereqVicinityImprovements[i];
+}
+
+int CvBuildingInfo::getNumPrereqVicinityImprovements() const {
+	return (int)m_viPrereqVicinityImprovements.size();
+}
+
+bool CvBuildingInfo::isPrereqVicinityImprovement(ImprovementTypes eImprovement) const {
+	return (std::find(m_viPrereqVicinityImprovements.begin(), m_viPrereqVicinityImprovements.end(), eImprovement) != m_viPrereqVicinityImprovements.end());
+}
+
+int CvBuildingInfo::getPrereqVicinityFeature(int i) const {
+	return m_viPrereqVicinityFeatures[i];
+}
+
+int CvBuildingInfo::getNumPrereqVicinityFeatures() const {
+	return (int)m_viPrereqVicinityFeatures.size();
+}
+
+bool CvBuildingInfo::isPrereqVicinityFeature(FeatureTypes eFeature) const {
+	return (std::find(m_viPrereqVicinityFeatures.begin(), m_viPrereqVicinityFeatures.end(), eFeature) != m_viPrereqVicinityFeatures.end());
+}
+
+int CvBuildingInfo::getPrereqVicinityAndBonus(int i) const {
+	return m_viPrereqVicinityAndBonus[i];
+}
+
+int CvBuildingInfo::getNumPrereqVicinityAndBonus() const {
+	return (int)m_viPrereqVicinityAndBonus.size();
+}
+
+int CvBuildingInfo::getPrereqVicinityOrBonus(int i) const {
+	return m_viPrereqVicinityOrBonus[i];
+}
+
+int CvBuildingInfo::getNumPrereqVicinityOrBonus() const {
+	return (int)m_viPrereqVicinityOrBonus.size();
+}
+
+bool CvBuildingInfo::isPrereqVicinityAndBonus(BonusTypes eBonus) const {
+	return (std::find(m_viPrereqVicinityAndBonus.begin(), m_viPrereqVicinityAndBonus.end(), eBonus) != m_viPrereqVicinityAndBonus.end());
+}
+
+bool CvBuildingInfo::isPrereqVicinityOrBonus(BonusTypes eBonus) const {
+	return (std::find(m_viPrereqVicinityOrBonus.begin(), m_viPrereqVicinityOrBonus.end(), eBonus) != m_viPrereqVicinityOrBonus.end());
+}
+
+int CvBuildingInfo::getPrereqOrBuildingClass(int i) const {
+	return m_viPrereqOrBuildingClasses[i];
+}
+
+int CvBuildingInfo::getNumPrereqOrBuildingClasses() const {
+	return (int)m_viPrereqOrBuildingClasses.size();
+}
+
+bool CvBuildingInfo::isPrereqOrBuildingClass(BuildingClassTypes eBuildingClass) const {
+	return (std::find(m_viPrereqOrBuildingClasses.begin(), m_viPrereqOrBuildingClasses.end(), eBuildingClass) != m_viPrereqOrBuildingClasses.end());
+}
+
+int CvBuildingInfo::getPrereqNotBuildingClass(int i) const {
+	return m_viPrereqNotBuildingClasses[i];
+}
+
+int CvBuildingInfo::getNumPrereqNotBuildingClasses() const {
+	return (int)m_viPrereqNotBuildingClasses.size();
+}
+
+bool CvBuildingInfo::isPrereqNotBuildingClass(BuildingClassTypes eBuildingClass) const {
+	return (std::find(m_viPrereqNotBuildingClasses.begin(), m_viPrereqNotBuildingClasses.end(), eBuildingClass) != m_viPrereqNotBuildingClasses.end());
+}
+
+int CvBuildingInfo::getMinPopulation() const {
+	return m_iMinPopulation;
+}
+
+CultureLevelTypes CvBuildingInfo::getMinCultureLevel() const {
+	return m_eMinCultureLevel;
+}
+
+bool CvBuildingInfo::isPrereqPower() const {
+	return m_bPrereqPower;
+}
+
 bool CvBuildingInfo::isReplacedByBuildingClass(int i) const {
 	FAssertMsg(i < GC.getNumBuildingClassInfos(), "Index out of bounds");
 	FAssertMsg(i > -1, "Index out of bounds");
@@ -6708,6 +6819,7 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iEspionageDefenseModifier);
 	stream->Read(&m_iMissionType);
 	stream->Read(&m_iVoteSourceType);
+	stream->Read(&m_iMinPopulation);
 
 	stream->Read(&m_fVisibilityPriority);
 
@@ -6732,6 +6844,11 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bCenterInCity);
 	stream->Read(&m_bStateReligion);
 	stream->Read(&m_bAllowsNukes);
+	stream->Read(&m_bPrereqPower);
+
+	int iVal;
+	stream->Read(&iVal);
+	m_eMinCultureLevel = (CultureLevelTypes)iVal;
 
 	stream->ReadString(m_szConstructSound);
 	stream->ReadString(m_szArtDefineTag);
@@ -6771,6 +6888,62 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	for (int i = 0; i < iNumElements; ++i) {
 		stream->Read(&iElement);
 		m_viReplacementBuildingClasses.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqAndTerrains.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqAndTerrains.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqOrTerrains.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqOrTerrains.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqVicinityImprovements.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqVicinityImprovements.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqVicinityFeatures.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqVicinityFeatures.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqVicinityAndBonus.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqVicinityAndBonus.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqVicinityOrBonus.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqVicinityOrBonus.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqOrBuildingClasses.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqOrBuildingClasses.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqNotBuildingClasses.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqNotBuildingClasses.push_back(iElement);
 	}
 
 	SAFE_DELETE_ARRAY(m_piProductionTraits);
@@ -7052,6 +7225,10 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iEspionageDefenseModifier);
 	stream->Write(m_iMissionType);
 	stream->Write(m_iVoteSourceType);
+	stream->Write(m_iMinPopulation);
+	stream->Write(m_bPrereqPower);
+
+	stream->Write(m_eMinCultureLevel);
 
 	stream->Write(m_fVisibilityPriority);
 
@@ -7103,6 +7280,46 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 
 	stream->Write(m_viReplacementBuildingClasses.size());
 	for (std::vector<int>::iterator it = m_viReplacementBuildingClasses.begin(); it != m_viReplacementBuildingClasses.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqAndTerrains.size());
+	for (std::vector<int>::iterator it = m_viPrereqAndTerrains.begin(); it != m_viPrereqAndTerrains.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqOrTerrains.size());
+	for (std::vector<int>::iterator it = m_viPrereqOrTerrains.begin(); it != m_viPrereqOrTerrains.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqVicinityImprovements.size());
+	for (std::vector<int>::iterator it = m_viPrereqVicinityImprovements.begin(); it != m_viPrereqVicinityImprovements.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqVicinityFeatures.size());
+	for (std::vector<int>::iterator it = m_viPrereqVicinityFeatures.begin(); it != m_viPrereqVicinityFeatures.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqVicinityAndBonus.size());
+	for (std::vector<int>::iterator it = m_viPrereqVicinityAndBonus.begin(); it != m_viPrereqVicinityAndBonus.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqVicinityOrBonus.size());
+	for (std::vector<int>::iterator it = m_viPrereqVicinityOrBonus.begin(); it != m_viPrereqVicinityOrBonus.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqOrBuildingClasses.size());
+	for (std::vector<int>::iterator it = m_viPrereqOrBuildingClasses.begin(); it != m_viPrereqOrBuildingClasses.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqNotBuildingClasses.size());
+	for (std::vector<int>::iterator it = m_viPrereqNotBuildingClasses.begin(); it != m_viPrereqNotBuildingClasses.end(); ++it) {
 		stream->Write(*it);
 	}
 
@@ -7195,6 +7412,16 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->SetVectorInfo(m_viPrereqAndCivics, "PrereqAndCivics");
 	pXML->SetVectorInfo(m_viPrereqOrCivics, "PrereqOrCivics");
+	pXML->SetVectorInfo(m_viPrereqAndTerrains, "PrereqAndTerrains");
+	pXML->SetVectorInfo(m_viPrereqOrTerrains, "PrereqOrTerrains");
+	pXML->SetVectorInfo(m_viPrereqVicinityAndBonus, "PrereqVicinityAndBonus");
+	pXML->SetVectorInfo(m_viPrereqVicinityOrBonus, "PrereqVicinityOrBonus");
+	pXML->SetVectorInfo(m_viPrereqVicinityImprovements, "PrereqVicinityImprovements");
+	pXML->SetVectorInfo(m_viPrereqVicinityFeatures, "PrereqVicinityFeatures");
+	pXML->GetChildXmlValByName(&m_iMinPopulation, "iMinPopulation");
+	pXML->GetChildXmlValByName(szTextVal, "MinCultureLevel");
+	m_eMinCultureLevel = (CultureLevelTypes)pXML->FindInInfoClass(szTextVal);
+	pXML->GetChildXmlValByName(&m_bPrereqPower, "bPrereqPower");
 
 	pXML->GetChildXmlValByName(szTextVal, "GlobalReligionCommerce");
 	m_iGlobalReligionCommerce = pXML->FindInInfoClass(szTextVal);
@@ -7366,6 +7593,8 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetListPairInfo(&m_piDomainProductionModifier, "DomainProductionModifiers", NUM_DOMAIN_TYPES);
 	pXML->SetListPairInfo(&m_piPrereqNumOfBuildingClass, "PrereqBuildingClasses", GC.getNumBuildingClassInfos());
 	pXML->SetListInfoBool(&m_pbBuildingClassNeededInCity, "BuildingClassesNeeded", GC.getNumBuildingClassInfos());
+	pXML->SetVectorInfo(m_viPrereqOrBuildingClasses, "PrereqOrBuildingClasses");
+	pXML->SetVectorInfo(m_viPrereqNotBuildingClasses, "PrereqNotBuildingClasses");
 	pXML->SetVectorInfo(m_viReplacementBuildingClasses, "ReplacedByBuildingClasses");
 
 	m_bAnySpecialistYieldChange = pXML->SetListPairInfoArray(&m_ppaiSpecialistYieldChange, "SpecialistYieldChanges", GC.getNumSpecialistInfos(), NUM_YIELD_TYPES);

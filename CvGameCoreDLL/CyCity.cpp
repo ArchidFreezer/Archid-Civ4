@@ -1857,3 +1857,11 @@ bool CyCity::isAutoAvoidGrowth() {
 int CyCity::getAdditionalBombardDefenseByBuilding(int /*BuildingTypes*/ eBuilding) {
 	return m_pCity ? m_pCity->getAdditionalBombardDefenseByBuilding((BuildingTypes)eBuilding) : -1;
 }
+
+int CyCity::getNumBuildingClass(int /*BuildingClassTypes*/ iIndex) {
+	return m_pCity ? m_pCity->getNumBuildingClass((BuildingClassTypes)iIndex) : -1;
+}
+
+int CyCity::getNumActiveBuildingClass(int /*BuildingClassTypes*/ iIndex) {
+	return m_pCity ? m_pCity->getNumActiveBuildingClass((BuildingClassTypes)iIndex) : -1;
+}

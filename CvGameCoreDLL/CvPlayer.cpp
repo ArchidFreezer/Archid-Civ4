@@ -2566,6 +2566,13 @@ void CvPlayer::updatePowerHealth() {
 }
 
 
+void CvPlayer::updatePowerStatus(bool bAcquire) {
+	int iLoop;
+	for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop)) {
+		pLoopCity->checkBuildingPowerPrereqs(bAcquire);
+	}
+}
+
 void CvPlayer::updateExtraBuildingHappiness() {
 	int iLoop;
 	for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop)) {

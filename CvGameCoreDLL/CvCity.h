@@ -36,6 +36,19 @@ public:
 	DllExport bool canBeSelected() const;
 	DllExport void updateSelectedCity(bool bTestProduction);
 
+	bool hasVicinityBonus(BonusTypes eIndex, CvPlot* pExcludePlot = NULL) const;
+	bool hasVicinityFeature(FeatureTypes eIndex, CvPlot* pExcludePlot = NULL) const;
+	bool hasVicinityImprovement(ImprovementTypes eIndex, CvPlot* pExcludePlot = NULL) const;
+	bool hasVicinityTerrain(TerrainTypes eIndex, CvPlot* pExcludePlot = NULL) const;
+	int getNumActiveBuildingClass(BuildingClassTypes eIndex) const;
+	int getNumBuildingClass(BuildingClassTypes eIndex) const;
+
+	void checkBuildingCityPrereqs(BuildingTypes eIndex, bool bAcquire);
+	void checkBuildingCulturePrereqs(int iChange);
+	void checkBuildingPlotPrereqs(CvPlot* pPlot, bool bAcquire);
+	void checkBuildingPopulationPrereqs(int iChange);
+	void checkBuildingPowerPrereqs(bool bAcquire);
+
 	void changeDisabledBuildingCount(BuildingTypes eIndex, int iChange);
 	bool isDisabledBuilding(BuildingTypes eIndex) const;
 	bool isObsoleteBuilding(BuildingTypes eIndex) const;

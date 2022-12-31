@@ -385,6 +385,35 @@
 	<ElementType name="ReplacedByBuildingClasses" content="eltOnly">
 		<element type="BuildingClassType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="TerrainType" content="textOnly"/>
+	<ElementType name="PrereqOrTerrains" content="eltOnly">
+		<element type="TerrainType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="PrereqAndTerrains" content="eltOnly">
+		<element type="TerrainType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="PrereqVicinityImprovements" content="eltOnly">
+		<element type="ImprovementType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="FeatureType" content="textOnly"/>
+	<ElementType name="PrereqVicinityFeatures" content="eltOnly">
+		<element type="FeatureType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="PrereqVicinityOrBonus" content="eltOnly">
+		<element type="BonusType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="PrereqVicinityAndBonus" content="eltOnly">
+		<element type="BonusType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="PrereqOrBuildingClasses" content="eltOnly">
+		<element type="BuildingClass" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="PrereqNotBuildingClasses" content="eltOnly">
+		<element type="BuildingClass" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="iMinPopulation" content="textOnly" dt:type="int"/>
+	<ElementType name="MinCultureLevel" content="textOnly"/>
+	<ElementType name="bPrereqPower" content="textOnly" dt:type="boolean"/>
 	<ElementType name="BuildingInfo" content="eltOnly">
 		<element type="BuildingClass"/>
 		<element type="Type"/>
@@ -414,6 +443,15 @@
 		<element type="PrereqOrBonuses" minOccurs="0"/>
 		<element type="PrereqAndCivics" minOccurs="0"/>
 		<element type="PrereqOrCivics" minOccurs="0"/>
+		<element type="PrereqAndTerrains" minOccurs="0"/>
+		<element type="PrereqOrTerrains" minOccurs="0"/>
+		<element type="PrereqVicinityAndBonus" minOccurs="0"/>
+		<element type="PrereqVicinityOrBonus" minOccurs="0"/>
+		<element type="PrereqVicinityImprovements" minOccurs="0"/>
+		<element type="PrereqVicinityFeatures" minOccurs="0"/>
+		<element type="iMinPopulation" minOccurs="0"/>
+		<element type="MinCultureLevel" minOccurs="0"/>
+		<element type="bPrereqPower" minOccurs="0"/>
 		<element type="ProductionTraits" minOccurs="0"/>
 		<element type="HappinessTraits" minOccurs="0"/>
 		<element type="NoBonus" minOccurs="0"/>
@@ -538,6 +576,8 @@
 		<element type="BuildingHappinessChanges" minOccurs="0"/>
 		<element type="PrereqBuildingClasses" minOccurs="0"/>
 		<element type="BuildingClassesNeeded" minOccurs="0"/>
+		<element type="PrereqOrBuildingClasses" minOccurs="0"/>
+		<element type="PrereqNotBuildingClasses" minOccurs="0"/>
 		<element type="ReplacedByBuildingClasses" minOccurs="0"/>
 		<element type="SpecialistYieldChanges" minOccurs="0"/>
 		<element type="BonusYieldModifiers" minOccurs="0"/>

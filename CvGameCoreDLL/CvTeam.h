@@ -34,6 +34,7 @@ public:
 
 	void updateYield();
 	void updatePowerHealth();
+	void updatePowerStatus(bool bAcquire);
 	void updateCommerce();
 
 	bool canChangeWarPeace(TeamTypes eTeam, bool bAllowVassal = false) const;																			// Exposed to Python

@@ -808,10 +808,11 @@ void CvTeam::doTurn() {
 
 
 void CvTeam::updateYield() {
-	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
-				GET_PLAYER((PlayerTypes)iI).updateYield();
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+		if (kPlayer.isAlive()) {
+			if (kPlayer.getTeam() == getID()) {
+				kPlayer.updateYield();
 			}
 		}
 	}
@@ -819,21 +820,34 @@ void CvTeam::updateYield() {
 
 
 void CvTeam::updatePowerHealth() {
-	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
-				GET_PLAYER((PlayerTypes)iI).updatePowerHealth();
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+		if (kPlayer.isAlive()) {
+			if (kPlayer.getTeam() == getID()) {
+				kPlayer.updatePowerHealth();
 			}
 		}
 	}
 }
 
 
+void CvTeam::updatePowerStatus(bool bAcquire) {
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+		if (kPlayer.isAlive()) {
+			if (kPlayer.getTeam() == getID()) {
+				kPlayer.updatePowerStatus(bAcquire);
+			}
+		}
+	}
+}
+
 void CvTeam::updateCommerce() {
-	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
-				GET_PLAYER((PlayerTypes)iI).updateCommerce();
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+		if (kPlayer.isAlive()) {
+			if (kPlayer.getTeam() == getID()) {
+				kPlayer.updateCommerce();
 			}
 		}
 	}

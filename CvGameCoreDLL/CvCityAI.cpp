@@ -3231,8 +3231,9 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 					const CvBuildingInfo& kLoopBuilding = GC.getBuildingInfo(eLoopBuilding);
 					int iLimitForLoopBuilding = limitedWonderClassLimit(eLoopClass);
 
-					if ((kLoopBuilding.getPrereqNumOfBuildingClass(eBuildingClass) <= 0 && !kLoopBuilding.isBuildingClassNeededInCity(kBuilding.getBuildingClassType())) ||
-						(iLimitForLoopBuilding > 0 && kOwner.getBuildingClassMaking(eLoopClass) >= iLimitForLoopBuilding) ||
+					if ((kLoopBuilding.getPrereqNumOfBuildingClass(eBuildingClass) <= 0 && !kLoopBuilding.isBuildingClassNeededInCity(eBuildingClass)) ||
+						!kLoopBuilding.isPrereqOrBuildingClass(eBuildingClass) ||
+						iLimitForLoopBuilding > 0 && kOwner.getBuildingClassMaking(eLoopClass) >= iLimitForLoopBuilding ||
 						!kOwner.canConstruct(eLoopBuilding, false, true, false)) {
 						// either we don't need eBuilding in order to build eLoopBuilding, or we can't construct eLoopBuilding anyway
 						// NOTE: the above call to canConstruct will return true even if the city already has the maximum number of national wonders. This is a minor flaw in the AI.

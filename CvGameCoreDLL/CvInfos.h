@@ -1657,6 +1657,15 @@ public:
 	int getNumPrereqOrBonuses() const;
 	int getNumPrereqAndCivics() const;
 	int getNumPrereqOrCivics() const;
+	int getNumPrereqAndTerrains() const;
+	int getNumPrereqOrTerrains() const;
+	int getNumPrereqVicinityImprovements() const;
+	int getNumPrereqVicinityFeatures() const;
+	int getNumPrereqVicinityAndBonus() const;
+	int getNumPrereqVicinityOrBonus() const;
+	int getNumPrereqOrBuildingClasses() const;
+	int getNumPrereqNotBuildingClasses() const;
+	int getMinPopulation() const;
 
 	float getVisibilityPriority() const;
 
@@ -1680,6 +1689,9 @@ public:
 	bool isCenterInCity() const;				// Exposed to Python
 	bool isStateReligion() const;				// Exposed to Python
 	bool isAllowsNukes() const;				// Exposed to Python
+	bool isPrereqPower() const;
+
+	CultureLevelTypes getMinCultureLevel() const;
 
 	const TCHAR* getConstructSound() const;				// Exposed to Python
 	void setConstructSound(const TCHAR* szVal);
@@ -1740,6 +1752,14 @@ public:
 	int getPrereqAndTech(int i) const;
 	int getPrereqAndCivic(int i) const;
 	int getPrereqOrCivic(int i) const;
+	int getPrereqAndTerrain(int i) const;
+	int getPrereqOrTerrain(int i) const;
+	int getPrereqVicinityImprovement(int i) const;
+	int getPrereqVicinityFeature(int i) const;
+	int getPrereqVicinityAndBonus(int i) const;
+	int getPrereqVicinityOrBonus(int i) const;
+	int getPrereqOrBuildingClass(int i) const;
+	int getPrereqNotBuildingClass(int i) const;
 
 	bool isCommerceFlexible(int i) const;				// Exposed to Python
 	bool isCommerceChangeOriginalOwner(int i) const;				// Exposed to Python
@@ -1747,6 +1767,14 @@ public:
 	bool isReplacedByBuildingClass(int i) const;
 	bool isPrereqAndCivic(CivicTypes eCivic) const;
 	bool isPrereqOrCivic(CivicTypes eCivic) const;
+	bool isPrereqAndTerrain(TerrainTypes eTerrain) const;
+	bool isPrereqOrTerrain(TerrainTypes eTerrain) const;
+	bool isPrereqVicinityImprovement(ImprovementTypes eImprovement) const;
+	bool isPrereqVicinityFeature(FeatureTypes eImprovement) const;
+	bool isPrereqVicinityAndBonus(BonusTypes eTerrain) const;
+	bool isPrereqVicinityOrBonus(BonusTypes eTerrain) const;
+	bool isPrereqOrBuildingClass(BuildingClassTypes eBuildingClass) const;
+	bool isPrereqNotBuildingClass(BuildingClassTypes eBuildingClass) const;
 
 	int getSpecialistYieldChange(int i, int j) const;			// Exposed to Python
 	int* getSpecialistYieldChangeArray(int i) const;
@@ -1860,6 +1888,7 @@ protected:
 	int m_iMissionType;
 	int m_iVoteSourceType;
 	int m_iUnhealthyPopulationModifier; // K-Mod
+	int m_iMinPopulation;
 
 	float m_fVisibilityPriority;
 
@@ -1883,6 +1912,9 @@ protected:
 	bool m_bCenterInCity;
 	bool m_bStateReligion;
 	bool m_bAllowsNukes;
+	bool m_bPrereqPower;
+
+	CultureLevelTypes m_eMinCultureLevel;
 
 	CvString m_szConstructSound;
 	CvString m_szArtDefineTag;
@@ -1937,6 +1969,14 @@ protected:
 	std::vector<int> m_viPrereqAndCivics;
 	std::vector<int> m_viPrereqOrCivics;
 	std::vector<int> m_viReplacementBuildingClasses;
+	std::vector<int> m_viPrereqAndTerrains;
+	std::vector<int> m_viPrereqOrTerrains;
+	std::vector<int> m_viPrereqVicinityImprovements;
+	std::vector<int> m_viPrereqVicinityFeatures;
+	std::vector<int> m_viPrereqVicinityAndBonus;
+	std::vector<int> m_viPrereqVicinityOrBonus;
+	std::vector<int> m_viPrereqOrBuildingClasses;
+	std::vector<int> m_viPrereqNotBuildingClasses;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

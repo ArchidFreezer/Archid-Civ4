@@ -1641,6 +1641,18 @@ bool CvCity::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestVis
 		}
 	}
 
+	if (kBuilding.getMinPopulation() > getPopulation()) {
+		return false;
+	}
+
+	if (kBuilding.getMinCultureLevel() > getCultureLevel()) {
+		return false;
+	}
+
+	if (kBuilding.isPrereqPower() && !isPower()) {
+		return false;
+	}
+
 	if (!bTestVisible) {
 		if (!bContinue) {
 			if (getFirstBuildingOrder(eBuilding) != -1) {
@@ -1741,6 +1753,27 @@ bool CvCity::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestVis
 						return false;
 					}
 				}
+			}
+		}
+
+		// OR Building Classes
+		bool bValid = false;
+		int iNumPrereqOrBuildingClasses = kBuilding.getNumPrereqOrBuildingClasses();
+		for (int iI = 0; iI < iNumPrereqOrBuildingClasses; iI++) {
+			if (getNumActiveBuildingClass((BuildingClassTypes)kBuilding.getPrereqOrBuildingClass(iI)) > 0) {
+				bValid = true;
+				break;
+			}
+		}
+		if (iNumPrereqOrBuildingClasses > 0 && !bValid) {
+			return false;
+		}
+
+		// Not Building Classes
+		int iNumPrereqNotBuildingClasses = kBuilding.getNumPrereqNotBuildingClasses();
+		for (int iI = 0; iI < iNumPrereqNotBuildingClasses; iI++) {
+			if (getNumActiveBuildingClass((BuildingClassTypes)kBuilding.getPrereqNotBuildingClass(iI)) > 0) {
+				return false;
 			}
 		}
 	}
@@ -4325,6 +4358,7 @@ void CvCity::setPopulation(int iNewValue) {
 
 	if (iOldPopulation != iNewValue) {
 		m_iPopulation = iNewValue;
+		checkBuildingPopulationPrereqs(iNewValue - iOldPopulation);
 
 		FAssert(getPopulation() >= 0);
 
@@ -6202,6 +6236,7 @@ void CvCity::changePowerCount(int iChange, bool bDirty) {
 		}
 
 		if (bOldPower != isPower()) {
+			checkBuildingPowerPrereqs(isPower());
 			GET_PLAYER(getOwnerINLINE()).invalidateYieldRankCache();
 
 			updateCommerce();
@@ -6580,6 +6615,7 @@ void CvCity::setCultureLevel(CultureLevelTypes eNewValue, bool bUpdatePlotGroups
 
 	if (eOldValue != eNewValue) {
 		m_eCultureLevel = eNewValue;
+		checkBuildingCulturePrereqs(eNewValue - eOldValue);
 
 		if (eOldValue != NO_CULTURELEVEL) {
 			for (int iDX = -eOldValue; iDX <= eOldValue; iDX++) {
@@ -6627,14 +6663,15 @@ void CvCity::setCultureLevel(CultureLevelTypes eNewValue, bool bUpdatePlotGroups
 				gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_CULTUREEXPANDS", MESSAGE_TYPE_MINOR_EVENT, GC.getCommerceInfo(COMMERCE_CULTURE).getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE(), true, true);
 
 				if (getCultureLevel() == (GC.getNumCultureLevelInfos() - 1)) {
-					for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-						if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
-							if (isRevealed(GET_PLAYER((PlayerTypes)iI).getTeam(), false)) {
+					for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+						const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+						if (kPlayer.isAlive()) {
+							if (isRevealed(kPlayer.getTeam(), false)) {
 								szBuffer = gDLL->getText("TXT_KEY_MISC_CULTURE_LEVEL", getNameKey(), GC.getCultureLevelInfo(getCultureLevel()).getTextKeyWide());
-								gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_CULTURELEVEL", MESSAGE_TYPE_MAJOR_EVENT, GC.getCommerceInfo(COMMERCE_CULTURE).getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"), getX_INLINE(), getY_INLINE(), true, true);
+								gDLL->getInterfaceIFace()->addHumanMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_CULTURELEVEL", MESSAGE_TYPE_MAJOR_EVENT, GC.getCommerceInfo(COMMERCE_CULTURE).getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"), getX_INLINE(), getY_INLINE(), true, true);
 							} else {
 								szBuffer = gDLL->getText("TXT_KEY_MISC_CULTURE_LEVEL_UNKNOWN", GC.getCultureLevelInfo(getCultureLevel()).getTextKeyWide());
-								gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_CULTURELEVEL", MESSAGE_TYPE_MAJOR_EVENT, GC.getCommerceInfo(COMMERCE_CULTURE).getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
+								gDLL->getInterfaceIFace()->addHumanMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_CULTURELEVEL", MESSAGE_TYPE_MAJOR_EVENT, GC.getCommerceInfo(COMMERCE_CULTURE).getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
 							}
 						}
 					}
@@ -8986,12 +9023,19 @@ void CvCity::setNumRealBuildingTimed(BuildingTypes eIndex, int iNewValue, bool b
 	FAssertMsg(eIndex >= 0, "eIndex expected to be >= 0");
 	FAssertMsg(eIndex < GC.getNumBuildingInfos(), "eIndex expected to be < GC.getNumBuildingInfos()");
 
+	CvPlayer& kOwner = GET_PLAYER(getOwnerINLINE());
+
 	int iChangeNumRealBuilding = iNewValue - getNumRealBuilding(eIndex);
 
 	if (iChangeNumRealBuilding != 0) {
+		const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eIndex);
 		int iOldNumBuilding = getNumBuilding(eIndex);
 
 		m_paiNumRealBuilding[eIndex] = iNewValue;
+
+		// If we are going from 0 to 1 or 1 to 0 buildings then check anything that has this as a prereq
+		if ((getNumActiveBuilding(eIndex) == 1 && iChangeNumRealBuilding > 0) || (getNumActiveBuilding(eIndex) == 0 && iChangeNumRealBuilding < 0))
+			checkBuildingCityPrereqs(eIndex, iChangeNumRealBuilding > 0);
 
 		if (getNumRealBuilding(eIndex) > 0) {
 			m_paiBuildingOriginalOwner[eIndex] = eOriginalOwner;
@@ -9003,12 +9047,12 @@ void CvCity::setNumRealBuildingTimed(BuildingTypes eIndex, int iNewValue, bool b
 
 		if (iOldNumBuilding != getNumBuilding(eIndex)) {
 			if (getNumRealBuilding(eIndex) > 0) {
-				if (GC.getBuildingInfo(eIndex).isStateReligion()) {
-					for (int iI = 0; iI < GC.getNumVoteSourceInfos(); ++iI) {
-						if (GC.getBuildingInfo(eIndex).getVoteSourceType() == (VoteSourceTypes)iI) {
-							if (GC.getGameINLINE().getVoteSourceReligion((VoteSourceTypes)iI) == NO_RELIGION) {
-								FAssert(GET_PLAYER(getOwnerINLINE()).getStateReligion() != NO_RELIGION);
-								GC.getGameINLINE().setVoteSourceReligion((VoteSourceTypes)iI, GET_PLAYER(getOwnerINLINE()).getStateReligion(), true);
+				if (kBuilding.isStateReligion()) {
+					for (VoteSourceTypes eVoteSource = (VoteSourceTypes)0; eVoteSource < GC.getNumVoteSourceInfos(); eVoteSource = (VoteSourceTypes)(eVoteSource + 1)) {
+						if (kBuilding.getVoteSourceType() == eVoteSource) {
+							if (GC.getGameINLINE().getVoteSourceReligion(eVoteSource) == NO_RELIGION) {
+								FAssert(kOwner.getStateReligion() != NO_RELIGION);
+								GC.getGameINLINE().setVoteSourceReligion(eVoteSource, kOwner.getStateReligion(), true);
 							}
 						}
 					}
@@ -9018,12 +9062,12 @@ void CvCity::setNumRealBuildingTimed(BuildingTypes eIndex, int iNewValue, bool b
 			processBuilding(eIndex, getNumBuilding(eIndex) - iOldNumBuilding);
 		}
 
-		if (!(GC.getBuildingClassInfo((BuildingClassTypes)(GC.getBuildingInfo(eIndex).getBuildingClassType())).isNoLimit())) {
-			if (isWorldWonderClass((BuildingClassTypes)(GC.getBuildingInfo(eIndex).getBuildingClassType()))) {
+		if (!(GC.getBuildingClassInfo((BuildingClassTypes)kBuilding.getBuildingClassType()).isNoLimit())) {
+			if (isWorldWonderClass((BuildingClassTypes)kBuilding.getBuildingClassType())) {
 				changeNumWorldWonders(iChangeNumRealBuilding);
-			} else if (isTeamWonderClass((BuildingClassTypes)(GC.getBuildingInfo(eIndex).getBuildingClassType()))) {
+			} else if (isTeamWonderClass((BuildingClassTypes)kBuilding.getBuildingClassType())) {
 				changeNumTeamWonders(iChangeNumRealBuilding);
-			} else if (isNationalWonderClass((BuildingClassTypes)(GC.getBuildingInfo(eIndex).getBuildingClassType()))) {
+			} else if (isNationalWonderClass((BuildingClassTypes)kBuilding.getBuildingClassType())) {
 				changeNumNationalWonders(iChangeNumRealBuilding);
 			} else {
 				changeNumBuildings(iChangeNumRealBuilding);
@@ -9032,23 +9076,24 @@ void CvCity::setNumRealBuildingTimed(BuildingTypes eIndex, int iNewValue, bool b
 
 		if (iChangeNumRealBuilding > 0) {
 			if (bFirst) {
-				if (GC.getBuildingInfo(eIndex).isCapital()) {
-					GET_PLAYER(getOwnerINLINE()).setCapitalCity(this);
+				if (kBuilding.isCapital()) {
+					kOwner.setCapitalCity(this);
 				}
 
 				if (GC.getGameINLINE().isFinalInitialized() && !(gDLL->GetWorldBuilderMode())) {
-					if (GC.getBuildingInfo(eIndex).isGoldenAge()) {
-						GET_PLAYER(getOwnerINLINE()).changeGoldenAgeTurns(iChangeNumRealBuilding * (GET_PLAYER(getOwnerINLINE()).getGoldenAgeLength() + 1));
+					if (kBuilding.isGoldenAge()) {
+						kOwner.changeGoldenAgeTurns(iChangeNumRealBuilding * (kOwner.getGoldenAgeLength() + 1));
 					}
 
-					if (GC.getBuildingInfo(eIndex).getGlobalPopulationChange() != 0) {
-						for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-							if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
-								if (GET_PLAYER((PlayerTypes)iI).getTeam() == getTeam()) {
-									if (GC.getBuildingInfo(eIndex).isTeamShare() || (iI == getOwnerINLINE())) {
+					if (kBuilding.getGlobalPopulationChange() != 0) {
+						for (PlayerTypes eLoopPlayer = (PlayerTypes)0; eLoopPlayer < MAX_PLAYERS; eLoopPlayer = (PlayerTypes)(eLoopPlayer + 1)) {
+							const CvPlayer& kLoopPlayer = GET_PLAYER(eLoopPlayer);
+							if (kLoopPlayer.isAlive()) {
+								if (kLoopPlayer.getTeam() == getTeam()) {
+									if (kBuilding.isTeamShare() || (eLoopPlayer == getOwnerINLINE())) {
 										int iLoop;
-										for (CvCity* pLoopCity = GET_PLAYER((PlayerTypes)iI).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER((PlayerTypes)iI).nextCity(&iLoop)) {
-											pLoopCity->setPopulation(std::max(1, (pLoopCity->getPopulation() + iChangeNumRealBuilding * GC.getBuildingInfo(eIndex).getGlobalPopulationChange())));
+										for (CvCity* pLoopCity = kLoopPlayer.firstCity(&iLoop); pLoopCity != NULL; pLoopCity = kLoopPlayer.nextCity(&iLoop)) {
+											pLoopCity->setPopulation(std::max(1, (pLoopCity->getPopulation() + iChangeNumRealBuilding * kBuilding.getGlobalPopulationChange())));
 											pLoopCity->AI_updateAssignWork();  // so subsequent cities don't starve with the extra citizen working nothing
 										}
 									}
@@ -9057,58 +9102,59 @@ void CvCity::setNumRealBuildingTimed(BuildingTypes eIndex, int iNewValue, bool b
 						}
 					}
 
-					for (int iI = 0; iI < GC.getNumReligionInfos(); iI++) {
-						if (GC.getBuildingInfo(eIndex).getReligionChange(iI) > 0) {
-							setHasReligion(((ReligionTypes)iI), true, true, true);
+					for (ReligionTypes eReligion = (ReligionTypes)0; eReligion < GC.getNumReligionInfos(); eReligion = (ReligionTypes)(eReligion + 1)) {
+						if (kBuilding.getReligionChange(eReligion) > 0) {
+							setHasReligion(eReligion, true, true, true);
 						}
 					}
 
-					if (GC.getBuildingInfo(eIndex).getFreeTechs() > 0) {
+					if (kBuilding.getFreeTechs() > 0) {
 						if (!isHuman()) {
-							for (int iI = 0; iI < GC.getBuildingInfo(eIndex).getFreeTechs(); iI++) {
+							for (int iI = 0; iI < kBuilding.getFreeTechs(); iI++) {
 								for (int iLoop = 0; iLoop < iChangeNumRealBuilding; iLoop++) {
-									GET_PLAYER(getOwnerINLINE()).AI_chooseFreeTech();
+									kOwner.AI_chooseFreeTech();
 								}
 							}
 						} else {
-							CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_COMPLETED_WONDER_CHOOSE_TECH", GC.getBuildingInfo(eIndex).getTextKeyWide());
-							GET_PLAYER(getOwnerINLINE()).chooseTech(GC.getBuildingInfo(eIndex).getFreeTechs() * iChangeNumRealBuilding, szBuffer.GetCString());
+							CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_COMPLETED_WONDER_CHOOSE_TECH", kBuilding.getTextKeyWide());
+							kOwner.chooseTech(kBuilding.getFreeTechs() * iChangeNumRealBuilding, szBuffer.GetCString());
 						}
 					}
 
-					if (isWorldWonderClass((BuildingClassTypes)(GC.getBuildingInfo(eIndex).getBuildingClassType()))) {
-						CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_COMPLETES_WONDER", GET_PLAYER(getOwnerINLINE()).getNameKey(), GC.getBuildingInfo(eIndex).getTextKeyWide());
+					if (isWorldWonderClass((BuildingClassTypes)kBuilding.getBuildingClassType())) {
+						CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_COMPLETES_WONDER", kOwner.getNameKey(), kBuilding.getTextKeyWide());
 						GC.getGameINLINE().addReplayMessage(REPLAY_MESSAGE_MAJOR_EVENT, getOwnerINLINE(), szBuffer, getX_INLINE(), getY_INLINE(), (ColorTypes)GC.getInfoTypeForString("COLOR_BUILDING_TEXT"));
 
-						for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-							if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
-								if (isRevealed(GET_PLAYER((PlayerTypes)iI).getTeam(), false)) {
-									szBuffer = gDLL->getText("TXT_KEY_MISC_WONDER_COMPLETED", GET_PLAYER(getOwnerINLINE()).getNameKey(), GC.getBuildingInfo(eIndex).getTextKeyWide());
-									gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_WONDER_BUILDING_BUILD", MESSAGE_TYPE_MAJOR_EVENT, GC.getBuildingInfo(eIndex).getArtInfo()->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_BUILDING_TEXT"), getX_INLINE(), getY_INLINE(), true, true);
+						for (PlayerTypes eLoopPlayer = (PlayerTypes)0; eLoopPlayer < MAX_PLAYERS; eLoopPlayer = (PlayerTypes)(eLoopPlayer + 1)) {
+							const CvPlayer& kLoopPlayer = GET_PLAYER(eLoopPlayer);
+							if (kLoopPlayer.isAlive()) {
+								if (isRevealed(kLoopPlayer.getTeam(), false)) {
+									szBuffer = gDLL->getText("TXT_KEY_MISC_WONDER_COMPLETED", kOwner.getNameKey(), kBuilding.getTextKeyWide());
+									gDLL->getInterfaceIFace()->addHumanMessage(eLoopPlayer, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_WONDER_BUILDING_BUILD", MESSAGE_TYPE_MAJOR_EVENT, kBuilding.getArtInfo()->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_BUILDING_TEXT"), getX_INLINE(), getY_INLINE(), true, true);
 								} else {
-									szBuffer = gDLL->getText("TXT_KEY_MISC_WONDER_COMPLETED_UNKNOWN", GC.getBuildingInfo(eIndex).getTextKeyWide());
-									gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_WONDER_BUILDING_BUILD", MESSAGE_TYPE_MAJOR_EVENT, GC.getBuildingInfo(eIndex).getArtInfo()->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_BUILDING_TEXT"));
+									szBuffer = gDLL->getText("TXT_KEY_MISC_WONDER_COMPLETED_UNKNOWN", kBuilding.getTextKeyWide());
+									gDLL->getInterfaceIFace()->addHumanMessage(eLoopPlayer, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_WONDER_BUILDING_BUILD", MESSAGE_TYPE_MAJOR_EVENT, kBuilding.getArtInfo()->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_BUILDING_TEXT"));
 								}
 							}
 						}
 					}
 				}
 
-				if (GC.getBuildingInfo(eIndex).isAllowsNukes()) {
+				if (kBuilding.isAllowsNukes()) {
 					GC.getGameINLINE().makeNukesValid(true);
 				}
 
-				GC.getGameINLINE().incrementBuildingClassCreatedCount((BuildingClassTypes)(GC.getBuildingInfo(eIndex).getBuildingClassType()));
+				GC.getGameINLINE().incrementBuildingClassCreatedCount((BuildingClassTypes)(kBuilding.getBuildingClassType()));
 			}
 		}
 
 		//great wall
 		if (bFirst) {
-			if (GC.getBuildingInfo(eIndex).isAreaBorderObstacle()) {
+			if (kBuilding.isAreaBorderObstacle()) {
 				int iCountExisting = 0;
-				for (int iI = 0; iI < GC.getNumBuildingInfos(); iI++) {
-					if (eIndex != iI && GC.getBuildingInfo((BuildingTypes)iI).isAreaBorderObstacle()) {
-						iCountExisting += getNumRealBuilding((BuildingTypes)iI);
+				for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+					if (eIndex != eBuilding && GC.getBuildingInfo(eBuilding).isAreaBorderObstacle()) {
+						iCountExisting += getNumRealBuilding(eBuilding);
 					}
 				}
 
@@ -9138,6 +9184,9 @@ void CvCity::setNumFreeBuilding(BuildingTypes eIndex, int iNewValue) {
 		int iOldNumBuilding = getNumBuilding(eIndex);
 
 		m_paiNumFreeBuilding[eIndex] = iNewValue;
+		if ((getNumActiveBuilding(eIndex) == 1 && iNewValue > iOldNumBuilding) || (getNumActiveBuilding(eIndex) == 0 && iNewValue < iOldNumBuilding)) {
+			checkBuildingCityPrereqs(eIndex, iOldNumBuilding < iNewValue);
+		}
 
 		if (iOldNumBuilding != getNumBuilding(eIndex)) {
 			processBuilding(eIndex, iNewValue - iOldNumBuilding);
@@ -11382,23 +11431,84 @@ bool CvCity::isStarCity() const {
 }
 
 bool CvCity::isValidBuildingLocation(BuildingTypes eBuilding) const {
+	if (eBuilding == NO_BUILDING) {
+		return false;
+	}
+	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+
 	// if both the river and water flags are set, we require one of the two conditions, not both
-	if (GC.getBuildingInfo(eBuilding).isWater()) {
-		if (!GC.getBuildingInfo(eBuilding).isRiver() || !plot()->isRiver()) {
-			if (!isCoastal(GC.getBuildingInfo(eBuilding).getMinAreaSize())) {
+	if (kBuilding.isWater()) {
+		if (!kBuilding.isRiver() || !plot()->isRiver()) {
+			if (!isCoastal(kBuilding.getMinAreaSize())) {
 				return false;
 			}
 		}
 	} else {
-		if (area()->getNumTiles() < GC.getBuildingInfo(eBuilding).getMinAreaSize()) {
+		if (area()->getNumTiles() < kBuilding.getMinAreaSize()) {
 			return false;
 		}
 
-		if (GC.getBuildingInfo(eBuilding).isRiver()) {
+		if (kBuilding.isRiver()) {
 			if (!(plot()->isRiver())) {
 				return false;
 			}
 		}
+	}
+
+	// Check AND Terrains
+	// If any fail then the building location is not valid so we can return from the function
+	for (int iI = 0; iI < kBuilding.getNumPrereqAndTerrains(); iI++) {
+		if (!hasVicinityTerrain((TerrainTypes)kBuilding.getPrereqAndTerrain(iI))) return false;
+	}
+
+	// Check OR Terrains
+	// If any succeed then we don't need to perform this check on any more terrains
+	bool bFoundOrTerrain = false;
+	int iNumPrereqOrTerrains = kBuilding.getNumPrereqOrTerrains();
+	for (int iI = 0; iI < iNumPrereqOrTerrains && !bFoundOrTerrain; iI++) {
+		bFoundOrTerrain = hasVicinityTerrain((TerrainTypes)kBuilding.getPrereqOrTerrain(iI));
+	}
+	if (!bFoundOrTerrain && iNumPrereqOrTerrains > 0) {
+		return false;
+	}
+
+	// Check AND Bonus
+	// If any fail then the building location is not valid so we can return from the function
+	for (int iI = 0; iI < kBuilding.getNumPrereqVicinityAndBonus(); iI++) {
+		if (!hasVicinityBonus((BonusTypes)kBuilding.getPrereqVicinityAndBonus(iI))) return false;
+	}
+
+	// Check OR Bonus
+	// If any succeed then we don't need to perform this check on any more bonus
+	bool bFoundOrBonus = false;
+	int iNumPrereqOrBonus = kBuilding.getNumPrereqVicinityOrBonus();
+	for (int iI = 0; iI < iNumPrereqOrBonus && !bFoundOrBonus; iI++) {
+		bFoundOrBonus = hasVicinityBonus((BonusTypes)kBuilding.getPrereqVicinityOrBonus(iI));
+	}
+	if (!bFoundOrBonus && iNumPrereqOrBonus > 0) {
+		return false;
+	}
+
+	// Check Improvements
+	// If any succeed then we don't need to perform this check on any more improvements
+	bool bFoundImprovement = false;
+	int iNumPrereqImprovements = kBuilding.getNumPrereqVicinityImprovements();
+	for (int iI = 0; iI < iNumPrereqImprovements && !bFoundImprovement; iI++) {
+		bFoundImprovement = hasVicinityImprovement((ImprovementTypes)kBuilding.getPrereqVicinityImprovement(iI));
+	}
+	if (!bFoundImprovement && iNumPrereqImprovements > 0) {
+		return false;
+	}
+
+	// Check Features
+	// If any succeed then we don't need to perform this check on any more features
+	bool bFoundFeature = false;
+	int iNumPrereqFeatures = kBuilding.getNumPrereqVicinityFeatures();
+	for (int iI = 0; iI < iNumPrereqFeatures && !bFoundFeature; iI++) {
+		bFoundFeature = hasVicinityFeature((FeatureTypes)kBuilding.getPrereqVicinityFeature(iI));
+	}
+	if (!bFoundFeature && iNumPrereqFeatures > 0) {
+		return false;
 	}
 
 	return true;
@@ -12438,12 +12548,16 @@ void CvCity::changeDisabledBuildingCount(BuildingTypes eIndex, int iChange) {
 	m_paiDisabledBuildingCount[eIndex] += iChange;
 	bool bIsDisabled = isDisabledBuilding(eIndex);
 
+	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eIndex);
 	if (bIsDisabled != bWasDisabled) {
 		if (getNumRealBuilding(eIndex) > 0) {
 			processBuilding(eIndex, (bIsDisabled ? -1 : 1), false, true);
-			const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eIndex);
 			CvWString szBuffer = bIsDisabled ? gDLL->getText("TXT_KEY_CITY_DISABLED_BUILDING", kBuilding.getDescription(), getNameKey()) : gDLL->getText("TXT_KEY_CITY_ENABLED_BUILDING", kBuilding.getDescription(), getNameKey());
 			gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, NULL, MESSAGE_TYPE_MINOR_EVENT, kBuilding.getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE(), true, true);
+		}
+		checkBuildingCityPrereqs(eIndex, bWasDisabled);
+		if (kBuilding.isPower()) {
+			checkBuildingPowerPrereqs(bWasDisabled);
 		}
 	}
 }
@@ -12462,4 +12576,368 @@ int CvCity::getAdditionalBombardDefenseByBuilding(BuildingTypes eBuilding) const
 
 	// cap total bombard defense at 100
 	return std::min(kBuilding.getBombardDefenseModifier() + iBaseDefense, 100) - iBaseDefense;
+}
+
+// Check whether there are any buildings that rely on plots
+// The buildings are checked both with and without the plot and any difference triggers a disabled building count change
+void CvCity::checkBuildingPlotPrereqs(CvPlot* pPlot, bool bAcquire) {
+	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+		bool bDisable = false;
+		bool bEnable = false;
+		if (!GET_TEAM(getTeam()).isObsoleteBuilding(eBuilding)) {
+			if (getNumRealBuilding(eBuilding) > 0) {
+				const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+
+				// Check AND Terrains
+				for (int iI = 0; iI < kBuilding.getNumPrereqAndTerrains() && !bDisable; iI++) {
+					TerrainTypes eTerrain = (TerrainTypes)kBuilding.getPrereqAndTerrain(iI);
+					bool bFoundPre = bAcquire ? hasVicinityTerrain(eTerrain, pPlot) : hasVicinityTerrain(eTerrain);
+					bool bFoundPost = bAcquire ? hasVicinityTerrain(eTerrain) : hasVicinityTerrain(eTerrain, pPlot);
+					if (bFoundPre != bFoundPost) {
+						bDisable = bFoundPre && !bFoundPost;
+						bEnable = !bFoundPre && bFoundPost;
+					}
+				}
+
+				// Check OR Terrains
+				int iNumPrereqOrTerrains = kBuilding.getNumPrereqOrTerrains();
+				if (iNumPrereqOrTerrains > 0 && !bDisable) {
+					bool bFoundPre = false;
+					bool bFoundPost = false;
+					for (int iI = 0; iI < iNumPrereqOrTerrains && !bFoundPre; iI++) {
+						TerrainTypes eTerrain = (TerrainTypes)kBuilding.getPrereqOrTerrain(iI);
+						bFoundPre = bAcquire ? hasVicinityTerrain(eTerrain, pPlot) : hasVicinityTerrain(eTerrain);
+					}
+					for (int iI = 0; iI < iNumPrereqOrTerrains && !bFoundPost; iI++) {
+						TerrainTypes eTerrain = (TerrainTypes)kBuilding.getPrereqOrTerrain(iI);
+						bFoundPost = bAcquire ? hasVicinityTerrain(eTerrain) : hasVicinityTerrain(eTerrain, pPlot);
+					}
+					if (bFoundPre != bFoundPost) {
+						bDisable = bFoundPre && !bFoundPost;
+						bEnable = !bFoundPre && bFoundPost;
+					}
+				}
+
+				// Check AND Bonus
+				for (int iI = 0; iI < kBuilding.getNumPrereqVicinityAndBonus() && !bDisable; iI++) {
+					BonusTypes eBonus = (BonusTypes)kBuilding.getPrereqVicinityAndBonus(iI);
+					bool bFoundPre = bAcquire ? hasVicinityBonus(eBonus, pPlot) : hasVicinityBonus(eBonus);
+					bool bFoundPost = bAcquire ? hasVicinityBonus(eBonus) : hasVicinityBonus(eBonus, pPlot);
+					if (bFoundPre != bFoundPost) {
+						bDisable = bFoundPre && !bFoundPost;
+						bEnable = !bFoundPre && bFoundPost;
+					}
+				}
+
+				// Check OR Bonus
+				int iNumPrereqOrBonus = kBuilding.getNumPrereqVicinityOrBonus();
+				if (iNumPrereqOrBonus > 0 && !bDisable) {
+					bool bFoundPre = false;
+					bool bFoundPost = false;
+					for (int iI = 0; iI < iNumPrereqOrBonus && !bFoundPre; iI++) {
+						BonusTypes eBonus = (BonusTypes)kBuilding.getPrereqVicinityOrBonus(iI);
+						bFoundPre = bAcquire ? hasVicinityBonus(eBonus, pPlot) : hasVicinityBonus(eBonus);
+					}
+					for (int iI = 0; iI < iNumPrereqOrBonus && !bFoundPost; iI++) {
+						BonusTypes eBonus = (BonusTypes)kBuilding.getPrereqVicinityOrBonus(iI);
+						bFoundPost = bAcquire ? hasVicinityBonus(eBonus) : hasVicinityBonus(eBonus, pPlot);
+					}
+					if (bFoundPre != bFoundPost) {
+						bDisable = bFoundPre && !bFoundPost;
+						bEnable = !bFoundPre && bFoundPost;
+					}
+				}
+
+				// Check Improvements
+				int iNumPrereqImprovements = kBuilding.getNumPrereqVicinityImprovements();
+				if (iNumPrereqImprovements > 0 && !bDisable) {
+					bool bFoundPre = false;
+					bool bFoundPost = false;
+					for (int iI = 0; iI < iNumPrereqImprovements && !bFoundPre; iI++) {
+						ImprovementTypes eImprovement = (ImprovementTypes)kBuilding.getPrereqVicinityImprovement(iI);
+						bFoundPre = bAcquire ? hasVicinityImprovement(eImprovement, pPlot) : hasVicinityImprovement(eImprovement);
+					}
+					for (int iI = 0; iI < iNumPrereqImprovements && !bFoundPost; iI++) {
+						ImprovementTypes eImprovement = (ImprovementTypes)kBuilding.getPrereqVicinityImprovement(iI);
+						bFoundPost = bAcquire ? hasVicinityImprovement(eImprovement) : hasVicinityImprovement(eImprovement, pPlot);
+					}
+					if (bFoundPre != bFoundPost) {
+						bDisable = bFoundPre && !bFoundPost;
+						bEnable = !bFoundPre && bFoundPost;
+					}
+				}
+
+				// Check Features
+				int iNumPrereqFeatures = kBuilding.getNumPrereqVicinityFeatures();
+				if (iNumPrereqFeatures > 0 && !bDisable) {
+					bool bFoundPre = false;
+					bool bFoundPost = false;
+					for (int iI = 0; iI < iNumPrereqFeatures && !bFoundPre; iI++) {
+						FeatureTypes eFeature = (FeatureTypes)kBuilding.getPrereqVicinityFeature(iI);
+						bFoundPre = bAcquire ? hasVicinityFeature(eFeature, pPlot) : hasVicinityFeature(eFeature);
+					}
+					for (int iI = 0; iI < iNumPrereqFeatures && !bFoundPost; iI++) {
+						FeatureTypes eFeature = (FeatureTypes)kBuilding.getPrereqVicinityFeature(iI);
+						bFoundPost = bAcquire ? hasVicinityFeature(eFeature) : hasVicinityFeature(eFeature, pPlot);
+					}
+					if (bFoundPre != bFoundPost) {
+						bDisable = bFoundPre && !bFoundPost;
+						bEnable = !bFoundPre && bFoundPost;
+					}
+				}
+			}
+		}
+		if (bDisable)
+			changeDisabledBuildingCount(eBuilding, 1);
+		else if (bEnable)
+			changeDisabledBuildingCount(eBuilding, -1);
+	}
+}
+
+bool CvCity::hasVicinityTerrain(TerrainTypes eTerrain, CvPlot* pExcludePlot) const {
+	PROFILE_FUNC();
+
+	//These have to be hardcoded, since they are really plot types, not terrains.
+	int iTerrainPeak = GC.getInfoTypeForString("TERRAIN_PEAK");
+	int iTerrainHill = GC.getInfoTypeForString("TERRAIN_HILL");
+
+	if (plot()->getTerrainType() == eTerrain) {
+		return true;
+	}
+
+	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+		CvPlot* pLoopPlot = plotCity(getX_INLINE(), getY_INLINE(), iI);
+		if (pLoopPlot != NULL && pLoopPlot != pExcludePlot && pLoopPlot->getWorkingCity() == this) {
+			if (pLoopPlot->getTerrainType() == eTerrain || pLoopPlot->isPeak() && (eTerrain == iTerrainPeak) || pLoopPlot->isHills() && (eTerrain == iTerrainHill)) {
+				return true;
+			}
+		}
+	}
+
+	return false;
+}
+
+bool CvCity::hasVicinityImprovement(ImprovementTypes eImprovement, CvPlot* pExcludePlot) const {
+	PROFILE_FUNC();
+
+	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+		CvPlot* pLoopPlot = plotCity(getX_INLINE(), getY_INLINE(), iI);
+		if (pLoopPlot != NULL && pLoopPlot != pExcludePlot && pLoopPlot->getWorkingCity() == this) {
+			if (pLoopPlot->getImprovementType() == eImprovement) {
+				return true;
+			}
+		}
+	}
+
+	return false;
+}
+
+bool CvCity::hasVicinityFeature(FeatureTypes eFeature, CvPlot* pExcludePlot) const {
+	PROFILE_FUNC();
+
+	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+		CvPlot* pLoopPlot = plotCity(getX_INLINE(), getY_INLINE(), iI);
+		if (pLoopPlot != NULL && pLoopPlot != pExcludePlot && pLoopPlot->getWorkingCity() == this) {
+			if (pLoopPlot->getFeatureType() == eFeature) {
+				return true;
+			}
+		}
+	}
+
+	return false;
+}
+
+bool CvCity::hasVicinityBonus(BonusTypes eBonus, CvPlot* pExcludePlot) const {
+	PROFILE_FUNC();
+
+	//No sense in checking...
+	if (!hasBonus(eBonus))
+		return false;
+
+	if (plot()->getBonusType() == eBonus)
+		return true;
+
+	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
+		CvPlot* pLoopPlot = plotCity(getX_INLINE(), getY_INLINE(), iI);
+		if (pLoopPlot != NULL && pLoopPlot != pExcludePlot && pLoopPlot->getWorkingCity() == this) {
+			if (pLoopPlot->getBonusType() == eBonus && pLoopPlot->isTeamBonus(getTeam()) && pLoopPlot->isConnectedTo(this)) {
+				return true;
+			}
+		}
+	}
+
+	return false;
+}
+
+int CvCity::getNumActiveBuildingClass(BuildingClassTypes eIndex) const {
+	FAssertMsg(eIndex != NO_BUILDINGCLASS, "BuildingClassTypes eIndex is expected to not be NO_BUILDINGCLASS");
+
+	int iNumActiveBuildings = 0;
+	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+		if (GC.getBuildingInfo(eBuilding).getBuildingClassType() == eIndex) {
+			iNumActiveBuildings += getNumActiveBuilding(eBuilding);
+		}
+	}
+
+	return iNumActiveBuildings;
+}
+
+int CvCity::getNumBuildingClass(BuildingClassTypes eIndex) const {
+
+	FAssertMsg(eIndex != NO_BUILDINGCLASS, "BuildingClassTypes eIndex is expected to not be NO_BUILDINGCLASS");
+
+	int iNumBuildings = 0;
+
+	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+		if (GC.getBuildingInfo(eBuilding).getBuildingClassType() == eIndex) {
+			iNumBuildings += (getNumRealBuilding(eBuilding) + getNumFreeBuilding(eBuilding));
+		}
+	}
+
+	return std::min(GC.getCITY_MAX_NUM_BUILDINGS(), iNumBuildings);
+}
+
+void CvCity::checkBuildingCityPrereqs(BuildingTypes eIndex, bool bAcquire) {
+	// The building class of the building that we have gained or lost in the city
+	BuildingClassTypes eUpdatedBuildingClass = (BuildingClassTypes)GC.getBuildingInfo(eIndex).getBuildingClassType();
+
+	// Loop through all the buildings that may be impacted
+	for (BuildingTypes eLoopBuilding = (BuildingTypes)0; eLoopBuilding < GC.getNumBuildingInfos(); eLoopBuilding = (BuildingTypes)(eLoopBuilding + 1)) {
+
+		bool bDisable = false;
+		bool bEnable = false;
+		if (!GET_TEAM(getTeam()).isObsoleteBuilding(eLoopBuilding)) {
+			if (getNumRealBuilding(eLoopBuilding) > 0) {
+				const CvBuildingInfo& kLoopBuilding = GC.getBuildingInfo(eLoopBuilding);
+
+				// Check OR BuildingClasses
+				int iNumPrereqOrBuildingClasses = kLoopBuilding.getNumPrereqOrBuildingClasses();
+				if (iNumPrereqOrBuildingClasses > 0 && !bDisable) {
+					bool bValidPre = false;
+					bool bValidPost = false;
+					for (int iI = 0; iI < iNumPrereqOrBuildingClasses && !bValidPre; iI++) {
+						BuildingClassTypes ePrereqBuildingClass = (BuildingClassTypes)kLoopBuilding.getPrereqOrBuildingClass(iI);
+						// If the prereq class is one that has been updated then we know it is significant, but it is only
+						//  if it has been removed that it was signifcant before the update
+						if (ePrereqBuildingClass == eUpdatedBuildingClass) {
+							if (!bAcquire) bValidPre = true;
+						} else {
+							bValidPre = getNumActiveBuildingClass(ePrereqBuildingClass) > 0;
+						}
+					}
+					for (int iI = 0; iI < iNumPrereqOrBuildingClasses && !bValidPost; iI++) {
+						BuildingClassTypes ePrereqBuildingClass = (BuildingClassTypes)kLoopBuilding.getPrereqOrBuildingClass(iI);
+						bValidPost = getNumActiveBuildingClass(ePrereqBuildingClass) > 0;
+					}
+					if (bValidPre != bValidPost) {
+						bDisable = bValidPre && !bValidPost;
+						bEnable = !bValidPre && bValidPost;
+					}
+				}
+
+				// Check NOT BuildingClasses
+				int iNumPrereqNotBuildingClasses = kLoopBuilding.getNumPrereqNotBuildingClasses();
+				if (iNumPrereqNotBuildingClasses > 0 && !bDisable) {
+					bool bValidPre = true;
+					bool bValidPost = true;
+					for (int iI = 0; iI < iNumPrereqNotBuildingClasses && bValidPre; iI++) {
+						BuildingClassTypes ePrereqBuildingClass = (BuildingClassTypes)kLoopBuilding.getPrereqNotBuildingClass(iI);
+						// If the prereq class is one that has been updated then we know it is significant, but it is only
+						//  if it has been removed that it was signifcant before the update
+						if (ePrereqBuildingClass == eUpdatedBuildingClass) {
+							if (!bAcquire) bValidPre = false;
+						} else {
+							bValidPre = getNumActiveBuildingClass(ePrereqBuildingClass) <= 0;
+						}
+					}
+					for (int iI = 0; iI < iNumPrereqNotBuildingClasses && bValidPost; iI++) {
+						BuildingClassTypes ePrereqBuildingClass = (BuildingClassTypes)kLoopBuilding.getPrereqNotBuildingClass(iI);
+						bValidPost = getNumActiveBuildingClass(ePrereqBuildingClass) <= 0;
+					}
+					if (bValidPre != bValidPost) {
+						bDisable = bValidPre && !bValidPost;
+						bEnable = !bValidPre && bValidPost;
+					}
+				}
+			}
+		}
+		if (bDisable)
+			changeDisabledBuildingCount(eLoopBuilding, 1);
+		else if (bEnable)
+			changeDisabledBuildingCount(eLoopBuilding, -1);
+	}
+}
+
+void CvCity::checkBuildingPopulationPrereqs(int iChange) {
+	// Loop through all the buildings that may be impacted
+	for (BuildingTypes eLoopBuilding = (BuildingTypes)0; eLoopBuilding < GC.getNumBuildingInfos(); eLoopBuilding = (BuildingTypes)(eLoopBuilding + 1)) {
+		bool bDisable = false;
+		bool bEnable = false;
+
+		if (!GET_TEAM(getTeam()).isObsoleteBuilding(eLoopBuilding)) {
+			if (getNumRealBuilding(eLoopBuilding) > 0) {
+				bool bValidPre = true;
+				bool bValidPost = true;
+
+				const CvBuildingInfo& kLoopBuilding = GC.getBuildingInfo(eLoopBuilding);
+				int iMinPopulation = kLoopBuilding.getMinPopulation();
+				if (iMinPopulation > 0) {
+					bValidPre = ((getPopulation() - iChange) >= iMinPopulation);
+					bValidPost = (getPopulation() >= iMinPopulation);
+
+					if (bValidPre != bValidPost) {
+						bDisable = bValidPre && !bValidPost;
+						bEnable = !bValidPre && bValidPost;
+					}
+				}
+			}
+		}
+		if (bDisable)
+			changeDisabledBuildingCount(eLoopBuilding, 1);
+		else if (bEnable)
+			changeDisabledBuildingCount(eLoopBuilding, -1);
+	}
+}
+
+void CvCity::checkBuildingCulturePrereqs(int iChange) {
+	// Loop through all the buildings that may be impacted
+	for (BuildingTypes eLoopBuilding = (BuildingTypes)0; eLoopBuilding < GC.getNumBuildingInfos(); eLoopBuilding = (BuildingTypes)(eLoopBuilding + 1)) {
+		bool bDisable = false;
+		bool bEnable = false;
+
+		if (!GET_TEAM(getTeam()).isObsoleteBuilding(eLoopBuilding)) {
+			if (getNumRealBuilding(eLoopBuilding) > 0) {
+				bool bValidPre = true;
+				bool bValidPost = true;
+
+				CultureLevelTypes eMinCultureLevel = GC.getBuildingInfo(eLoopBuilding).getMinCultureLevel();
+				if (eMinCultureLevel > NO_CULTURELEVEL) {
+					bValidPre = ((getCultureLevel() - iChange) >= eMinCultureLevel);
+					bValidPost = (getCultureLevel() >= eMinCultureLevel);
+
+					if (bValidPre != bValidPost) {
+						bDisable = bValidPre && !bValidPost;
+						bEnable = !bValidPre && bValidPost;
+					}
+				}
+			}
+		}
+		if (bDisable)
+			changeDisabledBuildingCount(eLoopBuilding, 1);
+		else if (bEnable)
+			changeDisabledBuildingCount(eLoopBuilding, -1);
+	}
+}
+
+void CvCity::checkBuildingPowerPrereqs(bool bAcquire) {
+	// Loop through all the buildings that may be impacted
+	for (BuildingTypes eLoopBuilding = (BuildingTypes)0; eLoopBuilding < GC.getNumBuildingInfos(); eLoopBuilding = (BuildingTypes)(eLoopBuilding + 1)) {
+		if (!GET_TEAM(getTeam()).isObsoleteBuilding(eLoopBuilding)) {
+			if (getNumRealBuilding(eLoopBuilding) > 0) {
+				if (GC.getBuildingInfo(eLoopBuilding).isPrereqPower()) {
+					changeDisabledBuildingCount(eLoopBuilding, bAcquire ? -1 : 1);
+				}
+			}
+		}
+	}
 }

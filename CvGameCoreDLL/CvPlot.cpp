@@ -4077,8 +4077,15 @@ void CvPlot::setFeatureType(FeatureTypes eNewValue, int iVariety) {
 			updateSeeFromSight(false, true);
 		}
 
+		// We need to check for the scenario where one feature replaces another in which case there are
+		//  two potential building prereq changes, the loss of the old and the gain of the new. This can lead 
+		//  to a double message if the loss of the old feature causes the building to be disabled and then
+		//  the new feature enables it. Given that these events can happen mid-turn it is difficult to work
+		//  around this.
+		if (NO_FEATURE != eOldFeature && getWorkingCity() != NULL) getWorkingCity()->checkBuildingPlotPrereqs(this, false);
 		m_eFeatureType = eNewValue;
 		m_iFeatureVariety = iVariety;
+		if (NO_FEATURE != eNewValue && getWorkingCity() != NULL) getWorkingCity()->checkBuildingPlotPrereqs(this, true);
 
 		updateYield();
 
@@ -4201,6 +4208,7 @@ BonusTypes CvPlot::getNonObsoleteBonusType(TeamTypes eTeam, bool bCheckConnected
 
 
 void CvPlot::setBonusType(BonusTypes eNewValue) {
+	BonusTypes eOldBonus = getBonusType();
 	if (getBonusType() != eNewValue) {
 		if (getBonusType() != NO_BONUS) {
 			if (area()) {
@@ -4214,8 +4222,15 @@ void CvPlot::setBonusType(BonusTypes eNewValue) {
 		}
 
 		updatePlotGroupBonus(false);
+		// We need to check for the scenario where one bonus replaces another in which case there are
+		//  two potential building prereq changes, the loss of the old and the gain of the new. This can lead 
+		//  to a double message if the loss of the old bonus causes the building to be disabled and then
+		//  the new feature enables it. Given that these events can happen mid-turn it is difficult to work
+		//  around this.
+		if (NO_BONUS != eOldBonus && getWorkingCity() != NULL) getWorkingCity()->checkBuildingPlotPrereqs(this, false);
 		m_eBonusType = eNewValue;
 		updatePlotGroupBonus(true);
+		if (NO_BONUS != eNewValue && getWorkingCity() != NULL) getWorkingCity()->checkBuildingPlotPrereqs(this, true);
 
 		if (getBonusType() != NO_BONUS) {
 			if (area()) {
@@ -4256,8 +4271,15 @@ void CvPlot::setImprovementType(ImprovementTypes eNewValue) {
 		}
 
 		updatePlotGroupBonus(false);
+		// We need to check for the scenario where one improvement replaces another in which case there are
+		//  two potential building prereq changes, the loss of the old and the gain of the new. This can lead 
+		//  to a double message if the loss of the old improvement causes the building to be disabled and then
+		//  the new improvement enables it. Given that these events can happen mid-turn it is difficult to work
+		//  around this.
+		if (NO_IMPROVEMENT != eOldImprovement && getWorkingCity() != NULL) getWorkingCity()->checkBuildingPlotPrereqs(this, false);
 		m_eImprovementType = eNewValue;
 		updatePlotGroupBonus(true);
+		if (NO_IMPROVEMENT != getImprovementType() && getWorkingCity() != NULL) getWorkingCity()->checkBuildingPlotPrereqs(this, true);
 
 		if (getImprovementType() == NO_IMPROVEMENT) {
 			setImprovementDuration(0);
@@ -4265,10 +4287,10 @@ void CvPlot::setImprovementType(ImprovementTypes eNewValue) {
 
 		setUpgradeProgress(0);
 
-		for (int iI = 0; iI < MAX_TEAMS; ++iI) {
-			if (GET_TEAM((TeamTypes)iI).isAlive()) {
-				if (isVisible((TeamTypes)iI, false)) {
-					setRevealedImprovementType((TeamTypes)iI, getImprovementType());
+		for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_TEAMS; eTeam = (TeamTypes)(eTeam + 1)) {
+			if (GET_TEAM(eTeam).isAlive()) {
+				if (isVisible(eTeam, false)) {
+					setRevealedImprovementType(eTeam, getImprovementType());
 				}
 			}
 		}
@@ -4344,13 +4366,20 @@ void CvPlot::setRouteType(RouteTypes eNewValue, bool bUpdatePlotGroups) {
 		bool bOldRoute = isRoute(); // XXX is this right???
 
 		updatePlotGroupBonus(false);
+		// We need to check for the scenario where one route replaces another in which case there are
+		//  two potential building prereq changes, the loss of the old and the gain of the new. This can lead 
+		//  to a double message if the loss of the old route causes the building to be disabled and then
+		//  the new route enables it. Given that these events can happen mid-turn it is difficult to work
+		//  around this.
+		if (NO_ROUTE != getRouteType() && getWorkingCity() != NULL) getWorkingCity()->checkBuildingPlotPrereqs(this, false);
 		m_eRouteType = eNewValue;
 		updatePlotGroupBonus(true);
+		if (NO_ROUTE != getImprovementType() && getWorkingCity() != NULL) getWorkingCity()->checkBuildingPlotPrereqs(this, true);
 
-		for (int iI = 0; iI < MAX_TEAMS; ++iI) {
-			if (GET_TEAM((TeamTypes)iI).isAlive()) {
-				if (isVisible((TeamTypes)iI, false)) {
-					setRevealedRouteType((TeamTypes)iI, getRouteType());
+		for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_TEAMS; eTeam = (TeamTypes)(eTeam + 1)) {
+			if (GET_TEAM(eTeam).isAlive()) {
+				if (isVisible(eTeam, false)) {
+					setRevealedRouteType(eTeam, getRouteType());
 				}
 			}
 		}
@@ -4372,8 +4401,9 @@ void CvPlot::setRouteType(RouteTypes eNewValue, bool bUpdatePlotGroups) {
 		}
 
 		// K-Mod. Fixing a bug in the border danger cache from BBAI.
-		if (bOldRoute && !isRoute())
+		if (bOldRoute && !isRoute()) {
 			invalidateBorderDangerCache();
+		}
 	}
 }
 
@@ -4503,6 +4533,7 @@ void CvPlot::updateWorkingCity() {
 	if (pOldWorkingCity != pBestCity) {
 		if (pOldWorkingCity != NULL) {
 			pOldWorkingCity->setWorkingPlot(this, false);
+			pOldWorkingCity->checkBuildingPlotPrereqs(this, false);
 		}
 
 		if (pBestCity != NULL) {
@@ -4518,6 +4549,7 @@ void CvPlot::updateWorkingCity() {
 		}
 		if (getWorkingCity() != NULL) {
 			getWorkingCity()->AI_setAssignWorkDirty(true);
+			getWorkingCity()->checkBuildingPlotPrereqs(this, true);
 		}
 
 		updateYield();
@@ -7816,4 +7848,26 @@ bool CvPlot::hasDefender(bool bCheckCanAttack, PlayerTypes eOwner, PlayerTypes e
  */
 bool CvPlot::hasAnyBuildProgress() const {
 	return NULL != m_paiBuildProgress;
+}
+
+bool CvPlot::isTeamBonus(TeamTypes eTeam) const {
+	if (eTeam == NO_TEAM)
+		return false;
+
+	if (getBonusType(eTeam) == NO_BONUS)
+		return false;
+
+	if (getImprovementType() == NO_IMPROVEMENT)
+		return false;
+
+	if (!isBonusNetwork(eTeam))
+		return false;
+
+	if (!isWithinTeamCityRadius(eTeam))
+		return false;
+
+	if (GC.getImprovementInfo(getImprovementType()).isImprovementBonusMakesValid(getBonusType()))
+		return true;
+
+	return false;
 }
