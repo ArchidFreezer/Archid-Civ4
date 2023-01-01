@@ -49,7 +49,7 @@ class CvTechChooser:
 		self.TechBenefits = {}
 		self.Advisors = ["[ICON_STRENGTH]", "[ICON_RELIGION]", "[ICON_GOLD]", "[ICON_RESEARCH]", "[ICON_CULTURE]", "[ICON_FOOD]"]
 ## Ultrapack ##
-		
+
 	def interfaceScreen(self):
 		if CyGame().isPitbossHost(): return
 		screen = CyGInterfaceScreen( "TechChooser", CvScreenEnums.TECH_CHOOSER )
@@ -78,11 +78,11 @@ class CvTechChooser:
 			self.W_ADD_TECH_BUTTON = 150
 			self.H_ADD_TECH_BUTTON = 30
 			self.X_ADVANCED_START_TEXT = self.X_ADD_TECH_BUTTON + self.W_ADD_TECH_BUTTON + 20
-			
+
 			szText = CyTranslator().getText("TXT_KEY_WB_AS_ADD_TECH", ())
 			screen.setButtonGFC("AddTechButton", szText, "", self.X_ADD_TECH_BUTTON, screen.getYResolution() - 42, self.W_ADD_TECH_BUTTON, self.H_ADD_TECH_BUTTON, WidgetTypes.WIDGET_GENERAL, -1, -1, ButtonStyles.BUTTON_STYLE_STANDARD )
-			
-		
+
+
 ## Hide Techs ##
 		iSize = 28
 		sBorder = CyArtFileMgr().getInterfaceArtInfo("BUTTON_HILITE_SQUARE").getPath()
@@ -90,7 +90,7 @@ class CvTechChooser:
 		screen.setState("PlatyHideResearched", self.bResearched)
 		screen.addCheckBoxGFC("PlatyHideDisabled", CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUTTONS_RED_X").getPath(), sBorder, 10 + iSize, 10, iSize, iSize, WidgetTypes.WIDGET_PYTHON, 7801, 1, ButtonStyles.BUTTON_STYLE_IMAGE)
 		screen.setState("PlatyHideDisabled", self.bDisabled)
-		
+
 		if CyGame().isDebugMode():
 			screen.addDropDownBoxGFC( "CivDropDown", 10 + iSize * 3, 8, 160, WidgetTypes.WIDGET_GENERAL, -1, -1, FontTypes.SMALL_FONT )
 			screen.setActivation( "CivDropDown", ActivationTypes.ACTIVATE_MIMICPARENTFOCUS )
@@ -144,9 +144,9 @@ class CvTechChooser:
 
 		global BOX_Y_SPACING
 		iEmptySpace = iHeight - 12 - int((iMaxY + 1) * BOX_HEIGHT * 0.5)
-		iNumBoxSpace = (iMaxY + 1)/2 - 1
+		iNumBoxSpace = (iMaxY + 2)/2 - 1
 		BOX_Y_SPACING = max(BOX_Y_SPACING, iEmptySpace/iNumBoxSpace)
-		
+
 		self.placeTechs()
 
 	def initData(self):
@@ -169,7 +169,7 @@ class CvTechChooser:
 				if iUnit in self.GreatPeople: continue
 				if gc.getUnitInfo(iUnit).getBaseDiscover() > 0:
 					self.GreatPeople.append(iUnit)
-		
+
 	def updateBenefits(self, iCivilization):
 		self.TechBenefits = {}
 
@@ -323,7 +323,7 @@ class CvTechChooser:
 			iTech = gc.getReligionInfo(j).getTechPrereq()
 			if iTech > -1:
 				self.TechBenefits[iTech].append(["UnlockReligion", j])
-			
+
 		for j in xrange(gc.getNumCorporationInfos()):
 			iTech = gc.getCorporationInfo(j).getTechPrereq()
 			if iTech > -1:
@@ -347,7 +347,7 @@ class CvTechChooser:
 		ARROW_MXY = CyArtFileMgr().getInterfaceArtInfo("ARROW_MXY").getPath()
 		ARROW_XMY = CyArtFileMgr().getInterfaceArtInfo("ARROW_XMY").getPath()
 		ARROW_HEAD = CyArtFileMgr().getInterfaceArtInfo("ARROW_HEAD").getPath()
-			
+
 		screen = CyGInterfaceScreen("TechChooser", CvScreenEnums.TECH_CHOOSER)
 		pPlayer = gc.getPlayer(self.iCivSelected)
 		pTeam = gc.getTeam(pPlayer.getTeam())
@@ -541,7 +541,7 @@ class CvTechChooser:
 					screen.addDDSGFCAt( self.getNextWidgetName(), "TechList", ARROW_X, iX, iY + self.getYStart(4), self.getWidth(xDiff), 8, WidgetTypes.WIDGET_GENERAL, -1, -1, False )
 					screen.addDDSGFCAt( self.getNextWidgetName(), "TechList", ARROW_HEAD, iX + self.getWidth(xDiff), iY + self.getYStart(4), 8, 8, WidgetTypes.WIDGET_GENERAL, -1, -1, False )
 				elif yDiff < 0:
-					if yDiff < -3 and xDiff == 1:					
+					if yDiff < -3 and xDiff == 1:
 						screen.addDDSGFCAt( self.getNextWidgetName(), "TechList", ARROW_X, iX, iY + self.getYStart(2), self.getWidth(xDiff)/3, 8, WidgetTypes.WIDGET_GENERAL, -1, -1, False )
 						screen.addDDSGFCAt( self.getNextWidgetName(), "TechList", ARROW_XY, iX + self.getWidth(xDiff)/3, iY + self.getYStart(2), 8, 8, WidgetTypes.WIDGET_GENERAL, -1, -1, False )
 						screen.addDDSGFCAt( self.getNextWidgetName(), "TechList", ARROW_Y, iX + self.getWidth(xDiff)/3, iY + self.getYStart(2) + 8 - self.getHeight(yDiff, -4), 8, self.getHeight(yDiff, -4) - 8, WidgetTypes.WIDGET_GENERAL, -1, -1, False )
@@ -573,19 +573,19 @@ class CvTechChooser:
 						screen.addDDSGFCAt( self.getNextWidgetName(), "TechList", ARROW_HEAD, iX + self.getWidth(xDiff), iY + self.getYStart(5) + self.getHeight(yDiff, -2), 8, 8, WidgetTypes.WIDGET_GENERAL, -1, -1, False )
 		screen.setFocus("TechList")
 		self.updateTechRecords(True)
-										
+
 	def getYStart(self, iY):
 		return BOX_HEIGHT * iY / 8
 
 	def getWidth(self, xDiff):
 		return xDiff * BOX_X_SPACING + (xDiff - 1) * BOX_WIDTH
-		
+
 	def getHeight(self, yDiff, iAdjustment):
 		return (abs(yDiff) * (BOX_Y_SPACING + BOX_HEIGHT)/2) + (iAdjustment * BOX_HEIGHT/8)
 
 	def updateTechRecords (self, bForce):
 		if CyGame().isPitbossHost(): return
-			
+
 		screen = CyGInterfaceScreen("TechChooser", CvScreenEnums.TECH_CHOOSER)
 		lChanged = []
 		pPlayer = gc.getPlayer(self.iCivSelected)
@@ -602,7 +602,7 @@ class CvTechChooser:
 			if Info.getEra() > self.iHideEra: continue
 			if self.bResearched and pTeam.isHasTech(i): continue
 			if self.bDisabled and not pPlayer.canEverResearch(i): continue
-## Hide Techs ##	
+## Hide Techs ##
 			if pTeam.isHasTech(i):
 				if self.aiCurrentState[i] != CIV_HAS_TECH or bForce:
 					self.aiCurrentState[i] = CIV_HAS_TECH
@@ -624,7 +624,7 @@ class CvTechChooser:
 			szTechRecord = "TechRecord" + str(i)
 			szTechID = "TechID" + str(i)
 			szTechString = "<font=1>"
-					
+
 			iX = (gc.getTechInfo(i).getGridX() - self.iMinX) * (BOX_X_SPACING + BOX_WIDTH)
 			iY = (gc.getTechInfo(i).getGridY() -1) * (BOX_HEIGHT + BOX_Y_SPACING)/2
 ## Tech Progress ##
@@ -656,7 +656,7 @@ class CvTechChooser:
 			szTechString += Info.getDescription() + "</font>"
 			screen.setTextAt(szTechID, "TechList", szTechString, CvUtil.FONT_LEFT_JUSTIFY, iX + iAdjustment + 6 + (X_INCREMENT * 2), iY + 12, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_TECH_TREE, i, -1)
 			screen.setActivation(szTechID, ActivationTypes.ACTIVATE_MIMICPARENTFOCUS)
-## Advisors ##	
+## Advisors ##
 			screen.setPanelColor(szTechRecord, 206, 65, 69)
 			if gc.getTeam(pPlayer.getTeam()).isHasTech(i):
 				screen.setPanelColor(szTechRecord, 222, 222, 22)
@@ -690,7 +690,7 @@ class CvTechChooser:
 				iGPX += TEXTURE_SIZE
 				screen.addDDSGFCAt("GreatPeopleTech" + str(iUnit),"TechBottomPanel", gc.getTechInfo(iTech).getButton(), iGPX, 16, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_TECH_TREE, iTech, -1, False )
 				iGPX += TEXTURE_SIZE * 2
-## Great People ##	
+## Great People ##
 
 	def handleInput (self, inputClass):
 		screen = CyGInterfaceScreen("TechChooser", CvScreenEnums.TECH_CHOOSER)
@@ -733,35 +733,35 @@ class CvTechChooser:
 					self.m_iSelectedTech = inputClass.getData1()
 					self.updateSelectedTech()
 		return 0
-		
+
 	def getNextWidgetName(self):
 		szName = "TechArrow" + str(self.nWidgetCount)
 		self.nWidgetCount += 1
 		return szName
-		
+
 	def update(self, fDelta):
 		screen = CyGInterfaceScreen("TechChooser", CvScreenEnums.TECH_CHOOSER)
-		if CyInterface().isDirty(InterfaceDirtyBits.Advanced_Start_DIRTY_BIT):		
+		if CyInterface().isDirty(InterfaceDirtyBits.Advanced_Start_DIRTY_BIT):
 			CyInterface().setDirty(InterfaceDirtyBits.Advanced_Start_DIRTY_BIT, False)
-			
+
 			if self.m_bSelectedTechDirty:
 				self.m_bSelectedTechDirty = False
 				self.updateSelectedTech()
-				
+
 			if self.m_bTechRecordsDirty:
 				self.m_bTechRecordsDirty = False
 				self.updateTechRecords(True)
-			
+
 			if gc.getPlayer(CyGame().getActivePlayer()).getAdvancedStartPoints() < 0:
 				screen.hide("AddTechButton")
 				screen.hide("ASPointsLabel")
 				screen.hide("SelectedTechLabel")
 		return
-		
+
 	def updateSelectedTech(self):
 		screen = CyGInterfaceScreen("TechChooser", CvScreenEnums.TECH_CHOOSER)
 		pPlayer = gc.getPlayer(CyGame().getActivePlayer())
-		
+
 		szName = ""
 		iCost = 0
 		if self.m_iSelectedTech > -1:
@@ -769,7 +769,7 @@ class CvTechChooser:
 			iCost = pPlayer.getAdvancedStartTechCost(self.m_iSelectedTech, true)
 
 		screen.hide("ASPointsLabel")
-		screen.hide("AddTechButton")		
+		screen.hide("AddTechButton")
 		if iCost > 0:
 			szText = u"<font=4>" + CyTranslator().getText("TXT_KEY_WB_AS_SELECTED_TECH_COST", (iCost, pPlayer.getAdvancedStartPoints())) + u"</font>"
 			screen.setLabel("ASPointsLabel", "Background", szText, CvUtil.FONT_LEFT_JUSTIFY, self.X_ADVANCED_START_TEXT, screen.getYResolution() - 42, 0, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
@@ -778,7 +778,7 @@ class CvTechChooser:
 
 		szText = "<font=4>" + szName + "</font>"
 		screen.setLabel("SelectedTechLabel", "Background", szText, CvUtil.FONT_CENTER_JUSTIFY, screen.getXResolution()/2, screen.getYResolution() - 42, 0, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
-			
+
 	def onClose(self):
 		pPlayer = gc.getPlayer(CyGame().getActivePlayer())
 		if pPlayer.getAdvancedStartPoints() > -1:

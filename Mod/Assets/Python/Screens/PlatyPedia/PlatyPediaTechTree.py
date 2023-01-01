@@ -169,7 +169,7 @@ class CvPediaTechTree:
 			iTech = gc.getReligionInfo(j).getTechPrereq()
 			if iTech > -1:
 				self.TechBenefits[iTech].append(["UnlockReligion", j])
-			
+
 		for j in xrange(gc.getNumCorporationInfos()):
 			iTech = gc.getCorporationInfo(j).getTechPrereq()
 			if iTech > -1:
@@ -195,7 +195,7 @@ class CvPediaTechTree:
 		global BOX_Y_SPACING
 		iHeight = self.top.H_ITEMS_PANE + self.top.W_BORDER/2
 		iEmptySpace = iHeight - 12 - int((iMaxY + 1) * BOX_HEIGHT * 0.5)
-		iNumBoxSpace = (iMaxY + 1)/2 - 1
+		iNumBoxSpace = (iMaxY + 2)/2 - 1
 		BOX_Y_SPACING = max(BOX_Y_SPACING, iEmptySpace/iNumBoxSpace)
 
 		ARROW_X = CyArtFileMgr().getInterfaceArtInfo("ARROW_X").getPath()
@@ -205,7 +205,7 @@ class CvPediaTechTree:
 		ARROW_MXY = CyArtFileMgr().getInterfaceArtInfo("ARROW_MXY").getPath()
 		ARROW_XMY = CyArtFileMgr().getInterfaceArtInfo("ARROW_XMY").getPath()
 		ARROW_HEAD = CyArtFileMgr().getInterfaceArtInfo("ARROW_HEAD").getPath()
-			
+
 		for i in xrange(gc.getNumTechInfos()):
 			Info = gc.getTechInfo(i)
 			iX = (Info.getGridX() -1) * (BOX_X_SPACING + BOX_WIDTH)
@@ -351,7 +351,7 @@ class CvPediaTechTree:
 				if eTech == -1: break
 				iX = (gc.getTechInfo(eTech).getGridX() -1) * (BOX_X_SPACING + BOX_WIDTH) + BOX_WIDTH - 6
 				iY = (gc.getTechInfo(eTech).getGridY() -1) * (BOX_HEIGHT + BOX_Y_SPACING)/2 - 6
-					
+
 				xDiff = Info.getGridX() - gc.getTechInfo(eTech).getGridX()
 				yDiff = Info.getGridY() - gc.getTechInfo(eTech).getGridY()
 
@@ -359,7 +359,7 @@ class CvPediaTechTree:
 					screen.addDDSGFCAt(self.top.getNextWidgetName(), self.top.UPGRADES_GRAPH_ID, ARROW_X, iX, iY + self.getYStart(4), self.getWidth(xDiff), 8, WidgetTypes.WIDGET_GENERAL, -1, -1, False )
 					screen.addDDSGFCAt(self.top.getNextWidgetName(), self.top.UPGRADES_GRAPH_ID, ARROW_HEAD, iX + self.getWidth(xDiff), iY + self.getYStart(4), 8, 8, WidgetTypes.WIDGET_GENERAL, -1, -1, False )
 				elif yDiff < 0:
-					if yDiff < -3 and xDiff == 1:					
+					if yDiff < -3 and xDiff == 1:
 						screen.addDDSGFCAt(self.top.getNextWidgetName(), self.top.UPGRADES_GRAPH_ID, ARROW_X, iX, iY + self.getYStart(2), self.getWidth(xDiff)/3, 8, WidgetTypes.WIDGET_GENERAL, -1, -1, False )
 						screen.addDDSGFCAt(self.top.getNextWidgetName(), self.top.UPGRADES_GRAPH_ID, ARROW_XY, iX + self.getWidth(xDiff)/3, iY + self.getYStart(2), 8, 8, WidgetTypes.WIDGET_GENERAL, -1, -1, False )
 						screen.addDDSGFCAt(self.top.getNextWidgetName(), self.top.UPGRADES_GRAPH_ID, ARROW_Y, iX + self.getWidth(xDiff)/3, iY + self.getYStart(2) + 8 - self.getHeight(yDiff, -4), 8, self.getHeight(yDiff, -4) - 8, WidgetTypes.WIDGET_GENERAL, -1, -1, False )
@@ -395,7 +395,7 @@ class CvPediaTechTree:
 
 	def getWidth(self, xDiff):
 		return xDiff * BOX_X_SPACING + (xDiff - 1) * BOX_WIDTH
-		
+
 	def getHeight(self, yDiff, iAdjustment):
 		return (abs(yDiff) * (BOX_Y_SPACING + BOX_HEIGHT)/2) + (iAdjustment * BOX_HEIGHT/8)
 
