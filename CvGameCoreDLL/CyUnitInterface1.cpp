@@ -403,5 +403,10 @@ void CyUnitPythonInterface1(python::class_<CyUnit>& x) {
 
 		.def("getArtInfo", &CyUnit::getArtInfo, python::return_value_policy<python::reference_existing_object>(), "CvArtInfoUnit* (int i, eEra)")
 		.def("getButton", &CyUnit::getButton, "std::string ()")
+
+		.def("getExperience100", &CyUnit::getExperience100, "float ()")
+		.def("getRealExperience", &CyUnit::getRealExperience, "float ()")
+		.def("setExperience100", &CyUnit::setExperience100, "void (int iNewValue)")
+		.def("changeExperience100", &CyUnit::changeExperience100, "void (int iChange, int iMax, bool bFromCombat, bool bInBorders, bool bUpdateGlobal)")
 		;
 }

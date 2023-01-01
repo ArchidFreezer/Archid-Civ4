@@ -1408,3 +1408,21 @@ void CyUnit::changeTerritoryUnboundCount(int iChange) {
 UnitRangeTypes CyUnit::getRangeType() const {
 	return m_pUnit ? m_pUnit->getRangeType() : UNITRANGE_RANGE;
 }
+
+int CyUnit::getExperience100() {
+	return m_pUnit ? m_pUnit->getExperience100() : -1;
+}
+
+float CyUnit::getRealExperience() {
+	return m_pUnit ? (float)m_pUnit->getExperience100() / 100 : -1;
+}
+
+void CyUnit::setExperience100(int iNewValue, int iMax) {
+	if (m_pUnit)
+		m_pUnit->setExperience100(iNewValue, iMax);
+}
+
+void CyUnit::changeExperience100(int iChange, int iMax, bool bFromCombat, bool bInBorders, bool bUpdateGlobal) {
+	if (m_pUnit)
+		m_pUnit->changeExperience100(iChange, iMax, bFromCombat, bInBorders, bUpdateGlobal);
+}

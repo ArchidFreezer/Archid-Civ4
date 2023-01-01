@@ -2124,19 +2124,29 @@ class CvMainInterface:
 							screen.setTableText("SelectedUnitText", 0, iRow, sColor + CyTranslator().getText("TXT_KEY_PEDIA_AIR_RANGE", ()) + u":</color>", "", WidgetTypes.WIDGET_HELP_SELECTED, -1, -1, CvUtil.FONT_LEFT_JUSTIFY )
 							screen.setTableText("SelectedUnitText", 1, iRow, sColor + str(iRange) + CyTranslator().getText("[ICON_TRADE]", ()) + u"</color>", "", WidgetTypes.WIDGET_HELP_SELECTED, -1, -1, CvUtil.FONT_RIGHT_JUSTIFY )
 ## Experience Bar ##
-					if pHeadSelectedUnit.getUnitCombatType() > -1 and not pHeadSelectedUnit.isFighting():
+					if pHeadSelectedUnit.getExperience100() > 0 and not pHeadSelectedUnit.isFighting():
 						iX = 16
 						iY = yResolution - 40
 						iWidth = iTableWidth - iX
 						screen.addStackedBarGFC("ExperienceBar", iX, iY, iWidth, 30, InfoBarTypes.NUM_INFOBAR_TYPES, WidgetTypes.WIDGET_GENERAL, -1, -1)
-						iExperience = pHeadSelectedUnit.getExperience()
+						iCurrXP = pHeadSelectedUnit.getExperience100()
+						fCurrXP = pHeadSelectedUnit.getRealExperience()
 						iThreshold = pHeadSelectedUnit.experienceNeeded()
-						screen.setBarPercentage("ExperienceBar", InfoBarTypes.INFOBAR_STORED, float(iExperience) / float(iThreshold))
+						szXP = ""
+						if (iCurrXP%100 == 0):
+							szXP = u"%.0f/%d" %(fCurrXP, iThreshold)
+						elif (iCurrXP%10 == 0):
+							szXP = u"%.1f/%d" %(fCurrXP, iThreshold)
+						else:
+							szXP = u"%.2f/%d" %(fCurrXP, iThreshold)
+						if (len(szXP) > 7):
+							szXP = u"<font=1>" + szXP + u"</font>"
+						screen.setBarPercentage("ExperienceBar", InfoBarTypes.INFOBAR_STORED, fCurrXP / float(iThreshold))
 						screen.setStackedBarColors("ExperienceBar", InfoBarTypes.INFOBAR_STORED, gc.getInfoTypeForString("COLOR_GREEN"))
-						if iExperience < iThreshold:
+						if iCurrXP < iThreshold:
 							screen.setStackedBarColors("ExperienceBar", InfoBarTypes.INFOBAR_STORED, gc.getInfoTypeForString("COLOR_CYAN"))
 						screen.setStackedBarColors("ExperienceBar", InfoBarTypes.INFOBAR_EMPTY, gc.getInfoTypeForString("COLOR_EMPTY"))
-						sText = u"%s %d (%d/%d)" %(CyTranslator().getText("INTERFACE_PANE_LEVEL", ()), pHeadSelectedUnit.getLevel(), iExperience, iThreshold)
+						sText = u"%s %d (%s)" %(CyTranslator().getText("INTERFACE_PANE_LEVEL", ()), pHeadSelectedUnit.getLevel(), szXP)
 						screen.setLabel("ExperienceText", "", sText, CvUtil.FONT_CENTER_JUSTIFY, iX + iWidth/2, iY + 6, 0, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
 ## Experience Bar ##
 

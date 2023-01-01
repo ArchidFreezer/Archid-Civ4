@@ -8075,14 +8075,14 @@ void CvUnit::finishMoves() {
 }
 
 
-int CvUnit::getExperience() const {
+int CvUnit::getExperience100() const {
 	return m_iExperience;
 }
 
-void CvUnit::setExperience(int iNewValue, int iMax) {
-	if ((getExperience() != iNewValue) && (getExperience() < ((iMax == -1) ? MAX_INT : iMax))) {
+void CvUnit::setExperience100(int iNewValue, int iMax) {
+	if ((getExperience100() != iNewValue) && (getExperience100() < ((iMax == -1) ? MAX_INT : iMax))) {
 		m_iExperience = std::min(((iMax == -1) ? MAX_INT : iMax), iNewValue);
-		FAssert(getExperience() >= 0);
+		FAssert(getExperience100() >= 0);
 
 		if (IsSelected()) {
 			gDLL->getInterfaceIFace()->setDirty(InfoPane_DIRTY_BIT, true);
@@ -8090,13 +8090,13 @@ void CvUnit::setExperience(int iNewValue, int iMax) {
 	}
 }
 
-void CvUnit::changeExperience(int iChange, int iMax, bool bFromCombat, bool bInBorders, bool bUpdateGlobal) {
+void CvUnit::changeExperience100(int iChange, int iMax, bool bFromCombat, bool bInBorders, bool bUpdateGlobal) {
 	int iUnitExperience = iChange;
 
 	if (bFromCombat) {
 		CvPlayer& kPlayer = GET_PLAYER(getOwnerINLINE());
 
-		int iCombatExperienceMod = 100 + kPlayer.getGreatGeneralRateModifier();
+		int iCombatExperienceMod = kPlayer.getGreatGeneralRateModifier();
 
 		if (bInBorders) {
 			iCombatExperienceMod += kPlayer.getDomesticGreatGeneralRateModifier() + kPlayer.getExpInBorderModifier();
@@ -8104,7 +8104,8 @@ void CvUnit::changeExperience(int iChange, int iMax, bool bFromCombat, bool bInB
 		}
 
 		if (bUpdateGlobal) {
-			kPlayer.changeCombatExperience((iChange * iCombatExperienceMod) / 100);
+			int iChangeTotal = iChange + ((iChange * iCombatExperienceMod) / 100);
+			kPlayer.changeFractionalCombatExperience(iChangeTotal);
 		}
 
 		if (getExperiencePercent() != 0) {
@@ -8113,7 +8114,19 @@ void CvUnit::changeExperience(int iChange, int iMax, bool bFromCombat, bool bInB
 		}
 	}
 
-	setExperience((getExperience() + iUnitExperience), iMax);
+	setExperience100((getExperience100() + iUnitExperience), iMax);
+}
+
+int CvUnit::getExperience() const {
+	return getExperience100() / 100;
+}
+
+void CvUnit::setExperience(int iNewValue, int iMax) {
+	setExperience100(iNewValue * 100, iMax > 0 && iMax != MAX_INT ? iMax * 100 : -1);
+}
+
+void CvUnit::changeExperience(int iChange, int iMax, bool bFromCombat, bool bInBorders, bool bUpdateGlobal) {
+	changeExperience100(iChange * 100, iMax > 0 && iMax != MAX_INT ? iMax * 100 : -1, bFromCombat, bInBorders, bUpdateGlobal);
 }
 
 int CvUnit::getLevel() const {

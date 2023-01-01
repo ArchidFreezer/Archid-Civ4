@@ -83,6 +83,10 @@ public:
 
 	void doTurn();
 
+	int getExperience100() const;
+	void setExperience100(int iNewValue, int iMax = -1);
+	void changeExperience100(int iChange, int iMax = -1, bool bFromCombat = false, bool bInBorders = false, bool bUpdateGlobal = false);
+
 	void setHomeCity(const CvCity* pCity);
 	CvCity* getHomeCity() const;
 

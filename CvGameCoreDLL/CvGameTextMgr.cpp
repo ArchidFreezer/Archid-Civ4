@@ -457,8 +457,16 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 	}
 
 	if ((pUnit->getTeam() == GC.getGameINLINE().getActiveTeam()) || GC.getGameINLINE().isDebugMode()) {
-		if ((pUnit->getExperience() > 0) && !(pUnit->isFighting())) {
-			szString.append(gDLL->getText("TXT_KEY_UNIT_HELP_LEVEL", pUnit->getExperience(), pUnit->experienceNeeded()));
+		if ((pUnit->getExperience100() > 0) && !(pUnit->isFighting())) {
+			float fValue = (float)pUnit->getExperience100();
+			if (fmod(fValue, 100) == 0) {
+				szTempBuffer.Format(L"%.0f", fValue / 100);
+			} else if (fmod(fValue, 10) == 0) {
+				szTempBuffer.Format(L"%.1f", fValue / 100);
+			} else {
+				szTempBuffer.Format(L"%.2f", fValue / 100);
+			}
+			szString.append(gDLL->getText("TXT_KEY_UNIT_HELP_LEVEL", szTempBuffer.GetCString(), pUnit->experienceNeeded()));
 		}
 	}
 

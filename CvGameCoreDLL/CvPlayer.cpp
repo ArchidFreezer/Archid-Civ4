@@ -498,6 +498,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iExtraRangePercent = 0;
 	m_iUnitRangeUnboundCount = 0;
 	m_iUnitTerritoryUnboundCount = 0;
+	m_iFractionalCombatExperience = 0;
 	m_uiStartTime = 0;
 
 	m_bAlive = false;
@@ -13293,6 +13294,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iExtraRangePercent);
 	pStream->Read(&m_iUnitRangeUnboundCount);
 	pStream->Read(&m_iUnitTerritoryUnboundCount);
+	pStream->Read(&m_iFractionalCombatExperience);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -13764,6 +13766,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iExtraRangePercent);
 	pStream->Write(m_iUnitRangeUnboundCount);
 	pStream->Write(m_iUnitTerritoryUnboundCount);
+	pStream->Write(m_iFractionalCombatExperience);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -18385,4 +18388,15 @@ void CvPlayer::changeCommerceFromUnitModifier(CommerceTypes eIndex, int iChange)
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < NUM_COMMERCE_TYPES, "eIndex is expected to be within maximum bounds (invalid Index)");
 	m_aiCommerceFromUnitModifier[eIndex] += iChange;
+}
+
+int CvPlayer::getFractionalCombatExperience() const {
+	return m_iFractionalCombatExperience;
+}
+
+void CvPlayer::changeFractionalCombatExperience(int iChange) {
+	m_iFractionalCombatExperience += iChange;
+	int iNewXP = std::max(1, m_iFractionalCombatExperience / 100);
+	changeCombatExperience(iNewXP);
+	m_iFractionalCombatExperience -= iNewXP * 100;
 }

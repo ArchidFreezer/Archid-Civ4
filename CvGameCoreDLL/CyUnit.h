@@ -27,6 +27,11 @@ public:
 	void setHomeCity(CyCity* pCity);
 	CyCity* getHomeCity();
 
+	int getExperience100();
+	float getRealExperience();
+	void setExperience100(int iNewValue, int iMax);
+	void changeExperience100(int iChange, int iMax, bool bFromCombat, bool bInBorders, bool bUpdateGlobal);
+
 	UnitRangeTypes getRangeType() const;
 	void changeRangeUnboundCount(int iChange);
 	void changeTerritoryUnboundCount(int iChange);

@@ -648,8 +648,10 @@ public:
 	void changeWondersScore(int iChange);	// Exposed to Python  
 
 	int getCombatExperience() const; 	// Exposed to Python  
+	int getFractionalCombatExperience() const;
 	void setCombatExperience(int iExperience);   // Exposed to Python
 	void changeCombatExperience(int iChange);   // Exposed to Python
+	void changeFractionalCombatExperience(int iChange);
 
 	DllExport bool isConnected() const;
 	DllExport int getNetID() const;
@@ -1215,6 +1217,7 @@ protected:
 	int m_iExtraRangePercent;
 	int m_iUnitRangeUnboundCount;
 	int m_iUnitTerritoryUnboundCount;
+	int m_iFractionalCombatExperience;
 
 	uint m_uiStartTime;  // XXX save these?
 

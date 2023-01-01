@@ -6,6 +6,14 @@
 		<English>Default</English>
 		<Italian>Predefinito</Italian>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HELP_LEVEL</Tag>
+		<English>, XP: (%s1_Curr/%d2_Needed)</English>
+		<French>, EXP : (%s1_Curr/%d2_Needed)</French>
+		<German>, EP: (%s1_Curr/%d2_Needed)</German>
+		<Italian>, XP: (%s1_Curr/%d2_Needed)</Italian>
+		<Spanish>, PX: (%s1_Curr/%d2_Needed)</Spanish>
+	</TEXT>
 <!-- Unofficial Patch -->
 	<TEXT>
 		<Tag>TXT_KEY_TERRAIN_TURN_DAMAGE</Tag>
