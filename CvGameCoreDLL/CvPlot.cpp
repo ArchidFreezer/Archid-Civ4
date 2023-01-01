@@ -404,8 +404,17 @@ void CvPlot::doImprovement() {
 
 void CvPlot::doImprovementUpgrade() {
 	if (getImprovementType() != NO_IMPROVEMENT) {
-		ImprovementTypes eImprovementUpdrade = (ImprovementTypes)GC.getImprovementInfo(getImprovementType()).getImprovementUpgrade();
+		const CvImprovementInfo& kImprovement = GC.getImprovementInfo(getImprovementType());
+		ImprovementTypes eImprovementUpdrade = (ImprovementTypes)kImprovement.getImprovementUpgrade();
 		if (eImprovementUpdrade != NO_IMPROVEMENT) {
+			TechTypes eUpgradeTech = (TechTypes)kImprovement.getUpgradeTech();
+			if (eUpgradeTech != NO_TECH) {
+				TeamTypes eTeam = getTeam();
+				if (eTeam == NO_TEAM || !GET_TEAM(eTeam).isHasTech(eUpgradeTech)) {
+					return;
+				}
+			}
+
 			if (isBeingWorked() || GC.getImprovementInfo(eImprovementUpdrade).isOutsideBorders()) {
 				changeUpgradeProgress(GET_PLAYER(getOwnerINLINE()).getImprovementUpgradeRate());
 

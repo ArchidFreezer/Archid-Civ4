@@ -754,5 +754,10 @@
 		<English>[ICON_BULLET]Expands the city workable radius to %d1</English>
 		<French>[ICON_BULLET]Augmente la zone d'activité de la Ville à %d1</French>
 	</TEXT>
+<!-- Improvement upgrade tech -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_EVOLVES_TECH</Tag>
+		<English>[ICON_BULLET]Becomes a [COLOR_HIGHLIGHT_TEXT][LINK=literal]%s1_ImpName[\LINK][COLOR_REVERT] in %d2_Num [NUM2:Turn:Turns] with [COLOR_HIGHLIGHT_TEXT][LINK=literal]%s3_TechName[\LINK][COLOR_REVERT]</English>
+	</TEXT>
 
 </Civ4GameText>

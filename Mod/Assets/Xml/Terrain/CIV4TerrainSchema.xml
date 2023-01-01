@@ -99,7 +99,7 @@
 		<element type="iTradeModifier" minOccurs="0"/>
 		<element type="iGoldenAgeYield" minOccurs="0"/>
 		<element type="iGoldenAgeYieldThreshold" minOccurs="0"/>
-		<element type="iAIWeightPercent" minOccurs="0"/> <!-- default = 100 -->
+		<element type="iAIWeightPercent" minOccurs="0"/> <!-- default: 100 -->
 		<element type="ColorType"/>
 		<element type="SymbolPaths"/>
 	</ElementType>
@@ -391,6 +391,7 @@
 	<ElementType name="FeatureMakesValids" content="eltOnly">
 		<element type="FeatureType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="UpgradeTech" content="textOnly"/>
 	<ElementType name="ImprovementInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -432,6 +433,7 @@
 		<element type="BonusTypeStructs" minOccurs="0" maxOccurs="*"/>
 		<element type="ImprovementPillage" minOccurs="0"/>
 		<element type="ImprovementUpgrade" minOccurs="0"/>
+		<element type="UpgradeTech" minOccurs="0"/>
 		<element type="TechYieldChanges" minOccurs="0"/>
 		<element type="RouteYieldChanges" minOccurs="0"/>
 		<element type="WorldSoundscapeAudioScript" minOccurs="0"/>

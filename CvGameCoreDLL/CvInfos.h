@@ -2886,6 +2886,7 @@ public:
 	void setImprovementPillage(int i);
 	int getImprovementUpgrade() const;				// Exposed to Python
 	void setImprovementUpgrade(int i);
+	int getUpgradeTech() const;
 
 	bool isActsAsCity() const;				// Exposed to Python
 	bool isHillsMakesValid() const;				// Exposed to Python
@@ -2960,6 +2961,7 @@ protected:
 	int m_iPillageGold;
 	int m_iImprovementPillage;
 	int m_iImprovementUpgrade;
+	int m_iUpgradeTech;
 
 	bool m_bActsAsCity;
 	bool m_bHillsMakesValid;

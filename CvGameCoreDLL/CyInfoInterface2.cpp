@@ -272,18 +272,11 @@ void CyInfoPythonInterface2() {
 		.def("getUpgradeTime", &CvImprovementInfo::getUpgradeTime, "int ()")
 		.def("getAirBombDefense", &CvImprovementInfo::getAirBombDefense, "int ()")
 		.def("getDefenseModifier", &CvImprovementInfo::getDefenseModifier, "int ()")
-		/************************************************************************************************/
-		/* UNOFFICIAL_PATCH                       02/12/10                             jdog5000         */
-		/*                                                                                              */
-		/* Bugfix                                                                                       */
-		/************************************************************************************************/
-		/* original bts code
-				.def("getHappiness", &CvImprovementInfo::getDefenseModifier, "int ()")
-		*/
 		.def("getHappiness", &CvImprovementInfo::getHappiness, "int ()")
 		.def("getPillageGold", &CvImprovementInfo::getPillageGold, "int ()")
 		.def("getImprovementPillage", &CvImprovementInfo::getImprovementPillage, "int ()")
 		.def("getImprovementUpgrade", &CvImprovementInfo::getImprovementUpgrade, "int ()")
+		.def("getUpgradeTech", &CvImprovementInfo::getUpgradeTech, "int ()")
 
 		.def("isActsAsCity", &CvImprovementInfo::isActsAsCity, "bool ()")
 		.def("isHillsMakesValid", &CvImprovementInfo::isHillsMakesValid, "bool ()")

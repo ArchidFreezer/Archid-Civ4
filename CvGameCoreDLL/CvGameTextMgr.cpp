@@ -11535,10 +11535,15 @@ void CvGameTextMgr::setImprovementHelp(CvWStringBuffer& szBuffer, ImprovementTyp
 	}
 
 	if (kImprovement.getImprovementUpgrade() != NO_IMPROVEMENT) {
+		TechTypes eTechPrereq = (TechTypes)kImprovement.getUpgradeTech();
 		iTurns = GC.getGameINLINE().getImprovementUpgradeTime(eImprovement);
 
 		szBuffer.append(NEWLINE);
-		szBuffer.append(gDLL->getText("TXT_KEY_IMPROVEMENT_EVOLVES", GC.getImprovementInfo((ImprovementTypes)kImprovement.getImprovementUpgrade()).getTextKeyWide(), iTurns));
+		if (eTechPrereq == NO_TECH) {
+			szBuffer.append(gDLL->getText("TXT_KEY_IMPROVEMENT_EVOLVES", GC.getImprovementInfo((ImprovementTypes)kImprovement.getImprovementUpgrade()).getTextKeyWide(), iTurns));
+		} else {
+			szBuffer.append(gDLL->getText("TXT_KEY_IMPROVEMENT_EVOLVES_TECH", GC.getImprovementInfo((ImprovementTypes)kImprovement.getImprovementUpgrade()).getTextKeyWide(), iTurns, GC.getTechInfo(eTechPrereq).getTextKeyWide()));
+		}
 	}
 
 	int iLast = -1;
