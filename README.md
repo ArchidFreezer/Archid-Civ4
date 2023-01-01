@@ -10,16 +10,23 @@ e.g.
 There are several additional screens available with the mod that are accessed via shortcut keys rather than UI buttons:
 
 ### Platy UI
-- [Ctrl-F9] - Art Definition Checker
-- [Ctrl-10] - Mirror Image
+- [Ctrl-F1]  - Show current plot help
+- [Ctrl-F2]  - Show Leaders (GG led troops)
+- [Ctrl-F9]  - Art Definition Checker
+- [Ctrl-F10] - Mirror Image
 - [Ctrl-F11] - List of Info IDs from XML files
 - [Ctrl-F12] - Shows time details for game speeds 
 
 ### Testing
 - [Ctrl-Shift-L] - Open popup to switch which player the human controls 
-- [Ctrl-Shift-P] - Open popup to change the civ and leader type for any player in the game 
 - [Ctrl-Shift-M] - Turn control of your civ over to the AI for the rest of the round. 
+- [Ctrl-Shift-O] - Refortify the land units of the current player
+- [Ctrl-Shift-P] - Open popup to change the civ and leader type for any player in the game 
+- [Ctrl-Shift-S] - Show stranded units
+- [Ctrl-Shift-U] - Switch human player around to force a redraw of unit flags
 - [Ctrl-Shift-X] - Open a dialog for user to select number of turns for AI to play their civ 
+- [Ctrl-Shift-Z] - Reload BUG options
+- [Space]        - Halt autoplay
 
 ## Core Mods included
 There are many mods components that I have drawn either code or inspiration from, but the main components that underpin this are:
