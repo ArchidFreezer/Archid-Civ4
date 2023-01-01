@@ -68,5 +68,10 @@
 			<Description>TXT_KEY_UNITCOMBAT_ANIMAL</Description>
 			<Button>Art/Interface/Buttons/Promotions/animal.dds</Button>
 		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Worker -->
+			<Type>UNITCOMBAT_WORKER</Type>
+			<Description>TXT_KEY_UNITCOMBAT_WORKER</Description>
+			<Button>,Art/Interface/Buttons/Promotion/Militaristic.dds,Art/Interface/Buttons/FinalFrontier1_Atlas.dds,8,10</Button>
+		</UnitCombatInfo>
 	</UnitCombatInfos>
 </Civ4UnitCombatInfos>

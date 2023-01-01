@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- Game Text - New -->
 <Civ4GameText xmlns="http://www.firaxis.com">
-<!-- ********************	-->
-<!-- Unit Types						-->
-<!-- ********************	-->
+<!-- ******************** -->
+<!-- Unit Types           -->
+<!-- ******************** -->
 	<TEXT> <!-- Animal Units -->
 		<Tag>TXT_KEY_UNITCOMBAT_ANIMAL</Tag>
 		<English>Animal Units</English>
 	</TEXT>
+	<TEXT> <!-- Worker -->
+		<Tag>TXT_KEY_UNITCOMBAT_WORKER</Tag>
+		<English>Worker Units</English>
+		<French>
+			<Text>Unités Ouvrières</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Bautrupp-Einheiten</German>
+	</TEXT>
 
-<!-- ********************	-->
-<!-- Units								-->
-<!-- ********************	-->
+<!-- ******************** -->
+<!-- Units                -->
+<!-- ******************** -->
 	<TEXT> <!-- Cave Bear -->
 		<Tag>TXT_KEY_UNIT_CAVEBEAR</Tag>
 		<English>Cave Bear</English>

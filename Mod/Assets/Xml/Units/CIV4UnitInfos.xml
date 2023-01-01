@@ -7493,6 +7493,7 @@
 			<Class>UNITCLASS_WORKER</Class>
 			<Type>UNIT_WORKER</Type>
 			<Capture>UNITCLASS_WORKER</Capture>
+			<Combat>UNITCOMBAT_WORKER</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_WORKER</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_WORKER</Description>
@@ -7555,6 +7556,7 @@
 			<Class>UNITCLASS_WORKER</Class>
 			<Type>UNIT_INDIAN_FAST_WORKER</Type>
 			<Capture>UNITCLASS_WORKER</Capture>
+			<Combat>UNITCOMBAT_WORKER</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_WORKER</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_INDIAN_FAST_WORKER</Description>
@@ -7615,6 +7617,7 @@
 		<UnitInfo> <!-- Workboat -->
 			<Class>UNITCLASS_WORKBOAT</Class>
 			<Type>UNIT_WORKBOAT</Type>
+			<Combat>UNITCOMBAT_WORKER</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_WORKER_SEA</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_WORK_BOAT</Description>
