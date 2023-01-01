@@ -2171,7 +2171,7 @@
 			<bGlobal>1</bGlobal>
 			<UnitCombatPromotions>
 				<UnitCombatPromotion>
-					<UnitCombat>UNITCOMBAT_NAVAL</UnitCombat>
+					<UnitCombat>UNITCOMBAT_WOODEN_SHIPS</UnitCombat>
 					<UnitPromotion>PROMOTION_COMBAT1</UnitPromotion>
 				</UnitCombatPromotion>
 			</UnitCombatPromotions>
@@ -2210,7 +2210,7 @@
 			<bGlobal>1</bGlobal>
 			<UnitCombatPromotions>
 				<UnitCombatPromotion>
-					<UnitCombat>UNITCOMBAT_NAVAL</UnitCombat>
+					<UnitCombat>UNITCOMBAT_WOODEN_SHIPS</UnitCombat>
 					<UnitPromotion>PROMOTION_NAVIGATION1</UnitPromotion>
 				</UnitCombatPromotion>
 			</UnitCombatPromotions>

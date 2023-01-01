@@ -8,6 +8,26 @@
 		<Tag>TXT_KEY_UNITCOMBAT_ANIMAL</Tag>
 		<English>Animal Units</English>
 	</TEXT>
+	<TEXT> <!-- Wooden Ships -->
+		<Tag>TXT_KEY_UNITCOMBAT_WOODEN_SHIPS</Tag>
+		<English>Wooden Ships</English>
+	</TEXT>
+	<TEXT> <!-- Diesel Ships -->
+		<Tag>TXT_KEY_UNITCOMBAT_DIESEL_SHIPS</Tag>
+		<English>Diesel Ships</English>
+	</TEXT>
+	<TEXT> <!-- Steam Ships -->
+		<Tag>TXT_KEY_UNITCOMBAT_STEAM_SHIPS</Tag>
+		<English>Steam Ships</English>
+	</TEXT>
+	<TEXT> <!-- Nuclear Ships -->
+		<Tag>TXT_KEY_UNITCOMBAT_NUCLEAR_SHIPS</Tag>
+		<English>Nuclear Ships</English>
+	</TEXT>
+	<TEXT> <!-- Submarines -->
+		<Tag>TXT_KEY_UNITCOMBAT_SUBMARINE</Tag>
+		<English>Submarines</English>
+	</TEXT>
 	<TEXT> <!-- Worker -->
 		<Tag>TXT_KEY_UNITCOMBAT_WORKER</Tag>
 		<English>Worker Units</English>

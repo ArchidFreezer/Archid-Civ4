@@ -56,9 +56,29 @@
 		</UnitCombatInfo>
 
 <!-- +++ Naval +++ -->
-		<UnitCombatInfo> <!-- Naval -->
-			<Type>UNITCOMBAT_NAVAL</Type>
-			<Description>TXT_KEY_UNITCOMBAT_NAVAL</Description>
+		<UnitCombatInfo> <!-- Diesel Ships -->
+			<Type>UNITCOMBAT_DIESEL_SHIPS</Type>
+			<Description>TXT_KEY_UNITCOMBAT_DIESEL_SHIPS</Description>
+			<Button>,Art/Interface/Buttons/Promotions/Naval_Units.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,7</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Nuclear Ships -->
+			<Type>UNITCOMBAT_NUCLEAR_SHIPS</Type>
+			<Description>TXT_KEY_UNITCOMBAT_NUCLEAR_SHIPS</Description>
+			<Button>,Art/Interface/Buttons/Promotions/Naval_Units.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,7</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Steam Ships -->
+			<Type>UNITCOMBAT_STEAM_SHIPS</Type>
+			<Description>TXT_KEY_UNITCOMBAT_STEAM_SHIPS</Description>
+			<Button>,Art/Interface/Buttons/Promotions/Naval_Units.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,7</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Submarines -->
+			<Type>UNITCOMBAT_SUBMARINE</Type>
+			<Description>TXT_KEY_UNITCOMBAT_SUBMARINE</Description>
+			<Button>,Art/Interface/Buttons/Promotions/Naval_Units.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,7</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Wooden Ships -->
+			<Type>UNITCOMBAT_WOODEN_SHIPS</Type>
+			<Description>TXT_KEY_UNITCOMBAT_WOODEN_SHIPS</Description>
 			<Button>,Art/Interface/Buttons/Promotions/Naval_Units.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,7</Button>
 		</UnitCombatInfo>
 

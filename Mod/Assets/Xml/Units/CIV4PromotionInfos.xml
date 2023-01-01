@@ -72,7 +72,11 @@
 			<iCollateralDamageChange>20</iCollateralDamageChange>
 			<UnitCombats>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Barrage1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,4,1</Button>
@@ -91,7 +95,11 @@
 			</UnitCombatMods>
 			<UnitCombats>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Barrage2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,5,1</Button>
@@ -110,7 +118,10 @@
 			</UnitCombatMods>
 			<UnitCombats>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Barrage3.dds,Art/Interface/Buttons/Promotions_Atlas.dds,6,1</Button>
@@ -127,7 +138,10 @@
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Blitz.dds,Art/Interface/Buttons/Promotions_Atlas.dds,8,1</Button>
@@ -257,7 +271,11 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
@@ -277,7 +295,11 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
@@ -297,7 +319,11 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
@@ -318,7 +344,11 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
@@ -339,7 +369,11 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
@@ -360,7 +394,11 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
@@ -425,7 +463,11 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Drill1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,2,3</Button>
@@ -443,7 +485,11 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
@@ -462,7 +508,11 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
@@ -487,7 +537,11 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
@@ -502,7 +556,11 @@
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Flanking1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,6,3</Button>
@@ -518,7 +576,11 @@
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Flanking2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,7,3</Button>
@@ -628,7 +690,11 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,5,10</Button>
@@ -649,7 +715,11 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,5,16</Button>
@@ -687,7 +757,11 @@
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Medic1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,4</Button>
@@ -705,7 +779,11 @@
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Medic2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,4,4</Button>
@@ -725,7 +803,11 @@
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,8,16</Button>
@@ -758,7 +840,11 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,7,16</Button>
@@ -770,7 +856,11 @@
 			<PromotionPrereqOr1>PROMOTION_FLANKING1</PromotionPrereqOr1>
 			<iMovesChange>1</iMovesChange>
 			<UnitCombats>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Navigation1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,7,4</Button>
@@ -783,7 +873,11 @@
 			<PromotionPrereqOr1>PROMOTION_NAVIGATION1</PromotionPrereqOr1>
 			<iMovesChange>1</iMovesChange>
 			<UnitCombats>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Navigation2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,8,4</Button>
@@ -868,7 +962,11 @@
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Sentry.dds,Art/Interface/Buttons/Promotions_Atlas.dds,5,6</Button>
@@ -888,7 +986,11 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</UnitCombats>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,6,16</Button>

@@ -5530,7 +5530,7 @@
 		<UnitInfo> <!-- Galley -->
 			<Class>UNITCLASS_GALLEY</Class>
 			<Type>UNIT_GALLEY</Type>
-			<Combat>UNITCOMBAT_NAVAL</Combat>
+			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_ASSAULT_SEA</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_GALLEY</Description>
@@ -5582,7 +5582,7 @@
 		<UnitInfo> <!-- Trireme -->
 			<Class>UNITCLASS_TRIREME</Class>
 			<Type>UNIT_TRIREME</Type>
-			<Combat>UNITCOMBAT_NAVAL</Combat>
+			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_SEA</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_TRIREME</Description>
@@ -5651,7 +5651,7 @@
 		<UnitInfo> <!-- Caravel -->
 			<Class>UNITCLASS_CARAVEL</Class>
 			<Type>UNIT_CARAVEL</Type>
-			<Combat>UNITCOMBAT_NAVAL</Combat>
+			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_EXPLORE_SEA</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_CARAVEL</Description>
@@ -5707,7 +5707,7 @@
 		<UnitInfo> <!-- Caravel: Portugese Carrack -->
 			<Class>UNITCLASS_CARAVEL</Class>
 			<Type>UNIT_PORTUGAL_CARRACK</Type>
-			<Combat>UNITCOMBAT_NAVAL</Combat>
+			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_EXPLORE_SEA</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_PORTUGAL_CARRACK</Description>
@@ -5764,7 +5764,7 @@
 		<UnitInfo> <!-- Galleon -->
 			<Class>UNITCLASS_GALLEON</Class>
 			<Type>UNIT_GALLEON</Type>
-			<Combat>UNITCOMBAT_NAVAL</Combat>
+			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_ASSAULT_SEA</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_GALLEON</Description>
@@ -5815,7 +5815,7 @@
 		<UnitInfo> <!-- Galleon: Netherlands East Indiaman -->
 			<Class>UNITCLASS_GALLEON</Class>
 			<Type>UNIT_NETHERLANDS_OOSTINDIEVAARDER</Type>
-			<Combat>UNITCOMBAT_NAVAL</Combat>
+			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_ASSAULT_SEA</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_NETHERLANDS_OOSTINDIEVAARDER</Description>
@@ -5868,7 +5868,7 @@
 		<UnitInfo> <!-- Privateer -->
 			<Class>UNITCLASS_PRIVATEER</Class>
 			<Type>UNIT_PRIVATEER</Type>
-			<Combat>UNITCOMBAT_NAVAL</Combat>
+			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_PIRATE_SEA</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_PRIVATEER</Description>
@@ -5931,7 +5931,7 @@
 		<UnitInfo> <!-- Frigate -->
 			<Class>UNITCLASS_FRIGATE</Class>
 			<Type>UNIT_FRIGATE</Type>
-			<Combat>UNITCOMBAT_NAVAL</Combat>
+			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_RESERVE_SEA</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_FRIGATE</Description>
@@ -5987,7 +5987,7 @@
 		<UnitInfo> <!-- Ship of the Line -->
 			<Class>UNITCLASS_SHIP_OF_THE_LINE</Class>
 			<Type>UNIT_SHIP_OF_THE_LINE</Type>
-			<Combat>UNITCOMBAT_NAVAL</Combat>
+			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_SEA</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_SHIP_OF_THE_LINE</Description>
@@ -6057,7 +6057,7 @@
 		<UnitInfo> <!-- Ironclad -->
 			<Class>UNITCLASS_IRONCLAD</Class>
 			<Type>UNIT_IRONCLAD</Type>
-			<Combat>UNITCOMBAT_NAVAL</Combat>
+			<Combat>UNITCOMBAT_STEAM_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_RESERVE_SEA</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_IRONCLAD</Description>
@@ -6116,7 +6116,7 @@
 		<UnitInfo> <!-- Destroyer -->
 			<Class>UNITCLASS_DESTROYER</Class>
 			<Type>UNIT_DESTROYER</Type>
-			<Combat>UNITCOMBAT_NAVAL</Combat>
+			<Combat>UNITCOMBAT_STEAM_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_RESERVE_SEA</DefaultUnitAI>
 			<SeeInvisibles>
@@ -6173,7 +6173,7 @@
 		<UnitInfo> <!-- Transport -->
 			<Class>UNITCLASS_TRANSPORT</Class>
 			<Type>UNIT_TRANSPORT</Type>
-			<Combat>UNITCOMBAT_NAVAL</Combat>
+			<Combat>UNITCOMBAT_DIESEL_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_ASSAULT_SEA</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_TRANSPORT</Description>
@@ -6224,7 +6224,7 @@
 		<UnitInfo> <!-- Carrier -->
 			<Class>UNITCLASS_CARRIER</Class>
 			<Type>UNIT_CARRIER</Type>
-			<Combat>UNITCOMBAT_NAVAL</Combat>
+			<Combat>UNITCOMBAT_DIESEL_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_CARRIER_SEA</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_CARRIER</Description>
@@ -6275,7 +6275,7 @@
 		<UnitInfo> <!-- Battleship -->
 			<Class>UNITCLASS_BATTLESHIP</Class>
 			<Type>UNIT_BATTLESHIP</Type>
-			<Combat>UNITCOMBAT_NAVAL</Combat>
+			<Combat>UNITCOMBAT_DIESEL_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_SEA</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_BATTLESHIP</Description>
@@ -6332,7 +6332,7 @@
 		<UnitInfo> <!-- Missile Cruiser -->
 			<Class>UNITCLASS_MISSILE_CRUISER</Class>
 			<Type>UNIT_MISSILE_CRUISER</Type>
-			<Combat>UNITCOMBAT_NAVAL</Combat>
+			<Combat>UNITCOMBAT_NUCLEAR_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_SEA</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_MISSILE_CRUISER</Description>
@@ -6389,7 +6389,7 @@
 		<UnitInfo> <!-- Stealth Destroyer -->
 			<Class>UNITCLASS_STEALTH_DESTROYER</Class>
 			<Type>UNIT_STEALTH_DESTROYER</Type>
-			<Combat>UNITCOMBAT_NAVAL</Combat>
+			<Combat>UNITCOMBAT_NUCLEAR_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_RESERVE_SEA</DefaultUnitAI>
 			<Invisible>INVISIBLE_STEALTH</Invisible>
@@ -6448,7 +6448,7 @@
 		<UnitInfo> <!-- Submarine -->
 			<Class>UNITCLASS_SUBMARINE</Class>
 			<Type>UNIT_SUBMARINE</Type>
-			<Combat>UNITCOMBAT_NAVAL</Combat>
+			<Combat>UNITCOMBAT_SUBMARINE</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_RESERVE_SEA</DefaultUnitAI>
 			<Invisible>INVISIBLE_SUBMARINE</Invisible>
@@ -6516,7 +6516,7 @@
 		<UnitInfo> <!-- Attack Submarine -->
 			<Class>UNITCLASS_ATTACK_SUBMARINE</Class>
 			<Type>UNIT_ATTACK_SUBMARINE</Type>
-			<Combat>UNITCOMBAT_NAVAL</Combat>
+			<Combat>UNITCOMBAT_SUBMARINE</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_RESERVE_SEA</DefaultUnitAI>
 			<Invisible>INVISIBLE_SUBMARINE</Invisible>
