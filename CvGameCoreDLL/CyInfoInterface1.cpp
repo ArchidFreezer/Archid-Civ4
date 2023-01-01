@@ -144,6 +144,8 @@ void CyInfoPythonInterface1() {
 		.def("getKamikazePercent", &CvPromotionInfo::getKamikazePercent, "int ()")
 		.def("getUnitRangeChange", &CvPromotionInfo::getUnitRangeChange, "int ()")
 		.def("getUnitRangePercentChange", &CvPromotionInfo::getUnitRangePercentChange, "int ()")
+		.def("getNumNotCombatTypes", &CvPromotionInfo::getNumNotCombatTypes, "int ()")
+		.def("getNumOrCombatTypes", &CvPromotionInfo::getNumOrCombatTypes, "int ()")
 
 		.def("isLeader", &CvPromotionInfo::isLeader, "bool ()")
 		.def("isBlitz", &CvPromotionInfo::isBlitz, "bool ()")
@@ -166,10 +168,13 @@ void CyInfoPythonInterface1() {
 		.def("getFeatureDefensePercent", &CvPromotionInfo::getFeatureDefensePercent, "int (int i)")
 		.def("getUnitCombatModifierPercent", &CvPromotionInfo::getUnitCombatModifierPercent, "int (int i)")
 		.def("getDomainModifierPercent", &CvPromotionInfo::getDomainModifierPercent, "int (int i)")
+		.def("getNotCombatType", &CvPromotionInfo::getNotCombatType, "int (int i)")
+		.def("getOrCombatType", &CvPromotionInfo::getOrCombatType, "int (int i)")
 
 		.def("getTerrainDoubleMove", &CvPromotionInfo::getTerrainDoubleMove, "bool (int i)")
 		.def("getFeatureDoubleMove", &CvPromotionInfo::getFeatureDoubleMove, "bool (int i)")
-		.def("getUnitCombat", &CvPromotionInfo::getUnitCombat, "bool (int i)")
+		.def("isNotCombatType", &CvPromotionInfo::isNotCombatType, "bool (int i)")
+		.def("isOrCombatType", &CvPromotionInfo::isOrCombatType, "bool (int i)")
 		;
 
 	python::class_<CvMissionInfo, python::bases<CvInfoBase> >("CvMissionInfo")

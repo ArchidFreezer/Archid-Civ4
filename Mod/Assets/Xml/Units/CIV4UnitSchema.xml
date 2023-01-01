@@ -477,6 +477,9 @@
 	<ElementType name="bPrereqPower" content="textOnly" dt:type="boolean"/>
 	<ElementType name="MinCultureLevel" content="textOnly"/>
 	<ElementType name="iMinPopulation" content="textOnly" dt:type="int"/>
+	<ElementType name="SubCombatTypes" content="eltOnly">
+		<element type="UnitCombatType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="UnitInfo" content="eltOnly">
 		<element type="Class"/>
 		<element type="Type"/>
@@ -484,6 +487,7 @@
 		<element type="Special" minOccurs="0"/>
 		<element type="Capture" minOccurs="0"/>
 		<element type="Combat" minOccurs="0"/>
+		<element type="SubCombatTypes" minOccurs="0"/>
 		<element type="Domain"/>
 		<element type="DefaultUnitAI"/>
 		<element type="Invisible" minOccurs="0"/>
@@ -790,7 +794,10 @@
 	<ElementType name="iSameTileHealChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iAdjacentTileHealChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iCombatPercent" content="textOnly" dt:type="int"/>
-	<ElementType name="UnitCombats" content="eltOnly">
+	<ElementType name="NotUnitCombatTypes" content="eltOnly">
+		<element type="UnitCombatType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="OrUnitCombatTypes" content="eltOnly">
 		<element type="UnitCombatType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="TerrainDoubleMoves" content="eltOnly">
@@ -867,7 +874,8 @@
 		<element type="DomainMods" minOccurs="0"/>
 		<element type="TerrainDoubleMoves" minOccurs="0"/>
 		<element type="FeatureDoubleMoves" minOccurs="0"/>
-		<element type="UnitCombats" minOccurs="0"/>
+		<element type="NotUnitCombatTypes" minOccurs="0"/>
+		<element type="OrUnitCombatTypes" minOccurs="0"/>
 		<element type="HotKey" minOccurs="0"/>
 		<element type="bAltDown" minOccurs="0"/>
 		<element type="bShiftDown" minOccurs="0"/>

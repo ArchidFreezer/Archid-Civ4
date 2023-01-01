@@ -1372,8 +1372,8 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_piUnitCombatModifierPercent(NULL),
 	m_piDomainModifierPercent(NULL),
 	m_pbTerrainDoubleMove(NULL),
-	m_pbFeatureDoubleMove(NULL),
-	m_pbUnitCombat(NULL) {
+	m_pbFeatureDoubleMove(NULL)
+{
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -1392,7 +1392,30 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_piDomainModifierPercent);
 	SAFE_DELETE_ARRAY(m_pbTerrainDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
-	SAFE_DELETE_ARRAY(m_pbUnitCombat);
+}
+
+int CvPromotionInfo::getNotCombatType(int i) const {
+	return m_viNotCombatTypes[i];
+}
+
+int CvPromotionInfo::getNumNotCombatTypes() const {
+	return (int)m_viNotCombatTypes.size();
+}
+
+bool CvPromotionInfo::isNotCombatType(int i) const {
+	return (std::find(m_viNotCombatTypes.begin(), m_viNotCombatTypes.end(), i) != m_viNotCombatTypes.end());
+}
+
+int CvPromotionInfo::getOrCombatType(int i) const {
+	return m_viOrCombatTypes[i];
+}
+
+int CvPromotionInfo::getNumOrCombatTypes() const {
+	return (int)m_viOrCombatTypes.size();
+}
+
+bool CvPromotionInfo::isOrCombatType(int i) const {
+	return (std::find(m_viOrCombatTypes.begin(), m_viOrCombatTypes.end(), i) != m_viOrCombatTypes.end());
 }
 
 bool CvPromotionInfo::isCityPrereq() const {
@@ -1673,12 +1696,6 @@ bool CvPromotionInfo::getFeatureDoubleMove(int i) const {
 	return m_pbFeatureDoubleMove ? m_pbFeatureDoubleMove[i] : false;
 }
 
-bool CvPromotionInfo::getUnitCombat(int i) const {
-	FAssertMsg(i < GC.getNumUnitCombatInfos(), "Index out of bounds");
-	FAssertMsg(i > -1, "Index out of bounds");
-	return m_pbUnitCombat ? m_pbUnitCombat[i] : false;
-}
-
 void CvPromotionInfo::read(FDataStreamBase* stream) {
 	CvHotkeyInfo::read(stream);
 
@@ -1774,9 +1791,21 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	m_pbFeatureDoubleMove = new bool[GC.getNumFeatureInfos()];
 	stream->Read(GC.getNumFeatureInfos(), m_pbFeatureDoubleMove);
 
-	SAFE_DELETE_ARRAY(m_pbUnitCombat);
-	m_pbUnitCombat = new bool[GC.getNumUnitCombatInfos()];
-	stream->Read(GC.getNumUnitCombatInfos(), m_pbUnitCombat);
+	int iNumElements;
+	int iElement;
+	stream->Read(&iNumElements);
+	m_viNotCombatTypes.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viNotCombatTypes.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viOrCombatTypes.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viOrCombatTypes.push_back(iElement);
+	}
 }
 
 void CvPromotionInfo::write(FDataStreamBase* stream) {
@@ -1850,7 +1879,16 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(NUM_DOMAIN_TYPES, m_piDomainModifierPercent);
 	stream->Write(GC.getNumTerrainInfos(), m_pbTerrainDoubleMove);
 	stream->Write(GC.getNumFeatureInfos(), m_pbFeatureDoubleMove);
-	stream->Write(GC.getNumUnitCombatInfos(), m_pbUnitCombat);
+
+	stream->Write(m_viNotCombatTypes.size());
+	for (std::vector<int>::iterator it = m_viNotCombatTypes.begin(); it != m_viNotCombatTypes.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viOrCombatTypes.size());
+	for (std::vector<int>::iterator it = m_viOrCombatTypes.begin(); it != m_viOrCombatTypes.end(); ++it) {
+		stream->Write(*it);
+	}
 }
 
 bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
@@ -1935,7 +1973,8 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->SetListInfoBool(&m_pbTerrainDoubleMove, "TerrainDoubleMoves", GC.getNumTerrainInfos());
 	pXML->SetListInfoBool(&m_pbFeatureDoubleMove, "FeatureDoubleMoves", GC.getNumFeatureInfos());
-	pXML->SetListInfoBool(&m_pbUnitCombat, "UnitCombats", GC.getNumUnitCombatInfos());
+	pXML->SetVectorInfo(m_viNotCombatTypes, "NotUnitCombatTypes");
+	pXML->SetVectorInfo(m_viOrCombatTypes, "OrUnitCombatTypes");
 
 	return true;
 }
@@ -2779,6 +2818,22 @@ CvUnitInfo::~CvUnitInfo() {
 	SAFE_DELETE_ARRAY(m_paszLateArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszMiddleArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszUnitNames);
+}
+
+int CvUnitInfo::getSubCombatType(int i) const {
+	return m_viSubCombatTypes[i];
+}
+
+int CvUnitInfo::getNumSubCombatTypes() const {
+	return (int)m_viSubCombatTypes.size();
+}
+
+bool CvUnitInfo::isSubCombatType(UnitCombatTypes eCombatType) const {
+	return (std::find(m_viSubCombatTypes.begin(), m_viSubCombatTypes.end(), eCombatType) != m_viSubCombatTypes.end());
+}
+
+bool CvUnitInfo::isCombatType(UnitCombatTypes eCombatType) const {
+	return (getUnitCombatType() == eCombatType || isSubCombatType(eCombatType));
 }
 
 int CvUnitInfo::getPrereqAndTerrain(int i) const {
@@ -4114,6 +4169,13 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 		m_viPrereqNotBuildingClasses.push_back(iElement);
 	}
 
+	stream->Read(&iNumElements);
+	m_viSubCombatTypes.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viSubCombatTypes.push_back(iElement);
+	}
+
 	stream->ReadString(m_szFormationType);
 
 	updateArtDefineButton();
@@ -4348,6 +4410,11 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 		stream->Write(*it);
 	}
 
+	stream->Write(m_viSubCombatTypes.size());
+	for (std::vector<int>::iterator it = m_viSubCombatTypes.begin(); it != m_viSubCombatTypes.end(); ++it) {
+		stream->Write(*it);
+	}
+
 	stream->WriteString(m_szFormationType);
 }
 
@@ -4365,6 +4432,8 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(szTextVal, "Class");
 	m_iUnitClassType = pXML->FindInInfoClass(szTextVal);
+
+	pXML->SetVectorInfo(m_viSubCombatTypes, "SubCombatTypes");
 
 	pXML->GetChildXmlValByName(szTextVal, "Special");
 	m_iSpecialUnitType = pXML->FindInInfoClass(szTextVal);

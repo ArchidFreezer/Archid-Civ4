@@ -2178,8 +2178,8 @@ UnitTypes CvCityAI::AI_bestUnitAI(UnitAITypes eUnitAI, bool bAsync, AdvisorTypes
 	std::vector<std::pair<int, UnitTypes> > candidates;
 	int iBestBaseValue = 0;
 
-	for (int i = 0; i < GC.getNumUnitClassInfos(); i++) {
-		UnitTypes eLoopUnit = (UnitTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(i);
+	for (UnitClassTypes eUnitClass = (UnitClassTypes)0; eUnitClass < GC.getNumUnitClassInfos(); eUnitClass = (UnitClassTypes)(eUnitClass + 1)) {
+		UnitTypes eLoopUnit = (UnitTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(eUnitClass);
 
 		if (eLoopUnit == NO_UNIT)
 			continue;
@@ -2226,16 +2226,28 @@ UnitTypes CvCityAI::AI_bestUnitAI(UnitAITypes eUnitAI, bool bAsync, AdvisorTypes
 			const CvPromotionInfo& kPromotionInfo = GC.getPromotionInfo(p);
 
 			if (!bFree && isFreePromotion(p)) {
-				if (kUnitInfo.getUnitCombatType() != NO_UNITCOMBAT && kPromotionInfo.getUnitCombat(kUnitInfo.getUnitCombatType())) {
-					bFree = true;
+				// Check for prohibited combat types
+				bool bProhibited = false;
+				for (int iI = 0; iI < kPromotionInfo.getNumNotCombatTypes() && !bProhibited; iI++) {
+					bProhibited = kUnitInfo.isCombatType((UnitCombatTypes)kPromotionInfo.getNotCombatType(iI));
+				}
+
+				// If this is a prohibited promotion then skip to the next one;
+				if (bProhibited)
+					continue;
+
+				for (int iI = 0; iI < kPromotionInfo.getNumOrCombatTypes() && !bFree; iI++) {
+					bFree = kUnitInfo.isCombatType((UnitCombatTypes)kPromotionInfo.getOrCombatType(iI));
 				}
 			}
 
 			if (!bFree) {
-				for (TraitTypes t = (TraitTypes)0; t < GC.getNumTraitInfos(); t = (TraitTypes)(t + 1)) {
-					if (hasTrait(t) && GC.getTraitInfo(t).isFreePromotion(p)) {
-						if (kUnitInfo.getUnitCombatType() != NO_UNITCOMBAT && GC.getTraitInfo(t).isFreePromotionUnitCombat(kUnitInfo.getUnitCombatType())) {
-							bFree = true;
+				for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
+					const CvTraitInfo& kTrait = GC.getTraitInfo(eTrait);
+					if (hasTrait(eTrait) && kTrait.isFreePromotion(p)) {
+						bFree = kUnitInfo.getUnitCombatType() != NO_UNITCOMBAT && kTrait.isFreePromotionUnitCombat(kUnitInfo.getUnitCombatType());
+						for (int iI = 0; iI < kUnitInfo.getNumSubCombatTypes() && !bFree; iI++) {
+							bFree = kTrait.isFreePromotionUnitCombat(kUnitInfo.getSubCombatType(iI));
 						}
 					}
 				}

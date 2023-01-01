@@ -297,6 +297,7 @@ public:
 	SpecialUnitTypes getSpecialUnitType() const;								// Exposed to Python								 
 	UnitTypes getCaptureUnitType(CivilizationTypes eCivilization) const;	// Exposed to Python								
 	UnitCombatTypes getUnitCombatType() const;									// Exposed to Python								
+	bool isUnitCombatType(UnitCombatTypes eUnitCombat) const;
 	DllExport DomainTypes getDomainType() const;													// Exposed to Python								
 	InvisibleTypes getInvisibleType() const;										// Exposed to Python								
 	int getNumSeeInvisibleTypes() const;									// Exposed to Python

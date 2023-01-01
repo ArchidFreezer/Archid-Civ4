@@ -485,6 +485,8 @@ public:
 	int getUnitRangeChange() const;
 	int getUnitRangePercentChange() const;
 	int getPromotionGroup() const;
+	int getNumNotCombatTypes() const;
+	int getNumOrCombatTypes() const;
 
 	bool isLeader() const;				// Exposed to Python
 	bool isBlitz() const;				// Exposed to Python
@@ -509,10 +511,13 @@ public:
 	int getFeatureDefensePercent(int i) const;				// Exposed to Python
 	int getUnitCombatModifierPercent(int i) const;				// Exposed to Python
 	int getDomainModifierPercent(int i) const;				// Exposed to Python
+	int getNotCombatType(int i) const;
+	int getOrCombatType(int i) const;
 
 	bool getTerrainDoubleMove(int i) const;				// Exposed to Python
 	bool getFeatureDoubleMove(int i) const;				// Exposed to Python
-	bool getUnitCombat(int i) const;				// Exposed to Python
+	bool isNotCombatType(int i) const;
+	bool isOrCombatType(int i) const;
 
 	void read(FDataStreamBase* stream);
 	void write(FDataStreamBase* stream);
@@ -589,8 +594,9 @@ protected:
 
 	bool* m_pbTerrainDoubleMove;
 	bool* m_pbFeatureDoubleMove;
-	bool* m_pbUnitCombat;
 
+	std::vector<int> m_viNotCombatTypes;
+	std::vector<int> m_viOrCombatTypes;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -898,6 +904,7 @@ public:
 	int getLeaderExperience() const;
 	int getLeaderPromotion() const;
 	int getMinPopulation() const;
+	int getNumSubCombatTypes() const;
 
 	bool isAnimal() const;				// Exposed to Python
 	bool isFoodProduction() const;				// Exposed to Python
@@ -981,6 +988,7 @@ public:
 	int getPrereqVicinityOrBonus(int i) const;
 	int getPrereqOrBuildingClass(int i) const;
 	int getPrereqNotBuildingClass(int i) const;
+	int getSubCombatType(int i) const;
 
 	bool getUpgradeUnitClass(int i) const;	// Exposed to Python
 	bool getTargetUnitClass(int i) const;	// Exposed to Python
@@ -1008,6 +1016,8 @@ public:
 	bool isPrereqVicinityOrBonus(BonusTypes eTerrain) const;
 	bool isPrereqOrBuildingClass(BuildingClassTypes eBuildingClass) const;
 	bool isPrereqNotBuildingClass(BuildingClassTypes eBuildingClass) const;
+	bool isSubCombatType(UnitCombatTypes eCombatType) const;
+	bool isCombatType(UnitCombatTypes eCombatType) const;
 
 	const TCHAR* getEarlyArtDefineTag(int i, UnitArtStyleTypes eStyle) const;				// Exposed to Python
 	void setEarlyArtDefineTag(int i, const TCHAR* szVal);
@@ -1214,6 +1224,7 @@ protected:
 	std::vector<int> m_viPrereqVicinityOrBonus;
 	std::vector<int> m_viPrereqOrBuildingClasses;
 	std::vector<int> m_viPrereqNotBuildingClasses;
+	std::vector<int> m_viSubCombatTypes;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

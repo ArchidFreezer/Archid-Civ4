@@ -10,9 +10,9 @@ class CvPediaPromotion:
 		self.top = main
 		self.iSize = 48
 
-	def interfaceScreen(self, iPromotion):	
+	def interfaceScreen(self, iPromotion):
 		self.iPromotion = iPromotion
-		self.top.deleteAllWidgets()			
+		self.top.deleteAllWidgets()
 		screen = self.top.getScreen()
 		if not screen.isActive():
 			self.top.setPediaCommonWidgets()
@@ -27,14 +27,14 @@ class CvPediaPromotion:
 		self.W_PREREQ_PANE = self.top.W_ITEMS_PANE - self.W_MAIN_PANE - self.top.W_BORDER
 		self.Y_PREREQ_PANE = self.top.Y_ITEMS_PANE - self.top.W_BORDER
 		self.H_PREREQ_PANE = 110
-		self.Y_LEADS_TO_PANE = self.Y_PREREQ_PANE + self.H_PREREQ_PANE + 10				
+		self.Y_LEADS_TO_PANE = self.Y_PREREQ_PANE + self.H_PREREQ_PANE + 10
 		self.Y_SPECIAL = self.Y_LEADS_TO_PANE + self.H_PREREQ_PANE + 10
 		self.H_SPECIAL = screen.getYResolution() - self.Y_SPECIAL - self.top.Y_ITEMS_PANE
 
 		szHeader = gc.getPromotionInfo(self.iPromotion).getDescription().upper()
 		szHeader = u"<font=4b>" + self.top.color4 + CyTranslator().getText(self.top.sPromotionIcon, ()) + szHeader + " " + CyTranslator().getText(self.top.sPromotionIcon, ()) + "</color></font>"
 		screen.setLabel(self.top.getNextWidgetName(), "Background", szHeader, CvUtil.FONT_CENTER_JUSTIFY, screen.getXResolution()/2, self.top.Y_TITLE, 0, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
-		
+
 		screen.setText(self.top.getNextWidgetName(), "Background", self.top.MENU_TEXT, CvUtil.FONT_CENTER_JUSTIFY, screen.getXResolution()/2, screen.getYResolution() - 42, 0, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_PEDIA_MAIN, self.top.PLATYPEDIA_PROMOTION, -1)
 		screen.addPanel( self.top.getNextWidgetName(), "", "", False, False, self.top.X_ITEMS_PANE, self.top.Y_ITEMS_PANE, self.W_MAIN_PANE, self.H_MAIN_PANE, PanelStyles.PANEL_STYLE_BLUE50)
 		screen.addPanel(self.top.getNextWidgetName(), "", "", False, False, self.X_ICON, self.Y_ICON, self.H_ICON, self.H_ICON, PanelStyles.PANEL_STYLE_MAIN)
@@ -59,7 +59,7 @@ class CvPediaPromotion:
 		screen = self.top.getScreen()
 		panelName = self.top.getNextWidgetName()
 		screen.addPanel( panelName, CyTranslator().getText("TXT_KEY_PEDIA_REQUIRES", ()), "", False, True, self.X_PREREQ_PANE, self.Y_PREREQ_PANE, self.W_PREREQ_PANE, self.H_PREREQ_PANE, PanelStyles.PANEL_STYLE_BLUE50 )
-		
+
 		ePromo = gc.getPromotionInfo(self.iPromotion).getPrereqPromotion()
 		if (ePromo > -1):
 			screen.attachImageButton( panelName, "", gc.getPromotionInfo(ePromo).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_PROMOTION, ePromo, 1, False )
@@ -69,7 +69,7 @@ class CvPediaPromotion:
 		if (ePromoOr1 > -1):
 			if (ePromo > -1):
 				screen.attachLabel(panelName, "", CyTranslator().getText("TXT_KEY_AND", ()))
-			
+
 				if (ePromoOr2 > -1):
 					screen.attachLabel(panelName, "", "(")
 
@@ -81,21 +81,21 @@ class CvPediaPromotion:
 
 				if (ePromo > -1):
 					screen.attachLabel(panelName, "", ")")
-								
+
 		eTech = gc.getPromotionInfo(self.iPromotion).getTechPrereq()
 		if (eTech > -1):
-			screen.attachImageButton( panelName, "", gc.getTechInfo(eTech).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_TECH, eTech, 1, False )		
-						
+			screen.attachImageButton( panelName, "", gc.getTechInfo(eTech).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_TECH, eTech, 1, False )
+
 		eReligion = gc.getPromotionInfo(self.iPromotion).getStateReligionPrereq()
 		if (eReligion > -1):
-			screen.attachImageButton( panelName, "", gc.getReligionInfo(eReligion).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_RELIGION, eReligion, 1, False )		
-						
+			screen.attachImageButton( panelName, "", gc.getReligionInfo(eReligion).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_RELIGION, eReligion, 1, False )
+
 	def placeSpecial(self):
 		screen = self.top.getScreen()
 		panelName = self.top.getNextWidgetName()
 		screen.addPanel( panelName, CyTranslator().getText("TXT_KEY_PEDIA_SPECIAL_ABILITIES", ()), "", True, False, self.X_PREREQ_PANE, self.Y_SPECIAL, self.W_PREREQ_PANE, self.H_SPECIAL, PanelStyles.PANEL_STYLE_BLUE50 )
 		szSpecialText = CyGameTextMgr().getPromotionHelp(self.iPromotion, True)[1:]
-		screen.addMultilineText(self.top.getNextWidgetName(), szSpecialText, self.X_PREREQ_PANE+5, self.Y_SPECIAL+30, self.W_PREREQ_PANE-10, self.H_SPECIAL-30, WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)	
+		screen.addMultilineText(self.top.getNextWidgetName(), szSpecialText, self.X_PREREQ_PANE+5, self.Y_SPECIAL+30, self.W_PREREQ_PANE-10, self.H_SPECIAL-30, WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
 
 	def placeUnitGroups(self):
 		screen = self.top.getScreen()
@@ -105,9 +105,9 @@ class CvPediaPromotion:
 
 		iY = 6
 		iAdjustment = (self.iSize - 16) /2 - iY
-		
+
 		for item in xrange(gc.getNumUnitCombatInfos()):
-			if gc.getPromotionInfo(self.iPromotion).getUnitCombat(item):
+			if gc.getPromotionInfo(self.iPromotion).isOrCombatType(item):
 				screen.setImageButtonAt(self.top.getNextWidgetName(), panelName, gc.getUnitCombatInfo(item).getButton(), 0, iY, self.iSize, self.iSize, WidgetTypes.WIDGET_PEDIA_JUMP_TO_UNIT_COMBAT, item, 1)
 				screen.setTextAt(self.top.getNextWidgetName(), panelName, u"<font=3>" + gc.getUnitCombatInfo(item).getDescription() + u"</font>", CvUtil.FONT_LEFT_JUSTIFY, self.iSize, iY + iAdjustment, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
 				iY += (self.iSize + 4)

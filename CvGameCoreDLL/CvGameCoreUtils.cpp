@@ -256,9 +256,22 @@ bool isPromotionValid(PromotionTypes ePromotion, UnitTypes eUnit, bool bLeader) 
 		return false;
 	}
 
-	if (!(kPromotion.getUnitCombat(kUnit.getUnitCombatType()))) {
+	for (int iI = 0; iI < kPromotion.getNumNotCombatTypes(); iI++) {
+		if (kUnit.isCombatType((UnitCombatTypes)kPromotion.getNotCombatType(iI))) {
+			return false;
+		}
+	}
+
+	bool bFound = false;
+	for (int iI = 0; iI < kPromotion.getNumOrCombatTypes() && !bFound; iI++) {
+		if (kUnit.isCombatType((UnitCombatTypes)kPromotion.getOrCombatType(iI))) {
+			bFound = true;
+		}
+	}
+	if (!bFound) {
 		return false;
 	}
+
 
 	if (kUnit.isOnlyDefensive()) {
 		if ((kPromotion.getCityAttackPercent() != 0) ||

@@ -2019,11 +2019,26 @@ void CvCity::addProductionExperience(CvUnit* pUnit, bool bConscript) {
 		pUnit->changeExperience(getProductionExperience(pUnit->getUnitType()) / ((bConscript) ? 2 : 1));
 	}
 
-	for (int iI = 0; iI < GC.getNumPromotionInfos(); iI++) {
-		if (isFreePromotion((PromotionTypes)iI)) {
-			if ((pUnit->getUnitCombatType() != NO_UNITCOMBAT) && GC.getPromotionInfo((PromotionTypes)iI).getUnitCombat(pUnit->getUnitCombatType())) {
-				pUnit->setHasPromotion(((PromotionTypes)iI), true);
+	bool bValid = true;
+	for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumPromotionInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
+		if (isFreePromotion(ePromotion)) {
+			const CvPromotionInfo& kPromotion = GC.getPromotionInfo(ePromotion);
+			for (int iI = 0; iI < kPromotion.getNumNotCombatTypes() && bValid; iI++) {
+				if (pUnit->isUnitCombatType((UnitCombatTypes)kPromotion.getNotCombatType(iI)))
+					bValid = false;
 			}
+
+			if (!bValid)
+				continue;
+
+			bValid = false;
+			for (int iI = 0; iI < kPromotion.getNumOrCombatTypes() && !bValid; iI++) {
+				if (pUnit->isUnitCombatType((UnitCombatTypes)kPromotion.getOrCombatType(iI)))
+					bValid = true;
+			}
+
+			if (bValid)
+				pUnit->setHasPromotion(ePromotion, true);
 		}
 	}
 
