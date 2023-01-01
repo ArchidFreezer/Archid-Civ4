@@ -5404,10 +5404,19 @@ bool CvUnit::build(BuildTypes eBuild) {
 
 	bool bFinished = plot()->changeBuildProgress(eBuild, workRate(false), getTeam());
 
-	finishMoves(); // needs to be at bottom because movesLeft() can affect workRate()...
+	finishMoves(); // needs to be after the work has been processed because movesLeft() can affect workRate()...
 
 	if (bFinished) {
-		if (GC.getBuildInfo(eBuild).isKill() || getUnitInfo().isSingleBuild()) {
+		bool bKill = (GC.getBuildInfo(eBuild).isKill() || getUnitInfo().isSingleBuild());
+		if (!bKill) {
+			int iCost = GC.getBuildInfo(eBuild).getTime();
+			int iSpeedModifier = workRate(true);
+			if (iCost > 0) {
+				changeExperience100(iCost / std::max(1, (2 * iSpeedModifier) / 100));
+			}
+		}
+
+		if (bKill) {
 			kill(true);
 		}
 	}
