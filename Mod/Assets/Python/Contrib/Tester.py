@@ -12,10 +12,26 @@ from PyHelpers import PyPlayer, PyInfo
 import BugOptions
 import ColorUtil
 
-TESTER_STRANDED_EVENT = CvUtil.getNewEventID("Tester.StrandedEvent")
+KILL_PLAYER_STUFF = CvUtil.getNewEventID("Tester.killPlayerStuff")
+STRANDED_EVENT_ID = CvUtil.getNewEventID("Tester.showStranded")
 
 # globals
 gc = CyGlobalContext()
+
+class TesterEventHandler:
+
+	def __init__(self, customEM):
+
+		self.customEM = customEM
+
+		self.customEM.setPopupHandler( KILL_PLAYER_STUFF, ["killPlayerStuffPopup", killPlayerStuffHandler, self.blankHandler] )
+
+		# Keep game from showing messages about handling these popups
+		CvUtil.SilentEvents.extend([KILL_PLAYER_STUFF])
+
+	def blankHandler( self, playerID, netUserData, popupReturn ) :
+		# Dummy handler to take the second event for popup
+		return
 
 def showStrandedPopup(argsList):
 	bodStr = "Stranded units by player:\n"
@@ -30,7 +46,7 @@ def showStrandedPopup(argsList):
 					if( pGroup.isStranded() ) :
 						bodStr += "\n   %s (%d units) at (%d, %d)"%(pUnit.getName(),pGroup.getNumUnits(),pUnit.getX(),pUnit.getY())
 
-	popup = PyPopup.PyPopup(TESTER_STRANDED_EVENT)
+	popup = PyPopup.PyPopup(STRANDED_EVENT_ID)
 	popup.setBodyString(bodStr)
 	popup.launch()
 
@@ -48,22 +64,46 @@ def reloadOptions(argsList):
 	popup.launch()
 
 
-"""
-	def showTestPopup( self ) :
-		ColorUtil.init()
-		bodStr = "Enumerating elements\n"
-		match = "COLOR_MAGENTA"
-		iMatch = ColorUtil.keyToIndex(match)
-#		iMatch = -1
-#		for i, key in enumerate(ColorUtil.getColorKeys()):
-#			bodStr += "\n" + str(i) + " : " + key
-#			if match == key:
-#				iMatch = i
+def killPlayerStuffPopup( self ) :
+	'Chooser window for killing a players stuff'
 
-		if iMatch > -1:
-			bodStr += "\n\nMatch found at index: " + str(iMatch)
+	popup = PyPopup.PyPopup(KILL_PLAYER_STUFF,contextType = EventContextTypes.EVENTCONTEXT_ALL)
+	popup.setHeaderString( 'Kill a civs stuff?' )
+	popup.setBodyString( 'Which civ, and which stuff?' )
+	popup.addSeparator()
 
-		popup = PyPopup.PyPopup()
-		popup.setBodyString(bodStr)
-		popup.launch()
-"""
+	popup.createPythonPullDown( 'Kill this civs ...', 1 )
+	for i in range(0,gc.getMAX_PLAYERS()) :
+		player = PyPlayer(i)
+		if( not player.isNone() ) :
+			if( player.isAlive() ) :
+				popup.addPullDownString( "%s of the %s"%(player.getName(),player.getCivilizationName()), i, 1 )
+	activePlayer = gc.getActivePlayer()
+	popup.popup.setSelectedPulldownID( activePlayer.getID(), 1 )
+
+	popup.createPythonPullDown( ' ... stuff', 2 )
+	popup.addPullDownString( "Cities", 0, 2 )
+	popup.addPullDownString( "Deals", 1, 2 )
+	popup.addPullDownString( "Units", 2, 2 )
+	popup.popup.setSelectedPulldownID( 2, 2 )
+
+	popup.addSeparator()
+	popup.addButton('Cancel')
+	popup.launch()
+
+def killPlayerStuffHandler( playerID, netUserData, popupReturn ) :
+	'Handles changeCiv popup'
+
+	if( popupReturn.getButtonClicked() == 0 ):  # if you pressed cancel
+		return
+
+	playerIdx = popupReturn.getSelectedPullDownValue( 1 )
+	killType = popupReturn.getSelectedPullDownValue( 2 )
+
+	player = gc.getPlayer(playerIdx)
+	if killType == 0:
+		player.killCities()
+	elif killType == 1:
+		player.killDeals()
+	elif killType == 2:
+		player.killUnits()

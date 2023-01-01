@@ -18,6 +18,7 @@ There are several additional screens available with the mod that are accessed vi
 - [Ctrl-F12] - Shows time details for game speeds 
 
 ### Testing
+- [Ctrl-Shift-K] - Open popup to kill player units, cities and/or deals
 - [Ctrl-Shift-L] - Open popup to switch which player the human controls 
 - [Ctrl-Shift-M] - Turn control of your civ over to the AI for the rest of the round. 
 - [Ctrl-Shift-O] - Refortify the land units of the current player
