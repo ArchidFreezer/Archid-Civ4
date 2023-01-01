@@ -319,6 +319,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_bBlockading = false;
 	m_bAirCombat = false;
 	m_bCivicEnabled = true;
+	m_bGroupPromotionChanged = false;
 
 	m_eOwner = eOwner;
 	m_eCapturingPlayer = NO_PLAYER;
@@ -393,12 +394,36 @@ void CvUnit::setupGraphical() {
 }
 
 
+// We are a new unit ready to convert ourselves from pUnit
 void CvUnit::convert(CvUnit* pUnit) {
 	CvPlot* pPlot = plot();
 
-	for (int iI = 0; iI < GC.getNumPromotionInfos(); iI++) {
-		setHasPromotion(((PromotionTypes)iI), (pUnit->isHasPromotion((PromotionTypes)iI) || m_pUnitInfo->getFreePromotions(iI)));
+	// We can't assume that all promotions are immedaitely valid as there are some that modify cargo capacity and if the upgrade reduces or removes the
+	// cargo capacity then the promotion would not be valid. It may also be the case that there is more than one cargo capacity modifying promotions and
+	// the net result may be valid so we don't immediately dismiss a promotion but store it to try again later.
+	std::vector<PromotionTypes> vInvalidPromotions;
+	for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumPromotionInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
+		if (pUnit->isHasPromotion(ePromotion) || m_pUnitInfo->getFreePromotions(ePromotion)) {
+			if (canAcquirePromotion(ePromotion)) {
+				setHasPromotion(ePromotion, true);
+			} else if (!isHasPromotion(ePromotion)) {
+				vInvalidPromotions.push_back(ePromotion); // store any currently invalid promotions to try later
+			}
+		}
 	}
+	bool bAddedPromotion;
+	// Keep trying promotions until we can't add any more
+	// We could remove any promotions that we can add in this loop from the vector, but that would invalidate the loop and
+	//  the check to acquire promotions catches these at the start so it is not worth it given the expected small size of the vector
+	do {
+		bAddedPromotion = false;
+		for (std::vector<PromotionTypes>::iterator it = vInvalidPromotions.begin(); it != vInvalidPromotions.end(); ++it) {
+			if (canAcquirePromotion(*it)) {
+				setHasPromotion(*it, true);
+				bAddedPromotion = true;
+			}
+		}
+	} while (bAddedPromotion);
 
 	setGameTurnCreated(pUnit->getGameTurnCreated());
 	setDamage(pUnit->getDamage());
@@ -591,6 +616,7 @@ void CvUnit::doTurn() {
 	FAssertMsg(!isDead(), "isDead did not return false as expected");
 	FAssertMsg(getGroup() != NULL, "getGroup() is not expected to be equal with NULL");
 
+	setGroupPromotionChanged(false);
 	testPromotionReady();
 
 	// Set the home city if it does not have one, this will be the case for the first units
@@ -5453,7 +5479,8 @@ bool CvUnit::canPromote(PromotionTypes ePromotion, int iLeaderUnitId) const {
 		return false;
 	}
 
-	if (GC.getPromotionInfo(ePromotion).isLeader()) {
+	const CvPromotionInfo& kPromotion = GC.getPromotionInfo(ePromotion);
+	if (kPromotion.isLeader()) {
 		if (iLeaderUnitId >= 0) {
 			CvUnit* pWarlord = GET_PLAYER(getOwnerINLINE()).getUnit(iLeaderUnitId);
 			if (pWarlord && NO_UNIT != pWarlord->getUnitType()) {
@@ -5462,7 +5489,11 @@ bool CvUnit::canPromote(PromotionTypes ePromotion, int iLeaderUnitId) const {
 		}
 		return false;
 	} else {
-		if (!isPromotionReady()) {
+		if (kPromotion.getPromotionGroup() == 0 && !isPromotionReady()) {
+			return false;
+		} else if (kPromotion.getPromotionGroup() > 0 && !isHasPromotionGroup(ePromotion) && !isPromotionReady()) {
+			return false;
+		} else if (kPromotion.getPromotionGroup() > 0 && isHasPromotionGroup(ePromotion) && isHasGroupPromotionChanged()) {
 			return false;
 		}
 	}
@@ -5489,7 +5520,7 @@ void CvUnit::promote(PromotionTypes ePromotion, int iLeaderUnitId) {
 		}
 	}
 
-	if (!GC.getPromotionInfo(ePromotion).isLeader()) {
+	if (!GC.getPromotionInfo(ePromotion).isLeader() && !isHasPromotionGroup(ePromotion)) {
 		changeLevel(1);
 		changeDamage(-(getDamage() / 2));
 	}
@@ -5928,6 +5959,7 @@ CvCity* CvUnit::getUpgradeCity(UnitTypes eUnit, bool bSearch, int* iSearchValue)
 	return pBestCity;
 }
 
+// Upgrade ourselves into the UnitType if we can
 CvUnit* CvUnit::upgrade(UnitTypes eUnit) // K-Mod: this now returns the new unit.
 {
 	CvUnit* pUpgradeUnit;
@@ -7328,6 +7360,7 @@ DomainTypes CvUnit::domainCargo() const {
 }
 
 
+// Gets the max number of units the transport can carry
 int CvUnit::cargoSpace() const {
 	return m_iCargoCapacity;
 }
@@ -7345,6 +7378,9 @@ bool CvUnit::isFull() const {
 }
 
 
+// Gets the space for specific types of cargo
+// Some transport units have limited cargo types and this will return 0 for those if you are not
+//  checking the correct cargo type, irrespective of the total free capacity
 int CvUnit::cargoSpaceAvailable(SpecialUnitTypes eSpecialCargo, DomainTypes eDomainCargo) const {
 	if (specialCargo() != NO_SPECIALUNIT) {
 		if (specialCargo() != eSpecialCargo) {
@@ -8161,6 +8197,7 @@ void CvUnit::changeLevel(int iChange) {
 	setLevel(getLevel() + iChange);
 }
 
+// Returns the number of units that the transport has as cargo
 int CvUnit::getCargo() const {
 	return m_iCargo;
 }
@@ -9207,7 +9244,6 @@ void CvUnit::changeExtraUnitCombatModifier(UnitCombatTypes eIndex, int iChange) 
 	m_paiExtraUnitCombatModifier[eIndex] = (m_paiExtraUnitCombatModifier[eIndex] + iChange);
 }
 
-
 bool CvUnit::canAcquirePromotion(PromotionTypes ePromotion) const {
 	FAssertMsg(ePromotion >= 0, "ePromotion is expected to be non-negative (invalid Index)");
 	FAssertMsg(ePromotion < GC.getNumPromotionInfos(), "ePromotion is expected to be within maximum bounds (invalid Index)");
@@ -9216,15 +9252,16 @@ bool CvUnit::canAcquirePromotion(PromotionTypes ePromotion) const {
 		return false;
 	}
 
-	if (GC.getPromotionInfo(ePromotion).getPrereqPromotion() != NO_PROMOTION) {
+	const CvPromotionInfo& kPromotion = GC.getPromotionInfo(ePromotion);
+	if (kPromotion.getPrereqPromotion() != NO_PROMOTION) {
 		if (!isHasPromotion((PromotionTypes)(GC.getPromotionInfo(ePromotion).getPrereqPromotion()))) {
 			return false;
 		}
 	}
 
-	PromotionTypes ePrereq1 = (PromotionTypes)GC.getPromotionInfo(ePromotion).getPrereqOrPromotion1();
-	PromotionTypes ePrereq2 = (PromotionTypes)GC.getPromotionInfo(ePromotion).getPrereqOrPromotion2();
-	PromotionTypes ePrereq3 = (PromotionTypes)GC.getPromotionInfo(ePromotion).getPrereqOrPromotion3();
+	PromotionTypes ePrereq1 = (PromotionTypes)kPromotion.getPrereqOrPromotion1();
+	PromotionTypes ePrereq2 = (PromotionTypes)kPromotion.getPrereqOrPromotion2();
+	PromotionTypes ePrereq3 = (PromotionTypes)kPromotion.getPrereqOrPromotion3();
 	if (ePrereq1 != NO_PROMOTION || ePrereq2 != NO_PROMOTION || ePrereq3 != NO_PROMOTION) {
 		bool bValid = false;
 
@@ -9240,14 +9277,40 @@ bool CvUnit::canAcquirePromotion(PromotionTypes ePromotion) const {
 		}
 	}
 
-	if (GC.getPromotionInfo(ePromotion).getTechPrereq() != NO_TECH) {
-		if (!(GET_TEAM(getTeam()).isHasTech((TechTypes)(GC.getPromotionInfo(ePromotion).getTechPrereq())))) {
+	if (kPromotion.getTechPrereq() != NO_TECH) {
+		if (!(GET_TEAM(getTeam()).isHasTech((TechTypes)(kPromotion.getTechPrereq())))) {
 			return false;
 		}
 	}
 
-	if (GC.getPromotionInfo(ePromotion).getStateReligionPrereq() != NO_RELIGION) {
-		if (GET_PLAYER(getOwnerINLINE()).getStateReligion() != GC.getPromotionInfo(ePromotion).getStateReligionPrereq()) {
+	if (kPromotion.getStateReligionPrereq() != NO_RELIGION) {
+		if (GET_PLAYER(getOwnerINLINE()).getStateReligion() != kPromotion.getStateReligionPrereq()) {
+			return false;
+		}
+	}
+
+	if (kPromotion.isCityPrereq()) {
+		if (!plot()->isCity(false, getTeam())) {
+			return false;
+		}
+	}
+
+	// Check if this would create negative cargo space or reduce the cargo space below the number of current cargo units
+	if (kPromotion.getCargoChange()) {
+		int iExistingGroupCargoChange = 0;
+		// We need to take into account cargo space we would be removing by replacing a promotion in the same promotion group
+		if (isHasPromotionGroup(ePromotion)) {
+			int iPromotionGroup = kPromotion.getPromotionGroup();
+			for (PromotionTypes eLoopPromotion = (PromotionTypes)0; eLoopPromotion < GC.getNumPromotionInfos(); eLoopPromotion = (PromotionTypes)(eLoopPromotion + 1)) {
+				CvPromotionInfo& kLoopPromotion = GC.getPromotionInfo(eLoopPromotion);
+				if (kLoopPromotion.getPromotionGroup() == iPromotionGroup && isHasPromotion(eLoopPromotion)) {
+					iExistingGroupCargoChange = kLoopPromotion.getCargoChange();
+					break;
+				}
+			}
+		}
+		// If the net reduction in cargo space is greater than the available space block the promotion
+		if (cargoSpace() + kPromotion.getCargoChange() - iExistingGroupCargoChange < getCargo()) {
 			return false;
 		}
 	}
@@ -9300,7 +9363,28 @@ bool CvUnit::isHasPromotion(PromotionTypes eIndex) const {
 }
 
 
+// Moved original functionality to setHasPromotionReal to allow for checking for mutually exclusive promotions
 void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue) {
+
+	// If we are adding the promotion and it is part of a group then we need to remove any existing promotions from the same group
+	if (bNewValue && !isHasPromotion(eIndex)) {
+		int iPromotionGroup = GC.getPromotionInfo(eIndex).getPromotionGroup();
+		if (iPromotionGroup > 0) {
+			setGroupPromotionChanged(true);
+			for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumPromotionInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
+				if (GC.getPromotionInfo(ePromotion).getPromotionGroup() == iPromotionGroup) {
+					if (isHasPromotion(ePromotion)) {
+						setHasPromotionReal(ePromotion, false);
+					}
+				}
+			}
+		}
+	}
+
+	setHasPromotionReal(eIndex, bNewValue);
+}
+
+void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 	if (isHasPromotion(eIndex) != bNewValue) {
 		m_pabHasPromotion[eIndex] = bNewValue;
 
@@ -9500,6 +9584,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 		pStream->Read(&m_bAirCombat);
 	}
 	pStream->Read(&m_bCivicEnabled);
+	pStream->Read(&m_bGroupPromotionChanged);
 
 	pStream->Read((int*)&m_eOwner);
 	pStream->Read((int*)&m_eCapturingPlayer);
@@ -9607,6 +9692,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_bBlockading);
 	pStream->Write(m_bAirCombat);
 	pStream->Write(m_bCivicEnabled);
+	pStream->Write(m_bGroupPromotionChanged);
 
 	pStream->Write(m_eOwner);
 	pStream->Write(m_eCapturingPlayer);
@@ -11127,4 +11213,26 @@ void CvUnit::salvage(CvUnit* pDeadUnit) {
 			}
 		}
 	}
+}
+
+void CvUnit::setGroupPromotionChanged(bool bChanged) {
+	m_bGroupPromotionChanged = bChanged;
+}
+
+bool CvUnit::isHasGroupPromotionChanged() const {
+	return m_bGroupPromotionChanged;
+}
+
+bool CvUnit::isHasPromotionGroup(PromotionTypes eIndex) const {
+	int iPromotionGroup = GC.getPromotionInfo(eIndex).getPromotionGroup();
+	if (iPromotionGroup == 0) {
+		return false;
+	}
+
+	for (PromotionTypes eLoopPromotion = (PromotionTypes)0; eLoopPromotion < GC.getNumPromotionInfos(); eLoopPromotion = (PromotionTypes)(eLoopPromotion + 1)) {
+		if (isHasPromotion(eLoopPromotion) && (GC.getPromotionInfo(eLoopPromotion).getPromotionGroup() == iPromotionGroup)) {
+			return true;
+		}
+	}
+	return false;
 }

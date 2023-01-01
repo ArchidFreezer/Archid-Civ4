@@ -296,6 +296,11 @@ bool isPromotionValid(PromotionTypes ePromotion, UnitTypes eUnit, bool bLeader) 
 		}
 	}
 
+	// Don't allow promotions to add cargo capacity to units that don't have any
+	if (kPromotion.getCargoChange() != 0 && kUnit.getCargoSpace() <= 0) {
+		return false;
+	}
+
 	if (NO_PROMOTION != kPromotion.getPrereqPromotion()) {
 		if (!isPromotionValid((PromotionTypes)kPromotion.getPrereqPromotion(), eUnit, bLeader)) {
 			return false;

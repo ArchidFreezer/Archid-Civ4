@@ -803,6 +803,8 @@
 	<ElementType name="bUnitTerritoryUnbound" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iUnitRangeChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iUnitRangePercentChange" content="textOnly" dt:type="int"/>
+	<ElementType name="iPromotionGroup" content="textOnly" dt:type="int"/>
+	<ElementType name="bCityPrereq" content="textOnly" dt:type="boolean"/>
 	<ElementType name="PromotionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -815,6 +817,8 @@
 		<element type="PromotionPrereqOr3" minOccurs="0"/>
 		<element type="TechPrereq" minOccurs="0"/>
 		<element type="StateReligionPrereq" minOccurs="0"/>
+		<element type="bCityPrereq" minOccurs="0"/>
+		<element type="iPromotionGroup" minOccurs="0"/>
 		<element type="bLeader" minOccurs="0"/>
 		<element type="bBlitz" minOccurs="0"/>
 		<element type="bAmphib" minOccurs="0"/>

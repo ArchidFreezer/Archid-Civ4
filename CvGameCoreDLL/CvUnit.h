@@ -83,6 +83,11 @@ public:
 
 	void doTurn();
 
+	void setGroupPromotionChanged(bool bChanged);
+	void setHasPromotionReal(PromotionTypes eIndex, bool bNewValue);
+	bool isHasGroupPromotionChanged() const;
+	bool isHasPromotionGroup(PromotionTypes eIndex) const;
+
 	int getExperience100() const;
 	void setExperience100(int iNewValue, int iMax = -1);
 	void changeExperience100(int iChange, int iMax = -1, bool bFromCombat = false, bool bInBorders = false, bool bUpdateGlobal = false);
@@ -863,6 +868,7 @@ protected:
 	bool m_bBlockading;
 	bool m_bAirCombat;
 	bool m_bCivicEnabled;
+	bool m_bGroupPromotionChanged;
 
 	PlayerTypes m_eOwner;
 	PlayerTypes m_eCapturingPlayer;
