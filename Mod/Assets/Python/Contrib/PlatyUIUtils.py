@@ -657,7 +657,7 @@ class PlatyUIEventHandler:
 
 	def onCorporationSpread(self, argsList):
 		if CyGame().GetWorldBuilderMode() and not CvPlatyBuilderScreen.bPython: return
-		self.eventManager.onCorporationFounded(argsList)
+		self.eventManager.onCorporationSpread(argsList)
 
 	def onCultureExpansion(self, argsList):
 		if CyGame().GetWorldBuilderMode() and not CvPlatyBuilderScreen.bPython: return
