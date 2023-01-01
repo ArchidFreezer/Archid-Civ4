@@ -883,6 +883,15 @@ public:
 	void setCommandType(int iNewType);
 	int getNumPrereqAndCivics() const;
 	int getNumPrereqOrCivics() const;
+	int getNumPrereqAndTerrains() const;
+	int getNumPrereqOrTerrains() const;
+	int getNumPrereqVicinityImprovements() const;
+	int getNumPrereqVicinityFeatures() const;
+	int getNumPrereqVicinityAndBonus() const;
+	int getNumPrereqVicinityOrBonus() const;
+	int getNumPrereqOrBuildingClasses() const;
+	int getNumPrereqNotBuildingClasses() const;
+	int getMinPopulation() const;
 
 	bool isAnimal() const;				// Exposed to Python
 	bool isFoodProduction() const;				// Exposed to Python
@@ -924,10 +933,12 @@ public:
 	bool isAlwaysHostile() const;			// Exposed to Python
 	bool isNoRevealMap() const;			// Exposed to Python
 	bool isSingleBuild() const;
+	bool isPrereqPower() const;
 
 	float getUnitMaxSpeed() const;					// Exposed to Python
 	float getUnitPadTime() const;					// Exposed to Python
 
+	CultureLevelTypes getMinCultureLevel() const;
 	UnitRangeTypes getRangeType() const;
 
 	// Arrays
@@ -956,6 +967,14 @@ public:
 	int getPrereqOrCivic(int i) const;
 	int getYieldFromKill(int i) const;
 	int getCommerceFromKill(int i) const;
+	int getPrereqAndTerrain(int i) const;
+	int getPrereqOrTerrain(int i) const;
+	int getPrereqVicinityImprovement(int i) const;
+	int getPrereqVicinityFeature(int i) const;
+	int getPrereqVicinityAndBonus(int i) const;
+	int getPrereqVicinityOrBonus(int i) const;
+	int getPrereqOrBuildingClass(int i) const;
+	int getPrereqNotBuildingClass(int i) const;
 
 	bool getUpgradeUnitClass(int i) const;	// Exposed to Python
 	bool getTargetUnitClass(int i) const;	// Exposed to Python
@@ -975,6 +994,14 @@ public:
 	bool getFreePromotions(int i) const;		// Exposed to Python
 	bool isPrereqAndCivic(int i) const;
 	bool isPrereqOrCivic(int i) const;
+	bool isPrereqAndTerrain(TerrainTypes eTerrain) const;
+	bool isPrereqOrTerrain(TerrainTypes eTerrain) const;
+	bool isPrereqVicinityImprovement(ImprovementTypes eImprovement) const;
+	bool isPrereqVicinityFeature(FeatureTypes eImprovement) const;
+	bool isPrereqVicinityAndBonus(BonusTypes eTerrain) const;
+	bool isPrereqVicinityOrBonus(BonusTypes eTerrain) const;
+	bool isPrereqOrBuildingClass(BuildingClassTypes eBuildingClass) const;
+	bool isPrereqNotBuildingClass(BuildingClassTypes eBuildingClass) const;
 	int getLeaderPromotion() const;   // Exposed to Python
 	int getLeaderExperience() const;				// Exposed to Python
 
@@ -1043,7 +1070,6 @@ protected:
 	int m_iBombRate;
 	int m_iBombardRate;
 	int m_iSpecialCargo;
-
 	int m_iDomainCargo;
 	int m_iCargoSpace;
 	int m_iConscriptionValue;
@@ -1074,6 +1100,7 @@ protected:
 	int m_iNumUnitNames;
 	int m_iCommandType;
 	int m_iLeaderExperience;
+	int m_iMinPopulation;
 
 	bool m_bAnimal;
 	bool m_bFoodProduction;
@@ -1114,8 +1141,10 @@ protected:
 	bool m_bAlwaysHostile;
 	bool m_bNoRevealMap;
 	bool m_bSingleBuild;
+	bool m_bPrereqPower;
 	int m_iLeaderPromotion;
 
+	CultureLevelTypes m_eMinCultureLevel;
 	UnitRangeTypes 	m_eRangeType;
 
 	float m_fUnitMaxSpeed;
@@ -1173,6 +1202,14 @@ protected:
 	std::vector<int> m_aiSeeInvisibleTypes;
 	std::vector<int> m_viPrereqAndCivics;
 	std::vector<int> m_viPrereqOrCivics;
+	std::vector<int> m_viPrereqAndTerrains;
+	std::vector<int> m_viPrereqOrTerrains;
+	std::vector<int> m_viPrereqVicinityImprovements;
+	std::vector<int> m_viPrereqVicinityFeatures;
+	std::vector<int> m_viPrereqVicinityAndBonus;
+	std::vector<int> m_viPrereqVicinityOrBonus;
+	std::vector<int> m_viPrereqOrBuildingClasses;
+	std::vector<int> m_viPrereqNotBuildingClasses;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

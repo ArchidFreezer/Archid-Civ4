@@ -2623,7 +2623,9 @@ CvUnitInfo::CvUnitInfo() :
 	m_iUnitRangedWaveSize(0),
 	m_iNumUnitNames(0),
 	m_iCommandType(NO_COMMAND),
+	m_iMinPopulation(0),
 	m_eRangeType(UNITRANGE_RANGE),
+	m_eMinCultureLevel(NO_CULTURELEVEL),
 	m_bAnimal(false),
 	m_bFoodProduction(false),
 	m_bNoBadGoodies(false),
@@ -2663,6 +2665,7 @@ CvUnitInfo::CvUnitInfo() :
 	m_bAlwaysHostile(false),
 	m_bNoRevealMap(false),
 	m_bSingleBuild(false),
+	m_bPrereqPower(false),
 	m_fUnitMaxSpeed(0.0f),
 	m_fUnitPadTime(0.0f),
 	m_pbUpgradeUnitClass(NULL),
@@ -2760,6 +2763,114 @@ CvUnitInfo::~CvUnitInfo() {
 	SAFE_DELETE_ARRAY(m_paszLateArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszMiddleArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszUnitNames);
+}
+
+int CvUnitInfo::getPrereqAndTerrain(int i) const {
+	return m_viPrereqAndTerrains[i];
+}
+
+int CvUnitInfo::getNumPrereqAndTerrains() const {
+	return (int)m_viPrereqAndTerrains.size();
+}
+
+int CvUnitInfo::getPrereqOrTerrain(int i) const {
+	return m_viPrereqOrTerrains[i];
+}
+
+int CvUnitInfo::getNumPrereqOrTerrains() const {
+	return (int)m_viPrereqOrTerrains.size();
+}
+
+bool CvUnitInfo::isPrereqAndTerrain(TerrainTypes eTerrain) const {
+	return (std::find(m_viPrereqAndTerrains.begin(), m_viPrereqAndTerrains.end(), eTerrain) != m_viPrereqAndTerrains.end());
+}
+
+bool CvUnitInfo::isPrereqOrTerrain(TerrainTypes eTerrain) const {
+	return (std::find(m_viPrereqOrTerrains.begin(), m_viPrereqOrTerrains.end(), eTerrain) != m_viPrereqOrTerrains.end());
+}
+
+int CvUnitInfo::getPrereqVicinityImprovement(int i) const {
+	return m_viPrereqVicinityImprovements[i];
+}
+
+int CvUnitInfo::getNumPrereqVicinityImprovements() const {
+	return (int)m_viPrereqVicinityImprovements.size();
+}
+
+bool CvUnitInfo::isPrereqVicinityImprovement(ImprovementTypes eImprovement) const {
+	return (std::find(m_viPrereqVicinityImprovements.begin(), m_viPrereqVicinityImprovements.end(), eImprovement) != m_viPrereqVicinityImprovements.end());
+}
+
+int CvUnitInfo::getPrereqVicinityFeature(int i) const {
+	return m_viPrereqVicinityFeatures[i];
+}
+
+int CvUnitInfo::getNumPrereqVicinityFeatures() const {
+	return (int)m_viPrereqVicinityFeatures.size();
+}
+
+bool CvUnitInfo::isPrereqVicinityFeature(FeatureTypes eFeature) const {
+	return (std::find(m_viPrereqVicinityFeatures.begin(), m_viPrereqVicinityFeatures.end(), eFeature) != m_viPrereqVicinityFeatures.end());
+}
+
+int CvUnitInfo::getPrereqVicinityAndBonus(int i) const {
+	return m_viPrereqVicinityAndBonus[i];
+}
+
+int CvUnitInfo::getNumPrereqVicinityAndBonus() const {
+	return (int)m_viPrereqVicinityAndBonus.size();
+}
+
+int CvUnitInfo::getPrereqVicinityOrBonus(int i) const {
+	return m_viPrereqVicinityOrBonus[i];
+}
+
+int CvUnitInfo::getNumPrereqVicinityOrBonus() const {
+	return (int)m_viPrereqVicinityOrBonus.size();
+}
+
+bool CvUnitInfo::isPrereqVicinityAndBonus(BonusTypes eBonus) const {
+	return (std::find(m_viPrereqVicinityAndBonus.begin(), m_viPrereqVicinityAndBonus.end(), eBonus) != m_viPrereqVicinityAndBonus.end());
+}
+
+bool CvUnitInfo::isPrereqVicinityOrBonus(BonusTypes eBonus) const {
+	return (std::find(m_viPrereqVicinityOrBonus.begin(), m_viPrereqVicinityOrBonus.end(), eBonus) != m_viPrereqVicinityOrBonus.end());
+}
+
+int CvUnitInfo::getPrereqOrBuildingClass(int i) const {
+	return m_viPrereqOrBuildingClasses[i];
+}
+
+int CvUnitInfo::getNumPrereqOrBuildingClasses() const {
+	return (int)m_viPrereqOrBuildingClasses.size();
+}
+
+bool CvUnitInfo::isPrereqOrBuildingClass(BuildingClassTypes eBuildingClass) const {
+	return (std::find(m_viPrereqOrBuildingClasses.begin(), m_viPrereqOrBuildingClasses.end(), eBuildingClass) != m_viPrereqOrBuildingClasses.end());
+}
+
+int CvUnitInfo::getPrereqNotBuildingClass(int i) const {
+	return m_viPrereqNotBuildingClasses[i];
+}
+
+int CvUnitInfo::getNumPrereqNotBuildingClasses() const {
+	return (int)m_viPrereqNotBuildingClasses.size();
+}
+
+bool CvUnitInfo::isPrereqNotBuildingClass(BuildingClassTypes eBuildingClass) const {
+	return (std::find(m_viPrereqNotBuildingClasses.begin(), m_viPrereqNotBuildingClasses.end(), eBuildingClass) != m_viPrereqNotBuildingClasses.end());
+}
+
+int CvUnitInfo::getMinPopulation() const {
+	return m_iMinPopulation;
+}
+
+CultureLevelTypes CvUnitInfo::getMinCultureLevel() const {
+	return m_eMinCultureLevel;
+}
+
+bool CvUnitInfo::isPrereqPower() const {
+	return m_bPrereqPower;
 }
 
 int CvUnitInfo::getYieldFromKill(int i) const {
@@ -3692,10 +3803,13 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iUnitRangedWaveSize);
 	stream->Read(&m_iNumUnitNames);
 	stream->Read(&m_iCommandType);
+	stream->Read(&m_iMinPopulation);
 
 	int iTemp;
 	stream->Read(&iTemp);
 	m_eRangeType = (UnitRangeTypes)iTemp;
+	stream->Read(&iTemp);
+	m_eMinCultureLevel = (CultureLevelTypes)iTemp;
 
 	stream->Read(&m_bAnimal);
 	stream->Read(&m_bFoodProduction);
@@ -3736,6 +3850,7 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bAlwaysHostile);
 	stream->Read(&m_bNoRevealMap);
 	stream->Read(&m_bSingleBuild);
+	stream->Read(&m_bPrereqPower);
 
 	stream->Read(&m_fUnitMaxSpeed);
 	stream->Read(&m_fUnitPadTime);
@@ -3927,6 +4042,62 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 		m_viPrereqOrCivics.push_back(iElement);
 	}
 
+	stream->Read(&iNumElements);
+	m_viPrereqAndTerrains.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqAndTerrains.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqOrTerrains.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqOrTerrains.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqVicinityImprovements.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqVicinityImprovements.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqVicinityFeatures.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqVicinityFeatures.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqVicinityAndBonus.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqVicinityAndBonus.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqVicinityOrBonus.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqVicinityOrBonus.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqOrBuildingClasses.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqOrBuildingClasses.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqNotBuildingClasses.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqNotBuildingClasses.push_back(iElement);
+	}
+
 	stream->ReadString(m_szFormationType);
 
 	updateArtDefineButton();
@@ -4015,8 +4186,10 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iUnitRangedWaveSize);
 	stream->Write(m_iNumUnitNames);
 	stream->Write(m_iCommandType);
+	stream->Write(m_iMinPopulation);
 
 	stream->Write(m_eRangeType);
+	stream->Write(m_eMinCultureLevel);
 
 	stream->Write(m_bAnimal);
 	stream->Write(m_bFoodProduction);
@@ -4057,6 +4230,7 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bAlwaysHostile);
 	stream->Write(m_bNoRevealMap);
 	stream->Write(m_bSingleBuild);
+	stream->Write(m_bPrereqPower);
 
 	stream->Write(m_fUnitMaxSpeed);
 	stream->Write(m_fUnitPadTime);
@@ -4115,6 +4289,46 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 
 	stream->Write(m_viPrereqOrCivics.size());
 	for (std::vector<int>::iterator it = m_viPrereqOrCivics.begin(); it != m_viPrereqOrCivics.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqAndTerrains.size());
+	for (std::vector<int>::iterator it = m_viPrereqAndTerrains.begin(); it != m_viPrereqAndTerrains.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqOrTerrains.size());
+	for (std::vector<int>::iterator it = m_viPrereqOrTerrains.begin(); it != m_viPrereqOrTerrains.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqVicinityImprovements.size());
+	for (std::vector<int>::iterator it = m_viPrereqVicinityImprovements.begin(); it != m_viPrereqVicinityImprovements.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqVicinityFeatures.size());
+	for (std::vector<int>::iterator it = m_viPrereqVicinityFeatures.begin(); it != m_viPrereqVicinityFeatures.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqVicinityAndBonus.size());
+	for (std::vector<int>::iterator it = m_viPrereqVicinityAndBonus.begin(); it != m_viPrereqVicinityAndBonus.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqVicinityOrBonus.size());
+	for (std::vector<int>::iterator it = m_viPrereqVicinityOrBonus.begin(); it != m_viPrereqVicinityOrBonus.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqOrBuildingClasses.size());
+	for (std::vector<int>::iterator it = m_viPrereqOrBuildingClasses.begin(); it != m_viPrereqOrBuildingClasses.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqNotBuildingClasses.size());
+	for (std::vector<int>::iterator it = m_viPrereqNotBuildingClasses.begin(); it != m_viPrereqNotBuildingClasses.end(); ++it) {
 		stream->Write(*it);
 	}
 
@@ -4252,6 +4466,17 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->SetVectorInfo(m_viPrereqAndCivics, "PrereqAndCivics");
 	pXML->SetVectorInfo(m_viPrereqOrCivics, "PrereqOrCivics");
+	pXML->SetVectorInfo(m_viPrereqAndTerrains, "PrereqAndTerrains");
+	pXML->SetVectorInfo(m_viPrereqOrTerrains, "PrereqOrTerrains");
+	pXML->SetVectorInfo(m_viPrereqVicinityImprovements, "PrereqVicinityImprovements");
+	pXML->SetVectorInfo(m_viPrereqVicinityFeatures, "PrereqVicinityFeatures");
+	pXML->SetVectorInfo(m_viPrereqVicinityAndBonus, "PrereqVicinityAndBonus");
+	pXML->SetVectorInfo(m_viPrereqVicinityOrBonus, "PrereqVicinityOrBonus");
+	pXML->SetVectorInfo(m_viPrereqOrBuildingClasses, "PrereqOrBuildingClasses");
+	pXML->SetVectorInfo(m_viPrereqNotBuildingClasses, "PrereqNotBuildingClasses");
+	pXML->GetChildXmlValByName(&m_iMinPopulation, "iMinPopulation");
+	pXML->GetChildXmlEnumValByName(&m_eMinCultureLevel, "MinCultureLevel", NO_CULTURELEVEL);
+	pXML->GetChildXmlValByName(&m_bPrereqPower, "bPrereqPower");
 
 	pXML->SetListPairInfo(&m_piProductionTraits, "ProductionTraits", GC.getNumTraitInfos());
 

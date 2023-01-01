@@ -449,6 +449,34 @@
 	<ElementType name="CommercesFromKill" content="eltOnly">
 		<element type="iCommerce" minOccurs="0"/>
 	</ElementType>
+	<ElementType name="PrereqOrTerrains" content="eltOnly">
+		<element type="TerrainType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="PrereqAndTerrains" content="eltOnly">
+		<element type="TerrainType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="PrereqVicinityImprovements" content="eltOnly">
+		<element type="ImprovementType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="PrereqVicinityFeatures" content="eltOnly">
+		<element type="FeatureType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="PrereqVicinityOrBonus" content="eltOnly">
+		<element type="BonusType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="PrereqVicinityAndBonus" content="eltOnly">
+		<element type="BonusType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="BuildingClassType" content="textOnly"/>
+	<ElementType name="PrereqOrBuildingClasses" content="eltOnly">
+		<element type="BuildingClassType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="PrereqNotBuildingClasses" content="eltOnly">
+		<element type="BuildingClassType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="bPrereqPower" content="textOnly" dt:type="boolean"/>
+	<ElementType name="MinCultureLevel" content="textOnly"/>
+	<ElementType name="iMinPopulation" content="textOnly" dt:type="int"/>
 	<ElementType name="UnitInfo" content="eltOnly">
 		<element type="Class"/>
 		<element type="Type"/>
@@ -529,6 +557,17 @@
 		<element type="PrereqBonuses" minOccurs="0"/>
 		<element type="PrereqAndCivics" minOccurs="0"/>
 		<element type="PrereqOrCivics" minOccurs="0"/>
+		<element type="PrereqAndTerrains" minOccurs="0"/>
+		<element type="PrereqOrTerrains" minOccurs="0"/>
+		<element type="PrereqOrBuildingClasses" minOccurs="0"/>
+		<element type="PrereqNotBuildingClasses" minOccurs="0"/>
+		<element type="PrereqVicinityAndBonus" minOccurs="0"/>
+		<element type="PrereqVicinityOrBonus" minOccurs="0"/>
+		<element type="PrereqVicinityImprovements" minOccurs="0"/>
+		<element type="PrereqVicinityFeatures" minOccurs="0"/>
+		<element type="iMinPopulation" minOccurs="0"/>
+		<element type="MinCultureLevel" minOccurs="0"/>
+		<element type="bPrereqPower" minOccurs="0"/>
 		<element type="ProductionTraits" minOccurs="0"/>
 		<element type="Flavors" minOccurs="0"/>
 		<element type="iAIWeight" minOccurs="0"/>

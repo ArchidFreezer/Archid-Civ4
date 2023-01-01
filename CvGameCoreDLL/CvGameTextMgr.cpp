@@ -7509,6 +7509,7 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit, bool
 
 	setBasicUnitHelp(szBuffer, eUnit, bCivilopediaText);
 
+	bool bFirst = true;
 	if ((pCity == NULL) || !(pCity->canTrain(eUnit))) {
 		if (pCity != NULL) {
 			if (GC.getGameINLINE().isNoNukes()) {
@@ -7526,7 +7527,7 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit, bool
 			}
 		}
 
-		bool bFirst = true;
+		bFirst = true;
 		if (kUnit.getSpecialUnitType() != NO_SPECIALUNIT) {
 			if (pCity == NULL || !GC.getGameINLINE().isSpecialUnitValid((SpecialUnitTypes)kUnit.getSpecialUnitType())) {
 				for (ProjectTypes eProject = (ProjectTypes)0; eProject < GC.getNumProjectInfos(); eProject = (ProjectTypes)(eProject + 1)) {
@@ -7576,6 +7577,28 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit, bool
 		}
 
 		if (!bCivilopediaText) {
+			if (kUnit.getMinCultureLevel() != NO_CULTURELEVEL) {
+				if (pCity == NULL || pCity->getCultureLevel() < kUnit.getMinCultureLevel()) {
+					szBuffer.append(NEWLINE);
+					szBuffer.append(gDLL->getText("TXT_KEY_UNIT_REQUIRES_CULTURE", GC.getCultureLevelInfo(kUnit.getMinCultureLevel()).getDescription()));
+				}
+			}
+
+			if (kUnit.getMinPopulation() > 0) {
+				if (pCity == NULL || pCity->getPopulation() < kUnit.getMinPopulation()) {
+					szBuffer.append(NEWLINE);
+					szBuffer.append(gDLL->getText("TXT_KEY_UNIT_REQUIRES_POPULATION", kUnit.getMinPopulation()));
+				}
+			}
+
+			if (kUnit.isPrereqPower()) {
+				if (pCity == NULL || !pCity->isPower()) {
+					szBuffer.append(NEWLINE);
+					szBuffer.append(gDLL->getText("TXT_KEY_UNIT_REQUIRES_POWER"));
+					szBuffer.append(CvWString::format(L" (%c)", gDLL->getSymbolID(POWER_CHAR)));
+				}
+			}
+
 			if (kUnit.getPrereqBuilding() != NO_BUILDING) {
 				BuildingTypes ePrereqBuilding = (BuildingTypes)kUnit.getPrereqBuilding();
 				if (pCity == NULL || (pCity->getNumBuilding(ePrereqBuilding) <= 0)) {
@@ -7677,6 +7700,229 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit, bool
 			} else {
 				szTempBuffer.Format(L" - %d%c", pCity->getProductionNeeded(eUnit), GC.getYieldInfo(YIELD_PRODUCTION).getChar());
 				szBuffer.append(szTempBuffer);
+			}
+		}
+
+		// OR Terrain
+		bFirst = true;
+		bool bValid = false;
+		if (pCity != NULL) {
+			for (int iI = 0; iI < kUnit.getNumPrereqOrTerrains(); ++iI) {
+				if (pCity->hasVicinityTerrain((TerrainTypes)kUnit.getPrereqOrTerrain(iI))) {
+					bValid = true;
+					break;
+				}
+			}
+		}
+		if (!bValid) {
+			for (int iI = 0; iI < kUnit.getNumPrereqOrTerrains(); ++iI) {
+				TerrainTypes eTerrain = (TerrainTypes)kUnit.getPrereqOrTerrain(iI);
+				if (pCity == NULL || !pCity->hasVicinityTerrain(eTerrain)) {
+					CvWString szTempBuffer;
+					szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_REQUIRES").c_str());
+					CvWString szTerrain;
+					szTerrain.Format(L"<link=literal>%s</link>", GC.getTerrainInfo(eTerrain).getDescription());
+					setListHelp(szBuffer, szTempBuffer, szTerrain, gDLL->getText("TXT_KEY_OR").c_str(), bFirst);
+					bFirst = false;
+				}
+			}
+			if (!bFirst) {
+				szBuffer.append(gDLL->getText("TXT_KEY_IN_CITY_VICINITY"));
+			}
+		}
+
+		// AND Terrain
+		bFirst = true;
+		bValid = false;
+		if (pCity != NULL) {
+			bValid = true;
+			for (int iI = 0; iI < kUnit.getNumPrereqAndTerrains() && bValid; ++iI) {
+				if (!pCity->hasVicinityTerrain((TerrainTypes)kUnit.getPrereqAndTerrain(iI))) {
+					bValid = false;
+				}
+			}
+		}
+		if (!bValid) {
+			for (int iI = 0; iI < kUnit.getNumPrereqAndTerrains(); ++iI) {
+				TerrainTypes eTerrain = (TerrainTypes)kUnit.getPrereqAndTerrain(iI);
+				if (pCity == NULL || !pCity->hasVicinityTerrain(eTerrain)) {
+					CvWString szTempBuffer;
+					szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_REQUIRES").c_str());
+					CvWString szTerrain;
+					szTerrain.Format(L"<link=literal>%s</link>", GC.getTerrainInfo(eTerrain).getDescription());
+					setListHelp(szBuffer, szTempBuffer, szTerrain, gDLL->getText("TXT_KEY_OR").c_str(), bFirst);
+					bFirst = false;
+				}
+			}
+			if (!bFirst) {
+				szBuffer.append(gDLL->getText("TXT_KEY_IN_CITY_VICINITY"));
+			}
+		}
+
+		// Vicinity Improvement
+		bFirst = true;
+		bValid = false;
+		if (pCity != NULL) {
+			for (int iI = 0; iI < kUnit.getNumPrereqVicinityImprovements(); ++iI) {
+				if (pCity->hasVicinityImprovement((ImprovementTypes)kUnit.getPrereqVicinityImprovement(iI))) {
+					bValid = true;
+					break;
+				}
+			}
+		}
+		if (!bValid) {
+			for (int iI = 0; iI < kUnit.getNumPrereqVicinityImprovements(); ++iI) {
+				ImprovementTypes eImprovement = (ImprovementTypes)kUnit.getPrereqVicinityImprovement(iI);
+				if (pCity == NULL || !pCity->hasVicinityImprovement(eImprovement)) {
+					CvWString szTempBuffer;
+					szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_REQUIRES").c_str());
+					CvWString szImprovement;
+					szImprovement.Format(L"<link=literal>%s</link>", GC.getImprovementInfo(eImprovement).getDescription());
+					setListHelp(szBuffer, szTempBuffer, szImprovement, gDLL->getText("TXT_KEY_OR").c_str(), bFirst);
+					bFirst = false;
+				}
+			}
+			if (!bFirst) {
+				szBuffer.append(gDLL->getText("TXT_KEY_IN_CITY_VICINITY"));
+			}
+		}
+
+		// Vicinity Feature
+		bFirst = true;
+		bValid = false;
+		if (pCity != NULL) {
+			for (int iI = 0; iI < kUnit.getNumPrereqVicinityFeatures(); ++iI) {
+				if (pCity->hasVicinityFeature((FeatureTypes)kUnit.getPrereqVicinityFeature(iI))) {
+					bValid = true;
+					break;
+				}
+			}
+		}
+		if (!bValid) {
+			for (int iI = 0; iI < kUnit.getNumPrereqVicinityFeatures(); ++iI) {
+				FeatureTypes eFeature = (FeatureTypes)kUnit.getPrereqVicinityFeature(iI);
+				if (pCity == NULL || !pCity->hasVicinityFeature(eFeature)) {
+					CvWString szTempBuffer;
+					szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_REQUIRES").c_str());
+					CvWString szFeature;
+					szFeature.Format(L"<link=literal>%s</link>", GC.getFeatureInfo(eFeature).getDescription());
+					setListHelp(szBuffer, szTempBuffer, szFeature, gDLL->getText("TXT_KEY_OR").c_str(), bFirst);
+					bFirst = false;
+				}
+			}
+			if (!bFirst) {
+				szBuffer.append(gDLL->getText("TXT_KEY_IN_CITY_VICINITY"));
+			}
+		}
+
+		// OR Bonus
+		bFirst = true;
+		bValid = false;
+		if (pCity != NULL) {
+			for (int iI = 0; iI < kUnit.getNumPrereqVicinityOrBonus(); ++iI) {
+				if (pCity->hasVicinityBonus((BonusTypes)kUnit.getPrereqVicinityOrBonus(iI))) {
+					bValid = true;
+					break;
+				}
+			}
+		}
+		if (!bValid) {
+			for (int iI = 0; iI < kUnit.getNumPrereqVicinityOrBonus(); ++iI) {
+				BonusTypes eBonus = (BonusTypes)kUnit.getPrereqVicinityOrBonus(iI);
+				if (pCity == NULL || !pCity->hasVicinityBonus(eBonus)) {
+					CvWString szTempBuffer;
+					szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_REQUIRES").c_str());
+					CvWString szBonus;
+					szBonus.Format(L"<link=literal>%s</link>", GC.getBonusInfo(eBonus).getDescription());
+					setListHelp(szBuffer, szTempBuffer, szBonus, gDLL->getText("TXT_KEY_OR").c_str(), bFirst);
+					bFirst = false;
+				}
+			}
+			if (!bFirst) {
+				szBuffer.append(gDLL->getText("TXT_KEY_IN_CITY_VICINITY"));
+			}
+		}
+
+		// AND Bonus
+		bFirst = true;
+		bValid = false;
+		if (pCity != NULL) {
+			bValid = true;
+			for (int iI = 0; iI < kUnit.getNumPrereqVicinityAndBonus() && bValid; ++iI) {
+				if (!pCity->hasVicinityBonus((BonusTypes)kUnit.getPrereqVicinityAndBonus(iI))) {
+					bValid = false;
+				}
+			}
+		}
+		if (!bValid) {
+			for (int iI = 0; iI < kUnit.getNumPrereqVicinityAndBonus(); ++iI) {
+				BonusTypes eBonus = (BonusTypes)kUnit.getPrereqVicinityAndBonus(iI);
+				if (pCity == NULL || !pCity->hasVicinityBonus(eBonus)) {
+					CvWString szTempBuffer;
+					szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_REQUIRES").c_str());
+					CvWString szBonus;
+					szBonus.Format(L"<link=literal>%s</link>", GC.getBonusInfo(eBonus).getDescription());
+					setListHelp(szBuffer, szTempBuffer, szBonus, gDLL->getText("TXT_KEY_OR").c_str(), bFirst);
+					bFirst = false;
+				}
+			}
+			if (!bFirst) {
+				szBuffer.append(gDLL->getText("TXT_KEY_IN_CITY_VICINITY"));
+			}
+		}
+
+		// OR BuildingClass
+		bFirst = true;
+		bValid = false;
+		if (pCity != NULL) {
+			for (int iI = 0; iI < kUnit.getNumPrereqOrBuildingClasses(); ++iI) {
+				if (pCity->getNumActiveBuildingClass((BuildingClassTypes)kUnit.getPrereqOrBuildingClass(iI)) > 0) {
+					bValid = true;
+					break;
+				}
+			}
+		}
+		if (!bValid) {
+			for (int iI = 0; iI < kUnit.getNumPrereqOrBuildingClasses(); ++iI) {
+				BuildingClassTypes eBuildingClass = (BuildingClassTypes)kUnit.getPrereqOrBuildingClass(iI);
+				if (pCity == NULL || !(pCity->getNumActiveBuildingClass(eBuildingClass) > 0)) {
+					BuildingTypes ePrereqBuilding = (ePlayer != NO_PLAYER) ? (BuildingTypes)(GC.getCivilizationInfo(GET_PLAYER(ePlayer).getCivilizationType()).getCivilizationBuildings(eBuildingClass)) : (BuildingTypes)GC.getBuildingClassInfo(eBuildingClass).getDefaultBuildingIndex();
+					CvWString szTempBuffer;
+					szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_REQUIRES").c_str());
+					CvWString szBonus;
+					szBonus.Format(L"<link=literal>%s</link>", GC.getBuildingInfo(ePrereqBuilding).getDescription());
+					setListHelp(szBuffer, szTempBuffer, szBonus, gDLL->getText("TXT_KEY_OR").c_str(), bFirst);
+					bFirst = false;
+				}
+			}
+			if (!bFirst) {
+				szBuffer.append(gDLL->getText("TXT_KEY_IN_CITY_VICINITY"));
+			}
+		}
+
+		// NOT BuildingClass
+		bFirst = true;
+		bValid = false;
+		if (pCity != NULL) {
+			for (int iI = 0; iI < kUnit.getNumPrereqNotBuildingClasses(); ++iI) {
+				if (pCity->getNumActiveBuildingClass((BuildingClassTypes)kUnit.getPrereqNotBuildingClass(iI)) <= 0) {
+					bValid = true;
+					break;
+				}
+			}
+		}
+		if (!bValid) {
+			for (int iI = 0; iI < kUnit.getNumPrereqNotBuildingClasses(); ++iI) {
+				BuildingClassTypes eBuildingClass = (BuildingClassTypes)kUnit.getPrereqNotBuildingClass(iI);
+				if (pCity == NULL || (pCity->getNumActiveBuildingClass(eBuildingClass) > 0)) {
+					BuildingTypes ePrereqBuilding = (ePlayer != NO_PLAYER) ? (BuildingTypes)(GC.getCivilizationInfo(GET_PLAYER(ePlayer).getCivilizationType()).getCivilizationBuildings(eBuildingClass)) : (BuildingTypes)GC.getBuildingClassInfo(eBuildingClass).getDefaultBuildingIndex();
+					CvWString szFirstBuffer;
+					szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_BUILDING_NOT_REQUIRED_TO_BUILD").c_str());
+					CvWString szTempBuffer;
+					szTempBuffer.Format(L"<link=literal>%s</link>", GC.getBuildingInfo(ePrereqBuilding).getDescription());
+					setListHelp(szBuffer, szFirstBuffer, szTempBuffer, L", ", bFirst);
+					bFirst = false;
+				}
 			}
 		}
 	}

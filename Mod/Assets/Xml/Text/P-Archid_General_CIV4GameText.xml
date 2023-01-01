@@ -685,7 +685,7 @@
 		<French>[COLOR_WARNING_TEXT]Requiert de l'Electricité[COLOR_REVERT]</French>
 		<German>[COLOR_WARNING_TEXT]Ben&#246;tigt Zugang zu Energie[COLOR_REVERT]</German>
 	</TEXT>	
-<!-- Civic Unit prereq -->
+<!-- Unit prereq -->
 	<TEXT>
 		<Tag>TXT_KEY_CIVIC_BLOCKS_UNIT</Tag>
 		<English>[ICON_BULLET]Disables training of[SPACE]</English>
@@ -702,6 +702,26 @@
 		<Tag>TXT_KEY_CIVIC_ENABLED_UNIT</Tag>
 		<English>Your %s1 unit is happy with your choice of civics and has started working again.</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_NOT_REQUIRED_TO_BUILD</Tag>
+		<English>[COLOR_WARNING_TEXT]Can not be trained in the same city as[SPACE][COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_REQUIRES_POPULATION</Tag>
+		<English>[COLOR_WARNING_TEXT]Requires %d1 city size[COLOR_REVERT]</English>
+		<French>[COLOR_WARNING_TEXT]Requiert une taille de Ville d'au moins %d1[COLOR_REVERT]</French>
+	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_REQUIRES_CULTURE</Tag>
+		<English>[COLOR_WARNING_TEXT]Requires %s1 culture level[COLOR_REVERT]</English>
+		<French>[COLOR_WARNING_TEXT]Requiert un Niveau Culturel Level de %s1 ou mieux[COLOR_REVERT]</French>
+	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_REQUIRES_POWER</Tag>
+		<English>[COLOR_WARNING_TEXT]Requires access to power[COLOR_REVERT]</English>
+		<French>[COLOR_WARNING_TEXT]Requiert de l'Electricité[COLOR_REVERT]</French>
+		<German>[COLOR_WARNING_TEXT]Ben&#246;tigt Zugang zu Energie[COLOR_REVERT]</German>
+	</TEXT>	
 <!-- Single build unit -->
 	<TEXT> <!-- Single Build -->
 		<Tag>TXT_KEY_UNIT_SINGLE_BUILD</Tag>
