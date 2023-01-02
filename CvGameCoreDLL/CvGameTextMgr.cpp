@@ -6525,6 +6525,13 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 		}
 	}
 
+	// Obsolete Builds
+	for (BuildTypes eBuild = (BuildTypes)0; eBuild < GC.getNumBuildInfos(); eBuild = (BuildTypes)(eBuild + 1)) {
+		if (GC.getBuildInfo(eBuild).getObsoleteTech() == eTech) {
+			buildObsoleteBuildString(szBuffer, eBuild, true);
+		}
+	}
+
 	// Obsolete Units
 	for (UnitClassTypes eUnitLoopClass = (UnitClassTypes)0; eUnitLoopClass < GC.getNumUnitClassInfos(); eUnitLoopClass = (UnitClassTypes)(eUnitLoopClass + 1)) {
 		if (!bPlayerContext || (GET_PLAYER(GC.getGameINLINE().getActivePlayer()).getUnitClassCount(eUnitLoopClass) > 0)) {
@@ -15858,4 +15865,11 @@ void CvGameTextMgr::buildObsoleteUnitString(CvWStringBuffer& szBuffer, int iItem
 		szBuffer.append(NEWLINE);
 	}
 	szBuffer.append(gDLL->getText("TXT_KEY_TECH_OBSOLETES", GC.getUnitInfo((UnitTypes)iItem).getTextKeyWide()));
+}
+
+void CvGameTextMgr::buildObsoleteBuildString(CvWStringBuffer& szBuffer, int iItem, bool bList, bool bPlayerContext) {
+	if (bList) {
+		szBuffer.append(NEWLINE);
+	}
+	szBuffer.append(gDLL->getText("TXT_KEY_TECH_OBSOLETES_BUILD", GC.getBuildInfo((BuildTypes)iItem).getTextKeyWide()));
 }

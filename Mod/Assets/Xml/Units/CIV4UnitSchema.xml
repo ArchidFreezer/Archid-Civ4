@@ -47,6 +47,7 @@
 		<element type="Description" minOccurs="0"/>
 		<element type="Help" minOccurs="0"/>
 		<element type="PrereqTech" minOccurs="0"/>
+		<element type="ObsoleteTech" minOccurs="0"/>
 		<element type="iTime" minOccurs="0"/>
 		<element type="iCost" minOccurs="0"/>
 		<element type="bKill" minOccurs="0"/>

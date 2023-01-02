@@ -207,6 +207,7 @@ public:
 	void parseRiverYieldChangeHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer);
 	void parseSeaYieldChangeHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer);
 	void parseCaptureCitiesHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer);
+	void parseObsoleteBuildHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer);
 
 protected:
 

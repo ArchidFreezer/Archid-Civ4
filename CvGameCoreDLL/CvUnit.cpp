@@ -5395,12 +5395,24 @@ bool CvUnit::goldenAge() {
 
 bool CvUnit::canBuild(const CvPlot* pPlot, BuildTypes eBuild, bool bTestVisible) const {
 	FAssertMsg(eBuild < GC.getNumBuildInfos(), "Index out of bounds");
+
+	if (eBuild == NO_BUILD) {
+		return false;
+	}
+
 	if (!m_pUnitInfo->getBuilds(eBuild)) {
 		return false;
 	}
 
 	if (!isEnabled()) {
 		return false;
+	}
+
+	const CvBuildInfo& kBuild = GC.getBuildInfo(eBuild);
+	if (kBuild.getObsoleteTech() != NO_TECH) {
+		if (GET_TEAM(getTeam()).isHasTech((TechTypes)(kBuild.getObsoleteTech()))) {
+			return false;
+		}
 	}
 
 	if (!GET_PLAYER(getOwnerINLINE()).canBuild(pPlot, eBuild, false, bTestVisible)) {

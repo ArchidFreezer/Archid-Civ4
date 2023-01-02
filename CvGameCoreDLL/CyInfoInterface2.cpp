@@ -207,6 +207,7 @@ void CyInfoPythonInterface2() {
 		.def("getRoute", &CvBuildInfo::getRoute, "int ()")
 		.def("getEntityEvent", &CvBuildInfo::getEntityEvent, "int ()")
 		.def("getMissionType", &CvBuildInfo::getMissionType, "int ()")
+		.def("getObsoleteTech", &CvBuildInfo::getObsoleteTech, "int ()")
 
 		.def("isKill", &CvBuildInfo::isKill, "bool ()")
 
