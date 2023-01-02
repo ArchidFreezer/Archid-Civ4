@@ -141,7 +141,7 @@
 		<element type="bCityVoting" minOccurs="0"/>
 		<element type="bCivVoting" minOccurs="0"/>
 		<element type="iMinVoters" minOccurs="0"/>
-		<element type="iStateReligionVotePercent"/>
+		<element type="iStateReligionVotePercent" minOccurs="0"/>
 		<element type="iTradeRoutes" minOccurs="0"/>
 		<element type="bSecretaryGeneral" minOccurs="0"/>
 		<element type="bVictory" minOccurs="0"/>
