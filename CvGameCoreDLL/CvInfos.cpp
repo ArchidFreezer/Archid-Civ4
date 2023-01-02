@@ -11503,6 +11503,10 @@ CvFeatureInfo::CvFeatureInfo() :
 	m_iAdvancedStartRemoveCost(0),
 	m_iTurnDamage(0),
 	m_iWarmingDefense(0), //GWMod new xml field M.A.
+	m_iUniqueSize(0),
+	m_iMaxLatitude(0),
+	m_iMinLatitude(0),
+	m_bUnique(false),
 	m_bNoCoast(false),
 	m_bNoRiver(false),
 	m_bNoAdjacent(false),
@@ -11536,6 +11540,26 @@ CvFeatureInfo::~CvFeatureInfo() {
 	SAFE_DELETE_ARRAY(m_piHillsYieldChange);
 	SAFE_DELETE_ARRAY(m_pi3DAudioScriptFootstepIndex);
 	SAFE_DELETE_ARRAY(m_pbTerrain);
+}
+
+const char* CvFeatureInfo::getMovieArtDef() const {
+	return m_szMovieArtDef;
+}
+
+int CvFeatureInfo::getMaxLatitude() const {
+	return m_iMaxLatitude;
+}
+
+int CvFeatureInfo::getMinLatitude() const {
+	return m_iMinLatitude;
+}
+
+int CvFeatureInfo::getUniqueSize() const {
+	return m_iUniqueSize;
+}
+
+bool CvFeatureInfo::isUnique() const {
+	return m_bUnique;
 }
 
 int CvFeatureInfo::getMovementCost() const {
@@ -11718,6 +11742,12 @@ bool CvFeatureInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(szTextVal, "ArtDefineTag");
 	setArtDefineTag(szTextVal);
+	pXML->GetChildXmlValByName(m_szMovieArtDef, "MovieDefineTag");
+
+	pXML->GetChildXmlValByName(&m_bUnique, "bUnique");
+	pXML->GetChildXmlValByName(&m_iUniqueSize, "iUniqueSize", 1);
+	pXML->GetChildXmlValByName(&m_iMaxLatitude, "iMaxLatitude", 90);
+	pXML->GetChildXmlValByName(&m_iMinLatitude, "iMinLatitude", 1);
 
 	pXML->SetList(&m_piYieldChange, "YieldChanges", NUM_YIELD_TYPES);
 	pXML->SetList(&m_piRiverYieldChange, "RiverYieldChange", NUM_YIELD_TYPES);

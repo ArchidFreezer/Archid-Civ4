@@ -48,7 +48,8 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		self.PLATYPEDIA_PROCESS		= self.PLATYPEDIA_PROJECT + 1
 		self.PLATYPEDIA_TERRAIN		= self.PLATYPEDIA_PROCESS + 1
 		self.PLATYPEDIA_FEATURE		= self.PLATYPEDIA_TERRAIN + 1
-		self.PLATYPEDIA_BONUS		= self.PLATYPEDIA_FEATURE + 1
+		self.PLATYPEDIA_NATURAL		= self.PLATYPEDIA_FEATURE + 1
+		self.PLATYPEDIA_BONUS		= self.PLATYPEDIA_NATURAL + 1
 		self.PLATYPEDIA_IMPROVEMENT	= self.PLATYPEDIA_BONUS + 1
 		self.PLATYPEDIA_ROUTE		= self.PLATYPEDIA_IMPROVEMENT + 1
 		self.PLATYPEDIA_TREE		= self.PLATYPEDIA_ROUTE + 1
@@ -122,6 +123,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 			self.PLATYPEDIA_B_CHART		: self.placeBuildingChart,
 			self.PLATYPEDIA_TREE		: self.placeUpgradeTree,
 			self.PLATYPEDIA_CREDIT		: self.placeCredits,
+			self.PLATYPEDIA_NATURAL		: self.placeNaturalWonders,
 			}
 ########################################### Customization Start ################################
 		self.bLeft = False
@@ -180,6 +182,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		self.sGameInfoIcon = "[ICON_GOLDENAGE] "
 		self.sMovieIcon = "[ICON_CULTURE] "
 		self.sUpgradeIcon = "[ICON_HEALTHY] "
+		self.sNaturalIcon = "[ICON_MAP] "
 
 ########################################### Customization End #################################################
 
@@ -263,6 +266,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 					CyTranslator().getText(self.sProcessIcon, ()) + CyTranslator().getText("TXT_KEY_PEDIA_CATEGORY_PROCESS", ()),
 					CyTranslator().getText(self.sTerrainIcon, ()) + CyTranslator().getText("TXT_KEY_CONCEPT_TERRAIN", ()),
 					CyTranslator().getText(self.sFeatureIcon, ()) + CyTranslator().getText("TXT_KEY_PEDIA_CATEGORY_FEATURE", ()),
+					CyTranslator().getText(self.sNaturalIcon, ()) + CyTranslator().getText("TXT_KEY_NATURAL_WONDERS", ()),
 					CyTranslator().getText(self.sBonusIcon, ()) + CyTranslator().getText("TXT_KEY_PEDIA_CATEGORY_BONUS", ()),
 					CyTranslator().getText(self.sImprovementIcon, ()) + CyTranslator().getText("TXT_KEY_PEDIA_CATEGORY_IMPROVEMENT", ()),
 					CyTranslator().getText(self.sRouteIcon, ()) + CyTranslator().getText("TXT_KEY_PEDIA_CATEGORY_ROUTE", ()),
@@ -430,7 +434,8 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		List2 = self.sortReligions(-1)
 		List3 = self.sortCorporations(-1)
 		List4 = self.sortVictories()
-		self.setNewTable(1, List0 + List1 + List2 + List3 + List4)
+		List5 = self.sortFeatures(1)
+		self.setNewTable(1, List0 + List1 + List2 + List3 + List4 + List5)
 		if List0 and List0[0][2]:
 			self.placePedia(List0, CyTranslator().getText(self.sWonderIcon, ()), WidgetTypes.WIDGET_PYTHON, 7870, False)
 		if List1 and List1[0][2]:
@@ -441,6 +446,8 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 			self.placePedia(List3, CyTranslator().getText(self.sCorporationIcon, ()), WidgetTypes.WIDGET_PYTHON, 8201, False)
 		if List4 and List4[0][2]:
 			self.placePedia(List4, CyTranslator().getText("[ICON_OCCUPATION] ", ()), WidgetTypes.WIDGET_PYTHON, 6786, True)
+		if List5 and List5[0][2]:
+			self.placePedia(List5, CyTranslator().getText(self.sNaturalIcon, ()), WidgetTypes.WIDGET_PYTHON, 6780, True)
 
 	def placeIntro(self):
 		screen = self.getScreen()
@@ -577,6 +584,12 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		listSorted = self.sortTerrains(self.iSortTerrains)
 		self.setNewTable(self.iSortTerrains, listSorted)
 		self.placePedia(listSorted, CyTranslator().getText(self.sTerrainIcon, ()), WidgetTypes.WIDGET_PEDIA_JUMP_TO_TERRAIN, -1, True)
+
+	def placeNaturalWonders(self):
+		screen = self.getScreen()
+		listSorted = self.sortFeatures(1)
+		self.setNewTable(0, listSorted)
+		self.placePedia(listSorted, CyTranslator().getText(self.sNaturalIcon, ()), WidgetTypes.WIDGET_PEDIA_JUMP_TO_FEATURE, -1, True)
 
 	def placeFeatures(self):
 		screen = self.getScreen()
@@ -862,6 +875,10 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		if temp:
 			for item in temp[0][2]:
 				listSorted.append([item[0], gc.getTerrainInfo(item[1]).getButton(), "", WidgetTypes.WIDGET_PEDIA_JUMP_TO_TERRAIN, item[1], 1])
+		temp = self.sortFeatures(1)
+		if temp:
+			for item in temp[0][2]:
+				listSorted.append([item[0], gc.getFeatureInfo(item[1]).getButton(), "", WidgetTypes.WIDGET_PEDIA_JUMP_TO_FEATURE, item[1], 1])
 		temp = self.sortFeatures(0)
 		if temp:
 			for item in temp[0][2]:
@@ -1242,7 +1259,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 			iData2 = inputClass.getData2()
 			if iData1 == 6781:
 				return self.pediaJump(CvScreenEnums.PEDIA_UNIT_CHART, iData2, True)
-			elif iData1 == 8201 or iData1 == 6785 or iData1 == 6786 or iData1 == 7869 or iData1 == 7870:
+			elif iData1 == 8201 or iData1 == 6785 or iData1 == 6786 or iData1 == 7869 or iData1 == 7870 or iData1 == 6780:
 				return self.pediaJump(self.PLATYPEDIA_MOVIE, iData1 * 10000 + iData2, True)
 			elif iData1 == 6787:
 				return self.pediaJump(self.PLATYPEDIA_PROCESS, iData2, True)
@@ -1960,14 +1977,22 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 	def sortFeatures(self, iType):
 		lSorted = []
 		lItems = []
+		lUnique = []
 		for iItem in xrange(gc.getNumFeatureInfos()):
 			ItemInfo = gc.getFeatureInfo(iItem)
 			if ItemInfo.isGraphicalOnly() and not CyGame().isDebugMode(): continue
-			lItems.append([ItemInfo.getDescription(), iItem, ItemInfo.getButton()])
-		if not lItems: return lSorted
-		lItems.sort()
+			if ItemInfo.isUnique():
+				lUnique.append([ItemInfo.getDescription(), iItem, ItemInfo.getButton()])
+			else:
+				lItems.append([ItemInfo.getDescription(), iItem, ItemInfo.getButton()])
 		if iType == 0:
+			if not lItems: return lSorted
+			lItems.sort()
 			lSorted.append(["", "", lItems])
+		elif iType == 1:
+			if not lUnique: return lSorted
+			lUnique.sort()
+			lSorted.append(["", "", lUnique])
 		return lSorted
 
 	def sortBonus(self, iType):

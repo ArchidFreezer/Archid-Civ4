@@ -19,6 +19,7 @@ public:
 
 	bool canPlaceBonusAt(BonusTypes eBonus, int iX, int iY, bool bIgnoreLatitude);		// Exposed to Python
 	bool canPlaceGoodyAt(ImprovementTypes eImprovement, int iX, int iY);							// Exposed to Python
+	bool canPlaceUniqueFeatureAt(FeatureTypes eFeature, int iX, int iY);
 
 	// does all of the below "add..." functions:
 	DllExport void addGameElements();											// Exposed to Python
@@ -28,6 +29,7 @@ public:
 	void doRiver(CvPlot* pStartPlot, CardinalDirectionTypes eLastCardinalDirection = NO_CARDINALDIRECTION, CardinalDirectionTypes eOriginalCardinalDirection = NO_CARDINALDIRECTION, int iThisRiverID = -1);	// Exposed to Python
 	bool addRiver(CvPlot* pFreshWaterPlot);
 	DllExport void addFeatures();													// Exposed to Python
+	void addUniqueFeatures();
 	DllExport void addBonuses();													// Exposed to Python
 	void addUniqueBonusType(BonusTypes eBonusType);				// Exposed to Python
 	void addNonUniqueBonusType(BonusTypes eBonusType);		// Exposed to Python

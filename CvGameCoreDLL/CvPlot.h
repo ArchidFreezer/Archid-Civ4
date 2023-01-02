@@ -192,7 +192,7 @@ public:
 	bool isVisibleOtherUnit(PlayerTypes ePlayer) const;																								// Exposed to Python
 	DllExport bool isFighting() const;																																// Exposed to Python
 
-	bool canHaveFeature(FeatureTypes eFeature) const;																				// Exposed to Python
+	bool canHaveFeature(FeatureTypes eFeature, bool bIgnoreLatitude = false) const;
 
 	DllExport bool isRoute() const;																																		// Exposed to Python
 	bool isValidRoute(const CvUnit* pUnit) const;																											// Exposed to Python
@@ -205,7 +205,7 @@ public:
 
 	bool isValidDomainForLocation(const CvUnit& unit) const;																					// Exposed to Python
 	bool isValidDomainForAction(const CvUnit& unit) const;																						// Exposed to Python
-	bool isImpassable(TeamTypes eTeam = NO_TEAM) const;																															// Exposed to Python
+	bool isImpassable(TeamTypes eTeam = NO_TEAM, bool bIgnoreUniqueFeature = false) const;
 
 	DllExport int getX() const;																																				// Exposed to Python
 #ifdef _USRDLL

@@ -864,5 +864,22 @@
 		<French>[ICON_BULLET]Peut passer les Sommets</French>
 		<German>[ICON_BULLET]Kann &#252;ber Gipfel gehen</German>
 	</TEXT>
+<!-- Natural Wonders -->
+	<TEXT>
+		<Tag>TXT_KEY_NATURAL_WONDERS</Tag>
+		<English>Natural Wonders</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_NATURAL_WONDERS_PEDIA</Tag>
+		<English>[H1]Natural Wonders[\H1][PARAGRAPH:1]Natural Wonders include marvels that truly display the grand beauty of the natural world. Natural Wonders permanently increase happiness when seen by a civilization and grants Gold for the first civilization. Cities get a free Natural Wonder building for each Natural Wonder nearby. Each Natural Wonder can only grant its building to one city.[PARAGRAPH:2]Press [CTRL+F] to locate revealed Natural Wonders.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WONDERDISCOVERED_YOU</Tag>
+		<English>You have discovered [COLOR_HIGHLIGHT_TEXT]%s1![COLOR_REVERT]</English>
+		<French>Tu as d&#233;couvert %s1!</French>
+		<German>Sie haben entdeckt %s1!</German>
+		<Italian>hai scoperto %s1!</Italian>
+		<Spanish>se han descubierto %s1!</Spanish>
+	</TEXT>
 
 </Civ4GameText>

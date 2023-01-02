@@ -11,6 +11,7 @@ MOVIE_SCREEN_PROJECT = 2
 MOVIE_SCREEN_CORPORATION = 3
 MOVIE_SCREEN_HERO = 4
 MOVIE_SCREEN_INTRO = 5
+MOVIE_SCREEN_FEATURE = 6
 
 class CvWonderMovieScreen:
 	def interfaceScreen (self, iMovieItem, iCityId, iMovieType):
@@ -53,13 +54,19 @@ class CvWonderMovieScreen:
 				if szArtDef:
 					szMovieFile = szArtDef.getPath()
 			szHeader = ""
+		if iMovieType == MOVIE_SCREEN_FEATURE:
+			szArtDef = gc.getFeatureInfo(iMovieItem).getMovieArtDef()
+			if len(szArtDef):
+				szMovieFile = CyArtFileMgr().getMovieArtInfo(szArtDef).getPath()
+			szHeader = gc.getFeatureInfo(iMovieItem).getDescription()
+			self.szHelp = gc.getFeatureInfo(iMovieItem).getCivilopedia()
 
 		if szMovieFile == None: return
 		if szMovieFile.find(".") == -1: return
-		
+
 		CyInterface().lookAtCityBuilding(iCityId, -1)
 		CyInterface().setDirty(InterfaceDirtyBits.SelectionCamera_DIRTY_BIT, True)
-		
+
 		screen = CyGInterfaceScreen("WonderMovieScreen", CvScreenEnums.WONDER_MOVIE_SCREEN)
 		screen.showWindowBackground(True)
 		screen.setRenderInterfaceOnly(True)
@@ -83,7 +90,7 @@ class CvWonderMovieScreen:
 
 		if szMovieFile.find(".nif") > -1:
 			screen.addReligionMovieWidgetGFC("ReligionMovie", szMovieFile, self.X_MOVIE, self.Y_MOVIE, self.W_MOVIE, self.H_MOVIE, WidgetTypes.WIDGET_GENERAL, -1, -1)
-			CyInterface().playGeneralSound(gc.getReligionInfo(iMovieItem).getMovieSound())	
+			CyInterface().playGeneralSound(gc.getReligionInfo(iMovieItem).getMovieSound())
 		else:
 			if iMovieType == MOVIE_SCREEN_INTRO:
 				screen.playMovie(szMovieFile, -1, -1, -1, -1, 0)
@@ -95,8 +102,8 @@ class CvWonderMovieScreen:
 	def handleInput (self, inputClass):
 		screen = CyGInterfaceScreen("WonderMovieScreen", CvScreenEnums.WONDER_MOVIE_SCREEN)
 		if len(self.szHelp):
-			screen.addPanel("MonkeyPanel", "", "", True, True, self.X_MOVIE + self.W_MOVIE/8 - 10, self.Y_MOVIE + self.W_MOVIE/8, self.W_MOVIE *3 /4 + 20, self.H_MOVIE - self.W_MOVIE/4, PanelStyles.PANEL_STYLE_MAIN_BLACK50)	
-			screen.addMultilineText("MonkeyText", self.szHelp, self.X_MOVIE + self.W_MOVIE/8, self.Y_MOVIE + self.W_MOVIE/8 + 10, self.W_MOVIE * 3 /4, self.H_MOVIE - self.W_MOVIE/4 - 20, WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)	
+			screen.addPanel("MonkeyPanel", "", "", True, True, self.X_MOVIE + self.W_MOVIE/8 - 10, self.Y_MOVIE + self.W_MOVIE/8, self.W_MOVIE *3 /4 + 20, self.H_MOVIE - self.W_MOVIE/4, PanelStyles.PANEL_STYLE_MAIN_BLACK50)
+			screen.addMultilineText("MonkeyText", self.szHelp, self.X_MOVIE + self.W_MOVIE/8, self.Y_MOVIE + self.W_MOVIE/8 + 10, self.W_MOVIE * 3 /4, self.H_MOVIE - self.W_MOVIE/4 - 20, WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
 		return 0
 
 	def update(self, fDelta):

@@ -3259,6 +3259,10 @@ public:
 	int getAdvancedStartRemoveCost() const;						// Exposed to Python
 	int getTurnDamage() const;						// Exposed to Python
 	int getWarmingDefense() const; //GWmod	
+	int getEffectProbability() const;
+	int getUniqueSize() const;
+	int getMaxLatitude() const;
+	int getMinLatitude() const;
 
 	bool isNoCoast() const;						// Exposed to Python
 	bool isNoRiver() const;						// Exposed to Python
@@ -3272,6 +3276,7 @@ public:
 	bool isVisibleAlways() const;			// Exposed to Python
 	bool isNukeImmune() const;			// Exposed to Python
 	bool isOnlyBad() const;				// Exposed to Python
+	bool isUnique() const;
 
 	const TCHAR* getOnUnitChangeTo() const;
 
@@ -3281,7 +3286,8 @@ public:
 	int getWorldSoundscapeScriptId() const;
 
 	const TCHAR* getEffectType() const;
-	int getEffectProbability() const;
+
+	const char* getMovieArtDef() const;
 
 	// Arrays
 
@@ -3313,6 +3319,9 @@ protected:
 	int m_iAdvancedStartRemoveCost;
 	int m_iTurnDamage;
 	int m_iWarmingDefense; //GWMod new xml field M.A.
+	int m_iUniqueSize;
+	int m_iMaxLatitude;
+	int m_iMinLatitude;
 
 	bool m_bNoCoast;
 	bool m_bNoRiver;
@@ -3325,6 +3334,8 @@ protected:
 	bool m_bNoImprovement;
 	bool m_bVisibleAlways;
 	bool m_bNukeImmune;
+	bool m_bUnique;
+
 	CvString m_szOnUnitChangeTo;
 
 	int m_iWorldSoundscapeScriptId;
@@ -3344,6 +3355,7 @@ protected:
 private:
 
 	CvString m_szArtDefineTag;
+	CvString m_szMovieArtDef;
 
 };
 

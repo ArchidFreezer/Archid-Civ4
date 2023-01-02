@@ -134,12 +134,20 @@
 	<ElementType name="EffectType" content="textOnly"/>
 	<ElementType name="iEffectProbability" content="textOnly" dt:type="int"/>
 	<ElementType name="OnUnitChangeTo" content="textOnly"/>
+	<ElementType name="bUnique" content="textOnly" dt:type="boolean"/>
+	<ElementType name="MovieDefineTag" content="textOnly"/>
+	<ElementType name="iUniqueSize" content="textOnly" dt:type="int"/>
 	<ElementType name="FeatureInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
 		<element type="Civilopedia"/>
 		<element type="Help" minOccurs="0"/>
 		<element type="ArtDefineTag"/>
+		<element type="MovieDefineTag" minOccurs="0"/>
+		<element type="bUnique" minOccurs="0"/>
+		<element type="iUniqueSize" minOccurs="0"/> <!-- default: 1 -->
+		<element type="iMinLatitude" minOccurs="0"/>
+		<element type="iMaxLatitude" minOccurs="0"/> <!-- default: 90 -->
 		<element type="YieldChanges" minOccurs="0"/>
 		<element type="RiverYieldChange" minOccurs="0"/>
 		<element type="HillsYieldChange" minOccurs="0"/>
@@ -244,7 +252,7 @@
 		<element type="iConstAppearance" minOccurs="0"/>
 		<element type="iMinAreaSize" minOccurs="0"/>
 		<element type="iMinLatitude" minOccurs="0"/>
-		<element type="iMaxLatitude" minOccurs="0"/>
+		<element type="iMaxLatitude" minOccurs="0"/> <!-- default: 90 -->
 		<element type="Rands" minOccurs="0"/>
 		<element type="iPlayer" minOccurs="0"/>
 		<element type="iTilesPer" minOccurs="0"/>

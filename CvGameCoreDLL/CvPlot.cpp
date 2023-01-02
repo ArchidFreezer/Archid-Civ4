@@ -25,6 +25,7 @@
 #include "CyArgsList.h"
 #include "CvDLLPythonIFaceBase.h"
 #include "CvEventReporter.h"
+#include "CvPopupInfo.h"
 #include "FAStarNode.h"
 
 #define STANDARD_MINIMAP_ALPHA		(0.6f)
@@ -2810,7 +2811,7 @@ bool CvPlot::isFighting() const {
 }
 
 
-bool CvPlot::canHaveFeature(FeatureTypes eFeature) const {
+bool CvPlot::canHaveFeature(FeatureTypes eFeature, bool bIgnoreLatitude) const {
 	FAssertMsg(getTerrainType() != NO_TERRAIN, "TerrainType is not assigned a valid value");
 
 	if (eFeature == NO_FEATURE) {
@@ -2829,23 +2830,32 @@ bool CvPlot::canHaveFeature(FeatureTypes eFeature) const {
 		return false;
 	}
 
-	if (!(GC.getFeatureInfo(eFeature).isTerrain(getTerrainType()))) {
+	const CvFeatureInfo& kFeature = GC.getFeatureInfo(eFeature);
+	if (!kFeature.isTerrain(getTerrainType())) {
 		return false;
 	}
 
-	if (GC.getFeatureInfo(eFeature).isNoCoast() && isCoastalLand()) {
+	if (!bIgnoreLatitude) {
+		if (getLatitude() > kFeature.getMaxLatitude())
+			return false;
+
+		if (getLatitude() < kFeature.getMinLatitude())
+			return false;
+	}
+
+	if (kFeature.isNoCoast() && isCoastalLand()) {
 		return false;
 	}
 
-	if (GC.getFeatureInfo(eFeature).isNoRiver() && isRiver()) {
+	if (kFeature.isNoRiver() && isRiver()) {
 		return false;
 	}
 
-	if (GC.getFeatureInfo(eFeature).isRequiresFlatlands() && isHills()) {
+	if (kFeature.isRequiresFlatlands() && isHills()) {
 		return false;
 	}
 
-	if (GC.getFeatureInfo(eFeature).isNoAdjacent()) {
+	if (kFeature.isNoAdjacent()) {
 		for (int iI = 0; iI < NUM_DIRECTION_TYPES; ++iI) {
 			CvPlot* pAdjacentPlot = plotDirection(getX_INLINE(), getY_INLINE(), ((DirectionTypes)iI));
 
@@ -2857,7 +2867,7 @@ bool CvPlot::canHaveFeature(FeatureTypes eFeature) const {
 		}
 	}
 
-	if (GC.getFeatureInfo(eFeature).isRequiresRiver() && !isRiver()) {
+	if (kFeature.isRequiresRiver() && !isRiver()) {
 		return false;
 	}
 
@@ -3057,7 +3067,7 @@ bool CvPlot::isValidDomainForAction(const CvUnit& unit) const {
 }
 
 
-bool CvPlot::isImpassable(TeamTypes eTeam) const {
+bool CvPlot::isImpassable(TeamTypes eTeam, bool bIgnoreUniqueFeature) const {
 	if (isPeak()) {
 		if (eTeam == NO_TEAM || !GET_TEAM(eTeam).isCanPassPeaks()) {
 			return true;
@@ -3068,7 +3078,14 @@ bool CvPlot::isImpassable(TeamTypes eTeam) const {
 		return false;
 	}
 
-	return ((getFeatureType() == NO_FEATURE) ? GC.getTerrainInfo(getTerrainType()).isImpassable() : GC.getFeatureInfo(getFeatureType()).isImpassable());
+	FeatureTypes eFeature = getFeatureType();
+	if (eFeature != NO_FEATURE) {
+		const CvFeatureInfo& kFeature = GC.getFeatureInfo(getFeatureType());
+		if (kFeature.isImpassable()) {
+			return !(bIgnoreUniqueFeature && GC.getFeatureInfo(getFeatureType()).isUnique());
+		}
+	}
+	return GC.getTerrainInfo(getTerrainType()).isImpassable();
 }
 
 
@@ -4682,14 +4699,11 @@ int CvPlot::getYield(YieldTypes eIndex) const {
 
 
 int CvPlot::calculateNatureYield(YieldTypes eYield, TeamTypes eTeam, bool bIgnoreFeature) const {
-	if (isImpassable(getTeam())) {
+	if (isImpassable(getTeam(), true)) {
 		if (!isPeak()) {
 			return 0;
-		} else {
-			//	Koshling - prevent mountains being worked until workers can	move into peak tiles
-			if (eTeam != NO_TEAM && !GET_TEAM(eTeam).isCanPassPeaks()) {
-				return 0;
-			}
+		} else if (eTeam != NO_TEAM && !GET_TEAM(eTeam).isCanPassPeaks()) {	//	Koshling - prevent mountains being worked until workers can	move into peak tiles
+			return 0;
 		}
 	}
 
@@ -5763,8 +5777,10 @@ void CvPlot::setRevealed(TeamTypes eTeam, bool bNewValue, bool bTerrainOnly, Tea
 
 	CvCity* pCity = getPlotCity();
 
+	bool bFirstReveal = (NULL == m_abRevealed);
+
 	if (isRevealed(eTeam, false) != bNewValue) {
-		if (NULL == m_abRevealed) {
+		if (bFirstReveal) {
 			m_abRevealed = new bool[MAX_TEAMS];
 			for (int iI = 0; iI < MAX_TEAMS; ++iI) {
 				m_abRevealed[iI] = false;
@@ -5799,6 +5815,29 @@ void CvPlot::setRevealed(TeamTypes eTeam, bool bNewValue, bool bTerrainOnly, Tea
 		if (isRevealed(eTeam, false)) {
 			// ONEVENT - PlotRevealed
 			CvEventReporter::getInstance().plotRevealed(this, eTeam);
+		}
+	}
+
+	if (bFirstReveal && getFeatureType() != NO_FEATURE && GC.getFeatureInfo(getFeatureType()).isUnique()) {
+		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+			CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+			if (kPlayer.getTeam() == eTeam && kPlayer.isHuman()) {
+				const CvFeatureInfo& kFeature = GC.getFeatureInfo(getFeatureType());
+
+				CvWString szBuffer = gDLL->getText("TXT_KEY_WONDERDISCOVERED_YOU", GC.getFeatureInfo(getFeatureType()).getDescription());
+				gDLL->getInterfaceIFace()->addHumanMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_WONDER_BUILDING_BUILD", MESSAGE_TYPE_INFO, GC.getFeatureInfo(getFeatureType()).getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE(), true, true);
+
+				if (!CvString(kFeature.getMovieArtDef()).empty()) {
+					// show movie
+					CvPopupInfo* pInfo = new CvPopupInfo(BUTTONPOPUP_PYTHON_SCREEN);
+					if (NULL != pInfo) {
+						pInfo->setText(L"showWonderMovie");
+						pInfo->setData1((int)getFeatureType());
+						pInfo->setData3(6);
+						kPlayer.addPopup(pInfo);
+					}
+				}
+			}
 		}
 	}
 

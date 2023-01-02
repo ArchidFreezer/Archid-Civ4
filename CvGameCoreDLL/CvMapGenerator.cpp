@@ -196,6 +196,9 @@ void CvMapGenerator::addGameElements() {
 	addLakes();
 	gDLL->logMemState("CvMapGen after add lakes");
 
+	addUniqueFeatures();
+	gDLL->logMemState("CvMapGen after add unique features");
+
 	addFeatures();
 	gDLL->logMemState("CvMapGen after add features");
 
@@ -521,10 +524,16 @@ void CvMapGenerator::addFeatures() {
 		CvPlot* pPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
 		FAssert(pPlot != NULL);
 
-		for (int iJ = 0; iJ < GC.getNumFeatureInfos(); iJ++) {
-			if (pPlot->canHaveFeature((FeatureTypes)iJ)) {
-				if (GC.getGameINLINE().getMapRandNum(10000, "addFeaturesAtPlot") < GC.getFeatureInfo((FeatureTypes)iJ).getAppearanceProbability()) {
-					pPlot->setFeatureType((FeatureTypes)iJ);
+		for (FeatureTypes eFeature = (FeatureTypes)0; eFeature < GC.getNumFeatureInfos(); eFeature = (FeatureTypes)(eFeature + 1)) {
+			const CvFeatureInfo& kFeature = GC.getFeatureInfo(eFeature);
+
+			// If this is a uniqe then skip it as it is placed elsewhere
+			if (kFeature.isUnique())
+				continue;
+
+			if (pPlot->canHaveFeature(eFeature)) {
+				if (GC.getGameINLINE().getMapRandNum(10000, "addFeaturesAtPlot") < kFeature.getAppearanceProbability()) {
+					pPlot->setFeatureType(eFeature);
 				}
 			}
 		}
@@ -931,4 +940,102 @@ int CvMapGenerator::calculateNumBonusesToAdd(BonusTypes eBonusType) {
 	int iBonusCount = (iBaseCount * (iLandTiles + iPlayers)) / 100;
 	iBonusCount = std::max(1, iBonusCount);
 	return iBonusCount;
+}
+
+bool CvMapGenerator::canPlaceUniqueFeatureAt(FeatureTypes eFeature, int iX, int iY) {
+
+	FAssertMsg(eFeature != NO_FEATURE, "Feature is not assigned a valid value");
+	if (NULL == eFeature)
+		return false;
+
+	FAssertMsg(GC.getFeatureInfo(eFeature).isUnique(), "Feature is expected to be unique");
+
+	CvPlot* pPlot = GC.getMapINLINE().plotINLINE(iX, iY);
+
+	if (!pPlot->canHaveFeature(eFeature))
+		return false;
+
+	bool bValid = true;
+	CvPlot* pTestPlot;
+	// Check for any other natural wonders in the vicinity
+	int iMinSpacing = GC.getDefineINT("NATURAL_WONDER_MIN_PLOT_SPACING") + GC.getMapINLINE().getWorldSize();
+	for (int iX = pPlot->getX_INLINE() - iMinSpacing; iX < pPlot->getX_INLINE() + iMinSpacing + 1 && bValid; iX++) {
+		for (int iY = pPlot->getY_INLINE() - iMinSpacing; iY < pPlot->getY_INLINE() + iMinSpacing + 1 && bValid; iY++) {
+			pTestPlot = GC.getMapINLINE().plot(iX, iY);
+			if (pTestPlot != NULL) {
+				if (pTestPlot->getFeatureType() != NO_FEATURE && GC.getFeatureInfo(pTestPlot->getFeatureType()).isUnique()) {
+					bValid = false;
+				}
+			}
+		}
+	}
+
+	return bValid;
+
+}
+
+void CvMapGenerator::addUniqueFeatures() {
+
+	int iNumPlots = GC.getMapINLINE().numPlotsINLINE();
+	int* piShuffle = shuffle(iNumPlots, GC.getGameINLINE().getMapRand());
+
+	int iMinExtraYield = GC.getDefineINT("NATURAL_WONDER_MIN_EXTRA_YIELD");
+	int iMaxExtraYield = GC.getDefineINT("NATURAL_WONDER_MAX_EXTRA_YIELD");
+
+	for (FeatureTypes eFeature = (FeatureTypes)0; eFeature < GC.getNumFeatureInfos(); eFeature = (FeatureTypes)(eFeature + 1)) {
+		const CvFeatureInfo& kFeature = GC.getFeatureInfo(eFeature);
+
+		// We are only interested in the unique features
+		if (!kFeature.isUnique())
+			continue;
+
+		bool bDone = false;
+		std::vector<CvPlot*> vWonderPlots;
+		int iSize = kFeature.getUniqueSize();
+		for (int iJ = 0; iJ < iNumPlots && !bDone; iJ++) {
+			gDLL->callUpdater();
+			CvPlot* pPlot = GC.getMapINLINE().plotByIndexINLINE(piShuffle[iJ]);
+			FAssertMsg(pPlot, "pPlot is expected not to be NULL");
+
+			if (canPlaceUniqueFeatureAt(eFeature, pPlot->getX_INLINE(), pPlot->getY_INLINE())) {
+				vWonderPlots.push_back(pPlot);
+
+				// Now we need to check for adjacent plots if this is a multi-plot feature, we have the first plot so start at the second
+				CvPlot* pTestPlot;
+				for (int iI = 1; iI < iSize; iI++) {
+					bool bFound = false;
+					// Feature should be in a cardinal direction
+					for (CardinalDirectionTypes eDirection = (CardinalDirectionTypes)0; eDirection < NUM_CARDINALDIRECTION_TYPES && !bFound; eDirection = (CardinalDirectionTypes)(eDirection + 1)) {
+						pTestPlot = plotCardinalDirection(pPlot->getX_INLINE(), pPlot->getY_INLINE(), eDirection);
+						if (pTestPlot != NULL) {
+							// If this plot is already one of the feature plots then move to the next plot to check
+							if (std::find(vWonderPlots.begin(), vWonderPlots.end(), pTestPlot) != vWonderPlots.end())
+								continue;
+
+							if (canPlaceUniqueFeatureAt(eFeature, pTestPlot->getX_INLINE(), pTestPlot->getY_INLINE())) {
+								vWonderPlots.push_back(pTestPlot);
+								bFound = true;
+								pPlot = pTestPlot;
+							}
+						}
+					}
+				}
+				// If we haven't found enough plots then we need to clear everything and start again somewhere else
+				if (vWonderPlots.size() != iSize)
+					vWonderPlots.clear();
+			}
+
+			if (vWonderPlots.size() == iSize) {
+				for (std::vector<CvPlot*>::iterator it = vWonderPlots.begin(); it != vWonderPlots.end(); ++it) {
+					(*it)->setFeatureType(eFeature);
+					GC.getGameINLINE().setPlotExtraYield((*it)->getX_INLINE(), (*it)->getY_INLINE(), YIELD_FOOD, GC.getGameINLINE().getMapRandNum(iMaxExtraYield - iMinExtraYield + 1, "addFeaturesAtPlot") + iMinExtraYield);
+					GC.getGameINLINE().setPlotExtraYield((*it)->getX_INLINE(), (*it)->getY_INLINE(), YIELD_PRODUCTION, GC.getGameINLINE().getMapRandNum(iMaxExtraYield - iMinExtraYield + 1, "addFeaturesAtPlot") + iMinExtraYield);
+					GC.getGameINLINE().setPlotExtraYield((*it)->getX_INLINE(), (*it)->getY_INLINE(), YIELD_COMMERCE, GC.getGameINLINE().getMapRandNum(iMaxExtraYield - iMinExtraYield + 1, "addFeaturesAtPlot") + iMinExtraYield);
+					bDone = true;
+				}
+			}
+		}
+		vWonderPlots.clear();
+	}
+	SAFE_DELETE_ARRAY(piShuffle);
 }

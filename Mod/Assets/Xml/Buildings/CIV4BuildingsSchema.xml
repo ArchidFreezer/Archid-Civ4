@@ -5,6 +5,7 @@
 <!-- -->
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Alex Mantzaris (Firaxis Games) -->
 <Schema xmlns="urn:schemas-microsoft-com:xml-data" xmlns:dt="urn:schemas-microsoft-com:datatypes">
+	<ElementType name="bGraphicalOnly" content="textOnly" dt:type="boolean"/>
 	<ElementType name="Type" content="textOnly"/>
 	<ElementType name="iMaxGlobalInstances" content="textOnly" dt:type="int"/>
 	<ElementType name="iMaxTeamInstances" content="textOnly" dt:type="int"/>

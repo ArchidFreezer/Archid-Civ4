@@ -6,9 +6,9 @@
 <!-- Building Class Infos -->
 <Civ4BuildingClassInfos xmlns="x-schema:CIV4BuildingsSchema.xml">
 	<BuildingClassInfos>
-		<!-- ****************	-->
+		<!-- **************** -->
 		<!-- Buildings        -->
-		<!-- ****************	-->
+		<!-- **************** -->
 		<BuildingClassInfo> <!-- Palace -->
 			<Type>BUILDINGCLASS_PALACE</Type>
 			<Description>TXT_KEY_BUILDING_PALACE</Description>
@@ -231,9 +231,9 @@
 			<DefaultBuilding>BUILDING_MILITARY_ACADEMY</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<!-- ****************	-->
+		<!-- **************** -->
 		<!-- Religious        -->
-		<!-- ****************	-->
+		<!-- **************** -->
 		<BuildingClassInfo> <!-- Buddhist Temple -->
 			<Type>BUILDINGCLASS_BUDDHIST_TEMPLE</Type>
 			<Description>TXT_KEY_BUILDING_BUDDHIST_TEMPLE</Description>
@@ -396,9 +396,9 @@
 			<DefaultBuilding>BUILDING_TAOIST_SHRINE</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<!-- ****************	-->
+		<!-- **************** -->
 		<!-- Great Wonder     -->
-		<!-- ****************	-->
+		<!-- **************** -->
 		<BuildingClassInfo> <!-- Apostolic Palace -->
 			<Type>BUILDINGCLASS_APOSTOLIC_PALACE</Type>
 			<Description>TXT_KEY_BUILDING_APOSTOLIC_PALACE</Description>
@@ -646,9 +646,9 @@
 			<DefaultBuilding>BUILDING_VERSAILLES</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<!-- ****************	-->
+		<!-- **************** -->
 		<!-- National Wonder  -->
-		<!-- ****************	-->
+		<!-- **************** -->
 		<BuildingClassInfo> <!-- Forbidden Palace -->
 			<Type>BUILDINGCLASS_GREAT_PALACE</Type>
 			<Description>TXT_KEY_BUILDING_GREAT_PALACE</Description>
@@ -730,5 +730,121 @@
 			<DefaultBuilding>BUILDING_WEST_POINT</DefaultBuilding>
 		</BuildingClassInfo>
 
+		<!-- **************** -->
+		<!-- Natural Wonder   -->
+		<!-- **************** -->
+		<BuildingClassInfo> <!-- Aurora -->
+			<Type>BUILDINGCLASS_AURORA</Type>
+			<Description>TXT_KEY_BUILDING_AURORA</Description>
+			<DefaultBuilding>BUILDING_AURORA</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Auyantepui -->
+			<Type>BUILDINGCLASS_AUYANTEPUI</Type>
+			<Description>TXT_KEY_BUILDING_AUYANTEPUI</Description>
+			<DefaultBuilding>BUILDING_AUYANTEPUI</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Barringer Crater -->
+			<Type>BUILDINGCLASS_BARRINGER_CRATER</Type>
+			<Description>TXT_KEY_BUILDING_BARRINGER_CRATER</Description>
+			<DefaultBuilding>BUILDING_BARRINGER_CRATER</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Basalt Organ -->
+			<Type>BUILDINGCLASS_BASALT_ORGAN</Type>
+			<Description>TXT_KEY_BUILDING_BASALT_ORGAN</Description>
+			<DefaultBuilding>BUILDING_BASALT_ORGAN</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Dead Sea -->
+			<Type>BUILDINGCLASS_DEAD_SEA</Type>
+			<Description>TXT_KEY_BUILDING_DEAD_SEA</Description>
+			<DefaultBuilding>BUILDING_DEAD_SEA</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Devil's Table -->
+			<Type>BUILDINGCLASS_DEVILS_TABLE</Type>
+			<Description>TXT_KEY_BUILDING_DEVILS_TABLE</Description>
+			<DefaultBuilding>BUILDING_DEVILS_TABLE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Great Barrier Reef -->
+			<Type>BUILDINGCLASS_GREAT_BARRIER</Type>
+			<Description>TXT_KEY_BUILDING_GREAT_BARRIER</Description>
+			<DefaultBuilding>BUILDING_GREAT_BARRIER</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Klyuchevskaya Sopka -->
+			<Type>BUILDINGCLASS_SOPKA</Type>
+			<Description>TXT_KEY_BUILDING_SOPKA</Description>
+			<bMonument>1</bMonument>
+			<DefaultBuilding>BUILDING_SOPKA</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Krakatoa -->
+			<Type>BUILDINGCLASS_KRAKATOA</Type>
+			<Description>TXT_KEY_BUILDING_KRAKATOA</Description>
+			<DefaultBuilding>BUILDING_KRAKATOA</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Lake Baikal -->
+			<Type>BUILDINGCLASS_BAIKAL</Type>
+			<Description>TXT_KEY_BUILDING_BAIKAL</Description>
+			<DefaultBuilding>BUILDING_BAIKAL</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Mount Everest -->
+			<Type>BUILDINGCLASS_EVEREST</Type>
+			<Description>TXT_KEY_BUILDING_EVEREST</Description>
+			<DefaultBuilding>BUILDING_EVEREST</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Mount Fuji -->
+			<Type>BUILDINGCLASS_FUJI</Type>
+			<Description>TXT_KEY_BUILDING_FUJI</Description>
+			<bMonument>1</bMonument>
+			<DefaultBuilding>BUILDING_FUJI</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Mount Kilimanjaro -->
+			<Type>BUILDINGCLASS_KILIMANJARO</Type>
+			<Description>TXT_KEY_BUILDING_KILIMANJARO</Description>
+			<DefaultBuilding>BUILDING_KILIMANJARO</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Mount Sinai -->
+			<Type>BUILDINGCLASS_SINAI</Type>
+			<Description>TXT_KEY_BUILDING_SINAI</Description>
+			<DefaultBuilding>BUILDING_SINAI</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Ngorongoro Crater -->
+			<Type>BUILDINGCLASS_NGORONGORO_CRATER</Type>
+			<Description>TXT_KEY_BUILDING_NGORONGORO_CRATER</Description>
+			<DefaultBuilding>BUILDING_NGORONGORO_CRATER</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Nukuoro -->
+			<Type>BUILDINGCLASS_NUKUORO</Type>
+			<Description>TXT_KEY_BUILDING_NUKUORO</Description>
+			<DefaultBuilding>BUILDING_NUKUORO</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Pamukkale -->
+			<Type>BUILDINGCLASS_PAMUKKALE</Type>
+			<Description>TXT_KEY_BUILDING_PAMUKKALE</Description>
+			<DefaultBuilding>BUILDING_PAMUKKALE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Pravcicka Brana -->
+			<Type>BUILDINGCLASS_PRAVCICKA_BRANA</Type>
+			<Description>TXT_KEY_BUILDING_PRAVCICKA_BRANA</Description>
+			<DefaultBuilding>BUILDING_PRAVCICKA_BRANA</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Shark Bay -->
+			<Type>BUILDINGCLASS_SHARK_BAY</Type>
+			<Description>TXT_KEY_BUILDING_SHARK_BAY</Description>
+			<DefaultBuilding>BUILDING_SHARK_BAY</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Sugarloaf Mountain -->
+			<Type>BUILDINGCLASS_SUGARLOAF</Type>
+			<Description>TXT_KEY_BUILDING_SUGARLOAF</Description>
+			<DefaultBuilding>BUILDING_SUGARLOAF</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Uluru -->
+			<Type>BUILDINGCLASS_ULURU</Type>
+			<Description>TXT_KEY_BUILDING_ULURU</Description>
+			<DefaultBuilding>BUILDING_ULURU</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Victoria Falls -->
+			<Type>BUILDINGCLASS_VICTORIA_FALLS</Type>
+			<Description>TXT_KEY_BUILDING_VICTORIA_FALLS</Description>
+			<bMonument>1</bMonument>
+			<DefaultBuilding>BUILDING_VICTORIA_FALLS</DefaultBuilding>
+		</BuildingClassInfo>
 	</BuildingClassInfos>
 </Civ4BuildingClassInfos>

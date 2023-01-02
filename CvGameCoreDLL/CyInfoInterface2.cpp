@@ -384,6 +384,9 @@ void CyInfoPythonInterface2() {
 		.def("getAdvancedStartRemoveCost", &CvFeatureInfo::getAdvancedStartRemoveCost, "int ()")
 		.def("getTurnDamage", &CvFeatureInfo::getTurnDamage, "int ()")
 		.def("getWarmingDefense", &CvFeatureInfo::getWarmingDefense, "int ()") //GWMod new XML field M.A.
+		.def("getUniqueSize", &CvFeatureInfo::getUniqueSize, "int ()")
+		.def("getMaxLatitude", &CvFeatureInfo::getMaxLatitude, "int ()")
+		.def("getMinLatitude", &CvFeatureInfo::getMinLatitude, "int ()")
 
 		.def("isNoCoast", &CvFeatureInfo::isNoCoast, "bool ()")
 		.def("isNoRiver", &CvFeatureInfo::isNoRiver, "bool ()")
@@ -397,6 +400,9 @@ void CyInfoPythonInterface2() {
 		.def("isVisibleAlways", &CvFeatureInfo::isVisibleAlways, "bool ()")
 		.def("isNukeImmune", &CvFeatureInfo::isNukeImmune, "bool ()")
 		.def("isOnlyBad", &CvFeatureInfo::isOnlyBad, "bool ()")
+		.def("isUnique", &CvFeatureInfo::isUnique, "bool ()")
+
+		.def("getMovieArtDef", &CvFeatureInfo::getMovieArtDef, "string ()")
 
 		// Arrays
 

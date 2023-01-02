@@ -331,4 +331,20 @@
 		<DefineName>PEAK_BUILD_TIME_MODIFIER</DefineName>
 		<iDefineIntVal>100</iDefineIntVal>
 	</Define>
+<!-- Natural Woinders -->
+	<Define>
+		<!-- The minimum number of plots between natural wonders, scaling with the map size -->
+		<DefineName>NATURAL_WONDER_MIN_PLOT_SPACING</DefineName>
+		<iDefineIntVal>3</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- The minimum number of each yield a wonder plot gains -->
+		<DefineName>NATURAL_WONDER_MIN_EXTRA_YIELD</DefineName>
+		<iDefineIntVal>0</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- The maximum number of each yield a wonder plot gains -->
+		<DefineName>NATURAL_WONDER_MAX_EXTRA_YIELD</DefineName>
+		<iDefineIntVal>4</iDefineIntVal>
+	</Define>
 </Civ4Defines>

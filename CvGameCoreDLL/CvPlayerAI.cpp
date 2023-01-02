@@ -2002,6 +2002,12 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 								}
 							}
 						}
+						// Check for Natural Wonders
+						FeatureTypes eFeature = pLoopPlot->getFeatureType();
+						if (eFeature != NO_FEATURE && GC.getFeatureInfo(eFeature).isUnique()) {
+							bHasGoodBonus = true;
+							break;
+						}
 					}
 				}
 			}
@@ -2019,16 +2025,16 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 
 	int iYieldLostHere = 0;
 
-	for (int iI = 0; iI < NUM_CITY_PLOTS; iI++) {
-		CvPlot* pLoopPlot = plotCity(iX, iY, iI);
+	for (int iLoopCityPlot = 0; iLoopCityPlot < NUM_CITY_PLOTS; iLoopCityPlot++) {
+		CvPlot* pLoopPlot = plotCity(iX, iY, iLoopCityPlot);
 
 		if (pLoopPlot == NULL) {
 			iTakenTiles++;
-		} else if (iI != CITY_HOME_PLOT && (pLoopPlot->isCityRadius() || abCitySiteRadius[iI])) // K-Mod
+		} else if (iLoopCityPlot != CITY_HOME_PLOT && (pLoopPlot->isCityRadius() || abCitySiteRadius[iLoopCityPlot])) // K-Mod
 		{
 			iTakenTiles++;
 
-			if (abCitySiteRadius[iI]) {
+			if (abCitySiteRadius[iLoopCityPlot]) {
 				iTeammateTakenTiles++;
 			}
 		}
@@ -2042,19 +2048,26 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 
 			bool bRemoveableFeature = false;
 			bool bEventuallyRemoveableFeature = false;
+			bool bNaturalWonder = false;
 			if (eFeature != NO_FEATURE) {
-				for (int i = 0; i < GC.getNumBuildInfos(); ++i) {
-					if (GC.getBuildInfo((BuildTypes)i).isFeatureRemove(eFeature)) {
+				for (BuildTypes eBuild = (BuildTypes)0; eBuild < GC.getNumBuildInfos(); eBuild = (BuildTypes)(eBuild + 1)) {
+					const CvBuildInfo& kLoopBuild = GC.getBuildInfo(eBuild);
+					if (GC.getBuildInfo(eBuild).isFeatureRemove(eFeature)) {
 						bEventuallyRemoveableFeature = true;
-						if (GET_TEAM(getTeam()).isHasTech((TechTypes)GC.getBuildInfo((BuildTypes)i).getTechPrereq())) {
+						if (GET_TEAM(getTeam()).isHasTech((TechTypes)GC.getBuildInfo(eBuild).getTechPrereq())) {
 							bRemoveableFeature = true;
 							break;
 						}
 					}
 				}
 
-				if (iI != CITY_HOME_PLOT && (!bRemoveableFeature || GC.getFeatureInfo(eFeature).getHealthPercent() > 0))
+				if (iLoopCityPlot != CITY_HOME_PLOT && (!bRemoveableFeature || GC.getFeatureInfo(eFeature).getHealthPercent() > 0)) {
 					iHealth += GC.getFeatureInfo(eFeature).getHealthPercent(); // note, this will be reduced by some factor before being added to the total value.
+				}
+
+				if (GC.getFeatureInfo(eFeature).isUnique()) {
+					bNaturalWonder = true;
+				}
 			}
 
 			// K-Mod note: iClaimThreshold is bigger for bEasyCulture and bAmbitious civs.
@@ -2082,12 +2095,12 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 			}
 
 			if (eBonus != NO_BONUS) {
-				for (int iImprovement = 0; iImprovement < GC.getNumImprovementInfos(); ++iImprovement) {
-					CvImprovementInfo& kImprovement = GC.getImprovementInfo((ImprovementTypes)iImprovement);
+				for (ImprovementTypes eImprovement = (ImprovementTypes)0; eImprovement < GC.getNumImprovementInfos(); eImprovement = (ImprovementTypes)(eImprovement + 1)) {
+					CvImprovementInfo& kImprovement = GC.getImprovementInfo(eImprovement);
 
 					if (kImprovement.isImprovementBonusTrade(eBonus)) // K-Mod. (!!)
 					{
-						eBonusImprovement = (ImprovementTypes)iImprovement;
+						eBonusImprovement = eImprovement;
 						break;
 					}
 				}
@@ -2095,11 +2108,10 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 
 			int aiYield[NUM_YIELD_TYPES];
 
-			for (int iYieldType = 0; iYieldType < NUM_YIELD_TYPES; ++iYieldType) {
-				YieldTypes eYield = (YieldTypes)iYieldType;
+			for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 				aiYield[eYield] = pLoopPlot->calculateNatureYield(eYield, getTeam(), bEventuallyRemoveableFeature); // K-Mod
 
-				if (iI == CITY_HOME_PLOT) {
+				if (iLoopCityPlot == CITY_HOME_PLOT) {
 					// (this section has been rewritten for K-Mod. The original code was bork.)
 					int iBasePlotYield = aiYield[eYield];
 
@@ -2142,12 +2154,34 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 				}
 			}
 			// K-Mod. add non city plot production to the base production count. (city plot has already been counted)
-			if (iI != CITY_HOME_PLOT)
+			if (iLoopCityPlot != CITY_HOME_PLOT) {
 				iBaseProduction += aiYield[YIELD_PRODUCTION];
-			//
+			}
+
+			// Natural Wonders value is driven by the free building they provide
+			// When starting any natural wonder is a good thing so add a significant value for it
+			// For simplicity we will evaluate this based on the capital if we have one using the existing AI code
+			if (bNaturalWonder) {
+				if (kSet.bStartingLoc) {
+					iPlotValue += 5000;
+				} else {
+					for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+						const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+						for (int iIndex = 0; iIndex < kBuilding.getNumPrereqVicinityFeatures(); iIndex++) {
+							if (kBuilding.getPrereqVicinityFeature(iIndex) == pLoopPlot->getFeatureType()) {
+								CvCity* pCapital = getCapitalCity();
+								if (pCapital) {
+									iPlotValue += (2 * pCapital->AI_buildingValue(eBuilding));
+								}
+								break;
+							}
+						}
+					}
+				}
+			}
 
 			// (note: these numbers have been adjusted for K-Mod)
-			if (iI == CITY_HOME_PLOT || aiYield[YIELD_FOOD] >= GC.getFOOD_CONSUMPTION_PER_POPULATION()) {
+			if (iLoopCityPlot == CITY_HOME_PLOT || aiYield[YIELD_FOOD] >= GC.getFOOD_CONSUMPTION_PER_POPULATION()) {
 				iPlotValue += 10;
 				iPlotValue += aiYield[YIELD_FOOD] * 40;
 				iPlotValue += aiYield[YIELD_PRODUCTION] * 30;
@@ -2176,7 +2210,7 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 				}
 			} else // is land
 			{
-				if (iI != CITY_HOME_PLOT)
+				if (iLoopCityPlot != CITY_HOME_PLOT)
 					iBaseProduction += pLoopPlot->isHills() ? 2 : 1;
 
 				if (pLoopPlot->isRiver()) {
@@ -2226,7 +2260,7 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 
 					if (!kSet.bStartingLoc) {
 						// K-Mod. (original code deleted)
-						if (iI != CITY_HOME_PLOT) {
+						if (iLoopCityPlot != CITY_HOME_PLOT) {
 							if (pLoopPlot->isWater())
 								iBonusValue /= 2;
 
@@ -2242,7 +2276,7 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 
 					iResourceValue += iBonusValue; // K-Mod
 
-					if (iI != CITY_HOME_PLOT) {
+					if (iLoopCityPlot != CITY_HOME_PLOT) {
 						if (eBonusImprovement != NO_IMPROVEMENT) {
 							int iSpecialFoodTemp;
 							iSpecialFoodTemp = pLoopPlot->calculateBestNatureYield(YIELD_FOOD, getTeam()) + GC.getImprovementInfo(eBonusImprovement).getImprovementBonusYield(eBonus, YIELD_FOOD);
@@ -2261,7 +2295,7 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 							iValue += (bIsCoastal ? 0 : -800); // (was ? 100 : -800)
 					}
 				} // end if usable bonus
-				if (eBonusImprovement == NO_IMPROVEMENT && iI != CITY_HOME_PLOT) {
+				if (eBonusImprovement == NO_IMPROVEMENT && iLoopCityPlot != CITY_HOME_PLOT) {
 					// non bonus related special food. (Note: the city plot is counted elsewhere.)
 					int iEffectiveFood = aiYield[YIELD_FOOD];
 
@@ -2387,10 +2421,10 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 			int iBonuses = 0;
 			int iTypes = 0;
 			int iPlayers = pArea->getNumStartingPlots();
-			for (BonusTypes i = (BonusTypes)0; i < GC.getNumBonusInfos(); i = (BonusTypes)(i + 1)) {
-				if (pArea->getNumBonuses(i) > 0) {
-					iBonuses += 100 * pArea->getNumBonuses(i) / std::max(2, iPlayers + 1);
-					iTypes += std::min(100, 100 * pArea->getNumBonuses(i) / std::max(2, iPlayers + 1));
+			for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
+				if (pArea->getNumBonuses(eBonus) > 0) {
+					iBonuses += 100 * pArea->getNumBonuses(eBonus) / std::max(2, iPlayers + 1);
+					iTypes += std::min(100, 100 * pArea->getNumBonuses(eBonus) / std::max(2, iPlayers + 1));
 				}
 			}
 			// bonus for resources per player on the continent
@@ -2409,10 +2443,11 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 			int iMinDistanceFactor = MAX_INT;
 			int iMinRange = startingPlotRange();
 
-			for (int iJ = 0; iJ < MAX_CIV_PLAYERS; iJ++) {
-				if (GET_PLAYER((PlayerTypes)iJ).isAlive()) {
-					if (iJ != getID()) {
-						int iClosenessFactor = GET_PLAYER((PlayerTypes)iJ).startingPlotDistanceFactor(pPlot, getID(), iMinRange);
+			for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+				const CvPlayer& kLoopPlayer = GET_PLAYER(ePlayer);
+				if (kLoopPlayer.isAlive()) {
+					if (ePlayer != getID()) {
+						int iClosenessFactor = kLoopPlayer.startingPlotDistanceFactor(pPlot, getID(), iMinRange);
 						iMinDistanceFactor = std::min(iClosenessFactor, iMinDistanceFactor);
 
 						if (iClosenessFactor < 1000) {
@@ -2479,14 +2514,14 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 		CvCity* pCapital = getCapitalCity();
 		int iMaxDistanceFromCapital = 0;
 
-		for (PlayerTypes i = (PlayerTypes)0; i < MAX_CIV_PLAYERS; i = (PlayerTypes)(i + 1)) {
-			const CvPlayer& kLoopPlayer = GET_PLAYER(i);
-			if (pArea->getCitiesPerPlayer(i) > 0 && GET_TEAM(getTeam()).isHasMet(kLoopPlayer.getTeam()) && !GET_TEAM(kLoopPlayer.getTeam()).isVassal(getTeam())) {
+		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+			const CvPlayer& kLoopPlayer = GET_PLAYER(ePlayer);
+			if (pArea->getCitiesPerPlayer(ePlayer) > 0 && GET_TEAM(getTeam()).isHasMet(kLoopPlayer.getTeam()) && !GET_TEAM(kLoopPlayer.getTeam()).isVassal(getTeam())) {
 				int iProximity = 0;
 
 				int iLoop;
 				for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop)) {
-					if (i == getID()) {
+					if (ePlayer == getID()) {
 						if (pCapital)
 							iMaxDistanceFromCapital = std::max(iMaxDistanceFromCapital, plotDistance(pCapital->plot(), pLoopCity->plot()));
 					}
@@ -2494,7 +2529,7 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 					if (pLoopCity->getArea() == pArea->getID()) {
 						int iDistance = plotDistance(iX, iY, pLoopCity->getX_INLINE(), pLoopCity->getY_INLINE());
 
-						if (i == getID()) {
+						if (ePlayer == getID()) {
 							if (!pNearestCity || iDistance < plotDistance(iX, iY, pNearestCity->getX_INLINE(), pNearestCity->getY_INLINE()))
 								pNearestCity = pLoopCity;
 						}
@@ -2608,9 +2643,9 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 	if (!kSet.bStartingLoc && getNumCities() > 0) {
 		int iBonusCount = 0;
 		int iUniqueBonusCount = 0;
-		for (int iI = 0; iI < GC.getNumBonusInfos(); iI++) {
-			iBonusCount += paiBonusCount[iI];
-			iUniqueBonusCount += (paiBonusCount[iI] > 0) ? 1 : 0;
+		for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
+			iBonusCount += paiBonusCount[eBonus];
+			iUniqueBonusCount += (paiBonusCount[eBonus] > 0) ? 1 : 0;
 		}
 		if (iBonusCount > 4) {
 			iValue *= 5;
