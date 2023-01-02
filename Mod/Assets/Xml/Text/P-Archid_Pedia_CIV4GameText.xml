@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <Civ4GameText xmlns="http://www.firaxis.com">
 	<TEXT>
+		<Tag>TXT_KEY_PEDIA_CREDITS</Tag>
+		<English>Credits</English>
+		<French>Credits</French>
+		<German>Credits</German>
+		<Italian>Credits</Italian>
+		<Spanish>Credits</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_COST</Tag>
+		<English>Cost</English>
+		<French>Cost</French>
+		<German>Cost</German>
+		<Italian>Cost</Italian>
+		<Spanish>Cost</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PEDIA_SPECIAL</Tag>
+		<English>Special</English>
+		<French>Special</French>
+		<German>Special</German>
+		<Italian>Special</Italian>
+		<Spanish>Special</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LOCAL</Tag>
+		<English>Local</English>
+		<French>Local</French>
+		<German>Local</German>
+		<Italian>Local</Italian>
+		<Spanish>Local</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_PEDIA_FIRST_BENEFITS</Tag>
 		<English>First Benefits</English>
 		<French>First Benefits</French>
