@@ -337,6 +337,8 @@ public:
 	bool isRiverTrade() const;							// Exposed to Python
 	bool isUnitRangeUnbound() const;
 	bool isUnitTerritoryUnbound() const;
+	bool isCaptureCities() const;
+
 	bool hasAnyForestPlotYieldChange() const;
 	bool hasAnyRiverPlotYieldChange() const;
 	bool hasAnySeaPlotYieldChange() const;
@@ -417,6 +419,7 @@ protected:
 	bool m_bRiverTrade;
 	bool m_bUnitRangeUnbound;
 	bool m_bUnitTerritoryUnbound;
+	bool m_bCaptureCities;
 
 	CvString m_szQuoteKey;
 	CvString m_szSound;

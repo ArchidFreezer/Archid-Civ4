@@ -89,6 +89,7 @@ void CyInfoPythonInterface1() {
 		.def("isRiverTrade", &CvTechInfo::isRiverTrade, "bool ()")
 		.def("isUnitRangeUnbound", &CvTechInfo::isUnitRangeUnbound, "bool ()")
 		.def("isUnitTerritoryUnbound", &CvTechInfo::isUnitTerritoryUnbound, "bool ()")
+		.def("isCaptureCities", &CvTechInfo::isCaptureCities, "bool ()")
 
 		.def("hasAnyForestPlotYieldChange", &CvTechInfo::hasAnyForestPlotYieldChange, "bool ()")
 		.def("hasAnyRiverPlotYieldChange", &CvTechInfo::hasAnyRiverPlotYieldChange, "bool ()")

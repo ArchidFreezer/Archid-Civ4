@@ -595,6 +595,9 @@ void CvDLLWidgetData::parseHelp(CvWStringBuffer& szBuffer, CvWidgetDataStruct& w
 	case WIDGET_HELP_SEA_YIELD_CHANGE:
 		parseSeaYieldChangeHelp(widgetDataStruct, szBuffer);
 		break;
+	case WIDGET_HELP_CAPTURE_CITIES:
+		parseCaptureCitiesHelp(widgetDataStruct, szBuffer);
+		break;
 	}
 }
 
@@ -910,6 +913,7 @@ bool CvDLLWidgetData::executeAction(CvWidgetDataStruct& widgetDataStruct) {
 	case WIDGET_HELP_FOREST_YIELD_CHANGE:
 	case WIDGET_HELP_RIVER_YIELD_CHANGE:
 	case WIDGET_HELP_SEA_YIELD_CHANGE:
+	case WIDGET_HELP_CAPTURE_CITIES:
 		//	Nothing on clicked
 		break;
 	}
@@ -4548,4 +4552,8 @@ void CvDLLWidgetData::parseRiverYieldChangeHelp(CvWidgetDataStruct& widgetDataSt
 
 void CvDLLWidgetData::parseSeaYieldChangeHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
 	GAMETEXT.buildSeaYieldChangeString(szBuffer, (TechTypes)widgetDataStruct.m_iData1);
+}
+
+void CvDLLWidgetData::parseCaptureCitiesHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
+	GAMETEXT.buildCaptureCitiesString(szBuffer, ((TechTypes)(widgetDataStruct.m_iData1)));
 }

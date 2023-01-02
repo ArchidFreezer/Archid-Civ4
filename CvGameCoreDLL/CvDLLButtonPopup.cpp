@@ -1200,10 +1200,13 @@ bool CvDLLButtonPopup::launchRazeCityPopup(CvPopup* pPopup, CvPopupInfo& info) {
 		szBuffer = gDLL->getText("TXT_KEY_POPUP_CITY_CAPTURE_KEEP", pNewCity->getNameKey());
 	}
 	gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, szBuffer);
-	if (kPlayer.canAddNewCity()) {
+	gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_POPUP_KEEP_CAPTURED_CITY").c_str(), NULL, 0, WIDGET_GENERAL);
+
+	bool bCanCapture = kPlayer.canCaptureCities();
+	if (bCanCapture) {
 		gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_POPUP_KEEP_CAPTURED_CITY").c_str(), NULL, 0, WIDGET_GENERAL);
 	}
-	if (bRaze || !kPlayer.canAddNewCity()) {
+	if (bRaze || !bCanCapture) {
 		gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_POPUP_RAZE_CAPTURED_CITY").c_str(), NULL, 1, WIDGET_GENERAL);
 	}
 	if (bGift) {

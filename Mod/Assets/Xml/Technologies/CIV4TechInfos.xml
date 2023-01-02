@@ -1826,6 +1826,7 @@
 			<bGoodyTech>1</bGoodyTech>
 			<iGridX>1</iGridX>
 			<iGridY>7</iGridY>
+			<bCaptureCities>1</bCaptureCities>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>

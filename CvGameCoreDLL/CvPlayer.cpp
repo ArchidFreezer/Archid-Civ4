@@ -18446,3 +18446,17 @@ void CvPlayer::changeFractionalCombatExperience(int iChange) {
 	changeCombatExperience(iNewXP);
 	m_iFractionalCombatExperience -= iNewXP * 100;
 }
+
+bool CvPlayer::canCaptureCities() const {
+	if (!canAddNewCity())
+		return false;
+
+	for (TechTypes eTech = (TechTypes)0; eTech < GC.getNumTechInfos(); eTech = (TechTypes)(eTech + 1)) {
+		if (GC.getTechInfo(eTech).isCaptureCities() && GET_TEAM(getTeam()).isHasTech(eTech)) {
+			return true;
+		}
+	}
+
+	return false;
+}
+

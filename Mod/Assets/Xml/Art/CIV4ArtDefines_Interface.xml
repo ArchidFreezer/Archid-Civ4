@@ -1625,5 +1625,9 @@
 			<Type>INTERFACE_BUTTON_COAST</Type>
 			<Path>Art/Interface/Buttons/BaseTerrain/Coast.dds</Path>
 		</InterfaceArtInfo>
+		<InterfaceArtInfo>
+			<Type>INTERFACE_CAPTURE_CITIES_BUTTON</Type>
+			<Path>Art/Interface/Buttons/Actions/foundcity.dds</Path>
+		</InterfaceArtInfo>
 	</InterfaceArtInfos>
 </Civ4ArtDefines>

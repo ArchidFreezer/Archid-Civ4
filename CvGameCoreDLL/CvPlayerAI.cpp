@@ -1070,177 +1070,183 @@ void CvPlayerAI::AI_makeProductionDirty() {
 
 void CvPlayerAI::AI_conquerCity(CvCity* pCity) {
 	bool bRaze = false;
-	const CvPlayer& kPreviousOwner = GET_PLAYER(pCity->getPreviousOwner());
 
-	if (canRaze(pCity)) {
-		int iRazeValue = 0;
-		int iCloseness = pCity->AI_playerCloseness(getID());
+	// If we cant capture cities all we can do is raze it
+	if (!canCaptureCities()) {
+		bRaze = true;
+	} else {
+		const CvPlayer& kPreviousOwner = GET_PLAYER(pCity->getPreviousOwner());
 
-		// Reasons to always raze
-		if (2 * pCity->getCulture(pCity->getPreviousOwner()) > pCity->getCultureThreshold(GC.getGameINLINE().culturalVictoryCultureLevel())) {
-			CvCity* pLoopCity;
-			int iLoop;
-			int iHighCultureCount = 1;
+		if (canRaze(pCity)) {
+			int iRazeValue = 0;
+			int iCloseness = pCity->AI_playerCloseness(getID());
 
-			for (pLoopCity = kPreviousOwner.firstCity(&iLoop); pLoopCity != NULL; pLoopCity = kPreviousOwner.nextCity(&iLoop)) {
-				if (2 * pLoopCity->getCulture(pCity->getPreviousOwner()) > pLoopCity->getCultureThreshold(GC.getGameINLINE().culturalVictoryCultureLevel())) {
-					iHighCultureCount++;
-					if (iHighCultureCount >= GC.getGameINLINE().culturalVictoryNumCultureCities()) {
-						//Raze city enemy needs for cultural victory unless we greatly over power them
-						logBBAI("  Razing enemy cultural victory city");
+			// Reasons to always raze
+			if (2 * pCity->getCulture(pCity->getPreviousOwner()) > pCity->getCultureThreshold(GC.getGameINLINE().culturalVictoryCultureLevel())) {
+				CvCity* pLoopCity;
+				int iLoop;
+				int iHighCultureCount = 1;
+
+				for (pLoopCity = kPreviousOwner.firstCity(&iLoop); pLoopCity != NULL; pLoopCity = kPreviousOwner.nextCity(&iLoop)) {
+					if (2 * pLoopCity->getCulture(pCity->getPreviousOwner()) > pLoopCity->getCultureThreshold(GC.getGameINLINE().culturalVictoryCultureLevel())) {
+						iHighCultureCount++;
+						if (iHighCultureCount >= GC.getGameINLINE().culturalVictoryNumCultureCities()) {
+							//Raze city enemy needs for cultural victory unless we greatly over power them
+							logBBAI("  Razing enemy cultural victory city");
+							bRaze = true;
+						}
+					}
+				}
+			}
+
+			if (!bRaze) {
+				// Reasons to not raze
+				if ((getNumCities() <= 1) || (getNumCities() < 5 && iCloseness > 0)) {
+					if (gPlayerLogLevel >= 1) {
+						logBBAI("    Player %d (%S) decides not to raze %S because they have few cities", getID(), getCivilizationDescription(0), pCity->getName().GetCString());
+					}
+				} else if (AI_isDoVictoryStrategy(AI_VICTORY_DOMINATION3) && GET_TEAM(getTeam()).AI_isPrimaryArea(pCity->area())) {
+					// Do not raze, going for domination
+					if (gPlayerLogLevel >= 1) {
+						logBBAI("    Player %d (%S) decides not to raze %S because they're going for domination", getID(), getCivilizationDescription(0), pCity->getName().GetCString());
+					}
+				} else if (isBarbarian()) {
+					if (!(pCity->isHolyCity()) && !(pCity->hasActiveWorldWonder())) {
+						if ((pCity->getPreviousOwner() != BARBARIAN_PLAYER) && (pCity->getOriginalOwner() != BARBARIAN_PLAYER)) {
+							iRazeValue += GC.getLeaderHeadInfo(getPersonalityType()).getRazeCityProb();
+							iRazeValue -= iCloseness;
+						}
+					}
+				} else {
+					bool bFinancialTrouble = AI_isFinancialTrouble();
+					bool bBarbCity = (pCity->getPreviousOwner() == BARBARIAN_PLAYER) && (pCity->getOriginalOwner() == BARBARIAN_PLAYER);
+					bool bPrevOwnerBarb = (pCity->getPreviousOwner() == BARBARIAN_PLAYER);
+					bool bTotalWar = GET_TEAM(getTeam()).AI_getWarPlan(kPreviousOwner.getTeam()) == WARPLAN_TOTAL; // K-Mod
+
+					{
+						// K-Mod (moved this from above)
+						int iUnused;
+
+						if (pCity->area()->getNumCities() == 1 && AI_getNumAreaCitySites(pCity->area()->getID(), iUnused) == 0) {
+							// Probably small island
+							if (iCloseness == 0)
+								iRazeValue += 20;
+						}
+
+						// Distance related aspects
+						if (iCloseness > 0) {
+							iRazeValue -= iCloseness;
+						} else {
+							iRazeValue += 40;
+
+							CvCity* pNearestTeamAreaCity = GC.getMapINLINE().findCity(pCity->getX_INLINE(), pCity->getY_INLINE(), NO_PLAYER, getTeam(), true, false, NO_TEAM, NO_DIRECTION, pCity);
+
+							if (pNearestTeamAreaCity == NULL) {
+								if (bTotalWar && GET_TEAM(kPreviousOwner.getTeam()).AI_isPrimaryArea(pCity->area()))
+									iRazeValue += 5;
+								else
+									iRazeValue += 30;
+							} else {
+								int iDistance = plotDistance(pCity->getX_INLINE(), pCity->getY_INLINE(), pNearestTeamAreaCity->getX_INLINE(), pNearestTeamAreaCity->getY_INLINE());
+								iDistance -= DEFAULT_PLAYER_CLOSENESS + 2;
+								if (iDistance > 0) {
+									iRazeValue += iDistance * (bBarbCity ? 8 : 5);
+								}
+							}
+						}
+
+						if (bFinancialTrouble) {
+							iRazeValue += std::max(0, (70 - 15 * pCity->getPopulation()));
+						}
+
+						// Non-distance related aspects
+						iRazeValue += GC.getLeaderHeadInfo(getPersonalityType()).getRazeCityProb();
+
+						iRazeValue -= AI_isDoVictoryStrategy(AI_VICTORY_DOMINATION2) ? 20 : 0;
+
+						if (getStateReligion() != NO_RELIGION) {
+							if (pCity->isHasReligion(getStateReligion())) {
+								if (GET_TEAM(getTeam()).hasShrine(getStateReligion())) {
+									iRazeValue -= 50;
+
+									if (gPlayerLogLevel >= 1) {
+										logBBAI("      Reduction for state religion with shrine");
+									}
+								} else {
+									iRazeValue -= 10;
+
+									if (gPlayerLogLevel >= 1) {
+										logBBAI("      Reduction for state religion");
+									}
+								}
+							}
+						} else {
+							iRazeValue -= 5; // Free religion does not mean we hate everyone equally...
+						}
+					}
+
+
+					for (ReligionTypes eReligion = (ReligionTypes)0; eReligion < GC.getNumReligionInfos(); eReligion = (ReligionTypes)(eReligion + 1)) {
+						if (pCity->isHolyCity(eReligion)) {
+							logBBAI("      Reduction for holy city");
+							if (getStateReligion() == eReligion) {
+								iRazeValue -= 150;
+							} else {
+								iRazeValue -= 5 + GC.getGameINLINE().calculateReligionPercent(eReligion);
+							}
+						}
+					}
+
+					// corp HQ value.
+					for (CorporationTypes eCorporation = (CorporationTypes)0; eCorporation < GC.getNumCorporationInfos(); eCorporation = (CorporationTypes)(eCorporation + 1)) {
+						if (pCity->isHeadquarters(eCorporation)) {
+							logBBAI("      Reduction for corp headquarters");
+							iRazeValue -= 10 + 100 * GC.getGameINLINE().countCorporationLevels(eCorporation) / GC.getGameINLINE().getNumCities();
+						}
+					}
+					// great people
+					iRazeValue -= 2 * pCity->getNumGreatPeople();
+					iRazeValue += bBarbCity ? 5 : 0;
+
+					iRazeValue -= 15 * pCity->getNumActiveWorldWonders();
+
+					CvPlot* pLoopPlot = NULL;
+					for (int iI = 0; iI < pCity->getNumCityPlots(); iI++) {
+						pLoopPlot = plotCity(pCity->getX_INLINE(), pCity->getY_INLINE(), iI);
+
+						if (pLoopPlot != NULL) {
+							if (pLoopPlot->getBonusType(getTeam()) != NO_BONUS) {
+								iRazeValue -= std::max(2, AI_bonusVal(pLoopPlot->getBonusType(getTeam()), 1, true) / 2);
+							}
+						}
+					}
+
+					// More inclined to raze if we're unlikely to hold it
+					if (GET_TEAM(getTeam()).getPower(false) * 10 < GET_TEAM(kPreviousOwner.getTeam()).getPower(true) * 8) {
+						int iTempValue = 20;
+						iTempValue *= (GET_TEAM(kPreviousOwner.getTeam()).getPower(true) - GET_TEAM(getTeam()).getPower(false));
+						iTempValue /= std::max(100, GET_TEAM(getTeam()).getPower(false));
+
+						logBBAI("      Low power, so boost raze odds by %d", std::min(75, iTempValue));
+
+						iRazeValue += std::min(75, iTempValue);
+					}
+
+					if (gPlayerLogLevel >= 1) {
+						if (bBarbCity) logBBAI("      %S is a barb city", pCity->getName().GetCString());
+						if (bPrevOwnerBarb) logBBAI("      %S was last owned by barbs", pCity->getName().GetCString());
+						logBBAI("      %S has area cities %d, closeness %d, bFinTrouble %d", pCity->getName().GetCString(), GET_TEAM(getTeam()).countNumCitiesByArea(pCity->area()), iCloseness, bFinancialTrouble);
+					}
+				}
+
+				if (gPlayerLogLevel >= 1) {
+					logBBAI("    Player %d (%S) has odds %d to raze city %S", getID(), getCivilizationDescription(0), iRazeValue, pCity->getName().GetCString());
+				}
+
+				if (iRazeValue > 0) {
+					if (GC.getGameINLINE().getSorenRandNum(100, "AI Raze City") < iRazeValue) {
 						bRaze = true;
 					}
-				}
-			}
-		}
-
-		if (!bRaze) {
-			// Reasons to not raze
-			if ((getNumCities() <= 1) || (getNumCities() < 5 && iCloseness > 0)) {
-				if (gPlayerLogLevel >= 1) {
-					logBBAI("    Player %d (%S) decides not to raze %S because they have few cities", getID(), getCivilizationDescription(0), pCity->getName().GetCString());
-				}
-			} else if (AI_isDoVictoryStrategy(AI_VICTORY_DOMINATION3) && GET_TEAM(getTeam()).AI_isPrimaryArea(pCity->area())) {
-				// Do not raze, going for domination
-				if (gPlayerLogLevel >= 1) {
-					logBBAI("    Player %d (%S) decides not to raze %S because they're going for domination", getID(), getCivilizationDescription(0), pCity->getName().GetCString());
-				}
-			} else if (isBarbarian()) {
-				if (!(pCity->isHolyCity()) && !(pCity->hasActiveWorldWonder())) {
-					if ((pCity->getPreviousOwner() != BARBARIAN_PLAYER) && (pCity->getOriginalOwner() != BARBARIAN_PLAYER)) {
-						iRazeValue += GC.getLeaderHeadInfo(getPersonalityType()).getRazeCityProb();
-						iRazeValue -= iCloseness;
-					}
-				}
-			} else {
-				bool bFinancialTrouble = AI_isFinancialTrouble();
-				bool bBarbCity = (pCity->getPreviousOwner() == BARBARIAN_PLAYER) && (pCity->getOriginalOwner() == BARBARIAN_PLAYER);
-				bool bPrevOwnerBarb = (pCity->getPreviousOwner() == BARBARIAN_PLAYER);
-				bool bTotalWar = GET_TEAM(getTeam()).AI_getWarPlan(kPreviousOwner.getTeam()) == WARPLAN_TOTAL; // K-Mod
-
-				{
-					// K-Mod (moved this from above)
-					int iUnused;
-
-					if (pCity->area()->getNumCities() == 1 && AI_getNumAreaCitySites(pCity->area()->getID(), iUnused) == 0) {
-						// Probably small island
-						if (iCloseness == 0)
-							iRazeValue += 20;
-					}
-
-					// Distance related aspects
-					if (iCloseness > 0) {
-						iRazeValue -= iCloseness;
-					} else {
-						iRazeValue += 40;
-
-						CvCity* pNearestTeamAreaCity = GC.getMapINLINE().findCity(pCity->getX_INLINE(), pCity->getY_INLINE(), NO_PLAYER, getTeam(), true, false, NO_TEAM, NO_DIRECTION, pCity);
-
-						if (pNearestTeamAreaCity == NULL) {
-							if (bTotalWar && GET_TEAM(kPreviousOwner.getTeam()).AI_isPrimaryArea(pCity->area()))
-								iRazeValue += 5;
-							else
-								iRazeValue += 30;
-						} else {
-							int iDistance = plotDistance(pCity->getX_INLINE(), pCity->getY_INLINE(), pNearestTeamAreaCity->getX_INLINE(), pNearestTeamAreaCity->getY_INLINE());
-							iDistance -= DEFAULT_PLAYER_CLOSENESS + 2;
-							if (iDistance > 0) {
-								iRazeValue += iDistance * (bBarbCity ? 8 : 5);
-							}
-						}
-					}
-
-					if (bFinancialTrouble) {
-						iRazeValue += std::max(0, (70 - 15 * pCity->getPopulation()));
-					}
-
-					// Non-distance related aspects
-					iRazeValue += GC.getLeaderHeadInfo(getPersonalityType()).getRazeCityProb();
-
-					iRazeValue -= AI_isDoVictoryStrategy(AI_VICTORY_DOMINATION2) ? 20 : 0;
-
-					if (getStateReligion() != NO_RELIGION) {
-						if (pCity->isHasReligion(getStateReligion())) {
-							if (GET_TEAM(getTeam()).hasShrine(getStateReligion())) {
-								iRazeValue -= 50;
-
-								if (gPlayerLogLevel >= 1) {
-									logBBAI("      Reduction for state religion with shrine");
-								}
-							} else {
-								iRazeValue -= 10;
-
-								if (gPlayerLogLevel >= 1) {
-									logBBAI("      Reduction for state religion");
-								}
-							}
-						}
-					} else {
-						iRazeValue -= 5; // Free religion does not mean we hate everyone equally...
-					}
-				}
-
-
-				for (ReligionTypes eReligion = (ReligionTypes)0; eReligion < GC.getNumReligionInfos(); eReligion = (ReligionTypes)(eReligion + 1)) {
-					if (pCity->isHolyCity(eReligion)) {
-						logBBAI("      Reduction for holy city");
-						if (getStateReligion() == eReligion) {
-							iRazeValue -= 150;
-						} else {
-							iRazeValue -= 5 + GC.getGameINLINE().calculateReligionPercent(eReligion);
-						}
-					}
-				}
-
-				// corp HQ value.
-				for (CorporationTypes eCorporation = (CorporationTypes)0; eCorporation < GC.getNumCorporationInfos(); eCorporation = (CorporationTypes)(eCorporation + 1)) {
-					if (pCity->isHeadquarters(eCorporation)) {
-						logBBAI("      Reduction for corp headquarters");
-						iRazeValue -= 10 + 100 * GC.getGameINLINE().countCorporationLevels(eCorporation) / GC.getGameINLINE().getNumCities();
-					}
-				}
-				// great people
-				iRazeValue -= 2 * pCity->getNumGreatPeople();
-				iRazeValue += bBarbCity ? 5 : 0;
-
-				iRazeValue -= 15 * pCity->getNumActiveWorldWonders();
-
-				CvPlot* pLoopPlot = NULL;
-				for (int iI = 0; iI < pCity->getNumCityPlots(); iI++) {
-					pLoopPlot = plotCity(pCity->getX_INLINE(), pCity->getY_INLINE(), iI);
-
-					if (pLoopPlot != NULL) {
-						if (pLoopPlot->getBonusType(getTeam()) != NO_BONUS) {
-							iRazeValue -= std::max(2, AI_bonusVal(pLoopPlot->getBonusType(getTeam()), 1, true) / 2);
-						}
-					}
-				}
-
-				// More inclined to raze if we're unlikely to hold it
-				if (GET_TEAM(getTeam()).getPower(false) * 10 < GET_TEAM(kPreviousOwner.getTeam()).getPower(true) * 8) {
-					int iTempValue = 20;
-					iTempValue *= (GET_TEAM(kPreviousOwner.getTeam()).getPower(true) - GET_TEAM(getTeam()).getPower(false));
-					iTempValue /= std::max(100, GET_TEAM(getTeam()).getPower(false));
-
-					logBBAI("      Low power, so boost raze odds by %d", std::min(75, iTempValue));
-
-					iRazeValue += std::min(75, iTempValue);
-				}
-
-				if (gPlayerLogLevel >= 1) {
-					if (bBarbCity) logBBAI("      %S is a barb city", pCity->getName().GetCString());
-					if (bPrevOwnerBarb) logBBAI("      %S was last owned by barbs", pCity->getName().GetCString());
-					logBBAI("      %S has area cities %d, closeness %d, bFinTrouble %d", pCity->getName().GetCString(), GET_TEAM(getTeam()).countNumCitiesByArea(pCity->area()), iCloseness, bFinancialTrouble);
-				}
-			}
-
-			if (gPlayerLogLevel >= 1) {
-				logBBAI("    Player %d (%S) has odds %d to raze city %S", getID(), getCivilizationDescription(0), iRazeValue, pCity->getName().GetCString());
-			}
-
-			if (iRazeValue > 0) {
-				if (GC.getGameINLINE().getSorenRandNum(100, "AI Raze City") < iRazeValue) {
-					bRaze = true;
 				}
 			}
 		}

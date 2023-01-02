@@ -45,6 +45,7 @@ public:
 	void changeCiv(CivilizationTypes eNewCiv);
 	void setIsHuman(bool bNewValue);
 
+	bool canCaptureCities() const;
 protected:
 
 	void uninit();

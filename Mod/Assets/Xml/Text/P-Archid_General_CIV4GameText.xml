@@ -39,6 +39,17 @@
 		<Tag>TXT_KEY_TECH_CHANGE_SEA_YIELD</Tag>
 		<English>[ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Sea[COLOR_REVERT] provides</English>
 	</TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TECH_ALLOW_CITY_CAPTURE</Tag>
+    <English>[ICON_BULLET]Can [COLOR_HIGHLIGHT_TEXT]Capture Cities[COLOR_REVERT]</English>
+    <Spanish>[ICON_BULLET]Puedes [COLOR_HIGHLIGHT_TEXT]Capturar Ciudades[COLOR_REVERT]</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TECH_CAPTURE_CITIES_HELP</Tag>
+    <English>[ICON_BULLET]Can Capture Cities</English>
+    <Spanish>[ICON_BULLET]Puede Capturar Ciudades</Spanish>
+  </TEXT>
+
 <!-- Unofficial Patch -->
 	<TEXT>
 		<Tag>TXT_KEY_TERRAIN_TURN_DAMAGE</Tag>

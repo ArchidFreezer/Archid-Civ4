@@ -21,6 +21,7 @@ public:
 	CvPlayer* getPlayer() { return m_pPlayer; }	// Call from C++
 	bool isNone() { return (m_pPlayer == NULL); }
 
+	bool canCaptureCities();
 	void setHasTrait(int /*TraitTypes*/ iIndex, bool bNewValue);
 
 	void changeLeader(int /*LeaderHeadTypes*/ eNewLeader);

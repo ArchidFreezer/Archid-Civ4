@@ -6652,6 +6652,11 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	setYieldChangeHelp(szBuffer, gDLL->getText("TXT_KEY_TECH_RIVER_PLOTS").c_str(), L": ", L"", kTech.getRiverPlotYieldChangeArray());
 	setYieldChangeHelp(szBuffer, gDLL->getText("TXT_KEY_TECH_SEA_PLOTS").c_str(), L": ", L"", kTech.getSeaPlotYieldChangeArray());
 
+	if (GC.getTechInfo(eTech).isCaptureCities()) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_TECH_ALLOW_CITY_CAPTURE"));
+	}
+
 	bool bFirst = true;
 	for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
 		bFirst = buildBonusRevealString(szBuffer, eTech, eBonus, bFirst, true, bPlayerContext);
@@ -15793,4 +15798,11 @@ void CvGameTextMgr::buildSeaYieldChangeString(CvWStringBuffer& szBuffer, TechTyp
 		szTempBuffer.Format(L"%s", gDLL->getText("TXT_KEY_TECH_CHANGE_SEA_YIELD").c_str());
 
 	setYieldChangeHelp(szBuffer, szTempBuffer, L": ", L"", GC.getTechInfo(eTech).getSeaPlotYieldChangeArray(), false, bList);
+}
+
+void CvGameTextMgr::buildCaptureCitiesString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
+	if (bList) {
+		szBuffer.append(NEWLINE);
+	}
+	szBuffer.append(gDLL->getText("TXT_KEY_TECH_CAPTURE_CITIES_HELP"));
 }
