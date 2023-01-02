@@ -188,6 +188,13 @@ class CvTechChooser:
 				else:
 					iItem = gc.getCivilizationInfo(iCivilization).getCivilizationUnits(Info.getFirstFreeUnitClass())
 				if iItem > -1:
+					self.TechBenefits[iTech].append(["FirstFreeUnit", iItem])
+			if Info.getFreeUnitClass() > -1:
+				if iCivilization == -1:
+					iItem = gc.getUnitClassInfo(Info.getFreeUnitClass()).getDefaultUnitIndex()
+				else:
+					iItem = gc.getCivilizationInfo(iCivilization).getCivilizationUnits(Info.getFreeUnitClass())
+				if iItem > -1:
 					self.TechBenefits[iTech].append(["FreeUnit", iItem])
 			if Info.getFeatureProductionModifier():
 				self.TechBenefits[iTech].append(["FeatureProduction", -1])
@@ -442,6 +449,8 @@ class CvTechChooser:
 					screen.addDDSGFCAt(sButton, szTechRecord, gc.getPromotionInfo(iItem).getButton(), iX + fX, iY + Y_ROW, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_PEDIA_JUMP_TO_PROMOTION, iItem, -1, False)
 				elif sType == "CaptureCities":
 					screen.addDDSGFCAt(sButton, szTechRecord, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_CAPTURE_CITIES_BUTTON").getPath(), iX + fX, iY + Y_ROW, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_HELP_CAPTURE_CITIES, iItem, -1, False)
+				elif sType == "FirstFreeUnit":
+					screen.addDDSGFCAt(sButton, szTechRecord, gc.getUnitInfo(iItem).getButton(), iX + fX, iY + Y_ROW, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_HELP_FIRST_FREE_UNIT, iItem, i, False)
 				elif sType == "FreeUnit":
 					screen.addDDSGFCAt(sButton, szTechRecord, gc.getUnitInfo(iItem).getButton(), iX + fX, iY + Y_ROW, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_HELP_FREE_UNIT, iItem, i, False)
 				elif sType == "FeatureProduction":

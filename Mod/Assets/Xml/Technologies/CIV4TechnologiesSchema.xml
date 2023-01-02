@@ -104,6 +104,7 @@
 		<element type="iYield" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="bCaptureCities" content="textOnly" dt:type="boolean"/>
+	<ElementType name="FreeUnitClass" content="textOnly"/>
 	<ElementType name="TechInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -118,6 +119,7 @@
 		<element type="iAdvancedStartCostIncrease" minOccurs="0"/>
 		<element type="Era"/>
 		<element type="FirstFreeUnitClass" minOccurs="0"/>
+		<element type="FreeUnitClass" minOccurs="0"/>
 		<element type="iFeatureProductionModifier" minOccurs="0"/>
 		<element type="iWorkerSpeedModifier" minOccurs="0"/>
 		<element type="iTradeRoutes" minOccurs="0"/>

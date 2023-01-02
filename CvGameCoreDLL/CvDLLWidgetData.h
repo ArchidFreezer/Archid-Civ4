@@ -134,6 +134,7 @@ public:
 	void parseObsoleteBonusString(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer);
 	void parseObsoleteSpecialHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer);
 	void parseMoveHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer);
+	void parseFirstFreeUnitHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer);
 	void parseFreeUnitHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer);
 	void parseFeatureProductionHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer);
 	void parseWorkerRateHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer);

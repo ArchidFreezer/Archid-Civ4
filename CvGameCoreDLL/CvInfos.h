@@ -305,6 +305,7 @@ public:
 	int getFeatureProductionModifier() const;	// Exposed to Python
 	int getWorkerSpeedModifier() const;		// Exposed to Python
 	int getFirstFreeUnitClass() const;		// Exposed to Python
+	int getFreeUnitClass() const;
 	int getHealth() const;								// Exposed to Python
 	int getHappiness() const;							// Exposed to Python
 	int getFirstFreeTechs() const;				// Exposed to Python
@@ -387,6 +388,7 @@ protected:
 	int m_iFeatureProductionModifier;
 	int m_iWorkerSpeedModifier;
 	int m_iFirstFreeUnitClass;
+	int m_iFreeUnitClass;
 	int m_iHealth;
 	int m_iHappiness;
 	int m_iFirstFreeTechs;

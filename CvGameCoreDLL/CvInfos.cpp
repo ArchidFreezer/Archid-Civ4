@@ -819,6 +819,7 @@ CvTechInfo::CvTechInfo() :
 	m_iFeatureProductionModifier(0),
 	m_iWorkerSpeedModifier(0),
 	m_iFirstFreeUnitClass(NO_UNITCLASS),
+	m_iFreeUnitClass(NO_UNITCLASS),
 	m_iHealth(0),
 	m_iHappiness(0),
 	m_iFirstFreeTechs(0),
@@ -1007,6 +1008,10 @@ int CvTechInfo::getFirstFreeUnitClass() const {
 	return m_iFirstFreeUnitClass;
 }
 
+int CvTechInfo::getFreeUnitClass() const {
+	return m_iFreeUnitClass;
+}
+
 int CvTechInfo::getHealth() const {
 	return m_iHealth;
 }
@@ -1179,6 +1184,7 @@ void CvTechInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iAdvancedStartCostIncrease);
 	stream->Read(&m_iEra);
 	stream->Read(&m_iFirstFreeUnitClass);
+	stream->Read(&m_iFreeUnitClass);
 	stream->Read(&m_iFeatureProductionModifier);
 	stream->Read(&m_iWorkerSpeedModifier);
 	stream->Read(&m_iTradeRoutes);
@@ -1269,6 +1275,7 @@ void CvTechInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iAdvancedStartCostIncrease);
 	stream->Write(m_iEra);
 	stream->Write(m_iFirstFreeUnitClass);
+	stream->Write(m_iFreeUnitClass);
 	stream->Write(m_iFeatureProductionModifier);
 	stream->Write(m_iWorkerSpeedModifier);
 	stream->Write(m_iTradeRoutes);
@@ -1339,6 +1346,8 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(szTextVal, "FirstFreeUnitClass");
 	m_iFirstFreeUnitClass = pXML->FindInInfoClass(szTextVal);
+	pXML->GetChildXmlValByName(szTextVal, "FreeUnitClass");
+	m_iFreeUnitClass = pXML->FindInInfoClass(szTextVal);
 
 	pXML->GetChildXmlValByName(&m_iFeatureProductionModifier, "iFeatureProductionModifier");
 	pXML->GetChildXmlValByName(&m_iWorkerSpeedModifier, "iWorkerSpeedModifier");

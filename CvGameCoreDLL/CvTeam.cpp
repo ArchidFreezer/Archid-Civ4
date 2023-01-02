@@ -4174,11 +4174,10 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 
 			if (bFirst) {
 				if (GC.getGameINLINE().countKnownTechNumTeams(eIndex) == 1) {
-					UnitTypes eFreeUnit = GET_PLAYER(ePlayer).getTechFreeUnit(eIndex);
+					UnitTypes eFreeUnit = GET_PLAYER(ePlayer).getTechFreeUnit(eIndex, true);
 					if (eFreeUnit != NO_UNIT) {
 						bFirstBonus = true;
 						CvCity* pCapitalCity = GET_PLAYER(ePlayer).getCapitalCity();
-
 						if (pCapitalCity != NULL) {
 							pCapitalCity->createGreatPeople(eFreeUnit, false, false);
 						}
@@ -4873,6 +4872,17 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 			kPlayer.changeAssets(kTech.getAssetValue() * iChange);
 			kPlayer.changePower(kTech.getPowerValue() * iChange);
 			kPlayer.changeTechScore(getTechScore(eTech) * iChange);
+
+			UnitTypes eFreeUnit = kPlayer.getTechFreeUnit(eTech, false);
+			if (eFreeUnit != NO_UNIT) {
+				CvCity* pCapitalCity = kPlayer.getCapitalCity();
+				if (pCapitalCity != NULL) {
+					if (GC.getUnitInfo(eFreeUnit).isGoldenAge())
+						pCapitalCity->createGreatPeople(eFreeUnit, false, false);
+					else
+						kPlayer.initUnit(eFreeUnit, pCapitalCity->getX_INLINE(), pCapitalCity->getY_INLINE());
+				}
+			}
 
 			bool bYieldUpdated = false;
 			for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {

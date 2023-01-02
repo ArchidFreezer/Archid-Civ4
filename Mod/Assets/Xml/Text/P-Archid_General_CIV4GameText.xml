@@ -26,6 +26,10 @@
 		<Tag>TXT_KEY_TECH_SEA_PLOTS</Tag>
 		<English>Sea Tiles</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_RECEIVE_UNIT</Tag>
+		<English>[ICON_BULLET]Receive a [COLOR_UNIT_TEXT][LINK=literal]%s1_UnitName[\LINK][COLOR_REVERT]</English>
+	</TEXT>
 	<!-- Tech Feature Yields -->
 	<TEXT>
 		<Tag>TXT_KEY_TECH_CHANGE_FOREST_YIELD</Tag>

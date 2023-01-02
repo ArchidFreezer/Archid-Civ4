@@ -203,6 +203,11 @@ class CvTechSplashScreen:
 		if gc.getTechInfo(self.iTech).getFirstFreeUnitClass() != UnitClassTypes.NO_UNITCLASS:
 			eLoopUnit = gc.getCivilizationInfo(CyGame().getActiveCivilizationType()).getCivilizationUnits(gc.getTechInfo(self.iTech).getFirstFreeUnitClass())
 			if eLoopUnit > -1:
+				screen.attachImageButton(szSpecialPanel, "", gc.getPlayer(CyGame().getActivePlayer()).getUnitButton(eLoopUnit), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_HELP_FIRST_FREE_UNIT, eLoopUnit, self.iTech, False )
+
+		if gc.getTechInfo(self.iTech).getFreeUnitClass() != UnitClassTypes.NO_UNITCLASS:
+			eLoopUnit = gc.getCivilizationInfo(CyGame().getActiveCivilizationType()).getCivilizationUnits(gc.getTechInfo(self.iTech).getFreeUnitClass())
+			if eLoopUnit > -1:
 				screen.attachImageButton(szSpecialPanel, "", gc.getPlayer(CyGame().getActivePlayer()).getUnitButton(eLoopUnit), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_HELP_FREE_UNIT, eLoopUnit, self.iTech, False )
 
 		if gc.getTechInfo(self.iTech).getFeatureProductionModifier() != 0:

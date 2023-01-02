@@ -57,6 +57,7 @@ void CyInfoPythonInterface1() {
 		.def("getFeatureProductionModifier", &CvTechInfo::getFeatureProductionModifier, "int ()")
 		.def("getWorkerSpeedModifier", &CvTechInfo::getWorkerSpeedModifier, "int ()")
 		.def("getFirstFreeUnitClass", &CvTechInfo::getFirstFreeUnitClass, "int ()")
+		.def("getFreeUnitClass", &CvTechInfo::getFreeUnitClass, "int ()")
 		.def("getHealth", &CvTechInfo::getHealth, "int ()")
 		.def("getHappiness", &CvTechInfo::getHappiness, "int ()")
 		.def("getFirstFreeTechs", &CvTechInfo::getFirstFreeTechs, "int ()")

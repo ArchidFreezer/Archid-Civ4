@@ -17246,8 +17246,8 @@ void CvPlayer::verifyUnitStacksValid() {
 	}
 }
 
-UnitTypes CvPlayer::getTechFreeUnit(TechTypes eTech) const {
-	UnitClassTypes eUnitClass = (UnitClassTypes)GC.getTechInfo(eTech).getFirstFreeUnitClass();
+UnitTypes CvPlayer::getTechFreeUnit(TechTypes eTech, bool bFirst) const {
+	UnitClassTypes eUnitClass = bFirst ? (UnitClassTypes)GC.getTechInfo(eTech).getFirstFreeUnitClass() : (UnitClassTypes)GC.getTechInfo(eTech).getFreeUnitClass();
 	if (eUnitClass == NO_UNITCLASS) {
 		return NO_UNIT;
 	}

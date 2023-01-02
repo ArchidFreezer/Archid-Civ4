@@ -1042,7 +1042,7 @@ public:
 	int getGrowthThreshold(int iPopulation) const;
 
 	void verifyUnitStacksValid();
-	UnitTypes getTechFreeUnit(TechTypes eTech) const;
+	UnitTypes getTechFreeUnit(TechTypes eTech, bool bFirst = false) const;
 
 	DllExport void buildTradeTable(PlayerTypes eOtherPlayer, CLinkList<TradeData>& ourList) const;
 	DllExport bool getHeadingTradeString(PlayerTypes eOtherPlayer, TradeableItems eItem, CvWString& szString, CvString& szIcon) const;

@@ -4035,6 +4035,14 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 			}
 		}
 
+		if (getTechFreeUnit(eTech, false) != NO_UNIT) {
+			int iRoll = 24 * (100 + AI_getUnitClassWeight((UnitClassTypes)GC.getTechInfo(eTech).getFirstFreeUnitClass()));
+			if (AI_getFlavorValue(FLAVOR_SCIENCE) + AI_getFlavorValue(FLAVOR_GROWTH) > 0)
+				iValue += iRoll * 90 / 400;
+			iValue += bAsync ? GC.getASyncRand().get(iRoll, "AI Research Free Unit ASYNC") : GC.getGameINLINE().getSorenRandNum(iRoll, "AI Research Free Unit");
+			iRandomMax += iRoll;
+		}
+
 		if (bFirst) {
 			int iRaceModifier = 0; // 100 means very likely we will be first, -100 means very unlikely. 0 is 'unknown'.
 			{
@@ -4136,7 +4144,7 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 
 			// K-Mod note: I've moved corporation value outside of this block. (because you don't need to be first to the tech to get the corp!)
 
-			if (getTechFreeUnit(eTech) != NO_UNIT) {
+			if (getTechFreeUnit(eTech, true) != NO_UNIT) {
 				int iRoll = 16 * (100 + AI_getGreatPersonWeight((UnitClassTypes)GC.getTechInfo(eTech).getFirstFreeUnitClass()));
 				// I've diluted the weight because free great people doesn't have the negative effect of making it harder to get more great people
 				iRoll *= 200 + iRaceModifier;
@@ -17707,17 +17715,16 @@ bool CvPlayerAI::AI_isFirstTech(TechTypes eTech) const {
 	if (eTech == NO_TECH)
 		return false; // K-Mod
 
-	for (int iI = 0; iI < GC.getNumReligionInfos(); iI++) {
-		if (GC.getReligionInfo((ReligionTypes)iI).getTechPrereq() == eTech) {
-			if (!(GC.getGameINLINE().isReligionSlotTaken((ReligionTypes)iI))) {
+	for (ReligionTypes eReligion = (ReligionTypes)0; eReligion < GC.getNumReligionInfos(); eReligion = (ReligionTypes)(eReligion + 1)) {
+		if (GC.getReligionInfo(eReligion).getTechPrereq() == eTech) {
+			if (!GC.getGameINLINE().isReligionSlotTaken(eReligion)) {
 				return true;
 			}
 		}
 	}
 
 	if (GC.getGameINLINE().countKnownTechNumTeams(eTech) == 0) {
-		if ((getTechFreeUnit(eTech) != NO_UNIT) ||
-			(GC.getTechInfo(eTech).getFirstFreeTechs() > 0)) {
+		if (getTechFreeUnit(eTech, true) != NO_UNIT || GC.getTechInfo(eTech).getFirstFreeTechs() > 0) {
 			return true;
 		}
 	}

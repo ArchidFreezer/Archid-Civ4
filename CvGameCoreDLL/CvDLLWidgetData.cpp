@@ -275,6 +275,10 @@ void CvDLLWidgetData::parseHelp(CvWStringBuffer& szBuffer, CvWidgetDataStruct& w
 		parseMoveHelp(widgetDataStruct, szBuffer);
 		break;
 
+	case WIDGET_HELP_FIRST_FREE_UNIT:
+		parseFirstFreeUnitHelp(widgetDataStruct, szBuffer);
+		break;
+
 	case WIDGET_HELP_FREE_UNIT:
 		parseFreeUnitHelp(widgetDataStruct, szBuffer);
 		break;
@@ -863,6 +867,7 @@ bool CvDLLWidgetData::executeAction(CvWidgetDataStruct& widgetDataStruct) {
 	case WIDGET_HELP_OBSOLETE_BONUS:
 	case WIDGET_HELP_OBSOLETE_SPECIAL:
 	case WIDGET_HELP_MOVE_BONUS:
+	case WIDGET_HELP_FIRST_FREE_UNIT:
 	case WIDGET_HELP_FREE_UNIT:
 	case WIDGET_HELP_FEATURE_PRODUCTION:
 	case WIDGET_HELP_WORKER_RATE:
@@ -946,6 +951,7 @@ bool CvDLLWidgetData::executeAltAction(CvWidgetDataStruct& widgetDataStruct) {
 		doPediaProjectJump(widgetDataStruct);
 		break;
 	case WIDGET_PEDIA_JUMP_TO_UNIT:
+	case WIDGET_HELP_FIRST_FREE_UNIT:
 	case WIDGET_HELP_FREE_UNIT:
 		doPediaUnitJump(widgetDataStruct);
 		break;
@@ -4556,4 +4562,8 @@ void CvDLLWidgetData::parseSeaYieldChangeHelp(CvWidgetDataStruct& widgetDataStru
 
 void CvDLLWidgetData::parseCaptureCitiesHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
 	GAMETEXT.buildCaptureCitiesString(szBuffer, ((TechTypes)(widgetDataStruct.m_iData1)));
+}
+
+void CvDLLWidgetData::parseFirstFreeUnitHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
+	GAMETEXT.buildFirstFreeUnitString(szBuffer, ((TechTypes)(widgetDataStruct.m_iData2)));
 }

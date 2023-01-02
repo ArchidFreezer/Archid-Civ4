@@ -6542,6 +6542,7 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	buildMoveString(szBuffer, eTech, true, bPlayerContext);
 
 	//	Creates a free unit...
+	buildFirstFreeUnitString(szBuffer, eTech, true, bPlayerContext);
 	buildFreeUnitString(szBuffer, eTech, true, bPlayerContext);
 
 	//	Allows units to ignore movement limits...
@@ -11196,23 +11197,42 @@ void CvGameTextMgr::buildMoveString(CvWStringBuffer& szBuffer, TechTypes eTech, 
 	}
 }
 
-void CvGameTextMgr::buildFreeUnitString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
-	UnitTypes eFreeUnit = NO_UNIT;
+void CvGameTextMgr::buildFirstFreeUnitString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
+	UnitTypes eFirstFreeUnit = NO_UNIT;
 	if (GC.getGameINLINE().getActivePlayer() != NO_PLAYER) {
-		eFreeUnit = GET_PLAYER(GC.getGameINLINE().getActivePlayer()).getTechFreeUnit(eTech);
+		eFirstFreeUnit = GET_PLAYER(GC.getGameINLINE().getActivePlayer()).getTechFreeUnit(eTech, true);
 	} else {
-		if (GC.getTechInfo(eTech).getFirstFreeUnitClass() != NO_UNITCLASS) {
-			eFreeUnit = (UnitTypes)GC.getUnitClassInfo((UnitClassTypes)GC.getTechInfo(eTech).getFirstFreeUnitClass()).getDefaultUnitIndex();
+		const CvTechInfo& kTech = GC.getTechInfo(eTech);
+		if (kTech.getFirstFreeUnitClass() != NO_UNITCLASS) {
+			eFirstFreeUnit = (UnitTypes)GC.getUnitClassInfo((UnitClassTypes)kTech.getFirstFreeUnitClass()).getDefaultUnitIndex();
 		}
 	}
 
-	if (eFreeUnit != NO_UNIT) {
+	if (eFirstFreeUnit != NO_UNIT) {
 		if (!bPlayerContext || (GC.getGameINLINE().countKnownTechNumTeams(eTech) == 0)) {
 			if (bList) {
 				szBuffer.append(NEWLINE);
 			}
-			szBuffer.append(gDLL->getText("TXT_KEY_TECH_FIRST_RECEIVES", GC.getUnitInfo(eFreeUnit).getTextKeyWide()));
+			szBuffer.append(gDLL->getText("TXT_KEY_TECH_FIRST_RECEIVES", GC.getUnitInfo(eFirstFreeUnit).getTextKeyWide()));
 		}
+	}
+}
+
+void CvGameTextMgr::buildFreeUnitString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
+	UnitTypes eFreeUnit = NO_UNIT;
+	if (GC.getGameINLINE().getActivePlayer() != NO_PLAYER) {
+		eFreeUnit = GET_PLAYER(GC.getGameINLINE().getActivePlayer()).getTechFreeUnit(eTech, false);
+	} else {
+		if (GC.getTechInfo(eTech).getFreeUnitClass() != NO_UNITCLASS) {
+			eFreeUnit = (UnitTypes)GC.getUnitClassInfo((UnitClassTypes)GC.getTechInfo(eTech).getFreeUnitClass()).getDefaultUnitIndex();
+		}
+	}
+
+	if (eFreeUnit != NO_UNIT) {
+		if (bList) {
+			szBuffer.append(NEWLINE);
+		}
+		szBuffer.append(gDLL->getText("TXT_KEY_TECH_RECEIVE_UNIT", GC.getUnitInfo(eFreeUnit).getTextKeyWide()));
 	}
 }
 
