@@ -320,8 +320,9 @@ bool isPromotionValid(PromotionTypes ePromotion, UnitTypes eUnit, bool bLeader) 
 		}
 	}
 
-	bool bValid = false;
+	bool bValid = true;
 	for (int iI = 0; iI < kPromotion.getNumPrereqOrPromotions(); iI++) {
+		bValid = false;
 		if (isPromotionValid((PromotionTypes)kPromotion.getPrereqOrPromotion(iI), eUnit, bLeader)) {
 			bValid = true;
 			break;
