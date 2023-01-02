@@ -70,6 +70,7 @@
 	<load mod="AIAutoPlay"/>
 	<load mod="ChangePlayer"/>
 	<load mod="CityBar"/>
+	<load mod="MigratingGP"/>
 	<load mod="MiscHovers"/>
 	<load mod="UnitActions"/>
 

@@ -2586,6 +2586,9 @@ class CvMainInterface:
 						pNewUnit = CyInterface().getHeadSelectedUnit()
 					CyInterface().selectGroup(pNewUnit, False, False, False)
 					pNewUnit.centerCamera()
+## Migrating GP ##
+			elif inputClass.getFunctionName().find("FreeSpecialist") == 0:
+				CyMessageControl().sendModNetMessage(9413, inputClass.getData1(), -1, -1, -1)
 ## Specialist Count ##
 		elif inputClass.getNotifyCode() == NotifyCode.NOTIFY_LISTBOX_ITEM_SELECTED:
 			if inputClass.getFunctionName() == "SpecialistTable":

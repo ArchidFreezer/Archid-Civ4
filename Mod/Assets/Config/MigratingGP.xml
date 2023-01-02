@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+	Reminder
+	by eotinb, EmperorFool, Ruff_Hi
+
+	Copyright (c) 2008 The BUG Mod.
+-->
+<mod id="MigratingGP" 
+	 name="Migrating Great People"
+	 module="MigratingGPUtils">
+
+	<event type="cityAcquired" module="MigratingGPUtils" function="onCityAcquired"/>
+	<event type="ModNetMessage" module="MigratingGPUtils" function="onModNetMessage"/>
+	<gameutils module="MigratingGPUtils" class="MigratingGPGameUtils"/>
+	
+</mod>

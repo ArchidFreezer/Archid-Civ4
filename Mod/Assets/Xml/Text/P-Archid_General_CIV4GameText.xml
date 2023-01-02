@@ -38,6 +38,10 @@
 		<Tag>TXT_KEY_MISC_YOUR_UNIT_PROMOTED_IN_BATTLE</Tag>
 		<English>Your %s1_unit has gained the %s2_promotion promotion following the battle.</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVACUATE_GP</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT][NEWLINE]Click to evacuate %s1[COLOR_WARNING_TEXT][NEWLINE]Requires %d2 Gold[COLOR_REVERT]</English>
+	</TEXT>
 	<!-- Tech Feature Yields -->
 	<TEXT>
 		<Tag>TXT_KEY_TECH_CHANGE_FOREST_YIELD</Tag>
