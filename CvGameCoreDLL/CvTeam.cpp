@@ -4873,6 +4873,22 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 			kPlayer.changeAssets(kTech.getAssetValue() * iChange);
 			kPlayer.changePower(kTech.getPowerValue() * iChange);
 			kPlayer.changeTechScore(getTechScore(eTech) * iChange);
+
+			bool bYieldUpdated = false;
+			for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+				kPlayer.changeForestPlotYield(eYield, kTech.getForestPlotYieldChange(eYield) * iChange);
+				kPlayer.changeRiverPlotYield(eYield, kTech.getRiverPlotYieldChange(eYield) * iChange);
+				kPlayer.changeSeaPlotYield(eYield, kTech.getSeaPlotYieldChange(eYield) * iChange);
+				if (!bYieldUpdated && (kTech.getForestPlotYieldChange(eYield) != 0 || kTech.getRiverPlotYieldChange(eYield) != 0 || kTech.getSeaPlotYieldChange(eYield) != 0))
+					bYieldUpdated = true;
+			}
+
+			if (bYieldUpdated) {
+				int iLoop;
+				for (CvCity* pLoopCity = kPlayer.firstCity(&iLoop); pLoopCity != NULL; pLoopCity = kPlayer.nextCity(&iLoop)) {
+					pLoopCity->updateYield();
+				}
+			}
 		}
 	}
 

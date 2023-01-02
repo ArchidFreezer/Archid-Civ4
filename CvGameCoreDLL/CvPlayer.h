@@ -728,6 +728,12 @@ public:
 	int getSeaPlotYield(YieldTypes eIndex) const;																											// Exposed to Python
 	void changeSeaPlotYield(YieldTypes eIndex, int iChange);
 
+	int getForestPlotYield(YieldTypes eIndex) const;
+	void changeForestPlotYield(YieldTypes eIndex, int iChange);
+
+	int getRiverPlotYield(YieldTypes eIndex) const;
+	void changeRiverPlotYield(YieldTypes eIndex, int iChange);
+
 	int getYieldRateModifier(YieldTypes eIndex) const;																								// Exposed to Python
 	void changeYieldRateModifier(YieldTypes eIndex, int iChange);
 
@@ -1244,6 +1250,8 @@ protected:
 	TeamTypes m_eTeamType;
 
 	int* m_aiSeaPlotYield;
+	int* m_aiForestPlotYield;
+	int* m_aiRiverPlotYield;
 	int* m_aiYieldRateModifier;
 	int* m_aiCapitalYieldRateModifier;
 	int* m_aiExtraYieldThreshold;

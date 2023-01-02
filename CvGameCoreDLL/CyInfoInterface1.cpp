@@ -90,6 +90,10 @@ void CyInfoPythonInterface1() {
 		.def("isUnitRangeUnbound", &CvTechInfo::isUnitRangeUnbound, "bool ()")
 		.def("isUnitTerritoryUnbound", &CvTechInfo::isUnitTerritoryUnbound, "bool ()")
 
+		.def("hasAnyForestPlotYieldChange", &CvTechInfo::hasAnyForestPlotYieldChange, "bool ()")
+		.def("hasAnyRiverPlotYieldChange", &CvTechInfo::hasAnyRiverPlotYieldChange, "bool ()")
+		.def("hasAnySeaPlotYieldChange", &CvTechInfo::hasAnySeaPlotYieldChange, "bool ()")
+
 		.def("getQuote", &CvTechInfo::getQuote, "wstring ()")
 		.def("getSound", &CvTechInfo::getSound, "string ()")
 		.def("getSoundMP", &CvTechInfo::getSoundMP, "string ()")

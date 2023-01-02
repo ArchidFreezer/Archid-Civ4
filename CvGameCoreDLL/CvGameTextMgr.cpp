@@ -6463,19 +6463,19 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	if (bAlt && (gDLL->getChtLvl() > 0)) {
 		szBuffer.clear();
 
-		for (int iI = 0; iI < MAX_PLAYERS; ++iI) {
-			CvPlayerAI* playerI = &GET_PLAYER((PlayerTypes)iI);
-			CvTeamAI* teamI = &GET_TEAM(playerI->getTeam());
-			if (playerI->isAlive()) {
+		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+			const CvPlayerAI& kPlayer = GET_PLAYER(ePlayer);
+			const CvTeamAI& kTeam = GET_TEAM(kPlayer.getTeam());
+			if (kPlayer.isAlive()) {
 				CvWString szTempBuffer;
-				szTempBuffer.Format(L"%s: ", playerI->getName());
+				szTempBuffer.Format(L"%s: ", kPlayer.getName());
 				szBuffer.append(szTempBuffer);
 
-				TechTypes ePlayerTech = playerI->getCurrentResearch();
+				TechTypes ePlayerTech = kPlayer.getCurrentResearch();
 				if (ePlayerTech == NO_TECH)
 					szTempBuffer.Format(L"-\n");
 				else
-					szTempBuffer.Format(L"%s (%d->%dt)(%d/%d)\n", GC.getTechInfo(ePlayerTech).getDescription(), playerI->calculateResearchRate(ePlayerTech), playerI->getResearchTurnsLeft(ePlayerTech, true), teamI->getResearchProgress(ePlayerTech), teamI->getResearchCost(ePlayerTech));
+					szTempBuffer.Format(L"%s (%d->%dt)(%d/%d)\n", GC.getTechInfo(ePlayerTech).getDescription(), kPlayer.calculateResearchRate(ePlayerTech), kPlayer.getResearchTurnsLeft(ePlayerTech, true), kTeam.getResearchProgress(ePlayerTech), kTeam.getResearchCost(ePlayerTech));
 
 				szBuffer.append(szTempBuffer);
 			}
@@ -6498,20 +6498,22 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 		szBuffer.append(szTempBuffer);
 	}
 
-	FAssert(GC.getGameINLINE().getActivePlayer() != NO_PLAYER || !bPlayerContext);
+	PlayerTypes eActivePlayer = GC.getGameINLINE().getActivePlayer();
+	FAssert(eActivePlayer != NO_PLAYER || !bPlayerContext);
 
 	if (bTreeInfo && (NO_TECH != eFromTech)) {
 		buildTechTreeString(szBuffer, eTech, bPlayerContext, eFromTech);
 	}
 
+	const CvPlayer& kActivePlayer = GET_PLAYER(eActivePlayer);
 	//	Obsolete Buildings
-	for (int iI = 0; iI < GC.getNumBuildingClassInfos(); ++iI) {
-		if (!bPlayerContext || (GET_PLAYER(GC.getGameINLINE().getActivePlayer()).getBuildingClassCount((BuildingClassTypes)iI) > 0)) {
+	for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
+		if (!bPlayerContext || (kActivePlayer.getBuildingClassCount(eBuildingClass) > 0)) {
 			BuildingTypes eLoopBuilding;
-			if (GC.getGameINLINE().getActivePlayer() != NO_PLAYER) {
-				eLoopBuilding = (BuildingTypes)GC.getCivilizationInfo(GC.getGameINLINE().getActiveCivilizationType()).getCivilizationBuildings(iI);
+			if (eActivePlayer != NO_PLAYER) {
+				eLoopBuilding = (BuildingTypes)GC.getCivilizationInfo(GC.getGameINLINE().getActiveCivilizationType()).getCivilizationBuildings(eBuildingClass);
 			} else {
-				eLoopBuilding = (BuildingTypes)GC.getBuildingClassInfo((BuildingClassTypes)iI).getDefaultBuildingIndex();
+				eLoopBuilding = (BuildingTypes)GC.getBuildingClassInfo(eBuildingClass).getDefaultBuildingIndex();
 			}
 
 			if (eLoopBuilding != NO_BUILDING) {
@@ -6524,15 +6526,15 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	}
 
 	//	Obsolete Bonuses
-	for (int iI = 0; iI < GC.getNumBonusInfos(); ++iI) {
-		if (GC.getBonusInfo((BonusTypes)iI).getTechObsolete() == eTech) {
-			buildObsoleteBonusString(szBuffer, iI, true);
+	for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
+		if (GC.getBonusInfo(eBonus).getTechObsolete() == eTech) {
+			buildObsoleteBonusString(szBuffer, eBonus, true);
 		}
 	}
 
-	for (int iI = 0; iI < GC.getNumSpecialBuildingInfos(); ++iI) {
-		if (GC.getSpecialBuildingInfo((SpecialBuildingTypes)iI).getObsoleteTech() == eTech) {
-			buildObsoleteSpecialString(szBuffer, iI, true);
+	for (SpecialBuildingTypes eSpecialBuilding = (SpecialBuildingTypes)0; eSpecialBuilding < GC.getNumSpecialBuildingInfos(); eSpecialBuilding = (SpecialBuildingTypes)(eSpecialBuilding + 1)) {
+		if (GC.getSpecialBuildingInfo(eSpecialBuilding).getObsoleteTech() == eTech) {
+			buildObsoleteSpecialString(szBuffer, eSpecialBuilding, true);
 		}
 	}
 
@@ -6615,60 +6617,64 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	buildVassalStateString(szBuffer, eTech, true, bPlayerContext);
 
 	//	Build farm, irrigation, etc...
-	for (int iI = 0; iI < GC.getNumBuildInfos(); ++iI) {
-		buildImprovementString(szBuffer, eTech, iI, true, bPlayerContext);
+	for (BuildTypes eBuild = (BuildTypes)0; eBuild < GC.getNumBuildInfos(); eBuild = (BuildTypes)(eBuild + 1)) {
+		buildImprovementString(szBuffer, eTech, eBuild, true, bPlayerContext);
 	}
 
 	//	Extra moves for certain domains...
-	for (int iI = 0; iI < NUM_DOMAIN_TYPES; ++iI) {
-		buildDomainExtraMovesString(szBuffer, eTech, iI, true, bPlayerContext);
+	for (DomainTypes eDomain = (DomainTypes)0; eDomain < NUM_DOMAIN_TYPES; eDomain = (DomainTypes)(eDomain + 1)) {
+		buildDomainExtraMovesString(szBuffer, eTech, eDomain, true, bPlayerContext);
 	}
 
 	//	Adjusting culture, science, etc
-	for (int iI = 0; iI < NUM_COMMERCE_TYPES; ++iI) {
-		buildAdjustString(szBuffer, eTech, iI, true, bPlayerContext);
+	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+		buildAdjustString(szBuffer, eTech, eCommerce, true, bPlayerContext);
 	}
 
 	//	Enabling trade routes on water...?
-	for (int iI = 0; iI < GC.getNumTerrainInfos(); ++iI) {
-		buildTerrainTradeString(szBuffer, eTech, iI, true, bPlayerContext);
+	for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
+		buildTerrainTradeString(szBuffer, eTech, eTerrain, true, bPlayerContext);
 	}
 
 	buildRiverTradeString(szBuffer, eTech, true, bPlayerContext);
 
 	//	Special Buildings
-	for (int iI = 0; iI < GC.getNumSpecialBuildingInfos(); ++iI) {
-		buildSpecialBuildingString(szBuffer, eTech, iI, true, bPlayerContext);
+	for (SpecialBuildingTypes eSpecialBuilding = (SpecialBuildingTypes)0; eSpecialBuilding < GC.getNumSpecialBuildingInfos(); eSpecialBuilding = (SpecialBuildingTypes)(eSpecialBuilding + 1)) {
+		buildSpecialBuildingString(szBuffer, eTech, eSpecialBuilding, true, bPlayerContext);
 	}
 
 	//	Build farm, mine, etc...
-	for (int iI = 0; iI < GC.getNumImprovementInfos(); ++iI) {
-		buildYieldChangeString(szBuffer, eTech, iI, true, bPlayerContext);
+	for (ImprovementTypes eImprovement = (ImprovementTypes)0; eImprovement < GC.getNumImprovementInfos(); eImprovement = (ImprovementTypes)(eImprovement + 1)) {
+		buildYieldChangeString(szBuffer, eTech, eImprovement, true, bPlayerContext);
 	}
 
+	setYieldChangeHelp(szBuffer, gDLL->getText("TXT_KEY_TECH_FOREST_PLOTS").c_str(), L": ", L"", kTech.getForestPlotYieldChangeArray());
+	setYieldChangeHelp(szBuffer, gDLL->getText("TXT_KEY_TECH_RIVER_PLOTS").c_str(), L": ", L"", kTech.getRiverPlotYieldChangeArray());
+	setYieldChangeHelp(szBuffer, gDLL->getText("TXT_KEY_TECH_SEA_PLOTS").c_str(), L": ", L"", kTech.getSeaPlotYieldChangeArray());
+
 	bool bFirst = true;
-	for (int iI = 0; iI < GC.getNumBonusInfos(); ++iI) {
-		bFirst = buildBonusRevealString(szBuffer, eTech, iI, bFirst, true, bPlayerContext);
+	for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
+		bFirst = buildBonusRevealString(szBuffer, eTech, eBonus, bFirst, true, bPlayerContext);
 	}
 
 	bFirst = true;
-	for (int iI = 0; iI < GC.getNumCivicInfos(); ++iI) {
-		bFirst = buildCivicRevealString(szBuffer, eTech, iI, bFirst, true, bPlayerContext);
+	for (CivicTypes eCivic = (CivicTypes)0; eCivic < GC.getNumCivicInfos(); eCivic = (CivicTypes)(eCivic + 1)) {
+		bFirst = buildCivicRevealString(szBuffer, eTech, eCivic, bFirst, true, bPlayerContext);
 	}
 
 	if (!bCivilopediaText) {
 		bFirst = true;
-		for (int iI = 0; iI < GC.getNumUnitClassInfos(); ++iI) {
-			if (!bPlayerContext || !(GET_PLAYER(GC.getGameINLINE().getActivePlayer()).isProductionMaxedUnitClass((UnitClassTypes)iI))) {
+		for (UnitClassTypes eUnitClass = (UnitClassTypes)0; eUnitClass < GC.getNumUnitClassInfos(); eUnitClass = (UnitClassTypes)(eUnitClass + 1)) {
+			if (!bPlayerContext || !kActivePlayer.isProductionMaxedUnitClass(eUnitClass)) {
 				UnitTypes eLoopUnit;
-				if (GC.getGameINLINE().getActivePlayer() != NO_PLAYER) {
-					eLoopUnit = (UnitTypes)GC.getCivilizationInfo(GC.getGameINLINE().getActiveCivilizationType()).getCivilizationUnits(iI);
+				if (eActivePlayer != NO_PLAYER) {
+					eLoopUnit = (UnitTypes)GC.getCivilizationInfo(GC.getGameINLINE().getActiveCivilizationType()).getCivilizationUnits(eUnitClass);
 				} else {
-					eLoopUnit = (UnitTypes)GC.getUnitClassInfo((UnitClassTypes)iI).getDefaultUnitIndex();
+					eLoopUnit = (UnitTypes)GC.getUnitClassInfo(eUnitClass).getDefaultUnitIndex();
 				}
 
 				if (eLoopUnit != NO_UNIT) {
-					if (!bPlayerContext || !(GET_PLAYER(GC.getGameINLINE().getActivePlayer()).canTrain(eLoopUnit))) {
+					if (!bPlayerContext || !(kActivePlayer.canTrain(eLoopUnit))) {
 						CvWString szFirstBuffer;
 						CvWString szTempBuffer;
 						if (GC.getUnitInfo(eLoopUnit).getPrereqAndTech() == eTech) {
@@ -6693,17 +6699,17 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 		}
 
 		bFirst = true;
-		for (int iI = 0; iI < GC.getNumBuildingClassInfos(); ++iI) {
-			if (!bPlayerContext || !(GET_PLAYER(GC.getGameINLINE().getActivePlayer()).isProductionMaxedBuildingClass((BuildingClassTypes)iI))) {
+		for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
+			if (!bPlayerContext || !kActivePlayer.isProductionMaxedBuildingClass(eBuildingClass)) {
 				BuildingTypes eLoopBuilding;
-				if (GC.getGameINLINE().getActivePlayer() != NO_PLAYER) {
-					eLoopBuilding = (BuildingTypes)GC.getCivilizationInfo(GC.getGameINLINE().getActiveCivilizationType()).getCivilizationBuildings(iI);
+				if (eActivePlayer != NO_PLAYER) {
+					eLoopBuilding = (BuildingTypes)GC.getCivilizationInfo(GC.getGameINLINE().getActiveCivilizationType()).getCivilizationBuildings(eBuildingClass);
 				} else {
-					eLoopBuilding = (BuildingTypes)GC.getBuildingClassInfo((BuildingClassTypes)iI).getDefaultBuildingIndex();
+					eLoopBuilding = (BuildingTypes)GC.getBuildingClassInfo(eBuildingClass).getDefaultBuildingIndex();
 				}
 
 				if (eLoopBuilding != NO_BUILDING) {
-					if (!bPlayerContext || !(GET_PLAYER(GC.getGameINLINE().getActivePlayer()).canConstruct(eLoopBuilding, false, true))) {
+					if (!bPlayerContext || !(kActivePlayer.canConstruct(eLoopBuilding, false, true))) {
 						CvWString szFirstBuffer;
 						CvWString szTempBuffer;
 						for (int iI = 0; iI < GC.getBuildingInfo(eLoopBuilding).getNumPrereqAndTechs(); iI++) {
@@ -6720,14 +6726,14 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 		}
 
 		bFirst = true;
-		for (int iI = 0; iI < GC.getNumProjectInfos(); ++iI) {
-			if (!bPlayerContext || !(GET_PLAYER(GC.getGameINLINE().getActivePlayer()).isProductionMaxedProject((ProjectTypes)iI))) {
-				if (!bPlayerContext || !(GET_PLAYER(GC.getGameINLINE().getActivePlayer()).canCreate(((ProjectTypes)iI), false, true))) {
-					if (GC.getProjectInfo((ProjectTypes)iI).getTechPrereq() == eTech) {
+		for (ProjectTypes eProject = (ProjectTypes)0; eProject < GC.getNumProjectInfos(); eProject = (ProjectTypes)(eProject + 1)) {
+			if (!bPlayerContext || !kActivePlayer.isProductionMaxedProject(eProject)) {
+				if (!bPlayerContext || !kActivePlayer.canCreate(eProject, false, true)) {
+					if (GC.getProjectInfo(eProject).getTechPrereq() == eTech) {
 						CvWString szFirstBuffer;
 						CvWString szTempBuffer;
 						szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_TECH_CAN_CREATE").c_str());
-						szTempBuffer.Format(SETCOLR L"%s" ENDCOLR, TEXT_COLOR("COLOR_PROJECT_TEXT"), GC.getProjectInfo((ProjectTypes)iI).getDescription());
+						szTempBuffer.Format(SETCOLR L"%s" ENDCOLR, TEXT_COLOR("COLOR_PROJECT_TEXT"), GC.getProjectInfo(eProject).getDescription());
 						setListHelp(szBuffer, szFirstBuffer, szTempBuffer, L", ", bFirst);
 						bFirst = false;
 					}
@@ -6737,27 +6743,27 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	}
 
 	bFirst = true;
-	for (int iI = 0; iI < GC.getNumProcessInfos(); ++iI) {
-		bFirst = buildProcessInfoString(szBuffer, eTech, iI, bFirst, true, bPlayerContext);
+	for (ProcessTypes eProcess = (ProcessTypes)0; eProcess < GC.getNumProcessInfos(); eProcess = (ProcessTypes)(eProcess + 1)) {
+		bFirst = buildProcessInfoString(szBuffer, eTech, eProcess, bFirst, true, bPlayerContext);
 	}
 
 	bFirst = true;
-	for (int iI = 0; iI < GC.getNumReligionInfos(); ++iI) {
-		if (!bPlayerContext || !(GC.getGameINLINE().isReligionSlotTaken((ReligionTypes)iI))) {
-			bFirst = buildFoundReligionString(szBuffer, eTech, iI, bFirst, true, bPlayerContext);
+	for (ReligionTypes eReligion = (ReligionTypes)0; eReligion < GC.getNumReligionInfos(); eReligion = (ReligionTypes)(eReligion + 1)) {
+		if (!bPlayerContext || !GC.getGameINLINE().isReligionSlotTaken(eReligion)) {
+			bFirst = buildFoundReligionString(szBuffer, eTech, eReligion, bFirst, true, bPlayerContext);
 		}
 	}
 
 	bFirst = true;
-	for (int iI = 0; iI < GC.getNumCorporationInfos(); ++iI) {
-		if (!bPlayerContext || !(GC.getGameINLINE().isCorporationFounded((CorporationTypes)iI))) {
-			bFirst = buildFoundCorporationString(szBuffer, eTech, iI, bFirst, true, bPlayerContext);
+	for (CorporationTypes eCorporation = (CorporationTypes)0; eCorporation < GC.getNumCorporationInfos(); eCorporation = (CorporationTypes)(eCorporation + 1)) {
+		if (!bPlayerContext || !GC.getGameINLINE().isCorporationFounded(eCorporation)) {
+			bFirst = buildFoundCorporationString(szBuffer, eTech, eCorporation, bFirst, true, bPlayerContext);
 		}
 	}
 
 	bFirst = true;
-	for (int iI = 0; iI < GC.getNumPromotionInfos(); ++iI) {
-		bFirst = buildPromotionString(szBuffer, eTech, iI, bFirst, true, bPlayerContext);
+	for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumPromotionInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
+		bFirst = buildPromotionString(szBuffer, eTech, ePromotion, bFirst, true, bPlayerContext);
 	}
 
 	if (bTreeInfo && NO_TECH == eFromTech) {
@@ -6770,7 +6776,7 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 
 	if (!bCivilopediaText) {
 		CvWString szTempBuffer;
-		if (GC.getGameINLINE().getActivePlayer() == NO_PLAYER) {
+		if (eActivePlayer == NO_PLAYER) {
 			szTempBuffer.Format(L"\n%d%c", kTech.getResearchCost(), GC.getCommerceInfo(COMMERCE_RESEARCH).getChar());
 			szBuffer.append(szTempBuffer);
 		} else if (GET_TEAM(GC.getGameINLINE().getActiveTeam()).isHasTech(eTech)) {
@@ -6778,21 +6784,20 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 			szBuffer.append(szTempBuffer);
 		} else {
 			szBuffer.append(NEWLINE);
-			szBuffer.append(gDLL->getText("TXT_KEY_TECH_NUM_TURNS", GET_PLAYER(GC.getGameINLINE().getActivePlayer()).getResearchTurnsLeft(eTech, (GC.ctrlKey() || !(GC.shiftKey())))));
+			szBuffer.append(gDLL->getText("TXT_KEY_TECH_NUM_TURNS", kActivePlayer.getResearchTurnsLeft(eTech, (GC.ctrlKey() || !(GC.shiftKey())))));
 
 			szTempBuffer.Format(L" (%d/%d %c)", GET_TEAM(GC.getGameINLINE().getActiveTeam()).getResearchProgress(eTech), GET_TEAM(GC.getGameINLINE().getActiveTeam()).getResearchCost(eTech), GC.getCommerceInfo(COMMERCE_RESEARCH).getChar());
 			szBuffer.append(szTempBuffer);
 		}
 	}
 
-	if (GC.getGameINLINE().getActivePlayer() != NO_PLAYER) {
-		const CvPlayer& kActivePlayer = GET_PLAYER(GC.getGameINLINE().getActivePlayer());
+	if (eActivePlayer != NO_PLAYER) {
 		if (kActivePlayer.canResearch(eTech)) {
 			for (int iI = 0; iI < GC.getNumUnitInfos(); ++iI) {
 				CvUnitInfo& kUnit = GC.getUnitInfo((UnitTypes)iI);
 
 				if (kUnit.getBaseDiscover() > 0 || kUnit.getDiscoverMultiplier() > 0) {
-					if (::getDiscoveryTech((UnitTypes)iI, GC.getGameINLINE().getActivePlayer()) == eTech) {
+					if (::getDiscoveryTech((UnitTypes)iI, eActivePlayer) == eTech) {
 						szBuffer.append(NEWLINE);
 						szBuffer.append(gDLL->getText("TXT_KEY_TECH_GREAT_PERSON_DISCOVER", kUnit.getTextKeyWide()));
 					}
@@ -6819,7 +6824,7 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 
 	if (bStrategyText) {
 		if (!CvWString(kTech.getStrategy()).empty()) {
-			if ((GC.getGameINLINE().getActivePlayer() == NO_PLAYER) || GET_PLAYER(GC.getGameINLINE().getActivePlayer()).isOption(PLAYEROPTION_ADVISOR_HELP)) {
+			if ((eActivePlayer == NO_PLAYER) || kActivePlayer.isOption(PLAYEROPTION_ADVISOR_HELP)) {
 				szBuffer.append(SEPARATOR);
 				szBuffer.append(NEWLINE);
 				szBuffer.append(gDLL->getText("TXT_KEY_SIDS_TIPS"));
@@ -15758,4 +15763,34 @@ bool CvGameTextMgr::setBuildingAdditionalBombardDefenceHelp(CvWStringBuffer& szB
 	}
 
 	return bStarted;
+}
+
+void CvGameTextMgr::buildForestYieldChangeString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
+	CvWString szTempBuffer;
+	if (bList)
+		szTempBuffer.Format(L"\n%s", gDLL->getText("TXT_KEY_TECH_CHANGE_FOREST_YIELD").c_str());
+	else
+		szTempBuffer.Format(L"%s", gDLL->getText("TXT_KEY_TECH_CHANGE_FOREST_YIELD").c_str());
+
+	setYieldChangeHelp(szBuffer, szTempBuffer, L": ", L"", GC.getTechInfo(eTech).getForestPlotYieldChangeArray(), false, bList);
+}
+
+void CvGameTextMgr::buildRiverYieldChangeString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
+	CvWString szTempBuffer;
+	if (bList)
+		szTempBuffer.Format(L"\n%s", gDLL->getText("TXT_KEY_TECH_CHANGE_RIVER_YIELD").c_str());
+	else
+		szTempBuffer.Format(L"%s", gDLL->getText("TXT_KEY_TECH_CHANGE_RIVER_YIELD").c_str());
+
+	setYieldChangeHelp(szBuffer, szTempBuffer, L": ", L"", GC.getTechInfo(eTech).getRiverPlotYieldChangeArray(), false, bList);
+}
+
+void CvGameTextMgr::buildSeaYieldChangeString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
+	CvWString szTempBuffer;
+	if (bList)
+		szTempBuffer.Format(L"\n%s", gDLL->getText("TXT_KEY_TECH_CHANGE_SEA_YIELD").c_str());
+	else
+		szTempBuffer.Format(L"%s", gDLL->getText("TXT_KEY_TECH_CHANGE_SEA_YIELD").c_str());
+
+	setYieldChangeHelp(szBuffer, szTempBuffer, L": ", L"", GC.getTechInfo(eTech).getSeaPlotYieldChangeArray(), false, bList);
 }

@@ -337,6 +337,9 @@ public:
 	bool isRiverTrade() const;							// Exposed to Python
 	bool isUnitRangeUnbound() const;
 	bool isUnitTerritoryUnbound() const;
+	bool hasAnyForestPlotYieldChange() const;
+	bool hasAnyRiverPlotYieldChange() const;
+	bool hasAnySeaPlotYieldChange() const;
 
 	std::wstring getQuote() const;	// Exposed to Python
 	void setQuoteKey(const TCHAR* szVal);
@@ -351,9 +354,16 @@ public:
 	int getFlavorValue(int i) const;			// Exposed to Python
 	int getPrereqOrTechs(int i) const;		// Exposed to Python
 	int getPrereqAndTechs(int i) const;		// Exposed to Python
+	int getForestPlotYieldChange(int i) const;
+	int getRiverPlotYieldChange(int i) const;
+	int getSeaPlotYieldChange(int i) const;
 
 	bool isCommerceFlexible(int i) const;	// Exposed to Python
 	bool isTerrainTrade(int i) const;			// Exposed to Python
+
+	int* getForestPlotYieldChangeArray() const;
+	int* getRiverPlotYieldChangeArray() const;
+	int* getSeaPlotYieldChangeArray() const;
 
 	void read(FDataStreamBase*);
 	void write(FDataStreamBase*);
@@ -419,6 +429,9 @@ protected:
 
 	int* m_piPrereqOrTechs;
 	int* m_piPrereqAndTechs;
+	int* m_piForestPlotYieldChange;
+	int* m_piRiverPlotYieldChange;
+	int* m_piSeaPlotYieldChange;
 
 	bool* m_pbCommerceFlexible;
 	bool* m_pbTerrainTrade;

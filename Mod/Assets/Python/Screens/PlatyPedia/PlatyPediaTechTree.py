@@ -91,6 +91,12 @@ class CvPediaTechTree:
 					if gc.getImprovementInfo(j).getTechYieldChanges(iTech, k):
 						self.TechBenefits[iTech].append(["ImprovementYield", j])
 						break
+			if Info.hasAnyForestPlotYieldChange():
+				self.TechBenefits[iTech].append(["ForestYield", j])
+			if Info.hasAnyRiverPlotYieldChange():
+				self.TechBenefits[iTech].append(["RiverYield", j])
+			if Info.hasAnySeaPlotYieldChange():
+				self.TechBenefits[iTech].append(["SeaYield", j])
 			if Info.getHelp():
 				self.TechBenefits[iTech].append(["TechHelp", -1])
 
@@ -320,6 +326,12 @@ class CvPediaTechTree:
 					screen.addDDSGFCAt(sButton, szTechRecord, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_TECH_RIVERTRADE").getPath(), iX + fX, iY + Y_ROW, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_HELP_TERRAIN_TRADE, i, gc.getNumTerrainInfos(), False)
 				elif sType == "ImprovementYield":
 					screen.addDDSGFCAt(sButton, szTechRecord, gc.getImprovementInfo(iItem).getButton(), iX + fX, iY + Y_ROW, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_HELP_YIELD_CHANGE, i, iItem, False)
+				elif sType == "ForestYield":
+					screen.addDDSGFCAt(sButton, szTechRecord, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUTTON_FOREST").getPath(), iX + fX, iY + Y_ROW, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_HELP_FOREST_YIELD_CHANGE, i, -1, False)
+				elif sType == "RiverYield":
+					screen.addDDSGFCAt(sButton, szTechRecord, CyArtFileMgr().getInterfaceArtInfo("WORLDBUILDER_RIVER_PLACEMENT").getPath(), iX + fX, iY + Y_ROW, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_HELP_RIVER_YIELD_CHANGE, i, -1, False)
+				elif sType == "SeaYield":
+					screen.addDDSGFCAt(sButton, szTechRecord, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUTTON_COAST").getPath(), iX + fX, iY + Y_ROW, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_HELP_SEA_YIELD_CHANGE, i, -1, False)
 				elif sType == "UnlockCivic":
 					screen.addDDSGFCAt(sButton, szTechRecord, gc.getCivicInfo(iItem).getButton(), iX + fX, iY + Y_ROW, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_HELP_CIVIC_REVEAL, i, iItem, False)
 				elif sType == "UnlockProject":

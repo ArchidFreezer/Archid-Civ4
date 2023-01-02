@@ -4827,62 +4827,66 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay) const {
 		iYield += GC.getRouteInfo(eRoute).getYieldChange(eYield);
 	}
 
+	const CvYieldInfo& kYield = GC.getYieldInfo(eYield);
 	if (ePlayer != NO_PLAYER) {
+		const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
 		CvCity* pCity = getPlotCity();
 
 		if (pCity != NULL) {
 			if (!bDisplay || pCity->isRevealed(GC.getGameINLINE().getActiveTeam(), false)) {
-				iYield += GC.getYieldInfo(eYield).getCityChange();
-				if (GC.getYieldInfo(eYield).getPopulationChangeDivisor() != 0) {
-					iYield += ((pCity->getPopulation() + GC.getYieldInfo(eYield).getPopulationChangeOffset()) / GC.getYieldInfo(eYield).getPopulationChangeDivisor());
+				iYield += kYield.getCityChange();
+				if (kYield.getPopulationChangeDivisor() != 0) {
+					iYield += ((pCity->getPopulation() + kYield.getPopulationChangeOffset()) / kYield.getPopulationChangeDivisor());
 				}
 				bCity = true;
 			}
 		}
 
-		if (isWater()) {
-			if (!isImpassable()) {
-				iYield += GET_PLAYER(ePlayer).getSeaPlotYield(eYield);
-
-				CvCity* pWorkingCity = getWorkingCity();
-
-				if (pWorkingCity != NULL) {
+		CvCity* pWorkingCity = getWorkingCity();
+		if (pWorkingCity != NULL) {
+			if (isWater()) {
+				if (!isImpassable()) {
+					iYield += kPlayer.getSeaPlotYield(eYield);
 					if (!bDisplay || pWorkingCity->isRevealed(GC.getGameINLINE().getActiveTeam(), false)) {
 						iYield += pWorkingCity->getSeaPlotYield(eYield);
 					}
 				}
 			}
-		}
 
-		if (isRiver()) {
-			if (!isImpassable()) {
-				CvCity* pWorkingCity = getWorkingCity();
-
-				if (NULL != pWorkingCity) {
+			if (isRiver()) {
+				if (!isImpassable()) {
+					iYield += kPlayer.getRiverPlotYield(eYield);
 					if (!bDisplay || pWorkingCity->isRevealed(GC.getGameINLINE().getActiveTeam(), false)) {
 						iYield += pWorkingCity->getRiverPlotYield(eYield);
 					}
+				}
+			}
+
+			if (getFeatureType() == (FeatureTypes)GC.getInfoTypeForString("FEATURE_FOREST")) {
+				if (!isImpassable()) {
+					iYield += kPlayer.getForestPlotYield(eYield);
 				}
 			}
 		}
 	}
 
 	if (bCity) {
-		iYield = std::max(iYield, GC.getYieldInfo(eYield).getMinCity());
+		iYield = std::max(iYield, kYield.getMinCity());
 	}
 
 	iYield += GC.getGameINLINE().getPlotExtraYield(m_iX, m_iY, eYield);
 
 	if (ePlayer != NO_PLAYER) {
-		if (GET_PLAYER(ePlayer).getExtraYieldThreshold(eYield) > 0) {
-			if (iYield >= GET_PLAYER(ePlayer).getExtraYieldThreshold(eYield)) {
+		const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+		if (kPlayer.getExtraYieldThreshold(eYield) > 0) {
+			if (iYield >= kPlayer.getExtraYieldThreshold(eYield)) {
 				iYield += GC.getEXTRA_YIELD();
 			}
 		}
 
-		if (GET_PLAYER(ePlayer).isGoldenAge()) {
-			if (iYield >= GC.getYieldInfo(eYield).getGoldenAgeYieldThreshold()) {
-				iYield += GC.getYieldInfo(eYield).getGoldenAgeYield();
+		if (kPlayer.isGoldenAge()) {
+			if (iYield >= kYield.getGoldenAgeYieldThreshold()) {
+				iYield += kYield.getGoldenAgeYield();
 			}
 		}
 	}

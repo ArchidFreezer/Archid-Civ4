@@ -14,6 +14,31 @@
 		<Italian>, XP: (%s1_Curr/%d2_Needed)</Italian>
 		<Spanish>, PX: (%s1_Curr/%d2_Needed)</Spanish>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_FOREST_PLOTS</Tag>
+		<English>Forest Tiles</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_RIVER_PLOTS</Tag>
+		<English>River Tiles</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_SEA_PLOTS</Tag>
+		<English>Sea Tiles</English>
+	</TEXT>
+	<!-- Tech Feature Yields -->
+	<TEXT>
+		<Tag>TXT_KEY_TECH_CHANGE_FOREST_YIELD</Tag>
+		<English>[ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Forest[COLOR_REVERT] provides</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_CHANGE_RIVER_YIELD</Tag>
+		<English>[ICON_BULLET][COLOR_HIGHLIGHT_TEXT]River[COLOR_REVERT] provides</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_CHANGE_SEA_YIELD</Tag>
+		<English>[ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Sea[COLOR_REVERT] provides</English>
+	</TEXT>
 <!-- Unofficial Patch -->
 	<TEXT>
 		<Tag>TXT_KEY_TERRAIN_TURN_DAMAGE</Tag>

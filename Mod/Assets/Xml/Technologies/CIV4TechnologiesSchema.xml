@@ -93,6 +93,16 @@
 	<ElementType name="bUnitTerritoryUnbound" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iUnitRangeChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iUnitRangePercentChange" content="textOnly" dt:type="int"/>
+	<ElementType name="iYield" content="textOnly" dt:type="int"/>
+	<ElementType name="ForestPlotYieldChanges" content="eltOnly">
+		<element type="iYield" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="RiverPlotYieldChanges" content="eltOnly">
+		<element type="iYield" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="SeaPlotYieldChanges" content="eltOnly">
+		<element type="iYield" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="TechInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -143,6 +153,9 @@
 		<element type="bUnitTerritoryUnbound" minOccurs="0"/>
 		<element type="iUnitRangeChange" minOccurs="0"/>
 		<element type="iUnitRangePercentChange" minOccurs="0"/>
+		<element type="ForestPlotYieldChanges" minOccurs="0"/>
+		<element type="RiverPlotYieldChanges" minOccurs="0"/>
+		<element type="SeaPlotYieldChanges" minOccurs="0"/>
 		<element type="Flavors"/>
 		<element type="OrPreReqs" minOccurs="0"/>
 		<element type="AndPreReqs" minOccurs="0"/>

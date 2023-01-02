@@ -1617,5 +1617,13 @@
 			<Type>INTERFACE_ATTITUDE_4</Type>
 			<Path>Art/Interface/UltraPack/Attitude4.dds</Path>
 		</InterfaceArtInfo>
+		<InterfaceArtInfo>
+			<Type>INTERFACE_BUTTON_FOREST</Type>
+			<Path>Art/Interface/Buttons/TerrainFeatures/Forest.dds</Path>
+		</InterfaceArtInfo>
+		<InterfaceArtInfo>
+			<Type>INTERFACE_BUTTON_COAST</Type>
+			<Path>Art/Interface/Buttons/BaseTerrain/Coast.dds</Path>
+		</InterfaceArtInfo>
 	</InterfaceArtInfos>
 </Civ4ArtDefines>

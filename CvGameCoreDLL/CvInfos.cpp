@@ -853,6 +853,9 @@ CvTechInfo::CvTechInfo() :
 	m_piFlavorValue(NULL),
 	m_piPrereqOrTechs(NULL),
 	m_piPrereqAndTechs(NULL),
+	m_piForestPlotYieldChange(NULL),
+	m_piRiverPlotYieldChange(NULL),
+	m_piSeaPlotYieldChange(NULL),
 	m_pbCommerceFlexible(NULL),
 	m_pbTerrainTrade(NULL) {
 }
@@ -869,8 +872,74 @@ CvTechInfo::~CvTechInfo() {
 	SAFE_DELETE_ARRAY(m_piFlavorValue);
 	SAFE_DELETE_ARRAY(m_piPrereqOrTechs);
 	SAFE_DELETE_ARRAY(m_piPrereqAndTechs);
+	SAFE_DELETE_ARRAY(m_piForestPlotYieldChange);
+	SAFE_DELETE_ARRAY(m_piRiverPlotYieldChange);
+	SAFE_DELETE_ARRAY(m_piSeaPlotYieldChange);
 	SAFE_DELETE_ARRAY(m_pbCommerceFlexible);
 	SAFE_DELETE_ARRAY(m_pbTerrainTrade);
+}
+
+int CvTechInfo::getForestPlotYieldChange(int i) const {
+	FAssertMsg(i < NUM_YIELD_TYPES, "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	return m_piForestPlotYieldChange ? m_piForestPlotYieldChange[i] : -1;
+}
+
+int* CvTechInfo::getForestPlotYieldChangeArray() const {
+	return m_piForestPlotYieldChange;
+}
+
+bool CvTechInfo::hasAnyForestPlotYieldChange() const {
+	bool bFound = false;
+	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+		if (getForestPlotYieldChange(eYield) != 0) {
+			bFound = true;
+			break;
+		}
+	}
+	return bFound;
+}
+
+int CvTechInfo::getRiverPlotYieldChange(int i) const {
+	FAssertMsg(i < NUM_YIELD_TYPES, "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	return m_piRiverPlotYieldChange ? m_piRiverPlotYieldChange[i] : -1;
+}
+
+int* CvTechInfo::getRiverPlotYieldChangeArray() const {
+	return m_piRiverPlotYieldChange;
+}
+
+bool CvTechInfo::hasAnyRiverPlotYieldChange() const {
+	bool bFound = false;
+	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+		if (getRiverPlotYieldChange(eYield) != 0) {
+			bFound = true;
+			break;
+		}
+	}
+	return bFound;
+}
+
+int CvTechInfo::getSeaPlotYieldChange(int i) const {
+	FAssertMsg(i < NUM_YIELD_TYPES, "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	return m_piSeaPlotYieldChange ? m_piSeaPlotYieldChange[i] : -1;
+}
+
+int* CvTechInfo::getSeaPlotYieldChangeArray() const {
+	return m_piSeaPlotYieldChange;
+}
+
+bool CvTechInfo::hasAnySeaPlotYieldChange() const {
+	bool bFound = false;
+	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+		if (getSeaPlotYieldChange(eYield) != 0) {
+			bFound = true;
+			break;
+		}
+	}
+	return bFound;
 }
 
 int CvTechInfo::getUnitRangeChange() const {
@@ -1155,6 +1224,18 @@ void CvTechInfo::read(FDataStreamBase* stream) {
 	m_piPrereqAndTechs = new int[GC.getNUM_AND_TECH_PREREQS()];
 	stream->Read(GC.getNUM_AND_TECH_PREREQS(), m_piPrereqAndTechs);
 
+	SAFE_DELETE_ARRAY(m_piForestPlotYieldChange);
+	m_piForestPlotYieldChange = new int[NUM_YIELD_TYPES];
+	stream->Read(NUM_YIELD_TYPES, m_piForestPlotYieldChange);
+
+	SAFE_DELETE_ARRAY(m_piRiverPlotYieldChange);
+	m_piRiverPlotYieldChange = new int[NUM_YIELD_TYPES];
+	stream->Read(NUM_YIELD_TYPES, m_piRiverPlotYieldChange);
+
+	SAFE_DELETE_ARRAY(m_piSeaPlotYieldChange);
+	m_piSeaPlotYieldChange = new int[NUM_YIELD_TYPES];
+	stream->Read(NUM_YIELD_TYPES, m_piSeaPlotYieldChange);
+
 	SAFE_DELETE_ARRAY(m_pbCommerceFlexible);
 	m_pbCommerceFlexible = new bool[NUM_COMMERCE_TYPES];
 	stream->Read(NUM_COMMERCE_TYPES, m_pbCommerceFlexible);
@@ -1220,6 +1301,9 @@ void CvTechInfo::write(FDataStreamBase* stream) {
 	stream->Write(GC.getNumFlavorTypes(), m_piFlavorValue);
 	stream->Write(GC.getNUM_OR_TECH_PREREQS(), m_piPrereqOrTechs);
 	stream->Write(GC.getNUM_AND_TECH_PREREQS(), m_piPrereqAndTechs);
+	stream->Write(NUM_YIELD_TYPES, m_piForestPlotYieldChange);
+	stream->Write(NUM_YIELD_TYPES, m_piRiverPlotYieldChange);
+	stream->Write(NUM_YIELD_TYPES, m_piSeaPlotYieldChange);
 	stream->Write(NUM_COMMERCE_TYPES, m_pbCommerceFlexible);
 	stream->Write(GC.getNumTerrainInfos(), m_pbTerrainTrade);
 
@@ -1286,6 +1370,9 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->SetListPairInfo(&m_piDomainExtraMoves, "DomainExtraMoves", NUM_DOMAIN_TYPES);
 	pXML->SetListInfoBool(&m_pbTerrainTrade, "TerrainTrades", GC.getNumTerrainInfos());
+	pXML->SetList(&m_piForestPlotYieldChange, "ForestPlotYieldChanges", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piRiverPlotYieldChange, "RiverPlotYieldChanges", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piSeaPlotYieldChange, "SeaPlotYieldChanges", NUM_YIELD_TYPES);
 	pXML->SetListPairEnum(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());
 
 	pXML->GetChildXmlValByName(szTextVal, "Quote");
