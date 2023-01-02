@@ -103,7 +103,7 @@ class CvPediaRoute:
 			screen.attachImageButton( panelName, "", gc.getBonusInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, iPrereq, -1, False )
 
 		nOr = 0
-		for j in xrange(gc.getNUM_ROUTE_PREREQ_OR_BONUSES()):
+		for j in xrange(gc.getRouteInfo(self.iRoute).getNumPrereqOrBonuses()):
 			if gc.getRouteInfo(self.iRoute).getPrereqOrBonus(j) > -1:
 				nOr += 1
 
@@ -116,7 +116,7 @@ class CvPediaRoute:
 				screen.attachLabel(panelName, "", CyTranslator().getText("TXT_KEY_AND", ()))
 
 		bFirst = True
-		for j in xrange(gc.getNUM_ROUTE_PREREQ_OR_BONUSES()):
+		for j in xrange(gc.getRouteInfo(self.iRoute).getNumPrereqOrBonuses()):
 			eBonus = gc.getRouteInfo(self.iRoute).getPrereqOrBonus(j)
 			if eBonus > -1:
 				if (not bFirst):

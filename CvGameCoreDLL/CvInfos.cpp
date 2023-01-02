@@ -10219,8 +10219,8 @@ CvRouteInfo::CvRouteInfo() :
 	m_iFlatMovementCost(0),
 	m_iPrereqBonus(NO_BONUS),
 	m_piYieldChange(NULL),
-	m_piTechMovementChange(NULL),
-	m_piPrereqOrBonuses(NULL) {
+	m_piTechMovementChange(NULL)
+{
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -10233,7 +10233,18 @@ CvRouteInfo::CvRouteInfo() :
 CvRouteInfo::~CvRouteInfo() {
 	SAFE_DELETE_ARRAY(m_piYieldChange);
 	SAFE_DELETE_ARRAY(m_piTechMovementChange);
-	SAFE_DELETE_ARRAY(m_piPrereqOrBonuses);
+}
+
+int CvRouteInfo::getNumPrereqOrBonuses() const {
+	return m_viPrereqOrBonuses.size();
+}
+
+int CvRouteInfo::getPrereqOrBonus(int i) const {
+	return getNumPrereqOrBonuses() > i ? m_viPrereqOrBonuses[i] : -1;
+}
+
+bool CvRouteInfo::isPrereqOrBonus(int i) const {
+	return (std::find(m_viPrereqOrBonuses.begin(), m_viPrereqOrBonuses.end(), i) != m_viPrereqOrBonuses.end());
 }
 
 int CvRouteInfo::getAdvancedStartCost() const {
@@ -10274,10 +10285,6 @@ int CvRouteInfo::getTechMovementChange(int i) const {
 	return m_piTechMovementChange ? m_piTechMovementChange[i] : -1;
 }
 
-int CvRouteInfo::getPrereqOrBonus(int i) const {
-	return m_piPrereqOrBonuses ? m_piPrereqOrBonuses[i] : -1;
-}
-
 bool CvRouteInfo::read(CvXMLLoadUtility* pXML) {
 	CvString szTextVal;
 	if (!CvInfoBase::read(pXML)) {
@@ -10296,7 +10303,7 @@ bool CvRouteInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->SetList(&m_piYieldChange, "Yields", NUM_YIELD_TYPES);
 	pXML->SetListPairInfo(&m_piTechMovementChange, "TechMovementChanges", GC.getNumTechInfos());
-	pXML->SetListInfo(&m_piPrereqOrBonuses, "PrereqOrBonuses", GC.getNUM_ROUTE_PREREQ_OR_BONUSES());
+	pXML->SetVectorInfo(m_viPrereqOrBonuses, "PrereqOrBonuses");
 
 	return true;
 }

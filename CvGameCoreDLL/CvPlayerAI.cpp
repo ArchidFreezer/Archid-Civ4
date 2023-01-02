@@ -3703,7 +3703,7 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 				bool bMaybeMissing = false; // if we don't know if we have the bonus or not
 				bool bDefinitelyMissing = false; // if we can see the bonuses, and we know we don't have any.
 
-				for (int iK = 0; iK < GC.getNUM_ROUTE_PREREQ_OR_BONUSES(); ++iK) {
+				for (int iK = 0; iK < GC.getRouteInfo(eRoute).getNumPrereqOrBonuses(); ++iK) {
 					BonusTypes ePrereqBonus = (BonusTypes)GC.getRouteInfo(eRoute).getPrereqOrBonus(iK);
 					if (ePrereqBonus != NO_BONUS) {
 						if (hasBonus(ePrereqBonus)) {
@@ -7263,16 +7263,17 @@ int CvPlayerAI::AI_baseBonusVal(BonusTypes eBonus) const {
 				RouteTypes eRoute = (RouteTypes)(GC.getBuildInfo(eBuild).getRoute());
 
 				if (eRoute != NO_ROUTE) {
+					const CvRouteInfo& kRoute = GC.getRouteInfo(eRoute);
 					int iTempValue = 0;
-					if (GC.getRouteInfo(eRoute).getPrereqBonus() == eBonus) {
+					if (kRoute.getPrereqBonus() == eBonus) {
 						iTempValue += 80;
 					}
-					for (int iJ = 0; iJ < GC.getNUM_ROUTE_PREREQ_OR_BONUSES(); iJ++) {
-						if (GC.getRouteInfo(eRoute).getPrereqOrBonus(iJ) == eBonus) {
+					for (int iJ = 0; iJ < kRoute.getNumPrereqOrBonuses(); iJ++) {
+						if (kRoute.getPrereqOrBonus(iJ) == eBonus) {
 							iTempValue += 40;
 						}
 					}
-					if ((eBestRoute != NO_ROUTE) && (GC.getRouteInfo(getBestRoute()).getValue() <= GC.getRouteInfo(eRoute).getValue())) {
+					if ((eBestRoute != NO_ROUTE) && (GC.getRouteInfo(getBestRoute()).getValue() <= kRoute.getValue())) {
 						iValue += iTempValue;
 					} else {
 						iValue += iTempValue / 2;

@@ -344,7 +344,7 @@ class CvPediaBonus:
 			if Info.getPrereqBonus() == self.iBonus:
 				bFound = True
 			else:
-				for j in xrange(gc.getNUM_ROUTE_PREREQ_OR_BONUSES()):
+				for j in xrange(Info.getNumPrereqOrBonuses()):
 					if Info.getPrereqOrBonus(j) == self.iBonus:
 						bFound = True
 						break

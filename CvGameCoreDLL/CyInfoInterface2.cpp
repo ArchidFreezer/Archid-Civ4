@@ -246,12 +246,15 @@ void CyInfoPythonInterface2() {
 		.def("getMovementCost", &CvRouteInfo::getMovementCost, "int ()")
 		.def("getFlatMovementCost", &CvRouteInfo::getFlatMovementCost, "int ()")
 		.def("getPrereqBonus", &CvRouteInfo::getPrereqBonus, "int ()")
+		.def("getNumPrereqOrBonuses", &CvRouteInfo::getNumPrereqOrBonuses, "int ()")
 
 		// Arrays
 
 		.def("getYieldChange", &CvRouteInfo::getYieldChange, "int (int i)")
 		.def("getTechMovementChange", &CvRouteInfo::getTechMovementChange, "int (int i)")
 		.def("getPrereqOrBonus", &CvRouteInfo::getPrereqOrBonus, "int (int i)")
+
+		.def("isPrereqOrBonus", &CvRouteInfo::isPrereqOrBonus, "bool (int i)")
 		;
 
 	python::class_<CvImprovementBonusInfo, python::bases<CvInfoBase> >("CvImprovementBonusInfo")

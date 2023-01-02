@@ -273,7 +273,6 @@ public:
 	int getCITY_MAX_NUM_BUILDINGS() const { return GC.getCITY_MAX_NUM_BUILDINGS(); }
 	int getNUM_UNIT_AND_TECH_PREREQS() const { return GC.getNUM_UNIT_AND_TECH_PREREQS(); }
 	int getLAKE_MAX_AREA_SIZE() const { return GC.getLAKE_MAX_AREA_SIZE(); }
-	int getNUM_ROUTE_PREREQ_OR_BONUSES() const { return GC.getNUM_ROUTE_PREREQ_OR_BONUSES(); }
 	int getMIN_WATER_SIZE_FOR_OCEAN() const { return GC.getMIN_WATER_SIZE_FOR_OCEAN(); }
 	int getFORTIFY_MODIFIER_PER_TURN() const { return GC.getFORTIFY_MODIFIER_PER_TURN(); }
 	int getMAX_CITY_DEFENSE_DAMAGE() const { return GC.getMAX_CITY_DEFENSE_DAMAGE(); }

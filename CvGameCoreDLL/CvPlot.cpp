@@ -1830,25 +1830,26 @@ bool CvPlot::canBuild(BuildTypes eBuild, PlayerTypes ePlayer, bool bTestVisible)
 	RouteTypes eRoute = ((RouteTypes)(GC.getBuildInfo(eBuild).getRoute()));
 
 	if (eRoute != NO_ROUTE) {
+		const CvRouteInfo& kRoute = GC.getRouteInfo(eRoute);
 		if (getRouteType() != NO_ROUTE) {
-			if (GC.getRouteInfo(getRouteType()).getValue() >= GC.getRouteInfo(eRoute).getValue()) {
+			if (GC.getRouteInfo(getRouteType()).getValue() >= kRoute.getValue()) {
 				return false;
 			}
 		}
 
 		if (!bTestVisible) {
-			if (GC.getRouteInfo(eRoute).getPrereqBonus() != NO_BONUS) {
-				if (!isAdjacentPlotGroupConnectedBonus(ePlayer, ((BonusTypes)(GC.getRouteInfo(eRoute).getPrereqBonus())))) {
+			if (kRoute.getPrereqBonus() != NO_BONUS) {
+				if (!isAdjacentPlotGroupConnectedBonus(ePlayer, (BonusTypes)kRoute.getPrereqBonus())) {
 					return false;
 				}
 			}
 
 			bool bFoundValid = true;
-			for (int i = 0; i < GC.getNUM_ROUTE_PREREQ_OR_BONUSES(); ++i) {
-				if (NO_BONUS != GC.getRouteInfo(eRoute).getPrereqOrBonus(i)) {
+			for (int i = 0; i < kRoute.getNumPrereqOrBonuses(); ++i) {
+				if (NO_BONUS != kRoute.getPrereqOrBonus(i)) {
 					bFoundValid = false;
 
-					if (isAdjacentPlotGroupConnectedBonus(ePlayer, ((BonusTypes)(GC.getRouteInfo(eRoute).getPrereqOrBonus(i))))) {
+					if (isAdjacentPlotGroupConnectedBonus(ePlayer, (BonusTypes)kRoute.getPrereqOrBonus(i))) {
 						bFoundValid = true;
 						break;
 					}

@@ -2229,7 +2229,7 @@ void CvDLLWidgetData::parseActionHelp(CvWidgetDataStruct& widgetDataStruct, CvWS
 
 						bool bFoundValid = true;
 						std::vector<BonusTypes> aeOrBonuses;
-						for (int iPrereqBonus = 0; iPrereqBonus < GC.getNUM_ROUTE_PREREQ_OR_BONUSES(); ++iPrereqBonus) {
+						for (int iPrereqBonus = 0; iPrereqBonus < kRouteInfo.getNumPrereqOrBonuses(); ++iPrereqBonus) {
 							if (NO_BONUS != kRouteInfo.getPrereqOrBonus(iPrereqBonus)) {
 								aeOrBonuses.push_back((BonusTypes)kRouteInfo.getPrereqOrBonus(iPrereqBonus));
 								bFoundValid = false;

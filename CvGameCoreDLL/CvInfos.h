@@ -2852,12 +2852,15 @@ public:
 	int getMovementCost() const;				// Exposed to Python
 	int getFlatMovementCost() const;		// Exposed to Python
 	int getPrereqBonus() const;					// Exposed to Python
+	int getNumPrereqOrBonuses() const;
 
 	// Arrays
 
 	int getYieldChange(int i) const;				// Exposed to Python
 	int getTechMovementChange(int i) const;				// Exposed to Python
 	int getPrereqOrBonus(int i) const;				// Exposed to Python
+
+	bool isPrereqOrBonus(int i) const;
 
 	bool read(CvXMLLoadUtility* pXML);
 
@@ -2876,8 +2879,8 @@ protected:
 
 	int* m_piYieldChange;
 	int* m_piTechMovementChange;
-	int* m_piPrereqOrBonuses;
 
+	std::vector<int> m_viPrereqOrBonuses;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
