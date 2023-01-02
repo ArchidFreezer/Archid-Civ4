@@ -264,6 +264,7 @@ void CyInfoPythonInterface3() {
 		.def("getMaintenance", &CvCorporationInfo::getMaintenance, "int ()")
 		.def("getMissionType", &CvCorporationInfo::getMissionType, "int ()")
 		.def("getTGAIndex", &CvCorporationInfo::getTGAIndex, "int ()")
+		.def("getNumPrereqBonuses", &CvCorporationInfo::getNumPrereqBonuses, "int ()")
 
 		.def("getMovieFile", &CvCorporationInfo::getMovieFile, "string ()")
 		.def("getMovieSound", &CvCorporationInfo::getMovieSound, "string ()")
@@ -275,6 +276,8 @@ void CyInfoPythonInterface3() {
 		.def("getHeadquarterCommerce", &CvCorporationInfo::getHeadquarterCommerce, "int (int i)")
 		.def("getCommerceProduced", &CvCorporationInfo::getCommerceProduced, "int (int i)")
 		.def("getYieldProduced", &CvCorporationInfo::getYieldProduced, "int (int i)")
+
+		.def("isPrereqBonus", &CvCorporationInfo::isPrereqBonus, "bool (int i)")
 		;
 
 	python::class_<CvTraitInfo, python::bases<CvInfoBase> >("CvTraitInfo")

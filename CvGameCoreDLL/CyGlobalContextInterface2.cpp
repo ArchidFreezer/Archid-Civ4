@@ -47,7 +47,6 @@ void CyGlobalContextPythonInterface2(python::class_<CyGlobalContext>& x) {
 		.def("getMIN_WATER_SIZE_FOR_OCEAN", &CyGlobalContext::getMIN_WATER_SIZE_FOR_OCEAN, "int ()")
 		.def("getFORTIFY_MODIFIER_PER_TURN", &CyGlobalContext::getFORTIFY_MODIFIER_PER_TURN, "int ()")
 		.def("getMAX_CITY_DEFENSE_DAMAGE", &CyGlobalContext::getMAX_CITY_DEFENSE_DAMAGE, "int ()")
-		.def("getNUM_CORPORATION_PREREQ_BONUSES", &CyGlobalContext::getNUM_CORPORATION_PREREQ_BONUSES, "int ()")
 		.def("getPEAK_SEE_THROUGH_CHANGE", &CyGlobalContext::getPEAK_SEE_THROUGH_CHANGE, "int ()")
 		.def("getHILLS_SEE_THROUGH_CHANGE", &CyGlobalContext::getHILLS_SEE_THROUGH_CHANGE, "int ()")
 		.def("getSEAWATER_SEE_FROM_CHANGE", &CyGlobalContext::getSEAWATER_SEE_FROM_CHANGE, "int ()")

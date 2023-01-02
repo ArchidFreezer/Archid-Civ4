@@ -14077,7 +14077,6 @@ CvCorporationInfo::CvCorporationInfo() :
 	m_iMissionType(NO_MISSION),
 	m_iBonusProduced(NO_BONUS),
 	m_iTGAIndex(-1),
-	m_paiPrereqBonuses(NULL),
 	m_paiHeadquarterCommerce(NULL),
 	m_paiCommerceProduced(NULL),
 	m_paiYieldProduced(NULL) {
@@ -14092,10 +14091,21 @@ CvCorporationInfo::CvCorporationInfo() :
 //
 //------------------------------------------------------------------------------------------------------
 CvCorporationInfo::~CvCorporationInfo() {
-	SAFE_DELETE_ARRAY(m_paiPrereqBonuses);
 	SAFE_DELETE_ARRAY(m_paiHeadquarterCommerce);
 	SAFE_DELETE_ARRAY(m_paiCommerceProduced);
 	SAFE_DELETE_ARRAY(m_paiYieldProduced);
+}
+
+int CvCorporationInfo::getNumPrereqBonuses() const {
+	return m_viPrereqBonuses.size();
+}
+
+int CvCorporationInfo::getPrereqBonus(int i) const {
+	return getNumPrereqBonuses() > i ? m_viPrereqBonuses[i] : -1;
+}
+
+bool CvCorporationInfo::isPrereqBonus(int i) const {
+	return (std::find(m_viPrereqBonuses.begin(), m_viPrereqBonuses.end(), i) != m_viPrereqBonuses.end());
 }
 
 int CvCorporationInfo::getChar() const {
@@ -14181,12 +14191,6 @@ void CvCorporationInfo::setSound(const TCHAR* szVal) {
 
 // Arrays
 
-int CvCorporationInfo::getPrereqBonus(int i) const {
-	FAssertMsg(i < GC.getNUM_CORPORATION_PREREQ_BONUSES(), "Index out of bounds");
-	FAssertMsg(i > -1, "Index out of bounds");
-	return m_paiPrereqBonuses[i];
-}
-
 int CvCorporationInfo::getHeadquarterCommerce(int i) const {
 	FAssertMsg(i < NUM_COMMERCE_TYPES, "Index out of bounds");
 	FAssertMsg(i > -1, "Index out of bounds");
@@ -14240,7 +14244,7 @@ bool CvCorporationInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetList(&m_paiHeadquarterCommerce, "HeadquarterCommerces", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_paiCommerceProduced, "CommercesProduced", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_paiYieldProduced, "YieldsProduced", NUM_YIELD_TYPES);
-	pXML->SetListInfo(&m_paiPrereqBonuses, "PrereqBonuses", GC.getNUM_CORPORATION_PREREQ_BONUSES());
+	pXML->SetVectorInfo(m_viPrereqBonuses, "PrereqBonuses");
 	pXML->GetChildXmlValByName(szTextVal, "BonusProduced");
 	m_iBonusProduced = pXML->FindInInfoClass(szTextVal);
 

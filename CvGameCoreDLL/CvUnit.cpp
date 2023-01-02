@@ -4622,9 +4622,10 @@ bool CvUnit::canSpreadCorporation(const CvPlot* pPlot, CorporationTypes eCorpora
 			}
 		}
 
+		const CvCorporationInfo& kCorp = GC.getCorporationInfo(eCorporation);
 		bool bValid = false;
-		for (int i = 0; i < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++i) {
-			BonusTypes eBonus = (BonusTypes)GC.getCorporationInfo(eCorporation).getPrereqBonus(i);
+		for (int i = 0; i < kCorp.getNumPrereqBonuses(); ++i) {
+			BonusTypes eBonus = (BonusTypes)kCorp.getPrereqBonus(i);
 			if (NO_BONUS != eBonus) {
 				if (pCity->hasBonus(eBonus)) {
 					bValid = true;

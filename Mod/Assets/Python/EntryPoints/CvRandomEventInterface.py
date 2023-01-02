@@ -3883,7 +3883,7 @@ def getHostileTakeoverListResources(corporation, player):
 				if not iBonus in listHave:
 					listHave.append(iBonus)
 	listNeed = []
-	for i in range(gc.getNUM_CORPORATION_PREREQ_BONUSES()):
+	for i in range(corporation.getNumPrereqBonuses()):
 		iBonus = corporation.getPrereqBonus(i)
 		if iBonus != -1:
 			if not iBonus in listHave:

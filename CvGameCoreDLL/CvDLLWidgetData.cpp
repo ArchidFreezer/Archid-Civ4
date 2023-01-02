@@ -1960,7 +1960,7 @@ void CvDLLWidgetData::parseActionHelp(CvWidgetDataStruct& widgetDataStruct, CvWS
 						CvWStringBuffer szBonusList;
 						bool bValid = false;
 						bool bFirst = true;
-						for (int iPrereqBonus = 0; iPrereqBonus < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++iPrereqBonus) {
+						for (int iPrereqBonus = 0; iPrereqBonus < GC.getCorporationInfo(eCorporation).getNumPrereqBonuses(); ++iPrereqBonus) {
 							BonusTypes eBonus = (BonusTypes)GC.getCorporationInfo(eCorporation).getPrereqBonus(iPrereqBonus);
 							if (NO_BONUS != eBonus) {
 								if (!bFirst) {

@@ -132,7 +132,7 @@ class CvCorporationScreen:
 		screen.setTableColumnHeader("BonusRequired", 4, "<font=3>" + CyTranslator().getText("TXT_KEY_BONUS_TOTAL", ()) + "</font>", iWidth)
 		screen.enableSort("BonusRequired")
 		
-		for i in xrange(gc.getDefineINT("NUM_CORPORATION_PREREQ_BONUSES")):
+		for i in xrange(gc.getCorporationInfo(self.iCorporationSelected).getNumPrereqBonuses()):
 			eBonus = gc.getCorporationInfo(self.iCorporationSelected).getPrereqBonus(i)
 			if eBonus > -1:
 				iRow = screen.appendTableRow("BonusRequired")

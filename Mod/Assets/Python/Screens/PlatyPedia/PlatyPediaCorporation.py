@@ -85,7 +85,7 @@ class CvPediaCorporation:
 					szButton = gc.getPlayer(self.top.iActivePlayer).getUnitButton(iUnit)
 				screen.attachImageButton( panelName, "", szButton, GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_UNIT, iUnit, 1, False )
 
-		for i in xrange(gc.getNUM_CORPORATION_PREREQ_BONUSES()):
+		for i in xrange(Info.getNumPrereqBonuses()):
 			iBonus = Info.getPrereqBonus(i)
 			if iBonus > -1:
 				screen.attachImageButton(panelName, "", gc.getBonusInfo(iBonus).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, iBonus, 1, False )

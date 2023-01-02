@@ -163,7 +163,7 @@ class CvPediaBonus:
 
 		for item in xrange(gc.getNumCorporationInfos()):
 			Info = gc.getCorporationInfo(item)
-			for i in xrange(gc.getNUM_CORPORATION_PREREQ_BONUSES ()):
+			for i in xrange(Info.getNumPrereqBonuses()):
 				if self.iBonus == Info.getPrereqBonus(i):
 					sText = ""
 					for k in range(YieldTypes.NUM_YIELD_TYPES):

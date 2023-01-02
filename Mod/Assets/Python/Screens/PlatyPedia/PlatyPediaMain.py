@@ -2042,7 +2042,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		elif iType == 4:
 			for iCorporation in xrange(gc.getNumCorporationInfos()):
 				lTemp = []
-				for i in xrange(gc.getNUM_CORPORATION_PREREQ_BONUSES()):
+				for i in xrange(gc.getCorporationInfo(iCorporation).getNumPrereqBonuses()):
 					iBonus = gc.getCorporationInfo(iCorporation).getPrereqBonus(i)
 					if iBonus > -1:
 						Info = gc.getBonusInfo(iBonus)
@@ -2392,7 +2392,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 				lTemp = []
 				for item in lItems:
 					ItemInfo = gc.getCorporationInfo(item[1])
-					for i in xrange(gc.getNUM_CORPORATION_PREREQ_BONUSES()):
+					for i in xrange(ItemInfo.getNumPrereqBonuses()):
 						iItemBonus = ItemInfo.getPrereqBonus(i)
 						if iItemBonus == iBonus:
 							lTemp.append(item)

@@ -9631,10 +9631,12 @@ void CvGameTextMgr::buildBuildingRequiresString(CvWStringBuffer& szBuffer, Build
 			}
 
 			if (NO_CORPORATION != kBuilding.getFoundsCorporation()) {
+				const CvCorporationInfo& kCorp = GC.getCorporationInfo((CorporationTypes)kBuilding.getFoundsCorporation());
+
 				bFirst = true;
 				szBonusList.clear();
-				for (int iI = 0; iI < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++iI) {
-					BonusTypes eBonus = (BonusTypes)GC.getCorporationInfo((CorporationTypes)kBuilding.getFoundsCorporation()).getPrereqBonus(iI);
+				for (int iI = 0; iI < kCorp.getNumPrereqBonuses(); ++iI) {
+					BonusTypes eBonus = (BonusTypes)kCorp.getPrereqBonus(iI);
 					if (NO_BONUS != eBonus) {
 						if ((pCity == NULL) || !(pCity->hasBonus(eBonus))) {
 							CvWString szTempBuffer, szFirstBuffer;
@@ -10698,16 +10700,18 @@ void CvGameTextMgr::setBonusHelp(CvWStringBuffer& szBuffer, BonusTypes eBonus, b
 
 				szBuffer.append(gDLL->getText("TXT_KEY_BONUS_AVAILABLE_PLAYER", kActivePlayer.getNumAvailableBonuses(eBonus), kActivePlayer.getNameKey()));
 
-				for (int iCorp = 0; iCorp < GC.getNumCorporationInfos(); ++iCorp) {
+				for (CorporationTypes eCorporation = (CorporationTypes)0; eCorporation < GC.getNumCorporationInfos(); eCorporation = (CorporationTypes)(eCorporation + 1)) {
+					const CvCorporationInfo& kLoopCorp = GC.getCorporationInfo(eCorporation);
+
 					bool bCorpBonus = false;
-					if (kActivePlayer.getHasCorporationCount((CorporationTypes)iCorp) > 0) {
-						for (int i = 0; !bCorpBonus && i < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++i) {
-							bCorpBonus = eBonus == GC.getCorporationInfo((CorporationTypes)iCorp).getPrereqBonus(i);
+					if (kActivePlayer.getHasCorporationCount(eCorporation) > 0) {
+						for (int i = 0; !bCorpBonus && i < kLoopCorp.getNumPrereqBonuses(); ++i) {
+							bCorpBonus = eBonus == GC.getCorporationInfo(eCorporation).getPrereqBonus(i);
 						}
 					}
 
 					if (bCorpBonus)
-						szBuffer.append(GC.getCorporationInfo((CorporationTypes)iCorp).getChar());
+						szBuffer.append(GC.getCorporationInfo(eCorporation).getChar());
 				}
 			}
 		}
@@ -10991,15 +10995,16 @@ void CvGameTextMgr::setCorporationHelp(CvWStringBuffer& szBuffer, CorporationTyp
 	{
 		szBuffer.append(NEWLINE);
 		szBuffer.append(gDLL->getText("TXT_KEY_CORPORATION_BONUS_REQUIRED"));
-		for (int iPrereqBonus = 0; iPrereqBonus < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++iPrereqBonus) {
-			if (NO_BONUS != kCorporation.getPrereqBonus(iPrereqBonus)) {
+		for (int iPrereqBonus = 0; iPrereqBonus < kCorporation.getNumPrereqBonuses(); ++iPrereqBonus) {
+			BonusTypes ePrereqBonus = (BonusTypes)kCorporation.getPrereqBonus(iPrereqBonus);
+			if (NO_BONUS != ePrereqBonus) {
 				if (bFirst) {
 					bFirst = false;
 				} else {
 					szBuffer.append(L", ");
 				}
 
-				szBuffer.append(gDLL->getText("TXT_KEY_CORPORATION_BONUS_CONSUMES", GC.getBonusInfo((BonusTypes)kCorporation.getPrereqBonus(iPrereqBonus)).getTextKeyWide(), GC.getBonusInfo((BonusTypes)kCorporation.getPrereqBonus(iPrereqBonus)).getChar()));
+				szBuffer.append(gDLL->getText("TXT_KEY_CORPORATION_BONUS_CONSUMES", GC.getBonusInfo(ePrereqBonus).getTextKeyWide(), GC.getBonusInfo(ePrereqBonus).getChar()));
 			}
 		}
 	}
@@ -11030,17 +11035,10 @@ void CvGameTextMgr::setCorporationHelp(CvWStringBuffer& szBuffer, CorporationTyp
 			bool bCompeting = false;
 
 			CvCorporationInfo& kLoopCorporation = GC.getCorporationInfo(eLoopCorporation);
-			for (int iBonus1 = 0; iBonus1 < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++iBonus1) {
-				if (kCorporation.getPrereqBonus(iBonus1) != NO_BONUS) {
-					for (int iBonus2 = 0; iBonus2 < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++iBonus2) {
-						if (kLoopCorporation.getPrereqBonus(iBonus2) == kCorporation.getPrereqBonus(iBonus1)) {
-							bCompeting = true;
-							break;
-						}
-					}
-				}
-
-				if (bCompeting) {
+			for (int iBonus1 = 0; iBonus1 < kLoopCorporation.getNumPrereqBonuses(); ++iBonus1) {
+				BonusTypes eLoopBonus = (BonusTypes)kLoopCorporation.getPrereqBonus(iBonus1);
+				if (eLoopBonus != NO_BONUS && kCorporation.isPrereqBonus(eLoopBonus)) {
+					bCompeting = true;
 					break;
 				}
 			}
@@ -11079,7 +11077,7 @@ void CvGameTextMgr::setCorporationHelpCity(CvWStringBuffer& szBuffer, Corporatio
 	}
 
 	int iNumResources = 0;
-	for (int i = 0; i < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++i) {
+	for (int i = 0; i < kCorporation.getNumPrereqBonuses(); ++i) {
 		BonusTypes eBonus = (BonusTypes)kCorporation.getPrereqBonus(i);
 		if (NO_BONUS != eBonus) {
 			iNumResources += pCity->getNumBonuses(eBonus);
@@ -11151,7 +11149,7 @@ void CvGameTextMgr::setCorporationHelpCity(CvWStringBuffer& szBuffer, Corporatio
 		szBuffer.append(NEWLINE);
 		szBuffer.append(gDLL->getText("TXT_KEY_CORPORATION_BONUS_REQUIRED"));
 		bool bFirst = true;
-		for (int i = 0; i < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++i) {
+		for (int i = 0; i < kCorporation.getNumPrereqBonuses(); ++i) {
 			if (NO_BONUS != kCorporation.getPrereqBonus(i)) {
 				if (bFirst) {
 					bFirst = false;

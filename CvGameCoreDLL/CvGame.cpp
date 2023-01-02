@@ -5053,7 +5053,7 @@ void CvGame::doHeadquarters() {
 					if (NO_TECH != kCorporation.getTechPrereq() && kLoopTeam.isHasTech((TechTypes)(kCorporation.getTechPrereq()))) {
 						if (kLoopTeam.getNumCities() > 0) {
 							bool bHasBonus = false;
-							for (int i = 0; i < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++i) {
+							for (int i = 0; i < kCorporation.getNumPrereqBonuses(); ++i) {
 								if (NO_BONUS != kCorporation.getPrereqBonus(i) && kLoopTeam.hasBonus((BonusTypes)kCorporation.getPrereqBonus(i))) {
 									bHasBonus = true;
 									break;
@@ -5091,7 +5091,7 @@ void CvGame::doHeadquarters() {
 						if (kLoopPlayer.getTeam() == eBestTeam) {
 							if (kLoopPlayer.getNumCities() > 0) {
 								bool bHasBonus = false;
-								for (int i = 0; i < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++i) {
+								for (int i = 0; i < kCorporation.getNumPrereqBonuses(); ++i) {
 									if (NO_BONUS != kCorporation.getPrereqBonus(i) && kLoopPlayer.hasBonus((BonusTypes)kCorporation.getPrereqBonus(i))) {
 										bHasBonus = true;
 										break;
@@ -6854,17 +6854,16 @@ bool CvGame::isCompetingCorporation(CorporationTypes eCorporation1, CorporationT
 	if (eCorporation1 == eCorporation2)
 		return false;
 
-	bool bShareResources = false;
+	if (eCorporation1 == NO_CORPORATION || eCorporation2 == NO_CORPORATION)
+		return false;
 
-	for (int i = 0; i < GC.getNUM_CORPORATION_PREREQ_BONUSES() && !bShareResources; ++i) {
-		if (GC.getCorporationInfo(eCorporation1).getPrereqBonus(i) != NO_BONUS) {
-			for (int j = 0; j < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++j) {
-				if (GC.getCorporationInfo(eCorporation2).getPrereqBonus(j) != NO_BONUS) {
-					if (GC.getCorporationInfo(eCorporation1).getPrereqBonus(i) == GC.getCorporationInfo(eCorporation2).getPrereqBonus(j)) {
-						return true;
-					}
-				}
-			}
+	const CvCorporationInfo& kCorp1 = GC.getCorporationInfo(eCorporation1);
+	const CvCorporationInfo& kCorp2 = GC.getCorporationInfo(eCorporation2);
+
+	for (int iBonus = 0; iBonus < kCorp1.getNumPrereqBonuses(); ++iBonus) {
+		BonusTypes eBonus = (BonusTypes)kCorp1.getPrereqBonus(iBonus);
+		if (eBonus != NO_BONUS && kCorp2.isPrereqBonus(eBonus)) {
+			return true;
 		}
 	}
 

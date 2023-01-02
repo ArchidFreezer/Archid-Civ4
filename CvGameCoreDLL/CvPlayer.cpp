@@ -6200,7 +6200,8 @@ void CvPlayer::foundCorporation(CorporationTypes eCorporation) {
 		return;
 	}
 
-	bool bStarting = ((GC.getCorporationInfo(eCorporation).getTechPrereq() == NO_TECH) || (GC.getTechInfo((TechTypes)GC.getCorporationInfo(eCorporation).getTechPrereq()).getEra() < GC.getGameINLINE().getStartEra()));
+	const CvCorporationInfo& kCorporation = GC.getCorporationInfo(eCorporation);
+	bool bStarting = (kCorporation.getTechPrereq() == NO_TECH || (GC.getTechInfo((TechTypes)kCorporation.getTechPrereq()).getEra() < GC.getGameINLINE().getStartEra()));
 
 	int iBestValue = 0;
 	CvCity* pBestCity = NULL;
@@ -6211,9 +6212,9 @@ void CvPlayer::foundCorporation(CorporationTypes eCorporation) {
 			int iValue = 10;
 			iValue += pLoopCity->getPopulation();
 
-			for (int i = 0; i < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++i) {
-				if (NO_BONUS != GC.getCorporationInfo(eCorporation).getPrereqBonus(i)) {
-					iValue += 10 * pLoopCity->getNumBonuses((BonusTypes)GC.getCorporationInfo(eCorporation).getPrereqBonus(i));
+			for (int iIndex = 0; iIndex < kCorporation.getNumPrereqBonuses(); ++iIndex) {
+				if (NO_BONUS != kCorporation.getPrereqBonus(iIndex)) {
+					iValue += 10 * pLoopCity->getNumBonuses((BonusTypes)kCorporation.getPrereqBonus(iIndex));
 				}
 			}
 

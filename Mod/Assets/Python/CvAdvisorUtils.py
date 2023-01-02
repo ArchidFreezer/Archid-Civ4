@@ -84,7 +84,7 @@ def resetNoLiberateCities():
 			if iUnit == -1: continue
 
 			lTemp = []
-			for iPrereq in xrange(gc.getDefineINT("NUM_CORPORATION_PREREQ_BONUSES")):
+			for iPrereq in xrange(gc.getCorporationInfo(eCorporation).getNumPrereqBonuses()):
 				eBonus = gc.getCorporationInfo(eCorporation).getPrereqBonus(iPrereq)
 				if eBonus > -1:
 					lTemp.append(eBonus)

@@ -190,7 +190,7 @@ class CvPediaBuilding:
 		iCorporation = Info.getFoundsCorporation()
 		bFirst = true
 		if iCorporation > -1:
-			for k in xrange(gc.getNUM_CORPORATION_PREREQ_BONUSES()):
+			for k in xrange(gc.getCorporationInfo(iCorporation).getNumPrereqBonuses()):
 				iPrereq = gc.getCorporationInfo(iCorporation).getPrereqBonus(k)
 				if iPrereq > -1:
 					if len(szCatDelim) == 0:

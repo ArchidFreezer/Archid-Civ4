@@ -7302,7 +7302,7 @@ int CvPlayerAI::AI_corporationBonusVal(BonusTypes eBonus) const {
 			int iNumCorpBonuses = 0;
 			iCorpCount += getNumCities() / 6 + 1;
 			CvCorporationInfo& kCorp = GC.getCorporationInfo((CorporationTypes)iCorporation);
-			for (int i = 0; i < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++i) {
+			for (int i = 0; i < kCorp.getNumPrereqBonuses(); ++i) {
 				if (eBonus == kCorp.getPrereqBonus(i)) {
 					iValue += (50 * kCorp.getYieldProduced(YIELD_FOOD) * iCorpCount) / iCityCount;
 					iValue += (50 * kCorp.getYieldProduced(YIELD_PRODUCTION) * iCorpCount) / iCityCount;
@@ -9270,7 +9270,7 @@ int CvPlayerAI::AI_corporationValue(CorporationTypes eCorporation, const CvCity*
 	int iMaintenance = 0;
 
 	int iBonuses = 0;
-	for (int i = 0; i < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++i) {
+	for (int i = 0; i < kCorp.getNumPrereqBonuses(); ++i) {
 		BonusTypes eBonus = (BonusTypes)kCorp.getPrereqBonus(i);
 		if (NO_BONUS != eBonus) {
 			if (pCity == NULL)
@@ -10176,7 +10176,7 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 				iCorpCities = ((bPlayerHQ ? 1 : 2) * iCorpCities + iCities) / (bPlayerHQ ? 2 : 3);
 			}
 
-			for (int i = 0; i < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++i) {
+			for (int i = 0; i < kCorpInfo.getNumPrereqBonuses(); ++i) {
 				BonusTypes eBonus = (BonusTypes)kCorpInfo.getPrereqBonus(i);
 				if (NO_BONUS != eBonus) {
 					iBonuses += kTeam.isBonusRevealed(eBonus) ? countOwnedBonuses(eBonus) : 1; // expect that we'll get at least one of each unrevealed bonus.
