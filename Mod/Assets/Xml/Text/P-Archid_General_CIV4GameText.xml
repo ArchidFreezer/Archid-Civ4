@@ -34,6 +34,10 @@
 		<Tag>TXT_KEY_TECH_OBSOLETES_BUILD</Tag>
 		<English>[ICON_BULLET]Can [COLOR_WARNING_TEXT]no longer[COLOR_REVERT] build [COLOR_HIGHLIGHT_TEXT]%s1_ImpName[COLOR_REVERT]</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_YOUR_UNIT_PROMOTED_IN_BATTLE</Tag>
+		<English>Your %s1_unit has gained the %s2_promotion promotion following the battle.</English>
+	</TEXT>
 	<!-- Tech Feature Yields -->
 	<TEXT>
 		<Tag>TXT_KEY_TECH_CHANGE_FOREST_YIELD</Tag>

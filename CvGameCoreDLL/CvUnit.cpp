@@ -992,12 +992,24 @@ void CvUnit::resolveCombat(CvUnit* pDefender, CvPlot* pPlot, bool bVisible) {
 	getDefenderCombatValues(*pDefender, pPlot, iAttackerStrength, iAttackerFirepower, iDefenderOdds, iDefenderStrength, iAttackerDamage, iDefenderDamage, &cdDefenderDetails);
 	int iAttackerKillOdds = iDefenderOdds * (100 - withdrawalProbability()) / 100;
 
+	int iWinningOdds = getCombatOdds(this, pDefender);
+
+	CombatData combatData;
+	combatData.bDefenderWithdrawn = false;
+	combatData.bAttackerWithdrawn = false;
+	combatData.bAttackerUninjured = true;
+	combatData.bAmphibAttack = cdDefenderDetails.iAmphibAttackModifier;
+	combatData.bRiverAttack = cdDefenderDetails.iRiverAttackModifier;
+	combatData.iAttackerInitialDamage = getDamage();
+	combatData.iDefenderInitialDamage = pDefender->getDamage();
+	combatData.iWinningOdds = iWinningOdds;
+
 	if (isHuman() || pDefender->isHuman()) {
 		//Added ST
 		CyArgsList pyArgsCD;
 		pyArgsCD.add(gDLL->getPythonIFace()->makePythonObject(&cdAttackerDetails));
 		pyArgsCD.add(gDLL->getPythonIFace()->makePythonObject(&cdDefenderDetails));
-		pyArgsCD.add(getCombatOdds(this, pDefender));
+		pyArgsCD.add(iWinningOdds);
 		CvEventReporter::getInstance().genericEvent("combatLogCalc", pyArgsCD.makeFunctionArgs());
 	}
 
@@ -1007,6 +1019,7 @@ void CvUnit::resolveCombat(CvUnit* pDefender, CvPlot* pPlot, bool bVisible) {
 		if (GC.getGameINLINE().getSorenRandNum(GC.getCOMBAT_DIE_SIDES(), "Combat") < iDefenderOdds) {
 			if (getCombatFirstStrikes() == 0) {
 				if (getDamage() + iAttackerDamage >= maxHitPoints() && GC.getGameINLINE().getSorenRandNum(100, "Withdrawal") < withdrawalProbability()) {
+					combatData.bAttackerWithdrawn = true;
 					flankingStrikeCombat(pPlot, iAttackerStrength, iAttackerFirepower, iAttackerKillOdds, iDefenderDamage, pDefender);
 
 					changeExperience(GC.getDefineINT("EXPERIENCE_FROM_WITHDRAWL"), pDefender->maxXPValue(), true, pPlot->getOwnerINLINE() == getOwnerINLINE(), !pDefender->isBarbarian());
@@ -1015,6 +1028,7 @@ void CvUnit::resolveCombat(CvUnit* pDefender, CvPlot* pPlot, bool bVisible) {
 				}
 
 				changeDamage(iAttackerDamage, pDefender->getOwnerINLINE());
+				combatData.bAttackerUninjured = false;
 				combat_log.push_back(-iAttackerDamage); // K-Mod
 
 				// K-Mod. (I don't think this stuff is actually used, but I want to do it my way, just in case.)
@@ -1110,6 +1124,8 @@ void CvUnit::resolveCombat(CvUnit* pDefender, CvPlot* pPlot, bool bVisible) {
 			gDLL->getEntityIFace()->AddMission(&kBattle);
 		}
 	}
+
+	doFieldPromotions(&combatData, pDefender, pPlot);
 
 #ifdef LOG_COMBAT_OUTCOMES
 	if (!isBarbarian() && !pDefender->isBarbarian()) // don't log barb battles, because they have special rules.
@@ -11238,4 +11254,165 @@ bool CvUnit::isHasPromotionGroup(PromotionTypes eIndex) const {
 		}
 	}
 	return false;
+}
+
+void CvUnit::doFieldPromotions(CombatData* data, CvUnit* pDefender, CvPlot* pPlot) {
+	// If neither unit can gain promotions then forget it
+	if (getUnitCombatType() == NO_UNITCOMBAT && pDefender->getUnitCombatType() == NO_UNITCOMBAT)
+		return;
+
+	std::vector<PromotionTypes> aAttackerAvailablePromotions;
+	std::vector<PromotionTypes> aDefenderAvailablePromotions;
+	for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumPromotionInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
+		const CvPromotionInfo& kPromotion = GC.getPromotionInfo(ePromotion);
+		/* Block These Promotions */
+		if (kPromotion.getKamikazePercent() > 0)
+			continue;
+
+		if (kPromotion.getStateReligionPrereq() != NO_RELIGION && GET_PLAYER(getOwnerINLINE()).getStateReligion() != kPromotion.getStateReligionPrereq())
+			continue;
+
+		if (kPromotion.isLeader())
+			continue;
+
+		if (pDefender->isDead()) {
+			if (!canAcquirePromotion(ePromotion)) //attacker can not acquire this promotion
+				continue;
+
+			//* attacker was crossing river
+			if (kPromotion.isRiver() && data->bRiverAttack)	//this bonus is being applied to defender
+			{
+				aAttackerAvailablePromotions.push_back(ePromotion);
+			}
+			//* attack from water
+			else if (kPromotion.isAmphib() && data->bAmphibAttack) {
+				aAttackerAvailablePromotions.push_back(ePromotion);
+			}
+			//* attack terrain
+			else if (kPromotion.getTerrainAttackPercent(pPlot->getTerrainType()) > 0) {
+				aAttackerAvailablePromotions.push_back(ePromotion);
+			}
+			//* attack feature
+			else if (pPlot->getFeatureType() != NO_FEATURE && kPromotion.getFeatureAttackPercent(pPlot->getFeatureType()) > 0) {
+				aAttackerAvailablePromotions.push_back(ePromotion);
+			}
+			//* attack hills
+			else if (kPromotion.getHillsAttackPercent() > 0 && pPlot->isHills()) {
+				aAttackerAvailablePromotions.push_back(ePromotion);
+			}
+			//* attack city
+			else if (kPromotion.getCityAttackPercent() > 0 && pPlot->isCity(true))	//count forts too
+			{
+				aAttackerAvailablePromotions.push_back(ePromotion);
+			}
+			//* first strikes/chances promotions
+			else if ((kPromotion.getFirstStrikesChange() > 0 || kPromotion.getChanceFirstStrikesChange() > 0) && (firstStrikes() > 0 || chanceFirstStrikes() > 0)) {
+				aAttackerAvailablePromotions.push_back(ePromotion);
+			}
+			//* unit combat mod
+			else if (kPromotion.getUnitCombatModifierPercent(pDefender->getUnitCombatType()) > 0) {
+				aAttackerAvailablePromotions.push_back(ePromotion);
+			}
+			//* combat strength promotions
+			else if (kPromotion.getCombatPercent() > 0) {
+				aAttackerAvailablePromotions.push_back(ePromotion);
+			}
+			//* domain mod
+			else if (kPromotion.getDomainModifierPercent(pDefender->getDomainType())) {
+				aAttackerAvailablePromotions.push_back(ePromotion);
+			}
+			//* blitz
+			else if (kPromotion.isBlitz() && data->bAttackerUninjured) {
+				aAttackerAvailablePromotions.push_back(ePromotion);
+			}
+		}	//if defender is dead
+
+		// Defender withdrawn
+		else if (data->bDefenderWithdrawn) {
+			//* defender withdrawn, give him withdrawal promo
+			if (kPromotion.getWithdrawalChange() > 0 && pDefender->canAcquirePromotion(ePromotion)) {
+				aDefenderAvailablePromotions.push_back(ePromotion);
+			}
+		}
+
+		// Attacker withdrawn
+		else if (data->bAttackerWithdrawn) {
+			//* defender withdrawn, give him withdrawal promo
+			if (kPromotion.getWithdrawalChange() > 0 && canAcquirePromotion(ePromotion)) {
+				aAttackerAvailablePromotions.push_back(ePromotion);
+			}
+		} else	//attacker is dead
+		{
+			if (!pDefender->canAcquirePromotion(ePromotion))
+				continue;
+
+			//* defend terrain
+			if (kPromotion.getTerrainDefensePercent(pPlot->getTerrainType()) > 0) {
+				aDefenderAvailablePromotions.push_back(ePromotion);
+			}
+			//* defend feature
+			else if (pPlot->getFeatureType() != NO_FEATURE && kPromotion.getFeatureDefensePercent(pPlot->getFeatureType()) > 0) {
+				aDefenderAvailablePromotions.push_back(ePromotion);
+			}
+			//* defend hills
+			else if (kPromotion.getHillsDefensePercent() > 0 && pPlot->isHills()) {
+				aDefenderAvailablePromotions.push_back(ePromotion);
+			}
+			//* defend city
+			else if (kPromotion.getCityDefensePercent() > 0 && pPlot->isCity(true))	//count forts too
+			{
+				aDefenderAvailablePromotions.push_back(ePromotion);
+			}
+			//* first strikes/chances promotions
+			else if ((kPromotion.getFirstStrikesChange() > 0 || kPromotion.getChanceFirstStrikesChange() > 0) && (pDefender->firstStrikes() > 0 || pDefender->chanceFirstStrikes() > 0)) {
+				aDefenderAvailablePromotions.push_back(ePromotion);
+			}
+			//* unit combat mod vs attacker unit type
+			else if (kPromotion.getUnitCombatModifierPercent(getUnitCombatType()) > 0) {
+				aDefenderAvailablePromotions.push_back(ePromotion);
+			}
+			//* combat strength promotions
+			else if (kPromotion.getCombatPercent() > 0) {
+				aDefenderAvailablePromotions.push_back(ePromotion);
+			}
+			//* domain mod
+			else if (kPromotion.getDomainModifierPercent(getDomainType())) {
+				aDefenderAvailablePromotions.push_back(ePromotion);
+			}
+		}	//if attacker dead
+	}	//end promotion types cycle
+
+	//promote attacker:
+	if (!isDead() && aAttackerAvailablePromotions.size() > 0) {
+		int iHealthPercent = (maxHitPoints() - getDamage()) * 100 / (maxHitPoints() - data->iAttackerInitialDamage);
+		int iPromotionChanceModifier = iHealthPercent * iHealthPercent / maxHitPoints();
+		int iPromotionChance = (GC.getDefineINT("COMBAT_DIE_SIDES") - data->iWinningOdds) * (100 + iPromotionChanceModifier) / 100;
+
+		if (GC.getGameINLINE().getSorenRandNum(GC.getDefineINT("COMBAT_DIE_SIDES"), "Occasional Promotion") < iPromotionChance) {
+			//select random promotion from available
+			PromotionTypes ptPromotion = aAttackerAvailablePromotions[GC.getGameINLINE().getSorenRandNum(aAttackerAvailablePromotions.size(), "Select Promotion Type")];
+			//promote
+			setHasPromotion(ptPromotion, true);
+			//show message
+			CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_YOUR_UNIT_PROMOTED_IN_BATTLE", getNameKey(), GC.getPromotionInfo(ptPromotion).getText());
+			gDLL->getInterfaceIFace()->addMessage(getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getPromotionInfo(ptPromotion).getSound(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), this->plot()->getX_INLINE(), this->plot()->getY_INLINE());
+		}
+	}
+	//promote defender:
+	if (!pDefender->isDead() && aDefenderAvailablePromotions.size() > 0) {
+		int iHealthPercent = (maxHitPoints() - pDefender->getDamage()) * 100 / (maxHitPoints() - data->iDefenderInitialDamage);
+		int iPromotionChanceModifier = iHealthPercent * iHealthPercent / maxHitPoints();
+		int iPromotionChance = data->iWinningOdds * (100 + iPromotionChanceModifier) / 100;
+
+		if (GC.getGameINLINE().getSorenRandNum(GC.getDefineINT("COMBAT_DIE_SIDES"), "Occasional Promotion") < iPromotionChance) {
+			//select random promotion from available
+			PromotionTypes ptPromotion = aDefenderAvailablePromotions[GC.getGameINLINE().getSorenRandNum(aDefenderAvailablePromotions.size(), "Select Promotion Type")];
+			//promote
+			pDefender->setHasPromotion(ptPromotion, true);
+			//show message
+			CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_YOUR_UNIT_PROMOTED_IN_BATTLE", pDefender->getNameKey(), GC.getPromotionInfo(ptPromotion).getText());
+			gDLL->getInterfaceIFace()->addMessage(pDefender->getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getPromotionInfo(ptPromotion).getSound(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), pPlot->getX_INLINE(), pPlot->getY_INLINE());
+		}
+	}
+
 }

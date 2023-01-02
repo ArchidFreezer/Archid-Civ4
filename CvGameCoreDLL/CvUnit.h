@@ -62,6 +62,17 @@ struct DllExport CombatDetails					// Exposed to Python
 	std::wstring sUnitName;
 };
 
+struct CombatData {
+	int iAttackerInitialDamage;
+	int iDefenderInitialDamage;
+	int iWinningOdds;
+	bool bAttackerUninjured;
+	bool bAttackerWithdrawn;
+	bool bDefenderWithdrawn;
+	bool bAmphibAttack;
+	bool bRiverAttack;
+};
+
 class CvUnit : public CvDLLEntity {
 
 public:
@@ -78,6 +89,7 @@ public:
 	void convert(CvUnit* pUnit);																																	// Exposed to Python
 	void kill(bool bDelay, PlayerTypes ePlayer = NO_PLAYER);														// Exposed to Python
 	void salvage(CvUnit* pDeadUnit);
+	void doFieldPromotions(CombatData* data, CvUnit* pDefender, CvPlot* pPlot);
 
 	DllExport void NotifyEntity(MissionTypes eMission);
 
