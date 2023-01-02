@@ -1108,15 +1108,16 @@ void CvPlayer::addFreeUnitAI(UnitAITypes eUnitAI, int iCount) {
 		UnitTypes eLoopUnit = (UnitTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(iI);
 
 		if (eLoopUnit != NO_UNIT) {
+			const CvUnitInfo& kLoopUnit = GC.getUnitInfo(eLoopUnit);
 			if (canTrain(eLoopUnit)) {
 				bool bValid = true;
 
-				if (GC.getUnitInfo(eLoopUnit).getPrereqAndBonus() != NO_BONUS) {
+				if (kLoopUnit.getPrereqAndBonus() != NO_BONUS) {
 					bValid = false;
 				}
 
-				for (int iJ = 0; iJ < GC.getNUM_UNIT_PREREQ_OR_BONUSES(); iJ++) {
-					if (GC.getUnitInfo(eLoopUnit).getPrereqOrBonuses(iJ) != NO_BONUS) {
+				for (int iJ = 0; iJ < kLoopUnit.getNumPrereqOrBonuses(); iJ++) {
+					if (kLoopUnit.getPrereqOrBonus(iJ) != NO_BONUS) {
 						bValid = false;
 					}
 				}
@@ -4479,10 +4480,6 @@ bool CvPlayer::canTrain(UnitTypes eUnit, bool bContinue, bool bTestVisible, bool
 		}
 	}
 
-	if (!kTeam.isHasTech((TechTypes)kUnit.getPrereqAndTech())) {
-		return false;
-	}
-
 	if ((TechTypes)kUnit.getObsoleteTech() != NO_TECH) {
 		if (kTeam.isHasTech((TechTypes)kUnit.getObsoleteTech())) {
 			return false;
@@ -4493,9 +4490,9 @@ bool CvPlayer::canTrain(UnitTypes eUnit, bool bContinue, bool bTestVisible, bool
 		return false;
 	}
 
-	for (int iI = 0; iI < GC.getNUM_UNIT_AND_TECH_PREREQS(); iI++) {
-		if (kUnit.getPrereqAndTechs(iI) != NO_TECH) {
-			if (!kTeam.isHasTech((TechTypes)kUnit.getPrereqAndTechs(iI))) {
+	for (int iI = 0; iI < kUnit.getNumPrereqAndTechs(); iI++) {
+		if (kUnit.getPrereqAndTech(iI) != NO_TECH) {
+			if (!kTeam.isHasTech((TechTypes)kUnit.getPrereqAndTech(iI))) {
 				return false;
 			}
 		}
@@ -12970,12 +12967,8 @@ int CvPlayer::getAdvancedStartTechCost(TechTypes eTech, bool bAdd) const {
 
 		// Units
 		for (CvUnit* pLoopUnit = firstUnit(&iLoop); pLoopUnit != NULL; pLoopUnit = nextUnit(&iLoop)) {
-			if (pLoopUnit->getUnitInfo().getPrereqAndTech() == eTech) {
-				return -1;
-			}
-
-			for (int iI = 0; iI < GC.getNUM_UNIT_AND_TECH_PREREQS(); iI++) {
-				if (pLoopUnit->getUnitInfo().getPrereqAndTechs(iI) == eTech) {
+			for (int iI = 0; iI < pLoopUnit->getUnitInfo().getNumPrereqAndTechs(); iI++) {
+				if (pLoopUnit->getUnitInfo().getPrereqAndTech(iI) == eTech) {
 					return -1;
 				}
 			}

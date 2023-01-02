@@ -9274,17 +9274,15 @@ bool CvUnit::canAcquirePromotion(PromotionTypes ePromotion) const {
 		}
 	}
 
-	int iNumPrereqs = kPromotion.getNumPrereqOrPromotions();
-	if (iNumPrereqs > 0) {
-		bool bValid = false;
-		for (int iI = 0; iI < iNumPrereqs; iI++) {
-			if (isHasPromotion((PromotionTypes)kPromotion.getPrereqOrPromotion(iI))) {
-				bValid = true;
-				break;
-			}
+	bool bValid = false;
+	for (int iI = 0; iI < kPromotion.getNumPrereqOrPromotions(); iI++) {
+		if (isHasPromotion((PromotionTypes)kPromotion.getPrereqOrPromotion(iI))) {
+			bValid = true;
+			break;
 		}
-		if (!bValid)
-			return false;
+	}
+	if (!bValid) {
+		return false;
 	}
 
 	if (kPromotion.getTechPrereq() != NO_TECH) {
@@ -11128,16 +11126,9 @@ void CvUnit::salvage(CvUnit* pDeadUnit) {
 		bool bValid = true;
 		if (kDeadUnit.getCommerceFromKill(eCommerce) > 0 || kOwner.getBaseCommerceFromUnit(eCommerce)) {
 			if (eCommerce == COMMERCE_RESEARCH) {
-				TechTypes eTempTech = (TechTypes)kDeadUnit.getPrereqAndTech();
-
-				if (eTempTech != NO_TECH) {
-					if (kOwner.canResearch(eTempTech, true) && GET_TEAM(kDeadOwner.getTeam()).isHasTech(eTempTech)) {
-						aeAvailableTechs.push_back(eTempTech);
-					}
-				}
-
-				for (iJ = 0; iJ < GC.getNUM_UNIT_AND_TECH_PREREQS(); iJ++) {
-					eTempTech = (TechTypes)kDeadUnit.getPrereqAndTechs(iJ);
+				TechTypes eTempTech;
+				for (iJ = 0; iJ < kDeadUnit.getNumPrereqAndTechs(); iJ++) {
+					eTempTech = (TechTypes)kDeadUnit.getPrereqAndTech(iJ);
 					if (eTempTech != NO_TECH) {
 						if (kOwner.canResearch(eTempTech, true) && GET_TEAM(kDeadOwner.getTeam()).isHasTech(eTempTech)) {
 							aeAvailableTechs.push_back(eTempTech);

@@ -4123,14 +4123,8 @@ int CvCityAI::AI_projectValue(ProjectTypes eProject) {
 							iTemp = std::max(-100, (kOwner.AI_getAttitudeWeight(j) - 125) / 2);
 
 						// tech prereqs.  reduce the value for each missing prereq
-						if (!kLoopTeam.isHasTech((TechTypes)(kLoopUnit.getPrereqAndTech()))) {
-							iTemp /= 2;
-							if (!kLoopPlayer.canResearch((TechTypes)kLoopUnit.getPrereqAndTech()))
-								iTemp /= 3;
-						}
-
-						for (int k = 0; k < GC.getNUM_UNIT_AND_TECH_PREREQS(); k++) {
-							TechTypes ePrereqTech = (TechTypes)kLoopUnit.getPrereqAndTechs(k);
+						for (int k = 0; k < kLoopUnit.getNumPrereqAndTechs(); k++) {
+							TechTypes ePrereqTech = (TechTypes)kLoopUnit.getPrereqAndTech(k);
 							if (ePrereqTech != NO_TECH && !kLoopTeam.isHasTech(ePrereqTech)) {
 								iTemp /= 2;
 								if (!kLoopPlayer.canResearch(ePrereqTech))

@@ -115,7 +115,7 @@ class CvPediaTechTree:
 			else:
 				iItem = gc.getCivilizationInfo(iCivilization).getCivilizationUnits(j)
 			if iItem > -1:
-				iTech = gc.getUnitInfo(iItem).getPrereqAndTech()
+				iTech = gc.getUnitInfo(iItem).getPrereqAndTech(0)
 				if iTech > -1:
 					self.TechBenefits[iTech].append(["UnlockUnit", iItem])
 

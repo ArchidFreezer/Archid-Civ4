@@ -7759,17 +7759,18 @@ bool CvPlot::canTrain(UnitTypes eUnit, bool bContinue, bool bTestVisible) const 
 		bool bRequiresBonus = false;
 		bool bNeedsBonus = true;
 
-		for (int iI = 0; iI < GC.getNUM_UNIT_PREREQ_OR_BONUSES(); ++iI) {
-			if (kUnit.getPrereqOrBonuses(iI) != NO_BONUS) {
+		for (int iI = 0; iI < kUnit.getNumPrereqOrBonuses(); ++iI) {
+			BonusTypes ePrereqBonus = (BonusTypes)kUnit.getPrereqOrBonus(iI);
+			if (ePrereqBonus != NO_BONUS) {
 				bRequiresBonus = true;
 
 				if (NULL == pCity) {
-					if (isPlotGroupConnectedBonus(getOwnerINLINE(), (BonusTypes)kUnit.getPrereqOrBonuses(iI))) {
+					if (isPlotGroupConnectedBonus(getOwnerINLINE(), ePrereqBonus)) {
 						bNeedsBonus = false;
 						break;
 					}
 				} else {
-					if (pCity->hasBonus((BonusTypes)kUnit.getPrereqOrBonuses(iI))) {
+					if (pCity->hasBonus(ePrereqBonus)) {
 						bNeedsBonus = false;
 						break;
 					}

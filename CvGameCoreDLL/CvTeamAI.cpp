@@ -4531,7 +4531,7 @@ int CvTeamAI::AI_getTechMonopolyValue(TechTypes eTech, TeamTypes eTeam) const {
 					iValue += 50;
 				}
 
-				if (GC.getUnitInfo(eLoopUnit).getPrereqAndTech() == eTech) {
+				if (GC.getUnitInfo(eLoopUnit).getPrereqAndTech(0) == eTech) {
 					int iNavalValue = 0;
 
 					int iCombatRatio = (GC.getUnitInfo(eLoopUnit).getCombat() * 100) / std::max(1, GC.getGameINLINE().getBestLandUnitCombat());

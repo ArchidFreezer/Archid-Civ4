@@ -9,9 +9,9 @@ class CvPediaUnit:
 		self.iUnit = -1
 		self.top = main
 
-	def interfaceScreen(self, iUnit):	
+	def interfaceScreen(self, iUnit):
 		self.iUnit = iUnit
-		self.top.deleteAllWidgets()										
+		self.top.deleteAllWidgets()
 		screen = self.top.getScreen()
 		if not screen.isActive():
 			self.top.setPediaCommonWidgets()
@@ -62,14 +62,14 @@ class CvPediaUnit:
 		self.placeUpgradesTo()
 		self.placeRequires()
 		self.placeSpecial()
-		self.placePromotions()						
+		self.placePromotions()
 		self.placeHistory()
 		self.placeLinks(self.top.iLastScreen == CvScreenEnums.PEDIA_UNIT and screen.isActive())
 		self.top.iLastScreen = CvScreenEnums.PEDIA_UNIT
-		
+
 	def placeStats(self):
 		screen = self.top.getScreen()
-		
+
 		iCombatType = gc.getUnitInfo(self.iUnit).getUnitCombatType()
 		if iCombatType > -1:
 			screen.setImageButton(self.top.getNextWidgetName(), gc.getUnitCombatInfo(iCombatType).getButton(), self.X_STATS_PANE + 5, self.Y_STATS_PANE - 34, self.PROMOTION_ICON_SIZE, self.PROMOTION_ICON_SIZE, WidgetTypes.WIDGET_PEDIA_JUMP_TO_UNIT_COMBAT, iCombatType, 0)
@@ -78,7 +78,7 @@ class CvPediaUnit:
 		panelName = self.top.getNextWidgetName()
 		screen.addListBoxGFC(panelName, "", self.X_STATS_PANE, self.Y_STATS_PANE, self.W_STATS_PANE, self.H_STATS_PANE, TableStyles.TABLE_STYLE_EMPTY)
 		screen.enableSelect(panelName, False)
-		
+
 		iStrength = gc.getUnitInfo(self.iUnit).getCombat()
 		if iStrength:
 			szStrength = u"<font=4>%s %d%c</font>" %(CyTranslator().getText("INTERFACE_PANE_STRENGTH", ()), iStrength, CyGame().getSymbolID(FontSymbols.STRENGTH_CHAR))
@@ -108,18 +108,17 @@ class CvPediaUnit:
 		screen = self.top.getScreen()
 		panelName = self.top.getNextWidgetName()
 		screen.addPanel( panelName, CyTranslator().getText("TXT_KEY_PEDIA_REQUIRES", ()), "", false, true, self.top.X_ITEMS_PANE, self.Y_UPGRADES_TO_PANE, self.W_MAIN_PANE, self.H_PREREQ_PANE, PanelStyles.PANEL_STYLE_BLUE50 )
-		
+
 		Info = gc.getUnitInfo(self.iUnit)
-		
+
 		# Techs
 		szCatDelim = ""
-		iPrereq = Info.getPrereqAndTech()
-		if iPrereq > -1:
+		iNumPrereqs = Info.getNumPrereqAndTechs()
+		if iNumPrereqs > 0:
 			screen.attachLabel(panelName, "", "[")
 			szCatDelim = "]"
-			screen.attachImageButton( panelName, "", gc.getTechInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_TECH, iPrereq, 1, False )
-		for j in xrange(gc.getDefineINT("NUM_UNIT_AND_TECH_PREREQS")):
-			iPrereq = Info.getPrereqAndTechs(j)
+		for j in xrange(Info.getNumPrereqAndTechs()):
+			iPrereq = Info.getPrereqAndTech(j)
 			if iPrereq > -1:
 				screen.attachImageButton( panelName, "", gc.getTechInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_TECH, iPrereq, -1, False )
 		if len(szCatDelim):
@@ -136,8 +135,8 @@ class CvPediaUnit:
 			bFirst = False
 			screen.attachImageButton( panelName, "", gc.getBonusInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, iPrereq, -1, False )
 		nOr = 0
-		for j in xrange(gc.getNUM_UNIT_PREREQ_OR_BONUSES()):
-			if Info.getPrereqOrBonuses(j) > -1:
+		for j in xrange(Info.getNumPrereqOrBonuses()):
+			if Info.getPrereqOrBonus(j) > -1:
 				nOr += 1
 				if len(szCatDelim) == 0:
 					screen.attachLabel(panelName, "", "[")
@@ -148,14 +147,14 @@ class CvPediaUnit:
 				screen.attachLabel(panelName, "", "( ")
 				szOrDelim = " ) "
 		bFirst = True
-		for j in xrange(gc.getNUM_UNIT_PREREQ_OR_BONUSES()):
-			eBonus = Info.getPrereqOrBonuses(j)
+		for j in xrange(Info.getNumPrereqOrBonuses()):
+			eBonus = Info.getPrereqOrBonus(j)
 			if eBonus > -1:
 				if not bFirst:
 					screen.attachLabel(panelName, "", CyTranslator().getText("TXT_KEY_OR", ()))
 				else:
 					bFirst = False
-				screen.attachImageButton( panelName, "", gc.getBonusInfo(eBonus).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, eBonus, -1, False )					
+				screen.attachImageButton( panelName, "", gc.getBonusInfo(eBonus).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, eBonus, -1, False )
 		if len(szOrDelim):
 			screen.attachLabel(panelName, "", szOrDelim)
 		if len(szCatDelim):
@@ -210,9 +209,9 @@ class CvPediaUnit:
 		iPrereq = Info.getPrereqBuilding()
 		if iPrereq > -1:
 			screen.attachLabel(panelName, "", "[")
-			screen.attachImageButton( panelName, "", gc.getBuildingInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BUILDING, iPrereq, -1, False )		
+			screen.attachImageButton( panelName, "", gc.getBuildingInfo(iPrereq).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BUILDING, iPrereq, -1, False )
 			screen.attachLabel(panelName, "", "]")
-		
+
 	def placeUpgradesTo(self):
 		screen = self.top.getScreen()
 		panelName = self.top.getNextWidgetName()
@@ -221,7 +220,7 @@ class CvPediaUnit:
 			eLoopUnit = gc.getUnitClassInfo(k).getDefaultUnitIndex()
 			if self.top.iActivePlayer > -1:
 				eLoopUnit = gc.getCivilizationInfo(CyGame().getActiveCivilizationType()).getCivilizationUnits(k)
-				
+
 			if eLoopUnit > -1 and gc.getUnitInfo(self.iUnit).getUpgradeUnitClass(k):
 				szButton = gc.getUnitInfo(eLoopUnit).getButton()
 				if self.top.iActivePlayer > -1:
@@ -241,8 +240,8 @@ class CvPediaUnit:
 		if iStateReligion > -1:
 			szSpecialText += CyTranslator().getText("TXT_KEY_PEDIA_UNIT_STATE_RELIGION", (gc.getReligionInfo(iStateReligion).getDescription(),))
 ## State Religion Requirement ##
-		screen.addMultilineText(self.top.getNextWidgetName(), szSpecialText, self.top.X_ITEMS_PANE+5, self.Y_HISTORY_PANE+30, self.W_MAIN_PANE-10, self.H_SPECIAL_PANE-30, WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)	
-					
+		screen.addMultilineText(self.top.getNextWidgetName(), szSpecialText, self.top.X_ITEMS_PANE+5, self.Y_HISTORY_PANE+30, self.W_MAIN_PANE-10, self.H_SPECIAL_PANE-30, WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
+
 	def placeHistory(self):
 		screen = self.top.getScreen()
 		screen.addPanel(self.top.getNextWidgetName(), CyTranslator().getText("TXT_KEY_CIVILOPEDIA_HISTORY", ()), "", True, True, self.X_ANIMATION, self.Y_HISTORY_PANE, self.W_ANIMATION, self.H_HISTORY_PANE, PanelStyles.PANEL_STYLE_BLUE50 )

@@ -233,7 +233,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		self.BACK_TEXT = u"<font=4>" + self.color4 + CyTranslator().getText("TXT_KEY_PEDIA_SCREEN_BACK", ()).upper() + "</color></font>"
 		self.FORWARD_TEXT = u"<font=4>" + self.color4 + CyTranslator().getText("TXT_KEY_PEDIA_SCREEN_FORWARD", ()).upper() + "</color></font>"
 		self.MENU_TEXT = u"<font=4>" + self.color4 + CyTranslator().getText("TXT_KEY_PEDIA_SCREEN_TOP", ()).upper() + "</color></font>"
-		
+
 		self.lSpecial = 	[CyTranslator().getText("TXT_KEY_PEDIA_FIRST_BENEFITS", ()),
 					CyTranslator().getText("TXT_KEY_WB_MAP_CENTERING", ()),
 					CyTranslator().getText("TXT_KEY_PEDIA_MAP_VISIBLE", ()),
@@ -299,7 +299,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 			screen.setButtonGFC("ChangeSide", u"", "", screen.getXResolution() - 20 - 32, self.Y_TITLE, 32, 32, WidgetTypes.WIDGET_GENERAL, -1, -1, ButtonStyles.BUTTON_STYLE_ARROW_RIGHT)
 		else:
 			screen.setButtonGFC("ChangeSide", u"", "", 20, self.Y_TITLE, 32, 32, WidgetTypes.WIDGET_GENERAL, -1, -1, ButtonStyles.BUTTON_STYLE_ARROW_LEFT)
-		
+
 		self.W_BORDER = 20
 		self.W_PANEL = 225
 		self.Y_ITEMS_PANE = 55 + self.W_BORDER
@@ -318,7 +318,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		sText += CyTranslator().getText("TXT_KEY_PEDIA_HIDE_INACTIVE", ()) + "</color>"
 		screen.setText("HideInactive", "Background", "<font=3b>" + sText + "</font>", CvUtil.FONT_RIGHT_JUSTIFY, self.X_ITEMS_PANE + self.W_ITEMS_PANE - self.W_BORDER, self.Y_SORT, 0, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, 1, -1)
 		screen.hide("HideInactive")
-		
+
 	def showScreen(self, iCategory):
 		self.iCategory = iCategory
 		screen = self.getScreen()
@@ -480,7 +480,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		screen = self.getScreen()
 		if CyGame().isFinalInitialized(): screen.show("HideInactive")
 		listSorted = self.sortUnitGroups(0)
-		self.setNewTable(0, listSorted, 2)		
+		self.setNewTable(0, listSorted, 2)
 		screen.setTableText(self.sTableName, 0, 0, "<font=3>" + self.color2 + CyTranslator().getText("TXT_KEY_PEDIA_ALL_GROUPS", ()) + "</color></font>", ",Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,5,10", WidgetTypes.WIDGET_PYTHON, 6781, -2, CvUtil.FONT_LEFT_JUSTIFY)
 		screen.setTableText(self.sTableName, 0, 1, "<font=3>" + self.color2 + CyTranslator().getText("TXT_PEDIA_NON_COMBAT", ()) + "</color></font>", CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUTTONS_CANCEL").getPath(), WidgetTypes.WIDGET_PYTHON, 6781, -1, CvUtil.FONT_LEFT_JUSTIFY)
 		self.iCount += 2
@@ -681,7 +681,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		self.placePedia(listSorted, CyTranslator().getText(self.sLeaderIcon, ()), WidgetTypes.WIDGET_PEDIA_JUMP_TO_LEADER, -1, True)
 
 	def placeTraits(self):
-		screen = self.getScreen()									
+		screen = self.getScreen()
 		listSorted = self.sortTraits()
 		self.setNewTable(0, listSorted)
 		self.placePedia(listSorted, CyTranslator().getText(self.sTraitIcon, ()), WidgetTypes.WIDGET_PYTHON, 6789, True)
@@ -786,7 +786,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 			screen.appendListBoxString(self.szAreaId, sText, WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY )
 
 	def placeHints(self):
-		screen = self.getScreen()  
+		screen = self.getScreen()
 		self.szAreaId = self.getNextWidgetName()
 		screen.addListBoxGFC(self.szAreaId, "", self.X_ITEMS_PANE, self.Y_ITEMS_PANE + 10, self.W_ITEMS_PANE, self.H_ITEMS_PANE, TableStyles.TABLE_STYLE_STANDARD )
 
@@ -983,7 +983,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		szName = "PediaMainWidget" + str(self.nWidgetCount)
 		self.nWidgetCount += 1
 		return szName
-		
+
 	def pediaJump(self, iScreen, iEntry, bRemoveFwdList):
 		if iEntry < 0 and iScreen != CvScreenEnums.PEDIA_UNIT_CHART: return
 		self.iActivePlayer = CyGame().getActivePlayer()
@@ -999,31 +999,31 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		elif iScreen == CvScreenEnums.PEDIA_UNIT:
 			PlatyPediaUnit.CvPediaUnit(self).interfaceScreen(iEntry)
 		elif iScreen == CvScreenEnums.PEDIA_BUILDING:
-			PlatyPediaBuilding.CvPediaBuilding(self).interfaceScreen(iEntry)	
+			PlatyPediaBuilding.CvPediaBuilding(self).interfaceScreen(iEntry)
 		elif iScreen == CvScreenEnums.PEDIA_PROMOTION:
-			PlatyPediaPromotion.CvPediaPromotion(self).interfaceScreen(iEntry)	
+			PlatyPediaPromotion.CvPediaPromotion(self).interfaceScreen(iEntry)
 		elif iScreen == CvScreenEnums.PEDIA_UNIT_CHART:
-			PlatyPediaUnitChart.CvPediaUnitChart(self).interfaceScreen(iEntry)	
+			PlatyPediaUnitChart.CvPediaUnitChart(self).interfaceScreen(iEntry)
 		elif iScreen == CvScreenEnums.PEDIA_BONUS:
-			PlatyPediaBonus.CvPediaBonus(self).interfaceScreen(iEntry)	
+			PlatyPediaBonus.CvPediaBonus(self).interfaceScreen(iEntry)
 		elif iScreen == CvScreenEnums.PEDIA_TERRAIN:
-			PlatyPediaTerrain.CvPediaTerrain(self).interfaceScreen(iEntry)	
+			PlatyPediaTerrain.CvPediaTerrain(self).interfaceScreen(iEntry)
 		elif iScreen == CvScreenEnums.PEDIA_FEATURE:
-			PlatyPediaFeature.CvPediaFeature(self).interfaceScreen(iEntry)	
+			PlatyPediaFeature.CvPediaFeature(self).interfaceScreen(iEntry)
 		elif iScreen == CvScreenEnums.PEDIA_IMPROVEMENT:
-			PlatyPediaImprovement.CvPediaImprovement(self).interfaceScreen(iEntry)	
+			PlatyPediaImprovement.CvPediaImprovement(self).interfaceScreen(iEntry)
 		elif iScreen == CvScreenEnums.PEDIA_CIVIC:
-			PlatyPediaCivic.CvPediaCivic(self).interfaceScreen(iEntry)	
+			PlatyPediaCivic.CvPediaCivic(self).interfaceScreen(iEntry)
 		elif iScreen == CvScreenEnums.PEDIA_CIVILIZATION:
-			PlatyPediaCivilization.CvPediaCivilization(self).interfaceScreen(iEntry)	
+			PlatyPediaCivilization.CvPediaCivilization(self).interfaceScreen(iEntry)
 		elif iScreen == CvScreenEnums.PEDIA_LEADER:
-			self.pediaLeader.interfaceScreen(iEntry)	
+			self.pediaLeader.interfaceScreen(iEntry)
 		elif iScreen == CvScreenEnums.PEDIA_SPECIALIST:
-			PlatyPediaSpecialist.CvPediaSpecialist(self).interfaceScreen(iEntry)	
+			PlatyPediaSpecialist.CvPediaSpecialist(self).interfaceScreen(iEntry)
 		elif iScreen == CvScreenEnums.PEDIA_PROJECT:
-			PlatyPediaProject.CvPediaProject(self).interfaceScreen(iEntry)	
+			PlatyPediaProject.CvPediaProject(self).interfaceScreen(iEntry)
 		elif iScreen == CvScreenEnums.PEDIA_RELIGION:
-			PlatyPediaReligion.CvPediaReligion(self).interfaceScreen(iEntry)	
+			PlatyPediaReligion.CvPediaReligion(self).interfaceScreen(iEntry)
 		elif iScreen == CvScreenEnums.PEDIA_CORPORATION:
 			PlatyPediaCorporation.CvPediaCorporation(self).interfaceScreen(iEntry)
 		elif iScreen == self.PLATYPEDIA_TRAIT:
@@ -1093,7 +1093,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 				return self.pediaJump(CvScreenEnums.PEDIA_UNIT_CHART, i, True)
 		for i in xrange(gc.getNumBonusInfos()):
 			if gc.getBonusInfo(i).isMatchForLink(szLink, False):
-				return self.pediaJump(CvScreenEnums.PEDIA_BONUS, i, True)	
+				return self.pediaJump(CvScreenEnums.PEDIA_BONUS, i, True)
 		for i in xrange(gc.getNumTerrainInfos()):
 			if gc.getTerrainInfo(i).isMatchForLink(szLink, False):
 				return self.pediaJump(CvScreenEnums.PEDIA_TERRAIN, i, True)
@@ -1469,16 +1469,13 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 				for item in lItems:
 					ItemInfo = gc.getUnitInfo(item[1])
 					iItemEra = -1
-					iTech = ItemInfo.getPrereqAndTech()
-					if iTech > -1:
-						iItemEra = max(iItemEra, gc.getTechInfo(iTech).getEra())
-					for i in xrange(gc.getNUM_UNIT_AND_TECH_PREREQS()):
-						iTech = ItemInfo.getPrereqAndTechs(i)
+					for i in xrange(ItemInfo.getNumPrereqAndTechs()):
+						iTech = ItemInfo.getPrereqAndTech(i)
 						if iTech > -1:
 							iItemEra = max(iItemEra, gc.getTechInfo(iTech).getEra())
 					iItemEra = max(iItemEra, self.getBonusEra(ItemInfo.getPrereqAndBonus()))
-					for i in xrange(gc.getNUM_UNIT_AND_TECH_PREREQS()):
-						iItemEra = max(iItemEra, self.getBonusEra(ItemInfo.getPrereqOrBonuses(i)))
+					for i in xrange(ItemInfo.getNumPrereqOrBonuses()):
+						iItemEra = max(iItemEra, self.getBonusEra(ItemInfo.getPrereqOrBonus(i)))
 					iReligion = ItemInfo.getPrereqReligion()
 					if iReligion > -1:
 						iTech = gc.getReligionInfo(iReligion).getTechPrereq()
@@ -2074,7 +2071,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 					iItemEra = -1
 					ItemInfo = gc.getImprovementInfo(item[1])
 					for iBuild in xrange(gc.getNumBuildInfos()):
-						if gc.getBuildInfo(iBuild).getImprovement() == item[1]:	 
+						if gc.getBuildInfo(iBuild).getImprovement() == item[1]:
 							iTech = gc.getBuildInfo(iBuild).getTechPrereq()
 							if iTech > -1:
 								iItemEra = max(iItemEra, gc.getTechInfo(iTech).getEra())
@@ -2122,7 +2119,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 					ItemInfo = gc.getRouteInfo(item[1])
 					iItemEra = -1
 					for iBuild in xrange(gc.getNumBuildInfos()):
-						if gc.getBuildInfo(iBuild).getRoute() == item[1]:	 
+						if gc.getBuildInfo(iBuild).getRoute() == item[1]:
 							iTech = gc.getBuildInfo(iBuild).getTechPrereq()
 							if iTech > -1:
 								iItemEra = max(iItemEra, gc.getTechInfo(iTech).getEra())

@@ -214,10 +214,11 @@
 	<ElementType name="PrereqReligion" content="textOnly"/>
 	<ElementType name="PrereqCorporation" content="textOnly"/>
 	<ElementType name="PrereqBuilding" content="textOnly"/>
-	<ElementType name="TechTypes" content="eltOnly">
-		<element type="PrereqTech" minOccurs="0" maxOccurs="*"/>
+	<ElementType name="TechType" content="textOnly"/>
+	<ElementType name="PrereqTechs" content="eltOnly">
+		<element type="TechType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
-	<ElementType name="PrereqBonuses" content="eltOnly">
+	<ElementType name="PrereqOrBonuses" content="eltOnly">
 		<element type="BonusType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="ProductionTraitType" content="textOnly"/>
@@ -557,11 +558,10 @@
 		<element type="PrereqReligion" minOccurs="0"/>
 		<element type="PrereqCorporation" minOccurs="0"/>
 		<element type="PrereqBuilding" minOccurs="0"/>
-		<element type="PrereqTech" minOccurs="0"/>
-		<element type="TechTypes" minOccurs="0"/>
+		<element type="PrereqTechs" minOccurs="0"/>
 		<element type="ObsoleteTech" minOccurs="0"/>
 		<element type="BonusType" minOccurs="0"/>
-		<element type="PrereqBonuses" minOccurs="0"/>
+		<element type="PrereqOrBonuses" minOccurs="0"/>
 		<element type="PrereqAndCivics" minOccurs="0"/>
 		<element type="PrereqOrCivics" minOccurs="0"/>
 		<element type="PrereqAndTerrains" minOccurs="0"/>
@@ -766,9 +766,6 @@
 		<element type="AutomateInfo" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="PromotionPrereq" content="textOnly"/>
-	<ElementType name="PromotionPrereqOr1" content="textOnly"/>
-	<ElementType name="PromotionPrereqOr2" content="textOnly"/>
-	<ElementType name="PromotionPrereqOr3" content="textOnly"/>
 	<ElementType name="TechPrereq" content="textOnly"/>
 	<ElementType name="StateReligionPrereq" content="textOnly"/>
 	<ElementType name="bLeader" content="textOnly" dt:type="boolean"/>

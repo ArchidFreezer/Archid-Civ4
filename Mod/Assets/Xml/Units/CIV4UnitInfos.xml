@@ -32,7 +32,9 @@
 			<UnitAIs>
 				<UnitAIType>UNITAI_ATTACK_AIR</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_PHYSICS</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_PHYSICS</TechType>
+			</PrereqTechs>
 			<iCost>80</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -78,10 +80,10 @@
 			<UnitAIs>
 				<UnitAIType>UNITAI_ATTACK_AIR</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_RADIO</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_FLIGHT</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_RADIO</TechType>
+				<TechType>TECH_FLIGHT</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_OIL</BonusType>
 			<iCost>140</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -140,7 +142,9 @@
 				<UnitAIType>UNITAI_DEFENSE_AIR</UnitAIType>
 				<UnitAIType>UNITAI_CARRIER_AIR</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_FLIGHT</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_FLIGHT</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_OIL</BonusType>
 			<iCost>100</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -205,7 +209,9 @@
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_ADVANCED_FLIGHT</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_ADVANCED_FLIGHT</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_OIL</BonusType>
 			<iCost>160</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -262,11 +268,13 @@
 				<UnitAIType>UNITAI_DEFENSE_AIR</UnitAIType>
 				<UnitAIType>UNITAI_CARRIER_AIR</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_ADVANCED_FLIGHT</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_ADVANCED_FLIGHT</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_OIL</BonusType>
-			<PrereqBonuses>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_ALUMINUM</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>150</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -311,14 +319,14 @@
 			<UnitAIs>
 				<UnitAIType>UNITAI_ATTACK_AIR</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_STEALTH</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_ROBOTICS</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_STEALTH</TechType>
+				<TechType>TECH_ROBOTICS</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_OIL</BonusType>
-			<PrereqBonuses>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_ALUMINUM</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>200</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -1024,7 +1032,9 @@
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_ARCHERY</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_ARCHERY</TechType>
+			</PrereqTechs>
 			<iCost>25</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -1074,7 +1084,9 @@
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_ARCHERY</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_ARCHERY</TechType>
+			</PrereqTechs>
 			<iCost>25</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -1130,7 +1142,9 @@
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_ARCHERY</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_ARCHERY</TechType>
+			</PrereqTechs>
 			<iCost>25</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -1183,10 +1197,10 @@
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_MACHINERY</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_ARCHERY</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_MACHINERY</TechType>
+				<TechType>TECH_ARCHERY</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_IRON</BonusType>
 			<iCost>60</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -1243,10 +1257,10 @@
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_MACHINERY</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_ARCHERY</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_MACHINERY</TechType>
+				<TechType>TECH_ARCHERY</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_IRON</BonusType>
 			<iCost>60</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -1303,10 +1317,10 @@
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_FEUDALISM</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_ARCHERY</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_FEUDALISM</TechType>
+				<TechType>TECH_ARCHERY</TechType>
+			</PrereqTechs>
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -1619,10 +1633,10 @@
 			<UnitAIs>
 				<UnitAIType>UNITAI_ICBM</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_FISSION</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_ROCKETRY</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_FISSION</TechType>
+				<TechType>TECH_ROCKETRY</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_URANIUM</BonusType>
 			<iCost>250</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -1665,10 +1679,10 @@
 			<UnitAIs>
 				<UnitAIType>UNITAI_ICBM</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_FISSION</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_ROCKETRY</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_FISSION</TechType>
+				<TechType>TECH_ROCKETRY</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_URANIUM</BonusType>
 			<iCost>500</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -1712,7 +1726,9 @@
 			<UnitAIs>
 				<UnitAIType>UNITAI_SPY</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_ALPHABET</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_ALPHABET</TechType>
+			</PrereqTechs>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
@@ -2382,7 +2398,9 @@
 				<UnitAIType>UNITAI_RESERVE</UnitAIType>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_GUNPOWDER</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_GUNPOWDER</TechType>
+			</PrereqTechs>
 			<iCost>80</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -2432,7 +2450,9 @@
 				<UnitAIType>UNITAI_RESERVE</UnitAIType>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_GUNPOWDER</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_GUNPOWDER</TechType>
+			</PrereqTechs>
 			<iCost>80</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -2495,7 +2515,9 @@
 				<UnitAIType>UNITAI_RESERVE</UnitAIType>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_GUNPOWDER</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_GUNPOWDER</TechType>
+			</PrereqTechs>
 			<iCost>80</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
@@ -2545,7 +2567,9 @@
 				<UnitAIType>UNITAI_RESERVE</UnitAIType>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_GUNPOWDER</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_GUNPOWDER</TechType>
+			</PrereqTechs>
 			<iCost>80</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -2610,7 +2634,9 @@
 				<UnitAIType>UNITAI_RESERVE</UnitAIType>
 				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_MILITARY_SCIENCE</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_MILITARY_SCIENCE</TechType>
+			</PrereqTechs>
 			<iCost>100</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -2668,7 +2694,9 @@
 				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_RIFLING</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_RIFLING</TechType>
+			</PrereqTechs>
 			<iCost>110</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -2725,7 +2753,9 @@
 				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_RIFLING</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_RIFLING</TechType>
+			</PrereqTechs>
 			<iCost>110</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -2786,10 +2816,10 @@
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_ASSEMBLY_LINE</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_RIFLING</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_ASSEMBLY_LINE</TechType>
+				<TechType>TECH_RIFLING</TechType>
+			</PrereqTechs>
 			<iCost>140</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -2842,10 +2872,10 @@
 				<UnitAIType>UNITAI_RESERVE</UnitAIType>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_INDUSTRIALISM</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_RIFLING</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_INDUSTRIALISM</TechType>
+				<TechType>TECH_RIFLING</TechType>
+			</PrereqTechs>
 			<iCost>160</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -2905,10 +2935,10 @@
 				<UnitAIType>UNITAI_RESERVE</UnitAIType>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_INDUSTRIALISM</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_RIFLING</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_INDUSTRIALISM</TechType>
+				<TechType>TECH_RIFLING</TechType>
+			</PrereqTechs>
 			<iCost>160</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -2968,11 +2998,11 @@
 			<UnitAIs>
 				<UnitAIType>UNITAI_PARADROP</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_FASCISM</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_RIFLING</PrereqTech>
-				<PrereqTech>TECH_FLIGHT</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_FASCISM</TechType>
+				<TechType>TECH_RIFLING</TechType>
+				<TechType>TECH_FLIGHT</TechType>
+			</PrereqTechs>
 			<iCost>160</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -3023,7 +3053,9 @@
 				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
 				<UnitAIType>UNITAI_CITY_SPECIAL</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_ROCKETRY</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_ROCKETRY</TechType>
+			</PrereqTechs>
 			<iCost>150</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -3080,7 +3112,9 @@
 				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
 				<UnitAIType>UNITAI_RESERVE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_ARTILLERY</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_ARTILLERY</TechType>
+			</PrereqTechs>
 			<iCost>120</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -3252,11 +3286,13 @@
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_HUNTING</PrereqTech>
-			<PrereqBonuses>
+			<PrereqTechs>
+				<TechType>TECH_HUNTING</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_COPPER</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>35</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -3311,10 +3347,10 @@
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_HUNTING</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_HUNTING</TechType>
+				<TechType>TECH_BRONZE_WORKING</TechType>
+			</PrereqTechs>
 			<iCost>35</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -3369,11 +3405,13 @@
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_HUNTING</PrereqTech>
-			<PrereqBonuses>
+			<PrereqTechs>
+				<TechType>TECH_HUNTING</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_COPPER</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>35</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
@@ -3431,11 +3469,13 @@
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
-			<PrereqBonuses>
+			<PrereqTechs>
+				<TechType>TECH_BRONZE_WORKING</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_COPPER</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>35</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -3490,11 +3530,13 @@
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
-			<PrereqBonuses>
+			<PrereqTechs>
+				<TechType>TECH_BRONZE_WORKING</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_COPPER</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>35</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -3555,7 +3597,9 @@
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_BRONZE_WORKING</TechType>
+			</PrereqTechs>
 			<iCost>35</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -3610,11 +3654,13 @@
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
-			<PrereqBonuses>
+			<PrereqTechs>
+				<TechType>TECH_BRONZE_WORKING</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_COPPER</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>35</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -3669,7 +3715,9 @@
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_ENGINEERING</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_ENGINEERING</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_IRON</BonusType>
 			<iCost>60</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -3726,7 +3774,9 @@
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_ENGINEERING</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_ENGINEERING</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_IRON</BonusType>
 			<iCost>60</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -3785,7 +3835,9 @@
 				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
 				<UnitAIType>UNITAI_RESERVE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_IRON_WORKING</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_IRON_WORKING</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_IRON</BonusType>
 			<iCost>40</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -3836,7 +3888,9 @@
 				<UnitAIType>UNITAI_RESERVE</UnitAIType>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_IRON_WORKING</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_IRON_WORKING</TechType>
+			</PrereqTechs>
 			<iCost>35</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -3888,11 +3942,13 @@
 				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
 				<UnitAIType>UNITAI_RESERVE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_IRON_WORKING</PrereqTech>
-			<PrereqBonuses>
+			<PrereqTechs>
+				<TechType>TECH_IRON_WORKING</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_COPPER</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>40</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -3947,7 +4003,9 @@
 				<UnitAIType>UNITAI_RESERVE</UnitAIType>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_IRON_WORKING</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_IRON_WORKING</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_IRON</BonusType>
 			<iCost>45</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -3999,14 +4057,14 @@
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_CIVIL_SERVICE</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_MACHINERY</PrereqTech>
-			</TechTypes>
-			<PrereqBonuses>
+			<PrereqTechs>
+				<TechType>TECH_CIVIL_SERVICE</TechType>
+				<TechType>TECH_MACHINERY</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_COPPER</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>70</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -4063,10 +4121,10 @@
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_CIVIL_SERVICE</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_MACHINERY</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_CIVIL_SERVICE</TechType>
+				<TechType>TECH_MACHINERY</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_IRON</BonusType>
 			<iCost>70</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -4128,14 +4186,14 @@
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_CIVIL_SERVICE</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_MACHINERY</PrereqTech>
-			</TechTypes>
-			<PrereqBonuses>
+			<PrereqTechs>
+				<TechType>TECH_CIVIL_SERVICE</TechType>
+				<TechType>TECH_MACHINERY</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_COPPER</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>70</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -4193,10 +4251,10 @@
 			<UnitAIs>
 				<UnitAIType>UNITAI_MISSILE_AIR</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_ROCKETRY</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_RADIO</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_ROCKETRY</TechType>
+				<TechType>TECH_RADIO</TechType>
+			</PrereqTechs>
 			<iCost>60</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -4512,7 +4570,9 @@
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_THE_WHEEL</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_THE_WHEEL</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
 			<iCost>30</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -4569,7 +4629,9 @@
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_THE_WHEEL</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_THE_WHEEL</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
 			<iCost>30</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -4627,7 +4689,9 @@
 			<NotUnitAIs>
 				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
 			</NotUnitAIs>
-			<PrereqTech>TECH_THE_WHEEL</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_THE_WHEEL</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
 			<iCost>30</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -4699,10 +4763,10 @@
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_HORSEBACK_RIDING</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_ARCHERY</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_HORSEBACK_RIDING</TechType>
+				<TechType>TECH_ARCHERY</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -4771,10 +4835,10 @@
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_HORSEBACK_RIDING</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_ARCHERY</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_HORSEBACK_RIDING</TechType>
+				<TechType>TECH_ARCHERY</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -4851,10 +4915,10 @@
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_HORSEBACK_RIDING</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_ARCHERY</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_HORSEBACK_RIDING</TechType>
+				<TechType>TECH_ARCHERY</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -4923,14 +4987,14 @@
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_GUILDS</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_HORSEBACK_RIDING</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_GUILDS</TechType>
+				<TechType>TECH_HORSEBACK_RIDING</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
-			<PrereqBonuses>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_IRON</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>90</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
@@ -4990,11 +5054,11 @@
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_GUILDS</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_HORSEBACK_RIDING</PrereqTech>
-				<PrereqTech>TECH_ARCHERY</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_GUILDS</TechType>
+				<TechType>TECH_HORSEBACK_RIDING</TechType>
+				<TechType>TECH_ARCHERY</TechType>
+			</PrereqTechs>
 			<iCost>90</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
@@ -5054,14 +5118,14 @@
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_GUILDS</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_HORSEBACK_RIDING</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_GUILDS</TechType>
+				<TechType>TECH_HORSEBACK_RIDING</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
-			<PrereqBonuses>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_IRON</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>90</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
@@ -5126,15 +5190,15 @@
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_MILITARY_TRADITION</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_GUNPOWDER</PrereqTech>
-				<PrereqTech>TECH_HORSEBACK_RIDING</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_MILITARY_TRADITION</TechType>
+				<TechType>TECH_GUNPOWDER</TechType>
+				<TechType>TECH_HORSEBACK_RIDING</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
-			<PrereqBonuses>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_IRON</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>100</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
@@ -5204,15 +5268,15 @@
 			<NotUnitAIs>
 				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
 			</NotUnitAIs>
-			<PrereqTech>TECH_MILITARY_TRADITION</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_GUNPOWDER</PrereqTech>
-				<PrereqTech>TECH_HORSEBACK_RIDING</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_MILITARY_TRADITION</TechType>
+				<TechType>TECH_GUNPOWDER</TechType>
+				<TechType>TECH_HORSEBACK_RIDING</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
-			<PrereqBonuses>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_IRON</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>100</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
@@ -5283,11 +5347,11 @@
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_MILITARY_TRADITION</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_RIFLING</PrereqTech>
-				<PrereqTech>TECH_HORSEBACK_RIDING</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_MILITARY_TRADITION</TechType>
+				<TechType>TECH_RIFLING</TechType>
+				<TechType>TECH_HORSEBACK_RIDING</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
 			<iCost>120</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -5359,11 +5423,11 @@
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_MILITARY_TRADITION</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_RIFLING</PrereqTech>
-				<PrereqTech>TECH_HORSEBACK_RIDING</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_MILITARY_TRADITION</TechType>
+				<TechType>TECH_RIFLING</TechType>
+				<TechType>TECH_HORSEBACK_RIDING</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
 			<iCost>120</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -5426,10 +5490,10 @@
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_CONSTRUCTION</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_HORSEBACK_RIDING</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_CONSTRUCTION</TechType>
+				<TechType>TECH_HORSEBACK_RIDING</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_IVORY</BonusType>
 			<iCost>70</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -5486,10 +5550,10 @@
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_CONSTRUCTION</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_HORSEBACK_RIDING</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_CONSTRUCTION</TechType>
+				<TechType>TECH_HORSEBACK_RIDING</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_IVORY</BonusType>
 			<iCost>70</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -5549,7 +5613,9 @@
 				<UnitAIType>UNITAI_ASSAULT_SEA</UnitAIType>
 				<UnitAIType>UNITAI_SETTLER_SEA</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_SAILING</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_SAILING</TechType>
+			</PrereqTechs>
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -5604,10 +5670,10 @@
 				<UnitAIType>UNITAI_ESCORT_SEA</UnitAIType>
 				<UnitAIType>UNITAI_EXPLORE_SEA</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_METAL_CASTING</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_SAILING</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_METAL_CASTING</TechType>
+				<TechType>TECH_SAILING</TechType>
+			</PrereqTechs>
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -5676,7 +5742,9 @@
 				<UnitAIType>UNITAI_MISSIONARY_SEA</UnitAIType>
 				<UnitAIType>UNITAI_SPY_SEA</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_OPTICS</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_OPTICS</TechType>
+			</PrereqTechs>
 			<iCost>60</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -5734,7 +5802,9 @@
 				<UnitAIType>UNITAI_MISSIONARY_SEA</UnitAIType>
 				<UnitAIType>UNITAI_SPY_SEA</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_OPTICS</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_OPTICS</TechType>
+			</PrereqTechs>
 			<iCost>60</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -5785,7 +5855,9 @@
 				<UnitAIType>UNITAI_ASSAULT_SEA</UnitAIType>
 				<UnitAIType>UNITAI_SETTLER_SEA</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_ASTRONOMY</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_ASTRONOMY</TechType>
+			</PrereqTechs>
 			<iCost>80</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -5838,7 +5910,9 @@
 				<UnitAIType>UNITAI_ASSAULT_SEA</UnitAIType>
 				<UnitAIType>UNITAI_SETTLER_SEA</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_ASTRONOMY</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_ASTRONOMY</TechType>
+			</PrereqTechs>
 			<iCost>80</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -5892,14 +5966,14 @@
 				<UnitAIType>UNITAI_RESERVE_SEA</UnitAIType>
 				<UnitAIType>UNITAI_ATTACK_SEA</UnitAIType>
 			</NotUnitAIs>
-			<PrereqTech>TECH_CHEMISTRY</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_ASTRONOMY</PrereqTech>
-			</TechTypes>
-			<PrereqBonuses>
+			<PrereqTechs>
+				<TechType>TECH_CHEMISTRY</TechType>
+				<TechType>TECH_ASTRONOMY</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_COPPER</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>80</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -5953,10 +6027,10 @@
 				<UnitAIType>UNITAI_ESCORT_SEA</UnitAIType>
 				<UnitAIType>UNITAI_EXPLORE_SEA</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_CHEMISTRY</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_ASTRONOMY</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_CHEMISTRY</TechType>
+				<TechType>TECH_ASTRONOMY</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_IRON</BonusType>
 			<iCost>90</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -6007,14 +6081,14 @@
 				<UnitAIType>UNITAI_ATTACK_SEA</UnitAIType>
 				<UnitAIType>UNITAI_RESERVE_SEA</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_MILITARY_SCIENCE</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_ASTRONOMY</PrereqTech>
-			</TechTypes>
-			<PrereqBonuses>
+			<PrereqTechs>
+				<TechType>TECH_MILITARY_SCIENCE</TechType>
+				<TechType>TECH_ASTRONOMY</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_IRON</BonusType>
 				<BonusType>BONUS_COPPER</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>120</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -6077,14 +6151,14 @@
 				<UnitAIType>UNITAI_ATTACK_SEA</UnitAIType>
 				<UnitAIType>UNITAI_RESERVE_SEA</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_STEEL</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_STEAM_POWER</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_STEEL</TechType>
+				<TechType>TECH_STEAM_POWER</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_IRON</BonusType>
-			<PrereqBonuses>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_COAL</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>100</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -6138,11 +6212,13 @@
 				<UnitAIType>UNITAI_ESCORT_SEA</UnitAIType>
 				<UnitAIType>UNITAI_EXPLORE_SEA</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_COMBUSTION</PrereqTech>
-			<PrereqBonuses>
+			<PrereqTechs>
+				<TechType>TECH_COMBUSTION</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_OIL</BonusType>
 				<BonusType>BONUS_URANIUM</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>200</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -6190,11 +6266,13 @@
 				<UnitAIType>UNITAI_ASSAULT_SEA</UnitAIType>
 				<UnitAIType>UNITAI_SETTLER_SEA</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_COMBUSTION</PrereqTech>
-			<PrereqBonuses>
+			<PrereqTechs>
+				<TechType>TECH_COMBUSTION</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_OIL</BonusType>
 				<BonusType>BONUS_URANIUM</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>125</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -6240,11 +6318,13 @@
 			<UnitAIs>
 				<UnitAIType>UNITAI_CARRIER_SEA</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_FLIGHT</PrereqTech>
-			<PrereqBonuses>
+			<PrereqTechs>
+				<TechType>TECH_FLIGHT</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_OIL</BonusType>
 				<BonusType>BONUS_URANIUM</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>175</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -6295,11 +6375,13 @@
 				<UnitAIType>UNITAI_ATTACK_SEA</UnitAIType>
 				<UnitAIType>UNITAI_RESERVE_SEA</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_INDUSTRIALISM</PrereqTech>
-			<PrereqBonuses>
+			<PrereqTechs>
+				<TechType>TECH_INDUSTRIALISM</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_OIL</BonusType>
 				<BonusType>BONUS_URANIUM</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>225</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -6350,11 +6432,13 @@
 				<UnitAIType>UNITAI_RESERVE_SEA</UnitAIType>
 				<UnitAIType>UNITAI_MISSILE_CARRIER_SEA</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_ROBOTICS</PrereqTech>
-			<PrereqBonuses>
+			<PrereqTechs>
+				<TechType>TECH_ROBOTICS</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_OIL</BonusType>
 				<BonusType>BONUS_URANIUM</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>260</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -6411,14 +6495,14 @@
 				<UnitAIType>UNITAI_RESERVE_SEA</UnitAIType>
 				<UnitAIType>UNITAI_EXPLORE_SEA</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_STEALTH</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_ROBOTICS</PrereqTech>
-			</TechTypes>
-			<PrereqBonuses>
+			<PrereqTechs>
+				<TechType>TECH_STEALTH</TechType>
+				<TechType>TECH_ROBOTICS</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_OIL</BonusType>
 				<BonusType>BONUS_URANIUM</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>220</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -6472,13 +6556,13 @@
 				<UnitAIType>UNITAI_EXPLORE_SEA</UnitAIType>
 				<UnitAIType>UNITAI_MISSILE_CARRIER_SEA</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_RADIO</PrereqTech>
-			<TechTypes>
-			</TechTypes>
-			<PrereqBonuses>
+			<PrereqTechs>
+				<TechType>TECH_RADIO</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_OIL</BonusType>
 				<BonusType>BONUS_URANIUM</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>150</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
@@ -6541,11 +6625,11 @@
 				<UnitAIType>UNITAI_MISSIONARY_SEA</UnitAIType>
 				<UnitAIType>UNITAI_SPY_SEA</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_ROCKETRY</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_RADIO</PrereqTech>
-				<PrereqTech>TECH_COMBUSTION</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_ROCKETRY</TechType>
+				<TechType>TECH_RADIO</TechType>
+				<TechType>TECH_COMBUSTION</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_URANIUM</BonusType>
 			<iCost>200</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -6618,7 +6702,9 @@
 			<UnitAIs>
 				<UnitAIType>UNITAI_EXPLORE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_HUNTING</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_HUNTING</TechType>
+			</PrereqTechs>
 			<iCost>15</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
@@ -6661,7 +6747,9 @@
 			<UnitAIs>
 				<UnitAIType>UNITAI_EXPLORE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_COMPASS</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_COMPASS</TechType>
+			</PrereqTechs>
 			<iCost>40</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
@@ -6716,7 +6804,9 @@
 				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
 				<UnitAIType>UNITAI_COLLATERAL</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_CONSTRUCTION</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_CONSTRUCTION</TechType>
+			</PrereqTechs>
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -6775,7 +6865,9 @@
 				<UnitAIType>UNITAI_COLLATERAL</UnitAIType>
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_CONSTRUCTION</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_CONSTRUCTION</TechType>
+			</PrereqTechs>
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -6842,7 +6934,9 @@
 				<UnitAIType>UNITAI_COLLATERAL</UnitAIType>
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
 			</NotUnitAIs>
-			<PrereqTech>TECH_ENGINEERING</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_ENGINEERING</TechType>
+			</PrereqTechs>
 			<iCost>80</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -6901,7 +6995,9 @@
 				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
 				<UnitAIType>UNITAI_COLLATERAL</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_STEEL</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_STEEL</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_IRON</BonusType>
 			<iCost>100</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -6961,7 +7057,9 @@
 				<UnitAIType>UNITAI_CITY_SPECIAL</UnitAIType>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_RAILROAD</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_RAILROAD</TechType>
+			</PrereqTechs>
 			<iCost>125</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -7024,7 +7122,9 @@
 				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
 				<UnitAIType>UNITAI_COLLATERAL</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_ARTILLERY</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_ARTILLERY</TechType>
+			</PrereqTechs>
 			<iCost>150</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -7086,10 +7186,10 @@
 				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
 				<UnitAIType>UNITAI_COLLATERAL</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_LASER</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_ARTILLERY</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_LASER</TechType>
+				<TechType>TECH_ARTILLERY</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_OIL</BonusType>
 			<iCost>200</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -7210,10 +7310,10 @@
 				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_INDUSTRIALISM</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_RIFLING</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_INDUSTRIALISM</TechType>
+				<TechType>TECH_RIFLING</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_OIL</BonusType>
 			<iCost>180</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -7269,10 +7369,10 @@
 				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_INDUSTRIALISM</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_RIFLING</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_INDUSTRIALISM</TechType>
+				<TechType>TECH_RIFLING</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_OIL</BonusType>
 			<iCost>180</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -7334,14 +7434,14 @@
 				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_COMPOSITES</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_COMPUTERS</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_COMPOSITES</TechType>
+				<TechType>TECH_COMPUTERS</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_OIL</BonusType>
-			<PrereqBonuses>
+			<PrereqOrBonuses>
 				<BonusType>BONUS_ALUMINUM</BonusType>
-			</PrereqBonuses>
+			</PrereqOrBonuses>
 			<iCost>240</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
@@ -7393,10 +7493,10 @@
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_ROBOTICS</PrereqTech>
-			<TechTypes>
-				<PrereqTech>TECH_RIFLING</PrereqTech>
-			</TechTypes>
+			<PrereqTechs>
+				<TechType>TECH_ROBOTICS</TechType>
+				<TechType>TECH_RIFLING</TechType>
+			</PrereqTechs>
 			<iCost>200</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
@@ -7450,7 +7550,9 @@
 				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
 				<UnitAIType>UNITAI_CITY_SPECIAL</UnitAIType>
 			</UnitAIs>
-			<PrereqTech>TECH_LASER</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_LASER</TechType>
+			</PrereqTechs>
 			<BonusType>BONUS_OIL</BonusType>
 			<iCost>220</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -7635,7 +7737,9 @@
 				<BuildType>BUILD_WHALING_BOATS</BuildType>
 				<BuildType>BUILD_OFFSHORE_PLATFORM</BuildType>
 			</Builds>
-			<PrereqTech>TECH_FISHING</PrereqTech>
+			<PrereqTechs>
+				<TechType>TECH_FISHING</TechType>
+			</PrereqTechs>
 			<iCost>30</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>

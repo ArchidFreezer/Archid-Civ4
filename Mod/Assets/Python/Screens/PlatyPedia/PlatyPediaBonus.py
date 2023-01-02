@@ -9,25 +9,25 @@ class CvPediaBonus:
 		self.iBonus = -1
 		self.top = main
 		self.iSize = 48
-		
+
 	def interfaceScreen(self, iBonus):
 		self.iBonus = iBonus
-		self.top.deleteAllWidgets()		
+		self.top.deleteAllWidgets()
 		screen = self.top.getScreen()
 		if not screen.isActive():
 			self.top.setPediaCommonWidgets()
-		
+
 		self.H_ICON = 150
 		self.H_MAIN_PANE = 210
 		self.W_MAIN_PANE = (self.top.W_ITEMS_PANE - self.top.W_BORDER * 2)/3
 		self.X_ICON = self.top.X_ITEMS_PANE + 30
 		self.Y_ICON = (self.H_MAIN_PANE - self.H_ICON)/2 + self.top.Y_ITEMS_PANE
-		
+
 		self.X_STATS_PANE = self.X_ICON + self.H_ICON
 		self.Y_STATS_PANE = self.Y_ICON + self.H_ICON /4
 		self.W_STATS_PANE = self.top.X_ITEMS_PANE + self.W_MAIN_PANE - self.X_STATS_PANE + self.top.X_ITEMS_PANE
 		self.H_STATS_PANE = self.H_MAIN_PANE - self.Y_STATS_PANE + self.top.Y_ITEMS_PANE
-		
+
 		self.H_ALLOWS = 110
 		self.W_ALLOWS = (self.top.W_ITEMS_PANE - self.top.W_BORDER)/2
 		self.X_PRODUCTION = self.top.X_ITEMS_PANE + self.W_ALLOWS + self.top.W_BORDER
@@ -35,7 +35,7 @@ class CvPediaBonus:
 		self.Y_ALLOWS = screen.getYResolution() - self.top.Y_ITEMS_PANE - self.H_ALLOWS
 		self.Y_SPECIAL = self.top.Y_ITEMS_PANE + self.H_MAIN_PANE + 10
 		self.H_SPECIAL = self.Y_ALLOWS - self.Y_SPECIAL - 10
-		
+
 		self.X_ANIMATION = self.X_TECH + self.W_MAIN_PANE + self.top.W_BORDER
 		self.Y_ANIMATION = self.top.Y_ITEMS_PANE + 8
 		self.H_ANIMATION = self.H_MAIN_PANE - 10
@@ -46,13 +46,13 @@ class CvPediaBonus:
 		szHeader = gc.getBonusInfo(self.iBonus).getDescription().upper()
 		szHeader = u"<font=4b>" + self.top.color4 + CyTranslator().getText(self.top.sBonusIcon, ()) + szHeader + " " + CyTranslator().getText(self.top.sBonusIcon, ()) + "</color></font>"
 		screen.setLabel(self.top.getNextWidgetName(), "Background", szHeader, CvUtil.FONT_CENTER_JUSTIFY, screen.getXResolution()/2, self.top.Y_TITLE, 0, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
-		
+
 		screen.setText(self.top.getNextWidgetName(), "Background", self.top.MENU_TEXT,  CvUtil.FONT_CENTER_JUSTIFY, screen.getXResolution()/2, screen.getYResolution() - 42, 0, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_PEDIA_MAIN, self.top.PLATYPEDIA_BONUS, -1)
 		screen.addPanel( self.top.getNextWidgetName(), "", "", False, False, self.top.X_ITEMS_PANE, self.top.Y_ITEMS_PANE, self.W_MAIN_PANE, self.H_MAIN_PANE, PanelStyles.PANEL_STYLE_BLUE50)
 		screen.addPanel(self.top.getNextWidgetName(), "", "", False, False, self.X_ICON, self.Y_ICON, self.H_ICON, self.H_ICON, PanelStyles.PANEL_STYLE_MAIN)
 		screen.addDDSGFC(self.top.getNextWidgetName(), gc.getBonusInfo(self.iBonus).getButton(), self.X_ICON + self.H_ICON/2 - 64/2, self.Y_ICON + self.H_ICON/2 - 64/2, 64, 64, WidgetTypes.WIDGET_GENERAL, -1, -1 )
 		screen.addBonusGraphicGFC(self.top.getNextWidgetName(), self.iBonus, self.X_ANIMATION, self.Y_ANIMATION, self.W_MAIN_PANE, self.H_ANIMATION, WidgetTypes.WIDGET_GENERAL, -1, -1, self.X_ROTATION_ANIMATION, self.Z_ROTATION_ANIMATION, self.SCALE_ANIMATION, True)
-		
+
 		self.placeStats()
 		self.placeSpecial()
 		self.placeTechs()
@@ -123,7 +123,7 @@ class CvPediaBonus:
 			screen.setImageButtonAt(self.top.getNextWidgetName(), panelName, gc.getTechInfo(item).getButton(), 0, iY, self.iSize, self.iSize, WidgetTypes.WIDGET_PEDIA_JUMP_TO_TECH, item, 1)
 			screen.setLabelAt(self.top.getNextWidgetName(), panelName, u"<font=3>" + gc.getTechInfo(item).getDescription() + u"</font>", CvUtil.FONT_LEFT_JUSTIFY, self.iSize + 4, iY, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
 			screen.setLabelAt(self.top.getNextWidgetName(), panelName, u"<font=3>" + sText + u"</font>", CvUtil.FONT_LEFT_JUSTIFY, self.iSize + 4, iY + self.iSize/2, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
-			
+
 	def placeStats(self):
 		screen = self.top.getScreen()
 		panelName = self.top.getNextWidgetName()
@@ -134,7 +134,7 @@ class CvPediaBonus:
 			if iYieldChange != 0:
 				sText = u"%+d%c" % (iYieldChange, gc.getYieldInfo(k).getChar())
 				screen.appendListBoxString(panelName, "<font=4>" + sText + "</font>", WidgetTypes.WIDGET_GENERAL, 0, 0, CvUtil.FONT_LEFT_JUSTIFY)
-						
+
 	def getDecimal(self, iAmount):
 		sText = str(iAmount / 10000)
 		if iAmount > 0:
@@ -261,7 +261,7 @@ class CvPediaBonus:
 				sText += u"%+d%s" % (iHealth, CyTranslator().getText("[ICON_HEALTHY]", ()))
 			else:
 				sText += u"%+d%s" % (-iHealth, CyTranslator().getText("[ICON_UNHEALTHY]", ()))
-	
+
 		for item in xrange(gc.getNumImprovementInfos()):
 			szYield = ""
 			ItemInfo = gc.getImprovementInfo(item)
@@ -281,7 +281,7 @@ class CvPediaBonus:
 		if len(sHelp) > 0:
 			screen.setImageButtonAt(self.top.getNextWidgetName(), panelName, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_GENERAL_QUESTIONMARK").getPath(), 0, iY, iSize, iSize, WidgetTypes.WIDGET_GENERAL, -1, -1)
 			screen.setTextAt(self.top.getNextWidgetName(), panelName, u"<font=3>" + sHelp + u"</font>", CvUtil.FONT_LEFT_JUSTIFY, self.iSize + 4, iY + self.iSize/2, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
-				
+
 	def placeHistory(self):
 		screen = self.top.getScreen()
 		screen.addPanel(self.top.getNextWidgetName(), CyTranslator().getText("TXT_KEY_CIVILOPEDIA_HISTORY", ()), "", True, True, self.X_ANIMATION, self.Y_SPECIAL, self.W_MAIN_PANE, self.H_SPECIAL, PanelStyles.PANEL_STYLE_BLUE50)
@@ -309,10 +309,10 @@ class CvPediaBonus:
 			bFound = False
 			Info = gc.getUnitInfo(item)
 			if Info.getPrereqAndBonus() == self.iBonus:
-				bFound = True	
+				bFound = True
 			else:
-				for j in xrange(gc.getNUM_UNIT_PREREQ_OR_BONUSES()):
-					if Info.getPrereqOrBonuses(j) == self.iBonus:
+				for j in xrange(Info.getNumPrereqOrBonuses()):
+					if Info.getPrereqOrBonus(j) == self.iBonus:
 						bFound = True
 						break
 			if bFound:
@@ -329,7 +329,7 @@ class CvPediaBonus:
 			bFound = False
 			Info = gc.getBuildingInfo(item)
 			if Info.getPrereqAndBonus() == self.iBonus:
-				bFound = True	
+				bFound = True
 			else:
 				for j in xrange(Info.getNumPrereqOrBonuses()):
 					if Info.getPrereqOrBonuses(j) == self.iBonus:
@@ -342,7 +342,7 @@ class CvPediaBonus:
 			bFound = False
 			Info = gc.getRouteInfo(item)
 			if Info.getPrereqBonus() == self.iBonus:
-				bFound = True	
+				bFound = True
 			else:
 				for j in xrange(gc.getNUM_ROUTE_PREREQ_OR_BONUSES()):
 					if Info.getPrereqOrBonus(j) == self.iBonus:

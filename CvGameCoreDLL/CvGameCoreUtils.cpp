@@ -320,17 +320,15 @@ bool isPromotionValid(PromotionTypes ePromotion, UnitTypes eUnit, bool bLeader) 
 		}
 	}
 
-	int iNumPrereqs = kPromotion.getNumPrereqOrPromotions();
-	if (iNumPrereqs > 0) {
-		bool bValid = false;
-		for (int iI = 0; iI < iNumPrereqs; iI++) {
-			if (isPromotionValid((PromotionTypes)kPromotion.getPrereqOrPromotion(iI), eUnit, bLeader)) {
-				bValid = true;
-				break;
-			}
+	bool bValid = false;
+	for (int iI = 0; iI < kPromotion.getNumPrereqOrPromotions(); iI++) {
+		if (isPromotionValid((PromotionTypes)kPromotion.getPrereqOrPromotion(iI), eUnit, bLeader)) {
+			bValid = true;
+			break;
 		}
-		if (!bValid)
-			return false;
+	}
+	if (!bValid) {
+		return false;
 	}
 
 	return true;
@@ -416,12 +414,8 @@ bool isCorporationTech(TechTypes eTech) {
 bool isTechRequiredForUnit(TechTypes eTech, UnitTypes eUnit) {
 	const CvUnitInfo& info = GC.getUnitInfo(eUnit);
 
-	if (info.getPrereqAndTech() == eTech) {
-		return true;
-	}
-
-	for (int iI = 0; iI < GC.getNUM_UNIT_AND_TECH_PREREQS(); iI++) {
-		if (info.getPrereqAndTechs(iI) == eTech) {
+	for (int iTech = 0; iTech < info.getNumPrereqAndTechs(); iTech++) {
+		if (info.getPrereqAndTech(iTech) == eTech) {
 			return true;
 		}
 	}

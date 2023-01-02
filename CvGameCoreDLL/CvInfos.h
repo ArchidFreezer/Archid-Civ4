@@ -894,7 +894,6 @@ public:
 	int getPrereqReligion() const;						// Exposed to Python
 	int getPrereqCorporation() const;						// Exposed to Python
 	int getPrereqBuilding() const;						// Exposed to Python
-	int getPrereqAndTech() const;							// Exposed to Python
 	int getPrereqAndBonus() const;						// Exposed to Python
 	int getGroupSize() const;									// Exposed to Python - the initial number of individuals in the unit group
 	int getGroupDefinitions() const;					// Exposed to Python - the number of UnitMeshGroups for this unit
@@ -918,6 +917,8 @@ public:
 	int getMinPopulation() const;
 	int getNumSubCombatTypes() const;
 	int getObsoleteTech() const;
+	int getNumPrereqAndTechs() const;
+	int getNumPrereqOrBonuses() const;				// Exposed to Python
 
 	bool isAnimal() const;				// Exposed to Python
 	bool isFoodProduction() const;				// Exposed to Python
@@ -969,8 +970,6 @@ public:
 
 	// Arrays
 
-	int getPrereqAndTechs(int i) const;				// Exposed to Python
-	int getPrereqOrBonuses(int i) const;				// Exposed to Python
 	int getProductionTraits(int i) const;				// Exposed to Python
 	int getFlavorValue(int i) const;				// Exposed to Python
 	int getTerrainAttackModifier(int i) const;				// Exposed to Python
@@ -1002,6 +1001,8 @@ public:
 	int getPrereqOrBuildingClass(int i) const;
 	int getPrereqNotBuildingClass(int i) const;
 	int getSubCombatType(int i) const;
+	int getPrereqAndTech(int i) const;
+	int getPrereqOrBonus(int i) const;
 
 	bool getUpgradeUnitClass(int i) const;	// Exposed to Python
 	bool getTargetUnitClass(int i) const;	// Exposed to Python
@@ -1031,6 +1032,8 @@ public:
 	bool isPrereqNotBuildingClass(BuildingClassTypes eBuildingClass) const;
 	bool isSubCombatType(UnitCombatTypes eCombatType) const;
 	bool isCombatType(UnitCombatTypes eCombatType) const;
+	bool isPrereqAndTech(int i) const;
+	bool isPrereqOrBonus(int i) const;
 
 	const TCHAR* getEarlyArtDefineTag(int i, UnitArtStyleTypes eStyle) const;				// Exposed to Python
 	void setEarlyArtDefineTag(int i, const TCHAR* szVal);
@@ -1118,7 +1121,6 @@ protected:
 	int m_iPrereqReligion;
 	int m_iPrereqCorporation;
 	int m_iPrereqBuilding;
-	int m_iPrereqAndTech;
 	int m_iPrereqAndBonus;
 	int m_iGroupSize;
 	int m_iGroupDefinitions;
@@ -1180,8 +1182,6 @@ protected:
 
 	// Arrays
 
-	int* m_piPrereqAndTechs;
-	int* m_piPrereqOrBonuses;
 	int* m_piProductionTraits;
 	int* m_piFlavorValue;
 	int* m_piTerrainAttackModifier;
@@ -1239,6 +1239,8 @@ protected:
 	std::vector<int> m_viPrereqOrBuildingClasses;
 	std::vector<int> m_viPrereqNotBuildingClasses;
 	std::vector<int> m_viSubCombatTypes;
+	std::vector<int> m_viPrereqAndTechs;
+	std::vector<int> m_viPrereqOrBonuses;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

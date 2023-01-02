@@ -5362,9 +5362,9 @@ void CvGame::createBarbarianUnits() {
 									if (bValid) {
 										bool bFound = false;
 										bool bRequires = false;
-										for (int i = 0; i < GC.getNUM_UNIT_PREREQ_OR_BONUSES(); ++i) {
-											if (NO_BONUS != kUnit.getPrereqOrBonuses(i)) {
-												TechTypes eTech = (TechTypes)GC.getBonusInfo((BonusTypes)kUnit.getPrereqOrBonuses(i)).getTechCityTrade();
+										for (int i = 0; i < kUnit.getNumPrereqOrBonuses(); ++i) {
+											if (NO_BONUS != kUnit.getPrereqOrBonus(i)) {
+												TechTypes eTech = (TechTypes)GC.getBonusInfo((BonusTypes)kUnit.getPrereqOrBonus(i)).getTechCityTrade();
 												if (NO_TECH != eTech) {
 													bRequires = true;
 

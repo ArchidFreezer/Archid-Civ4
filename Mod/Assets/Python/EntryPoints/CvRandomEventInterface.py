@@ -3370,8 +3370,8 @@ def getGreedUnit(player, plot):
 			if gc.getUnitInfo(iUnit).getPrereqAndBonus() == iBonus:
 				iValue = player.AI_unitValue(iUnit, UnitAITypes.UNITAI_ATTACK, plot.area())
 			else:
-				for j in range(gc.getNUM_UNIT_PREREQ_OR_BONUSES()):
-					if (gc.getUnitInfo(iUnit).getPrereqOrBonuses(j) == iBonus):
+				for j in range(gc.getUnitInfo(iUnit).getNumPrereqOrBonuses()):
+					if (gc.getUnitInfo(iUnit).getPrereqOrBonus(j) == iBonus):
 						iValue = player.AI_unitValue(iUnit, UnitAITypes.UNITAI_ATTACK, plot.area())
 						break
 			if iValue > iBestValue:

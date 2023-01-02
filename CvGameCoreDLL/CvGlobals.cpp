@@ -122,7 +122,6 @@ CvGlobals::CvGlobals() :
 	m_iNUM_CORPORATION_PREREQ_BONUSES(0),
 	m_iNUM_ROUTE_PREREQ_OR_BONUSES(0),
 	m_iNUM_UNIT_AND_TECH_PREREQS(0),
-	m_iNUM_UNIT_PREREQ_OR_BONUSES(0),
 	m_iPATH_DAMAGE_WEIGHT(0),
 	m_iPEAK_SEE_FROM_CHANGE(0),
 	m_iPEAK_SEE_THROUGH_CHANGE(0),
@@ -2316,7 +2315,6 @@ FVariableSystem* CvGlobals::getDefinesVarSystem() {
 void CvGlobals::cacheGlobals() {
 	m_iEXTRA_YIELD = getDefineINT("EXTRA_YIELD"); // K-Mod
 	m_iMOVE_DENOMINATOR = getDefineINT("MOVE_DENOMINATOR");
-	m_iNUM_UNIT_PREREQ_OR_BONUSES = getDefineINT("NUM_UNIT_PREREQ_OR_BONUSES");
 	m_iNUM_BUILDING_PREREQ_OR_BONUSES = getDefineINT("NUM_BUILDING_PREREQ_OR_BONUSES");
 	m_iFOOD_CONSUMPTION_PER_POPULATION = getDefineINT("FOOD_CONSUMPTION_PER_POPULATION");
 	m_iMAX_HIT_POINTS = getDefineINT("MAX_HIT_POINTS");
@@ -2521,10 +2519,6 @@ void CvGlobals::setDefineSTRING(const char* szName, const char* szValue) {
 
 int CvGlobals::getMOVE_DENOMINATOR() {
 	return m_iMOVE_DENOMINATOR;
-}
-
-int CvGlobals::getNUM_UNIT_PREREQ_OR_BONUSES() {
-	return m_iNUM_UNIT_PREREQ_OR_BONUSES;
 }
 
 int CvGlobals::getFOOD_CONSUMPTION_PER_POPULATION() {

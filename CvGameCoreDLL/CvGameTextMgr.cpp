@@ -6706,23 +6706,17 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 				}
 
 				if (eLoopUnit != NO_UNIT) {
+					const CvUnitInfo& kUnit = GC.getUnitInfo(eLoopUnit);
 					if (!bPlayerContext || !(kActivePlayer.canTrain(eLoopUnit))) {
 						CvWString szFirstBuffer;
 						CvWString szTempBuffer;
-						if (GC.getUnitInfo(eLoopUnit).getPrereqAndTech() == eTech) {
-							szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_TECH_CAN_TRAIN").c_str());
-							szTempBuffer.Format(SETCOLR L"%s" ENDCOLR, TEXT_COLOR("COLOR_UNIT_TEXT"), GC.getUnitInfo(eLoopUnit).getDescription());
-							setListHelp(szBuffer, szFirstBuffer, szTempBuffer, L", ", bFirst);
-							bFirst = false;
-						} else {
-							for (int iJ = 0; iJ < GC.getNUM_UNIT_AND_TECH_PREREQS(); iJ++) {
-								if (GC.getUnitInfo(eLoopUnit).getPrereqAndTechs(iJ) == eTech) {
-									szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_TECH_CAN_TRAIN").c_str());
-									szTempBuffer.Format(SETCOLR L"%s" ENDCOLR, TEXT_COLOR("COLOR_UNIT_TEXT"), GC.getUnitInfo(eLoopUnit).getDescription());
-									setListHelp(szBuffer, szFirstBuffer, szTempBuffer, L", ", bFirst);
-									bFirst = false;
-									break;
-								}
+						for (int iJ = 0; iJ < kUnit.getNumPrereqAndTechs(); iJ++) {
+							if (kUnit.getPrereqAndTech(iJ) == eTech) {
+								szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_TECH_CAN_TRAIN").c_str());
+								szTempBuffer.Format(SETCOLR L"%s" ENDCOLR, TEXT_COLOR("COLOR_UNIT_TEXT"), kUnit.getDescription());
+								setListHelp(szBuffer, szFirstBuffer, szTempBuffer, L", ", bFirst);
+								bFirst = false;
+								break;
 							}
 						}
 					}
@@ -7658,20 +7652,20 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit, bool
 			}
 
 			if (!bTechChooserText) {
-				if (kUnit.getPrereqAndTech() != NO_TECH) {
-					if (ePlayer == NO_PLAYER || !(kTeam.isHasTech((TechTypes)(kUnit.getPrereqAndTech())))) {
+				if (kUnit.getPrereqAndTech(0) != NO_TECH) {
+					if (ePlayer == NO_PLAYER || !kTeam.isHasTech((TechTypes)kUnit.getPrereqAndTech(0))) {
 						szBuffer.append(NEWLINE);
-						szBuffer.append(gDLL->getText("TXT_KEY_UNIT_REQUIRES_STRING", GC.getTechInfo((TechTypes)(kUnit.getPrereqAndTech())).getTextKeyWide()));
+						szBuffer.append(gDLL->getText("TXT_KEY_UNIT_REQUIRES_STRING", GC.getTechInfo((TechTypes)kUnit.getPrereqAndTech(0)).getTextKeyWide()));
 					}
 				}
 			}
 
 			bFirst = true;
-			for (int iPrereqIndex = 0; iPrereqIndex < GC.getNUM_UNIT_AND_TECH_PREREQS(); ++iPrereqIndex) {
-				if (kUnit.getPrereqAndTechs(iPrereqIndex) != NO_TECH) {
-					if (bTechChooserText || ePlayer == NO_PLAYER || !kTeam.isHasTech((TechTypes)kUnit.getPrereqAndTechs(iPrereqIndex))) {
+			for (int iPrereqIndex = 1; iPrereqIndex < kUnit.getNumPrereqAndTechs(); ++iPrereqIndex) {
+				if (kUnit.getPrereqAndTech(iPrereqIndex) != NO_TECH) {
+					if (bTechChooserText || ePlayer == NO_PLAYER || !kTeam.isHasTech((TechTypes)kUnit.getPrereqAndTech(iPrereqIndex))) {
 						szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_REQUIRES").c_str());
-						setListHelp(szBuffer, szTempBuffer, GC.getTechInfo((TechTypes)kUnit.getPrereqAndTechs(iPrereqIndex)).getDescription(), gDLL->getText("TXT_KEY_AND").c_str(), bFirst);
+						setListHelp(szBuffer, szTempBuffer, GC.getTechInfo((TechTypes)kUnit.getPrereqAndTech(iPrereqIndex)).getDescription(), gDLL->getText("TXT_KEY_AND").c_str(), bFirst);
 						bFirst = false;
 					}
 				}
@@ -7714,11 +7708,12 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit, bool
 			}
 
 			bFirst = true;
-			for (int iPrereqIndex = 0; iPrereqIndex < GC.getNUM_UNIT_PREREQ_OR_BONUSES(); ++iPrereqIndex) {
-				if (kUnit.getPrereqOrBonuses(iPrereqIndex) != NO_BONUS) {
-					if (pCity == NULL || !pCity->hasBonus((BonusTypes)kUnit.getPrereqOrBonuses(iPrereqIndex))) {
+			for (int iPrereqIndex = 0; iPrereqIndex < kUnit.getNumPrereqOrBonuses(); ++iPrereqIndex) {
+				BonusTypes ePrereqBonus = (BonusTypes)kUnit.getPrereqOrBonus(iPrereqIndex);
+				if (ePrereqBonus != NO_BONUS) {
+					if ((pCity == NULL) || !(pCity->hasBonus(ePrereqBonus))) {
 						szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_REQUIRES").c_str());
-						setListHelp(szBuffer, szTempBuffer, GC.getBonusInfo((BonusTypes)kUnit.getPrereqOrBonuses(iPrereqIndex)).getDescription(), gDLL->getText("TXT_KEY_OR").c_str(), bFirst);
+						setListHelp(szBuffer, szTempBuffer, GC.getBonusInfo(ePrereqBonus).getDescription(), gDLL->getText("TXT_KEY_OR").c_str(), bFirst);
 						bFirst = false;
 					}
 				}

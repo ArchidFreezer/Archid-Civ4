@@ -4631,7 +4631,7 @@ int CvPlayerAI::AI_techUnitValue(TechTypes eTech, int iPathLength, bool& bEnable
 			iTotalUnitValue += 600;
 		}
 
-		if (kLoopUnit.getPrereqAndTech() == eTech || kTeam.isHasTech((TechTypes)kLoopUnit.getPrereqAndTech()) || canResearch((TechTypes)kLoopUnit.getPrereqAndTech())) {
+		if (kLoopUnit.getPrereqAndTech(0) == eTech || kTeam.isHasTech((TechTypes)kLoopUnit.getPrereqAndTech(0)) || canResearch((TechTypes)kLoopUnit.getPrereqAndTech(0))) {
 			// (note, we already checked that this tech is required for the unit.)
 
 			for (UnitAITypes eAI = (UnitAITypes)0; eAI < NUM_UNITAI_TYPES; eAI = (UnitAITypes)(eAI + 1)) {
@@ -5016,13 +5016,11 @@ int CvPlayerAI::AI_techUnitValue(TechTypes eTech, int iPathLength, bool& bEnable
 		// Decrease the value if we are missing other prereqs.
 		{
 			int iMissingTechs = 0;
-			if (!kTeam.isHasTech((TechTypes)kLoopUnit.getPrereqAndTech()))
-				iMissingTechs++;
-
-			for (int iI = 0; iI < GC.getNUM_UNIT_AND_TECH_PREREQS(); iI++) {
-				if (!kTeam.isHasTech((TechTypes)kLoopUnit.getPrereqAndTechs(iI))) {
+			for (int iI = 0; iI < kLoopUnit.getNumPrereqAndTechs(); iI++) {
+				TechTypes eTechPrereq = (TechTypes)kLoopUnit.getPrereqAndTech(iI);
+				if (!kTeam.isHasTech(eTechPrereq)) {
 					iMissingTechs++;
-					if (!canResearch((TechTypes)kLoopUnit.getPrereqAndTechs(iI)))
+					if (!canResearch(eTechPrereq))
 						iMissingTechs++;
 				}
 			}
@@ -5034,8 +5032,8 @@ int CvPlayerAI::AI_techUnitValue(TechTypes eTech, int iPathLength, bool& bEnable
 		bool bMaybeMissing = false; // if we don't know if we have the bonus or not
 		bool bDefinitelyMissing = false; // if we can see the bonuses, and we know we don't have any.
 
-		for (int iI = 0; iI < GC.getNUM_UNIT_PREREQ_OR_BONUSES(); ++iI) {
-			BonusTypes ePrereqBonus = (BonusTypes)kLoopUnit.getPrereqOrBonuses(iI);
+		for (int iI = 0; iI < kLoopUnit.getNumPrereqOrBonuses(); ++iI) {
+			BonusTypes ePrereqBonus = (BonusTypes)kLoopUnit.getPrereqOrBonus(iI);
 			if (ePrereqBonus != NO_BONUS) {
 				if (hasBonus(ePrereqBonus)) {
 					bDefinitelyMissing = false;
@@ -7091,8 +7089,8 @@ int CvPlayerAI::AI_baseBonusVal(BonusTypes eBonus) const {
 						int iOrBonusesWeHave = 0; // excluding eBonus itself. (disabled for now. See comments below.)
 						bool bIsOrBonus = false; // is eBonus one of the OrBonuses for this unit.
 
-						for (int iJ = 0; iJ < GC.getNUM_UNIT_PREREQ_OR_BONUSES(); iJ++) {
-							BonusTypes ePrereqBonus = (BonusTypes)kLoopUnit.getPrereqOrBonuses(iJ);
+						for (int iJ = 0; iJ < kLoopUnit.getNumPrereqOrBonuses(); iJ++) {
+							BonusTypes ePrereqBonus = (BonusTypes)kLoopUnit.getPrereqOrBonus(iJ);
 
 							if (ePrereqBonus != NO_BONUS) {
 								iOrBonuses++;
@@ -7136,8 +7134,8 @@ int CvPlayerAI::AI_baseBonusVal(BonusTypes eBonus) const {
 						}
 
 						// devalue units which are related to our current era. (but not if it is still our best unit!)
-						if (kLoopUnit.getPrereqAndTech() != NO_TECH) {
-							int iDiff = GC.getTechInfo((TechTypes)(kLoopUnit.getPrereqAndTech())).getEra() - getCurrentEra();
+						if (kLoopUnit.getPrereqAndTech(0) != NO_TECH) {
+							int iDiff = GC.getTechInfo((TechTypes)kLoopUnit.getPrereqAndTech(0)).getEra() - getCurrentEra();
 							if (iDiff > 0 || !bCanTrain || iNewTypeValue < iBestTypeValue)
 								iUnitValue = iUnitValue * 2 / (2 + std::abs(iDiff));
 						}
@@ -7396,13 +7394,13 @@ DenialTypes CvPlayerAI::AI_bonusTrade(BonusTypes eBonus, PlayerTypes ePlayer) co
 
 	for (UnitTypes eUnit = (UnitTypes)0; eUnit < GC.getNumUnitInfos(); eUnit = (UnitTypes)(eUnit+1))
 	{
-		if (GC.getUnitInfo(eUnit).getPrereqAndBonus() == eBonus)
-		{
+		const CvUnitInfo& kLoopUnit = GC.getUnitInfo(eUnit);
+		if (kLoopUnit.getPrereqAndBonus() == eBonus) {
 			bStrategic = true;
 		}
 
-		for (int iJ = 0; iJ < GC.getNUM_UNIT_PREREQ_OR_BONUSES(); iJ++) {
-			if (GC.getUnitInfo(eUnit).getPrereqOrBonuses(iJ) == eBonus) {
+		for (int iJ = 0; iJ < kLoopUnit.getNumPrereqOrBonuses(); iJ++) {
+			if (kLoopUnit.getPrereqOrBonus(iJ) == eBonus) {
 				bStrategic = true;
 			}
 		}
@@ -15035,25 +15033,26 @@ void CvPlayerAI::AI_updateStrategyHash() {
 				UnitTypes eLoopUnit = ((UnitTypes)(GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(iI)));
 
 				if ((eLoopUnit != NO_UNIT) && (GC.getUnitInfo(eLoopUnit).getCombat() > 0)) {
-					if ((GC.getUnitClassInfo((UnitClassTypes)iI).getDefaultUnitIndex()) != (GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(iI))) {
-						bool bIsDefensive = (GC.getUnitInfo(eLoopUnit).getUnitAIType(UNITAI_CITY_DEFENSE) &&
-							!GC.getUnitInfo(eLoopUnit).getUnitAIType(UNITAI_RESERVE));
+					const CvUnitInfo& kLoopUnit = GC.getUnitInfo(eLoopUnit);
+					if (GC.getUnitClassInfo((UnitClassTypes)iI).getDefaultUnitIndex() != GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(iI)) {
+						bool bIsDefensive = (kLoopUnit.getUnitAIType(UNITAI_CITY_DEFENSE) &&
+							!kLoopUnit.getUnitAIType(UNITAI_RESERVE));
 
 						iDagger += bIsDefensive ? -10 : 0;
 
 						if (getCapitalCity()->canTrain(eLoopUnit)) {
 							iDagger += bIsDefensive ? 10 : 40;
 
-							int iUUStr = GC.getUnitInfo(eLoopUnit).getCombat();
+							int iUUStr = kLoopUnit.getCombat();
 							int iNormalStr = GC.getUnitInfo((UnitTypes)(GC.getUnitClassInfo((UnitClassTypes)iI).getDefaultUnitIndex())).getCombat();
 							iDagger += 20 * range((iUUStr - iNormalStr), 0, 2);
-							if (GC.getUnitInfo(eLoopUnit).getPrereqAndTech() == NO_TECH) {
+							if (kLoopUnit.getNumPrereqAndTechs() == 0) {
 								iDagger += 20;
 							}
 						} else {
-							if (GC.getUnitInfo(eLoopUnit).getPrereqAndTech() != NO_TECH) {
-								if (GC.getTechInfo((TechTypes)(GC.getUnitInfo(eLoopUnit).getPrereqAndTech())).getEra() <= (iCurrentEra + 1)) {
-									if (kTeam.isHasTech((TechTypes)GC.getUnitInfo(eLoopUnit).getPrereqAndTech())) {
+							if (kLoopUnit.getPrereqAndTech(0) != NO_TECH) {
+								if (GC.getTechInfo((TechTypes)kLoopUnit.getPrereqAndTech(0)).getEra() <= (iCurrentEra + 1)) {
+									if (kTeam.isHasTech((TechTypes)kLoopUnit.getPrereqAndTech(0))) {
 										//we have the tech but can't train the unit, dejection.
 										iDagger += 10;
 									} else {
@@ -15070,14 +15069,14 @@ void CvPlayerAI::AI_updateStrategyHash() {
 							for (int iJ = 0; iJ < GC.getNumBonusInfos(); iJ++) {
 								BonusTypes eBonus = (BonusTypes)iJ;
 								if (eBonus != NO_BONUS) {
-									if (GC.getUnitInfo(eLoopUnit).getPrereqAndBonus() == eBonus) {
+									if (kLoopUnit.getPrereqAndBonus() == eBonus) {
 										if (getNumTradeableBonuses(eBonus) == 0) {
 											bNeedsAndBonus = true;
 										}
 									}
 
-									for (int iK = 0; iK < GC.getNUM_UNIT_PREREQ_OR_BONUSES(); iK++) {
-										if (GC.getUnitInfo(eLoopUnit).getPrereqOrBonuses(iK) == eBonus) {
+									for (int iK = 0; iK < kLoopUnit.getNumPrereqOrBonuses(); iK++) {
+										if (kLoopUnit.getPrereqOrBonus(iK) == eBonus) {
 											iOrBonusCount++;
 											if (getNumTradeableBonuses(eBonus) > 0) {
 												iOrBonusHave++;
@@ -17218,7 +17217,7 @@ void CvPlayerAI::AI_doEnemyUnitData() {
 		if (aiUnitCounts[iI] > 0) {
 			UnitTypes eLoopUnit = (UnitTypes)iI;
 
-			TechTypes eTech = (TechTypes)GC.getUnitInfo((UnitTypes)iI).getPrereqAndTech();
+			TechTypes eTech = (TechTypes)GC.getUnitInfo((UnitTypes)iI).getPrereqAndTech(0);
 
 			int iEraDiff = (eTech == NO_TECH) ? 4 : std::min(4, getCurrentEra() - GC.getTechInfo(eTech).getEra());
 
@@ -17262,7 +17261,7 @@ int CvPlayerAI::AI_calculateUnitAIViability(UnitAITypes eUnitAI, DomainTypes eDo
 		const CvUnitInfo& kUnitInfo = GC.getUnitInfo(eLoopUnit);
 		if (kUnitInfo.getDomainType() == eDomain) {
 
-			TechTypes eTech = (TechTypes)kUnitInfo.getPrereqAndTech();
+			TechTypes eTech = (TechTypes)kUnitInfo.getPrereqAndTech(0);
 			if ((m_aiUnitClassWeights[iI] > 0) || GET_TEAM(getTeam()).isHasTech((eTech))) {
 				if (kUnitInfo.getUnitAIType(eUnitAI)) {
 					iBestUnitAIStrength = std::max(iBestUnitAIStrength, kUnitInfo.getCombat());
