@@ -547,6 +547,7 @@
 				<iYieldChange>0</iYieldChange>
 			</YieldChanges>
 			<bHillsMakesValid>1</bHillsMakesValid>
+			<bPeakMakesValid>1</bPeakMakesValid>
 			<iAdvancedStartCost>24</iAdvancedStartCost>
 			<iAirBombDefense>10</iAirBombDefense>
 			<iPillageGold>10</iPillageGold>

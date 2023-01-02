@@ -214,6 +214,7 @@
 	<ElementType name="iGroupRand" content="textOnly" dt:type="int"/>
 	<ElementType name="bArea" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bHills" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bPeaks" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bFlatlands" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bNoRiverSide" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bNormalize" content="textOnly" dt:type="boolean"/>
@@ -253,6 +254,7 @@
 		<element type="iGroupRand" minOccurs="0"/>
 		<element type="bArea" minOccurs="0"/>
 		<element type="bHills" minOccurs="0"/>
+		<element type="bPeaks" minOccurs="0"/>
 		<element type="bFlatlands" minOccurs="0"/>
 		<element type="bNoRiverSide" minOccurs="0"/>
 		<element type="bNormalize" minOccurs="0"/>
@@ -365,6 +367,7 @@
 	<ElementType name="ImprovementUpgrade" content="textOnly"/>
 	<ElementType name="bActsAsCity" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bHillsMakesValid" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bPeakMakesValid" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bFreshWaterMakesValid" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bRiverSideMakesValid" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bNoFreshWater" content="textOnly" dt:type="boolean"/>
@@ -405,6 +408,7 @@
 		<element type="IrrigatedYieldChange" minOccurs="0"/>
 		<element type="bActsAsCity" minOccurs="0"/>
 		<element type="bHillsMakesValid" minOccurs="0"/>
+		<element type="bPeakMakesValid" minOccurs="0"/>
 		<element type="bFreshWaterMakesValid" minOccurs="0"/>
 		<element type="bRiverSideMakesValid" minOccurs="0"/>
 		<element type="bNoFreshWater" minOccurs="0"/>

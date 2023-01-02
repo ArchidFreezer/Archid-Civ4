@@ -839,5 +839,30 @@
 		<Tag>TXT_KEY_IMPROVEMENT_EVOLVES_TECH</Tag>
 		<English>[ICON_BULLET]Becomes a [COLOR_HIGHLIGHT_TEXT][LINK=literal]%s1_ImpName[\LINK][COLOR_REVERT] in %d2_Num [NUM2:Turn:Turns] with [COLOR_HIGHLIGHT_TEXT][LINK=literal]%s3_TechName[\LINK][COLOR_REVERT]</English>
 	</TEXT>
+	<!-- Mountains: back in service -->
+	<TEXT>
+		<Tag>TXT_KEY_CAN_PASS_PEAKS</Tag>
+		<English>[ICON_BULLET]Units can move onto Peaks</English>
+		<French>[ICON_BULLET]Les Unités peuvent se déplacer jusqu'aux Sommets</French>
+		<German>[ICON_BULLET]Einheiten können Berggipfel besteigen</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MOVE_FAST_PEAKS</Tag>
+		<English>[ICON_BULLET]Units suffer no movement penalty when passing through peaks</English>
+		<French>[ICON_BULLET]Les Unités ne subissent aucune pénalité en passant par les sommets</French>
+		<German>[ICON_BULLET]Einheiten erhalten keine Bewegungseinbuße, wenn sie Gipfel überqueren.</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CAN_FOUND_ON_PEAKS</Tag>
+		<English>[ICON_BULLET]Players can found cities on Peaks</English>
+		<French>[ICON_BULLET]Les Joueurs peuvent fonder des Villes sur les sommets</French>
+		<German>[ICON_BULLET]Spieler können Städte auf Gipfeln gründen</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_CAN_MOVE_PEAKS_TEXT</Tag>
+		<English>[ICON_BULLET]Can Pass through Peaks</English>
+		<French>[ICON_BULLET]Peut passer les Sommets</French>
+		<German>[ICON_BULLET]Kann &#252;ber Gipfel gehen</German>
+	</TEXT>
 
 </Civ4GameText>

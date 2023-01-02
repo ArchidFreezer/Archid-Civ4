@@ -33,6 +33,7 @@
 			</Rands>
 			<iPlayer>100</iPlayer>
 			<bHills>1</bHills>
+			<bPeaks>1</bPeaks>
 			<TerrainBooleans>
 				<TerrainType>TERRAIN_PLAINS</TerrainType>
 				<TerrainType>TERRAIN_DESERT</TerrainType>
@@ -64,6 +65,7 @@
 			<iPlayer>100</iPlayer>
 			<iUnique>4</iUnique>
 			<bHills>1</bHills>
+			<bPeaks>1</bPeaks>
 			<TerrainBooleans>
 				<TerrainType>TERRAIN_GRASS</TerrainType>
 				<TerrainType>TERRAIN_PLAINS</TerrainType>
@@ -95,6 +97,7 @@
 			<iPlayer>50</iPlayer>
 			<iTilesPer>128</iTilesPer>
 			<bHills>1</bHills>
+			<bPeaks>1</bPeaks>
 			<bFlatlands>1</bFlatlands>
 			<bNoRiverSide>1</bNoRiverSide>
 			<TerrainBooleans>
@@ -164,6 +167,7 @@
 			<iTilesPer>128</iTilesPer>
 			<iUnique>7</iUnique>
 			<bHills>1</bHills>
+			<bPeaks>1</bPeaks>
 			<bFlatlands>1</bFlatlands>
 			<bNoRiverSide>1</bNoRiverSide>
 			<TerrainBooleans>
@@ -198,6 +202,7 @@
 			</Rands>
 			<iPlayer>50</iPlayer>
 			<bHills>1</bHills>
+			<bPeaks>1</bPeaks>
 			<bFlatlands>1</bFlatlands>
 			<bNoRiverSide>1</bNoRiverSide>
 			<bNormalize>1</bNormalize>
@@ -272,6 +277,7 @@
 			</Rands>
 			<iPlayer>50</iPlayer>
 			<bHills>1</bHills>
+			<bPeaks>1</bPeaks>
 			<bFlatlands>1</bFlatlands>
 			<bNoRiverSide>1</bNoRiverSide>
 			<bNormalize>1</bNormalize>
@@ -306,6 +312,7 @@
 			<iPlayer>100</iPlayer>
 			<iUnique>6</iUnique>
 			<bHills>1</bHills>
+			<bPeaks>1</bPeaks>
 			<bFlatlands>1</bFlatlands>
 			<bNoRiverSide>1</bNoRiverSide>
 			<TerrainBooleans>
@@ -817,6 +824,7 @@
 			<iGroupRand>25</iGroupRand>
 			<bArea>1</bArea>
 			<bHills>1</bHills>
+			<bPeaks>1</bPeaks>
 			<bFlatlands>1</bFlatlands>
 			<bNormalize>1</bNormalize>
 			<FeatureBooleans>
@@ -854,6 +862,7 @@
 			<iGroupRand>25</iGroupRand>
 			<bArea>1</bArea>
 			<bHills>1</bHills>
+			<bPeaks>1</bPeaks>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
 				<TerrainType>TERRAIN_PLAINS</TerrainType>
@@ -1000,6 +1009,7 @@
 			<iGroupRand>25</iGroupRand>
 			<bArea>1</bArea>
 			<bHills>1</bHills>
+			<bPeaks>1</bPeaks>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
 				<TerrainType>TERRAIN_TUNDRA</TerrainType>

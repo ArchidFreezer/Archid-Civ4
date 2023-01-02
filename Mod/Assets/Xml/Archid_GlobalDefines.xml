@@ -318,4 +318,17 @@
 		<DefineName>UNIT_SALVAGE_CURRENT_TECH_PERCENT</DefineName>
 		<iDefineIntVal>150</iDefineIntVal>
 	</Define>
+<!-- Mountains: back to service -->
+	<Define>
+		<DefineName>PEAK_EXTRA_DEFENSE</DefineName>
+		<iDefineIntVal>75</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>PEAK_EXTRA_MOVEMENT</DefineName>
+		<iDefineIntVal>3</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>PEAK_BUILD_TIME_MODIFIER</DefineName>
+		<iDefineIntVal>100</iDefineIntVal>
+	</Define>
 </Civ4Defines>

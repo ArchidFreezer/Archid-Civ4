@@ -851,6 +851,9 @@ CvTechInfo::CvTechInfo() :
 	m_bUnitRangeUnbound(false),
 	m_bUnitTerritoryUnbound(false),
 	m_bCaptureCities(false),
+	m_bCanPassPeaks(false),
+	m_bMoveFastPeaks(false),
+	m_bCanFoundOnPeaks(false),
 	m_piDomainExtraMoves(NULL),
 	m_piFlavorValue(NULL),
 	m_piForestPlotYieldChange(NULL),
@@ -875,6 +878,18 @@ CvTechInfo::~CvTechInfo() {
 	SAFE_DELETE_ARRAY(m_piSeaPlotYieldChange);
 	SAFE_DELETE_ARRAY(m_pbCommerceFlexible);
 	SAFE_DELETE_ARRAY(m_pbTerrainTrade);
+}
+
+bool CvTechInfo::isCanPassPeaks() const {
+	return m_bCanPassPeaks;
+}
+
+bool CvTechInfo::isMoveFastPeaks() const {
+	return m_bMoveFastPeaks;
+}
+
+bool CvTechInfo::isCanFoundOnPeaks() const {
+	return m_bCanFoundOnPeaks;
 }
 
 int CvTechInfo::getNumPrereqAndTechs() const {
@@ -1229,6 +1244,9 @@ void CvTechInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bUnitRangeUnbound);
 	stream->Read(&m_bUnitTerritoryUnbound);
 	stream->Read(&m_bCaptureCities);
+	stream->Read(&m_bCanFoundOnPeaks);
+	stream->Read(&m_bCanPassPeaks);
+	stream->Read(&m_bMoveFastPeaks);
 	stream->Read(&m_iGridX);
 	stream->Read(&m_iGridY);
 
@@ -1328,6 +1346,9 @@ void CvTechInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bUnitRangeUnbound);
 	stream->Write(m_bUnitTerritoryUnbound);
 	stream->Write(m_bCaptureCities);
+	stream->Write(m_bCanFoundOnPeaks);
+	stream->Write(m_bCanPassPeaks);
+	stream->Write(m_bMoveFastPeaks);
 	stream->Write(m_iGridX);
 	stream->Write(m_iGridY);
 
@@ -1409,6 +1430,9 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
 	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
 	pXML->GetChildXmlValByName(&m_iUnitRangePercentChange, "iUnitRangePercentChange");
+	pXML->GetChildXmlValByName(&m_bCanPassPeaks, "bCanPassPeaks");
+	pXML->GetChildXmlValByName(&m_bMoveFastPeaks, "bMoveFastPeaks");
+	pXML->GetChildXmlValByName(&m_bCanFoundOnPeaks, "bCanFoundOnPeaks");
 	pXML->GetChildXmlValByName(&m_iGridX, "iGridX");
 	pXML->GetChildXmlValByName(&m_iGridY, "iGridY");
 	pXML->SetList(&m_pbCommerceFlexible, "CommerceFlexible", NUM_COMMERCE_TYPES);
@@ -1494,6 +1518,7 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_bUnitRangeUnbound(false),
 	m_bUnitTerritoryUnbound(false),
 	m_bCityPrereq(false),
+	m_bCanMovePeaks(false),
 	m_piTerrainAttackPercent(NULL),
 	m_piTerrainDefensePercent(NULL),
 	m_piFeatureAttackPercent(NULL),
@@ -1521,6 +1546,10 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_piDomainModifierPercent);
 	SAFE_DELETE_ARRAY(m_pbTerrainDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
+}
+
+bool CvPromotionInfo::isCanMovePeaks() const {
+	return m_bCanMovePeaks;
 }
 
 int CvPromotionInfo::getPrereqOrPromotion(int i) const {
@@ -1864,6 +1893,7 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bUnitRangeUnbound);
 	stream->Read(&m_bUnitTerritoryUnbound);
 	stream->Read(&m_bCityPrereq);
+	stream->Read(&m_bCanMovePeaks);
 
 	stream->ReadString(m_szSound);
 
@@ -1979,6 +2009,7 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bUnitRangeUnbound);
 	stream->Write(m_bUnitTerritoryUnbound);
 	stream->Write(m_bCityPrereq);
+	stream->Write(m_bCanMovePeaks);
 
 	stream->WriteString(m_szSound);
 
@@ -2043,6 +2074,7 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bEnemyRoute, "bEnemyRoute");
 	pXML->GetChildXmlValByName(&m_bAlwaysHeal, "bAlwaysHeal");
 	pXML->GetChildXmlValByName(&m_bHillsDoubleMove, "bHillsDoubleMove");
+	pXML->GetChildXmlValByName(&m_bCanMovePeaks, "bCanMovePeaks");
 	pXML->GetChildXmlValByName(&m_bImmuneToFirstStrikes, "bImmuneToFirstStrikes");
 	pXML->GetChildXmlValByName(&m_iVisibilityChange, "iVisibilityChange");
 	pXML->GetChildXmlValByName(&m_iMovesChange, "iMovesChange");
@@ -10428,6 +10460,7 @@ CvImprovementInfo::CvImprovementInfo() :
 	m_bGoody(false),
 	m_bPermanent(false),
 	m_bOutsideBorders(false),
+	m_bPeakMakesValid(false),
 	m_iWorldSoundscapeScriptId(0),
 	m_piPrereqNatureYield(NULL),
 	m_piYieldChange(NULL),
@@ -10476,6 +10509,10 @@ CvImprovementInfo::~CvImprovementInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppiRouteYieldChanges);
 	}
+}
+
+bool CvImprovementInfo::isPeakMakesValid() const {
+	return m_bPeakMakesValid;
 }
 
 int CvImprovementInfo::getUpgradeTech() const {
@@ -10775,6 +10812,7 @@ void CvImprovementInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bGoody);
 	stream->Read(&m_bPermanent);
 	stream->Read(&m_bOutsideBorders);
+	stream->Read(&m_bPeakMakesValid);
 
 	stream->ReadString(m_szArtDefineTag);
 
@@ -10878,6 +10916,7 @@ void CvImprovementInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bGoody);
 	stream->Write(m_bPermanent);
 	stream->Write(m_bOutsideBorders);
+	stream->Write(m_bPeakMakesValid);
 
 	stream->WriteString(m_szArtDefineTag);
 
@@ -10929,6 +10968,7 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iAdvancedStartCostIncrease, "iAdvancedStartCostIncrease");
 	pXML->GetChildXmlValByName(&m_bActsAsCity, "bActsAsCity");
 	pXML->GetChildXmlValByName(&m_bHillsMakesValid, "bHillsMakesValid");
+	pXML->GetChildXmlValByName(&m_bPeakMakesValid, "bPeakMakesValid");
 	pXML->GetChildXmlValByName(&m_bFreshWaterMakesValid, "bFreshWaterMakesValid");
 	pXML->GetChildXmlValByName(&m_bRiverSideMakesValid, "bRiverSideMakesValid");
 	pXML->GetChildXmlValByName(&m_bNoFreshWater, "bNoFreshWater");
@@ -11057,6 +11097,7 @@ CvBonusInfo::CvBonusInfo() :
 	m_bFlatlands(false),
 	m_bNoRiverSide(false),
 	m_bNormalize(false),
+	m_bPeaks(false),
 	m_piYieldChange(NULL),
 	m_piImprovementChange(NULL),
 	m_pbTerrain(NULL),
@@ -11077,6 +11118,10 @@ CvBonusInfo::~CvBonusInfo() {
 	SAFE_DELETE_ARRAY(m_pbTerrain);
 	SAFE_DELETE_ARRAY(m_pbFeature);
 	SAFE_DELETE_ARRAY(m_pbFeatureTerrain);	// free memory - MT
+}
+
+bool CvBonusInfo::isPeaks() const {
+	return m_bPeaks;
 }
 
 int CvBonusInfo::getBonusClassType() const {
@@ -11289,6 +11334,7 @@ void CvBonusInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bFlatlands);
 	stream->Read(&m_bNoRiverSide);
 	stream->Read(&m_bNormalize);
+	stream->Read(&m_bPeaks);
 
 	stream->ReadString(m_szArtDefineTag);
 
@@ -11351,6 +11397,7 @@ void CvBonusInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bFlatlands);
 	stream->Write(m_bNoRiverSide);
 	stream->Write(m_bNormalize);
+	stream->Write(m_bPeaks);
 
 	stream->WriteString(m_szArtDefineTag);
 
@@ -11414,6 +11461,7 @@ bool CvBonusInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iGroupRand, "iGroupRand");
 	pXML->GetChildXmlValByName(&m_bOneArea, "bArea");
 	pXML->GetChildXmlValByName(&m_bHills, "bHills");
+	pXML->GetChildXmlValByName(&m_bPeaks, "bPeaks");
 	pXML->GetChildXmlValByName(&m_bFlatlands, "bFlatlands");
 	pXML->GetChildXmlValByName(&m_bNoRiverSide, "bNoRiverSide");
 	pXML->GetChildXmlValByName(&m_bNormalize, "bNormalize");

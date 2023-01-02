@@ -260,9 +260,11 @@ public:
 	int getFOOD_CONSUMPTION_PER_POPULATION() const { return GC.getFOOD_CONSUMPTION_PER_POPULATION(); }
 	int getMAX_HIT_POINTS() const { return GC.getMAX_HIT_POINTS(); }
 	int getHILLS_EXTRA_DEFENSE() const { return GC.getHILLS_EXTRA_DEFENSE(); }
+	int getPEAK_EXTRA_DEFENSE() const { return GC.getPEAK_EXTRA_DEFENSE(); }
 	int getRIVER_ATTACK_MODIFIER() const { return GC.getRIVER_ATTACK_MODIFIER(); }
 	int getAMPHIB_ATTACK_MODIFIER() const { return GC.getAMPHIB_ATTACK_MODIFIER(); }
 	int getHILLS_EXTRA_MOVEMENT() const { return GC.getHILLS_EXTRA_MOVEMENT(); }
+	int getPEAK_EXTRA_MOVEMENT() const { return GC.getPEAK_EXTRA_MOVEMENT(); }
 	int getMAX_PLOT_LIST_ROWS() const { return GC.getMAX_PLOT_LIST_ROWS(); }
 	int getUNIT_MULTISELECT_MAX() const { return GC.getUNIT_MULTISELECT_MAX(); }
 	int getPERCENT_ANGER_DIVISOR() const { return GC.getPERCENT_ANGER_DIVISOR(); }

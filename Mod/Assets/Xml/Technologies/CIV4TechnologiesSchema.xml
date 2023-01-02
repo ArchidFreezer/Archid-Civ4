@@ -105,6 +105,9 @@
 	</ElementType>
 	<ElementType name="bCaptureCities" content="textOnly" dt:type="boolean"/>
 	<ElementType name="FreeUnitClass" content="textOnly"/>
+	<ElementType name="bCanPassPeaks" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bMoveFastPeaks" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bCanFoundOnPeaks" content="textOnly" dt:type="boolean"/>
 	<ElementType name="TechInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -146,6 +149,9 @@
 		<element type="bIrrigation" minOccurs="0"/>
 		<element type="bIgnoreIrrigation" minOccurs="0"/>
 		<element type="bWaterWork" minOccurs="0"/>
+		<element type="bCanPassPeaks" minOccurs="0"/>
+		<element type="bMoveFastPeaks" minOccurs="0"/>
+		<element type="bCanFoundOnPeaks" minOccurs="0"/>
 		<element type="iGridX"/>
 		<element type="iGridY"/>
 		<element type="DomainExtraMoves" minOccurs="0"/>

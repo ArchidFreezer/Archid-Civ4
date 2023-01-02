@@ -95,6 +95,10 @@ public:
 
 	void doTurn();
 
+	int getCanMovePeaksCount() const;
+	bool isCanMovePeaks() const;
+	void changeCanMovePeaksCount(int iChange);
+
 	void setGroupPromotionChanged(bool bChanged);
 	void setHasPromotionReal(PromotionTypes eIndex, bool bNewValue);
 	bool isHasGroupPromotionChanged() const;
@@ -871,6 +875,7 @@ protected:
 	int m_iExtraRangePercent;
 	int m_iRangeUnboundCount;
 	int m_iTerritoryUnboundCount;
+	int m_iCanMovePeaksCount;
 
 	bool m_bMadeAttack;
 	bool m_bMadeInterception;

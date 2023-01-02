@@ -205,7 +205,7 @@ public:
 
 	bool isValidDomainForLocation(const CvUnit& unit) const;																					// Exposed to Python
 	bool isValidDomainForAction(const CvUnit& unit) const;																						// Exposed to Python
-	bool isImpassable() const;																															// Exposed to Python
+	bool isImpassable(TeamTypes eTeam = NO_TEAM) const;																															// Exposed to Python
 
 	DllExport int getX() const;																																				// Exposed to Python
 #ifdef _USRDLL
@@ -518,6 +518,7 @@ protected:
 	bool m_bFlagDirty : 1;
 	bool m_bPlotLayoutDirty : 1;
 	bool m_bLayoutStateWorked : 1;
+	bool m_bPeaks : 1;
 
 	char /*PlayerTypes*/ m_eOwner;
 	short /*PlotTypes*/ m_ePlotType;

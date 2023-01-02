@@ -221,6 +221,9 @@ class CvPediaImprovement:
 		if Info.isHillsMakesValid() and not Info.isRequiresFlatlands():
 			item = gc.getInfoTypeForString("TERRAIN_HILL")
 			screen.attachImageButton(panelName, "", gc.getTerrainInfo(item).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_TERRAIN, item, 1, False )
+		if Info.isPeakMakesValid() and not Info.isRequiresFlatlands():
+			item = gc.getInfoTypeForString("TERRAIN_PEAK")
+			screen.attachImageButton(panelName, "", gc.getTerrainInfo(item).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_TERRAIN, item, 1, False )
 		if Info.isRequiresIrrigation():
 			screen.attachImageButton(panelName, "", CyArtFileMgr().getInterfaceArtInfo("INTERFACE_TECH_IRRIGATION").getPath(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_DESCRIPTION, CivilopediaPageTypes.CIVILOPEDIA_PAGE_CONCEPT, gc.getInfoTypeForString("CONCEPT_IRRIGATION"), CvUtil.FONT_LEFT_JUSTIFY)
 		if Info.isRiverSideMakesValid() and not Info.isRequiresRiverSide():

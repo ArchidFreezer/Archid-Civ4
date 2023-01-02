@@ -1867,6 +1867,7 @@
 			<iAsset>40</iAsset>
 			<iPower>10</iPower>
 			<bTrade>1</bTrade>
+			<bCanFoundOnPeaks>1</bCanFoundOnPeaks>
 			<iGridX>16</iGridX>
 			<iGridY>5</iGridY>
 			<Flavors>
@@ -2191,6 +2192,7 @@
 			<iPower>6</iPower>
 			<bTrade>1</bTrade>
 			<bGoodyTech>1</bGoodyTech>
+			<bCanPassPeaks>1</bCanPassPeaks>
 			<iGridX>5</iGridX>
 			<iGridY>5</iGridY>
 			<Flavors>
@@ -3488,6 +3490,7 @@
 			<iWorkerSpeedModifier>50</iWorkerSpeedModifier>
 			<iAsset>40</iAsset>
 			<bTrade>1</bTrade>
+			<bMoveFastPeaks>1</bMoveFastPeaks>
 			<iGridX>13</iGridX>
 			<iGridY>5</iGridY>
 			<Flavors>

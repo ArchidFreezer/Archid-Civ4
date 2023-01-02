@@ -609,6 +609,11 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 				szString.append(gDLL->getText("TXT_KEY_PROMOTION_HILLS_MOVE_TEXT"));
 			}
 
+			if (pUnit->isCanMovePeaks()) {
+				szString.append(NEWLINE);
+				szString.append(gDLL->getText("TXT_KEY_PROMOTION_CAN_MOVE_PEAKS_TEXT"));
+			}
+
 			for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
 				if (pUnit->isTerrainDoubleMove(eTerrain)) {
 					szString.append(NEWLINE);
@@ -4174,7 +4179,7 @@ void CvGameTextMgr::setPlotHelp(CvWStringBuffer& szString, CvPlot* pPlot) {
 			szString.append(gDLL->getText("TXT_KEY_PLOT_FRESH_WATER_LAKE"));
 		}
 
-		if (pPlot->isImpassable()) {
+		if (pPlot->isImpassable(GC.getGameINLINE().getActiveTeam())) {
 			szString.append(NEWLINE);
 			szString.append(gDLL->getText("TXT_KEY_PLOT_IMPASSABLE"));
 		}
@@ -5583,6 +5588,11 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_HILLS_MOVE_TEXT"));
 	}
 
+	if (kPromotion.isCanMovePeaks()) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_CAN_MOVE_PEAKS_TEXT"));
+	}
+
 	if (kPromotion.isImmuneToFirstStrikes()) {
 		szBuffer.append(pcNewline);
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_IMMUNE_FIRST_STRIKES_TEXT"));
@@ -6627,6 +6637,15 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 
 	//	Enables permanent alliances...
 	buildPermanentAllianceString(szBuffer, eTech, true, bPlayerContext);
+
+	//	Peak passability...
+	buildCanPassPeaksString(szBuffer, eTech, true, bPlayerContext);
+
+	//	If it Removes Movement slowdown...
+	buildMoveFastPeaksString(szBuffer, eTech, true, bPlayerContext);
+
+	//	Can found cities on peak...
+	buildCanFoundOnPeaksString(szBuffer, eTech, true, bPlayerContext);
 
 	//	Enables bridge building...
 	buildBridgeString(szBuffer, eTech, true, bPlayerContext);
@@ -15868,4 +15887,31 @@ void CvGameTextMgr::buildObsoleteBuildString(CvWStringBuffer& szBuffer, int iIte
 		szBuffer.append(NEWLINE);
 	}
 	szBuffer.append(gDLL->getText("TXT_KEY_TECH_OBSOLETES_BUILD", GC.getBuildInfo((BuildTypes)iItem).getTextKeyWide()));
+}
+
+void CvGameTextMgr::buildCanPassPeaksString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
+	if (GC.getTechInfo(eTech).isCanPassPeaks() && (!bPlayerContext || !GET_TEAM(GC.getGameINLINE().getActiveTeam()).isCanPassPeaks())) {
+		if (bList) {
+			szBuffer.append(NEWLINE);
+		}
+		szBuffer.append(gDLL->getText("TXT_KEY_CAN_PASS_PEAKS"));
+	}
+}
+
+void CvGameTextMgr::buildMoveFastPeaksString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
+	if (GC.getTechInfo(eTech).isMoveFastPeaks() && (!bPlayerContext || !GET_TEAM(GC.getGameINLINE().getActiveTeam()).isMoveFastPeaks())) {
+		if (bList) {
+			szBuffer.append(NEWLINE);
+		}
+		szBuffer.append(gDLL->getText("TXT_KEY_MOVE_FAST_PEAKS"));
+	}
+}
+
+void CvGameTextMgr::buildCanFoundOnPeaksString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
+	if (GC.getTechInfo(eTech).isCanFoundOnPeaks() && (!bPlayerContext || !GET_TEAM(GC.getGameINLINE().getActiveTeam()).isCanFoundOnPeaks())) {
+		if (bList) {
+			szBuffer.append(NEWLINE);
+		}
+		szBuffer.append(gDLL->getText("TXT_KEY_CAN_FOUND_ON_PEAKS"));
+	}
 }

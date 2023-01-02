@@ -32,6 +32,16 @@ public:
 
 	void doTurn();
 
+	int getCanFoundOnPeaksCount() const;
+	int getCanPassPeaksCount() const;
+	int getMoveFastPeaksCount() const;
+	bool isCanFoundOnPeaks() const;
+	bool isCanPassPeaks() const;
+	bool isMoveFastPeaks() const;
+	void changeCanFoundOnPeaksCount(int iChange);
+	void changeCanPassPeaksCount(int iChange);
+	void changeMoveFastPeaksCount(int iChange);
+
 	void updateYield();
 	void updatePowerHealth();
 	void updatePowerStatus(bool bAcquire);
@@ -413,6 +423,9 @@ protected:
 	int m_iEnemyWarWearinessModifier;
 	int m_iRiverTradeCount;
 	int m_iEspionagePointsEver;
+	int m_iCanPassPeaksCount;
+	int m_iMoveFastPeaksCount;
+	int m_iCanFoundOnPeaksCount;
 
 	bool m_bMapCentering;
 	bool m_bCapitulated;

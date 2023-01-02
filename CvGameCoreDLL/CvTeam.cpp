@@ -178,6 +178,9 @@ void CvTeam::reset(TeamTypes eID, bool bConstructorCall) {
 	m_iEnemyWarWearinessModifier = 0;
 	m_iRiverTradeCount = 0;
 	m_iEspionagePointsEver = 0;
+	m_iCanPassPeaksCount = 0;
+	m_iMoveFastPeaksCount = 0;
+	m_iCanFoundOnPeaksCount = 0;
 
 	m_bMapCentering = false;
 	m_bCapitulated = false;
@@ -4758,6 +4761,20 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 
 	const CvTechInfo& kTech = GC.getTechInfo(eTech);
 
+	if (kTech.isCanPassPeaks()) {
+		changeCanPassPeaksCount(iChange);
+	}
+
+	if (kTech.isMoveFastPeaks()) {
+		changeMoveFastPeaksCount(iChange);
+	}
+
+	if (kTech.isCanFoundOnPeaks()) {
+		changeCanFoundOnPeaksCount(iChange);
+		//	Koshling - makes peaks workable which changes the yield calculation
+		updateYield();
+	}
+
 	if (kTech.isExtraWaterSeeFrom()) {
 		changeExtraWaterSeeFromCount(iChange);
 	}
@@ -5005,6 +5022,9 @@ void CvTeam::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iEnemyWarWearinessModifier);
 	pStream->Read(&m_iRiverTradeCount);
 	pStream->Read(&m_iEspionagePointsEver);
+	pStream->Read(&m_iCanPassPeaksCount);
+	pStream->Read(&m_iMoveFastPeaksCount);
+	pStream->Read(&m_iCanFoundOnPeaksCount);
 
 	pStream->Read(&m_bMapCentering);
 	pStream->Read(&m_bCapitulated);
@@ -5102,6 +5122,9 @@ void CvTeam::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iEnemyWarWearinessModifier);
 	pStream->Write(m_iRiverTradeCount);
 	pStream->Write(m_iEspionagePointsEver);
+	pStream->Write(m_iCanPassPeaksCount);
+	pStream->Write(m_iMoveFastPeaksCount);
+	pStream->Write(m_iCanFoundOnPeaksCount);
 
 	pStream->Write(m_bMapCentering);
 	pStream->Write(m_bCapitulated);
@@ -5211,3 +5234,41 @@ bool CvTeam::hasLaunched() const {
 	return false;
 }
 
+bool CvTeam::isCanPassPeaks() const {
+	return (getCanPassPeaksCount() > 0);
+}
+
+int CvTeam::getCanPassPeaksCount() const {
+	return m_iCanPassPeaksCount;
+}
+
+void CvTeam::changeCanPassPeaksCount(int iChange) {
+	m_iCanPassPeaksCount = (m_iCanPassPeaksCount + iChange);
+	FAssert(getCanPassPeaksCount() >= 0);
+}
+
+bool CvTeam::isMoveFastPeaks() const {
+	return (getMoveFastPeaksCount() > 0);
+}
+
+int CvTeam::getMoveFastPeaksCount() const {
+	return m_iMoveFastPeaksCount;
+}
+
+void CvTeam::changeMoveFastPeaksCount(int iChange) {
+	m_iMoveFastPeaksCount = (m_iMoveFastPeaksCount + iChange);
+	FAssert(getMoveFastPeaksCount() >= 0);
+}
+
+bool CvTeam::isCanFoundOnPeaks() const {
+	return (getCanFoundOnPeaksCount() > 0);
+}
+
+int CvTeam::getCanFoundOnPeaksCount() const {
+	return m_iCanFoundOnPeaksCount;
+}
+
+void CvTeam::changeCanFoundOnPeaksCount(int iChange) {
+	m_iCanFoundOnPeaksCount = (m_iCanFoundOnPeaksCount + iChange);
+	FAssert(getCanFoundOnPeaksCount() >= 0);
+}

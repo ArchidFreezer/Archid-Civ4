@@ -173,6 +173,7 @@ void CvPlot::reset(int iX, int iY, bool bConstructorCall) {
 	m_bFlagDirty = false;
 	m_bPlotLayoutDirty = false;
 	m_bLayoutStateWorked = false;
+	m_bPeaks = false;
 
 	m_eOwner = NO_PLAYER;
 	m_ePlotType = PLOT_OCEAN;
@@ -1083,7 +1084,7 @@ bool CvPlot::isFreshWater() const {
 
 
 bool CvPlot::isPotentialIrrigation() const {
-	if ((isCity() && !isHills()) || ((getImprovementType() != NO_IMPROVEMENT) && (GC.getImprovementInfo(getImprovementType()).isCarriesIrrigation()))) {
+	if ((isCity() && !(isHills() || isPeak())) || ((getImprovementType() != NO_IMPROVEMENT) && (GC.getImprovementInfo(getImprovementType()).isCarriesIrrigation()))) {
 		if ((getTeam() != NO_TEAM) && GET_TEAM(getTeam()).isIrrigation()) {
 			return true;
 		}
@@ -1094,7 +1095,7 @@ bool CvPlot::isPotentialIrrigation() const {
 
 
 bool CvPlot::canHavePotentialIrrigation() const {
-	if (isCity() && !isHills()) {
+	if (isCity() && !(isHills() || isPeak())) {
 		return true;
 	}
 
@@ -1603,52 +1604,45 @@ bool CvPlot::canHaveBonus(BonusTypes eBonus, bool bIgnoreLatitude) const {
 		return false;
 	}
 
-	if (isPeak()) {
-		return false;
-	}
-
+	const CvBonusInfo& kBonus = GC.getBonusInfo(eBonus);
 	if (getFeatureType() != NO_FEATURE) {
-		if (!(GC.getBonusInfo(eBonus).isFeature(getFeatureType()))) {
+		if (!kBonus.isFeature(getFeatureType())) {
 			return false;
 		}
 
-		if (!(GC.getBonusInfo(eBonus).isFeatureTerrain(getTerrainType()))) {
+		if (!kBonus.isFeatureTerrain(getTerrainType())) {
 			return false;
 		}
 	} else {
-		if (!(GC.getBonusInfo(eBonus).isTerrain(getTerrainType()))) {
+		if (!kBonus.isTerrain(getTerrainType())) {
 			return false;
 		}
 	}
 
-	if (isHills()) {
-		if (!(GC.getBonusInfo(eBonus).isHills())) {
-			return false;
-		}
-	} else if (isFlatlands()) {
-		if (!(GC.getBonusInfo(eBonus).isFlatlands())) {
-			return false;
-		}
+	if (isHills() && !kBonus.isHills()) {
+		return false;
+	} else if (isPeak() && !kBonus.isPeaks()) {
+		return false;
+	} else if (isFlatlands() && !kBonus.isFlatlands()) {
+		return false;
 	}
 
-	if (GC.getBonusInfo(eBonus).isNoRiverSide()) {
-		if (isRiverSide()) {
-			return false;
-		}
+	if (kBonus.isNoRiverSide() && isRiverSide()) {
+		return false;
 	}
 
-	if (GC.getBonusInfo(eBonus).getMinAreaSize() != -1) {
-		if (area()->getNumTiles() < GC.getBonusInfo(eBonus).getMinAreaSize()) {
+	if (kBonus.getMinAreaSize() != -1) {
+		if (area()->getNumTiles() < kBonus.getMinAreaSize()) {
 			return false;
 		}
 	}
 
 	if (!bIgnoreLatitude) {
-		if (getLatitude() > GC.getBonusInfo(eBonus).getMaxLatitude()) {
+		if (getLatitude() > kBonus.getMaxLatitude()) {
 			return false;
 		}
 
-		if (getLatitude() < GC.getBonusInfo(eBonus).getMinLatitude()) {
+		if (getLatitude() < kBonus.getMinLatitude()) {
 			return false;
 		}
 	}
@@ -1672,11 +1666,12 @@ bool CvPlot::canHaveImprovement(ImprovementTypes eImprovement, TeamTypes eTeam, 
 		return false;
 	}
 
-	if (isImpassable()) {
+	if (isImpassable(getTeam())) {
 		return false;
 	}
 
-	if (GC.getImprovementInfo(eImprovement).isWater() != isWater()) {
+	const CvImprovementInfo& kImprovement = GC.getImprovementInfo(eImprovement);
+	if (kImprovement.isWater() != isWater()) {
 		return false;
 	}
 
@@ -1686,39 +1681,39 @@ bool CvPlot::canHaveImprovement(ImprovementTypes eImprovement, TeamTypes eTeam, 
 		}
 	}
 
-	if ((getBonusType(eTeam) != NO_BONUS) && GC.getImprovementInfo(eImprovement).isImprovementBonusMakesValid(getBonusType(eTeam))) {
+	if ((getBonusType(eTeam) != NO_BONUS) && kImprovement.isImprovementBonusMakesValid(getBonusType(eTeam))) {
 		return true;
 	}
 
-	if (GC.getImprovementInfo(eImprovement).isNoFreshWater() && isFreshWater()) {
+	if (kImprovement.isNoFreshWater() && isFreshWater()) {
 		return false;
 	}
 
-	if (GC.getImprovementInfo(eImprovement).isRequiresFlatlands() && !isFlatlands()) {
+	if (kImprovement.isRequiresFlatlands() && !isFlatlands()) {
 		return false;
 	}
 
-	if (GC.getImprovementInfo(eImprovement).isRequiresFeature() && (getFeatureType() == NO_FEATURE)) {
+	if (kImprovement.isRequiresFeature() && (getFeatureType() == NO_FEATURE)) {
 		return false;
 	}
 
-	if (GC.getImprovementInfo(eImprovement).isHillsMakesValid() && isHills()) {
+	if (kImprovement.isHillsMakesValid() && isHills()) {
 		bValid = true;
 	}
 
-	if (GC.getImprovementInfo(eImprovement).isFreshWaterMakesValid() && isFreshWater()) {
+	if (kImprovement.isFreshWaterMakesValid() && isFreshWater()) {
 		bValid = true;
 	}
 
-	if (GC.getImprovementInfo(eImprovement).isRiverSideMakesValid() && isRiverSide()) {
+	if (kImprovement.isRiverSideMakesValid() && isRiverSide()) {
 		bValid = true;
 	}
 
-	if (GC.getImprovementInfo(eImprovement).getTerrainMakesValid(getTerrainType())) {
+	if (kImprovement.getTerrainMakesValid(getTerrainType())) {
 		bValid = true;
 	}
 
-	if ((getFeatureType() != NO_FEATURE) && GC.getImprovementInfo(eImprovement).getFeatureMakesValid(getFeatureType())) {
+	if ((getFeatureType() != NO_FEATURE) && kImprovement.getFeatureMakesValid(getFeatureType())) {
 		bValid = true;
 	}
 
@@ -1726,11 +1721,11 @@ bool CvPlot::canHaveImprovement(ImprovementTypes eImprovement, TeamTypes eTeam, 
 		return false;
 	}
 
-	if (GC.getImprovementInfo(eImprovement).isRequiresRiverSide()) {
+	if (kImprovement.isRequiresRiverSide()) {
 		bValid = false;
 
-		for (int iI = 0; iI < NUM_CARDINALDIRECTION_TYPES; ++iI) {
-			CvPlot* pLoopPlot = plotCardinalDirection(getX_INLINE(), getY_INLINE(), ((CardinalDirectionTypes)iI));
+		for (CardinalDirectionTypes eDirection = (CardinalDirectionTypes)0; eDirection < NUM_CARDINALDIRECTION_TYPES; eDirection = (CardinalDirectionTypes)(eDirection + 1)) {
+			CvPlot* pLoopPlot = plotCardinalDirection(getX_INLINE(), getY_INLINE(), eDirection);
 
 			if (pLoopPlot != NULL) {
 				if (isRiverCrossing(directionXY(this, pLoopPlot))) {
@@ -1747,14 +1742,14 @@ bool CvPlot::canHaveImprovement(ImprovementTypes eImprovement, TeamTypes eTeam, 
 		}
 	}
 
-	for (int iI = 0; iI < NUM_YIELD_TYPES; ++iI) {
-		if (calculateNatureYield(((YieldTypes)iI), eTeam) < GC.getImprovementInfo(eImprovement).getPrereqNatureYield(iI)) {
+	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+		if (calculateNatureYield(eYield, eTeam) < kImprovement.getPrereqNatureYield(eYield)) {
 			return false;
 		}
 	}
 
-	if ((getTeam() == NO_TEAM) || !(GET_TEAM(getTeam()).isIgnoreIrrigation())) {
-		if (!bPotential && GC.getImprovementInfo(eImprovement).isRequiresIrrigation() && !isIrrigationAvailable()) {
+	if (getTeam() == NO_TEAM || !GET_TEAM(getTeam()).isIgnoreIrrigation()) {
+		if (!bPotential && kImprovement.isRequiresIrrigation() && !isIrrigationAvailable()) {
 			return false;
 		}
 	}
@@ -1885,6 +1880,11 @@ int CvPlot::getBuildTime(BuildTypes eBuild) const {
 
 	if (getFeatureType() != NO_FEATURE) {
 		iTime += GC.getBuildInfo(eBuild).getFeatureTime(getFeatureType());
+	}
+
+	if (isPeak()) {
+		iTime *= std::max(0, (GC.getDefineINT("PEAK_BUILD_TIME_MODIFIER") + 100));
+		iTime /= 100;
 	}
 
 	iTime *= std::max(0, (GC.getTerrainInfo(getTerrainType()).getBuildModifier() + 100));
@@ -2066,6 +2066,10 @@ int CvPlot::defenseModifier(TeamTypes eDefender, bool bIgnoreBuilding, bool bHel
 		iModifier += GC.getHILLS_EXTRA_DEFENSE();
 	}
 
+	if (isPeak()) {
+		iModifier += GC.getPEAK_EXTRA_DEFENSE();
+	}
+
 	ImprovementTypes eImprovement;
 	if (bHelp) {
 		eImprovement = getRevealedImprovementType(GC.getGameINLINE().getActiveTeam(), false);
@@ -2123,6 +2127,14 @@ int CvPlot::movementCost(const CvUnit* pUnit, const CvPlot* pFromPlot) const {
 
 		if (isHills()) {
 			iRegularCost += GC.getHILLS_EXTRA_MOVEMENT();
+		}
+
+		if (isPeak()) {
+			if (GET_TEAM(pUnit->getTeam()).isMoveFastPeaks()) {
+				iRegularCost += 1;
+			} else {
+				iRegularCost += GC.getPEAK_EXTRA_MOVEMENT();
+			}
 		}
 
 		if (iRegularCost > 0) {
@@ -2870,7 +2882,7 @@ bool CvPlot::isValidRoute(const CvUnit* pUnit) const {
 
 
 bool CvPlot::isTradeNetworkImpassable(TeamTypes eTeam) const {
-	return (isImpassable() && !isRiverNetwork(eTeam));
+	return (isImpassable(eTeam) && !isRiverNetwork(eTeam));
 }
 
 bool CvPlot::isRiverNetwork(TeamTypes eTeam) const {
@@ -3045,9 +3057,11 @@ bool CvPlot::isValidDomainForAction(const CvUnit& unit) const {
 }
 
 
-bool CvPlot::isImpassable() const {
+bool CvPlot::isImpassable(TeamTypes eTeam) const {
 	if (isPeak()) {
-		return true;
+		if (eTeam == NO_TEAM || !GET_TEAM(eTeam).isCanPassPeaks()) {
+			return true;
+		}
 	}
 
 	if (getTerrainType() == NO_TERRAIN) {
@@ -4668,24 +4682,32 @@ int CvPlot::getYield(YieldTypes eIndex) const {
 
 
 int CvPlot::calculateNatureYield(YieldTypes eYield, TeamTypes eTeam, bool bIgnoreFeature) const {
-	if (isImpassable()) {
-		return 0;
+	if (isImpassable(getTeam())) {
+		if (!isPeak()) {
+			return 0;
+		} else {
+			//	Koshling - prevent mountains being worked until workers can	move into peak tiles
+			if (eTeam != NO_TEAM && !GET_TEAM(eTeam).isCanPassPeaks()) {
+				return 0;
+			}
+		}
 	}
 
 	FAssertMsg(getTerrainType() != NO_TERRAIN, "TerrainType is not assigned a valid value");
 
 	int iYield = GC.getTerrainInfo(getTerrainType()).getYield(eYield);
 
+	const CvYieldInfo& kYield = GC.getYieldInfo(eYield);
 	if (isHills()) {
-		iYield += GC.getYieldInfo(eYield).getHillsChange();
+		iYield += kYield.getHillsChange();
 	}
 
 	if (isPeak()) {
-		iYield += GC.getYieldInfo(eYield).getPeakChange();
+		iYield += kYield.getPeakChange();
 	}
 
 	if (isLake()) {
-		iYield += GC.getYieldInfo(eYield).getLakeChange();
+		iYield += kYield.getLakeChange();
 	}
 
 	if (eTeam != NO_TEAM) {
@@ -4846,7 +4868,7 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay) const {
 		CvCity* pWorkingCity = getWorkingCity();
 		if (pWorkingCity != NULL) {
 			if (isWater()) {
-				if (!isImpassable()) {
+				if (!isImpassable(GET_PLAYER(ePlayer).getTeam())) {
 					iYield += kPlayer.getSeaPlotYield(eYield);
 					if (!bDisplay || pWorkingCity->isRevealed(GC.getGameINLINE().getActiveTeam(), false)) {
 						iYield += pWorkingCity->getSeaPlotYield(eYield);
@@ -4855,7 +4877,7 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay) const {
 			}
 
 			if (isRiver()) {
-				if (!isImpassable()) {
+				if (!isImpassable(GET_PLAYER(ePlayer).getTeam())) {
 					iYield += kPlayer.getRiverPlotYield(eYield);
 					if (!bDisplay || pWorkingCity->isRevealed(GC.getGameINLINE().getActiveTeam(), false)) {
 						iYield += pWorkingCity->getRiverPlotYield(eYield);
@@ -4864,7 +4886,7 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay) const {
 			}
 
 			if (getFeatureType() == (FeatureTypes)GC.getInfoTypeForString("FEATURE_FOREST")) {
-				if (!isImpassable()) {
+				if (!isImpassable(GET_PLAYER(ePlayer).getTeam())) {
 					iYield += kPlayer.getForestPlotYield(eYield);
 				}
 			}
@@ -6804,6 +6826,8 @@ void CvPlot::read(FDataStreamBase* pStream) {
 	pStream->Read(&bVal);
 	m_bHills = bVal;
 	pStream->Read(&bVal);
+	m_bPeaks = bVal;
+	pStream->Read(&bVal);
 	m_bNOfRiver = bVal;
 	pStream->Read(&bVal);
 	m_bWOfRiver = bVal;
@@ -7004,6 +7028,7 @@ void CvPlot::write(FDataStreamBase* pStream) {
 
 	pStream->Write(m_bStartingPlot);
 	pStream->Write(m_bHills);
+	pStream->Write(m_bPeaks);
 	pStream->Write(m_bNOfRiver);
 	pStream->Write(m_bWOfRiver);
 	pStream->Write(m_bIrrigated);

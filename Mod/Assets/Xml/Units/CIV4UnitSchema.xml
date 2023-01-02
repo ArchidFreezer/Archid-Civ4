@@ -815,6 +815,7 @@
 	<ElementType name="PrereqOrPromotions" content="eltOnly">
 		<element type="PromotionType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="bCanMovePeaks" content="textOnly" dt:type="boolean"/>
 	<ElementType name="PromotionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -834,6 +835,7 @@
 		<element type="bEnemyRoute" minOccurs="0"/>
 		<element type="bAlwaysHeal" minOccurs="0"/>
 		<element type="bHillsDoubleMove" minOccurs="0"/>
+		<element type="bCanMovePeaks" minOccurs="0"/>
 		<element type="bImmuneToFirstStrikes" minOccurs="0"/>
 		<element type="iVisibilityChange" minOccurs="0"/>
 		<element type="iMovesChange" minOccurs="0"/>

@@ -309,6 +309,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iExtraRangePercent = 0;
 	m_iRangeUnboundCount = 0;
 	m_iTerritoryUnboundCount = 0;
+	m_iCanMovePeaksCount = 0;
 
 	m_bMadeAttack = false;
 	m_bMadeInterception = false;
@@ -1991,10 +1992,6 @@ bool CvUnit::canMoveInto(const CvPlot* pPlot, bool bAttack, bool bDeclareWar, bo
 		return false;
 	}
 
-	if (!m_pUnitInfo->isCanMoveImpassable() && pPlot->isImpassable()) {
-		return false;
-	}
-
 	// Cannot move around in unrevealed land freely
 	if (m_pUnitInfo->isNoRevealMap() && willRevealByMove(pPlot)) {
 		return false;
@@ -2187,6 +2184,44 @@ bool CvUnit::canMoveInto(const CvPlot* pPlot, bool bAttack, bool bDeclareWar, bo
 				return false;
 			} else if (!isHuman()) {
 				if (!GET_TEAM(getTeam()).AI_isSneakAttackReady(ePlotTeam) || !getGroup()->AI_isDeclareWar(pPlot)) {
+					return false;
+				}
+			}
+		}
+
+		bool bValid = false;
+		if (pPlot->isImpassable(getTeam())) {
+			CLLNode<IDInfo>* pUnitNode;
+			CvUnit* pLoopUnit;
+
+			if (pPlot->isPeak()) {
+				//Check the current tile for a mountaineer
+				pUnitNode = plot()->headUnitNode();
+				while (pUnitNode != NULL) {
+					pLoopUnit = ::getUnit(pUnitNode->m_data);
+					pUnitNode = plot()->nextUnitNode(pUnitNode);
+					if (pLoopUnit->isCanMovePeaks() && pLoopUnit->getTeam() == getTeam()) {
+						bValid = true;
+						break;
+					}
+				}
+
+				//Check the impassible tile	for a mountaineer
+				if (!bValid) {
+					pUnitNode = pPlot->headUnitNode();
+
+					while (pUnitNode != NULL) {
+						pLoopUnit = ::getUnit(pUnitNode->m_data);
+						pUnitNode = pPlot->nextUnitNode(pUnitNode);
+						if (pLoopUnit->isCanMovePeaks() && pLoopUnit->getTeam() == getTeam()) {
+							bValid = true;
+							break;
+						}
+					}
+				}
+			}
+			if (!bValid) {
+				if (!canMoveImpassable()) {
 					return false;
 				}
 			}
@@ -9426,6 +9461,7 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 		changeImmuneToFirstStrikesCount(kPromotion.isImmuneToFirstStrikes() ? iChange : 0);
 		changeRangeUnboundCount(kPromotion.isUnitRangeUnbound() ? iChange : 0);
 		changeTerritoryUnboundCount(kPromotion.isUnitTerritoryUnbound() ? iChange : 0);
+		changeCanMovePeaksCount(kPromotion.isCanMovePeaks() ? iChange : 0);
 
 		changeExtraVisibilityRange(kPromotion.getVisibilityChange() * iChange);
 		changeExtraMoves(kPromotion.getMovesChange() * iChange);
@@ -9598,6 +9634,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iExtraRangePercent);
 	pStream->Read(&m_iRangeUnboundCount);
 	pStream->Read(&m_iTerritoryUnboundCount);
+	pStream->Read(&m_iCanMovePeaksCount);
 
 	pStream->Read(&m_bMadeAttack);
 	pStream->Read(&m_bMadeInterception);
@@ -9708,6 +9745,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iExtraRangePercent);
 	pStream->Write(m_iRangeUnboundCount);
 	pStream->Write(m_iTerritoryUnboundCount);
+	pStream->Write(m_iCanMovePeaksCount);
 
 	pStream->Write(m_bMadeAttack);
 	pStream->Write(m_bMadeInterception);
@@ -11415,4 +11453,17 @@ void CvUnit::doFieldPromotions(CombatData* data, CvUnit* pDefender, CvPlot* pPlo
 		}
 	}
 
+}
+
+int CvUnit::getCanMovePeaksCount() const {
+	return m_iCanMovePeaksCount;
+}
+
+bool CvUnit::isCanMovePeaks() const {
+	return (getCanMovePeaksCount() > 0);
+}
+
+void CvUnit::changeCanMovePeaksCount(int iChange) {
+	m_iCanMovePeaksCount += iChange;
+	FAssert(getCanMovePeaksCount() >= 0);
 }

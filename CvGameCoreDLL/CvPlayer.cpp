@@ -1168,9 +1168,9 @@ void CvPlayer::addFreeUnit(UnitTypes eUnit, UnitAITypes eUnitAI) {
 
 						if (pLoopPlot != NULL) {
 							if (pLoopPlot->getArea() == pStartingPlot->getArea()) {
-								if (!(pLoopPlot->isImpassable())) {
-									if (!(pLoopPlot->isUnit())) {
-										if (!(pLoopPlot->isGoody())) {
+								if (!pLoopPlot->isImpassable(getTeam())) {
+									if (!pLoopPlot->isUnit()) {
+										if (!pLoopPlot->isGoody()) {
 											pBestPlot = pLoopPlot;
 											break;
 										}
@@ -4203,10 +4203,10 @@ void CvPlayer::receiveGoody(CvPlot* pPlot, GoodyTypes eGoody, CvUnit* pUnit) {
 
 						if (pLoopPlot != NULL) {
 							if (pLoopPlot->getArea() == pPlot->getArea()) {
-								if (!(pLoopPlot->isImpassable())) {
+								if (!pLoopPlot->isImpassable(getTeam())) {
 									if (pLoopPlot->getNumUnits() == 0) {
-										if ((iPass > 0) || (GC.getGameINLINE().getSorenRandNum(100, "Goody Barbs") < GC.getGoodyInfo(eGoody).getBarbarianUnitProb())) {
-											GET_PLAYER(BARBARIAN_PLAYER).initUnit(eUnit, pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), ((pLoopPlot->isWater()) ? UNITAI_ATTACK_SEA : UNITAI_ATTACK));
+										if (iPass > 0 || (GC.getGameINLINE().getSorenRandNum(100, "Goody Barbs") < GC.getGoodyInfo(eGoody).getBarbarianUnitProb())) {
+											GET_PLAYER(BARBARIAN_PLAYER).initUnit(eUnit, pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), (pLoopPlot->isWater() ? UNITAI_ATTACK_SEA : UNITAI_ATTACK));
 											iBarbCount++;
 
 											if ((iPass > 0) && (iBarbCount == GC.getGoodyInfo(eGoody).getMinBarbarians())) {
@@ -4291,10 +4291,14 @@ bool CvPlayer::canFound(int iX, int iY, bool bTestVisible) const {
 		return false;
 	}
 
-	if (pPlot->isImpassable()) {
+	if (pPlot->isImpassable(getTeam())) {
 		return false;
 	}
 
+	if (pPlot->isPeak() && !GET_TEAM(getTeam()).isCanFoundOnPeaks()) {
+		return false;
+	}
+	
 	if (pPlot->getFeatureType() != NO_FEATURE) {
 		if (GC.getFeatureInfo(pPlot->getFeatureType()).isNoCity()) {
 			return false;
@@ -12750,7 +12754,7 @@ int CvPlayer::getAdvancedStartRouteCost(RouteTypes eRoute, bool bAdd, CvPlot* pP
 		}
 
 		if (bAdd) {
-			if (pPlot->isImpassable() || pPlot->isWater()) {
+			if (pPlot->isImpassable(getTeam()) || pPlot->isWater()) {
 				return -1;
 			}
 			// Can't place twice

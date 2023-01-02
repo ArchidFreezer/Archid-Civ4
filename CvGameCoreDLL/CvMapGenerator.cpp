@@ -171,6 +171,10 @@ bool CvMapGenerator::canPlaceGoodyAt(ImprovementTypes eImprovement, int iX, int 
 		return false;
 	}
 
+	if (pPlot->isPeak()) {
+		return false;
+	}
+
 	int iUniqueRange = GC.getImprovementInfo(eImprovement).getGoodyUniqueRange();
 	for (int iDX = -iUniqueRange; iDX <= iUniqueRange; iDX++) {
 		for (int iDY = -iUniqueRange; iDY <= iUniqueRange; iDY++) {

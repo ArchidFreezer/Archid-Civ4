@@ -794,6 +794,8 @@ public:
 	inline int getTGA_CORPORATIONS() { return m_iTGA_CORPORATIONS; }
 	inline int getREHOME_PERCENT_CHANCE() { return m_iREHOME_PERCENT_CHANCE; }
 	inline int getINITIAL_UNIT_RANGE() { return m_iINITIAL_UNIT_RANGE; };
+	inline int getPEAK_EXTRA_DEFENSE() { return m_iPEAK_EXTRA_DEFENSE; };
+	inline int getPEAK_EXTRA_MOVEMENT() { return m_iPEAK_EXTRA_MOVEMENT; };
 
 	inline bool getBBAI_AIR_COMBAT() { return m_bBBAI_AIR_COMBAT; }
 	inline bool getBBAI_HUMAN_AS_VASSAL_OPTION() { return m_bBBAI_HUMAN_AS_VASSAL_OPTION; }
@@ -1213,6 +1215,8 @@ protected:
 	int m_iPEAK_SEE_FROM_CHANGE;
 	int m_iHILLS_SEE_FROM_CHANGE;
 	int m_iUSE_SPIES_NO_ENTER_BORDERS;
+	int m_iPEAK_EXTRA_DEFENSE;
+	int m_iPEAK_EXTRA_MOVEMENT;
 
 	float m_fCAMERA_MIN_YAW;
 	float m_fCAMERA_MAX_YAW;
