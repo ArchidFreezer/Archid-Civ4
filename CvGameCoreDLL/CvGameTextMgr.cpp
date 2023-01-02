@@ -6525,6 +6525,25 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 		}
 	}
 
+	// Obsolete Units
+	for (UnitClassTypes eUnitLoopClass = (UnitClassTypes)0; eUnitLoopClass < GC.getNumUnitClassInfos(); eUnitLoopClass = (UnitClassTypes)(eUnitLoopClass + 1)) {
+		if (!bPlayerContext || (GET_PLAYER(GC.getGameINLINE().getActivePlayer()).getUnitClassCount(eUnitLoopClass) > 0)) {
+			UnitTypes eLoopUnit;
+			if (GC.getGameINLINE().getActivePlayer() != NO_PLAYER) {
+				eLoopUnit = (UnitTypes)GC.getCivilizationInfo(GC.getGameINLINE().getActiveCivilizationType()).getCivilizationUnits(eUnitLoopClass);
+			} else {
+				eLoopUnit = (UnitTypes)GC.getUnitClassInfo(eUnitLoopClass).getDefaultUnitIndex();
+			}
+
+			if (eLoopUnit != NO_UNIT) {
+				//	Obsolete Units Check...
+				if (GC.getUnitInfo(eLoopUnit).getObsoleteTech() == eTech) {
+					buildObsoleteUnitString(szBuffer, eLoopUnit, true);
+				}
+			}
+		}
+	}
+
 	//	Obsolete Bonuses
 	for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
 		if (GC.getBonusInfo(eBonus).getTechObsolete() == eTech) {
@@ -7974,6 +7993,11 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit, bool
 				szBuffer.append(gDLL->getText("TXT_KEY_COLOR_REVERT"));
 			}
 		}
+	}
+
+	if (kUnit.getObsoleteTech() != NO_TECH) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_OBSOLETE_WITH", GC.getTechInfo((TechTypes)kUnit.getObsoleteTech()).getTextKeyWide()));
 	}
 
 	if (bStrategyText) {
@@ -15825,4 +15849,13 @@ void CvGameTextMgr::buildCaptureCitiesString(CvWStringBuffer& szBuffer, TechType
 		szBuffer.append(NEWLINE);
 	}
 	szBuffer.append(gDLL->getText("TXT_KEY_TECH_CAPTURE_CITIES_HELP"));
+}
+
+void CvGameTextMgr::buildObsoleteUnitString(CvWStringBuffer& szBuffer, int iItem, bool bList, bool bPlayerContext) {
+	CvWString szTempBuffer;
+
+	if (bList) {
+		szBuffer.append(NEWLINE);
+	}
+	szBuffer.append(gDLL->getText("TXT_KEY_TECH_OBSOLETES", GC.getUnitInfo((UnitTypes)iItem).getTextKeyWide()));
 }

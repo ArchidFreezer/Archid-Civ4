@@ -923,6 +923,7 @@ public:
 	int getLeaderPromotion() const;
 	int getMinPopulation() const;
 	int getNumSubCombatTypes() const;
+	int getObsoleteTech() const;
 
 	bool isAnimal() const;				// Exposed to Python
 	bool isFoodProduction() const;				// Exposed to Python
@@ -1134,6 +1135,7 @@ protected:
 	int m_iLeaderExperience;
 	int m_iLeaderPromotion;
 	int m_iMinPopulation;
+	int m_iObsoleteTech;
 
 	bool m_bAnimal;
 	bool m_bFoodProduction;

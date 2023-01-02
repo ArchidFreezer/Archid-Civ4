@@ -480,6 +480,7 @@
 	<ElementType name="SubCombatTypes" content="eltOnly">
 		<element type="UnitCombatType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="ObsoleteTech" content="textOnly"/>
 	<ElementType name="UnitInfo" content="eltOnly">
 		<element type="Class"/>
 		<element type="Type"/>
@@ -557,6 +558,7 @@
 		<element type="PrereqBuilding" minOccurs="0"/>
 		<element type="PrereqTech" minOccurs="0"/>
 		<element type="TechTypes" minOccurs="0"/>
+		<element type="ObsoleteTech" minOccurs="0"/>
 		<element type="BonusType" minOccurs="0"/>
 		<element type="PrereqBonuses" minOccurs="0"/>
 		<element type="PrereqAndCivics" minOccurs="0"/>

@@ -4483,6 +4483,12 @@ bool CvPlayer::canTrain(UnitTypes eUnit, bool bContinue, bool bTestVisible, bool
 		return false;
 	}
 
+	if ((TechTypes)kUnit.getObsoleteTech() != NO_TECH) {
+		if (kTeam.isHasTech((TechTypes)kUnit.getObsoleteTech())) {
+			return false;
+		}
+	}
+
 	if (kUnit.isFound() && !canAddNewCity()) {
 		return false;
 	}

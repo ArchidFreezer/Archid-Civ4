@@ -2783,6 +2783,7 @@ CvUnitInfo::CvUnitInfo() :
 	m_iNumUnitNames(0),
 	m_iCommandType(NO_COMMAND),
 	m_iMinPopulation(0),
+	m_iObsoleteTech(NO_TECH),
 	m_eRangeType(UNITRANGE_RANGE),
 	m_eMinCultureLevel(NO_CULTURELEVEL),
 	m_bAnimal(false),
@@ -2922,6 +2923,10 @@ CvUnitInfo::~CvUnitInfo() {
 	SAFE_DELETE_ARRAY(m_paszLateArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszMiddleArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszUnitNames);
+}
+
+int CvUnitInfo::getObsoleteTech() const {
+	return m_iObsoleteTech;
 }
 
 int CvUnitInfo::getSubCombatType(int i) const {
@@ -3979,6 +3984,7 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iNumUnitNames);
 	stream->Read(&m_iCommandType);
 	stream->Read(&m_iMinPopulation);
+	stream->Read(&m_iObsoleteTech);
 
 	int iTemp;
 	stream->Read(&iTemp);
@@ -4369,6 +4375,7 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iNumUnitNames);
 	stream->Write(m_iCommandType);
 	stream->Write(m_iMinPopulation);
+	stream->Write(m_iObsoleteTech);
 
 	stream->Write(m_eRangeType);
 	stream->Write(m_eMinCultureLevel);
@@ -4647,6 +4654,9 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	m_iPrereqAndTech = pXML->FindInInfoClass(szTextVal);
 
 	pXML->SetListInfo(&m_piPrereqAndTechs, "TechTypes", GC.getNUM_UNIT_AND_TECH_PREREQS());
+
+	pXML->GetChildXmlValByName(szTextVal, "ObsoleteTech");
+	m_iObsoleteTech = pXML->FindInInfoClass(szTextVal);
 
 	pXML->GetChildXmlValByName(szTextVal, "BonusType");
 	m_iPrereqAndBonus = pXML->FindInInfoClass(szTextVal);
