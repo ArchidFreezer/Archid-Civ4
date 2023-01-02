@@ -6147,6 +6147,7 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_bStateReligion(false),
 	m_bAllowsNukes(false),
 	m_bPrereqPower(false),
+	m_bAutoBuild(false),
 	m_eMinCultureLevel(NO_CULTURELEVEL),
 	m_piProductionTraits(NULL),
 	m_piHappinessTraits(NULL),
@@ -6243,6 +6244,10 @@ CvBuildingInfo::~CvBuildingInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppaiBonusYieldModifier);
 	}
+}
+
+bool CvBuildingInfo::isAutoBuild() const {
+	return m_bAutoBuild;
 }
 
 int CvBuildingInfo::getWorkableRadius() const {
@@ -7332,6 +7337,7 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bStateReligion);
 	stream->Read(&m_bAllowsNukes);
 	stream->Read(&m_bPrereqPower);
+	stream->Read(&m_bAutoBuild);
 
 	int iVal;
 	stream->Read(&iVal);
@@ -7744,6 +7750,7 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bStateReligion);
 	stream->Write(m_bAllowsNukes);
 	stream->Write(m_bPrereqPower);
+	stream->Write(m_bAutoBuild);
 
 	stream->WriteString(m_szConstructSound);
 	stream->WriteString(m_szArtDefineTag);
@@ -7887,6 +7894,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "MovieDefineTag");
 	setMovieDefineTag(szTextVal);
 
+	pXML->GetChildXmlValByName(&m_bAutoBuild, "bAutoBuild");
 	pXML->GetChildXmlValByName(szTextVal, "HolyCity");
 	m_iHolyCity = pXML->FindInInfoClass(szTextVal);
 

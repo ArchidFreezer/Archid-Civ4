@@ -30,6 +30,8 @@ public:
 
 	void kill(bool bUpdatePlotGroups);																								// Exposed to Python
 
+	void doAutoBuild();
+
 	int getNumCityPlots() const;
 	int getWorkableRadiusOverride() const;
 	void updateWorkableRadiusOverride();

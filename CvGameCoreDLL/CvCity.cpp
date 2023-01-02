@@ -840,6 +840,8 @@ void CvCity::doTurn() {
 		}
 	}
 
+	doAutoBuild();
+
 	if (getCultureUpdateTimer() > 0) {
 		changeCultureUpdateTimer(-1);
 	}
@@ -13062,4 +13064,14 @@ void CvCity::doWorkableRadiusChanged() {
 	updateFeatureHappiness();
 	updateFeatureHealth();
 	AI_setAssignWorkDirty(true);
+}
+
+void CvCity::doAutoBuild() {
+	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+		if (GC.getBuildingInfo(eBuilding).isAutoBuild()) {
+			if (getNumRealBuilding(eBuilding) == 0 && canConstruct(eBuilding, false, false, true)) {
+				setNumRealBuilding(eBuilding, 1);
+			}
+		}
+	}
 }

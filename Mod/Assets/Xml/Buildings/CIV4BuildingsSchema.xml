@@ -414,6 +414,7 @@
 	<ElementType name="MinCultureLevel" content="textOnly"/>
 	<ElementType name="bPrereqPower" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iWorkableRadius" content="textOnly" dt:type="int"/>
+	<ElementType name="bAutoBuild" content="textOnly" dt:type="boolean"/>
 	<ElementType name="BuildingInfo" content="eltOnly">
 		<element type="BuildingClass"/>
 		<element type="Type"/>
@@ -425,6 +426,7 @@
 		<element type="Advisor"/>
 		<element type="ArtDefineTag"/>
 		<element type="MovieDefineTag" minOccurs="0"/>
+		<element type="bAutoBuild" minOccurs="0"/>
 		<element type="HolyCity" minOccurs="0"/>
 		<element type="ReligionType" minOccurs="0"/>
 		<element type="StateReligion" minOccurs="0"/>
