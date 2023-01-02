@@ -139,12 +139,12 @@ class CvTechSplashScreen:
 			screen.addMultilineText( "Text", techInfo.getQuote(), self.X_QUOTE, self.Y_QUOTE + self.iMarginSpace*2, self.W_QUOTE - (self.iMarginSpace * 2), self.H_QUOTE - (self.iMarginSpace * 2), WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_CENTER_JUSTIFY)
 
 		for j in xrange(gc.getNumTechInfos()):
-			for k in xrange(gc.getNUM_OR_TECH_PREREQS()):
-				iPrereq = gc.getTechInfo(j).getPrereqOrTechs(k)
+			for k in xrange(gc.getTechInfo(j).getNumPrereqOrTechs()):
+				iPrereq = gc.getTechInfo(j).getPrereqOrTech(k)
 				if iPrereq == self.iTech:
 					screen.attachImageButton(szLeadsToPanel, "", gc.getTechInfo(j).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_DERIVED_TECH, j, self.iTech, False )
-			for k in xrange(gc.getNUM_AND_TECH_PREREQS()):
-				iPrereq = gc.getTechInfo(j).getPrereqAndTechs(k)
+			for k in xrange(gc.getTechInfo(j).getNumPrereqAndTechs()):
+				iPrereq = gc.getTechInfo(j).getPrereqAndTech(k)
 				if iPrereq == self.iTech:
 					screen.attachImageButton(szLeadsToPanel, "", gc.getTechInfo(j).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_DERIVED_TECH, j, self.iTech, False )
 

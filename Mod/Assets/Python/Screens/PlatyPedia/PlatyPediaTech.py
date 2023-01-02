@@ -4,15 +4,14 @@ import ScreenInput
 import CvPediaScreen
 import CvScreenEnums
 gc = CyGlobalContext()
-
 class CvPediaTech(CvPediaScreen.CvPediaScreen):
 	def __init__(self, main):
 		self.iTech = -1
 		self.top = main
 
-	def interfaceScreen(self, iTech):		
+	def interfaceScreen(self, iTech):
 		self.iTech = iTech
-		self.top.deleteAllWidgets()		
+		self.top.deleteAllWidgets()
 		screen = self.top.getScreen()
 		if not screen.isActive():
 			self.top.setPediaCommonWidgets()
@@ -22,7 +21,7 @@ class CvPediaTech(CvPediaScreen.CvPediaScreen):
 		self.H_MAIN_PANE = 210
 		self.X_ICON = self.top.X_ITEMS_PANE + 30
 		self.Y_ICON = (self.H_MAIN_PANE - self.H_ICON)/2 + self.top.Y_ITEMS_PANE
-		
+
 		self.X_STATS_PANE = self.X_ICON + self.H_ICON
 		self.Y_STATS_PANE = self.Y_ICON + self.H_ICON /4
 		self.W_STATS_PANE = self.W_MAIN_PANE - self.H_ICON - self.top.W_BORDER * 2
@@ -42,13 +41,13 @@ class CvPediaTech(CvPediaScreen.CvPediaScreen):
 		szHeader = gc.getTechInfo(self.iTech).getDescription().upper()
 		szHeader = u"<font=4b>" + self.top.color4 + CyTranslator().getText(self.top.sTechIcon, ()) + szHeader + " " + CyTranslator().getText(self.top.sTechIcon, ()) + "</color></font>"
 		screen.setLabel(self.top.getNextWidgetName(), "Background", szHeader, CvUtil.FONT_CENTER_JUSTIFY, screen.getXResolution()/2, self.top.Y_TITLE, 0, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
-		
+
 		screen.setText(self.top.getNextWidgetName(), "Background", self.top.MENU_TEXT, CvUtil.FONT_CENTER_JUSTIFY, screen.getXResolution()/2, screen.getYResolution() - 42, 0, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_PEDIA_MAIN, self.top.PLATYPEDIA_TECH, -1)
 		screen.addPanel( self.top.getNextWidgetName(), "", "", False, False, self.top.X_ITEMS_PANE, self.top.Y_ITEMS_PANE, self.W_MAIN_PANE, self.H_MAIN_PANE, PanelStyles.PANEL_STYLE_BLUE50)
 		screen.addPanel(self.top.getNextWidgetName(), "", "", false, false, self.X_ICON, self.Y_ICON, self.H_ICON, self.H_ICON, PanelStyles.PANEL_STYLE_MAIN)
 		screen.addDDSGFC(self.top.getNextWidgetName(), gc.getTechInfo(self.iTech).getButton(), self.X_ICON + self.H_ICON/2 - 64/2, self.Y_ICON + self.H_ICON/2 - 64/2, 64, 64, WidgetTypes.WIDGET_GENERAL, -1, -1 )
-		
-		self.placeStats()		
+
+		self.placeStats()
 		self.placePrereqs()
 		self.placeLeadsTo()
 		self.placeUnits()
@@ -96,14 +95,14 @@ class CvPediaTech(CvPediaScreen.CvPediaScreen):
 		panelName = self.top.getNextWidgetName()
 		screen.addPanel(panelName, CyTranslator().getText("TXT_KEY_PEDIA_LEADS_TO", ()), "", false, true, self.X_PREREQ, self.Y_LEADS_TO, self.W_MAIN_PANE, self.H_PREREQ, PanelStyles.PANEL_STYLE_BLUE50 )
 		for j in xrange(gc.getNumTechInfos()):
-			for k in range(gc.getNUM_OR_TECH_PREREQS()):
-				iPrereq = gc.getTechInfo(j).getPrereqOrTechs(k)
+			for k in range(gc.getTechInfo(j).getNumPrereqOrTechs()):
+				iPrereq = gc.getTechInfo(j).getPrereqOrTech(k)
 				if iPrereq == self.iTech:
-        					screen.attachImageButton( panelName, "", gc.getTechInfo(j).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_DERIVED_TECH, j, self.iTech, False )
-			for k in range(gc.getNUM_AND_TECH_PREREQS()):
-				iPrereq = gc.getTechInfo(j).getPrereqAndTechs(k)
+					screen.attachImageButton( panelName, "", gc.getTechInfo(j).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_DERIVED_TECH, j, self.iTech, False )
+			for k in range(gc.getTechInfo(j).getNumPrereqAndTechs()):
+				iPrereq = gc.getTechInfo(j).getPrereqAndTech(k)
 				if iPrereq == self.iTech:
-        					screen.attachImageButton( panelName, "", gc.getTechInfo(j).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_DERIVED_TECH, j, self.iTech, False )
+					screen.attachImageButton( panelName, "", gc.getTechInfo(j).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_DERIVED_TECH, j, self.iTech, False )
 
 	def placePrereqs(self):
 		screen = self.top.getScreen()
@@ -111,8 +110,8 @@ class CvPediaTech(CvPediaScreen.CvPediaScreen):
 		panelName = self.top.getNextWidgetName()
 		screen.addPanel( panelName, szRequires, "", false, true, self.X_PREREQ, self.Y_PREREQ, self.W_MAIN_PANE, self.H_PREREQ, PanelStyles.PANEL_STYLE_BLUE50 )
 		bFirst = True
-		for j in xrange(gc.getNUM_AND_TECH_PREREQS()):
-			eTech = gc.getTechInfo(self.iTech).getPrereqAndTechs(j)
+		for j in xrange(gc.getTechInfo(self.iTech).getNumPrereqAndTechs()):
+			eTech = gc.getTechInfo(self.iTech).getPrereqAndTech(j)
 			if eTech > -1:
 				if bFirst:
 					bFirst = False
@@ -121,8 +120,8 @@ class CvPediaTech(CvPediaScreen.CvPediaScreen):
 				screen.attachImageButton( panelName, "", gc.getTechInfo(eTech).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_REQUIRED_TECH, eTech, j, False )
 
 		nOrTechs = 0
-		for j in xrange(gc.getNUM_OR_TECH_PREREQS()):
-			if gc.getTechInfo(self.iTech).getPrereqOrTechs(j) > -1:
+		for j in xrange(gc.getTechInfo(self.iTech).getNumPrereqOrTechs()):
+			if gc.getTechInfo(self.iTech).getPrereqOrTech(j) > -1:
 				nOrTechs += 1
 
 		szRightDelimeter = ""
@@ -134,17 +133,17 @@ class CvPediaTech(CvPediaScreen.CvPediaScreen):
 				screen.attachLabel(panelName, "", CyTranslator().getText("TXT_KEY_AND", ()))
 			else:
 				return
-			
+
 		bFirst = True
-		for j in xrange(gc.getNUM_OR_TECH_PREREQS()):
-			eTech = gc.getTechInfo(self.iTech).getPrereqOrTechs(j)
+		for j in xrange(gc.getTechInfo(self.iTech).getNumPrereqOrTechs()):
+			eTech = gc.getTechInfo(self.iTech).getPrereqOrTech(j)
 			if eTech > -1:
 				if bFirst:
 					bFirst = False
 				else:
 					screen.attachLabel(panelName, "", CyTranslator().getText("TXT_KEY_OR", ()))
-				screen.attachImageButton( panelName, "", gc.getTechInfo(eTech).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_REQUIRED_TECH, eTech, j, False )					
-			
+				screen.attachImageButton( panelName, "", gc.getTechInfo(eTech).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_REQUIRED_TECH, eTech, j, False )
+
 		if len(szRightDelimeter):
 			screen.attachLabel(panelName, "", szRightDelimeter)
 
@@ -166,7 +165,7 @@ class CvPediaTech(CvPediaScreen.CvPediaScreen):
 		for eLoopBuilding in xrange(gc.getNumBuildingInfos()):
 			if isTechRequiredForBuilding(self.iTech, eLoopBuilding):
         				screen.attachImageButton(panelName, "", gc.getBuildingInfo(eLoopBuilding).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BUILDING, eLoopBuilding, 1, False )
-						
+
 		for eLoopProject in xrange(gc.getNumProjectInfos()):
 			if isTechRequiredForProject(self.iTech, eLoopProject):
         				screen.attachImageButton( panelName, "", gc.getProjectInfo(eLoopProject).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_PROJECT, eLoopProject, 1, False )
@@ -190,7 +189,7 @@ class CvPediaTech(CvPediaScreen.CvPediaScreen):
 		if sPedia.find("TXT_KEY") == -1:
 			szText += sPedia
 		screen.addMultilineText(self.top.getNextWidgetName(), szText, self.X_PREREQ + 10, self.Y_QUOTE + 30, self.W_MAIN_PANE - 20, self.H_HISTORY - 30, WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
-		
+
 	def placeLinks(self, bRedraw):
 		screen = self.top.getScreen()
 		if bRedraw:

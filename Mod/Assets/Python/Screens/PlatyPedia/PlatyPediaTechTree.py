@@ -368,15 +368,15 @@ class CvPediaTechTree:
 				fX += X_INCREMENT
 			fX = BOX_WIDTH - (PIXEL_INCREMENT * 2)
 
-			for j in xrange(gc.getNUM_AND_TECH_PREREQS()):
-				eTech = Info.getPrereqAndTechs(j)
+			for j in xrange(Info.getNumPrereqAndTechs()):
+				eTech = Info.getPrereqAndTech(j)
 				if eTech == -1: break
 				fX -= X_INCREMENT
 				szTechPrereqID = "TechPrereqID" + str((i * 1000) + j)
 				screen.addDDSGFCAt( szTechPrereqID, szTechRecord, gc.getTechInfo(eTech).getButton(), iX + fX, iY + 6, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_HELP_TECH_PREPREQ, eTech, -1, False )
 
-			for j in xrange(gc.getNUM_OR_TECH_PREREQS()):
-				eTech = Info.getPrereqOrTechs(j)
+			for j in xrange(Info.getNumPrereqOrTechs()):
+				eTech = Info.getPrereqOrTech(j)
 				if eTech == -1: break
 				iX = (gc.getTechInfo(eTech).getGridX() -1) * (BOX_X_SPACING + BOX_WIDTH) + BOX_WIDTH - 6
 				iY = (gc.getTechInfo(eTech).getGridY() -1) * (BOX_HEIGHT + BOX_Y_SPACING)/2 - 6

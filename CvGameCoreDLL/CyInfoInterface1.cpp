@@ -65,6 +65,8 @@ void CyInfoPythonInterface1() {
 		.def("getPowerValue", &CvTechInfo::getPowerValue, "int ()")
 		.def("getUnitRangeChange", &CvTechInfo::getUnitRangeChange, "int ()")
 		.def("getUnitRangePercentChange", &CvTechInfo::getUnitRangePercentChange, "int ()")
+		.def("getNumPrereqAndTechs", &CvTechInfo::getNumPrereqAndTechs, "int (int i)")
+		.def("getNumPrereqOrTechs", &CvTechInfo::getNumPrereqOrTechs, "int (int i)")
 
 		.def("getGridX", &CvTechInfo::getGridX, "int ()")
 		.def("getGridY", &CvTechInfo::getGridY, "int ()")
@@ -102,11 +104,13 @@ void CyInfoPythonInterface1() {
 
 		.def("getDomainExtraMoves", &CvTechInfo::getDomainExtraMoves, "int (int i)")
 		.def("getFlavorValue", &CvTechInfo::getFlavorValue, "int (int i)")
-		.def("getPrereqOrTechs", &CvTechInfo::getPrereqOrTechs, "int (int i)")
-		.def("getPrereqAndTechs", &CvTechInfo::getPrereqAndTechs, "int (int i)")
+		.def("getPrereqOrTech", &CvTechInfo::getPrereqOrTech, "int (int i)")
+		.def("getPrereqAndTech", &CvTechInfo::getPrereqAndTech, "int (int i)")
 
 		.def("isCommerceFlexible", &CvTechInfo::isCommerceFlexible, "bool (int i)")
 		.def("isTerrainTrade", &CvTechInfo::isTerrainTrade, "bool (int i)")
+		.def("isPrereqOrTech", &CvTechInfo::isPrereqOrTech, "int (int i)")
+		.def("isPrereqAndTech", &CvTechInfo::isPrereqAndTech, "int (int i)")
 		;
 
 	python::class_<CvPromotionInfo, python::bases<CvInfoBase> >("CvPromotionInfo")

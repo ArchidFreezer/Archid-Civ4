@@ -43,8 +43,6 @@ void CyGlobalContextPythonInterface2(python::class_<CyGlobalContext>& x) {
 		.def("getMIN_CITY_RANGE", &CyGlobalContext::getMIN_CITY_RANGE, "int ()")
 		.def("getCITY_MAX_NUM_BUILDINGS", &CyGlobalContext::getCITY_MAX_NUM_BUILDINGS, "int ()")
 		.def("getNUM_UNIT_AND_TECH_PREREQS", &CyGlobalContext::getNUM_UNIT_AND_TECH_PREREQS, "int ()")
-		.def("getNUM_AND_TECH_PREREQS", &CyGlobalContext::getNUM_AND_TECH_PREREQS, "int ()")
-		.def("getNUM_OR_TECH_PREREQS", &CyGlobalContext::getNUM_OR_TECH_PREREQS, "int ()")
 		.def("getLAKE_MAX_AREA_SIZE", &CyGlobalContext::getLAKE_MAX_AREA_SIZE, "int ()")
 		.def("getNUM_ROUTE_PREREQ_OR_BONUSES", &CyGlobalContext::getNUM_ROUTE_PREREQ_OR_BONUSES, "int ()")
 		.def("getMIN_WATER_SIZE_FOR_OCEAN", &CyGlobalContext::getMIN_WATER_SIZE_FOR_OCEAN, "int ()")

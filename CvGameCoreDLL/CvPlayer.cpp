@@ -5545,9 +5545,10 @@ int CvPlayer::calculateResearchModifier(TechTypes eTech) const {
 	int iPossiblePaths = 0;
 	int iUnknownPaths = 0;
 
-	for (int iI = 0; iI < GC.getNUM_OR_TECH_PREREQS(); iI++) {
-		if (GC.getTechInfo(eTech).getPrereqOrTechs(iI) != NO_TECH) {
-			if (!(GET_TEAM(getTeam()).isHasTech((TechTypes)(GC.getTechInfo(eTech).getPrereqOrTechs(iI))))) {
+	const CvTechInfo& kTech = GC.getTechInfo(eTech);
+	for (int iI = 0; iI < kTech.getNumPrereqOrTechs(); iI++) {
+		if (kTech.getPrereqOrTech(iI) != NO_TECH) {
+			if (!GET_TEAM(getTeam()).isHasTech((TechTypes)kTech.getPrereqOrTech(iI))) {
 				iUnknownPaths++;
 			}
 
@@ -5668,20 +5669,25 @@ bool CvPlayer::canResearch(TechTypes eTech, bool bTrade, bool bFree) const {
 		return false;
 	}
 
-	if (GET_TEAM(getTeam()).isHasTech(eTech)) {
+	if (eTech == NO_TECH)
+		return false;
+
+	const CvTeam& kOurTeam = GET_TEAM(getTeam());
+	if (kOurTeam.isHasTech(eTech)) {
 		return false;
 	}
 
 	bool bFoundPossible = false;
 	bool bFoundValid = false;
 
-	for (int iI = 0; iI < GC.getNUM_OR_TECH_PREREQS(); iI++) {
-		TechTypes ePrereq = (TechTypes)GC.getTechInfo(eTech).getPrereqOrTechs(iI);
+	const CvTechInfo& kTech = GC.getTechInfo(eTech);
+	for (int iI = 0; iI < kTech.getNumPrereqOrTechs(); iI++) {
+		TechTypes ePrereq = (TechTypes)kTech.getPrereqOrTech(iI);
 		if (ePrereq != NO_TECH) {
 			bFoundPossible = true;
 
-			if (GET_TEAM(getTeam()).isHasTech(ePrereq)) {
-				if (!bTrade || GC.getGameINLINE().isOption(GAMEOPTION_NO_TECH_BROKERING) || !GET_TEAM(getTeam()).isNoTradeTech(ePrereq)) {
+			if (kOurTeam.isHasTech(ePrereq)) {
+				if (!bTrade || GC.getGameINLINE().isOption(GAMEOPTION_NO_TECH_BROKERING) || !kOurTeam.isNoTradeTech(ePrereq)) {
 					bFoundValid = true;
 					break;
 				}
@@ -5693,14 +5699,14 @@ bool CvPlayer::canResearch(TechTypes eTech, bool bTrade, bool bFree) const {
 		return false;
 	}
 
-	for (int iI = 0; iI < GC.getNUM_AND_TECH_PREREQS(); iI++) {
-		TechTypes ePrereq = (TechTypes)GC.getTechInfo(eTech).getPrereqAndTechs(iI);
+	for (int iI = 0; iI < kTech.getNumPrereqAndTechs(); iI++) {
+		TechTypes ePrereq = (TechTypes)kTech.getPrereqAndTech(iI);
 		if (ePrereq != NO_TECH) {
-			if (!GET_TEAM(getTeam()).isHasTech(ePrereq)) {
+			if (!kOurTeam.isHasTech(ePrereq)) {
 				return false;
 			}
 
-			if (bTrade && !GC.getGameINLINE().isOption(GAMEOPTION_NO_TECH_BROKERING) && GET_TEAM(getTeam()).isNoTradeTech(ePrereq)) {
+			if (bTrade && !GC.getGameINLINE().isOption(GAMEOPTION_NO_TECH_BROKERING) && kOurTeam.isNoTradeTech(ePrereq)) {
 				return false;
 			}
 		}
@@ -10180,15 +10186,19 @@ CLLNode<int>* CvPlayer::tailGroupCycleNode() const {
 int CvPlayer::findPathLength(TechTypes eTech, bool bCost) const {
 	int iPathLength = 0;
 
+	if (eTech == NO_TECH)
+		return 0;
+
 	if (GET_TEAM(getTeam()).isHasTech(eTech) || isResearchingTech(eTech)) {
 		//	We have this tech, no reason to add this to the pre-reqs
 		//	Base case return 0, we know it...
 		return 0;
 	}
 
+	const CvTechInfo& kTech = GC.getTechInfo(eTech);
 	//	Cycle through the and paths and add up their tech lengths
-	for (int i = 0; i < GC.getNUM_AND_TECH_PREREQS(); i++) {
-		TechTypes ePreReq = (TechTypes)GC.getTechInfo(eTech).getPrereqAndTechs(i);
+	for (int i = 0; i < kTech.getNumPrereqAndTechs(); i++) {
+		TechTypes ePreReq = (TechTypes)kTech.getPrereqAndTech(i);
 
 		if (ePreReq != NO_TECH) {
 			iPathLength += findPathLength(ePreReq, bCost);
@@ -10198,9 +10208,9 @@ int CvPlayer::findPathLength(TechTypes eTech, bool bCost) const {
 	TechTypes eShortestOr = NO_TECH;
 	int iShortestPath = MAX_INT;
 	//	Find the shortest OR tech
-	for (int i = 0; i < GC.getNUM_OR_TECH_PREREQS(); i++) {
+	for (int i = 0; i < kTech.getNumPrereqOrTechs(); i++) {
 		//	Grab the tech
-		TechTypes ePreReq = (TechTypes)GC.getTechInfo(eTech).getPrereqOrTechs(i);
+		TechTypes ePreReq = (TechTypes)kTech.getPrereqOrTech(i);
 
 		//	If this is a valid tech
 		if (ePreReq != NO_TECH) {
@@ -10274,9 +10284,10 @@ bool CvPlayer::pushResearch(TechTypes eTech, bool bClear) {
 		clearResearchQueue();
 	}
 
+	const CvTechInfo& kTech = GC.getTechInfo(eTech);
 	//	Add in all the pre-reqs for the and techs...
-	for (int i = 0; i < GC.getNUM_AND_TECH_PREREQS(); i++) {
-		TechTypes ePreReq = (TechTypes)GC.getTechInfo(eTech).getPrereqAndTechs(i);
+	for (int i = 0; i < kTech.getNumPrereqAndTechs(); i++) {
+		TechTypes ePreReq = (TechTypes)kTech.getPrereqAndTech(i);
 
 		if (ePreReq != NO_TECH) {
 			if (!pushResearch(ePreReq)) {
@@ -10290,8 +10301,8 @@ bool CvPlayer::pushResearch(TechTypes eTech, bool bClear) {
 	int iShortestPath = MAX_INT;
 	bool bOrPrereqFound = false;
 	//	Cycle through all the OR techs
-	for (int i = 0; i < GC.getNUM_OR_TECH_PREREQS(); i++) {
-		TechTypes ePreReq = (TechTypes)GC.getTechInfo(eTech).getPrereqOrTechs(i);
+	for (int i = 0; i < kTech.getNumPrereqOrTechs(); i++) {
+		TechTypes ePreReq = (TechTypes)kTech.getPrereqOrTech(i);
 
 		if (ePreReq != NO_TECH) {
 			bOrPrereqFound = true;
@@ -12914,9 +12925,11 @@ int CvPlayer::getAdvancedStartTechCost(TechTypes eTech, bool bAdd) const {
 		return -1;
 	}
 
+	const CvTechInfo& kTech = GC.getTechInfo(eTech);
+	const CvTeam& kTeam = GET_TEAM(getTeam());
 	int iNumTechs = 0;
 
-	int iCost = (GET_TEAM(getTeam()).getResearchCost(eTech) * GC.getTechInfo(eTech).getAdvancedStartCost()) / 100;
+	int iCost = (kTeam.getResearchCost(eTech) * kTech.getAdvancedStartCost()) / 100;
 	if (iCost < 0) {
 		return -1;
 	}
@@ -12926,27 +12939,26 @@ int CvPlayer::getAdvancedStartTechCost(TechTypes eTech, bool bAdd) const {
 			return -1;
 		}
 	} else if (!bAdd) {
-		if (!GET_TEAM(getTeam()).isHasTech(eTech)) {
+		if (!kTeam.isHasTech(eTech)) {
 			return -1;
 		}
 
 		// Search through all techs to see if any of the currently owned ones requires this tech
-		for (int iTechLoop = 0; iTechLoop < GC.getNumTechInfos(); iTechLoop++) {
-			TechTypes eTechLoop = (TechTypes)iTechLoop;
-
-			if (GET_TEAM(getTeam()).isHasTech(eTechLoop)) {
+		for (TechTypes eLoopTech = (TechTypes)0; eLoopTech < GC.getNumTechInfos(); eLoopTech = (TechTypes)(eLoopTech + 1)) {
+			if (kTeam.isHasTech(eLoopTech)) {
+				const CvTechInfo& kLoopTech = GC.getTechInfo(eLoopTech);
 				int iPrereqLoop;
 
 				// Or Prereqs
-				for (iPrereqLoop = 0; iPrereqLoop < GC.getNUM_OR_TECH_PREREQS(); iPrereqLoop++) {
-					if (GC.getTechInfo(eTechLoop).getPrereqOrTechs(iPrereqLoop) == eTech) {
+				for (iPrereqLoop = 0; iPrereqLoop < kLoopTech.getNumPrereqOrTechs(); iPrereqLoop++) {
+					if (kLoopTech.getPrereqOrTech(iPrereqLoop) == eTech) {
 						return -1;
 					}
 				}
 
 				// And Prereqs
-				for (iPrereqLoop = 0; iPrereqLoop < GC.getNUM_AND_TECH_PREREQS(); iPrereqLoop++) {
-					if (GC.getTechInfo(eTechLoop).getPrereqAndTechs(iPrereqLoop) == eTech) {
+				for (iPrereqLoop = 0; iPrereqLoop < kLoopTech.getNumPrereqAndTechs(); iPrereqLoop++) {
+					if (kLoopTech.getPrereqAndTech(iPrereqLoop) == eTech) {
 						return -1;
 					}
 				}
@@ -12988,9 +13000,9 @@ int CvPlayer::getAdvancedStartTechCost(TechTypes eTech, bool bAdd) const {
 	}
 
 	// Increase cost if the XML defines that additional units will cost more
-	if (0 != GC.getTechInfo(eTech).getAdvancedStartCostIncrease()) {
+	if (0 != kTech.getAdvancedStartCostIncrease()) {
 		for (int iTechLoop = 0; iTechLoop < GC.getNumTechInfos(); iTechLoop++) {
-			if (GET_TEAM(getTeam()).isHasTech((TechTypes)iTechLoop)) {
+			if (kTeam.isHasTech((TechTypes)iTechLoop)) {
 				++iNumTechs;
 			}
 		}
@@ -13000,7 +13012,7 @@ int CvPlayer::getAdvancedStartTechCost(TechTypes eTech, bool bAdd) const {
 		}
 
 		if (iNumTechs > 0) {
-			iCost *= 100 + GC.getTechInfo(eTech).getAdvancedStartCostIncrease() * iNumTechs;
+			iCost *= 100 + kTech.getAdvancedStartCostIncrease() * iNumTechs;
 			iCost /= 100;
 		}
 	}

@@ -11645,17 +11645,18 @@ void CvGameTextMgr::buildSingleLineTechTreeString(CvWStringBuffer& szBuffer, Tec
 	}
 
 	bool bFirst = true;
-	for (int iI = 0; iI < GC.getNumTechInfos(); ++iI) {
+	for (TechTypes eLoopTech = (TechTypes)0; eLoopTech < GC.getNumTechInfos(); eLoopTech = (TechTypes)(eLoopTech + 1)) {
+		const CvTechInfo& kLoopTech = GC.getTechInfo(eLoopTech);
 		bool bTechAlreadyAccessible = false;
 		if (bPlayerContext) {
-			bTechAlreadyAccessible = (GET_TEAM(GC.getGameINLINE().getActiveTeam()).isHasTech((TechTypes)iI) || GET_PLAYER(GC.getGameINLINE().getActivePlayer()).canResearch((TechTypes)iI));
+			bTechAlreadyAccessible = (GET_TEAM(GC.getGameINLINE().getActiveTeam()).isHasTech(eLoopTech) || GET_PLAYER(GC.getGameINLINE().getActivePlayer()).canResearch(eLoopTech));
 		}
 		if (!bTechAlreadyAccessible) {
 			bool bTechFound = false;
 
 			if (!bTechFound) {
-				for (int iJ = 0; iJ < GC.getNUM_OR_TECH_PREREQS(); iJ++) {
-					if (GC.getTechInfo((TechTypes)iI).getPrereqOrTechs(iJ) == eTech) {
+				for (int iJ = 0; iJ < kLoopTech.getNumPrereqOrTechs(); iJ++) {
+					if (kLoopTech.getPrereqOrTech(iJ) == eTech) {
 						bTechFound = true;
 						break;
 					}
@@ -11663,8 +11664,8 @@ void CvGameTextMgr::buildSingleLineTechTreeString(CvWStringBuffer& szBuffer, Tec
 			}
 
 			if (!bTechFound) {
-				for (int iJ = 0; iJ < GC.getNUM_AND_TECH_PREREQS(); iJ++) {
-					if (GC.getTechInfo((TechTypes)iI).getPrereqAndTechs(iJ) == eTech) {
+				for (int iJ = 0; iJ < kLoopTech.getNumPrereqAndTechs(); iJ++) {
+					if (kLoopTech.getPrereqAndTech(iJ) == eTech) {
 						bTechFound = true;
 						break;
 					}
@@ -11672,7 +11673,7 @@ void CvGameTextMgr::buildSingleLineTechTreeString(CvWStringBuffer& szBuffer, Tec
 			}
 
 			if (bTechFound) {
-				szTempBuffer.Format(SETCOLR L"<link=literal>%s</link>" ENDCOLR, TEXT_COLOR("COLOR_TECH_TEXT"), GC.getTechInfo((TechTypes)iI).getDescription());
+				szTempBuffer.Format(SETCOLR L"<link=literal>%s</link>" ENDCOLR, TEXT_COLOR("COLOR_TECH_TEXT"), kLoopTech.getDescription());
 				setListHelp(szBuffer, gDLL->getText("TXT_KEY_MISC_LEADS_TO").c_str(), szTempBuffer, L", ", bFirst);
 				bFirst = false;
 			}
@@ -11688,6 +11689,8 @@ void CvGameTextMgr::buildTechTreeString(CvWStringBuffer& szBuffer, TechTypes eTe
 		return;
 	}
 
+	const CvTechInfo& kTech = GC.getTechInfo(eTech);
+
 	szTempBuffer.Format(SETCOLR L"%s" ENDCOLR, TEXT_COLOR("COLOR_TECH_TEXT"), GC.getTechInfo(eTech).getDescription());
 	szBuffer.append(szTempBuffer);
 
@@ -11695,8 +11698,8 @@ void CvGameTextMgr::buildTechTreeString(CvWStringBuffer& szBuffer, TechTypes eTe
 	CvWString szOtherOrTechs;
 	int nOtherOrTechs = 0;
 	bool bOrTechFound = false;
-	for (int iJ = 0; iJ < GC.getNUM_OR_TECH_PREREQS(); iJ++) {
-		TechTypes eTestTech = (TechTypes)GC.getTechInfo(eTech).getPrereqOrTechs(iJ);
+	for (int iJ = 0; iJ < kTech.getNumPrereqOrTechs(); iJ++) {
+		TechTypes eTestTech = (TechTypes)kTech.getPrereqOrTech(iJ);
 		if (eTestTech >= 0) {
 			bool bTechAlreadyResearched = false;
 			if (bPlayerContext) {
@@ -11718,8 +11721,8 @@ void CvGameTextMgr::buildTechTreeString(CvWStringBuffer& szBuffer, TechTypes eTe
 	CvWString szOtherAndTechs;
 	int nOtherAndTechs = 0;
 	bool bAndTechFound = false;
-	for (int iJ = 0; iJ < GC.getNUM_AND_TECH_PREREQS(); iJ++) {
-		TechTypes eTestTech = (TechTypes)GC.getTechInfo(eTech).getPrereqAndTechs(iJ);
+	for (int iJ = 0; iJ < kTech.getNumPrereqAndTechs(); iJ++) {
+		TechTypes eTestTech = (TechTypes)kTech.getPrereqAndTech(iJ);
 		if (eTestTech >= 0) {
 			bool bTechAlreadyResearched = false;
 			if (bPlayerContext) {
@@ -11756,7 +11759,7 @@ void CvGameTextMgr::buildTechTreeString(CvWStringBuffer& szBuffer, TechTypes eTe
 					szBuffer.append(szOtherOrTechs);
 				} else if (bOrTechFound) {
 					szBuffer.append(NEWLINE);
-					szBuffer.append(gDLL->getText("TXT_KEY_MISC_ALTERNATIVELY_DERIVED", GC.getTechInfo(eTech).getTextKeyWide(), szOtherOrTechs.GetCString()));
+					szBuffer.append(gDLL->getText("TXT_KEY_MISC_ALTERNATIVELY_DERIVED", kTech.getTextKeyWide(), szOtherOrTechs.GetCString()));
 				}
 			}
 		}
