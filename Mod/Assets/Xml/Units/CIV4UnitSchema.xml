@@ -815,6 +815,9 @@
 	<ElementType name="iUnitRangePercentChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iPromotionGroup" content="textOnly" dt:type="int"/>
 	<ElementType name="bCityPrereq" content="textOnly" dt:type="boolean"/>
+	<ElementType name="PrereqOrPromotions" content="eltOnly">
+		<element type="PromotionType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="PromotionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -822,9 +825,7 @@
 		<element type="Sound" minOccurs="0"/>
 		<element type="LayerAnimationPath" minOccurs="0"/>
 		<element type="PromotionPrereq" minOccurs="0"/>
-		<element type="PromotionPrereqOr1" minOccurs="0"/>
-		<element type="PromotionPrereqOr2" minOccurs="0"/>
-		<element type="PromotionPrereqOr3" minOccurs="0"/>
+		<element type="PrereqOrPromotions" minOccurs="0"/>
 		<element type="TechPrereq" minOccurs="0"/>
 		<element type="StateReligionPrereq" minOccurs="0"/>
 		<element type="bCityPrereq" minOccurs="0"/>

@@ -112,9 +112,6 @@ void CyInfoPythonInterface1() {
 	python::class_<CvPromotionInfo, python::bases<CvInfoBase> >("CvPromotionInfo")
 
 		.def("getPrereqPromotion", &CvPromotionInfo::getPrereqPromotion, "int ()")
-		.def("getPrereqOrPromotion1", &CvPromotionInfo::getPrereqOrPromotion1, "int ()")
-		.def("getPrereqOrPromotion2", &CvPromotionInfo::getPrereqOrPromotion2, "int ()")
-		.def("getPrereqOrPromotion3", &CvPromotionInfo::getPrereqOrPromotion3, "int ()") // K-Mod
 		.def("getActionInfoIndex", &CvPromotionInfo::getActionInfoIndex, "int ()")
 
 		.def("getTechPrereq", &CvPromotionInfo::getTechPrereq, "int ()")
@@ -152,6 +149,7 @@ void CyInfoPythonInterface1() {
 		.def("getUnitRangePercentChange", &CvPromotionInfo::getUnitRangePercentChange, "int ()")
 		.def("getNumNotCombatTypes", &CvPromotionInfo::getNumNotCombatTypes, "int ()")
 		.def("getNumOrCombatTypes", &CvPromotionInfo::getNumOrCombatTypes, "int ()")
+		.def("getNumPrereqOrPromotions", &CvPromotionInfo::getNumPrereqOrPromotions, "int ()")
 
 		.def("isLeader", &CvPromotionInfo::isLeader, "bool ()")
 		.def("isBlitz", &CvPromotionInfo::isBlitz, "bool ()")
@@ -176,11 +174,13 @@ void CyInfoPythonInterface1() {
 		.def("getDomainModifierPercent", &CvPromotionInfo::getDomainModifierPercent, "int (int i)")
 		.def("getNotCombatType", &CvPromotionInfo::getNotCombatType, "int (int i)")
 		.def("getOrCombatType", &CvPromotionInfo::getOrCombatType, "int (int i)")
+		.def("getPrereqOrPromotion", &CvPromotionInfo::getPrereqOrPromotion, "int (int i)")
 
 		.def("getTerrainDoubleMove", &CvPromotionInfo::getTerrainDoubleMove, "bool (int i)")
 		.def("getFeatureDoubleMove", &CvPromotionInfo::getFeatureDoubleMove, "bool (int i)")
 		.def("isNotCombatType", &CvPromotionInfo::isNotCombatType, "bool (int i)")
 		.def("isOrCombatType", &CvPromotionInfo::isOrCombatType, "bool (int i)")
+		.def("isPrereqOrPromotion", &CvPromotionInfo::isPrereqOrPromotion, "bool (int i)")
 		;
 
 	python::class_<CvMissionInfo, python::bases<CvInfoBase> >("CvMissionInfo")

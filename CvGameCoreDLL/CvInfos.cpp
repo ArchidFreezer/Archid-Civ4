@@ -1421,9 +1421,6 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 CvPromotionInfo::CvPromotionInfo() :
 	m_iLayerAnimationPath(ANIMATIONPATH_NONE),
 	m_iPrereqPromotion(NO_PROMOTION),
-	m_iPrereqOrPromotion1(NO_PROMOTION),
-	m_iPrereqOrPromotion2(NO_PROMOTION),
-	m_iPrereqOrPromotion3(NO_PROMOTION), // K-Mod
 	m_iTechPrereq(NO_TECH),
 	m_iStateReligionPrereq(NO_RELIGION),
 	m_iVisibilityChange(0),
@@ -1498,6 +1495,18 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
 }
 
+int CvPromotionInfo::getPrereqOrPromotion(int i) const {
+	return m_viPrereqOrPromotions[i];
+}
+
+int CvPromotionInfo::getNumPrereqOrPromotions() const {
+	return (int)m_viPrereqOrPromotions.size();
+}
+
+bool CvPromotionInfo::isPrereqOrPromotion(int i) const {
+	return (std::find(m_viPrereqOrPromotions.begin(), m_viPrereqOrPromotions.end(), i) != m_viPrereqOrPromotions.end());
+}
+
 int CvPromotionInfo::getNotCombatType(int i) const {
 	return m_viNotCombatTypes[i];
 }
@@ -1552,34 +1561,6 @@ int CvPromotionInfo::getLayerAnimationPath() const {
 
 int CvPromotionInfo::getPrereqPromotion() const {
 	return m_iPrereqPromotion;
-}
-
-void CvPromotionInfo::setPrereqPromotion(int i) {
-	m_iPrereqPromotion = i;
-}
-
-int CvPromotionInfo::getPrereqOrPromotion1() const {
-	return m_iPrereqOrPromotion1;
-}
-
-void CvPromotionInfo::setPrereqOrPromotion1(int i) {
-	m_iPrereqOrPromotion1 = i;
-}
-
-int CvPromotionInfo::getPrereqOrPromotion2() const {
-	return m_iPrereqOrPromotion2;
-}
-
-void CvPromotionInfo::setPrereqOrPromotion2(int i) {
-	m_iPrereqOrPromotion2 = i;
-}
-
-int CvPromotionInfo::getPrereqOrPromotion3() const {
-	return m_iPrereqOrPromotion3;
-}
-
-void CvPromotionInfo::setPrereqOrPromotion3(int i) {
-	m_iPrereqOrPromotion3 = i;
 }
 
 int CvPromotionInfo::getTechPrereq() const {
@@ -1808,9 +1789,6 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 
 	stream->Read(&m_iLayerAnimationPath);
 	stream->Read(&m_iPrereqPromotion);
-	stream->Read(&m_iPrereqOrPromotion1);
-	stream->Read(&m_iPrereqOrPromotion2);
-	stream->Read(&m_iPrereqOrPromotion3); // K-Mod
 
 	stream->Read(&m_iTechPrereq);
 	stream->Read(&m_iStateReligionPrereq);
@@ -1910,6 +1888,13 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 		stream->Read(&iElement);
 		m_viOrCombatTypes.push_back(iElement);
 	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqOrPromotions.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqOrPromotions.push_back(iElement);
+	}
 }
 
 void CvPromotionInfo::write(FDataStreamBase* stream) {
@@ -1920,10 +1905,6 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 
 	stream->Write(m_iLayerAnimationPath);
 	stream->Write(m_iPrereqPromotion);
-	stream->Write(m_iPrereqOrPromotion1);
-	stream->Write(m_iPrereqOrPromotion2);
-	stream->Write(m_iPrereqOrPromotion3); // K-Mod
-
 	stream->Write(m_iTechPrereq);
 	stream->Write(m_iStateReligionPrereq);
 	stream->Write(m_iVisibilityChange);
@@ -1993,6 +1974,11 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	for (std::vector<int>::iterator it = m_viOrCombatTypes.begin(); it != m_viOrCombatTypes.end(); ++it) {
 		stream->Write(*it);
 	}
+
+	stream->Write(m_viPrereqOrPromotions.size());
+	for (std::vector<int>::iterator it = m_viPrereqOrPromotions.begin(); it != m_viPrereqOrPromotions.end(); ++it) {
+		stream->Write(*it);
+	}
 }
 
 bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
@@ -2009,12 +1995,7 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(szTextVal, "PromotionPrereq");
 	m_iPrereqPromotion = GC.getInfoTypeForString(szTextVal);
-	pXML->GetChildXmlValByName(szTextVal, "PromotionPrereqOr1");
-	m_iPrereqOrPromotion1 = GC.getInfoTypeForString(szTextVal);
-	pXML->GetChildXmlValByName(szTextVal, "PromotionPrereqOr2");
-	m_iPrereqOrPromotion2 = GC.getInfoTypeForString(szTextVal);
-	pXML->GetChildXmlValByName(szTextVal, "PromotionPrereqOr3");
-	m_iPrereqOrPromotion3 = GC.getInfoTypeForString(szTextVal);
+	pXML->SetVectorInfo(m_viPrereqOrPromotions, "PrereqOrPromotions");
 
 	pXML->GetChildXmlValByName(szTextVal, "TechPrereq");
 	m_iTechPrereq = pXML->FindInInfoClass(szTextVal);

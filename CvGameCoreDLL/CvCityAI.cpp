@@ -3032,8 +3032,7 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 				// way to choose a suitable unit for evaluation.
 				// So.. I'm just going to do a really basic kludge to stop the Dun from being worth more than Red Cross
 				const CvPromotionInfo& kInfo = GC.getPromotionInfo((PromotionTypes)kBuilding.getFreePromotion());
-				bool bAdvanced = kInfo.getPrereqPromotion() != NO_PROMOTION ||
-					kInfo.getPrereqOrPromotion1() != NO_PROMOTION || kInfo.getPrereqOrPromotion2() != NO_PROMOTION || kInfo.getPrereqOrPromotion3() != NO_PROMOTION;
+				bool bAdvanced = kInfo.getPrereqPromotion() != NO_PROMOTION || kInfo.getNumPrereqOrPromotions() > 0;
 				int iTemp = (bAdvanced ? 200 : 40);
 				int iProduction = getYieldRate(YIELD_PRODUCTION);
 				iTemp *= 2 * iProduction;

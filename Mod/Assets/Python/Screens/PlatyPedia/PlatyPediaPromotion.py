@@ -52,7 +52,7 @@ class CvPediaPromotion:
 		panelName = self.top.getNextWidgetName()
 		screen.addPanel(panelName, CyTranslator().getText("TXT_KEY_PEDIA_LEADS_TO", ()), "", False, True, self.X_PREREQ_PANE, self.Y_LEADS_TO_PANE, self.W_PREREQ_PANE, self.H_PREREQ_PANE, PanelStyles.PANEL_STYLE_BLUE50 )
 		for j in xrange(gc.getNumPromotionInfos()):
-			if (gc.getPromotionInfo(j).getPrereqPromotion() == self.iPromotion or gc.getPromotionInfo(j).getPrereqOrPromotion1() == self.iPromotion or gc.getPromotionInfo(j).getPrereqOrPromotion2() == self.iPromotion):
+			if (gc.getPromotionInfo(j).getPrereqPromotion() == self.iPromotion or gc.getPromotionInfo(j).isPrereqOrPromotion(self.iPromotion)):
 				screen.attachImageButton(panelName, "", gc.getPromotionInfo(j).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_PROMOTION, j, 1, False)
 
 	def placePrereqs(self):
@@ -64,23 +64,19 @@ class CvPediaPromotion:
 		if (ePromo > -1):
 			screen.attachImageButton( panelName, "", gc.getPromotionInfo(ePromo).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_PROMOTION, ePromo, 1, False )
 
-		ePromoOr1 = gc.getPromotionInfo(self.iPromotion).getPrereqOrPromotion1()
-		ePromoOr2 = gc.getPromotionInfo(self.iPromotion).getPrereqOrPromotion2()
-		if (ePromoOr1 > -1):
+		iNumOrPrereqs = gc.getPromotionInfo(self.iPromotion).getNumPrereqOrPromotions();
+		if (iNumOrPrereqs > 0):
 			if (ePromo > -1):
 				screen.attachLabel(panelName, "", CyTranslator().getText("TXT_KEY_AND", ()))
-
-				if (ePromoOr2 > -1):
-					screen.attachLabel(panelName, "", "(")
-
-			screen.attachImageButton( panelName, "", gc.getPromotionInfo(ePromoOr1).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_PROMOTION, ePromoOr1, 1, False )
-
-			if (ePromoOr2 > -1):
-				screen.attachLabel(panelName, "", CyTranslator().getText("TXT_KEY_OR", ()))
-				screen.attachImageButton( panelName, "", gc.getPromotionInfo(ePromoOr2).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_PROMOTION, ePromoOr2, 1, False )
-
-				if (ePromo > -1):
-					screen.attachLabel(panelName, "", ")")
+			if (iNumOrPrereqs > 1):
+				screen.attachLabel(panelName, "", "(")
+			for j in xrange(iNumOrPrereqs):
+				if (j > 0):
+					screen.attachLabel(panelName, "", CyTranslator().getText("TXT_KEY_OR", ()))
+				ePromo = gc.getPromotionInfo(self.iPromotion).getPrereqOrPromotion(j)
+				screen.attachImageButton( panelName, "", gc.getPromotionInfo(ePromo).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_PROMOTION, ePromo, 1, False )
+			if (iNumOrPrereqs > 1):
+				screen.attachLabel(panelName, "", ")")
 
 		eTech = gc.getPromotionInfo(self.iPromotion).getTechPrereq()
 		if (eTech > -1):

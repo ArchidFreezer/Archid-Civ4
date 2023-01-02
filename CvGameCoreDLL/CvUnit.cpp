@@ -9274,22 +9274,17 @@ bool CvUnit::canAcquirePromotion(PromotionTypes ePromotion) const {
 		}
 	}
 
-	PromotionTypes ePrereq1 = (PromotionTypes)kPromotion.getPrereqOrPromotion1();
-	PromotionTypes ePrereq2 = (PromotionTypes)kPromotion.getPrereqOrPromotion2();
-	PromotionTypes ePrereq3 = (PromotionTypes)kPromotion.getPrereqOrPromotion3();
-	if (ePrereq1 != NO_PROMOTION || ePrereq2 != NO_PROMOTION || ePrereq3 != NO_PROMOTION) {
+	int iNumPrereqs = kPromotion.getNumPrereqOrPromotions();
+	if (iNumPrereqs > 0) {
 		bool bValid = false;
-
-		if (ePrereq1 != NO_PROMOTION && isHasPromotion(ePrereq1))
-			bValid = true;
-		if (ePrereq2 != NO_PROMOTION && isHasPromotion(ePrereq2))
-			bValid = true;
-		if (ePrereq3 != NO_PROMOTION && isHasPromotion(ePrereq3))
-			bValid = true;
-
-		if (!bValid) {
-			return false;
+		for (int iI = 0; iI < iNumPrereqs; iI++) {
+			if (isHasPromotion((PromotionTypes)kPromotion.getPrereqOrPromotion(iI))) {
+				bValid = true;
+				break;
+			}
 		}
+		if (!bValid)
+			return false;
 	}
 
 	if (kPromotion.getTechPrereq() != NO_TECH) {

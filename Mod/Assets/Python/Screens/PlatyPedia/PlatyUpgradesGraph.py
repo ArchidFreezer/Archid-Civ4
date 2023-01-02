@@ -106,14 +106,13 @@ class UnitUpgradesGraph:
 				if iPromotion > -1:
 					if iSortPromotion == -1 or gc.getPromotionInfo(iPromotion).getUnitCombat(iSortPromotion):
 						self.addUpgradePath(graph, iPromotion, item)
-				iPromotion = gc.getPromotionInfo(item).getPrereqOrPromotion1()
-				if iPromotion > -1:
-					if iSortPromotion == -1 or gc.getPromotionInfo(iPromotion).getUnitCombat(iSortPromotion):
-						self.addUpgradePath(graph, iPromotion, item)
-				iPromotion = gc.getPromotionInfo(item).getPrereqOrPromotion2()
-				if iPromotion > -1:
-					if iSortPromotion == -1 or gc.getPromotionInfo(iPromotion).getUnitCombat(iSortPromotion):
-						self.addUpgradePath(graph, iPromotion, item)
+
+				iNumOrPrereqs = gc.getPromotionInfo(item).getNumPrereqOrPromotions();
+				for j in xrange(iNumOrPrereqs):
+					iPromotion = gc.getPromotionInfo(item).getPrereqOrPromotion(j)
+					if iPromotion > -1:
+						if iSortPromotion == -1 or gc.getPromotionInfo(iPromotion).getUnitCombat(iSortPromotion):
+							self.addUpgradePath(graph, iPromotion, item)
 			elif self.pediaScreen.iSortTree == 3:
 				Info = gc.getBuildingInfo(item)
 				for i in xrange(gc.getNumBuildingClassInfos()):

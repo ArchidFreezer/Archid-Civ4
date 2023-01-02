@@ -458,15 +458,6 @@ public:
 
 	int getLayerAnimationPath() const;
 	int getPrereqPromotion() const;				// Exposed to Python
-	void setPrereqPromotion(int i);				// Exposed to Python
-	int getPrereqOrPromotion1() const;				// Exposed to Python
-	void setPrereqOrPromotion1(int i);				// Exposed to Python
-	int getPrereqOrPromotion2() const;				// Exposed to Python
-	void setPrereqOrPromotion2(int i);				// Exposed to Python
-// note: none of the prereq 'set' functions are 'exposed to python'
-	int getPrereqOrPromotion3() const; // Exposed to Python
-	void setPrereqOrPromotion3(int i);
-
 	int getTechPrereq() const;				// Exposed to Python
 	int getStateReligionPrereq() const;				// Exposed to Python
 	int getVisibilityChange() const;				// Exposed to Python
@@ -505,6 +496,7 @@ public:
 	int getPromotionGroup() const;
 	int getNumNotCombatTypes() const;
 	int getNumOrCombatTypes() const;
+	int getNumPrereqOrPromotions() const;
 
 	bool isLeader() const;				// Exposed to Python
 	bool isBlitz() const;				// Exposed to Python
@@ -531,11 +523,13 @@ public:
 	int getDomainModifierPercent(int i) const;				// Exposed to Python
 	int getNotCombatType(int i) const;
 	int getOrCombatType(int i) const;
+	int getPrereqOrPromotion(int i) const;
 
 	bool getTerrainDoubleMove(int i) const;				// Exposed to Python
 	bool getFeatureDoubleMove(int i) const;				// Exposed to Python
 	bool isNotCombatType(int i) const;
 	bool isOrCombatType(int i) const;
+	bool isPrereqOrPromotion(int i) const;
 
 	void read(FDataStreamBase* stream);
 	void write(FDataStreamBase* stream);
@@ -548,10 +542,6 @@ protected:
 
 	int m_iLayerAnimationPath;
 	int m_iPrereqPromotion;
-	int m_iPrereqOrPromotion1;
-	int m_iPrereqOrPromotion2;
-	int m_iPrereqOrPromotion3; // K-Mod
-
 	int m_iTechPrereq;
 	int m_iStateReligionPrereq;
 	int m_iVisibilityChange;
@@ -615,6 +605,7 @@ protected:
 
 	std::vector<int> m_viNotCombatTypes;
 	std::vector<int> m_viOrCombatTypes;
+	std::vector<int> m_viPrereqOrPromotions;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

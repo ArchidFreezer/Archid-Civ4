@@ -4,8 +4,10 @@
 			<Type>PROMOTION_ACCURACY</Type>
 			<Description>TXT_KEY_PROMOTION_ACCURACY</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_CITY_RAIDER1</PromotionPrereqOr1>
-			<PromotionPrereqOr2>PROMOTION_BARRAGE1</PromotionPrereqOr2>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_CITY_RAIDER1</PromotionType>
+				<PromotionType>PROMOTION_BARRAGE1</PromotionType>
+			</PrereqOrPromotions>
 			<iBombardRateChange>8</iBombardRateChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
@@ -17,7 +19,9 @@
 			<Type>PROMOTION_ACE</Type>
 			<Description>TXT_KEY_PROMOTION_ACE</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_COMBAT3</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_COMBAT3</PromotionType>
+			</PrereqOrPromotions>
 			<iEvasionChange>25</iEvasionChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
@@ -29,8 +33,10 @@
 			<Type>PROMOTION_AMBUSH</Type>
 			<Description>TXT_KEY_PROMOTION_AMBUSH</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_COMBAT2</PromotionPrereqOr1>
-			<PromotionPrereqOr2>PROMOTION_DRILL2</PromotionPrereqOr2>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_COMBAT2</PromotionType>
+				<PromotionType>PROMOTION_DRILL2</PromotionType>
+			</PrereqOrPromotions>
 			<UnitCombatMods>
 				<UnitCombatMod>
 					<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
@@ -51,8 +57,10 @@
 			<Type>PROMOTION_AMPHIBIOUS</Type>
 			<Description>TXT_KEY_PROMOTION_AMPHIBIOUS</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_COMBAT2</PromotionPrereqOr1>
-			<PromotionPrereqOr2>PROMOTION_DRILL2</PromotionPrereqOr2>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_COMBAT2</PromotionType>
+				<PromotionType>PROMOTION_DRILL2</PromotionType>
+			</PrereqOrPromotions>
 			<bAmphib>1</bAmphib>
 			<bRiver>1</bRiver>
 			<OrUnitCombatTypes>
@@ -85,7 +93,9 @@
 			<Type>PROMOTION_BARRAGE2</Type>
 			<Description>TXT_KEY_PROMOTION_BARRAGE2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_BARRAGE1</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_BARRAGE1</PromotionType>
+			</PrereqOrPromotions>
 			<iCollateralDamageChange>30</iCollateralDamageChange>
 			<UnitCombatMods>
 				<UnitCombatMod>
@@ -108,7 +118,9 @@
 			<Type>PROMOTION_BARRAGE3</Type>
 			<Description>TXT_KEY_PROMOTION_BARRAGE3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_BARRAGE2</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_BARRAGE2</PromotionType>
+			</PrereqOrPromotions>
 			<iCollateralDamageChange>50</iCollateralDamageChange>
 			<UnitCombatMods>
 				<UnitCombatMod>
@@ -130,8 +142,10 @@
 			<Type>PROMOTION_BLITZ</Type>
 			<Description>TXT_KEY_PROMOTION_BLITZ</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_COMBAT3</PromotionPrereqOr1>
-			<PromotionPrereqOr2>PROMOTION_DRILL3</PromotionPrereqOr2>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_COMBAT3</PromotionType>
+				<PromotionType>PROMOTION_DRILL3</PromotionType>
+			</PrereqOrPromotions>
 			<TechPrereq>TECH_MILITARY_SCIENCE</TechPrereq>
 			<bBlitz>1</bBlitz>
 			<OrUnitCombatTypes>
@@ -150,8 +164,10 @@
 			<Type>PROMOTION_CHARGE</Type>
 			<Description>TXT_KEY_PROMOTION_CHARGE</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_COMBAT1</PromotionPrereqOr1>
-			<PromotionPrereqOr2>PROMOTION_DRILL1</PromotionPrereqOr2>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_COMBAT1</PromotionType>
+				<PromotionType>PROMOTION_DRILL1</PromotionType>
+			</PrereqOrPromotions>
 			<UnitCombatMods>
 				<UnitCombatMod>
 					<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
@@ -183,7 +199,9 @@
 			<Type>PROMOTION_CITY_GARRISON2</Type>
 			<Description>TXT_KEY_PROMOTION_GARRISON2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_CITY_GARRISON1</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_CITY_GARRISON1</PromotionType>
+			</PrereqOrPromotions>
 			<iCityDefense>25</iCityDefense>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
@@ -196,7 +214,9 @@
 			<Type>PROMOTION_CITY_GARRISON3</Type>
 			<Description>TXT_KEY_PROMOTION_GARRISON3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_CITY_GARRISON2</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_CITY_GARRISON2</PromotionType>
+			</PrereqOrPromotions>
 			<iCityDefense>30</iCityDefense>
 			<UnitCombatMods>
 				<UnitCombatMod>
@@ -228,7 +248,9 @@
 			<Type>PROMOTION_CITY_RAIDER2</Type>
 			<Description>TXT_KEY_PROMOTION_CITYRAIDER2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_CITY_RAIDER1</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_CITY_RAIDER1</PromotionType>
+			</PrereqOrPromotions>
 			<iCityAttack>25</iCityAttack>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
@@ -242,7 +264,9 @@
 			<Type>PROMOTION_CITY_RAIDER3</Type>
 			<Description>TXT_KEY_PROMOTION_CITYRAIDER3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_CITY_RAIDER2</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_CITY_RAIDER2</PromotionType>
+			</PrereqOrPromotions>
 			<iCityAttack>30</iCityAttack>
 			<UnitCombatMods>
 				<UnitCombatMod>
@@ -285,7 +309,9 @@
 			<Type>PROMOTION_COMBAT2</Type>
 			<Description>TXT_KEY_PROMOTION_COMBAT2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_COMBAT1</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_COMBAT1</PromotionType>
+			</PrereqOrPromotions>
 			<iCombatPercent>10</iCombatPercent>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
@@ -309,7 +335,9 @@
 			<Type>PROMOTION_COMBAT3</Type>
 			<Description>TXT_KEY_PROMOTION_COMBAT3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_COMBAT2</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_COMBAT2</PromotionType>
+			</PrereqOrPromotions>
 			<iCombatPercent>10</iCombatPercent>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
@@ -333,7 +361,9 @@
 			<Type>PROMOTION_COMBAT4</Type>
 			<Description>TXT_KEY_PROMOTION_COMBAT4</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_COMBAT3</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_COMBAT3</PromotionType>
+			</PrereqOrPromotions>
 			<iNeutralHealChange>10</iNeutralHealChange>
 			<iCombatPercent>10</iCombatPercent>
 			<OrUnitCombatTypes>
@@ -358,7 +388,9 @@
 			<Type>PROMOTION_COMBAT5</Type>
 			<Description>TXT_KEY_PROMOTION_COMBAT5</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_COMBAT4</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_COMBAT4</PromotionType>
+			</PrereqOrPromotions>
 			<iEnemyHealChange>10</iEnemyHealChange>
 			<iCombatPercent>10</iCombatPercent>
 			<OrUnitCombatTypes>
@@ -384,7 +416,9 @@
 			<Description>TXT_KEY_PROMOTION_COMBAT6</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<PromotionPrereq>PROMOTION_LEADER</PromotionPrereq>
-			<PromotionPrereqOr1>PROMOTION_COMBAT5</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_COMBAT5</PromotionType>
+			</PrereqOrPromotions>
 			<iCombatPercent>25</iCombatPercent>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
@@ -408,8 +442,10 @@
 			<Type>PROMOTION_COMMANDO</Type>
 			<Description>TXT_KEY_PROMOTION_COMMANDO</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_COMBAT4</PromotionPrereqOr1>
-			<PromotionPrereqOr2>PROMOTION_DRILL4</PromotionPrereqOr2>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_COMBAT4</PromotionType>
+				<PromotionType>PROMOTION_DRILL4</PromotionType>
+			</PrereqOrPromotions>
 			<TechPrereq>TECH_MILITARY_SCIENCE</TechPrereq>
 			<bEnemyRoute>1</bEnemyRoute>
 			<OrUnitCombatTypes>
@@ -427,8 +463,10 @@
 			<Type>PROMOTION_COVER</Type>
 			<Description>TXT_KEY_PROMOTION_COVER</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_COMBAT1</PromotionPrereqOr1>
-			<PromotionPrereqOr2>PROMOTION_DRILL1</PromotionPrereqOr2>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_COMBAT1</PromotionType>
+				<PromotionType>PROMOTION_DRILL1</PromotionType>
+			</PrereqOrPromotions>
 			<UnitCombatMods>
 				<UnitCombatMod>
 					<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
@@ -476,7 +514,9 @@
 			<Type>PROMOTION_DRILL2</Type>
 			<Description>TXT_KEY_PROMOTION_DRILL2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_DRILL1</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_DRILL1</PromotionType>
+			</PrereqOrPromotions>
 			<iFirstStrikesChange>1</iFirstStrikesChange>
 			<iCollateralDamageProtection>15</iCollateralDamageProtection>
 			<OrUnitCombatTypes>
@@ -499,7 +539,9 @@
 			<Type>PROMOTION_DRILL3</Type>
 			<Description>TXT_KEY_PROMOTION_DRILL3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_DRILL2</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_DRILL2</PromotionType>
+			</PrereqOrPromotions>
 			<iChanceFirstStrikesChange>2</iChanceFirstStrikesChange>
 			<iCollateralDamageProtection>15</iCollateralDamageProtection>
 			<OrUnitCombatTypes>
@@ -522,7 +564,9 @@
 			<Type>PROMOTION_DRILL4</Type>
 			<Description>TXT_KEY_PROMOTION_DRILL4</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_DRILL3</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_DRILL3</PromotionType>
+			</PrereqOrPromotions>
 			<iFirstStrikesChange>2</iFirstStrikesChange>
 			<iCollateralDamageProtection>15</iCollateralDamageProtection>
 			<UnitCombatMods>
@@ -569,7 +613,9 @@
 			<Type>PROMOTION_FLANKING2</Type>
 			<Description>TXT_KEY_PROMOTION_FLANKING2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_FLANKING1</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_FLANKING1</PromotionType>
+			</PrereqOrPromotions>
 			<bImmuneToFirstStrikes>1</bImmuneToFirstStrikes>
 			<iWithdrawalChange>20</iWithdrawalChange>
 			<OrUnitCombatTypes>
@@ -589,8 +635,10 @@
 			<Type>PROMOTION_FORMATION</Type>
 			<Description>TXT_KEY_PROMOTION_FORMATION</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_COMBAT2</PromotionPrereqOr1>
-			<PromotionPrereqOr2>PROMOTION_DRILL2</PromotionPrereqOr2>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_COMBAT2</PromotionType>
+				<PromotionType>PROMOTION_DRILL2</PromotionType>
+			</PrereqOrPromotions>
 			<UnitCombatMods>
 				<UnitCombatMod>
 					<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
@@ -623,7 +671,9 @@
 			<Type>PROMOTION_GUERILLA2</Type>
 			<Description>TXT_KEY_PROMOTION_GUERILLA2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_GUERILLA1</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_GUERILLA1</PromotionType>
+			</PrereqOrPromotions>
 			<bHillsDoubleMove>1</bHillsDoubleMove>
 			<iHillsDefense>30</iHillsDefense>
 			<OrUnitCombatTypes>
@@ -639,7 +689,9 @@
 			<Type>PROMOTION_GUERILLA3</Type>
 			<Description>TXT_KEY_PROMOTION_GUERILLA3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_GUERILLA2</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_GUERILLA2</PromotionType>
+			</PrereqOrPromotions>
 			<iWithdrawalChange>50</iWithdrawalChange>
 			<iHillsAttack>25</iHillsAttack>
 			<OrUnitCombatTypes>
@@ -666,7 +718,9 @@
 			<Type>PROMOTION_INTERCEPTION2</Type>
 			<Description>TXT_KEY_PROMOTION_INTERCEPTION2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_INTERCEPTION1</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_INTERCEPTION1</PromotionType>
+			</PrereqOrPromotions>
 			<iInterceptChange>20</iInterceptChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
@@ -728,9 +782,11 @@
 			<Type>PROMOTION_MARCH</Type>
 			<Description>TXT_KEY_PROMOTION_MARCH</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_MEDIC1</PromotionPrereqOr1>
-			<PromotionPrereqOr2>PROMOTION_COMBAT3</PromotionPrereqOr2>
-			<PromotionPrereqOr3>PROMOTION_DRILL3</PromotionPrereqOr3>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_MEDIC1</PromotionType>
+				<PromotionType>PROMOTION_COMBAT3</PromotionType>
+				<PromotionType>PROMOTION_DRILL3</PromotionType>
+			</PrereqOrPromotions>
 			<bAlwaysHeal>1</bAlwaysHeal>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
@@ -747,8 +803,10 @@
 			<Type>PROMOTION_MEDIC1</Type>
 			<Description>TXT_KEY_PROMOTION_MEDIC1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_COMBAT1</PromotionPrereqOr1>
-			<PromotionPrereqOr2>PROMOTION_DRILL1</PromotionPrereqOr2>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_COMBAT1</PromotionType>
+				<PromotionType>PROMOTION_DRILL1</PromotionType>
+			</PrereqOrPromotions>
 			<iSameTileHealChange>10</iSameTileHealChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
@@ -770,7 +828,9 @@
 			<Type>PROMOTION_MEDIC2</Type>
 			<Description>TXT_KEY_PROMOTION_MEDIC2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_MEDIC1</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_MEDIC1</PromotionType>
+			</PrereqOrPromotions>
 			<iAdjacentTileHealChange>10</iAdjacentTileHealChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
@@ -793,7 +853,9 @@
 			<Description>TXT_KEY_PROMOTION_MEDIC3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<PromotionPrereq>PROMOTION_LEADER</PromotionPrereq>
-			<PromotionPrereqOr1>PROMOTION_MEDIC2</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_MEDIC2</PromotionType>
+			</PrereqOrPromotions>
 			<iSameTileHealChange>15</iSameTileHealChange>
 			<iAdjacentTileHealChange>15</iAdjacentTileHealChange>
 			<OrUnitCombatTypes>
@@ -816,7 +878,9 @@
 			<Type>PROMOTION_MOBILITY</Type>
 			<Description>TXT_KEY_PROMOTION_MOBILITY</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_FLANKING2</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_FLANKING2</PromotionType>
+			</PrereqOrPromotions>
 			<iMoveDiscountChange>1</iMoveDiscountChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
@@ -853,7 +917,9 @@
 			<Type>PROMOTION_NAVIGATION1</Type>
 			<Description>TXT_KEY_PROMOTION_NAVIGATION1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_FLANKING1</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_FLANKING1</PromotionType>
+			</PrereqOrPromotions>
 			<iMovesChange>1</iMovesChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
@@ -870,7 +936,9 @@
 			<Description>TXT_KEY_PROMOTION_NAVIGATION2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<PromotionPrereq>PROMOTION_FLANKING1</PromotionPrereq>
-			<PromotionPrereqOr1>PROMOTION_NAVIGATION1</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_NAVIGATION1</PromotionType>
+			</PrereqOrPromotions>
 			<iMovesChange>1</iMovesChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
@@ -886,8 +954,10 @@
 			<Type>PROMOTION_PINCH</Type>
 			<Description>TXT_KEY_PROMOTION_PINCH</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_COMBAT1</PromotionPrereqOr1>
-			<PromotionPrereqOr2>PROMOTION_DRILL1</PromotionPrereqOr2>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_COMBAT1</PromotionType>
+				<PromotionType>PROMOTION_DRILL1</PromotionType>
+			</PrereqOrPromotions>
 			<TechPrereq>TECH_GUNPOWDER</TechPrereq>
 			<UnitCombatMods>
 				<UnitCombatMod>
@@ -909,7 +979,9 @@
 			<Type>PROMOTION_RANGE1</Type>
 			<Description>TXT_KEY_PROMOTION_RANGE1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_COMBAT2</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_COMBAT2</PromotionType>
+			</PrereqOrPromotions>
 			<iAirRangeChange>1</iAirRangeChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
@@ -921,7 +993,9 @@
 			<Type>PROMOTION_RANGE2</Type>
 			<Description>TXT_KEY_PROMOTION_RANGE2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_RANGE1</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_RANGE1</PromotionType>
+			</PrereqOrPromotions>
 			<iAirRangeChange>1</iAirRangeChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
@@ -933,8 +1007,10 @@
 			<Type>PROMOTION_SHOCK</Type>
 			<Description>TXT_KEY_PROMOTION_SHOCK</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_COMBAT1</PromotionPrereqOr1>
-			<PromotionPrereqOr2>PROMOTION_DRILL1</PromotionPrereqOr2>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_COMBAT1</PromotionType>
+				<PromotionType>PROMOTION_DRILL1</PromotionType>
+			</PrereqOrPromotions>
 			<UnitCombatMods>
 				<UnitCombatMod>
 					<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
@@ -954,9 +1030,11 @@
 			<Type>PROMOTION_SENTRY</Type>
 			<Description>TXT_KEY_PROMOTION_SENTRY</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_FLANKING1</PromotionPrereqOr1>
-			<PromotionPrereqOr2>PROMOTION_COMBAT3</PromotionPrereqOr2>
-			<PromotionPrereqOr3>PROMOTION_DRILL3</PromotionPrereqOr3>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_FLANKING1</PromotionType>
+				<PromotionType>PROMOTION_COMBAT3</PromotionType>
+				<PromotionType>PROMOTION_DRILL3</PromotionType>
+			</PrereqOrPromotions>
 			<iVisibilityChange>1</iVisibilityChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
@@ -1021,7 +1099,9 @@
 			<Type>PROMOTION_WOODSMAN2</Type>
 			<Description>TXT_KEY_PROMOTION_WOODSMAN2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_WOODSMAN1</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_WOODSMAN1</PromotionType>
+			</PrereqOrPromotions>
 			<FeatureDefenses>
 				<FeatureDefense>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
@@ -1048,7 +1128,9 @@
 			<Type>PROMOTION_WOODSMAN3</Type>
 			<Description>TXT_KEY_PROMOTION_WOODSMAN3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereqOr1>PROMOTION_WOODSMAN2</PromotionPrereqOr1>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_WOODSMAN2</PromotionType>
+			</PrereqOrPromotions>
 			<iFirstStrikesChange>2</iFirstStrikesChange>
 			<iSameTileHealChange>15</iSameTileHealChange>
 			<FeatureAttacks>
