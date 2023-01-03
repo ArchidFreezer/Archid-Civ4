@@ -6797,6 +6797,7 @@
 			<bPillage>1</bPillage>
 			<bNoDefensiveBonus>1</bNoDefensiveBonus>
 			<bMechanized>1</bMechanized>
+			<bMilitaryTrade>1</bMilitaryTrade>
 			<UnitClassUpgrades>
 				<UnitClassType>UNITCLASS_CANNON</UnitClassType>
 			</UnitClassUpgrades>
@@ -6857,6 +6858,7 @@
 			<bPillage>1</bPillage>
 			<bNoDefensiveBonus>1</bNoDefensiveBonus>
 			<bMechanized>1</bMechanized>
+			<bMilitaryTrade>1</bMilitaryTrade>
 			<UnitClassUpgrades>
 				<UnitClassType>UNITCLASS_CANNON</UnitClassType>
 			</UnitClassUpgrades>
@@ -6924,6 +6926,7 @@
 			<bPillage>1</bPillage>
 			<bNoDefensiveBonus>1</bNoDefensiveBonus>
 			<bMechanized>1</bMechanized>
+			<bMilitaryTrade>1</bMilitaryTrade>
 			<UnitClassUpgrades>
 				<UnitClassType>UNITCLASS_CANNON</UnitClassType>
 			</UnitClassUpgrades>
@@ -6988,6 +6991,7 @@
 			<bPillage>1</bPillage>
 			<bNoDefensiveBonus>1</bNoDefensiveBonus>
 			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
+			<bMilitaryTrade>1</bMilitaryTrade>
 			<UnitClassUpgrades>
 				<UnitClassType>UNITCLASS_ARTILLERY</UnitClassType>
 			</UnitClassUpgrades>
@@ -7115,6 +7119,7 @@
 			<bNoDefensiveBonus>1</bNoDefensiveBonus>
 			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
 			<bMechanized>1</bMechanized>
+			<bMilitaryTrade>1</bMilitaryTrade>
 			<UnitClassUpgrades>
 				<UnitClassType>UNITCLASS_MOBILE_ARTILLERY</UnitClassType>
 			</UnitClassUpgrades>
@@ -7182,6 +7187,7 @@
 			<bNoDefensiveBonus>1</bNoDefensiveBonus>
 			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
 			<bMechanized>1</bMechanized>
+			<bMilitaryTrade>1</bMilitaryTrade>
 			<UnitAIs>
 				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
 				<UnitAIType>UNITAI_COLLATERAL</UnitAIType>
@@ -7603,6 +7609,7 @@
 			<Strategy>TXT_KEY_UNIT_WORKER_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<bFood>1</bFood>
+			<bWorkerTrade>1</bWorkerTrade>
 			<UnitAIs>
 				<UnitAIType>UNITAI_WORKER</UnitAIType>
 			</UnitAIs>
@@ -7666,6 +7673,7 @@
 			<Strategy>TXT_KEY_UNIT_INDIAN_FAST_WORKER_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<bFood>1</bFood>
+			<bWorkerTrade>1</bWorkerTrade>
 			<UnitAIs>
 				<UnitAIType>UNITAI_WORKER</UnitAIType>
 			</UnitAIs>

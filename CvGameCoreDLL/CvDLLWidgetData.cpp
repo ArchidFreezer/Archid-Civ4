@@ -3690,6 +3690,17 @@ void CvDLLWidgetData::parseTradeItem(CvWidgetDataStruct& widgetDataStruct, CvWSt
 		case TRADE_FREE_TRADE_ZONE:
 			szBuffer.append(gDLL->getText("TXT_KEY_TRADE_FREE_TRADE_ZONE"));
 			break;
+		case TRADE_WORKER:
+			szBuffer.assign(gDLL->getText("TXT_KEY_TRADE_WORKER"));
+			eWhoDenies = (widgetDataStruct.m_bOption ? eWhoFrom : eWhoTo);
+			break;
+		case TRADE_MILITARY_UNIT:
+			{
+				CvUnit* pUnit = GET_PLAYER(eWhoFrom).getUnit(widgetDataStruct.m_iData2);
+				GAMETEXT.setUnitHelp(szBuffer, pUnit, true);
+				eWhoDenies = (widgetDataStruct.m_bOption ? eWhoFrom : eWhoTo);
+			}
+			break;
 		}
 
 		TradeData item;

@@ -71,6 +71,8 @@
 		<ContactType>CONTACT_TRADE_MAP</ContactType>
 		<ContactType>CONTACT_EMBASSY</ContactType>
 		<ContactType>CONTACT_NON_AGGRESSION</ContactType>
+		<ContactType>CONTACT_TRADE_MILITARY_UNITS</ContactType>
+		<ContactType>CONTACT_TRADE_WORKERS</ContactType>
 	</ContactTypes>
 	<DiplomacyPowerTypes>
 		<!--Changes must be reflected in CvEnums.h-->

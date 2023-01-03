@@ -7107,6 +7107,11 @@ void CvGameTextMgr::setBasicUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit,
 		szBuffer.append(gDLL->getText("TXT_KEY_UNIT_ALWAYS_HOSTILE"));
 	}
 
+	if (GC.getUnitInfo(eUnit).isMilitaryTrade() || GC.getUnitInfo(eUnit).isWorkerTrade()) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_TRADABLE_UNIT"));
+	}
+
 	if (kUnit.isOnlyDefensive()) {
 		szBuffer.append(NEWLINE);
 		szBuffer.append(gDLL->getText("TXT_KEY_UNIT_ONLY_DEFENSIVE"));
@@ -12291,6 +12296,10 @@ void CvGameTextMgr::getTradeString(CvWStringBuffer& szBuffer, const TradeData& t
 		break;
 	case TRADE_FREE_TRADE_ZONE:
 		szBuffer.append(gDLL->getText("TXT_KEY_MISC_FREE_TRADE_ZONE"));
+		break;
+	case TRADE_WORKER:
+	case TRADE_MILITARY_UNIT:
+		szBuffer.assign(CvWString::format(L"%s", GET_PLAYER(ePlayer1).getUnit(tradeData.m_iData)->getName().GetCString()));
 		break;
 	default:
 		FAssert(false);

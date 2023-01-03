@@ -93,6 +93,9 @@ public:
 
 	DllExport void NotifyEntity(MissionTypes eMission);
 
+	bool canTradeUnit(PlayerTypes eReceivingPlayer);
+	void tradeUnit(PlayerTypes eReceivingPlayer);
+
 	void doTurn();
 
 	int getCanMovePeaksCount() const;

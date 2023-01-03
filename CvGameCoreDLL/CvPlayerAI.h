@@ -42,6 +42,9 @@ public:
 	void AI_beginDiplomacy(CvDiploParameters* pDiploParams, PlayerTypes ePlayer);
 	int AI_getEmbassyAttitude(PlayerTypes ePlayer) const;
 
+	int AI_militaryUnitTradeVal(CvUnit* pUnit) const;
+	int AI_workerTradeVal(CvUnit* pUnit) const;
+
 	void AI_doTurnPre();
 	void AI_doTurnPost();
 	void AI_doTurnUnitsPre();

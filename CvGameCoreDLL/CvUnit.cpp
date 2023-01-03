@@ -11489,3 +11489,60 @@ void CvUnit::changeCanMovePeaksCount(int iChange) {
 	m_iCanMovePeaksCount += iChange;
 	FAssert(getCanMovePeaksCount() >= 0);
 }
+
+// We have been traded away to another player
+void CvUnit::tradeUnit(PlayerTypes eReceivingPlayer) {
+	if (eReceivingPlayer != NO_PLAYER) {
+		CvCity* pBestCity = GET_PLAYER(eReceivingPlayer).getCapitalCity();
+
+		if (getDomainType() == DOMAIN_SEA) {
+			//Find the first coastal city, and put the ship there
+			int iLoop;
+			for (CvCity* pLoopCity = GET_PLAYER(eReceivingPlayer).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER(eReceivingPlayer).nextCity(&iLoop)) {
+				if (pLoopCity->isCoastal(GC.getMIN_WATER_SIZE_FOR_OCEAN())) {
+					pBestCity = pLoopCity;
+					break;
+				}
+			}
+		}
+
+		// If we are on a transport then remove ourselves
+		setTransportUnit(NULL);
+
+		CvUnit* pTradeUnit = GET_PLAYER(eReceivingPlayer).initUnit(getUnitType(), pBestCity->getX_INLINE(), pBestCity->getY_INLINE(), AI_getUnitAIType());
+
+		pTradeUnit->convert(this);
+
+		CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_TRADED_UNIT_TO_YOU", GET_PLAYER(getOwnerINLINE()).getNameKey(), pTradeUnit->getNameKey());
+		gDLL->getInterfaceIFace()->addMessage(pTradeUnit->getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_UNITGIFTED", MESSAGE_TYPE_INFO, pTradeUnit->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), pTradeUnit->getX_INLINE(), pTradeUnit->getY_INLINE(), true, true);
+
+	}
+}
+
+bool CvUnit::canTradeUnit(PlayerTypes eReceivingPlayer) {
+	if (eReceivingPlayer == NO_PLAYER || eReceivingPlayer > MAX_PLAYERS) {
+		return false;
+	}
+
+	if (getCargo() > 0) {
+		return false;
+	}
+
+	bool bShip = false;
+	bool bCoast = false;
+	if (getDomainType() == DOMAIN_SEA) {
+		bShip = true;
+		int iLoop;
+		for (CvCity* pLoopCity = GET_PLAYER(eReceivingPlayer).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER(eReceivingPlayer).nextCity(&iLoop)) {
+			if (pLoopCity->waterArea() != NULL && !pLoopCity->waterArea()->isLake()) {
+				bCoast = true;
+			}
+		}
+	}
+
+	if (bShip && !bCoast) {
+		return false;
+	}
+
+	return true;
+}

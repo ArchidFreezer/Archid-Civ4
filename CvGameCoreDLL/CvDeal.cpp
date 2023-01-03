@@ -561,37 +561,37 @@ bool CvDeal::startTrade(TradeData trade, PlayerTypes eFromPlayer, PlayerTypes eT
 	bool bSave = false;
 	switch (trade.m_eItemType) {
 	case TRADE_TECHNOLOGIES:
-	{
-		// K-Mod only adjust tech_from_any memory if this is a tech from a recent era
-		// and the team receiving the tech isn't already more than 2/3 of the way through.
-		// (This is to prevent the AI from being crippled by human players selling them lots of tech scraps.)
-		// Note: the current game era is the average of all the player eras, rounded down. (It no longer includes barbs.)
-		bool bSignificantTech =
-			GC.getTechInfo((TechTypes)trade.m_iData).getEra() >= GC.getGame().getCurrentEra() - 1 &&
-			GET_TEAM(eToTeam).getResearchLeft((TechTypes)trade.m_iData) > GET_TEAM(eToTeam).getResearchCost((TechTypes)trade.m_iData) / 3;
-		GET_TEAM(eToTeam).setHasTech(((TechTypes)trade.m_iData), true, eToPlayer, true, true);
-		GET_TEAM(eToTeam).setNoTradeTech(((TechTypes)trade.m_iData), true);
-
-		if (gTeamLogLevel >= 2) {
-			logBBAI("    Player %d (%S) trades tech %S to player %d (%S)", eFromPlayer, kFromPlayer.getCivilizationDescription(0), GC.getTechInfo((TechTypes)trade.m_iData).getDescription(), eToPlayer, kToPlayer.getCivilizationDescription(0));
-		}
-
-		for (PlayerTypes eLoopPlayer = (PlayerTypes)0; eLoopPlayer < MAX_PLAYERS; eLoopPlayer = (PlayerTypes)(eLoopPlayer + 1)) // Include barbarians
 		{
-			CvPlayer& kLoopPLayer = GET_PLAYER(eLoopPlayer);
-			if (kLoopPLayer.isAlive()) {
-				if (kLoopPLayer.getTeam() == eToTeam) {
-					kLoopPLayer.AI_changeMemoryCount(eFromPlayer, MEMORY_TRADED_TECH_TO_US, 1);
-				} else if (bSignificantTech) // K-Mod
-				{
-					if (GET_TEAM(kLoopPLayer.getTeam()).isHasMet(eToTeam)) {
-					kLoopPLayer.AI_changeMemoryCount(eToPlayer, MEMORY_RECEIVED_TECH_FROM_ANY, 1);
+			// K-Mod only adjust tech_from_any memory if this is a tech from a recent era
+			// and the team receiving the tech isn't already more than 2/3 of the way through.
+			// (This is to prevent the AI from being crippled by human players selling them lots of tech scraps.)
+			// Note: the current game era is the average of all the player eras, rounded down. (It no longer includes barbs.)
+			bool bSignificantTech =
+				GC.getTechInfo((TechTypes)trade.m_iData).getEra() >= GC.getGame().getCurrentEra() - 1 &&
+				GET_TEAM(eToTeam).getResearchLeft((TechTypes)trade.m_iData) > GET_TEAM(eToTeam).getResearchCost((TechTypes)trade.m_iData) / 3;
+			GET_TEAM(eToTeam).setHasTech(((TechTypes)trade.m_iData), true, eToPlayer, true, true);
+			GET_TEAM(eToTeam).setNoTradeTech(((TechTypes)trade.m_iData), true);
+
+			if (gTeamLogLevel >= 2) {
+				logBBAI("    Player %d (%S) trades tech %S to player %d (%S)", eFromPlayer, kFromPlayer.getCivilizationDescription(0), GC.getTechInfo((TechTypes)trade.m_iData).getDescription(), eToPlayer, kToPlayer.getCivilizationDescription(0));
+			}
+
+			for (PlayerTypes eLoopPlayer = (PlayerTypes)0; eLoopPlayer < MAX_PLAYERS; eLoopPlayer = (PlayerTypes)(eLoopPlayer + 1)) // Include barbarians
+			{
+				CvPlayer& kLoopPLayer = GET_PLAYER(eLoopPlayer);
+				if (kLoopPLayer.isAlive()) {
+					if (kLoopPLayer.getTeam() == eToTeam) {
+						kLoopPLayer.AI_changeMemoryCount(eFromPlayer, MEMORY_TRADED_TECH_TO_US, 1);
+					} else if (bSignificantTech) // K-Mod
+					{
+						if (GET_TEAM(kLoopPLayer.getTeam()).isHasMet(eToTeam)) {
+							kLoopPLayer.AI_changeMemoryCount(eToPlayer, MEMORY_RECEIVED_TECH_FROM_ANY, 1);
+						}
 					}
 				}
 			}
+			break;
 		}
-		break;
-	}
 
 	case TRADE_RESOURCES:
 		kFromPlayer.changeBonusExport(((BonusTypes)trade.m_iData), 1);
@@ -602,17 +602,27 @@ bool CvDeal::startTrade(TradeData trade, PlayerTypes eFromPlayer, PlayerTypes eT
 		bSave = true;
 		break;
 
-	case TRADE_CITIES:
-	{
-		CvCity* pCity = kFromPlayer.getCity(trade.m_iData);
-		if (pCity != NULL) {
-			if (gTeamLogLevel >= 2) {
-				logBBAI("    Player %d (%S) gives a city due to TRADE_CITIES with %d (%S)", eFromPlayer, kFromPlayer.getCivilizationDescription(0), eToPlayer, kToPlayer.getCivilizationDescription(0));
+	case TRADE_WORKER:
+	case TRADE_MILITARY_UNIT:
+		{
+			CvUnit* pUnit = GET_PLAYER(eFromPlayer).getUnit(trade.m_iData);
+			if (pUnit != NULL) {
+				pUnit->tradeUnit(eToPlayer);
 			}
-			pCity->doTask(TASK_GIFT, eToPlayer);
 		}
-	}
-	break;
+		break;
+
+	case TRADE_CITIES:
+		{
+			CvCity* pCity = kFromPlayer.getCity(trade.m_iData);
+			if (pCity != NULL) {
+				if (gTeamLogLevel >= 2) {
+					logBBAI("    Player %d (%S) gives a city due to TRADE_CITIES with %d (%S)", eFromPlayer, kFromPlayer.getCivilizationDescription(0), eToPlayer, kToPlayer.getCivilizationDescription(0));
+				}
+				pCity->doTask(TASK_GIFT, eToPlayer);
+			}
+		}
+		break;
 
 	case TRADE_GOLD:
 		kFromPlayer.changeGold(-(trade.m_iData));
@@ -723,27 +733,27 @@ bool CvDeal::startTrade(TradeData trade, PlayerTypes eFromPlayer, PlayerTypes eT
 		break;
 
 	case TRADE_CIVIC:
-	{
-		CivicTypes* paeNewCivics = new CivicTypes[GC.getNumCivicOptionInfos()];
+		{
+			CivicTypes* paeNewCivics = new CivicTypes[GC.getNumCivicOptionInfos()];
 
-		for (CivicOptionTypes eCivicOption = (CivicOptionTypes)0; eCivicOption < GC.getNumCivicOptionInfos(); eCivicOption = (CivicOptionTypes)(eCivicOption + 1)) {
-			paeNewCivics[eCivicOption] = kFromPlayer.getCivics(eCivicOption);
+			for (CivicOptionTypes eCivicOption = (CivicOptionTypes)0; eCivicOption < GC.getNumCivicOptionInfos(); eCivicOption = (CivicOptionTypes)(eCivicOption + 1)) {
+				paeNewCivics[eCivicOption] = kFromPlayer.getCivics(eCivicOption);
+			}
+
+			paeNewCivics[GC.getCivicInfo((CivicTypes)trade.m_iData).getCivicOptionType()] = ((CivicTypes)trade.m_iData);
+
+			kFromPlayer.revolution(paeNewCivics, true);
+
+			if (kFromPlayer.AI_getCivicTimer() < GC.getDefineINT("PEACE_TREATY_LENGTH")) {
+				kFromPlayer.AI_setCivicTimer(GC.getDefineINT("PEACE_TREATY_LENGTH"));
+			}
+			if (gTeamLogLevel >= 2) {
+				logBBAI("    Player %d (%S) switched civics due to TRADE_CIVICS with player %d (%S)", eFromPlayer, kFromPlayer.getCivilizationDescription(0), eToPlayer, kToPlayer.getCivilizationDescription(0));
+			}
+
+			SAFE_DELETE_ARRAY(paeNewCivics);
 		}
-
-		paeNewCivics[GC.getCivicInfo((CivicTypes)trade.m_iData).getCivicOptionType()] = ((CivicTypes)trade.m_iData);
-
-		kFromPlayer.revolution(paeNewCivics, true);
-
-		if (kFromPlayer.AI_getCivicTimer() < GC.getDefineINT("PEACE_TREATY_LENGTH")) {
-			kFromPlayer.AI_setCivicTimer(GC.getDefineINT("PEACE_TREATY_LENGTH"));
-		}
-		if (gTeamLogLevel >= 2) {
-			logBBAI("    Player %d (%S) switched civics due to TRADE_CIVICS with player %d (%S)", eFromPlayer, kFromPlayer.getCivilizationDescription(0), eToPlayer, kToPlayer.getCivilizationDescription(0));
-		}
-
-		SAFE_DELETE_ARRAY(paeNewCivics);
-	}
-	break;
+		break;
 
 	case TRADE_RELIGION:
 		kFromPlayer.convert((ReligionTypes)trade.m_iData);
@@ -821,7 +831,7 @@ bool CvDeal::startTrade(TradeData trade, PlayerTypes eFromPlayer, PlayerTypes eT
 
 	case TRADE_NON_AGGRESSION:
 		if (trade.m_iData == 0) {
-			startTeamTrade(TRADE_NON_AGGRESSION, kFromPlayer.getTeam(),kToPlayer.getTeam(), true);
+			startTeamTrade(TRADE_NON_AGGRESSION, kFromPlayer.getTeam(), kToPlayer.getTeam(), true);
 			GET_TEAM(kFromPlayer.getTeam()).setHasNonAggression(eToTeam, true);
 		} else {
 			bSave = true;
@@ -856,6 +866,8 @@ void CvDeal::endTrade(TradeData trade, PlayerTypes eFromPlayer, PlayerTypes eToP
 
 	case TRADE_CITIES:
 	case TRADE_GOLD:
+	case TRADE_WORKER:
+	case TRADE_MILITARY_UNIT:
 		FAssert(false);
 		break;
 

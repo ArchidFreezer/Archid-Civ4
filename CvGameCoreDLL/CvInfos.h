@@ -975,6 +975,8 @@ public:
 	bool isNoRevealMap() const;			// Exposed to Python
 	bool isSingleBuild() const;
 	bool isPrereqPower() const;
+	bool isWorkerTrade() const;
+	bool isMilitaryTrade() const;
 
 	float getUnitMaxSpeed() const;					// Exposed to Python
 	float getUnitPadTime() const;					// Exposed to Python
@@ -1187,6 +1189,8 @@ protected:
 	bool m_bNoRevealMap;
 	bool m_bSingleBuild;
 	bool m_bPrereqPower;
+	bool m_bWorkerTrade;
+	bool m_bMilitaryTrade;
 
 	CultureLevelTypes m_eMinCultureLevel;
 	UnitRangeTypes 	m_eRangeType;

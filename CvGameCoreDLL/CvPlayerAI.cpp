@@ -6335,6 +6335,22 @@ int CvPlayerAI::AI_dealVal(PlayerTypes ePlayer, const CLinkList<TradeData>* pLis
 		case TRADE_NON_AGGRESSION:
 			iValue += kOurTeam.AI_NonAggressionTradeVal(eOtherTeam);
 			break;
+		case TRADE_WORKER:
+			{
+				CvUnit* pUnit = GET_PLAYER(ePlayer).getUnit(pNode->m_data.m_iData);
+				if (pUnit != NULL) {
+					iValue += AI_workerTradeVal(pUnit);
+				}
+			}
+			break;
+		case TRADE_MILITARY_UNIT:
+			{
+				CvUnit* pUnit = GET_PLAYER(ePlayer).getUnit(pNode->m_data.m_iData);
+				if (pUnit != NULL) {
+					iValue += AI_militaryUnitTradeVal(pUnit);
+				}
+			}
+			break;
 		}
 	}
 
@@ -13071,6 +13087,188 @@ void CvPlayerAI::AI_doDiplo() {
 										}
 									}
 
+									//Purchase Workers
+									if (AI_getContactTimer(eOtherPlayer, CONTACT_TRADE_WORKERS) == 0) {
+										if (GC.getGameINLINE().getSorenRandNum(GC.getLeaderHeadInfo(getPersonalityType()).getContactRand(CONTACT_TRADE_WORKERS), "AI Diplo Trade Workers") == 0) {
+											if (kOurTeam.isHasEmbassy(eOtherTeam)) {
+												CvUnit* pWorker = NULL;
+												int iNeededWorkers = 0;
+
+												//figure out if we need workers or not
+												for (CvArea* pLoopArea = GC.getMapINLINE().firstArea(&iLoop); pLoopArea != NULL; pLoopArea = GC.getMapINLINE().nextArea(&iLoop)) {
+													if (pLoopArea->getCitiesPerPlayer(getID()) > 0) {
+														iNeededWorkers += AI_neededWorkers(pLoopArea);
+													}
+												}
+												//if we need workers
+												if (iNeededWorkers > 0) {
+													for (CvUnit* pLoopUnit = kOtherPlayer.firstUnit(&iLoop); pLoopUnit != NULL; pLoopUnit = kOtherPlayer.nextUnit(&iLoop)) {
+														if (pLoopUnit->canTradeUnit(getID())) {
+															setTradeItem(&item, TRADE_WORKER, pLoopUnit->getID());
+															//if they can trade the worker to us
+															if (kOtherPlayer.canTradeItem(getID(), item, true)) {
+																pWorker = pLoopUnit;
+																break;
+															}
+														}
+													}
+												}
+												if (pWorker != NULL) {
+													int iTheirValue = kOtherPlayer.AI_workerTradeVal(pWorker);
+													int iGold = AI_maxGoldTrade(eOtherPlayer);
+
+													if (iGold >= iTheirValue && iTheirValue > 0) {
+														setTradeItem(&item, TRADE_GOLD, iTheirValue);
+														//if we can trade the gold to them
+														if (canTradeItem(eOtherPlayer, item, true)) {
+															ourList.clear();
+															theirList.clear();
+
+															setTradeItem(&item, TRADE_GOLD, iTheirValue);
+															ourList.insertAtEnd(item);
+
+															setTradeItem(&item, TRADE_WORKER, pWorker->getID());
+															theirList.insertAtEnd(item);
+
+															if (kOtherPlayer.isHuman()) {
+																if (!(abContacted[eOtherTeam])) {
+																	AI_changeContactTimer(eOtherPlayer, CONTACT_TRADE_WORKERS, GC.getLeaderHeadInfo(getPersonalityType()).getContactDelay(CONTACT_TRADE_WORKERS));
+																	CvDiploParameters* pDiplo = new CvDiploParameters(getID());
+																	FAssertMsg(pDiplo != NULL, "pDiplo must be valid");
+																	pDiplo->setDiploComment((DiploCommentTypes)GC.getInfoTypeForString("AI_DIPLOCOMMENT_OFFER_DEAL"));
+																	pDiplo->setAIContact(true);
+																	pDiplo->setOurOfferList(theirList);
+																	pDiplo->setTheirOfferList(ourList);
+																	AI_beginDiplomacy(pDiplo, eOtherPlayer);
+																	abContacted[eOtherTeam] = true;
+																}
+															} else {
+																GC.getGameINLINE().implementDeal(getID(), eOtherPlayer, &ourList, &theirList);
+
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+
+									if (AI_getContactTimer(eOtherPlayer, CONTACT_TRADE_MILITARY_UNITS) == 0) {
+										if (GC.getGameINLINE().getSorenRandNum(GC.getLeaderHeadInfo(getPersonalityType()).getContactRand(CONTACT_TRADE_MILITARY_UNITS) / std::max(1, GET_TEAM(getTeam()).getAnyWarPlanCount(true)), "AI Diplo Trade Military Units") == 0) {
+											if (kOurTeam.isHasEmbassy(eOtherTeam)) {
+												if (!AI_isFinancialTrouble()) {
+													int* paiMilitaryUnits = new int[kOtherPlayer.getNumUnits()];
+													for (int iJ = 0; iJ < kOtherPlayer.getNumUnits(); iJ++) {
+														paiMilitaryUnits[iJ] = -1;
+													}
+													CvUnit* pBestUnit = NULL;
+													int iNumTradableUnits = 0;
+													{
+														// We need to create this in its own block to allow the for loop to initialise different variable types without exposing the variables to a greater scope
+														CvUnit* pLoopUnit;
+														int iJ;
+														int iLoop;
+														for (iJ = 0, pLoopUnit = kOtherPlayer.firstUnit(&iLoop); pLoopUnit != NULL; iJ++, pLoopUnit = kOtherPlayer.nextUnit(&iLoop)) {
+															if (pLoopUnit->canTradeUnit(getID())) {
+																setTradeItem(&item, TRADE_MILITARY_UNIT, pLoopUnit->getID());
+																if (kOtherPlayer.canTradeItem(getID(), item, true)) {
+																	paiMilitaryUnits[iJ] = pLoopUnit->getID();
+																	iNumTradableUnits++;
+																}
+															}
+														}
+													}
+													TechTypes eBestTech = NO_TECH;
+													int iBestValue = 0;
+													if (iNumTradableUnits > 0) {
+														for (TechTypes eLoopTech = (TechTypes)0; eLoopTech < GC.getNumTechInfos(); eLoopTech = (TechTypes)(eLoopTech + 1)) {
+															setTradeItem(&item, TRADE_TECHNOLOGIES, eLoopTech);
+
+															if (canTradeItem(eOtherPlayer, item, true)) {
+																int iValue = (1 + GC.getGameINLINE().getSorenRandNum(10000, "AI Tech For Military"));
+
+																iValue /= std::max(1, GC.getTechInfo(eLoopTech).getFlavorValue(FLAVOR_MILITARY));
+																if (iValue > iBestValue) {
+																	iBestValue = iValue;
+																	eBestTech = eLoopTech;
+																}
+															}
+														}
+													}
+													if (eBestTech != NO_TECH) {
+														int iUnitValue = 0;
+														int iTechValue = kOtherTeam.AI_techTradeVal(eBestTech, getTeam());
+														for (int iJ = 0; iJ < kOtherPlayer.getNumUnits(); iJ++) {
+															if (paiMilitaryUnits[iJ] > 0) {
+																if (iUnitValue > iTechValue) {
+																	paiMilitaryUnits[iJ] = -1;
+																} else {
+																	iUnitValue += AI_militaryUnitTradeVal(kOtherPlayer.getUnit(paiMilitaryUnits[iJ]));
+																}
+															}
+														}
+
+														ourList.clear();
+														theirList.clear();
+
+														int iNeededGold = iUnitValue - iTechValue;
+														int iGold;
+														//Units are worth more than the tech
+														if (iNeededGold > 0) {
+															iGold = AI_maxGoldTrade(eOtherPlayer);
+
+															setTradeItem(&item, TRADE_GOLD, std::min(iNeededGold, iGold));
+															if (canTradeItem(eOtherPlayer, item, true)) {
+																setTradeItem(&item, TRADE_GOLD, std::min(iNeededGold, iGold));
+																ourList.insertAtEnd(item);
+															}
+														}
+														//The tech is worth more than the units
+														else if (iNeededGold < 0) {
+															iGold = kOtherPlayer.AI_maxGoldTrade(getID());
+
+															setTradeItem(&item, TRADE_GOLD, std::min(-iNeededGold, iGold));
+															if (kOtherPlayer.canTradeItem(getID(), item, true)) {
+																setTradeItem(&item, TRADE_GOLD, std::min(-iNeededGold, iGold));
+																theirList.insertAtEnd(item);
+															}
+														}
+														//The difference is too large, the trade isn't worth it
+														if (std::max(iNeededGold, -iNeededGold) - iGold < 300) {
+															for (int iJ = 0; iJ < kOtherPlayer.getNumUnits(); iJ++) {
+																if (paiMilitaryUnits[iJ] > 0) {
+																	setTradeItem(&item, TRADE_MILITARY_UNIT, paiMilitaryUnits[iJ]);
+																	theirList.insertAtEnd(item);
+																}
+															}
+
+															setTradeItem(&item, TRADE_TECHNOLOGIES, eBestTech);
+															ourList.insertAtEnd(item);
+
+															if (kOtherPlayer.isHuman()) {
+																if (!(abContacted[eOtherTeam])) {
+																	AI_changeContactTimer(eOtherPlayer, CONTACT_TRADE_MILITARY_UNITS, GC.getLeaderHeadInfo(getPersonalityType()).getContactDelay(CONTACT_TRADE_MILITARY_UNITS));
+																	CvDiploParameters* pDiplo = new CvDiploParameters(getID());
+																	FAssertMsg(pDiplo != NULL, "pDiplo must be valid");
+																	pDiplo->setDiploComment((DiploCommentTypes)GC.getInfoTypeForString("AI_DIPLOCOMMENT_OFFER_DEAL"));
+																	pDiplo->setAIContact(true);
+																	pDiplo->setOurOfferList(theirList);
+																	pDiplo->setTheirOfferList(ourList);
+																	AI_beginDiplomacy(pDiplo, eOtherPlayer);
+																	abContacted[eOtherTeam] = true;
+																}
+															} else {
+																GC.getGameINLINE().implementDeal(getID(), eOtherPlayer, &ourList, &theirList);
+
+															}
+														}
+													}
+													SAFE_DELETE_ARRAY(paiMilitaryUnits);
+												}
+											}
+										}
+									}
+
 									if (AI_getContactTimer(eOtherPlayer, CONTACT_TRADE_BONUS) == 0) {
 										if (GC.getGameINLINE().getSorenRandNum(GC.getLeaderHeadInfo(getPersonalityType()).getContactRand(CONTACT_TRADE_BONUS), "AI Diplo Trade Bonus") == 0) {
 											int iBestValue = 0;
@@ -18034,4 +18232,45 @@ int CvPlayerAI::AI_getEmbassyAttitude(PlayerTypes ePlayer) const {
 	}
 
 	return iAttitude;
+}
+
+int CvPlayerAI::AI_workerTradeVal(CvUnit* pUnit) const {
+	if (!(GC.getUnitInfo(pUnit->getUnitType()).isWorkerTrade())) {//It's not a worker, so it's worthless
+		return 0;
+	}
+
+	int iNeededWorkers = 0;
+	int iLoop;
+	for (CvArea* pLoopArea = GC.getMapINLINE().firstArea(&iLoop); pLoopArea != NULL; pLoopArea = GC.getMapINLINE().nextArea(&iLoop)) {
+		if (pLoopArea->getCitiesPerPlayer(getID()) > 0) {
+			iNeededWorkers += AI_neededWorkers(pLoopArea);
+		}
+	}
+
+	int iValue = 0;
+	int iProductionCost = (GC.getUnitInfo(pUnit->getUnitType()).getProductionCost() > 0) ? GC.getUnitInfo(pUnit->getUnitType()).getProductionCost() : 500;
+	if (iNeededWorkers > 1) {
+		iValue = (iNeededWorkers * iProductionCost);
+		iValue *= 2;
+		iValue /= 3;
+	} else {
+		iValue = (iProductionCost * 7) / 8;
+	}
+
+	return iValue;
+}
+
+int CvPlayerAI::AI_militaryUnitTradeVal(CvUnit* pUnit) const {
+	UnitTypes eUnit = pUnit->getUnitType();
+
+	int iValue;
+	if (GC.getUnitInfo(eUnit).getProductionCost() > 0) {
+		iValue = GC.getUnitInfo(eUnit).getProductionCost();
+	} else {
+
+		iValue = 200;
+	}
+	iValue += AI_unitValue(eUnit, (UnitAITypes)GC.getUnitInfo(eUnit).getDefaultUnitAIType(), getCapitalCity()->area());
+
+	return iValue;
 }

@@ -2898,6 +2898,8 @@ CvUnitInfo::CvUnitInfo() :
 	m_bNoRevealMap(false),
 	m_bSingleBuild(false),
 	m_bPrereqPower(false),
+	m_bWorkerTrade(false),
+	m_bMilitaryTrade(false),
 	m_fUnitMaxSpeed(0.0f),
 	m_fUnitPadTime(0.0f),
 	m_pbUpgradeUnitClass(NULL),
@@ -2991,6 +2993,14 @@ CvUnitInfo::~CvUnitInfo() {
 	SAFE_DELETE_ARRAY(m_paszLateArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszMiddleArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszUnitNames);
+}
+
+bool CvUnitInfo::isWorkerTrade() const {
+	return m_bWorkerTrade;
+}
+
+bool CvUnitInfo::isMilitaryTrade() const {
+	return m_bMilitaryTrade;
 }
 
 int CvUnitInfo::getPrereqOrBonus(int i) const {
@@ -4103,6 +4113,8 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bNoRevealMap);
 	stream->Read(&m_bSingleBuild);
 	stream->Read(&m_bPrereqPower);
+	stream->Read(&m_bWorkerTrade);
+	stream->Read(&m_bMilitaryTrade);
 
 	stream->Read(&m_fUnitMaxSpeed);
 	stream->Read(&m_fUnitPadTime);
@@ -4496,6 +4508,8 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bNoRevealMap);
 	stream->Write(m_bSingleBuild);
 	stream->Write(m_bPrereqPower);
+	stream->Write(m_bWorkerTrade);
+	stream->Write(m_bMilitaryTrade);
 
 	stream->Write(m_fUnitMaxSpeed);
 	stream->Write(m_fUnitPadTime);
@@ -4691,6 +4705,8 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bLineOfSight, "bLineOfSight", false);
 	pXML->GetChildXmlValByName(&m_bHiddenNationality, "bHiddenNationality", false);
 	pXML->GetChildXmlValByName(&m_bAlwaysHostile, "bAlwaysHostile", false);
+	pXML->GetChildXmlValByName(&m_bWorkerTrade, "bWorkerTrade", false);
+	pXML->GetChildXmlValByName(&m_bMilitaryTrade, "bMilitaryTrade", false);
 	pXML->GetChildXmlValByName(&m_bNoRevealMap, "bNoRevealMap", false);
 	pXML->GetChildXmlEnumValByName(&m_eRangeType, "UnitRangeType", UNITRANGE_UNLIMITED);
 

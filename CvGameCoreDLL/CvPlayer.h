@@ -41,6 +41,9 @@ public:
 	bool isDoNotBotherStatus(PlayerTypes playerID) const;
 	void setDoNotBotherStatus(PlayerTypes playerID, bool bNewValue);
 
+	DenialTypes AI_workerTrade(CvUnit* pUnit, PlayerTypes ePlayer) const;
+	DenialTypes AI_militaryUnitTrade(CvUnit* pUnit, PlayerTypes ePlayer) const;
+
 	void setHasTrait(TraitTypes eTrait, bool bNewValue);
 	void changePersonalityType();
 	void resetCivTypeEffects();

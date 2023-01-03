@@ -483,6 +483,8 @@
 		<element type="UnitCombatType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="ObsoleteTech" content="textOnly"/>
+	<ElementType name="bWorkerTrade" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bMilitaryTrade" content="textOnly" dt:type="boolean"/>
 	<ElementType name="UnitInfo" content="eltOnly">
 		<element type="Class"/>
 		<element type="Type"/>
@@ -538,6 +540,8 @@
 		<element type="bLineOfSight" minOccurs="0"/>
 		<element type="bHiddenNationality" minOccurs="0"/>
 		<element type="bAlwaysHostile" minOccurs="0"/>
+		<element type="bWorkerTrade" minOccurs="0"/>
+		<element type="bMilitaryTrade" minOccurs="0"/>
 		<element type="UnitClassUpgrades" minOccurs="0"/>
 		<element type="UnitClassTargets" minOccurs="0"/>
 		<element type="UnitCombatTargets" minOccurs="0"/>

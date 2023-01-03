@@ -8388,5 +8388,33 @@
 		<Tag>TXT_KEY_MISC_NON_AGGRESSION_AGREEMENT</Tag>
 		<English>%s1 and %s2 signed a Non-Agression Pact to guarantee peace between their civilizations.</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRADE_MILITARY_UNIT</Tag>
+		<English>Military Units</English>
+		<French>Unités Militaires</French>
+		<German>Militäreinheiten</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRADE_WORKERS</Tag>
+		<English>Workers</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_TRADED_UNIT_TO_YOU</Tag>
+		<English>%s1 has traded a %s2 to you.</English>
+		<French>%s1 vous a vendu [NUM2:un:une:des:des] %s2.</French>
+		<German>%s1 hat einen %s2 an Dich verkauft.</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRADABLE_UNIT</Tag>
+		<English>[ICON_BULLET]This Unit is Tradable</English>
+		<French>[ICON_BULLET]Cette unité peut être vendue</French>
+		<German>[ICON_BULLET]Diese Einheit kann gehandelt werden</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRADE_WORKER</Tag>
+		<English>Workers</English>
+		<French>Ouvriers</French>
+		<German>Bautrupps</German>
+	</TEXT>
 
 </Civ4GameText>

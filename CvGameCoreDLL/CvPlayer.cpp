@@ -3499,6 +3499,53 @@ bool CvPlayer::canTradeItem(PlayerTypes eWhoTo, TradeData item, bool bTestDenial
 	}
 	break;
 
+	case TRADE_WORKER:
+	{
+		CvUnit* pUnitTraded = getUnit(item.m_iData);
+		CvCity* pTheirCapitalCity = kTheirPlayer.getCapitalCity();
+		if (kOurTeam.isHasEmbassy(kTheirPlayer.getTeam())) {
+			if (pUnitTraded != NULL) {
+				if (GC.getUnitInfo(pUnitTraded->getUnitType()).isWorkerTrade() && pUnitTraded->canMove() && (pTheirCapitalCity != NULL)) {
+					if (!kTheirTeam.isUnitClassMaxedOut(pUnitTraded->getUnitClassType(), kTheirTeam.getUnitClassMaking(pUnitTraded->getUnitClassType()))) {
+						if (!kTheirPlayer.isUnitClassMaxedOut(pUnitTraded->getUnitClassType(), kTheirPlayer.getUnitClassMaking(pUnitTraded->getUnitClassType()))) {
+							return true;
+						}
+					}
+				}
+			}
+		}
+	}
+	break;
+
+	case TRADE_MILITARY_UNIT:
+	{
+		CvUnit* pUnitTraded = getUnit(item.m_iData);
+		CvCity* pTheirCapitalCity = kTheirPlayer.getCapitalCity();
+
+		if (kOurTeam.isHasEmbassy(kTheirPlayer.getTeam())) {
+			if (pUnitTraded != NULL) {
+				UnitTypes eUnit = (UnitTypes)GC.getCivilizationInfo(kTheirPlayer.getCivilizationType()).getCivilizationUnits(pUnitTraded->getUnitClassType());
+				if (NO_UNIT != eUnit) {
+					CvCity* pTradingCity = pUnitTraded->plot()->getPlotCity();
+					if (GC.getUnitInfo(pUnitTraded->getUnitType()).isMilitaryTrade() && pUnitTraded->canMove() && (pTradingCity != NULL) && (pTheirCapitalCity != NULL)) {
+						if (pTradingCity->getOwnerINLINE() == getID()) {
+							if (pTradingCity->isConnectedTo(pTheirCapitalCity)) {
+								if (pTradingCity->isRevealed(kTheirPlayer.getTeam(), true)) {
+									if (!kTheirTeam.isUnitClassMaxedOut(pUnitTraded->getUnitClassType(), kTheirTeam.getUnitClassMaking(pUnitTraded->getUnitClassType()))) {
+										if (!kTheirPlayer.isUnitClassMaxedOut(pUnitTraded->getUnitClassType(), kTheirPlayer.getUnitClassMaking(pUnitTraded->getUnitClassType()))) {
+											return true;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	break;
+
 	case TRADE_GOLD:
 		if (kOurTeam.isGoldTrading() || kTheirTeam.isGoldTrading()) {
 			if (getGold() >= item.m_iData) {
@@ -3814,6 +3861,24 @@ DenialTypes CvPlayer::getTradeDenial(PlayerTypes eWhoTo, TradeData item) const {
 
 	case TRADE_NON_AGGRESSION:
 		return kOurTeam.AI_NonAggressionTrade(eTheirTeam);
+		break;
+
+	case TRADE_WORKER:
+		{
+			CvUnit* pUnit = getUnit(item.m_iData);
+			if (pUnit != NULL) {
+				return AI_workerTrade(pUnit, eWhoTo);
+			}
+		}
+		break;
+
+	case TRADE_MILITARY_UNIT:
+		{
+			CvUnit* pUnit = getUnit(item.m_iData);
+			if (pUnit != NULL) {
+				return AI_militaryUnitTrade(pUnit, eWhoTo);
+			}
+		}
 		break;
 	}
 	return NO_DENIAL;
@@ -17627,6 +17692,32 @@ void CvPlayer::buildTradeTable(PlayerTypes eOtherPlayer, CLinkList<TradeData>& o
 				}
 			}
 			break;
+
+		case TRADE_WORKER:
+			{
+				int iLoop;
+				for (CvUnit* pLoopUnit = firstUnit(&iLoop); pLoopUnit != NULL; pLoopUnit = nextUnit(&iLoop)) {
+					setTradeItem(&item, TRADE_WORKER, pLoopUnit->getID());
+					if (canTradeItem(eOtherPlayer, item)) {
+						bFoundItemUs = true;
+						ourList.insertAtEnd(item);
+					}
+				}
+			}
+			break;
+
+		case TRADE_MILITARY_UNIT:
+			{
+				int iLoop;
+				for (CvUnit* pLoopUnit = firstUnit(&iLoop); pLoopUnit != NULL; pLoopUnit = nextUnit(&iLoop)) {
+					setTradeItem(&item, TRADE_MILITARY_UNIT, pLoopUnit->getID());
+					if (canTradeItem(eOtherPlayer, item)) {
+						bFoundItemUs = true;
+						ourList.insertAtEnd(item);
+					}
+				}
+			}
+			break;
 		}
 	}
 }
@@ -17671,10 +17762,20 @@ bool CvPlayer::getHeadingTradeString(PlayerTypes eOtherPlayer, TradeableItems eI
 		szString = gDLL->getText("TXT_KEY_TRADE_EMBASSY_STRING");
 		break;
 
+	case TRADE_WORKER:
+		szString = gDLL->getText("TXT_KEY_TRADE_WORKERS");
+		break;
+
+	case TRADE_MILITARY_UNIT:
+		szString = gDLL->getText("TXT_KEY_TRADE_MILITARY_UNIT");
+		break;
+
 	default:
 		szString.clear();
 		return false;
 		break;
+
+
 	}
 
 	return true;
@@ -17807,6 +17908,35 @@ bool CvPlayer::getItemTradeString(PlayerTypes eOtherPlayer, bool bOffer, bool bS
 		break;
 	case TRADE_FREE_TRADE_ZONE:
 		szString = gDLL->getText("TXT_KEY_MISC_FREE_TRADE_ZONE");
+		break;
+	case TRADE_WORKER:
+		{
+			CvUnit* pUnit = NULL;
+			if (bOffer)
+				pUnit = GET_PLAYER(eOtherPlayer).getUnit(zTradeData.m_iData);
+			else
+				pUnit = getUnit(zTradeData.m_iData);
+
+			if (pUnit != NULL) {
+				szString.Format(L"%s", pUnit->getName().GetCString());
+				szIcon = GC.getUnitInfo((UnitTypes)pUnit->getUnitType()).getButton();
+			}
+		}
+		break;
+	case TRADE_MILITARY_UNIT:
+		{
+			CvUnit* pUnit = NULL;
+			if (bOffer)
+				pUnit = GET_PLAYER(eOtherPlayer).getUnit(zTradeData.m_iData);
+			else
+				pUnit = getUnit(zTradeData.m_iData);
+
+			if (pUnit != NULL) {
+				CvWStringBuffer szTemp;
+				szString.Format(L"%s", pUnit->getName().GetCString());
+				szIcon = GC.getUnitInfo((UnitTypes)pUnit->getUnitType()).getButton();
+			}
+		}
 		break;
 	default:
 		szString.clear();
@@ -18679,4 +18809,90 @@ void CvPlayer::setDoNotBotherStatus(PlayerTypes playerID, bool bNewValue) {
 
 bool CvPlayer::isDoNotBotherStatus(PlayerTypes playerID) const {
 	return m_pbDoNotBother[playerID];
+}
+
+DenialTypes CvPlayer::AI_workerTrade(CvUnit* pUnit, PlayerTypes ePlayer) const {
+
+	if (isHuman()) {
+		return NO_DENIAL;
+	}
+
+	if (GET_TEAM(GET_PLAYER(ePlayer).getTeam()).isAtWar(getTeam())) {
+		return NO_DENIAL;
+	}
+
+	if (GET_TEAM(getTeam()).isVassal(GET_PLAYER(ePlayer).getTeam())) {
+		return NO_DENIAL;
+	}
+
+	if (GET_PLAYER(ePlayer).getTeam() == getTeam()) {
+		return NO_DENIAL;
+	}
+
+	if (GET_TEAM(getTeam()).AI_getWorstEnemy() == GET_PLAYER(ePlayer).getTeam()) {
+		return DENIAL_WORST_ENEMY;
+	}
+
+	if (GET_TEAM(getTeam()).AI_isSneakAttackPreparing(GET_PLAYER(ePlayer).getTeam())) {
+		return DENIAL_NO_GAIN;
+	}
+
+	if (GET_PLAYER(ePlayer).AI_totalUnitAIs(UNITAI_WORKER) > GET_PLAYER(ePlayer).getNumCities()) {
+		if (GET_PLAYER(ePlayer).calculateUnitCost() > 0) {
+			return DENIAL_NO_GAIN;
+		}
+	}
+
+	AttitudeTypes eAttitude = AI_getAttitude(ePlayer);
+
+	if (eAttitude <= ATTITUDE_ANNOYED) {
+		return DENIAL_ATTITUDE;
+	}
+
+	return NO_DENIAL;
+}
+
+DenialTypes CvPlayer::AI_militaryUnitTrade(CvUnit* pUnit, PlayerTypes ePlayer) const {
+
+	if (isHuman()) {
+		return NO_DENIAL;
+	}
+
+	if (GET_PLAYER(ePlayer).getTeam() == getTeam()) {
+		return NO_DENIAL;
+	}
+
+	if (GET_TEAM(getTeam()).isVassal(GET_PLAYER(ePlayer).getTeam())) {
+		return NO_DENIAL;
+	}
+
+	if (GET_TEAM(GET_PLAYER(ePlayer).getTeam()).isAtWar(getTeam())) {
+		return NO_DENIAL;
+	}
+
+	if (GET_TEAM(getTeam()).AI_isSneakAttackPreparing(GET_PLAYER(ePlayer).getTeam())) {
+		return DENIAL_NO_GAIN;
+	}
+
+	if (GET_TEAM(getTeam()).getAnyWarPlanCount(true) > 0 && !GET_TEAM(getTeam()).AI_shareWar(GET_PLAYER(ePlayer).getTeam())) {
+		return DENIAL_NO_GAIN;
+	}
+
+	if (GET_PLAYER(ePlayer).AI_isFinancialTrouble() && (GET_PLAYER(ePlayer).calculateUnitCost() > 0)) {
+		if (GET_TEAM(GET_PLAYER(ePlayer).getTeam()).getAtWarCount(true) == 0) {
+			return DENIAL_NO_GAIN;
+		}
+	}
+
+	AttitudeTypes eAttitude = GET_PLAYER(getID()).AI_getAttitude(ePlayer);
+
+	if (pUnit->nukeRange() > 0 && GET_PLAYER(ePlayer).getNumNukeUnits() == 0) {
+		return DENIAL_JOKING;
+	}
+
+	if (eAttitude <= ATTITUDE_ANNOYED) {
+		return DENIAL_ATTITUDE;
+	}
+
+	return NO_DENIAL;
 }
