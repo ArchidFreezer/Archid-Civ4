@@ -170,7 +170,7 @@ public:
 
 #ifdef _USRDLL
 	template <class T>
-	void InitList(T** ppList, int iListLen, T val = 0);
+	static void InitList(T** ppList, int iListLen, T val = 0);
 #endif
 	void InitStringList(CvString** ppszList, int iListLen, CvString szString);
 

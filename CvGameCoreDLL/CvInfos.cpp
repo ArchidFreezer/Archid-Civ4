@@ -13269,7 +13269,79 @@ bool CvLeaderHeadInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetListPairInfoForAudioScripts(&m_piDiploWarIntroMusicScriptIds, "DiplomacyIntroMusicWar", GC.getNumEraInfos());
 	pXML->SetListPairInfoForAudioScripts(&m_piDiploWarMusicScriptIds, "DiplomacyMusicWar", GC.getNumEraInfos());
 
+	setDefaultContactInfo();
+	setDefaultMemoryInfo();
+
 	return true;
+}
+
+/*************************
+ * Functions that allow us to set defaults for new contact and memory information without
+ *  having to update every leaderhead in the XML files. Its a lazy way of doing things, but
+ *  given that most of the values are the same for all leaderheads it works. This will not
+ *  override any value that is set in the XML
+ *************************/
+void CvLeaderHeadInfo::setDefaultContactInfo() {
+	///////////////////
+	// Add the default values here
+	std::map<ContactTypes, int> mDelayVals;
+	mDelayVals.insert(std::make_pair(CONTACT_EMBASSY, 20));
+
+	std::map<ContactTypes, int> mRandVals;
+	mRandVals.insert(std::make_pair(CONTACT_EMBASSY, 25));
+
+	////////////////////
+	// No need to edit beyond this point
+	if (NULL == m_piContactDelay)
+		CvXMLLoadUtility::InitList(&m_piContactDelay, NUM_CONTACT_TYPES, 0);
+	if (NULL == m_piContactRand)
+		CvXMLLoadUtility::InitList(&m_piContactRand, NUM_CONTACT_TYPES, 0);
+
+	std::map<ContactTypes, int>::iterator itDelay;
+	std::map<ContactTypes, int>::iterator itRand;
+	for (ContactTypes eContact = (ContactTypes)0; eContact < NUM_CONTACT_TYPES; eContact = (ContactTypes)(eContact + 1)) {
+		if (getContactDelay(eContact) == 0) {
+			itDelay = mDelayVals.find(eContact);
+			m_piContactDelay[eContact] = itDelay != mDelayVals.end() ? itDelay->second : 0;
+		}
+		if (getContactRand(eContact) == 0) {
+			itRand = mRandVals.find(eContact);
+			m_piContactRand[eContact] = itRand != mRandVals.end() ? itRand->second : 0;
+		}
+	}
+}
+
+void CvLeaderHeadInfo::setDefaultMemoryInfo() {
+	///////////////////
+	// Add the default values here
+	std::map<MemoryTypes, int> mAttitudeVals;
+	mAttitudeVals.insert(std::make_pair(MEMORY_CANCELLED_FREE_TRADE_AGREEMENT, -100));
+	mAttitudeVals.insert(std::make_pair(MEMORY_RECALLED_AMBASSADOR, -150));
+
+	std::map<MemoryTypes, int> mDecayVals;
+	mDecayVals.insert(std::make_pair(MEMORY_CANCELLED_FREE_TRADE_AGREEMENT, 15));
+	mDecayVals.insert(std::make_pair(MEMORY_RECALLED_AMBASSADOR, 15));
+
+	////////////////////
+	// No need to edit beyond this point
+	if (NULL == m_piMemoryDecayRand)
+		CvXMLLoadUtility::InitList(&m_piMemoryDecayRand, NUM_MEMORY_TYPES, 0);
+
+	if (NULL == m_piMemoryAttitudePercent)
+		CvXMLLoadUtility::InitList(&m_piMemoryAttitudePercent, NUM_MEMORY_TYPES, 0);
+
+	std::map<MemoryTypes, int>::iterator itAtt;
+	std::map<MemoryTypes, int>::iterator itDec;
+	for (MemoryTypes eMemory = (MemoryTypes)0; eMemory < NUM_MEMORY_TYPES; eMemory = (MemoryTypes)(eMemory + 1)) {
+		if (getMemoryAttitudePercent(eMemory) == 0) {
+			itAtt = mAttitudeVals.find(eMemory);
+			m_piMemoryAttitudePercent[eMemory] = itAtt != mAttitudeVals.end() ? itAtt->second : 0;
+		}
+		if (getMemoryDecayRand(eMemory) == 0) {
+			itDec = mDecayVals.find(eMemory);
+			m_piMemoryDecayRand[eMemory] = itDec != mDecayVals.end() ? itDec->second : 0;
+		}
+	}
 }
 
 //======================================================================================================
