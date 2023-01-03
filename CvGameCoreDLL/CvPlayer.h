@@ -38,6 +38,9 @@ public:
 	void init(PlayerTypes eID, bool bInGame);
 	void resetPlotAndCityData();
 
+	bool isDoNotBotherStatus(PlayerTypes playerID) const;
+	void setDoNotBotherStatus(PlayerTypes playerID, bool bNewValue);
+
 	void setHasTrait(TraitTypes eTrait, bool bNewValue);
 	void changePersonalityType();
 	void resetCivTypeEffects();
@@ -1303,6 +1306,7 @@ protected:
 	bool* m_pabResearchingTech;
 	bool* m_pabLoyalMember;
 	bool* m_pbTrait;
+	bool* m_pbDoNotBother;
 
 	std::vector<EventTriggerTypes> m_triggersFired;
 	std::vector<BuildingTypes> m_civicDisabledBuildings;

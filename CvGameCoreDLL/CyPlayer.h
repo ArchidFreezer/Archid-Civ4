@@ -21,6 +21,8 @@ public:
 	CvPlayer* getPlayer() { return m_pPlayer; }	// Call from C++
 	bool isNone() { return (m_pPlayer == NULL); }
 
+	bool isDoNotBotherStatus(int /*PlayerTypes*/ playerID);
+
 	bool canCaptureCities();
 	void setHasTrait(int /*TraitTypes*/ iIndex, bool bNewValue);
 

@@ -968,7 +968,7 @@
 					<DiplomacyText>
 						<Text>AI_DIPLO_NO_PEACE_1</Text>
 						<Text>AI_DIPLO_NO_PEACE_2</Text>
-						<Text>AI_DIPLO_NO_PEACE_3</Text>						
+						<Text>AI_DIPLO_NO_PEACE_3</Text>
 					</DiplomacyText>
 				</Response>
 				<Response>
@@ -1407,7 +1407,7 @@
 						<Text>AI_DIPLO_GREETINGS_ATT_FR_5</Text>
 						<Text>AI_DIPLO_GREETINGS_ATT_FR_6</Text>
 						<Text>AI_DIPLO_GREETINGS_ATT_FR_7</Text>
-						<Text>AI_DIPLO_GREETINGS_ATT_FR_8</Text>						
+						<Text>AI_DIPLO_GREETINGS_ATT_FR_8</Text>
 					</DiplomacyText>
 				</Response>
 				<Response>
@@ -1579,7 +1579,7 @@
 						<AttitudeType>ATTITUDE_CAUTIOUS</AttitudeType>
 					</Attitudes>
 					<DiplomacyText>
-						<Text>AI_DIPLO_GREETINGS_ATT_FR_LEADER_FREDERICK_1</Text>						
+						<Text>AI_DIPLO_GREETINGS_ATT_FR_LEADER_FREDERICK_1</Text>
 					</DiplomacyText>
 				</Response>
 				<Response>
@@ -2112,7 +2112,7 @@
 						<Text>AI_DIPLO_GREETINGS_ATT_FUR_5</Text>
 						<Text>AI_DIPLO_GREETINGS_ATT_FUR_6</Text>
 						<Text>AI_DIPLO_GREETINGS_ATT_FUR_7</Text>
-						<Text>AI_DIPLO_GREETINGS_ATT_FUR_8</Text>										
+						<Text>AI_DIPLO_GREETINGS_ATT_FUR_8</Text>
 					</DiplomacyText>
 				</Response>
 				<Response>
@@ -3327,7 +3327,7 @@
 				<Response>
 					<DiplomacyText>
 						<Text>AI_DIPLO_DEMAND_TRIBUTE_1</Text>
-						<Text>AI_DIPLO_DEMAND_TRIBUTE_2</Text>						
+						<Text>AI_DIPLO_DEMAND_TRIBUTE_2</Text>
 					</DiplomacyText>
 				</Response>
 				<Response>
@@ -3339,7 +3339,7 @@
 					</DiplomacyPowers>
 					<DiplomacyText>
 						<Text>AI_DIPLO_DEMAND_TRIBUTE_POWER_WEAKER_1</Text>
-						<Text>AI_DIPLO_DEMAND_TRIBUTE_POWER_WEAKER_2</Text>						
+						<Text>AI_DIPLO_DEMAND_TRIBUTE_POWER_WEAKER_2</Text>
 					</DiplomacyText>
 				</Response>
 				<Response>
@@ -4051,7 +4051,7 @@
 					</DiplomacyPowers>
 					<DiplomacyText>
 						<Text>AI_DIPLO_DEMAND_TRIBUTE_POWER_EQUAL_1</Text>
-						<Text>AI_DIPLO_DEMAND_TRIBUTE_POWER_EQUAL_2</Text>						
+						<Text>AI_DIPLO_DEMAND_TRIBUTE_POWER_EQUAL_2</Text>
 					</DiplomacyText>
 				</Response>
 				<Response>
@@ -4207,7 +4207,7 @@
 					<DiplomacyText>
 						<Text>AI_DIPLO_DEMAND_TRIBUTE_POWER_EQUAL_FREDERICK_1</Text>
 					</DiplomacyText>
-				</Response>				
+				</Response>
 				<Response>
 					<Leaders>
 						<LeaderType>LEADER_ALEXANDER</LeaderType>
@@ -4749,7 +4749,7 @@
 					</DiplomacyPowers>
 					<DiplomacyText>
 						<Text>AI_DIPLO_DEMAND_TRIBUTE_POWER_STRONGER_1</Text>
-						<Text>AI_DIPLO_DEMAND_TRIBUTE_POWER_STRONGER_2</Text>						
+						<Text>AI_DIPLO_DEMAND_TRIBUTE_POWER_STRONGER_2</Text>
 					</DiplomacyText>
 				</Response>
 				<Response>
@@ -6372,5 +6372,85 @@
 			</Responses>
 		</DiplomacyInfo>
 		<!-- K-Mod end -->
+	  <DiplomacyInfo>
+			<Type>USER_DO_NOT_BOTHER_US</Type>
+			<Responses>
+				<Response>
+					<DiplomacyText>
+						<Text>USER_STOP_BOTHERING</Text>
+					</DiplomacyText>
+				</Response>
+			</Responses>
+		</DiplomacyInfo>
+		<DiplomacyInfo>
+			<Type>USER_RESUME_TALKS</Type>
+			<Responses>
+				<Response>
+					<DiplomacyText>
+						<Text>USER_LETS_TALK</Text>
+					</DiplomacyText>
+				</Response>
+			</Responses>
+		</DiplomacyInfo>		
+		<DiplomacyInfo>
+			<Type>AI_ASSUME_SNUFFED</Type>
+			<Responses>
+				<Response>
+					<DiplomacyText>
+						<Text>ASSUME_SNUFFED</Text>
+					</DiplomacyText>
+				</Response>
+			</Responses>
+		</DiplomacyInfo> 
+		<DiplomacyInfo>
+			<Type>AI_ASSUME_REALLY_SNUFFED</Type>
+			<Responses>
+				<Response>
+					<DiplomacyText>
+						<Text>ASSUME_REALLY_SNUFFED</Text>
+					</DiplomacyText>
+				</Response>
+			</Responses>
+		</DiplomacyInfo>
+		<DiplomacyInfo>
+			<Type>AI_ASSUME_NOT_SNUFFED</Type>
+			<Responses>
+				<Response>
+					<DiplomacyText>
+						<Text>ASSUME_NOT_SNUFFED</Text>
+					</DiplomacyText>
+				</Response>
+			</Responses>
+		</DiplomacyInfo>		
+		<DiplomacyInfo>
+			<Type>AI_RESUME_TALKS</Type>
+			<Responses>
+				<Response>
+					<DiplomacyText>
+						<Text>RESUME_TALKS</Text>
+					</DiplomacyText>
+				</Response>
+			</Responses>
+		</DiplomacyInfo>
+		<DiplomacyInfo>
+			<Type>AI_RESUME_TALKS_RELUCTANT</Type>
+			<Responses>
+				<Response>
+					<DiplomacyText>
+						<Text>RESUME_TALKS_RELUCTANT</Text>
+					</DiplomacyText>
+				</Response>
+			</Responses>
+		</DiplomacyInfo>	
+		<DiplomacyInfo>
+			<Type>AI_RESUME_TALKS_GLADLY</Type>
+			<Responses>
+				<Response>
+					<DiplomacyText>
+						<Text>RESUME_TALKS_GLADLY</Text>
+					</DiplomacyText>
+				</Response>
+			</Responses>
+		</DiplomacyInfo>		 
 	</DiplomacyInfos>
 </Civ4DiplomacyInfos>

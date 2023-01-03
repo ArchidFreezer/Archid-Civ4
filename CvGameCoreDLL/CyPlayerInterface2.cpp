@@ -74,5 +74,7 @@ void CyPlayerPythonInterface2(python::class_<CyPlayer>& x) {
 		.def("getExtraRangePercent", &CyPlayer::getExtraRangePercent, "int ()")
 
 		.def("setHasTrait", &CyPlayer::setHasTrait, "TraitTypes (eTrait), bool (bNewValue)")
+		.def("isDoNotBotherStatus", &CyPlayer::isDoNotBotherStatus, "bool (int /*PlayerTypes*/ playerID ) - set if player instructed not to contact playerID")
+		;
 		;
 }

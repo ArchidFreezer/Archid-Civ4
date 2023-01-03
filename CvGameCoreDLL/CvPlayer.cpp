@@ -87,6 +87,7 @@ CvPlayer::CvPlayer() {
 	m_pabResearchingTech = NULL;
 	m_pabLoyalMember = NULL;
 	m_pbTrait = NULL;
+	m_pbDoNotBother = NULL;
 
 	m_paeCivics = NULL;
 
@@ -350,6 +351,7 @@ void CvPlayer::uninit() {
 	SAFE_DELETE_ARRAY(m_pabResearchingTech);
 	SAFE_DELETE_ARRAY(m_pabLoyalMember);
 	SAFE_DELETE_ARRAY(m_pbTrait);
+	SAFE_DELETE_ARRAY(m_pbDoNotBother);
 
 	SAFE_DELETE_ARRAY(m_paeCivics);
 
@@ -700,6 +702,12 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 		m_pbTrait = new bool[GC.getNumTraitInfos()];
 		for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
 			m_pbTrait[eTrait] = false;
+		}
+
+		FAssertMsg(m_pbDoNotBother == NULL, "about to leak memory, CvPlayer::m_pbDoNotBother");
+		m_pbDoNotBother = new bool[MAX_CIV_PLAYERS];
+		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+			m_pbDoNotBother[ePlayer] = false;
 		}
 
 		FAssertMsg(0 < GC.getNumSpecialistInfos(), "GC.getNumSpecialistInfos() is not greater than zero but it is used to allocate memory in CvPlayer::reset");
@@ -3321,6 +3329,14 @@ void CvPlayer::handleDiploEvent(DiploEventTypes eDiploEvent, PlayerTypes ePlayer
 		}
 	}
 	break;
+	case DIPLOEVENT_DO_NOT_BOTHER:
+		if (!isHuman())	setDoNotBotherStatus((PlayerTypes)iData1, true);
+		break;
+
+	case DIPLOEVENT_RESUME_BOTHER:
+		setDoNotBotherStatus((PlayerTypes)iData1, false);
+		break;
+
 	case DIPLOEVENT_SET_WARPLAN:
 	{
 		CvTeamAI& kOurTeam = GET_TEAM(getTeam());
@@ -13519,6 +13535,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 
 	pStream->Read(GC.getNumVoteSourceInfos(), m_pabLoyalMember);
 	pStream->Read(GC.getNumTraitInfos(), m_pbTrait);
+	pStream->Read(MAX_CIV_PLAYERS, m_pbDoNotBother);
 
 	for (int iI = 0; iI < GC.getNumCivicOptionInfos(); iI++) {
 		pStream->Read((int*)&m_paeCivics[iI]);
@@ -13986,6 +14003,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 
 	pStream->Write(GC.getNumVoteSourceInfos(), m_pabLoyalMember);
 	pStream->Write(GC.getNumTraitInfos(), m_pbTrait);
+	pStream->Write(MAX_CIV_PLAYERS, m_pbDoNotBother);
 
 	for (int iI = 0; iI < GC.getNumCivicOptionInfos(); iI++) {
 		pStream->Write(m_paeCivics[iI]);
@@ -18585,3 +18603,10 @@ bool CvPlayer::canCaptureCities() const {
 	return false;
 }
 
+void CvPlayer::setDoNotBotherStatus(PlayerTypes playerID, bool bNewValue) {
+	m_pbDoNotBother[playerID] = bNewValue;
+}
+
+bool CvPlayer::isDoNotBotherStatus(PlayerTypes playerID) const {
+	return m_pbDoNotBother[playerID];
+}

@@ -8309,5 +8309,37 @@
 		<French>Un Droit de Passage permet uniquement aux unités civiles de passer aux travers des frontières des civilisations, incluant le commerce. Pratique lorsque les joueurs veulent continuer les échanges commerciaux tout en stoppant les mouvement de troupes ennemis.</French>
 		<German>Eine Passiererlaubnis ermöglicht nichtmilitärischen Einheiten durch Deine Zivilisation zu ziehen und auch den Handel. Das ist sinnvoll für Spieler, die den Handel weiterführen aber den Durchzug der feindlichen Truppen unterbinden möchten.</German>
 	</TEXT>
+	<TEXT>
+		<Tag>USER_STOP_BOTHERING</Tag>
+		<English>Cease bothering us!</English>
+	</TEXT>
+	<TEXT>
+		<Tag>ASSUME_SNUFFED</Tag>
+		<English>So be it. But if we need you at the table, your absense may not be to your advantage.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>ASSUME_REALLY_SNUFFED</Tag>
+		<English>So be it. But the next time we meet, it may be on the battlefield!</English>
+	</TEXT>
+	<TEXT>
+		<Tag>ASSUME_NOT_SNUFFED</Tag>
+		<English>What a shame. My diplomats enjoyed your openness and all it revealed about you.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>USER_LETS_TALK</Tag>
+		<English>We wish to resume talks...</English>
+	</TEXT>
+	<TEXT>
+		<Tag>RESUME_TALKS</Tag>
+		<English>If you wish. I will contact you when it suits me.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>RESUME_TALKS_RELUCTANT</Tag>
+		<English>If you insist. But I have enjoyed your absense.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>RESUME_TALKS_GLADLY</Tag>
+		<English>Excellent! There are many things you have to offer us.</English>
+	</TEXT>
 
 </Civ4GameText>

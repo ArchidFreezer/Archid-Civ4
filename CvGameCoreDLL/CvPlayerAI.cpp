@@ -17916,7 +17916,49 @@ void CvPlayerAI::AI_ClearConstructionValueCache() {
 }
 
 void CvPlayerAI::AI_beginDiplomacy(CvDiploParameters* pDiploParams, PlayerTypes ePlayer) {
-	gDLL->beginDiplomacy(pDiploParams, (PlayerTypes)ePlayer);
+	if (isDoNotBotherStatus(ePlayer)) {
+		// Divert AI diplomacy away from the diplomacy screen and induce the appropriate reaction
+		// in the AI equivalent to a human rejecting the AI's requests in the interface. There are
+		// a number of AI requests that do not need handling and that simply time out. There are
+		// also AI requests that occur in CvTeam that induce the diplomacy screen in any case.
+		// This diplomacy modification does not alter the AI's characteristics at all and is actually
+		// just an interface modification for a player to shut down talks with an AI automatically.
+		int ai_request;
+		ai_request = (DiploCommentTypes)GC.getInfoTypeForString("AI_DIPLOCOMMENT_RELIGION_PRESSURE");
+		if (ai_request == pDiploParams->getDiploComment()) {
+			this->handleDiploEvent(DIPLOEVENT_NO_CONVERT, ePlayer, -1, -1);
+		}
+
+		ai_request = (DiploCommentTypes)GC.getInfoTypeForString("AI_DIPLOCOMMENT_CIVIC_PRESSURE");
+		if (ai_request == pDiploParams->getDiploComment()) {
+			this->handleDiploEvent(DIPLOEVENT_NO_REVOLUTION, ePlayer, -1, -1);
+		}
+
+		ai_request = (DiploCommentTypes)GC.getInfoTypeForString("AI_DIPLOCOMMENT_JOIN_WAR");
+		if (ai_request == pDiploParams->getDiploComment()) {
+			this->handleDiploEvent(DIPLOEVENT_NO_JOIN_WAR, ePlayer, -1, -1);
+		}
+
+		ai_request = (DiploCommentTypes)GC.getInfoTypeForString("AI_DIPLOCOMMENT_STOP_TRADING");
+		if (ai_request == pDiploParams->getDiploComment()) {
+			this->handleDiploEvent(DIPLOEVENT_NO_STOP_TRADING, ePlayer, -1, -1);
+		}
+
+		ai_request = (DiploCommentTypes)GC.getInfoTypeForString("AI_DIPLOCOMMENT_ASK_FOR_HELP");
+		if (ai_request == pDiploParams->getDiploComment()) {
+			this->handleDiploEvent(DIPLOEVENT_REFUSED_HELP, ePlayer, -1, -1);
+		}
+
+		ai_request = (DiploCommentTypes)GC.getInfoTypeForString("AI_DIPLOCOMMENT_DEMAND_TRIBUTE");
+		if (ai_request == pDiploParams->getDiploComment()) {
+			this->handleDiploEvent(DIPLOEVENT_REJECTED_DEMAND, ePlayer, -1, -1);
+			if (AI_demandRebukedWar(ePlayer)) {
+				this->handleDiploEvent(DIPLOEVENT_DEMAND_WAR, ePlayer, -1, -1);
+			}
+		}
+	} else {
+		gDLL->beginDiplomacy(pDiploParams, (PlayerTypes)ePlayer);
+	}
 }
 
 int CvPlayerAI::AI_getEmbassyAttitude(PlayerTypes ePlayer) const {

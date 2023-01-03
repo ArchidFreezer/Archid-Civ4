@@ -1879,3 +1879,7 @@ void CyPlayer::setHasTrait(int /*TraitTypes*/ iIndex, bool bNewValue) {
 bool CyPlayer::canCaptureCities() {
 	return m_pPlayer ? m_pPlayer->canCaptureCities() : false;
 }
+
+bool CyPlayer::isDoNotBotherStatus(int /*PlayerTypes*/ playerID) {
+	return m_pPlayer ? m_pPlayer->isDoNotBotherStatus((PlayerTypes)playerID) : false;
+}
