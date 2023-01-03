@@ -108,6 +108,7 @@
 	<ElementType name="bCanPassPeaks" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bMoveFastPeaks" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bCanFoundOnPeaks" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bEmbassyTrading" content="textOnly" dt:type="boolean"/>	
 	<ElementType name="TechInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -133,6 +134,7 @@
 		<element type="iPower" minOccurs="0"/>
 		<element type="bRepeat" minOccurs="0"/>
 		<element type="bTrade" minOccurs="0"/>
+		<element type="bEmbassyTrading" minOccurs="0"/>
 		<element type="bDisable" minOccurs="0"/>
 		<element type="bGoodyTech" minOccurs="0"/>
 		<element type="bExtraWaterSeeFrom" minOccurs="0"/>

@@ -1629,5 +1629,9 @@
 			<Type>INTERFACE_CAPTURE_CITIES_BUTTON</Type>
 			<Path>Art/Interface/Buttons/Actions/foundcity.dds</Path>
 		</InterfaceArtInfo>
+		<InterfaceArtInfo>
+			<Type>INTERFACE_TECH_EMBASSY</Type>
+			<Path>Art/Interface/Screens/TechTree/Embassy.dds</Path>
+		</InterfaceArtInfo>
 	</InterfaceArtInfos>
 </Civ4ArtDefines>

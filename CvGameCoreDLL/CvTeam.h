@@ -30,6 +30,13 @@ public:
 	void shareCounters(TeamTypes eTeam);
 	void processBuilding(BuildingTypes eBuilding, int iChange);
 
+	int getEmbassyTradingCount() const;
+	bool isEmbassyTrading() const;
+	bool isHasEmbassy(TeamTypes eIndex) const;
+	void changeEmbassyTradingCount(int iChange);
+	void sendAmbassador(TeamTypes eTeam);
+	void setHasEmbassy(TeamTypes eIndex, bool bNewValue);
+
 	void doTurn();
 
 	int getCanFoundOnPeaksCount() const;
@@ -426,6 +433,7 @@ protected:
 	int m_iCanPassPeaksCount;
 	int m_iMoveFastPeaksCount;
 	int m_iCanFoundOnPeaksCount;
+	int m_iEmbassyTradingCount;
 
 	bool m_bMapCentering;
 	bool m_bCapitulated;
@@ -448,6 +456,7 @@ protected:
 	bool* m_abForcePeace;
 	bool* m_abVassal;
 	bool* m_abCanLaunch;
+	bool* m_abEmbassy;
 
 	int* m_paiRouteChange;
 	int* m_paiProjectCount;
@@ -461,7 +470,6 @@ protected:
 	int* m_paiTechCount;
 	int* m_paiTerrainTradeCount;
 	int* m_aiVictoryCountdown;
-
 	int* m_aiEspionagePointsAgainstTeam;
 	int* m_aiCounterespionageTurnsLeftAgainstTeam;
 	int* m_aiCounterespionageModAgainstTeam;

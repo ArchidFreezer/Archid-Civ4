@@ -138,5 +138,9 @@
 			<Type>MEMORY_LIBERATED_CITIES</Type>
 			<Description>TXT_KEY_MEMORY_LIBERATED_CITIES</Description>
 		</MemoryInfo>
+		<MemoryInfo>
+			<Type>MEMORY_RECALLED_AMBASSADOR</Type>
+			<Description>TXT_KEY_MEMORY_RECALLED_AMBASSADOR</Description>
+		</MemoryInfo>
 	</MemoryInfos>
 </Civ4MemoryInfos>

@@ -32,6 +32,9 @@ public:
 	void AI_uninit();
 	void AI_reset(bool bConstructor);
 
+	int AI_embassyTradeVal(TeamTypes eTeam) const;
+	DenialTypes AI_embassyTrade(TeamTypes eTeam) const;
+
 	void AI_doTurnPre();
 	void AI_doTurnPost();
 

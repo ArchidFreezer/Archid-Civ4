@@ -605,6 +605,9 @@ void CvDLLWidgetData::parseHelp(CvWStringBuffer& szBuffer, CvWidgetDataStruct& w
 	case WIDGET_HELP_OBSOLETE_BUILD:
 		parseObsoleteBuildHelp(widgetDataStruct, szBuffer);
 		break;
+	case WIDGET_HELP_EMBASSY:
+		parseEmbassyHelp(widgetDataStruct, szBuffer);
+		break;
 	}
 }
 
@@ -3666,6 +3669,9 @@ void CvDLLWidgetData::parseTradeItem(CvWidgetDataStruct& widgetDataStruct, CvWSt
 		case TRADE_PEACE_TREATY:
 			szBuffer.append(gDLL->getText("TXT_KEY_TRADE_PEACE_TREATY", GC.getDefineINT("PEACE_TREATY_LENGTH")));
 			break;
+		case TRADE_EMBASSY:
+			szBuffer.append(gDLL->getText("TXT_KEY_TRADE_EMBASSY", -25));
+			break;
 		}
 
 		TradeData item;
@@ -4577,4 +4583,8 @@ void CvDLLWidgetData::parseFirstFreeUnitHelp(CvWidgetDataStruct& widgetDataStruc
 
 void CvDLLWidgetData::parseObsoleteBuildHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
 	GAMETEXT.buildObsoleteBuildString(szBuffer, ((BuildTypes)(widgetDataStruct.m_iData1)));
+}
+
+void CvDLLWidgetData::parseEmbassyHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
+	GAMETEXT.buildEmbassyString(szBuffer, ((TechTypes)(widgetDataStruct.m_iData1)));
 }

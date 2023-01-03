@@ -3733,6 +3733,7 @@
 			<Era>ERA_ANCIENT</Era>
 			<iAsset>8</iAsset>
 			<bTrade>1</bTrade>
+			<bEmbassyTrading>1</bEmbassyTrading>
 			<bGoodyTech>1</bGoodyTech>
 			<bOpenBordersTrading>1</bOpenBordersTrading>
 			<iGridX>4</iGridX>

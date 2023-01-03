@@ -26,6 +26,7 @@ public:
 
 	void verify();
 
+	bool isEmbassy();
 	bool isPeaceDeal() const;
 	bool isPeaceDealBetweenOthers(CLinkList<TradeData>* pFirstList, CLinkList<TradeData>* pSecondList) const;
 	bool isVassalDeal() const;

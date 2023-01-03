@@ -746,6 +746,15 @@ bool CvDeal::startTrade(TradeData trade, PlayerTypes eFromPlayer, PlayerTypes eT
 		}
 		break;
 
+	case TRADE_EMBASSY:
+		if (trade.m_iData == 0) {
+			startTeamTrade(TRADE_EMBASSY, GET_PLAYER(eFromPlayer).getTeam(), GET_PLAYER(eToPlayer).getTeam(), true);
+			GET_TEAM(GET_PLAYER(eFromPlayer).getTeam()).setHasEmbassy(((TeamTypes)(GET_PLAYER(eToPlayer).getTeam())), true);
+		} else {
+			bSave = true;
+		}
+		break;
+
 	case TRADE_OPEN_BORDERS:
 		if (trade.m_iData == 0) {
 			startTeamTrade(TRADE_OPEN_BORDERS, GET_PLAYER(eFromPlayer).getTeam(), GET_PLAYER(eToPlayer).getTeam(), true);
@@ -831,6 +840,32 @@ void CvDeal::endTrade(TradeData trade, PlayerTypes eFromPlayer, PlayerTypes eToP
 		GET_TEAM(GET_PLAYER(eFromPlayer).getTeam()).setVassal(((TeamTypes)(GET_PLAYER(eToPlayer).getTeam())), false, true);
 		if (bTeam) {
 			endTeamTrade(TRADE_SURRENDER, GET_PLAYER(eFromPlayer).getTeam(), GET_PLAYER(eToPlayer).getTeam());
+		}
+		break;
+
+	case TRADE_EMBASSY:
+		GET_TEAM(GET_PLAYER(eFromPlayer).getTeam()).setHasEmbassy(((TeamTypes)(GET_PLAYER(eToPlayer).getTeam())), false);
+		if (bTeam) {
+			endTeamTrade(TRADE_EMBASSY, GET_PLAYER(eFromPlayer).getTeam(), GET_PLAYER(eToPlayer).getTeam());
+			endTeamTrade(TRADE_OPEN_BORDERS, GET_PLAYER(eFromPlayer).getTeam(), GET_PLAYER(eToPlayer).getTeam());
+			endTeamTrade(TRADE_DEFENSIVE_PACT, GET_PLAYER(eFromPlayer).getTeam(), GET_PLAYER(eToPlayer).getTeam());
+			endTeamTrade(TRADE_PERMANENT_ALLIANCE, GET_PLAYER(eFromPlayer).getTeam(), GET_PLAYER(eToPlayer).getTeam());
+		}
+
+		for (PlayerTypes eOuterPlayer = (PlayerTypes)0; eOuterPlayer < MAX_PLAYERS; eOuterPlayer = (PlayerTypes)(eOuterPlayer + 1)) {
+			CvPlayer& kOuterPlayer = GET_PLAYER(eOuterPlayer);
+			if (kOuterPlayer.isAlive()) {
+				if (kOuterPlayer.getTeam() == GET_PLAYER(eFromPlayer).getTeam()) {
+					for (PlayerTypes eInnerPlayer = (PlayerTypes)0; eInnerPlayer < MAX_PLAYERS; eInnerPlayer = (PlayerTypes)(eInnerPlayer + 1)) {
+						const CvPlayer& kInnerPlayer = GET_PLAYER(eInnerPlayer);
+						if (kInnerPlayer.isAlive()) {
+							if (kInnerPlayer.getTeam() == GET_PLAYER(eToPlayer).getTeam()) {
+								kOuterPlayer.AI_changeMemoryCount(eInnerPlayer, MEMORY_RECALLED_AMBASSADOR, 1);
+							}
+						}
+					}
+				}
+			}
 		}
 		break;
 
@@ -964,6 +999,7 @@ bool CvDeal::isAnnual(TradeableItems eItem) {
 	case TRADE_OPEN_BORDERS:
 	case TRADE_DEFENSIVE_PACT:
 	case TRADE_PERMANENT_ALLIANCE:
+	case TRADE_EMBASSY:
 		return true;
 		break;
 	}
@@ -977,6 +1013,7 @@ bool CvDeal::isDual(TradeableItems eItem, bool bExcludePeace) {
 	case TRADE_OPEN_BORDERS:
 	case TRADE_DEFENSIVE_PACT:
 	case TRADE_PERMANENT_ALLIANCE:
+	case TRADE_EMBASSY:
 		return true;
 	case TRADE_PEACE_TREATY:
 		return (!bExcludePeace);
@@ -993,6 +1030,7 @@ bool CvDeal::hasData(TradeableItems eItem) {
 		eItem != TRADE_OPEN_BORDERS &&
 		eItem != TRADE_DEFENSIVE_PACT &&
 		eItem != TRADE_PERMANENT_ALLIANCE &&
+		eItem != TRADE_EMBASSY &&
 		eItem != TRADE_PEACE_TREATY);
 }
 
@@ -1028,3 +1066,20 @@ TradeableItems CvDeal::getGoldPerTurnItem() {
 	return TRADE_GOLD_PER_TURN;
 }
 
+bool CvDeal::isEmbassy() {
+	CLLNode<TradeData>* pNode;
+
+	for (pNode = headFirstTradesNode(); (pNode != NULL); pNode = nextFirstTradesNode(pNode)) {
+		if (pNode->m_data.m_eItemType == TRADE_EMBASSY) {
+			return true;
+		}
+	}
+
+	for (pNode = headSecondTradesNode(); (pNode != NULL); pNode = nextSecondTradesNode(pNode)) {
+		if (pNode->m_data.m_eItemType == TRADE_EMBASSY) {
+			return true;
+		}
+	}
+
+	return false;
+}

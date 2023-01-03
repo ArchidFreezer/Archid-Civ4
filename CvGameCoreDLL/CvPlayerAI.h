@@ -39,6 +39,9 @@ public:
 
 	void updateCacheData(); // K-Mod
 
+	void AI_beginDiplomacy(CvDiploParameters* pDiploParams, PlayerTypes ePlayer);
+	int AI_getEmbassyAttitude(PlayerTypes ePlayer) const;
+
 	void AI_doTurnPre();
 	void AI_doTurnPost();
 	void AI_doTurnUnitsPre();

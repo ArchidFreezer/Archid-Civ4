@@ -6638,6 +6638,9 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	//	Enables permanent alliances...
 	buildPermanentAllianceString(szBuffer, eTech, true, bPlayerContext);
 
+	//	Enables Embassies...
+	buildEmbassyString(szBuffer, eTech, true, bPlayerContext);
+
 	//	Peak passability...
 	buildCanPassPeaksString(szBuffer, eTech, true, bPlayerContext);
 
@@ -12132,10 +12135,17 @@ void CvGameTextMgr::getAttitudeString(CvWStringBuffer& szBuffer, PlayerTypes ePl
 			szBuffer.append(szTempBuffer);
 		}
 
-		for (int iI = 0; iI < NUM_MEMORY_TYPES; ++iI) {
-			iAttitudeChange = kPlayer.AI_getMemoryAttitude(eTargetPlayer, ((MemoryTypes)iI));
+		iAttitudeChange = kPlayer.AI_getEmbassyAttitude(eTargetPlayer);
+		if ((iPass == 0) ? (iAttitudeChange > 0) : (iAttitudeChange < 0)) {
+			szTempBuffer.Format(SETCOLR L"%s" ENDCOLR, TEXT_COLOR((iAttitudeChange > 0) ? "COLOR_POSITIVE_TEXT" : "COLOR_NEGATIVE_TEXT"), gDLL->getText("TXT_KEY_MISC_ATTITUDE_EMBASSY", iAttitudeChange).GetCString());
+			szBuffer.append(NEWLINE);
+			szBuffer.append(szTempBuffer);
+		}
+
+		for (MemoryTypes eMemory = (MemoryTypes)0; eMemory < NUM_MEMORY_TYPES; eMemory = (MemoryTypes)(eMemory + 1)) {
+			iAttitudeChange = kPlayer.AI_getMemoryAttitude(eTargetPlayer, eMemory);
 			if ((iPass == 0) ? (iAttitudeChange > 0) : (iAttitudeChange < 0)) {
-				szTempBuffer.Format(SETCOLR L"%s" ENDCOLR, TEXT_COLOR((iAttitudeChange > 0) ? "COLOR_POSITIVE_TEXT" : "COLOR_NEGATIVE_TEXT"), gDLL->getText("TXT_KEY_MISC_ATTITUDE_MEMORY", iAttitudeChange, GC.getMemoryInfo((MemoryTypes)iI).getDescription()).GetCString());
+				szTempBuffer.Format(SETCOLR L"%s" ENDCOLR, TEXT_COLOR((iAttitudeChange > 0) ? "COLOR_POSITIVE_TEXT" : "COLOR_NEGATIVE_TEXT"), gDLL->getText("TXT_KEY_MISC_ATTITUDE_MEMORY", iAttitudeChange, GC.getMemoryInfo(eMemory).getDescription()).GetCString());
 				szBuffer.append(NEWLINE);
 				szBuffer.append(szTempBuffer);
 			}
@@ -12257,6 +12267,9 @@ void CvGameTextMgr::getTradeString(CvWStringBuffer& szBuffer, const TradeData& t
 		break;
 	case TRADE_RELIGION:
 		szBuffer.assign(CvWString::format(L"%s", GC.getReligionInfo((ReligionTypes)tradeData.m_iData).getDescription()));
+		break;
+	case TRADE_EMBASSY:
+		szBuffer.append(gDLL->getText("TXT_KEY_MISC_EMBASSY"));
 		break;
 	default:
 		FAssert(false);
@@ -12929,6 +12942,10 @@ void CvGameTextMgr::parseLeaderLineHelp(CvWStringBuffer& szBuffer, PlayerTypes e
 	} else {
 		if (thisTeam.isDefensivePact(otherTeam.getID())) {
 			szBuffer.append(gDLL->getText("TXT_KEY_MISC_DEFENSIVE_PACT"));
+			szBuffer.append(NEWLINE);
+		}
+		if (thisTeam.isHasEmbassy(otherTeam.getID()) || otherTeam.isHasEmbassy(thisTeam.getID())) {
+			szBuffer.append(gDLL->getText("TXT_KEY_MISC_EMBASSY"));
 			szBuffer.append(NEWLINE);
 		}
 		if (thisTeam.isOpenBorders(otherTeam.getID())) {
@@ -14810,6 +14827,17 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 			}
 		}
 
+		if (pCity != NULL) {
+			if (pCity == GET_PLAYER(pCity->getOwnerINLINE()).getCapitalCity() && kTargetTeam.isHasEmbassy(kPlayer.getTeam())) {
+				szBuffer.append(SEPARATOR);
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_EMBASSY_MOD", -GC.getEMBASSY_ESPIONAGE_MISSION_COST_MODIFIER()));
+
+				iModifier *= 100 - GC.getEMBASSY_ESPIONAGE_MISSION_COST_MODIFIER();
+				iModifier /= 100;
+			}
+		}
+
 		FAssert(iModifier == kPlayer.getEspionageMissionCostModifier(eMission, eTargetPlayer, pPlot, iExtraData, pSpyUnit));
 
 		iMissionCost *= iModifier;
@@ -15913,5 +15941,14 @@ void CvGameTextMgr::buildCanFoundOnPeaksString(CvWStringBuffer& szBuffer, TechTy
 			szBuffer.append(NEWLINE);
 		}
 		szBuffer.append(gDLL->getText("TXT_KEY_CAN_FOUND_ON_PEAKS"));
+	}
+}
+
+void CvGameTextMgr::buildEmbassyString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
+	if (GC.getTechInfo(eTech).isEmbassyTrading() && (!bPlayerContext || !(GET_TEAM(GC.getGameINLINE().getActiveTeam()).isEmbassyTrading()))) {
+		if (bList) {
+			szBuffer.append(NEWLINE);
+		}
+		szBuffer.append(gDLL->getText("TXT_KEY_MISC_ENABLES_EMBASSIES"));
 	}
 }

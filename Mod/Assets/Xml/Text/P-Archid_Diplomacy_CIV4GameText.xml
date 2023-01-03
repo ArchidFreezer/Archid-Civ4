@@ -7513,8 +7513,8 @@
 		<German>Ihr solltet bereit sein, Euer Bestes zu geben, [CT_NAME].</German>
 		<Italian>Dacci tutto, [CT_NAME].</Italian>
 		<Spanish>Aflojad la pasta, [CT_NAME].</Spanish>
-	</TEXT>	
-<TEXT>
+	</TEXT>
+	<TEXT>
 		<Tag>AI_DIPLO_FIRST_CONTACT_LEADER_AUGUSTUS_CAESAR_1</Tag>
 		<English>Well met, [CT_NAME]! I like treachery, but I cannot say anything good of traitors. Yes. Well, at least I'm honest.</English>
 		<French>Quelle joie de vous rencontrer, [CT_NAME] ! Auriez-vous l'obligeance de vous capituler imm&#233;diatement face &#224; la puissance des [OUR_CIV_SHORT] ou souhaitez-vous repousser l'in&#233;vitable encore quelques temps ?</French>
@@ -8247,6 +8247,41 @@
 		<Tag>USER_DIPLO_WARPLAN_TARGET_1</Tag>
 		<English>%s1.</English>
 		<!-- same for all languages -->
+	</TEXT>
+<!-- Advanced Diplomacy -->
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ATTITUDE_EMBASSY</Tag>
+		<English>%D1: &quot;You let our ambassadors in.&quot;</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_EMBASSY</Tag>
+		<English>Embassy</English>
+		<French>Embassade</French>
+		<German>Botschaft</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_EMBASSY_MOD</Tag>
+		<English>%d1%: For Having an Embassy in their Nation.</English>
+		<French>%d1%: pour avoir une Ambassade dans leur Nation.</French>
+		<German>%d1%: Für eine Botschaft in ihrer Nation.</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ENABLES_EMBASSIES</Tag>
+		<English>[ICON_BULLET]Enables Embassy Trading</English>
+		<French>[ICON_BULLET]Permet l'établissement d'Ambassades</French>
+		<German>[ICON_BULLET]Ermöglicht Botschaften-Handel</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRADE_EMBASSY_STRING</Tag>
+		<English>Establish Embassy</English>
+		<French>Etablir une Embassade</French>
+		<German>Botschaft eröffnen</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRADE_EMBASSY</Tag>
+		<English>Embassies allow more advanced form of diplomacy.[NEWLINE][ICON_BULLET]Can Sign [COLOR_HIGHLIGHT_TEXT]Open Borders [COLOR_REVERT]Agreements.[NEWLINE][ICON_BULLET]Can Sign [COLOR_HIGHLIGHT_TEXT]Defensive Pacts.[COLOR_REVERT][NEWLINE][ICON_BULLET]Can Sign [COLOR_HIGHLIGHT_TEXT]Free Trade Agreements.[COLOR_REVERT][NEWLINE][ICON_BULLET]Can Sign [COLOR_HIGHLIGHT_TEXT]Non-Aggression Pacts.[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_GREEN]Improves[COLOR_REVERT] Diplomatic Relations Between Countries.[NEWLINE][ICON_BULLET]Allows For the [COLOR_GREEN]Trade of Workers[COLOR_REVERT] Between Countries.[NEWLINE][ICON_BULLET]Allows For the [COLOR_GREEN]Trade of Certain Military Units[COLOR_REVERT] Between Countries.[NEWLINE][ICON_BULLET]Allows players to see inside the other nation's capital city.[NEWLINE][ICON_BULLET][COLOR_WARNING_TEXT]If Recalled, Players Will Sour Diplomatic Relations Between Countries.[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_WARNING_TEXT]Enemy Spy Missions are More Likely to Succeed, Due to the Increased Familiarity Between Your Countries.[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_WARNING_TEXT]Allows the other player to see into your capital city![COLOR_REVERT]</English>
+		<French>Les Ambassades permettent une forme plus avancée de diplomatie.[NEWLINE][ICON_BULLET]Peut signer des Traités de [COLOR_HIGHLIGHT_TEXT]Libre Passage[COLOR_REVERT].[NEWLINE][ICON_BULLET]Peut signer des [COLOR_HIGHLIGHT_TEXT]Pactes Défensifs.[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_GREEN]Améliore[COLOR_REVERT] les Relations diplomatique entre les Etats.[NEWLINE][ICON_BULLET]Permet l'échange d' [COLOR_GREEN]Ouvriers[COLOR_REVERT] entre Etats.[NEWLINE][ICON_BULLET]Permet l'échange d' [COLOR_GREEN]Unités militaires[COLOR_REVERT] entre Etats.[NEWLINE][ICON_BULLET]Permet aux joueurs de voir la Capitale de l'autre Nation.[NEWLINE][ICON_BULLET][COLOR_WARNING_TEXT]Si L'Ambassadeur est rappelé, créé de la tension diplomatique entre les Etats.[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_WARNING_TEXT]Les Mission d'espionnage ont plus de chance de succès, en raison de la proximité entre les Etats.[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_WARNING_TEXT]Votre Capitale est du coup visible par l'autre Nation![COLOR_REVERT]</French>
+		<German>Botschaften ermöglichen eine fortgeschrittenere Form der Diplomatie.[NEWLINE][ICON_BULLET]Kann [COLOR_HIGHLIGHT_TEXT]Offene Grenzen [COLOR_REVERT]beschließen.[NEWLINE][ICON_BULLET]Kann [COLOR_HIGHLIGHT_TEXT]Defensivpakte[COLOR_REVERT]beschließen.[NEWLINE][ICON_BULLET][COLOR_GREEN]Verbessert[COLOR_REVERT] diplomatische Beziehungen zwischen den Nationen.[NEWLINE][ICON_BULLET]Ermöglicht den [COLOR_GREEN]Handel mit Bautrupps[COLOR_REVERT] zwischen den Nationen.[NEWLINE][ICON_BULLET]Ermöglicht den [COLOR_GREEN]Handel mit bestimmten Militäreinheiten[COLOR_REVERT] zwischen den Nationen. [NEWLINE][ICON_BULLET]Ermöglicht es den Spielern in die Hauptstadt einer anderen Nation zu sehen.[NEWLINE][ICON_BULLET][COLOR_WARNING_TEXT]Wenn der Botschafter abberufen wird verschlechtert dich das diplomatische Verhältnis.[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_WARNING_TEXT]Feindliche Spionagemissionen sind öfter erfolgreich durch die verbesserten Kenntnisse der Länder voneinander.[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_WARNING_TEXT]Ermöglicht es dem anderen Spieler in deine Hauptstadt zu sehen![COLOR_REVERT]</German>
 	</TEXT>
 
 </Civ4GameText>

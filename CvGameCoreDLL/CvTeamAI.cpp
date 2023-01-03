@@ -4720,3 +4720,51 @@ bool CvTeamAI::AI_isWaterAreaRelevant(CvArea* pArea) {
 }
 
 // Private Functions...
+int CvTeamAI::AI_embassyTradeVal(TeamTypes eTeam) const {
+	int iValue = 0;
+
+	iValue = (getNumCities() + GET_TEAM(eTeam).getNumCities());
+
+	iValue *= 7;
+	iValue /= 5;
+
+	return std::max(0, iValue);
+}
+
+DenialTypes CvTeamAI::AI_embassyTrade(TeamTypes eTeam) const {
+	PROFILE_FUNC();
+
+	if (isHuman()) {
+		return NO_DENIAL;
+	}
+
+	if (isVassal(eTeam)) {
+		return NO_DENIAL;
+	}
+
+	if (AI_shareWar(eTeam)) {
+		return NO_DENIAL;
+	}
+
+	if (AI_getMemoryCount(eTeam, MEMORY_RECALLED_AMBASSADOR) > 0 && AI_getAttitude(eTeam) < ATTITUDE_PLEASED) {
+		return DENIAL_RECENT_CANCEL;
+	}
+
+	if (AI_getWorstEnemy() == eTeam) {
+		return DENIAL_WORST_ENEMY;
+	}
+
+	AttitudeTypes eAttitude = AI_getAttitude(eTeam);
+
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		CvPlayer& kLoopPlayer = GET_PLAYER(ePlayer);
+
+		if (kLoopPlayer.isAlive() && GET_TEAM(kLoopPlayer.getTeam()).getID() == getID()) {
+			if (eAttitude <= GC.getLeaderHeadInfo(kLoopPlayer.getPersonalityType()).getOpenBordersRefuseAttitudeThreshold()) {
+				return DENIAL_ATTITUDE;
+			}
+		}
+	}
+
+	return NO_DENIAL;
+}

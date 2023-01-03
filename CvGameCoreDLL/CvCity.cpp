@@ -761,6 +761,15 @@ void CvCity::kill(bool bUpdatePlotGroups) {
 		}
 	}
 
+	// Embassy visibility fix
+	if (bCapital) {
+		for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_TEAMS; eTeam = (TeamTypes)(eTeam + 1)) {
+			if (GET_TEAM(kOwner.getTeam()).isHasEmbassy(eTeam)) {
+				pPlot->changeAdjacentSight(eTeam, GC.getDefineINT("PLOT_VISIBILITY_RANGE"), false, NULL, false);
+			}
+		}
+	}
+
 	kOwner.updateMaintenance();
 
 	GC.getMapINLINE().updateWorkingCity();

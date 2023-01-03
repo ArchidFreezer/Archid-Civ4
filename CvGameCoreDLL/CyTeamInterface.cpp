@@ -210,14 +210,13 @@ void CyTeamPythonInterface() {
 		.def("changeCounterespionageModAgainstTeam", &CyTeam::changeCounterespionageModAgainstTeam, "void (TeamTypes eIndex, int iChange)")
 		.def("AI_shareWar", &CyTeam::AI_shareWar, "bool (TeamTypes)")
 		.def("AI_setWarPlan", &CyTeam::AI_setWarPlan, "void (int /*TeamTypes*/ eIndex, int /*WarPlanTypes*/ eNewValue)")
-		/************************************************************************************************/
-		/* BETTER_BTS_AI_MOD                      01/12/09                                jdog5000      */
-		/*                                                                                              */
-		/* Player Interface                                                                             */
-		/************************************************************************************************/
 		.def("AI_getWarPlan", &CyTeam::AI_getWarPlan, "int (int /*TeamTypes*/ eIndex)")
 		.def("AI_getAtWarCounter", &CyTeam::AI_getAtWarCounter, "int (TeamTypes)")
 		.def("AI_getAtPeaceCounter", &CyTeam::AI_getAtPeaceCounter, "int (TeamTypes)")
 		.def("AI_getWarSuccess", &CyTeam::AI_getWarSuccess, "int (TeamTypes)")
+		.def("isEmbassyTrading", &CyTeam::isEmbassyTrading, "bool ()")
+		.def("isHasEmbassy", &CyTeam::isHasEmbassy, "bool (TeamTypes)")
+		.def("getEmbassyTradingCount", &CyTeam::getEmbassyTradingCount, "int ()")
+		.def("changeEmbassyTradingCount", &CyTeam::changeEmbassyTradingCount, "void (int iChange)")
 		;
 }

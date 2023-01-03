@@ -1529,17 +1529,27 @@ void CvPlot::updateSight(bool bIncrement, bool bUpdatePlotGroups) {
 
 	if (pCity != NULL) {
 		// Vassal
-		for (int iI = 0; iI < MAX_TEAMS; ++iI) {
-			if (GET_TEAM(getTeam()).isVassal((TeamTypes)iI)) {
-				changeAdjacentSight((TeamTypes)iI, GC.getDefineINT("PLOT_VISIBILITY_RANGE"), bIncrement, NULL, bUpdatePlotGroups);
+		for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_TEAMS; eTeam = (TeamTypes)(eTeam + 1)) {
+			if (GET_TEAM(getTeam()).isVassal(eTeam)) {
+				changeAdjacentSight(eTeam, GC.getDefineINT("PLOT_VISIBILITY_RANGE"), bIncrement, NULL, bUpdatePlotGroups);
 			}
 		}
 
 		// EspionageEffect
-		for (int iI = 0; iI < MAX_CIV_TEAMS; ++iI) {
-			if (pCity->getEspionageVisibility((TeamTypes)iI)) {
+		for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_CIV_TEAMS; eTeam = (TeamTypes)(eTeam + 1)) {
+			if (pCity->getEspionageVisibility(eTeam)) {
 				// Passive Effect: enough EPs gives you visibility into someone's cities
-				changeAdjacentSight((TeamTypes)iI, GC.getDefineINT("PLOT_VISIBILITY_RANGE"), bIncrement, NULL, bUpdatePlotGroups);
+				changeAdjacentSight(eTeam, GC.getDefineINT("PLOT_VISIBILITY_RANGE"), bIncrement, NULL, bUpdatePlotGroups);
+			}
+		}
+
+		// Embassy
+		if (pCity->isCapital()) {
+			TeamTypes pTeam = pCity->getTeam();
+			for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_CIV_TEAMS; eTeam = (TeamTypes)(eTeam + 1)) {
+				if (GET_TEAM(pTeam).isHasEmbassy(eTeam)) {
+					changeAdjacentSight(eTeam, GC.getDefineINT("PLOT_VISIBILITY_RANGE"), bIncrement, NULL, bUpdatePlotGroups);
+				}
 			}
 		}
 	}

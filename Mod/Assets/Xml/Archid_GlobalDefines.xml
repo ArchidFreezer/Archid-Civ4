@@ -347,4 +347,9 @@
 		<DefineName>NATURAL_WONDER_MAX_EXTRA_YIELD</DefineName>
 		<iDefineIntVal>4</iDefineIntVal>
 	</Define>
+<!-- Advanced Diplomacy -->
+	<Define>
+		<DefineName>EMBASSY_ESPIONAGE_MISSION_COST_MODIFIER</DefineName>
+		<iDefineIntVal>25</iDefineIntVal>
+	</Define>
 </Civ4Defines>

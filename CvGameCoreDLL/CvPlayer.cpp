@@ -1435,10 +1435,11 @@ void CvPlayer::acquireCity(CvCity* pOldCity, bool bConquest, bool bTrade, bool b
 							if (pLoopPlot->getNumCultureRangeCities(pOldCity->getOwnerINLINE()) == 1) {
 								bool bForceUnowned = false;
 
-								for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-									if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
-										if ((GET_PLAYER((PlayerTypes)iI).getTeam() != getTeam()) && (GET_PLAYER((PlayerTypes)iI).getTeam() != pOldCity->getTeam())) {
-											if (pLoopPlot->getNumCultureRangeCities((PlayerTypes)iI) > 0) {
+								for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+									const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+									if (kPlayer.isAlive()) {
+										if ((kPlayer.getTeam() != getTeam()) && (kPlayer.getTeam() != pOldCity->getTeam())) {
+											if (pLoopPlot->getNumCultureRangeCities(ePlayer) > 0) {
 												bForceUnowned = true;
 												break;
 											}
@@ -1470,12 +1471,16 @@ void CvPlayer::acquireCity(CvCity* pOldCity, bool bConquest, bool bTrade, bool b
 		CvWString szName;
 		szName.Format(L"%s (%s)", pOldCity->getName().GetCString(), GET_PLAYER(pOldCity->getOwnerINLINE()).getReplayName());
 
-		for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-			if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
-				if (iI != getID()) {
-					if (pOldCity->isRevealed(GET_PLAYER((PlayerTypes)iI).getTeam(), false)) {
+		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+			const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+			if (kPlayer.isAlive()) {
+				if (ePlayer != getID()) {
+					if (pOldCity->isRevealed(kPlayer.getTeam(), false)) {
 						szBuffer = gDLL->getText("TXT_KEY_MISC_CITY_CAPTURED_BY", szName.GetCString(), getCivilizationDescriptionKey());
-						gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_CITYCAPTURED", MESSAGE_TYPE_MAJOR_EVENT, ARTFILEMGR.getInterfaceArtInfo("WORLDBUILDER_CITY_EDIT")->getPath(), (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), pOldCity->getX_INLINE(), pOldCity->getY_INLINE(), true, true);
+						gDLL->getInterfaceIFace()->addHumanMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_CITYCAPTURED", MESSAGE_TYPE_MAJOR_EVENT, ARTFILEMGR.getInterfaceArtInfo("WORLDBUILDER_CITY_EDIT")->getPath(), (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), pOldCity->getX_INLINE(), pOldCity->getY_INLINE(), true, true);
+					} else if (GET_TEAM(kPlayer.getTeam()).isHasEmbassy(getTeam())) {
+						szBuffer = gDLL->getText("TXT_KEY_MISC_CITY_CAPTURED_BY", szName.GetCString(), getCivilizationDescriptionKey());
+						gDLL->getInterfaceIFace()->addHumanMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_CITYCAPTURED", MESSAGE_TYPE_MAJOR_EVENT, ARTFILEMGR.getInterfaceArtInfo("WORLDBUILDER_CITY_EDIT")->getPath(), (ColorTypes)GC.getInfoTypeForString("COLOR_RED"));
 					}
 				}
 			}
@@ -3339,19 +3344,23 @@ void CvPlayer::handleDiploEvent(DiploEventTypes eDiploEvent, PlayerTypes ePlayer
 
 
 bool CvPlayer::canTradeWith(PlayerTypes eWhoTo) const {
-	if (atWar(getTeam(), GET_PLAYER(eWhoTo).getTeam())) {
+	TeamTypes eTheirTeam = GET_PLAYER(eWhoTo).getTeam();
+	const CvTeam& kTheirTeam = GET_TEAM(eTheirTeam);
+	const CvTeam& kOurTeam = GET_TEAM(getTeam());
+
+	if (atWar(getTeam(), eTheirTeam)) {
 		return true;
 	}
 
-	if (GET_TEAM(getTeam()).isTechTrading() || GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isTechTrading()) {
+	if (kOurTeam.isTechTrading() || kTheirTeam.isTechTrading()) {
 		return true;
 	}
 
-	if (GET_TEAM(getTeam()).isGoldTrading() || GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isGoldTrading()) {
+	if (kOurTeam.isGoldTrading() || kTheirTeam.isGoldTrading()) {
 		return true;
 	}
 
-	if (GET_TEAM(getTeam()).isMapTrading() || GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isMapTrading()) {
+	if (kOurTeam.isMapTrading() || kTheirTeam.isMapTrading()) {
 		return true;
 	}
 
@@ -3359,19 +3368,23 @@ bool CvPlayer::canTradeWith(PlayerTypes eWhoTo) const {
 		return true;
 	}
 
-	if (GET_TEAM(getTeam()).isOpenBordersTrading() || GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isOpenBordersTrading()) {
+	if (kOurTeam.isOpenBordersTrading() || kTheirTeam.isOpenBordersTrading()) {
 		return true;
 	}
 
-	if (GET_TEAM(getTeam()).isDefensivePactTrading() || GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isDefensivePactTrading()) {
+	if (kOurTeam.isDefensivePactTrading() || kTheirTeam.isDefensivePactTrading()) {
 		return true;
 	}
 
-	if (GET_TEAM(getTeam()).isPermanentAllianceTrading() || GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isPermanentAllianceTrading()) {
+	if (kOurTeam.isPermanentAllianceTrading() || kTheirTeam.isPermanentAllianceTrading()) {
 		return true;
 	}
 
-	if (GET_TEAM(getTeam()).isVassalStateTrading() || GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isVassalStateTrading()) {
+	if (kOurTeam.isVassalStateTrading() || kTheirTeam.isVassalStateTrading()) {
+		return true;
+	}
+
+	if (kOurTeam.isEmbassyTrading() || kTheirTeam.isEmbassyTrading()) {
 		return true;
 	}
 
@@ -3393,18 +3406,22 @@ bool CvPlayer::canTradeItem(PlayerTypes eWhoTo, TradeData item, bool bTestDenial
 		}
 	}
 
+	const CvPlayer& kTheirPlayer = GET_PLAYER(eWhoTo);
+	CvTeam& kTheirTeam = GET_TEAM(kTheirPlayer.getTeam());
+	CvTeam& kOurTeam = GET_TEAM(getTeam());
+
 	switch (item.m_eItemType) {
 	case TRADE_TECHNOLOGIES:
 		if (!(GC.getGameINLINE().isOption(GAMEOPTION_NO_TECH_TRADING))) {
 			if (GC.getTechInfo((TechTypes)(item.m_iData)).isTrade()) {
-				if (GET_TEAM(getTeam()).isHasTech((TechTypes)(item.m_iData)) && !(GET_TEAM(getTeam()).isNoTradeTech((TechTypes)(item.m_iData)))) {
-					if (!GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isHasTech((TechTypes)(item.m_iData))) {
-						//if (GET_PLAYER(eWhoTo).isHuman() || (GET_PLAYER(eWhoTo).getCurrentResearch() != item.m_iData))
+				if (kOurTeam.isHasTech((TechTypes)(item.m_iData)) && !(kOurTeam.isNoTradeTech((TechTypes)(item.m_iData)))) {
+					if (!kTheirTeam.isHasTech((TechTypes)(item.m_iData))) {
+						//if (kTheirPlayer.isHuman() || (kTheirPlayer.getCurrentResearch() != item.m_iData))
 						{
-							if (GET_TEAM(getTeam()).isTechTrading() || GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isTechTrading()) {
+							if (kOurTeam.isTechTrading() || kTheirTeam.isTechTrading()) {
 								FAssertMsg(item.m_iData >= 0, "item.m_iData is expected to be non-negative (invalid Index)");
 
-								if (GET_PLAYER(eWhoTo).canResearch(((TechTypes)item.m_iData), true)) {
+								if (kTheirPlayer.canResearch(((TechTypes)item.m_iData), true)) {
 									return true;
 								}
 							}
@@ -3419,10 +3436,10 @@ bool CvPlayer::canTradeItem(PlayerTypes eWhoTo, TradeData item, bool bTestDenial
 		FAssertMsg(item.m_iData > -1, "iData is expected to be non-negative");
 
 		if (canTradeNetworkWith(eWhoTo)) {
-			if (!GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isBonusObsolete((BonusTypes)item.m_iData) && !GET_TEAM(getTeam()).isBonusObsolete((BonusTypes)item.m_iData)) {
-				bool bCanTradeAll = (isHuman() || getTeam() == GET_PLAYER(eWhoTo).getTeam() || GET_TEAM(getTeam()).isVassal(GET_PLAYER(eWhoTo).getTeam()));
+			if (!kTheirTeam.isBonusObsolete((BonusTypes)item.m_iData) && !kOurTeam.isBonusObsolete((BonusTypes)item.m_iData)) {
+				bool bCanTradeAll = (isHuman() || getTeam() == kTheirPlayer.getTeam() || kOurTeam.isVassal(kTheirPlayer.getTeam()));
 				if (getNumTradeableBonuses((BonusTypes)item.m_iData) > (bCanTradeAll ? 0 : 1)) {
-					// if (GET_PLAYER(eWhoTo).getNumAvailableBonuses(eBonus) == 0)
+					// if (kTheirPlayer.getNumAvailableBonuses(eBonus) == 0)
 					{
 						return true;
 					}
@@ -3439,9 +3456,9 @@ bool CvPlayer::canTradeItem(PlayerTypes eWhoTo, TradeData item, bool bTestDenial
 			return true;
 		}
 
-		if (GET_PLAYER(eWhoTo).canReceiveTradeCity()) {
+		if (kTheirPlayer.canReceiveTradeCity()) {
 			if (0 == GC.getGameINLINE().getMaxCityElimination()) {
-				if (!GET_TEAM(getTeam()).isAVassal() && !GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isVassal(getTeam())) {
+				if (!kOurTeam.isAVassal() && !kTheirTeam.isVassal(getTeam())) {
 					CvCity* pOurCapitalCity = getCapitalCity();
 					if (pOurCapitalCity != NULL) {
 						if (pOurCapitalCity->getID() != item.m_iData) {
@@ -3455,7 +3472,7 @@ bool CvPlayer::canTradeItem(PlayerTypes eWhoTo, TradeData item, bool bTestDenial
 	break;
 
 	case TRADE_GOLD:
-		if (GET_TEAM(getTeam()).isGoldTrading() || GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isGoldTrading()) {
+		if (kOurTeam.isGoldTrading() || kTheirTeam.isGoldTrading()) {
 			if (getGold() >= item.m_iData) {
 				return true;
 			}
@@ -3463,14 +3480,14 @@ bool CvPlayer::canTradeItem(PlayerTypes eWhoTo, TradeData item, bool bTestDenial
 		break;
 
 	case TRADE_GOLD_PER_TURN:
-		if (GET_TEAM(getTeam()).isGoldTrading() || GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isGoldTrading()) {
+		if (kOurTeam.isGoldTrading() || kTheirTeam.isGoldTrading()) {
 			return true;
 		}
 		break;
 
 	case TRADE_MAPS:
-		if (getTeam() != GET_PLAYER(eWhoTo).getTeam()) {
-			if (GET_TEAM(getTeam()).isMapTrading() || GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isMapTrading()) {
+		if (getTeam() != kTheirPlayer.getTeam()) {
+			if (kOurTeam.isMapTrading() || kTheirTeam.isMapTrading()) {
 				return true;
 			}
 		}
@@ -3478,12 +3495,12 @@ bool CvPlayer::canTradeItem(PlayerTypes eWhoTo, TradeData item, bool bTestDenial
 
 	case TRADE_VASSAL:
 	case TRADE_SURRENDER:
-		if (!isHuman() || GET_PLAYER(eWhoTo).isHuman() || (GC.getBBAI_HUMAN_AS_VASSAL_OPTION())) {
-			CvTeam& kVassalTeam = GET_TEAM(getTeam());
-			CvTeam& kMasterTeam = GET_TEAM(GET_PLAYER(eWhoTo).getTeam());
+		if (!isHuman() || kTheirPlayer.isHuman() || (GC.getBBAI_HUMAN_AS_VASSAL_OPTION())) {
+			CvTeam& kVassalTeam = kOurTeam;
+			CvTeam& kMasterTeam = kTheirTeam;
 			if (kMasterTeam.isVassalStateTrading()) // the master must possess the tech
 			{
-				if (!kVassalTeam.isAVassal() && !kMasterTeam.isAVassal() && getTeam() != GET_PLAYER(eWhoTo).getTeam()) {
+				if (!kVassalTeam.isAVassal() && !kMasterTeam.isAVassal() && getTeam() != kTheirPlayer.getTeam()) {
 					if ((kMasterTeam.isAtWar(getTeam()) || item.m_iData == 1) && item.m_eItemType == TRADE_SURRENDER) {
 						return true;
 					}
@@ -3496,10 +3513,24 @@ bool CvPlayer::canTradeItem(PlayerTypes eWhoTo, TradeData item, bool bTestDenial
 		}
 		break;
 
+	case TRADE_EMBASSY:
+		if (getTeam() != kTheirPlayer.getTeam()) {
+			if (!atWar(getTeam(), kTheirPlayer.getTeam())) {
+				if (!kOurTeam.isHasEmbassy(kTheirPlayer.getTeam())) {
+					if (kOurTeam.isEmbassyTrading() || kTheirTeam.isEmbassyTrading()) {
+						if (getCapitalCity() != NULL && kTheirPlayer.getCapitalCity() != NULL) {
+							return true;
+						}
+					}
+				}
+			}
+		}
+		break;
+
 	case TRADE_PEACE:
-		if (!(GET_TEAM(getTeam()).isHuman())) {
-			if (!(GET_TEAM(getTeam()).isAVassal())) {
-				if (GET_TEAM(getTeam()).isHasMet((TeamTypes)(item.m_iData)) && GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isHasMet((TeamTypes)(item.m_iData))) {
+		if (!(kOurTeam.isHuman())) {
+			if (!(kOurTeam.isAVassal())) {
+				if (kOurTeam.isHasMet((TeamTypes)(item.m_iData)) && kTheirTeam.isHasMet((TeamTypes)(item.m_iData))) {
 					if (atWar(getTeam(), ((TeamTypes)(item.m_iData)))) {
 						return true;
 					}
@@ -3509,11 +3540,11 @@ bool CvPlayer::canTradeItem(PlayerTypes eWhoTo, TradeData item, bool bTestDenial
 		break;
 
 	case TRADE_WAR:
-		if (!(GET_TEAM(getTeam()).isHuman())) {
-			if (!(GET_TEAM(getTeam()).isAVassal())) {
+		if (!(kOurTeam.isHuman())) {
+			if (!(kOurTeam.isAVassal())) {
 				if (!GET_TEAM((TeamTypes)item.m_iData).isAVassal()) {
-					if (GET_TEAM(getTeam()).isHasMet((TeamTypes)(item.m_iData)) && GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isHasMet((TeamTypes)(item.m_iData))) {
-						if (GET_TEAM(getTeam()).canDeclareWar((TeamTypes)(item.m_iData))) {
+					if (kOurTeam.isHasMet((TeamTypes)(item.m_iData)) && kTheirTeam.isHasMet((TeamTypes)(item.m_iData))) {
+						if (kOurTeam.canDeclareWar((TeamTypes)(item.m_iData))) {
 							return true;
 						}
 					}
@@ -3523,8 +3554,8 @@ bool CvPlayer::canTradeItem(PlayerTypes eWhoTo, TradeData item, bool bTestDenial
 		break;
 
 	case TRADE_EMBARGO:
-		if (!(GET_TEAM(getTeam()).isHuman())) {
-			if (GET_TEAM(getTeam()).isHasMet((TeamTypes)(item.m_iData)) && GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isHasMet((TeamTypes)(item.m_iData))) {
+		if (!(kOurTeam.isHuman())) {
+			if (kOurTeam.isHasMet((TeamTypes)(item.m_iData)) && kTheirTeam.isHasMet((TeamTypes)(item.m_iData))) {
 				if (canStopTradingWithTeam((TeamTypes)(item.m_iData))) {
 					return true;
 				}
@@ -3533,8 +3564,8 @@ bool CvPlayer::canTradeItem(PlayerTypes eWhoTo, TradeData item, bool bTestDenial
 		break;
 
 	case TRADE_CIVIC:
-		if (!(GET_TEAM(getTeam()).isHuman()) || (getTeam() == GET_PLAYER(eWhoTo).getTeam())) {
-			if (GET_PLAYER(eWhoTo).isCivic((CivicTypes)(item.m_iData))) {
+		if (!(kOurTeam.isHuman()) || (getTeam() == kTheirPlayer.getTeam())) {
+			if (kTheirPlayer.isCivic((CivicTypes)(item.m_iData))) {
 				if (canDoCivics((CivicTypes)(item.m_iData)) && !isCivic((CivicTypes)(item.m_iData))) {
 					if (canRevolution(NULL)) {
 						return true;
@@ -3545,8 +3576,8 @@ bool CvPlayer::canTradeItem(PlayerTypes eWhoTo, TradeData item, bool bTestDenial
 		break;
 
 	case TRADE_RELIGION:
-		if (!(GET_TEAM(getTeam()).isHuman()) || (getTeam() == GET_PLAYER(eWhoTo).getTeam())) {
-			if (GET_PLAYER(eWhoTo).getStateReligion() == ((ReligionTypes)(item.m_iData))) {
+		if (!(kOurTeam.isHuman()) || (getTeam() == kTheirPlayer.getTeam())) {
+			if (kTheirPlayer.getStateReligion() == ((ReligionTypes)(item.m_iData))) {
 				if (canConvert((ReligionTypes)(item.m_iData))) {
 					return true;
 				}
@@ -3555,10 +3586,10 @@ bool CvPlayer::canTradeItem(PlayerTypes eWhoTo, TradeData item, bool bTestDenial
 		break;
 
 	case TRADE_OPEN_BORDERS:
-		if (getTeam() != GET_PLAYER(eWhoTo).getTeam()) {
-			if (!atWar(getTeam(), GET_PLAYER(eWhoTo).getTeam())) {
-				if (!(GET_TEAM(getTeam()).isOpenBorders(GET_PLAYER(eWhoTo).getTeam()))) {
-					if (GET_TEAM(getTeam()).isOpenBordersTrading() || GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isOpenBordersTrading()) {
+		if (getTeam() != kTheirPlayer.getTeam()) {
+			if (!atWar(getTeam(), kTheirPlayer.getTeam())) {
+				if (!(kOurTeam.isOpenBorders(kTheirPlayer.getTeam()))) {
+					if (kOurTeam.isOpenBordersTrading() || kTheirTeam.isOpenBordersTrading()) {
 						return true;
 					}
 				}
@@ -3567,13 +3598,13 @@ bool CvPlayer::canTradeItem(PlayerTypes eWhoTo, TradeData item, bool bTestDenial
 		break;
 
 	case TRADE_DEFENSIVE_PACT:
-		if (!(GET_TEAM(getTeam()).isAVassal()) && !(GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isAVassal())) {
-			if (getTeam() != GET_PLAYER(eWhoTo).getTeam() && !GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isVassal(getTeam())) {
-				if (!atWar(getTeam(), GET_PLAYER(eWhoTo).getTeam())) {
-					if (!(GET_TEAM(getTeam()).isDefensivePact(GET_PLAYER(eWhoTo).getTeam()))) {
-						if (GET_TEAM(getTeam()).isDefensivePactTrading() || GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isDefensivePactTrading()) {
-							if ((GET_TEAM(getTeam()).getAtWarCount(true) == 0) && (GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).getAtWarCount(true) == 0)) {
-								if (GET_TEAM(getTeam()).canSignDefensivePact(GET_PLAYER(eWhoTo).getTeam())) {
+		if (!(kOurTeam.isAVassal()) && !(kTheirTeam.isAVassal())) {
+			if (getTeam() != kTheirPlayer.getTeam() && !kTheirTeam.isVassal(getTeam())) {
+				if (!atWar(getTeam(), kTheirPlayer.getTeam())) {
+					if (!(kOurTeam.isDefensivePact(kTheirPlayer.getTeam()))) {
+						if (kOurTeam.isDefensivePactTrading() || kTheirTeam.isDefensivePactTrading()) {
+							if ((kOurTeam.getAtWarCount(true) == 0) && (kTheirTeam.getAtWarCount(true) == 0)) {
+								if (kOurTeam.canSignDefensivePact(kTheirPlayer.getTeam())) {
 									return true;
 								}
 							}
@@ -3585,11 +3616,13 @@ bool CvPlayer::canTradeItem(PlayerTypes eWhoTo, TradeData item, bool bTestDenial
 		break;
 
 	case TRADE_PERMANENT_ALLIANCE:
-		if (!(GET_TEAM(getTeam()).isAVassal()) && !(GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isAVassal())) {
-			if (getTeam() != GET_PLAYER(eWhoTo).getTeam() && !GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isVassal(getTeam())) {
-				if (!atWar(getTeam(), GET_PLAYER(eWhoTo).getTeam())) {
-					if (GET_TEAM(getTeam()).isPermanentAllianceTrading() || GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isPermanentAllianceTrading()) {
-						if ((GET_TEAM(getTeam()).getNumMembers() == 1) && (GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).getNumMembers() == 1)) {
+		if (!kOurTeam.isHasEmbassy(kTheirPlayer.getTeam()))
+			return false;
+		if (!(kOurTeam.isAVassal()) && !(kTheirTeam.isAVassal())) {
+			if (getTeam() != kTheirPlayer.getTeam() && !kTheirTeam.isVassal(getTeam())) {
+				if (!atWar(getTeam(), kTheirPlayer.getTeam())) {
+					if (kOurTeam.isPermanentAllianceTrading() || kTheirTeam.isPermanentAllianceTrading()) {
+						if ((kOurTeam.getNumMembers() == 1) && (kTheirTeam.getNumMembers() == 1)) {
 							return true;
 						}
 					}
@@ -3610,6 +3643,7 @@ bool CvPlayer::canTradeItem(PlayerTypes eWhoTo, TradeData item, bool bTestDenial
 DenialTypes CvPlayer::getTradeDenial(PlayerTypes eWhoTo, TradeData item) const {
 	CvCity* pCity;
 	const CvTeamAI& kOurTeam = GET_TEAM(getTeam()); // K-Mod
+	TeamTypes eTheirTeam = GET_PLAYER(eWhoTo).getTeam();
 
 	// K-Mod note: I've changed it so that AI players on human teams can be contacted when not at war.
 	// So.. as a follow up on that change, I'm making the AI deny trades which affect the team, not just the player.
@@ -3617,7 +3651,7 @@ DenialTypes CvPlayer::getTradeDenial(PlayerTypes eWhoTo, TradeData item) const {
 	case TRADE_TECHNOLOGIES:
 		if (!isHuman() && kOurTeam.isHuman())
 			return DENIAL_MYSTERY;
-		return kOurTeam.AI_techTrade(((TechTypes)(item.m_iData)), GET_PLAYER(eWhoTo).getTeam());
+		return kOurTeam.AI_techTrade(((TechTypes)(item.m_iData)), eTheirTeam);
 		break;
 
 	case TRADE_RESOURCES:
@@ -3636,25 +3670,25 @@ DenialTypes CvPlayer::getTradeDenial(PlayerTypes eWhoTo, TradeData item) const {
 		break;
 
 	case TRADE_MAPS:
-		return kOurTeam.AI_mapTrade(GET_PLAYER(eWhoTo).getTeam());
+		return kOurTeam.AI_mapTrade(eTheirTeam);
 		break;
 
 	case TRADE_SURRENDER:
-		return kOurTeam.AI_surrenderTrade(GET_PLAYER(eWhoTo).getTeam(), 140);
+		return kOurTeam.AI_surrenderTrade(eTheirTeam, 140);
 		break;
 
 	case TRADE_VASSAL:
 		if (!isHuman() && kOurTeam.isHuman())
 			return DENIAL_MYSTERY;
-		return kOurTeam.AI_vassalTrade(GET_PLAYER(eWhoTo).getTeam());
+		return kOurTeam.AI_vassalTrade(eTheirTeam);
 		break;
 
 	case TRADE_PEACE:
-		return kOurTeam.AI_makePeaceTrade(((TeamTypes)(item.m_iData)), GET_PLAYER(eWhoTo).getTeam());
+		return kOurTeam.AI_makePeaceTrade(((TeamTypes)(item.m_iData)), eTheirTeam);
 		break;
 
 	case TRADE_WAR:
-		return kOurTeam.AI_declareWarTrade(((TeamTypes)(item.m_iData)), GET_PLAYER(eWhoTo).getTeam());
+		return kOurTeam.AI_declareWarTrade(((TeamTypes)(item.m_iData)), eTheirTeam);
 		break;
 
 	case TRADE_EMBARGO:
@@ -3670,24 +3704,28 @@ DenialTypes CvPlayer::getTradeDenial(PlayerTypes eWhoTo, TradeData item) const {
 		break;
 
 	case TRADE_OPEN_BORDERS:
-		return kOurTeam.AI_openBordersTrade(GET_PLAYER(eWhoTo).getTeam());
+		return kOurTeam.AI_openBordersTrade(eTheirTeam);
 		break;
 
 	case TRADE_DEFENSIVE_PACT:
 		if (!isHuman() && kOurTeam.isHuman())
 			return DENIAL_MYSTERY;
-		return kOurTeam.AI_defensivePactTrade(GET_PLAYER(eWhoTo).getTeam());
+		return kOurTeam.AI_defensivePactTrade(eTheirTeam);
 		break;
 
 	case TRADE_PERMANENT_ALLIANCE:
 		if (!isHuman() && kOurTeam.isHuman())
 			return DENIAL_MYSTERY;
-		return kOurTeam.AI_permanentAllianceTrade(GET_PLAYER(eWhoTo).getTeam());
+		return kOurTeam.AI_permanentAllianceTrade(eTheirTeam);
 		break;
 
 	case TRADE_PEACE_TREATY:
-		if (kOurTeam.AI_refusePeace(GET_PLAYER(eWhoTo).getTeam()))
+		if (kOurTeam.AI_refusePeace(eTheirTeam))
 			return DENIAL_VICTORY;
+		break;
+
+	case TRADE_EMBASSY:
+		return kOurTeam.AI_embassyTrade(eTheirTeam);
 		break;
 	}
 
@@ -7804,6 +7842,23 @@ void CvPlayer::setCapitalCity(CvCity* pNewCapitalCity) {
 			m_iCapitalCityID = FFreeList::INVALID_INDEX;
 		}
 
+		// Embassy Visibility
+		if (pOldCapitalCity != NULL) {
+			for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_TEAMS; eTeam = (TeamTypes)(eTeam + 1)) {
+				if (GET_TEAM(getTeam()).isHasEmbassy(eTeam)) {
+					pOldCapitalCity->plot()->changeAdjacentSight(eTeam, GC.getDefineINT("PLOT_VISIBILITY_RANGE"), false, NULL, bUpdatePlotGroups);
+				}
+			}
+		}
+
+		if (pNewCapitalCity != NULL) {
+			for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_TEAMS; eTeam = (TeamTypes)(eTeam + 1)) {
+				if (GET_TEAM(getTeam()).isHasEmbassy(eTeam)) {
+					pNewCapitalCity->plot()->changeAdjacentSight(eTeam, GC.getDefineINT("PLOT_VISIBILITY_RANGE"), true, NULL, bUpdatePlotGroups);
+				}
+			}
+		}
+
 		if (bUpdatePlotGroups) {
 			if (pOldCapitalCity != NULL) {
 				pOldCapitalCity->plot()->updatePlotGroupBonus(true);
@@ -11389,7 +11444,8 @@ int CvPlayer::getEspionageMissionCostModifier(EspionageMissionTypes eMission, Pl
 		eTargetPlayer = getID();
 	}
 
-	const CvTeam& kTargetTeam = GET_TEAM(GET_PLAYER(eTargetPlayer).getTeam()); // (moved from the bottom of the function)
+	const CvPlayer& kTargetPlayer = GET_PLAYER(eTargetPlayer);
+	const CvTeam& kTargetTeam = GET_TEAM(kTargetPlayer.getTeam()); // (moved from the bottom of the function)
 
 	if (pCity != NULL && (eMission == NO_ESPIONAGEMISSION || GC.getEspionageMissionInfo(eMission).isTargetsCity())) {
 		// City Population
@@ -11408,7 +11464,7 @@ int CvPlayer::getEspionageMissionCostModifier(EspionageMissionTypes eMission, Pl
 
 			// City has Your State Religion
 			if (pCity->isHasReligion(eReligion)) {
-				if (GET_PLAYER(eTargetPlayer).getStateReligion() != eReligion) {
+				if (kTargetPlayer.getStateReligion() != eReligion) {
 					iReligionModifier += GC.getDefineINT("ESPIONAGE_CITY_RELIGION_STATE_MOD");
 				}
 
@@ -11442,7 +11498,7 @@ int CvPlayer::getEspionageMissionCostModifier(EspionageMissionTypes eMission, Pl
 			if (eMission == NO_ESPIONAGEMISSION || GC.getEspionageMissionInfo(eMission).isSelectPlot() || GC.getEspionageMissionInfo(eMission).isTargetsCity()) {
 				iDistance = plotDistance(pOurCapital->getX_INLINE(), pOurCapital->getY_INLINE(), pPlot->getX_INLINE(), pPlot->getY_INLINE());
 			} else {
-				CvCity* pTheirCapital = GET_PLAYER(eTargetPlayer).getCapitalCity();
+				CvCity* pTheirCapital = kTargetPlayer.getCapitalCity();
 				if (NULL != pTheirCapital) {
 					iDistance = plotDistance(pOurCapital->getX_INLINE(), pOurCapital->getY_INLINE(), pTheirCapital->getX_INLINE(), pTheirCapital->getY_INLINE());
 				}
@@ -11467,6 +11523,13 @@ int CvPlayer::getEspionageMissionCostModifier(EspionageMissionTypes eMission, Pl
 	// Counterespionage Mission Mod
 	iModifier *= 100 + std::max(-100, kTargetTeam.getCounterespionageModAgainstTeam(getTeam()));
 	iModifier /= 100;
+
+	if (pCity != NULL) {
+		if (pCity == kTargetPlayer.getCapitalCity() && GET_TEAM(getTeam()).isHasEmbassy(kTargetPlayer.getTeam())) {
+			iModifier *= 100 - GC.getEMBASSY_ESPIONAGE_MISSION_COST_MODIFIER();
+			iModifier /= 100;
+		}
+	}
 
 	return iModifier;
 }
@@ -17308,6 +17371,12 @@ void CvPlayer::buildTradeTable(PlayerTypes eOtherPlayer, CLinkList<TradeData>& o
 		ourList.insertAtEnd(item);
 	}
 
+	//Embassy
+	setTradeItem(&item, TRADE_EMBASSY, 0);
+	if (canTradeItem(eOtherPlayer, item)) {
+		ourList.insertAtEnd(item);
+	}
+
 	//	Open Borders
 	setTradeItem(&item, TRADE_OPEN_BORDERS);
 	if (canTradeItem(eOtherPlayer, item)) {
@@ -17486,6 +17555,11 @@ bool CvPlayer::getHeadingTradeString(PlayerTypes eOtherPlayer, TradeableItems eI
 	case TRADE_RELIGION:
 		szString = gDLL->getText("TXT_KEY_TRADE_CONVERT");
 		break;
+
+	case TRADE_EMBASSY:
+		szString = gDLL->getText("TXT_KEY_TRADE_EMBASSY_STRING");
+		break;
+
 	default:
 		szString.clear();
 		return false;
@@ -17610,6 +17684,9 @@ bool CvPlayer::getItemTradeString(PlayerTypes eOtherPlayer, bool bOffer, bool bS
 			szString = GC.getReligionInfo((ReligionTypes)zTradeData.m_iData).getDescription();
 		}
 		szIcon = GC.getReligionInfo((ReligionTypes)zTradeData.m_iData).getButton();
+		break;
+	case TRADE_EMBASSY:
+		szString = gDLL->getText("TXT_KEY_TRADE_EMBASSY_STRING");
 		break;
 	default:
 		szString.clear();
