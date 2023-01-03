@@ -7131,13 +7131,14 @@ void CvPlayer::changeFreeMilitaryUnitsPopulationPercent(int iChange) {
 int CvPlayer::getTypicalUnitValue(UnitAITypes eUnitAI, DomainTypes eDomain) const {
 	int iHighestValue = 0;
 
-	for (int iI = 0; iI < GC.getNumUnitClassInfos(); iI++) {
-		UnitTypes eLoopUnit = ((UnitTypes)(GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(iI)));
+	for (UnitClassTypes eUnitClass = (UnitClassTypes)0; eUnitClass < GC.getNumUnitClassInfos(); eUnitClass = (UnitClassTypes)(eUnitClass + 1)) {
+		UnitTypes eLoopUnit = ((UnitTypes)(GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(eUnitClass)));
+		if (eLoopUnit == NO_UNIT)
+			continue;
 
-		if (eLoopUnit != NO_UNIT &&
-			(eUnitAI == NO_UNITAI || GC.getUnitInfo(eLoopUnit).getUnitAIType(eUnitAI)) &&
-			(eDomain == NO_DOMAIN || GC.getUnitInfo(eLoopUnit).getDomainType() == eDomain) &&
-			canTrain(eLoopUnit)) {
+		const CvUnitInfo& kUnit = GC.getUnitInfo(eLoopUnit);
+
+		if ((eUnitAI == NO_UNITAI || kUnit.getUnitAIType(eUnitAI)) && (eDomain == NO_DOMAIN || kUnit.getDomainType() == eDomain) && canTrain(eLoopUnit)) {
 			// Note: currently the above checks do not consider any resource prerequites.
 			int iValue = GC.getGameINLINE().AI_combatValue(eLoopUnit);
 			if (iValue > iHighestValue) {

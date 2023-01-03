@@ -340,21 +340,24 @@ void CvGameTextMgr::setMinimizePopupHelp(CvWString& szString, const CvPopupInfo&
 void CvGameTextMgr::setEspionageMissionHelp(CvWStringBuffer& szBuffer, const CvUnit* pUnit) {
 	if (pUnit->isSpy()) {
 		PlayerTypes eOwner = pUnit->plot()->getOwnerINLINE();
-		if (NO_PLAYER != eOwner && GET_PLAYER(eOwner).getTeam() != pUnit->getTeam()) {
-			if (!pUnit->canEspionage(pUnit->plot())) {
-				szBuffer.append(NEWLINE);
-				szBuffer.append(gDLL->getText("TXT_KEY_UNIT_HELP_NO_ESPIONAGE"));
-
-				if (pUnit->hasMoved() || pUnit->isMadeAttack()) {
-					szBuffer.append(gDLL->getText("TXT_KEY_UNIT_HELP_NO_ESPIONAGE_REASON_MOVED"));
-				} else if (!pUnit->isInvisible(GET_PLAYER(eOwner).getTeam(), false)) {
-					szBuffer.append(gDLL->getText("TXT_KEY_UNIT_HELP_NO_ESPIONAGE_REASON_VISIBLE", GET_PLAYER(eOwner).getNameKey()));
-				}
-			} else if (pUnit->getFortifyTurns() > 0) {
-				int iModifier = -(pUnit->getFortifyTurns() * GC.getDefineINT("ESPIONAGE_EACH_TURN_UNIT_COST_DECREASE"));
-				if (0 != iModifier) {
+		if (NO_PLAYER != eOwner) {
+			const CvPlayer& kOwner = GET_PLAYER(eOwner);
+			if (kOwner.getTeam() != pUnit->getTeam()) {
+				if (!pUnit->canEspionage(pUnit->plot())) {
 					szBuffer.append(NEWLINE);
-					szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_COST", iModifier));
+					szBuffer.append(gDLL->getText("TXT_KEY_UNIT_HELP_NO_ESPIONAGE"));
+
+					if (pUnit->hasMoved() || pUnit->isMadeAttack()) {
+						szBuffer.append(gDLL->getText("TXT_KEY_UNIT_HELP_NO_ESPIONAGE_REASON_MOVED"));
+					} else if (!pUnit->isInvisible(kOwner.getTeam(), false)) {
+						szBuffer.append(gDLL->getText("TXT_KEY_UNIT_HELP_NO_ESPIONAGE_REASON_VISIBLE", kOwner.getNameKey()));
+					}
+				} else if (pUnit->getFortifyTurns() > 0) {
+					int iModifier = -(pUnit->getFortifyTurns() * GC.getDefineINT("ESPIONAGE_EACH_TURN_UNIT_COST_DECREASE"));
+					if (0 != iModifier) {
+						szBuffer.append(NEWLINE);
+						szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_COST", iModifier));
+					}
 				}
 			}
 		}
