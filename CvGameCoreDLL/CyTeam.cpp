@@ -818,3 +818,11 @@ bool CyTeam::isLimitedBordersTrading() {
 bool CyTeam::isFreeTradeAgreementTrading() {
 	return m_pTeam ? m_pTeam->isFreeTradeAgreementTrading() : false;
 }
+
+bool CyTeam::isHasNonAggression(int /*TeamTypes*/ eTeam) const {
+	return m_pTeam ? m_pTeam->isHasNonAggression((TeamTypes)eTeam) : false;
+}
+
+bool CyTeam::isNonAggressionTrading() {
+	return m_pTeam ? m_pTeam->isNonAggressionTrading() : false;
+}

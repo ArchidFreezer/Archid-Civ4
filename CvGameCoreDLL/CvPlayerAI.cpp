@@ -3481,6 +3481,10 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 		iValue += 200;
 	}
 
+	if (kTechInfo.isNonAggressionTrading()) {
+		iValue += 200;
+	}
+
 	// K-Mod. Value pact trading based on how many civs are willing, and on how much we think we need it!
 	if (kTechInfo.isDefensivePactTrading() && !kTeam.isDefensivePactTrading()) {
 		int iNewTrade = 0;
@@ -6328,6 +6332,9 @@ int CvPlayerAI::AI_dealVal(PlayerTypes ePlayer, const CLinkList<TradeData>* pLis
 		case TRADE_FREE_TRADE_ZONE:
 			iValue += kOurTeam.AI_FreeTradeAgreementVal(eOtherTeam);
 			break;
+		case TRADE_NON_AGGRESSION:
+			iValue += kOurTeam.AI_NonAggressionTradeVal(eOtherTeam);
+			break;
 		}
 	}
 
@@ -7715,6 +7722,10 @@ int CvPlayerAI::AI_stopTradingTradeVal(TeamTypes eTradeTeam, PlayerTypes ePlayer
 
 	if (kTheirTeam.isFreeTradeAgreement(eTradeTeam)) {
 		iValue *= 3;
+	}
+
+	if (kTheirTeam.isHasNonAggression(eTradeTeam)) {
+		iValue *= 2;
 	}
 
 	int iLoop;
@@ -13018,6 +13029,42 @@ void CvPlayerAI::AI_doDiplo() {
 														}
 													} else {
 														GC.getGameINLINE().implementDeal(getID(), eOtherPlayer, &ourList, &theirList);
+													}
+												}
+											}
+										}
+									}
+
+									//NonAggression
+									if (kOurTeam.getLeaderID() == getID()) {
+										if (!kOurTeam.isHasNonAggression(eOtherTeam)) {
+											if (AI_getContactTimer(eOtherPlayer, CONTACT_NON_AGGRESSION) == 0) {
+												if (GC.getGameINLINE().getSorenRandNum(GC.getLeaderHeadInfo(getPersonalityType()).getContactRand(CONTACT_NON_AGGRESSION), "AI Diplo Open Borders") == 0) {
+													setTradeItem(&item, TRADE_NON_AGGRESSION);
+
+													if (canTradeItem(eOtherPlayer, item, true) && kOtherPlayer.canTradeItem(getID(), item, true)) {
+														ourList.clear();
+														theirList.clear();
+
+														ourList.insertAtEnd(item);
+														theirList.insertAtEnd(item);
+
+														if (kOtherPlayer.isHuman()) {
+															if (!(abContacted[eOtherTeam])) {
+																AI_changeContactTimer(eOtherPlayer, CONTACT_NON_AGGRESSION, GC.getLeaderHeadInfo(getPersonalityType()).getContactDelay(CONTACT_NON_AGGRESSION));
+																CvDiploParameters* pDiplo = new CvDiploParameters(getID());
+																FAssertMsg(pDiplo != NULL, "pDiplo must be valid");
+																pDiplo->setDiploComment((DiploCommentTypes)GC.getInfoTypeForString("AI_DIPLOCOMMENT_OFFER_DEAL"));
+																pDiplo->setAIContact(true);
+																pDiplo->setOurOfferList(theirList);
+																pDiplo->setTheirOfferList(ourList);
+																AI_beginDiplomacy(pDiplo, eOtherPlayer);
+																abContacted[eOtherTeam] = true;
+															}
+														} else {
+															GC.getGameINLINE().implementDeal(getID(), eOtherPlayer, &ourList, &theirList);
+														}
+
 													}
 												}
 											}

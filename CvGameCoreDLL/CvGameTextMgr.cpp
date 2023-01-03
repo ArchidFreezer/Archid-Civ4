@@ -6650,6 +6650,9 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	//	Enables Free Trade...
 	buildFreeTradeAgreementString(szBuffer, eTech, true, bPlayerContext);
 
+	//	Enables Non Aggression Pact...
+	buildNonAggressionString(szBuffer, eTech, true, bPlayerContext);
+
 	//	Peak passability...
 	buildCanPassPeaksString(szBuffer, eTech, true, bPlayerContext);
 
@@ -12251,6 +12254,9 @@ void CvGameTextMgr::getTradeString(CvWStringBuffer& szBuffer, const TradeData& t
 	case TRADE_DEFENSIVE_PACT:
 		szBuffer.append(gDLL->getText("TXT_KEY_MISC_DEFENSIVE_PACT"));
 		break;
+	case TRADE_NON_AGGRESSION:
+		szBuffer.append(gDLL->getText("TXT_KEY_MISC_NON_AGGRESSION"));
+		break;
 	case TRADE_PERMANENT_ALLIANCE:
 		szBuffer.append(gDLL->getText("TXT_KEY_MISC_PERMANENT_ALLIANCE"));
 		break;
@@ -12969,6 +12975,10 @@ void CvGameTextMgr::parseLeaderLineHelp(CvWStringBuffer& szBuffer, PlayerTypes e
 		}
 		if (thisTeam.isFreeTradeAgreement(otherTeam.getID()) || otherTeam.isFreeTradeAgreement(thisTeam.getID())) {
 			szBuffer.append(gDLL->getText("TXT_KEY_MISC_FREE_TRADE"));
+			szBuffer.append(NEWLINE);
+		}
+		if (thisTeam.isHasNonAggression(otherTeam.getID()) || otherTeam.isHasNonAggression(thisTeam.getID())) {
+			szBuffer.append(gDLL->getText("TXT_KEY_MISC_NON_AGGRESSION"));
 			szBuffer.append(NEWLINE);
 		}
 		if (thisTeam.isOpenBorders(otherTeam.getID())) {
@@ -15991,5 +16001,14 @@ void CvGameTextMgr::buildFreeTradeAgreementString(CvWStringBuffer& szBuffer, Tec
 			szBuffer.append(NEWLINE);
 		}
 		szBuffer.append(gDLL->getText("TXT_KEY_MISC_ENABLES_FREE_TRADE_AGREEMENT"));
+	}
+}
+
+void CvGameTextMgr::buildNonAggressionString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
+	if (GC.getTechInfo(eTech).isNonAggressionTrading() && (!bPlayerContext || !(GET_TEAM(GC.getGameINLINE().getActiveTeam()).isNonAggressionTrading()))) {
+		if (bList) {
+			szBuffer.append(NEWLINE);
+		}
+		szBuffer.append(gDLL->getText("TXT_KEY_MISC_ENABLES_NON_AGGRESSION"));
 	}
 }

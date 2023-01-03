@@ -128,6 +128,7 @@
 			<iAsset>16</iAsset>
 			<iPower>4</iPower>
 			<bTrade>1</bTrade>
+			<bNonAggressionTrading>1</bNonAggressionTrading>
 			<bTechTrading>1</bTechTrading>
 			<iGridX>5</iGridX>
 			<iGridY>7</iGridY>

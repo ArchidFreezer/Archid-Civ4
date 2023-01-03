@@ -220,5 +220,7 @@ void CyTeamPythonInterface() {
 		.def("changeEmbassyTradingCount", &CyTeam::changeEmbassyTradingCount, "void (int iChange)")
 		.def("isLimitedBordersTrading", &CyTeam::isLimitedBordersTrading, "bool ()")
 		.def("isFreeTradeAgreementTrading", &CyTeam::isFreeTradeAgreementTrading, "bool ()")
+		.def("isNonAggressionTrading", &CyTeam::isNonAggressionTrading, "bool ()")
+		.def("isHasNonAggression", &CyTeam::isHasNonAggression, "bool (TeamTypes)")
 		;
 }

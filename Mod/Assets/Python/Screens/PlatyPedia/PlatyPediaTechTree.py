@@ -88,6 +88,8 @@ class CvPediaTechTree:
 				self.TechBenefits[iTech].append(["LimitedBorders", -1])
 			if Info.isFreeTradeAgreementTrading():
 				self.TechBenefits[iTech].append(["FreeTradeAgreement", -1])
+			if Info.isNonAggressionTrading():
+				self.TechBenefits[iTech].append(["NonAggression", -1])
 			for j in xrange(DomainTypes.NUM_DOMAIN_TYPES):
 				if Info.getDomainExtraMoves(j):
 					self.TechBenefits[iTech].append(["DomainMoves", j])
@@ -332,6 +334,8 @@ class CvPediaTechTree:
 					screen.addDDSGFCAt(sButton, szTechRecord, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_TECH_LIMITED_BORDERS").getPath(), iX + fX, iY + Y_ROW, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_HELP_LIMITED_BORDERS, i, -1, False)
 				elif sType == "FreeTradeAgreement":
 					screen.addDDSGFCAt(sButton, szTechRecord, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_TECH_FREE_TRADE_AGREEMENT").getPath(), iX + fX, iY + Y_ROW, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_HELP_FREE_TRADE_AGREEMENT, i, -1, False)
+				elif sType == "NonAggression":
+					screen.addDDSGFCAt(sButton, szTechRecord, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_TECH_NON_AGGRESSION").getPath(), iX + fX, iY + Y_ROW, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_HELP_NON_AGGRESSION, i, -1, False)
 				elif sType == "UnlockImprovement":
 					screen.addDDSGFCAt(sButton, szTechRecord, gc.getBuildInfo(iItem).getButton(), iX + fX, iY + Y_ROW, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_HELP_IMPROVEMENT, i, iItem, False)
 				elif sType == "ObsoleteBuild":

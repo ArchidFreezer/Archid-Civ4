@@ -46,6 +46,7 @@ CvTeam::CvTeam() {
 	m_abEmbassy = new bool[MAX_TEAMS];
 	m_abLimitedBorders = new bool[MAX_TEAMS];
 	m_abFreeTradeAgreement = new bool[MAX_TEAMS];
+	m_abHasNonAggression = new bool[MAX_TEAMS];
 	m_abCanLaunch = NULL;
 
 	m_paiRouteChange = NULL;
@@ -93,6 +94,7 @@ CvTeam::~CvTeam() {
 	SAFE_DELETE_ARRAY(m_abEmbassy);
 	SAFE_DELETE_ARRAY(m_abLimitedBorders);
 	SAFE_DELETE_ARRAY(m_abFreeTradeAgreement);
+	SAFE_DELETE_ARRAY(m_abHasNonAggression);
 }
 
 
@@ -189,6 +191,7 @@ void CvTeam::reset(TeamTypes eID, bool bConstructorCall) {
 	m_iEmbassyTradingCount = 0;
 	m_iLimitedBordersTradingCount = 0;
 	m_iFreeTradeAgreementTradingCount = 0;
+	m_iNonAggressionTradingCount = 0;
 
 	m_bMapCentering = false;
 	m_bCapitulated = false;
@@ -213,6 +216,7 @@ void CvTeam::reset(TeamTypes eID, bool bConstructorCall) {
 		m_abEmbassy[eTeam] = false;
 		m_abLimitedBorders[eTeam] = false;
 		m_abFreeTradeAgreement[eTeam] = false;
+		m_abHasNonAggression[eTeam] = false;
 
 		if (!bConstructorCall && getID() != NO_TEAM) {
 			CvTeam& kLoopTeam = GET_TEAM(eTeam);
@@ -232,6 +236,7 @@ void CvTeam::reset(TeamTypes eID, bool bConstructorCall) {
 			kLoopTeam.m_abVassal[getID()] = false;
 			kLoopTeam.m_abLimitedBorders[getID()] = false;
 			kLoopTeam.m_abFreeTradeAgreement[getID()] = false;
+			kLoopTeam.m_abHasNonAggression[getID()] = false;
 		}
 	}
 
@@ -564,6 +569,7 @@ void CvTeam::addTeam(TeamTypes eTeam) {
 						(pNode->m_data.m_eItemType == TRADE_PEACE_TREATY) ||
 						(pNode->m_data.m_eItemType == TRADE_VASSAL) ||
 						(pNode->m_data.m_eItemType == TRADE_FREE_TRADE_ZONE) ||
+						(pNode->m_data.m_eItemType == TRADE_NON_AGGRESSION) ||
 						(pNode->m_data.m_eItemType == TRADE_SURRENDER)) {
 						bValid = false;
 					}
@@ -578,6 +584,7 @@ void CvTeam::addTeam(TeamTypes eTeam) {
 						(pNode->m_data.m_eItemType == TRADE_PEACE_TREATY) ||
 						(pNode->m_data.m_eItemType == TRADE_VASSAL) ||
 						(pNode->m_data.m_eItemType == TRADE_FREE_TRADE_ZONE) ||
+						(pNode->m_data.m_eItemType == TRADE_NON_AGGRESSION) ||
 						(pNode->m_data.m_eItemType == TRADE_SURRENDER)) {
 						bValid = false;
 					}
@@ -4900,6 +4907,10 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 		changeFreeTradeAgreementTradingCount(iChange);
 	}
 
+	if (kTech.isNonAggressionTrading()) {
+		changeNonAggressionTradingCount(iChange);
+	}
+
 	for (RouteTypes eRoute = (RouteTypes)0; eRoute < GC.getNumRouteInfos(); eRoute = (RouteTypes)(eRoute + 1)) {
 		changeRouteChange(eRoute, (GC.getRouteInfo(eRoute).getTechMovementChange(eTech) * iChange));
 	}
@@ -5099,6 +5110,7 @@ void CvTeam::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iEmbassyTradingCount);
 	pStream->Read(&m_iLimitedBordersTradingCount);
 	pStream->Read(&m_iFreeTradeAgreementTradingCount);
+	pStream->Read(&m_iNonAggressionTradingCount);
 
 	pStream->Read(&m_bMapCentering);
 	pStream->Read(&m_bCapitulated);
@@ -5129,6 +5141,7 @@ void CvTeam::read(FDataStreamBase* pStream) {
 	pStream->Read(MAX_TEAMS, m_abEmbassy);
 	pStream->Read(MAX_TEAMS, m_abLimitedBorders);
 	pStream->Read(MAX_TEAMS, m_abFreeTradeAgreement);
+	pStream->Read(MAX_TEAMS, m_abHasNonAggression);
 	pStream->Read(GC.getNumVictoryInfos(), m_abCanLaunch);
 
 	pStream->Read(GC.getNumRouteInfos(), m_paiRouteChange);
@@ -5205,6 +5218,7 @@ void CvTeam::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iEmbassyTradingCount);
 	pStream->Write(m_iLimitedBordersTradingCount);
 	pStream->Write(m_iFreeTradeAgreementTradingCount);
+	pStream->Write(m_iNonAggressionTradingCount);
 
 	pStream->Write(m_bMapCentering);
 	pStream->Write(m_bCapitulated);
@@ -5232,6 +5246,7 @@ void CvTeam::write(FDataStreamBase* pStream) {
 	pStream->Write(MAX_TEAMS, m_abEmbassy);
 	pStream->Write(MAX_TEAMS, m_abLimitedBorders);
 	pStream->Write(MAX_TEAMS, m_abFreeTradeAgreement);
+	pStream->Write(MAX_TEAMS, m_abHasNonAggression);
 	pStream->Write(GC.getNumVictoryInfos(), m_abCanLaunch);
 
 	pStream->Write(GC.getNumRouteInfos(), m_paiRouteChange);
@@ -5570,4 +5585,66 @@ void CvTeam::setFreeTradeAgreement(TeamTypes eIndex, bool bNewValue)
 			}
 		}
 	}
+}
+
+bool CvTeam::isHasNonAggression(TeamTypes eIndex) const {
+	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
+	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
+	return m_abHasNonAggression[eIndex];
+}
+
+void CvTeam::setHasNonAggression(TeamTypes eIndex, bool bNewValue) {
+	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
+	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
+	if (m_abHasNonAggression[eIndex] != bNewValue) {
+		m_abHasNonAggression[eIndex] = bNewValue;
+
+		GC.getMapINLINE().verifyUnitValidPlot();
+
+		if ((getID() == GC.getGameINLINE().getActiveTeam()) || (eIndex == GC.getGameINLINE().getActiveTeam())) {
+			gDLL->getInterfaceIFace()->setDirty(Score_DIRTY_BIT, true);
+		}
+		if (bNewValue && !GET_TEAM(eIndex).isHasNonAggression(getID())) {
+			CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_NON_AGGRESSION_AGREEMENT", getName().GetCString(), GET_TEAM(eIndex).getName().GetCString());
+			for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+				CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+				if (kPlayer.isAlive()) {
+					if (isHasMet(kPlayer.getTeam()) && GET_TEAM(eIndex).isHasMet(kPlayer.getTeam())) {
+						gDLL->getInterfaceIFace()->addMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_WELOVEKING", MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"));
+					}
+				}
+			}
+		}
+		m_abHasNonAggression[eIndex] = bNewValue;
+	}
+}
+
+bool CvTeam::canSignNonAggression(TeamTypes eTeam) const {
+	for (TeamTypes eLoopTeam = (TeamTypes)0; eLoopTeam < MAX_CIV_TEAMS; eLoopTeam = (TeamTypes)(eLoopTeam + 1)) {
+		if (eLoopTeam != getID() && eLoopTeam != eTeam) {
+			CvTeam& kLoopTeam = GET_TEAM(eLoopTeam);
+			if (kLoopTeam.isPermanentWarPeace(eTeam) != kLoopTeam.isPermanentWarPeace(getID())) {
+				return false;
+			}
+
+			if (isPermanentWarPeace(eLoopTeam) != GET_TEAM(eTeam).isPermanentWarPeace(eLoopTeam)) {
+				return false;
+			}
+		}
+	}
+
+	return true;
+}
+
+int CvTeam::getNonAggressionTradingCount() const {
+	return m_iNonAggressionTradingCount;
+}
+
+bool CvTeam::isNonAggressionTrading() const {
+	return (getNonAggressionTradingCount() > 0);
+}
+
+void CvTeam::changeNonAggressionTradingCount(int iChange) {
+	m_iNonAggressionTradingCount = (m_iNonAggressionTradingCount + iChange);
+	FAssert(getNonAggressionTradingCount() >= 0);
 }

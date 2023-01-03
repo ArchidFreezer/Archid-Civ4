@@ -41,6 +41,9 @@ public:
 	int AI_FreeTradeAgreementVal(TeamTypes eTeam) const;
 	DenialTypes AI_FreeTradeAgreement(TeamTypes eTeam) const;
 
+	int AI_NonAggressionTradeVal(TeamTypes eTeam) const;
+	DenialTypes AI_NonAggressionTrade(TeamTypes eTeam) const;
+
 	void AI_doTurnPre();
 	void AI_doTurnPost();
 

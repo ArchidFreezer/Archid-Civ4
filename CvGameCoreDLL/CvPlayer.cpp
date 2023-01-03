@@ -3412,6 +3412,10 @@ bool CvPlayer::canTradeWith(PlayerTypes eWhoTo) const {
 		return true;
 	}
 
+	if (kOurTeam.isNonAggressionTrading() || kTheirTeam.isNonAggressionTrading()) {
+		return true;
+	}
+
 	return false;
 }
 
@@ -3683,6 +3687,26 @@ bool CvPlayer::canTradeItem(PlayerTypes eWhoTo, TradeData item, bool bTestDenial
 		}
 		break;
 
+	case TRADE_NON_AGGRESSION:
+		for (PlayerTypes eLoopPlayer = (PlayerTypes)0; eLoopPlayer < MAX_PLAYERS; eLoopPlayer = (PlayerTypes)(eLoopPlayer + 1)) {
+			if (getTeam() != kTheirPlayer.getTeam()) {
+				if (kOurTeam.isHasEmbassy(kTheirPlayer.getTeam())) {
+					if (!atWar(getTeam(), kTheirPlayer.getTeam())) {
+						if (!kOurTeam.isHasNonAggression(kTheirPlayer.getTeam())) {
+							if (kOurTeam.canSignNonAggression(kTheirPlayer.getTeam())) {
+								if (kOurTeam.isNonAggressionTrading() || kTheirTeam.isNonAggressionTrading()) {
+									if (getCapitalCity() != NULL && kTheirPlayer.getCapitalCity() != NULL) {
+										return true;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		break;
+
 	case TRADE_PEACE_TREATY:
 		return true;
 		break;
@@ -3788,6 +3812,9 @@ DenialTypes CvPlayer::getTradeDenial(PlayerTypes eWhoTo, TradeData item) const {
 		return kOurTeam.AI_FreeTradeAgreement(eTheirTeam);
 		break;
 
+	case TRADE_NON_AGGRESSION:
+		return kOurTeam.AI_NonAggressionTrade(eTheirTeam);
+		break;
 	}
 	return NO_DENIAL;
 }
@@ -17456,6 +17483,11 @@ void CvPlayer::buildTradeTable(PlayerTypes eOtherPlayer, CLinkList<TradeData>& o
 		ourList.insertAtEnd(item);
 	}
 
+	setTradeItem(&item, TRADE_NON_AGGRESSION);
+	if (canTradeItem(eOtherPlayer, item)) {
+		ourList.insertAtEnd(item);
+	}
+
 	//	Open Borders
 	setTradeItem(&item, TRADE_OPEN_BORDERS);
 	if (canTradeItem(eOtherPlayer, item)) {
@@ -17681,6 +17713,9 @@ bool CvPlayer::getItemTradeString(PlayerTypes eOtherPlayer, bool bOffer, bool bS
 		break;
 	case TRADE_DEFENSIVE_PACT:
 		szString = gDLL->getText("TXT_KEY_TRADE_DEFENSIVE_PACT_STRING");
+		break;
+	case TRADE_NON_AGGRESSION:
+		szString = gDLL->getText("TXT_KEY_TRADE_NON_AGGRESSION_STRING");
 		break;
 	case TRADE_PERMANENT_ALLIANCE:
 		szString = gDLL->getText("TXT_KEY_TRADE_PERMANENT_ALLIANCE_STRING");

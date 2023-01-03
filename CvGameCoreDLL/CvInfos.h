@@ -347,6 +347,7 @@ public:
 	bool isEmbassyTrading() const;
 	bool isLimitedBordersTrading() const;
 	bool isFreeTradeAgreementTrading() const;
+	bool isNonAggressionTrading() const;
 
 	bool hasAnyForestPlotYieldChange() const;
 	bool hasAnyRiverPlotYieldChange() const;
@@ -437,6 +438,7 @@ protected:
 	bool m_bEmbassyTrading;
 	bool m_bLimitedBordersTrading;
 	bool m_bFreeTradeAgreementTrading;
+	bool m_bNonAggressionTrading;
 
 	CvString m_szQuoteKey;
 	CvString m_szSound;

@@ -1641,5 +1641,9 @@
 			<Type>INTERFACE_TECH_FREE_TRADE_AGREEMENT</Type>
 			<Path>Art/Interface/Screens/TechTree/FreeTrade.dds</Path>
 		</InterfaceArtInfo>
+		<InterfaceArtInfo>
+			<Type>INTERFACE_TECH_NON_AGGRESSION</Type>
+			<Path>Art/Interface/Screens/TechTree/NonAggression.dds</Path>
+		</InterfaceArtInfo>
 	</InterfaceArtInfos>
 </Civ4ArtDefines>

@@ -146,5 +146,9 @@
 			<Type>MEMORY_CANCELLED_FREE_TRADE_AGREEMENT</Type>
 			<Description>TXT_KEY_MEMORY_CANCELLED_FREE_TRADE_AGREEMENT</Description>
 		</MemoryInfo>
+		<MemoryInfo>
+			<Type>MEMORY_CANCELLED_NON_AGGRESSION</Type>
+			<Description>TXT_KEY_MEMORY_CANCELLED_NON_AGGRESSION</Description>
+		</MemoryInfo>
 	</MemoryInfos>
 </Civ4MemoryInfos>

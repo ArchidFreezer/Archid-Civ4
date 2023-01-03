@@ -1385,6 +1385,12 @@ int CvTeamAI::AI_warDiplomacyCost(TeamTypes eTarget) const {
 	int iDiploPopulation = kTargetTeam.getTotalPopulation(false);
 	int iDiploCost = 3 * iDiploPopulation * (100 + AI_getAttitudeWeight(eTarget)) / 200;
 
+	// If we have a non-aggression treaty then increase the cost
+	if (isHasNonAggression(eTarget)) {
+		iDiploCost *= 3;
+		iDiploCost /= 2;
+	}
+
 	// cost of upsetting their friends
 	for (TeamTypes i = (TeamTypes)0; i < MAX_CIV_TEAMS; i = (TeamTypes)(i + 1)) {
 		const CvTeamAI& kLoopTeam = GET_TEAM(i);
@@ -2812,13 +2818,16 @@ int CvTeamAI::AI_declareWarTradeVal(TeamTypes eWarTeam, TeamTypes eTeam) const {
 	FAssertMsg(GET_TEAM(eWarTeam).isAlive(), "GET_TEAM(eWarTeam).isAlive is expected to be true");
 	FAssertMsg(!atWar(eWarTeam, eTeam), "eTeam should be at peace with eWarTeam");
 
+	const CvTeamAI& kWarTeam = GET_TEAM(eWarTeam);
+	const CvTeamAI& kOtherTeam = GET_TEAM(eTeam);
+
 	int iValue = 0;
-	iValue += (GET_TEAM(eWarTeam).getNumCities() * 10);
-	iValue += (GET_TEAM(eWarTeam).getTotalPopulation(true) * 2);
+	iValue += (kWarTeam.getNumCities() * 10);
+	iValue += (kWarTeam.getTotalPopulation(true) * 2);
 
 	int iModifier = 0;
 
-	switch (GET_TEAM(eTeam).AI_getAttitude(eWarTeam)) {
+	switch (kOtherTeam.AI_getAttitude(eWarTeam)) {
 	case ATTITUDE_FURIOUS:
 		break;
 
@@ -2846,13 +2855,13 @@ int CvTeamAI::AI_declareWarTradeVal(TeamTypes eWarTeam, TeamTypes eTeam) const {
 	iValue *= std::max(0, (iModifier + 100));
 	iValue /= 100;
 
-	int iTheirPower = GET_TEAM(eTeam).getPower(true);
-	int iWarTeamPower = GET_TEAM(eWarTeam).getPower(true);
+	int iTheirPower = kOtherTeam.getPower(true);
+	int iWarTeamPower = kWarTeam.getPower(true);
 
 	iValue *= 50 + ((100 * iWarTeamPower) / (iTheirPower + iWarTeamPower + 1));
 	iValue /= 100;
 
-	if (!(GET_TEAM(eTeam).AI_isAllyLandTarget(eWarTeam))) {
+	if (!(kOtherTeam.AI_isAllyLandTarget(eWarTeam))) {
 		iValue *= 2;
 	}
 
@@ -2863,11 +2872,11 @@ int CvTeamAI::AI_declareWarTradeVal(TeamTypes eWarTeam, TeamTypes eTeam) const {
 		iValue /= 100 + ((50 * std::min(100, (100 * AI_getWarSuccess(eWarTeam)) / (8 + getTotalPopulation(false)))) / 100);
 	}
 
-	iValue += (GET_TEAM(eTeam).getNumCities() * 20);
-	iValue += (GET_TEAM(eTeam).getTotalPopulation(true) * 15);
+	iValue += (kOtherTeam.getNumCities() * 20);
+	iValue += (kOtherTeam.getTotalPopulation(true) * 15);
 
 	if (isAtWar(eWarTeam)) {
-		switch (GET_TEAM(eTeam).AI_getAttitude(getID())) {
+		switch (kOtherTeam.AI_getAttitude(getID())) {
 		case ATTITUDE_FURIOUS:
 		case ATTITUDE_ANNOYED:
 		case ATTITUDE_CAUTIOUS:
@@ -2889,18 +2898,25 @@ int CvTeamAI::AI_declareWarTradeVal(TeamTypes eWarTeam, TeamTypes eTeam) const {
 		iValue /= 100;
 	}
 
-	iValue += GET_TEAM(eWarTeam).getNumNukeUnits() * 250;//Don't want to get nuked
-	iValue += GET_TEAM(eTeam).getNumNukeUnits() * 150;//Don't want to use nukes on another's behalf
+	iValue += kWarTeam.getNumNukeUnits() * 250;//Don't want to get nuked
+	iValue += kOtherTeam.getNumNukeUnits() * 150;//Don't want to use nukes on another's behalf
 
-	if (GET_TEAM(eWarTeam).getAtWarCount(false) == 0) {
+	// NonAggression - the AI is less likely to backstab
+	if (kWarTeam.isHasNonAggression(getID())) {
+		iValue *= 3;
+		iValue /= 2;
+	}
+
+	if (kWarTeam.getAtWarCount(false) == 0) {
 		iValue *= 2;
 
-		for (int iI = 0; iI < MAX_CIV_TEAMS; iI++) {
-			if (GET_TEAM((TeamTypes)iI).isAlive()) {
-				if (iI != getID() && iI != eWarTeam && iI != eTeam) {
-					if (GET_TEAM(eWarTeam).isDefensivePact((TeamTypes)iI)) {
-						iValue += (GET_TEAM((TeamTypes)iI).getNumCities() * 30);
-						iValue += (GET_TEAM((TeamTypes)iI).getTotalPopulation(true) * 20);
+		for (TeamTypes eLoopTeam = (TeamTypes)0; eLoopTeam < MAX_CIV_TEAMS; eLoopTeam = (TeamTypes)(eLoopTeam + 1)) {
+			const CvTeam& kLoopTeam = GET_TEAM(eLoopTeam);
+			if (kLoopTeam.isAlive()) {
+				if (eLoopTeam != getID() && eLoopTeam != eWarTeam && eLoopTeam != eTeam) {
+					if (kWarTeam.isDefensivePact(eLoopTeam)) {
+						iValue += (kLoopTeam.getNumCities() * 30);
+						iValue += (kLoopTeam.getTotalPopulation(true) * 20);
 					}
 				}
 			}
@@ -4880,4 +4896,56 @@ DenialTypes CvTeamAI::AI_FreeTradeAgreement(TeamTypes eTeam) const {
 	}
 
 	return NO_DENIAL;
+}
+
+DenialTypes CvTeamAI::AI_NonAggressionTrade(TeamTypes eTeam) const {
+	PROFILE_FUNC();
+
+	FAssertMsg(eTeam != getID(), "shouldn't call this function on ourselves");
+
+	if (isHuman()) {
+		return NO_DENIAL;
+	}
+
+	if (isVassal(eTeam)) {
+		return NO_DENIAL;
+	}
+
+	if (AI_shareWar(eTeam)) {
+		return NO_DENIAL;
+	}
+
+	if (AI_getWorstEnemy() == eTeam) {
+		return DENIAL_WORST_ENEMY;
+	}
+
+	if (AI_getMemoryCount(eTeam, MEMORY_CANCELLED_NON_AGGRESSION) > 0 && AI_getMemoryCount(eTeam, MEMORY_CANCELLED_NON_AGGRESSION) > 0) {
+		return DENIAL_RECENT_CANCEL;
+	}
+
+	AttitudeTypes eAttitude = AI_getAttitude(eTeam);
+
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+		if (kPlayer.isAlive()) {
+			if (kPlayer.getTeam() == getID()) {
+				if (eAttitude <= ATTITUDE_ANNOYED) {
+					return DENIAL_ATTITUDE;
+				}
+			}
+		}
+	}
+
+	return NO_DENIAL;
+}
+
+int CvTeamAI::AI_NonAggressionTradeVal(TeamTypes eTeam) const {
+	int iValue = 0;
+
+	iValue = (getNumCities() + GET_TEAM(eTeam).getNumCities());
+
+	iValue *= 7;
+	iValue /= 5;
+
+	return std::max(0, iValue);
 }

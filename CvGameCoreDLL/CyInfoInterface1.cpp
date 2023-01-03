@@ -96,6 +96,7 @@ void CyInfoPythonInterface1() {
 		.def("isEmbassyTrading", &CvTechInfo::isEmbassyTrading, "bool ()")
 		.def("isLimitedBordersTrading", &CvTechInfo::isLimitedBordersTrading, "bool ()")
 		.def("isFreeTradeAgreementTrading", &CvTechInfo::isFreeTradeAgreementTrading, "bool ()")
+		.def("isNonAggressionTrading", &CvTechInfo::isNonAggressionTrading, "bool ()")
 
 		.def("hasAnyForestPlotYieldChange", &CvTechInfo::hasAnyForestPlotYieldChange, "bool ()")
 		.def("hasAnyRiverPlotYieldChange", &CvTechInfo::hasAnyRiverPlotYieldChange, "bool ()")

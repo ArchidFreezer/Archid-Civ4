@@ -8368,5 +8368,25 @@
 		<English>Free Trade Agreement:[NEWLINE][ICON_BULLET]Increases Trade Revenue[NEWLINE][ICON_BULLET]Increases Gold From Trade Missions[NEWLINE][ICON_BULLET]Lowers the cost of espionage in member nations[NEWLINE][ICON_BULLET]Increases the Spread of Corporations between member nations[NEWLINE][ICON_BULLET]May anger rivals</English>
 		<French>Accord de libre échange:[NEWLINE][ICON_BULLET]Augmente les revenus des échanges[NEWLINE][ICON_BULLET]Réduit le coût de l'espionnage entre les nations[NEWLINE][ICON_BULLET]Augmente la propagation des Corporations entre les nations[NEWLINE][ICON_BULLET]Peut détériorer les relations avec les rivaux</French>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ENABLES_NON_AGGRESSION</Tag>
+		<English>[ICON_BULLET]Enables Non Aggression Pact</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_NON_AGGRESSION</Tag>
+		<English>Non-Agression Pact</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRADE_NON_AGGRESSION</Tag>
+		<English>Each Leader Promises to not Attack the Other. </English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRADE_NON_AGGRESSION_STRING</Tag>
+		<English>Non-Agression Pact</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_NON_AGGRESSION_AGREEMENT</Tag>
+		<English>%s1 and %s2 signed a Non-Agression Pact to guarantee peace between their civilizations.</English>
+	</TEXT>
 
 </Civ4GameText>

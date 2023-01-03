@@ -25,6 +25,8 @@ public:
 	void changeEmbassyTradingCount(int iChange);
 	bool isLimitedBordersTrading();
 	bool isFreeTradeAgreementTrading();
+	bool isHasNonAggression(int /*TeamTypes*/ eIndex) const;
+	bool isNonAggressionTrading();
 
 	bool canChangeWarPeace(int /*TeamTypes*/ eTeam);
 	bool canDeclareWar(int /*TeamTypes*/ eTeam);

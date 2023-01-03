@@ -52,6 +52,13 @@ public:
 	void changeFreeTradeAgreementTradingCount(int iChange);
 	void setFreeTradeAgreement(TeamTypes eIndex, bool bNewValue);
 
+	int getNonAggressionTradingCount() const;
+	bool canSignNonAggression(TeamTypes eIndex) const;
+	bool isHasNonAggression(TeamTypes eIndex) const;
+	bool isNonAggressionTrading() const;
+	void changeNonAggressionTradingCount(int iChange);
+	void setHasNonAggression(TeamTypes eIndex, bool bNewValue);
+
 	void doTurn();
 
 	int getCanFoundOnPeaksCount() const;
@@ -451,6 +458,7 @@ protected:
 	int m_iEmbassyTradingCount;
 	int m_iLimitedBordersTradingCount;
 	int m_iFreeTradeAgreementTradingCount;
+	int m_iNonAggressionTradingCount;
 
 	bool m_bMapCentering;
 	bool m_bCapitulated;
@@ -476,6 +484,7 @@ protected:
 	bool* m_abEmbassy;
 	bool* m_abLimitedBorders;
 	bool* m_abFreeTradeAgreement;
+	bool* m_abHasNonAggression;
 
 	int* m_paiRouteChange;
 	int* m_paiProjectCount;

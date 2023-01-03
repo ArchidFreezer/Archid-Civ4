@@ -614,6 +614,9 @@ void CvDLLWidgetData::parseHelp(CvWStringBuffer& szBuffer, CvWidgetDataStruct& w
 	case WIDGET_HELP_FREE_TRADE_AGREEMENT:
 		parseFreeTradeAgreementHelp(widgetDataStruct, szBuffer);
 		break;
+	case WIDGET_HELP_NON_AGGRESSION:
+		parseNonAggressionHelp(widgetDataStruct, szBuffer);
+		break;
 	}
 }
 
@@ -3669,6 +3672,9 @@ void CvDLLWidgetData::parseTradeItem(CvWidgetDataStruct& widgetDataStruct, CvWSt
 		case TRADE_DEFENSIVE_PACT:
 			szBuffer.append(gDLL->getText("TXT_KEY_TRADE_DEFENSIVE_PACT"));
 			break;
+		case TRADE_NON_AGGRESSION:
+			szBuffer.append(gDLL->getText("TXT_KEY_TRADE_NON_AGGRESSION"));
+			break;
 		case TRADE_PERMANENT_ALLIANCE:
 			szBuffer.append(gDLL->getText("TXT_KEY_TRADE_PERMANENT_ALLIANCE"));
 			break;
@@ -4607,4 +4613,8 @@ void CvDLLWidgetData::parseLimitedBordersHelp(CvWidgetDataStruct& widgetDataStru
 
 void CvDLLWidgetData::parseFreeTradeAgreementHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
 	GAMETEXT.buildFreeTradeAgreementString(szBuffer, ((TechTypes)(widgetDataStruct.m_iData1)));
+}
+
+void CvDLLWidgetData::parseNonAggressionHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
+	GAMETEXT.buildNonAggressionString(szBuffer, ((TechTypes)(widgetDataStruct.m_iData1)));
 }
