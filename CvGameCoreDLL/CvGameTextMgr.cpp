@@ -6647,6 +6647,9 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	//	Enables Limited Borders...
 	buildLimitedBordersString(szBuffer, eTech, true, bPlayerContext);
 
+	//	Enables Free Trade...
+	buildFreeTradeAgreementString(szBuffer, eTech, true, bPlayerContext);
+
 	//	Peak passability...
 	buildCanPassPeaksString(szBuffer, eTech, true, bPlayerContext);
 
@@ -12280,6 +12283,9 @@ void CvGameTextMgr::getTradeString(CvWStringBuffer& szBuffer, const TradeData& t
 	case TRADE_LIMITED_BORDERS:
 		szBuffer.append(gDLL->getText("TXT_KEY_MISC_LIMITED_BORDERS"));
 		break;
+	case TRADE_FREE_TRADE_ZONE:
+		szBuffer.append(gDLL->getText("TXT_KEY_MISC_FREE_TRADE_ZONE"));
+		break;
 	default:
 		FAssert(false);
 		break;
@@ -12959,6 +12965,10 @@ void CvGameTextMgr::parseLeaderLineHelp(CvWStringBuffer& szBuffer, PlayerTypes e
 		}
 		if (thisTeam.isLimitedBorders(otherTeam.getID()) || otherTeam.isLimitedBorders(thisTeam.getID())) {
 			szBuffer.append(gDLL->getText("TXT_KEY_MISC_LIMITED_BORDERS"));
+			szBuffer.append(NEWLINE);
+		}
+		if (thisTeam.isFreeTradeAgreement(otherTeam.getID()) || otherTeam.isFreeTradeAgreement(thisTeam.getID())) {
+			szBuffer.append(gDLL->getText("TXT_KEY_MISC_FREE_TRADE"));
 			szBuffer.append(NEWLINE);
 		}
 		if (thisTeam.isOpenBorders(otherTeam.getID())) {
@@ -15972,5 +15982,14 @@ void CvGameTextMgr::buildLimitedBordersString(CvWStringBuffer& szBuffer, TechTyp
 			szBuffer.append(NEWLINE);
 		}
 		szBuffer.append(gDLL->getText("TXT_KEY_MISC_ENABLES_LIMITED_BORDERS"));
+	}
+}
+
+void CvGameTextMgr::buildFreeTradeAgreementString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
+	if (GC.getTechInfo(eTech).isFreeTradeAgreementTrading() && (!bPlayerContext || !(GET_TEAM(GC.getGameINLINE().getActiveTeam()).isFreeTradeAgreementTrading()))) {
+		if (bList) {
+			szBuffer.append(NEWLINE);
+		}
+		szBuffer.append(gDLL->getText("TXT_KEY_MISC_ENABLES_FREE_TRADE_AGREEMENT"));
 	}
 }

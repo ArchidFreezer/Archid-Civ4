@@ -38,6 +38,9 @@ public:
 	int AI_LimitedBordersTradeVal(TeamTypes eTeam) const;
 	DenialTypes AI_LimitedBordersTrade(TeamTypes eTeam) const;
 
+	int AI_FreeTradeAgreementVal(TeamTypes eTeam) const;
+	DenialTypes AI_FreeTradeAgreement(TeamTypes eTeam) const;
+
 	void AI_doTurnPre();
 	void AI_doTurnPost();
 

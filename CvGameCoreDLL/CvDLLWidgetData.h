@@ -210,6 +210,7 @@ public:
 	void parseObsoleteBuildHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer);
 	void parseEmbassyHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer);
 	void parseLimitedBordersHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer);
+	void parseFreeTradeAgreementHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer);
 
 protected:
 

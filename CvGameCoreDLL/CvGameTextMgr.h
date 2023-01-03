@@ -182,6 +182,7 @@ public:
 	void buildCanFoundOnPeaksString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList = false, bool bPlayerContext = false);
 	void buildEmbassyString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList = false, bool bPlayerContext = false);
 	void buildLimitedBordersString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList = false, bool bPlayerContext = false);
+	void buildFreeTradeAgreementString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList = false, bool bPlayerContext = false);
 
 	DllExport void buildCityBillboardIconString(CvWStringBuffer& szBuffer, CvCity* pCity);
 	DllExport void buildCityBillboardCityNameString(CvWStringBuffer& szBuffer, CvCity* pCity);

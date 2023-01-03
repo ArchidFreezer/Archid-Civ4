@@ -45,6 +45,13 @@ public:
 	void setLimitedBorders(TeamTypes eIndex, bool bNewValue);
 	void signLimitedBorders(TeamTypes eTeam);
 
+	int getFreeTradeAgreementTradingCount() const;
+	bool canSignFreeTradeAgreement(TeamTypes eTeam);
+	bool isFreeTradeAgreement(TeamTypes eIndex) const;
+	bool isFreeTradeAgreementTrading() const;
+	void changeFreeTradeAgreementTradingCount(int iChange);
+	void setFreeTradeAgreement(TeamTypes eIndex, bool bNewValue);
+
 	void doTurn();
 
 	int getCanFoundOnPeaksCount() const;
@@ -443,6 +450,7 @@ protected:
 	int m_iCanFoundOnPeaksCount;
 	int m_iEmbassyTradingCount;
 	int m_iLimitedBordersTradingCount;
+	int m_iFreeTradeAgreementTradingCount;
 
 	bool m_bMapCentering;
 	bool m_bCapitulated;
@@ -467,6 +475,7 @@ protected:
 	bool* m_abCanLaunch;
 	bool* m_abEmbassy;
 	bool* m_abLimitedBorders;
+	bool* m_abFreeTradeAgreement;
 
 	int* m_paiRouteChange;
 	int* m_paiProjectCount;

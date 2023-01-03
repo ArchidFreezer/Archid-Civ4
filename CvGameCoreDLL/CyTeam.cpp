@@ -814,3 +814,7 @@ void CyTeam::changeEmbassyTradingCount(int iChange) {
 bool CyTeam::isLimitedBordersTrading() {
 	return m_pTeam ? m_pTeam->isLimitedBordersTrading() : false;
 }
+
+bool CyTeam::isFreeTradeAgreementTrading() {
+	return m_pTeam ? m_pTeam->isFreeTradeAgreementTrading() : false;
+}

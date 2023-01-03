@@ -1637,5 +1637,9 @@
 			<Type>INTERFACE_TECH_LIMITED_BORDERS</Type>
 			<Path>Art/Interface/Screens/TechTree/Open_Borders.dds</Path>
 		</InterfaceArtInfo>
+		<InterfaceArtInfo>
+			<Type>INTERFACE_TECH_FREE_TRADE_AGREEMENT</Type>
+			<Path>Art/Interface/Screens/TechTree/FreeTrade.dds</Path>
+		</InterfaceArtInfo>
 	</InterfaceArtInfos>
 </Civ4ArtDefines>

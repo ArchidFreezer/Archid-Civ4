@@ -611,6 +611,9 @@ void CvDLLWidgetData::parseHelp(CvWStringBuffer& szBuffer, CvWidgetDataStruct& w
 	case WIDGET_HELP_LIMITED_BORDERS:
 		parseLimitedBordersHelp(widgetDataStruct, szBuffer);
 		break;
+	case WIDGET_HELP_FREE_TRADE_AGREEMENT:
+		parseFreeTradeAgreementHelp(widgetDataStruct, szBuffer);
+		break;
 	}
 }
 
@@ -3678,6 +3681,9 @@ void CvDLLWidgetData::parseTradeItem(CvWidgetDataStruct& widgetDataStruct, CvWSt
 		case TRADE_LIMITED_BORDERS:
 			szBuffer.append(gDLL->getText("TXT_KEY_TRADE_LIMITED_BORDERS"));
 			break;
+		case TRADE_FREE_TRADE_ZONE:
+			szBuffer.append(gDLL->getText("TXT_KEY_TRADE_FREE_TRADE_ZONE"));
+			break;
 		}
 
 		TradeData item;
@@ -4597,4 +4603,8 @@ void CvDLLWidgetData::parseEmbassyHelp(CvWidgetDataStruct& widgetDataStruct, CvW
 
 void CvDLLWidgetData::parseLimitedBordersHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
 	GAMETEXT.buildLimitedBordersString(szBuffer, ((TechTypes)(widgetDataStruct.m_iData1)));
+}
+
+void CvDLLWidgetData::parseFreeTradeAgreementHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
+	GAMETEXT.buildFreeTradeAgreementString(szBuffer, ((TechTypes)(widgetDataStruct.m_iData1)));
 }

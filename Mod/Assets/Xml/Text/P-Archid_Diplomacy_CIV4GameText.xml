@@ -8341,5 +8341,32 @@
 		<Tag>RESUME_TALKS_GLADLY</Tag>
 		<English>Excellent! There are many things you have to offer us.</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FREE_TRADE_AGREEMENT_MOD</Tag>
+		<English>%d1%: From Free Trade Agreement</English>
+		<French>%d1%: des Accords de libre échange</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MEMORY_CANCELLED_FREE_TRADE_AGREEMENT</Tag>
+		<English>&quot;You raised our Trading Tariffs!&quot;</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ATTITUDE_FREE_TRADE_AGREEMENT</Tag>
+		<English>%D1: &quot;Our Free Trade Agreement propels our economies.&quot;</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_FREE_TRADE_ZONE</Tag>
+		<English>Free Trade Agreement</English>
+		<French>Accord de libre échange</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ENABLES_FREE_TRADE_AGREEMENT</Tag>
+		<English>[ICON_BULLET]Enables Free Trade Agreement</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRADE_FREE_TRADE_ZONE</Tag>
+		<English>Free Trade Agreement:[NEWLINE][ICON_BULLET]Increases Trade Revenue[NEWLINE][ICON_BULLET]Increases Gold From Trade Missions[NEWLINE][ICON_BULLET]Lowers the cost of espionage in member nations[NEWLINE][ICON_BULLET]Increases the Spread of Corporations between member nations[NEWLINE][ICON_BULLET]May anger rivals</English>
+		<French>Accord de libre échange:[NEWLINE][ICON_BULLET]Augmente les revenus des échanges[NEWLINE][ICON_BULLET]Réduit le coût de l'espionnage entre les nations[NEWLINE][ICON_BULLET]Augmente la propagation des Corporations entre les nations[NEWLINE][ICON_BULLET]Peut détériorer les relations avec les rivaux</French>
+	</TEXT>
 
 </Civ4GameText>

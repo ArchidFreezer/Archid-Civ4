@@ -787,6 +787,15 @@ bool CvDeal::startTrade(TradeData trade, PlayerTypes eFromPlayer, PlayerTypes eT
 		}
 		break;
 
+	case TRADE_FREE_TRADE_ZONE:
+		if (trade.m_iData == 0) {
+			startTeamTrade(TRADE_FREE_TRADE_ZONE, GET_PLAYER(eFromPlayer).getTeam(), GET_PLAYER(eToPlayer).getTeam(), true);
+			GET_TEAM(GET_PLAYER(eFromPlayer).getTeam()).setFreeTradeAgreement(((TeamTypes)(GET_PLAYER(eToPlayer).getTeam())), true);
+		} else {
+			bSave = true;
+		}
+		break;
+
 	case TRADE_DEFENSIVE_PACT:
 		if (trade.m_iData == 0) {
 			startTeamTrade(TRADE_DEFENSIVE_PACT, kFromPlayer.getTeam(), eToTeam, true);
@@ -876,6 +885,7 @@ void CvDeal::endTrade(TradeData trade, PlayerTypes eFromPlayer, PlayerTypes eToP
 			endTeamTrade(TRADE_OPEN_BORDERS, eFromTeam, eToTeam);
 			endTeamTrade(TRADE_DEFENSIVE_PACT, eFromTeam, eToTeam);
 			endTeamTrade(TRADE_PERMANENT_ALLIANCE, eFromTeam, eToTeam);
+			endTeamTrade(TRADE_FREE_TRADE_ZONE, eFromTeam, eToTeam);
 		}
 
 		for (PlayerTypes eOuterPlayer = (PlayerTypes)0; eOuterPlayer < MAX_PLAYERS; eOuterPlayer = (PlayerTypes)(eOuterPlayer + 1)) {
@@ -933,6 +943,29 @@ void CvDeal::endTrade(TradeData trade, PlayerTypes eFromPlayer, PlayerTypes eToP
 						if (kInnerPlayer.isAlive()) {
 							if (kInnerPlayer.getTeam() == eToTeam) {
 								kOuterPlayer.AI_changeMemoryCount(eInnerPlayer, MEMORY_CANCELLED_OPEN_BORDERS, 1);
+							}
+						}
+					}
+				}
+			}
+		}
+		break;
+
+	case TRADE_FREE_TRADE_ZONE:
+		GET_TEAM(kFromPlayer.getTeam()).setFreeTradeAgreement((TeamTypes)kToPlayer.getTeam(), false);
+		if (bTeam) {
+			endTeamTrade(TRADE_FREE_TRADE_ZONE, kFromPlayer.getTeam(), kToPlayer.getTeam());
+		}
+
+		for (PlayerTypes eOuterPlayer = (PlayerTypes)0; eOuterPlayer < MAX_PLAYERS; eOuterPlayer = (PlayerTypes)(eOuterPlayer + 1)) {
+			CvPlayer& kOuterPlayer = GET_PLAYER(eOuterPlayer);
+			if (kOuterPlayer.isAlive()) {
+				if (kOuterPlayer.getTeam() == kFromPlayer.getTeam()) {
+					for (PlayerTypes eInnerPlayer = (PlayerTypes)0; eInnerPlayer < MAX_PLAYERS; eInnerPlayer = (PlayerTypes)(eInnerPlayer + 1)) {
+						const CvPlayer& kInnerPlayer = GET_PLAYER(eInnerPlayer);
+						if (kInnerPlayer.isAlive()) {
+							if (kInnerPlayer.getTeam() == kToPlayer.getTeam()) {
+								kOuterPlayer.AI_changeMemoryCount(eInnerPlayer, MEMORY_CANCELLED_FREE_TRADE_AGREEMENT, 1);
 							}
 						}
 					}
@@ -1052,6 +1085,7 @@ bool CvDeal::isAnnual(TradeableItems eItem) {
 	case TRADE_PERMANENT_ALLIANCE:
 	case TRADE_EMBASSY:
 	case TRADE_LIMITED_BORDERS:
+	case TRADE_FREE_TRADE_ZONE:
 		return true;
 		break;
 	}
@@ -1067,6 +1101,7 @@ bool CvDeal::isDual(TradeableItems eItem, bool bExcludePeace) {
 	case TRADE_PERMANENT_ALLIANCE:
 	case TRADE_EMBASSY:
 	case TRADE_LIMITED_BORDERS:
+	case TRADE_FREE_TRADE_ZONE:
 		return true;
 	case TRADE_PEACE_TREATY:
 		return (!bExcludePeace);

@@ -142,5 +142,9 @@
 			<Type>MEMORY_RECALLED_AMBASSADOR</Type>
 			<Description>TXT_KEY_MEMORY_RECALLED_AMBASSADOR</Description>
 		</MemoryInfo>
+		<MemoryInfo>
+			<Type>MEMORY_CANCELLED_FREE_TRADE_AGREEMENT</Type>
+			<Description>TXT_KEY_MEMORY_CANCELLED_FREE_TRADE_AGREEMENT</Description>
+		</MemoryInfo>
 	</MemoryInfos>
 </Civ4MemoryInfos>

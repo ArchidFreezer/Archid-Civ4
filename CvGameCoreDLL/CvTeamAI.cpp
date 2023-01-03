@@ -4820,3 +4820,64 @@ int CvTeamAI::AI_LimitedBordersTradeVal(TeamTypes eTeam) const {
 
 	return std::max(0, iValue);
 }
+
+int CvTeamAI::AI_FreeTradeAgreementVal(TeamTypes eTeam) const {
+	int iValue = 0;
+
+	iValue = (getNumCities() + GET_TEAM(eTeam).getNumCities());
+
+	if (isFreeTrade(eTeam)) {
+		iValue /= 2;
+	}
+
+	return std::max(0, iValue);
+}
+
+DenialTypes CvTeamAI::AI_FreeTradeAgreement(TeamTypes eTeam) const {
+	if (isHuman()) {
+		return NO_DENIAL;
+	}
+
+	if (isVassal(eTeam)) {
+		return NO_DENIAL;
+	}
+
+	if (AI_getWorstEnemy() == eTeam) {
+		return DENIAL_WORST_ENEMY;
+	}
+
+	if (AI_shareWar(eTeam)) {
+		return NO_DENIAL;
+	}
+
+	if (AI_getMemoryCount(eTeam, MEMORY_CANCELLED_FREE_TRADE_AGREEMENT) > 0 && AI_getAttitude(eTeam) < ATTITUDE_PLEASED) {
+		return DENIAL_RECENT_CANCEL;
+	}
+
+	if (AI_getWarPlan(eTeam) != NO_WARPLAN) {
+		return DENIAL_MYSTERY;
+	}
+
+	if (GET_PLAYER(getLeaderID()).getCapitalCity() != NULL) {
+		if (GET_PLAYER(GET_TEAM(eTeam).getLeaderID()).getCapitalCity() != NULL) {
+			if (!GET_PLAYER(getLeaderID()).getCapitalCity()->isConnectedTo(GET_PLAYER(GET_TEAM(eTeam).getLeaderID()).getCapitalCity())) {
+				return DENIAL_JOKING;
+			}
+		}
+	}
+
+	AttitudeTypes eAttitude = AI_getAttitude(eTeam);
+
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+		if (kPlayer.isAlive()) {
+			if (kPlayer.getTeam() == getID()) {
+				if (eAttitude <= ATTITUDE_PLEASED) {
+					return DENIAL_ATTITUDE;
+				}
+			}
+		}
+	}
+
+	return NO_DENIAL;
+}

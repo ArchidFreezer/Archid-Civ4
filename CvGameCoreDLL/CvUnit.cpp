@@ -5038,6 +5038,18 @@ int CvUnit::getTradeGold(const CvPlot* pPlot) const {
 	iGold *= GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getUnitTradePercent();
 	iGold /= 100;
 
+	//More Gold From Free Trade Agreement Trade Missions
+	PlayerTypes eTargetPlayer = pPlot->getOwnerINLINE();
+	if (GET_TEAM(getTeam()).isFreeTradeAgreement(GET_PLAYER(eTargetPlayer).getTeam())) {
+		iGold *= 100 + GC.getFREE_TRADE_AGREEMENT_TRADE_MODIFIER();
+		iGold /= 100;
+	}
+
+	//Gold Sound 
+	if (plot()->isActiveVisible(false)) {
+		gDLL->getInterfaceIFace()->playGeneralSound("AS2D_COINS");
+	}
+
 	return std::max(0, iGold);
 }
 

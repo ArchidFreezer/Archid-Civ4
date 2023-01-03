@@ -370,6 +370,7 @@
 			<Era>ERA_MEDIEVAL</Era>
 			<iAsset>24</iAsset>
 			<bTrade>1</bTrade>
+			<bFreeTradeAgreementTrading>1</bFreeTradeAgreementTrading>
 			<iGridX>10</iGridX>
 			<iGridY>14</iGridY>
 			<Flavors>

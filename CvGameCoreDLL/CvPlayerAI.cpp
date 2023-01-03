@@ -3477,6 +3477,10 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 		}
 	}
 
+	if (kTechInfo.isFreeTradeAgreementTrading()) {
+		iValue += 200;
+	}
+
 	// K-Mod. Value pact trading based on how many civs are willing, and on how much we think we need it!
 	if (kTechInfo.isDefensivePactTrading() && !kTeam.isDefensivePactTrading()) {
 		int iNewTrade = 0;
@@ -6321,6 +6325,9 @@ int CvPlayerAI::AI_dealVal(PlayerTypes ePlayer, const CLinkList<TradeData>* pLis
 		case TRADE_LIMITED_BORDERS:
 			iValue += kOurTeam.AI_LimitedBordersTradeVal(eOtherTeam);
 			break;
+		case TRADE_FREE_TRADE_ZONE:
+			iValue += kOurTeam.AI_FreeTradeAgreementVal(eOtherTeam);
+			break;
 		}
 	}
 
@@ -7048,6 +7055,9 @@ int CvPlayerAI::AI_maxGoldTrade(PlayerTypes ePlayer) const {
 			iMaxGold += iAdjustment;
 		}
 
+		iMaxGold *= (100 + calculateInflationRate());
+		iMaxGold /= 100;
+
 		iMaxGold = range(iMaxGold, 0, getGold());
 
 		iMaxGold -= (iMaxGold % GC.getDefineINT("DIPLOMACY_VALUE_REMAINDER"));
@@ -7701,6 +7711,10 @@ int CvPlayerAI::AI_stopTradingTradeVal(TeamTypes eTradeTeam, PlayerTypes ePlayer
 	if (kTheirTeam.isLimitedBorders(eTradeTeam)) {
 		iValue *= 2;
 		iValue /= 3;
+	}
+
+	if (kTheirTeam.isFreeTradeAgreement(eTradeTeam)) {
+		iValue *= 3;
 	}
 
 	int iLoop;
