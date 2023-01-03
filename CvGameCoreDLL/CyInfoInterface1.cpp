@@ -323,7 +323,6 @@ void CyInfoPythonInterface1() {
 		.def("isFound", &CvUnitInfo::isFound, "bool ()")
 		.def("isGoldenAge", &CvUnitInfo::isGoldenAge, "bool ()")
 		.def("isInvisible", &CvUnitInfo::isInvisible, "bool ()")
-		.def("setInvisible", &CvUnitInfo::setInvisible, "void (bool bEnable)")
 		.def("isFirstStrikeImmune", &CvUnitInfo::isFirstStrikeImmune, "bool ()")
 		.def("isNoDefensiveBonus", &CvUnitInfo::isNoDefensiveBonus, "bool ()")
 		.def("isIgnoreBuildingDefense", &CvUnitInfo::isIgnoreBuildingDefense, "bool ()")

@@ -3523,10 +3523,6 @@ bool CvUnitInfo::isInvisible() const {
 	return m_bInvisible;
 }
 
-void CvUnitInfo::setInvisible(bool bEnable) {
-	m_bInvisible = bEnable;
-}
-
 bool CvUnitInfo::isFirstStrikeImmune() const {
 	return m_bFirstStrikeImmune;
 }
@@ -6310,10 +6306,6 @@ int CvBuildingInfo::getFreeBuildingClass() const {
 	return m_iFreeBuildingClass;
 }
 
-void CvBuildingInfo::setNumFreeBuildingClass(int i) {
-	m_iFreeBuildingClass = i;
-}
-
 int CvBuildingInfo::getFreePromotion() const {
 	return m_iFreePromotion;
 }
@@ -8255,10 +8247,6 @@ int CvBuildingClassInfo::getDefaultBuildingIndex() const {
 	return m_iDefaultBuildingIndex;
 }
 
-void CvBuildingClassInfo::setDefaultBuildingIndex(int i) {
-	m_iDefaultBuildingIndex = i;
-}
-
 bool CvBuildingClassInfo::isNoLimit() const {
 	return m_bNoLimit;
 }
@@ -8703,10 +8691,6 @@ std::string CvCivilizationInfo::getCityNames(int i) const {
 
 int CvCivilizationInfo::getDerivativeCiv() const {
 	return m_iDerivativeCiv;
-}
-
-void CvCivilizationInfo::setDerivativeCiv(int iCiv) {
-	m_iDerivativeCiv = iCiv;
 }
 
 void CvCivilizationInfo::read(FDataStreamBase* stream) {
@@ -10591,16 +10575,8 @@ int CvImprovementInfo::getImprovementPillage() const {
 	return m_iImprovementPillage;
 }
 
-void CvImprovementInfo::setImprovementPillage(int i) {
-	m_iImprovementPillage = i;
-}
-
 int CvImprovementInfo::getImprovementUpgrade() const {
 	return m_iImprovementUpgrade;
-}
-
-void CvImprovementInfo::setImprovementUpgrade(int i) {
-	m_iImprovementUpgrade = i;
 }
 
 bool CvImprovementInfo::isActsAsCity() const {
@@ -13802,10 +13778,6 @@ int CvProjectInfo::getTechPrereq() const {
 
 int CvProjectInfo::getAnyoneProjectPrereq() const {
 	return m_iAnyoneProjectPrereq;
-}
-
-void CvProjectInfo::setAnyoneProjectPrereq(int i) {
-	m_iAnyoneProjectPrereq = i;
 }
 
 int CvProjectInfo::getMaxGlobalInstances() const {

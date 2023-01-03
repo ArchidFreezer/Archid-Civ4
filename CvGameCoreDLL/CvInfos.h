@@ -951,7 +951,6 @@ public:
 	bool isFound() const;				// Exposed to Python
 	bool isGoldenAge() const;				// Exposed to Python
 	bool isInvisible() const;				// Exposed to Python
-	void setInvisible(bool bEnable);			// Exposed to Python
 	bool isFirstStrikeImmune() const;				// Exposed to Python
 	bool isNoDefensiveBonus() const;				// Exposed to Python
 	bool isIgnoreBuildingDefense() const;				// Exposed to Python
@@ -1652,7 +1651,6 @@ public:
 	int getFreeBonus() const;				// Exposed to Python
 	int getNumFreeBonuses() const;				// Exposed to Python
 	int getFreeBuildingClass() const;				// Exposed to Python
-	void setNumFreeBuildingClass(int i);
 	int getFreePromotion() const;				// Exposed to Python
 	int getCivicOption() const;				// Exposed to Python
 	int getAIWeight() const;				// Exposed to Python
@@ -2127,7 +2125,6 @@ public:
 	int getMaxPlayerInstances() const;				// Exposed to Python
 	int getExtraPlayerInstances() const;				// Exposed to Python
 	int getDefaultBuildingIndex() const;				// Exposed to Python
-	void setDefaultBuildingIndex(int i);
 
 	bool isNoLimit() const;				// Exposed to Python
 	bool isMonument() const;				// Exposed to Python
@@ -2324,7 +2321,6 @@ public:
 	DllExport const TCHAR* getButton() const;
 
 	DllExport int getDerivativeCiv() const;																// Exposed to Python
-	void setDerivativeCiv(int iCiv);
 
 	bool read(CvXMLLoadUtility* pXML);
 	DllExport void read(FDataStreamBase* stream);
@@ -2969,9 +2965,7 @@ public:
 	int getHappiness() const;				// Exposed to Python
 	int getPillageGold() const;				// Exposed to Python
 	int getImprovementPillage() const;				// Exposed to Python
-	void setImprovementPillage(int i);
 	int getImprovementUpgrade() const;				// Exposed to Python
-	void setImprovementUpgrade(int i);
 	int getUpgradeTech() const;
 
 	bool isActsAsCity() const;				// Exposed to Python
@@ -4070,7 +4064,6 @@ public:
 	int getVictoryPrereq() const;									// Exposed to Python
 	int getTechPrereq() const;										// Exposed to Python
 	int getAnyoneProjectPrereq() const;						// Exposed to Python
-	void setAnyoneProjectPrereq(int i);
 	int getMaxGlobalInstances() const;						// Exposed to Python
 	int getMaxTeamInstances() const;							// Exposed to Python
 	int getProductionCost() const;								// Exposed to Python
