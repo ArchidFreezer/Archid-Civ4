@@ -855,6 +855,7 @@ CvTechInfo::CvTechInfo() :
 	m_bMoveFastPeaks(false),
 	m_bCanFoundOnPeaks(false),
 	m_bEmbassyTrading(false),
+	m_bLimitedBordersTrading(false),
 	m_piDomainExtraMoves(NULL),
 	m_piFlavorValue(NULL),
 	m_piForestPlotYieldChange(NULL),
@@ -879,6 +880,10 @@ CvTechInfo::~CvTechInfo() {
 	SAFE_DELETE_ARRAY(m_piSeaPlotYieldChange);
 	SAFE_DELETE_ARRAY(m_pbCommerceFlexible);
 	SAFE_DELETE_ARRAY(m_pbTerrainTrade);
+}
+
+bool CvTechInfo::isLimitedBordersTrading() const {
+	return m_bLimitedBordersTrading;
 }
 
 bool CvTechInfo::isEmbassyTrading() const {
@@ -1253,6 +1258,7 @@ void CvTechInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bCanPassPeaks);
 	stream->Read(&m_bMoveFastPeaks);
 	stream->Read(&m_bEmbassyTrading);
+	stream->Read(&m_bLimitedBordersTrading);
 	stream->Read(&m_iGridX);
 	stream->Read(&m_iGridY);
 
@@ -1356,6 +1362,7 @@ void CvTechInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bCanPassPeaks);
 	stream->Write(m_bMoveFastPeaks);
 	stream->Write(m_bEmbassyTrading);
+	stream->Write(m_bLimitedBordersTrading);
 	stream->Write(m_iGridX);
 	stream->Write(m_iGridY);
 
@@ -1425,6 +1432,7 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bGoldTrading, "bGoldTrading");
 	pXML->GetChildXmlValByName(&m_bOpenBordersTrading, "bOpenBordersTrading");
 	pXML->GetChildXmlValByName(&m_bEmbassyTrading, "bEmbassyTrading");
+	pXML->GetChildXmlValByName(&m_bLimitedBordersTrading, "bLimitedBordersTrading");
 	pXML->GetChildXmlValByName(&m_bDefensivePactTrading, "bDefensivePactTrading");
 	pXML->GetChildXmlValByName(&m_bPermanentAllianceTrading, "bPermanentAllianceTrading");
 	pXML->GetChildXmlValByName(&m_bVassalStateTrading, "bVassalTrading");

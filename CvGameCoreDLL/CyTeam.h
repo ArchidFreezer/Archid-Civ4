@@ -23,6 +23,7 @@ public:
 	bool isEmbassyTrading();
 	bool isHasEmbassy(int /*TeamTypes*/ eIndex) const;
 	void changeEmbassyTradingCount(int iChange);
+	bool isLimitedBordersTrading();
 
 	bool canChangeWarPeace(int /*TeamTypes*/ eTeam);
 	bool canDeclareWar(int /*TeamTypes*/ eTeam);

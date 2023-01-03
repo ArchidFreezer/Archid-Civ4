@@ -37,6 +37,14 @@ public:
 	void sendAmbassador(TeamTypes eTeam);
 	void setHasEmbassy(TeamTypes eIndex, bool bNewValue);
 
+	int getLimitedBordersTradingCount() const;
+	bool canSignOpenBorders(TeamTypes eTeam);
+	bool isLimitedBorders(TeamTypes eIndex) const;
+	bool isLimitedBordersTrading() const;
+	void changeLimitedBordersTradingCount(int iChange);
+	void setLimitedBorders(TeamTypes eIndex, bool bNewValue);
+	void signLimitedBorders(TeamTypes eTeam);
+
 	void doTurn();
 
 	int getCanFoundOnPeaksCount() const;
@@ -434,6 +442,7 @@ protected:
 	int m_iMoveFastPeaksCount;
 	int m_iCanFoundOnPeaksCount;
 	int m_iEmbassyTradingCount;
+	int m_iLimitedBordersTradingCount;
 
 	bool m_bMapCentering;
 	bool m_bCapitulated;
@@ -457,6 +466,7 @@ protected:
 	bool* m_abVassal;
 	bool* m_abCanLaunch;
 	bool* m_abEmbassy;
+	bool* m_abLimitedBorders;
 
 	int* m_paiRouteChange;
 	int* m_paiProjectCount;

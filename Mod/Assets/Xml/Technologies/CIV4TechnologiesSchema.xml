@@ -109,6 +109,7 @@
 	<ElementType name="bMoveFastPeaks" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bCanFoundOnPeaks" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bEmbassyTrading" content="textOnly" dt:type="boolean"/>	
+	<ElementType name="bLimitedBordersTrading" content="textOnly" dt:type="boolean"/>
 	<ElementType name="TechInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -144,6 +145,7 @@
 		<element type="bTechTrading" minOccurs="0"/>
 		<element type="bGoldTrading" minOccurs="0"/>
 		<element type="bOpenBordersTrading" minOccurs="0"/>
+		<element type="bLimitedBordersTrading" minOccurs="0"/>
 		<element type="bDefensivePactTrading" minOccurs="0"/>
 		<element type="bPermanentAllianceTrading" minOccurs="0"/>
 		<element type="bVassalTrading" minOccurs="0"/>

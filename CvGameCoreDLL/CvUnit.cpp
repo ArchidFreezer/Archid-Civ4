@@ -1913,6 +1913,16 @@ bool CvUnit::canEnterTerritory(TeamTypes eTeam, bool bIgnoreRightOfPassage) cons
 		if (GET_TEAM(getTeam()).isOpenBorders(eTeam)) {
 			return true;
 		}
+
+		if (GET_TEAM(getTeam()).isLimitedBorders(eTeam)) {
+			if (isOnlyDefensive() || !canFight()) {
+				return true;
+			}
+		}
+	}
+
+	if (!GET_TEAM(eTeam).isAlive()) {
+		return true;
 	}
 
 	return false;

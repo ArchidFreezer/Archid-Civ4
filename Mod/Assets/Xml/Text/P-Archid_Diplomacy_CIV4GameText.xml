@@ -8283,5 +8283,31 @@
 		<French>Les Ambassades permettent une forme plus avancée de diplomatie.[NEWLINE][ICON_BULLET]Peut signer des Traités de [COLOR_HIGHLIGHT_TEXT]Libre Passage[COLOR_REVERT].[NEWLINE][ICON_BULLET]Peut signer des [COLOR_HIGHLIGHT_TEXT]Pactes Défensifs.[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_GREEN]Améliore[COLOR_REVERT] les Relations diplomatique entre les Etats.[NEWLINE][ICON_BULLET]Permet l'échange d' [COLOR_GREEN]Ouvriers[COLOR_REVERT] entre Etats.[NEWLINE][ICON_BULLET]Permet l'échange d' [COLOR_GREEN]Unités militaires[COLOR_REVERT] entre Etats.[NEWLINE][ICON_BULLET]Permet aux joueurs de voir la Capitale de l'autre Nation.[NEWLINE][ICON_BULLET][COLOR_WARNING_TEXT]Si L'Ambassadeur est rappelé, créé de la tension diplomatique entre les Etats.[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_WARNING_TEXT]Les Mission d'espionnage ont plus de chance de succès, en raison de la proximité entre les Etats.[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_WARNING_TEXT]Votre Capitale est du coup visible par l'autre Nation![COLOR_REVERT]</French>
 		<German>Botschaften ermöglichen eine fortgeschrittenere Form der Diplomatie.[NEWLINE][ICON_BULLET]Kann [COLOR_HIGHLIGHT_TEXT]Offene Grenzen [COLOR_REVERT]beschließen.[NEWLINE][ICON_BULLET]Kann [COLOR_HIGHLIGHT_TEXT]Defensivpakte[COLOR_REVERT]beschließen.[NEWLINE][ICON_BULLET][COLOR_GREEN]Verbessert[COLOR_REVERT] diplomatische Beziehungen zwischen den Nationen.[NEWLINE][ICON_BULLET]Ermöglicht den [COLOR_GREEN]Handel mit Bautrupps[COLOR_REVERT] zwischen den Nationen.[NEWLINE][ICON_BULLET]Ermöglicht den [COLOR_GREEN]Handel mit bestimmten Militäreinheiten[COLOR_REVERT] zwischen den Nationen. [NEWLINE][ICON_BULLET]Ermöglicht es den Spielern in die Hauptstadt einer anderen Nation zu sehen.[NEWLINE][ICON_BULLET][COLOR_WARNING_TEXT]Wenn der Botschafter abberufen wird verschlechtert dich das diplomatische Verhältnis.[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_WARNING_TEXT]Feindliche Spionagemissionen sind öfter erfolgreich durch die verbesserten Kenntnisse der Länder voneinander.[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_WARNING_TEXT]Ermöglicht es dem anderen Spieler in deine Hauptstadt zu sehen![COLOR_REVERT]</German>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_LIMITED_BORDERS</Tag>
+		<English>Limited Borders</English>
+		<French>Droit de Passage</French>
+		<German>Passiererlaubnis</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ATTITUDE_LIMITED_BORDERS</Tag>
+		<English>%D1: &quot;You let our people pass through your lands.&quot;</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ENABLES_LIMITED_BORDERS</Tag>
+		<English>[ICON_BULLET]Enables Limited Borders</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRADE_LIMITED_BORDERS_STRING</Tag>
+		<English>Limited Borders</English>
+		<French>Droit de Passage</French>
+		<German>Passiererlaubnis</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRADE_LIMITED_BORDERS</Tag>
+		<English>A Right of Passage Agreement allows only non-agressive units to pass through your civilizations, including trade. Useful for when players want to continue trade but stop enemy troop movements.</English>
+		<French>Un Droit de Passage permet uniquement aux unités civiles de passer aux travers des frontières des civilisations, incluant le commerce. Pratique lorsque les joueurs veulent continuer les échanges commerciaux tout en stoppant les mouvement de troupes ennemis.</French>
+		<German>Eine Passiererlaubnis ermöglicht nichtmilitärischen Einheiten durch Deine Zivilisation zu ziehen und auch den Handel. Das ist sinnvoll für Spieler, die den Handel weiterführen aber den Durchzug der feindlichen Truppen unterbinden möchten.</German>
+	</TEXT>
 
 </Civ4GameText>

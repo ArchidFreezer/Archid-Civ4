@@ -6641,6 +6641,9 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	//	Enables Embassies...
 	buildEmbassyString(szBuffer, eTech, true, bPlayerContext);
 
+	//	Enables Limited Borders...
+	buildLimitedBordersString(szBuffer, eTech, true, bPlayerContext);
+
 	//	Peak passability...
 	buildCanPassPeaksString(szBuffer, eTech, true, bPlayerContext);
 
@@ -12271,6 +12274,9 @@ void CvGameTextMgr::getTradeString(CvWStringBuffer& szBuffer, const TradeData& t
 	case TRADE_EMBASSY:
 		szBuffer.append(gDLL->getText("TXT_KEY_MISC_EMBASSY"));
 		break;
+	case TRADE_LIMITED_BORDERS:
+		szBuffer.append(gDLL->getText("TXT_KEY_MISC_LIMITED_BORDERS"));
+		break;
 	default:
 		FAssert(false);
 		break;
@@ -12946,6 +12952,10 @@ void CvGameTextMgr::parseLeaderLineHelp(CvWStringBuffer& szBuffer, PlayerTypes e
 		}
 		if (thisTeam.isHasEmbassy(otherTeam.getID()) || otherTeam.isHasEmbassy(thisTeam.getID())) {
 			szBuffer.append(gDLL->getText("TXT_KEY_MISC_EMBASSY"));
+			szBuffer.append(NEWLINE);
+		}
+		if (thisTeam.isLimitedBorders(otherTeam.getID()) || otherTeam.isLimitedBorders(thisTeam.getID())) {
+			szBuffer.append(gDLL->getText("TXT_KEY_MISC_LIMITED_BORDERS"));
 			szBuffer.append(NEWLINE);
 		}
 		if (thisTeam.isOpenBorders(otherTeam.getID())) {
@@ -15950,5 +15960,14 @@ void CvGameTextMgr::buildEmbassyString(CvWStringBuffer& szBuffer, TechTypes eTec
 			szBuffer.append(NEWLINE);
 		}
 		szBuffer.append(gDLL->getText("TXT_KEY_MISC_ENABLES_EMBASSIES"));
+	}
+}
+
+void CvGameTextMgr::buildLimitedBordersString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
+	if (GC.getTechInfo(eTech).isLimitedBordersTrading() && (!bPlayerContext || !(GET_TEAM(GC.getGameINLINE().getActiveTeam()).isLimitedBordersTrading()))) {
+		if (bList) {
+			szBuffer.append(NEWLINE);
+		}
+		szBuffer.append(gDLL->getText("TXT_KEY_MISC_ENABLES_LIMITED_BORDERS"));
 	}
 }

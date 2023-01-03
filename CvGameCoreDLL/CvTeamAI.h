@@ -35,6 +35,9 @@ public:
 	int AI_embassyTradeVal(TeamTypes eTeam) const;
 	DenialTypes AI_embassyTrade(TeamTypes eTeam) const;
 
+	int AI_LimitedBordersTradeVal(TeamTypes eTeam) const;
+	DenialTypes AI_LimitedBordersTrade(TeamTypes eTeam) const;
+
 	void AI_doTurnPre();
 	void AI_doTurnPost();
 

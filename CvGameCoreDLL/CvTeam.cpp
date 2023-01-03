@@ -44,6 +44,7 @@ CvTeam::CvTeam() {
 	m_abForcePeace = new bool[MAX_TEAMS];
 	m_abVassal = new bool[MAX_TEAMS];
 	m_abEmbassy = new bool[MAX_TEAMS];
+	m_abLimitedBorders = new bool[MAX_TEAMS];
 	m_abCanLaunch = NULL;
 
 	m_paiRouteChange = NULL;
@@ -89,6 +90,7 @@ CvTeam::~CvTeam() {
 	SAFE_DELETE_ARRAY(m_abForcePeace);
 	SAFE_DELETE_ARRAY(m_abVassal);
 	SAFE_DELETE_ARRAY(m_abEmbassy);
+	SAFE_DELETE_ARRAY(m_abLimitedBorders);
 }
 
 
@@ -183,6 +185,7 @@ void CvTeam::reset(TeamTypes eID, bool bConstructorCall) {
 	m_iMoveFastPeaksCount = 0;
 	m_iCanFoundOnPeaksCount = 0;
 	m_iEmbassyTradingCount = 0;
+	m_iLimitedBordersTradingCount = 0;
 
 	m_bMapCentering = false;
 	m_bCapitulated = false;
@@ -205,6 +208,7 @@ void CvTeam::reset(TeamTypes eID, bool bConstructorCall) {
 		m_abForcePeace[eTeam] = false;
 		m_abVassal[eTeam] = false;
 		m_abEmbassy[eTeam] = false;
+		m_abLimitedBorders[eTeam] = false;
 
 		if (!bConstructorCall && getID() != NO_TEAM) {
 			CvTeam& kLoopTeam = GET_TEAM(eTeam);
@@ -222,6 +226,7 @@ void CvTeam::reset(TeamTypes eID, bool bConstructorCall) {
 			kLoopTeam.m_abDefensivePact[getID()] = false;
 			kLoopTeam.m_abForcePeace[getID()] = false;
 			kLoopTeam.m_abVassal[getID()] = false;
+			kLoopTeam.m_abLimitedBorders[getID()] = false;
 		}
 	}
 
@@ -499,6 +504,21 @@ void CvTeam::addTeam(TeamTypes eTeam) {
 		}
 	}
 
+	for (TeamTypes eLoopTeam = (TeamTypes)0; eLoopTeam < MAX_TEAMS; eLoopTeam = (TeamTypes)(eLoopTeam + 1)) {
+		if ((eLoopTeam != getID()) && (eLoopTeam != eTeam)) {
+			CvTeam& kLoopTeam = GET_TEAM(eLoopTeam);
+			if (kLoopTeam.isAlive()) {
+				if (kTeam.isLimitedBorders(eLoopTeam)) {
+					setLimitedBorders(eLoopTeam, true);
+					kLoopTeam.setLimitedBorders(getID(), true);
+				} else if (isLimitedBorders(eLoopTeam)) {
+					kTeam.setLimitedBorders(eLoopTeam, true);
+					kLoopTeam.setLimitedBorders(eTeam, true);
+				}
+			}
+		}
+	}
+
 	shareCounters(eTeam);
 	// K-Mod note: eTeam is not going to be used after we've finished this merge, so the sharing does not need to be two-way.
 
@@ -534,6 +554,7 @@ void CvTeam::addTeam(TeamTypes eTeam) {
 			if (pLoopDeal->getFirstTrades() != NULL) {
 				for (CLLNode<TradeData>* pNode = pLoopDeal->getFirstTrades()->head(); pNode; pNode = pLoopDeal->getFirstTrades()->next(pNode)) {
 					if ((pNode->m_data.m_eItemType == TRADE_OPEN_BORDERS) ||
+						(pNode->m_data.m_eItemType == TRADE_LIMITED_BORDERS) ||
 						(pNode->m_data.m_eItemType == TRADE_DEFENSIVE_PACT) ||
 						(pNode->m_data.m_eItemType == TRADE_PEACE_TREATY) ||
 						(pNode->m_data.m_eItemType == TRADE_VASSAL) ||
@@ -546,6 +567,7 @@ void CvTeam::addTeam(TeamTypes eTeam) {
 			if (pLoopDeal->getSecondTrades() != NULL) {
 				for (CLLNode<TradeData>* pNode = pLoopDeal->getSecondTrades()->head(); pNode; pNode = pLoopDeal->getSecondTrades()->next(pNode)) {
 					if ((pNode->m_data.m_eItemType == TRADE_OPEN_BORDERS) ||
+						(pNode->m_data.m_eItemType == TRADE_LIMITED_BORDERS) ||
 						(pNode->m_data.m_eItemType == TRADE_DEFENSIVE_PACT) ||
 						(pNode->m_data.m_eItemType == TRADE_PEACE_TREATY) ||
 						(pNode->m_data.m_eItemType == TRADE_VASSAL) ||
@@ -2986,7 +3008,7 @@ bool CvTeam::isFreeTrade(TeamTypes eIndex) const {
 		return false;
 	}
 
-	return (isOpenBorders(eIndex) || GC.getGameINLINE().isFreeTrade());
+	return (isOpenBorders(eIndex) || isLimitedBorders(eIndex) || GC.getGameINLINE().isFreeTrade());
 }
 
 
@@ -4863,6 +4885,10 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 		changeEmbassyTradingCount(iChange);
 	}
 
+	if (kTech.isLimitedBordersTrading()) {
+		changeLimitedBordersTradingCount(iChange);
+	}
+
 	for (RouteTypes eRoute = (RouteTypes)0; eRoute < GC.getNumRouteInfos(); eRoute = (RouteTypes)(eRoute + 1)) {
 		changeRouteChange(eRoute, (GC.getRouteInfo(eRoute).getTechMovementChange(eTech) * iChange));
 	}
@@ -5060,6 +5086,7 @@ void CvTeam::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iMoveFastPeaksCount);
 	pStream->Read(&m_iCanFoundOnPeaksCount);
 	pStream->Read(&m_iEmbassyTradingCount);
+	pStream->Read(&m_iLimitedBordersTradingCount);
 
 	pStream->Read(&m_bMapCentering);
 	pStream->Read(&m_bCapitulated);
@@ -5088,6 +5115,7 @@ void CvTeam::read(FDataStreamBase* pStream) {
 	pStream->Read(MAX_TEAMS, m_abForcePeace);
 	pStream->Read(MAX_TEAMS, m_abVassal);
 	pStream->Read(MAX_TEAMS, m_abEmbassy);
+	pStream->Read(MAX_TEAMS, m_abLimitedBorders);
 	pStream->Read(GC.getNumVictoryInfos(), m_abCanLaunch);
 
 	pStream->Read(GC.getNumRouteInfos(), m_paiRouteChange);
@@ -5162,6 +5190,7 @@ void CvTeam::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iMoveFastPeaksCount);
 	pStream->Write(m_iCanFoundOnPeaksCount);
 	pStream->Write(m_iEmbassyTradingCount);
+	pStream->Write(m_iLimitedBordersTradingCount);
 
 	pStream->Write(m_bMapCentering);
 	pStream->Write(m_bCapitulated);
@@ -5187,6 +5216,7 @@ void CvTeam::write(FDataStreamBase* pStream) {
 	pStream->Write(MAX_TEAMS, m_abForcePeace);
 	pStream->Write(MAX_TEAMS, m_abVassal);
 	pStream->Write(MAX_TEAMS, m_abEmbassy);
+	pStream->Write(MAX_TEAMS, m_abLimitedBorders);
 	pStream->Write(GC.getNumVictoryInfos(), m_abCanLaunch);
 
 	pStream->Write(GC.getNumRouteInfos(), m_paiRouteChange);
@@ -5379,6 +5409,86 @@ void CvTeam::sendAmbassador(TeamTypes eTeam) {
 			theirList.insertAtEnd(item);
 
 			GC.getGameINLINE().implementDeal(getLeaderID(), (GET_TEAM(eTeam).getLeaderID()), &ourList, &theirList);
+		}
+	}
+}
+
+int CvTeam::getLimitedBordersTradingCount() const {
+	return m_iLimitedBordersTradingCount;
+}
+
+bool CvTeam::isLimitedBordersTrading() const {
+	return (getLimitedBordersTradingCount() > 0);
+}
+
+void CvTeam::changeLimitedBordersTradingCount(int iChange) {
+	m_iLimitedBordersTradingCount = (m_iLimitedBordersTradingCount + iChange);
+	FAssert(getLimitedBordersTradingCount() >= 0);
+}
+
+void CvTeam::signLimitedBorders(TeamTypes eTeam) {
+
+	FAssert(eTeam != NO_TEAM);
+	FAssert(eTeam != getID());
+
+	if (!isAtWar(eTeam) && (getID() != eTeam) && (!isOpenBorders(eTeam))) {
+		CLinkList<TradeData> ourList;
+		CLinkList<TradeData> theirList;
+		TradeData item;
+		setTradeItem(&item, TRADE_LIMITED_BORDERS);
+
+		if (GET_PLAYER(getLeaderID()).canTradeItem(GET_TEAM(eTeam).getLeaderID(), item) && GET_PLAYER(GET_TEAM(eTeam).getLeaderID()).canTradeItem(getLeaderID(), item)) {
+			ourList.insertAtEnd(item);
+			theirList.insertAtEnd(item);
+
+			GC.getGameINLINE().implementDeal(getLeaderID(), (GET_TEAM(eTeam).getLeaderID()), &ourList, &theirList);
+		}
+	}
+}
+
+bool CvTeam::canSignOpenBorders(TeamTypes eTeam) {
+	if (!isHasEmbassy(eTeam)) {
+		return false;
+	}
+
+	if (!isLimitedBorders(eTeam)) {
+		return false;
+	}
+
+	return true;
+}
+
+bool CvTeam::isLimitedBorders(TeamTypes eIndex) const {
+	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
+	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
+	return m_abLimitedBorders[eIndex];
+}
+
+
+void CvTeam::setLimitedBorders(TeamTypes eIndex, bool bNewValue) {
+	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
+	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
+
+	if (isLimitedBorders(eIndex) != bNewValue) {
+		bool bOldFreeTrade = isFreeTrade(eIndex);
+
+		m_abLimitedBorders[eIndex] = bNewValue;
+
+		GC.getMapINLINE().verifyUnitValidPlot();
+
+		if ((getID() == GC.getGameINLINE().getActiveTeam()) || (eIndex == GC.getGameINLINE().getActiveTeam())) {
+			gDLL->getInterfaceIFace()->setDirty(Score_DIRTY_BIT, true);
+		}
+
+		if (bOldFreeTrade != isFreeTrade(eIndex)) {
+			for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+				CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+				if (kPlayer.isAlive()) {
+					if (kPlayer.getTeam() == getID()) {
+						kPlayer.updateTradeRoutes();
+					}
+				}
+			}
 		}
 	}
 }

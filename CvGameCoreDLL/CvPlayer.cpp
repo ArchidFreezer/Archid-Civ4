@@ -3388,6 +3388,10 @@ bool CvPlayer::canTradeWith(PlayerTypes eWhoTo) const {
 		return true;
 	}
 
+	if (kOurTeam.isLimitedBordersTrading() || kTheirTeam.isLimitedBordersTrading()) {
+		return true;
+	}
+
 	return false;
 }
 
@@ -3590,6 +3594,20 @@ bool CvPlayer::canTradeItem(PlayerTypes eWhoTo, TradeData item, bool bTestDenial
 			if (!atWar(getTeam(), kTheirPlayer.getTeam())) {
 				if (!(kOurTeam.isOpenBorders(kTheirPlayer.getTeam()))) {
 					if (kOurTeam.isOpenBordersTrading() || kTheirTeam.isOpenBordersTrading()) {
+						if (kOurTeam.canSignOpenBorders(kTheirPlayer.getTeam())) {
+							return true;
+						}
+					}
+				}
+			}
+		}
+		break;
+
+	case TRADE_LIMITED_BORDERS:
+		if (getTeam() != kTheirPlayer.getTeam()) {
+			if (!atWar(getTeam(), kTheirPlayer.getTeam())) {
+				if (!kOurTeam.isOpenBorders(kTheirPlayer.getTeam()) && !kOurTeam.isLimitedBorders(kTheirPlayer.getTeam())) {
+					if (kOurTeam.isLimitedBordersTrading() || kTheirTeam.isLimitedBordersTrading()) {
 						return true;
 					}
 				}
@@ -3726,6 +3744,10 @@ DenialTypes CvPlayer::getTradeDenial(PlayerTypes eWhoTo, TradeData item) const {
 
 	case TRADE_EMBASSY:
 		return kOurTeam.AI_embassyTrade(eTheirTeam);
+		break;
+
+	case TRADE_LIMITED_BORDERS:
+		return kOurTeam.AI_LimitedBordersTrade(eTheirTeam);
 		break;
 	}
 
@@ -17377,6 +17399,12 @@ void CvPlayer::buildTradeTable(PlayerTypes eOtherPlayer, CLinkList<TradeData>& o
 		ourList.insertAtEnd(item);
 	}
 
+	// Limited Borders
+	setTradeItem(&item, TRADE_LIMITED_BORDERS);
+	if (canTradeItem(eOtherPlayer, item)) {
+		ourList.insertAtEnd(item);
+	}
+
 	//	Open Borders
 	setTradeItem(&item, TRADE_OPEN_BORDERS);
 	if (canTradeItem(eOtherPlayer, item)) {
@@ -17687,6 +17715,9 @@ bool CvPlayer::getItemTradeString(PlayerTypes eOtherPlayer, bool bOffer, bool bS
 		break;
 	case TRADE_EMBASSY:
 		szString = gDLL->getText("TXT_KEY_TRADE_EMBASSY_STRING");
+		break;
+	case TRADE_LIMITED_BORDERS:
+		szString = gDLL->getText("TXT_KEY_TRADE_LIMITED_BORDERS_STRING");
 		break;
 	default:
 		szString.clear();

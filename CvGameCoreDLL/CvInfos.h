@@ -345,6 +345,7 @@ public:
 	bool isMoveFastPeaks() const;
 	bool isCanFoundOnPeaks() const;
 	bool isEmbassyTrading() const;
+	bool isLimitedBordersTrading() const;
 
 	bool hasAnyForestPlotYieldChange() const;
 	bool hasAnyRiverPlotYieldChange() const;
@@ -433,6 +434,7 @@ protected:
 	bool m_bMoveFastPeaks;
 	bool m_bCanFoundOnPeaks;
 	bool m_bEmbassyTrading;
+	bool m_bLimitedBordersTrading;
 
 	CvString m_szQuoteKey;
 	CvString m_szSound;

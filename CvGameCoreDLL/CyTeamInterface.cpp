@@ -218,5 +218,6 @@ void CyTeamPythonInterface() {
 		.def("isHasEmbassy", &CyTeam::isHasEmbassy, "bool (TeamTypes)")
 		.def("getEmbassyTradingCount", &CyTeam::getEmbassyTradingCount, "int ()")
 		.def("changeEmbassyTradingCount", &CyTeam::changeEmbassyTradingCount, "void (int iChange)")
+		.def("isLimitedBordersTrading", &CyTeam::isLimitedBordersTrading, "bool ()")
 		;
 }
