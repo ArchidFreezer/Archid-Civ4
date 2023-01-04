@@ -42,6 +42,13 @@
 		<Tag>TXT_KEY_EVACUATE_GP</Tag>
 		<English>[COLOR_HIGHLIGHT_TEXT][NEWLINE]Click to evacuate %s1[COLOR_WARNING_TEXT][NEWLINE]Requires %d2 Gold[COLOR_REVERT]</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_POPUP_GOTO_CITY</Tag>
+		<English>Go To City</English>
+		<French>Text>Aller à la Ville</French>
+		<Spanish>Ir a ciudad</Spanish>
+		<Polish>Id&#159; do Miasta</Polish>
+	</TEXT>
 	<!-- Tech Feature Yields -->
 	<TEXT>
 		<Tag>TXT_KEY_TECH_CHANGE_FOREST_YIELD</Tag>

@@ -82,4 +82,18 @@
 		<Italian>Ordina all'unit&#224; selezionata di muoversi verso una casella. L'unità si ferma prima di raggiungere la sua destinazione se un'unità nemica dello stesso tipo entra nel suo raggio di visibilità.</Italian>
 		<Spanish>Ordena a la unidad seleccionada que se mueva hasta una casilla.</Spanish>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_GOTO</Tag>
+		<English>Go To City</English>
+		<French>Aller à la Ville</French>
+		<Spanish>Ir a ciudad</Spanish>
+		<Polish>Id&#159; do Miasta</Polish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_GOTO_HELP</Tag>
+		<English>Select a city to send this unit to. The city does not need to be inside the current Viewport.</English>
+		<French>Selectionner une ville où envoyer l'unité (n'a pas besoin d'être dans la fenêtre de vue).</French>
+		<Spanish>Selecciona una ciudad a la que enviar la unidad. No es necesario que dicha ciudad se encuentre dentro de la Vista parcial actual.</Spanish>
+		<Polish>Wybierz miasto do kt&#243;rego si&#234; ma uda&#230; jednostka. Miasto nie musi znajdowa&#230; si&#234; na bie&#191;&#185;cym Viewporcie.</Polish>
+	</TEXT>
 </Civ4GameText>

@@ -1184,7 +1184,17 @@ void CvGame::handleAction(int iAction) {
 
 	if (GC.getActionInfo(iAction).getMissionType() != NO_MISSION) {
 		bool bShift = GC.shiftKey();
-		selectionListGameNetMessage(GAMEMESSAGE_PUSH_MISSION, GC.getActionInfo(iAction).getMissionType(), GC.getActionInfo(iAction).getMissionData(), -1, 0, false, bShift);
+		bool bSkip = false;
+		if (GC.getActionInfo(iAction).getMissionType() == MISSION_GOTO) {
+			CvPopupInfo* pInfo = new CvPopupInfo(BUTTONPOPUP_GOTO_CITY);
+			if (NULL != pInfo) {
+				bSkip = true;
+				gDLL->getInterfaceIFace()->addPopup(pInfo);
+			}
+		}
+		if (!bSkip) {
+			selectionListGameNetMessage(GAMEMESSAGE_PUSH_MISSION, GC.getActionInfo(iAction).getMissionType(), GC.getActionInfo(iAction).getMissionData(), -1, 0, false, bShift);
+		}
 	}
 
 	if (GC.getActionInfo(iAction).getCommandType() != NO_COMMAND) {

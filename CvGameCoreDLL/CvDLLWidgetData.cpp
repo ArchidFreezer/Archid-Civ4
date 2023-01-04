@@ -871,6 +871,10 @@ bool CvDLLWidgetData::executeAction(CvWidgetDataStruct& widgetDataStruct) {
 		doRefreshMilitaryAdvisor(widgetDataStruct);
 		break;
 
+	case WIDGET_CITY_GOTO:
+		doGoToCity(widgetDataStruct);
+		break;
+
 	case WIDGET_CHOOSE_EVENT:
 		break;
 
@@ -4628,4 +4632,11 @@ void CvDLLWidgetData::parseFreeTradeAgreementHelp(CvWidgetDataStruct& widgetData
 
 void CvDLLWidgetData::parseNonAggressionHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
 	GAMETEXT.buildNonAggressionString(szBuffer, ((TechTypes)(widgetDataStruct.m_iData1)));
+}
+
+void CvDLLWidgetData::doGoToCity(CvWidgetDataStruct& widgetDataStruct) {
+	CvCity* pCity = GET_PLAYER(GC.getGameINLINE().getActivePlayer()).getCity(widgetDataStruct.m_iData1);
+	CvPlot* pPlot = pCity->plot();
+
+	GC.getGameINLINE().selectionListMove(pPlot, false, false, false);
 }

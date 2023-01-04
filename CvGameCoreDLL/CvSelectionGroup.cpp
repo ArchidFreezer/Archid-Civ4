@@ -3204,6 +3204,11 @@ bool CvSelectionGroup::canDoMission(int iMission, int iData1, int iData2, CvPlot
 				return true;
 			break;
 
+		case MISSION_GOTO:
+			if (pLoopUnit->getDomainType() == DOMAIN_LAND || pLoopUnit->getDomainType() == DOMAIN_SEA)
+				return true;
+			break;
+
 		case MISSION_DIE_ANIMATION:
 			return false;
 			break;
