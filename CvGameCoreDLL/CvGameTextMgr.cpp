@@ -4868,6 +4868,18 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer& szHelpString, TraitTypes eTrait
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_UNIT_RANGE_MODIFY", kTrait.getUnitRangePercentChange()));
 		}
 
+		CvWString szBuffer;
+		if (kTrait.getStarSignMitigateChangePercent() != 0) {
+			szBuffer = kTrait.getStarSignMitigateChangePercent() > 0 ? "TXT_KEY_STAR_SIGN_TRAIT_MITIGATE_GOOD" : "TXT_KEY_STAR_SIGN_TRAIT_MITIGATE_BAD";
+			szHelpString.append(NEWLINE);
+			szHelpString.append(gDLL->getText(szBuffer, abs(kTrait.getStarSignMitigateChangePercent())));
+		}
+		if (kTrait.getStarSignScaleChangePercent() != 0) {
+			szBuffer = kTrait.getStarSignScaleChangePercent() > 0 ? "TXT_KEY_STAR_SIGN_TRAIT_SCALE_GOOD" : "TXT_KEY_STAR_SIGN_TRAIT_SCALE_BAD";
+			szHelpString.append(NEWLINE);
+			szHelpString.append(gDLL->getText(szBuffer, abs(kTrait.getStarSignScaleChangePercent())));
+		}
+
 		// iHealth
 		if (kTrait.getHealth() != 0) {
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_HEALTH", kTrait.getHealth()));
@@ -5218,6 +5230,23 @@ void CvGameTextMgr::parseLeaderTraits(CvWStringBuffer& szHelpString, LeaderHeadT
 		if (!bDawnOfMan && !bCivilopediaText) {
 			szTempBuffer.Format(SETCOLR L"%s" ENDCOLR, TEXT_COLOR("COLOR_HIGHLIGHT_TEXT"), GC.getLeaderHeadInfo(eLeader).getDescription());
 			szHelpString.append(szTempBuffer);
+
+			for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+				const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+				if (kPlayer.getPersonalityType() == eLeader) {
+					if (kPlayer.isAlive() && kPlayer.isHuman()) {
+						if (!kPlayer.isStarSignForceDisabled()) {
+							if (kPlayer.getStarSignScalePercent() != 0)
+								szHelpString.append(gDLL->getText("TXT_KEY_STAR_SIGN_PLAYER_SCALE", kPlayer.getStarSignScalePercent()));
+							if (kPlayer.isStarSignGoodOnly())
+								szHelpString.append(gDLL->getText("TXT_KEY_STAR_SIGN_PLAYER_NO_BAD"));
+							else if (kPlayer.getStarSignMitigatePercent() != 0)
+								szHelpString.append(gDLL->getText("TXT_KEY_STAR_SIGN_PLAYER_MITIGATE", kPlayer.getStarSignMitigatePercent()));
+						}
+					}
+					break;
+				}
+			}
 		}
 
 		FAssert((GC.getNumTraitInfos() > 0) &&
@@ -5455,6 +5484,17 @@ void CvGameTextMgr::parseSpecialistHelpActual(CvWStringBuffer& szHelpString, Spe
 			}
 		}
 		setCommerceChangeHelp(szHelpString, L"", L"", L"", aiCommerces);
+
+		if (kSpecialist.getStarSignMitigateChange() != 0) {
+			szText = kSpecialist.getStarSignMitigateChange() > 0 ? "TXT_KEY_STAR_SIGN_MITIGATE_GOOD" : "TXT_KEY_STAR_SIGN_MITIGATE_BAD";
+			szHelpString.append(NEWLINE);
+			szHelpString.append(gDLL->getText(szText, abs(kSpecialist.getStarSignMitigateChange())));
+		}
+		if (kSpecialist.getStarSignScaleChange() != 0) {
+			szText = kSpecialist.getStarSignScaleChange() > 0 ? "TXT_KEY_STAR_SIGN_SCALE_GOOD" : "TXT_KEY_STAR_SIGN_SCALE_BAD";
+			szHelpString.append(NEWLINE);
+			szHelpString.append(gDLL->getText(szText, abs(kSpecialist.getStarSignScaleChange())));
+		}
 
 		if (kSpecialist.getExperience() > 0) {
 			szHelpString.append(NEWLINE);
@@ -5936,6 +5976,23 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer& szHelpText, CivicTypes eCivi
 			szHelpText.append(NEWLINE);
 			szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_GREAT_PEOPLE_MOD_STATE_RELIGION", kCivic.getStateReligionGreatPeopleRateModifier(), gDLL->getSymbolID(RELIGION_CHAR)));
 		}
+	}
+
+	// Star Signs ...
+	CvWString szBuffer;
+	if (kCivic.isEnableStarSigns()) {
+		szHelpText.append(NEWLINE);
+		szHelpText.append(gDLL->getText("TXT_KEY_STAR_SIGN_ENABLE"));
+	}
+	if (kCivic.getStarSignMitigateChangePercent() != 0) {
+		szBuffer = kCivic.getStarSignMitigateChangePercent() > 0 ? "TXT_KEY_STAR_SIGN_MITIGATE_GOOD" : "TXT_KEY_STAR_SIGN_MITIGATE_BAD";
+		szHelpText.append(NEWLINE);
+		szHelpText.append(gDLL->getText(szBuffer, abs(kCivic.getStarSignMitigateChangePercent())));
+	}
+	if (kCivic.getStarSignScaleChangePercent() != 0) {
+		szBuffer = kCivic.getStarSignScaleChangePercent() > 0 ? "TXT_KEY_STAR_SIGN_SCALE_GOOD" : "TXT_KEY_STAR_SIGN_SCALE_BAD";
+		szHelpText.append(NEWLINE);
+		szHelpText.append(gDLL->getText(szBuffer, abs(kCivic.getStarSignScaleChangePercent())));
 	}
 
 	//	Distance Maintenance Modifer...
@@ -8314,6 +8371,35 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 		}
 	}
 
+	if (kBuilding.getStarSignMitigateChangePercent() != 0) {
+		szTempBuffer = kBuilding.getStarSignMitigateChangePercent() > 0 ? "TXT_KEY_STAR_SIGN_MITIGATE_GOOD" : "TXT_KEY_STAR_SIGN_MITIGATE_BAD";
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText(szTempBuffer, abs(kBuilding.getStarSignMitigateChangePercent())));
+	}
+	if (kBuilding.getStarSignScaleChangePercent() != 0) {
+		szTempBuffer = kBuilding.getStarSignScaleChangePercent() > 0 ? "TXT_KEY_STAR_SIGN_SCALE_GOOD" : "TXT_KEY_STAR_SIGN_SCALE_BAD";
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText(szTempBuffer, abs(kBuilding.getStarSignScaleChangePercent())));
+	}
+	if (kBuilding.getGlobalStarSignMitigateChangePercent() != 0) {
+		szTempBuffer = kBuilding.getGlobalStarSignMitigateChangePercent() > 0 ? "TXT_KEY_STAR_SIGN_GLOBAL_MITIGATE_GOOD" : "TXT_KEY_STAR_SIGN_GOBAL_MITIGATE_BAD";
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText(szTempBuffer, abs(kBuilding.getGlobalStarSignMitigateChangePercent())));
+	}
+	if (kBuilding.getGlobalStarSignScaleChangePercent() != 0) {
+		szTempBuffer = kBuilding.getGlobalStarSignScaleChangePercent() > 0 ? "TXT_KEY_STAR_SIGN_GLOBAL_SCALE_GOOD" : "TXT_KEY_STAR_SIGN_GLOBAL_SCALE_BAD";
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText(szTempBuffer, abs(kBuilding.getGlobalStarSignScaleChangePercent())));
+	}
+	if (kBuilding.isForceDisableStarSigns()) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_STAR_SIGN_DISABLE"));
+	}
+	if (kBuilding.isStarSignGoodOnly()) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_STAR_SIGN_GOOD_ONLY"));
+	}
+
 	if (kBuilding.getGlobalReligionCommerce() != NO_RELIGION) {
 		szFirstBuffer = gDLL->getText("TXT_KEY_BUILDING_PER_CITY_WITH", GC.getReligionInfo((ReligionTypes)kBuilding.getGlobalReligionCommerce()).getChar());
 		setCommerceChangeHelp(szBuffer, L"", L"", szFirstBuffer, GC.getReligionInfo((ReligionTypes)kBuilding.getGlobalReligionCommerce()).getGlobalReligionCommerceArray());
@@ -10272,6 +10358,15 @@ void CvGameTextMgr::setAngerHelp(CvWStringBuffer& szBuffer, CvCity& city) {
 			szBuffer.append(NEWLINE);
 		}
 		iOldAnger = iNewAnger;
+
+		if (city.isStarSignAnger()) {
+			iAnger = ((++iNewAnger - iOldAnger) + std::min(0, iOldAnger));
+			if (iAnger > 0) {
+				szBuffer.append(gDLL->getText("TXT_KEY_ANGER_STAR_SIGN", iAnger, city.getStarSignAngerTimer()));
+				szBuffer.append(NEWLINE);
+			}
+			iOldAnger = iNewAnger;
+		}
 
 		iNewAnger -= std::min(0, (city.getBuildingBadHappiness() + city.getExtraBuildingBadHappiness()));
 		iAnger = ((iNewAnger - iOldAnger) + std::min(0, iOldAnger));

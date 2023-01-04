@@ -416,6 +416,12 @@
 	<ElementType name="bPrereqPower" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iWorkableRadius" content="textOnly" dt:type="int"/>
 	<ElementType name="bAutoBuild" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bForceDisableStarSigns" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bStarSignGoodOnly" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iStarSignMitigateChangePercent" content="textOnly" dt:type="int"/>
+	<ElementType name="iGlobalStarSignMitigateChangePercent" content="textOnly" dt:type="int"/>
+	<ElementType name="iStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
+	<ElementType name="iGlobalStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="BuildingInfo" content="eltOnly">
 		<element type="BuildingClass"/>
 		<element type="Type"/>
@@ -488,6 +494,12 @@
 		<element type="bNukeImmune" minOccurs="0"/>
 		<element type="bPrereqReligion" minOccurs="0"/>
 		<element type="bCenterInCity" minOccurs="0"/>
+		<element type="bForceDisableStarSigns" minOccurs="0"/>
+		<element type="bStarSignGoodOnly" minOccurs="0"/>
+		<element type="iStarSignMitigateChangePercent" minOccurs="0"/>
+		<element type="iGlobalStarSignMitigateChangePercent" minOccurs="0"/>
+		<element type="iStarSignScaleChangePercent" minOccurs="0"/>
+		<element type="iGlobalStarSignScaleChangePercent" minOccurs="0"/>
 		<element type="iAIWeight" minOccurs="0"/>
 		<element type="iCost" minOccurs="0"/>
 		<element type="iHurryCostModifier" minOccurs="0"/>

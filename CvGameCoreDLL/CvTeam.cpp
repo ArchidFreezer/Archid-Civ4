@@ -192,6 +192,7 @@ void CvTeam::reset(TeamTypes eID, bool bConstructorCall) {
 	m_iLimitedBordersTradingCount = 0;
 	m_iFreeTradeAgreementTradingCount = 0;
 	m_iNonAggressionTradingCount = 0;
+	m_iStarSignImpactedCount = 0;
 
 	m_bMapCentering = false;
 	m_bCapitulated = false;
@@ -5111,6 +5112,7 @@ void CvTeam::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iLimitedBordersTradingCount);
 	pStream->Read(&m_iFreeTradeAgreementTradingCount);
 	pStream->Read(&m_iNonAggressionTradingCount);
+	pStream->Read(&m_iStarSignImpactedCount);
 
 	pStream->Read(&m_bMapCentering);
 	pStream->Read(&m_bCapitulated);
@@ -5219,6 +5221,7 @@ void CvTeam::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iLimitedBordersTradingCount);
 	pStream->Write(m_iFreeTradeAgreementTradingCount);
 	pStream->Write(m_iNonAggressionTradingCount);
+	pStream->Write(m_iStarSignImpactedCount);
 
 	pStream->Write(m_bMapCentering);
 	pStream->Write(m_bCapitulated);
@@ -5647,4 +5650,26 @@ bool CvTeam::isNonAggressionTrading() const {
 void CvTeam::changeNonAggressionTradingCount(int iChange) {
 	m_iNonAggressionTradingCount = (m_iNonAggressionTradingCount + iChange);
 	FAssert(getNonAggressionTradingCount() >= 0);
+}
+
+// Check if the team is affected by start sign changes
+bool CvTeam::isStarSignImpacted() const {
+	return m_iStarSignImpactedCount > 0;
+}
+
+// Update influences on whether the team is impacted by star sign changes
+void CvTeam::changeStarSignImpactedCount(int iChange) {
+	m_iStarSignImpactedCount += iChange;
+}
+
+// Apply any star sign change effects to the team players if applicable
+void CvTeam::doStarSignChange() {
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+		if (kPlayer.isAlive() && kPlayer.isCanProcessStarSign()) {
+			if (kPlayer.getTeam() == getID()) {
+				kPlayer.doStarSignChange();
+			}
+		}
+	}
 }

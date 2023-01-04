@@ -168,6 +168,11 @@ CvGlobals::CvGlobals() :
 	m_iEMBASSY_ESPIONAGE_MISSION_COST_MODIFIER(25),
 	m_iFREE_TRADE_AGREEMENT_ESPIONAGE_MISSION_COST_MODIFIER(25),
 	m_iFREE_TRADE_AGREEMENT_TRADE_MODIFIER(50),
+	m_iSTAR_SIGN_FREQUENCY(0),
+	m_iSTAR_SIGN_FREQUENCY_VARIANCE(0),
+	m_iSTAR_SIGN_BAD_CHANCE(0),
+	m_iSTAR_SIGN_NO_EFFECT_CHANCE(0),
+	m_iSTAR_SIGN_AGGREGATE_RESULTS_CAP(0),
 
 	m_bBBAI_AIR_COMBAT(false),
 	m_bBBAI_HUMAN_AS_VASSAL_OPTION(false),
@@ -202,6 +207,12 @@ CvGlobals::CvGlobals() :
 	m_bZoomIn(false),
 	m_bZoomOut(false),
 	m_bANIMALS_SPAWN_WITH_BARBARIANS(false),
+
+	m_szSTAR_SIGN_DEFAULT_TEXT_KEY_BAD(NULL),
+	m_szSTAR_SIGN_DEFAULT_TEXT_KEY_GOOD(NULL),
+	m_szSTAR_SIGN_DEFAULT_TEXT_KEY_MITIGATE(NULL),
+	m_szSTAR_SIGN_DEFAULT_TEXT_KEY_NEUTRAL(NULL),
+	m_szSTAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET(NULL),
 
 	m_pkMainMenu(NULL),
 	m_pFMPMgr(NULL),
@@ -2394,6 +2405,11 @@ void CvGlobals::cacheGlobals() {
 	m_iEMBASSY_ESPIONAGE_MISSION_COST_MODIFIER = getDefineINT("EMBASSY_ESPIONAGE_MISSION_COST_MODIFIER");
 	m_iFREE_TRADE_AGREEMENT_ESPIONAGE_MISSION_COST_MODIFIER = getDefineINT("FREE_TRADE_AGREEMENT_ESPIONAGE_MISSION_COST_MODIFIER");
 	m_iFREE_TRADE_AGREEMENT_TRADE_MODIFIER = getDefineINT("FREE_TRADE_AGREEMENT_TRADE_MODIFIER");
+	m_iSTAR_SIGN_FREQUENCY = getDefineINT("STAR_SIGN_FREQUENCY");
+	m_iSTAR_SIGN_FREQUENCY_VARIANCE = getDefineINT("STAR_SIGN_FREQUENCY_VARIANCE");
+	m_iSTAR_SIGN_BAD_CHANCE = getDefineINT("STAR_SIGN_BAD_CHANCE");
+	m_iSTAR_SIGN_NO_EFFECT_CHANCE = getDefineINT("STAR_SIGN_NO_EFFECT_CHANCE");
+	m_iSTAR_SIGN_AGGREGATE_RESULTS_CAP = getDefineINT("STAR_SIGN_AGGREGATE_RESULTS_CAP");
 
 	m_bUSE_AI_UNIT_UPDATE_CALLBACK = getDefineBOOL("USE_AI_UNIT_UPDATE_CALLBACK");
 	m_bUSE_AI_DO_DIPLO_CALLBACK = getDefineBOOL("USE_AI_DO_DIPLO_CALLBACK");
@@ -2450,6 +2466,12 @@ void CvGlobals::cacheGlobals() {
 	m_bLFBUseCombatOdds = getDefineBOOL("LFB_USECOMBATODDS");
 	m_iCOMBAT_DIE_SIDES = getDefineINT("COMBAT_DIE_SIDES");
 	m_iCOMBAT_DAMAGE = getDefineINT("COMBAT_DAMAGE");
+
+	m_szSTAR_SIGN_DEFAULT_TEXT_KEY_BAD = getDefineSTRING("STAR_SIGN_DEFAULT_TEXT_KEY_BAD");
+	m_szSTAR_SIGN_DEFAULT_TEXT_KEY_GOOD = getDefineSTRING("STAR_SIGN_DEFAULT_TEXT_KEY_GOOD");
+	m_szSTAR_SIGN_DEFAULT_TEXT_KEY_MITIGATE = getDefineSTRING("STAR_SIGN_DEFAULT_TEXT_KEY_MITIGATE");
+	m_szSTAR_SIGN_DEFAULT_TEXT_KEY_NEUTRAL = getDefineSTRING("STAR_SIGN_DEFAULT_TEXT_KEY_NEUTRAL");
+	m_szSTAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET = getDefineSTRING("STAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET");
 }
 
 bool CvGlobals::getDefineBOOL(const char* szName, bool bDefault) const {
@@ -3143,6 +3165,9 @@ void CvGlobals::deleteInfoArrays() {
 	deleteInfoArray(m_paEntityEventInfo);
 	deleteInfoArray(m_paAnimationCategoryInfo);
 	deleteInfoArray(m_paAnimationPathInfo);
+	deleteInfoArray(m_paStarEventInfo);
+	deleteInfoArray(m_paStarEventTargetInfos);
+	SAFE_DELETE_ARRAY(GC.getStarEventTargetTypes());
 
 	clearTypesMap();
 	m_aInfoVectors.clear();
@@ -3341,4 +3366,40 @@ void CvGlobals::setIniOpt(const char* opt, CvString value) {
 	FAssertMsg(opt, "null ini opt string");
 	FAssertMsg(m_aIniOptsString.find(opt) == m_aIniOptsString.end(), "ini entry already exists");
 	m_aIniOptsString[opt] = value;
+}
+
+int CvGlobals::getNumStarEventInfos() {
+	return (int)m_paStarEventInfo.size();
+}
+
+std::vector<CvStarEventInfo*>& CvGlobals::getStarEventInfo() {
+	return m_paStarEventInfo;
+}
+
+CvStarEventInfo& CvGlobals::getStarEventInfo(StarEventTypes eEvent) {
+	FAssert(eEvent > -1);
+	FAssert(eEvent < GC.getNumStarEventInfos());
+	return *(m_paStarEventInfo[eEvent]);
+}
+
+bool CvGlobals::readStarEventInfoArray(FDataStreamBase* pStream) {
+	return readInfoArray(pStream, m_paStarEventInfo, "CvStarEventInfo");
+}
+
+void CvGlobals::writeStarEventInfoArray(FDataStreamBase* pStream) {
+	writeInfoArray(pStream, m_paStarEventInfo);
+}
+
+int& CvGlobals::getNumStarEventTargetTypes() {
+	return m_iNumStarEventTargetTypes;
+}
+
+CvString*& CvGlobals::getStarEventTargetTypes() {
+	return m_paszStarEventTargetTypes;
+}
+
+CvString& CvGlobals::getStarEventTargetTypes(int i) {
+	FAssertMsg(i < getNumStarEventTargetTypes(), "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	return m_paszStarEventTargetTypes[i];
 }

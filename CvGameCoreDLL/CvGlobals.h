@@ -132,7 +132,7 @@ class CvEspionageMissionInfo;
 class CvUnitArtStyleTypeInfo;
 class CvVoteSourceInfo;
 class CvMainMenuInfo;
-
+class CvStarEventInfo;
 
 class CvGlobals {
 	//	friend class CvDLLUtilityIFace;
@@ -612,6 +612,14 @@ public:
 	std::vector<CvUnitArtStyleTypeInfo*>& getUnitArtStyleTypeInfo();
 	CvUnitArtStyleTypeInfo& getUnitArtStyleTypeInfo(UnitArtStyleTypes eUnitArtStyleTypeNum);
 
+	int getNumStarEventInfos();
+	std::vector<CvStarEventInfo*>& getStarEventInfo();
+	CvStarEventInfo& getStarEventInfo(StarEventTypes eEvent);
+
+	int& getNumStarEventTargetTypes();
+	CvString*& getStarEventTargetTypes();
+	CvString& getStarEventTargetTypes(int i);
+
 	//
 	// Global Types
 	// All type strings are upper case and are kept in this hash map for fast lookup
@@ -799,6 +807,11 @@ public:
 	inline int getEMBASSY_ESPIONAGE_MISSION_COST_MODIFIER() { return m_iEMBASSY_ESPIONAGE_MISSION_COST_MODIFIER; }
 	inline int getFREE_TRADE_AGREEMENT_ESPIONAGE_MISSION_COST_MODIFIER() { return m_iFREE_TRADE_AGREEMENT_ESPIONAGE_MISSION_COST_MODIFIER; }
 	inline int getFREE_TRADE_AGREEMENT_TRADE_MODIFIER() { return m_iFREE_TRADE_AGREEMENT_TRADE_MODIFIER; }
+	inline int getSTAR_SIGN_FREQUENCY() { return m_iSTAR_SIGN_FREQUENCY; }
+	inline int getSTAR_SIGN_FREQUENCY_VARIANCE() { return m_iSTAR_SIGN_FREQUENCY_VARIANCE; }
+	inline int getSTAR_SIGN_BAD_CHANCE() { return m_iSTAR_SIGN_BAD_CHANCE; }
+	inline int getSTAR_SIGN_NO_EFFECT_CHANCE() { return m_iSTAR_SIGN_NO_EFFECT_CHANCE; }
+	inline int getSTAR_SIGN_AGGREGATE_RESULTS_CAP() { return m_iSTAR_SIGN_AGGREGATE_RESULTS_CAP; }
 
 	inline bool getBBAI_AIR_COMBAT() { return m_bBBAI_AIR_COMBAT; }
 	inline bool getBBAI_HUMAN_AS_VASSAL_OPTION() { return m_bBBAI_HUMAN_AS_VASSAL_OPTION; }
@@ -824,6 +837,12 @@ public:
 	inline bool getUSE_UNIT_UPGRADE_PRICE_CALLBACK() { return m_bUSE_UNIT_UPGRADE_PRICE_CALLBACK; }
 	inline bool getTECH_DIFFUSION_ENABLE() { return m_bTECH_DIFFUSION_ENABLE; }
 	inline bool getANIMALS_SPAWN_WITH_BARBARIANS() { return m_bANIMALS_SPAWN_WITH_BARBARIANS; }
+
+	inline const CvString& getSTAR_SIGN_DEFAULT_TEXT_KEY_BAD() { return m_szSTAR_SIGN_DEFAULT_TEXT_KEY_BAD; }
+	inline const CvString& getSTAR_SIGN_DEFAULT_TEXT_KEY_GOOD() { return m_szSTAR_SIGN_DEFAULT_TEXT_KEY_GOOD; }
+	inline const CvString& getSTAR_SIGN_DEFAULT_TEXT_KEY_MITIGATE() { return m_szSTAR_SIGN_DEFAULT_TEXT_KEY_MITIGATE; }
+	inline const CvString& getSTAR_SIGN_DEFAULT_TEXT_KEY_NEUTRAL() { return m_szSTAR_SIGN_DEFAULT_TEXT_KEY_NEUTRAL; }
+	inline const CvString& getSTAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET() { return m_szSTAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET; }
 
 	// more reliable versions of the 'gDLL->xxxKey' functions:
 	inline bool altKey() { return (GetKeyState(VK_MENU) & 0x8000); }
@@ -912,6 +931,9 @@ public:
 
 	DllExport bool readEventTriggerInfoArray(FDataStreamBase* pStream);
 	DllExport void writeEventTriggerInfoArray(FDataStreamBase* pStream);
+
+	bool readStarEventInfoArray(FDataStreamBase* pStream);
+	void writeStarEventInfoArray(FDataStreamBase* pStream);
 
 	//
 	// additional accessors for initting globals
@@ -1136,6 +1158,8 @@ protected:
 	std::vector<CvEventInfo*> m_paEventInfo;
 	std::vector<CvEspionageMissionInfo*> m_paEspionageMissionInfo;
 	std::vector<CvUnitArtStyleTypeInfo*> m_paUnitArtStyleTypeInfo;
+	std::vector<CvStarEventInfo*> m_paStarEventInfo;
+	std::vector<CvInfoBase*> m_paStarEventTargetInfos;
 
 	// Game Text
 	std::vector<CvGameText*> m_paGameTextXML;
@@ -1184,6 +1208,10 @@ protected:
 	CvString* m_paszUnitRangeTypes;
 
 	CvString m_szCurrentXMLFile;
+
+	CvString* m_paszStarEventTargetTypes;
+	int m_iNumStarEventTargetTypes;
+
 	//////////////////////////////////////////////////////////////////////////
 	// Formerly Global Defines
 	//////////////////////////////////////////////////////////////////////////
@@ -1290,6 +1318,11 @@ protected:
 	int m_iEMBASSY_ESPIONAGE_MISSION_COST_MODIFIER;
 	int m_iFREE_TRADE_AGREEMENT_ESPIONAGE_MISSION_COST_MODIFIER;
 	int m_iFREE_TRADE_AGREEMENT_TRADE_MODIFIER;
+	int m_iSTAR_SIGN_FREQUENCY;
+	int m_iSTAR_SIGN_FREQUENCY_VARIANCE;
+	int m_iSTAR_SIGN_BAD_CHANCE;
+	int m_iSTAR_SIGN_NO_EFFECT_CHANCE;
+	int m_iSTAR_SIGN_AGGREGATE_RESULTS_CAP;
 
 	bool m_bBBAI_AIR_COMBAT;
 	bool m_bBBAI_HUMAN_VASSAL_WAR_BUILD;
@@ -1315,6 +1348,12 @@ protected:
 	bool m_bUSE_GET_EXPERIENCE_NEEDED_CALLBACK;
 	bool m_bUSE_UNIT_UPGRADE_PRICE_CALLBACK;
 	bool m_bANIMALS_SPAWN_WITH_BARBARIANS;
+
+	CvString m_szSTAR_SIGN_DEFAULT_TEXT_KEY_BAD;
+	CvString m_szSTAR_SIGN_DEFAULT_TEXT_KEY_GOOD;
+	CvString m_szSTAR_SIGN_DEFAULT_TEXT_KEY_MITIGATE;
+	CvString m_szSTAR_SIGN_DEFAULT_TEXT_KEY_NEUTRAL;
+	CvString m_szSTAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET;
 
 	stdext::hash_map<std::string, bool> m_aIniOptsBool;
 	stdext::hash_map<std::string, int> m_aIniOptsInt;

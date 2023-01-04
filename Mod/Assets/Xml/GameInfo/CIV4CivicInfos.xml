@@ -223,7 +223,7 @@
 						<iYield>0</iYield>
 						<iYield>1</iYield>
 					</ImprovementYields>
-				</ImprovementYieldChange>				
+				</ImprovementYieldChange>
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_TOWN</ImprovementType>
 					<ImprovementYields>
@@ -390,6 +390,8 @@
 			<Civilopedia>TXT_KEY_CIVIC_PAGANISM_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_CIVIC_PAGANISM_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Paganism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,4,2</Button>
+			<bEnableStarSigns>1</bEnableStarSigns>
+			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
 			<Upkeep>UPKEEP_LOW</Upkeep>
 			<bStateReligion>1</bStateReligion>
 			<WeLoveTheKing/>
@@ -402,6 +404,9 @@
 			<Strategy>TXT_KEY_CIVIC_ORGANIZED_RELIGION_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Organized_Religion.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,2,2</Button>
 			<TechPrereq>TECH_MONOTHEISM</TechPrereq>
+			<bEnableStarSigns>1</bEnableStarSigns>
+			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
+			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
 			<Upkeep>UPKEEP_HIGH</Upkeep>
 			<bStateReligion>1</bStateReligion>
 			<iStateReligionBuildingProductionModifier>25</iStateReligionBuildingProductionModifier>
@@ -432,6 +437,8 @@
 			<Strategy>TXT_KEY_CIVIC_PACIFISM_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Pacifism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,3,2</Button>
 			<TechPrereq>TECH_PHILOSOPHY</TechPrereq>
+			<bEnableStarSigns>1</bEnableStarSigns>
+			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
 			<Upkeep>NONE</Upkeep>
 			<iStateReligionGreatPeopleRateModifier>100</iStateReligionGreatPeopleRateModifier>
 			<iGoldPerMilitaryUnit>50</iGoldPerMilitaryUnit>

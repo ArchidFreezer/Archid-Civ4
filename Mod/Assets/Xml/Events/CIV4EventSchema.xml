@@ -433,4 +433,52 @@
 	<ElementType name="Civ4EventInfos" content="eltOnly">
 		<element type="EventInfos" minOccurs="1" maxOccurs="1"/>
 	</ElementType>
+	<ElementType name="BadTextKey" content="textOnly"/>
+	<ElementType name="GoodTextKey" content="textOnly"/>
+	<ElementType name="MitigateTextKey" content="textOnly"/>
+	<ElementType name="NeutralTextKey" content="textOnly"/>
+	<ElementType name="iAggregateResultsCap" content="textOnly" dt:type="int"/>
+	<ElementType name="TargetType" content="textOnly"/>
+	<ElementType name="iNumTargets" content="textOnly" dt:type="int"/>
+	<ElementType name="bPersistent" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iPersistDecayRate" content="textOnly" dt:type="int"/>
+	<ElementType name="iBadEffectModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="iScalePoints" content="textOnly" dt:type="int"/>
+	<ElementType name="iNoEffectChance" content="textOnly" dt:type="int"/>
+	<ElementType name="iCombatPoints" content="textOnly" dt:type="int"/>
+	<ElementType name="iGreatPersonPoints" content="textOnly" dt:type="int"/>
+	<ElementType name="iProduction" content="textOnly" dt:type="int"/>
+	<ElementType name="iConscript" content="textOnly" dt:type="int"/>
+	<ElementType name="iMissionary" content="textOnly" dt:type="int"/>
+	<ElementType name="StarEventInfo" content="eltOnly">
+		<element type="Type"/>
+		<element type="TargetType" minOccurs="1" maxOccurs="1"/>
+		<element type="BadTextKey" minOccurs="0"/>
+		<element type="GoodTextKey" minOccurs="0"/>
+		<element type="MitigateTextKey" minOccurs="0"/>
+		<element type="NeutralTextKey" minOccurs="0"/>
+		<element type="iAggregateResultsCap" minOccurs="0"/>
+		<element type="iNumTargets" minOccurs="0"/>
+		<element type="bPersistent" minOccurs="0"/>
+		<element type="iPersistDecayRate" minOccurs="0"/>
+		<element type="iBadEffectModifier" minOccurs="0"/>
+		<element type="iScalePoints" minOccurs="0"/>
+		<element type="iNoEffectChance" minOccurs="0"/>
+		<element type="iPopulationChange" minOccurs="0"/>
+		<element type="iCombatPoints" minOccurs="0"/>
+		<element type="iFood" minOccurs="0"/>
+		<element type="iGold" minOccurs="0"/>
+		<element type="iProduction" minOccurs="0"/>
+		<element type="iGreatPersonPoints" minOccurs="0"/>
+		<element type="iCulture" minOccurs="0"/>
+		<element type="iConscript" minOccurs="0"/>
+		<element type="iMissionary" minOccurs="0"/>
+		<element type="iHappyTurns" minOccurs="0"/>
+	</ElementType>
+	<ElementType name="StarEventInfos" content="eltOnly">
+		<element type="StarEventInfo" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="Civ4StarEventInfos" content="eltOnly">
+		<element type="StarEventInfos" minOccurs="1" maxOccurs="1"/>
+	</ElementType>
 </Schema>

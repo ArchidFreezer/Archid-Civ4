@@ -39,6 +39,14 @@ public:
 
 	void doTurn();
 
+	bool isStarSignAnger() const;
+	int getStarSignAngerTimer() const;
+	int getStarSignMitigatePercent() const;
+	int getStarSignScalePercent() const;
+	void changeStarSignAngerTimer(int iChange);
+	void changeStarSignMitigatePercent(int iChange);
+	void changeStarSignScalePercent(int iChange);
+
 	bool isCitySelected();
 	DllExport bool canBeSelected() const;
 	DllExport void updateSelectedCity(bool bTestProduction);
@@ -1097,6 +1105,9 @@ protected:
 	int m_iSpecialistFreeExperience;
 	int m_iEspionageDefenseModifier;
 	int m_iWorkableRadiusOverride;
+	int m_iStarSignMitigatePercent;
+	int m_iStarSignScalePercent;
+	int m_iStarSignAngerTimer;
 
 	bool m_bNeverLost;
 	bool m_bBombarded;

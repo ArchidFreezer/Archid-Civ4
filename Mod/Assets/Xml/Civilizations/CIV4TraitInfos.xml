@@ -75,6 +75,7 @@
 			<Type>TRAIT_PHILOSOPHICAL</Type>
 			<Description>TXT_KEY_TRAIT_PHILOSOPHICAL</Description>
 			<ShortDescription>TXT_KEY_TRAIT_PHILOSOPHICAL_SHORT</ShortDescription>
+			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
 			<iGreatPeopleRateModifier>100</iGreatPeopleRateModifier>
 		</TraitInfo>
 		<TraitInfo> <!-- Protective -->
@@ -94,6 +95,7 @@
 			<Type>TRAIT_SPIRITUAL</Type>
 			<Description>TXT_KEY_TRAIT_SPIRITUAL</Description>
 			<ShortDescription>TXT_KEY_TRAIT_SPIRITUAL_SHORT</ShortDescription>
+			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
 			<iMaxAnarchy>0</iMaxAnarchy>
 		</TraitInfo>
 	</TraitInfos>

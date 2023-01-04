@@ -392,6 +392,7 @@ void CvGame::reset(HandicapTypes eHandicap, bool bConstructorCall) {
 	m_iAIAutoPlay = 0;
 	m_iGlobalWarmingIndex = 0;// K-Mod
 	m_iGwEventTally = -1; // K-Mod (-1 means Gw tally has not been activated yet)
+	m_iStarSignTurnsSinceChange = GC.getSTAR_SIGN_FREQUENCY() + GC.getSTAR_SIGN_FREQUENCY_VARIANCE(); // Set to the max value so that the sign is changed on the next turn
 
 	m_uiInitialTime = 0;
 
@@ -4665,6 +4666,8 @@ void CvGame::doTurn() {
 
 	doDiploVote();
 
+	doStarSign();
+
 	gDLL->getInterfaceIFace()->setEndTurnMessage(false);
 	gDLL->getInterfaceIFace()->setHasMovedUnit(false);
 
@@ -6369,6 +6372,7 @@ void CvGame::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iAIAutoPlay);
 	pStream->Read(&m_iGlobalWarmingIndex); // K-Mod
 	pStream->Read(&m_iGwEventTally); // K-Mod
+	pStream->Read(&m_iStarSignTurnsSinceChange);
 
 	// m_uiInitialTime not saved
 
@@ -6571,6 +6575,7 @@ void CvGame::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iAIAutoPlay);
 	pStream->Write(m_iGlobalWarmingIndex); // K-Mod
 	pStream->Write(m_iGwEventTally); // K-Mod
+	pStream->Write(m_iStarSignTurnsSinceChange);
 
 	// m_uiInitialTime not saved
 
@@ -7622,3 +7627,32 @@ bool CvGame::pythonIsBonusIgnoreLatitudes() const {
 	return false;
 }
 
+void CvGame::doStarSign() {
+	// Check if the sign should change
+	int iDuration = (GC.getSTAR_SIGN_FREQUENCY() * GC.getGameSpeedInfo(getGameSpeedType()).getGrowthPercent() / 100) + getSorenRandNum(std::max(0, GC.getSTAR_SIGN_FREQUENCY_VARIANCE() + 1), "Star Sign Frequency");
+	if (++m_iStarSignTurnsSinceChange >= iDuration) {
+		m_iStarSignTurnsSinceChange = 0;
+		for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_TEAMS; eTeam = (TeamTypes)(eTeam + 1)) {
+			CvTeam& kTeam = GET_TEAM(eTeam);
+			if (kTeam.isAlive() && kTeam.isStarSignImpacted()) {
+				kTeam.doStarSignChange();
+			}
+		}
+		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+			CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+			if (kPlayer.isAlive() && kPlayer.isCanProcessStarSign()) {
+				kPlayer.doStarSignChange();
+			}
+		}
+	} else {
+		// Star sign didn't change so lets see if there are any persistent events to process
+		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+			CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+			if (kPlayer.isAlive() && kPlayer.isCanProcessStarSign()) {
+				if (kPlayer.getStarSignPersistEvent() != NO_STAR_EVENT) {
+					kPlayer.applyStarEvent(kPlayer.getStarSignPersistEvent(), true);
+				}
+			}
+		}
+	}
+}

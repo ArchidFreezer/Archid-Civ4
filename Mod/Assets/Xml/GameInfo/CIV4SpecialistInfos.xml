@@ -77,6 +77,8 @@
 			<bVisible>1</bVisible>
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iStarSignMitigateChangePercent>3</iStarSignMitigateChangePercent>
+			<iStarSignScaleChangePercent>2</iStarSignScaleChangePercent>
 			<Yields>
 				<iYield>0</iYield>
 				<iYield>1</iYield>
@@ -98,6 +100,7 @@
 			<bVisible>1</bVisible>
 			<GreatPeopleUnitClass>UNITCLASS_SCIENTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iStarSignMitigateChangePercent>4</iStarSignMitigateChangePercent>
 			<Commerces>
 				<iCommerce>0</iCommerce>
 				<iCommerce>3</iCommerce>
@@ -122,7 +125,7 @@
 			</Commerces>
 			<Button>Art/Interface/MainScreen/CityScreen/spy.dds</Button>
 		</SpecialistInfo>
-		
+
 <!-- +++ Non-Visible +++ -->
 		<SpecialistInfo> <!-- Great Artist -->
 			<Type>SPECIALIST_GREAT_ARTIST</Type>
@@ -198,6 +201,8 @@
 			<Civilopedia>TXT_KEY_CONCEPT_GREAT_PEOPLE_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_SPECIALIST_GREAT_PRIEST_STRATEGY</Strategy>
 			<Texture>Art/Interface/MainScreen/CityScreen/Great_Priest.dds</Texture>
+			<iStarSignMitigateChangePercent>15</iStarSignMitigateChangePercent>
+			<iStarSignScaleChangePercent>10</iStarSignScaleChangePercent>
 			<Yields>
 				<iYield>0</iYield>
 				<iYield>2</iYield>
@@ -216,6 +221,7 @@
 			<Civilopedia>TXT_KEY_CONCEPT_GREAT_PEOPLE_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_SPECIALIST_GREAT_SCIENTIST_STRATEGY</Strategy>
 			<Texture>Art/Interface/MainScreen/CityScreen/Great_Scientist.dds</Texture>
+			<iStarSignMitigateChangePercent>15</iStarSignMitigateChangePercent>
 			<Yields>
 				<iYield>0</iYield>
 				<iYield>1</iYield>

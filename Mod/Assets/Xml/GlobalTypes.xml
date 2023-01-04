@@ -279,4 +279,10 @@
 		<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
 		<UnitRangeType>UNITRANGE_UNLIMITED</UnitRangeType>
 	</UnitRangeTypes>
+	<StarEventTargetTypes>
+		<StarEventTargetType>TARGET_NO_CITY</StarEventTargetType>
+		<StarEventTargetType>TARGET_ALL_CITIES</StarEventTargetType>
+		<StarEventTargetType>TARGET_CAPITAL_CITY</StarEventTargetType>
+		<StarEventTargetType>TARGET_RANDOM_CITY</StarEventTargetType>
+	</StarEventTargetTypes>
 </Civ4Types>

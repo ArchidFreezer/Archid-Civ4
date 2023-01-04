@@ -3725,6 +3725,8 @@
 			<ReligionType>RELIGION_BUDDHISM</ReligionType>
 			<PrereqReligion>RELIGION_BUDDHISM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>2</iStarSignMitigateChangePercent>
+			<iStarSignScaleChangePercent>10</iStarSignScaleChangePercent>
 			<iCost>80</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iHappiness>1</iHappiness>
@@ -3770,6 +3772,8 @@
 			<ReligionType>RELIGION_BUDDHISM</ReligionType>
 			<PrereqReligion>RELIGION_BUDDHISM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>10</iStarSignMitigateChangePercent>
+			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
 			<iCost>240</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iStateReligionHappiness>2</iStateReligionHappiness>
@@ -3828,6 +3832,7 @@
 			<ReligionType>RELIGION_BUDDHISM</ReligionType>
 			<PrereqReligion>RELIGION_BUDDHISM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
 			<iCost>60</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAsset>3</iAsset>
@@ -3873,6 +3878,8 @@
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bNukeImmune>1</bNukeImmune>
+			<iGlobalStarSignMitigateChangePercent>10</iGlobalStarSignMitigateChangePercent>
+			<iGlobalStarSignScaleChangePercent>100</iGlobalStarSignScaleChangePercent>
 			<iCost>-1</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iConquestProb>100</iConquestProb>
@@ -3929,6 +3936,8 @@
 			<ReligionType>RELIGION_CHRISTIANITY</ReligionType>
 			<PrereqReligion>RELIGION_CHRISTIANITY</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>2</iStarSignMitigateChangePercent>
+			<iStarSignScaleChangePercent>10</iStarSignScaleChangePercent>
 			<iCost>80</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iHappiness>1</iHappiness>
@@ -3974,6 +3983,8 @@
 			<ReligionType>RELIGION_CHRISTIANITY</ReligionType>
 			<PrereqReligion>RELIGION_CHRISTIANITY</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>10</iStarSignMitigateChangePercent>
+			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
 			<iCost>240</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iStateReligionHappiness>2</iStateReligionHappiness>
@@ -4032,6 +4043,7 @@
 			<ReligionType>RELIGION_CHRISTIANITY</ReligionType>
 			<PrereqReligion>RELIGION_CHRISTIANITY</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
 			<iCost>60</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAsset>3</iAsset>
@@ -4077,6 +4089,8 @@
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bNukeImmune>1</bNukeImmune>
+			<iGlobalStarSignMitigateChangePercent>10</iGlobalStarSignMitigateChangePercent>
+			<iGlobalStarSignScaleChangePercent>100</iGlobalStarSignScaleChangePercent>
 			<iCost>-1</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iConquestProb>100</iConquestProb>
@@ -4133,6 +4147,8 @@
 			<ReligionType>RELIGION_CONFUCIANISM</ReligionType>
 			<PrereqReligion>RELIGION_CONFUCIANISM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>2</iStarSignMitigateChangePercent>
+			<iStarSignScaleChangePercent>10</iStarSignScaleChangePercent>
 			<iCost>80</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iHappiness>1</iHappiness>
@@ -4178,6 +4194,8 @@
 			<ReligionType>RELIGION_CONFUCIANISM</ReligionType>
 			<PrereqReligion>RELIGION_CONFUCIANISM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>10</iStarSignMitigateChangePercent>
+			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
 			<iCost>240</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iStateReligionHappiness>2</iStateReligionHappiness>
@@ -4236,6 +4254,7 @@
 			<ReligionType>RELIGION_CONFUCIANISM</ReligionType>
 			<PrereqReligion>RELIGION_CONFUCIANISM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
 			<iCost>60</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAsset>3</iAsset>
@@ -4281,6 +4300,8 @@
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bNukeImmune>1</bNukeImmune>
+			<iGlobalStarSignMitigateChangePercent>10</iGlobalStarSignMitigateChangePercent>
+			<iGlobalStarSignScaleChangePercent>100</iGlobalStarSignScaleChangePercent>
 			<iCost>-1</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iConquestProb>100</iConquestProb>
@@ -4337,6 +4358,8 @@
 			<ReligionType>RELIGION_HINDUISM</ReligionType>
 			<PrereqReligion>RELIGION_HINDUISM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>2</iStarSignMitigateChangePercent>
+			<iStarSignScaleChangePercent>10</iStarSignScaleChangePercent>
 			<iCost>80</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iHappiness>1</iHappiness>
@@ -4382,6 +4405,8 @@
 			<ReligionType>RELIGION_HINDUISM</ReligionType>
 			<PrereqReligion>RELIGION_HINDUISM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>10</iStarSignMitigateChangePercent>
+			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
 			<iCost>240</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iStateReligionHappiness>2</iStateReligionHappiness>
@@ -4440,6 +4465,7 @@
 			<ReligionType>RELIGION_HINDUISM</ReligionType>
 			<PrereqReligion>RELIGION_HINDUISM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
 			<iCost>60</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAsset>3</iAsset>
@@ -4485,6 +4511,8 @@
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bNukeImmune>1</bNukeImmune>
+			<iGlobalStarSignMitigateChangePercent>10</iGlobalStarSignMitigateChangePercent>
+			<iGlobalStarSignScaleChangePercent>100</iGlobalStarSignScaleChangePercent>
 			<iCost>-1</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iConquestProb>100</iConquestProb>
@@ -4541,6 +4569,8 @@
 			<ReligionType>RELIGION_ISLAM</ReligionType>
 			<PrereqReligion>RELIGION_ISLAM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>2</iStarSignMitigateChangePercent>
+			<iStarSignScaleChangePercent>10</iStarSignScaleChangePercent>
 			<iCost>80</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iHappiness>1</iHappiness>
@@ -4586,6 +4616,8 @@
 			<ReligionType>RELIGION_ISLAM</ReligionType>
 			<PrereqReligion>RELIGION_ISLAM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>10</iStarSignMitigateChangePercent>
+			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
 			<iCost>240</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iStateReligionHappiness>2</iStateReligionHappiness>
@@ -4644,6 +4676,7 @@
 			<ReligionType>RELIGION_ISLAM</ReligionType>
 			<PrereqReligion>RELIGION_ISLAM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
 			<iCost>60</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAsset>3</iAsset>
@@ -4689,6 +4722,8 @@
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bNukeImmune>1</bNukeImmune>
+			<iGlobalStarSignMitigateChangePercent>10</iGlobalStarSignMitigateChangePercent>
+			<iGlobalStarSignScaleChangePercent>100</iGlobalStarSignScaleChangePercent>
 			<iCost>-1</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iConquestProb>100</iConquestProb>
@@ -4745,6 +4780,8 @@
 			<ReligionType>RELIGION_JUDAISM</ReligionType>
 			<PrereqReligion>RELIGION_JUDAISM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>2</iStarSignMitigateChangePercent>
+			<iStarSignScaleChangePercent>10</iStarSignScaleChangePercent>
 			<iCost>80</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iHappiness>1</iHappiness>
@@ -4790,6 +4827,8 @@
 			<ReligionType>RELIGION_JUDAISM</ReligionType>
 			<PrereqReligion>RELIGION_JUDAISM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>10</iStarSignMitigateChangePercent>
+			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
 			<iCost>240</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iStateReligionHappiness>2</iStateReligionHappiness>
@@ -4848,6 +4887,7 @@
 			<ReligionType>RELIGION_JUDAISM</ReligionType>
 			<PrereqReligion>RELIGION_JUDAISM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
 			<iCost>60</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAsset>3</iAsset>
@@ -4893,6 +4933,8 @@
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bNukeImmune>1</bNukeImmune>
+			<iGlobalStarSignMitigateChangePercent>10</iGlobalStarSignMitigateChangePercent>
+			<iGlobalStarSignScaleChangePercent>100</iGlobalStarSignScaleChangePercent>
 			<iCost>-1</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iConquestProb>100</iConquestProb>
@@ -4949,6 +4991,8 @@
 			<ReligionType>RELIGION_TAOISM</ReligionType>
 			<PrereqReligion>RELIGION_TAOISM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>2</iStarSignMitigateChangePercent>
+			<iStarSignScaleChangePercent>10</iStarSignScaleChangePercent>
 			<iCost>80</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iHappiness>1</iHappiness>
@@ -4994,6 +5038,8 @@
 			<ReligionType>RELIGION_TAOISM</ReligionType>
 			<PrereqReligion>RELIGION_TAOISM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>10</iStarSignMitigateChangePercent>
+			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
 			<iCost>240</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iStateReligionHappiness>2</iStateReligionHappiness>
@@ -5052,6 +5098,7 @@
 			<ReligionType>RELIGION_TAOISM</ReligionType>
 			<PrereqReligion>RELIGION_TAOISM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
+			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
 			<iCost>60</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAsset>3</iAsset>
@@ -5097,6 +5144,8 @@
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bNukeImmune>1</bNukeImmune>
+			<iGlobalStarSignMitigateChangePercent>10</iGlobalStarSignMitigateChangePercent>
+			<iGlobalStarSignScaleChangePercent>100</iGlobalStarSignScaleChangePercent>
 			<iCost>-1</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iConquestProb>100</iConquestProb>
@@ -7249,6 +7298,7 @@
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
 			<bNukeImmune>1</bNukeImmune>
+			<bStarSignGoodOnly>1</bStarSignGoodOnly>
 			<iCost>550</iCost>
 			<iHurryCostModifier>100</iHurryCostModifier>
 			<iConquestProb>100</iConquestProb>
@@ -7820,6 +7870,7 @@
 			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_SCIENTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
+			<bForceDisableStarSigns>1</bForceDisableStarSigns>
 			<iCost>400</iCost>
 			<iHurryCostModifier>50</iHurryCostModifier>
 			<iAsset>8</iAsset>

@@ -30,6 +30,10 @@ public:
 	void shareCounters(TeamTypes eTeam);
 	void processBuilding(BuildingTypes eBuilding, int iChange);
 
+	bool isStarSignImpacted() const;
+	void doStarSignChange();
+	void changeStarSignImpactedCount(int iChange);
+
 	int getEmbassyTradingCount() const;
 	bool isEmbassyTrading() const;
 	bool isHasEmbassy(TeamTypes eIndex) const;
@@ -459,6 +463,7 @@ protected:
 	int m_iLimitedBordersTradingCount;
 	int m_iFreeTradeAgreementTradingCount;
 	int m_iNonAggressionTradingCount;
+	int m_iStarSignImpactedCount;
 
 	bool m_bMapCentering;
 	bool m_bCapitulated;

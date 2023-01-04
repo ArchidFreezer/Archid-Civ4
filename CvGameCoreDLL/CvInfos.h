@@ -241,6 +241,8 @@ public:
 	int getMissionType() const;							// Exposed to Python
 	void setMissionType(int iNewType);
 	int getExperience() const;				// Exposed to Python
+	int getStarSignScaleChange() const;
+	int getStarSignMitigateChange() const;
 
 	bool isVisible() const;				// Exposed to Python
 
@@ -250,6 +252,8 @@ public:
 	const int* getYieldChangeArray() const;		// Exposed to Python - For Moose - CvWidgetData
 	int getCommerceChange(int i) const;		// Exposed to Python
 	int getFlavorValue(int i) const;		// Exposed to Python
+	int m_iStarSignScaleChange;
+	int m_iStarSignMitigateChange;
 
 	const TCHAR* getTexture() const;				// Exposed to Python
 	void setTexture(const TCHAR* szVal);
@@ -1438,6 +1442,8 @@ public:
 	int getUnhealthyPopulationModifier() const;	// K-Mod, Exposed to Python
 	int getUnitRangeChange() const;
 	int getUnitRangePercentChange() const;
+	int getStarSignScaleChangePercent() const;
+	int getStarSignMitigateChangePercent() const;
 
 	bool isMilitaryFoodProduction() const;				// Exposed to Python
 	bool isBuildingOnlyHealthy() const;				// Exposed to Python
@@ -1448,6 +1454,7 @@ public:
 	bool isNoNonStateReligionSpread() const;				// Exposed to Python
 	bool isUnitRangeUnbound() const;
 	bool isUnitTerritoryUnbound() const;
+	bool isEnableStarSigns() const;
 
 	std::wstring pyGetWeLoveTheKing() { return getWeLoveTheKing(); }			// Exposed to Python
 	const wchar* getWeLoveTheKing();
@@ -1524,6 +1531,8 @@ protected:
 	int m_iExpInBorderModifier;
 	int m_iUnitRangeChange;
 	int m_iUnitRangePercentChange;
+	int m_iStarSignScaleChangePercent;
+	int m_iStarSignMitigateChangePercent;
 
 	bool m_bMilitaryFoodProduction;
 	int m_iUnhealthyPopulationModifier; // K-Mod
@@ -1535,6 +1544,7 @@ protected:
 	bool m_bNoNonStateReligionSpread;
 	bool m_bUnitRangeUnbound;
 	bool m_bUnitTerritoryUnbound;
+	bool m_bEnableStarSigns;
 
 	CvWString m_szWeLoveTheKingKey;
 
@@ -1753,6 +1763,10 @@ public:
 	int getNumPrereqNotBuildingClasses() const;
 	int getMinPopulation() const;
 	int getWorkableRadius() const;
+	int getStarSignScaleChangePercent() const;
+	int getGlobalStarSignScaleChangePercent() const;
+	int getStarSignMitigateChangePercent() const;
+	int getGlobalStarSignMitigateChangePercent() const;
 
 	float getVisibilityPriority() const;
 
@@ -1778,6 +1792,8 @@ public:
 	bool isAllowsNukes() const;				// Exposed to Python
 	bool isPrereqPower() const;
 	bool isAutoBuild() const;
+	bool isForceDisableStarSigns() const;
+	bool isStarSignGoodOnly() const;
 
 	CultureLevelTypes getMinCultureLevel() const;
 
@@ -1979,6 +1995,10 @@ protected:
 	int m_iUnhealthyPopulationModifier; // K-Mod
 	int m_iMinPopulation;
 	int m_iWorkableRadius;
+	int m_iStarSignScaleChangePercent;
+	int m_iGlobalStarSignScaleChangePercent;
+	int m_iStarSignMitigateChangePercent;
+	int m_iGlobalStarSignMitigateChangePercent;
 
 	float m_fVisibilityPriority;
 
@@ -2004,6 +2024,8 @@ protected:
 	bool m_bAllowsNukes;
 	bool m_bPrereqPower;
 	bool m_bAutoBuild;
+	bool m_bForceDisableStarSigns;
+	bool m_bStarSignGoodOnly;
 
 	CultureLevelTypes m_eMinCultureLevel;
 
@@ -4322,6 +4344,8 @@ public:
 	int getMaxPlayerBuildingProductionModifier() const;				// Exposed to Python
 	int getUnitRangeChange() const;
 	int getUnitRangePercentChange() const;
+	int getStarSignScaleChangePercent() const;
+	int getStarSignMitigateChangePercent() const;
 
 	bool isUnitRangeUnbound() const;
 	bool isUnitTerritoryUnbound() const;
@@ -4361,6 +4385,8 @@ protected:
 	int m_iMaxPlayerBuildingProductionModifier;
 	int m_iUnitRangeChange;
 	int m_iUnitRangePercentChange;
+	int m_iStarSignScaleChangePercent;
+	int m_iStarSignMitigateChangePercent;
 
 	bool m_bUnitRangeUnbound;
 	bool m_bUnitTerritoryUnbound;
@@ -6472,5 +6498,76 @@ protected:
 	std::string m_szSoundtrack;
 	std::string m_szLoading;
 	std::string m_szLoadingSlideshow;
+};
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//
+//  class : CvStarEventInfo
+//
+//
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+class CvStarEventInfo : public CvInfoBase {
+	friend class CvXMLLoadUtility;
+
+public:
+	CvStarEventInfo();
+	virtual ~CvStarEventInfo();
+
+	int getAggregateResultsCap() const;
+	int getPersistDecayRate() const;
+	int getBadEffectModifier() const;
+	int getScalePoints() const;
+	int getNoEffectChance() const;
+	int getTargetType() const;
+	int getNumTargets() const;
+	int getPopulationChange() const;
+	int getCombatPoints() const;
+	int getFood() const;
+	int getGold() const;
+	int getGreatPersonPoints() const;
+	int getProduction() const;
+	int getCulture() const;
+	int getConscript() const;
+	int getMissionary() const;
+	int getHappyTurns() const;
+
+	bool isPersistent() const;
+
+	const TCHAR* getBadTextKey() const;
+	const TCHAR* getGoodTextKey() const;
+	const TCHAR* getMitigateTextKey() const;
+	const TCHAR* getNeutralTextKey() const;
+
+	void read(FDataStreamBase*);
+	void write(FDataStreamBase*);
+
+	bool read(CvXMLLoadUtility* pXML);
+
+private:
+
+	int m_iAggregateResultsCap;
+	int m_iPersistDecayRate;
+	int m_iBadEffectModifier;
+	int m_iScalePoints;
+	int m_iNoEffectChance;
+	int m_iTargetType;
+	int m_iNumTargets;
+	int m_iPopulationChange;
+	int m_iCombatPoints;
+	int m_iFood;
+	int m_iGold;
+	int m_iGreatPersonPoints;
+	int m_iProduction;
+	int m_iCulture;
+	int m_iConscript;
+	int m_iMissionary;
+	int m_iHappyTurns;
+
+	bool m_bPersistent;
+
+	CvString m_szBadTextKey;
+	CvString m_szGoodTextKey;
+	CvString m_szMitigateTextKey;
+	CvString m_szNeutralTextKey;
 };
 #endif

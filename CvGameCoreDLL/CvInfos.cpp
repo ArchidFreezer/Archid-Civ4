@@ -693,6 +693,8 @@ CvSpecialistInfo::CvSpecialistInfo() :
 	m_iGreatPeopleUnitClass(NO_UNITCLASS),
 	m_iGreatPeopleRateChange(0),
 	m_iMissionType(NO_MISSION),
+	m_iStarSignMitigateChange(0),
+	m_iStarSignScaleChange(0),
 	m_bVisible(false),
 	m_piYieldChange(NULL),
 	m_piCommerceChange(NULL),
@@ -711,6 +713,14 @@ CvSpecialistInfo::~CvSpecialistInfo() {
 	SAFE_DELETE_ARRAY(m_piYieldChange);
 	SAFE_DELETE_ARRAY(m_piCommerceChange);
 	SAFE_DELETE_ARRAY(m_piFlavorValue);
+}
+
+int CvSpecialistInfo::getStarSignMitigateChange() const {
+	return m_iStarSignMitigateChange;
+}
+
+int CvSpecialistInfo::getStarSignScaleChange() const {
+	return m_iStarSignScaleChange;
 }
 
 int CvSpecialistInfo::getGreatPeopleUnitClass() const {
@@ -787,6 +797,8 @@ bool CvSpecialistInfo::read(CvXMLLoadUtility* pXML) {
 	m_iGreatPeopleUnitClass = pXML->FindInInfoClass(szTextVal);
 
 	pXML->GetChildXmlValByName(&m_iGreatPeopleRateChange, "iGreatPeopleRateChange");
+	pXML->GetChildXmlValByName(&m_iStarSignMitigateChange, "iStarSignMitigateChangePercent");
+	pXML->GetChildXmlValByName(&m_iStarSignScaleChange, "iStarSignScaleChangePercent");
 	pXML->SetList(&m_piYieldChange, "Yields", NUM_YIELD_TYPES);
 	pXML->SetList(&m_piCommerceChange, "Commerces", NUM_COMMERCE_TYPES);
 	pXML->GetChildXmlValByName(&m_iExperience, "iExperience");
@@ -5191,6 +5203,8 @@ CvCivicInfo::CvCivicInfo() :
 	m_iExpInBorderModifier(0),
 	m_iUnitRangeChange(0),
 	m_iUnitRangePercentChange(0),
+	m_iStarSignMitigateChangePercent(0),
+	m_iStarSignScaleChangePercent(0),
 	m_bMilitaryFoodProduction(false),
 	m_iUnhealthyPopulationModifier(0), // K-Mod
 	m_bBuildingOnlyHealthy(false),
@@ -5201,6 +5215,7 @@ CvCivicInfo::CvCivicInfo() :
 	m_bNoNonStateReligionSpread(false),
 	m_bUnitRangeUnbound(false),
 	m_bUnitTerritoryUnbound(false),
+	m_bEnableStarSigns(false),
 	m_piYieldModifier(NULL),
 	m_piCapitalYieldModifier(NULL),
 	m_piTradeYieldModifier(NULL),
@@ -5244,6 +5259,18 @@ CvCivicInfo::~CvCivicInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppiImprovementYieldChanges);
 	}
+}
+
+bool CvCivicInfo::isEnableStarSigns() const {
+	return m_bEnableStarSigns;
+}
+
+int CvCivicInfo::getStarSignMitigateChangePercent() const {
+	return m_iStarSignMitigateChangePercent;
+}
+
+int CvCivicInfo::getStarSignScaleChangePercent() const {
+	return m_iStarSignScaleChangePercent;
 }
 
 int CvCivicInfo::getUnitRangeChange() const {
@@ -5602,6 +5629,8 @@ void CvCivicInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iExpInBorderModifier);
 	stream->Read(&m_iUnitRangeChange);
 	stream->Read(&m_iUnitRangePercentChange);
+	stream->Read(&m_iStarSignMitigateChangePercent);
+	stream->Read(&m_iStarSignScaleChangePercent);
 
 	stream->Read(&m_bMilitaryFoodProduction);
 	stream->Read(&m_iUnhealthyPopulationModifier); // K-Mod
@@ -5613,6 +5642,7 @@ void CvCivicInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bNoNonStateReligionSpread);
 	stream->Read(&m_bUnitRangeUnbound);
 	stream->Read(&m_bUnitTerritoryUnbound);
+	stream->Read(&m_bEnableStarSigns);
 
 	// Arrays
 
@@ -5724,6 +5754,8 @@ void CvCivicInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iExpInBorderModifier);
 	stream->Write(m_iUnitRangeChange);
 	stream->Write(m_iUnitRangePercentChange);
+	stream->Write(m_iStarSignMitigateChangePercent);
+	stream->Write(m_iStarSignScaleChangePercent);
 
 	stream->Write(m_bMilitaryFoodProduction);
 	stream->Write(m_iUnhealthyPopulationModifier); // K-Mod
@@ -5735,6 +5767,7 @@ void CvCivicInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bNoNonStateReligionSpread);
 	stream->Write(m_bUnitRangeUnbound);
 	stream->Write(m_bUnitTerritoryUnbound);
+	stream->Write(m_bEnableStarSigns);
 
 	// Arrays
 
@@ -5772,6 +5805,9 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "TechPrereq");
 	m_iTechPrereq = pXML->FindInInfoClass(szTextVal);
 
+	pXML->GetChildXmlValByName(&m_bEnableStarSigns, "bEnableStarSigns");
+	pXML->GetChildXmlValByName(&m_iStarSignMitigateChangePercent, "iStarSignMitigateChangePercent");
+	pXML->GetChildXmlValByName(&m_iStarSignScaleChangePercent, "iStarSignScaleChangePercent");
 	pXML->GetChildXmlValByName(&m_iAnarchyLength, "iAnarchyLength");
 
 	pXML->GetChildXmlValByName(szTextVal, "Upkeep");
@@ -6168,6 +6204,10 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_iVoteSourceType(NO_VOTESOURCE),
 	m_iMinPopulation(0),
 	m_iWorkableRadius(0),
+	m_iStarSignMitigateChangePercent(0),
+	m_iGlobalStarSignMitigateChangePercent(0),
+	m_iStarSignScaleChangePercent(0),
+	m_iGlobalStarSignScaleChangePercent(0),
 	m_fVisibilityPriority(0.0f),
 	m_bTeamShare(false),
 	m_bWater(false),
@@ -6192,6 +6232,8 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_bAllowsNukes(false),
 	m_bPrereqPower(false),
 	m_bAutoBuild(false),
+	m_bForceDisableStarSigns(false),
+	m_bStarSignGoodOnly(false),
 	m_eMinCultureLevel(NO_CULTURELEVEL),
 	m_piProductionTraits(NULL),
 	m_piHappinessTraits(NULL),
@@ -6288,6 +6330,30 @@ CvBuildingInfo::~CvBuildingInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppaiBonusYieldModifier);
 	}
+}
+
+bool CvBuildingInfo::isForceDisableStarSigns() const {
+	return m_bForceDisableStarSigns;
+}
+
+bool CvBuildingInfo::isStarSignGoodOnly() const {
+	return m_bStarSignGoodOnly;
+}
+
+int CvBuildingInfo::getStarSignMitigateChangePercent() const {
+	return m_iStarSignMitigateChangePercent;
+}
+
+int CvBuildingInfo::getGlobalStarSignMitigateChangePercent() const {
+	return m_iGlobalStarSignMitigateChangePercent;
+}
+
+int CvBuildingInfo::getStarSignScaleChangePercent() const {
+	return m_iStarSignScaleChangePercent;
+}
+
+int CvBuildingInfo::getGlobalStarSignScaleChangePercent() const {
+	return m_iGlobalStarSignScaleChangePercent;
 }
 
 bool CvBuildingInfo::isAutoBuild() const {
@@ -7352,6 +7418,10 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iVoteSourceType);
 	stream->Read(&m_iMinPopulation);
 	stream->Read(&m_iWorkableRadius);
+	stream->Read(&m_iStarSignMitigateChangePercent);
+	stream->Read(&m_iGlobalStarSignMitigateChangePercent);
+	stream->Read(&m_iStarSignScaleChangePercent);
+	stream->Read(&m_iGlobalStarSignScaleChangePercent);
 
 	stream->Read(&m_fVisibilityPriority);
 
@@ -7378,6 +7448,8 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bAllowsNukes);
 	stream->Read(&m_bPrereqPower);
 	stream->Read(&m_bAutoBuild);
+	stream->Read(&m_bForceDisableStarSigns);
+	stream->Read(&m_bStarSignGoodOnly);
 
 	int iVal;
 	stream->Read(&iVal);
@@ -7763,6 +7835,10 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iVoteSourceType);
 	stream->Write(m_iMinPopulation);
 	stream->Write(m_iWorkableRadius);
+	stream->Write(m_iStarSignMitigateChangePercent);
+	stream->Write(m_iGlobalStarSignMitigateChangePercent);
+	stream->Write(m_iStarSignScaleChangePercent);
+	stream->Write(m_iGlobalStarSignScaleChangePercent);
 
 	stream->Write(m_eMinCultureLevel);
 
@@ -7791,6 +7867,8 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bAllowsNukes);
 	stream->Write(m_bPrereqPower);
 	stream->Write(m_bAutoBuild);
+	stream->Write(m_bForceDisableStarSigns);
+	stream->Write(m_bStarSignGoodOnly);
 
 	stream->WriteString(m_szConstructSound);
 	stream->WriteString(m_szArtDefineTag);
@@ -8042,6 +8120,12 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bPrereqReligion, "bPrereqReligion");
 	pXML->GetChildXmlValByName(&m_bCenterInCity, "bCenterInCity");
 	pXML->GetChildXmlValByName(&m_bStateReligion, "bStateReligion");
+	pXML->GetChildXmlValByName(&m_bForceDisableStarSigns, "bForceDisableStarSigns");
+	pXML->GetChildXmlValByName(&m_bStarSignGoodOnly, "bStarSignGoodOnly");
+	pXML->GetChildXmlValByName(&m_iStarSignMitigateChangePercent, "iStarSignMitigateChangePercent");
+	pXML->GetChildXmlValByName(&m_iGlobalStarSignMitigateChangePercent, "iGlobalStarSignMitigateChangePercent");
+	pXML->GetChildXmlValByName(&m_iStarSignScaleChangePercent, "iStarSignScaleChangePercent");
+	pXML->GetChildXmlValByName(&m_iGlobalStarSignScaleChangePercent, "iGlobalStarSignScaleChangePercent");
 	pXML->GetChildXmlValByName(&m_iAIWeight, "iAIWeight");
 	pXML->GetChildXmlValByName(&m_iProductionCost, "iCost");
 	pXML->GetChildXmlValByName(&m_iHurryCostModifier, "iHurryCostModifier");
@@ -14472,6 +14556,8 @@ CvTraitInfo::CvTraitInfo() :
 	m_iMaxPlayerBuildingProductionModifier(0),
 	m_iUnitRangeChange(0),
 	m_iUnitRangePercentChange(0),
+	m_iStarSignMitigateChangePercent(0),
+	m_iStarSignScaleChangePercent(0),
 	m_bUnitRangeUnbound(false),
 	m_bUnitTerritoryUnbound(false),
 	m_paiExtraYieldThreshold(NULL),
@@ -14504,6 +14590,14 @@ CvTraitInfo::~CvTraitInfo() {
 	SAFE_DELETE_ARRAY(m_paiCommerceFromUnitModifier);
 	SAFE_DELETE_ARRAY(m_pabFreePromotionUnitCombat);
 	SAFE_DELETE_ARRAY(m_pabFreePromotion);
+}
+
+int CvTraitInfo::getStarSignMitigateChangePercent() const {
+	return m_iStarSignMitigateChangePercent;
+}
+
+int CvTraitInfo::getStarSignScaleChangePercent() const {
+	return m_iStarSignScaleChangePercent;
 }
 
 int CvTraitInfo::getBaseYieldFromUnit(int i) const {
@@ -14625,6 +14719,8 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "ShortDescription");
 	setShortDescription(szTextVal);
 
+	pXML->GetChildXmlValByName(&m_iStarSignMitigateChangePercent, "iStarSignMitigateChangePercent");
+	pXML->GetChildXmlValByName(&m_iStarSignScaleChangePercent, "iStarSignScaleChangePercent");
 	pXML->GetChildXmlValByName(&m_iHealth, "iHealth");
 	pXML->GetChildXmlValByName(&m_iHappiness, "iHappiness");
 	pXML->GetChildXmlValByName(&m_iMaxAnarchy, "iMaxAnarchy", -1);
@@ -20039,3 +20135,231 @@ bool CvMainMenuInfo::read(CvXMLLoadUtility* pXML) {
 	return true;
 }
 
+//////////////////////////////////////////////////////////////////////////
+//
+//	CvStarEventInfo
+//	Star Events
+//
+//
+CvStarEventInfo::CvStarEventInfo() :
+
+	m_szBadTextKey(NULL),
+	m_szGoodTextKey(NULL),
+	m_szMitigateTextKey(NULL),
+	m_szNeutralTextKey(NULL),
+	m_iAggregateResultsCap(0),
+
+	m_bPersistent(false),
+	m_iPersistDecayRate(0),
+	m_iBadEffectModifier(0),
+	m_iScalePoints(0),
+	m_iNoEffectChance(0),
+	m_iTargetType(0),
+	m_iNumTargets(0),
+
+	m_iPopulationChange(0),
+	m_iCombatPoints(0),
+	m_iFood(0),
+	m_iGold(0),
+	m_iGreatPersonPoints(0),
+	m_iProduction(0),
+	m_iCulture(0),
+	m_iConscript(0),
+	m_iMissionary(0),
+	m_iHappyTurns(0) {
+}
+
+CvStarEventInfo::~CvStarEventInfo() {
+}
+
+bool CvStarEventInfo::isPersistent() const {
+	return m_bPersistent;
+}
+
+int CvStarEventInfo::getPersistDecayRate() const {
+	return m_iPersistDecayRate;
+}
+
+int CvStarEventInfo::getBadEffectModifier() const {
+	return m_iBadEffectModifier;
+}
+
+int CvStarEventInfo::getScalePoints() const {
+	return m_iScalePoints;
+}
+
+int CvStarEventInfo::getNoEffectChance() const {
+	return m_iNoEffectChance;
+}
+
+int CvStarEventInfo::getTargetType() const {
+	return m_iTargetType;
+}
+
+int CvStarEventInfo::getNumTargets() const {
+	return m_iNumTargets;
+}
+
+int CvStarEventInfo::getPopulationChange() const {
+	return m_iPopulationChange;
+}
+
+int CvStarEventInfo::getCombatPoints() const {
+	return m_iCombatPoints;
+}
+
+int CvStarEventInfo::getFood() const {
+	return m_iFood;
+}
+
+int CvStarEventInfo::getGold() const {
+	return m_iGold;
+}
+
+int CvStarEventInfo::getGreatPersonPoints() const {
+	return m_iGreatPersonPoints;
+}
+
+int CvStarEventInfo::getProduction() const {
+	return m_iProduction;
+}
+
+int CvStarEventInfo::getCulture() const {
+	return m_iCulture;
+}
+
+int CvStarEventInfo::getConscript() const {
+	return m_iConscript;
+}
+
+int CvStarEventInfo::getMissionary() const {
+	return m_iMissionary;
+}
+
+const TCHAR* CvStarEventInfo::getBadTextKey() const {
+	return m_szBadTextKey;
+}
+
+const TCHAR* CvStarEventInfo::getGoodTextKey() const {
+	return m_szGoodTextKey;
+}
+
+const TCHAR* CvStarEventInfo::getMitigateTextKey() const {
+	return m_szMitigateTextKey;
+}
+
+const TCHAR* CvStarEventInfo::getNeutralTextKey() const {
+	return m_szNeutralTextKey;
+}
+
+int CvStarEventInfo::getAggregateResultsCap() const {
+	return m_iAggregateResultsCap;
+}
+
+int CvStarEventInfo::getHappyTurns() const {
+	return m_iHappyTurns;
+}
+
+void CvStarEventInfo::read(FDataStreamBase* stream) {
+	CvInfoBase::read(stream);
+
+	uint uiFlag = 0;
+	stream->Read(&uiFlag);	// flags for expansion
+
+	stream->ReadString(m_szBadTextKey);
+	stream->ReadString(m_szGoodTextKey);
+	stream->ReadString(m_szMitigateTextKey);
+	stream->ReadString(m_szNeutralTextKey);
+	stream->Read(&m_iAggregateResultsCap);
+
+	stream->Read(&m_bPersistent);
+	stream->Read(&m_iPersistDecayRate);
+	stream->Read(&m_iBadEffectModifier);
+	stream->Read(&m_iScalePoints);
+	stream->Read(&m_iNoEffectChance);
+	stream->Read(&m_iTargetType);
+	stream->Read(&m_iNumTargets);
+
+	stream->Read(&m_iPopulationChange);
+	stream->Read(&m_iCombatPoints);
+	stream->Read(&m_iFood);
+	stream->Read(&m_iGold);
+	stream->Read(&m_iGreatPersonPoints);
+	stream->Read(&m_iProduction);
+	stream->Read(&m_iCulture);
+	stream->Read(&m_iConscript);
+	stream->Read(&m_iMissionary);
+	stream->Read(&m_iHappyTurns);
+}
+
+void CvStarEventInfo::write(FDataStreamBase* stream) {
+	CvInfoBase::write(stream);
+
+	uint uiFlag = 0;
+	stream->Write(uiFlag);		// flag for expansion
+
+	stream->WriteString(m_szBadTextKey);
+	stream->WriteString(m_szGoodTextKey);
+	stream->WriteString(m_szMitigateTextKey);
+	stream->WriteString(m_szNeutralTextKey);
+	stream->Write(m_iAggregateResultsCap);
+
+	stream->Write(m_bPersistent);
+	stream->Write(m_iPersistDecayRate);
+	stream->Write(m_iBadEffectModifier);
+	stream->Write(m_iScalePoints);
+	stream->Write(m_iNoEffectChance);
+	stream->Write(m_iTargetType);
+	stream->Write(m_iNumTargets);
+
+	stream->Write(m_iPopulationChange);
+	stream->Write(m_iCombatPoints);
+	stream->Write(m_iFood);
+	stream->Write(m_iGold);
+	stream->Write(m_iGreatPersonPoints);
+	stream->Write(m_iProduction);
+	stream->Write(m_iCulture);
+	stream->Write(m_iConscript);
+	stream->Write(m_iMissionary);
+	stream->Write(m_iHappyTurns);
+}
+
+bool CvStarEventInfo::read(CvXMLLoadUtility* pXML) {
+	CvString szTextVal;
+
+	if (!CvInfoBase::read(pXML)) {
+		return false;
+	}
+
+	pXML->GetChildXmlValByName(szTextVal, "TargetType");
+	m_iTargetType = GC.getTypesEnum(szTextVal);
+	pXML->GetChildXmlValByName(m_szBadTextKey, "BadTextKey", "");
+	if (m_szBadTextKey.IsEmpty()) m_szBadTextKey = GC.getSTAR_SIGN_DEFAULT_TEXT_KEY_BAD();
+	pXML->GetChildXmlValByName(m_szGoodTextKey, "GoodTextKey", "");
+	if (m_szGoodTextKey.IsEmpty()) m_szGoodTextKey = GC.getSTAR_SIGN_DEFAULT_TEXT_KEY_GOOD();
+	pXML->GetChildXmlValByName(m_szMitigateTextKey, "MitigateTextKey", "");
+	if (m_szMitigateTextKey.IsEmpty()) m_szMitigateTextKey = GC.getSTAR_SIGN_DEFAULT_TEXT_KEY_MITIGATE();
+	pXML->GetChildXmlValByName(m_szNeutralTextKey, "NeutralTextKey", "");
+	if (m_szNeutralTextKey.IsEmpty()) m_szNeutralTextKey = GC.getSTAR_SIGN_DEFAULT_TEXT_KEY_NEUTRAL();
+	pXML->GetChildXmlValByName(&m_iAggregateResultsCap, "iAggregateResultsCap", GC.getSTAR_SIGN_AGGREGATE_RESULTS_CAP());
+
+	pXML->GetChildXmlValByName(&m_iNumTargets, "iNumTargets", 1);
+	pXML->GetChildXmlValByName(&m_bPersistent, "bPersistent", false);
+	pXML->GetChildXmlValByName(&m_iPersistDecayRate, "iPersistDecayRate", 1);
+	pXML->GetChildXmlValByName(&m_iBadEffectModifier, "iBadEffectModifier");
+	pXML->GetChildXmlValByName(&m_iScalePoints, "iScalePoints", 1);
+	pXML->GetChildXmlValByName(&m_iNoEffectChance, "iNoEffectChance");
+
+	pXML->GetChildXmlValByName(&m_iPopulationChange, "iPopulationChange");
+	pXML->GetChildXmlValByName(&m_iCombatPoints, "iCombatPoints");
+	pXML->GetChildXmlValByName(&m_iFood, "iFood");
+	pXML->GetChildXmlValByName(&m_iGold, "iGold");
+	pXML->GetChildXmlValByName(&m_iProduction, "iProduction");
+	pXML->GetChildXmlValByName(&m_iGreatPersonPoints, "iGreatPersonPoints");
+	pXML->GetChildXmlValByName(&m_iCulture, "iCulture");
+	pXML->GetChildXmlValByName(&m_iConscript, "iConscript");
+	pXML->GetChildXmlValByName(&m_iMissionary, "iMissionary");
+	pXML->GetChildXmlValByName(&m_iHappyTurns, "iHappyTurns");
+
+	return true;
+}

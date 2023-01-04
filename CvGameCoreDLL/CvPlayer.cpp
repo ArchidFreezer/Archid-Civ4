@@ -505,7 +505,16 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iUnitRangeUnboundCount = 0;
 	m_iUnitTerritoryUnboundCount = 0;
 	m_iFractionalCombatExperience = 0;
+	m_iStarSignForceDisabledCount = 0;
+	m_iStarSignImpactedCount = 0;
+	m_iStarSignGoodOnlyCount = 0;
+	m_iStarSignMitigatePercent = 0;
+	m_iStarSignScalePercent = 100;
+	m_iStarSignPersistDecay = 0;
+
 	m_uiStartTime = 0;
+
+	m_ePersistentStarEvent = NO_STAR_EVENT;
 
 	m_bAlive = false;
 	m_bEverAlive = false;
@@ -517,6 +526,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_bFoundedFirstCity = false;
 	m_bStrike = false;
 	m_bDisableHuman = false; // bbai
+	m_bStarSignProcessed = false;
 	m_iChoosingFreeTechCount = 0; // K-Mod
 
 	m_eID = eID;
@@ -2396,6 +2406,8 @@ void CvPlayer::doTurn() {
 	CvEventReporter::getInstance().beginPlayerTurn(GC.getGameINLINE().getGameTurn(), getID());
 
 	doUpdateCacheOnTurn();
+
+	setStarSignProcessed(false);
 
 	GC.getGameINLINE().verifyDeals();
 
@@ -5224,68 +5236,73 @@ void CvPlayer::removeBuildingClass(BuildingClassTypes eBuildingClass) {
 
 // courtesy of the Gourd Bros...
 void CvPlayer::processBuilding(BuildingTypes eBuilding, int iChange, CvArea* pArea) {
-	if (GC.getBuildingInfo(eBuilding).getFreeBuildingClass() != NO_BUILDINGCLASS) {
-		BuildingTypes eFreeBuilding = (BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(GC.getBuildingInfo(eBuilding).getFreeBuildingClass());
+	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+	if (kBuilding.getFreeBuildingClass() != NO_BUILDINGCLASS) {
+		BuildingTypes eFreeBuilding = (BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(kBuilding.getFreeBuildingClass());
 		changeFreeBuildingCount(eFreeBuilding, iChange);
 	}
 
-	if (GC.getBuildingInfo(eBuilding).getCivicOption() != NO_CIVICOPTION) {
-		changeHasCivicOptionCount(((CivicOptionTypes)GC.getBuildingInfo(eBuilding).getCivicOption()), iChange);
+	if (kBuilding.getCivicOption() != NO_CIVICOPTION) {
+		changeHasCivicOptionCount(((CivicOptionTypes)kBuilding.getCivicOption()), iChange);
 	}
 
-	changeGreatPeopleRateModifier(GC.getBuildingInfo(eBuilding).getGlobalGreatPeopleRateModifier() * iChange);
-	changeGreatGeneralRateModifier(GC.getBuildingInfo(eBuilding).getGreatGeneralRateModifier() * iChange);
-	changeDomesticGreatGeneralRateModifier(GC.getBuildingInfo(eBuilding).getDomesticGreatGeneralRateModifier() * iChange);
-	changeAnarchyModifier(GC.getBuildingInfo(eBuilding).getAnarchyModifier() * iChange);
-	changeGoldenAgeModifier(GC.getBuildingInfo(eBuilding).getGoldenAgeModifier() * iChange);
-	changeHurryModifier(GC.getBuildingInfo(eBuilding).getGlobalHurryModifier() * iChange);
-	changeFreeExperience(GC.getBuildingInfo(eBuilding).getGlobalFreeExperience() * iChange);
-	changeWarWearinessModifier(GC.getBuildingInfo(eBuilding).getGlobalWarWearinessModifier() * iChange);
-	pArea->changeFreeSpecialist(getID(), (GC.getBuildingInfo(eBuilding).getAreaFreeSpecialist() * iChange));
-	changeFreeSpecialist(GC.getBuildingInfo(eBuilding).getGlobalFreeSpecialist() * iChange);
-	changeCoastalTradeRoutes(GC.getBuildingInfo(eBuilding).getCoastalTradeRoutes() * iChange);
-	changeTradeRoutes(GC.getBuildingInfo(eBuilding).getGlobalTradeRoutes() * iChange);
-	if (GC.getBuildingInfo(eBuilding).getAreaHealth() > 0) {
-		pArea->changeBuildingGoodHealth(getID(), (GC.getBuildingInfo(eBuilding).getAreaHealth() * iChange));
+	changeGreatPeopleRateModifier(kBuilding.getGlobalGreatPeopleRateModifier() * iChange);
+	changeGreatGeneralRateModifier(kBuilding.getGreatGeneralRateModifier() * iChange);
+	changeDomesticGreatGeneralRateModifier(kBuilding.getDomesticGreatGeneralRateModifier() * iChange);
+	changeAnarchyModifier(kBuilding.getAnarchyModifier() * iChange);
+	changeGoldenAgeModifier(kBuilding.getGoldenAgeModifier() * iChange);
+	changeHurryModifier(kBuilding.getGlobalHurryModifier() * iChange);
+	changeFreeExperience(kBuilding.getGlobalFreeExperience() * iChange);
+	changeWarWearinessModifier(kBuilding.getGlobalWarWearinessModifier() * iChange);
+	pArea->changeFreeSpecialist(getID(), (kBuilding.getAreaFreeSpecialist() * iChange));
+	changeFreeSpecialist(kBuilding.getGlobalFreeSpecialist() * iChange);
+	changeCoastalTradeRoutes(kBuilding.getCoastalTradeRoutes() * iChange);
+	changeTradeRoutes(kBuilding.getGlobalTradeRoutes() * iChange);
+	if (kBuilding.getAreaHealth() > 0) {
+		pArea->changeBuildingGoodHealth(getID(), kBuilding.getAreaHealth() * iChange);
 	} else {
-		pArea->changeBuildingBadHealth(getID(), (GC.getBuildingInfo(eBuilding).getAreaHealth() * iChange));
+		pArea->changeBuildingBadHealth(getID(), kBuilding.getAreaHealth() * iChange);
 	}
-	if (GC.getBuildingInfo(eBuilding).getGlobalHealth() > 0) {
-		changeBuildingGoodHealth(GC.getBuildingInfo(eBuilding).getGlobalHealth() * iChange);
+	if (kBuilding.getGlobalHealth() > 0) {
+		changeBuildingGoodHealth(kBuilding.getGlobalHealth() * iChange);
 	} else {
-		changeBuildingBadHealth(GC.getBuildingInfo(eBuilding).getGlobalHealth() * iChange);
+		changeBuildingBadHealth(kBuilding.getGlobalHealth() * iChange);
 	}
-	pArea->changeBuildingHappiness(getID(), (GC.getBuildingInfo(eBuilding).getAreaHappiness() * iChange));
-	changeBuildingHappiness(GC.getBuildingInfo(eBuilding).getGlobalHappiness() * iChange);
-	changeWorkerSpeedModifier(GC.getBuildingInfo(eBuilding).getWorkerSpeedModifier() * iChange);
-	changeSpaceProductionModifier(GC.getBuildingInfo(eBuilding).getGlobalSpaceProductionModifier() * iChange);
-	changeCityDefenseModifier(GC.getBuildingInfo(eBuilding).getAllCityDefenseModifier() * iChange);
-	pArea->changeCleanPowerCount(getTeam(), ((GC.getBuildingInfo(eBuilding).isAreaCleanPower()) ? iChange : 0));
-	pArea->changeBorderObstacleCount(getTeam(), ((GC.getBuildingInfo(eBuilding).isAreaBorderObstacle()) ? iChange : 0));
+	pArea->changeBuildingHappiness(getID(), kBuilding.getAreaHappiness() * iChange);
+	changeBuildingHappiness(kBuilding.getGlobalHappiness() * iChange);
+	changeWorkerSpeedModifier(kBuilding.getWorkerSpeedModifier() * iChange);
+	changeSpaceProductionModifier(kBuilding.getGlobalSpaceProductionModifier() * iChange);
+	changeCityDefenseModifier(kBuilding.getAllCityDefenseModifier() * iChange);
+	pArea->changeCleanPowerCount(getTeam(), kBuilding.isAreaCleanPower() ? iChange : 0);
+	pArea->changeBorderObstacleCount(getTeam(), kBuilding.isAreaBorderObstacle() ? iChange : 0);
+	changeStarSignForceDisbledCount(kBuilding.isForceDisableStarSigns() ? iChange : 0);
+	changeStarSignGoodOnlyCount(kBuilding.isStarSignGoodOnly() ? iChange : 0);
+	changeStarSignMitigatePercent(kBuilding.getGlobalStarSignMitigateChangePercent() * iChange);
+	changeStarSignScalePercent(kBuilding.getGlobalStarSignScaleChangePercent() * iChange);
 
-	for (int iI = 0; iI < NUM_YIELD_TYPES; iI++) {
-		changeSeaPlotYield(((YieldTypes)iI), (GC.getBuildingInfo(eBuilding).getGlobalSeaPlotYieldChange(iI) * iChange));
-		pArea->changeYieldRateModifier(getID(), ((YieldTypes)iI), (GC.getBuildingInfo(eBuilding).getAreaYieldModifier(iI) * iChange));
-		changeYieldRateModifier(((YieldTypes)iI), (GC.getBuildingInfo(eBuilding).getGlobalYieldModifier(iI) * iChange));
-	}
-
-	for (int iI = 0; iI < NUM_COMMERCE_TYPES; iI++) {
-		changeCommerceRateModifier(((CommerceTypes)iI), (GC.getBuildingInfo(eBuilding).getGlobalCommerceModifier(iI) * iChange));
-		changeSpecialistExtraCommerce(((CommerceTypes)iI), (GC.getBuildingInfo(eBuilding).getSpecialistExtraCommerce(iI) * iChange));
-		changeStateReligionBuildingCommerce(((CommerceTypes)iI), (GC.getBuildingInfo(eBuilding).getStateReligionCommerce(iI) * iChange));
-		changeCommerceFlexibleCount(((CommerceTypes)iI), (GC.getBuildingInfo(eBuilding).isCommerceFlexible(iI)) ? iChange : 0);
+	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+		changeSeaPlotYield(eYield, kBuilding.getGlobalSeaPlotYieldChange(eYield) * iChange);
+		pArea->changeYieldRateModifier(getID(), eYield, kBuilding.getAreaYieldModifier(eYield) * iChange);
+		changeYieldRateModifier(eYield, kBuilding.getGlobalYieldModifier(eYield) * iChange);
 	}
 
-	for (int iI = 0; iI < GC.getNumBuildingClassInfos(); iI++) {
-		BuildingTypes eOurBuilding = (BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(iI);
+	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+		changeCommerceRateModifier(eCommerce, kBuilding.getGlobalCommerceModifier(eCommerce) * iChange);
+		changeSpecialistExtraCommerce(eCommerce, kBuilding.getSpecialistExtraCommerce(eCommerce) * iChange);
+		changeStateReligionBuildingCommerce(eCommerce, kBuilding.getStateReligionCommerce(eCommerce) * iChange);
+		changeCommerceFlexibleCount(eCommerce, kBuilding.isCommerceFlexible(eCommerce) ? iChange : 0);
+	}
+
+	for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
+		BuildingTypes eOurBuilding = (BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(eBuildingClass);
 		if (NO_BUILDING != eOurBuilding) {
-			changeExtraBuildingHappiness(eOurBuilding, (GC.getBuildingInfo(eBuilding).getBuildingHappinessChanges(iI) * iChange));
+			changeExtraBuildingHappiness(eOurBuilding, (kBuilding.getBuildingHappinessChanges(eBuildingClass) * iChange));
 		}
 	}
 
-	for (int iI = 0; iI < GC.getNumSpecialistInfos(); iI++) {
-		for (int iJ = 0; iJ < NUM_YIELD_TYPES; iJ++) {
-			changeSpecialistExtraYield(((SpecialistTypes)iI), ((YieldTypes)iJ), (GC.getBuildingInfo(eBuilding).getSpecialistYieldChange(iI, iJ) * iChange));
+	for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
+		for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+			changeSpecialistExtraYield(eSpecialist, eYield, kBuilding.getSpecialistYieldChange(eSpecialist, eYield) * iChange);
 		}
 	}
 }
@@ -13354,85 +13371,89 @@ void CvPlayer::verifyGoldCommercePercent() {
 
 
 void CvPlayer::processCivics(CivicTypes eCivic, int iChange) {
-	changeGreatPeopleRateModifier(GC.getCivicInfo(eCivic).getGreatPeopleRateModifier() * iChange);
-	changeGreatGeneralRateModifier(GC.getCivicInfo(eCivic).getGreatGeneralRateModifier() * iChange);
-	changeDomesticGreatGeneralRateModifier(GC.getCivicInfo(eCivic).getDomesticGreatGeneralRateModifier() * iChange);
-	changeStateReligionGreatPeopleRateModifier(GC.getCivicInfo(eCivic).getStateReligionGreatPeopleRateModifier() * iChange);
-	changeDistanceMaintenanceModifier(GC.getCivicInfo(eCivic).getDistanceMaintenanceModifier() * iChange);
-	changeNumCitiesMaintenanceModifier(GC.getCivicInfo(eCivic).getNumCitiesMaintenanceModifier() * iChange);
-	changeCorporationMaintenanceModifier(GC.getCivicInfo(eCivic).getCorporationMaintenanceModifier() * iChange);
-	changeExtraHealth(GC.getCivicInfo(eCivic).getExtraHealth() * iChange);
-	changeExtraHappiness(GC.getCivicInfo(eCivic).getExtraHappiness() * iChange); // K-Mod
-	changeFreeExperience(GC.getCivicInfo(eCivic).getFreeExperience() * iChange);
-	changeWorkerSpeedModifier(GC.getCivicInfo(eCivic).getWorkerSpeedModifier() * iChange);
-	changeImprovementUpgradeRateModifier(GC.getCivicInfo(eCivic).getImprovementUpgradeRateModifier() * iChange);
-	changeMilitaryProductionModifier(GC.getCivicInfo(eCivic).getMilitaryProductionModifier() * iChange);
-	changeBaseFreeUnits(GC.getCivicInfo(eCivic).getBaseFreeUnits() * iChange);
-	changeBaseFreeMilitaryUnits(GC.getCivicInfo(eCivic).getBaseFreeMilitaryUnits() * iChange);
-	changeFreeUnitsPopulationPercent(GC.getCivicInfo(eCivic).getFreeUnitsPopulationPercent() * iChange);
-	changeFreeMilitaryUnitsPopulationPercent(GC.getCivicInfo(eCivic).getFreeMilitaryUnitsPopulationPercent() * iChange);
-	changeGoldPerUnit(GC.getCivicInfo(eCivic).getGoldPerUnit() * iChange);
-	changeGoldPerMilitaryUnit(GC.getCivicInfo(eCivic).getGoldPerMilitaryUnit() * iChange);
-	changeHappyPerMilitaryUnit(GC.getCivicInfo(eCivic).getHappyPerMilitaryUnit() * iChange);
-	changeMilitaryFoodProductionCount((GC.getCivicInfo(eCivic).isMilitaryFoodProduction()) ? iChange : 0);
+	const CvCivicInfo& kCivic = GC.getCivicInfo(eCivic);
+	changeGreatPeopleRateModifier(kCivic.getGreatPeopleRateModifier() * iChange);
+	changeGreatGeneralRateModifier(kCivic.getGreatGeneralRateModifier() * iChange);
+	changeDomesticGreatGeneralRateModifier(kCivic.getDomesticGreatGeneralRateModifier() * iChange);
+	changeStateReligionGreatPeopleRateModifier(kCivic.getStateReligionGreatPeopleRateModifier() * iChange);
+	changeDistanceMaintenanceModifier(kCivic.getDistanceMaintenanceModifier() * iChange);
+	changeNumCitiesMaintenanceModifier(kCivic.getNumCitiesMaintenanceModifier() * iChange);
+	changeCorporationMaintenanceModifier(kCivic.getCorporationMaintenanceModifier() * iChange);
+	changeExtraHealth(kCivic.getExtraHealth() * iChange);
+	changeExtraHappiness(kCivic.getExtraHappiness() * iChange); // K-Mod
+	changeFreeExperience(kCivic.getFreeExperience() * iChange);
+	changeWorkerSpeedModifier(kCivic.getWorkerSpeedModifier() * iChange);
+	changeImprovementUpgradeRateModifier(kCivic.getImprovementUpgradeRateModifier() * iChange);
+	changeMilitaryProductionModifier(kCivic.getMilitaryProductionModifier() * iChange);
+	changeBaseFreeUnits(kCivic.getBaseFreeUnits() * iChange);
+	changeBaseFreeMilitaryUnits(kCivic.getBaseFreeMilitaryUnits() * iChange);
+	changeFreeUnitsPopulationPercent(kCivic.getFreeUnitsPopulationPercent() * iChange);
+	changeFreeMilitaryUnitsPopulationPercent(kCivic.getFreeMilitaryUnitsPopulationPercent() * iChange);
+	changeGoldPerUnit(kCivic.getGoldPerUnit() * iChange);
+	changeGoldPerMilitaryUnit(kCivic.getGoldPerMilitaryUnit() * iChange);
+	changeHappyPerMilitaryUnit(kCivic.getHappyPerMilitaryUnit() * iChange);
+	changeMilitaryFoodProductionCount((kCivic.isMilitaryFoodProduction()) ? iChange : 0);
 	changeMaxConscript(getWorldSizeMaxConscript(eCivic) * iChange);
-	changeUnhealthyPopulationModifier(GC.getCivicInfo(eCivic).getUnhealthyPopulationModifier() * iChange); // K-Mod
-	changeBuildingOnlyHealthyCount((GC.getCivicInfo(eCivic).isBuildingOnlyHealthy()) ? iChange : 0);
-	changeLargestCityHappiness(GC.getCivicInfo(eCivic).getLargestCityHappiness() * iChange);
-	changeWarWearinessModifier(GC.getCivicInfo(eCivic).getWarWearinessModifier() * iChange);
-	changeFreeSpecialist(GC.getCivicInfo(eCivic).getFreeSpecialist() * iChange);
-	changeTradeRoutes(GC.getCivicInfo(eCivic).getTradeRoutes() * iChange);
-	changeNoForeignTradeCount(GC.getCivicInfo(eCivic).isNoForeignTrade() * iChange);
-	changeNoCorporationsCount(GC.getCivicInfo(eCivic).isNoCorporations() * iChange);
-	changeNoForeignCorporationsCount(GC.getCivicInfo(eCivic).isNoForeignCorporations() * iChange);
-	changeStateReligionCount((GC.getCivicInfo(eCivic).isStateReligion()) ? iChange : 0);
-	changeNoNonStateReligionSpreadCount((GC.getCivicInfo(eCivic).isNoNonStateReligionSpread()) ? iChange : 0);
-	changeStateReligionHappiness(GC.getCivicInfo(eCivic).getStateReligionHappiness() * iChange);
-	changeNonStateReligionHappiness(GC.getCivicInfo(eCivic).getNonStateReligionHappiness() * iChange);
-	changeStateReligionUnitProductionModifier(GC.getCivicInfo(eCivic).getStateReligionUnitProductionModifier() * iChange);
-	changeStateReligionBuildingProductionModifier(GC.getCivicInfo(eCivic).getStateReligionBuildingProductionModifier() * iChange);
-	changeStateReligionFreeExperience(GC.getCivicInfo(eCivic).getStateReligionFreeExperience() * iChange);
-	changeExpInBorderModifier(GC.getCivicInfo(eCivic).getExpInBorderModifier() * iChange);
+	changeUnhealthyPopulationModifier(kCivic.getUnhealthyPopulationModifier() * iChange); // K-Mod
+	changeBuildingOnlyHealthyCount((kCivic.isBuildingOnlyHealthy()) ? iChange : 0);
+	changeLargestCityHappiness(kCivic.getLargestCityHappiness() * iChange);
+	changeWarWearinessModifier(kCivic.getWarWearinessModifier() * iChange);
+	changeFreeSpecialist(kCivic.getFreeSpecialist() * iChange);
+	changeTradeRoutes(kCivic.getTradeRoutes() * iChange);
+	changeNoForeignTradeCount(kCivic.isNoForeignTrade() * iChange);
+	changeNoCorporationsCount(kCivic.isNoCorporations() * iChange);
+	changeNoForeignCorporationsCount(kCivic.isNoForeignCorporations() * iChange);
+	changeStateReligionCount((kCivic.isStateReligion()) ? iChange : 0);
+	changeNoNonStateReligionSpreadCount((kCivic.isNoNonStateReligionSpread()) ? iChange : 0);
+	changeStateReligionHappiness(kCivic.getStateReligionHappiness() * iChange);
+	changeNonStateReligionHappiness(kCivic.getNonStateReligionHappiness() * iChange);
+	changeStateReligionUnitProductionModifier(kCivic.getStateReligionUnitProductionModifier() * iChange);
+	changeStateReligionBuildingProductionModifier(kCivic.getStateReligionBuildingProductionModifier() * iChange);
+	changeStateReligionFreeExperience(kCivic.getStateReligionFreeExperience() * iChange);
+	changeExpInBorderModifier(kCivic.getExpInBorderModifier() * iChange);
+	changeStarSignImpactedCount(kCivic.isEnableStarSigns() ? iChange : 0);
+	changeStarSignMitigatePercent(kCivic.getStarSignMitigateChangePercent() * iChange);
+	changeStarSignScalePercent(kCivic.getStarSignScaleChangePercent() * iChange);
 
-	for (int iI = 0; iI < NUM_YIELD_TYPES; iI++) {
-		changeYieldRateModifier(((YieldTypes)iI), (GC.getCivicInfo(eCivic).getYieldModifier(iI) * iChange));
-		changeCapitalYieldRateModifier(((YieldTypes)iI), (GC.getCivicInfo(eCivic).getCapitalYieldModifier(iI) * iChange));
-		changeTradeYieldModifier(((YieldTypes)iI), (GC.getCivicInfo(eCivic).getTradeYieldModifier(iI) * iChange));
+	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+		changeYieldRateModifier(eYield, kCivic.getYieldModifier(eYield) * iChange);
+		changeCapitalYieldRateModifier(eYield, kCivic.getCapitalYieldModifier(eYield) * iChange);
+		changeTradeYieldModifier(eYield, kCivic.getTradeYieldModifier(eYield) * iChange);
 	}
 
-	for (int iI = 0; iI < NUM_COMMERCE_TYPES; iI++) {
-		changeCommerceRateModifier(((CommerceTypes)iI), (GC.getCivicInfo(eCivic).getCommerceModifier(iI) * iChange));
-		changeCapitalCommerceRateModifier(((CommerceTypes)iI), (GC.getCivicInfo(eCivic).getCapitalCommerceModifier(iI) * iChange));
-		changeSpecialistExtraCommerce(((CommerceTypes)iI), (GC.getCivicInfo(eCivic).getSpecialistExtraCommerce(iI) * iChange));
+	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+		changeCommerceRateModifier(eCommerce, kCivic.getCommerceModifier(eCommerce) * iChange);
+		changeCapitalCommerceRateModifier(eCommerce, kCivic.getCapitalCommerceModifier(eCommerce) * iChange);
+		changeSpecialistExtraCommerce(eCommerce, kCivic.getSpecialistExtraCommerce(eCommerce) * iChange);
 	}
 
-	for (int iI = 0; iI < GC.getNumBuildingClassInfos(); iI++) {
-		BuildingTypes eOurBuilding = (BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(iI);
+	for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
+		BuildingTypes eOurBuilding = (BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(eBuildingClass);
 		if (NO_BUILDING != eOurBuilding) {
-			changeExtraBuildingHappiness(eOurBuilding, (GC.getCivicInfo(eCivic).getBuildingHappinessChanges(iI) * iChange));
-			changeExtraBuildingHealth(eOurBuilding, (GC.getCivicInfo(eCivic).getBuildingHealthChanges(iI) * iChange));
+			changeExtraBuildingHappiness(eOurBuilding, kCivic.getBuildingHappinessChanges(eBuildingClass) * iChange);
+			changeExtraBuildingHealth(eOurBuilding, kCivic.getBuildingHealthChanges(eBuildingClass) * iChange);
 		}
 	}
 
-	for (int iI = 0; iI < GC.getNumFeatureInfos(); iI++) {
-		changeFeatureHappiness(((FeatureTypes)iI), (GC.getCivicInfo(eCivic).getFeatureHappinessChanges(iI) * iChange));
+	for (FeatureTypes eFeature = (FeatureTypes)0; eFeature < GC.getNumFeatureInfos(); eFeature = (FeatureTypes)(eFeature + 1)) {
+		changeFeatureHappiness(eFeature, kCivic.getFeatureHappinessChanges(eFeature) * iChange);
 	}
 
-	for (int iI = 0; iI < GC.getNumHurryInfos(); iI++) {
-		changeHurryCount(((HurryTypes)iI), ((GC.getCivicInfo(eCivic).isHurry(iI)) ? iChange : 0));
+	for (HurryTypes eHurry = (HurryTypes)0; eHurry < GC.getNumHurryInfos(); eHurry = (HurryTypes)(eHurry + 1)) {
+		changeHurryCount(eHurry, kCivic.isHurry(eHurry) ? iChange : 0);
 	}
 
-	for (int iI = 0; iI < GC.getNumSpecialBuildingInfos(); iI++) {
-		changeSpecialBuildingNotRequiredCount(((SpecialBuildingTypes)iI), ((GC.getCivicInfo(eCivic).isSpecialBuildingNotRequired(iI)) ? iChange : 0));
+	for (SpecialBuildingTypes eSpecialBuilding = (SpecialBuildingTypes)0; eSpecialBuilding < GC.getNumSpecialBuildingInfos(); eSpecialBuilding = (SpecialBuildingTypes)(eSpecialBuilding + 1)) {
+		changeSpecialBuildingNotRequiredCount(eSpecialBuilding, kCivic.isSpecialBuildingNotRequired(eSpecialBuilding) ? iChange : 0);
 	}
 
-	for (int iI = 0; iI < GC.getNumSpecialistInfos(); iI++) {
-		changeSpecialistValidCount(((SpecialistTypes)iI), ((GC.getCivicInfo(eCivic).isSpecialistValid(iI)) ? iChange : 0));
+	for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
+		changeSpecialistValidCount(eSpecialist, kCivic.isSpecialistValid(eSpecialist) ? iChange : 0);
 	}
 
-	for (int iI = 0; iI < GC.getNumImprovementInfos(); iI++) {
-		for (int iJ = 0; iJ < NUM_YIELD_TYPES; iJ++) {
-			changeImprovementYieldChange(((ImprovementTypes)iI), ((YieldTypes)iJ), (GC.getCivicInfo(eCivic).getImprovementYieldChanges(iI, iJ) * iChange));
+	for (ImprovementTypes eImprovement = (ImprovementTypes)0; eImprovement < GC.getNumImprovementInfos(); eImprovement = (ImprovementTypes)(eImprovement + 1)) {
+		for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+			changeImprovementYieldChange(eImprovement, eYield, kCivic.getImprovementYieldChanges(eImprovement, eYield) * iChange);
 		}
 	}
 }
@@ -13573,6 +13594,12 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iUnitRangeUnboundCount);
 	pStream->Read(&m_iUnitTerritoryUnboundCount);
 	pStream->Read(&m_iFractionalCombatExperience);
+	pStream->Read(&m_iStarSignForceDisabledCount);
+	pStream->Read(&m_iStarSignImpactedCount);
+	pStream->Read(&m_iStarSignGoodOnlyCount);
+	pStream->Read(&m_iStarSignMitigatePercent);
+	pStream->Read(&m_iStarSignScalePercent);
+	pStream->Read(&m_iStarSignPersistDecay);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -13583,6 +13610,8 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_bExtendedGame);
 	pStream->Read(&m_bFoundedFirstCity);
 	pStream->Read(&m_bStrike);
+	pStream->Read(&m_bStarSignProcessed);
+
 	if (uiFlag >= 4)
 		pStream->Read(&m_iChoosingFreeTechCount);
 	else if (uiFlag >= 2) {
@@ -13596,6 +13625,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read((int*)&m_eCurrentEra);
 	pStream->Read((int*)&m_eLastStateReligion);
 	pStream->Read((int*)&m_eParent);
+	pStream->Read((int*)&m_ePersistentStarEvent);
 	updateTeamType(); //m_eTeamType not saved
 	updateHuman();
 
@@ -14048,6 +14078,12 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iUnitRangeUnboundCount);
 	pStream->Write(m_iUnitTerritoryUnboundCount);
 	pStream->Write(m_iFractionalCombatExperience);
+	pStream->Write(m_iStarSignForceDisabledCount);
+	pStream->Write(m_iStarSignImpactedCount);
+	pStream->Write(m_iStarSignGoodOnlyCount);
+	pStream->Write(m_iStarSignMitigatePercent);
+	pStream->Write(m_iStarSignScalePercent);
+	pStream->Write(m_iStarSignPersistDecay);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -14058,6 +14094,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_bExtendedGame);
 	pStream->Write(m_bFoundedFirstCity);
 	pStream->Write(m_bStrike);
+	pStream->Write(m_bStarSignProcessed);
 	pStream->Write(m_iChoosingFreeTechCount); // K-Mod (bool for 2 <= uiFlag < 4. then int.)
 
 	pStream->Write(m_eID);
@@ -14065,6 +14102,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_eCurrentEra);
 	pStream->Write(m_eLastStateReligion);
 	pStream->Write(m_eParent);
+	pStream->Write(m_ePersistentStarEvent);
 	//m_eTeamType not saved
 
 	pStream->Write(NUM_YIELD_TYPES, m_aiSeaPlotYield);
@@ -18707,6 +18745,8 @@ void CvPlayer::setHasTrait(TraitTypes eTrait, bool bNewValue) {
 	changeUnitTerritoryUnboundCount(kTrait.isUnitTerritoryUnbound() ? iChange : 0);
 	changeExtraRange(kTrait.getUnitRangeChange() * iChange);
 	changeExtraRangePercent(kTrait.getUnitRangePercentChange() * iChange);
+	changeStarSignMitigatePercent(kTrait.getStarSignMitigateChangePercent());
+	changeStarSignScalePercent(kTrait.getStarSignScaleChangePercent());
 
 	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
 		changeExtraBuildingHappiness(eBuilding, GC.getBuildingInfo(eBuilding).getHappinessTraits(eTrait) * iChange);
@@ -18895,4 +18935,483 @@ DenialTypes CvPlayer::AI_militaryUnitTrade(CvUnit* pUnit, PlayerTypes ePlayer) c
 	}
 
 	return NO_DENIAL;
+}
+
+// Check if a star sign can impact the player
+// Takes into account whether star signs have already been processed this turn
+bool CvPlayer::isCanProcessStarSign() const {
+	return isStarSignForceDisabled() ? false : isStarSignImpacted() && !isStarSignProcessed();
+}
+
+// Check if the player has already been impacted by a star sign change this turn
+bool CvPlayer::isStarSignProcessed() const {
+	return m_bStarSignProcessed;
+}
+
+// Set whether the player has already been impacted by a star sign change this turn
+void CvPlayer::setStarSignProcessed(bool bProcessed) {
+	m_bStarSignProcessed = bProcessed;
+}
+
+// Check if the player is affected by start sign changes
+bool CvPlayer::isStarSignImpacted() const {
+	return m_iStarSignImpactedCount > 0;
+}
+
+// Update influences on whether the player is impacted by star sign changes
+void CvPlayer::changeStarSignImpactedCount(int iChange) {
+	m_iStarSignImpactedCount += iChange;
+}
+
+// Check if the player is never negatively affected by start sign changes
+bool CvPlayer::isStarSignGoodOnly() const {
+	return m_iStarSignGoodOnlyCount > 0;
+}
+
+// Update influences on whether the player is never negatively  impacted by star sign changes
+void CvPlayer::changeStarSignGoodOnlyCount(int iChange) {
+	m_iStarSignGoodOnlyCount += iChange;
+}
+
+// Check if the player is prevented from being impacted by star signs
+bool CvPlayer::isStarSignForceDisabled() const {
+	return m_iStarSignForceDisabledCount > 0;
+}
+
+// Update influences on whether the player is prevented from being impacted by star signs
+void CvPlayer::changeStarSignForceDisbledCount(int iChange) {
+	m_iStarSignForceDisabledCount += iChange;
+}
+
+// Get how well the player can mitigate negative star sign effects
+int CvPlayer::getStarSignMitigatePercent() const {
+	return m_iStarSignMitigatePercent;
+}
+
+// Change how well the player can mitigate negative star sign effects
+void CvPlayer::changeStarSignMitigatePercent(int iChange) {
+	m_iStarSignMitigatePercent += iChange;
+}
+
+// Get how much star signs impact the player
+int CvPlayer::getStarSignScalePercent() const {
+	return std::max(1, m_iStarSignScalePercent);
+}
+
+// Change how much star signs impact the player
+void CvPlayer::changeStarSignScalePercent(int iChange) {
+	m_iStarSignScalePercent += iChange;
+}
+
+// Apply any star sign change effects to the player if applicable
+void CvPlayer::doStarSignChange() {
+	if (!isStarSignProcessed()) {
+		// Select the event to process
+		int iStarEvent = GC.getGame().getSorenRandNum(GC.getNumStarEventInfos(), "Select star event");
+		setStarSignProcessed(applyStarEvent((StarEventTypes)iStarEvent, false));
+	}
+}
+
+// Set a star event to be persistent every turn until changed
+void CvPlayer::setStarSignPersistEvent(StarEventTypes eEvent) {
+	m_ePersistentStarEvent = eEvent;
+	setStarSignPersistDecay(0);
+}
+
+// Set whether a star sign will continue to impact the empire each turn
+StarEventTypes CvPlayer::getStarSignPersistEvent() const {
+	return m_ePersistentStarEvent;
+}
+
+// Get the amount that a persistent event reduces in potency each turn
+int CvPlayer::getStarSignPersistDecay() const {
+	return m_iStarSignPersistDecay;
+}
+
+// Change the potency of a persistent star event
+void CvPlayer::changeStarSignPersistDecay(int iChange) {
+	m_iStarSignPersistDecay += iChange;
+}
+
+// Set the potency of a persistent star event
+void CvPlayer::setStarSignPersistDecay(int iValue) {
+	m_iStarSignPersistDecay = iValue;
+}
+
+// Get the maximum impact a star event can have for the player
+// This value may be adjusted based on the city the effect is occurring in
+int CvPlayer::getStarMaxChange(int iValue, int iMultiplierPercent) const {
+	int iMaxChange;
+	if (iMultiplierPercent > 0) {
+		iMaxChange = std::max(0, (iValue * iMultiplierPercent / 100) - getStarSignPersistDecay());
+	} else {
+		iMaxChange = std::min(0, (iValue * iMultiplierPercent / 100) + getStarSignPersistDecay());
+	}
+	return iMaxChange;
+}
+
+// Display a message on the main screen about the effect
+void CvPlayer::reportStarEffect(int iChange, StarEventTypes eEvent, const wchar* szTarget) {
+	const CvStarEventInfo& kEvent = GC.getStarEventInfo(eEvent);
+	CvWString szBuffer;
+	if (iChange > 0) {
+		szBuffer = gDLL->getText(kEvent.getGoodTextKey(), iChange, szTarget);
+	} else if (iChange < 0) {
+		szBuffer = gDLL->getText(kEvent.getBadTextKey(), iChange, szTarget);
+	} else {
+		szBuffer = gDLL->getText(kEvent.getNeutralTextKey(), szTarget);
+	}
+
+	gDLL->getInterfaceIFace()->addHumanMessage(getID(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer);
+}
+
+// Return the multiplier the city has on the effect
+int CvPlayer::getStarMultiplierPercent(int iEventScale, CvCity* pCity, bool bGoodEffect) const {
+	int iCityScale = pCity == NULL ? 0 : pCity->getStarSignScalePercent();
+
+	int iMultiplierPercent = 100 + (getStarSignScalePercent() + iCityScale - 100) / std::max(1, iEventScale);
+	if (!bGoodEffect)
+		iMultiplierPercent *= -1;
+
+	return iMultiplierPercent;
+}
+
+// Return whether any bad effect are removed in the specific city
+bool CvPlayer::isStarSignMitigated(StarEventTypes eStarEvent, CvCity* pCity) {
+	int iMitigate = pCity == NULL ? 0 : pCity->getStarSignMitigatePercent();
+	iMitigate += getStarSignMitigatePercent();
+	int iEffectRoll = GC.getGame().getSorenRandNum(100, "City mitigate bad star effect roll") + 1;
+	if (iEffectRoll >= iMitigate) {
+		return false;
+	} else {
+		gDLL->getInterfaceIFace()->addHumanMessage(getID(), false, GC.getEVENT_MESSAGE_TIME(), gDLL->getText(GC.getStarEventInfo(eStarEvent).getMitigateTextKey(), pCity->getName().GetCString()));
+		return true;
+	}
+}
+
+// Return a vector of the cities impacted by the star sign
+int CvPlayer::getTargetCities(StarEventTypes eStarEvent, std::vector<CvCity*>& targets) {
+
+	const CvStarEventInfo kEvent = GC.getStarEventInfo(eStarEvent);
+
+	targets.clear();
+	StarEventTargetTypes targetType = (StarEventTargetTypes)kEvent.getTargetType();
+	switch (targetType) {
+		int iLoop;
+	case TARGET_ALL_CITIES:
+		for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop)) {
+			targets.push_back(pLoopCity);
+		}
+		break;
+	case TARGET_CAPITAL_CITY:
+		if (getCapitalCity() != NULL) {
+			targets.push_back(getCapitalCity());
+		}
+		break;
+	case TARGET_RANDOM_CITY:
+		if (getNumCities()) {
+			std::vector<CvCity*> cities;
+			// Get a vector fo all the cities and shuffle it
+			for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop)) {
+				cities.push_back(pLoopCity);
+			}
+			std::random_shuffle(cities.begin(), cities.end());
+
+			int iNumTargetsLeft = std::min(getNumCities(), kEvent.getNumTargets());
+			for (std::vector<CvCity*>::iterator it = cities.begin(); it != cities.end(), iNumTargetsLeft > 0; ++it, --iNumTargetsLeft) {
+				targets.push_back(*it);
+			}
+		}
+		break;
+	case TARGET_NO_CITY:
+		targets.clear();
+		break;
+	}
+
+	return targets.size();
+}
+
+// Process the star sign
+bool CvPlayer::applyStarEvent(StarEventTypes eEvent, bool bPersist) {
+	const CvStarEventInfo kEvent = GC.getStarEventInfo(eEvent);
+
+	if (!isStarSignImpacted())
+		return false;
+
+	if (eEvent == NO_STAR_EVENT) {
+		setStarSignPersistEvent(NO_STAR_EVENT);
+		return false;
+	}
+
+	// If this is a new event reset the counter
+	if (!bPersist)
+		setStarSignPersistEvent(kEvent.isPersistent() ? eEvent : NO_STAR_EVENT);
+
+	// Check if the sign has no effect
+	int iRoll = GC.getGame().getSorenRandNum(100, "Star no effect chance") + 1;
+	if (iRoll < std::max(0, GC.getSTAR_SIGN_NO_EFFECT_CHANCE() + kEvent.getNoEffectChance())) {
+		if (!bPersist)
+			gDLL->getInterfaceIFace()->addHumanMessage(getID(), false, GC.getEVENT_MESSAGE_TIME(), gDLL->getText("TXT_KEY_STAR_SIGN_NO_EFFECT"));
+
+		setStarSignPersistEvent(NO_STAR_EVENT);
+		return true;
+	}
+
+	// Check if the sign has a negative effect
+	bool bGoodEffect = true;
+	int iBadChance = std::max(0, GC.getSTAR_SIGN_BAD_CHANCE() + kEvent.getBadEffectModifier());
+	int iBadChanceRoll = GC.getGame().getSorenRandNum(100, "Star bad chance roll") + 1;
+	if (!isStarSignGoodOnly()) {
+		if (iBadChanceRoll <= iBadChance) {
+			bGoodEffect = false;
+		}
+	}
+
+	// Potentially rocky road ahead!
+	// If this is an event that is already persisting reduce it's effects by the decay rate
+	if (kEvent.isPersistent()) {
+		bPersist ? changeStarSignPersistDecay(kEvent.getPersistDecayRate()) : gDLL->getInterfaceIFace()->addHumanMessage(getID(), false, GC.getEVENT_MESSAGE_TIME(), gDLL->getText("TXT_KEY_STAR_SIGN_PERSISTENT"));
+	}
+
+	// Get any cities targetted by this event
+	std::vector<CvCity*> targets;
+	getTargetCities(eEvent, targets);
+	bool bAggregateResults = ((unsigned)abs(kEvent.getAggregateResultsCap()) < targets.size());
+
+	/*
+	 * Process events
+	 */
+
+	bool bNoEffect = true;
+
+	// Population Change
+	if (kEvent.getPopulationChange() - getStarSignPersistDecay() > 0) {
+		if (targets.size()) {
+			int iMaxChange = 0;
+			for (std::vector<CvCity*>::iterator it = targets.begin(); it != targets.end(); ++it) {
+				if (bGoodEffect || !isStarSignMitigated(eEvent, *it)) {
+					int iCityMaxChange = getStarMaxChange(kEvent.getPopulationChange(), getStarMultiplierPercent(kEvent.getScalePoints(), *it, bGoodEffect));
+					int iActualChange = ((*it)->getPopulation() + iCityMaxChange) < 1 ? (*it)->getPopulation() * -1 + 1 : iCityMaxChange;
+					iMaxChange = iActualChange > 0 ? std::max(iMaxChange, iActualChange) : std::min(iMaxChange, iActualChange);
+					(*it)->changePopulation(iActualChange);
+					(*it)->AI_assignWorkingPlots();
+					if (!bAggregateResults) {
+						reportStarEffect(iActualChange, eEvent, (*it)->getName());
+					}
+					bNoEffect = false;
+				}
+			}
+			if (bAggregateResults) {
+				reportStarEffect(iMaxChange, eEvent, gDLL->getText(GC.getSTAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET()));
+			}
+		}
+	}
+
+	// Combat Experience
+	if (kEvent.getCombatPoints() - getStarSignPersistDecay() > 0) {
+		for (std::vector<CvCity*>::iterator it = targets.begin(); it != targets.end(); ++it) {
+			if (bGoodEffect || !isStarSignMitigated(eEvent, *it)) {
+				int iMaxChange = getStarMaxChange(kEvent.getCombatPoints(), getStarMultiplierPercent(kEvent.getScalePoints(), getCapitalCity(), bGoodEffect));
+				int iActualChange = (getCombatExperience() + iMaxChange) < 0 ? getCombatExperience() * -1 : iMaxChange;
+				reportStarEffect(iActualChange, eEvent, gDLL->getText(GC.getSTAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET()));
+				changeCombatExperience(iActualChange);
+				bNoEffect = false;
+			}
+		}
+	}
+
+	// Food
+	if (kEvent.getFood() - getStarSignPersistDecay() > 0) {
+		if (targets.size()) {
+			int iMaxChange = 0;
+			for (std::vector<CvCity*>::iterator it = targets.begin(); it != targets.end(); ++it) {
+				if (bGoodEffect || !isStarSignMitigated(eEvent, *it)) {
+					int iCityMaxChange = getStarMaxChange(kEvent.getFood(), getStarMultiplierPercent(kEvent.getScalePoints(), *it, bGoodEffect));
+					int iActualChange = ((*it)->getFood() + iCityMaxChange) < 0 ? (*it)->getFood() * -1 : iCityMaxChange;
+					iMaxChange = iActualChange > 0 ? std::max(iMaxChange, iActualChange) : std::min(iMaxChange, iActualChange);
+					(*it)->changeFood(iActualChange);
+					if (!bAggregateResults) {
+						reportStarEffect(iActualChange, eEvent, (*it)->getName());
+					}
+					bNoEffect = false;
+				}
+			}
+			if (bAggregateResults) {
+				reportStarEffect(iMaxChange, eEvent, gDLL->getText(GC.getSTAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET()));
+			}
+		}
+	}
+
+	// Gold Star Events
+	if (kEvent.getGold() - getStarSignPersistDecay() > 0) {
+		for (std::vector<CvCity*>::iterator it = targets.begin(); it != targets.end(); ++it) {
+			if (bGoodEffect || !isStarSignMitigated(eEvent, *it)) {
+				int iMaxChange = getStarMaxChange(kEvent.getGold(), getStarMultiplierPercent(kEvent.getScalePoints(), getCapitalCity(), bGoodEffect));
+				int iActualChange = (getGold() + iMaxChange) < 0 ? getGold() * -1 : iMaxChange;
+				reportStarEffect(iActualChange, eEvent, (*it)->getName());
+				changeGold(iActualChange);
+				bNoEffect = false;
+			}
+		}
+	}
+
+	// Great Person Points
+	if (kEvent.getGreatPersonPoints() - getStarSignPersistDecay() > 0) {
+		if (targets.size()) {
+			int iMaxChange = 0;
+			for (std::vector<CvCity*>::iterator it = targets.begin(); it != targets.end(); ++it) {
+				if (bGoodEffect || !isStarSignMitigated(eEvent, *it)) {
+					// Also apply the cities / leader GP modifier
+					int iCityMaxChange = getStarMaxChange(kEvent.getGreatPersonPoints(), getStarMultiplierPercent(kEvent.getScalePoints(), *it, bGoodEffect) * (*it)->getTotalGreatPeopleRateModifier() / 100);
+					int iActualChange = ((*it)->getGreatPeopleProgress() + iCityMaxChange) < 0 ? (*it)->getGreatPeopleProgress() * -1 : iCityMaxChange;
+					iMaxChange = iActualChange > 0 ? std::max(iMaxChange, iActualChange) : std::min(iMaxChange, iActualChange);
+					(*it)->changeGreatPeopleProgress(iActualChange);
+					if (!bAggregateResults) {
+						reportStarEffect(iActualChange, eEvent, (*it)->getName());
+					}
+					bNoEffect = false;
+				}
+			}
+			if (bAggregateResults) {
+				reportStarEffect(iMaxChange, eEvent, gDLL->getText(GC.getSTAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET()));
+			}
+		}
+	}
+
+	// Production
+	if (kEvent.getProduction() - getStarSignPersistDecay() > 0) {
+		if (targets.size()) {
+			int iMaxChange = 0;
+			for (std::vector<CvCity*>::iterator it = targets.begin(); it != targets.end(); ++it) {
+				if (bGoodEffect || !isStarSignMitigated(eEvent, *it)) {
+					int iCityMaxChange = getStarMaxChange(kEvent.getProduction(), getStarMultiplierPercent(kEvent.getScalePoints(), *it, bGoodEffect));
+					int iActualChange = ((*it)->getProduction() + iCityMaxChange) < 0 ? (*it)->getProduction() * -1 : iCityMaxChange;
+					iMaxChange = iActualChange > 0 ? std::max(iMaxChange, iActualChange) : std::min(iMaxChange, iActualChange);
+					(*it)->changeProduction(iActualChange);
+					if (!bAggregateResults) {
+						reportStarEffect(iActualChange, eEvent, (*it)->getName());
+					}
+					bNoEffect = false;
+				}
+			}
+			if (bAggregateResults) {
+				reportStarEffect(iMaxChange, eEvent, gDLL->getText(GC.getSTAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET()));
+			}
+		}
+	}
+
+	// Culture
+	if (kEvent.getCulture() - getStarSignPersistDecay() > 0) {
+		if (targets.size()) {
+			int iMaxChange = 0;
+			for (std::vector<CvCity*>::iterator it = targets.begin(); it != targets.end(); ++it) {
+				if (bGoodEffect || !isStarSignMitigated(eEvent, *it)) {
+					int iCityMaxChange = getStarMaxChange(kEvent.getCulture(), getStarMultiplierPercent(kEvent.getScalePoints(), *it, bGoodEffect));
+					int iActualChange = ((*it)->getCulture(getID()) + iCityMaxChange) < 0 ? (*it)->getCulture(getID()) * -1 : iCityMaxChange;
+					iMaxChange = iActualChange > 0 ? std::max(iMaxChange, iActualChange) : std::min(iMaxChange, iActualChange);
+					(*it)->changeCulture(getID(), iActualChange, true, true);
+					if (!bAggregateResults) {
+						reportStarEffect(iActualChange, eEvent, (*it)->getName());
+					}
+					bNoEffect = false;
+				}
+			}
+			if (bAggregateResults) {
+				reportStarEffect(iMaxChange, eEvent, gDLL->getText(GC.getSTAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET()));
+			}
+		}
+	}
+
+	// Happy
+	if (kEvent.getHappyTurns() - getStarSignPersistDecay() > 0) {
+		if (targets.size()) {
+			int iMaxChange = 0;
+			for (std::vector<CvCity*>::iterator it = targets.begin(); it != targets.end(); ++it) {
+				if (bGoodEffect || !isStarSignMitigated(eEvent, *it)) {
+					int iActualChange = getStarMaxChange(kEvent.getHappyTurns(), getStarMultiplierPercent(kEvent.getScalePoints(), *it, bGoodEffect));
+					iMaxChange = iActualChange > 0 ? std::max(iMaxChange, iActualChange) : std::min(iMaxChange, iActualChange);
+					if (bGoodEffect) {
+						(*it)->changeHappinessTimer(iActualChange);
+					} else {
+						(*it)->changeStarSignAngerTimer(abs(iActualChange));
+					}
+					if (!bAggregateResults) {
+						reportStarEffect(iActualChange, eEvent, (*it)->getName());
+					}
+					bNoEffect = false;
+				}
+			}
+			if (bAggregateResults) {
+				reportStarEffect(iMaxChange, eEvent, gDLL->getText(GC.getSTAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET()));
+			}
+		}
+	}
+
+	// Conscripts
+	if (kEvent.getConscript() - getStarSignPersistDecay() > 0) {
+		// No bad effect...losing city troops could be too overpowering
+		if (targets.size() && bGoodEffect) {
+			for (std::vector<CvCity*>::iterator it = targets.begin(); it != targets.end(); ++it) {
+				UnitTypes eConscript = (*it)->getConscriptUnit();
+				for (int iNumUnits = 0; iNumUnits < kEvent.getConscript(); iNumUnits++) {
+					initUnit(eConscript, (*it)->getX_INLINE(), (*it)->getY_INLINE(), UNITAI_CITY_DEFENSE, NO_DIRECTION);
+				}
+				if (!bAggregateResults) {
+					reportStarEffect(kEvent.getConscript(), eEvent, (*it)->getName());
+				}
+				bNoEffect = false;
+			}
+			if (bAggregateResults) {
+				reportStarEffect(kEvent.getConscript() * targets.size(), eEvent, gDLL->getText(GC.getSTAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET()));
+			}
+		}
+	}
+
+	// Missionaries
+	if (kEvent.getMissionary() - getStarSignPersistDecay() > 0 && getStateReligion() != NO_RELIGION) {
+		if (targets.size()) {
+			ReligionTypes eStateReligion = getStateReligion();
+			for (std::vector<CvCity*>::iterator it = targets.begin(); it != targets.end(); ++it) {
+				if (bGoodEffect || !isStarSignMitigated(eEvent, *it)) {
+					// Spread the state religion if it doesn't exist or create a missionary if it does
+					if ((*it)->isHasReligion(eStateReligion)) {
+						UnitTypes eLoopUnit = NO_UNIT;
+						std::vector<UnitTypes> missionaries;
+
+						for (UnitClassTypes eUnitClass = (UnitClassTypes)0; eUnitClass < GC.getNumUnitClassInfos(); eUnitClass = (UnitClassTypes)(eUnitClass + 1)) {
+							eLoopUnit = ((UnitTypes)(GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(eUnitClass)));
+							if (eLoopUnit != NO_UNIT) {
+								int iRelSpread = GC.getUnitInfo(eLoopUnit).getReligionSpreads(eStateReligion);
+								if (iRelSpread > 0) {
+									missionaries.push_back(eLoopUnit);
+								}
+							}
+						}
+						if (missionaries.size()) {
+							std::random_shuffle(missionaries.begin(), missionaries.end());
+							eLoopUnit = missionaries.at(0);
+							for (int iNumUnits = 0; iNumUnits < kEvent.getMissionary(); iNumUnits++) {
+								initUnit(eLoopUnit, (*it)->getX_INLINE(), (*it)->getY_INLINE(), UNITAI_MISSIONARY, NO_DIRECTION);
+							}
+						}
+					} else {
+						(*it)->setHasReligion(eStateReligion, true, true, true);
+					}
+					if (!bAggregateResults) {
+						reportStarEffect(kEvent.getMissionary(), eEvent, (*it)->getName());
+					}
+					bNoEffect = false;
+				}
+			}
+			if (bAggregateResults) {
+				reportStarEffect(kEvent.getMissionary() * targets.size(), eEvent, gDLL->getText(GC.getSTAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET()));
+			}
+		}
+	}
+
+	if (bNoEffect) {
+		setStarSignPersistEvent(NO_STAR_EVENT);
+	}
+
+	return true;
 }

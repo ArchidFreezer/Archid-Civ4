@@ -28,6 +28,7 @@ public:
 protected:
 
 	void uninit();
+	void doStarSign();
 
 public:
 
@@ -586,6 +587,7 @@ protected:
 	int m_iAIAutoPlay;
 	int m_iGlobalWarmingIndex;	// K-Mod
 	int m_iGwEventTally;		// K-Mod
+	int m_iStarSignTurnsSinceChange;
 
 	unsigned int m_uiInitialTime;
 

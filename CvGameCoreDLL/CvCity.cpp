@@ -420,6 +420,9 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 	m_iSpecialistFreeExperience = 0;
 	m_iEspionageDefenseModifier = 0;
 	m_iWorkableRadiusOverride = 0;
+	m_iStarSignMitigatePercent = 0;
+	m_iStarSignScalePercent = 0;
+	m_iStarSignAngerTimer = 0;
 
 	m_bNeverLost = true;
 	m_bBombarded = false;
@@ -869,6 +872,10 @@ void CvCity::doTurn() {
 
 	if (getDefyResolutionAngerTimer() > 0) {
 		changeDefyResolutionAngerTimer(-1);
+	}
+
+	if (isStarSignAnger()) {
+		changeStarSignAngerTimer(-1);
 	}
 
 	if (getHappinessTimer() > 0) {
@@ -3154,6 +3161,8 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 		changeWarWearinessModifier(kBuilding.getWarWearinessModifier() * iChange);
 		changeHurryAngerModifier(kBuilding.getHurryAngerModifier() * iChange);
 		changeHealRate(kBuilding.getHealRateChange() * iChange);
+		changeStarSignMitigatePercent(kBuilding.getStarSignMitigateChangePercent() * iChange);
+		changeStarSignScalePercent(kBuilding.getStarSignScaleChangePercent() * iChange);
 		if (kBuilding.getHealth() > 0) {
 			changeBuildingGoodHealth(kBuilding.getHealth() * iChange);
 		} else {
@@ -3326,6 +3335,8 @@ void CvCity::processSpecialist(SpecialistTypes eSpecialist, int iChange) {
 		}
 	}
 
+	changeStarSignScalePercent(kSpecialist.getStarSignMitigateChange() * iChange);
+	changeStarSignScalePercent(kSpecialist.getStarSignScaleChange() * iChange);
 	changeBaseGreatPeopleRate(kSpecialist.getGreatPeopleRateChange() * iChange);
 
 	for (int iI = 0; iI < NUM_YIELD_TYPES; iI++) {
@@ -3657,6 +3668,9 @@ int CvCity::unhappyLevel(int iExtra) const {
 		iUnhappiness -= std::min(0, GC.getHandicapInfo(getHandicapType()).getHappyBonus());
 		iUnhappiness += std::max(0, getVassalUnhappiness());
 		iUnhappiness += std::max(0, getEspionageHappinessCounter());
+		if (isStarSignAnger()) {
+			iUnhappiness += 1;
+		}
 	}
 
 	return std::max(0, iUnhappiness);
@@ -10872,6 +10886,9 @@ void CvCity::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iSpecialistFreeExperience);
 	pStream->Read(&m_iEspionageDefenseModifier);
 	pStream->Read(&m_iWorkableRadiusOverride);
+	pStream->Read(&m_iStarSignMitigatePercent);
+	pStream->Read(&m_iStarSignScalePercent);
+	pStream->Read(&m_iStarSignAngerTimer);
 
 	pStream->Read(&m_bNeverLost);
 	pStream->Read(&m_bBombarded);
@@ -11106,6 +11123,9 @@ void CvCity::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iSpecialistFreeExperience);
 	pStream->Write(m_iEspionageDefenseModifier);
 	pStream->Write(m_iWorkableRadiusOverride);
+	pStream->Write(m_iStarSignMitigatePercent);
+	pStream->Write(m_iStarSignScalePercent);
+	pStream->Write(m_iStarSignAngerTimer);
 
 	pStream->Write(m_bNeverLost);
 	pStream->Write(m_bBombarded);
@@ -13082,5 +13102,39 @@ void CvCity::doAutoBuild() {
 				setNumRealBuilding(eBuilding, 1);
 			}
 		}
+	}
+}
+
+int CvCity::getStarSignMitigatePercent() const {
+	return m_iStarSignMitigatePercent;
+}
+
+void CvCity::changeStarSignMitigatePercent(int iChange) {
+	m_iStarSignMitigatePercent += iChange;
+}
+
+int CvCity::getStarSignScalePercent() const {
+	return m_iStarSignScalePercent;
+}
+
+void CvCity::changeStarSignScalePercent(int iChange) {
+	m_iStarSignScalePercent += iChange;
+}
+
+bool CvCity::isStarSignAnger() const {
+	return m_iStarSignAngerTimer > 0;
+}
+
+int CvCity::getStarSignAngerTimer() const {
+	return m_iStarSignAngerTimer;
+}
+
+
+void CvCity::changeStarSignAngerTimer(int iChange) {
+	if (iChange != 0) {
+		m_iStarSignAngerTimer += iChange;
+		FAssert(m_iStarSignAngerTimer >= 0);
+
+		AI_setAssignWorkDirty(true);
 	}
 }

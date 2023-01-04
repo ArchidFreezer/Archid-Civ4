@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Alex Mantzaris (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Game Text - Star Effects -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+
+<!-- general -->
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_ENABLE</Tag>
+		<English>[ICON_BULLET]Enables Reading Omens</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_DISABLE</Tag>
+		<English>[ICON_BULLET]Disables Omen Effects</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_GOOD_ONLY</Tag>
+		<English>[ICON_BULLET]Bad Omen Effects are Always Mitigated</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ANGER_STAR_SIGN</Tag>
+		<English>%D1_Change[ICON_UNHAPPY]: "Heed the omens, the end is nigh!" (%d2 [NUM2:turn:turns])</English>
+	</TEXT>
+
+<!-- Leaderhead Text -->
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_PLAYER_SCALE</Tag>
+		<English>[NEWLINE][ICON_BULLET]Omens are scaled at %d1%</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_PLAYER_MITIGATE</Tag>
+		<English>[NEWLINE][ICON_BULLET]Omens are mitigated by %d1%</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_PLAYER_NO_BAD</Tag>
+		<English>[NEWLINE][ICON_BULLET]You can always mitigate bad omens</English>
+	</TEXT>
+
+<!-- Buildings & Civics -->
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_GLOBAL_MITIGATE_GOOD</Tag>
+		<English>[ICON_BULLET]Reduces Bad Omen Chance by %d1% in all Cities</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_GLOBAL_MITIGATE_BAD</Tag>
+		<English>[ICON_BULLET]Increases Bad Omen Chance by %d1% in all Cities</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_GLOBAL_SCALE_GOOD</Tag>
+		<English>[ICON_BULLET]Increases Omen Effects by %d1% in all Cities</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_GLOBAL_SCALE_BAD</Tag>
+		<English>[ICON_BULLET]Decreases Omen Effects by %d1% in all Cities</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_MITIGATE_GOOD</Tag>
+		<English>[ICON_BULLET]Reduces Bad Omen Chance by %d1%</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_MITIGATE_BAD</Tag>
+		<English>[ICON_BULLET]Increases Bad Omen Chance by %d1%</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_SCALE_GOOD</Tag>
+		<English>[ICON_BULLET]Increases Omen Effects by %d1%</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_SCALE_BAD</Tag>
+		<English>[ICON_BULLET]Decreases Omen Effects by %d1%</English>
+	</TEXT>
+<!-- Traits -->
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_TRAIT_MITIGATE_GOOD</Tag>
+		<English>[SPACE][SPACE][ICON_BULLET]Reduces Bad Omen Chance by %d1%</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_TRAIT_MITIGATE_BAD</Tag>
+		<English>[SPACE][SPACE][ICON_BULLET]Increases Bad Omen Chance by %d1%</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_TRAIT_SCALE_GOOD</Tag>
+		<English>[SPACE][SPACE][ICON_BULLET]Increases Omen Effects by %d1%</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_TRAIT_SCALE_BAD</Tag>
+		<English>[SPACE][SPACE][ICON_BULLET]Decreases Omen Effects by %d1%</English>
+	</TEXT>
+
+<!-- Default Event Result Messages -->
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_NO_EFFECT</Tag>
+		<English>No omens appear life goes on as normal</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_PERSISTENT</Tag>
+		<English>The omens are [COLOR_HIGHLIGHT_TEXT]prolonged[COLOR_REVERT] and [COLOR_HIGHLIGHT_TEXT]uncertain[COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_DEFAULT_AGGREGATE_TARGET</Tag>
+		<English>the Empire</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_DEFAULT_BAD</Tag>
+		<English>Your seers [COLOR_NEGATIVE_TEXT]badly misread[COLOR_REVERT] the omens -%d1 in %s2</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_DEFAULT_GOOD</Tag>
+		<English>Your seers [COLOR_POSITIVE_TEXT]positively[COLOR_REVERT] interpret the omens %d1 in %s2</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_DEFAULT_MITIGATE</Tag>
+		<English>Your seers in %s1 persude your population to [COLOR_HIGHLIGHT_TEXT]ignore[COLOR_REVERT] the potential omens</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_DEFAULT_NEUTRAL</Tag>
+		<English>Your seers in %s1 pronounce the omens [COLOR_HIGHLIGHT_TEXT]benign[COLOR_REVERT] and nothing comes of them</English>
+	</TEXT>
+
+<!-- Star Events                                        -->
+<!--                                                    -->
+<!-- GOOD and BAD event strings require 2 params:       -->
+<!--   %d1_Num - This is the size of the effect         -->  
+<!--	 %s2     - This is the name of the event location -->
+<!-- Neutral event strings require a single param:      -->
+<!--	 %s1     - This is the name of the event location -->
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_POP_GOOD</Tag>
+		<English>[COLOR_POSITIVE_TEXT]Auspicious[COLOR_REVERT] fertility omens, +%d1_Num population in %s2</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_POP_BAD</Tag>
+		<English>[COLOR_NEGATIVE_TEXT]Terrifying omens[COLOR_REVERT] in %s2 cause citizens to flee; %d1_Num population</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_COMBAT_POINTS_GOOD</Tag>
+		<English>[COLOR_POSITIVE_TEXT]Potent military omens[COLOR_REVERT] inspire the warriors in %s2 to gain %d1_Num Combat Points</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_COMBAT_POINTS_BAD</Tag>
+		<English>[COLOR_NEGATIVE_TEXT]Dibilitating omens[COLOR_REVERT] demotivate the warriors in %s2 and you lose %d1_Num Combat Points</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_FOOD_GOOD</Tag>
+		<English>Farmers in %s2 motivated by [COLOR_POSITIVE_TEXT]good omens[COLOR_REVERT], gain %d1_Num[ICON_FOOD]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_FOOD_BAD</Tag>
+		<English>Farmers in %s2 dismayed by [COLOR_NEGATIVE_TEXT]bad omens[COLOR_REVERT], lose %d1_Num[ICON_FOOD]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_GOLD_GOOD</Tag>
+		<English>Traders flock to %s2 given the  [COLOR_POSITIVE_TEXT]potent omens[COLOR_REVERT]; gain %d1_Num[ICON_GOLD]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_GOLD_BAD</Tag>
+		<English>Traders shun %s2 with the current [COLOR_POSITIVE_TEXT]uncertain omens[COLOR_REVERT]; lose %d1_Num[ICON_GOLD]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_GREAT_PEOPLE_GOOD</Tag>
+		<English>[COLOR_POSITIVE_TEXT]Inspirational omens[COLOR_REVERT] inspire population: %d1_Num[ICON_GREATPEOPLE] in %s2</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_GREAT_PEOPLE_BAD</Tag>
+		<English>[COLOR_NEGATIVE_TEXT]Worrying omens[COLOR_REVERT] cause population to withdraw into themselves: %d1_Num[ICON_GREATPEOPLE] in %s2</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_PRODUCTION_GOOD</Tag>
+		<English>[COLOR_POSITIVE_TEXT]Good omens[COLOR_REVERT] encourage the population in %s2 increasing [ICON_PRODUCTION] by %d1_Num</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_PRODUCTION_BAD</Tag>
+		<English>Population in %s2 lose heart due to [COLOR_NEGATIVE_TEXT]bad omens[COLOR_REVERT] causing %d1_Num in [ICON_PRODUCTION]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_CULTURE_GOOD</Tag>
+		<English>Troubadors find [COLOR_POSITIVE_TEXT]new muses[COLOR_REVERT] increasing the [ICON_CULTURE] in %s2 by %d1_Num</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_CULTURE_BAD</Tag>
+		<English>[COLOR_NEGATIVE_TEXT]Disappearing muses[COLOR_REVERT] cause troubadors to flee reducing [ICON_CULTURE] by %d1_Num in %s2</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_CONSCRIPT_GOOD</Tag>
+		<English>People flock to your banner due to [COLOR_POSITIVE_TEXT]rising omens[COLOR_REVERT], gain %d1_Num conscripts in %s2</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_MISSIONARY_GOOD</Tag>
+		<English>[COLOR_POSITIVE_TEXT]Positive omens[COLOR_REVERT] cause religious fervour to take hold in %s2; %d1_Num Missionaries</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_HAPPY_GOOD</Tag>
+		<English>[COLOR_POSITIVE_TEXT]Cheerful omens[COLOR_REVERT] brighten the population in %s2 causing [ICON_HAPPY] for %d1_Num turns</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STAR_SIGN_HAPPY_BAD</Tag>
+		<English>Population in %s2 upset due to [COLOR_NEGATIVE_TEXT]dismal omens[COLOR_REVERT] causing [ICON_UNHAPPY] for %d1_Num turns</English>
+	</TEXT>
+</Civ4GameText>

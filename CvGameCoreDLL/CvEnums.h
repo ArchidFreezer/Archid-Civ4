@@ -2801,4 +2801,17 @@ enum UnitRangeTypes {
 	UNITRANGE_UNLIMITED,
 	NUM_UNITRANGES
 };
+
+enum StarEventTypes {
+	NO_STAR_EVENT = -1,
+};
+
+enum StarEventTargetTypes {
+	NO_TARGET = -1,
+	TARGET_NO_CITY,
+	TARGET_ALL_CITIES,
+	TARGET_CAPITAL_CITY,
+	TARGET_RANDOM_CITY,
+	NUM_STAR_EVENT_TARGET_TYPES
+};
 #endif	// CVENUMS_h

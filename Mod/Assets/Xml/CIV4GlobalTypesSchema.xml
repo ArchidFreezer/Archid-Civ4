@@ -82,4 +82,8 @@
 	<ElementType name="UnitRangeTypes" content="eltOnly">
 		<element type="UnitRangeType" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="StarEventTargetType" content="textOnly"/>
+	<ElementType name="StarEventTargetTypes" content="eltOnly">
+		<element type="StarEventTargetType" maxOccurs="*"/>
+	</ElementType>
 </Schema>

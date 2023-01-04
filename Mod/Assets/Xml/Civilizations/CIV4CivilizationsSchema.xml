@@ -335,11 +335,15 @@
 	<ElementType name="CommerceFromUnitModifiers" content="eltOnly">
 		<element type="iCommerce" minOccurs="0"/>
 	</ElementType>
+	<ElementType name="iStarSignMitigateChangePercent" content="textOnly" dt:type="int"/>
+	<ElementType name="iStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="TraitInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
 		<element type="ShortDescription" minOccurs="0"/>
 		<element type="Help" minOccurs="0"/>
+		<element type="iStarSignMitigateChangePercent" minOccurs="0"/>
+		<element type="iStarSignScaleChangePercent" minOccurs="0"/>
 		<element type="iHealth" minOccurs="0"/>
 		<element type="iHappiness" minOccurs="0"/>
 		<element type="iMaxAnarchy" minOccurs="0"/> <!-- default: -1 -->

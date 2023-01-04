@@ -360,4 +360,76 @@
 		<DefineName>FREE_TRADE_AGREEMENT_TRADE_MODIFIER</DefineName>
 		<iDefineIntVal>50</iDefineIntVal>
 	</Define>
+<!-- Star Signs -->
+	<Define>
+		<!-- Time between changes in the star sign -->
+		<!-- Default: 10 -->
+		<DefineName>STAR_SIGN_FREQUENCY</DefineName>
+		<iDefineIntVal>10</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Random factor applied to time between changes in the star sign -->
+		<!-- e.g. if the frequency is 10 and the variance 2 then the star sign will change anytime within 8 - 12 turns -->
+		<!-- Default: 3 -->
+		<DefineName>STAR_SIGN_FREQUENCY_VARIANCE</DefineName>
+		<iDefineIntVal>3</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Base percentage chance that any given star sign will have a negative effect -->
+		<!-- This value may be modifed by individual effects -->
+		<DefineName>STAR_SIGN_BAD_CHANCE</DefineName>
+		<iDefineIntVal>50</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Base percentage chance that any given star sign will have no effect -->
+		<!-- This value may be modifed by individual effects -->
+		<DefineName>STAR_SIGN_NO_EFFECT_CHANCE</DefineName>
+		<iDefineIntVal>50</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Default text key used if the star effect is bad -->
+		<!-- String associated with the key can use 2 params:
+			%d1 - size of the effect
+			%s2 - target (city usually) of the effect -->
+		<DefineName>STAR_SIGN_DEFAULT_TEXT_KEY_BAD</DefineName>
+		<DefineTextVal>TXT_KEY_STAR_SIGN_DEFAULT_BAD</DefineTextVal>
+	</Define>
+	<Define>
+		<!-- Default text key used if the star effect is good -->
+		<!-- String associated with the key can use 2 params:
+			%d1 - size of the effect
+			%s2 - target (city usually) of the effect -->
+		<DefineName>STAR_SIGN_DEFAULT_TEXT_KEY_GOOD</DefineName>
+		<DefineTextVal>TXT_KEY_STAR_SIGN_DEFAULT_GOOD</DefineTextVal>
+	</Define>
+	<Define>
+		<!-- Default text key used if the star effect is mitigated -->
+		<!-- String associated with the key can use 1 param:
+			%s1 - target (city usually) of the effect -->
+		<DefineName>STAR_SIGN_DEFAULT_TEXT_KEY_MITIGATE</DefineName>
+		<DefineTextVal>TXT_KEY_STAR_SIGN_DEFAULT_MITIGATE</DefineTextVal>
+	</Define>
+	<Define>
+		<!-- Default text key used if the star effect is neutral -->
+		<!-- String associated with the key can use 2 params:
+			%d1 - size of the effect
+			%s2 - target (city usually) of the effect -->
+		<DefineName>STAR_SIGN_DEFAULT_TEXT_KEY_NEUTRAL</DefineName>
+		<DefineTextVal>TXT_KEY_STAR_SIGN_DEFAULT_NEUTRAL</DefineTextVal>
+	</Define>
+	<Define>
+		<!-- Default text key used for the effect target if the results are aggregated -->
+		<!-- String associated with the key can use 2 params:
+			%d1 - size of the effect
+			%s2 - target (city usually) of the effect -->
+		<DefineName>STAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET</DefineName>
+		<DefineTextVal>TXT_KEY_STAR_SIGN_DEFAULT_AGGREGATE_TARGET</DefineTextVal>
+	</Define>
+	<Define>
+		<!-- If there are more than this number of targets impacted then show a single 
+		     message for them all rather than one for each target -->
+		<DefineName>STAR_SIGN_AGGREGATE_RESULTS_CAP</DefineName>
+		<iDefineIntVal>4</iDefineIntVal>
+	</Define>
+
 </Civ4Defines>

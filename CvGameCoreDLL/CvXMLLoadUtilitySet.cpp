@@ -152,6 +152,7 @@ void CvXMLLoadUtility::readXMLfiles(bool bFirst) {
 
 	PreLoadGlobalClassInfo(GC.getEventInfo(), "CIV4EventInfos", "Events", "Civ4EventInfos/EventInfos/EventInfo", &CvDLLUtilityIFaceBase::createEventInfoCacheObject);
 	PreLoadGlobalClassInfo(GC.getEventTriggerInfo(), "CIV4EventTriggerInfos", "Events", "Civ4EventTriggerInfos/EventTriggerInfos/EventTriggerInfo", &CvDLLUtilityIFaceBase::createEventTriggerInfoCacheObject);
+	PreLoadGlobalClassInfo(GC.getStarEventInfo(), "CIV4StarEventInfos", "Events", "Civ4StarEventInfos/StarEventInfos/StarEventInfo");
 
 	PreUpdateProgressCB("Global Routes");
 
@@ -603,6 +604,7 @@ bool CvXMLLoadUtility::SetGlobalTypes() {
 		SetGlobalStringArray(&GC.getFootstepAudioTypes(), "Civ4Types/FootstepAudioTypes/FootstepAudioType", &GC.getNumFootstepAudioTypes());
 		iEnumVal = NUM_UNITRANGES;
 		SetGlobalStringArray(&GC.getUnitRangeTypes(), "Civ4Types/UnitRangeTypes/UnitRangeType", &iEnumVal, true);
+		SetGlobalStringArray(&GC.getStarEventTargetTypes(), "Civ4Types/StarEventTargetTypes/StarEventTargetType", &GC.getNumStarEventTargetTypes());
 
 		gDLL->getXMLIFace()->SetToParent(m_pFXml);
 		gDLL->getXMLIFace()->SetToParent(m_pFXml);

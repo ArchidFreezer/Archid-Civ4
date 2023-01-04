@@ -713,6 +713,9 @@
 	<ElementType name="bUnitTerritoryUnbound" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iUnitRangeChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iUnitRangePercentChange" content="textOnly" dt:type="int"/>
+	<ElementType name="bEnableStarSigns" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iStarSignMitigateChangePercent" content="textOnly" dt:type="int"/>
+	<ElementType name="iStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="CivicInfo" content="eltOnly">
 		<element type="CivicOptionType"/>
 		<element type="Type"/>
@@ -722,6 +725,9 @@
 		<element type="Help" minOccurs="0"/>
 		<element type="Button"/>
 		<element type="TechPrereq" minOccurs="0"/>
+		<element type="bEnableStarSigns" minOccurs="0"/>
+		<element type="iStarSignMitigateChangePercent" minOccurs="0"/>
+		<element type="iStarSignScaleChangePercent" minOccurs="0"/>
 		<element type="iAnarchyLength" minOccurs="0"/> <!-- Default: 1 -->
 		<element type="Upkeep" minOccurs="0"/>
 		<element type="iAIWeight" minOccurs="0"/>
@@ -939,6 +945,8 @@
 		<element type="bVisible" minOccurs="0"/>
 		<element type="GreatPeopleUnitClass" minOccurs="0"/>
 		<element type="iGreatPeopleRateChange" minOccurs="0"/>
+		<element type="iStarSignMitigateChangePercent" minOccurs="0"/>
+		<element type="iStarSignScaleChangePercent" minOccurs="0"/>
 		<element type="Yields" minOccurs="0"/>
 		<element type="Commerces" minOccurs="0"/>
 		<element type="iExperience" minOccurs="0"/>

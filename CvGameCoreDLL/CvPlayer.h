@@ -51,6 +51,35 @@ public:
 	void changeCiv(CivilizationTypes eNewCiv);
 	void setIsHuman(bool bNewValue);
 
+	int getStarMaxChange(int iValue, int iMultiplier) const;
+	int getStarMultiplierPercent(int iEventScale, CvCity* pCity, bool bGoodEffect) const;
+	int getStarSignMitigatePercent() const;
+	int getStarSignPersistDecay() const;
+	int getStarSignScalePercent() const;
+	int getTargetCities(StarEventTypes eStarEvent, std::vector<CvCity*>& targets);
+
+	bool applyStarEvent(StarEventTypes eStarEvent, bool bPersist);
+	bool isCanProcessStarSign() const;
+	bool isStarSignForceDisabled() const;
+	bool isStarSignGoodOnly() const;
+	bool isStarSignImpacted() const;
+	bool isStarSignMitigated(StarEventTypes eStarEvent, CvCity* pCity);
+	bool isStarSignProcessed() const;
+
+	void changeStarSignForceDisbledCount(int iChange);
+	void changeStarSignGoodOnlyCount(int iChange);
+	void changeStarSignImpactedCount(int iChange);
+	void changeStarSignMitigatePercent(int iChange);
+	void changeStarSignPersistDecay(int iChange);
+	void changeStarSignScalePercent(int iChange);
+	void doStarSignChange();
+	void reportStarEffect(int iChange, StarEventTypes eEvent, const wchar* szTarget);
+	void setStarSignPersistDecay(int iValue);
+	void setStarSignPersistEvent(StarEventTypes eEvent);
+	void setStarSignProcessed(bool bProcessed);
+
+	StarEventTypes getStarSignPersistEvent() const;
+
 	bool canCaptureCities() const;
 protected:
 
@@ -1231,6 +1260,13 @@ protected:
 	int m_iUnitRangeUnboundCount;
 	int m_iUnitTerritoryUnboundCount;
 	int m_iFractionalCombatExperience;
+	int m_iDoNotBotherStatus;
+	int m_iStarSignGoodOnlyCount;
+	int m_iStarSignForceDisabledCount;
+	int m_iStarSignImpactedCount;
+	int m_iStarSignMitigatePercent;
+	int m_iStarSignScalePercent;
+	int m_iStarSignPersistDecay;
 
 	uint m_uiStartTime;  // XXX save these?
 
@@ -1244,8 +1280,8 @@ protected:
 	bool m_bFoundedFirstCity;
 	bool m_bStrike;
 	bool m_bHuman;
-
 	bool m_bDisableHuman;				// Set to true to disable isHuman() check
+	bool m_bStarSignProcessed;
 
 	int m_iChoosingFreeTechCount; // K-Mod (based on the 'Unofficial Patch'
 
@@ -1255,6 +1291,7 @@ protected:
 	ReligionTypes m_eLastStateReligion;
 	PlayerTypes m_eParent;
 	TeamTypes m_eTeamType;
+	StarEventTypes m_ePersistentStarEvent;
 
 	int* m_aiSeaPlotYield;
 	int* m_aiForestPlotYield;
