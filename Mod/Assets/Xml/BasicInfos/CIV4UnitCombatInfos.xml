@@ -10,88 +10,88 @@
 		<UnitCombatInfo> <!-- Air -->
 			<Type>UNITCOMBAT_AIR</Type>
 			<Description>TXT_KEY_UNITCOMBAT_AIR</Description>
-			<Button>,Art/Interface/Buttons/Promotions/Naval_Units.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,6,15</Button>
+			<Button>Art/Interface/Buttons/Combat/combat_air.dds</Button>
 		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Helicopter -->
 			<Type>UNITCOMBAT_HELICOPTER</Type>
 			<Description>TXT_KEY_UNITCOMBAT_HELICOPTER</Description>
-			<Button>,Art/Interface/Buttons/Promotion/Helicopter_Units.dds,Art/Interface/Buttons/Promotions_Atlas.dds,2,7</Button>
+			<Button>Art/Interface/Buttons/Combat/combat_helicopter.dds</Button>
 		</UnitCombatInfo>
 
 <!-- +++ Land +++ -->
 		<UnitCombatInfo> <!-- Archer -->
 			<Type>UNITCOMBAT_ARCHER</Type>
 			<Description>TXT_KEY_UNITCOMBAT_ARCHER</Description>
-			<Button>,Art/Interface/Buttons/Promotion/Cover.dds,Art/Interface/Buttons/Promotions_Atlas.dds,2,5</Button>
+			<Button>Art/Interface/Buttons/Combat/combat_archer.dds</Button>
 		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Armour -->
 			<Type>UNITCOMBAT_ARMOR</Type>
 			<Description>TXT_KEY_UNITCOMBAT_ARMOR</Description>
-			<Button>,Art/Interface/Buttons/Promotions/Ambush.dds,Art/Interface/Buttons/Promotions_Atlas.dds,2,1</Button>
+			<Button>Art/Interface/Buttons/Combat/combat_armour.dds</Button>
 		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Gun -->
 			<Type>UNITCOMBAT_GUN</Type>
 			<Description>TXT_KEY_UNITCOMBAT_GUN</Description>
-			<Button>,Art/Interface/Buttons/Promotion/Pinch.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,5</Button>
+			<Button>Art/Interface/Buttons/Combat/combat_gun.dds</Button>
 		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Melee -->
 			<Type>UNITCOMBAT_MELEE</Type>
 			<Description>TXT_KEY_UNITCOMBAT_MELEE</Description>
-			<Button>,Art/Interface/Buttons/Promotion/Shock.dds,Art/Interface/Buttons/Promotions_Atlas.dds,4,5</Button>
+			<Button>Art/Interface/Buttons/Combat/combat_melee.dds</Button>
 		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Mounted -->
 			<Type>UNITCOMBAT_MOUNTED</Type>
 			<Description>TXT_KEY_UNITCOMBAT_MOUNTED</Description>
-			<Button>,Art/Interface/Buttons/Promotion/Formation.dds,Art/Interface/Buttons/Promotions_Atlas.dds,1,2</Button>
+			<Button>Art/Interface/Buttons/Combat/combat_mounted.dds</Button>
 		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Recon -->
 			<Type>UNITCOMBAT_RECON</Type>
 			<Description>TXT_KEY_UNITCOMBAT_RECON</Description>
-			<Button>,Art/Interface/Buttons/Promotion/Recon_Units.dds,Art/Interface/Buttons/Promotions_Atlas.dds,1,7</Button>
+			<Button>Art/Interface/Buttons/Combat/combat_recon.dds</Button>
 		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Siege -->
 			<Type>UNITCOMBAT_SIEGE</Type>
 			<Description>TXT_KEY_UNITCOMBAT_SIEGE</Description>
-			<Button>,Art/Interface/Buttons/Promotion/Charge.dds,Art/Interface/Buttons/Promotions_Atlas.dds,1,5</Button>
+			<Button>Art/Interface/Buttons/Combat/combat_siege.dds</Button>
 		</UnitCombatInfo>
 
 <!-- +++ Naval +++ -->
 		<UnitCombatInfo> <!-- Diesel Ships -->
 			<Type>UNITCOMBAT_DIESEL_SHIPS</Type>
 			<Description>TXT_KEY_UNITCOMBAT_DIESEL_SHIPS</Description>
-			<Button>,Art/Interface/Buttons/Promotions/Naval_Units.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,7</Button>
+			<Button>Art/Interface/Buttons/Combat/combat_diesel_ship.dds</Button>
 		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Nuclear Ships -->
 			<Type>UNITCOMBAT_NUCLEAR_SHIPS</Type>
 			<Description>TXT_KEY_UNITCOMBAT_NUCLEAR_SHIPS</Description>
-			<Button>,Art/Interface/Buttons/Promotions/Naval_Units.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,7</Button>
+			<Button>Art/Interface/Buttons/Combat/combat_nuclear_ship.dds</Button>
 		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Steam Ships -->
 			<Type>UNITCOMBAT_STEAM_SHIPS</Type>
 			<Description>TXT_KEY_UNITCOMBAT_STEAM_SHIPS</Description>
-			<Button>,Art/Interface/Buttons/Promotions/Naval_Units.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,7</Button>
+			<Button>Art/Interface/Buttons/Combat/combat_steam_ship.dds</Button>
 		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Submarines -->
 			<Type>UNITCOMBAT_SUBMARINE</Type>
 			<Description>TXT_KEY_UNITCOMBAT_SUBMARINE</Description>
-			<Button>,Art/Interface/Buttons/Promotions/Naval_Units.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,7</Button>
+			<Button>Art/Interface/Buttons/Combat/combat_submarine.dds</Button>
 		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Wooden Ships -->
 			<Type>UNITCOMBAT_WOODEN_SHIPS</Type>
 			<Description>TXT_KEY_UNITCOMBAT_WOODEN_SHIPS</Description>
-			<Button>,Art/Interface/Buttons/Promotions/Naval_Units.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,7</Button>
+			<Button>Art/Interface/Buttons/Combat/combat_wooden_ship.dds</Button>
 		</UnitCombatInfo>
 
 <!-- +++ Special +++ -->
 		<UnitCombatInfo> <!-- Animal -->
 			<Type>UNITCOMBAT_ANIMAL</Type>
 			<Description>TXT_KEY_UNITCOMBAT_ANIMAL</Description>
-			<Button>Art/Interface/Buttons/Promotions/animal.dds</Button>
+			<Button>Art/Interface/Buttons/Combat/combat_animal.dds</Button>
 		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Worker -->
 			<Type>UNITCOMBAT_WORKER</Type>
 			<Description>TXT_KEY_UNITCOMBAT_WORKER</Description>
-			<Button>,Art/Interface/Buttons/Promotion/Militaristic.dds,Art/Interface/Buttons/FinalFrontier1_Atlas.dds,8,10</Button>
+			<Button>Art/Interface/Buttons/Combat/combat_worker.dds</Button>
 		</UnitCombatInfo>
 	</UnitCombatInfos>
 </Civ4UnitCombatInfos>
