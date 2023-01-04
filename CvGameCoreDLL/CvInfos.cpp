@@ -3076,12 +3076,12 @@ int CvUnitInfo::getNumSubCombatTypes() const {
 	return (int)m_viSubCombatTypes.size();
 }
 
-bool CvUnitInfo::isSubCombatType(UnitCombatTypes eCombatType) const {
-	return (std::find(m_viSubCombatTypes.begin(), m_viSubCombatTypes.end(), eCombatType) != m_viSubCombatTypes.end());
+bool CvUnitInfo::isSubCombatType(int i) const {
+	return (std::find(m_viSubCombatTypes.begin(), m_viSubCombatTypes.end(), (UnitCombatTypes)i) != m_viSubCombatTypes.end());
 }
 
-bool CvUnitInfo::isCombatType(UnitCombatTypes eCombatType) const {
-	return (getUnitCombatType() == eCombatType || isSubCombatType(eCombatType));
+bool CvUnitInfo::isCombatType(int i) const {
+	return (getUnitCombatType() == i || isSubCombatType(i));
 }
 
 int CvUnitInfo::getPrereqAndTerrain(int i) const {

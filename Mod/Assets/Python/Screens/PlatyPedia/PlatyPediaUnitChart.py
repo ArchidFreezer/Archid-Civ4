@@ -11,7 +11,7 @@ class CvPediaUnitChart:
 
 	def interfaceScreen(self, iGroup):
 		self.iGroup = iGroup
-		self.top.deleteAllWidgets()				
+		self.top.deleteAllWidgets()
 		screen = self.top.getScreen()
 		if not screen.isActive():
 			self.top.setPediaCommonWidgets()
@@ -24,12 +24,12 @@ class CvPediaUnitChart:
 			szHeader = gc.getUnitCombatInfo(self.iGroup).getDescription().upper()
 		szHeader = u"<font=4b>" + self.top.color4 + CyTranslator().getText(self.top.sUnitCombatIcon, ()) + szHeader + " " + CyTranslator().getText(self.top.sUnitCombatIcon, ()) + "</color></font>"
 		screen.setLabel(self.top.getNextWidgetName(), "Background", szHeader, CvUtil.FONT_CENTER_JUSTIFY, screen.getXResolution()/2, self.top.Y_TITLE, 0, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
-		
+
 		screen.setText(self.top.getNextWidgetName(), "Background", self.top.MENU_TEXT, CvUtil.FONT_CENTER_JUSTIFY, screen.getXResolution()/2, screen.getYResolution() - 42, 0, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_PEDIA_MAIN, self.top.PLATYPEDIA_UNIT_GROUP, -1)
 		self.placeUnitTable()
 		self.placeLinks(self.top.iLastScreen == CvScreenEnums.PEDIA_UNIT_CHART and screen.isActive())
 		self.top.iLastScreen = CvScreenEnums.PEDIA_UNIT_CHART
-		
+
 	def placeUnitTable(self):
 		screen = self.top.getScreen()
 
@@ -53,7 +53,7 @@ class CvPediaUnitChart:
 			if gc.getDefineINT("CIVILOPEDIA_SHOW_ACTIVE_CIVS_ONLY") and CyGame().isFinalInitialized():
 				if not CyGame().isBuildingEverActive(j): continue
 			UnitInfo = gc.getUnitInfo(j)
-			if (self.iGroup == UnitInfo.getUnitCombatType() or self.iGroup == -2):
+			if (UnitInfo.isCombatType(self.iGroup) or self.iGroup == -2):
 				if UnitInfo.getDomainType() == DomainTypes.DOMAIN_AIR:
 					iStrength = UnitInfo.getAirCombat()
 					iBomb = UnitInfo.getBombRate()

@@ -1931,6 +1931,8 @@ class CvMainInterface:
 		screen.setStyle( "SelectedCityText", "Table_EmptyScroll_Style" )
 		screen.hide( "SelectedUnitText" )
 		screen.hide( "SelectedUnitCombat" )
+		for i in xrange(10):
+			screen.hide( "SelectedUnitSubCombat" + str(i))
 		screen.hide( "SelectedUnitLabel" )
 		screen.hide("SelectedUnitPanel")
 		screen.hide( "SelectedCityText" )
@@ -2042,7 +2044,14 @@ class CvMainInterface:
 						szBuffer = "<font=2>" + szBuffer + "</font>"
 					sButton = gc.getUnitCombatInfo(iCombatType).getButton()
 					screen.addDDSGFC("SelectedUnitCombat", sButton, 18, yResolution - 136, 21, 21, WidgetTypes.WIDGET_PEDIA_JUMP_TO_UNIT_COMBAT, iCombatType, 1 )
-					screen.setText( "SelectedUnitLabel", "Background", szBuffer, CvUtil.FONT_LEFT_JUSTIFY, 18 + 21, yResolution - 137, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_UNIT_NAME, -1, -1 )
+					iSubCombatTypeIndex = 0
+					UnitInfo = gc.getUnitInfo(pHeadSelectedUnit.getUnitType())
+					for iSubCombatType in xrange(gc.getNumUnitCombatInfos()):
+						if UnitInfo.isSubCombatType(iSubCombatType) and iSubCombatTypeIndex < 10:
+							sButton = gc.getUnitCombatInfo(iSubCombatType).getButton()
+							screen.addDDSGFC("SelectedUnitSubCombat" + str(iSubCombatTypeIndex), sButton, 18 + 21 + (iSubCombatTypeIndex * 21), yResolution - 136, 21, 21, WidgetTypes.WIDGET_PEDIA_JUMP_TO_UNIT_COMBAT, iSubCombatType, 1 )
+							iSubCombatTypeIndex += 1
+					screen.setText( "SelectedUnitLabel", "Background", szBuffer, CvUtil.FONT_LEFT_JUSTIFY, 18 + 21 + (iSubCombatTypeIndex * 21), yResolution - 137, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_UNIT_NAME, -1, -1 )
 
 				if pSelectedGroup == 0 or pSelectedGroup.getLengthMissionQueue() < 2:
 					screen.setTableColumnHeader( "SelectedUnitText", 0, "", iTableWidth * 55/100)

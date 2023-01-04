@@ -72,8 +72,12 @@ class CvPediaUnit:
 
 		iCombatType = gc.getUnitInfo(self.iUnit).getUnitCombatType()
 		if iCombatType > -1:
-			screen.setImageButton(self.top.getNextWidgetName(), gc.getUnitCombatInfo(iCombatType).getButton(), self.X_STATS_PANE + 5, self.Y_STATS_PANE - 34, self.PROMOTION_ICON_SIZE, self.PROMOTION_ICON_SIZE, WidgetTypes.WIDGET_PEDIA_JUMP_TO_UNIT_COMBAT, iCombatType, 0)
-			screen.setText(self.top.getNextWidgetName(), "", u"<font=4>" + gc.getUnitCombatInfo(iCombatType).getDescription() + u"</font>", CvUtil.FONT_LEFT_JUSTIFY, self.X_STATS_PANE + 42, self.Y_STATS_PANE - 30, 0, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_PEDIA_JUMP_TO_UNIT_COMBAT, iCombatType, 0)
+			screen.setImageButton(self.top.getNextWidgetName(), gc.getUnitCombatInfo(iCombatType).getButton(), self.X_STATS_PANE + 5, self.Y_STATS_PANE - 34, self.PROMOTION_ICON_SIZE, self.PROMOTION_ICON_SIZE, WidgetTypes.WIDGET_PEDIA_JUMP_TO_UNIT_COMBAT, iCombatType, 1)
+			iSubCombatTypeIndex = 0
+			for iSubCombatType in xrange(gc.getNumUnitCombatInfos()):
+				if gc.getUnitInfo(self.iUnit).isSubCombatType(iSubCombatType):
+					iSubCombatTypeIndex += 1
+					screen.setImageButton(self.top.getNextWidgetName(), gc.getUnitCombatInfo(iSubCombatType).getButton(), self.X_STATS_PANE + 5 + iSubCombatTypeIndex * 34, self.Y_STATS_PANE - 34, self.PROMOTION_ICON_SIZE, self.PROMOTION_ICON_SIZE, WidgetTypes.WIDGET_PEDIA_JUMP_TO_UNIT_COMBAT, iSubCombatType, 1)
 
 		panelName = self.top.getNextWidgetName()
 		screen.addListBoxGFC(panelName, "", self.X_STATS_PANE, self.Y_STATS_PANE, self.W_STATS_PANE, self.H_STATS_PANE, TableStyles.TABLE_STYLE_EMPTY)

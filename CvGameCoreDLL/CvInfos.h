@@ -1054,8 +1054,8 @@ public:
 	bool isPrereqVicinityOrBonus(BonusTypes eTerrain) const;
 	bool isPrereqOrBuildingClass(BuildingClassTypes eBuildingClass) const;
 	bool isPrereqNotBuildingClass(BuildingClassTypes eBuildingClass) const;
-	bool isSubCombatType(UnitCombatTypes eCombatType) const;
-	bool isCombatType(UnitCombatTypes eCombatType) const;
+	bool isSubCombatType(int i) const;
+	bool isCombatType(int i) const;
 	bool isPrereqAndTech(int i) const;
 	bool isPrereqOrBonus(int i) const;
 

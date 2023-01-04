@@ -402,6 +402,8 @@ void CyInfoPythonInterface1() {
 		.def("isPrereqAndCivic", &CvUnitInfo::isPrereqAndCivic, "bool (int i)")
 		.def("isPrereqAndTech", &CvUnitInfo::isPrereqAndCivic, "bool (int i)")
 		.def("isPrereqOrBonus", &CvUnitInfo::isPrereqOrBonus, "bool (int i)")
+		.def("isCombatType", &CvUnitInfo::isCombatType, "bool (int i)")
+		.def("isSubCombatType", &CvUnitInfo::isSubCombatType, "bool (int i)")
 
 		.def("getEarlyArtDefineTag", &CvUnitInfo::getEarlyArtDefineTag, "string (int i, UnitArtStyleTypes eStyle)")
 		.def("getLateArtDefineTag", &CvUnitInfo::getLateArtDefineTag, "string (int i, UnitArtStyleTypes eStyle)")
