@@ -39,6 +39,9 @@ public:
 
 	void updateCacheData(); // K-Mod
 
+	int AI_worldViewValue(WorldViewTypes eWorldView) const;
+	int AI_worldViewSlaveryValue() const;
+
 	void AI_beginDiplomacy(CvDiploParameters* pDiploParams, PlayerTypes ePlayer);
 	int AI_getEmbassyAttitude(PlayerTypes ePlayer) const;
 

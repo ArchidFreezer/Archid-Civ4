@@ -896,6 +896,18 @@ CvTechInfo::~CvTechInfo() {
 	SAFE_DELETE_ARRAY(m_pbTerrainTrade);
 }
 
+int CvTechInfo::getNumEnabledWorldViews() const {
+	return m_viEnabledWorldViews.size();
+}
+
+int CvTechInfo::getEnabledWorldView(int i) const {
+	return getNumEnabledWorldViews() > i ? m_viPrereqAndTechs[i] : NO_TECH;
+}
+
+bool CvTechInfo::isEnableWorldView(int i) const {
+	return (std::find(m_viEnabledWorldViews.begin(), m_viEnabledWorldViews.end(), i) != m_viEnabledWorldViews.end());
+}
+
 bool CvTechInfo::isNonAggressionTrading() const {
 	return m_bNonAggressionTrading;
 }
@@ -1330,6 +1342,13 @@ void CvTechInfo::read(FDataStreamBase* stream) {
 		m_viPrereqOrTechs.push_back(iElement);
 	}
 
+	stream->Read(&iNumElements);
+	m_viEnabledWorldViews.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viEnabledWorldViews.push_back(iElement);
+	}
+
 	stream->ReadString(m_szQuoteKey);
 	stream->ReadString(m_szSound);
 	stream->ReadString(m_szSoundMP);
@@ -1407,6 +1426,11 @@ void CvTechInfo::write(FDataStreamBase* stream) {
 
 	stream->Write(m_viPrereqOrTechs.size());
 	for (std::vector<int>::iterator it = m_viPrereqOrTechs.begin(); it != m_viPrereqOrTechs.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viEnabledWorldViews.size());
+	for (std::vector<int>::iterator it = m_viEnabledWorldViews.begin(); it != m_viEnabledWorldViews.end(); ++it) {
 		stream->Write(*it);
 	}
 
@@ -1499,6 +1523,7 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->SetVectorInfo(m_viPrereqAndTechs, "AndPreReqs");
 	pXML->SetVectorInfo(m_viPrereqOrTechs, "OrPreReqs");
+	pXML->SetVectorInfo(m_viEnabledWorldViews, "EnabledWorldViews");
 
 	return true;
 }
@@ -20360,6 +20385,70 @@ bool CvStarEventInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iConscript, "iConscript");
 	pXML->GetChildXmlValByName(&m_iMissionary, "iMissionary");
 	pXML->GetChildXmlValByName(&m_iHappyTurns, "iHappyTurns");
+
+	return true;
+}
+
+//////////////////////////////////////////////////////////////////////////
+//
+//	CvWorldViewInfo
+//	World Views
+//
+//
+CvWorldViewInfo::CvWorldViewInfo() :
+
+	m_szEnactTextKey(NULL),
+	m_szRepealTextKey(NULL),
+	m_szEnactButton(NULL),
+	m_szRepealButton(NULL) {
+}
+
+CvWorldViewInfo::~CvWorldViewInfo() {
+}
+
+const TCHAR* CvWorldViewInfo::getEnactTextKey() const {
+	if (m_szEnactTextKey.empty()) {
+		return NULL;
+	}
+
+	return m_szEnactTextKey;
+}
+
+const TCHAR* CvWorldViewInfo::getRepealTextKey() const {
+	if (m_szRepealTextKey.empty()) {
+		return NULL;
+	}
+
+	return m_szRepealTextKey;
+}
+
+const TCHAR* CvWorldViewInfo::getEnactButton() const {
+	if (m_szEnactButton.empty()) {
+		return NULL;
+	}
+
+	return m_szEnactButton;
+}
+
+const TCHAR* CvWorldViewInfo::getRepealButton() const {
+	if (m_szRepealButton.empty()) {
+		return NULL;
+	}
+
+	return m_szRepealButton;
+}
+
+bool CvWorldViewInfo::read(CvXMLLoadUtility* pXML) {
+	CvString szTextVal;
+
+	if (!CvInfoBase::read(pXML)) {
+		return false;
+	}
+
+	pXML->GetChildXmlValByName(m_szEnactTextKey, "EnactTextKey");
+	pXML->GetChildXmlValByName(m_szRepealTextKey, "RepealTextKey");
+	pXML->GetChildXmlValByName(m_szEnactButton, "EnactButton");
+	pXML->GetChildXmlValByName(m_szRepealButton, "RepealButton");
 
 	return true;
 }

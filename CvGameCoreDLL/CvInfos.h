@@ -319,6 +319,7 @@ public:
 	int getUnitRangePercentChange() const;
 	int getNumPrereqAndTechs() const;
 	int getNumPrereqOrTechs() const;
+	int getNumEnabledWorldViews() const;
 
 	int getGridX() const;									// Exposed to Python
 	int getGridY() const;									// Exposed to Python
@@ -373,11 +374,13 @@ public:
 	int getSeaPlotYieldChange(int i) const;
 	int getPrereqAndTech(int i) const;
 	int getPrereqOrTech(int i) const;
+	int getEnabledWorldView(int i) const;
 
 	bool isCommerceFlexible(int i) const;	// Exposed to Python
 	bool isTerrainTrade(int i) const;			// Exposed to Python
 	bool isPrereqAndTech(int i) const;
 	bool isPrereqOrTech(int i) const;
+	bool isEnableWorldView(int i) const;
 
 	int* getForestPlotYieldChangeArray() const;
 	int* getRiverPlotYieldChangeArray() const;
@@ -461,6 +464,7 @@ protected:
 
 	std::vector<int> m_viPrereqAndTechs;
 	std::vector<int> m_viPrereqOrTechs;
+	std::vector<int> m_viEnabledWorldViews;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -6570,4 +6574,33 @@ private:
 	CvString m_szMitigateTextKey;
 	CvString m_szNeutralTextKey;
 };
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//
+//  class : CvWorldViewInfo
+//
+//
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+class CvWorldViewInfo : public CvInfoBase {
+	friend class CvXMLLoadUtility;
+
+public:
+	CvWorldViewInfo();
+	virtual ~CvWorldViewInfo();
+
+	const TCHAR* getEnactTextKey() const;
+	const TCHAR* getRepealTextKey() const;
+	const TCHAR* getRepealButton() const;
+	const TCHAR* getEnactButton() const;
+
+	bool read(CvXMLLoadUtility* pXML);
+
+private:
+
+	CvString m_szEnactTextKey;
+	CvString m_szEnactButton;
+	CvString m_szRepealTextKey;
+	CvString m_szRepealButton;
+};
+
 #endif

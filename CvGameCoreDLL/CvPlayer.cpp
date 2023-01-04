@@ -59,9 +59,11 @@ CvPlayer::CvPlayer() {
 	m_aiYieldFromUnitModifier = new int[NUM_YIELD_TYPES];
 	m_aiBaseCommerceFromUnit = new int[NUM_COMMERCE_TYPES];
 	m_aiCommerceFromUnitModifier = new int[NUM_COMMERCE_TYPES];
+	m_aiWorldViewEnabledCount = new int[NUM_WORLD_VIEWS];
 
 	m_abFeatAccomplished = new bool[NUM_FEAT_TYPES];
 	m_abOptions = new bool[NUM_PLAYEROPTION_TYPES];
+	m_abWorldViewActivated = new bool[NUM_WORLD_VIEWS];
 
 	m_paiBonusExport = NULL;
 	m_paiBonusImport = NULL;
@@ -125,8 +127,10 @@ CvPlayer::~CvPlayer() {
 	SAFE_DELETE_ARRAY(m_aiYieldFromUnitModifier);
 	SAFE_DELETE_ARRAY(m_aiBaseCommerceFromUnit);
 	SAFE_DELETE_ARRAY(m_aiCommerceFromUnitModifier);
+	SAFE_DELETE_ARRAY(m_aiWorldViewEnabledCount);
 	SAFE_DELETE_ARRAY(m_abFeatAccomplished);
 	SAFE_DELETE_ARRAY(m_abOptions);
+	SAFE_DELETE_ARRAY(m_abWorldViewActivated);
 }
 
 
@@ -511,6 +515,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iStarSignMitigatePercent = 0;
 	m_iStarSignScalePercent = 100;
 	m_iStarSignPersistDecay = 0;
+	m_iWorldViewTimer = 0;
 
 	m_uiStartTime = 0;
 
@@ -579,8 +584,9 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 
 		if (!bConstructorCall && getTeam() != NO_TEAM) {
 			for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
-				if (GET_PLAYER(ePlayer).getTeam() == eTeam) {
-					GET_PLAYER(ePlayer).setEspionageSpendingWeightAgainstTeam(getTeam(), 1);
+				CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+				if (kPlayer.getTeam() == eTeam) {
+					kPlayer.setEspionageSpendingWeightAgainstTeam(getTeam(), 1);
 				}
 			}
 		}
@@ -592,6 +598,11 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 
 	for (PlayerOptionTypes ePlayerOption = (PlayerOptionTypes)0; ePlayerOption < NUM_PLAYEROPTION_TYPES; ePlayerOption = (PlayerOptionTypes)(ePlayerOption + 1)) {
 		m_abOptions[ePlayerOption] = false;
+	}
+
+	for (WorldViewTypes eWorldView = (WorldViewTypes)0; eWorldView < GC.getNumWorldInfos(); eWorldView = (WorldViewTypes)(eWorldView + 1)) {
+		m_aiWorldViewEnabledCount[eWorldView] = 0;
+		m_abWorldViewActivated[eWorldView] = false;
 	}
 
 	m_szScriptData = "";
@@ -2419,6 +2430,10 @@ void CvPlayer::doTurn() {
 
 	if (getConversionTimer() > 0) {
 		changeConversionTimer(-1);
+	}
+
+	if (getWorldViewTimer() > 0) {
+		changeWorldViewTimer(-1);
 	}
 
 	setConscriptCount(0);
@@ -13600,6 +13615,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iStarSignMitigatePercent);
 	pStream->Read(&m_iStarSignScalePercent);
 	pStream->Read(&m_iStarSignPersistDecay);
+	pStream->Read(&m_iWorldViewTimer);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -13650,9 +13666,11 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(NUM_COMMERCE_TYPES, m_aiCommerceFlexibleCount);
 	pStream->Read(MAX_PLAYERS, m_aiGoldPerTurnByPlayer);
 	pStream->Read(MAX_TEAMS, m_aiEspionageSpendingWeightAgainstTeam);
+	pStream->Read(NUM_WORLD_VIEWS, m_aiWorldViewEnabledCount);
 
 	pStream->Read(NUM_FEAT_TYPES, m_abFeatAccomplished);
 	pStream->Read(NUM_PLAYEROPTION_TYPES, m_abOptions);
+	pStream->Read(NUM_WORLD_VIEWS, m_abWorldViewActivated);
 
 	pStream->ReadString(m_szScriptData);
 
@@ -14084,6 +14102,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iStarSignMitigatePercent);
 	pStream->Write(m_iStarSignScalePercent);
 	pStream->Write(m_iStarSignPersistDecay);
+	pStream->Write(m_iWorldViewTimer);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -14126,9 +14145,11 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(NUM_COMMERCE_TYPES, m_aiCommerceFlexibleCount);
 	pStream->Write(MAX_PLAYERS, m_aiGoldPerTurnByPlayer);
 	pStream->Write(MAX_TEAMS, m_aiEspionageSpendingWeightAgainstTeam);
+	pStream->Write(NUM_WORLD_VIEWS, m_aiWorldViewEnabledCount);
 
 	pStream->Write(NUM_FEAT_TYPES, m_abFeatAccomplished);
 	pStream->Write(NUM_PLAYEROPTION_TYPES, m_abOptions);
+	pStream->Write(NUM_WORLD_VIEWS, m_abWorldViewActivated);
 
 	pStream->WriteString(m_szScriptData);
 
@@ -19414,4 +19435,64 @@ bool CvPlayer::applyStarEvent(StarEventTypes eEvent, bool bPersist) {
 	}
 
 	return true;
+}
+
+bool CvPlayer::isWorldViewEnabled(WorldViewTypes eWorldView) const {
+	FAssertMsg(eWorldView >= 0, "eIndex is expected to be non-negative (invalid Index)");
+	FAssertMsg(eWorldView < NUM_WORLD_VIEWS, "eIndex is expected to be within maximum bounds (invalid Index)");
+	return m_aiWorldViewEnabledCount[eWorldView] > 0;
+}
+
+void CvPlayer::changeWorldViewEnabledCount(WorldViewTypes eWorldView, int iChange) {
+	FAssertMsg(eWorldView >= 0, "eIndex is expected to be non-negative (invalid Index)");
+	FAssertMsg(eWorldView < NUM_WORLD_VIEWS, "eIndex is expected to be within maximum bounds (invalid Index)");
+	bool bPreEnabled = isWorldViewEnabled(eWorldView);
+	m_aiWorldViewEnabledCount[eWorldView] += iChange;
+
+	// If we have just enabled this world view then check if we want to activate it
+	if (!bPreEnabled && isWorldViewEnabled(eWorldView)) {
+		if (isHuman()) {
+			CvPopupInfo* pInfo = new CvPopupInfo(BUTTONPOPUP_TOGGLE_WORLD_VIEW, eWorldView);
+			if (NULL != pInfo) {
+				gDLL->getInterfaceIFace()->addPopup(pInfo, getID());
+			}
+		} else {
+			if (AI()->AI_worldViewValue(eWorldView) > 0) {
+				changeWorldViewActivatedStatus(eWorldView, true);
+			}
+		}
+	}
+}
+
+bool CvPlayer::isWorldViewActivated(WorldViewTypes eWorldView) const {
+	FAssertMsg(eWorldView >= 0, "eIndex is expected to be non-negative (invalid Index)");
+	FAssertMsg(eWorldView < NUM_WORLD_VIEWS, "eIndex is expected to be within maximum bounds (invalid Index)");
+	return m_abWorldViewActivated[eWorldView];
+}
+
+void CvPlayer::changeWorldViewActivatedStatus(WorldViewTypes eWorldView, bool bActivate) {
+	FAssertMsg(eWorldView >= 0, "eIndex is expected to be non-negative (invalid Index)");
+	FAssertMsg(eWorldView < NUM_WORLD_VIEWS, "eIndex is expected to be within maximum bounds (invalid Index)");
+	m_abWorldViewActivated[eWorldView] = bActivate;
+	int iTimer = std::max(1, ((100 + GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getAnarchyPercent()) * GC.getDefineINT("MIN_WORLD_VIEW_CHANGE_TURNS")) / 100);
+	setWorldViewTimer(iTimer);
+}
+
+int CvPlayer::getWorldViewTimer() const {
+	return m_iWorldViewTimer;
+}
+
+void CvPlayer::setWorldViewTimer(int iNewValue) {
+	if (getWorldViewTimer() != iNewValue) {
+		m_iWorldViewTimer = iNewValue;
+		FAssert(getWorldViewTimer() >= 0);
+
+		if (getID() == GC.getGameINLINE().getActivePlayer()) {
+			gDLL->getInterfaceIFace()->setDirty(SelectionButtons_DIRTY_BIT, true);
+		}
+	}
+}
+
+void CvPlayer::changeWorldViewTimer(int iChange) {
+	setWorldViewTimer(getWorldViewTimer() + iChange);
 }

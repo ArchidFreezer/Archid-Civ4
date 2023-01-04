@@ -540,6 +540,7 @@ CvPlot* CvSelectionGroup::lastMissionPlot() {
 		case MISSION_LEAD:
 		case MISSION_ESPIONAGE:
 		case MISSION_DIE_ANIMATION:
+		case MISSION_UPDATE_WORLD_VIEWS:
 			break;
 
 		default:
@@ -3206,6 +3207,11 @@ bool CvSelectionGroup::canDoMission(int iMission, int iData1, int iData2, CvPlot
 
 		case MISSION_GOTO:
 			if (pLoopUnit->getDomainType() == DOMAIN_LAND || pLoopUnit->getDomainType() == DOMAIN_SEA)
+				return true;
+			break;
+
+		case MISSION_UPDATE_WORLD_VIEWS:
+			if (pLoopUnit->isGoldenAge() && (!bCheckMoves || pLoopUnit->canMove()) && GET_PLAYER(pLoopUnit->getOwnerINLINE()).getWorldViewTimer() <= 0)
 				return true;
 			break;
 

@@ -65,6 +65,8 @@ private:
 	bool launchLaunchPopup(CvPopup* pPopup, CvPopupInfo& info);
 	bool launchFoundReligionPopup(CvPopup* pPopup, CvPopupInfo& info);
 	bool launchGoToCityPopup(CvPopup* pPopup, CvPopupInfo& info);
+	bool launchToggleWorldViewPopup(CvPopup* pPopup, CvPopupInfo& info);
+	bool launchToggleAnyWorldViewPopup(CvPopup* pPopup, CvPopupInfo& info);
 };
 
 #endif

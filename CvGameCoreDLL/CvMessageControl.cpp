@@ -151,3 +151,7 @@ void CvMessageControl::sendPing(int iX, int iY) {
 		gDLL->sendMessageData(new CvNetPing(GC.getGameINLINE().getActivePlayer(), iX, iY));
 	}
 }
+
+void CvMessageControl::sendToggleWorldView(PlayerTypes ePlayer, WorldViewTypes eWorldView) {
+	gDLL->sendMessageData(new CvNetToggleWorldView(ePlayer, eWorldView));
+}

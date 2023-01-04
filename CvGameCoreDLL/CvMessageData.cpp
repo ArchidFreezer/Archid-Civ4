@@ -59,6 +59,8 @@ CvMessageData* CvMessageData::createMessage(GameMessageTypes eType) {
 		return new CvNetChangeWar();
 	case GAMEMESSAGE_PING:
 		return new CvNetPing();
+	case GAMEMESSAGE_UPDATE_WORLD_VIEW:
+		return new CvNetToggleWorldView();
 	default:
 		FAssertMsg(false, "Unknown message type");
 	}
@@ -895,3 +897,29 @@ void CvNetPing::Execute() {
 	}
 }
 
+CvNetToggleWorldView::CvNetToggleWorldView() : CvMessageData(GAMEMESSAGE_UPDATE_WORLD_VIEW), m_ePlayer(NO_PLAYER), m_eWorldView(NO_WORLD_VIEW) {
+}
+
+CvNetToggleWorldView::CvNetToggleWorldView(PlayerTypes ePlayer, WorldViewTypes eWorldView) : CvMessageData(GAMEMESSAGE_UPDATE_WORLD_VIEW), m_ePlayer(ePlayer), m_eWorldView(eWorldView) {
+}
+
+void CvNetToggleWorldView::Debug(char* szAddendum) {
+	sprintf(szAddendum, "Changing world view");
+}
+
+void CvNetToggleWorldView::Execute() {
+	if (m_ePlayer != NO_PLAYER && m_eWorldView != NO_WORLD_VIEW) {
+		CvPlayer& kPlayer = GET_PLAYER(m_ePlayer);
+		kPlayer.changeWorldViewActivatedStatus(m_eWorldView, !kPlayer.isWorldViewActivated(m_eWorldView));
+	}
+}
+
+void CvNetToggleWorldView::PutInBuffer(FDataStreamBase* pStream) {
+	pStream->Write(m_ePlayer);
+	pStream->Write(m_eWorldView);
+}
+
+void CvNetToggleWorldView::SetFromBuffer(FDataStreamBase* pStream) {
+	pStream->Read((int*)&m_ePlayer);
+	pStream->Read((int*)&m_eWorldView);
+}

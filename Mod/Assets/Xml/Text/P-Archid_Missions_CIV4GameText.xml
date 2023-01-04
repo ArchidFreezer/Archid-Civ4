@@ -96,4 +96,12 @@
 		<Spanish>Selecciona una ciudad a la que enviar la unidad. No es necesario que dicha ciudad se encuentre dentro de la Vista parcial actual.</Spanish>
 		<Polish>Wybierz miasto do kt&#243;rego si&#234; ma uda&#230; jednostka. Miasto nie musi znajdowa&#230; si&#234; na bie&#191;&#185;cym Viewporcie.</Polish>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_UPDATE_WORLD_VIEWS</Tag>
+		<English>Update World View</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_UPDATE_WORLD_VIEWS_HELP</Tag>
+		<English>The unit allows the player to toggle the status of any known world views.</English>
+	</TEXT>
 </Civ4GameText>

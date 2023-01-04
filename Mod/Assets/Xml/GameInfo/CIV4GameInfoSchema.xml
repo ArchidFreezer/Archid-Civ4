@@ -1324,4 +1324,22 @@
 	<ElementType name="Civ4VoteSourceInfos" content="eltOnly">
 		<element type="VoteSourceInfos"/>
 	</ElementType>
+	<ElementType name="WorldViewInfos" content="eltOnly">
+		<element type="WorldViewInfo" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="EnactTextKey" content="textOnly"/>
+	<ElementType name="RepealTextKey" content="textOnly"/>
+	<ElementType name="EnactButton" content="textOnly"/>
+	<ElementType name="RepealButton" content="textOnly"/>
+	<ElementType name="WorldViewInfo" content="eltOnly">
+		<element type="Type"/>
+		<element type="Description" minOccurs="0"/>
+		<element type="EnactTextKey"/>
+		<element type="RepealTextKey"/>
+		<element type="EnactButton"/>
+		<element type="RepealButton"/>
+	</ElementType>
+	<ElementType name="Civ4WorldViewInfos" content="eltOnly">
+		<element type="WorldViewInfos" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 </Schema>

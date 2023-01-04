@@ -388,6 +388,17 @@ private:
 	int m_iY;
 };
 
-
+class CvNetToggleWorldView : public CvMessageData {
+public:
+	CvNetToggleWorldView();
+	CvNetToggleWorldView(PlayerTypes ePlayer, WorldViewTypes eWorldView);
+	virtual void Debug(char* szAddendum);
+	virtual void Execute();
+	virtual void PutInBuffer(FDataStreamBase* pStream);
+	virtual void SetFromBuffer(FDataStreamBase* pStream);
+private:
+	PlayerTypes m_ePlayer;
+	WorldViewTypes m_eWorldView;
+};
 
 #endif

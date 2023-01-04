@@ -30,6 +30,7 @@ public:
 	void sendDiploVote(int iVoteId, PlayerVoteTypes eChoice);
 	DllExport void sendChangeWar(TeamTypes eRivalTeam, bool bWar);
 	DllExport void sendPing(int iX, int iY);
+	void sendToggleWorldView(PlayerTypes ePlayer, WorldViewTypes eWorldView);
 };
 
 

@@ -18274,3 +18274,19 @@ int CvPlayerAI::AI_militaryUnitTradeVal(CvUnit* pUnit) const {
 
 	return iValue;
 }
+
+int CvPlayerAI::AI_worldViewValue(WorldViewTypes eWorldView) const {
+	int iValue = 0;
+	switch (eWorldView) {
+	case WORLD_VIEW_SLAVERY:
+		iValue = AI_worldViewSlaveryValue();
+		break;
+	default:
+		break;
+	}
+	return iValue;
+}
+
+int CvPlayerAI::AI_worldViewSlaveryValue() const {
+	return 0;
+}

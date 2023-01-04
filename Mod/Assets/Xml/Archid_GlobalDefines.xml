@@ -431,5 +431,11 @@
 		<DefineName>STAR_SIGN_AGGREGATE_RESULTS_CAP</DefineName>
 		<iDefineIntVal>4</iDefineIntVal>
 	</Define>
+<!-- World Views -->
+	<Define>
+		<!-- The minimum number of turns between changing world views for a player -->
+		<DefineName>MIN_WORLD_VIEW_CHANGE_TURNS</DefineName>
+		<iDefineIntVal>5</iDefineIntVal>
+	</Define>
 
 </Civ4Defines>

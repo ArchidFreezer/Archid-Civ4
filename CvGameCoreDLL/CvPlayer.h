@@ -16,6 +16,7 @@ class CvDiploParameters;
 class CvPopupInfo;
 class CvEventTriggerInfo;
 class CvPlayerRecord; // K-Mod
+class CvPlayerAI;
 
 typedef std::list<CvTalkingHeadMessage> CvMessageQueue;
 typedef std::list<CvPopupInfo*> CvPopupQueue;
@@ -30,6 +31,18 @@ class CvPlayer {
 public:
 	CvPlayer();
 	virtual ~CvPlayer();
+
+	// This would typically be very dangerous and bad practice, but we know in Civ IV that it is safe to do so
+	CvPlayerAI* AI() { return (CvPlayerAI*)(this); }
+	const CvPlayerAI* AI() const { return (const CvPlayerAI*)(this); }
+
+	int getWorldViewTimer() const;
+	bool isWorldViewEnabled(WorldViewTypes eWorldView) const;
+	bool isWorldViewActivated(WorldViewTypes eWorldView) const;
+	void changeWorldViewEnabledCount(WorldViewTypes eWorldView, int iChange);
+	void changeWorldViewActivatedStatus(WorldViewTypes eWorldView, bool bActivate);
+	void changeWorldViewTimer(int iChange);
+	void setWorldViewTimer(int iNewValue);
 
 	DllExport void init(PlayerTypes eID);
 	DllExport void setupGraphical();
@@ -1267,6 +1280,7 @@ protected:
 	int m_iStarSignMitigatePercent;
 	int m_iStarSignScalePercent;
 	int m_iStarSignPersistDecay;
+	int m_iWorldViewTimer;
 
 	uint m_uiStartTime;  // XXX save these?
 
@@ -1314,9 +1328,11 @@ protected:
 	int* m_aiYieldFromUnitModifier;
 	int* m_aiBaseCommerceFromUnit;
 	int* m_aiCommerceFromUnitModifier;
+	int* m_aiWorldViewEnabledCount;
 
 	bool* m_abFeatAccomplished;
 	bool* m_abOptions;
+	bool* m_abWorldViewActivated;
 
 	CvString m_szScriptData;
 

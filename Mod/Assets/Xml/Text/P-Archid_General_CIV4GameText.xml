@@ -888,5 +888,18 @@
 		<Italian>hai scoperto %s1!</Italian>
 		<Spanish>se han descubierto %s1!</Spanish>
 	</TEXT>
+<!-- Slavery -->
+	<TEXT>
+		<Tag>TXT_KEY_WV_CHANGE</Tag>
+		<English>Change World View</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WV_SLAVERY_ENABLE</Tag>
+		<English>Practice Slavery</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WV_SLAVERY_DISABLE</Tag>
+		<English>Abolish Slavery</English>
+	</TEXT>
 
 </Civ4GameText>

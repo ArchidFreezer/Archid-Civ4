@@ -1191,6 +1191,12 @@ void CvGame::handleAction(int iAction) {
 				bSkip = true;
 				gDLL->getInterfaceIFace()->addPopup(pInfo);
 			}
+		} else if (GC.getActionInfo(iAction).getMissionType() == MISSION_UPDATE_WORLD_VIEWS) {
+			CvPopupInfo* pInfo = new CvPopupInfo(BUTTONPOPUP_TOGGLE_ANY_WORLD_VIEW);
+			if (NULL != pInfo) {
+				bSkip = true;
+				gDLL->getInterfaceIFace()->addPopup(pInfo);
+			}
 		}
 		if (!bSkip) {
 			selectionListGameNetMessage(GAMEMESSAGE_PUSH_MISSION, GC.getActionInfo(iAction).getMissionType(), GC.getActionInfo(iAction).getMissionData(), -1, 0, false, bShift);

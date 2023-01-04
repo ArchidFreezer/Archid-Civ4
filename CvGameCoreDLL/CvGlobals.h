@@ -133,6 +133,7 @@ class CvUnitArtStyleTypeInfo;
 class CvVoteSourceInfo;
 class CvMainMenuInfo;
 class CvStarEventInfo;
+class CvWorldViewInfo;
 
 class CvGlobals {
 	//	friend class CvDLLUtilityIFace;
@@ -619,6 +620,9 @@ public:
 	int& getNumStarEventTargetTypes();
 	CvString*& getStarEventTargetTypes();
 	CvString& getStarEventTargetTypes(int i);
+
+	std::vector<CvWorldViewInfo*>& getWorldViewInfo();
+	CvWorldViewInfo& getWorldViewInfo(WorldViewTypes eWorldView);
 
 	//
 	// Global Types
@@ -1160,6 +1164,7 @@ protected:
 	std::vector<CvUnitArtStyleTypeInfo*> m_paUnitArtStyleTypeInfo;
 	std::vector<CvStarEventInfo*> m_paStarEventInfo;
 	std::vector<CvInfoBase*> m_paStarEventTargetInfos;
+	std::vector<CvWorldViewInfo*> m_paWorldViewInfo;
 
 	// Game Text
 	std::vector<CvGameText*> m_paGameTextXML;

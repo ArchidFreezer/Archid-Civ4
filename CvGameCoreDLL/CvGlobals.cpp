@@ -3167,6 +3167,7 @@ void CvGlobals::deleteInfoArrays() {
 	deleteInfoArray(m_paAnimationPathInfo);
 	deleteInfoArray(m_paStarEventInfo);
 	deleteInfoArray(m_paStarEventTargetInfos);
+	deleteInfoArray(m_paWorldViewInfo);
 	SAFE_DELETE_ARRAY(GC.getStarEventTargetTypes());
 
 	clearTypesMap();
@@ -3402,4 +3403,14 @@ CvString& CvGlobals::getStarEventTargetTypes(int i) {
 	FAssertMsg(i < getNumStarEventTargetTypes(), "Index out of bounds");
 	FAssertMsg(i > -1, "Index out of bounds");
 	return m_paszStarEventTargetTypes[i];
+}
+
+std::vector<CvWorldViewInfo*>& CvGlobals::getWorldViewInfo() {
+	return m_paWorldViewInfo;
+}
+
+CvWorldViewInfo& CvGlobals::getWorldViewInfo(WorldViewTypes eWorldView) {
+	FAssert(eWorldView > -1);
+	FAssert(eWorldView < NUM_WORLD_VIEWS);
+	return *(m_paWorldViewInfo[eWorldView]);
 }
