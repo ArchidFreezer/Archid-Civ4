@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+	Strategy Overlay
+	by Del69
+
+	Initial config and event handler setup for strategy overlay screen
+	Placed in CustomAssets/Config for Bug Mod
+-->
+<mod id="StrategyOverlay"	 module="StrategyOverlay"	name="Strategy Overlay" author="Del69" version="1.0b" date="10/20/2008">
+
+	<options id="StrategyOverlay" file="StrategyOverlay.ini">
+		<section id="StrategyOverlay">
+			<option id="Enabled" key="Enabled" type="boolean" default="True">
+				<change function="onEnabledOptionChanged"/>
+			</option>
+			
+			<option id="ShowDotMap" key="Show DotMap" type="boolean" default="True">
+				<change function="onShowDotMapOptionChanged"/>
+			</option>
+			<option id="DotMapDrawDots" key="DotMap Draw Dots" type="boolean" default="True">
+				<change function="onDotMapOptionChanged"/>
+			</option>
+			<option id="DotMapDotIcon" key="DotMap Dot Icon" type="int" default="23"> <!-- PLOT_STYLE_DOT_TARGET -->
+				<change function="onDotMapOptionChanged"/>
+			</option>
+			<option id="DotMapBrightness" key="DotMap Brightness" type="int" default="50">
+				<change function="onDotMapOptionChanged"/>
+			</option>
+			<option id="DotMapHighlightBrightness" key="DotMap Highlight Brightness" type="int" default="100">
+				<change function="onDotMapOptionChanged"/>
+			</option>
+		</section>
+	</options>
+	
+	<events class="StrategyOverlayEventHandler" />	
+	
+	<shortcut key="Ctrl X" function="toggleDotMapVisibility"/>
+	<shortcut key="Alt X" function="toggleDotMapEditMode"/>
+</mod>

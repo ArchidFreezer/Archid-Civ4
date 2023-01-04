@@ -1249,4 +1249,54 @@
 		<English>Adds debugging statements into the python log</English>
 	</TEXT>
 
+<!-- Strategy Overlay -->
+	<TEXT> <!-- StrategyOverlay__Enabled -->
+		<Tag>TXT_KEY_ARCHID_OPT_STRATEGYOVERLAY__ENABLED_TEXT</Tag>
+		<English>Enabled</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_STRATEGYOVERLAY__ENABLED_HOVER</Tag>
+		<English>Whether the strategy layer should be enabled</English>
+	</TEXT>
+	<TEXT> <!-- StrategyOverlay__ShowDotMap -->
+		<Tag>TXT_KEY_ARCHID_OPT_STRATEGYOVERLAY__SHOWDOTMAP_TEXT</Tag>
+		<English>Show DotMap</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_STRATEGYOVERLAY__SHOWDOTMAP_HOVER</Tag>
+		<English>Whether the strategy layer dot map should be displayed</English>
+	</TEXT>
+	<TEXT> <!-- StrategyOverlay__DotMapDrawDots -->
+		<Tag>TXT_KEY_ARCHID_OPT_STRATEGYOVERLAY__DOTMAPDRAWDOTS_TEXT</Tag>
+		<English>DotMap Draw Dots</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_STRATEGYOVERLAY__DOTMAPDRAWDOTS_HOVER</Tag>
+		<English>Whether the strategy layer should draw dots in the centre</English>
+	</TEXT>
+	<TEXT> <!-- StrategyOverlay__DotMapDotIcon -->
+		<Tag>TXT_KEY_ARCHID_OPT_STRATEGYOVERLAY__DOTMAPDOTICON_TEXT</Tag>
+		<English>DotMap Dot Icon</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_STRATEGYOVERLAY__DOTMAPDOTICON_HOVER</Tag>
+		<English>Icon to use for the dot from PlotStyles enum values</English>
+	</TEXT>
+	<TEXT> <!-- StrategyOverlay__DotMapBrightness -->
+		<Tag>TXT_KEY_ARCHID_OPT_STRATEGYOVERLAY__DOTMAPBRIGHTNESS_TEXT</Tag>
+		<English>DotMap Brightness</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_STRATEGYOVERLAY__DOTMAPBRIGHTNESS_HOVER</Tag>
+		<English>Percentage brightness of the overlay dotmaps</English>
+	</TEXT>
+	<TEXT> <!-- StrategyOverlay__DotMapHighlightBrightness -->
+		<Tag>TXT_KEY_ARCHID_OPT_STRATEGYOVERLAY__DOTMAPHIGHLIGHTBRIGHTNESS_TEXT</Tag>
+		<English>DotMap Highlight Brightness</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_STRATEGYOVERLAY__DOTMAPHIGHLIGHTBRIGHTNESS_HOVER</Tag>
+		<English>Percentage hightlight brightness of the overlay dotmaps</English>
+	</TEXT>
+
 </Civ4GameText>

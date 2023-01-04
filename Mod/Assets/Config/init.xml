@@ -72,6 +72,7 @@
 	<load mod="CityBar"/>
 	<load mod="MigratingGP"/>
 	<load mod="MiscHovers"/>
+	<load mod="StrategyOverlay"/>
 	<load mod="UnitActions"/>
 
 	<load mod="Tester"/>

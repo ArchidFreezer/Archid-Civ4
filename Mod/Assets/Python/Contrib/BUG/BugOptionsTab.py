@@ -113,7 +113,7 @@ class BugOptionsTab:
 
 		# Exit button
 		title = BugUtil.getPlainText("TXT_KEY_ARCHID_OPT_EXIT", "Exit")
-		hover = BugUtil.getPlainText("TXT_KEY_ARCHID_OPT_EXIT_HOVER", "Exits the K-Fallout Options screen.")
+		hover = BugUtil.getPlainText("TXT_KEY_ARCHID_OPT_EXIT_HOVER", "Exits the Archid Options screen.")
 		exitButton = self.name + "Exit"
 		self.addButton(screen, exitPanel, exitButton, exitCallback, title, hover)
 

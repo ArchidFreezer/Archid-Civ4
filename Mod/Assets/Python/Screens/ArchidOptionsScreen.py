@@ -78,7 +78,6 @@ class ArchidOptionsScreen:
 		# TODO: check for error
 		if (write):
 			self.options.write()
-		self.options.write()
 		self.pTabControl.destroy()
 		self.pTabControl = None
 		if self.reopen:

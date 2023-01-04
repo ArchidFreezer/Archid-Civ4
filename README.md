@@ -17,6 +17,10 @@ There are several additional screens available with the mod that are accessed vi
 - [Ctrl-F11] - List of Info IDs from XML files
 - [Ctrl-F12] - Shows time details for game speeds 
 
+### Strategy Overlay
+- [Ctrl-X] - Toggle dot map visibility
+- [Alt-X]  - Toggle dot map edit mode
+
 ### Testing
 - [Ctrl-Shift-K] - Open popup to kill player units, cities and/or deals
 - [Ctrl-Shift-L] - Open popup to switch which player the human controls 
