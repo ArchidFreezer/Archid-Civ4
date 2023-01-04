@@ -320,16 +320,14 @@ bool isPromotionValid(PromotionTypes ePromotion, UnitTypes eUnit, bool bLeader) 
 		}
 	}
 
-	bool bValid = true;
-	for (int iI = 0; iI < kPromotion.getNumPrereqOrPromotions(); iI++) {
-		bValid = false;
-		if (isPromotionValid((PromotionTypes)kPromotion.getPrereqOrPromotion(iI), eUnit, bLeader)) {
-			bValid = true;
-			break;
+	if (kPromotion.getNumPrereqOrPromotions() > 0) {
+		bool bFoundPrereq = false;
+		for (int iI = 0; iI < kPromotion.getNumPrereqOrPromotions() && !bFoundPrereq; iI++) {
+			bFoundPrereq = isPromotionValid((PromotionTypes)kPromotion.getPrereqOrPromotion(iI), eUnit, bLeader);
 		}
-	}
-	if (!bValid) {
-		return false;
+		if (!bFoundPrereq) {
+			return false;
+		}
 	}
 
 	return true;
