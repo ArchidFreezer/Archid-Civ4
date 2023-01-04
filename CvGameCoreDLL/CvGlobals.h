@@ -134,6 +134,7 @@ class CvVoteSourceInfo;
 class CvMainMenuInfo;
 class CvStarEventInfo;
 class CvWorldViewInfo;
+class CvUnitCombatInfo;
 
 class CvGlobals {
 	//	friend class CvDLLUtilityIFace;
@@ -421,8 +422,8 @@ public:
 	CvVoteSourceInfo& getVoteSourceInfo(VoteSourceTypes e);
 
 	int getNumUnitCombatInfos();
-	std::vector<CvInfoBase*>& getUnitCombatInfo();
-	CvInfoBase& getUnitCombatInfo(UnitCombatTypes e);
+	std::vector<CvUnitCombatInfo*>& getUnitCombatInfo();
+	CvUnitCombatInfo& getUnitCombatInfo(UnitCombatTypes e);
 
 	std::vector<CvInfoBase*>& getDomainInfo();
 	CvInfoBase& getDomainInfo(DomainTypes e);
@@ -816,6 +817,8 @@ public:
 	inline int getSTAR_SIGN_BAD_CHANCE() { return m_iSTAR_SIGN_BAD_CHANCE; }
 	inline int getSTAR_SIGN_NO_EFFECT_CHANCE() { return m_iSTAR_SIGN_NO_EFFECT_CHANCE; }
 	inline int getSTAR_SIGN_AGGREGATE_RESULTS_CAP() { return m_iSTAR_SIGN_AGGREGATE_RESULTS_CAP; }
+	inline int getFORT_ATTACK_DAMAGE_CAP() { return m_iFORT_ATTACK_DAMAGE_CAP; }
+	inline int getFORT_ATTACK_BASE_DAMAGE() { return m_iFORT_ATTACK_BASE_DAMAGE; }
 
 	inline bool getBBAI_AIR_COMBAT() { return m_bBBAI_AIR_COMBAT; }
 	inline bool getBBAI_HUMAN_AS_VASSAL_OPTION() { return m_bBBAI_HUMAN_AS_VASSAL_OPTION; }
@@ -841,6 +844,7 @@ public:
 	inline bool getUSE_UNIT_UPGRADE_PRICE_CALLBACK() { return m_bUSE_UNIT_UPGRADE_PRICE_CALLBACK; }
 	inline bool getTECH_DIFFUSION_ENABLE() { return m_bTECH_DIFFUSION_ENABLE; }
 	inline bool getANIMALS_SPAWN_WITH_BARBARIANS() { return m_bANIMALS_SPAWN_WITH_BARBARIANS; }
+	inline bool getFORT_ATTACK_CITIES_ALSO() { return m_bFORT_ATTACK_CITIES_ALSO; }
 
 	inline const CvString& getSTAR_SIGN_DEFAULT_TEXT_KEY_BAD() { return m_szSTAR_SIGN_DEFAULT_TEXT_KEY_BAD; }
 	inline const CvString& getSTAR_SIGN_DEFAULT_TEXT_KEY_GOOD() { return m_szSTAR_SIGN_DEFAULT_TEXT_KEY_GOOD; }
@@ -1113,7 +1117,7 @@ protected:
 	std::vector<CvInfoBase*> m_paDenialInfo;
 	std::vector<CvInfoBase*> m_paInvisibleInfo;
 	std::vector<CvVoteSourceInfo*> m_paVoteSourceInfo;
-	std::vector<CvInfoBase*> m_paUnitCombatInfo;
+	std::vector<CvUnitCombatInfo*> m_paUnitCombatInfo;
 	std::vector<CvInfoBase*> m_paDomainInfo;
 	std::vector<CvInfoBase*> m_paUnitAIInfos;
 	std::vector<CvInfoBase*> m_paAttitudeInfos;
@@ -1328,6 +1332,8 @@ protected:
 	int m_iSTAR_SIGN_BAD_CHANCE;
 	int m_iSTAR_SIGN_NO_EFFECT_CHANCE;
 	int m_iSTAR_SIGN_AGGREGATE_RESULTS_CAP;
+	int m_iFORT_ATTACK_DAMAGE_CAP;
+	int m_iFORT_ATTACK_BASE_DAMAGE;
 
 	bool m_bBBAI_AIR_COMBAT;
 	bool m_bBBAI_HUMAN_VASSAL_WAR_BUILD;
@@ -1353,6 +1359,7 @@ protected:
 	bool m_bUSE_GET_EXPERIENCE_NEEDED_CALLBACK;
 	bool m_bUSE_UNIT_UPGRADE_PRICE_CALLBACK;
 	bool m_bANIMALS_SPAWN_WITH_BARBARIANS;
+	bool m_bFORT_ATTACK_CITIES_ALSO;
 
 	CvString m_szSTAR_SIGN_DEFAULT_TEXT_KEY_BAD;
 	CvString m_szSTAR_SIGN_DEFAULT_TEXT_KEY_GOOD;

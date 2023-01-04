@@ -52,6 +52,7 @@ public:
 	void doTurn();
 
 	void doImprovement();
+	bool isCanFortAttack() const;
 
 	void updateCulture(bool bBumpUnits, bool bUpdatePlotGroups);
 
@@ -575,6 +576,7 @@ protected:
 
 	void doFeature();
 	void doCulture();
+	void doFortAttack();
 
 	void processArea(CvArea* pArea, int iChange);
 	void doImprovementUpgrade();

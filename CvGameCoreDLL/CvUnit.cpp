@@ -11547,3 +11547,14 @@ bool CvUnit::canTradeUnit(PlayerTypes eReceivingPlayer) {
 
 	return true;
 }
+
+bool CvUnit::canFortAttack() const {
+	bool bFortAttack = false;
+	for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+		if (GC.getUnitCombatInfo(eUnitCombat).isFortAttack() && isUnitCombatType(eUnitCombat)) {
+			bFortAttack = true;
+			break;
+		}
+	}
+	return bFortAttack;
+}

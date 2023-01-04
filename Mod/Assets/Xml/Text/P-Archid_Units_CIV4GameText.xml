@@ -8,6 +8,10 @@
 		<Tag>TXT_KEY_UNITCOMBAT_ANIMAL</Tag>
 		<English>Animal Units</English>
 	</TEXT>
+	<TEXT> <!-- Fort Ranged -->
+		<Tag>TXT_KEY_UNITCOMBAT_FORT_RANGED</Tag>
+		<English>Fort Ranged</English>
+	</TEXT>
 	<TEXT> <!-- Wooden Ships -->
 		<Tag>TXT_KEY_UNITCOMBAT_WOODEN_SHIPS</Tag>
 		<English>Wooden Ships</English>

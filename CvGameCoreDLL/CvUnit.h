@@ -93,6 +93,8 @@ public:
 
 	DllExport void NotifyEntity(MissionTypes eMission);
 
+	bool canFortAttack() const;
+
 	bool canTradeUnit(PlayerTypes eReceivingPlayer);
 	void tradeUnit(PlayerTypes eReceivingPlayer);
 

@@ -346,6 +346,8 @@ void CvPlot::doTurn() {
 
 	verifyUnitValidPlot();
 
+	doFortAttack();
+
 	// XXX
 #ifdef _DEBUG
 	{
@@ -8061,4 +8063,137 @@ bool CvPlot::isTeamBonus(TeamTypes eTeam) const {
 		return true;
 
 	return false;
+}
+
+bool CvPlot::isCanFortAttack() const {
+	if (GC.getFORT_ATTACK_CITIES_ALSO())
+		return isCity(true);
+	else
+		return getImprovementType() != NO_IMPROVEMENT && GC.getImprovementInfo(getImprovementType()).isActsAsCity();
+}
+
+void CvPlot::doFortAttack() {
+
+	// No Fort? Move along, nothing to see here
+	if (!isCanFortAttack()) {
+		return;
+	}
+
+	// Teams that have a unit that can attack
+	std::vector<TeamTypes> attackTeams;
+	// Players that have attacked
+	std::vector<PlayerTypes> attackPlayers;
+	// Players that have been attacked
+	std::vector<PlayerTypes> targettedPlayers;
+	// Units that can attack
+	std::vector<CvUnit*> attackers;
+	// Potential target units for each attacking team
+	std::map <TeamTypes, std::vector<CvUnit*> > targets;
+
+	TeamTypes ePlotTeam = getOwnerINLINE() == NO_PLAYER ? NO_TEAM : GET_PLAYER(getOwner()).getTeam();
+
+	// Get set of valid attackers from each team
+	CLLNode<IDInfo>* pUnitNode = headUnitNode();
+	while (pUnitNode != NULL) {
+		CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+		pUnitNode = nextUnitNode(pUnitNode);
+		if (pLoopUnit->getUnitCombatType() == NO_UNITCOMBAT)
+			continue;
+
+		if (pLoopUnit->canFortAttack() && !pLoopUnit->isOnlyDefensive()) {
+			attackTeams.push_back(pLoopUnit->getTeam());
+			attackers.push_back(pLoopUnit);
+		}
+	}
+
+	// If there are no attackers then nothing to do
+	if (attackers.empty()) {
+		return;
+	}
+
+	// Check if there are any valid potential targets in the vicinity
+	bool bFoundTarget = false;
+	for (DirectionTypes eDirection = (DirectionTypes)0; eDirection < NUM_DIRECTION_TYPES; eDirection = (DirectionTypes)(eDirection + 1)) {
+		CvPlot* pAdjacentPlot = plotDirection(getX_INLINE(), getY_INLINE(), eDirection);
+		if (pAdjacentPlot != NULL) {
+			pUnitNode = pAdjacentPlot->headUnitNode();
+			while (pUnitNode != NULL) {
+				CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+				pUnitNode = pAdjacentPlot->nextUnitNode(pUnitNode);
+
+				// Only attack military units and ones that are not too damaged already
+				if (!pLoopUnit->isOnlyDefensive() && pLoopUnit->getDamage() < GC.getFORT_ATTACK_DAMAGE_CAP()) {
+					TeamTypes eTeamToCheckForWar;
+					for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_TEAMS; eTeam = (TeamTypes)(eTeam + 1)) {
+						// If the plot is in a players territory then only attack teams that they are at war with
+						eTeamToCheckForWar = ePlotTeam == NO_TEAM ? eTeam : ePlotTeam;
+						// If there are attackers from this team and potential target is at war and visible then add them to the list
+						if (std::find(attackTeams.begin(), attackTeams.end(), eTeam) != attackTeams.end()) {
+							if (GET_TEAM(eTeamToCheckForWar).isAtWar(pLoopUnit->getTeam()) && !pLoopUnit->isInvisible(eTeam, false, false)) {
+								bFoundTarget = true;
+								targets[eTeam].push_back(pLoopUnit);
+							}
+						}
+					}
+				}
+
+			}
+
+		}
+	}
+	if (!bFoundTarget) {
+		return;
+	}
+
+	// Loop through the attackers and perform the attack
+	std::random_shuffle(attackers.begin(), attackers.end());
+	while (!attackers.empty()) {
+		// Get the next attacking unit and remove it from the vector
+		CvUnit* pAttacker = attackers.back();
+		attackers.pop_back();
+		TeamTypes eAttackerTeam = pAttacker->getTeam();
+		PlayerTypes eAttackerPlayer = pAttacker->getOwnerINLINE();
+
+		// Select a random target
+		int iNumPotentialTargets = targets[eAttackerTeam].size();
+		if (iNumPotentialTargets <= 0)
+			continue;
+
+		int iTarget = GC.getGameINLINE().getSorenRandNum(iNumPotentialTargets, "Fort Attack Target");
+		CvUnit* pTarget = targets[eAttackerTeam][iTarget];
+		PlayerTypes eTargetPlayer = pTarget->getOwnerINLINE();
+
+		// Perform the attack
+		float fAttackerPower = (1.0f * pAttacker->baseCombatStr() * (100 - pAttacker->getDamage()) / 100);
+		float fTargetPower = (1.0f * pTarget->baseCombatStr() * (100 - pTarget->getDamage()) / 100);
+		int iDamage = (int)(GC.getFORT_ATTACK_BASE_DAMAGE() * fAttackerPower / fTargetPower);
+		if (iDamage > 0) {
+			if (std::find(attackPlayers.begin(), attackPlayers.end(), eAttackerPlayer) == attackPlayers.end())
+				attackPlayers.push_back(eAttackerPlayer);
+
+			pTarget->setDamage(std::min(GC.getFORT_ATTACK_DAMAGE_CAP(), pTarget->getDamage() + iDamage), eAttackerPlayer);
+			if (std::find(targettedPlayers.begin(), targettedPlayers.end(), eTargetPlayer) == targettedPlayers.end())
+				targettedPlayers.push_back(eTargetPlayer);
+			// If the target has taken the max allowed value remove it as a future potential target
+			if (pTarget->getDamage() > GC.getFORT_ATTACK_DAMAGE_CAP()) {
+				targets[eAttackerTeam].erase(targets[eAttackerTeam].begin() + iTarget);
+			}
+		}
+	}
+
+	// Send out notifications
+	CvWString szBuffer;
+	if (ePlotTeam == NO_TEAM) {
+		szBuffer = gDLL->getText("TXT_KEY_MISC_FORT_ATTACKED_NEUTRAL");
+	} else {
+		szBuffer = gDLL->getText("TXT_KEY_MISC_FORT_ATTACKED_ENEMY", GET_PLAYER(getOwnerINLINE()).getCivilizationAdjective());
+	}
+	for (std::vector<PlayerTypes>::iterator it = targettedPlayers.begin(); it != targettedPlayers.end(); ++it) {
+		gDLL->getInterfaceIFace()->addHumanMessage(*it, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_INTERCEPT", MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), getX_INLINE(), getY_INLINE(), true, true);
+	}
+	// Send out notification to the attacker
+	for (std::vector<PlayerTypes>::iterator it = attackPlayers.begin(); it != attackPlayers.end(); ++it) {
+		gDLL->getInterfaceIFace()->addHumanMessage(*it, false, GC.getEVENT_MESSAGE_TIME(), gDLL->getText("TXT_KEY_MISC_FORT_ATTACKED_ATTACKER"), "AS2D_INTERCEPT", MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), getX_INLINE(), getY_INLINE(), true, true);
+	}
+
 }

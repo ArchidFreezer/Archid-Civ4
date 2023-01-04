@@ -901,5 +901,18 @@
 		<Tag>TXT_KEY_WV_SLAVERY_DISABLE</Tag>
 		<English>Abolish Slavery</English>
 	</TEXT>
+<!-- Fort Attack -->
+	<TEXT>
+		<Tag>TXT_KEY_MISC_FORT_ATTACKED_ENEMY</Tag>
+		<English>Your units have been attacked from a fort in %s1_Name territory</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_FORT_ATTACKED_NEUTRAL</Tag>
+		<English>Your units have been attacked from a fort in neutral territory</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_FORT_ATTACKED_ATTACKER</Tag>
+		<English>Your have attacked your enemies from your fortifications</English>
+	</TEXT>
 
 </Civ4GameText>

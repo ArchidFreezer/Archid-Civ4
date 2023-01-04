@@ -1014,6 +1014,9 @@
 			<Class>UNITCLASS_ARCHER</Class>
 			<Type>UNIT_ARCHER</Type>
 			<Combat>UNITCOMBAT_ARCHER</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_CITY_DEFENSE</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_ARCHER</Description>
@@ -1066,6 +1069,9 @@
 			<Class>UNITCLASS_ARCHER</Class>
 			<Type>UNIT_BABYLON_BOWMAN</Type>
 			<Combat>UNITCOMBAT_ARCHER</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_CITY_DEFENSE</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_BABYLON_BOWMAN</Description>
@@ -1124,6 +1130,9 @@
 			<Class>UNITCLASS_ARCHER</Class>
 			<Type>UNIT_MALI_SKIRMISHER</Type>
 			<Combat>UNITCOMBAT_ARCHER</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_CITY_DEFENSE</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_MALI_SKIRMISHER</Description>
@@ -1177,6 +1186,9 @@
 			<Class>UNITCLASS_CROSSBOWMAN</Class>
 			<Type>UNIT_CROSSBOWMAN</Type>
 			<Combat>UNITCOMBAT_ARCHER</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_CROSSBOWMAN</Description>
@@ -1237,6 +1249,9 @@
 			<Class>UNITCLASS_CROSSBOWMAN</Class>
 			<Type>UNIT_CHINA_CHOKONU</Type>
 			<Combat>UNITCOMBAT_ARCHER</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_CHINA_CHOKONU</Description>
@@ -1300,6 +1315,9 @@
 			<Class>UNITCLASS_LONGBOWMAN</Class>
 			<Type>UNIT_LONGBOWMAN</Type>
 			<Combat>UNITCOMBAT_ARCHER</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_CITY_DEFENSE</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_LONGBOWMAN</Description>
@@ -2379,6 +2397,9 @@
 			<Class>UNITCLASS_MUSKETMAN</Class>
 			<Type>UNIT_MUSKETMAN</Type>
 			<Combat>UNITCOMBAT_GUN</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_MUSKETMAN</Description>
@@ -2430,6 +2451,9 @@
 			<Class>UNITCLASS_MUSKETMAN</Class>
 			<Type>UNIT_ETHIOPIAN_OROMO_WARRIOR</Type>
 			<Combat>UNITCOMBAT_GUN</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_ETHIOPIAN_OROMO_WARRIOR</Description>
@@ -2495,6 +2519,9 @@
 			<Class>UNITCLASS_MUSKETMAN</Class>
 			<Type>UNIT_FRENCH_MUSKETEER</Type>
 			<Combat>UNITCOMBAT_GUN</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_FRENCH_MUSKETEER</Description>
@@ -2548,6 +2575,9 @@
 			<Class>UNITCLASS_MUSKETMAN</Class>
 			<Type>UNIT_OTTOMAN_JANISSARY</Type>
 			<Combat>UNITCOMBAT_GUN</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_OTTOMAN_JANISSARY</Description>
@@ -2613,6 +2643,9 @@
 			<Class>UNITCLASS_GRENADIER</Class>
 			<Type>UNIT_GRENADIER</Type>
 			<Combat>UNITCOMBAT_GUN</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_CITY</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_GRENADIER</Description>
@@ -2673,6 +2706,9 @@
 			<Class>UNITCLASS_RIFLEMAN</Class>
 			<Type>UNIT_RIFLEMAN</Type>
 			<Combat>UNITCOMBAT_GUN</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_CITY_DEFENSE</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_RIFLEMAN</Description>
@@ -2732,6 +2768,9 @@
 			<Class>UNITCLASS_RIFLEMAN</Class>
 			<Type>UNIT_ENGLISH_REDCOAT</Type>
 			<Combat>UNITCOMBAT_GUN</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_CITY_DEFENSE</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_ENGLISH_REDCOAT</Description>
@@ -6785,6 +6824,9 @@
 			<Class>UNITCLASS_CATAPULT</Class>
 			<Type>UNIT_CATAPULT</Type>
 			<Combat>UNITCOMBAT_SIEGE</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_CITY</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_CATAPULT</Description>
@@ -6846,6 +6888,9 @@
 			<Class>UNITCLASS_CATAPULT</Class>
 			<Type>UNIT_KOREAN_HWACHA</Type>
 			<Combat>UNITCOMBAT_SIEGE</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_CITY</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_KOREAN_HWACHA</Description>
@@ -6914,6 +6959,9 @@
 			<Class>UNITCLASS_TREBUCHET</Class>
 			<Type>UNIT_TREBUCHET</Type>
 			<Combat>UNITCOMBAT_SIEGE</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_CITY</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_TREBUCHET</Description>
@@ -6979,6 +7027,9 @@
 			<Class>UNITCLASS_CANNON</Class>
 			<Type>UNIT_CANNON</Type>
 			<Combat>UNITCOMBAT_SIEGE</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_CITY</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_CANNON</Description>
@@ -7041,6 +7092,9 @@
 			<Class>UNITCLASS_MACHINE_GUN</Class>
 			<Type>UNIT_MACHINE_GUN</Type>
 			<Combat>UNITCOMBAT_SIEGE</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_CITY_SPECIAL</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_MACHINE_GUN</Description>
@@ -7106,6 +7160,9 @@
 			<Class>UNITCLASS_ARTILLERY</Class>
 			<Type>UNIT_ARTILLERY</Type>
 			<Combat>UNITCOMBAT_SIEGE</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_CITY</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_ARTILLERY</Description>
@@ -7174,6 +7231,9 @@
 			<Class>UNITCLASS_MOBILE_ARTILLERY</Class>
 			<Type>UNIT_MOBILE_ARTILLERY</Type>
 			<Combat>UNITCOMBAT_SIEGE</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_CITY</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_MOBILE_ARTILLERY</Description>

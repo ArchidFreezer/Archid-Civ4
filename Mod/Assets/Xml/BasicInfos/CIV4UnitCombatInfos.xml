@@ -88,6 +88,12 @@
 			<Description>TXT_KEY_UNITCOMBAT_ANIMAL</Description>
 			<Button>Art/Interface/Buttons/Combat/combat_animal.dds</Button>
 		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Fort Ranged -->
+			<Type>UNITCOMBAT_FORT_RANGED</Type>
+			<Description>TXT_KEY_UNITCOMBAT_FORT_RANGED</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_fort_ranged.dds</Button>
+			<bFortAttack>1</bFortAttack>
+		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Worker -->
 			<Type>UNITCOMBAT_WORKER</Type>
 			<Description>TXT_KEY_UNITCOMBAT_WORKER</Description>

@@ -6603,4 +6603,24 @@ private:
 	CvString m_szRepealButton;
 };
 
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//
+//  class : CvUnitCombatInfo
+//
+//
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+class CvUnitCombatInfo : public CvInfoBase {
+public:
+
+	CvUnitCombatInfo();
+	virtual ~CvUnitCombatInfo();
+
+	bool isFortAttack() const;
+
+	bool read(CvXMLLoadUtility* pXML);
+
+protected:
+	bool m_bFortAttack;
+};
+
 #endif

@@ -20452,3 +20452,44 @@ bool CvWorldViewInfo::read(CvXMLLoadUtility* pXML) {
 
 	return true;
 }
+
+//======================================================================================================
+//					CvUnitCombatInfo
+//======================================================================================================
+
+//------------------------------------------------------------------------------------------------------
+//
+//  FUNCTION:   CvUnitCombatInfo()
+//
+//  PURPOSE :   Default constructor
+//
+//------------------------------------------------------------------------------------------------------
+CvUnitCombatInfo::CvUnitCombatInfo() :
+	m_bFortAttack(false) {
+}
+
+//------------------------------------------------------------------------------------------------------
+//
+//  FUNCTION:   ~CvUnitCombatInfo()
+//
+//  PURPOSE :   Default destructor
+//
+//------------------------------------------------------------------------------------------------------
+CvUnitCombatInfo::~CvUnitCombatInfo() {
+}
+
+bool CvUnitCombatInfo::isFortAttack() const {
+	return m_bFortAttack;
+}
+
+bool CvUnitCombatInfo::read(CvXMLLoadUtility* pXML) {
+	CvString szTextVal;
+	if (!CvInfoBase::read(pXML)) {
+		return false;
+	}
+
+	pXML->GetChildXmlValByName(&m_bFortAttack, "bFortAttack");
+
+
+	return true;
+}
