@@ -6,6 +6,19 @@
 		<English>Disorganized</English>
 		<Spanish>Desorganizado</Spanish>
 	</TEXT>
+	<!-- Slaver Promotions -->
+	<TEXT> <!-- Slaver I -->
+		<Tag>TXT_KEY_PROMOTION_SLAVER1</Tag>
+		<English>Slaver I</English>
+	</TEXT>
+	<TEXT> <!-- Slaver II -->
+		<Tag>TXT_KEY_PROMOTION_SLAVER2</Tag>
+		<English>Slaver II</English>
+	</TEXT>
+	<TEXT> <!-- Slaver III -->
+		<Tag>TXT_KEY_PROMOTION_SLAVER3</Tag>
+		<English>Slaver III</English>
+	</TEXT>
 
 <!-- ************	-->
 <!-- Text         -->
@@ -25,5 +38,9 @@
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_RANGE_MODIFY</Tag>
 		<English>%D1_Change% Range modification</English>
+	</TEXT>
+	<TEXT> <!-- Slaver Help Text -->
+		<Tag>TXT_KEY_PROMOTION_ENSLAVE_TEXT</Tag>
+		<English>[ICON_BULLET]+%d1_Num to the max units enslaved per turn</English>
 	</TEXT>
 </Civ4GameText>

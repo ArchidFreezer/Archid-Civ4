@@ -485,6 +485,13 @@
 	<ElementType name="ObsoleteTech" content="textOnly"/>
 	<ElementType name="bWorkerTrade" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bMilitaryTrade" content="textOnly" dt:type="boolean"/>
+	<ElementType name="WorldViewType" content="textOnly"/>
+	<ElementType name="PrereqWorldViews" content="eltOnly">
+		<element type="WorldViewType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="SlaveSpecialistType" content="textOnly"/>
+	<ElementType name="iEnslaveCount" content="textOnly" dt:type="int"/>
+	<ElementType name="bSlave" content="textOnly" dt:type="boolean"/>
 	<ElementType name="UnitInfo" content="eltOnly">
 		<element type="Class"/>
 		<element type="Type"/>
@@ -537,6 +544,7 @@
 		<element type="bRenderAlways" minOccurs="0"/>
 		<element type="bSuicide" minOccurs="0"/>
 		<element type="bSingleBuild" minOccurs="0"/>
+		<element type="bSlave" minOccurs="0"/>
 		<element type="bLineOfSight" minOccurs="0"/>
 		<element type="bHiddenNationality" minOccurs="0"/>
 		<element type="bAlwaysHostile" minOccurs="0"/>
@@ -554,6 +562,7 @@
 		<element type="ReligionSpreads" minOccurs="0"/>
 		<element type="CorporationSpreads" minOccurs="0"/>
 		<element type="GreatPeoples" minOccurs="0"/>
+		<element type="SlaveSpecialistType" minOccurs="0"/>
 		<element type="Buildings" minOccurs="0"/>
 		<element type="ForceBuildings" minOccurs="0"/>
 		<element type="HolyCity" minOccurs="0"/>
@@ -576,6 +585,7 @@
 		<element type="PrereqVicinityOrBonus" minOccurs="0"/>
 		<element type="PrereqVicinityImprovements" minOccurs="0"/>
 		<element type="PrereqVicinityFeatures" minOccurs="0"/>
+		<element type="PrereqWorldViews" minOccurs="0"/>
 		<element type="iMinPopulation" minOccurs="0"/>
 		<element type="MinCultureLevel" minOccurs="0"/>
 		<element type="bPrereqPower" minOccurs="0"/>
@@ -583,6 +593,7 @@
 		<element type="Flavors" minOccurs="0"/>
 		<element type="iAIWeight" minOccurs="0"/>
 		<element type="iCost" minOccurs="0"/>
+		<element type="iEnslaveCount" minOccurs="0"/>
 		<element type="iHurryCostModifier" minOccurs="0"/>
 		<element type="iAdvancedStartCost" minOccurs="0"/>
 		<element type="iAdvancedStartCostIncrease" minOccurs="0"/>
@@ -820,6 +831,7 @@
 		<element type="PromotionType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="bCanMovePeaks" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iEnslaveCountChange" content="textOnly" dt:type="int"/>
 	<ElementType name="PromotionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -841,6 +853,7 @@
 		<element type="bHillsDoubleMove" minOccurs="0"/>
 		<element type="bCanMovePeaks" minOccurs="0"/>
 		<element type="bImmuneToFirstStrikes" minOccurs="0"/>
+		<element type="iEnslaveCountChange" minOccurs="0"/>
 		<element type="iVisibilityChange" minOccurs="0"/>
 		<element type="iMovesChange" minOccurs="0"/>
 		<element type="iMoveDiscountChange" minOccurs="0"/>

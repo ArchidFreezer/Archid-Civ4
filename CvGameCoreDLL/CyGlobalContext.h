@@ -311,6 +311,11 @@ public:
 	int getNUM_CITY_PLOTS() const { return GC.getNUM_CITY_PLOTS(); }
 	int getCITY_HOME_PLOT() const { return GC.getCITY_HOME_PLOT(); }
 	int getINITIAL_UNIT_RANGE() const { return GC.getINITIAL_UNIT_RANGE(); }
+	int getSLAVERY_REVOLT_ADDRESS_COST() const { return GC.getSLAVERY_REVOLT_ADDRESS_COST(); }
+	int getSLAVERY_SLAVE_COST_BASE() const { return GC.getSLAVERY_SLAVE_COST_BASE(); }
+	int getSLAVERY_SLAVE_COST_SCALE() const { return GC.getSLAVERY_SLAVE_COST_SCALE(); }
+	int getSLAVERY_SETTLED_SLAVE_DEATH_CHANCE() const { return GC.getSLAVERY_SETTLED_SLAVE_DEATH_CHANCE(); }
+	int getSLAVERY_SETTLED_PROF_SLAVE_DEATH_CHANCE() const { return GC.getSLAVERY_SETTLED_PROF_SLAVE_DEATH_CHANCE(); }
 
 	void clearIniOptMaps();
 };

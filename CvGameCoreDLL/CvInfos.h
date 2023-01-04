@@ -245,6 +245,7 @@ public:
 	int getStarSignMitigateChange() const;
 
 	bool isVisible() const;				// Exposed to Python
+	bool isSlave() const;
 
 	// Arrays
 
@@ -270,6 +271,7 @@ protected:
 	int m_iExperience;
 
 	bool m_bVisible;				// Exposed to Python
+	bool m_bSlave;
 
 	CvString m_szTexture;
 
@@ -375,6 +377,7 @@ public:
 	int getPrereqAndTech(int i) const;
 	int getPrereqOrTech(int i) const;
 	int getEnabledWorldView(int i) const;
+	int getWorldViewRevoltTurnChange(int i) const;
 
 	bool isCommerceFlexible(int i) const;	// Exposed to Python
 	bool isTerrainTrade(int i) const;			// Exposed to Python
@@ -458,6 +461,7 @@ protected:
 	int* m_piForestPlotYieldChange;
 	int* m_piRiverPlotYieldChange;
 	int* m_piSeaPlotYieldChange;
+	int* m_piWorldViewRevoltTurnChange;
 
 	bool* m_pbCommerceFlexible;
 	bool* m_pbTerrainTrade;
@@ -521,6 +525,7 @@ public:
 	int getNumNotCombatTypes() const;
 	int getNumOrCombatTypes() const;
 	int getNumPrereqOrPromotions() const;
+	int getEnslaveCountChange() const;
 
 	bool isLeader() const;				// Exposed to Python
 	bool isBlitz() const;				// Exposed to Python
@@ -601,6 +606,7 @@ protected:
 	int m_iUnitRangeChange;
 	int m_iUnitRangePercentChange;
 	int m_iPromotionGroup;
+	int m_iEnslaveCountChange;
 
 	bool m_bLeader;
 	bool m_bBlitz;
@@ -894,7 +900,6 @@ public:
 	int getBombardRate() const;								// Exposed to Python
 	int getSpecialCargo() const;							// Exposed to Python
 	int getDomainCargo() const;								// Exposed to Python
-
 	int getCargoSpace() const;								// Exposed to Python
 	int getConscriptionValue() const;					// Exposed to Python
 	int getCultureGarrisonValue() const;			// Exposed to Python
@@ -942,6 +947,9 @@ public:
 	int getObsoleteTech() const;
 	int getNumPrereqAndTechs() const;
 	int getNumPrereqOrBonuses() const;				// Exposed to Python
+	int getSlaveSpecialistType() const;
+	int getEnslaveCount() const;
+	int getNumPrereqWorldViews() const;
 
 	bool isAnimal() const;				// Exposed to Python
 	bool isFoodProduction() const;				// Exposed to Python
@@ -985,6 +993,7 @@ public:
 	bool isPrereqPower() const;
 	bool isWorkerTrade() const;
 	bool isMilitaryTrade() const;
+	bool isSlave() const;
 
 	float getUnitMaxSpeed() const;					// Exposed to Python
 	float getUnitPadTime() const;					// Exposed to Python
@@ -1027,6 +1036,7 @@ public:
 	int getSubCombatType(int i) const;
 	int getPrereqAndTech(int i) const;
 	int getPrereqOrBonus(int i) const;
+	int getPrereqWorldView(int i) const;
 
 	bool getUpgradeUnitClass(int i) const;	// Exposed to Python
 	bool getTargetUnitClass(int i) const;	// Exposed to Python
@@ -1058,6 +1068,7 @@ public:
 	bool isCombatType(int i) const;
 	bool isPrereqAndTech(int i) const;
 	bool isPrereqOrBonus(int i) const;
+	bool isPrereqWorldView(int i) const;
 
 	const TCHAR* getEarlyArtDefineTag(int i, UnitArtStyleTypes eStyle) const;				// Exposed to Python
 	void setEarlyArtDefineTag(int i, const TCHAR* szVal);
@@ -1156,6 +1167,8 @@ protected:
 	int m_iLeaderPromotion;
 	int m_iMinPopulation;
 	int m_iObsoleteTech;
+	int m_iEnslaveCount;
+	int m_iSlaveSpecialistType;
 
 	bool m_bAnimal;
 	bool m_bFoodProduction;
@@ -1199,6 +1212,7 @@ protected:
 	bool m_bPrereqPower;
 	bool m_bWorkerTrade;
 	bool m_bMilitaryTrade;
+	bool m_bSlave;
 
 	CultureLevelTypes m_eMinCultureLevel;
 	UnitRangeTypes 	m_eRangeType;
@@ -1267,6 +1281,7 @@ protected:
 	std::vector<int> m_viSubCombatTypes;
 	std::vector<int> m_viPrereqAndTechs;
 	std::vector<int> m_viPrereqOrBonuses;
+	std::vector<int> m_viPrereqWorldViews;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1771,6 +1786,7 @@ public:
 	int getGlobalStarSignScaleChangePercent() const;
 	int getStarSignMitigateChangePercent() const;
 	int getGlobalStarSignMitigateChangePercent() const;
+	int getNumPrereqWorldViews() const;
 
 	float getVisibilityPriority() const;
 
@@ -1798,6 +1814,7 @@ public:
 	bool isAutoBuild() const;
 	bool isForceDisableStarSigns() const;
 	bool isStarSignGoodOnly() const;
+	bool isSlaveMarket() const;
 
 	CultureLevelTypes getMinCultureLevel() const;
 
@@ -1826,7 +1843,6 @@ public:
 	int* getRiverPlotYieldChangeArray() const;
 	int getGlobalSeaPlotYieldChange(int i) const;				// Exposed to Python
 	int* getGlobalSeaPlotYieldChangeArray() const;
-
 	int getCommerceChange(int i) const;				// Exposed to Python
 	int* getCommerceChangeArray() const;
 	int getObsoleteSafeCommerceChange(int i) const;				// Exposed to Python
@@ -1869,6 +1885,7 @@ public:
 	int getPrereqAndBuildingClass(int i) const;
 	int getPrereqOrBuildingClass(int i) const;
 	int getPrereqNotBuildingClass(int i) const;
+	int getPrereqWorldView(int i) const;
 
 	bool isCommerceFlexible(int i) const;				// Exposed to Python
 	bool isCommerceChangeOriginalOwner(int i) const;				// Exposed to Python
@@ -1884,6 +1901,7 @@ public:
 	bool isPrereqAndBuildingClass(BuildingClassTypes eBuildingClass) const;
 	bool isPrereqOrBuildingClass(BuildingClassTypes eBuildingClass) const;
 	bool isPrereqNotBuildingClass(BuildingClassTypes eBuildingClass) const;
+	bool isPrereqWorldView(int i) const;
 
 	int getSpecialistYieldChange(int i, int j) const;			// Exposed to Python
 	int* getSpecialistYieldChangeArray(int i) const;
@@ -2030,6 +2048,7 @@ protected:
 	bool m_bAutoBuild;
 	bool m_bForceDisableStarSigns;
 	bool m_bStarSignGoodOnly;
+	bool m_bSlaveMarket;
 
 	CultureLevelTypes m_eMinCultureLevel;
 
@@ -2094,6 +2113,7 @@ protected:
 	std::vector<int> m_viPrereqAndBuildingClasses;
 	std::vector<int> m_viPrereqOrBuildingClasses;
 	std::vector<int> m_viPrereqNotBuildingClasses;
+	std::vector<int> m_viPrereqWorldViews;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

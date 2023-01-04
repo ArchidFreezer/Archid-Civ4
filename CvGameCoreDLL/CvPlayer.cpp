@@ -60,6 +60,8 @@ CvPlayer::CvPlayer() {
 	m_aiBaseCommerceFromUnit = new int[NUM_COMMERCE_TYPES];
 	m_aiCommerceFromUnitModifier = new int[NUM_COMMERCE_TYPES];
 	m_aiWorldViewEnabledCount = new int[NUM_WORLD_VIEWS];
+	m_aiWorldViewRevoltValue = new int[NUM_WORLD_VIEWS];
+	m_aiWorldViewRevoltTurnChange = new int[NUM_WORLD_VIEWS];
 
 	m_abFeatAccomplished = new bool[NUM_FEAT_TYPES];
 	m_abOptions = new bool[NUM_PLAYEROPTION_TYPES];
@@ -128,6 +130,8 @@ CvPlayer::~CvPlayer() {
 	SAFE_DELETE_ARRAY(m_aiBaseCommerceFromUnit);
 	SAFE_DELETE_ARRAY(m_aiCommerceFromUnitModifier);
 	SAFE_DELETE_ARRAY(m_aiWorldViewEnabledCount);
+	SAFE_DELETE_ARRAY(m_aiWorldViewRevoltValue);
+	SAFE_DELETE_ARRAY(m_aiWorldViewRevoltTurnChange);
 	SAFE_DELETE_ARRAY(m_abFeatAccomplished);
 	SAFE_DELETE_ARRAY(m_abOptions);
 	SAFE_DELETE_ARRAY(m_abWorldViewActivated);
@@ -515,7 +519,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iStarSignMitigatePercent = 0;
 	m_iStarSignScalePercent = 100;
 	m_iStarSignPersistDecay = 0;
-	m_iWorldViewTimer = 0;
+	m_iWorldViewChangeTimer = 0;
 
 	m_uiStartTime = 0;
 
@@ -600,8 +604,10 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 		m_abOptions[ePlayerOption] = false;
 	}
 
-	for (WorldViewTypes eWorldView = (WorldViewTypes)0; eWorldView < GC.getNumWorldInfos(); eWorldView = (WorldViewTypes)(eWorldView + 1)) {
+	for (WorldViewTypes eWorldView = (WorldViewTypes)0; eWorldView < NUM_WORLD_VIEWS; eWorldView = (WorldViewTypes)(eWorldView + 1)) {
 		m_aiWorldViewEnabledCount[eWorldView] = 0;
+		m_aiWorldViewRevoltTurnChange[eWorldView] = 0;
+		m_aiWorldViewRevoltValue[eWorldView] = 0;
 		m_abWorldViewActivated[eWorldView] = false;
 	}
 
@@ -1996,6 +2002,14 @@ void CvPlayer::disbandUnit(bool bAnnounce) {
 							iValue *= 10;
 							break;
 
+						case UNITAI_SLAVE:
+							iValue *= 5;
+							break;
+
+						case UNITAI_SLAVER:
+							iValue *= 8;
+							break;
+
 						case UNITAI_ATTACK:
 						case UNITAI_ATTACK_CITY:
 						case UNITAI_COLLATERAL:
@@ -2432,8 +2446,8 @@ void CvPlayer::doTurn() {
 		changeConversionTimer(-1);
 	}
 
-	if (getWorldViewTimer() > 0) {
-		changeWorldViewTimer(-1);
+	if (getWorldViewChangeTimer() > 0) {
+		changeWorldViewChangeTimer(-1);
 	}
 
 	setConscriptCount(0);
@@ -2472,6 +2486,8 @@ void CvPlayer::doTurn() {
 	updateTradeRoutes();
 
 	updateWarWearinessPercentAnger();
+
+	doWorldViews();
 
 	doEvents();
 
@@ -4729,6 +4745,14 @@ bool CvPlayer::canTrain(UnitTypes eUnit, bool bContinue, bool bTestVisible, bool
 		return false;
 	}
 
+	// WorldViews
+	int iNumPrereqWorldViews = kUnit.getNumPrereqWorldViews();
+	for (int iI = 0; iI < iNumPrereqWorldViews; iI++) {
+		if (!isWorldViewActivated((WorldViewTypes)kUnit.getPrereqWorldView(iI))) {
+			return false;
+		}
+	}
+
 	// Note that unlike the global limit, these two limits apply to the number of units currently alive rather than the total ever trained.
 	// Therefore these limits should be ignored for the visibility test.
 
@@ -4840,6 +4864,14 @@ bool CvPlayer::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestV
 
 	if (isBuildingClassMaxedOut(eBuildingClass)) {
 		return false;
+	}
+
+	// WorldViews
+	int iNumPrereqWorldViews = kBuilding.getNumPrereqWorldViews();
+	for (int iI = 0; iI < iNumPrereqWorldViews; iI++) {
+		if (!isWorldViewActivated((WorldViewTypes)kBuilding.getPrereqWorldView(iI))) {
+			return false;
+		}
 	}
 
 	const CvCivilizationInfo& civilizationInfo = GC.getCivilizationInfo(getCivilizationType());
@@ -13615,7 +13647,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iStarSignMitigatePercent);
 	pStream->Read(&m_iStarSignScalePercent);
 	pStream->Read(&m_iStarSignPersistDecay);
-	pStream->Read(&m_iWorldViewTimer);
+	pStream->Read(&m_iWorldViewChangeTimer);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -13667,6 +13699,8 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(MAX_PLAYERS, m_aiGoldPerTurnByPlayer);
 	pStream->Read(MAX_TEAMS, m_aiEspionageSpendingWeightAgainstTeam);
 	pStream->Read(NUM_WORLD_VIEWS, m_aiWorldViewEnabledCount);
+	pStream->Read(NUM_WORLD_VIEWS, m_aiWorldViewRevoltTurnChange);
+	pStream->Read(NUM_WORLD_VIEWS, m_aiWorldViewRevoltValue);
 
 	pStream->Read(NUM_FEAT_TYPES, m_abFeatAccomplished);
 	pStream->Read(NUM_PLAYEROPTION_TYPES, m_abOptions);
@@ -14102,7 +14136,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iStarSignMitigatePercent);
 	pStream->Write(m_iStarSignScalePercent);
 	pStream->Write(m_iStarSignPersistDecay);
-	pStream->Write(m_iWorldViewTimer);
+	pStream->Write(m_iWorldViewChangeTimer);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -14146,6 +14180,8 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(MAX_PLAYERS, m_aiGoldPerTurnByPlayer);
 	pStream->Write(MAX_TEAMS, m_aiEspionageSpendingWeightAgainstTeam);
 	pStream->Write(NUM_WORLD_VIEWS, m_aiWorldViewEnabledCount);
+	pStream->Write(NUM_WORLD_VIEWS, m_aiWorldViewRevoltTurnChange);
+	pStream->Write(NUM_WORLD_VIEWS, m_aiWorldViewRevoltValue);
 
 	pStream->Write(NUM_FEAT_TYPES, m_abFeatAccomplished);
 	pStream->Write(NUM_PLAYEROPTION_TYPES, m_abOptions);
@@ -19457,8 +19493,9 @@ void CvPlayer::changeWorldViewEnabledCount(WorldViewTypes eWorldView, int iChang
 				gDLL->getInterfaceIFace()->addPopup(pInfo, getID());
 			}
 		} else {
-			if (AI()->AI_worldViewValue(eWorldView) > 0) {
-				changeWorldViewActivatedStatus(eWorldView, true);
+			int iValue = AI()->AI_worldViewValue(eWorldView);
+			if (iValue != 0) {
+				changeWorldViewActivatedStatus(eWorldView, iValue > 0 ? true : false);
 			}
 		}
 	}
@@ -19473,19 +19510,36 @@ bool CvPlayer::isWorldViewActivated(WorldViewTypes eWorldView) const {
 void CvPlayer::changeWorldViewActivatedStatus(WorldViewTypes eWorldView, bool bActivate) {
 	FAssertMsg(eWorldView >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eWorldView < NUM_WORLD_VIEWS, "eIndex is expected to be within maximum bounds (invalid Index)");
-	m_abWorldViewActivated[eWorldView] = bActivate;
-	int iTimer = std::max(1, ((100 + GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getAnarchyPercent()) * GC.getDefineINT("MIN_WORLD_VIEW_CHANGE_TURNS")) / 100);
-	setWorldViewTimer(iTimer);
+	if (bActivate != isWorldViewActivated(eWorldView)) {
+		m_abWorldViewActivated[eWorldView] = bActivate;
+		int iTimer = std::max(1, ((100 + GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getAnarchyPercent()) * GC.getDefineINT("MIN_WORLD_VIEW_CHANGE_TURNS")) / 100);
+		setWorldViewChangeTimer(iTimer);
+
+		// Check if any buildings have their enabled status updated as a result of this
+		int iLoop;
+		for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop)) {
+			pLoopCity->checkBuildingWorldViewPrereqs(eWorldView, bActivate);
+		}
+
+		for (CvUnit* pLoopUnit = firstUnit(&iLoop); NULL != pLoopUnit; pLoopUnit = nextUnit(&iLoop)) {
+			pLoopUnit->checkWorldViewStatus();
+		}
+
+	}
 }
 
-int CvPlayer::getWorldViewTimer() const {
-	return m_iWorldViewTimer;
+int CvPlayer::getWorldViewChangeTimer() const {
+	return m_iWorldViewChangeTimer;
 }
 
-void CvPlayer::setWorldViewTimer(int iNewValue) {
-	if (getWorldViewTimer() != iNewValue) {
-		m_iWorldViewTimer = iNewValue;
-		FAssert(getWorldViewTimer() >= 0);
+bool CvPlayer::canChangeWorldViews() const {
+	return getWorldViewChangeTimer() == 0;
+}
+
+void CvPlayer::setWorldViewChangeTimer(int iNewValue) {
+	if (getWorldViewChangeTimer() != iNewValue) {
+		m_iWorldViewChangeTimer = iNewValue;
+		FAssert(getWorldViewChangeTimer() >= 0);
 
 		if (getID() == GC.getGameINLINE().getActivePlayer()) {
 			gDLL->getInterfaceIFace()->setDirty(SelectionButtons_DIRTY_BIT, true);
@@ -19493,6 +19547,110 @@ void CvPlayer::setWorldViewTimer(int iNewValue) {
 	}
 }
 
-void CvPlayer::changeWorldViewTimer(int iChange) {
-	setWorldViewTimer(getWorldViewTimer() + iChange);
+void CvPlayer::changeWorldViewChangeTimer(int iChange) {
+	setWorldViewChangeTimer(getWorldViewChangeTimer() + iChange);
+}
+
+bool CvPlayer::isHasValidWorldViews(UnitTypes eUnit) const {
+	bool bValid = true;
+	const CvUnitInfo& kUnit = GC.getUnitInfo(eUnit);
+	int iNumWorldViewPrereqs = kUnit.getNumPrereqWorldViews();
+	for (int iI = 0; iI < iNumWorldViewPrereqs; iI++) {
+		if (!isWorldViewActivated((WorldViewTypes)(kUnit.isPrereqWorldView(iI)))) {
+			bValid = false;
+			break;
+		}
+	}
+	return bValid;
+}
+
+int CvPlayer::getWorldViewRevoltValue(WorldViewTypes eWorldView) const {
+	return m_aiWorldViewRevoltValue[eWorldView];
+}
+
+void CvPlayer::setWorldViewRevoltValue(WorldViewTypes eWorldView, int iNewValue) {
+	m_aiWorldViewRevoltValue[eWorldView] = iNewValue;
+}
+
+void CvPlayer::changeWorldViewRevoltValue(WorldViewTypes eWorldView, int iChange) {
+	setWorldViewRevoltValue(eWorldView, getWorldViewRevoltValue(eWorldView) + iChange);
+}
+
+int CvPlayer::getWorldViewRevoltTurnChange(WorldViewTypes eWorldView) const {
+	return m_aiWorldViewRevoltTurnChange[eWorldView];
+}
+
+void CvPlayer::setWorldViewRevoltTurnChange(WorldViewTypes eWorldView, int iNewValue) {
+	m_aiWorldViewRevoltTurnChange[eWorldView] = iNewValue;
+}
+
+void CvPlayer::changeWorldViewRevoltTurnChange(WorldViewTypes eWorldView, int iChange) {
+	setWorldViewRevoltTurnChange(eWorldView, getWorldViewRevoltTurnChange(eWorldView) + iChange);
+}
+
+void CvPlayer::doWorldViews() {
+	for (WorldViewTypes eWorldView = (WorldViewTypes)0; eWorldView < NUM_WORLD_VIEWS; eWorldView = (WorldViewTypes)(eWorldView + 1)) {
+		if (isWorldViewActivated(eWorldView)) {
+			// Each year the general risk of a revolt may increase
+			changeWorldViewRevoltValue(eWorldView, getWorldViewRevoltTurnChange(eWorldView));
+
+			switch (eWorldView) {
+			case WORLD_VIEW_SLAVERY:
+				doSlaveRevolt();
+				break;
+			default:
+				break;
+			}
+		}
+	}
+}
+
+// Check whether any of the players cities have a slave revolt.
+// This is done by getting the internal revolt chance of each city and then factoring in
+//  the players value on top. For each city that is in revolt the chance increases for other
+//  cities incrementally so it is possible for revolts to snowball across the the civ
+void CvPlayer::doSlaveRevolt() {
+	// Get a set of the cities and their respective internal revolt chances
+	std::vector< std::pair<int, CvCity*> > cities;
+	std::vector<CvCity*> revolts;
+
+	int iLoop;
+	for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop)) {
+		cities.push_back(std::make_pair(pLoopCity->getSlaveRevoltRiskPercent(), pLoopCity));
+	}
+
+	// NUmber of revolts this turn
+	int iExistingRevoltFactor = 0;
+
+	// Order the list with the greatest risk of revolt first
+	std::sort(cities.begin(), cities.end(), std::greater<std::pair<int, CvCity*> >());
+	for (std::vector< std::pair<int, CvCity*> >::iterator it = cities.begin(); it != cities.end(); ++it) {
+		int iRevoltValue = (*it).first;
+
+		// Add on the factor for each existing revolt
+		iRevoltValue *= (100 + iExistingRevoltFactor);
+		iRevoltValue /= 100;
+
+		int iRoll = GC.getGameINLINE().getSorenRandNum(1000, "Slave Revolt Chance");
+		if (iRoll < iRevoltValue) {
+			// This city is going to revolt
+			revolts.push_back((*it).second);
+			iExistingRevoltFactor += 2;
+		}
+	}
+
+	// Now check how the player wants to handle the revolts
+	if (isHuman()) {
+		// Throw up a dialog for each city
+		for (std::vector<CvCity*>::iterator it = revolts.begin(); it != revolts.end(); ++it) {
+			CvPopupInfo* pInfo = new CvPopupInfo(BUTTONPOPUP_SLAVE_REVOLT, (*it)->getID());
+			if (NULL != pInfo) {
+				gDLL->getInterfaceIFace()->addPopup(pInfo, getID());
+			}
+		}
+	} else {
+		for (std::vector<CvCity*>::iterator it = revolts.begin(); it != revolts.end(); ++it) {
+			(*it)->doSlaveRevolt((*it)->AI()->AI_bestSlaveRevoltAction());
+		}
+	}
 }

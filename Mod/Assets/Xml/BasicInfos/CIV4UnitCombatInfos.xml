@@ -54,6 +54,11 @@
 			<Description>TXT_KEY_UNITCOMBAT_SIEGE</Description>
 			<Button>Art/Interface/Buttons/Combat/combat_siege.dds</Button>
 		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Slaver -->
+			<Type>UNITCOMBAT_SLAVER</Type>
+			<Description>TXT_KEY_UNITCOMBAT_SLAVER</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_slaver.dds</Button>
+		</UnitCombatInfo>
 
 <!-- +++ Naval +++ -->
 		<UnitCombatInfo> <!-- Diesel Ships -->

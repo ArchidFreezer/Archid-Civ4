@@ -28,6 +28,10 @@
 		<Tag>TXT_KEY_UNITCOMBAT_NUCLEAR_SHIPS</Tag>
 		<English>Nuclear Ships</English>
 	</TEXT>
+	<TEXT> <!-- Slaver Units -->
+		<Tag>TXT_KEY_UNITCOMBAT_SLAVER</Tag>
+		<English>Slaver Units</English>
+	</TEXT>
 	<TEXT> <!-- Submarines -->
 		<Tag>TXT_KEY_UNITCOMBAT_SUBMARINE</Tag>
 		<English>Submarines</English>
@@ -113,6 +117,11 @@
 		<English>Pride of Lions</English>
 	</TEXT>
 
+	<TEXT> <!-- People Trafficker -->
+		<Tag>TXT_KEY_UNIT_PEOPLE_TRAFFICKER</Tag>
+		<English>People Trafficker</English>
+	</TEXT>
+
 	<TEXT> <!-- Polar Bear -->
 		<Tag>TXT_KEY_UNIT_POLAR_BEAR</Tag>
 		<English>Polar Bear</English>
@@ -121,6 +130,69 @@
 	<TEXT> <!-- Sabretooth Tiger -->
 		<Tag>TXT_KEY_UNIT_SABRETOOTH_TIGER</Tag>
 		<English>Sabretooth Tiger</English>
+	</TEXT>
+
+	<TEXT> <!-- Slave Catcher -->
+		<Tag>TXT_KEY_UNIT_SLAVE_CATCHER</Tag>
+		<English>Slave Catcher</English>
+	</TEXT>
+
+	<TEXT> <!-- Slaver -->
+		<Tag>TXT_KEY_UNIT_SLAVER</Tag>
+		<English>Slaver</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SLAVER_PEDIA</Tag>
+		<English>[TAB]Slavers capture slaves following a successful battle. The slaver only needs be in the same stack as the winning unit in order to capture a slave.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SLAVER_STRATEGY</Tag>
+		<English>[COLOR_UNIT_TEXT]Slaves[COLOR_REVERT] are enemies captured and used for slave labour, that are killed upon completion of work. Enemy units can only be captured in this manner if you adopt the [COLOR_HIGHLIGHT_TEXT]Slavery[COLOR_REVERT] civic.</English>
+	</TEXT>
+
+	<TEXT> <!-- Slave -->
+		<Tag>TXT_KEY_UNIT_SLAVE</Tag>
+		<English>Slave</English>
+		<French>
+			<Text>Esclave:Esclaves</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</French>
+		<German>
+			<Text>Sklave</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Schiavo:Schiavi</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Esclavo:Esclavos</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SLAVE_PEDIA</Tag>
+		<English>[TAB]Slaves are workers that are deprived from personal freedom and compelled to work. Slaves are held against their will from the time of their capture, purchase, or birth, and are deprived of the right to leave, to refuse to work, or to receive compensation (such as wages) in return for their labor.</English>
+		<French>[TAB]Les esclaves sont des ouvriers qui sont privés de la liberté personnelle et obligés de travailler. Des esclaves sont tenus contre leur volonté dès leur capture, achètent, ou naissance, et sont privés de la droite de laisser, de refuser de travailler, ou de recevoir la compensation (telle que des salaires) en échange pour leur travail.</French>
+		<German>[TAB]Sklaven sind Arbeitskräfte, die von der persönlichen Freiheit beraubt werden und gezwungen zu arbeiten. Sklaven werden gegen ihren Willen seit ihrer Sicherung gehalten, kaufen oder Geburt und werden das Recht, abzulehnen, oder Ausgleich zu lassen (wie Löhne) als Ausgleich für ihre Arbeit zu empfangen zu arbeiten beraubt.</German>
+		<Italian>[TAB]Gli schiavi sono operai che sono privati da libertà personale e sono costretti a funzionare. Gli schiavi sono tenuti contro la loro volontà a partire dal loro bloccaggio, comprano, o la nascita e sono privati della destra lasciare, rifiutare di funzionare, o di ricevere la compensazione (quali gli stipendi) in cambio dei loro lavori.</Italian>
+		<Spanish>[TAB]Los esclavos son los trabajadores se obligan que se privan de la libertad personal y que trabajen. Los esclavos se sostienen contra su voluntad desde su captura, compran, o nacimiento, y se privan de la derecha de dejar, de rechazar trabajar, o recibir la remuneración (tal como salarios) a cambio de su trabajo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SLAVE_STRATEGY</Tag>
+		<English>[COLOR_UNIT_TEXT]Slaves[COLOR_REVERT] are enemies captured and used for slave labour, that are killed upon completion of work. Enemy units can only be captured in this manner if you adopt the [COLOR_HIGHLIGHT_TEXT]Slavery[COLOR_REVERT] civic, and only by units with the [COLOR_HIGHLIGHT_TEXT]Slaver[COLOR_REVERT] promotion.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SLAVE_HELP</Tag>
+		<English>[COLOR_WARNING_TEXT]Destroyed upon Completion of Work[COLOR_REVERT]</English>
+		<French>[COLOR_WARNING_TEXT]Détruit sur l'accomplissement des travaux[COLOR_REVERT]</French>
+		<German>[COLOR_WARNING_TEXT]Zerstört nach Durchführung der Arbeiten[COLOR_REVERT]</German>
+		<Italian>[COLOR_WARNING_TEXT]Distrutto a fine dei lavori[COLOR_REVERT]</Italian>
+		<Spanish>[COLOR_WARNING_TEXT]Destruido sobre la terminación de obras[COLOR_REVERT]</Spanish>
 	</TEXT>
 
 	<TEXT> <!-- Tiger -->

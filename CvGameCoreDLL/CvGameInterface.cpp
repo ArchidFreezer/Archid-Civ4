@@ -397,7 +397,7 @@ void CvGame::updateColoredPlots() {
 		FAssert(getActivePlayer() != NO_PLAYER);
 
 		if (!(GET_PLAYER(getActivePlayer()).isOption(PLAYEROPTION_NO_UNIT_RECOMMENDATIONS))) {
-			if ((pHeadSelectedUnit->AI_getUnitAIType() == UNITAI_WORKER) || (pHeadSelectedUnit->AI_getUnitAIType() == UNITAI_WORKER_SEA)) {
+			if ((pHeadSelectedUnit->AI_getUnitAIType() == UNITAI_WORKER) || (pHeadSelectedUnit->AI_getUnitAIType() == UNITAI_WORKER_SEA) || (pHeadSelectedUnit->AI_getUnitAIType() == UNITAI_SLAVE)) {
 				if (pHeadSelectedUnit->plot()->getOwnerINLINE() == pHeadSelectedUnit->getOwnerINLINE()) {
 					CvCity* pCity = pHeadSelectedUnit->plot()->getWorkingCity();
 

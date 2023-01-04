@@ -935,6 +935,7 @@
 	<ElementType name="iOrderPriority" content="textOnly" dt:type="int"/>
 	<ElementType name="bVisible" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iGreatPeopleRateChange" content="textOnly" dt:type="int"/>
+	<ElementType name="bSlave" content="textOnly" dt:type="boolean"/>
 	<ElementType name="SpecialistInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -943,6 +944,7 @@
 		<element type="Help" minOccurs="0"/>
 		<element type="Texture" minOccurs="0"/>
 		<element type="bVisible" minOccurs="0"/>
+		<element type="bSlave" minOccurs="0"/>
 		<element type="GreatPeopleUnitClass" minOccurs="0"/>
 		<element type="iGreatPeopleRateChange" minOccurs="0"/>
 		<element type="iStarSignMitigateChangePercent" minOccurs="0"/>

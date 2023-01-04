@@ -84,6 +84,7 @@ CvCity::CvCity() {
 	m_paiNumRealBuilding = NULL;
 	m_paiNumFreeBuilding = NULL;
 	m_paiDisabledBuildingCount = NULL;
+	m_paiSettledSlaveCount = NULL;
 
 	m_pabWorkingPlot = NULL;
 	m_pabHasReligion = NULL;
@@ -315,6 +316,7 @@ void CvCity::uninit() {
 	SAFE_DELETE_ARRAY(m_paiNumRealBuilding);
 	SAFE_DELETE_ARRAY(m_paiNumFreeBuilding);
 	SAFE_DELETE_ARRAY(m_paiDisabledBuildingCount);
+	SAFE_DELETE_ARRAY(m_paiSettledSlaveCount);
 
 	SAFE_DELETE_ARRAY(m_pabWorkingPlot);
 	SAFE_DELETE_ARRAY(m_pabHasReligion);
@@ -423,6 +425,7 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 	m_iStarSignMitigatePercent = 0;
 	m_iStarSignScalePercent = 0;
 	m_iStarSignAngerTimer = 0;
+	m_iSlaveMarketCount = 0;
 
 	m_bNeverLost = true;
 	m_bBombarded = false;
@@ -559,11 +562,13 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 		m_paiMaxSpecialistCount = new int[GC.getNumSpecialistInfos()];
 		m_paiForceSpecialistCount = new int[GC.getNumSpecialistInfos()];
 		m_paiFreeSpecialistCount = new int[GC.getNumSpecialistInfos()];
+		m_paiSettledSlaveCount = new int[GC.getNumSpecialistInfos()];
 		for (int iI = 0; iI < GC.getNumSpecialistInfos(); iI++) {
 			m_paiSpecialistCount[iI] = 0;
 			m_paiMaxSpecialistCount[iI] = 0;
 			m_paiForceSpecialistCount[iI] = 0;
 			m_paiFreeSpecialistCount[iI] = 0;
+			m_paiSettledSlaveCount[iI] = 0;
 		}
 
 		FAssertMsg((0 < GC.getNumImprovementInfos()), "GC.getNumImprovementInfos() is not greater than zero but an array is being allocated in CvCity::reset");
@@ -835,6 +840,8 @@ void CvCity::doTurn() {
 	doGreatPeople();
 
 	doMeltdown();
+
+	doSlaveDeath();
 
 	updateEspionageVisibility(true);
 
@@ -1793,7 +1800,15 @@ bool CvCity::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestVis
 				return false;
 			}
 		}
-	}
+
+		// WorldViews
+		int iNumPrereqWorldViews = kBuilding.getNumPrereqWorldViews();
+		for (int iI = 0; iI < iNumPrereqWorldViews; iI++) {
+			if (!GET_PLAYER(getOwnerINLINE()).isWorldViewActivated((WorldViewTypes)kBuilding.getPrereqWorldView(iI))) {
+				return false;
+			}
+		}
+}
 
 	if (GC.getUSE_CANNOT_CONSTRUCT_CALLBACK()) {
 		CyCity* pyCity = new CyCity((CvCity*)this);
@@ -3186,6 +3201,7 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 		changeNoUnhappinessCount((kBuilding.isNoUnhappiness()) ? iChange : 0);
 		changeUnhealthyPopulationModifier(kBuilding.getUnhealthyPopulationModifier() * iChange); // K-Mod
 		changeBuildingOnlyHealthyCount((kBuilding.isBuildingOnlyHealthy()) ? iChange : 0);
+		changeSlaveMarketCount(kBuilding.isSlaveMarket() ? iChange : 0);
 
 		for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 			changeSeaPlotYield(eYield, (kBuilding.getSeaPlotYieldChange(eYield) * iChange));
@@ -10889,6 +10905,7 @@ void CvCity::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iStarSignMitigatePercent);
 	pStream->Read(&m_iStarSignScalePercent);
 	pStream->Read(&m_iStarSignAngerTimer);
+	pStream->Read(&m_iSlaveMarketCount);
 
 	pStream->Read(&m_bNeverLost);
 	pStream->Read(&m_bBombarded);
@@ -10955,6 +10972,7 @@ void CvCity::read(FDataStreamBase* pStream) {
 	pStream->Read(GC.getNumSpecialistInfos(), m_paiMaxSpecialistCount);
 	pStream->Read(GC.getNumSpecialistInfos(), m_paiForceSpecialistCount);
 	pStream->Read(GC.getNumSpecialistInfos(), m_paiFreeSpecialistCount);
+	pStream->Read(GC.getNumSpecialistInfos(), m_paiSettledSlaveCount);
 	pStream->Read(GC.getNumImprovementInfos(), m_paiImprovementFreeSpecialists);
 	pStream->Read(GC.getNumReligionInfos(), m_paiReligionInfluence);
 	pStream->Read(GC.getNumReligionInfos(), m_paiStateReligionHappiness);
@@ -11126,6 +11144,7 @@ void CvCity::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iStarSignMitigatePercent);
 	pStream->Write(m_iStarSignScalePercent);
 	pStream->Write(m_iStarSignAngerTimer);
+	pStream->Write(m_iSlaveMarketCount);
 
 	pStream->Write(m_bNeverLost);
 	pStream->Write(m_bBombarded);
@@ -11192,6 +11211,7 @@ void CvCity::write(FDataStreamBase* pStream) {
 	pStream->Write(GC.getNumSpecialistInfos(), m_paiMaxSpecialistCount);
 	pStream->Write(GC.getNumSpecialistInfos(), m_paiForceSpecialistCount);
 	pStream->Write(GC.getNumSpecialistInfos(), m_paiFreeSpecialistCount);
+	pStream->Write(GC.getNumSpecialistInfos(), m_paiSettledSlaveCount);
 	pStream->Write(GC.getNumImprovementInfos(), m_paiImprovementFreeSpecialists);
 	pStream->Write(GC.getNumReligionInfos(), m_paiReligionInfluence);
 	pStream->Write(GC.getNumReligionInfos(), m_paiStateReligionHappiness);
@@ -13137,4 +13157,270 @@ void CvCity::changeStarSignAngerTimer(int iChange) {
 
 		AI_setAssignWorkDirty(true);
 	}
+}
+
+int CvCity::getSlaveMarketCount() const {
+	return m_iSlaveMarketCount;
+}
+
+
+void CvCity::changeSlaveMarketCount(int iChange) {
+	if (0 != iChange) {
+		m_iSlaveMarketCount += iChange;
+	}
+}
+
+bool CvCity::isSlaveMarket() const {
+	return getSlaveMarketCount() > 0;
+}
+
+bool CvCity::canSettleSlave() const {
+	if (!isSlaveMarket()) {
+		return false;
+	}
+
+	return true;
+}
+
+void CvCity::changeSettledSlaveCount(SpecialistTypes iIndex, int iChange) {
+	FAssertMsg(iIndex >= 0, "iIndex expected to be >= 0");
+	FAssertMsg(iIndex < GC.getNumSpecialistInfos(), "iIndex expected to be < GC.getNumSpecialistInfos()");
+
+	// Now do the extra slave processing
+	m_paiSettledSlaveCount[iIndex] = getSettledSlaveCount(iIndex) + iChange;
+	FAssert(getSettledSlaveCount(iIndex) >= 0);
+}
+
+int CvCity::getSettledSlaveCount(SpecialistTypes iIndex) const {
+	return m_paiSettledSlaveCount[iIndex];
+}
+
+int CvCity::getSettledSlaveCountTotal() const {
+	int iTotal = 0;
+	for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
+		if (GC.getSpecialistInfo(eSpecialist).isSlave()) {
+			iTotal += m_paiSettledSlaveCount[eSpecialist];
+		}
+	}
+
+	return iTotal;
+}
+
+int CvCity::getSlaveCost(int iNumSlaves) const {
+	double iExistingSlaveScale = pow((GC.getSLAVERY_SLAVE_COST_SCALE() / 100.0), getSettledSlaveCountTotal());
+	double iHandicap = GC.getHandicapInfo(getHandicapType()).getUnitCostPercent() / 100.0;
+	return std::max(1, int(GC.getSLAVERY_SLAVE_COST_BASE() * iExistingSlaveScale * iHandicap * iNumSlaves));
+}
+
+void CvCity::doSlaveDeath() {
+	// Loop through all the slaves in the city and check if any are deceased, demised or ceased to be...
+	//
+	// Get the chance taking into account the game speed
+	int iTotalDeadSlaves = 0;
+	int iCitizenDeathChance = GC.getSLAVERY_SETTLED_SLAVE_DEATH_CHANCE() > 0 ? std::max(1, GC.getSLAVERY_SETTLED_SLAVE_DEATH_CHANCE() * 1000 / GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getGrowthPercent()) : 0;
+	int iProfDeathChance = GC.getSLAVERY_SETTLED_PROF_SLAVE_DEATH_CHANCE() > 0 ? std::max(1, GC.getSLAVERY_SETTLED_PROF_SLAVE_DEATH_CHANCE() * 1000 / GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getGrowthPercent()) : 0;
+
+	if (iCitizenDeathChance == 0 && iProfDeathChance == 0) {
+		return;
+	}
+
+	for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
+		int iNumSlaves = m_paiSettledSlaveCount[eSpecialist];
+		int iDeadSlaves = 0;
+		while (iNumSlaves-- > 0) {
+			int iSlaveDeath = GC.getGameINLINE().getSorenRandNum(1000, "Slave death");
+			int iDeathChance = GC.getDefineINT("SLAVERY_DEFAULT_SLAVE_SPECIALIST") == eSpecialist ? iCitizenDeathChance : iProfDeathChance;
+			if (iDeathChance > iSlaveDeath) {
+				iDeadSlaves++;
+				iTotalDeadSlaves++;
+			}
+		}
+		if (iDeadSlaves > 0) {
+			changeSettledSlaveCount(eSpecialist, -1 * iDeadSlaves);
+			changeFreeSpecialistCount(eSpecialist, -1 * iDeadSlaves);
+		}
+	}
+	if (iTotalDeadSlaves > 0) {
+		CvWString szBuffer = gDLL->getText("TXT_KEY_CITY_SLAVE_DIED", getNameKey(), iTotalDeadSlaves);
+		gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getEraInfo(GC.getGameINLINE().getCurrentEra()).getAudioUnitDefeatScript(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), getX_INLINE(), getY_INLINE());
+	}
+}
+
+void CvCity::checkBuildingWorldViewPrereqs(WorldViewTypes eWorldView, bool bActivate) {
+	// Loop through all the buildings that may be impacted
+	for (BuildingTypes eLoopBuilding = (BuildingTypes)0; eLoopBuilding < GC.getNumBuildingInfos(); eLoopBuilding = (BuildingTypes)(eLoopBuilding + 1)) {
+		if (!GET_TEAM(getTeam()).isObsoleteBuilding(eLoopBuilding)) {
+			if (getNumRealBuilding(eLoopBuilding) > 0) {
+				int iNumWorldViewPrereqs = GC.getBuildingInfo(eLoopBuilding).getNumPrereqWorldViews();
+				if (GC.getBuildingInfo(eLoopBuilding).isPrereqWorldView(eWorldView)) {
+					changeDisabledBuildingCount(eLoopBuilding, bActivate ? -1 : 1);
+				}
+			}
+		}
+	}
+}
+
+// Work out the percentage chance that the city will have a slave revolt this turn
+int CvCity::getSlaveRevoltRiskPercent() const {
+	int iNumSlaves = getSettledSlaveCountTotal();
+	int iSafeCount = getSlaveSafeLevel();
+
+	int iRevoltRisk = iNumSlaves;
+
+	// The chance based on settled slave population is proportional to number of excess slaves to the total city population
+	int iTemp = (iNumSlaves - iSafeCount) * 100;
+	iTemp /= getPopulation();
+	iRevoltRisk += iTemp;
+
+	iRevoltRisk *= 2;
+	iRevoltRisk /= 3;
+
+	// There are risks that are tracked at the player level so add those
+	iRevoltRisk += GET_PLAYER(getOwnerINLINE()).getWorldViewRevoltValue(WORLD_VIEW_SLAVERY);
+
+	return iRevoltRisk;
+}
+
+int CvCity::getSlaveSafeLevel() const {
+	// Get the number of slaves that can be handled in the city by units
+	int iCount = 0;
+	CvUnit* pLoopUnit;
+	CLLNode<IDInfo>* pUnitNode = plot()->headUnitNode();
+	while (pUnitNode != NULL) {
+		pLoopUnit = ::getUnit(pUnitNode->m_data);
+		pUnitNode = plot()->nextUnitNode(pUnitNode);
+		if (pLoopUnit->getSlaveControlCount() > 0 && pLoopUnit->getTeam() == getTeam()) {
+			iCount += pLoopUnit->getSlaveControlCount();
+		}
+	}
+	return iCount;
+}
+
+void CvCity::doSlaveRevolt(SlaveRevoltActions eAction) {
+	switch (eAction) {
+	case SLAVE_REVOLT_SUPPRESS:
+		{
+			// Get all the settled slaves we have
+			std::vector<SpecialistTypes> slaves;
+			for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
+				if (GC.getSpecialistInfo(eSpecialist).isSlave()) {
+					int iNum = m_paiSettledSlaveCount[eSpecialist];
+					for (int iX = 0; iX < iNum; iX++) {
+						slaves.push_back(eSpecialist);
+					}
+				}
+			}
+			std::random_shuffle(slaves.begin(), slaves.end());
+
+			// Kill random slaves until we are under the limit we can safely handle
+			int iSafeSlaveCount = getSlaveSafeLevel();
+			int iNumToKill = getSettledSlaveCountTotal() - iSafeSlaveCount;
+			// ... and then kill up to 50% of those remaining
+			iNumToKill += GC.getGameINLINE().getSorenRandNum(iSafeSlaveCount / 2, "Supress slaves kill");
+			for (int iX = 0; iX < iNumToKill; iX++) {
+				changeSettledSlaveCount(slaves[iX], -1);
+				changeFreeSpecialistCount(slaves[iX], -1);
+			}
+			CvWString szBuffer = gDLL->getText("TXT_KEY_CITY_SLAVE_DIED_REVOLT", getNameKey(), iNumToKill);
+			gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getEraInfo(GC.getGameINLINE().getCurrentEra()).getAudioUnitDefeatScript(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), getX_INLINE(), getY_INLINE());
+
+			// Slaves will hesitate before trying again, proportional to the number of game turns
+			int iChange = std::min(6, iNumToKill) * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getVictoryDelayPercent();
+			iChange /= 100;
+			GET_PLAYER(getOwnerINLINE()).changeWorldViewRevoltValue(WORLD_VIEW_SLAVERY, -1 * iChange);
+		}
+		break;
+	case SLAVE_REVOLT_ADDRESS:
+		{
+			// Get all the settled slaves we have
+			std::vector<SpecialistTypes> slaves;
+			for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
+				if (GC.getSpecialistInfo(eSpecialist).isSlave()) {
+					int iNum = m_paiSettledSlaveCount[eSpecialist];
+					for (int iX = 0; iX < iNum; iX++) {
+						slaves.push_back(eSpecialist);
+					}
+				}
+			}
+			std::random_shuffle(slaves.begin(), slaves.end());
+
+			// Kill random slaves until we are under the limit we can safely handle
+			int iSafeSlaveCount = getSlaveSafeLevel();
+			int iNumToKill = getSettledSlaveCountTotal() - iSafeSlaveCount;
+			for (int iX = 0; iX < iNumToKill; iX++) {
+				changeSettledSlaveCount(slaves[iX], -1);
+				changeFreeSpecialistCount(slaves[iX], -1);
+			}
+			CvWString szBuffer = gDLL->getText("TXT_KEY_CITY_SLAVE_DIED_REVOLT", getNameKey(), iNumToKill);
+			gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getEraInfo(GC.getGameINLINE().getCurrentEra()).getAudioUnitDefeatScript(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), getX_INLINE(), getY_INLINE());
+
+			// Address some issues for a fee
+			GET_PLAYER(getOwnerINLINE()).changeGold(-1 * GC.getSLAVERY_REVOLT_ADDRESS_COST());
+
+			// Slaves will hesitate before trying again, proportional to the number of game turns
+			int iChange = std::min(3, iNumToKill) * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getVictoryDelayPercent();
+			iChange /= 100;
+			GET_PLAYER(getOwnerINLINE()).changeWorldViewRevoltValue(WORLD_VIEW_SLAVERY, -1 * iChange);
+		}
+		break;
+	case NO_SLAVE_REVOLT_ACTION:
+	case SLAVE_REVOLT_IGNORE:
+		{
+			// Rampaging slaves destroy property
+			std::vector<BuildingTypes> buildings;
+			for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+				if (getNumRealBuilding(eBuilding) > 0 && !isLimitedWonderClass((BuildingClassTypes)GC.getBuildingInfo(eBuilding).getBuildingClassType())) {
+					buildings.push_back(eBuilding);
+				}
+			}
+			std::random_shuffle(buildings.begin(), buildings.end());
+			int iDestroyPropertyChance = 100;
+			int iIndex = 0;
+			CvWString szBuffer;
+			while (GC.getGameINLINE().getSorenRandNum(100, "Slave destroy property") < iDestroyPropertyChance) {
+				BuildingTypes eBuilding = buildings[iIndex];
+				setNumRealBuilding(eBuilding, getNumRealBuilding(eBuilding) - 1);
+				szBuffer = gDLL->getText("TXT_KEY_CITY_SLAVE_PROPERTY_REVOLT", getNameKey(), GC.getBuildingInfo(eBuilding).getText());
+				gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getEraInfo(GC.getGameINLINE().getCurrentEra()).getAudioUnitDefeatScript(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), getX_INLINE(), getY_INLINE());
+				iDestroyPropertyChance -= 80;
+				iIndex++;
+			}
+
+			// Slaves will be more liable to revolt in the future
+			GET_PLAYER(getOwnerINLINE()).changeWorldViewRevoltValue(WORLD_VIEW_SLAVERY, 5);
+		}
+		break;
+	default:
+		break;
+	}
+
+	// City has a revolt in all cases
+	changeCultureUpdateTimer(1);
+	changeOccupationTimer(1);
+}
+
+bool CvCity::canAddressSlaveRevolt() const {
+	return GET_PLAYER(getOwnerINLINE()).getGold() >= GC.getSLAVERY_REVOLT_ADDRESS_COST();
+}
+
+bool CvCity::canSuppressSlaveRevolt() const {
+	// Get how many slaves we need to deal with, we assume that all the non-handled slaves
+	//  plus half the rest are in revolt in order to determine the military strength required
+	int iSlaveCount = getSettledSlaveCountTotal();
+	int iExcessSlaves = iSlaveCount - getSlaveSafeLevel() + (iSlaveCount / 2);
+
+	// Do we have enough firepower to deal with these
+	int iStrength = 0;
+	CvUnit* pLoopUnit;
+	CLLNode<IDInfo>* pUnitNode = plot()->headUnitNode();
+	while (pUnitNode != NULL) {
+		pLoopUnit = ::getUnit(pUnitNode->m_data);
+		pUnitNode = plot()->nextUnitNode(pUnitNode);
+		if (pLoopUnit->currCombatStr(NULL, NULL) > 0 && pLoopUnit->getTeam() == getTeam()) {
+			iStrength += pLoopUnit->currCombatStr(NULL, NULL);
+			if (iStrength >= iExcessSlaves)
+				break;
+		}
+	}
+	return (iStrength >= iExcessSlaves);
 }

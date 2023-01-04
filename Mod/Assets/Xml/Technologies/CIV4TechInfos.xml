@@ -470,6 +470,9 @@
 			<OrPreReqs>
 				<PrereqTech>TECH_MINING</PrereqTech>
 			</OrPreReqs>
+			<EnabledWorldViews>
+				<WorldViewType>WORLD_VIEW_SLAVERY</WorldViewType>
+			</EnabledWorldViews>
 			<Quote>TXT_KEY_TECH_BRONZE_WORKING_QUOTE</Quote>
 			<Sound>AS2D_TECH_BRONZEWORK</Sound>
 			<SoundMP>AS2D_TECH_MP_BRONZEWORK</SoundMP>
@@ -1991,6 +1994,12 @@
 			<bTrade>1</bTrade>
 			<iGridX>11</iGridX>
 			<iGridY>8</iGridY>
+			<WorldViewRevoltTurnChanges>
+				<WorldViewRevoltTurnChange>
+					<WorldViewType>WORLD_VIEW_SLAVERY</WorldViewType>
+					<iChange>1</iChange>
+				</WorldViewRevoltTurnChange>
+			</WorldViewRevoltTurnChanges>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>

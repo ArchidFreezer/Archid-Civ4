@@ -69,6 +69,7 @@
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Amphibious.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,1</Button>
@@ -301,6 +302,7 @@
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,8,2</Button>
@@ -327,6 +329,7 @@
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,1,6</Button>
@@ -353,6 +356,7 @@
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat3.dds,Art/Interface/Buttons/Promotions_Atlas.dds,2,6</Button>
@@ -380,6 +384,7 @@
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat4.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,6</Button>
@@ -663,6 +668,7 @@
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Guerilla1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,5,5</Button>
@@ -681,6 +687,7 @@
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Guerilla2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,6,5</Button>
@@ -698,6 +705,7 @@
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Guerilla2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,7,5</Button>
@@ -795,6 +803,7 @@
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/March.dds,Art/Interface/Buttons/Promotions_Atlas.dds,2,4</Button>
@@ -1003,6 +1012,29 @@
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,2,15</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Sentry -->
+			<Type>PROMOTION_SENTRY</Type>
+			<Description>TXT_KEY_PROMOTION_SENTRY</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_FLANKING1</PromotionType>
+				<PromotionType>PROMOTION_COMBAT3</PromotionType>
+				<PromotionType>PROMOTION_DRILL3</PromotionType>
+			</PrereqOrPromotions>
+			<iVisibilityChange>1</iVisibilityChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>,Art/Interface/Buttons/Promotions/Sentry.dds,Art/Interface/Buttons/Promotions_Atlas.dds,5,6</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Shock -->
 			<Type>PROMOTION_SHOCK</Type>
 			<Description>TXT_KEY_PROMOTION_SHOCK</Description>
@@ -1026,28 +1058,52 @@
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Shock.dds,Art/Interface/Buttons/Promotions_Atlas.dds,4,5</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Sentry -->
-			<Type>PROMOTION_SENTRY</Type>
-			<Description>TXT_KEY_PROMOTION_SENTRY</Description>
+		<PromotionInfo> <!-- Slaver I -->
+			<Type>PROMOTION_SLAVER1</Type>
+			<Description>TXT_KEY_PROMOTION_SLAVER1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<PrereqOrPromotions>
-				<PromotionType>PROMOTION_FLANKING1</PromotionType>
-				<PromotionType>PROMOTION_COMBAT3</PromotionType>
-				<PromotionType>PROMOTION_DRILL3</PromotionType>
+				<PromotionType>PROMOTION_COMBAT1</PromotionType>
 			</PrereqOrPromotions>
-			<iVisibilityChange>1</iVisibilityChange>
+			<TechPrereq>TECH_BRONZE_WORKING</TechPrereq>
+			<iEnslaveCountChange>1</iEnslaveCountChange>
 			<OrUnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
-			<Button>,Art/Interface/Buttons/Promotions/Sentry.dds,Art/Interface/Buttons/Promotions_Atlas.dds,5,6</Button>
+			<Button>Art/Interface/Buttons/Promotions/slaver1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Slaver II -->
+			<Type>PROMOTION_SLAVER2</Type>
+			<Description>TXT_KEY_PROMOTION_SLAVER2</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_SLAVER1</PromotionType>
+			</PrereqOrPromotions>
+			<TechPrereq>TECH_BRONZE_WORKING</TechPrereq>
+			<bEnemyRoute>1</bEnemyRoute>
+			<iEnslaveCountChange>1</iEnslaveCountChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/slaver2.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Slaver III -->
+			<Type>PROMOTION_SLAVER3</Type>
+			<Description>TXT_KEY_PROMOTION_SLAVER3</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_SLAVER2</PromotionType>
+			</PrereqOrPromotions>
+			<TechPrereq>TECH_BRONZE_WORKING</TechPrereq>
+			<iEnslaveCountChange>1</iEnslaveCountChange>
+			<iMovesChange>1</iMovesChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/slaver3.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Tactics -->
 			<Type>PROMOTION_TACTICS</Type>
@@ -1091,6 +1147,7 @@
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Woodsman1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,6,6</Button>
@@ -1120,6 +1177,7 @@
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Woodsman2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,7,6</Button>
@@ -1146,6 +1204,7 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Woodsman2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,8,6</Button>

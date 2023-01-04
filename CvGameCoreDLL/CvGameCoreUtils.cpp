@@ -2039,6 +2039,7 @@ void getMissionTypeString(CvWString& szString, MissionTypes eMissionType) {
 	case MISSION_MULTI_DESELECT: szString = L"MISSION_MULTI_DESELECT"; break;
 	case MISSION_GOTO: szString = L"MISSION_GOTO"; break;
 	case MISSION_UPDATE_WORLD_VIEWS: szString = L"MISSION_UPDATE_WORLD_VIEWS"; break;
+	case MISSION_SELL_SLAVE: szString = L"MISSION_SELL_SLAVE"; break;
 
 	default: szString = CvWString::format(L"UNKOWN_MISSION(%d)", eMissionType); break;
 	}
@@ -2140,6 +2141,8 @@ void getUnitAIString(CvWString& szString, UnitAITypes eUnitAI) {
 	case UNITAI_MISSILE_AIR: szString = L"missile air"; break; // K-Mod (this string was missing)
 	case UNITAI_PARADROP: szString = L"paradrop"; break;
 	case UNITAI_ATTACK_CITY_LEMMING: szString = L"attack city lemming"; break;
+	case UNITAI_SLAVE: szString = L"slave"; break;
+	case UNITAI_SLAVER: szString = L"slaver"; break;
 
 	default: szString = CvWString::format(L"unknown(%d)", eUnitAI); break;
 	}

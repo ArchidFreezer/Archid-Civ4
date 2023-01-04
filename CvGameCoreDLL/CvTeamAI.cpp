@@ -4560,9 +4560,11 @@ int CvTeamAI::AI_getTechMonopolyValue(TechTypes eTech, TeamTypes eTeam) const {
 					case UNITAI_ANIMAL:
 					case UNITAI_SETTLE:
 					case UNITAI_WORKER:
+					case UNITAI_SLAVE:
 						break;
 
 					case UNITAI_ATTACK:
+					case UNITAI_SLAVER:
 					case UNITAI_ATTACK_CITY:
 					case UNITAI_COLLATERAL:
 						iValue += bWarPlan ? 50 : 20;

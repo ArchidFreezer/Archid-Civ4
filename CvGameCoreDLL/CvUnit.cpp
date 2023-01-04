@@ -44,6 +44,7 @@ CvUnit::CvUnit() {
 	m_paiExtraFeatureAttackPercent = NULL;
 	m_paiExtraFeatureDefensePercent = NULL;
 	m_paiExtraUnitCombatModifier = NULL;
+	m_paiEnslavedCount = NULL;
 
 	CvDLLEntity::createUnitEntity(this);		// create and attach entity to unit
 
@@ -240,6 +241,7 @@ void CvUnit::uninit() {
 	SAFE_DELETE_ARRAY(m_paiExtraFeatureAttackPercent);
 	SAFE_DELETE_ARRAY(m_paiExtraFeatureDefensePercent);
 	SAFE_DELETE_ARRAY(m_paiExtraUnitCombatModifier);
+	SAFE_DELETE_ARRAY(m_paiEnslavedCount);
 }
 
 
@@ -310,6 +312,9 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iRangeUnboundCount = 0;
 	m_iTerritoryUnboundCount = 0;
 	m_iCanMovePeaksCount = 0;
+	m_iEnslaveCountExtra = 0;
+	m_iSlaveSpecialistType = (NO_UNIT != eUnit) ? ((CvUnitInfo*)&GC.getUnitInfo(eUnit))->getSlaveSpecialistType() : NO_SPECIALIST;
+	m_iSlaveControlCount = 0;
 
 	m_bMadeAttack = false;
 	m_bMadeInterception = false;
@@ -321,6 +326,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_bAirCombat = false;
 	m_bCivicEnabled = true;
 	m_bGroupPromotionChanged = false;
+	m_bWorldViewEnabled = true;
 
 	m_eOwner = eOwner;
 	m_eCapturingPlayer = NO_PLAYER;
@@ -366,6 +372,12 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 			m_paiFeatureDoubleMoveCount[eFeature] = 0;
 			m_paiExtraFeatureAttackPercent[eFeature] = 0;
 			m_paiExtraFeatureDefensePercent[eFeature] = 0;
+		}
+
+		FAssertMsg((0 < GC.getNumSpecialistInfos()), "GC.getNumSpecialistInfos() is not greater than zero but an array is being allocated in CvUnit::reset");
+		m_paiEnslavedCount = new int[GC.getNumSpecialistInfos()];
+		for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
+			m_paiEnslavedCount[eSpecialist] = 0;
 		}
 
 		FAssertMsg((0 < GC.getNumUnitCombatInfos()), "GC.getNumUnitCombatInfos() is not greater than zero but an array is being allocated in CvUnit::reset");
@@ -1319,7 +1331,11 @@ void CvUnit::updateCombat(bool bQuick) {
 			CvWString szBuffer;
 			szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_UNIT_DIED_ATTACKING", getNameKey(), pDefender->getNameKey());
 			gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getEraInfo(GC.getGameINLINE().getCurrentEra()).getAudioUnitDefeatScript(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), pPlot->getX_INLINE(), pPlot->getY_INLINE());
-			szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_KILLED_ENEMY_UNIT", pDefender->getNameKey(), getNameKey(), getVisualCivAdjective(pDefender->getTeam()));
+			if (enslaveUnit(pDefender, this)) {
+				szBuffer = gDLL->getText("TXT_KEY_SLAVERY_DEFEND_YOU_ENSLAVED_ENEMY_UNIT", getNameKey());
+			} else {
+				szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_KILLED_ENEMY_UNIT", pDefender->getNameKey(), getNameKey(), getVisualCivAdjective(pDefender->getTeam()));
+			}
 			gDLL->getInterfaceIFace()->addHumanMessage(pDefender->getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getEraInfo(GC.getGameINLINE().getCurrentEra()).getAudioUnitVictoryScript(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), pPlot->getX_INLINE(), pPlot->getY_INLINE());
 
 			// report event to Python, along with some other key state
@@ -1340,7 +1356,11 @@ void CvUnit::updateCombat(bool bQuick) {
 			}
 
 			CvWString szBuffer;
-			szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_UNIT_DESTROYED_ENEMY", getNameKey(), pDefender->getNameKey());
+			if (enslaveUnit(this, pDefender)) {
+				szBuffer = gDLL->getText("TXT_KEY_SLAVERY_ATTACK_YOU_ENSLAVED_ENEMY_UNIT", pDefender->getNameKey());
+			} else {
+				szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_UNIT_DESTROYED_ENEMY", getNameKey(), pDefender->getNameKey());
+			}
 			gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getEraInfo(GC.getGameINLINE().getCurrentEra()).getAudioUnitVictoryScript(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), pPlot->getX_INLINE(), pPlot->getY_INLINE());
 			if (getVisualOwner(pDefender->getTeam()) != getOwnerINLINE()) {
 				szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_UNIT_WAS_DESTROYED_UNKNOWN", pDefender->getNameKey(), getNameKey());
@@ -2528,19 +2548,19 @@ bool CvUnit::canAutomate(AutomateTypes eAutomate) const {
 
 	switch (eAutomate) {
 	case AUTOMATE_BUILD:
-		if ((AI_getUnitAIType() != UNITAI_WORKER) && (AI_getUnitAIType() != UNITAI_WORKER_SEA)) {
+		if ((AI_getUnitAIType() != UNITAI_WORKER) && (AI_getUnitAIType() != UNITAI_WORKER_SEA) && (AI_getUnitAIType() != UNITAI_SLAVE)) {
 			return false;
 		}
 		break;
 
 	case AUTOMATE_NETWORK:
-		if ((AI_getUnitAIType() != UNITAI_WORKER) || !canBuildRoute()) {
+		if ((AI_getUnitAIType() != UNITAI_WORKER) || (AI_getUnitAIType() != UNITAI_SLAVE) || !canBuildRoute()) {
 			return false;
 		}
 		break;
 
 	case AUTOMATE_CITY:
-		if (AI_getUnitAIType() != UNITAI_WORKER) {
+		if ((AI_getUnitAIType() != UNITAI_WORKER) || (AI_getUnitAIType() != UNITAI_SLAVE)) {
 			return false;
 		}
 		break;
@@ -4772,7 +4792,11 @@ bool CvUnit::canJoin(const CvPlot* pPlot, SpecialistTypes eSpecialist) const {
 		return false;
 	}
 
-	if (!m_pUnitInfo->getGreatPeoples(eSpecialist)) {
+	if (!(m_pUnitInfo->getGreatPeoples(eSpecialist) || (getSlaveSpecialistType() == eSpecialist && isSlave()))) {
+		return false;
+	}
+
+	if (isSlave() && !canWorkCity(pPlot)) {
 		return false;
 	}
 
@@ -4809,6 +4833,10 @@ bool CvUnit::join(SpecialistTypes eSpecialist) {
 	CvCity* pCity = plot()->getPlotCity();
 	if (pCity != NULL) {
 		pCity->changeFreeSpecialistCount(eSpecialist, 1);
+
+		if (isSlave()) {
+			pCity->changeSettledSlaveCount(eSpecialist, 1);
+		}
 	}
 
 	if (plot()->isActiveVisible(false)) {
@@ -6273,6 +6301,7 @@ BuildTypes CvUnit::getBuildType() const {
 		case MISSION_ESPIONAGE:
 		case MISSION_DIE_ANIMATION:
 		case MISSION_UPDATE_WORLD_VIEWS:
+		case MISSION_SELL_SLAVE:
 			break;
 
 		case MISSION_BUILD:
@@ -9349,16 +9378,16 @@ bool CvUnit::canAcquirePromotion(PromotionTypes ePromotion) const {
 		}
 	}
 
-	bool bValid = true;
-	for (int iI = 0; iI < kPromotion.getNumPrereqOrPromotions(); iI++) {
-		bValid = false;
-		if (isHasPromotion((PromotionTypes)kPromotion.getPrereqOrPromotion(iI))) {
-			bValid = true;
-			break;
+	if (kPromotion.getNumPrereqOrPromotions() > 0) {
+		bool bValid = false;
+		for (int iI = 0; iI < kPromotion.getNumPrereqOrPromotions() && !bValid; iI++) {
+			if (isHasPromotion((PromotionTypes)kPromotion.getPrereqOrPromotion(iI))) {
+				bValid = true;
+			}
 		}
-	}
-	if (!bValid) {
-		return false;
+		if (!bValid) {
+			return false;
+		}
 	}
 
 	if (kPromotion.getTechPrereq() != NO_TECH) {
@@ -9516,6 +9545,7 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 		changeCargoSpace(kPromotion.getCargoChange() * iChange);
 		changeExtraRange(kPromotion.getUnitRangeChange() * iChange);
 		changeExtraRangePercent(kPromotion.getUnitRangePercentChange() * iChange);
+		changeEnslaveCountExtra(kPromotion.getEnslaveCountChange() * iChange);
 
 		for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
 			changeExtraTerrainAttackPercent(eTerrain, kPromotion.getTerrainAttackPercent(eTerrain) * iChange);
@@ -9658,6 +9688,9 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iRangeUnboundCount);
 	pStream->Read(&m_iTerritoryUnboundCount);
 	pStream->Read(&m_iCanMovePeaksCount);
+	pStream->Read(&m_iEnslaveCountExtra);
+	pStream->Read(&m_iSlaveSpecialistType);
+	pStream->Read(&m_iSlaveControlCount);
 
 	pStream->Read(&m_bMadeAttack);
 	pStream->Read(&m_bMadeInterception);
@@ -9671,6 +9704,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	}
 	pStream->Read(&m_bCivicEnabled);
 	pStream->Read(&m_bGroupPromotionChanged);
+	pStream->Read(&m_bWorldViewEnabled);
 
 	pStream->Read((int*)&m_eOwner);
 	pStream->Read((int*)&m_eCapturingPlayer);
@@ -9700,6 +9734,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(GC.getNumFeatureInfos(), m_paiExtraFeatureAttackPercent);
 	pStream->Read(GC.getNumFeatureInfos(), m_paiExtraFeatureDefensePercent);
 	pStream->Read(GC.getNumUnitCombatInfos(), m_paiExtraUnitCombatModifier);
+	pStream->Read(GC.getNumSpecialistInfos(), m_paiEnslavedCount);
 }
 
 
@@ -9769,6 +9804,9 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iRangeUnboundCount);
 	pStream->Write(m_iTerritoryUnboundCount);
 	pStream->Write(m_iCanMovePeaksCount);
+	pStream->Write(m_iEnslaveCountExtra);
+	pStream->Write(m_iSlaveSpecialistType);
+	pStream->Write(m_iSlaveControlCount);
 
 	pStream->Write(m_bMadeAttack);
 	pStream->Write(m_bMadeInterception);
@@ -9780,6 +9818,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_bAirCombat);
 	pStream->Write(m_bCivicEnabled);
 	pStream->Write(m_bGroupPromotionChanged);
+	pStream->Write(m_bWorldViewEnabled);
 
 	pStream->Write(m_eOwner);
 	pStream->Write(m_eCapturingPlayer);
@@ -9807,6 +9846,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(GC.getNumFeatureInfos(), m_paiExtraFeatureAttackPercent);
 	pStream->Write(GC.getNumFeatureInfos(), m_paiExtraFeatureDefensePercent);
 	pStream->Write(GC.getNumUnitCombatInfos(), m_paiExtraUnitCombatModifier);
+	pStream->Write(GC.getNumSpecialistInfos(), m_paiEnslavedCount);
 }
 
 // Protected Functions...
@@ -11163,7 +11203,7 @@ bool CvUnit::isCivicEnabled() const {
 }
 
 bool CvUnit::isEnabled() const {
-	return isCivicEnabled();
+	return isCivicEnabled() && isWorldViewEnabled();
 }
 
 void CvUnit::salvage(CvUnit* pDeadUnit) {
@@ -11557,4 +11597,274 @@ bool CvUnit::canFortAttack() const {
 		}
 	}
 	return bFortAttack;
+}
+
+void CvUnit::checkWorldViewStatus() {
+	bool bValid = true;
+	const CvUnitInfo& kUnit = GC.getUnitInfo(m_eUnitType);
+	int iNumWorldViewPrereqs = kUnit.getNumPrereqWorldViews();
+	for (int iI = 0; iI < iNumWorldViewPrereqs && bValid; iI++) {
+		if (kUnit.isPrereqWorldView(iI) && !GET_PLAYER(getOwnerINLINE()).isWorldViewActivated((WorldViewTypes)iI)) {
+			bValid = false;
+		}
+	}
+	m_bWorldViewEnabled = bValid;
+}
+
+bool CvUnit::isWorldViewEnabled() const {
+	return m_bWorldViewEnabled;
+}
+
+int CvUnit::getSlaveCount(SpecialistTypes iIndex) const {
+	return m_paiEnslavedCount[iIndex];
+}
+
+int CvUnit::getSlaveCountTotal() const {
+	int iTotal = 0;
+	for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
+		iTotal += m_paiEnslavedCount[eSpecialist];
+	}
+
+	return iTotal;
+}
+
+void CvUnit::changeSlaveCount(SpecialistTypes iIndex, int iChange) {
+	FAssertMsg(iIndex >= 0, "iIndex expected to be >= 0");
+	FAssertMsg(iIndex < GC.getNumSpecialistInfos(), "iIndex expected to be < GC.getNumSpecialistInfos()");
+
+	// Now do the extra slave processing
+	int iNewValue = getSlaveCount(iIndex) + iChange;
+	m_paiEnslavedCount[iIndex] = iNewValue;
+	FAssert(getSlaveCount(iIndex) >= 0);
+}
+
+void CvUnit::changeEnslaveCountExtra(int iChange) {
+	m_iEnslaveCountExtra += iChange;
+}
+
+int CvUnit::getEnslaveCountExtra() const {
+	return m_iEnslaveCountExtra;
+}
+
+void CvUnit::changeSlaveControlCount(int iChange) {
+	m_iSlaveControlCount += iChange;
+}
+
+int CvUnit::getSlaveControlCount() const {
+	return std::max(m_iSlaveControlCount, getMaxSlaves() - getSlaveCountTotal());
+}
+
+int CvUnit::getMaxSlaves() const {
+	return m_pUnitInfo->getEnslaveCount() + getEnslaveCountExtra();
+}
+
+bool CvUnit::canEnslave() const {
+	return isEnabled() && (getMaxSlaves() > getSlaveCountTotal());
+}
+
+bool CvUnit::canSellSlave(const CvPlot* pPlot) const {
+	if (getSlaveCountTotal() <= 0)
+		return false;
+
+	if (!isEnabled())
+		return false;
+
+	CvCity* pCity = pPlot->getPlotCity();
+	if (pCity == NULL || pCity->getTeam() != getTeam() || !pCity->isSlaveMarket() || GET_PLAYER(getOwnerINLINE()).getGold() < pCity->getSlaveCost(getSlaveCountTotal()))
+		return false;
+
+	return true;
+}
+
+bool CvUnit::sellSlaves() {
+	if (!canSellSlave(plot()))
+		return false;
+
+	CvPlayer& kPlayer = GET_PLAYER(getOwnerINLINE());
+
+	// Lets see the colour of their money first!
+	kPlayer.changeGold(0 - plot()->getPlotCity()->getSlaveCost(getSlaveCountTotal()));
+
+	// Loop through all our slaves types
+	for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
+		int iNumSlaves = m_paiEnslavedCount[eSpecialist];
+		for (int iY = 0; iY < iNumSlaves; iY++) {
+			UnitTypes eSlave = getSlaveUnit();
+			if (eSlave != NO_UNIT) {
+				CvUnit* pSlave = kPlayer.initUnit(eSlave, getX(), getY());
+				pSlave->setSlaveSpecialistType(eSpecialist);
+				pSlave->finishMoves();
+			}
+		}
+		m_paiEnslavedCount[eSpecialist] = 0;
+	}
+
+	finishMoves();
+
+	return true;
+}
+
+bool CvUnit::enslaveUnit(CvUnit* pWinner, CvUnit* pLoser) {
+	bool bEnslaved = false;
+
+	CvUnit* pSlaver = getSlaver(pWinner);
+
+	if (NULL != pSlaver) {
+		int iSlaveSlotsLeft = pSlaver->getMaxSlaves() - pSlaver->getSlaveCountTotal();
+		if (GET_PLAYER(pWinner->getOwnerINLINE()).isWorldViewActivated(WORLD_VIEW_SLAVERY) && iSlaveSlotsLeft > 0) {
+
+
+			// If we have captured a slaver we also capture any slaves they have
+			if (pLoser->getMaxSlaves() > 0) {
+				// take any slaves they have
+				for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
+					int iNumSlaves = pLoser->m_paiEnslavedCount[eSpecialist];
+					if (iNumSlaves > 0 && iSlaveSlotsLeft >= iNumSlaves) {
+						// We can keep all the slaves of this type
+						pSlaver->changeSlaveCount(eSpecialist, iNumSlaves);
+						bEnslaved = true;
+
+						iSlaveSlotsLeft -= iNumSlaves;
+						if (iSlaveSlotsLeft == 0) {
+							return bEnslaved;
+						}
+					} else if (iNumSlaves > 0 && iSlaveSlotsLeft > 0) {
+						// We can only keep some of the slaves so fill up and exit
+						pSlaver->changeSlaveCount(eSpecialist, iSlaveSlotsLeft);
+						return true;
+					}
+				}
+			}
+
+			// Now deal with the actual loser unit
+			SpecialistTypes eLoserSpecialist = pLoser->getSlaveSpecialistType();
+			if (eLoserSpecialist != NO_SPECIALIST) {
+				pSlaver->changeSlaveCount(eLoserSpecialist, 1);
+				bEnslaved = true;
+			}
+		}
+	}
+	return bEnslaved;
+}
+
+CvUnit* CvUnit::getSlaver(CvUnit* pWinner) {
+	FAssertMsg(pWinner != NULL, "Winner should not be NULL");
+
+	CvUnit* pSlaver = NULL;
+
+	CvPlot* pPlot = pWinner->plot();
+	for (int i = 0; i < pPlot->getNumUnits(); i++) {
+		CvUnit* pTargetUnit = pPlot->getUnitByIndex(i);
+		if (NULL != pTargetUnit && pTargetUnit->getOwner() == pWinner->getOwner() && pTargetUnit->canEnslave()) {
+			pSlaver = pTargetUnit;
+			break;
+		}
+	}
+	return pSlaver;
+}
+
+CvPlot* CvUnit::getBestSlaveMarket(bool bCurrentAreaOnly) {
+	CvCity* pBestCity = NULL;
+	int iBestValue = 0;
+
+	TeamTypes eTeam = getTeam();
+	int iArea = getArea();
+	int iX = getX_INLINE(), iY = getY_INLINE();
+
+	// check every player on our team's cities
+	for (PlayerTypes eLoopPlayer = (PlayerTypes)0; eLoopPlayer < MAX_PLAYERS; eLoopPlayer = (PlayerTypes)(eLoopPlayer + 1)) {
+		// is this player on our team?
+		CvPlayerAI& kLoopPlayer = GET_PLAYER(eLoopPlayer);
+		if (kLoopPlayer.isAlive() && kLoopPlayer.getTeam() == eTeam) {
+			int iLoop;
+			for (CvCity* pLoopCity = kLoopPlayer.firstCity(&iLoop); pLoopCity != NULL; pLoopCity = kLoopPlayer.nextCity(&iLoop)) {
+				// can we sell slaves in this city 
+				if (pLoopCity->isSlaveMarket()) {
+					// if not same area, and only looking for current area then bail
+					if (iArea != pLoopCity->getArea() && bCurrentAreaOnly)
+						continue;
+
+					// Start high so we can use division and still get a reasonable value comparison
+					int iValue = 10000;
+
+					// if we cannot path there, then give it a big negative
+					int iTurns;
+					if (!generatePath(pLoopCity->plot(), 0, true, &iTurns))
+						iValue /= 5;
+
+					// Further away is bad, using every 3 turns as a divisor
+					iValue /= std::min(1, iTurns / 3);
+
+					// Current area is a major benefit
+					if (iArea == pLoopCity->getArea())
+						iValue *= 6;
+
+					// perefer our own cities
+					if (eLoopPlayer == getOwnerINLINE())
+						iValue *= 4;
+
+					// If we need workers there
+					if (pLoopCity->AI_getWorkersNeeded() > pLoopCity->AI_getWorkersHave())
+						iValue *= 2;
+
+					// Each 20 turns of production left in a city increments multiplier
+					if (pLoopCity->canSettleSlave() && kLoopPlayer.isAnarchy())
+						iValue *= std::min(1, pLoopCity->getProductionTurnsLeft() / 20);
+
+					if (iValue > iBestValue) {
+						iBestValue = iValue;
+						pBestCity = pLoopCity;
+					}
+				}
+			}
+		}
+	}
+	return pBestCity->plot();
+}
+
+UnitTypes CvUnit::getSlaveUnit() const {
+	std::vector<UnitTypes> vSlaveUnits;
+	for (UnitClassTypes eUnitClass = (UnitClassTypes)0; eUnitClass < GC.getNumUnitClassInfos(); eUnitClass = (UnitClassTypes)(eUnitClass + 1)) {
+		UnitTypes eCivUnit = (UnitTypes)GC.getCivilizationInfo(this->getCivilizationType()).getCivilizationUnits(eUnitClass);
+		if (eCivUnit != NULL && GC.getUnitInfo(eCivUnit).isSlave())
+			vSlaveUnits.push_back(eCivUnit);
+	}
+
+	// Pick a slave type at random
+	int iIndex = GC.getGameINLINE().getSorenRandNum(vSlaveUnits.size(), "Slave type");
+	return vSlaveUnits.size() > 0 ? vSlaveUnits[iIndex] : NO_UNIT;
+}
+
+bool CvUnit::isSlave() const {
+	return m_pUnitInfo->isSlave();
+}
+
+SpecialistTypes CvUnit::getSlaveSpecialistType() const {
+	if (isMechUnit() || isAnimal()) {
+		return NO_SPECIALIST;
+	}
+
+	return (SpecialistTypes)m_iSlaveSpecialistType;
+}
+
+void CvUnit::setSlaveSpecialistType(SpecialistTypes eSpecialistType) {
+	m_iSlaveSpecialistType = eSpecialistType;
+}
+
+
+bool CvUnit::canWorkCity(const CvPlot* pPlot) const {
+	if (!isSlave()) {
+		return false;
+	}
+
+	if (!GET_PLAYER(getOwnerINLINE()).isWorldViewActivated(WORLD_VIEW_SLAVERY)) {
+		return false;
+	}
+
+	CvCity* pCity = pPlot->getPlotCity();
+	if (pCity == NULL || pCity->getTeam() != getTeam() || !pCity->canSettleSlave()) {
+		return false;
+	}
+
+	return true;
 }

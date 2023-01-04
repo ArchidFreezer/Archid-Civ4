@@ -95,6 +95,28 @@ public:
 
 	bool canFortAttack() const;
 
+	int getEnslaveCountExtra() const;
+	int getMaxSlaves() const;
+	int getSlaveControlCount() const;
+	int getSlaveCount(SpecialistTypes eSlaveSpecialist) const;
+	int getSlaveCountTotal() const;
+	bool canEnslave() const;													// Exposed to Python 
+	bool canSellSlave(const CvPlot* pPlot) const;
+	bool canWorkCity(const CvPlot* pPlot) const;
+	bool enslaveUnit(CvUnit* pWinner, CvUnit* pLoser);
+	bool isSlave() const;
+	bool isWorldViewEnabled() const;
+	bool sellSlaves();
+	void changeEnslaveCountExtra(int iChange);
+	void changeSlaveControlCount(int iChange);
+	void changeSlaveCount(SpecialistTypes eSlaveSpecialist, int iChange);
+	void checkWorldViewStatus();
+	void setSlaveSpecialistType(SpecialistTypes eSpecialistType);
+	SpecialistTypes getSlaveSpecialistType() const;
+	UnitTypes getSlaveUnit() const;
+	CvPlot* getBestSlaveMarket(bool bCurrentAreaOnly = true);
+	CvUnit* getSlaver(CvUnit* pWinner);
+
 	bool canTradeUnit(PlayerTypes eReceivingPlayer);
 	void tradeUnit(PlayerTypes eReceivingPlayer);
 
@@ -881,6 +903,9 @@ protected:
 	int m_iRangeUnboundCount;
 	int m_iTerritoryUnboundCount;
 	int m_iCanMovePeaksCount;
+	int m_iEnslaveCountExtra;
+	int m_iSlaveSpecialistType;
+	int m_iSlaveControlCount;
 
 	bool m_bMadeAttack;
 	bool m_bMadeInterception;
@@ -892,6 +917,7 @@ protected:
 	bool m_bAirCombat;
 	bool m_bCivicEnabled;
 	bool m_bGroupPromotionChanged;
+	bool m_bWorldViewEnabled;
 
 	PlayerTypes m_eOwner;
 	PlayerTypes m_eCapturingPlayer;
@@ -916,6 +942,7 @@ protected:
 	int* m_paiExtraFeatureAttackPercent;
 	int* m_paiExtraFeatureDefensePercent;
 	int* m_paiExtraUnitCombatModifier;
+	int* m_paiEnslavedCount;
 
 	IDInfo m_homeCity;
 

@@ -401,4 +401,18 @@ private:
 	WorldViewTypes m_eWorldView;
 };
 
+class CvNetSlaveRevolt : public CvMessageData {
+public:
+	CvNetSlaveRevolt();
+	CvNetSlaveRevolt(PlayerTypes ePlayer, int iCityID, SlaveRevoltActions eAction);
+	virtual void Debug(char* szAddendum);
+	virtual void Execute();
+	virtual void PutInBuffer(FDataStreamBase* pStream);
+	virtual void SetFromBuffer(FDataStreamBase* pStream);
+private:
+	PlayerTypes m_ePlayer;
+	SlaveRevoltActions m_eAction;
+	int m_iCityID;
+};
+
 #endif

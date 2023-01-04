@@ -6161,7 +6161,7 @@
 		</SoundData>
 		<SoundData>
 			<SoundID>SND_DESTROYER_RUN_LOOP</SoundID>
-			<Filename>Sounds/Units/DestroyerRunLoop </Filename>
+			<Filename>Sounds/Units/DestroyerRunLoop</Filename>
 			<LoadType>DYNAMIC_RES</LoadType>
 			<bIsCompressed>1</bIsCompressed>
 			<bInGeneric>1</bInGeneric>
@@ -7442,7 +7442,7 @@
 		</SoundData>
 		<SoundData>
 			<SoundID>SND_OMEN_FORT_VOX</SoundID>
-			<Filename>Sounds/Units/OmenFortVox </Filename>
+			<Filename>Sounds/Units/OmenFortVox</Filename>
 			<LoadType>DYNAMIC_RES</LoadType>
 			<bIsCompressed>1</bIsCompressed>
 			<bInGeneric>1</bInGeneric>
@@ -10985,6 +10985,20 @@
 		<SoundData>
 			<SoundID>SND_THEIRALLIANCE</SoundID>
 			<Filename>Sounds/TheirAlliance</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
+			<SoundID>SND_SLAVE</SoundID>
+			<Filename>Sounds/Units/Slave</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>		
+		<SoundData>
+			<SoundID>SND_BUILD_SLAVE_MARKET</SoundID>
+			<Filename>Sounds/Buildings/SlaveMarket</Filename>
 			<LoadType>DYNAMIC_RES</LoadType>
 			<bIsCompressed>1</bIsCompressed>
 			<bInGeneric>1</bInGeneric>

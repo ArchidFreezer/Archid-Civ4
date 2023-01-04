@@ -13,6 +13,7 @@ class CvPlotGroup;
 class CvArea;
 class CvGenericBuilding;
 class CvArtInfoBuilding;
+class CvCityAI;
 
 void addGoodOrBad(int iValue, int& iGood, int& iBad);
 void subtractGoodOrBad(int iValue, int& iGood, int& iBad);
@@ -22,6 +23,9 @@ class CvCity : public CvDLLEntity {
 public:
 	CvCity();
 	virtual ~CvCity();
+
+	CvCityAI* AI() { return (CvCityAI*)(this); }
+	const CvCityAI* AI() const { return (const CvCityAI*)(this); }
 
 	void init(int iID, PlayerTypes eOwner, int iX, int iY, bool bBumpUnits, bool bUpdatePlotGroups);
 	void uninit();
@@ -38,6 +42,22 @@ public:
 	void doWorkableRadiusChanged();
 
 	void doTurn();
+
+	bool canSettleSlave() const;
+	bool canAddressSlaveRevolt() const;
+	bool canSuppressSlaveRevolt() const;
+	bool isSlaveMarket() const;
+	int getSettledSlaveCount(SpecialistTypes eSlaveSpecialist) const;
+	int getSettledSlaveCountTotal() const;
+	int getSlaveCost(int iNumSlaves) const;
+	int getSlaveMarketCount() const;
+	int getSlaveRevoltRiskPercent() const;
+	int getSlaveSafeLevel() const;
+	void changeSettledSlaveCount(SpecialistTypes eSlaveSpecialist, int iChange);
+	void changeSlaveMarketCount(int iChange);
+	void checkBuildingWorldViewPrereqs(WorldViewTypes eWorldView, bool bActivate);
+	void doSlaveDeath();
+	void doSlaveRevolt(SlaveRevoltActions eAction);
 
 	bool isStarSignAnger() const;
 	int getStarSignAngerTimer() const;
@@ -1108,6 +1128,7 @@ protected:
 	int m_iStarSignMitigatePercent;
 	int m_iStarSignScalePercent;
 	int m_iStarSignAngerTimer;
+	int m_iSlaveMarketCount;
 
 	bool m_bNeverLost;
 	bool m_bBombarded;
@@ -1182,6 +1203,7 @@ protected:
 	int* m_paiNumRealBuilding;
 	int* m_paiNumFreeBuilding;
 	int* m_paiDisabledBuildingCount;
+	int* m_paiSettledSlaveCount;
 
 	bool* m_pabWorkingPlot;
 	bool* m_pabHasReligion;

@@ -248,5 +248,121 @@
 			</Commerces>
 			<Button>Art/Interface/MainScreen/CityScreen/great_spy.dds</Button>
 		</SpecialistInfo>
+		<SpecialistInfo> <!-- Slave Artist -->
+			<Type>SPECIALIST_ARTIST_SLAVE</Type>
+			<Description>TXT_KEY_SPECIALIST_ARTIST_SLAVE</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_SPECIALISTS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_SPECIALIST_ARTIST_STRATEGY</Strategy>
+			<Texture>Art/Interface/MainScreen/CityScreen/slave_artist.dds</Texture>
+			<bSlave>1</bSlave>
+			<Yields>
+				<iYield>1</iYield>
+			</Yields>
+			<Commerces>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+				<iCommerce>2</iCommerce>
+			</Commerces>
+			<Button>Art/Interface/MainScreen/CityScreen/slave_artist.dds</Button>
+		</SpecialistInfo>
+		<SpecialistInfo> <!-- Slave Citizen -->
+			<Type>SPECIALIST_CITIZEN_SLAVE</Type>
+			<Description>TXT_KEY_SPECIALIST_CITIZEN_SLAVE</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_SPECIALISTS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_SPECIALIST_CITIZEN_STRATEGY</Strategy>
+			<Help/>
+			<Texture>Art/Interface/MainScreen/CityScreen/slave_citizen.dds</Texture>
+			<bSlave>1</bSlave>
+			<Yields>
+				<iYield>1</iYield>
+				<iYield>1</iYield>
+			</Yields>
+			<Commerces/>
+			<Button>Art/Interface/MainScreen/CityScreen/slave_citizen.dds</Button>
+		</SpecialistInfo>
+		<SpecialistInfo> <!-- Slave Engineer -->
+			<Type>SPECIALIST_ENGINEER_SLAVE</Type>
+			<Description>TXT_KEY_SPECIALIST_ENGINEER_SLAVE</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_SPECIALISTS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_SPECIALIST_ENGINEER_STRATEGY</Strategy>
+			<Help/>
+			<Texture>Art/Interface/MainScreen/CityScreen/slave_engineer.dds</Texture>
+			<bSlave>1</bSlave>
+			<Yields>
+				<iYield>1</iYield>
+				<iYield>2</iYield>
+			</Yields>
+			<Commerces/>
+			<Button>Art/Interface/MainScreen/CityScreen/slave_engineer.dds</Button>
+		</SpecialistInfo>
+		<SpecialistInfo> <!-- Slave Merchant -->
+			<Type>SPECIALIST_MERCHANT_SLAVE</Type>
+			<Description>TXT_KEY_SPECIALIST_MERCHANT_SLAVE</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_SPECIALISTS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_SPECIALIST_MERCHANT_STRATEGY</Strategy>
+			<Help/>
+			<Texture>Art/Interface/MainScreen/CityScreen/slave_merchant.dds</Texture>
+			<bSlave>1</bSlave>
+			<Yields>
+				<iYield>1</iYield>
+			</Yields>
+			<Commerces>
+				<iCommerce>2</iCommerce>
+			</Commerces>
+			<Button>Art/Interface/MainScreen/CityScreen/slave_merchant.dds</Button>
+		</SpecialistInfo>
+		<SpecialistInfo> <!-- Slave Priest -->
+			<Type>SPECIALIST_PRIEST_SLAVE</Type>
+			<Description>TXT_KEY_SPECIALIST_PRIEST_SLAVE</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_SPECIALISTS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_SPECIALIST_PRIEST_STRATEGY</Strategy>
+			<Help/>
+			<Texture>Art/Interface/MainScreen/CityScreen/slave_priest.dds</Texture>
+			<bSlave>1</bSlave>
+			<Yields>
+				<iYield>1</iYield>
+				<iYield>1</iYield>
+			</Yields>
+			<Commerces>
+				<iCommerce>1</iCommerce>
+			</Commerces>
+			<Button>Art/Interface/MainScreen/CityScreen/slave_priest.dds</Button>
+		</SpecialistInfo>
+		<SpecialistInfo> <!-- Slave Scientist -->
+			<Type>SPECIALIST_SCIENTIST_SLAVE</Type>
+			<Description>TXT_KEY_SPECIALIST_SCIENTIST_SLAVE</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_SPECIALISTS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_SPECIALIST_SCIENTIST_STRATEGY</Strategy>
+			<Help/>
+			<Texture>Art/Interface/MainScreen/CityScreen/slave_scientist.dds</Texture>
+			<bSlave>1</bSlave>
+			<Yields>
+				<iYield>1</iYield>
+			</Yields>
+			<Commerces>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</Commerces>
+			<Button>Art/Interface/MainScreen/CityScreen/slave_scientist.dds</Button>
+		</SpecialistInfo>
+		<SpecialistInfo> <!-- Slave Spy -->
+			<Type>SPECIALIST_SPY_SLAVE</Type>
+			<Description>TXT_KEY_SPECIALIST_SPY_SLAVE</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_GREAT_SPY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_SPECIALIST_SPY_STRATEGY</Strategy>
+			<Help/>
+			<Texture>Art/Interface/MainScreen/CityScreen/slave_spy.dds</Texture>
+			<bSlave>1</bSlave>
+			<Yields>
+				<iYield>1</iYield>
+			</Yields>
+			<Commerces>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</Commerces>
+			<Button>Art/Interface/MainScreen/CityScreen/slave_spy.dds</Button>
+		</SpecialistInfo>
 	</SpecialistInfos>
 </Civ4SpecialistInfos>

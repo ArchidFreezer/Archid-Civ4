@@ -507,6 +507,7 @@ bool CvSelectionGroupAI::AI_isDeclareWar(const CvPlot* pPlot) {
 			case UNITAI_ANIMAL:
 			case UNITAI_SETTLE:
 			case UNITAI_WORKER:
+			case UNITAI_SLAVE:
 				break;
 			case UNITAI_ATTACK_CITY:
 			case UNITAI_ATTACK_CITY_LEMMING:
@@ -516,6 +517,7 @@ bool CvSelectionGroupAI::AI_isDeclareWar(const CvPlot* pPlot) {
 			case UNITAI_ATTACK:
 			case UNITAI_COLLATERAL:
 			case UNITAI_PILLAGE:
+			case UNITAI_SLAVER:
 				if (bLimitedWar) {
 					return true;
 				}

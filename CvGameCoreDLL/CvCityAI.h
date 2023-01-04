@@ -25,6 +25,8 @@ public:
 	void AI_assignWorkingPlots();
 	void AI_updateAssignWork();
 
+	SlaveRevoltActions AI_bestSlaveRevoltAction();
+
 	bool AI_ignoreGrowth();
 	int AI_specialistValue(SpecialistTypes eSpecialist, bool bRemove, bool bIgnoreFood = false, int iGrowthValue = -1) const; // K-Mod
 	int AI_permanentSpecialistValue(SpecialistTypes eSpecialist) const; // K-Mod

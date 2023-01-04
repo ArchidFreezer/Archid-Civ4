@@ -36,13 +36,23 @@ public:
 	CvPlayerAI* AI() { return (CvPlayerAI*)(this); }
 	const CvPlayerAI* AI() const { return (const CvPlayerAI*)(this); }
 
-	int getWorldViewTimer() const;
+	int getWorldViewChangeTimer() const;
+	int getWorldViewRevoltTurnChange(WorldViewTypes eWorldView) const;
+	int getWorldViewRevoltValue(WorldViewTypes eWorldView) const;
+	bool canChangeWorldViews() const;
+	bool isHasValidWorldViews(UnitTypes eUnit) const;
 	bool isWorldViewEnabled(WorldViewTypes eWorldView) const;
 	bool isWorldViewActivated(WorldViewTypes eWorldView) const;
 	void changeWorldViewEnabledCount(WorldViewTypes eWorldView, int iChange);
 	void changeWorldViewActivatedStatus(WorldViewTypes eWorldView, bool bActivate);
-	void changeWorldViewTimer(int iChange);
-	void setWorldViewTimer(int iNewValue);
+	void changeWorldViewChangeTimer(int iChange);
+	void changeWorldViewRevoltTurnChange(WorldViewTypes eWorldView, int iChange);
+	void changeWorldViewRevoltValue(WorldViewTypes eWorldView, int iChange);
+	void doSlaveRevolt();
+	void doWorldViews();
+	void setWorldViewChangeTimer(int iNewValue);
+	void setWorldViewRevoltTurnChange(WorldViewTypes eWorldView, int iNewValue);
+	void setWorldViewRevoltValue(WorldViewTypes eWorldView, int iNewValue);
 
 	DllExport void init(PlayerTypes eID);
 	DllExport void setupGraphical();
@@ -1280,7 +1290,7 @@ protected:
 	int m_iStarSignMitigatePercent;
 	int m_iStarSignScalePercent;
 	int m_iStarSignPersistDecay;
-	int m_iWorldViewTimer;
+	int m_iWorldViewChangeTimer;
 
 	uint m_uiStartTime;  // XXX save these?
 
@@ -1329,6 +1339,8 @@ protected:
 	int* m_aiBaseCommerceFromUnit;
 	int* m_aiCommerceFromUnitModifier;
 	int* m_aiWorldViewEnabledCount;
+	int* m_aiWorldViewRevoltTurnChange;
+	int* m_aiWorldViewRevoltValue;
 
 	bool* m_abFeatAccomplished;
 	bool* m_abOptions;

@@ -5003,6 +5003,7 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 			for (WorldViewTypes eWorldView = (WorldViewTypes)0; eWorldView < NUM_WORLD_VIEWS; eWorldView = (WorldViewTypes)(eWorldView + 1)) {
 				if (kTech.isEnableWorldView(eWorldView)) {
 					kPlayer.changeWorldViewEnabledCount(eWorldView, iChange);
+					kPlayer.changeWorldViewRevoltTurnChange(eWorldView, kTech.getWorldViewRevoltTurnChange(eWorldView));
 				}
 			}
 		}

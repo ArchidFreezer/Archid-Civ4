@@ -155,3 +155,7 @@ void CvMessageControl::sendPing(int iX, int iY) {
 void CvMessageControl::sendToggleWorldView(PlayerTypes ePlayer, WorldViewTypes eWorldView) {
 	gDLL->sendMessageData(new CvNetToggleWorldView(ePlayer, eWorldView));
 }
+
+void CvMessageControl::sendSlaveRevolt(PlayerTypes ePlayer, int iCityID, SlaveRevoltActions eAction) {
+	gDLL->sendMessageData(new CvNetSlaveRevolt(ePlayer, iCityID, eAction));
+}

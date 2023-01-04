@@ -437,6 +437,44 @@
 		<DefineName>MIN_WORLD_VIEW_CHANGE_TURNS</DefineName>
 		<iDefineIntVal>5</iDefineIntVal>
 	</Define>
+<!-- Slavery -->
+	<Define>
+		<!-- The cost in gold of putting down a slave revolt by addressing some of their concerns -->
+		<DefineName>SLAVERY_REVOLT_ADDRESS_COST</DefineName>
+		<iDefineIntVal>100</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Base cost for a city to buy a slave, scales with number of slaves settled in the city -->
+		<DefineName>SLAVERY_SLAVE_COST_BASE</DefineName>
+		<iDefineIntVal>100</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Percentage increase in cost of each additional slave in a city: Cost = SLAVERY_SLAVE_COST_BASE * (SLAVERY_SLAVE_COST_SCALE/100)^(num slave specialists) -->
+		<DefineName>SLAVERY_SLAVE_COST_SCALE</DefineName>
+		<iDefineIntVal>120</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Chance for each slave specialist in a city square to die in a turn, scales with game speed -->
+		<DefineName>SLAVERY_SETTLED_SLAVE_DEATH_CHANCE</DefineName>
+		<iDefineIntVal>5</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Chance for each professional slave specialist in a city square to die in a turn, scales with game speed -->
+		<!-- Professional slaves being Artists, Merchants, etc. -->
+		<DefineName>SLAVERY_SETTLED_PROF_SLAVE_DEATH_CHANCE</DefineName>
+		<iDefineIntVal>2</iDefineIntVal>
+	</Define>
+	<Define>
+		<!-- Default slave specialist type if none is defined in the UnitInfo -->
+		<DefineName>SLAVERY_DEFAULT_SLAVE_SPECIALIST</DefineName>
+		<DefineTextVal>SPECIALIST_CITIZEN_SLAVE</DefineTextVal>
+	</Define>
+	<Define>
+		<!-- Length of time a player remembers that they have lost a unit to a slaver, scales with game speed -->
+		<!-- Determines if a unit will be assigned to shadow workers -->
+		<DefineName>SLAVERY_WORKER_PROTECT_MEMORY</DefineName>
+		<iDefineIntVal>50</iDefineIntVal>
+	</Define>
 <!-- Fort Attack -->
 	<Define>
 		<!-- The maximum damage a target unit can have following a fort attack -->

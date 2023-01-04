@@ -92,6 +92,11 @@
 			<Description>TXT_KEY_BUILDING_AIRPORT</Description>
 			<DefaultBuilding>BUILDING_AIRPORT</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Slave Market -->
+			<Type>BUILDINGCLASS_SLAVE_MARKET</Type>
+			<Description>TXT_KEY_BUILDING_SLAVE_MARKET</Description>
+			<DefaultBuilding>BUILDING_SLAVE_MARKET</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Forge -->
 			<Type>BUILDINGCLASS_FORGE</Type>
 			<Description>TXT_KEY_BUILDING_FORGE</Description>
@@ -704,6 +709,12 @@
 			<Description>TXT_KEY_BUILDING_NATIONAL_PARK</Description>
 			<iMaxPlayerInstances>1</iMaxPlayerInstances>
 			<DefaultBuilding>BUILDING_NATIONAL_PARK</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- National Slave Auction -->
+			<Type>BUILDINGCLASS_NATIONAL_SLAVE_AUCTION</Type>
+			<Description>TXT_KEY_BUILDING_NATIONAL_SLAVE_AUCTION</Description>
+			<iMaxPlayerInstances>1</iMaxPlayerInstances>
+			<DefaultBuilding>BUILDING_NATIONAL_SLAVE_AUCTION</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Oxford University -->
 			<Type>BUILDINGCLASS_OXFORD_UNIVERSITY</Type>

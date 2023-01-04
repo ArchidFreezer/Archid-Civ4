@@ -104,4 +104,17 @@
 		<Tag>TXT_KEY_MISSION_UPDATE_WORLD_VIEWS_HELP</Tag>
 		<English>The unit allows the player to toggle the status of any known world views.</English>
 	</TEXT>
+<!-- Sell Slave Mission -->
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_SELL_SLAVE</Tag>
+		<English>Sell Slave</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_SELL_SLAVE_HELP</Tag>
+		<English>Sell a slave to either work in the city itself or build improvements.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MESSAGE_SLAVE_SOLD</Tag>
+		<English>Your slave has been sold in %s1</English>
+	</TEXT>
 </Civ4GameText>

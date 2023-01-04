@@ -37,6 +37,8 @@ public:
 	void setupGraphical();
 	void updateGraphicEra();
 
+	int getNumVisibleAdjacentEnemyDefenders(const CvUnit* pUnit) const;
+
 	DllExport void erase();																																								// Exposed to Python
 
 	DllExport float getPointX() const;

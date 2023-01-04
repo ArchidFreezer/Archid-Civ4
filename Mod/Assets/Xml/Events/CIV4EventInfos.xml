@@ -325,52 +325,6 @@
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
 		<EventInfo>
-			<Type>EVENT_SLAVE_REVOLT_1</Type>
-			<Description>TXT_KEY_EVENT_SLAVE_REVOLT_1</Description>
-			<bPickCity>1</bPickCity>
-			<iHurryAnger>1</iHurryAnger>
-			<iRevoltTurns>1</iRevoltTurns>
-			<iPopulationChange>-2</iPopulationChange>
-			<ClearEvents>
-				<EventChance>
-					<Event>EVENT_SLAVE_REVOLT_3</Event>
-					<iEventChance>100</iEventChance>
-				</EventChance>
-			</ClearEvents>
-			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
-			<iAIValue>1000</iAIValue>
-		</EventInfo>
-		<EventInfo>
-			<Type>EVENT_SLAVE_REVOLT_2</Type>
-			<Description>TXT_KEY_EVENT_SLAVE_REVOLT_2</Description>
-			<bPickCity>1</bPickCity>
-			<iGold>-10</iGold>
-			<iRevoltTurns>1</iRevoltTurns>
-			<iPopulationChange>-1</iPopulationChange>
-			<ClearEvents>
-				<EventChance>
-					<Event>EVENT_SLAVE_REVOLT_3</Event>
-					<iEventChance>100</iEventChance>
-				</EventChance>
-			</ClearEvents>
-			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
-			<iAIValue>1000</iAIValue>
-		</EventInfo>
-		<EventInfo>
-			<Type>EVENT_SLAVE_REVOLT_3</Type>
-			<Description>TXT_KEY_EVENT_SLAVE_REVOLT_3</Description>
-			<bPickCity>1</bPickCity>
-			<iRevoltTurns>1</iRevoltTurns>
-			<ClearEvents>
-				<EventChance>
-					<Event>EVENT_SLAVE_REVOLT_3</Event>
-					<iEventChance>40</iEventChance>
-				</EventChance>
-			</ClearEvents>
-			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
-			<iAIValue>1000</iAIValue>
-		</EventInfo>
-		<EventInfo>
 			<Type>EVENT_BLESSED_SEA_1</Type>
 			<Description>TXT_KEY_EVENT_BLESSED_SEA_1</Description>
 			<QuestFailText>TXT_KEY_EVENT_FAIL_BLESSED_SEA</QuestFailText>

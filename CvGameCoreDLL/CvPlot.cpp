@@ -8195,5 +8195,15 @@ void CvPlot::doFortAttack() {
 	for (std::vector<PlayerTypes>::iterator it = attackPlayers.begin(); it != attackPlayers.end(); ++it) {
 		gDLL->getInterfaceIFace()->addHumanMessage(*it, false, GC.getEVENT_MESSAGE_TIME(), gDLL->getText("TXT_KEY_MISC_FORT_ATTACKED_ATTACKER"), "AS2D_INTERCEPT", MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), getX_INLINE(), getY_INLINE(), true, true);
 	}
+}
 
+int CvPlot::getNumVisibleAdjacentEnemyDefenders(const CvUnit* pUnit) const {
+	int iCount = 0;
+	for (DirectionTypes eDirectionType = (DirectionTypes)0; eDirectionType < NUM_DIRECTION_TYPES; eDirectionType = (DirectionTypes)(eDirectionType + 1)) {
+		CvPlot* pAdjacentPlot = plotDirection(getX_INLINE(), getY_INLINE(), eDirectionType);
+		if (pAdjacentPlot != NULL) {
+			iCount += pAdjacentPlot->plotCount(PUF_canDefendEnemy, pUnit->getOwnerINLINE(), pUnit->isAlwaysHostile(this), NO_PLAYER, NO_TEAM, PUF_isVisible, pUnit->getOwnerINLINE());
+		}
+	}
+	return iCount;
 }

@@ -10,4 +10,33 @@
 		<Italian>Le [COLOR_BUILDING_TEXT]biblioteche[COLOR_REVERT] aumentano la ricerca e la cultura delle citt&#224;. Sono necessarie per la realizzazione di [COLOR_BUILDING_TEXT]universit&#224;[COLOR_REVERT], della Meraviglia [COLOR_BUILDING_TEXT]Grande Biblioteca[COLOR_REVERT] e delle Meraviglia Nazionali [COLOR_BUILDING_TEXT]Poema Patriottico[COLOR_REVERT].</Italian>
 		<Spanish>Las [COLOR_BUILDING_TEXT]Bibliotecas[COLOR_REVERT] impulsan la investigaci&#243;n de las ciudades y proporcionan cultura. Son necesarias para construir [COLOR_BUILDING_TEXT]Universidades[COLOR_REVERT], la maravilla de la [COLOR_BUILDING_TEXT]Gran Biblioteca[COLOR_REVERT] y las maravilla nacionales de la [COLOR_BUILDING_TEXT]Epopeya nacional[COLOR_REVERT].</Spanish>
 	</TEXT>
+	<TEXT> <!-- National Slave Auction -->
+		<Tag>TXT_KEY_BUILDING_NATIONAL_SLAVE_AUCTION</Tag>
+		<English>National Slave Auction</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NATIONAL_SLAVE_AUCTION_PEDIA</Tag>
+		<English>[TAB]The national Slave Auction is a centralized slave sale and distribution center that provides an empire with the means to provide cheap labor to all cities of the empire.  Slaves were moved to areas requiring labor which guaranteed that they would never consume resourses without providing a benefit to their owners.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NATIONAL_SLAVE_AUCTION_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]National Slave Auction[COLOR_REVERT] provides a free Slave Market in all of your cities and a +1 happiness bonus in the founding city.  It increases it's city's odds of generating a Great Merchant.</English>
+	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_NATIONAL_SLAVE_AUCTION_PYTHON</Tag>
+		<English>[COLOR_SELECTED_TEXT]The [COLOR_BUILDING_TEXT]National Slave Auction[COLOR_SELECTED_TEXT] increases slavery infrastrucre nationwide[COLOR_REVERT]!</English>
+	</TEXT>
+
+	<TEXT> <!-- Slave Market -->
+		<Tag>TXT_KEY_BUILDING_SLAVE_MARKET</Tag>
+		<English>Slave Market</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SLAVE_MARKET_PEDIA</Tag>
+		<English>[TAB]The Slave Market is the local slave auction block in a city where slaves are displayed prior to sale.  Nearly all ancient civilizations were built on slave labour and slavery existed even in modern times despite attempts to stamp it out.  The slave market was a source of cheap labor and civic pride, as defeated rivals and captured enemies were often displayed for the amusement of the city's citizens prior to begining their labours to build up the very civilizations they opposed.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SLAVE_MARKET_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Slave Market[COLOR_REVERT] provides a 25% production bonus and a +1 happiness bonus in any city it is built in. Allows for the purchase of slaves. Doubles Production for leaders with Organized or Industrius traits.</English>
+	</TEXT>
 </Civ4GameText>

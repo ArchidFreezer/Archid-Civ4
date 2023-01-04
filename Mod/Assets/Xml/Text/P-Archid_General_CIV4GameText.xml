@@ -889,17 +889,79 @@
 		<Spanish>se han descubierto %s1!</Spanish>
 	</TEXT>
 <!-- Slavery -->
-	<TEXT>
-		<Tag>TXT_KEY_WV_CHANGE</Tag>
-		<English>Change World View</English>
+	<TEXT> <!-- Single Build -->
+		<Tag>TXT_KEY_UNIT_SINGLE_BUILD</Tag>
+		<English>[ICON_BULLET]Consumed after build</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_WV_SLAVERY_ENABLE</Tag>
-		<English>Practice Slavery</English>
+		<Tag>TXT_KEY_SLAVERY_ATTACK_YOU_ENSLAVED_ENEMY_UNIT</Tag>
+		<English>You have captured a slave from the defeated %s1_EnUName!</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_WV_SLAVERY_DISABLE</Tag>
-		<English>Abolish Slavery</English>
+		<Tag>TXT_KEY_SLAVERY_DEFEND_YOU_ENSLAVED_ENEMY_UNIT</Tag>
+		<English>While defending, you have captured a slave from the defeated %s1_EnUName!</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TRADE_SLAVES</Tag>
+		<English>[ICON_BULLET]Allows the buying and selling of slaves.</English>
+	</TEXT>		
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ENSLAVER_COUNT</Tag>
+		<English>[ICON_BULLET]Enslaves up to %d1_Num units.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HELP_SLAVE_COUNT</Tag>
+		<English>Slaves: (%d1_Curr/%d2_Max)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INVISIBLE_SLAVER</Tag>
+		<English>Slavers</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TYPE_SLAVE</Tag>
+		<English>Slave</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_SLAVE_DIED</Tag>
+		<English>%d2_NumSlaves slaves died in %s1_CityName, send out more slavers!</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_SLAVE_DIED_REVOLT</Tag>
+		<English>%d2_NumSlaves slaves died during their revolt in %s1_CityName.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_SLAVE_PROPERTY_REVOLT</Tag>
+		<English>Slaves destroyed the %s2Building during their revolt in %s1_CityName.</English>
+	</TEXT>
+
+<!-- Specialists -->
+	<TEXT> <!-- Slave: Artist -->
+		<Tag>TXT_KEY_SPECIALIST_ARTIST_SLAVE</Tag>
+		<English>Enslaved Artist</English>
+	</TEXT>
+	<TEXT> <!-- Slave: Citizen -->
+		<Tag>TXT_KEY_SPECIALIST_CITIZEN_SLAVE</Tag>
+		<English>Enslaved Worker</English>
+	</TEXT>
+	<TEXT> <!-- Slave: Engineer -->
+		<Tag>TXT_KEY_SPECIALIST_ENGINEER_SLAVE</Tag>
+		<English>Enslaved Engineer</English>
+	</TEXT>
+	<TEXT> <!-- Slave: Merchant -->
+		<Tag>TXT_KEY_SPECIALIST_MERCHANT_SLAVE</Tag>
+		<English>Enslaved Merchant</English>
+	</TEXT>
+	<TEXT> <!-- Slave: Priest -->
+		<Tag>TXT_KEY_SPECIALIST_PRIEST_SLAVE</Tag>
+		<English>Enslaved Priest</English>
+	</TEXT>
+	<TEXT> <!-- Slave: Scientist -->
+		<Tag>TXT_KEY_SPECIALIST_SCIENTIST_SLAVE</Tag>
+		<English>Enslaved Scientist</English>
+	</TEXT>
+	<TEXT> <!-- Slave: Spy -->
+		<Tag>TXT_KEY_SPECIALIST_SPY_SLAVE</Tag>
+		<English>Enslaved Spy</English>
 	</TEXT>
 <!-- Fort Attack -->
 	<TEXT>
@@ -913,6 +975,43 @@
 	<TEXT>
 		<Tag>TXT_KEY_MISC_FORT_ATTACKED_ATTACKER</Tag>
 		<English>Your have attacked your enemies from your fortifications</English>
+	</TEXT>
+<!-- World Views -->
+	<TEXT>
+		<Tag>TXT_KEY_WV_LABEL</Tag>
+		<English>[NEWLINE][ICON_BULLET]World Views:[SPACE]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WV_CHANGE</Tag>
+		<English>Change World View</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WV_SLAVERY_TEXT</Tag>
+		<English>Slavery</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WV_SLAVERY_ENABLE</Tag>
+		<English>Practice Slavery</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WV_SLAVERY_DISABLE</Tag>
+		<English>Abolish Slavery</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_WV_REVOLT_TURN_CHANGE</Tag>
+		<English>[ICON_BULLET]Increases %s1_WV revolt chance by %d2%% each turn</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WV_DUMMY_TEXT</Tag>
+		<English>Dumb</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WV_DUMMY_ENABLE</Tag>
+		<English>Practice Dumbness</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WV_DUMMY_DISABLE</Tag>
+		<English>Abolish Dumness</English>
 	</TEXT>
 
 </Civ4GameText>

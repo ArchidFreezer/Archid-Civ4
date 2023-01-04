@@ -5,9 +5,17 @@
 <!-- -->
 <Civ4WorldViewInfos xmlns="x-schema:CIV4GameInfoSchema.xml">
 	<WorldViewInfos>
+		<WorldViewInfo> <!-- Dummy -->
+			<Type>WORLD_VIEW_DUMMY</Type>
+			<Description>TXT_KEY_WV_DUMMY_TEXT</Description>
+			<EnactTextKey>TXT_KEY_WV_DUMMY_ENABLE</EnactTextKey>
+			<RepealTextKey>TXT_KEY_WV_DUMMY_DISABLE</RepealTextKey>
+			<EnactButton>Art/Interface/Buttons/WorldView/slavery_practice.dds</EnactButton>
+			<RepealButton>Art/Interface/Buttons/WorldView/slavery_repeal.dds</RepealButton>
+		</WorldViewInfo>
 		<WorldViewInfo> <!-- Slavery -->
 			<Type>WORLD_VIEW_SLAVERY</Type>
-			<Description>TARGET_NO_CITY</Description>
+			<Description>TXT_KEY_WV_SLAVERY_TEXT</Description>
 			<EnactTextKey>TXT_KEY_WV_SLAVERY_ENABLE</EnactTextKey>
 			<RepealTextKey>TXT_KEY_WV_SLAVERY_DISABLE</RepealTextKey>
 			<EnactButton>Art/Interface/Buttons/WorldView/slavery_practice.dds</EnactButton>

@@ -67,6 +67,7 @@ private:
 	bool launchGoToCityPopup(CvPopup* pPopup, CvPopupInfo& info);
 	bool launchToggleWorldViewPopup(CvPopup* pPopup, CvPopupInfo& info);
 	bool launchToggleAnyWorldViewPopup(CvPopup* pPopup, CvPopupInfo& info);
+	bool launchSlaveRevoltPopup(CvPopup* pPopup, CvPopupInfo& info);
 };
 
 #endif

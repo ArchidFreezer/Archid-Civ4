@@ -910,5 +910,23 @@
 			<bVisible>1</bVisible>
 			<Button>Art/Interface/Buttons/Actions/update_worldview.dds</Button>
 		</MissionInfo>
+		<MissionInfo>
+			<Type>MISSION_SELL_SLAVE</Type>
+			<Description>TXT_KEY_MISSION_SELL_SLAVE</Description>
+			<Help>TXT_KEY_MISSION_SELL_SLAVE_HELP</Help>
+			<Waypoint>NONE</Waypoint>
+			<iTime>0</iTime>
+			<bTarget>0</bTarget>
+			<bBuild>0</bBuild>
+			<bSound>1</bSound>
+			<HotKey>KB_S</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>1</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+			<iOrderPriority>12</iOrderPriority>
+			<bVisible>1</bVisible>
+			<Button>Art/Interface/Buttons/Actions/sell_slave.dds</Button>
+		</MissionInfo>
 	</MissionInfos>
 </Civ4MissionInfos>

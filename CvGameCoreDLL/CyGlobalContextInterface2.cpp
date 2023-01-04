@@ -54,6 +54,11 @@ void CyGlobalContextPythonInterface2(python::class_<CyGlobalContext>& x) {
 		.def("getPEAK_SEE_FROM_CHANGE", &CyGlobalContext::getPEAK_SEE_FROM_CHANGE, "int ()")
 		.def("getHILLS_SEE_FROM_CHANGE", &CyGlobalContext::getHILLS_SEE_FROM_CHANGE, "int ()")
 		.def("getUSE_SPIES_NO_ENTER_BORDERS", &CyGlobalContext::getUSE_SPIES_NO_ENTER_BORDERS, "int ()")
+		.def("getSLAVERY_REVOLT_ADDRESS_COST", &CyGlobalContext::getSLAVERY_REVOLT_ADDRESS_COST, "int ()")
+		.def("getSLAVERY_SLAVE_COST_BASE", &CyGlobalContext::getSLAVERY_SLAVE_COST_BASE, "int ()")
+		.def("getSLAVERY_SLAVE_COST_SCALE", &CyGlobalContext::getSLAVERY_SLAVE_COST_SCALE, "int ()")
+		.def("getSLAVERY_SETTLED_SLAVE_DEATH_CHANCE", &CyGlobalContext::getSLAVERY_SETTLED_SLAVE_DEATH_CHANCE, "int ()")
+		.def("getSLAVERY_SETTLED_PROF_SLAVE_DEATH_CHANCE", &CyGlobalContext::getSLAVERY_SETTLED_PROF_SLAVE_DEATH_CHANCE, "int ()")
 
 		.def("getCAMERA_MIN_YAW", &CyGlobalContext::getCAMERA_MIN_YAW, "float ()")
 		.def("getCAMERA_MAX_YAW", &CyGlobalContext::getCAMERA_MAX_YAW, "float ()")

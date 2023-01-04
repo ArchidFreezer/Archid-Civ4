@@ -411,6 +411,10 @@
 	<ElementType name="PrereqNotBuildingClasses" content="eltOnly">
 		<element type="BuildingClass" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="WorldViewType" content="textOnly"/>
+	<ElementType name="PrereqWorldViews" content="eltOnly">
+		<element type="WorldViewType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="iMinPopulation" content="textOnly" dt:type="int"/>
 	<ElementType name="MinCultureLevel" content="textOnly"/>
 	<ElementType name="bPrereqPower" content="textOnly" dt:type="boolean"/>
@@ -422,6 +426,7 @@
 	<ElementType name="iGlobalStarSignMitigateChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iGlobalStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
+	<ElementType name="bSlaveMarket" content="textOnly" dt:type="boolean"/>
 	<ElementType name="BuildingInfo" content="eltOnly">
 		<element type="BuildingClass"/>
 		<element type="Type"/>
@@ -458,6 +463,7 @@
 		<element type="PrereqVicinityOrBonus" minOccurs="0"/>
 		<element type="PrereqVicinityImprovements" minOccurs="0"/>
 		<element type="PrereqVicinityFeatures" minOccurs="0"/>
+		<element type="PrereqWorldViews" minOccurs="0"/>
 		<element type="iMinPopulation" minOccurs="0"/>
 		<element type="MinCultureLevel" minOccurs="0"/>
 		<element type="bPrereqPower" minOccurs="0"/>
@@ -494,6 +500,7 @@
 		<element type="bNukeImmune" minOccurs="0"/>
 		<element type="bPrereqReligion" minOccurs="0"/>
 		<element type="bCenterInCity" minOccurs="0"/>
+		<element type="bSlaveMarket" minOccurs="0"/>
 		<element type="bForceDisableStarSigns" minOccurs="0"/>
 		<element type="bStarSignGoodOnly" minOccurs="0"/>
 		<element type="iStarSignMitigateChangePercent" minOccurs="0"/>

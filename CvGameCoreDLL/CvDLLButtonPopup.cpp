@@ -619,6 +619,10 @@ void CvDLLButtonPopup::OnOkClicked(CvPopup* pPopup, PopupReturn* pPopupReturn, C
 			CvMessageControl::getInstance().sendToggleWorldView(GC.getGameINLINE().getActivePlayer(), (WorldViewTypes)pPopupReturn->getButtonClicked());
 		break;
 
+	case BUTTONPOPUP_SLAVE_REVOLT:
+		CvMessageControl::getInstance().sendSlaveRevolt(GC.getGameINLINE().getActivePlayer(), info.getData1(), (SlaveRevoltActions)pPopupReturn->getButtonClicked());
+		break;
+
 	default:
 		FAssert(false);
 		break;
@@ -842,6 +846,9 @@ bool CvDLLButtonPopup::launchButtonPopup(CvPopup* pPopup, CvPopupInfo& info) {
 		break;
 	case BUTTONPOPUP_TOGGLE_ANY_WORLD_VIEW:
 		bLaunched = launchToggleAnyWorldViewPopup(pPopup, info);
+		break;
+	case BUTTONPOPUP_SLAVE_REVOLT:
+		bLaunched = launchSlaveRevoltPopup(pPopup, info);
 		break;
 	default:
 		FAssert(false);
@@ -2266,9 +2273,9 @@ bool CvDLLButtonPopup::launchToggleWorldViewPopup(CvPopup* pPopup, CvPopupInfo& 
 		gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, gDLL->getText("TXT_KEY_WV_CHANGE"));
 
 		if (kPlayer.isWorldViewActivated(eWorldView))
-			gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText(kWorldView.getRepealTextKey()), kWorldView.getRepealButton(), 0, WIDGET_GENERAL, eWorldView);
+			gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText(kWorldView.getRepealTextKey()), kWorldView.getRepealButton(), eWorldView, WIDGET_GENERAL, eWorldView);
 		else
-			gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText(kWorldView.getEnactTextKey()), kWorldView.getEnactButton(), 0, WIDGET_GENERAL, eWorldView);
+			gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText(kWorldView.getEnactTextKey()), kWorldView.getEnactButton(), eWorldView, WIDGET_GENERAL, eWorldView);
 
 		gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_NEVER_MIND"), NULL, 1, WIDGET_GENERAL);
 		gDLL->getInterfaceIFace()->popupLaunch(pPopup, false, POPUPSTATE_IMMEDIATE);
@@ -2283,12 +2290,24 @@ bool CvDLLButtonPopup::launchToggleAnyWorldViewPopup(CvPopup* pPopup, CvPopupInf
 	for (WorldViewTypes eWorldView = (WorldViewTypes)0; eWorldView < NUM_WORLD_VIEWS; eWorldView = (WorldViewTypes)(eWorldView + 1)) {
 		const CvWorldViewInfo& kWorldView = GC.getWorldViewInfo(eWorldView);
 		if (kPlayer.isWorldViewActivated(eWorldView))
-			gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText(kWorldView.getRepealTextKey()), kWorldView.getRepealButton(), 0, WIDGET_GENERAL, eWorldView);
+			gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText(kWorldView.getRepealTextKey()), kWorldView.getRepealButton(), eWorldView, WIDGET_GENERAL, eWorldView);
 		else
-			gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText(kWorldView.getEnactTextKey()), kWorldView.getEnactButton(), 0, WIDGET_GENERAL, eWorldView);
+			gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText(kWorldView.getEnactTextKey()), kWorldView.getEnactButton(), eWorldView, WIDGET_GENERAL, eWorldView);
 	}
 
 	gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_NEVER_MIND"), NULL, 1, WIDGET_GENERAL);
+	gDLL->getInterfaceIFace()->popupLaunch(pPopup, false, POPUPSTATE_IMMEDIATE);
+	return true;
+}
+
+bool CvDLLButtonPopup::launchSlaveRevoltPopup(CvPopup* pPopup, CvPopupInfo& info) {
+	const CvPlayer& kPlayer = GET_PLAYER(GC.getGameINLINE().getActivePlayer());
+	const CvCity* pCity = kPlayer.getCity(info.getData1());
+
+	gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, gDLL->getText("TXT_KEY_EVENT_TRIGGER_SLAVE_REVOLT_1", pCity->getName()));
+	if (pCity->canSuppressSlaveRevolt())	gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_EVENT_SLAVE_REVOLT_1"), NULL, SLAVE_REVOLT_SUPPRESS, WIDGET_GENERAL, info.getData1());
+	if (pCity->canAddressSlaveRevolt())	gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_EVENT_SLAVE_REVOLT_2"), NULL, SLAVE_REVOLT_ADDRESS, WIDGET_GENERAL, info.getData1());
+	gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_EVENT_SLAVE_REVOLT_3"), NULL, SLAVE_REVOLT_IGNORE, WIDGET_GENERAL, info.getData1());
 	gDLL->getInterfaceIFace()->popupLaunch(pPopup, false, POPUPSTATE_IMMEDIATE);
 	return true;
 }

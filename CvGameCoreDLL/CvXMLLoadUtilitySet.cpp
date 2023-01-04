@@ -552,6 +552,10 @@ bool CvXMLLoadUtility::SetPostGlobalsGlobalDefines() {
 		idx = FindInInfoClass(szVal);
 		GC.getDefinesVarSystem()->SetValue("BARBARIAN_LEADER", idx);
 
+		SetGlobalDefine("SLAVERY_DEFAULT_SLAVE_SPECIALIST", szVal);
+		idx = FindInInfoClass(szVal);
+		GC.getDefinesVarSystem()->SetValue("SLAVERY_DEFAULT_SLAVE_SPECIALIST", idx);
+
 		return true;
 	}
 

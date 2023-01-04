@@ -31,6 +31,7 @@ public:
 	DllExport void sendChangeWar(TeamTypes eRivalTeam, bool bWar);
 	DllExport void sendPing(int iX, int iY);
 	void sendToggleWorldView(PlayerTypes ePlayer, WorldViewTypes eWorldView);
+	void sendSlaveRevolt(PlayerTypes ePlayer, int iCityID, SlaveRevoltActions eAction);
 };
 
 

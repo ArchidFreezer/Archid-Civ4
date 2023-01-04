@@ -112,6 +112,18 @@
 	<ElementType name="bLimitedBordersTrading" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bFreeTradeAgreementTrading" content="textOnly" dt:type="boolean"/>	
 	<ElementType name="bNonAggressionTrading" content="textOnly" dt:type="boolean"/>	
+	<ElementType name="WorldViewType" content="textOnly"/>
+	<ElementType name="EnabledWorldViews" content="eltOnly">
+		<element type="WorldViewType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="iChange" content="textOnly" dt:type="int"/>
+	<ElementType name="WorldViewRevoltTurnChange" content="eltOnly">
+		<element type="WorldViewType"/>
+		<element type="iChange"/>
+	</ElementType>
+	<ElementType name="WorldViewRevoltTurnChanges" content="eltOnly">
+		<element type="WorldViewRevoltTurnChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="TechInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -174,9 +186,11 @@
 		<element type="ForestPlotYieldChanges" minOccurs="0"/>
 		<element type="RiverPlotYieldChanges" minOccurs="0"/>
 		<element type="SeaPlotYieldChanges" minOccurs="0"/>
+		<element type="WorldViewRevoltTurnChanges" minOccurs="0"/>
 		<element type="Flavors"/>
 		<element type="OrPreReqs" minOccurs="0"/>
 		<element type="AndPreReqs" minOccurs="0"/>
+		<element type="EnabledWorldViews" minOccurs="0"/>
 		<element type="Quote" minOccurs="0"/>
 		<element type="Sound" minOccurs="0"/>
 		<element type="SoundMP" minOccurs="0"/>

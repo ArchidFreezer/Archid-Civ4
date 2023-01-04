@@ -61,6 +61,8 @@ CvMessageData* CvMessageData::createMessage(GameMessageTypes eType) {
 		return new CvNetPing();
 	case GAMEMESSAGE_UPDATE_WORLD_VIEW:
 		return new CvNetToggleWorldView();
+	case GAMEMESSAGE_SLAVE_REVOLT:
+		return new CvNetSlaveRevolt();
 	default:
 		FAssertMsg(false, "Unknown message type");
 	}
@@ -922,4 +924,34 @@ void CvNetToggleWorldView::PutInBuffer(FDataStreamBase* pStream) {
 void CvNetToggleWorldView::SetFromBuffer(FDataStreamBase* pStream) {
 	pStream->Read((int*)&m_ePlayer);
 	pStream->Read((int*)&m_eWorldView);
+}
+
+CvNetSlaveRevolt::CvNetSlaveRevolt() : CvMessageData(GAMEMESSAGE_SLAVE_REVOLT), m_ePlayer(NO_PLAYER), m_iCityID(-1), m_eAction(NO_SLAVE_REVOLT_ACTION) {
+}
+
+CvNetSlaveRevolt::CvNetSlaveRevolt(PlayerTypes ePlayer, int iCityID, SlaveRevoltActions eAction) : CvMessageData(GAMEMESSAGE_SLAVE_REVOLT), m_ePlayer(NO_PLAYER), m_iCityID(-1), m_eAction(NO_SLAVE_REVOLT_ACTION) {
+}
+
+void CvNetSlaveRevolt::Debug(char* szAddendum) {
+	sprintf(szAddendum, "Slave revolt");
+}
+
+void CvNetSlaveRevolt::Execute() {
+	if (m_ePlayer != NO_PLAYER && m_iCityID != -1) {
+		const CvPlayer& kPlayer = GET_PLAYER(m_ePlayer);
+		CvCity* pCity = kPlayer.getCity(m_iCityID);
+		pCity->doSlaveRevolt(m_eAction);
+	}
+}
+
+void CvNetSlaveRevolt::PutInBuffer(FDataStreamBase* pStream) {
+	pStream->Write(m_ePlayer);
+	pStream->Write(m_eAction);
+	pStream->Write(m_iCityID);
+}
+
+void CvNetSlaveRevolt::SetFromBuffer(FDataStreamBase* pStream) {
+	pStream->Read((int*)&m_ePlayer);
+	pStream->Read((int*)&m_eAction);
+	pStream->Read(&m_iCityID);
 }

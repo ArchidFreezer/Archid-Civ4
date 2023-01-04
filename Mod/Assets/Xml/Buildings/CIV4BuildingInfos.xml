@@ -3121,6 +3121,59 @@
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>0</iHotKeyPriority>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Slave Market -->
+			<BuildingClass>BUILDINGCLASS_SLAVE_MARKET</BuildingClass>
+			<Type>BUILDING_SLAVE_MARKET</Type>
+			<Description>TXT_KEY_BUILDING_SLAVE_MARKET</Description>
+			<Civilopedia>TXT_KEY_BUILDING_SLAVE_MARKET_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_SLAVE_MARKET_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_SLAVE_MARKET</ArtDefineTag>
+			<PrereqWorldViews>
+				<WorldViewType>WORLD_VIEW_SLAVERY</WorldViewType>
+			</PrereqWorldViews>
+			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
+			<ObsoleteTech>TECH_LIBERALISM</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_BRONZE_WORKING</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_INDUSTRIOUS</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bNukeImmune>1</bNukeImmune>
+			<bSlaveMarket>1</bSlaveMarket>
+			<iCost>30</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>66</iConquestProb>
+			<iHappiness>1</iHappiness>
+			<iAsset>4</iAsset>
+			<iPower>2</iPower>
+			<fVisibilityPriority>10</fVisibilityPriority>
+			<YieldModifiers>
+				<iYield>0</iYield>
+				<iYield>25</iYield>
+				<iYield>5</iYield>
+			</YieldModifiers>
+			<ConstructSound>AS2D_BUILD_SLAVE_MARKET</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+			<HotKey/>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Stable -->
 			<BuildingClass>BUILDINGCLASS_STABLE</BuildingClass>
 			<Type>BUILDING_STABLE</Type>
@@ -7848,6 +7901,68 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+			<HotKey/>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+		</BuildingInfo>
+		<BuildingInfo> <!-- National Slave Auction -->
+			<BuildingClass>BUILDINGCLASS_NATIONAL_SLAVE_AUCTION</BuildingClass>
+			<Type>BUILDING_NATIONAL_SLAVE_AUCTION</Type>
+			<Description>TXT_KEY_BUILDING_NATIONAL_SLAVE_AUCTION</Description>
+			<Civilopedia>TXT_KEY_BUILDING_NATIONAL_SLAVE_AUCTION_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_NATIONAL_SLAVE_AUCTION_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_NATIONAL_SLAVE_AUCTION</ArtDefineTag>
+			<PrereqWorldViews>
+				<WorldViewType>WORLD_VIEW_SLAVERY</WorldViewType>
+			</PrereqWorldViews>
+			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
+			<ObsoleteTech>TECH_LIBERALISM</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_BRONZE_WORKING</TechType>
+			</PrereqAndTechs>
+			<FreeBuilding>BUILDINGCLASS_SLAVE_MARKET</FreeBuilding>
+			<GreatPeopleUnitClass>UNITCLASS_MERCHANT</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
+			<bTeamShare>1</bTeamShare>
+			<bSlaveMarket>1</bSlaveMarket>
+			<iCost>80</iCost>
+			<iHurryCostModifier>50</iHurryCostModifier>
+			<iConquestProb>100</iConquestProb>
+			<iHappiness>1</iHappiness>
+			<iAsset>14</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>4</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>100</iCommerce>
+			</CommerceModifiers>
+			<ConstructSound>AS2D_BUILD_SLAVE_MARKET</ConstructSound>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_SLAVE_MARKET</BuildingClassType>
+					<iNumBuildingNeeded>3</iNumBuildingNeeded>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
+			<PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_SLAVE_MARKET</BuildingClassType>
+			</PrereqAndBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>

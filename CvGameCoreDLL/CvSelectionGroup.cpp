@@ -541,6 +541,7 @@ CvPlot* CvSelectionGroup::lastMissionPlot() {
 		case MISSION_ESPIONAGE:
 		case MISSION_DIE_ANIMATION:
 		case MISSION_UPDATE_WORLD_VIEWS:
+		case MISSION_SELL_SLAVE:
 			break;
 
 		default:
@@ -708,15 +709,14 @@ void CvSelectionGroup::startMission() {
 			break;
 			// K-Mod. If the worker is already in danger when the command is issued, use the MOVE_IGNORE_DANGER flag.
 		case MISSION_BUILD:
-			if (!AI_isControlled() && headMissionQueueNode()->m_data.iPushTurn == GC.getGameINLINE().getGameTurn() &&
-				GET_PLAYER(getOwnerINLINE()).AI_getAnyPlotDanger(plot(), 2, true, false)) // cf. condition used in CvSelectionGroup::doTurn.
-			{
+			if (!AI_isControlled() && headMissionQueueNode()->m_data.iPushTurn == GC.getGameINLINE().getGameTurn() && GET_PLAYER(getOwnerINLINE()).AI_getAnyPlotDanger(plot(), 2, true, false)) { // cf. condition used in CvSelectionGroup::doTurn.
 				headMissionQueueNode()->m_data.iFlags |= MOVE_IGNORE_DANGER;
 			}
 			break;
 		case MISSION_LEAD:
 		case MISSION_ESPIONAGE:
 		case MISSION_DIE_ANIMATION:
+		case MISSION_SELL_SLAVE:
 			break;
 
 		default:
@@ -995,6 +995,12 @@ void CvSelectionGroup::startMission() {
 						pUnitNode = NULL; // allow one unit at a time to do espionage
 						break;
 
+					case MISSION_SELL_SLAVE:
+						if (pLoopUnit->sellSlaves()) {
+							bAction = true;
+						}
+						break;
+
 					case MISSION_DIE_ANIMATION:
 						bAction = true;
 						break;
@@ -1223,6 +1229,7 @@ bool CvSelectionGroup::continueMission_bulk(int iSteps) {
 				case MISSION_LEAD:
 				case MISSION_ESPIONAGE:
 				case MISSION_DIE_ANIMATION:
+				case MISSION_SELL_SLAVE:
 					break;
 
 				case MISSION_BUILD:
@@ -1306,6 +1313,7 @@ bool CvSelectionGroup::continueMission_bulk(int iSteps) {
 			case MISSION_LEAD:
 			case MISSION_ESPIONAGE:
 			case MISSION_DIE_ANIMATION:
+			case MISSION_SELL_SLAVE:
 				bDone = true;
 				break;
 
@@ -1540,7 +1548,7 @@ bool CvSelectionGroup::canDoInterfaceMode(InterfaceModeTypes eInterfaceMode) {
 			break;
 
 		case INTERFACEMODE_ROUTE_TO:
-			if (pLoopUnit->AI_getUnitAIType() == UNITAI_WORKER) {
+			if (pLoopUnit->AI_getUnitAIType() == UNITAI_WORKER || pLoopUnit->AI_getUnitAIType() == UNITAI_SLAVE) {
 				if (pLoopUnit->canBuildRoute()) {
 					return true;
 				}
@@ -2301,7 +2309,7 @@ int CvSelectionGroup::countNumUnitAIType(UnitAITypes eUnitAI) {
 
 
 bool CvSelectionGroup::hasWorker() {
-	return ((countNumUnitAIType(UNITAI_WORKER) > 0) || (countNumUnitAIType(UNITAI_WORKER_SEA) > 0));
+	return ((countNumUnitAIType(UNITAI_WORKER) > 0) || (countNumUnitAIType(UNITAI_WORKER_SEA) > 0) || (countNumUnitAIType(UNITAI_SLAVE) > 0));
 }
 
 
@@ -3211,7 +3219,12 @@ bool CvSelectionGroup::canDoMission(int iMission, int iData1, int iData2, CvPlot
 			break;
 
 		case MISSION_UPDATE_WORLD_VIEWS:
-			if (pLoopUnit->isGoldenAge() && (!bCheckMoves || pLoopUnit->canMove()) && GET_PLAYER(pLoopUnit->getOwnerINLINE()).getWorldViewTimer() <= 0)
+			if (pLoopUnit->isGoldenAge() && (!bCheckMoves || pLoopUnit->canMove()) && GET_PLAYER(pLoopUnit->getOwnerINLINE()).canChangeWorldViews())
+				return true;
+			break;
+
+		case MISSION_SELL_SLAVE:
+			if (pLoopUnit->canSellSlave(pPlot))
 				return true;
 			break;
 
