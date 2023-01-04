@@ -7423,6 +7423,10 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iStarSignScaleChangePercent);
 	stream->Read(&m_iGlobalStarSignScaleChangePercent);
 
+	int iVal;
+	stream->Read(&iVal);
+	m_eMinCultureLevel = (CultureLevelTypes)iVal;
+
 	stream->Read(&m_fVisibilityPriority);
 
 	stream->Read(&m_bTeamShare);
@@ -7450,10 +7454,6 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bAutoBuild);
 	stream->Read(&m_bForceDisableStarSigns);
 	stream->Read(&m_bStarSignGoodOnly);
-
-	int iVal;
-	stream->Read(&iVal);
-	m_eMinCultureLevel = (CultureLevelTypes)iVal;
 
 	stream->ReadString(m_szConstructSound);
 	stream->ReadString(m_szArtDefineTag);
