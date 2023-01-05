@@ -3081,7 +3081,7 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 				for (CivicTypes eCivic = (CivicTypes)0; eCivic < GC.getNumCivicInfos(); eCivic = (CivicTypes)(eCivic + 1)) {
 					if (GC.getCivicInfo(eCivic).getCivicOptionType() == kBuilding.getCivicOption()) {
 						if (!(kOwner.canDoCivics(eCivic))) {
-							iValue += (kOwner.AI_civicValue(eCivic) / 10);
+							iValue += (kOwner.AI_civicValue(eCivic) / 10); // Todo: compare to current civics!
 						}
 					}
 				}
