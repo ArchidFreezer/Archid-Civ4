@@ -18393,3 +18393,31 @@ int CvPlayerAI::AI_worldViewSlaveryValue() const {
 
 	return iValue;
 }
+
+int CvPlayerAI::AI_neededSlavers(CvArea* pArea, bool bAggresive) const {
+	FAssert(pArea != NULL);
+
+	if (!isWorldViewEnabled(WORLD_VIEW_SLAVERY))
+		return 0;
+
+	int iAreaNeutrals = 0;
+	int iAreaEnemies = 0;
+	// Check if there are other non-team civs cities in the area
+	// We do not count the number of cities, just the presence of neutral or enemy civs
+	if (pArea->getNumCities() != pArea->getCitiesPerPlayer(getID())) {
+		for (PlayerTypes eLoopPlayer = (PlayerTypes)0; eLoopPlayer < MAX_PLAYERS; eLoopPlayer = (PlayerTypes)(eLoopPlayer + 1)) {
+			const CvPlayer& kLoopPlayer = GET_PLAYER(eLoopPlayer);
+			if (kLoopPlayer.isAlive()) {
+				TeamTypes eLoopTeam = kLoopPlayer.getTeam();
+				if (eLoopTeam != getTeam() && (pArea->getCitiesPerPlayer(eLoopPlayer) > 0) && GET_TEAM(getTeam()).isHasMet(eLoopTeam)) {
+					atWar(eLoopTeam, getTeam()) ? iAreaEnemies++ : iAreaNeutrals++;
+				}
+			}
+		}
+	}
+	int iExistingAreaSlavers = AI_totalAreaUnitAIs(pArea, UNITAI_SLAVER);
+	int iEnemySlavers = iAreaEnemies ? iAreaEnemies - iExistingAreaSlavers + 1 : 0;
+	int iNeutralSlavers = iAreaNeutrals ? std::min(2, iAreaNeutrals) - iExistingAreaSlavers : 0;
+	int iBarbarianSlavers = iExistingAreaSlavers ? 0 : 1;
+	return std::max(iEnemySlavers, std::max(iNeutralSlavers, iBarbarianSlavers));
+}

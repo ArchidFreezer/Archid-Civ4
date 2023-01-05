@@ -154,6 +154,10 @@ void CvUnit::init(int iID, UnitTypes eUnit, UnitAITypes eUnitAI, PlayerTypes eOw
 		kOwner.changeNumMilitaryUnits(1);
 	}
 
+	if (isSlave()) {
+		kOwner.changeNumSlaves(1);
+	}
+
 	kOwner.changeAssets(m_pUnitInfo->getAssetValue());
 
 	kOwner.changePower(m_pUnitInfo->getPowerValue());
@@ -551,23 +555,28 @@ void CvUnit::kill(bool bDelay, PlayerTypes ePlayer) {
 	FAssertMsg(getCombatUnit() == NULL, "The current unit instance's combat unit is expected to be NULL");
 
 	GET_TEAM(getTeam()).changeUnitClassCount((UnitClassTypes)m_pUnitInfo->getUnitClassType(), -1);
-	GET_PLAYER(getOwnerINLINE()).changeUnitClassCount((UnitClassTypes)m_pUnitInfo->getUnitClassType(), -1);
 
-	GET_PLAYER(getOwnerINLINE()).changeExtraUnitCost(-(m_pUnitInfo->getExtraCost()));
+	CvPlayerAI& kOwner = GET_PLAYER(getOwnerINLINE());
+	kOwner.changeUnitClassCount((UnitClassTypes)m_pUnitInfo->getUnitClassType(), -1);
+	kOwner.changeExtraUnitCost(-(m_pUnitInfo->getExtraCost()));
 
 	if (m_pUnitInfo->getNukeRange() != -1) {
-		GET_PLAYER(getOwnerINLINE()).changeNumNukeUnits(-1);
+		kOwner.changeNumNukeUnits(-1);
 	}
 
 	if (m_pUnitInfo->isMilitarySupport()) {
-		GET_PLAYER(getOwnerINLINE()).changeNumMilitaryUnits(-1);
+		kOwner.changeNumMilitaryUnits(-1);
 	}
 
-	GET_PLAYER(getOwnerINLINE()).changeAssets(-(m_pUnitInfo->getAssetValue()));
+	if (isSlave()) {
+		kOwner.changeNumSlaves(-1);
+	}
 
-	GET_PLAYER(getOwnerINLINE()).changePower(-(m_pUnitInfo->getPowerValue()));
+	kOwner.changeAssets(-(m_pUnitInfo->getAssetValue()));
 
-	GET_PLAYER(getOwnerINLINE()).AI_changeNumAIUnits(AI_getUnitAIType(), -1);
+	kOwner.changePower(-(m_pUnitInfo->getPowerValue()));
+
+	kOwner.AI_changeNumAIUnits(AI_getUnitAIType(), -1);
 
 	PlayerTypes eOwner = getOwnerINLINE();
 	PlayerTypes eCapturingPlayer = getCapturingPlayer();
@@ -579,7 +588,7 @@ void CvUnit::kill(bool bDelay, PlayerTypes ePlayer) {
 
 	CvEventReporter::getInstance().unitLost(this);
 
-	GET_PLAYER(getOwnerINLINE()).deleteUnit(getID());
+	kOwner.deleteUnit(getID());
 
 	if ((eCapturingPlayer != NO_PLAYER) && (eCaptureUnitType != NO_UNIT) && !(GET_PLAYER(eCapturingPlayer).isBarbarian())) {
 		if (GET_PLAYER(eCapturingPlayer).isHuman() || GET_PLAYER(eCapturingPlayer).AI_captureUnit(eCaptureUnitType, pPlot) || 0 == GC.getDefineINT("AI_CAN_DISBAND_UNITS")) {
@@ -4836,6 +4845,8 @@ bool CvUnit::join(SpecialistTypes eSpecialist) {
 
 		if (isSlave()) {
 			pCity->changeSettledSlaveCount(eSpecialist, 1);
+			// We need to increase the players slave count here as it will be reduced when we kill the slave
+			GET_PLAYER(getOwnerINLINE()).changeNumSlaves(1);
 		}
 	}
 
@@ -11793,7 +11804,7 @@ CvPlot* CvUnit::getBestSlaveMarket(bool bCurrentAreaOnly) {
 						iValue /= 5;
 
 					// Further away is bad, using every 3 turns as a divisor
-					iValue /= std::min(1, iTurns / 3);
+					iValue /= std::max(1, iTurns / 3);
 
 					// Current area is a major benefit
 					if (iArea == pLoopCity->getArea())
@@ -11811,6 +11822,10 @@ CvPlot* CvUnit::getBestSlaveMarket(bool bCurrentAreaOnly) {
 					if (pLoopCity->canSettleSlave() && kLoopPlayer.isAnarchy())
 						iValue *= std::min(1, pLoopCity->getProductionTurnsLeft() / 20);
 
+					// If the city already has its max number of safe slaves
+					if (pLoopCity->getSettledSlaveCountTotal() >= pLoopCity->getSlaveSafeLevel())
+						iValue /= 25;
+
 					if (iValue > iBestValue) {
 						iBestValue = iValue;
 						pBestCity = pLoopCity;
@@ -11819,7 +11834,7 @@ CvPlot* CvUnit::getBestSlaveMarket(bool bCurrentAreaOnly) {
 			}
 		}
 	}
-	return pBestCity->plot();
+	return pBestCity ? pBestCity->plot() : NULL;
 }
 
 UnitTypes CvUnit::getSlaveUnit() const {

@@ -13238,6 +13238,7 @@ void CvCity::doSlaveDeath() {
 		if (iDeadSlaves > 0) {
 			changeSettledSlaveCount(eSpecialist, -1 * iDeadSlaves);
 			changeFreeSpecialistCount(eSpecialist, -1 * iDeadSlaves);
+			GET_PLAYER(getOwner()).changeNumSlaves(-1 * iDeadSlaves);
 		}
 	}
 	if (iTotalDeadSlaves > 0) {
@@ -13321,6 +13322,7 @@ void CvCity::doSlaveRevolt(SlaveRevoltActions eAction) {
 				changeSettledSlaveCount(slaves[iX], -1);
 				changeFreeSpecialistCount(slaves[iX], -1);
 			}
+			GET_PLAYER(getOwner()).changeNumSlaves(-1 * iNumToKill);
 			CvWString szBuffer = gDLL->getText("TXT_KEY_CITY_SLAVE_DIED_REVOLT", getNameKey(), iNumToKill);
 			gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getEraInfo(GC.getGameINLINE().getCurrentEra()).getAudioUnitDefeatScript(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), getX_INLINE(), getY_INLINE());
 
@@ -13351,6 +13353,7 @@ void CvCity::doSlaveRevolt(SlaveRevoltActions eAction) {
 				changeSettledSlaveCount(slaves[iX], -1);
 				changeFreeSpecialistCount(slaves[iX], -1);
 			}
+			GET_PLAYER(getOwner()).changeNumSlaves(-1 * iNumToKill);
 			CvWString szBuffer = gDLL->getText("TXT_KEY_CITY_SLAVE_DIED_REVOLT", getNameKey(), iNumToKill);
 			gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getEraInfo(GC.getGameINLINE().getCurrentEra()).getAudioUnitDefeatScript(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), getX_INLINE(), getY_INLINE());
 

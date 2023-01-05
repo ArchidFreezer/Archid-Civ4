@@ -4564,7 +4564,6 @@ int CvTeamAI::AI_getTechMonopolyValue(TechTypes eTech, TeamTypes eTeam) const {
 						break;
 
 					case UNITAI_ATTACK:
-					case UNITAI_SLAVER:
 					case UNITAI_ATTACK_CITY:
 					case UNITAI_COLLATERAL:
 						iValue += bWarPlan ? 50 : 20;
@@ -4574,6 +4573,7 @@ int CvTeamAI::AI_getTechMonopolyValue(TechTypes eTech, TeamTypes eTeam) const {
 					case UNITAI_RESERVE:
 					case UNITAI_COUNTER:
 					case UNITAI_PARADROP:
+					case UNITAI_SLAVER:
 					case UNITAI_CITY_DEFENSE:
 					case UNITAI_CITY_COUNTER:
 					case UNITAI_CITY_SPECIAL:

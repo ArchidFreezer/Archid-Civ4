@@ -793,6 +793,19 @@ void CvCityAI::AI_chooseProduction() {
 		}
 	}
 
+	// If slavers have hit us in the area pump some units to protect any we have left
+	if (area()->getSlaveMemoryPerPlayer(getOwnerINLINE())) {
+		int iWorkerDefenceNeeded = 2;
+		iWorkerDefenceNeeded += std::max(0, AI_neededDefenders() - plot()->plotCount(PUF_isUnitAIType, UNITAI_CITY_DEFENSE, -1, getOwnerINLINE()));
+
+		if (kPlayer.AI_totalAreaUnitAIs(pArea, UNITAI_ATTACK) < iWorkerDefenceNeeded) {
+			if (AI_chooseUnit(UNITAI_ATTACK)) {
+				if (gCityLogLevel >= 2) logBBAI("      City %S uses enslaved worker defender", getName().GetCString());
+				return;
+			}
+		}
+	}
+
 	// Minimal attack force, both land and sea
 	if (bDanger) {
 		int iAttackNeeded = 4;
@@ -1151,6 +1164,14 @@ void CvCityAI::AI_chooseProduction() {
 		if (bPrimaryArea && !bFinancialTrouble) {
 			if (kPlayer.AI_totalAreaUnitAIs(pArea, UNITAI_ATTACK) == 0) {
 				if (AI_chooseUnit(UNITAI_ATTACK)) {
+					return;
+				}
+			}
+		}
+
+		if (!bFinancialTrouble) {
+			if (kPlayer.AI_totalAreaUnitAIs(pArea, UNITAI_SLAVER) < (kPlayer.AI_neededSlavers(pArea, (bLandWar || bAssault)))) {
+				if (AI_chooseUnit(UNITAI_SLAVER)) {
 					return;
 				}
 			}
@@ -2950,6 +2971,15 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 			}
 
 			iValue += iTempValue;
+		}
+
+		// If we have slavers in the area then slave markets are good if we have the capacity to settle them or we need extra workers
+		if ((kBuilding.isSlaveMarket() && getSlaveMarketCount() < 1 && kOwner.isActiveSlaver(area())) || iPass > 0) {
+			iValue += std::max(0, std::max(0, m_iWorkersNeeded - m_iWorkersHave));
+			// If this is the capital we really should have a slave market if we are a slaver
+			if (isCapital()) {
+				iValue += 250;
+			}
 		}
 
 		if (iPass > 0) {
@@ -5408,7 +5438,7 @@ void CvCityAI::AI_updateBestBuild() {
 						int iLoop;
 						for (CvSelectionGroup* pLoopSelectionGroup = kOwner.firstSelectionGroup(&iLoop); pLoopSelectionGroup; pLoopSelectionGroup = kOwner.nextSelectionGroup(&iLoop)) {
 							if (pLoopSelectionGroup->AI_getMissionAIPlot() == pLoopPlot && pLoopSelectionGroup->AI_getMissionAIType() == MISSIONAI_BUILD) {
-								FAssert(pLoopSelectionGroup->getHeadUnitAI() == UNITAI_WORKER || pLoopSelectionGroup->getHeadUnitAI() == UNITAI_WORKER_SEA);
+								FAssert(pLoopSelectionGroup->getHeadUnitAI() == UNITAI_WORKER || pLoopSelectionGroup->getHeadUnitAI() == UNITAI_WORKER_SEA || pLoopSelectionGroup->getHeadUnitAI() == UNITAI_SLAVE);
 								pLoopSelectionGroup->clearMissionQueue();
 							}
 						}

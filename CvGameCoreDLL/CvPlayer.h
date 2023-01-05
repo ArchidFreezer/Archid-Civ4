@@ -36,13 +36,16 @@ public:
 	CvPlayerAI* AI() { return (CvPlayerAI*)(this); }
 	const CvPlayerAI* AI() const { return (const CvPlayerAI*)(this); }
 
+	int getNumSlaves() const;
 	int getWorldViewChangeTimer() const;
 	int getWorldViewRevoltTurnChange(WorldViewTypes eWorldView) const;
 	int getWorldViewRevoltValue(WorldViewTypes eWorldView) const;
 	bool canChangeWorldViews() const;
+	bool isActiveSlaver(CvArea* pArea = NULL) const;
 	bool isHasValidWorldViews(UnitTypes eUnit) const;
 	bool isWorldViewEnabled(WorldViewTypes eWorldView) const;
 	bool isWorldViewActivated(WorldViewTypes eWorldView) const;
+	void changeNumSlaves(int iChange);
 	void changeWorldViewEnabledCount(WorldViewTypes eWorldView, int iChange);
 	void changeWorldViewActivatedStatus(WorldViewTypes eWorldView, bool bActivate);
 	void changeWorldViewChangeTimer(int iChange);
@@ -1291,6 +1294,7 @@ protected:
 	int m_iStarSignScalePercent;
 	int m_iStarSignPersistDecay;
 	int m_iWorldViewChangeTimer;
+	int m_iNumSlaves;
 
 	uint m_uiStartTime;  // XXX save these?
 

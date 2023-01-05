@@ -520,6 +520,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iStarSignScalePercent = 100;
 	m_iStarSignPersistDecay = 0;
 	m_iWorldViewChangeTimer = 0;
+	m_iNumSlaves = 0;
 
 	m_uiStartTime = 0;
 
@@ -13648,6 +13649,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iStarSignScalePercent);
 	pStream->Read(&m_iStarSignPersistDecay);
 	pStream->Read(&m_iWorldViewChangeTimer);
+	pStream->Read(&m_iNumSlaves);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14137,6 +14139,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iStarSignScalePercent);
 	pStream->Write(m_iStarSignPersistDecay);
 	pStream->Write(m_iWorldViewChangeTimer);
+	pStream->Write(m_iNumSlaves);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -19652,5 +19655,20 @@ void CvPlayer::doSlaveRevolt() {
 		for (std::vector<CvCity*>::iterator it = revolts.begin(); it != revolts.end(); ++it) {
 			(*it)->doSlaveRevolt((*it)->AI()->AI_bestSlaveRevoltAction());
 		}
+	}
+}
+
+bool CvPlayer::isActiveSlaver(CvArea* pArea) const {
+	return pArea ? AI_totalAreaUnitAIs(pArea, UNITAI_SLAVER) > 0 : getNumSlaves() > 0;
+}
+
+int CvPlayer::getNumSlaves() const {
+	return m_iNumSlaves;
+}
+
+void CvPlayer::changeNumSlaves(int iChange) {
+	if (iChange != 0) {
+		m_iNumSlaves = (m_iNumSlaves + iChange);
+		FAssert(getNumSlaves() >= 0);
 	}
 }

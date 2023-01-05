@@ -567,6 +567,11 @@ int CvUnitAI::AI_groupFirstVal() {
 		}
 		break;
 
+	// We want to go after the general attacking units incase we fill our slave slots through their actions
+	case UNITAI_SLAVER:
+		return 12;
+		break;
+
 	case UNITAI_COLLATERAL:
 		return 7;
 		break;
@@ -1778,7 +1783,7 @@ bool CvUnitAI::AI_huntRange(int iRange, int iOddsThreshold, bool bStayInBorders,
 
 	if (pBestPlot != NULL) {
 		FAssert(!atPlot(pBestPlot));
-		getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), MOVE_DIRECT_ATTACK, false, false);
+		getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), MOVE_SINGLE_ATTACK, false, false);
 		return true;
 	}
 

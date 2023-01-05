@@ -21,6 +21,11 @@ public:
 	void uninit();
 	void reset(int iID = 0, bool bWater = false, bool bConstructorCall = false);
 
+	void doTurn();
+
+	int getSlaveMemoryPerPlayer(PlayerTypes eIndex) const;
+	void resetSlaveMemoryPerPlayer(PlayerTypes eIndex);
+
 	int calculateTotalBestNatureYield() const;																// Exposed to Python
 
 	int countCoastalLand() const;																							// Exposed to Python
@@ -129,6 +134,7 @@ protected:
 	int m_iNumStartingPlots;
 
 	bool m_bWater;
+	bool m_bHasAnySlaveMemory;
 
 	int* m_aiUnitsPerPlayer;
 	int* m_aiAnimalsPerPlayer;
@@ -143,6 +149,7 @@ protected:
 	int* m_aiNumRevealedTiles;
 	int* m_aiCleanPowerCount;
 	int* m_aiBorderObstacleCount;
+	int* m_aiSlaveMemoryPerPlayer;
 
 	AreaAITypes* m_aeAreaAIType;
 

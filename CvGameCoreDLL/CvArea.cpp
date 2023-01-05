@@ -26,6 +26,7 @@ CvArea::CvArea() {
 	m_aiFreeSpecialist = new int[MAX_PLAYERS];
 	m_aiPower = new int[MAX_PLAYERS];
 	m_aiBestFoundValue = new int[MAX_PLAYERS];
+	m_aiSlaveMemoryPerPlayer = new int[MAX_PLAYERS];
 	m_aiNumRevealedTiles = new int[MAX_TEAMS];
 	m_aiCleanPowerCount = new int[MAX_TEAMS];
 	m_aiBorderObstacleCount = new int[MAX_TEAMS];
@@ -73,6 +74,7 @@ CvArea::~CvArea() {
 	SAFE_DELETE_ARRAY(m_aiBorderObstacleCount);
 	SAFE_DELETE_ARRAY(m_aeAreaAIType);
 	SAFE_DELETE_ARRAY(m_aTargetCities);
+	SAFE_DELETE_ARRAY(m_aiSlaveMemoryPerPlayer);
 	for (int i = 0; i < MAX_PLAYERS; i++) {
 		SAFE_DELETE_ARRAY(m_aaiYieldRateModifier[i]);
 	}
@@ -124,6 +126,7 @@ void CvArea::reset(int iID, bool bWater, bool bConstructorCall) {
 	m_iNumStartingPlots = 0;
 
 	m_bWater = bWater;
+	m_bHasAnySlaveMemory = true;
 
 	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
 		m_aiUnitsPerPlayer[iI] = 0;
@@ -136,6 +139,7 @@ void CvArea::reset(int iID, bool bWater, bool bConstructorCall) {
 		m_aiFreeSpecialist[iI] = 0;
 		m_aiPower[iI] = 0;
 		m_aiBestFoundValue[iI] = 0;
+		m_aiSlaveMemoryPerPlayer[iI] = 0;
 	}
 
 	for (int iI = 0; iI < MAX_TEAMS; iI++) {
@@ -793,6 +797,7 @@ void CvArea::read(FDataStreamBase* pStream) {
 	pStream->Read(MAX_PLAYERS, m_aiFreeSpecialist);
 	pStream->Read(MAX_PLAYERS, m_aiPower);
 	pStream->Read(MAX_PLAYERS, m_aiBestFoundValue);
+	pStream->Read(MAX_PLAYERS, m_aiSlaveMemoryPerPlayer);
 	pStream->Read(MAX_TEAMS, m_aiNumRevealedTiles);
 	pStream->Read(MAX_TEAMS, m_aiCleanPowerCount);
 	pStream->Read(MAX_TEAMS, m_aiBorderObstacleCount);
@@ -844,6 +849,7 @@ void CvArea::write(FDataStreamBase* pStream) {
 	pStream->Write(MAX_PLAYERS, m_aiFreeSpecialist);
 	pStream->Write(MAX_PLAYERS, m_aiPower);
 	pStream->Write(MAX_PLAYERS, m_aiBestFoundValue);
+	pStream->Write(MAX_PLAYERS, m_aiSlaveMemoryPerPlayer);
 	pStream->Write(MAX_TEAMS, m_aiNumRevealedTiles);
 	pStream->Write(MAX_TEAMS, m_aiCleanPowerCount);
 	pStream->Write(MAX_TEAMS, m_aiBorderObstacleCount);
@@ -869,3 +875,29 @@ void CvArea::write(FDataStreamBase* pStream) {
 }
 
 // Protected Functions...
+int CvArea::getSlaveMemoryPerPlayer(PlayerTypes eIndex) const {
+	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
+	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
+	return m_aiSlaveMemoryPerPlayer[eIndex];
+}
+
+
+void CvArea::resetSlaveMemoryPerPlayer(PlayerTypes eIndex) {
+	FAssertMsg(eIndex >= 0, "eIndex is expected to be >= 0");
+	FAssertMsg(eIndex < MAX_PLAYERS, "eIndex is expected to be < MAX_PLAYERS");
+	int iMemory = GC.getSLAVERY_WORKER_PROTECT_MEMORY() * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getTrainPercent();
+	m_aiSlaveMemoryPerPlayer[eIndex] = iMemory;
+	m_bHasAnySlaveMemory = true;
+}
+
+void CvArea::doTurn() {
+	// cache whether there are any player slave memories associated with this area for performance reasons on island maps
+	if (m_bHasAnySlaveMemory) {
+		m_bHasAnySlaveMemory = false;
+		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+			int iPlayerMemory = std::max(0, m_aiSlaveMemoryPerPlayer[ePlayer] - 1);
+			m_aiSlaveMemoryPerPlayer[ePlayer] = iPlayerMemory;
+			m_bHasAnySlaveMemory = m_bHasAnySlaveMemory || iPlayerMemory;
+		}
+	}
+}

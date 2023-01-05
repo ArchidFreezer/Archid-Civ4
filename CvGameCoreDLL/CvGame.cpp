@@ -4668,6 +4668,11 @@ void CvGame::doTurn() {
 
 	doStarSign();
 
+	int iLoop;
+	for (CvArea* pLoopArea = GC.getMapINLINE().firstArea(&iLoop); pLoopArea != NULL; pLoopArea = GC.getMapINLINE().nextArea(&iLoop)) {
+		pLoopArea->doTurn();
+	}
+
 	gDLL->getInterfaceIFace()->setEndTurnMessage(false);
 	gDLL->getInterfaceIFace()->setHasMovedUnit(false);
 
