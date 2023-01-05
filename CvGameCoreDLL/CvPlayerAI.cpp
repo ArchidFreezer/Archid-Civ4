@@ -8428,7 +8428,7 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 
 	case UNITAI_PILLAGE:
 		iValue += iCombatValue;
-		iValue += (iCombatValue * kUnit.getMoves());
+		iValue += iCombatValue * (kUnit.getMoves() - 1) / 2;
 		break;
 
 	case UNITAI_RESERVE:
