@@ -14528,8 +14528,7 @@ bool CvUnitAI::AI_retreatToCity(bool bPrimary, bool bPrioritiseAirlift, int iMax
 				continue;
 
 			int iPathTurns;
-			if (!atPlot(pLoopCity->plot()) && generatePath(pLoopCity->plot(), (iPass >= 2 ? MOVE_IGNORE_DANGER : 0), true, &iPathTurns, iMaxPath)) // was iPass >= 3
-			{
+			if (generatePath(pLoopCity->plot(), (iPass >= 2 ? MOVE_IGNORE_DANGER : 0), true, &iPathTurns, iMaxPath)) { // was iPass >= 3
 				// Water units can't defend a city
 				// Any unthreatened city acceptable on 0th pass, solves problem where sea units
 				// would oscillate in and out of threatened city because they had iCurrentDanger = 0
@@ -14545,7 +14544,6 @@ bool CvUnitAI::AI_retreatToCity(bool bPrimary, bool bPrioritiseAirlift, int iMax
 					if (iPathTurns < iShortestPath) {
 						iShortestPath = iPathTurns;
 						pBestPlot = getPathEndTurnPlot();
-						FAssert(!atPlot(pBestPlot));
 					}
 				}
 			}
@@ -14553,17 +14551,6 @@ bool CvUnitAI::AI_retreatToCity(bool bPrimary, bool bPrioritiseAirlift, int iMax
 
 		if (pBestPlot != NULL) {
 			break;
-		} else if (iPass == 0) {
-			if (pCity != NULL) {
-				if (pCity->getOwnerINLINE() == getOwnerINLINE()) {
-					if (!bPrimary || GET_PLAYER(getOwnerINLINE()).AI_isPrimaryArea(pCity->area())) {
-						if (!bNeedsAirlift || pCity->getMaxAirlift() > 0) {
-							getGroup()->pushMission(MISSION_SKIP);
-							return true;
-						}
-					}
-				}
-			}
 		}
 
 		if (getGroup()->alwaysInvisible()) {
@@ -14572,8 +14559,10 @@ bool CvUnitAI::AI_retreatToCity(bool bPrimary, bool bPrioritiseAirlift, int iMax
 	}
 
 	if (pBestPlot != NULL) {
-		FAssert(!atPlot(pBestPlot));
-		getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), iPass >= 2 ? MOVE_IGNORE_DANGER : 0, false, false, MISSIONAI_RETREAT); // was iPass >= 3
+		if (atPlot(pBestPlot))
+			getGroup()->pushMission(MISSION_SKIP, -1, -1, 0, false, false, MISSIONAI_RETREAT);
+		else
+			getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), iPass >= 2 ? MOVE_IGNORE_DANGER : 0, false, false, MISSIONAI_RETREAT); // was iPass >= 3
 		return true;
 	}
 
