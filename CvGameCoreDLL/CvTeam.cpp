@@ -3580,9 +3580,9 @@ void CvTeam::changeProjectCount(ProjectTypes eIndex, int iChange) {
 			changeTechShareCount((kProject.getTechShare() - 1), iChange);
 		}
 
-		for (int iVictory = 0; iVictory < GC.getNumVictoryInfos(); ++iVictory) {
-			if (kProject.getVictoryThreshold(iVictory) > 0) {
-				m_abCanLaunch[iVictory] = GC.getGameINLINE().testVictory((VictoryTypes)iVictory, getID());
+		for (VictoryTypes eVictory = (VictoryTypes)0; eVictory < GC.getNumVictoryInfos(); eVictory = (VictoryTypes)(eVictory + 1)) {
+			if (kProject.getVictoryThreshold(eVictory) > 0) {
+				setCanLaunch(eVictory, GC.getGameINLINE().testVictory(eVictory, getID()));
 			}
 		}
 
