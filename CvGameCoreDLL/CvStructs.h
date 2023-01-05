@@ -32,6 +32,7 @@ struct DllExport IDInfo {
 		return (eOwner == info.eOwner && iID == info.iID);
 	}
 
+	bool operator!= (const IDInfo& info) const { return !(*this == info); }
 	bool operator< (const IDInfo& a) const {
 		return eOwner < a.eOwner || (eOwner == a.eOwner && iID < a.iID);
 	}
