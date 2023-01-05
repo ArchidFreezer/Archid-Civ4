@@ -1210,6 +1210,16 @@ int pathCost(FAStarNode* parent, FAStarNode* node, int data, const void* pointer
 
 	TeamTypes eTeam = pSelectionGroup->getHeadTeam();
 
+	int iExploreModifier = 3; // (in thirds)
+	if (!pToPlot->isRevealed(eTeam, false)) {
+		if (pSelectionGroup->getAutomateType() == AUTOMATE_EXPLORE ||
+			(!pSelectionGroup->isHuman() && (pSelectionGroup->getHeadUnitAI() == UNITAI_EXPLORE || pSelectionGroup->getHeadUnitAI() == UNITAI_EXPLORE_SEA))) {
+			iExploreModifier = 2; // lower cost to encourage exploring unrevealed areas
+		} else if (!pFromPlot->isRevealed(eTeam, false)) {
+			iExploreModifier = 4; // higher cost to discourage pathfinding deep into the unknown
+		}
+	}
+
 	{
 		CLLNode<IDInfo>* pUnitNode = pSelectionGroup->headUnitNode();
 		while (pUnitNode != NULL) {
@@ -1225,6 +1235,7 @@ int pathCost(FAStarNode* parent, FAStarNode* node, int data, const void* pointer
 			iWorstMaxMoves = std::min(iWorstMaxMoves, iMaxMoves);
 
 			int iCost = PATH_MOVEMENT_WEIGHT * (iMovesLeft == 0 ? iMaxMoves : iMoveCost);
+			iCost = iCost * iExploreModifier / 3;
 			if (iCost > iWorstCost) {
 				iWorstCost = iCost;
 				iWorstMovesLeft = iMovesLeft;
@@ -1261,7 +1272,6 @@ int pathCost(FAStarNode* parent, FAStarNode* node, int data, const void* pointer
 
 	// end symmetry breaking.
 
-	// lets try this without cheating, shall we?
 	if (!pToPlot->isRevealed(eTeam, false))
 		return iWorstCost;
 
