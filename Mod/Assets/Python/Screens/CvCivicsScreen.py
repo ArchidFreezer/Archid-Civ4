@@ -52,8 +52,8 @@ class CvCivicsScreen:
 		screen.showWindowBackground(False)
 		screen.setText(self.CANCEL_NAME, "Background", u"<font=4>" + CyTranslator().getText("TXT_KEY_SCREEN_CANCEL", ()).upper() + u"</font>", CvUtil.FONT_CENTER_JUSTIFY, screen.getXResolution()/2, screen.getYResolution() - 35, -6.3, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, 1, 0)
 		screen.setText("CivicsTitleHeader", "Background", u"<font=4b>" + CyTranslator().getText("TXT_KEY_CIVICS_SCREEN_TITLE", ()).upper() + u"</font>", CvUtil.FONT_CENTER_JUSTIFY, screen.getXResolution()/2, self.Y_TITLE, -6.3, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
-		
-		self.setActivePlayer(CyGame().getActivePlayer())						
+
+		self.setActivePlayer(CyGame().getActivePlayer())
 
 		if (CyGame().isDebugMode()):
 			self.szDropdownName = self.DEBUG_DROPDOWN_ID
@@ -69,7 +69,7 @@ class CvCivicsScreen:
 	def drawCivics(self):
 		screen = CyGInterfaceScreen("CivicsScreen", CvScreenEnums.CIVICS_SCREEN)
 		screen.setLabel("CivicsTableLabel", "Background",  u"<font=3b>" + CyTranslator().getText("TXT_KEY_PEDIA_CATEGORY_CIVIC", ()) + u"</font>", CvUtil.FONT_CENTER_JUSTIFY, self.CivicTable_X + self.CivicTable_WIDTH/2, self.CivicTable_Y + 10, 0, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1 )
-		
+
 		iNumColumns = gc.getNumCivicOptionInfos()
 		lCivicOptions = []
 		screen.addTableControlGFC("CivicsTable", 1, self.CivicTable_X + 10, self.CivicTable_Y + 30, self.CivicTable_WIDTH, self.CivicTable_HEIGHT - 20, False, False, 24, 24, TableStyles.TABLE_STYLE_EMPTY)
@@ -84,7 +84,7 @@ class CvCivicsScreen:
 			sColor = CyTranslator().getText("[COLOR_SELECTED_TEXT]", ())
 			screen.setTableText("CivicsTable", 0, iRow, sColor + "<font=3>" + gc.getCivicOptionInfo(i).getDescription() + "</font></color>", "", WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
 			iRow += 1
-		
+
 			for j in xrange(gc.getNumCivicInfos()):
 				if gc.getCivicInfo(j).getCivicOptionType() != i: continue
 				sColor = ""
@@ -118,16 +118,16 @@ class CvCivicsScreen:
 			iRow = screen.appendTableRow("ChangesTable")
 			sColor = CyTranslator().getText("[COLOR_SELECTED_TEXT]", ())
 			screen.setTableText("ChangesTable", 0, iRow, sColor + "<font=3>" + gc.getCivicOptionInfo(iCivicOption).getDescription() + "</font></color>", "", WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
-			
+
 			iRow = screen.appendTableRow("ChangesTable")
 			iOriginalCivic = pPlayer.getCivics(iCivicOption)
 			sColor = CyTranslator().getText("[COLOR_POSITIVE_TEXT]", ())
 			screen.setTableText("ChangesTable", 0, iRow, sColor + "<font=3>" + gc.getCivicInfo(iOriginalCivic).getDescription() + "</font></color>", gc.getCivicInfo(iOriginalCivic).getButton(), WidgetTypes.WIDGET_PYTHON, 8206, iOriginalCivic, CvUtil.FONT_LEFT_JUSTIFY)
-			
+
 			iRow = screen.appendTableRow("ChangesTable")
 			sColor = CyTranslator().getText("[COLOR_HIGHLIGHT_TEXT]", ())
 			screen.setTableText("ChangesTable", 0, iRow, sColor + "<font=3>" + gc.getCivicInfo(iCivic).getDescription() + "</font></color>", gc.getCivicInfo(iCivic).getButton(), WidgetTypes.WIDGET_PYTHON, 8206, iCivic, CvUtil.FONT_LEFT_JUSTIFY)
-			
+
 	def drawComparison(self):
 		screen = CyGInterfaceScreen("CivicsScreen", CvScreenEnums.CIVICS_SCREEN)
 		pPlayer = gc.getPlayer(self.iActivePlayer)
@@ -141,7 +141,7 @@ class CvCivicsScreen:
 		screen.addPanel("ComparisonPanel1", "", "", True, True, self.OriginalCivic_X, self.CivicTable_Y, self.Comparison_WIDTH, self.CivicTable_HEIGHT + 20, PanelStyle)
 		screen.addPanel("ComparisonPanel2", "", "", True, True, self.NewCivic_X, self.CivicTable_Y, self.Comparison_WIDTH, self.CivicTable_HEIGHT + 20, PanelStyle)
 ## Transparent Panels ##
-	
+
 		iCivicOption = 0
 		if self.iSelectedCivic > -1:
 			iCivicOption = gc.getCivicInfo(self.iSelectedCivic).getCivicOptionType()
@@ -177,25 +177,25 @@ class CvCivicsScreen:
 		for i in xrange(gc.getNumCivicOptionInfos()):
 			iCivic = self.m_paeDisplayCivics[i]
 			if pPlayer.isCivic(iCivic): continue
-			bChange = True	
-		
+			bChange = True
+
 		# Make the revolution button
 		screen.deleteWidget(self.EXIT_NAME)
-		if pPlayer.canRevolution(0) and bChange:			
+		if pPlayer.canRevolution(0) and bChange:
 			screen.setText(self.EXIT_NAME, "Background", "<font=4>" + CyTranslator().getText("TXT_KEY_CONCEPT_REVOLUTION", ( )).upper() + u"</font>", CvUtil.FONT_RIGHT_JUSTIFY, screen.getXResolution() - 30, screen.getYResolution() - 42, -2.3, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_REVOLUTION, 1, 0)
 			screen.show(self.CANCEL_NAME)
 		else:
 			screen.setText(self.EXIT_NAME, "Background", "<font=4>" + CyTranslator().getText("TXT_KEY_PEDIA_SCREEN_EXIT", ( )).upper() + u"</font>", CvUtil.FONT_RIGHT_JUSTIFY, screen.getXResolution() - 30, screen.getYResolution() - 42, -2.3, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, 1, -1)
 			screen.hide(self.CANCEL_NAME)
 
-		# Anarchy		
+		# Anarchy
 		szText = CyGameTextMgr().setRevolutionHelp(self.iActivePlayer)
 		if pPlayer.canRevolution(0):
 			szText = CyTranslator().getText("TXT_KEY_ANARCHY_TURNS", (pPlayer.getCivicAnarchyLength(self.m_paeDisplayCivics), ))
 		screen.setLabel("CivicsRevText", "Background", u"<font=3>" + szText + u"</font>", CvUtil.FONT_CENTER_JUSTIFY, screen.getXResolution()/2, self.BOTTOM_LINE_TOP + self.TEXT_MARGIN/2, 0, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
 
-		# Maintenance		
-		szText = CyTranslator().getText("TXT_KEY_CIVIC_SCREEN_UPKEEP", (pPlayer.getCivicUpkeep(self.m_paeDisplayCivics, True), ))
+		# Maintenance
+		szText = CyTranslator().getText("TXT_KEY_CIVIC_SCREEN_UPKEEP", (pPlayer.getCivicUpkeep(self.m_paeDisplayCivics, True)*(100+pPlayer.getInflationRate())/100, )) # K-Mod
 		screen.setLabel("CivicsUpkeepText", "Background", u"<font=3>" + szText + u"</font>", CvUtil.FONT_CENTER_JUSTIFY, screen.getXResolution()/2, self.BOTTOM_LINE_TOP + self.BOTTOM_LINE_HEIGHT - 2 * self.TEXT_MARGIN, 0, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
 
 	def handleInput(self, inputClass):
@@ -248,6 +248,6 @@ class CvCivicsScreen:
 				CyMessageControl().sendUpdateCivics(self.m_paeDisplayCivics)
 			screen.hideScreen()
 		return 0
-		
+
 	def update(self, fDelta):
 		return

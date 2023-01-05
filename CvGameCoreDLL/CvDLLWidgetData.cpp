@@ -3789,31 +3789,32 @@ void CvDLLWidgetData::parseMaintenanceHelp(CvWidgetDataStruct& widgetDataStruct,
 			szBuffer.append(NEWLINE);
 			szBuffer.append(gDLL->getText("TXT_KEY_MISC_WE_LOVE_KING_MAINT"));
 		} else {
+			int iInflationFactor = 100 + GET_PLAYER(pHeadSelectedCity->getOwnerINLINE()).getInflationRate(); // K-Mod
+
 			szBuffer.assign(gDLL->getText("TXT_KEY_MISC_MAINT_INFO"));
 			szBuffer.append(NEWLINE);
-
-			int iMaintenanceValue = pHeadSelectedCity->calculateDistanceMaintenanceTimes100();
+			int iMaintenanceValue = pHeadSelectedCity->calculateDistanceMaintenanceTimes100() * iInflationFactor / 100;
 			if (iMaintenanceValue != 0) {
 				CvWString szMaint = CvWString::format(L"%d.%02d", iMaintenanceValue / 100, iMaintenanceValue % 100);
 				szBuffer.append(NEWLINE);
 				szBuffer.append(gDLL->getText("TXT_KEY_MISC_NUM_MAINT_FLOAT", szMaint.GetCString()) + ((GET_PLAYER(pHeadSelectedCity->getOwnerINLINE()).getNumGovernmentCenters() > 0) ? gDLL->getText("TXT_KEY_MISC_DISTANCE_FROM_PALACE") : gDLL->getText("TXT_KEY_MISC_NO_PALACE_PENALTY")));
 			}
 
-			iMaintenanceValue = pHeadSelectedCity->calculateNumCitiesMaintenanceTimes100();
+			iMaintenanceValue = pHeadSelectedCity->calculateNumCitiesMaintenanceTimes100() * iInflationFactor / 100;
 			if (iMaintenanceValue != 0) {
 				CvWString szMaint = CvWString::format(L"%d.%02d", iMaintenanceValue / 100, iMaintenanceValue % 100);
 				szBuffer.append(NEWLINE);
 				szBuffer.append(gDLL->getText("TXT_KEY_MISC_NUM_CITIES_FLOAT", szMaint.GetCString()));
 			}
 
-			iMaintenanceValue = pHeadSelectedCity->calculateColonyMaintenanceTimes100();
+			iMaintenanceValue = pHeadSelectedCity->calculateColonyMaintenanceTimes100() * iInflationFactor / 100;
 			if (iMaintenanceValue != 0) {
 				CvWString szMaint = CvWString::format(L"%d.%02d", iMaintenanceValue / 100, iMaintenanceValue % 100);
 				szBuffer.append(NEWLINE);
 				szBuffer.append(gDLL->getText("TXT_KEY_MISC_COLONY_MAINT_FLOAT", szMaint.GetCString()));
 			}
 
-			iMaintenanceValue = pHeadSelectedCity->calculateCorporationMaintenanceTimes100();
+			iMaintenanceValue = pHeadSelectedCity->calculateCorporationMaintenanceTimes100() * iInflationFactor / 100;
 			if (iMaintenanceValue != 0) {
 				CvWString szMaint = CvWString::format(L"%d.%02d", iMaintenanceValue / 100, iMaintenanceValue % 100);
 				szBuffer.append(NEWLINE);
@@ -3822,7 +3823,9 @@ void CvDLLWidgetData::parseMaintenanceHelp(CvWidgetDataStruct& widgetDataStruct,
 
 			szBuffer.append(SEPARATOR);
 
-			CvWString szMaint = CvWString::format(L"%d.%02d", pHeadSelectedCity->getMaintenanceTimes100() / 100, pHeadSelectedCity->getMaintenanceTimes100() % 100);
+			iMaintenanceValue = pHeadSelectedCity->getMaintenanceTimes100() * iInflationFactor / 100;
+
+			CvWString szMaint = CvWString::format(L"%d.%02d", iMaintenanceValue / 100, iMaintenanceValue % 100);
 			szBuffer.append(NEWLINE);
 			szBuffer.append(gDLL->getText("TXT_KEY_MISC_TOTAL_MAINT_FLOAT", szMaint.GetCString()));
 

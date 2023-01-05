@@ -1806,7 +1806,7 @@ class CvMainInterface:
 						screen.setTableInt("BonusTable", 2, iRow, sColor + str(iHappiness) + u"</color>","", WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_CENTER_JUSTIFY)
 						screen.setTableInt("BonusTable", 3, iRow, sColor + str(iHealth) + u"</color>","", WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
 ## Bonus Table ##
-				iMaintenance = pHeadSelectedCity.getMaintenanceTimes100()
+				iMaintenance = pHeadSelectedCity.getMaintenanceTimes100() * (100+gc.getPlayer(pHeadSelectedCity.getOwner()).getInflationRate()) / 100 # K-Mod
 				szBuffer = localText.getText("INTERFACE_CITY_MAINTENANCE", ())
 				screen.setLabel( "MaintenanceText", "Background", sColor + szBuffer + u"</color>", CvUtil.FONT_LEFT_JUSTIFY, 15, 126, -0.3, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_HELP_MAINTENANCE, -1, -1 )
 				szBuffer = u"-%d.%02d %c" %(iMaintenance/100, iMaintenance%100, gc.getCommerceInfo(CommerceTypes.COMMERCE_GOLD).getChar())

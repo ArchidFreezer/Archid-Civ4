@@ -16,7 +16,7 @@ class CvFinanceAdvisor:
 		self.Z_BACKGROUND = -2.1
 		self.Z_CONTROLS = self.Z_BACKGROUND - 0.2
 		self.DZ = -0.2
-		
+
 		self.nWidgetCount = 0
 
 	def interfaceScreen (self):
@@ -27,7 +27,7 @@ class CvFinanceAdvisor:
 		self.Y_TRADE = 80
 		self.W_TRADE = screen.getXResolution() * 2/5
 		self.Y_SPACING = 30
-	
+
 		if screen.isActive(): return
 		screen.setRenderInterfaceOnly(True);
 		screen.showScreen( PopupStates.POPUPSTATE_IMMEDIATE, False)
@@ -40,7 +40,7 @@ class CvFinanceAdvisor:
 		screen.showWindowBackground(False)
 		screen.setText("FinanceAdvisorExitWidget", "Background", "<font=4>" + CyTranslator().getText("TXT_KEY_PEDIA_SCREEN_EXIT", ()).upper() + "</font>", CvUtil.FONT_RIGHT_JUSTIFY, screen.getXResolution() - 30, screen.getYResolution() - 42, self.Z_CONTROLS, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_CLOSE_SCREEN, -1, -1 )
 		screen.setLabel("FinanceAdvisorWidgetHeader", "Background", u"<font=4b>" + CyTranslator().getText("TXT_KEY_FINANCIAL_ADVISOR_TITLE", ()).upper() + u"</font>", CvUtil.FONT_CENTER_JUSTIFY, screen.getXResolution()/2, self.Y_TITLE, self.Z_CONTROLS, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
-				
+
 		if CyGame().isDebugMode():
 			screen.addDropDownBoxGFC(self.DEBUG_DROPDOWN_ID, 22, 12, 300, WidgetTypes.WIDGET_GENERAL, -1, -1, FontTypes.GAME_FONT)
 			for j in xrange(gc.getMAX_PLAYERS()):
@@ -59,11 +59,13 @@ class CvFinanceAdvisor:
 		self.Y_LOCATION = self.Y_TRADE + self.H_TREASURY + 20
 		self.PANE_HEIGHT = screen.getYResolution() - 80 - self.Y_LOCATION
 		player = gc.getPlayer(self.iActiveLeader)
-					
-		totalUnitCost = player.calculateUnitCost()
-		totalUnitSupply = player.calculateUnitSupply()
-		totalMaintenance = player.getTotalMaintenance()
-		totalCivicUpkeep = player.getCivicUpkeep([], False)
+
+		# K-Mod - I've changed these costs to include inflation.
+		inflationFactor = 100+player.getInflationRate()
+		totalUnitCost = (player.calculateUnitCost() * inflationFactor + 50)/100
+		totalUnitSupply = (player.calculateUnitSupply() * inflationFactor + 50)/100
+		totalMaintenance = (player.getTotalMaintenance() * inflationFactor + 50)/100
+		totalCivicUpkeep = (player.getCivicUpkeep([], False) * inflationFactor + 50)/100
 		totalPreInflatedCosts = player.calculatePreInflatedCosts()
 		totalInflatedCosts = player.calculateInflatedCosts()
 		goldCommerce = player.getCommerceRate(CommerceTypes.COMMERCE_GOLD)
@@ -101,11 +103,11 @@ class CvFinanceAdvisor:
 				screen.setTableText("TradeTable", 0, iRow, CyTranslator().getText("[ICON_TRADE]", ()), "", WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_CENTER_JUSTIFY)
 			screen.setTableText("TradeTable", 1, iRow, "<font=3>" + BonusInfo.getDescription() + "</font>", BonusInfo.getButton(), WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, iBonus, 1, CvUtil.FONT_LEFT_JUSTIFY)
 			screen.setTableText("TradeTable", 2, iRow, "<font=3>" + pCity.getName() + "</font>", gc.getCivilizationInfo(iCivilization).getButton(), WidgetTypes.WIDGET_ZOOM_CITY, pCity.getOwner(), pCity.getID(), CvUtil.FONT_LEFT_JUSTIFY)
-			
+
 		yLocation  = self.Y_LOCATION + self.TEXT_MARGIN
 		screen.setLabel(self.getNextWidgetName(), "Background",  "<font=4>" + CyTranslator().getText("TXT_KEY_CONCEPT_COMMERCE", ()).upper() + "</font>", CvUtil.FONT_CENTER_JUSTIFY, self.X_INCOME + self.PANE_WIDTH/2, yLocation, self.Z_CONTROLS + self.DZ, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1 )
 		xLocation = self.X_INCOME + self.TEXT_MARGIN
-		
+
 		yLocation += self.Y_SPACING /2
 		for eCommerce in xrange(CommerceTypes.NUM_COMMERCE_TYPES):
 			if eCommerce == CommerceTypes.COMMERCE_GOLD: continue
@@ -121,7 +123,7 @@ class CvFinanceAdvisor:
 
 		# Income
 		yLocation += 2 * self.Y_SPACING
-		screen.setLabel(self.getNextWidgetName(), "Background",  u"<font=4>" + CyTranslator().getText("[COLOR_POSITIVE_TEXT]", ()) + CyTranslator().getText("TXT_KEY_FINANCIAL_ADVISOR_INCOME_HEADER", ()).upper() + u"</color></font>", CvUtil.FONT_CENTER_JUSTIFY, self.X_INCOME + self.PANE_WIDTH/2, yLocation, self.Z_CONTROLS + self.DZ, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1 )	
+		screen.setLabel(self.getNextWidgetName(), "Background",  u"<font=4>" + CyTranslator().getText("[COLOR_POSITIVE_TEXT]", ()) + CyTranslator().getText("TXT_KEY_FINANCIAL_ADVISOR_INCOME_HEADER", ()).upper() + u"</color></font>", CvUtil.FONT_CENTER_JUSTIFY, self.X_INCOME + self.PANE_WIDTH/2, yLocation, self.Z_CONTROLS + self.DZ, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1 )
 		iIncome = 0
 		yLocation += self.Y_SPACING * 3/2
 
@@ -146,7 +148,7 @@ class CvFinanceAdvisor:
 		yLocation += 1.5 * self.Y_SPACING
 		screen.setLabel(self.getNextWidgetName(), "Background", u"<font=4>" + CyTranslator().getText("[COLOR_POSITIVE_TEXT]", ()) + CyTranslator().getText("TXT_KEY_FINANCIAL_ADVISOR_INCOME", ()) + "</color></font>", CvUtil.FONT_LEFT_JUSTIFY, self.X_INCOME + self.TEXT_MARGIN, yLocation, self.Z_CONTROLS + self.DZ, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1 )
 		screen.setLabel(self.getNextWidgetName(), "Background", u"<font=4>" + CyTranslator().getText("[COLOR_POSITIVE_TEXT]", ()) + str(iIncome) + "</color></font>", CvUtil.FONT_RIGHT_JUSTIFY, self.X_INCOME + self.PANE_WIDTH - self.TEXT_MARGIN, yLocation, self.Z_CONTROLS + self.DZ, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1 )
-		
+
 		# Expenses
 		yLocation = self.Y_LOCATION + self.TEXT_MARGIN
 		screen.setLabel(self.getNextWidgetName(), "Background",  u"<font=4>" + CyTranslator().getText("[COLOR_NEGATIVE_TEXT]", ()) + CyTranslator().getText("TXT_KEY_FINANCIAL_ADVISOR_EXPENSES_HEADER", ()).upper() + u"</font>", CvUtil.FONT_CENTER_JUSTIFY, self.X_EXPENSES + self.PANE_WIDTH/2, yLocation, self.Z_CONTROLS + self.DZ, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1 )
@@ -178,16 +180,10 @@ class CvFinanceAdvisor:
 			screen.setLabel(self.getNextWidgetName(), "Background", u"<font=3>" + str(-goldFromCivs) + "</font>", CvUtil.FONT_RIGHT_JUSTIFY, self.X_EXPENSES + self.PANE_WIDTH - self.TEXT_MARGIN, yLocation, self.Z_CONTROLS + self.DZ, FontTypes.GAME_FONT, WidgetTypes.WIDGET_HELP_FINANCE_FOREIGN_INCOME, self.iActiveLeader, 1)
 			iExpenses -= goldFromCivs
 
-		yLocation += self.Y_SPACING
-		iInflation = totalInflatedCosts - totalPreInflatedCosts
-		screen.setLabel(self.getNextWidgetName(), "Background", u"<font=3>" + CyTranslator().getText("TXT_KEY_FINANCIAL_ADVISOR_INFLATION", ()) + "</font>", CvUtil.FONT_LEFT_JUSTIFY, self.X_EXPENSES + self.TEXT_MARGIN, yLocation, self.Z_CONTROLS + self.DZ, FontTypes.GAME_FONT, WidgetTypes.WIDGET_HELP_FINANCE_INFLATED_COSTS, self.iActiveLeader, 1)
-		screen.setLabel(self.getNextWidgetName(), "Background", u"<font=3>" + str(iInflation) + "</font>", CvUtil.FONT_RIGHT_JUSTIFY, self.X_EXPENSES + self.PANE_WIDTH - self.TEXT_MARGIN, yLocation, self.Z_CONTROLS + self.DZ, FontTypes.GAME_FONT, WidgetTypes.WIDGET_HELP_FINANCE_INFLATED_COSTS, self.iActiveLeader, 1)
-		iExpenses += iInflation
-
 		yLocation += self.Y_SPACING * 3/2
 		screen.setLabel(self.getNextWidgetName(), "Background", u"<font=4>" + CyTranslator().getText("[COLOR_NEGATIVE_TEXT]", ()) + CyTranslator().getText("TXT_KEY_FINANCIAL_ADVISOR_EXPENSES", ()) + "</color></font>", CvUtil.FONT_LEFT_JUSTIFY, self.X_EXPENSES + self.TEXT_MARGIN, yLocation, self.Z_CONTROLS + self.DZ, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1 )
-		screen.setLabel(self.getNextWidgetName(), "Background", u"<font=4>" + CyTranslator().getText("[COLOR_NEGATIVE_TEXT]", ()) + str(iExpenses) + "</color></font>", CvUtil.FONT_RIGHT_JUSTIFY, self.X_EXPENSES + self.PANE_WIDTH - self.TEXT_MARGIN, yLocation, self.Z_CONTROLS + self.DZ, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1 )
-		
+		screen.setLabel(self.getNextWidgetName(), "Background", u"<font=4>" + CyTranslator().getText("[COLOR_NEGATIVE_TEXT]", ()) + str(totalInflatedCosts) + "</color></font>", CvUtil.FONT_RIGHT_JUSTIFY, self.X_EXPENSES + self.PANE_WIDTH - self.TEXT_MARGIN, yLocation, self.Z_CONTROLS + self.DZ, FontTypes.GAME_FONT, WidgetTypes.WIDGET_HELP_FINANCE_INFLATED_COSTS,self.iActiveLeader, -1 )
+
 		yLocation += self.Y_SPACING * 3/2
 		iCashflow = iIncome - iExpenses
 		sColor = CyTranslator().getText("[COLOR_POSITIVE_TEXT]", ())
@@ -209,11 +205,11 @@ class CvFinanceAdvisor:
 			screen.deleteWidget(self.getNextWidgetName())
 			i -= 1
 		self.nWidgetCount = 0
-			
+
 	def handleInput (self, inputClass):
 		screen = CyGInterfaceScreen("FinanceAdvisor", CvScreenEnums.FINANCE_ADVISOR)
 		if inputClass.getButtonType() == WidgetTypes.WIDGET_ZOOM_CITY:
-			screen.hideScreen()			
+			screen.hideScreen()
 			CyInterface().selectCity(gc.getPlayer(inputClass.getData1()).getCity(inputClass.getData2()), true)
 ## Commerce Flexibles ##
 		elif inputClass.getFunctionName().find("IncreasePercent") > -1:
