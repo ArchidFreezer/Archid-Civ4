@@ -13989,8 +13989,8 @@ bool CvUnitAI::AI_improveBonus(bool bSingleBuild) // K-Mod. (all that junk wasn'
 									if (bDoImprove) {
 										iValue *= 1000;
 
-										if (atPlot(pLoopPlot)) {
-											iValue *= 3;
+										if (iPathTurns == 1 && getPathFinder().GetFinalMoves() != 0) {
+											iValue *= 2;
 										}
 
 										iValue /= (iPathTurns + 1);
