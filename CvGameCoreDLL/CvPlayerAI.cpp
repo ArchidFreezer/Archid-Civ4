@@ -8507,28 +8507,29 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 
 	case UNITAI_COUNTER:
 		iValue += (iCombatValue / 2);
-		for (int iI = 0; iI < GC.getNumUnitClassInfos(); iI++) {
-			iValue += ((iCombatValue * kUnit.getUnitClassAttackModifier(iI) * AI_getUnitClassWeight((UnitClassTypes)iI)) / 7500);
-			iValue += ((iCombatValue * (kUnit.getTargetUnitClass(iI) ? 50 : 0)) / 100);
+		for (UnitClassTypes eUnitClass = (UnitClassTypes)0; eUnitClass < GC.getNumUnitClassInfos(); eUnitClass = (UnitClassTypes)(eUnitClass + 1)) {
+			iValue += ((iCombatValue * GC.getUnitInfo(eUnit).getUnitClassAttackModifier(eUnitClass) * AI_getUnitClassWeight(eUnitClass)) / 10000); // was 7500
+			iValue += ((iCombatValue * GC.getUnitInfo(eUnit).getUnitClassDefenseModifier(eUnitClass) * AI_getUnitClassWeight(eUnitClass)) / 10000); // K-Mod
+			iValue += ((iCombatValue * (kUnit.getTargetUnitClass(eUnitClass) ? 50 : 0)) / 100);
 		}
-		for (int iI = 0; iI < GC.getNumUnitCombatInfos(); iI++) {
-			iValue += ((iCombatValue * kUnit.getUnitCombatModifier(iI) * AI_getUnitCombatWeight((UnitCombatTypes)iI)) / 10000);
-			iValue += ((iCombatValue * (kUnit.getTargetUnitCombat(iI) ? 50 : 0)) / 100);
+		for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+			iValue += ((iCombatValue * GC.getUnitInfo(eUnit).getUnitCombatModifier(eUnitCombat) * AI_getUnitCombatWeight(eUnitCombat)) / 7500); // was 10000
+			iValue += ((iCombatValue * (kUnit.getTargetUnitCombat(eUnitCombat) ? 50 : 0)) / 100);
 		}
-		for (int iI = 0; iI < GC.getNumUnitInfos(); iI++) {
+		for (UnitTypes eLoopUnit = (UnitTypes)0; eLoopUnit < GC.getNumUnitInfos(); eLoopUnit = (UnitTypes)(eLoopUnit + 1)) {
 			int eUnitClass = kUnit.getUnitClassType();
-			if (NO_UNITCLASS != eUnitClass && GC.getUnitInfo((UnitTypes)iI).getDefenderUnitClass(eUnitClass)) {
+			if (NO_UNITCLASS != eUnitClass && GC.getUnitInfo(eLoopUnit).getDefenderUnitClass(eUnitClass)) {
 				iValue += (50 * iCombatValue) / 100;
 			}
 
 			int eUnitCombat = kUnit.getUnitCombatType();
-			if (NO_UNITCOMBAT != eUnitCombat && GC.getUnitInfo((UnitTypes)iI).getDefenderUnitCombat(eUnitCombat)) {
+			if (NO_UNITCOMBAT != eUnitCombat && GC.getUnitInfo(eLoopUnit).getDefenderUnitCombat(eUnitCombat)) {
 				iValue += (50 * iCombatValue) / 100;
 			}
 		}
 
 		if (kUnit.getMoves() > 1) {
-			iValue += iCombatValue * kUnit.getMoves() / 6;
+			iValue += iCombatValue * kUnit.getMoves() / 8;
 		}
 
 		iValue += ((iCombatValue * kUnit.getWithdrawalProbability()) / 100);
@@ -8546,12 +8547,14 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 		iValue += ((iCombatValue * 2) / 3);
 		iValue += ((iCombatValue * kUnit.getCityDefenseModifier()) / 75);
 		// K-Mod. Value for collateral immunity
-		for (int iI = 0; iI < GC.getNumUnitCombatInfos(); iI++) {
-			if (kUnit.getUnitCombatCollateralImmune(iI)) {
+		for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+			if (kUnit.getUnitCombatCollateralImmune(eUnitCombat)) {
 				iValue += iCombatValue * 30 / 100;
 				break;
 			}
 		}
+		// Other bonuses
+		iValue += iCombatValue * kUnit.getHillsDefenseModifier() / 200;
 		break;
 
 	case UNITAI_CITY_COUNTER:
