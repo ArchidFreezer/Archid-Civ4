@@ -3676,15 +3676,18 @@ CvSelectionGroup* CvSelectionGroup::splitGroup(int iSplitSize, CvUnit* pNewHeadU
 		}
 	}
 
-	for (UnitAITypes i = (UnitAITypes)0; i < NUM_UNITAI_TYPES; i = (UnitAITypes)(i + 1)) {
-		if (aiTotalAIs[i] == 0 || i == eNewHeadAI || i == eOldHeadAI)
+	for (UnitAITypes eUnitAI = (UnitAITypes)0; eUnitAI < NUM_UNITAI_TYPES; eUnitAI = (UnitAITypes)(eUnitAI + 1)) {
+		if (aiTotalAIs[eUnitAI] == 0 || eUnitAI == eNewHeadAI || eUnitAI == eOldHeadAI)
 			continue; // already done. (see above)
 
-		int x = (aiTotalAIs[i] * iSplitSize + iGroupSize / 2 + iCarry) / iGroupSize;
+		int x = (aiTotalAIs[eUnitAI] * iSplitSize + iGroupSize / 2 + iCarry) / iGroupSize;
 
-		FAssert(x >= 0 && x <= aiTotalAIs[i]);
-		iCarry += aiTotalAIs[i] * iSplitSize - x * iGroupSize;
-		aiNewGroupAIs[i] = x;
+		// In rare situations x can be rounded up above the maximum,
+		// because iCarry may oversized if one of the original head units is reserved.
+		x = std::min(x, aiTotalAIs[eUnitAI]);
+		FAssert(x >= 0 && x <= aiTotalAIs[eUnitAI]);
+		iCarry += aiTotalAIs[eUnitAI] * iSplitSize - x * iGroupSize;
+		aiNewGroupAIs[eUnitAI] = x;
 		FAssert(iCarry >= -iGroupSize && iCarry <= iGroupSize);
 	}
 	FAssert(iCarry == 0);
