@@ -130,7 +130,7 @@ BOOL APIENTRY DllMain(HANDLE hModule,
 	{
 
 #ifdef _DEBUG
-		MessageBox(0, "DLL attached", "Message", 0);
+//		MessageBox(0, "DLL attached", "Message", 0);
 #endif
 
 		// The DLL is being loaded into the virtual address space of the current process as a result of the process starting up 
