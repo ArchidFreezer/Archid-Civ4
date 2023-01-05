@@ -3449,6 +3449,9 @@ void CvGameTextMgr::setPlotHelp(CvWStringBuffer& szString, CvPlot* pPlot) {
 						int iObs = kPlayer.AI_obsoleteBuildingPenalty(eTech, true);
 						if (iObs != 0)
 							szString.append(CvWString::format(L"obs:%d, ", -iObs));
+						int iPrj = kPlayer.AI_techProjectValue(eTech, 1, bDummy);
+						if (iPrj != 0)
+							szString.append(CvWString::format(L"prj:%d, ", iPrj));
 						szString.append(CvWString::format(L"unt:%d)", kPlayer.AI_techUnitValue(eTech, 1, bDummy)));
 					}
 				}
