@@ -2559,7 +2559,7 @@ bool CvGameTextMgr::setCombatPlotHelp(CvWStringBuffer& szString, CvPlot* pPlot) 
 				if (pAttacker->combatLimit() == (pDefender->maxHitPoints())) {
 					FAssert(GC.getDefineINT("MAX_EXPERIENCE_PER_COMBAT") > GC.getDefineINT("MIN_EXPERIENCE_PER_COMBAT")); //ensuring the differences is at least 1
 					int size = GC.getDefineINT("MAX_EXPERIENCE_PER_COMBAT") - GC.getDefineINT("MIN_EXPERIENCE_PER_COMBAT");
-					float* CombatRatioThresholds = new float[size];
+					std::vector<float> CombatRatioThresholds(size);
 
 					for (int i = 0; i < size; i++) //setup the array
 					{
@@ -2616,8 +2616,6 @@ bool CvGameTextMgr::setCombatPlotHelp(CvWStringBuffer& szString, CvPlot* pPlot) 
 							}//if
 						}// else if
 					}//for
-					delete CombatRatioThresholds;
-					//throw away the array
 				}//if
 			} // else if
 			//Finished Showing XP range display
@@ -3417,15 +3415,10 @@ void CvGameTextMgr::setPlotHelp(CvWStringBuffer& szString, CvPlot* pPlot) {
 		} else if (pPlot->getOwner() != NO_PLAYER) {
 			if (bShift && !bAlt) {
 				const CvPlayerAI& kPlayer = GET_PLAYER(pPlot->getOwnerINLINE());
-				int* paiBonusClassRevealed = new int[GC.getNumBonusClassInfos()];
-				int* paiBonusClassUnrevealed = new int[GC.getNumBonusClassInfos()];
-				int* paiBonusClassHave = new int[GC.getNumBonusClassInfos()];
 
-				for (BonusClassTypes eBonusClass = (BonusClassTypes)0; eBonusClass < GC.getNumBonusClassInfos(); eBonusClass = (BonusClassTypes)(eBonusClass + 1)) {
-					paiBonusClassRevealed[eBonusClass] = 0;
-					paiBonusClassUnrevealed[eBonusClass] = 0;
-					paiBonusClassHave[eBonusClass] = 0;
-				}
+				std::vector<int> viBonusClassRevealed(GC.getNumBonusClassInfos(), 0);
+				std::vector<int> viBonusClassUnrevealed(GC.getNumBonusClassInfos(), 0);
+				std::vector<int> viBonusClassHave(GC.getNumBonusClassInfos(), 0);
 
 				for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
 					const CvBonusInfo& kBonus = GC.getBonusInfo(eBonus);
@@ -3433,15 +3426,15 @@ void CvGameTextMgr::setPlotHelp(CvWStringBuffer& szString, CvPlot* pPlot) {
 					BonusClassTypes eBonusClass = (BonusClassTypes)kBonus.getBonusClassType();
 					if (eRevealTech != NO_TECH) {
 						if ((GET_TEAM(pPlot->getTeam()).isHasTech(eRevealTech))) {
-							paiBonusClassRevealed[eBonusClass]++;
+							viBonusClassRevealed[eBonusClass]++;
 						} else {
-							paiBonusClassUnrevealed[eBonusClass]++;
+							viBonusClassUnrevealed[eBonusClass]++;
 						}
 
 						if (kPlayer.getNumAvailableBonuses(eBonus) > 0) {
-							paiBonusClassHave[eBonusClass]++;
+							viBonusClassHave[eBonusClass]++;
 						} else if (kPlayer.countOwnedBonuses(eBonus) > 0) {
-							paiBonusClassHave[eBonusClass]++;
+							viBonusClassHave[eBonusClass]++;
 						}
 					}
 				}
@@ -3451,7 +3444,7 @@ void CvGameTextMgr::setPlotHelp(CvWStringBuffer& szString, CvPlot* pPlot) {
 
 					if (iPathLength <= 3 && !GET_TEAM(pPlot->getTeam()).isHasTech(eTech)) {
 						bool bDummy;
-						szString.append(CvWString::format(L"\n%s(%d)=%8d", GC.getTechInfo(eTech).getDescription(), iPathLength, kPlayer.AI_techValue(eTech, 1, false, true, paiBonusClassRevealed, paiBonusClassUnrevealed, paiBonusClassHave)));
+						szString.append(CvWString::format(L"\n%s(%d)=%8d", GC.getTechInfo(eTech).getDescription(), iPathLength, kPlayer.AI_techValue(eTech, 1, false, true, viBonusClassRevealed, viBonusClassUnrevealed, viBonusClassHave)));
 						szString.append(CvWString::format(L" (bld:%d, ", kPlayer.AI_techBuildingValue(eTech, true, bDummy)));
 						int iObs = kPlayer.AI_obsoleteBuildingPenalty(eTech, true);
 						if (iObs != 0)

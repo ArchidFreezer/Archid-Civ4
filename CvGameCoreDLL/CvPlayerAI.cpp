@@ -1960,7 +1960,7 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 		}
 	}
 
-	std::vector<int> paiBonusCount(GC.getNumBonusInfos(), 0);
+	std::vector<int> viBonusCount(GC.getNumBonusInfos(), 0);
 
 	int iBadTile = 0;
 
@@ -2253,12 +2253,12 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 
 				if (eBonus != NO_BONUS && // K-Mod added water case (!!)
 					((pLoopPlot->isWater() && bIsCoastal) || pLoopPlot->area() == pPlot->area() || pLoopPlot->area()->getCitiesPerPlayer(getID()) > 0)) {
-					int iCount = getNumTradeableBonuses(eBonus) == 0 + paiBonusCount[eBonus];
+					int iCount = getNumTradeableBonuses(eBonus) == 0 + viBonusCount[eBonus];
 					int iBonusValue = AI_bonusVal(eBonus, 0, true) * 80 / (1 + 2 * iCount);
 					// Note: 1. the value of starting bonuses is reduced later.
 					//       2. iTempValue use to be used throughout this section. I've replaced all references with iBonusValue, for clarity.
-					paiBonusCount[eBonus]++; // (this use to be above the iBonusValue initialization)
-					FAssert(paiBonusCount[eBonus] > 0);
+					viBonusCount[eBonus]++; // (this use to be above the iBonusValue initialization)
+					FAssert(viBonusCount[eBonus] > 0);
 					//
 
 					iBonusValue *= (kSet.bStartingLoc ? 100 : kSet.iGreed);
@@ -2652,8 +2652,8 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 		int iBonusCount = 0;
 		int iUniqueBonusCount = 0;
 		for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
-			iBonusCount += paiBonusCount[eBonus];
-			iUniqueBonusCount += (paiBonusCount[eBonus] > 0) ? 1 : 0;
+			iBonusCount += viBonusCount[eBonus];
+			iUniqueBonusCount += (viBonusCount[eBonus] > 0) ? 1 : 0;
 		}
 		if (iBonusCount > 4) {
 			iValue *= 5;
@@ -3259,30 +3259,24 @@ TechTypes CvPlayerAI::AI_bestTech(int iMaxPathLength, bool bIgnoreCost, bool bAs
 	TechTypes eBestTech = NO_TECH;
 	CvTeam& kTeam = GET_TEAM(getTeam());
 
-	int* paiBonusClassRevealed = new int[GC.getNumBonusClassInfos()];
-	int* paiBonusClassUnrevealed = new int[GC.getNumBonusClassInfos()];
-	int* paiBonusClassHave = new int[GC.getNumBonusClassInfos()];
-
-	for (int iI = 0; iI < GC.getNumBonusClassInfos(); iI++) {
-		paiBonusClassRevealed[iI] = 0;
-		paiBonusClassUnrevealed[iI] = 0;
-		paiBonusClassHave[iI] = 0;
-	}
+	std::vector<int> viBonusClassRevealed(GC.getNumBonusClassInfos(), 0);
+	std::vector<int> viBonusClassUnrevealed(GC.getNumBonusClassInfos(), 0);
+	std::vector<int> viBonusClassHave(GC.getNumBonusClassInfos(), 0);
 
 	for (int iI = 0; iI < GC.getNumBonusInfos(); iI++) {
 		TechTypes eRevealTech = (TechTypes)GC.getBonusInfo((BonusTypes)iI).getTechReveal();
 		BonusClassTypes eBonusClass = (BonusClassTypes)GC.getBonusInfo((BonusTypes)iI).getBonusClassType();
 		if (eRevealTech != NO_TECH) {
 			if ((kTeam.isHasTech(eRevealTech))) {
-				paiBonusClassRevealed[eBonusClass]++;
+				viBonusClassRevealed[eBonusClass]++;
 			} else {
-				paiBonusClassUnrevealed[eBonusClass]++;
+				viBonusClassUnrevealed[eBonusClass]++;
 			}
 
 			if (getNumAvailableBonuses((BonusTypes)iI) > 0) {
-				paiBonusClassHave[eBonusClass]++;
+				viBonusClassHave[eBonusClass]++;
 			} else if (countOwnedBonuses((BonusTypes)iI) > 0) {
-				paiBonusClassHave[eBonusClass]++;
+				viBonusClassHave[eBonusClass]++;
 			}
 		}
 	}
@@ -3301,7 +3295,7 @@ TechTypes CvPlayerAI::AI_bestTech(int iMaxPathLength, bool bIgnoreCost, bool bAs
 							int iPathLength = findPathLength(((TechTypes)iI), false);
 
 							if (iPathLength <= iMaxPathLength) {
-								int iValue = AI_techValue((TechTypes)iI, iPathLength, bIgnoreCost, bAsync, paiBonusClassRevealed, paiBonusClassUnrevealed, paiBonusClassHave);
+								int iValue = AI_techValue((TechTypes)iI, iPathLength, bIgnoreCost, bAsync, viBonusClassRevealed, viBonusClassUnrevealed, viBonusClassHave);
 
 								if (gPlayerLogLevel >= 3) {
 									logBBAI("      Player %d (%S) consider tech %S with value %d", getID(), getCivilizationDescription(0), GC.getTechInfo((TechTypes)iI).getDescription(), iValue);
@@ -3323,10 +3317,6 @@ TechTypes CvPlayerAI::AI_bestTech(int iMaxPathLength, bool bIgnoreCost, bool bAs
 		logBBAI("  Player %d (%S) selects tech %S with value %d", getID(), getCivilizationDescription(0), GC.getTechInfo(eBestTech).getDescription(), iBestValue);
 	}
 
-	SAFE_DELETE_ARRAY(paiBonusClassRevealed);
-	SAFE_DELETE_ARRAY(paiBonusClassUnrevealed);
-	SAFE_DELETE_ARRAY(paiBonusClassHave);
-
 	return eBestTech;
 }
 
@@ -3334,8 +3324,11 @@ TechTypes CvPlayerAI::AI_bestTech(int iMaxPathLength, bool bIgnoreCost, bool bAs
 // Note: many of the values used in this function are arbitrary; but I've adjusted them all to get closer to having a common scale.
 // The scale is roughly 4 = 1 commerce per turn.
 // (Compared to the original numbers, this is * 1/100 * 7 * 4. 28/100)
-int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost, bool bAsync, int* paiBonusClassRevealed, int* paiBonusClassUnrevealed, int* paiBonusClassHave) const {
+int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost, bool bAsync, const std::vector<int>& viBonusClassRevealed, const std::vector<int>& viBonusClassUnrevealed, const std::vector<int>& viBonusClassHave) const {
 	PROFILE_FUNC();
+	FAssert(viBonusClassRevealed.size() == GC.getNumBonusClassInfos());
+	FAssert(viBonusClassUnrevealed.size() == GC.getNumBonusClassInfos());
+	FAssert(viBonusClassHave.size() == GC.getNumBonusClassInfos());
 
 	CvCity* pCapitalCity = getCapitalCity();
 
@@ -3961,7 +3954,7 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 			iRevealValue += AI_bonusVal(eBonus, 1, true) * iCityCount * 2 / 3;
 
 			BonusClassTypes eBonusClass = (BonusClassTypes)GC.getBonusInfo(eBonus).getBonusClassType();
-			int iBonusClassTotal = (paiBonusClassRevealed[eBonusClass] + paiBonusClassUnrevealed[eBonusClass]);
+			int iBonusClassTotal = (viBonusClassRevealed[eBonusClass] + viBonusClassUnrevealed[eBonusClass]);
 
 			//iMultiplier is basically a desperation value it gets larger as the AI runs out of options
 			// Copper after failing to get horses is +66%
@@ -3969,12 +3962,12 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 			// but with either copper or horse, Iron is only +25%
 			int iMultiplier = 0;
 			if (iBonusClassTotal > 0) {
-				iMultiplier = (paiBonusClassRevealed[eBonusClass] - paiBonusClassHave[eBonusClass]);
+				iMultiplier = (viBonusClassRevealed[eBonusClass] - viBonusClassHave[eBonusClass]);
 				iMultiplier *= 100;
 				iMultiplier /= iBonusClassTotal;
 
-				iMultiplier *= (paiBonusClassRevealed[eBonusClass] + 1);
-				iMultiplier /= ((paiBonusClassHave[eBonusClass] * iBonusClassTotal) + 1);
+				iMultiplier *= (viBonusClassRevealed[eBonusClass] + 1);
+				iMultiplier /= ((viBonusClassHave[eBonusClass] * iBonusClassTotal) + 1);
 			}
 
 			iMultiplier *= std::min(3, getNumCities());
@@ -6513,11 +6506,7 @@ bool CvPlayerAI::AI_counterPropose(PlayerTypes ePlayer, const CLinkList<TradeDat
 		return false;
 	}
 
-	bool* pabBonusDeal = new bool[GC.getNumBonusInfos()];
-
-	for (int iI = 0; iI < GC.getNumBonusInfos(); iI++) {
-		pabBonusDeal[iI] = false;
-	}
+	std::vector<bool> vbBonusDeal(GC.getNumBonusInfos(), false);
 
 	CLLNode<TradeData>* pGoldPerTurnNode = NULL;
 	CLLNode<TradeData>* pGoldNode = NULL;
@@ -6660,7 +6649,7 @@ bool CvPlayerAI::AI_counterPropose(PlayerTypes ePlayer, const CLinkList<TradeDat
 
 			switch (pNode->m_data.m_eItemType) {
 			case TRADE_RESOURCES:
-				pabBonusDeal[pNode->m_data.m_iData] = true;
+				vbBonusDeal[pNode->m_data.m_iData] = true;
 				break;
 			}
 		}
@@ -6677,11 +6666,11 @@ bool CvPlayerAI::AI_counterPropose(PlayerTypes ePlayer, const CLinkList<TradeDat
 						iWeight += GET_TEAM(getTeam()).AI_techTradeVal((TechTypes)(pNode->m_data.m_iData), GET_PLAYER(ePlayer).getTeam());
 						break;
 					case TRADE_RESOURCES:
-						if (!pabBonusDeal[pNode->m_data.m_iData]) {
+						if (!vbBonusDeal[pNode->m_data.m_iData]) {
 							if (GET_PLAYER(ePlayer).getNumTradeableBonuses((BonusTypes)(pNode->m_data.m_iData)) > 1) {
 								if (GET_PLAYER(ePlayer).AI_corporationBonusVal((BonusTypes)(pNode->m_data.m_iData)) == 0) {
 									iWeight += AI_bonusTradeVal(((BonusTypes)(pNode->m_data.m_iData)), ePlayer, 1);
-									pabBonusDeal[pNode->m_data.m_iData] = true;
+									vbBonusDeal[pNode->m_data.m_iData] = true;
 								}
 							}
 						}
@@ -6762,10 +6751,10 @@ bool CvPlayerAI::AI_counterPropose(PlayerTypes ePlayer, const CLinkList<TradeDat
 					if (GET_PLAYER(ePlayer).getTradeDenial(getID(), pNode->m_data) == NO_DENIAL) {
 						int iWeight = 0;
 
-						if (!pabBonusDeal[pNode->m_data.m_iData]) {
+						if (!vbBonusDeal[pNode->m_data.m_iData]) {
 							if (GET_PLAYER(ePlayer).getNumTradeableBonuses((BonusTypes)(pNode->m_data.m_iData)) > 0) {
 								iWeight += AI_bonusTradeVal(((BonusTypes)(pNode->m_data.m_iData)), ePlayer, 1);
-								pabBonusDeal[pNode->m_data.m_iData] = true;
+								vbBonusDeal[pNode->m_data.m_iData] = true;
 							}
 						}
 
@@ -6859,7 +6848,7 @@ bool CvPlayerAI::AI_counterPropose(PlayerTypes ePlayer, const CLinkList<TradeDat
 
 			switch (pNode->m_data.m_eItemType) {
 			case TRADE_RESOURCES:
-				pabBonusDeal[pNode->m_data.m_iData] = true;
+				vbBonusDeal[pNode->m_data.m_iData] = true;
 				break;
 			}
 		}
@@ -6876,10 +6865,10 @@ bool CvPlayerAI::AI_counterPropose(PlayerTypes ePlayer, const CLinkList<TradeDat
 						iWeight += GET_TEAM(GET_PLAYER(ePlayer).getTeam()).AI_techTradeVal((TechTypes)(pNode->m_data.m_iData), getTeam());
 						break;
 					case TRADE_RESOURCES:
-						if (!pabBonusDeal[pNode->m_data.m_iData]) {
+						if (!vbBonusDeal[pNode->m_data.m_iData]) {
 							if (getNumTradeableBonuses((BonusTypes)(pNode->m_data.m_iData)) > 1) {
 								iWeight += GET_PLAYER(ePlayer).AI_bonusTradeVal(((BonusTypes)(pNode->m_data.m_iData)), getID(), 1);
-								pabBonusDeal[pNode->m_data.m_iData] = true;
+								vbBonusDeal[pNode->m_data.m_iData] = true;
 							}
 						}
 						break;
@@ -6950,8 +6939,6 @@ bool CvPlayerAI::AI_counterPropose(PlayerTypes ePlayer, const CLinkList<TradeDat
 			}
 		}
 	}
-
-	SAFE_DELETE_ARRAY(pabBonusDeal);
 
 	// K-Mod. This function now needs to handle AI - AI deals, and human auto-counters to AI suggested deals.
 	if (pOurList->getLength() == 0 && pOurCounter->getLength() == 0 && pTheirCounter->getLength() == 0)
