@@ -2387,26 +2387,28 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 				CvPlot* pLoopPlot = plotXY(iX, iY, iDX, iDY);
 
 				if (pLoopPlot != NULL) {
-					if (pLoopPlot->isWater() || (pLoopPlot->area() == pArea)) {
-						if (plotDistance(iX, iY, pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE()) <= iRange) {
-							int iTempValue = 0;
-							iTempValue += pLoopPlot->getYield(YIELD_FOOD) * 9;
-							iTempValue += pLoopPlot->getYield(YIELD_PRODUCTION) * 5;
-							iTempValue += pLoopPlot->getYield(YIELD_COMMERCE) * 3;
-							iTempValue += pLoopPlot->isRiver() ? 1 : 0;
-							iTempValue += pLoopPlot->isWater() ? -2 : 0;
-							iValue += iTempValue;
-							if (iTempValue < 13) {
-								// 3 points for unworkable plots (desert, ice, far-ocean)
-								// 2 points for bad plots (ocean, tundra)
-								// 1 point for fixable bad plots (jungle)
+					if (plotDistance(iX, iY, pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE()) <= iRange) {
+						int iTempValue = 0;
+						iTempValue += pLoopPlot->getYield(YIELD_FOOD) * 9;
+						iTempValue += pLoopPlot->getYield(YIELD_PRODUCTION) * 5;
+						iTempValue += pLoopPlot->getYield(YIELD_COMMERCE) * 3;
+						iTempValue += pLoopPlot->isRiver() ? 1 : 0;
+						iTempValue += pLoopPlot->isWater() ? -2 : 0;
+						if (iTempValue < 13) {
+							// 3 points for unworkable plots (desert, ice, far-ocean)
+							// 2 points for bad plots (ocean, tundra)
+							// 1 point for fixable bad plots (jungle)
+							iGreaterBadTile++;
+							if (pLoopPlot->calculateBestNatureYield(YIELD_FOOD, getTeam()) < 2) {
 								iGreaterBadTile++;
-								if (pLoopPlot->calculateBestNatureYield(YIELD_FOOD, getTeam()) < 2) {
+								if (iTempValue <= 0)
 									iGreaterBadTile++;
-									if (iTempValue <= 0)
-										iGreaterBadTile++;
-								}
 							}
+						}
+						if (pLoopPlot->isWater() || pLoopPlot->area() == pArea) {
+							iValue += iTempValue;
+						} else if (iTempValue >= 13) {
+							iGreaterBadTile++; // add at least 1 badness point for other islands.
 						}
 					}
 				}
