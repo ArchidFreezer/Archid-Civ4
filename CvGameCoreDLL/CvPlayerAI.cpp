@@ -6609,6 +6609,7 @@ bool CvPlayerAI::AI_counterPropose(PlayerTypes ePlayer, const CLinkList<TradeDat
 			}
 		}
 
+		std::pair<TradeData*, int> final_item(NULL, 0); // An item we may or may not use to finalise the deal. (See later)
 		if (iValueForThem > iValueForUs) {
 			// We were unable to balance the trade with just gold. So lets look at all the other items.
 
@@ -6688,17 +6689,18 @@ bool CvPlayerAI::AI_counterPropose(PlayerTypes ePlayer, const CLinkList<TradeDat
 				item_value_list.push_back(std::make_pair(&pBestCityNode->m_data, iBestCityValue));
 			}
 
-			// For this kind of trade, we want to prioritise items closest to the target, on either side.
+			// We want to get as close as we can to a balanced trade - but ensure that the deal favours us!
 			// Find the best item, add it to the list; and repeat until we've closed the game in the trade values.
 			while (iValueForThem > iValueForUs && !item_value_list.empty()) {
 				int value_gap = iValueForThem - iValueForUs;
 
-				// find the best item. (Closest to the value gap, but highest value in the case of a tie.)
+				// Find the best item to put us ahead, but as close to fair as possible.
+				// Note: We're not doing this for perfect balance. We're counter-proposing so that the deal favours us!
+				//   If we wanted to get closer to a balanced deal, we just remove that first condition.
+				//   (Maybe that's what we should be doing for AI-AI trades; but there are still flavour considersations...)
 				std::vector<std::pair<TradeData*, int> >::iterator it, best_it;
 				for (best_it = it = item_value_list.begin(); it != item_value_list.end(); ++it) {
-					if (
-						(std::abs(it->second - value_gap) < std::abs(best_it->second - value_gap)) ||
-						(std::abs(it->second - value_gap) == std::abs(best_it->second - value_gap) && it->second > best_it->second)) {
+					if ((it->second > value_gap && best_it->second < value_gap) || (std::abs(it->second - value_gap) < std::abs(best_it->second - value_gap))) {
 						best_it = it;
 					}
 				}
@@ -6708,23 +6710,34 @@ bool CvPlayerAI::AI_counterPropose(PlayerTypes ePlayer, const CLinkList<TradeDat
 					pTheirCounter->insertAtEnd(*best_it->first);
 					iValueForUs += best_it->second;
 					item_value_list.erase(best_it);
-				} else
-					break; // All the item items must be even higher value (or zero value). So lets just quit now.
+				} else {
+					// If nothing on the list can bring us closer to balance; we'll try to balance it with gold.
+					// But if that doesn't work, we may need to add this last item. So lets bookmark it.
+					final_item = *best_it;
+					break;
+				}
 			}
 		}
 
 		// If their value is still higher, try one more time to make up the difference with gold.
-		// This time add the gold even if it isn't enough to balance the deal.
+		// If this we're counter-proposing an AI deal, just get as close to the right value as we can.
+		// But for humans, if they don't have enough gold then ask for one final item, to favour us.
+		bool bAddFinalItem = false;
 		if (iValueForThem > iValueForUs) {
 			if (pGoldNode) {
 				int iGoldData = ((iValueForThem - iValueForUs) * 100 + (iGoldValuePercent - 1)) / iGoldValuePercent; // round up
-				iGoldData = std::min(iGoldData, kTheirPlayer.AI_maxGoldTrade(getID()));
+				int iGoldAvailable = kTheirPlayer.AI_maxGoldTrade(getID());
 
-				if (iGoldData > 0) {
-					pGoldNode->m_data.m_iData = iGoldData;
-					iValueForUs += (iGoldData * iGoldValuePercent) / 100;
-					pTheirCounter->insertAtEnd(pGoldNode->m_data);
-					pGoldNode = NULL;
+				if (kTheirPlayer.isHuman() && iGoldData > iGoldAvailable) {
+					bAddFinalItem = true;
+				} else {
+					iGoldData = std::min(iGoldData, iGoldAvailable);
+					if (iGoldData > 0) {
+						pGoldNode->m_data.m_iData = iGoldData;
+						iValueForUs += (iGoldData * iGoldValuePercent) / 100;
+						pTheirCounter->insertAtEnd(pGoldNode->m_data);
+						pGoldNode = NULL;
+					}
 				}
 			}
 		}
@@ -6732,20 +6745,35 @@ bool CvPlayerAI::AI_counterPropose(PlayerTypes ePlayer, const CLinkList<TradeDat
 		if (iValueForThem > iValueForUs) {
 			if (pGoldPerTurnNode) {
 				int iGoldData = 0;
+				int iGoldAvailable = kTheirPlayer.AI_maxGoldPerTurnTrade(getID());
 
 				while (AI_goldPerTurnTradeVal(iGoldData) < (iValueForThem - iValueForUs)) {
 					iGoldData++;
 				}
 
-				iGoldData = std::min(iGoldData, kTheirPlayer.AI_maxGoldPerTurnTrade(getID()));
-
-				if (iGoldData > 0) {
-					pGoldPerTurnNode->m_data.m_iData = iGoldData;
-					iValueForUs += AI_goldPerTurnTradeVal(pGoldPerTurnNode->m_data.m_iData);
-					pTheirCounter->insertAtEnd(pGoldPerTurnNode->m_data);
-					pGoldPerTurnNode = NULL;
+				if (GET_PLAYER(ePlayer).isHuman() && iGoldData > iGoldAvailable) {
+					bAddFinalItem = true;
+				} else {
+					iGoldData = std::min(iGoldData, iGoldAvailable);
+					if (iGoldData > 0) {
+						pGoldPerTurnNode->m_data.m_iData = iGoldData;
+						iValueForUs += AI_goldPerTurnTradeVal(pGoldPerTurnNode->m_data.m_iData);
+						pTheirCounter->insertAtEnd(pGoldPerTurnNode->m_data);
+						pGoldPerTurnNode = NULL;
+					}
 				}
 			}
+		}
+
+		// When counter proposing a suggestion from a human, the AI will insist on having the better value.
+		// So lets add the cheapest item still on our list.
+		// We would have added the item already if it was going to be 'fair'. So we can be sure will favour us.
+		if (bAddFinalItem && final_item.first != NULL) {
+			FAssert(iValueForThem > iValueForUs && GET_PLAYER(ePlayer).isHuman());
+
+			pTheirCounter->insertAtEnd(*final_item.first);
+			iValueForUs += final_item.second;
+			FAssert(iValueForUs >= iValueForThem);
 		}
 	} else if (iValueForUs > iValueForThem) {
 		// First, try to make up the difference with gold.
@@ -6884,8 +6912,7 @@ bool CvPlayerAI::AI_counterPropose(PlayerTypes ePlayer, const CLinkList<TradeDat
 		// accept, then we won't add the gold. And this will be a rare example of the AI favouring the human.
 		if (isHuman() && 100 * iValueForThem >= kTheirPlayer.AI_tradeAcceptabilityThreshold(getID()) * iValueForUs) {
 			// The AI would accept! So lets not add any gold.
-		} else // If we don't add some gold, there will be no deal.
-		{
+		} else { // If we don't add some gold, there will be no deal.
 			if (iValueForUs > iValueForThem) {
 				if (pGoldNode) {
 					int iGoldData = (iValueForUs - iValueForThem) * 100 / AI_goldTradeValuePercent(); // round down
