@@ -3565,7 +3565,7 @@ TechTypes CvPlayerAI::AI_bestTech(int iMaxPathLength, bool bFreeTech, bool bAsyn
 				techs_to_check.push(techs[i].second);
 			}
 
-			while (!techs_to_check.empty() && (int)techs_in_path.size() < iMaxPathLength) {
+			while (!techs_to_check.empty() && (int)techs_in_path.size() <= iMaxPathLength) {
 				bool bMissingPrereq = false;
 
 				// AndTech prereqs:
@@ -3581,7 +3581,7 @@ TechTypes CvPlayerAI::AI_bestTech(int iMaxPathLength, bool bFreeTech, bool bAsyn
 								// add it to the path.
 								tech_paths.back().first = (int)(fDepthRate * tech_paths.back().first);
 								tech_paths.back().first += techs[j].first;
-								tech_paths.back().second.push_back(i);
+								tech_paths.back().second.push_back(j);
 								techs_in_path.insert(ePrereq);
 								techs_to_check.push(ePrereq);
 								bMissingPrereq = false;
@@ -3590,6 +3590,10 @@ TechTypes CvPlayerAI::AI_bestTech(int iMaxPathLength, bool bFreeTech, bool bAsyn
 						}
 					}
 				}
+				if (bMissingPrereq) {
+					break; // This path is invalid, because we can't get the prereqs.
+				}
+
 				// OrTechs:
 				int iBestOrIndex = -1;
 				int iBestOrValue = -1;
@@ -3649,14 +3653,15 @@ TechTypes CvPlayerAI::AI_bestTech(int iMaxPathLength, bool bFreeTech, bool bAsyn
 					if (techs_in_path.count(techs[j].second) == 0) {
 						techs_in_path.insert(techs[j].second);
 						// Note: since this tech isn't a prereqs, it can go anywhere in our path. Try to research highest values first.
-						for (int k = 0; k < (int)tech_paths.back().second.size(); ++k) {
+						int k;
+						for (k = 0; k < (int)tech_paths.back().second.size(); ++k) {
 							if (techs[j].first < techs[tech_paths.back().second[k]].first) {
 								// Note: we'll need to recalculate the total value.
 								tech_paths.back().second.insert(tech_paths.back().second.begin() + k, j);
 								break;
 							}
 						}
-						if (j == tech_paths.back().second.size()) {
+						if (k == tech_paths.back().second.size()) {
 							// haven't added it yet
 							tech_paths.back().second.push_back(j);
 						}
