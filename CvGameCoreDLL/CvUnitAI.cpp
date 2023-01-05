@@ -2444,7 +2444,7 @@ void CvUnitAI::AI_attackCityMove() {
 			iAdjustment += kOwner.AI_isDoStrategy(AI_STRATEGY_CRUSH) ? -10 : 0;
 			iAdjustment += iAdjustment >= 0 && pTargetCity == area()->getTargetCity(getOwnerINLINE()) ? -10 : 0;
 			iAdjustment += range((GET_TEAM(getTeam()).AI_getEnemyPowerPercent(true) - 100) / 12, -10, 0);
-			iAdjustment += iStepDistToTarget <= 1 && pTargetCity->isOccupation() ? range(-10, 110 - (iAttackRatio + iAdjustment), 0) : 0;
+			iAdjustment += iStepDistToTarget <= 1 && pTargetCity->isOccupation() ? range(111 - (iAttackRatio + iAdjustment), -10, 0) : 0;
 			iAttackRatio += iAdjustment;
 			iAttackRatioSkipBombard += iAdjustment;
 			FAssert(iAttackRatioSkipBombard >= iAttackRatio);
@@ -2767,7 +2767,7 @@ void CvUnitAI::AI_attackCityMove() {
 					// Here's one way to account for that:
 					// iPathTurns = std::max(iPathTurns, getPathLastNode()->m_iTotalCost / (2000*GC.getMOVE_DENOMINATOR()));
 					// Unfortunately, that "2000"... well I think you know what the problem is. So maybe next time.
-					int iLoadTurns = std::min(4, iPathTurns / 2 - 1);
+					int iLoadTurns = std::max(3, iPathTurns / 3 - 1);
 					int iMaxTransportTurns = iPathTurns - iLoadTurns - 2;
 
 					if (AI_load(UNITAI_ASSAULT_SEA, MISSIONAI_LOAD_ASSAULT, NO_UNITAI, -1, -1, -1, -1, iMoveFlags, iLoadTurns, iMaxTransportTurns))
@@ -4118,7 +4118,7 @@ bool CvUnitAI::AI_greatPersonMove() {
 			iDiscoverValue *= 2;
 			iDiscoverValue /= 3;
 		}
-		if (kPlayer.AI_isFirstTech(eDiscoverTech)) // founding relgions / free techs / free great people
+		if (kPlayer.AI_isFirstTech(eDiscoverTech)) // founding religions / free techs / free great people
 		{
 			iDiscoverValue *= 2;
 		}
@@ -11463,39 +11463,6 @@ bool CvUnitAI::AI_pirateBlockade() {
 	PROFILE_FUNC();
 
 	std::vector<int> aiDeathZone(GC.getMapINLINE().numPlotsINLINE(), 0);
-
-	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++) {
-		CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
-		if (AI_plotValid(pLoopPlot) || (pLoopPlot->isCity() && pLoopPlot->isAdjacentToArea(area()))) {
-			if (pLoopPlot->isOwned() && (pLoopPlot->getTeam() != getTeam())) {
-				int iBestHostileMoves = 0;
-				CLLNode<IDInfo>* pUnitNode = pLoopPlot->headUnitNode();
-				while (pUnitNode != NULL) {
-					CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
-					pUnitNode = pLoopPlot->nextUnitNode(pUnitNode);
-					if (isEnemy(pLoopUnit->getTeam(), pLoopUnit->plot())) {
-						if (pLoopUnit->getDomainType() == DOMAIN_SEA && !pLoopUnit->isInvisible(getTeam(), false)) {
-							if (pLoopUnit->canAttack()) {
-								if (pLoopUnit->currEffectiveStr(NULL, NULL, NULL) > currEffectiveStr(pLoopPlot, pLoopUnit, NULL)) {
-									iBestHostileMoves = std::max(iBestHostileMoves, pLoopUnit->baseMoves());
-								}
-							}
-						}
-					}
-				}
-				if (iBestHostileMoves > 0) {
-					for (int iX = -iBestHostileMoves; iX <= iBestHostileMoves; iX++) {
-						for (int iY = -iBestHostileMoves; iY <= iBestHostileMoves; iY++) {
-							CvPlot* pRangePlot = plotXY(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), iX, iY);
-							if (pRangePlot != NULL) {
-								aiDeathZone[GC.getMap().plotNumINLINE(pRangePlot->getX_INLINE(), pRangePlot->getY_INLINE())]++;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
 
 	bool bIsInDanger = aiDeathZone[GC.getMap().plotNumINLINE(getX_INLINE(), getY_INLINE())] > 0;
 
