@@ -772,9 +772,9 @@ int estimateCollateralWeight(const CvPlot* pPlot, TeamTypes eAttackTeam, TeamTyp
 			// Kludge! I'm only checking for immunity against the unit's own combat type.
 			// Ideally we'd know what kind of collateral damage we're expecting to be hit by, and check for immunity vs that.
 			// Or we could check all types... But the reality is, there are always going to be mods and fringe cases where
-			// the esitmate is inaccurate. And currently in K-Mod, all instances of immunity are to the units own type anyway.
+			// the estimate is inaccurate. And currently in K-Mod, all instances of immunity are to the units own type anyway.
 			// Whichever way we do the estimate, cho-ku-nu is going to mess it up anyway. (Unless I change the game mechanics.)
-			if (pLoopUnit->getUnitInfo().getUnitCombatCollateralImmune(pLoopUnit->getUnitCombatType()))
+			if (pLoopUnit->getUnitCombatType() != NO_UNITCOMBAT && pLoopUnit->getUnitInfo().getUnitCombatCollateralImmune(pLoopUnit->getUnitCombatType()))
 				iResistanceSum += 100;
 			else
 				iResistanceSum += pLoopUnit->getCollateralDamageProtection();
