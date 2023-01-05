@@ -182,43 +182,46 @@ void CvDeal::addTrades(CLinkList<TradeData>* pFirstList, CLinkList<TradeData>* p
 		}
 	}
 
+	bool bAlliance = false;
+
 	if (pFirstList != NULL) {
+		// K-Mod. Vassal deals need to be implemented last, so that master/vassal power is set correctly.
+		for (CLLNode<TradeData>* pNode = pFirstList->head(); pNode; pNode = pFirstList->next(pNode)) {
+			if (isVassal(pNode->m_data.m_eItemType)) {
+				pFirstList->moveToEnd(pNode);
+				break;
+			}
+		}
+		// K-Mod end
 		for (CLLNode<TradeData>* pNode = pFirstList->head(); pNode; pNode = pFirstList->next(pNode)) {
 			bool bSave = startTrade(pNode->m_data, getFirstPlayer(), getSecondPlayer());
 			bBumpUnits = bBumpUnits || pNode->m_data.m_eItemType == TRADE_PEACE; // K-Mod
 
-			if (bSave) {
+			if (bSave)
 				insertAtEndFirstTrades(pNode->m_data);
-			}
+			if (pNode->m_data.m_eItemType == TRADE_PERMANENT_ALLIANCE)
+				bAlliance = true;
 		}
 	}
 
 	if (pSecondList != NULL) {
+		// K-Mod. Vassal deals need to be implemented last, so that master/vassal power is set correctly.
+		for (CLLNode<TradeData>* pNode = pFirstList->head(); pNode; pNode = pFirstList->next(pNode)) {
+			if (isVassal(pNode->m_data.m_eItemType)) {
+				pFirstList->moveToEnd(pNode);
+				break;
+			}
+		}
+		// K-Mod end
 		for (CLLNode<TradeData>* pNode = pSecondList->head(); pNode; pNode = pSecondList->next(pNode)) {
 			bool bSave = startTrade(pNode->m_data, getSecondPlayer(), getFirstPlayer());
 			bBumpUnits = bBumpUnits || pNode->m_data.m_eItemType == TRADE_PEACE; // K-Mod
 
-			if (bSave) {
+			if (bSave)
 				insertAtEndSecondTrades(pNode->m_data);
-			}
-		}
-	}
 
-	bool bAlliance = false;
-
-	if (pFirstList != NULL) {
-		for (CLLNode<TradeData>* pNode = pFirstList->head(); pNode; pNode = pFirstList->next(pNode)) {
-			if (pNode->m_data.m_eItemType == TRADE_PERMANENT_ALLIANCE) {
+			if (pNode->m_data.m_eItemType == TRADE_PERMANENT_ALLIANCE)
 				bAlliance = true;
-			}
-		}
-	}
-
-	if (pSecondList != NULL) {
-		for (CLLNode<TradeData>* pNode = pSecondList->head(); pNode; pNode = pSecondList->next(pNode)) {
-			if (pNode->m_data.m_eItemType == TRADE_PERMANENT_ALLIANCE) {
-				bAlliance = true;
-			}
 		}
 	}
 
