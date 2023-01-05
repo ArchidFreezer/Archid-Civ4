@@ -66,6 +66,11 @@
 		<DefineName>GLOBAL_WARMING_POPULATION_WEIGHT</DefineName>
 		<iDefineIntVal>10</iDefineIntVal>
 	</Define>
+	<!-- global warming index above the threshold is decreased by a percentage given by the restoration rate -->
+	<Define>
+		<DefineName>GLOBAL_WARMING_RESTORATION_RATE</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
 	<Define>
 		<DefineName>RELIGION_SPREAD_DIVISOR_BASE</DefineName>
 		<iDefineIntVal>5</iDefineIntVal>
