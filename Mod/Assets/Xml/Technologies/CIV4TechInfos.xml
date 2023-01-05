@@ -793,6 +793,10 @@
 			<bTrade>1</bTrade>
 			<iGridX>17</iGridX>
 			<iGridY>11</iGridY>
+			<SpecialistExtraCommerces>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</SpecialistExtraCommerces>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
