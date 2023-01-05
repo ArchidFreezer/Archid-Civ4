@@ -492,6 +492,7 @@
 	<ElementType name="SlaveSpecialistType" content="textOnly"/>
 	<ElementType name="iEnslaveCount" content="textOnly" dt:type="int"/>
 	<ElementType name="bSlave" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bFixedAI" content="textOnly" dt:type="boolean"/>
 	<ElementType name="UnitInfo" content="eltOnly">
 		<element type="Class"/>
 		<element type="Type"/>
@@ -502,6 +503,7 @@
 		<element type="SubCombatTypes" minOccurs="0"/>
 		<element type="Domain"/>
 		<element type="DefaultUnitAI"/>
+		<element type="bFixedAI" minOccurs="0"/>
 		<element type="Invisible" minOccurs="0"/>
 		<element type="SeeInvisibles" minOccurs="0"/>
 		<element type="Description" minOccurs="0"/>

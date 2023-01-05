@@ -8005,6 +8005,10 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 		return 0;
 	}
 
+	if (kUnit.isFixedAI() && kUnit.getDefaultUnitAIType() != eUnitAI) {
+		return 0;
+	}
+
 	bool bValid = kUnit.getUnitAIType(eUnitAI);
 
 	if (!bValid) {

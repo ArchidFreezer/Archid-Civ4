@@ -7387,6 +7387,7 @@
 			<Combat>UNITCOMBAT_SLAVER</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_SLAVER</DefaultUnitAI>
+			<bFixedAI>1</bFixedAI>
 			<Invisible>INVISIBLE_SLAVER</Invisible>
 			<SeeInvisibles>
 				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
@@ -7460,6 +7461,7 @@
 			<Combat>UNITCOMBAT_SLAVER</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_SLAVER</DefaultUnitAI>
+			<bFixedAI>1</bFixedAI>
 			<Invisible>INVISIBLE_SLAVER</Invisible>
 			<SeeInvisibles>
 				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
@@ -7534,6 +7536,7 @@
 			<Combat>UNITCOMBAT_SLAVER</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_SLAVER</DefaultUnitAI>
+			<bFixedAI>1</bFixedAI>
 			<Invisible>INVISIBLE_SLAVER</Invisible>
 			<SeeInvisibles>
 				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>

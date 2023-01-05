@@ -994,6 +994,7 @@ public:
 	bool isWorkerTrade() const;
 	bool isMilitaryTrade() const;
 	bool isSlave() const;
+	bool isFixedAI() const;
 
 	float getUnitMaxSpeed() const;					// Exposed to Python
 	float getUnitPadTime() const;					// Exposed to Python
@@ -1213,6 +1214,7 @@ protected:
 	bool m_bWorkerTrade;
 	bool m_bMilitaryTrade;
 	bool m_bSlave;
+	bool m_bFixedAI;
 
 	CultureLevelTypes m_eMinCultureLevel;
 	UnitRangeTypes 	m_eRangeType;
