@@ -6134,11 +6134,14 @@ void CvCity::changeForeignTradeRouteModifier(int iChange) {
 
 // K-Mod - Trade culture calculation
 int CvCity::getTradeCultureRateTimes100(int iLevel) const {
-	// I've disabled the cap since trade culture isn't added to city culture now, 11/dec/10
-	int iPercent = (int)getCultureLevel();
+	// Note: iLevel currently isn't used.
+
+	// Note: GC.getNumCultureLevelInfos() is 7 with the standard xml, which means legendary culture is level 6.
+	// So we have 3, 4, 4, 5, 5, 6, 6
+	int iPercent = (GC.getNumCultureLevelInfos() + (int)getCultureLevel()) / 2;
 
 	if (iPercent > 0) {
-		// 1% of culture rate for each culture level.
+		// (originally this was 1% of culture rate for each culture level.)
 		return (m_aiCommerceRate[COMMERCE_CULTURE] * iPercent) / 100;
 	}
 	return 0;
