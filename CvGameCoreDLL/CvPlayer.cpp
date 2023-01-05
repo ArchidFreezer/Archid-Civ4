@@ -5706,12 +5706,12 @@ void CvPlayer::updateInflationRate() {
 		for (TechTypes eTech = (TechTypes)0; eTech < GC.getNumTechInfos(); eTech = (TechTypes)(eTech + 1)) {
 			for (PlayerTypes j = (PlayerTypes)0; j < MAX_CIV_PLAYERS; j = (PlayerTypes)(j + 1)) {
 				const CvPlayer& kLoopPlayer = GET_PLAYER(j);
-				if (kLoopPlayer.isAlive() &&
-					!kLoopPlayer.isMinorCiv() &&
-					kLoopPlayer.canEverResearch(eTech)) {
-					iPotentialTech += kLoopPlayer.getTotalPopulation();
-					if (GET_TEAM(kLoopPlayer.getTeam()).isHasTech(eTech))
-						iCurrentTech += kLoopPlayer.getTotalPopulation();
+				if (kLoopPlayer.isAlive() && !kLoopPlayer.isMinorCiv() && kLoopPlayer.canEverResearch(eTech)) {
+					int iWeight = kLoopPlayer.getTotalPopulation() * (kLoopPlayer.getTeam() == getTeam() ? 2 : 1);
+					iPotentialTech += iWeight;
+					if (GET_TEAM(kLoopPlayer.getTeam()).isHasTech(eTech)) {
+						iCurrentTech += iWeight;
+					}
 				}
 			}
 		}
