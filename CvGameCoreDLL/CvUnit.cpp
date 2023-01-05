@@ -662,9 +662,9 @@ void CvUnit::doTurn() {
 		TeamTypes eTeam = plot()->getTeam();
 		if (NO_TEAM != eTeam) {
 			if (GET_TEAM(getTeam()).isOpenBorders(eTeam)) {
-				testSpyIntercepted(plot()->getOwnerINLINE(), GC.getDefineINT("ESPIONAGE_SPY_NO_INTRUDE_INTERCEPT_MOD"));
+				testSpyIntercepted(plot()->getOwnerINLINE(), false, GC.getDefineINT("ESPIONAGE_SPY_NO_INTRUDE_INTERCEPT_MOD"));
 			} else {
-				testSpyIntercepted(plot()->getOwnerINLINE(), GC.getDefineINT("ESPIONAGE_SPY_INTERCEPT_MOD"));
+				testSpyIntercepted(plot()->getOwnerINLINE(), false, GC.getDefineINT("ESPIONAGE_SPY_INTERCEPT_MOD"));
 			}
 		}
 	}
@@ -5336,7 +5336,7 @@ bool CvUnit::espionage(EspionageMissionTypes eMission, int iData) {
 		}
 	} else {
 		PlayerTypes eTargetPlayer = plot()->getOwnerINLINE();
-		if (testSpyIntercepted(eTargetPlayer, GC.getEspionageMissionInfo(eMission).getDifficultyMod())) {
+		if (testSpyIntercepted(eTargetPlayer, true, GC.getEspionageMissionInfo(eMission).getDifficultyMod())) {
 			return false;
 		}
 
@@ -5345,7 +5345,7 @@ bool CvUnit::espionage(EspionageMissionTypes eMission, int iData) {
 				NotifyEntity(MISSION_ESPIONAGE);
 			}
 
-			if (!testSpyIntercepted(eTargetPlayer, GC.getDefineINT("ESPIONAGE_SPY_MISSION_ESCAPE_MOD"))) {
+			if (!testSpyIntercepted(eTargetPlayer, true, GC.getDefineINT("ESPIONAGE_SPY_MISSION_ESCAPE_MOD"))) {
 				setFortifyTurns(0);
 				setMadeAttack(true);
 				finishMoves();
@@ -5367,14 +5367,14 @@ bool CvUnit::espionage(EspionageMissionTypes eMission, int iData) {
 	return false;
 }
 
-bool CvUnit::testSpyIntercepted(PlayerTypes eTargetPlayer, int iModifier) {
+bool CvUnit::testSpyIntercepted(PlayerTypes eTargetPlayer, bool bMission, int iModifier) {
 	CvPlayer& kTargetPlayer = GET_PLAYER(eTargetPlayer);
 
 	if (kTargetPlayer.isBarbarian()) {
 		return false;
 	}
 
-	if (GC.getGameINLINE().getSorenRandNum(10000, "Spy Interception") >= getSpyInterceptPercent(kTargetPlayer.getTeam()) * (100 + iModifier)) {
+	if (GC.getGameINLINE().getSorenRandNum(10000, "Spy Interception") >= getSpyInterceptPercent(kTargetPlayer.getTeam(), bMission) * (100 + iModifier)) {
 		return false;
 	}
 
@@ -5421,7 +5421,7 @@ bool CvUnit::testSpyIntercepted(PlayerTypes eTargetPlayer, int iModifier) {
 	return true;
 }
 
-int CvUnit::getSpyInterceptPercent(TeamTypes eTargetTeam) const {
+int CvUnit::getSpyInterceptPercent(TeamTypes eTargetTeam, bool bMission) const {
 	FAssert(isSpy());
 	FAssert(getTeam() != eTargetTeam);
 
@@ -5446,7 +5446,9 @@ int CvUnit::getSpyInterceptPercent(TeamTypes eTargetTeam) const {
 		iSuccess += GC.getDefineINT("ESPIONAGE_INTERCEPT_COUNTERESPIONAGE_MISSION");
 	}
 
-	if (0 == getFortifyTurns() || plot()->plotCount(PUF_isSpy, -1, -1, NO_PLAYER, getTeam()) > 1) {
+	// K-Mod. I've added the following condition for the recent mission bonus, to make spies less likely to be caught while exploring during peace time.
+	if (bMission || atWar(getTeam(), eTargetTeam) || GET_TEAM(eTargetTeam).getCounterespionageModAgainstTeam(getTeam()) > 0 || plot()->isEspionageCounterSpy(eTargetTeam)) // K-Mod
+	{
 		iSuccess += GC.getDefineINT("ESPIONAGE_INTERCEPT_RECENT_MISSION");
 	}
 
