@@ -10376,6 +10376,11 @@ void CvCity::doPlotCultureTimes100(bool bUpdate, PlayerTypes ePlayer, int iCultu
 	}
 
 	// K-Mod - increased culture range, added a percentage based distance bonus (decreasing the importance flat rate bonus).
+	// Experimental culture profile...
+	// Ae^(-bx). A = 10 (no effect), b = log(full_range_ratio)/range, x = distance from centre
+	//
+	// (iScale-1)(iDistance - iRange)^2/(iRange^2) + 1   // This approximates the exponential pretty well
+	// In our case, 10^(-x/R), where x is distance, and R is max range. So it's 10 times culture at the centre compared to the edge.
 	const int iScale = 10;
 	const int iCultureRange = eCultureLevel + 3;
 
@@ -10393,7 +10398,9 @@ void CvCity::doPlotCultureTimes100(bool bUpdate, PlayerTypes ePlayer, int iCultu
 
 					if (pLoopPlot != NULL) {
 						if (pLoopPlot->isPotentialCityWorkForArea(area())) {
-							int iCultureToAdd = iCultureRateTimes100 * ((iScale - 1) * (iDistance - iCultureRange) * (iDistance - iCultureRange) + iCultureRange * iCultureRange) / (100 * iCultureRange * iCultureRange);
+							// Cast to double to avoid overflow. (The world-builder can add a lot of culture in one hit.)
+							int delta = iDistance - iCultureRange;
+							int iCultureToAdd = static_cast<int>(iCultureRateTimes100 * static_cast<double>((iScale - 1) * delta * delta + iCultureRange * iCultureRange) / (100.0 * iCultureRange * iCultureRange));
 							pLoopPlot->changeCulture(ePlayer, iCultureToAdd, (bUpdate || !(pLoopPlot->isOwned())));
 						}
 					}
