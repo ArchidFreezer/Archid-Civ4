@@ -3627,6 +3627,31 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 		iValue += kTechInfo.getDomainExtraMoves(eDomain) * (eDomain == DOMAIN_LAND ? 16 : 6) * iCityCount;
 	}
 
+	// Extra specialist commerce. (Based on my civic evaluation code)
+	bool bSpecialistCommerce = false;
+	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+		bSpecialistCommerce = kTechInfo.getSpecialistExtraCommerce(eCommerce) != 0;
+	}
+
+	if (bSpecialistCommerce) {
+		int iTotalBonusSpecialists = 0;
+		int iTotalCurrentSpecialists = 0;
+
+		int iLoop;
+		CvCity* pLoopCity;
+		for (pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop)) {
+			iTotalBonusSpecialists += pLoopCity->getNumGreatPeople();
+			iTotalBonusSpecialists += pLoopCity->totalFreeSpecialists();
+
+			iTotalCurrentSpecialists += pLoopCity->getNumGreatPeople();
+			iTotalCurrentSpecialists += pLoopCity->getSpecialistPopulation();
+		}
+
+		for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+			iValue += 4 * AI_averageCommerceMultiplier(eCommerce) * (kTechInfo.getSpecialistExtraCommerce(eCommerce) * std::max((getTotalPopulation() + 12 * iTotalBonusSpecialists) / 12, iTotalCurrentSpecialists));
+		}
+	}
+
 	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
 		if (kTechInfo.isCommerceFlexible(eCommerce)) {
 			iValue += 4 * iCityCount * (3 * AI_averageCulturePressure() - 200) / 100;

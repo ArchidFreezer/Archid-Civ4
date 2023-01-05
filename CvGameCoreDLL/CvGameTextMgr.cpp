@@ -6781,6 +6781,9 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 		buildDomainExtraMovesString(szBuffer, eTech, eDomain, true, bPlayerContext);
 	}
 
+	//	Extra specialist commerce
+	setCommerceChangeHelp(szBuffer, L"", L"", gDLL->getText("TXT_KEY_CIVIC_PER_SPECIALIST").GetCString(), kTech.getSpecialistExtraCommerceArray());
+
 	//	Adjusting culture, science, etc
 	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
 		buildAdjustString(szBuffer, eTech, eCommerce, true, bPlayerContext);
@@ -6807,7 +6810,7 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	setYieldChangeHelp(szBuffer, gDLL->getText("TXT_KEY_TECH_RIVER_PLOTS").c_str(), L": ", L"", kTech.getRiverPlotYieldChangeArray());
 	setYieldChangeHelp(szBuffer, gDLL->getText("TXT_KEY_TECH_SEA_PLOTS").c_str(), L": ", L"", kTech.getSeaPlotYieldChangeArray());
 
-	if (GC.getTechInfo(eTech).isCaptureCities()) {
+	if (kTech.isCaptureCities()) {
 		szBuffer.append(NEWLINE);
 		szBuffer.append(gDLL->getText("TXT_KEY_TECH_ALLOW_CITY_CAPTURE"));
 	}

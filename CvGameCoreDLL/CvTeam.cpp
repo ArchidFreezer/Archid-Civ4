@@ -4984,6 +4984,10 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 				}
 			}
 
+			for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+				kPlayer.changeSpecialistExtraCommerce(eCommerce, kTech.getSpecialistExtraCommerce(eCommerce) * iChange);
+			}
+
 			bool bYieldUpdated = false;
 			for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 				kPlayer.changeForestPlotYield(eYield, kTech.getForestPlotYieldChange(eYield) * iChange);
