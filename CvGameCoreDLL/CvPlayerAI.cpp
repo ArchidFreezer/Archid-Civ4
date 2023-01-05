@@ -17509,7 +17509,7 @@ int CvPlayerAI::AI_bestCityUnitAIValue(UnitAITypes eUnitAI, CvCity* pCity, UnitT
 		if (eLoopUnit != NO_UNIT) {
 			//if (!isHuman() || (GC.getUnitInfo(eLoopUnit).getDefaultUnitAIType() == eUnitAI)) // disabled by K-Mod
 			{
-				if (NULL == pCity ? canTrain(eLoopUnit) : pCity->canTrain(eLoopUnit)) {
+				if (NULL == pCity ? (canTrain(eLoopUnit) && haveResourcesToTrain(eLoopUnit)) : pCity->canTrain(eLoopUnit)) {
 					int iValue = AI_unitValue(eLoopUnit, eUnitAI, (pCity == NULL) ? NULL : pCity->area());
 					if (iValue > iBestValue) {
 						iBestValue = iValue;

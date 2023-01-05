@@ -4789,6 +4789,39 @@ bool CvPlayer::canTrain(UnitTypes eUnit, bool bContinue, bool bTestVisible, bool
 	return true;
 }
 
+// K-Mod. Check that we have the required bonuses to train the given unit.
+// This isn't for any particular city. It's just a rough guide for whether or not we could build the unit.
+bool CvPlayer::haveResourcesToTrain(UnitTypes eUnit) const {
+	FASSERT_BOUNDS(0, GC.getNumUnitInfos(), eUnit, "CvPlayer::haveResourcesToTrain");
+
+	const CvUnitInfo& kUnit = GC.getUnitInfo(eUnit);
+	//const CvTeam& kTeam = GET_TEAM(getTeam());
+
+	// "and" bonus
+	BonusTypes ePrereqBonus = (BonusTypes)kUnit.getPrereqAndBonus();
+	if (ePrereqBonus != NO_BONUS) {
+		if (!hasBonus(ePrereqBonus) && countOwnedBonuses(ePrereqBonus) == 0) {
+			return false;
+		}
+	}
+
+	// "or" bonuses
+	bool bMissingBonus = false;
+	for (int i = 0; i < kUnit.getNumPrereqOrBonuses(); ++i) {
+		BonusTypes ePrereqBonus = (BonusTypes)kUnit.getPrereqOrBonus(i);
+
+		if (ePrereqBonus == NO_BONUS)
+			continue;
+
+		if (hasBonus(ePrereqBonus) || countOwnedBonuses(ePrereqBonus) > 0) {
+			bMissingBonus = false;
+			break;
+		}
+		bMissingBonus = true;
+	}
+
+	return !bMissingBonus;
+}
 
 bool CvPlayer::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestVisible, bool bIgnoreCost, bool bIgnoreTech) const {
 	const CvTeamAI& currentTeam = GET_TEAM(getTeam());
