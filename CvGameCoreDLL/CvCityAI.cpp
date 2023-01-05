@@ -5491,6 +5491,7 @@ void CvCityAI::AI_updateBestBuild() {
 							aiYields[eYield] -= pLoopPlot->getYield(eYield);
 						}
 						iValue += AI_yieldValue(aiYields, 0, false, false, true, true, iGrowthValue);
+						// Note: AI_yieldValue wasn't intended to be used with negative yields. But I think it will work; and it doesn't need to be perfectly accurate anyway.
 
 						// priority increase for chopping when we want to chop
 						if (bChop && pLoopPlot->getFeatureType() != NO_FEATURE && GC.getBuildInfo(m_aeBestBuild[iLoopPLot]).isFeatureRemove(pLoopPlot->getFeatureType())) {
@@ -6778,29 +6779,27 @@ int CvCityAI::AI_yieldValue(short* piYields, short* piCommerceYields, bool bRemo
 	int iCommerceValue = 0;
 	ProcessTypes eProcess = getProductionProcess();
 
-	for (int iI = 0; iI < NUM_COMMERCE_TYPES; iI++) {
-		int iCommerceTimes100 = iCommerceYieldTimes100 * kOwner.getCommercePercent((CommerceTypes)iI) / 100;
+	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+		int iCommerceTimes100 = iCommerceYieldTimes100 * kOwner.getCommercePercent(eCommerce) / 100;
 		if (piCommerceYields != NULL) {
-			iCommerceTimes100 += piCommerceYields[iI] * 100;
+			iCommerceTimes100 += piCommerceYields[eCommerce] * 100;
 		}
 
-		iCommerceTimes100 *= getTotalCommerceRateModifier((CommerceTypes)iI);
+		iCommerceTimes100 *= getTotalCommerceRateModifier(eCommerce);
 		iCommerceTimes100 /= 100;
 
-		FAssert(iCommerceTimes100 >= 0);
-
 		if (eProcess != NO_PROCESS)
-			iCommerceTimes100 += GC.getProcessInfo(getProductionProcess()).getProductionToCommerceModifier(iI) * iProductionTimes100 / 100;
+			iCommerceTimes100 += GC.getProcessInfo(getProductionProcess()).getProductionToCommerceModifier(eCommerce) * iProductionTimes100 / 100;
 
 		if (iCommerceTimes100 != 0) {
-			int iCommerceWeight = kOwner.AI_commerceWeight((CommerceTypes)iI, this);
-			if (AI_isEmphasizeCommerce((CommerceTypes)iI)) {
+			int iCommerceWeight = kOwner.AI_commerceWeight(eCommerce, this); // (Should we still use this with bWorkerOptimization?)
+			if (AI_isEmphasizeCommerce(eCommerce)) {
 				iCommerceWeight *= 2;
 			}
-			if (iI == COMMERCE_CULTURE && getCultureLevel() <= (CultureLevelTypes)1) {
+			if (!bWorkerOptimization && eCommerce == COMMERCE_CULTURE && getCultureLevel() <= (CultureLevelTypes)1) {
 				// bring on the artists
 				if (getCommerceRateTimes100(COMMERCE_CULTURE) - (bRemove ? iCommerceTimes100 : 0) < 100) {
-					iCommerceValue += 20;
+					iCommerceValue += 20 * (iCommerceTimes100 > 0 ? 1 : -1);
 				}
 				iCommerceWeight = std::max(iCommerceWeight, 200);
 			}
