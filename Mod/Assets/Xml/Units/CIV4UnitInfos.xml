@@ -7509,7 +7509,7 @@
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_SLAVER</EarlyArtDefineTag>
+					<EarlyArtDefineTag>ART_DEF_UNIT_SLAVE_CATCHER</EarlyArtDefineTag>
 				</UnitMeshGroup>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
@@ -7581,7 +7581,7 @@
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_SLAVER</EarlyArtDefineTag>
+					<EarlyArtDefineTag>ART_DEF_UNIT_PEOPLE_TRAFFICKER</EarlyArtDefineTag>
 				</UnitMeshGroup>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
