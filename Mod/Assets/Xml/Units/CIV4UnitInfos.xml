@@ -6637,7 +6637,11 @@
 			<TerrainAttacks>
 				<TerrainAttack>
 					<TerrainType>TERRAIN_OCEAN</TerrainType>
-					<iTerrainAttack>10</iTerrainAttack>
+					<iTerrainAttack>25</iTerrainAttack>
+				</TerrainAttack>
+				<TerrainAttack>
+					<TerrainType>TERRAIN_COAST</TerrainType>
+					<iTerrainAttack>25</iTerrainAttack>
 				</TerrainAttack>
 			</TerrainAttacks>
 			<SpecialCargo>SPECIALUNIT_MISSILE</SpecialCargo>
@@ -6705,7 +6709,11 @@
 			<TerrainAttacks>
 				<TerrainAttack>
 					<TerrainType>TERRAIN_OCEAN</TerrainType>
-					<iTerrainAttack>10</iTerrainAttack>
+					<iTerrainAttack>25</iTerrainAttack>
+				</TerrainAttack>
+				<TerrainAttack>
+					<TerrainType>TERRAIN_COAST</TerrainType>
+					<iTerrainAttack>25</iTerrainAttack>
 				</TerrainAttack>
 			</TerrainAttacks>
 			<UnitClassAttackMods>
