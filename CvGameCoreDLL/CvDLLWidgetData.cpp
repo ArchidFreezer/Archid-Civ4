@@ -3757,7 +3757,23 @@ void CvDLLWidgetData::parseUnitModelHelp(CvWidgetDataStruct& widgetDataStruct, C
 
 
 void CvDLLWidgetData::parseFlagHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
-	CvWString szTempBuffer;
+	// Archid Version
+	CvWString szTempBuffer = CvWString::format(SETCOLR L"%s Mod: %s, build %s" ENDCOLR, TEXT_COLOR("COLOR_HIGHLIGHT_TEXT"), MOD_NAME, MOD_VERSION, MOD_BUILD);
+	szBuffer.append(szTempBuffer);
+	szBuffer.append(NEWLINE);
+
+	// BTS Version
+	float fVersion = GC.getDefineINT("CIV4_VERSION") / 100.0f;
+	szTempBuffer.Format(SETCOLR L"Beyond the Sword: %0.2f" ENDCOLR, TEXT_COLOR("COLOR_HIGHLIGHT_TEXT"), fVersion);
+	szBuffer.append(szTempBuffer);
+	szBuffer.append(NEWLINE);
+
+	// K-Mod Version
+	szTempBuffer.Format(SETCOLR L"%s: %s" ENDCOLR, TEXT_COLOR("COLOR_HIGHLIGHT_TEXT"), KMOD_NAME, KMOD_VERSION);
+	szBuffer.append(szTempBuffer);
+	szBuffer.append(NEWLINE);
+	szBuffer.append(NEWLINE);
+
 	szTempBuffer.Format(SETCOLR L"%s" ENDCOLR, TEXT_COLOR("COLOR_HIGHLIGHT_TEXT"), GC.getCivilizationInfo(GC.getGameINLINE().getActiveCivilizationType()).getDescription());
 	szBuffer.append(szTempBuffer);
 	szBuffer.append(NEWLINE);
