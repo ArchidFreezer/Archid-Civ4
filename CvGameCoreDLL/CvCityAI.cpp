@@ -6982,9 +6982,7 @@ int CvCityAI::AI_yieldValue(short* piYields, short* piCommerceYields, bool bRemo
 				}
 
 				//Slavery Override
-				if (kOwner.canPopRush() && getHurryAngerTimer() <= std::max(6 - getPopulation(), 0)
-					&& iHappinessLevel >= (getPopulation() % 2 == 0 ? 1 : 0)) // K-Mod
-				{
+				if (kOwner.canPopRush() && getHurryAngerTimer() <= std::min(3, getPopulation() / 2) + 2 * iHappinessLevel) { // K-Mod
 					int iProductionPerPop = 0;
 					for (HurryTypes eHurry = (HurryTypes)0; eHurry < GC.getNumHurryInfos(); eHurry = (HurryTypes)(eHurry + 1)) {
 						if (kOwner.canHurry(eHurry)) {
