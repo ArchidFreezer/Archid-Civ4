@@ -111,6 +111,7 @@ void CyInfoPythonInterface1() {
 		.def("getPrereqOrTech", &CvTechInfo::getPrereqOrTech, "int (int i)")
 		.def("getPrereqAndTech", &CvTechInfo::getPrereqAndTech, "int (int i)")
 		.def("getSpecialistExtraCommerce", &CvTechInfo::getSpecialistExtraCommerce, "int (int i)")
+		.def("getCommerceModifier", &CvTechInfo::getCommerceModifier, "int (int i)")
 
 		.def("isCommerceFlexible", &CvTechInfo::isCommerceFlexible, "bool (int i)")
 		.def("isTerrainTrade", &CvTechInfo::isTerrainTrade, "bool (int i)")

@@ -252,6 +252,8 @@ class CvTechChooser:
 					self.TechBenefits[iTech].append(["CommerceFlexible", j])
 				if Info.getSpecialistExtraCommerce(j):
 					self.TechBenefits[iTech].append(["SpecialistExtraCommerce", j])
+				if Info.getCommerceModifier(j):
+					self.TechBenefits[iTech].append(["CommerceModifier", j])
 			for j in xrange(gc.getNumTerrainInfos()):
 				if Info.isTerrainTrade(j):
 					self.TechBenefits[iTech].append(["TerrainTrade", j])
@@ -522,6 +524,8 @@ class CvTechChooser:
 				elif sType == "SpecialistExtraCommerce":
 					if (gc.getDefineINT("DEFAULT_SPECIALIST") != SpecialistTypes.NO_SPECIALIST):
 						screen.addDDSGFCAt(sButton, szTechRecord, gc.getSpecialistInfo(gc.getDefineINT("DEFAULT_SPECIALIST")).getButton(), iX + fX, iY + Y_ROW, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_HELP_EXTRA_SPECIALIST_COMMERCE, i, iItem, False)
+				elif sType == "CommerceModifier":
+					screen.addDDSGFCAt(sButton, szTechRecord, gc.getCommerceInfo(iItem).getButton(), iX + fX, iY + Y_ROW, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_HELP_GLOBAL_COMMERCE_MODIFIER, i, iItem, False)
 				elif sType == "CommerceFlexible":
 					szFileName = CyArtFileMgr().getInterfaceArtInfo("INTERFACE_GENERAL_QUESTIONMARK").getPath()
 					if iItem == CommerceTypes.COMMERCE_CULTURE:

@@ -4993,6 +4993,7 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 			}
 
 			for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+				kPlayer.changeCommerceRateModifier(eCommerce, kTech.getCommerceModifier(eCommerce)* iChange);
 				kPlayer.changeSpecialistExtraCommerce(eCommerce, kTech.getSpecialistExtraCommerce(eCommerce) * iChange);
 			}
 

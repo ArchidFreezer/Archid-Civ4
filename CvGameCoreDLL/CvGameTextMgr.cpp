@@ -6783,6 +6783,9 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	//	Extra specialist commerce
 	setCommerceChangeHelp(szBuffer, L"", L"", gDLL->getText("TXT_KEY_CIVIC_PER_SPECIALIST").GetCString(), kTech.getSpecialistExtraCommerceArray());
 
+	//	Global commerce modifers
+	setCommerceChangeHelp(szBuffer, L"", L"", gDLL->getText("TXT_KEY_CIVIC_IN_ALL_CITIES").GetCString(), kTech.getCommerceModifierArray(), true);
+
 	//	Adjusting culture, science, etc
 	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
 		buildAdjustString(szBuffer, eTech, eCommerce, true, bPlayerContext);
@@ -13409,6 +13412,13 @@ void CvGameTextMgr::setCommerceHelp(CvWStringBuffer& szBuffer, CvCity& city, Com
 		szBuffer.append(gDLL->getText("TXT_KEY_MISC_HELP_YIELD_CIVICS", iCivicMod, kCommerce.getChar()));
 		szBuffer.append(NEWLINE);
 		iModifier += iCivicMod;
+	}
+
+	int iUnaccountedModifiers = city.getTotalCommerceRateModifier(eCommerceType) - iModifier;
+	if (iUnaccountedModifiers != 0) {
+		szBuffer.append(gDLL->getText("TXT_KEY_MISC_HELP_MODIFIER_FROM_CIV", iUnaccountedModifiers, kCommerce.getChar()));
+		szBuffer.append(NEWLINE);
+		iModifier += iUnaccountedModifiers;
 	}
 
 	int iModYield = (iModifier * iBaseCommerceRate) / 100;

@@ -3331,7 +3331,7 @@ TechTypes CvPlayerAI::AI_bestTech(int iMaxPathLength, bool bIgnoreCost, bool bAs
 }
 
 // This function has been mostly rewritten for K-Mod.
-// Note: many of the values used in this function are arbitrary; but adjusted them all to get closer to having a common scale.
+// Note: many of the values used in this function are arbitrary; but I've adjusted them all to get closer to having a common scale.
 // The scale is roughly 4 = 1 commerce per turn.
 // (Compared to the original numbers, this is * 1/100 * 7 * 4. 28/100)
 int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost, bool bAsync, int* paiBonusClassRevealed, int* paiBonusClassUnrevealed, int* paiBonusClassHave) const {
@@ -3629,13 +3629,16 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 
 	// Extra specialist commerce. (Based on my civic evaluation code)
 	bool bSpecialistCommerce = false;
+	int iTotalBonusSpecialists = -1;
+	int iTotalCurrentSpecialists = -1;
 	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
 		bSpecialistCommerce = kTechInfo.getSpecialistExtraCommerce(eCommerce) != 0;
 	}
 
 	if (bSpecialistCommerce) {
-		int iTotalBonusSpecialists = 0;
-		int iTotalCurrentSpecialists = 0;
+		// If there are any bonuses, we need to count our specialists.
+		// (The value from the bonuses will be applied later.)
+		iTotalBonusSpecialists = iTotalCurrentSpecialists = 0;
 
 		int iLoop;
 		CvCity* pLoopCity;
@@ -3646,18 +3649,29 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 			iTotalCurrentSpecialists += pLoopCity->getNumGreatPeople();
 			iTotalCurrentSpecialists += pLoopCity->getSpecialistPopulation();
 		}
-
-		for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
-			iValue += 4 * AI_averageCommerceMultiplier(eCommerce) * (kTechInfo.getSpecialistExtraCommerce(eCommerce) * std::max((getTotalPopulation() + 12 * iTotalBonusSpecialists) / 12, iTotalCurrentSpecialists));
-		}
 	}
 
 	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+		int iCommerceValue = 0;
+
+		// Commerce for specialists
+		if (bSpecialistCommerce) {
+			iCommerceValue += 4 * AI_averageCommerceMultiplier(eCommerce) * (kTechInfo.getSpecialistExtraCommerce(eCommerce) * std::max((getTotalPopulation() + 12 * iTotalBonusSpecialists) / 12, iTotalCurrentSpecialists));
+		}
+
+		// Commerce multipliers. (using iCommerceValue from the specialists bonuses to calculate compound effect).
+		iCommerceValue += kTechInfo.getCommerceModifier(eCommerce) * (4 * getCommerceRate(eCommerce) + iCommerceValue) / AI_averageCommerceMultiplier(eCommerce);
+
+		// Flexible commerce. (This is difficult to evaluate accurately without checking a lot of things - which I'm not going to do right now.)
 		if (kTechInfo.isCommerceFlexible(eCommerce)) {
-			iValue += 4 * iCityCount * (3 * AI_averageCulturePressure() - 200) / 100;
-			if ((eCommerce == COMMERCE_CULTURE) && (AI_isDoVictoryStrategy(AI_VICTORY_CULTURE2))) {
-				iValue += 280;
-			}
+			iCommerceValue += 80 + 4 * iCityCount;
+		}
+
+		if (iCommerceValue) {
+			iCommerceValue *= AI_commerceWeight(eCommerce);
+			iCommerceValue /= 100;
+
+			iValue += iCommerceValue;
 		}
 	}
 

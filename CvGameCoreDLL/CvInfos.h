@@ -378,7 +378,8 @@ public:
 	int getPrereqOrTech(int i) const;
 	int getEnabledWorldView(int i) const;
 	int getWorldViewRevoltTurnChange(int i) const;
-	int getSpecialistExtraCommerce(int i) const; // K-Mod, Exposed to Python
+	int getSpecialistExtraCommerce(int i) const; // Exposed to Python
+	int getCommerceModifier(int i) const; // Exposed to Python
 
 	bool isCommerceFlexible(int i) const;	// Exposed to Python
 	bool isTerrainTrade(int i) const;			// Exposed to Python
@@ -389,7 +390,8 @@ public:
 	int* getForestPlotYieldChangeArray() const;
 	int* getRiverPlotYieldChangeArray() const;
 	int* getSeaPlotYieldChangeArray() const;
-	int* getSpecialistExtraCommerceArray() const; // K-Mod
+	int* getSpecialistExtraCommerceArray() const;
+	int* getCommerceModifierArray() const;
 
 	void read(FDataStreamBase*);
 	void write(FDataStreamBase*);
@@ -464,7 +466,8 @@ protected:
 	int* m_piRiverPlotYieldChange;
 	int* m_piSeaPlotYieldChange;
 	int* m_piWorldViewRevoltTurnChange;
-	int* m_piSpecialistExtraCommerce; // K-Mod
+	int* m_piSpecialistExtraCommerce;
+	int* m_piCommerceModifier;
 
 	bool* m_pbCommerceFlexible;
 	bool* m_pbTerrainTrade;
