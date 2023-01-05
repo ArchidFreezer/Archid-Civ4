@@ -4776,7 +4776,7 @@ int CvPlot::calculateImprovementYieldChange(ImprovementTypes eImprovement, Yield
 
 	int iYield = GC.getImprovementInfo(eImprovement).getYieldChange(eYield);
 
-	if (isRiverSide()) {
+	if (isRiver()) {
 		iYield += GC.getImprovementInfo(eImprovement).getRiverSideYieldChange(eYield);
 	}
 
