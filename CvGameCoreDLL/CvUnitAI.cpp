@@ -110,7 +110,8 @@ bool CvUnitAI::AI_update() {
 		return false;
 	}
 
-	if (getGroup()->isAutomated()) {
+	if (getGroup()->isAutomated() && isHuman()) // When the AI fills in for a human player, they should ignore automation
+	{
 		switch (getGroup()->getAutomateType()) {
 		case AUTOMATE_BUILD:
 			if (AI_getUnitAIType() == UNITAI_WORKER) {
@@ -5392,6 +5393,7 @@ void CvUnitAI::AI_exploreSeaMove() {
 				return;
 			}
 			scrap();
+			return;
 		}
 	}
 
