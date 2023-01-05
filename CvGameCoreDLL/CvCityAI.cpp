@@ -3198,7 +3198,28 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 
 			iValue += (kBuilding.getGlobalPopulationChange() * iNumCities * 4);
 
-			iValue += (kBuilding.getFreeTechs() * 80);
+			// K-Mod. A slightly more nuanced evaluation of free techs (but still very rough)
+			if (kBuilding.getFreeTechs() > 0) {
+				int iTotalTechValue = 0;
+				int iMaxTechValue = 0;
+				int iTechCount = 0;
+
+				for (TechTypes eTechType = (TechTypes)0; eTechType < GC.getNumTechInfos(); eTechType = (TechTypes)(eTechType + 1)) {
+					if (kOwner.canResearch(eTechType, false, true)) {
+						int iTechValue = GET_TEAM(getTeam()).getResearchCost(eTechType);
+						iTotalTechValue += iTechValue;
+						iTechCount++;
+						iMaxTechValue = std::max(iMaxTechValue, iTechValue);
+					}
+				}
+				if (iTechCount > 0) {
+					int iTechValue = ((iTotalTechValue / iTechCount) + iMaxTechValue) / 2;
+
+					// It's hard to measure an instant boost with units of commerce per turn... So I'm just going to divide it by 10.
+					iValue += iTechValue * 10 / GC.getGameSpeedInfo(GC.getGame().getGameSpeedType()).getResearchPercent();
+				}
+				// else: If there is nothing to research, a free tech is worthless.
+			}
 
 			iValue += kBuilding.getEnemyWarWearinessModifier() / 2;
 
