@@ -730,10 +730,10 @@ void CvSelectionGroup::startMission() {
 							iPriority--;
 						if (pLoopUnit->isMadeAttack())
 							iPriority++;
+						if (pLoopUnit->isHurt() && !pLoopUnit->hasMoved())
+							iPriority--;
 
 						iPriority = (3 + iPriority) * pLoopUnit->movesLeft() / 3;
-						iPriority *= pLoopUnit->currHitPoints();
-						iPriority /= std::max(1, pLoopUnit->maxHitPoints());
 						unit_list.push_back(std::make_pair(iPriority, pLoopUnit->getID()));
 					}
 				}
