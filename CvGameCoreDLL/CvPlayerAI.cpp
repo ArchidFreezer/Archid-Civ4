@@ -1446,15 +1446,12 @@ int CvPlayerAI::AI_commerceWeight(CommerceTypes eCommerce, const CvCity* pCity) 
 		}
 		break;
 	case COMMERCE_GOLD:
-		if (getCommercePercent(COMMERCE_GOLD) > 80) // originally == 100
-		{
+		if (getCommercePercent(COMMERCE_GOLD) >= 80) {
 			//avoid strikes
-			if (calculateGoldRate() < -getGold() / 100) // K-Mod
-			{
+			if (getGold() + 80 * calculateGoldRate() < 0) {
 				iWeight += 15;
 			}
-		} else if (getCommercePercent(COMMERCE_GOLD) < 25) // originally == 0 (bbai)
-		{
+		} else if (getCommercePercent(COMMERCE_GOLD) < 25) {
 			//put more money towards other commerce types
 			int iGoldPerTurn = calculateGoldRate(); // K-Mod (the original code used getGoldPerTurn, which is faster, but the wrong number.)
 			if (iGoldPerTurn > -getGold() / 40) {
@@ -1632,6 +1629,22 @@ void CvPlayerAI::AI_updateCommerceWeights() {
 	// Espionage weight
 	//
 	{
+		int iWeightThreshold = 0; // For human players, what amount of espionage weight indicates that we care about a civ?
+		if (isHuman()) {
+			int iTotalWeight = 0;
+			int iTeamCount = 0;
+			for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_CIV_TEAMS; (TeamTypes)(eTeam + 1)) {
+				if (GET_TEAM(getTeam()).isHasMet(eTeam) && GET_TEAM(eTeam).isAlive()) {
+					iTotalWeight += getEspionageSpendingWeightAgainstTeam(eTeam);
+					iTeamCount++;
+				}
+			}
+
+			if (iTeamCount > 0) {
+				iWeightThreshold = iTotalWeight / (iTeamCount + 8); // pretty arbitrary. But as an example, 90 points on 1 player out of 10 -> threshold is 5.
+			}
+		}
+
 		int iWeight = GC.getCommerceInfo(COMMERCE_ESPIONAGE).getAIWeightPercent();
 
 		int iEspBehindWeight = 0;
@@ -1640,30 +1653,30 @@ void CvPlayerAI::AI_updateCommerceWeights() {
 		int iTeamCount = 0;
 		int iLocalTeamCount = 0;
 		int iTotalUnspent = 0;
-		for (int iTeam = 0; iTeam < MAX_CIV_TEAMS; ++iTeam) {
-			CvTeamAI& kLoopTeam = GET_TEAM((TeamTypes)iTeam);
+		for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_CIV_TEAMS; eTeam = (TeamTypes)(eTeam + 1)) {
+			CvTeamAI& kLoopTeam = GET_TEAM(eTeam);
 
-			if (kLoopTeam.isAlive() && iTeam != getTeam() && GET_TEAM(getTeam()).isHasMet((TeamTypes)iTeam) && !kLoopTeam.isVassal(getTeam()) && !GET_TEAM(getTeam()).isVassal((TeamTypes)iTeam)) {
+			if (kLoopTeam.isAlive() && eTeam != getTeam() && GET_TEAM(getTeam()).isHasMet(eTeam) && !kLoopTeam.isVassal(getTeam()) && !GET_TEAM(getTeam()).isVassal(eTeam)) {
 				iAllTeamTotalPoints += kLoopTeam.getEspionagePointsEver();
 				iTeamCount++;
 
 				int iTheirPoints = kLoopTeam.getEspionagePointsAgainstTeam(getTeam());
-				int iOurPoints = GET_TEAM(getTeam()).getEspionagePointsAgainstTeam((TeamTypes)iTeam);
+				int iOurPoints = GET_TEAM(getTeam()).getEspionagePointsAgainstTeam(eTeam);
 				iTotalUnspent += iOurPoints;
-				int iAttitude = range(GET_TEAM(getTeam()).AI_getAttitudeVal((TeamTypes)iTeam), -12, 12);
+				int iAttitude = range(GET_TEAM(getTeam()).AI_getAttitudeVal(eTeam), -12, 12);
 				iTheirPoints -= (iTheirPoints * iAttitude) / (2 * 12);
 
-				if (iTheirPoints > iOurPoints && (!isHuman() || getEspionageSpendingWeightAgainstTeam((TeamTypes)iTeam) > 0)) {
+				if (iTheirPoints > iOurPoints && (!isHuman() || getEspionageSpendingWeightAgainstTeam(eTeam) > iWeightThreshold)) {
 					iEspBehindWeight += 1;
 					if (kLoopTeam.AI_getAttitude(getTeam()) <= ATTITUDE_CAUTIOUS
-						&& GET_TEAM(getTeam()).AI_hasCitiesInPrimaryArea((TeamTypes)iTeam)) {
+						&& GET_TEAM(getTeam()).AI_hasCitiesInPrimaryArea(eTeam)) {
 						iEspBehindWeight += 1;
 					}
 				}
-				if (GET_TEAM(getTeam()).AI_hasCitiesInPrimaryArea((TeamTypes)iTeam)) {
+				if (GET_TEAM(getTeam()).AI_hasCitiesInPrimaryArea(eTeam)) {
 					iLocalTeamCount++;
-					if (GET_TEAM(getTeam()).AI_getAttitude((TeamTypes)iTeam) <= ATTITUDE_ANNOYED
-						|| GET_TEAM(getTeam()).AI_getWarPlan((TeamTypes)iTeam) != NO_WARPLAN) {
+					if (GET_TEAM(getTeam()).AI_getAttitude(eTeam) <= ATTITUDE_ANNOYED
+						|| GET_TEAM(getTeam()).AI_getWarPlan(eTeam) != NO_WARPLAN) {
 						iEspAttackWeight += 1;
 					}
 					if (AI_isDoStrategy(AI_STRATEGY_BIG_ESPIONAGE) && GET_PLAYER(kLoopTeam.getLeaderID()).getTechScore() > getTechScore()) {
@@ -2892,7 +2905,7 @@ bool CvPlayerAI::AI_isCommercePlot(CvPlot* pPlot) const {
 //
 // I've done a bit of speed profiling and found that although the safe plot cache does shortcut around 50% of calls to AI_getAnyPlotDanger,
 // that only ends up saving a few milliseconds each turn anyway. I don't really think that's worth risking of getting problems from bad cache.
-// So even though I've put a bit of work into make the cache work better, I'm not just going to disable it.
+// So even though I've put a bit of work into make the cache work better, I'm just going to disable it.
 
 bool CvPlayerAI::isSafeRangeCacheValid() const {
 	return false; // Cache disabled. See comments above.
