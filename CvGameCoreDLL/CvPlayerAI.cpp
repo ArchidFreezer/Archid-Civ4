@@ -3354,11 +3354,11 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 
 	long iValue = 1; // K-Mod. (the int was overflowing in parts of the calculation)
 
-	int iRandomFactor = ((bAsync) ? GC.getASyncRand().get(2000, "AI Research ASYNC") : GC.getGameINLINE().getSorenRandNum(2000, "AI Research"));
-	int iRandomMax = 2000;
+	int iRandomFactor = ((bAsync) ? GC.getASyncRand().get(80 * iCityCount, "AI Research ASYNC") : GC.getGameINLINE().getSorenRandNum(80 * iCityCount, "AI Research"));
+	int iRandomMax = 80 * iCityCount;
 	iValue += iRandomFactor;
 
-	iValue += kTeam.getResearchProgress(eTech);
+	iValue += kTeam.getResearchProgress(eTech) / 4;
 
 	// Map stuff
 	if (kTechInfo.isExtraWaterSeeFrom()) {
@@ -3690,7 +3690,7 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 			ImprovementTypes eFinalImprovement = finalImprovementUpgrade(eBuildImprovement);
 			// Note: finalImprovementUpgrade returns -1 for looping improvements; and that isn't handled well here.
 
-			if (eFinalImprovement == NO_IMPROVEMENT) {
+			if (eBuildImprovement == NO_IMPROVEMENT) {
 				iBuildValue += 8 * iCityCount;
 			} else {
 				// only increment build value if it is not an improvement, otherwise handle it there
@@ -3698,17 +3698,18 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 				int iBestFeatureValue = 0; // O(100)
 				const CvImprovementInfo& kBuildImprovement = GC.getImprovementInfo(eBuildImprovement);
 
-				iAccessibility += ((kBuildImprovement.isHillsMakesValid()) ? 100 : 0);
-				iAccessibility += ((kBuildImprovement.isFreshWaterMakesValid()) ? 100 : 0);
-				iAccessibility += ((kBuildImprovement.isRiverSideMakesValid()) ? 100 : 0);
+				// iAccessibility represents the number of this improvement we expect to have per city.
+				iAccessibility += ((kBuildImprovement.isHillsMakesValid()) ? 150 : 0);
+				iAccessibility += ((kBuildImprovement.isFreshWaterMakesValid()) ? 150 : 0);
+				iAccessibility += ((kBuildImprovement.isRiverSideMakesValid()) ? 150 : 0);
 
 				for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
-					iAccessibility += (kBuildImprovement.getTerrainMakesValid(eTerrain) ? 50 : 0);
+					iAccessibility += (kBuildImprovement.getTerrainMakesValid(eTerrain) ? 75 : 0);
 				}
 
 				for (FeatureTypes eFeature = (FeatureTypes)0; eFeature < GC.getNumFeatureInfos(); eFeature = (FeatureTypes)(eFeature + 1)) {
 					if (kBuildImprovement.getFeatureMakesValid(eFeature)) {
-						iAccessibility += 50;
+						iAccessibility += 75;
 						int iTempValue = 0;
 						for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 							iTempValue += GC.getFeatureInfo(eFeature).getYieldChange(eYield) * AI_yieldWeight(eYield) * AI_averageYieldMultiplier(eYield) / 100;
@@ -3718,7 +3719,9 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 					}
 				}
 
-				int iYieldValue = 0; // K-Mod
+				int iYieldValue = 0; // O(100)
+				if (eFinalImprovement == NO_IMPROVEMENT)
+					eFinalImprovement = eBuildImprovement;
 				const CvImprovementInfo& kFinalImprovement = GC.getImprovementInfo(eFinalImprovement);
 				if (iAccessibility > 0) {
 					iYieldValue += iBestFeatureValue;
@@ -3726,10 +3729,18 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 					for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 						int iTempValue = 0;
 
-						iTempValue += (kFinalImprovement.getYieldChange(eYield) * 100);
-						iTempValue += (kFinalImprovement.getRiverSideYieldChange(eYield) * 50);
-						iTempValue += (kFinalImprovement.getHillsYieldChange(eYield) * 50);
-						iTempValue += (kFinalImprovement.getIrrigatedYieldChange(eYield) * 75);
+						// use average of final and initial improvements
+						iTempValue += kBuildImprovement.getYieldChange(eYield) * 100;
+						iTempValue += kBuildImprovement.getRiverSideYieldChange(eYield) * 50;
+						iTempValue += kBuildImprovement.getHillsYieldChange(eYield) * 75;
+						iTempValue += kBuildImprovement.getIrrigatedYieldChange(eYield) * 80;
+
+						iTempValue += kFinalImprovement.getYieldChange(eYield) * 100;
+						iTempValue += kFinalImprovement.getRiverSideYieldChange(eYield) * 50;
+						iTempValue += kFinalImprovement.getHillsYieldChange(eYield) * 75;
+						iTempValue += kFinalImprovement.getIrrigatedYieldChange(eYield) * 80;
+
+						iTempValue /= 2;
 
 						iTempValue *= AI_averageYieldMultiplier(eYield);
 						iTempValue /= 100;
@@ -3744,15 +3755,14 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 					iYieldValue += kFinalImprovement.isActsAsCity() ? 100 : 0;
 					iYieldValue += kFinalImprovement.isCarriesIrrigation() ? 100 : 0;
 
-					iYieldValue -= 75; // comparing to a hypothetical low-value improvement
+					if (getCurrentEra() > GC.getGameINLINE().getStartEra())
+						iYieldValue -= 100; // compare to a hypothetical low-value improvement
 
-					iBuildValue += std::max(0, iYieldValue) * iAccessibility * (kFinalImprovement.isWater() ? iCoastalCities : iCityCount) / 2500;
+					iBuildValue += std::max(0, iYieldValue) * iAccessibility * (kFinalImprovement.isWater() ? iCoastalCities : std::max(2, iCityCount)) / 2500;
 					// Note: we're converting from O(100)*O(100) to O(4)
 				}
 
 				for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
-					int iBonusValue = 0;
-
 					const CvBonusInfo& kBonusInfo = GC.getBonusInfo(eBonus);
 
 					if (!kFinalImprovement.isImprovementBonusMakesValid(eBonus) && !kFinalImprovement.isImprovementBonusTrade(eBonus))
@@ -3765,11 +3775,16 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 						: std::max(1, 2 * getNumCities() / std::max(1, 3 * iCityTarget)); // a guess
 
 					if (iNumBonuses > 0 && (bRevealed || kBonusInfo.getTechReveal() == eTech)) {
+						int iBonusValue = 0;
+
 						TechTypes eConnectTech = (TechTypes)kBonusInfo.getTechCityTrade();
 						if ((kTeam.isHasTech(eConnectTech) || eConnectTech == eTech) && !kTeam.isBonusObsolete(eBonus) && kBonusInfo.getTechObsolete() != eTech) {
 							// note: this is in addition to the getTechCityTrade evaluation lower in this function.
 							iBonusValue += AI_bonusVal(eBonus, 1, true) * iCityCount;
-							iBonusValue += (iNumBonuses - 1) * iBonusValue / 10;
+							if (bRevealed)
+								iBonusValue += (iNumBonuses - 1) * iBonusValue / 10;
+							else
+								iBonusValue /= 2;
 						}
 
 						int iYieldValue = 0; // K-Mod
@@ -3778,7 +3793,7 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 
 							// K-Mod. Note: value adjustments are now rolled into AI_yieldWeight
 							iTempValue += (kFinalImprovement.getImprovementBonusYield(eBonus, eYield) * 100);
-							iTempValue += (kFinalImprovement.getIrrigatedYieldChange(eYield) * 50);
+							iTempValue += (kFinalImprovement.getIrrigatedYieldChange(eYield) * 75);
 
 							iTempValue *= AI_yieldWeight(eYield);
 							iTempValue /= 100;
@@ -3788,14 +3803,20 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 							iYieldValue += iTempValue;
 						}
 
+						if (getCurrentEra() > GC.getGameINLINE().getStartEra())
+							iYieldValue -= 100; // compare to a hypothetical low-value improvement
+
 						// Bonuses might be outside of our city borders.
-						iYieldValue *= (2 * iNumBonuses + 2);
+						iYieldValue *= 2 * iNumBonuses;
 						iYieldValue /= (bRevealed ? 3 : 4);
+
+						if (kFinalImprovement.isWater())
+							iYieldValue = iYieldValue * 2 / 3;
 
 						// Convert to O(4)
 						iYieldValue /= 25;
 
-						iBuildValue += iBonusValue + iYieldValue;
+						iBuildValue += iBonusValue + std::max(0, iYieldValue);
 					}
 				}
 			}
@@ -4530,6 +4551,9 @@ int CvPlayerAI::AI_techBuildingValue(TechTypes eTech, bool bConstCache, bool& bE
 	}
 	// Scale the total value based on the number of relevant cities, and other factors.
 	int iScale = AI_isDoStrategy(AI_STRATEGY_ECONOMY_FOCUS) ? 240 : 140;
+
+	if (getNumCities() == 1 && getCurrentEra() == GC.getGameINLINE().getStartEra())
+		iScale = iScale * 2 / 3; // I expect we'll want to be building mostly units until we get a second city.
 
 	iTotalValue *= iScale;
 	iTotalValue /= 250;
