@@ -7359,8 +7359,6 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		(AI_getUnitAIType() == UNITAI_COUNTER) ||
 		(AI_getUnitAIType() == UNITAI_CITY_COUNTER) ||
 		(AI_getUnitAIType() == UNITAI_ATTACK_SEA) ||
-		(AI_getUnitAIType() == UNITAI_RESERVE_SEA) ||
-		(AI_getUnitAIType() == UNITAI_ATTACK_SEA) ||
 		(AI_getUnitAIType() == UNITAI_PARADROP) ||
 		(AI_getUnitAIType() == UNITAI_PIRATE_SEA) ||
 		(AI_getUnitAIType() == UNITAI_RESERVE_SEA) ||
@@ -7854,7 +7852,7 @@ bool CvUnitAI::AI_groupMergeRange(UnitAITypes eUnitAI, int iMaxRange, bool bBigg
 // (the bulk of this function was moved straight out of AI_load. I've fixed it up a bit, but I didn't write most of it.)
 CvUnit* CvUnitAI::AI_findTransport(UnitAITypes eUnitAI, int iFlags, int iMaxPath, UnitAITypes eTransportedUnitAI, int iMinCargo, int iMinCargoSpace, int iMaxCargoSpace, int iMaxCargoOurUnitAI) {
 	if (eUnitAI != NO_UNITAI && GET_PLAYER(getOwnerINLINE()).AI_getNumAIUnits(eUnitAI) == 0)
-		return false;
+		return NULL;
 
 	int iBestValue = MAX_INT;
 	CvUnit* pBestUnit = 0;

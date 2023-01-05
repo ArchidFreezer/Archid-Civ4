@@ -1726,20 +1726,21 @@ CvPlayerAI::CvFoundSettings::CvFoundSettings(const CvPlayerAI& kPlayer, bool bSt
 	bAllSeeing = bStartingLoc || kPlayer.isBarbarian();
 
 	if (!bStartingLoc) {
-		for (int iI = 0; iI < GC.getNumTraitInfos(); iI++) {
-			if (kPlayer.hasTrait((TraitTypes)iI)) {
-				if (GC.getTraitInfo((TraitTypes)iI).getCommerceChange(COMMERCE_CULTURE) > 0) {
+		for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
+			const CvTraitInfo& kTrait = GC.getTraitInfo(eTrait);
+			if (kPlayer.hasTrait(eTrait)) {
+				if (kTrait.getCommerceChange(COMMERCE_CULTURE) > 0) {
 					bEasyCulture = true;
 					if (GC.getLeaderHeadInfo(kPlayer.getPersonalityType()).getBasePeaceWeight() <= 5)
 						bAmbitious = true;
-					iGreed += 15 * GC.getTraitInfo((TraitTypes)iI).getCommerceChange(COMMERCE_CULTURE);
+					iGreed += 15 * kTrait.getCommerceChange(COMMERCE_CULTURE);
 				}
-				if (GC.getTraitInfo((TraitTypes)iI).getExtraYieldThreshold(YIELD_COMMERCE) > 0) {
+				if (kTrait.getExtraYieldThreshold(YIELD_COMMERCE) > 0) {
 					bFinancial = true;
 				}
 
-				for (int iJ = 0; iJ < GC.getNumPromotionInfos(); iJ++) {
-					if (GC.getTraitInfo((TraitTypes)iI).isFreePromotion(iJ)) {
+				for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumPromotionInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
+					if (kTrait.isFreePromotion(ePromotion)) {
 						// aggressive, protective... it doesn't really matter to me.
 						if (GC.getLeaderHeadInfo(kPlayer.getPersonalityType()).getBasePeaceWeight() >= 5) {
 							bDefensive = true;
@@ -1747,10 +1748,8 @@ CvPlayerAI::CvFoundSettings::CvFoundSettings(const CvPlayerAI& kPlayer, bool bSt
 					}
 				}
 
-				for (int iJ = 0; iJ < GC.getNumUnitInfos(); iJ++) {
-					if (GC.getUnitInfo((UnitTypes)iJ).isFound() &&
-						GC.getUnitInfo((UnitTypes)iJ).getProductionTraits(iI) &&
-						kPlayer.canTrain((UnitTypes)iJ)) {
+				for (UnitTypes eUnit = (UnitTypes)0; eUnit < GC.getNumUnitInfos(); eUnit = (UnitTypes)(eUnit + 1)) {
+					if (GC.getUnitInfo(eUnit).isFound() && GC.getUnitInfo(eUnit).getProductionTraits(eTrait) && kPlayer.canTrain(eUnit)) {
 						iGreed += 20;
 						if (GC.getLeaderHeadInfo(kPlayer.getPersonalityType()).getMaxWarRand() <= 150)
 							bAmbitious = true;
@@ -1762,9 +1761,9 @@ CvPlayerAI::CvFoundSettings::CvFoundSettings(const CvPlayerAI& kPlayer, bool bSt
 		if (kPlayer.getCoastalTradeRoutes() > 0)
 			bSeafaring = true;
 		if (!bSeafaring) {
-			for (int iI = 0; iI < GC.getNumUnitClassInfos(); iI++) {
-				UnitTypes eCivUnit = (UnitTypes)GC.getCivilizationInfo(kPlayer.getCivilizationType()).getCivilizationUnits(iI);
-				UnitTypes eDefaultUnit = (UnitTypes)GC.getUnitClassInfo((UnitClassTypes)iI).getDefaultUnitIndex();
+			for (UnitClassTypes eUnitClass = (UnitClassTypes)0; eUnitClass < GC.getNumUnitClassInfos(); eUnitClass = (UnitClassTypes)(eUnitClass + 1)) {
+				UnitTypes eCivUnit = (UnitTypes)GC.getCivilizationInfo(kPlayer.getCivilizationType()).getCivilizationUnits(eUnitClass);
+				UnitTypes eDefaultUnit = (UnitTypes)GC.getUnitClassInfo(eUnitClass).getDefaultUnitIndex();
 				if (eCivUnit != NO_UNIT && eCivUnit != eDefaultUnit) {
 					if (GC.getUnitInfo(eCivUnit).getDomainType() == DOMAIN_SEA) {
 						bSeafaring = true;
@@ -1774,10 +1773,10 @@ CvPlayerAI::CvFoundSettings::CvFoundSettings(const CvPlayerAI& kPlayer, bool bSt
 			}
 		}
 		if (!bSeafaring) {
-			for (int iI = 0; iI < GC.getNumBuildingClassInfos(); iI++) {
-				BuildingTypes eCivBuilding = (BuildingTypes)GC.getCivilizationInfo(kPlayer.getCivilizationType()).getCivilizationBuildings(iI);
-				BuildingTypes eDefaultBuilding = (BuildingTypes)GC.getBuildingClassInfo((BuildingClassTypes)iI).getDefaultBuildingIndex();
-				if (eCivBuilding != NO_UNIT && eCivBuilding != eDefaultBuilding) {
+			for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
+				BuildingTypes eCivBuilding = (BuildingTypes)GC.getCivilizationInfo(kPlayer.getCivilizationType()).getCivilizationBuildings(eBuildingClass);
+				BuildingTypes eDefaultBuilding = (BuildingTypes)GC.getBuildingClassInfo(eBuildingClass).getDefaultBuildingIndex();
+				if (eCivBuilding != NO_BUILDING && eCivBuilding != eDefaultBuilding) {
 					if (GC.getBuildingInfo(eCivBuilding).isWater()) {
 						bSeafaring = true;
 						break;
@@ -1787,9 +1786,9 @@ CvPlayerAI::CvFoundSettings::CvFoundSettings(const CvPlayerAI& kPlayer, bool bSt
 		}
 		// culture building process
 		if (!bEasyCulture) {
-			for (int iJ = 0; iJ < GC.getNumProcessInfos(); iJ++) {
-				if (GET_TEAM(kPlayer.getTeam()).isHasTech((TechTypes)GC.getProcessInfo((ProcessTypes)iJ).getTechPrereq()) &&
-					GC.getProcessInfo((ProcessTypes)iJ).getProductionToCommerceModifier(COMMERCE_CULTURE) > 0) {
+			for (ProcessTypes eProcess = (ProcessTypes)0; eProcess < GC.getNumProcessInfos(); eProcess = (ProcessTypes)(eProcess + 1)) {
+				if (GET_TEAM(kPlayer.getTeam()).isHasTech((TechTypes)GC.getProcessInfo(eProcess).getTechPrereq()) &&
+					GC.getProcessInfo(eProcess).getProductionToCommerceModifier(COMMERCE_CULTURE) > 0) {
 					bEasyCulture = true;
 					break;
 				}
@@ -1797,8 +1796,8 @@ CvPlayerAI::CvFoundSettings::CvFoundSettings(const CvPlayerAI& kPlayer, bool bSt
 		}
 		// free culture building
 		if (!bEasyCulture) {
-			for (int iJ = 0; iJ < GC.getNumBuildingInfos(); iJ++) {
-				if (kPlayer.isBuildingFree((BuildingTypes)iJ) && GC.getBuildingInfo((BuildingTypes)iJ).getObsoleteSafeCommerceChange(COMMERCE_CULTURE) > 0) {
+			for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+				if (kPlayer.isBuildingFree(eBuilding) && GC.getBuildingInfo(eBuilding).getObsoleteSafeCommerceChange(COMMERCE_CULTURE) > 0) {
 					bEasyCulture = true;
 					break;
 				}
@@ -1806,8 +1805,8 @@ CvPlayerAI::CvFoundSettings::CvFoundSettings(const CvPlayerAI& kPlayer, bool bSt
 		}
 		// easy artists
 		if (!bEasyCulture) {
-			for (int iJ = 0; iJ < GC.getNumSpecialistInfos(); iJ++) {
-				if (kPlayer.isSpecialistValid((SpecialistTypes)iJ) && kPlayer.specialistCommerce((SpecialistTypes)iJ, COMMERCE_CULTURE) > 0) {
+			for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
+				if (kPlayer.isSpecialistValid(eSpecialist) && kPlayer.specialistCommerce(eSpecialist, COMMERCE_CULTURE) > 0) {
 					bEasyCulture = true;
 					break;
 				}
@@ -10922,7 +10921,7 @@ int CvPlayerAI::AI_espionageVal(PlayerTypes eTargetPlayer, EspionageMissionTypes
 				if (GC.getEspionageMissionInfo(eMission).getBuyUnitCostFactor() > 0) {
 					// K-Mod. AI_unitValue is a relative rating value. It shouldn't be used for this.
 					// (The espionage mission is not enabled anyway, so I'm not going to put a lot of effort into it.)
-					iValue += GC.getUnitInfo(eUnit).getProductionCost() * canTrain(eUnit) ? 4 : 8;
+					iValue += GC.getUnitInfo(eUnit).getProductionCost() * (canTrain(eUnit) ? 4 : 8);
 					//
 				}
 			}
@@ -17284,7 +17283,6 @@ int CvPlayerAI::AI_getMinFoundValue() const {
 }
 
 void CvPlayerAI::AI_updateCitySites(int iMinFoundValueThreshold, int iMaxSites) {
-	std::vector<int>::iterator it;
 	int iValue;
 	int iI;
 
@@ -17348,7 +17346,7 @@ int CvPlayerAI::AI_getNumCitySites() const {
 bool CvPlayerAI::AI_isPlotCitySite(CvPlot* pPlot) const {
 	int iPlotIndex = GC.getMapINLINE().plotNumINLINE(pPlot->getX_INLINE(), pPlot->getY_INLINE());
 
-	for (std::vector<int>::const_iterator it = m_aiAICitySites.begin(); it != m_aiAICitySites.end(); it++) {
+	for (std::vector<int>::const_iterator it = m_aiAICitySites.begin(); it != m_aiAICitySites.end(); ++it) {
 		if ((*it) == iPlotIndex) {
 			return true;
 		}
@@ -17360,7 +17358,7 @@ int CvPlayerAI::AI_getNumAreaCitySites(int iAreaID, int& iBestValue) const {
 	int iCount = 0;
 	iBestValue = 0;
 
-	for (std::vector<int>::const_iterator it = m_aiAICitySites.begin(); it != m_aiAICitySites.end(); it++) {
+	for (std::vector<int>::const_iterator it = m_aiAICitySites.begin(); it != m_aiAICitySites.end(); ++it) {
 		CvPlot* pCitySitePlot = GC.getMapINLINE().plotByIndex((*it));
 		if (pCitySitePlot->getArea() == iAreaID) {
 			iCount++;
@@ -17374,7 +17372,7 @@ int CvPlayerAI::AI_getNumAdjacentAreaCitySites(int iWaterAreaID, int iExcludeAre
 	int iCount = 0;
 	iBestValue = 0;
 
-	for (std::vector<int>::const_iterator it = m_aiAICitySites.begin(); it != m_aiAICitySites.end(); it++) {
+	for (std::vector<int>::const_iterator it = m_aiAICitySites.begin(); it != m_aiAICitySites.end(); ++it) {
 		CvPlot* pCitySitePlot = GC.getMapINLINE().plotByIndex((*it));
 		if (pCitySitePlot->getArea() != iExcludeArea) {
 			if (pCitySitePlot->isAdjacentToArea(iWaterAreaID)) {
@@ -17390,7 +17388,7 @@ int CvPlayerAI::AI_getNumAdjacentAreaCitySites(int iWaterAreaID, int iExcludeAre
 int CvPlayerAI::AI_getNumPrimaryAreaCitySites(int iMinimumValue) const {
 	int iCount = 0;
 
-	for (std::vector<int>::const_iterator it = m_aiAICitySites.begin(); it != m_aiAICitySites.end(); it++) {
+	for (std::vector<int>::const_iterator it = m_aiAICitySites.begin(); it != m_aiAICitySites.end(); ++it) {
 		CvPlot* pCitySitePlot = GC.getMapINLINE().plotByIndex((*it));
 		if (AI_isPrimaryArea(pCitySitePlot->area()) && pCitySitePlot->getFoundValue(getID()) >= iMinimumValue) {
 			iCount++;

@@ -2935,6 +2935,8 @@ CvUnitInfo::CvUnitInfo() :
 	m_iExtraCost(0),
 	m_iAssetValue(0),
 	m_iPowerValue(0),
+	m_iLeaderExperience(0),
+	m_iLeaderPromotion(NO_PROMOTION),
 	m_iUnitClassType(NO_UNITCLASS),
 	m_iSpecialUnitType(NO_SPECIALUNIT),
 	m_iUnitCaptureClassType(NO_UNITCLASS),
@@ -15937,6 +15939,7 @@ CvArtInfoUnit::CvArtInfoUnit() :
 	m_fTrailTaper(0.0f),
 	m_fTrailFadeStartTime(0.0f),
 	m_fTrailFadeFalloff(0.0f),
+	m_fBattleDistance(0.0f),
 	m_fRangedDeathTime(0.0f),
 	m_fExchangeAngle(0.0f),
 	m_bSmoothMove(false),
@@ -17050,6 +17053,8 @@ CvLandscapeInfo::CvLandscapeInfo() :
 	m_fTextureScaleX(0.0f),
 	m_fTextureScaleY(0.0f),
 	m_fZScale(0.0f),
+	m_fPeakScale(0.0f),
+	m_fHillScale(0.0f),
 	m_bUseTerrainShader(false),
 	m_bUseLightmap(false),
 	m_bRandomMap(false) {
@@ -19860,7 +19865,38 @@ bool CvEventInfo::read(CvXMLLoadUtility* pXML) {
 //  PURPOSE :   Default constructor
 //
 //------------------------------------------------------------------------------------------------------
-CvEspionageMissionInfo::CvEspionageMissionInfo() {
+CvEspionageMissionInfo::CvEspionageMissionInfo() :
+	m_iCost(0),
+	m_bIsPassive(false),
+	m_bIsTwoPhases(false),
+	m_bTargetsCity(false),
+	m_bSelectPlot(false),
+	m_iTechPrereq(NO_TECH),
+	m_iVisibilityLevel(0),
+	m_bInvestigateCity(false),
+	m_bSeeDemographics(false),
+	m_bNoActiveMissions(false),
+	m_bSeeResearch(false),
+	m_bDestroyImprovement(false),
+	m_iDestroyBuildingCostFactor(0),
+	m_iDestroyUnitCostFactor(0),
+	m_iDestroyProjectCostFactor(0),
+	m_iDestroyProductionCostFactor(0),
+	m_iBuyUnitCostFactor(0),
+	m_iBuyCityCostFactor(0),
+	m_iStealTreasuryTypes(0),
+	m_iCityInsertCultureAmountFactor(0),
+	m_iCityInsertCultureCostFactor(0),
+	m_iCityPoisonWaterCounter(0),
+	m_iCityUnhappinessCounter(0),
+	m_iCityRevoltCounter(0),
+	m_iBuyTechCostFactor(0),
+	m_iSwitchCivicCostFactor(0),
+	m_iSwitchReligionCostFactor(0),
+	m_iPlayerAnarchyCounter(0),
+	m_iCounterespionageNumTurns(0),
+	m_iCounterespionageMod(0),
+	m_iDifficultyMod(0) {
 }
 
 //------------------------------------------------------------------------------------------------------

@@ -5601,7 +5601,7 @@ void CvGameTextMgr::parseFreeSpecialistHelp(CvWStringBuffer& szHelpString, const
 			szHelpString.append(szCommerceString);
 
 			if (GC.getSpecialistInfo(eSpecialist).getExperience() > 0) {
-				if (!szYield.isEmpty() || !szYield.isEmpty()) {
+				if (!szYield.isEmpty() || !szCommerceString.isEmpty()) {
 					szHelpString.append(L", ");
 				}
 				szHelpString.append(gDLL->getText("TXT_KEY_SPECIALIST_EXPERIENCE_SHORT", iNumSpecialists * GC.getSpecialistInfo(eSpecialist).getExperience()));
@@ -8144,7 +8144,7 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit, bool
 			if (!bCivilopediaText) {
 				szBuffer.append(L" (");
 			} else {
-				szTempBuffer.Format(L"%s%c", NEWLINE, gDLL->getSymbolID(BULLET_CHAR), szTempBuffer);
+				szTempBuffer.Format(L"%s%c", NEWLINE, gDLL->getSymbolID(BULLET_CHAR), szTempBuffer.GetCString());
 				szBuffer.append(szTempBuffer);
 			}
 			if (kUnit.getBonusProductionModifier(eBonus) == 100) {
@@ -9234,7 +9234,7 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 				if (!bCivilopediaText) {
 					szBuffer.append(L" (");
 				} else {
-					szTempBuffer.Format(L"\n%c", gDLL->getSymbolID(BULLET_CHAR), szTempBuffer);
+					szTempBuffer.Format(L"\n%c", gDLL->getSymbolID(BULLET_CHAR), szTempBuffer.GetCString());
 					szBuffer.append(szTempBuffer);
 				}
 				if (iModifier == 100) {
@@ -10055,7 +10055,7 @@ void CvGameTextMgr::setProjectHelp(CvWStringBuffer& szBuffer, ProjectTypes eProj
 			if (!bCivilopediaText) {
 				szBuffer.append(L" (");
 			} else {
-				szTempBuffer.Format(L"%s%c", NEWLINE, gDLL->getSymbolID(BULLET_CHAR), szTempBuffer);
+				szTempBuffer.Format(L"%s%c", NEWLINE, gDLL->getSymbolID(BULLET_CHAR), szTempBuffer.GetCString());
 				szBuffer.append(szTempBuffer);
 			}
 			if (kProject.getBonusProductionModifier(iI) == 100) {
@@ -13245,7 +13245,7 @@ void CvGameTextMgr::getOtherRelationsString(CvWStringBuffer& szString, PlayerTyp
 	if (!szWorstEnemyString.isEmpty()) {
 		CvWString szTempBuffer;
 
-		szTempBuffer.assign(gDLL->getText(L"TXT_KEY_WORST_ENEMY_OF", szWorstEnemyString));
+		szTempBuffer.assign(gDLL->getText(L"TXT_KEY_WORST_ENEMY_OF", szWorstEnemyString.getCString()));
 
 		szString.append(NEWLINE);
 		szString.append(szTempBuffer);
@@ -13253,7 +13253,7 @@ void CvGameTextMgr::getOtherRelationsString(CvWStringBuffer& szString, PlayerTyp
 	if (!szWarWithString.isEmpty()) {
 		CvWString szTempBuffer;
 
-		szTempBuffer.assign(gDLL->getText(L"TXT_KEY_AT_WAR_WITH", szWarWithString));
+		szTempBuffer.assign(gDLL->getText(L"TXT_KEY_AT_WAR_WITH", szWarWithString.getCString()));
 
 		szString.append(NEWLINE);
 		szString.append(szTempBuffer);
@@ -14888,7 +14888,7 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 
 	if (kMission.getStealTreasuryTypes() > 0) {
 		if (NO_PLAYER != eTargetPlayer) {
-			int iNumTotalGold;
+			int iNumTotalGold = 0;
 
 			if (NULL != pPlot) {
 				CvCity* pCity = pPlot->getPlotCity();

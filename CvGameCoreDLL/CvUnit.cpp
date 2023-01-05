@@ -5966,22 +5966,22 @@ CvCity* CvUnit::getUpgradeCity(bool bSearch) const {
 // NULL result means the upgrade is not possible
 CvCity* CvUnit::getUpgradeCity(UnitTypes eUnit, bool bSearch, int* iSearchValue) const {
 	if (eUnit == NO_UNIT) {
-		return false;
+		return NULL;
 	}
 
 	CvPlayerAI& kPlayer = GET_PLAYER(getOwnerINLINE());
 	CvUnitInfo& kUnitInfo = GC.getUnitInfo(eUnit);
 
 	if (GC.getCivilizationInfo(kPlayer.getCivilizationType()).getCivilizationUnits(kUnitInfo.getUnitClassType()) != eUnit) {
-		return false;
+		return NULL;
 	}
 
 	if (!upgradeAvailable(getUnitType(), ((UnitClassTypes)(kUnitInfo.getUnitClassType())))) {
-		return false;
+		return NULL;
 	}
 
 	if (kUnitInfo.getCargoSpace() < getCargo()) {
-		return false;
+		return NULL;
 	}
 
 	if (getCargo() > 0) // K-Mod. (no point looping through everything if there is no cargo anyway.)
@@ -5994,13 +5994,13 @@ CvCity* CvUnit::getUpgradeCity(UnitTypes eUnit, bool bSearch, int* iSearchValue)
 			if (pLoopUnit->getTransportUnit() == this) {
 				if (kUnitInfo.getSpecialCargo() != NO_SPECIALUNIT) {
 					if (kUnitInfo.getSpecialCargo() != pLoopUnit->getSpecialUnitType()) {
-						return false;
+						return NULL;
 					}
 				}
 
 				if (kUnitInfo.getDomainCargo() != NO_DOMAIN) {
 					if (kUnitInfo.getDomainCargo() != pLoopUnit->getDomainType()) {
-						return false;
+						return NULL;
 					}
 				}
 			}
