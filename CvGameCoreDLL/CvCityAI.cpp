@@ -4739,6 +4739,11 @@ int CvCityAI::AI_clearFeatureValue(int iIndex) {
 	}
 	iValue += iHealthValue;
 
+	// We don't want defensive features adjacent to our city
+	if (iIndex <= 8) {
+		iValue -= kFeatureInfo.getDefenseModifier() / 2;
+	}
+
 	if (GC.getGame().getGwEventTally() >= 0) // if GW Threshold has been reached
 	{
 		iValue += kFeatureInfo.getWarmingDefense() * (150 + 5 * GET_PLAYER(getOwner()).getGwPercentAnger()) / 100;
@@ -5468,22 +5473,33 @@ void CvCityAI::AI_updateBestBuild() {
 		int aiValues[NUM_CITY_PLOTS];
 		int iGrowthValue = AI_growthValuePerFood(); // K-Mod
 
-		for (int iI = 0; iI < getNumCityPlots(); iI++) {
-			if (iI != CITY_HOME_PLOT) {
-				CvPlot* pLoopPlot = plotCity(getX_INLINE(), getY_INLINE(), iI);
+		for (int iLoopPLot = 0; iLoopPLot < getNumCityPlots(); iLoopPLot++) {
+			if (iLoopPLot != CITY_HOME_PLOT) {
+				CvPlot* pLoopPlot = plotCity(getX_INLINE(), getY_INLINE(), iLoopPLot);
 
 				if (NULL != pLoopPlot && pLoopPlot->getWorkingCity() == this) {
-					if (m_aeBestBuild[iI] != NO_BUILD) {
-						for (int iJ = 0; iJ < NUM_YIELD_TYPES; iJ++) {
-							aiYields[iJ] = pLoopPlot->getYieldWithBuild(m_aeBestBuild[iI], (YieldTypes)iJ, true);
+					if (m_aeBestBuild[iLoopPLot] != NO_BUILD) {
+						for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+							aiYields[eYield] = pLoopPlot->getYieldWithBuild(m_aeBestBuild[iLoopPLot], eYield, true);
 						}
 
 						int iValue = AI_yieldValue(aiYields, 0, false, false, true, true, iGrowthValue);
-						aiValues[iI] = iValue;
+						aiValues[iLoopPLot] = iValue;
+
+						// Also evaluate the _change_ in yield, so that we aren't always tinkering with our best plots.
+						for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+							aiYields[eYield] -= pLoopPlot->getYield(eYield);
+						}
+						iValue += AI_yieldValue(aiYields, 0, false, false, true, true, iGrowthValue);
+
 						// priority increase for chopping when we want to chop
-						if (bChop && pLoopPlot->getFeatureType() != NO_FEATURE && GC.getBuildInfo(m_aeBestBuild[iI]).isFeatureRemove(pLoopPlot->getFeatureType())) {
+						if (bChop && pLoopPlot->getFeatureType() != NO_FEATURE && GC.getBuildInfo(m_aeBestBuild[iLoopPLot]).isFeatureRemove(pLoopPlot->getFeatureType())) {
 							CvCity* pCity;
-							iValue += pLoopPlot->getFeatureProduction(m_aeBestBuild[iI], getTeam(), &pCity) * 2;
+							int iChopProduction = pLoopPlot->getFeatureProduction(m_aeBestBuild[iLoopPLot], getTeam(), &pCity);
+							if (iChopProduction > 0) {
+								iValue += (iLoopPLot <= 8 && GC.getFeatureInfo(pLoopPlot->getFeatureType()).getDefenseModifier() > 0) ? 20 : 10;
+								iValue += iChopProduction * 2;
+							}
 							// note: the scale of iValue here is roughly 4x commerce per turn. So a boost of 40 would be signficant.
 							FAssert(pCity == this);
 						}
@@ -5499,17 +5515,17 @@ void CvCityAI::AI_updateBestBuild() {
 
 						iValue = std::max(0, iValue);
 
-						m_aiBestBuildValue[iI] *= iValue + 100;
-						m_aiBestBuildValue[iI] /= 100;
+						m_aiBestBuildValue[iLoopPLot] *= iValue + 100;
+						m_aiBestBuildValue[iLoopPLot] /= 100;
 
 						if (iValue > iBestPlotValue) {
-							iBestPlot = iI;
+							iBestPlot = iLoopPLot;
 							iBestPlotValue = iValue;
 						}
 					}
 					if (!pLoopPlot->isBeingWorked()) {
-						for (int iJ = 0; iJ < NUM_YIELD_TYPES; iJ++) {
-							aiYields[iJ] = pLoopPlot->getYield((YieldTypes)iJ);
+						for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+							aiYields[eYield] = pLoopPlot->getYield(eYield);
 						}
 
 						int iValue = AI_yieldValue(aiYields, 0, false, false, true, true, iGrowthValue);
@@ -5527,27 +5543,27 @@ void CvCityAI::AI_updateBestBuild() {
 		// K-Mod. I've rearranged the following code. But kept most of the original functionality.
 		if (iBestUnworkedPlotValue > 0) {
 			PROFILE("AI_updateBestBuild pruning phase");
-			for (int iI = 1; iI < getNumCityPlots(); iI++) // skip the city plot
+			for (int iLoopPLot = 1; iLoopPLot < getNumCityPlots(); iLoopPLot++) // skip the city plot
 			{
-				CvPlot* pLoopPlot = plotCity(getX_INLINE(), getY_INLINE(), iI);
+				CvPlot* pLoopPlot = plotCity(getX_INLINE(), getY_INLINE(), iLoopPLot);
 
 				if (NULL != pLoopPlot && pLoopPlot->getWorkingCity() == this) {
 					// K-Mod. If the new improvement will upgrade over time, then don't mark it as being low-priority. We want to build it sooner rather than later.
-					if (m_aeBestBuild[iI] != NO_BUILD && GC.getBuildInfo(m_aeBestBuild[iI]).getImprovement() != NO_IMPROVEMENT &&
-						GC.getImprovementInfo((ImprovementTypes)GC.getBuildInfo(m_aeBestBuild[iI]).getImprovement()).getImprovementUpgrade() == NO_IMPROVEMENT) {
+					if (m_aeBestBuild[iLoopPLot] != NO_BUILD && GC.getBuildInfo(m_aeBestBuild[iLoopPLot]).getImprovement() != NO_IMPROVEMENT &&
+						GC.getImprovementInfo((ImprovementTypes)GC.getBuildInfo(m_aeBestBuild[iLoopPLot]).getImprovement()).getImprovementUpgrade() == NO_IMPROVEMENT) {
 						if (pLoopPlot->getImprovementType() == NO_IMPROVEMENT) {
-							if (!pLoopPlot->isBeingWorked() && aiValues[iI] <= iBestUnworkedPlotValue && aiValues[iI] < 400) // was 500. (reduced due to some rescaling)
+							if (!pLoopPlot->isBeingWorked() && aiValues[iLoopPLot] <= iBestUnworkedPlotValue && aiValues[iLoopPLot] < 400) // was 500. (reduced due to some rescaling)
 							{
-								m_aiBestBuildValue[iI] = 1;
+								m_aiBestBuildValue[iLoopPLot] = 1;
 							}
 						} else {
-							for (int iJ = 0; iJ < NUM_YIELD_TYPES; iJ++) {
-								aiYields[iJ] = pLoopPlot->getYield((YieldTypes)iJ);
+							for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+								aiYields[eYield] = pLoopPlot->getYield(eYield);
 							}
 
 							int iValue = AI_yieldValue(aiYields, 0, false, false, true, true, iGrowthValue);
-							if (iValue > aiValues[iI]) {
-								m_aiBestBuildValue[iI] = 1;
+							if (iValue > aiValues[iLoopPLot]) {
+								m_aiBestBuildValue[iLoopPLot] = 1;
 							}
 						}
 					}
