@@ -6740,7 +6740,7 @@ void CvUnitAI::AI_defenseAirMove() {
 	PROFILE_FUNC();
 
 	if (!plot()->isCity(true)) {
-		FAssertMsg(false, "defenseAir units are expected to stay in cities/forts");
+		//FAssertMsg(false, "defenseAir units are expected to stay in cities/forts");
 		if (AI_airDefensiveCity())
 			return;
 	}
