@@ -10686,7 +10686,7 @@ void CvCity::doReligion() {
 							iDivisor /= 100;
 
 							// now iDivisor is in the range [1, 1+iDistanceFactor] * iDivisorBase
-							// this is approximately in the range [4, 60], depending on what the xml value are. (the value currently being tested and tuned.)
+							// this is approximately in the range [5, 50], depending on what the xml value are. (the value currently being tested and tuned.)
 							iSpread /= iDivisor;
 
 							iRandThreshold = std::max(iRandThreshold, iSpread);
