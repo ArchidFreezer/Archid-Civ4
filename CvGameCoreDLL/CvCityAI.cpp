@@ -2910,6 +2910,8 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 
 				int iTempValue = (iExistingUpkeep - iNewUpkeep) / 22; // slightly more then 4x savings, just to acomodate growth.
 
+				iTempValue = iTempValue * (100 + kOwner.getInflationRate()) / 100; // We want absolute savings, including inflation.
+
 				if (bFinancialTrouble)
 					iTempValue = iTempValue * 2;
 
@@ -7756,6 +7758,8 @@ int CvCityAI::AI_cityValue() const {
 	iValue += getCommerceRateTimes100(COMMERCE_GOLD);
 
 	int iCosts = calculateColonyMaintenanceTimes100() + 2 * getMaintenanceTimes100() / 3;
+	iCosts = iCosts * (100 + kOwner.getInflationRate()) / 100;
+
 	// slightly encourage empire split when aiming for a diplomatic victory
 	if (kOwner.AI_isDoVictoryStrategy(AI_VICTORY_DIPLOMACY3) && kOwner.getCommercePercent(COMMERCE_GOLD) > 0) {
 		iCosts = iCosts * 4 / 3;
