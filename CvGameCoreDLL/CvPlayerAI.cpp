@@ -4373,7 +4373,6 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bIgnoreCost,
 			int iTurnsLeft = getResearchTurnsLeftTimes100((eTech), false);
 			bool bCheapBooster = ((iTurnsLeft < (2 * iAdjustment)) && (0 == ((bAsync) ? GC.getASyncRand().get(5, "AI Choose Cheap Tech") : GC.getGameINLINE().getSorenRandNum(5, "AI Choose Cheap Tech"))));
 
-
 			iValue *= 2000; // K-Mod
 
 			iValue /= (iTurnsLeft + (bCheapBooster ? 1 : (5 * iAdjustment)));
