@@ -9601,9 +9601,7 @@ int CvPlayerAI::AI_localDefenceStrength(const CvPlot* pDefencePlot, TeamTypes eD
 int CvPlayerAI::AI_localAttackStrength(const CvPlot* pTargetPlot, TeamTypes eAttackTeam, DomainTypes eDomainType, int iRange, bool bUseTarget, bool bCheckMoves, bool bCheckCanAttack) const {
 	PROFILE_FUNC();
 
-	int iBaseCollateral = bUseTarget
-		? estimateCollateralWeight(pTargetPlot, pTargetPlot->getTeam() == getTeam() ? NO_TEAM : pTargetPlot->getTeam())
-		: estimateCollateralWeight(0, NO_TEAM);
+	int iBaseCollateral = bUseTarget ? estimateCollateralWeight(pTargetPlot, getTeam()) : estimateCollateralWeight(0, getTeam());
 
 	int	iTotal = 0;
 
