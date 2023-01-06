@@ -102,6 +102,8 @@ public:
 	CvUnit* getShadowUnit() const;
 	void clearShadowUnit();
 
+	void awardSpyExperience(TeamTypes eTargetTeam, int iModifier);
+
 	int getEnslaveCountExtra() const;
 	int getMaxSlaves() const;
 	int getSlaveControlCount() const;

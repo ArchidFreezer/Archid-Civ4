@@ -2027,20 +2027,29 @@ bool CvCity::canContinueProduction(OrderData order) {
 
 
 int CvCity::getProductionExperience(UnitTypes eUnit) const {
-	int iExperience = getFreeExperience();
-	iExperience += GET_PLAYER(getOwnerINLINE()).getFreeExperience();
-	iExperience += getSpecialistFreeExperience(); // K-Mod (moved from below)
+	const CvPlayer& kPlayer = GET_PLAYER(getOwnerINLINE());
 
-	if (eUnit != NO_UNIT) {
-		if (GC.getUnitInfo(eUnit).getUnitCombatType() != NO_UNITCOMBAT) {
-			iExperience += getUnitCombatFreeExperience((UnitCombatTypes)(GC.getUnitInfo(eUnit).getUnitCombatType()));
+	int iExperience = getFreeExperience();
+	iExperience += kPlayer.getFreeExperience();
+	iExperience += getSpecialistFreeExperience();
+
+	if (kPlayer.getStateReligion() != NO_RELIGION) {
+		if (isHasReligion(kPlayer.getStateReligion())) {
+			iExperience += kPlayer.getStateReligionFreeExperience();
 		}
-		iExperience += getDomainFreeExperience((DomainTypes)(GC.getUnitInfo(eUnit).getDomainType()));
 	}
 
-	if (GET_PLAYER(getOwnerINLINE()).getStateReligion() != NO_RELIGION) {
-		if (isHasReligion(GET_PLAYER(getOwnerINLINE()).getStateReligion())) {
-			iExperience += GET_PLAYER(getOwnerINLINE()).getStateReligionFreeExperience();
+	if (eUnit != NO_UNIT) {
+		const CvUnitInfo& kUnit = GC.getUnitInfo(eUnit);
+		iExperience += getDomainFreeExperience((DomainTypes)kUnit.getDomainType());
+
+		// Spies are treated differently and don't get many bonuses
+		// We reset them here so they only get the experience below this
+		if (kUnit.isSpy())
+			iExperience = 0;
+
+		if (kUnit.getUnitCombatType() != NO_UNITCOMBAT) {
+			iExperience += getUnitCombatFreeExperience((UnitCombatTypes)kUnit.getUnitCombatType());
 		}
 	}
 

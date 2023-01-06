@@ -5370,6 +5370,8 @@ bool CvUnit::espionage(EspionageMissionTypes eMission, int iData) {
 					CvWString szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_SPY_SUCCESS", getNameKey(), pCapital->getNameKey());
 					gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_POSITIVE_DINK", MESSAGE_TYPE_INFO, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), pCapital->getX_INLINE(), pCapital->getY_INLINE(), true, true);
 				}
+
+				awardSpyExperience(GET_PLAYER(eTargetPlayer).getTeam(), GC.getEspionageMissionInfo(eMission).getDifficultyMod());
 			}
 			if (getTeam() == GC.getGameINLINE().getActiveTeam())
 				gDLL->getInterfaceIFace()->setDirty(CityInfo_DIRTY_BIT, true);
@@ -5427,6 +5429,13 @@ bool CvUnit::testSpyIntercepted(PlayerTypes eTargetPlayer, bool bMission, int iM
 
 	if (plot()->isActiveVisible(false)) {
 		NotifyEntity(MISSION_SURRENDER);
+	}
+
+	// Give xp to spy who catches spy
+	CvUnit* pCounterUnit = plot()->plotCheck(PUF_isCounterSpy, -1, -1, NO_PLAYER, kTargetPlayer.getTeam());
+	if (NULL != pCounterUnit) {
+		pCounterUnit->changeExperience(1);
+		pCounterUnit->testPromotionReady();
 	}
 
 	kill(true);
@@ -12003,4 +12012,22 @@ bool CvUnit::setShadowUnit(CvPlot* pPlot, int iFlags) {
 	}
 
 	return false;
+}
+
+void CvUnit::awardSpyExperience(TeamTypes eTargetTeam, int iModifier) {
+	int iDifficulty = (getSpyInterceptPercent(eTargetTeam, false) * (100 + iModifier)) / 100;
+	if (iDifficulty < 1)
+		changeExperience(1);
+	else if (iDifficulty < 10)
+		changeExperience(2);
+	else if (iDifficulty < 25)
+		changeExperience(3);
+	else if (iDifficulty < 50)
+		changeExperience(4);
+	else if (iDifficulty < 75)
+		changeExperience(5);
+	else if (iDifficulty >= 75)
+		changeExperience(6);
+
+	testPromotionReady();
 }
