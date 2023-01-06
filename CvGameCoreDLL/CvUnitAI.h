@@ -109,6 +109,7 @@ protected:
 	void AI_cityAutomated();
 	void AI_slaveMove();
 	void AI_slaverMove();
+	void AI_shadowMove();
 
 	int AI_promotionValue(PromotionTypes ePromotion);
 
@@ -233,7 +234,8 @@ protected:
 	bool AI_huntRange(int iRange, int iOddsThreshold, bool bStayInBorders = false, int iMinValue = 0);
 	bool AI_sellSlaves(bool bForce = false);
 	bool AI_toggleWorldView(WorldViewTypes eWorldView);
-
+	bool AI_moveToTarget(CvUnit* pTarget, bool bForce);
+	bool AI_protectTarget(CvUnit* pTarget);
 
 	bool AI_defendPlot(CvPlot* pPlot);
 	int AI_pillageValue(CvPlot* pPlot, int iBonusValueThreshold = 0);

@@ -185,6 +185,11 @@ bool CvUnitAI::AI_update() {
 			}
 			break;
 
+		case AUTOMATE_SHADOW:
+			FAssertMsg(getShadowUnit() != NULL, "Shadowing Requires a unit to Shadow!");
+			AI_shadowMove();
+			break;
+
 		default:
 			FAssert(false);
 			break;
@@ -17546,4 +17551,126 @@ bool CvUnitAI::AI_toggleWorldView(WorldViewTypes eWorldView) {
 	CvPlayer& kPlayer = GET_PLAYER(getOwnerINLINE());
 	kPlayer.changeWorldViewActivatedStatus(eWorldView, !kPlayer.isWorldViewActivated(eWorldView));
 	return true;
+}
+
+void CvUnitAI::AI_shadowMove() {
+	PROFILE_FUNC();
+
+	CvUnit* pTarget = getShadowUnit();
+	FAssertMsg(pTarget != NULL, "Should be Shadowing a Unit!");
+
+	if (AI_protectTarget(pTarget)) {
+		return;
+	}
+
+	if (AI_moveToTarget(pTarget, true)) {
+		return;
+	}
+
+	getGroup()->pushMission(MISSION_SKIP);
+	return;
+}
+
+bool CvUnitAI::AI_moveToTarget(CvUnit* pTarget, bool bForce) {
+	PROFILE_FUNC();
+
+	if (atPlot(pTarget->plot()))
+		return false;
+
+	int iDX, iDY;
+	int iSearchRange = baseMoves();
+	if (!bForce) {
+		for (iDX = -(iSearchRange); iDX <= iSearchRange; iDX++) {
+			for (iDY = -(iSearchRange); iDY <= iSearchRange; iDY++) {
+				CvPlot* pLoopPlot = plotXY(getX_INLINE(), getY_INLINE(), iDX, iDY);
+
+				if (pLoopPlot == pTarget->plot()) {
+					return false;
+				}
+			}
+		}
+	}
+
+	int iPathTurns;
+	if (generatePath(pTarget->plot(), 0, true, &iPathTurns)) {
+		getGroup()->pushMission(MISSION_MOVE_TO, getPathEndTurnPlot()->getX_INLINE(), getPathEndTurnPlot()->getY_INLINE());
+		return true;
+	}
+
+	return false;
+}
+
+bool CvUnitAI::AI_protectTarget(CvUnit* pTarget) {
+	PROFILE_FUNC();
+
+	CvPlot* pBestPlot = NULL;
+
+	int iDanger = GET_PLAYER(getOwnerINLINE()).AI_getPlotDanger(pTarget->plot(), 1, false);
+	//No Danger
+	if (iDanger == 0) {
+		return false;
+	}
+
+	//Lots of Danger, Move Ontop of Target to protect it
+	else if (iDanger > getGroup()->getNumUnits()) {
+		int iPathTurns;
+		if (generatePath(pTarget->plot(), 0, true, &iPathTurns)) {
+			getGroup()->pushMission(MISSION_MOVE_TO, getPathEndTurnPlot()->getX_INLINE(), getPathEndTurnPlot()->getY_INLINE());
+			return true;
+		}
+	}
+
+	//Only minimal enemy targets, move to kill them if possible
+	else {
+		int iBestValue = 0;
+		int iSearchRange = baseMoves();;
+		for (int iDX = -(iSearchRange); iDX <= iSearchRange; iDX++) {
+			for (int iDY = -(iSearchRange); iDY <= iSearchRange; iDY++) {
+				CvPlot* pLoopPlot = plotXY(getX_INLINE(), getY_INLINE(), iDX, iDY);
+
+				if (pLoopPlot != NULL) {
+					if (AI_plotValid(pLoopPlot)) {
+						{
+							if (pLoopPlot->isVisibleEnemyUnit(this)) {
+								int iPathTurns;
+								if (!atPlot(pLoopPlot) && canMoveInto(pLoopPlot, true) && generatePath(pLoopPlot, 0, true, &iPathTurns) && (iPathTurns <= iSearchRange)) {
+									if (pLoopPlot->getNumVisibleEnemyDefenders(this) <= getGroup()->getNumUnits()) {
+										if (pLoopPlot->getNumVisibleAdjacentEnemyDefenders(this) <= ((getGroup()->getNumUnits() * 3) / 2)) {
+											int iValue = getGroup()->AI_attackOdds(pLoopPlot, true);
+
+											if (iValue >= AI_getWeightedOdds(pLoopPlot, true)) {
+												if (iValue > iBestValue) {
+													iBestValue = iValue;
+													pBestPlot = getPathEndTurnPlot();
+													FAssert(!atPlot(pBestPlot));
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	//Not possible to kill enemies, retreat to target
+	if (pBestPlot == NULL) {
+		int iPathTurns;
+		if (atPlot(pTarget->plot())) {
+			getGroup()->pushMission(MISSION_SKIP);
+			return true;
+		} else if (generatePath(pTarget->plot(), 0, true, &iPathTurns)) {
+			getGroup()->pushMission(MISSION_MOVE_TO, getPathEndTurnPlot()->getX_INLINE(), getPathEndTurnPlot()->getY_INLINE());
+			return true;
+		}
+	} else {
+		FAssert(!atPlot(pBestPlot));
+		getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), MOVE_DIRECT_ATTACK, false, false);
+		return true;
+	}
+
+	return false;
 }

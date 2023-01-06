@@ -343,6 +343,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_combatUnit.reset();
 	m_transportUnit.reset();
 	m_homeCity.reset();
+	m_shadowUnit.reset();
 
 	for (DomainTypes eDomain = (DomainTypes)0; eDomain < NUM_DOMAIN_TYPES; eDomain = (DomainTypes)(eDomain + 1)) {
 		m_aiExtraDomainModifier[eDomain] = 0;
@@ -2591,6 +2592,12 @@ bool CvUnit::canAutomate(AutomateTypes eAutomate) const {
 
 	case AUTOMATE_RELIGION:
 		if (AI_getUnitAIType() != UNITAI_MISSIONARY) {
+			return false;
+		}
+		break;
+
+	case AUTOMATE_SHADOW:
+		if (!canShadow()) {
 			return false;
 		}
 		break;
@@ -6317,6 +6324,7 @@ BuildTypes CvUnit::getBuildType() const {
 		case MISSION_DIE_ANIMATION:
 		case MISSION_UPDATE_WORLD_VIEWS:
 		case MISSION_SELL_SLAVE:
+		case MISSION_SHADOW:
 			break;
 
 		case MISSION_BUILD:
@@ -9734,6 +9742,8 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_transportUnit.iID);
 	pStream->Read((int*)&m_homeCity.eOwner);
 	pStream->Read(&m_homeCity.iID);
+	pStream->Read((int*)&m_shadowUnit.eOwner);
+	pStream->Read(&m_shadowUnit.iID);
 
 	pStream->Read(NUM_DOMAIN_TYPES, m_aiExtraDomainModifier);
 
@@ -9846,6 +9856,8 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_transportUnit.iID);
 	pStream->Write(m_homeCity.eOwner);
 	pStream->Write(m_homeCity.iID);
+	pStream->Write(m_shadowUnit.eOwner);
+	pStream->Write(m_shadowUnit.iID);
 
 	pStream->Write(NUM_DOMAIN_TYPES, m_aiExtraDomainModifier);
 
@@ -11886,4 +11898,105 @@ bool CvUnit::canWorkCity(const CvPlot* pPlot) const {
 	}
 
 	return true;
+}
+
+bool CvUnit::canShadow() const {
+	if (!canFight())
+		return false;
+
+	if (!isEnabled())
+		return false;
+
+	// We need to cancel any existing shadow automation first
+	if (getShadowUnit() != NULL)
+		return false;
+
+	return true;
+}
+
+bool CvUnit::canShadowAt(CvPlot* pShadowPlot, CvUnit* pShadowUnit) const {
+	if (!canShadow())
+		return false;
+
+	if (pShadowPlot == NULL)
+		return false;
+
+	// If we don't have a unit yet iterate through the units on the plot to see if there is one we can shadow
+	if (pShadowUnit == NULL) {
+		CvUnit* pLoopShadow = NULL;
+		CLLNode<IDInfo>* pUnitShadowNode = pShadowPlot->headUnitNode();
+		while (pUnitShadowNode != NULL) {
+			pLoopShadow = ::getUnit(pUnitShadowNode->m_data);
+			pUnitShadowNode = pShadowPlot->nextUnitNode(pUnitShadowNode);
+			if (canShadowAt(pShadowPlot, pLoopShadow)) {
+				pShadowUnit = pLoopShadow;
+				break;
+			}
+		}
+	}
+
+	if (pShadowUnit == NULL)
+		return false;
+
+	if (pShadowUnit->getTeam() != getTeam())
+		return false;
+
+	// Allow shadowing workers even if they are faster, the shadow will catch up, slightly risky, but up to the player
+	if (pShadowUnit->baseMoves() > baseMoves() && GC.getUnitInfo(pShadowUnit->getUnitType()).getWorkRate() <= 0)
+		return false;
+
+	if (pShadowUnit == this)
+		return false;
+
+	int iPathTurns;
+	if (!generatePath(pShadowPlot, 0, true, &iPathTurns))
+		return false;
+
+	return true;
+}
+
+CvUnit* CvUnit::getShadowUnit() const {
+	return getUnit(m_shadowUnit);
+}
+
+void CvUnit::setShadowUnit(CvUnit* pUnit) {
+	if (pUnit != NULL)
+		m_shadowUnit = pUnit->getIDInfo();
+	else
+		m_shadowUnit.reset();
+}
+
+void CvUnit::clearShadowUnit() {
+	m_shadowUnit.reset();
+}
+
+bool CvUnit::setShadowUnit(CvPlot* pPlot, int iFlags) {
+	if (pPlot != NULL) {
+		//Check for multiple valid units
+		int iValidShadowUnits = 0;
+		CLLNode<IDInfo>* pUnitShadowNode = pPlot->headUnitNode();
+		while (pUnitShadowNode != NULL) {
+			CvUnit* pLoopShadow = ::getUnit(pUnitShadowNode->m_data);
+			pUnitShadowNode = pPlot->nextUnitNode(pUnitShadowNode);
+			if (canShadowAt(pPlot, pLoopShadow)) {
+				iValidShadowUnits++;
+			}
+		}
+		//Strange Handling to ensure MP works
+		if (iFlags == 0 && iValidShadowUnits > 1) {
+			CvPopupInfo* pInfo = new CvPopupInfo(BUTTONPOPUP_SELECT_UNIT, getID(), pPlot->getX(), pPlot->getY());
+			if (pInfo) {
+				gDLL->getInterfaceIFace()->addPopup(pInfo, getOwnerINLINE(), true);
+			}
+		} else if (iValidShadowUnits > 0) {
+			if (iValidShadowUnits == 1)
+				setShadowUnit(pPlot->getCenterUnit());
+			else
+				setShadowUnit(GET_PLAYER(getOwnerINLINE()).getUnit(iFlags));
+
+			return true;
+		}
+	}
+
+	return false;
 }

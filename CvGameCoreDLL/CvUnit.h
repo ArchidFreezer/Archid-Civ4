@@ -95,6 +95,13 @@ public:
 
 	bool canFortAttack() const;
 
+	bool canShadow() const;
+	bool canShadowAt(CvPlot* pShadowPlot, CvUnit* pShadowUnit = NULL) const;
+	void setShadowUnit(CvUnit* pUnit);
+	bool setShadowUnit(CvPlot* pShadowPlot, int iFlags = 0);
+	CvUnit* getShadowUnit() const;
+	void clearShadowUnit();
+
 	int getEnslaveCountExtra() const;
 	int getMaxSlaves() const;
 	int getSlaveControlCount() const;
@@ -927,6 +934,7 @@ protected:
 
 	IDInfo m_combatUnit;
 	IDInfo m_transportUnit;
+	IDInfo m_shadowUnit;
 
 	int* m_aiExtraDomainModifier;
 

@@ -15271,6 +15271,52 @@ void CvGameTextMgr::getPlotHelp(CvPlot* pMouseOverPlot, CvCity* pCity, CvPlot* p
 				getNukePlotHelp(pMouseOverPlot, szTempBuffer);
 				break;
 
+			case INTERFACEMODE_SHADOW_UNIT:
+				{
+					CvUnit* pHeadSelectedUnit = gDLL->getInterfaceIFace()->getHeadSelectedUnit();
+					if (NULL != pHeadSelectedUnit && pMouseOverPlot != NULL) {
+						CvUnit* pShadowUnit = pMouseOverPlot->getCenterUnit();
+						if (!pHeadSelectedUnit->getGroup()->canDoInterfaceModeAt(eInterfaceMode, pMouseOverPlot)) {
+							strHelp.clear();
+							if (pShadowUnit != NULL) {
+								CvUnit* pLoopShadow = NULL;
+								CLLNode<IDInfo>* pUnitShadowNode = NULL;
+								int iValidShadowUnits = 0;
+								pUnitShadowNode = pMouseOverPlot->headUnitNode();
+								while (pUnitShadowNode != NULL) {
+									pLoopShadow = ::getUnit(pUnitShadowNode->m_data);
+									pUnitShadowNode = pMouseOverPlot->nextUnitNode(pUnitShadowNode);
+									if (pHeadSelectedUnit->canShadowAt(pMouseOverPlot, pLoopShadow)) {
+										iValidShadowUnits++;
+									}
+								}
+								if (iValidShadowUnits == 0) {
+									bool bFirst = true;
+									if (pShadowUnit->baseMoves() > pHeadSelectedUnit->baseMoves()) {
+										if (!bFirst)
+											strHelp.append(L"\n");
+										strHelp.append(gDLL->getText("TXT_KEY_CAN_NOT_AUTOMATE_PROTECT_NOT_FAST_ENOUGH", pShadowUnit->getNameKey(), pHeadSelectedUnit->getNameKey(), pShadowUnit->baseMoves(), pShadowUnit->getNameKey()));
+										bFirst = false;
+									}
+									if (pShadowUnit->getTeam() != pHeadSelectedUnit->getTeam()) {
+										if (!bFirst)
+											strHelp.append(L"\n");
+										strHelp.append(gDLL->getText("TXT_KEY_CAN_NOT_AUTOMATE_PROTECT_DIFFERENT_TEAM", pShadowUnit->getNameKey()));
+										bFirst = false;
+									}
+									if (pShadowUnit == pHeadSelectedUnit) {
+										if (!bFirst)
+											strHelp.append(L"\n");
+										strHelp.append(gDLL->getText("TXT_KEY_CAN_NOT_AUTOMATE_PROTECT_YOURSELF"));
+										bFirst = false;
+									}
+								}
+							}
+						}
+					}
+				}
+				break;
+
 			default:
 				break;
 			}

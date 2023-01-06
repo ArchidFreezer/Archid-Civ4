@@ -8824,6 +8824,13 @@ void CvPlayer::setEndTurn(bool bNewValue) {
 		m_bEndTurn = bNewValue;
 
 		if (isEndTurn()) {
+			int iLoop;
+			for (CvSelectionGroup* pLoopSelectionGroup = firstSelectionGroup(&iLoop); pLoopSelectionGroup; pLoopSelectionGroup = nextSelectionGroup(&iLoop)) {
+				if (pLoopSelectionGroup->getAutomateType() == AUTOMATE_SHADOW) {
+					pLoopSelectionGroup->setForceUpdate(true);
+					pLoopSelectionGroup->AI_update();
+				}
+			}
 			setAutoMoves(true);
 		}
 	}

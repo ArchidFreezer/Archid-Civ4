@@ -928,5 +928,17 @@
 			<bVisible>1</bVisible>
 			<Button>Art/Interface/Buttons/Actions/sell_slave.dds</Button>
 		</MissionInfo>
+		<MissionInfo>
+			<Type>MISSION_SHADOW</Type>
+			<Description>TXT_KEY_ACTION_AUTOMATE_PROTECT</Description>
+			<Help>TXT_KEY_ACTION_AUTOMATE_PROTECT_HELP</Help>
+			<Waypoint>NONE</Waypoint>
+			<EntityEventType>ENTITY_EVENT_NUKE</EntityEventType>
+			<iTime>0</iTime>
+			<bTarget>0</bTarget>
+			<bBuild>0</bBuild>
+			<bSound>1</bSound>
+			<Button>Art/Interface/Buttons/Actions/autodefender.dds</Button>
+		</MissionInfo>
 	</MissionInfos>
 </Civ4MissionInfos>

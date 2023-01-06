@@ -933,6 +933,31 @@
 		<Tag>TXT_KEY_CITY_SLAVE_PROPERTY_REVOLT</Tag>
 		<English>Slaves destroyed the %s2Building during their revolt in %s1_CityName.</English>
 	</TEXT>
+<!-- Automations -->
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_PROTECT</Tag>
+		<English>Automate Protect</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_PROTECT_HELP</Tag>
+		<English>Allows selection of a unit to protect and escort.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CAN_NOT_AUTOMATE_PROTECT_NOT_FAST_ENOUGH</Tag>
+		<English>[COLOR_WARNING_TEXT]The %s1 is faster than your %s2. Only units with %d3 or more moves can protect a %s4.[COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CAN_NOT_AUTOMATE_PROTECT_DIFFERENT_TEAM</Tag>
+		<English>[COLOR_WARNING_TEXT]The %s1 is not in your team![COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CAN_NOT_AUTOMATE_PROTECT_YOURSELF</Tag>
+		<English>[COLOR_WARNING_TEXT]You can not protect yourself![COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CHOOSE_UNIT_TO_SHADOW</Tag>
+		<English>Select a unit to protect :</English>
+	</TEXT>
 
 <!-- Specialists -->
 	<TEXT> <!-- Slave: Artist -->
