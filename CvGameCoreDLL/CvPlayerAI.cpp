@@ -1637,7 +1637,7 @@ void CvPlayerAI::AI_updateCommerceWeights() {
 		if (isHuman()) {
 			int iTotalWeight = 0;
 			int iTeamCount = 0;
-			for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_CIV_TEAMS; (TeamTypes)(eTeam + 1)) {
+			for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_CIV_TEAMS; eTeam = (TeamTypes)(eTeam + 1)) {
 				if (GET_TEAM(getTeam()).isHasMet(eTeam) && GET_TEAM(eTeam).isAlive()) {
 					iTotalWeight += getEspionageSpendingWeightAgainstTeam(eTeam);
 					iTeamCount++;
