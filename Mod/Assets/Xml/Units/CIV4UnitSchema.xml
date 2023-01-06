@@ -834,6 +834,7 @@
 	</ElementType>
 	<ElementType name="bCanMovePeaks" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iEnslaveCountChange" content="textOnly" dt:type="int"/>
+	<ElementType name="bLoyal" content="textOnly" dt:type="boolean"/>
 	<ElementType name="PromotionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -855,6 +856,7 @@
 		<element type="bHillsDoubleMove" minOccurs="0"/>
 		<element type="bCanMovePeaks" minOccurs="0"/>
 		<element type="bImmuneToFirstStrikes" minOccurs="0"/>
+		<element type="bLoyal" minOccurs="0"/>
 		<element type="iEnslaveCountChange" minOccurs="0"/>
 		<element type="iVisibilityChange" minOccurs="0"/>
 		<element type="iMovesChange" minOccurs="0"/>

@@ -545,6 +545,7 @@ public:
 	bool isUnitTerritoryUnbound() const;
 	bool isCityPrereq() const;
 	bool isCanMovePeaks() const;
+	bool isLoyal() const;
 
 	const TCHAR* getSound() const;				// Exposed to Python
 	void setSound(const TCHAR* szVal);
@@ -626,6 +627,7 @@ protected:
 	bool m_bUnitTerritoryUnbound;
 	bool m_bCityPrereq;
 	bool m_bCanMovePeaks;
+	bool m_bLoyal;
 
 	CvString m_szSound;
 

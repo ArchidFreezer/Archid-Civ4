@@ -1737,6 +1737,7 @@
 			<Class>UNITCLASS_SPY</Class>
 			<Type>UNIT_SPY</Type>
 			<Special>SPECIALUNIT_PEOPLE</Special>
+			<Combat>UNITCOMBAT_SPY</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_SPY</DefaultUnitAI>
 			<SeeInvisibles>
@@ -1746,6 +1747,7 @@
 			<Civilopedia>TXT_KEY_CONCEPT_ESPIONAGE_PEDIA_SR</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_SPY_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bOnlyDefensive>1</bOnlyDefensive>
 			<bRivalTerritory>1</bRivalTerritory>
 			<bMilitarySupport>1</bMilitarySupport>
 			<bSpy>1</bSpy>

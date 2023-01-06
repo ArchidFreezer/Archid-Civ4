@@ -6,6 +6,14 @@
 		<English>Disorganized</English>
 		<Spanish>Desorganizado</Spanish>
 	</TEXT>
+	<TEXT> <!-- Loyalty -->
+		<Tag>TXT_KEY_PROMOTION_LOYALTY</Tag>
+		<English>Loyalty</English>
+		<French>Fidelite </French>
+		<German>Loyalitet</German>
+		<Italian>Lealte</Italian>
+		<Spanish>Lealtad</Spanish>
+	</TEXT>	
 	<!-- Slaver Promotions -->
 	<TEXT> <!-- Slaver I -->
 		<Tag>TXT_KEY_PROMOTION_SLAVER1</Tag>
@@ -43,4 +51,12 @@
 		<Tag>TXT_KEY_PROMOTION_ENSLAVE_TEXT</Tag>
 		<English>[ICON_BULLET]+%d1_Num to the max units enslaved per turn</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_LOYAL_TEXT_SPY</Tag>
+		<English>[ICON_BULLET]Never reveals team identity</English>
+	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_LOYAL_TEXT</Tag>
+		<English>[ICON_BULLET]Never switches allegiance</English>
+	</TEXT>	
 </Civ4GameText>

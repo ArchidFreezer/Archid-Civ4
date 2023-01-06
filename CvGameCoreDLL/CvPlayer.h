@@ -36,6 +36,8 @@ public:
 	CvPlayerAI* AI() { return (CvPlayerAI*)(this); }
 	const CvPlayerAI* AI() const { return (const CvPlayerAI*)(this); }
 
+	void turnSpy(CvUnit* pSpy);
+
 	int getNumSlaves() const;
 	int getWorldViewChangeTimer() const;
 	int getWorldViewRevoltTurnChange(WorldViewTypes eWorldView) const;

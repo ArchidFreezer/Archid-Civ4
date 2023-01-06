@@ -11820,6 +11820,12 @@ int CvPlayer::getEspionageMissionCostModifier(EspionageMissionTypes eMission, Pl
 		}
 	}
 
+	// Reduce cost for double agents
+	if (pSpyUnit != NULL && pSpyUnit->isDoubleAgent() && pSpyUnit->getOriginalSpymaster() == eTargetPlayer && pPlot->getOwnerINLINE() == eTargetPlayer) {
+		iModifier *= GC.getDOUBLE_AGENT_MISSION_COST_MODIFIER();
+		iModifier /= 100;
+	}
+
 	return iModifier;
 }
 
@@ -19742,4 +19748,18 @@ void CvPlayer::changeNumSlaves(int iChange) {
 		m_iNumSlaves = (m_iNumSlaves + iChange);
 		FAssert(getNumSlaves() >= 0);
 	}
+}
+
+void CvPlayer::turnSpy(CvUnit* pSpy) {
+	if (pSpy == NULL || !pSpy->isSpy())
+		return;
+
+	PlayerTypes eOriginalSpymaster = pSpy->getOwnerINLINE();
+	CvPlot* pPlot = pSpy->plot();
+
+	CvUnit* pTurnedSpy = initUnit(pSpy->getUnitType(), pPlot->getX_INLINE(), pPlot->getY_INLINE(), pSpy->AI_getUnitAIType());
+	pTurnedSpy->convert(pSpy);
+	pTurnedSpy->setOriginalSpymaster(eOriginalSpymaster);
+
+	pSpy->kill(true);
 }

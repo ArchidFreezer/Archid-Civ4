@@ -958,6 +958,31 @@
 		<Tag>TXT_KEY_CHOOSE_UNIT_TO_SHADOW</Tag>
 		<English>Select a unit to protect :</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPY_INTERCEPTED_REVEAL_TURNED</Tag>
+		<English>A %s1_civ_adjective %s2_unit has been stumbled upon while operating near the %s3_civ_adjective city of %s4_city and turned into a double agent!</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPY_INTERCEPTED_SPY_REVEAL_TURNED</Tag>
+		<English>A %s1_civ_adjective %s2_unit operating near %s4_city has been thwarted by %s3_civ_adjective counterintelligence agents and turned into a double agent!</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPY_INTERCEPTED_MISSION_REVEAL_TURNED</Tag>
+		<English>A %s1_civ_adjective %s2_unit operating near %s4_city has been caught due to elevated %s3_civ_adjective counterespionage efforts and turned into a double agent!</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_DOUBLE_AGENT_INTEL</Tag>
+		<English>You have recovered %d2_NUM[ICON_ESPIONAGE] against the %s1_CivDesc from creating a double agent</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_DOUBLE_AGENT</Tag>
+		<English>[COLOR_WARNING_TEXT]%s1_CivAdj Double Agent[COLOR_REVERT]</English>
+		<French>[COLOR_WARNING_TEXT]Espion %s1_CivAdj capturé[COLOR_REVERT]</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DOUBLE_AGENT_MISSION_COST</Tag>
+		<English>[ICON_BULLET]%d1_Cost% mission cost vs. %s1_CivAdj</English>
+	</TEXT>	
 
 <!-- Specialists -->
 	<TEXT> <!-- Slave: Artist -->

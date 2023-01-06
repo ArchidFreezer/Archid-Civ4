@@ -8,6 +8,14 @@
 		<Tag>TXT_KEY_UNITCOMBAT_ANIMAL</Tag>
 		<English>Animal Units</English>
 	</TEXT>
+	<TEXT> <!-- Espionage Units -->
+		<Tag>TXT_KEY_UNITCOMBAT_SPY</Tag>
+		<English>Espionage Units</English>
+		<French>Unites d'espionnage</French>
+		<German>Spionage-Einheiten</German>
+		<Italian>Unite di spionaggio</Italian>
+		<Spanish>Unidades del espionaje</Spanish>
+	</TEXT>
 	<TEXT> <!-- Fort Ranged -->
 		<Tag>TXT_KEY_UNITCOMBAT_FORT_RANGED</Tag>
 		<English>Fort Ranged</English>

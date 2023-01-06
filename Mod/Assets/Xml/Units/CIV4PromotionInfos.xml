@@ -786,6 +786,17 @@
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,5,16</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Loyalty -->
+			<Type>PROMOTION_LOYALTY</Type>
+			<Description>TXT_KEY_PROMOTION_LOYALTY</Description>
+			<Sound>AS2D_PING</Sound>
+			<bLoyal>1</bLoyal>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Loyalty.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- March -->
 			<Type>PROMOTION_MARCH</Type>
 			<Description>TXT_KEY_PROMOTION_MARCH</Description>

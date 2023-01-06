@@ -500,5 +500,13 @@
 		<DefineName>FORT_ATTACK_CITIES_ALSO</DefineName>
 		<iDefineIntVal>1</iDefineIntVal>
 	</Define>
+	<Define>
+		<DefineName>DOUBLE_AGENT_CREATE_CHANCE</DefineName>
+		<iDefineIntVal>2</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>DOUBLE_AGENT_MISSION_COST_PERCENT_MOD</DefineName>
+		<iDefineIntVal>50</iDefineIntVal>
+	</Define>
 
 </Civ4Defines>

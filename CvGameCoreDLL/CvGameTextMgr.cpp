@@ -682,6 +682,15 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 				szString.append(NEWLINE);
 				szString.append(gDLL->getText("TXT_KEY_PROMOTION_HEALS_ADJACENT_TEXT", pUnit->getAdjacentTileHeal()) + gDLL->getText("TXT_KEY_PROMOTION_DAMAGE_TURN_TEXT"));
 			}
+
+			if (pUnit->isLoyal()) {
+				szString.append(NEWLINE);
+				if (pUnit->isSpy()) {
+					szString.append(gDLL->getText("TXT_KEY_PROMOTION_LOYAL_TEXT_SPY"));
+				} else {
+					szString.append(gDLL->getText("TXT_KEY_PROMOTION_LOYAL_TEXT"));
+				}
+			}
 		}
 
 		if (pUnit->currInterceptionProbability() > 0) {
@@ -959,8 +968,17 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 		}
 
 		if (pUnit->isSpy()) {
-			szString.append(NEWLINE);
-			szString.append(gDLL->getText("TXT_KEY_UNIT_IS_SPY"));
+			if (pUnit->isDoubleAgent()) {
+				szString.append(NEWLINE);
+				szString.append(gDLL->getText("TXT_KEY_MISC_DOUBLE_AGENT", GET_PLAYER(pUnit->getOriginalSpymaster()).getCivilizationAdjectiveKey()));
+
+				szString.append(NEWLINE);
+				szString.append(gDLL->getText("TXT_KEY_UNIT_DOUBLE_AGENT_MISSION_COST", GC.getDOUBLE_AGENT_MISSION_COST_MODIFIER(), GET_PLAYER(pUnit->getOriginalSpymaster()).getCivilizationAdjectiveKey()));
+
+			} else {
+				szString.append(NEWLINE);
+				szString.append(gDLL->getText("TXT_KEY_UNIT_IS_SPY"));
+			}
 		}
 
 		if (pUnit->getUnitInfo().isNoRevealMap()) {
@@ -5669,6 +5687,11 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 	if (kPromotion.isImmuneToFirstStrikes()) {
 		szBuffer.append(pcNewline);
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_IMMUNE_FIRST_STRIKES_TEXT"));
+	}
+
+	if (kPromotion.isLoyal()) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_LOYAL_TEXT"));
 	}
 
 	if (kPromotion.isUnitRangeUnbound()) {
