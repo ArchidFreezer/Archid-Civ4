@@ -18124,13 +18124,16 @@ int CvPlayerAI::AI_calculateUnitAIViability(UnitAITypes eUnitAI, DomainTypes eDo
 	int iBestUnitAIStrength = 0;
 	int iBestOtherStrength = 0;
 
-	for (int iI = 0; iI < GC.getNumUnitClassInfos(); iI++) {
-		UnitTypes eLoopUnit = (UnitTypes)GC.getUnitClassInfo((UnitClassTypes)iI).getDefaultUnitIndex();
+	for (UnitClassTypes eUnitClass = (UnitClassTypes)0; eUnitClass < GC.getNumUnitClassInfos(); eUnitClass = (UnitClassTypes)(eUnitClass + 1)) {
+		UnitTypes eLoopUnit = (UnitTypes)GC.getUnitClassInfo(eUnitClass).getDefaultUnitIndex();
+		if (eLoopUnit == NO_UNIT)
+			continue;
+
 		const CvUnitInfo& kUnitInfo = GC.getUnitInfo(eLoopUnit);
 		if (kUnitInfo.getDomainType() == eDomain) {
 
 			TechTypes eTech = (TechTypes)kUnitInfo.getPrereqAndTech(0);
-			if ((m_aiUnitClassWeights[iI] > 0) || GET_TEAM(getTeam()).isHasTech((eTech))) {
+			if ((m_aiUnitClassWeights[eUnitClass] > 0) || GET_TEAM(getTeam()).isHasTech((eTech))) {
 				if (kUnitInfo.getUnitAIType(eUnitAI)) {
 					iBestUnitAIStrength = std::max(iBestUnitAIStrength, kUnitInfo.getCombat());
 				}
