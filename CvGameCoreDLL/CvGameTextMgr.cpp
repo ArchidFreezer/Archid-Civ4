@@ -498,7 +498,7 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 
 	for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumPromotionInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
 		if (pUnit->isHasPromotion(ePromotion)) {
-			szTempBuffer.Format(L"<img=%S size=16></img>", GC.getPromotionInfo(ePromotion).getButton());
+			szTempBuffer.Format(L"<img=%S size=16 />", GC.getPromotionInfo(ePromotion).getButton());
 			szString.append(szTempBuffer);
 		}
 	}
@@ -1010,7 +1010,7 @@ void CvGameTextMgr::setPlotListHelp(CvWStringBuffer& szString, CvPlot* pPlot, bo
 					for (int iPromotionIndex = 0; iPromotionIndex < numPromotionInfos; iPromotionIndex++) {
 						PromotionTypes ePromotion = (PromotionTypes)iPromotionIndex;
 						if (pHeadUnit->isHasPromotion(ePromotion)) {
-							szString.append(CvWString::format(L"<img=%S size=16></img>", GC.getPromotionInfo(ePromotion).getButton()));
+							szString.append(CvWString::format(L"<img=%S size=16 />", GC.getPromotionInfo(ePromotion).getButton()));
 						}
 					}
 
@@ -1146,7 +1146,7 @@ void CvGameTextMgr::setPlotListHelp(CvWStringBuffer& szString, CvPlot* pPlot, bo
 								for (int iPromotionIndex = 0; iPromotionIndex < numPromotionInfos; iPromotionIndex++) {
 									PromotionTypes ePromotion = (PromotionTypes)iPromotionIndex;
 									if (pCargoUnit->isHasPromotion(ePromotion)) {
-										szString.append(CvWString::format(L"<img=%S size=16></img>", GC.getPromotionInfo(ePromotion).getButton()));
+										szString.append(CvWString::format(L"<img=%S size=16 />", GC.getPromotionInfo(ePromotion).getButton()));
 									}
 								}
 							}
@@ -1171,7 +1171,7 @@ void CvGameTextMgr::setPlotListHelp(CvWStringBuffer& szString, CvPlot* pPlot, bo
 								for (int iPromotionIndex = 0; iPromotionIndex < numPromotionInfos; iPromotionIndex++) {
 									PromotionTypes ePromotion = (PromotionTypes)iPromotionIndex;
 									if (pUnit->isHasPromotion(ePromotion)) {
-										szString.append(CvWString::format(L"<img=%S size=16></img>", GC.getPromotionInfo(ePromotion).getButton()));
+										szString.append(CvWString::format(L"<img=%S size=16 />", GC.getPromotionInfo(ePromotion).getButton()));
 									}
 								}
 
@@ -1191,7 +1191,7 @@ void CvGameTextMgr::setPlotListHelp(CvWStringBuffer& szString, CvPlot* pPlot, bo
 										for (int iPromotionIndex = 0; iPromotionIndex < numPromotionInfos; iPromotionIndex++) {
 											PromotionTypes ePromotion = (PromotionTypes)iPromotionIndex;
 											if (pCargoUnit->isHasPromotion(ePromotion)) {
-												szString.append(CvWString::format(L"<img=%S size=16></img>", GC.getPromotionInfo(ePromotion).getButton()));
+												szString.append(CvWString::format(L"<img=%S size=16 />", GC.getPromotionInfo(ePromotion).getButton()));
 											}
 										}
 									}
@@ -1462,7 +1462,7 @@ void CvGameTextMgr::setPlotListHelp(CvWStringBuffer& szString, CvPlot* pPlot, bo
 
 						for (int iK = 0; iK < numPromotionInfos; iK++) {
 							if (m_apbPromotion[iIndex][iK] > 0) {
-								szString.append(CvWString::format(L"%d<img=%S size=16></img>", m_apbPromotion[iIndex][iK], GC.getPromotionInfo((PromotionTypes)iK).getButton()));
+								szString.append(CvWString::format(L"%d<img=%S size=16 />", m_apbPromotion[iIndex][iK], GC.getPromotionInfo((PromotionTypes)iK).getButton()));
 							}
 						}
 
@@ -2559,7 +2559,7 @@ bool CvGameTextMgr::setCombatPlotHelp(CvWStringBuffer& szString, CvPlot* pPlot) 
 				if (pAttacker->combatLimit() == (pDefender->maxHitPoints())) {
 					FAssert(GC.getDefineINT("MAX_EXPERIENCE_PER_COMBAT") > GC.getDefineINT("MIN_EXPERIENCE_PER_COMBAT")); //ensuring the differences is at least 1
 					int size = GC.getDefineINT("MAX_EXPERIENCE_PER_COMBAT") - GC.getDefineINT("MIN_EXPERIENCE_PER_COMBAT");
-					float* CombatRatioThresholds = new float[size];
+					std::vector<float> CombatRatioThresholds(size);
 
 					for (int i = 0; i < size; i++) //setup the array
 					{
@@ -2616,8 +2616,6 @@ bool CvGameTextMgr::setCombatPlotHelp(CvWStringBuffer& szString, CvPlot* pPlot) 
 							}//if
 						}// else if
 					}//for
-					delete CombatRatioThresholds;
-					//throw away the array
 				}//if
 			} // else if
 			//Finished Showing XP range display
@@ -3417,15 +3415,10 @@ void CvGameTextMgr::setPlotHelp(CvWStringBuffer& szString, CvPlot* pPlot) {
 		} else if (pPlot->getOwner() != NO_PLAYER) {
 			if (bShift && !bAlt) {
 				const CvPlayerAI& kPlayer = GET_PLAYER(pPlot->getOwnerINLINE());
-				int* paiBonusClassRevealed = new int[GC.getNumBonusClassInfos()];
-				int* paiBonusClassUnrevealed = new int[GC.getNumBonusClassInfos()];
-				int* paiBonusClassHave = new int[GC.getNumBonusClassInfos()];
 
-				for (BonusClassTypes eBonusClass = (BonusClassTypes)0; eBonusClass < GC.getNumBonusClassInfos(); eBonusClass = (BonusClassTypes)(eBonusClass + 1)) {
-					paiBonusClassRevealed[eBonusClass] = 0;
-					paiBonusClassUnrevealed[eBonusClass] = 0;
-					paiBonusClassHave[eBonusClass] = 0;
-				}
+				std::vector<int> viBonusClassRevealed(GC.getNumBonusClassInfos(), 0);
+				std::vector<int> viBonusClassUnrevealed(GC.getNumBonusClassInfos(), 0);
+				std::vector<int> viBonusClassHave(GC.getNumBonusClassInfos(), 0);
 
 				for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
 					const CvBonusInfo& kBonus = GC.getBonusInfo(eBonus);
@@ -3433,15 +3426,15 @@ void CvGameTextMgr::setPlotHelp(CvWStringBuffer& szString, CvPlot* pPlot) {
 					BonusClassTypes eBonusClass = (BonusClassTypes)kBonus.getBonusClassType();
 					if (eRevealTech != NO_TECH) {
 						if ((GET_TEAM(pPlot->getTeam()).isHasTech(eRevealTech))) {
-							paiBonusClassRevealed[eBonusClass]++;
+							viBonusClassRevealed[eBonusClass]++;
 						} else {
-							paiBonusClassUnrevealed[eBonusClass]++;
+							viBonusClassUnrevealed[eBonusClass]++;
 						}
 
 						if (kPlayer.getNumAvailableBonuses(eBonus) > 0) {
-							paiBonusClassHave[eBonusClass]++;
+							viBonusClassHave[eBonusClass]++;
 						} else if (kPlayer.countOwnedBonuses(eBonus) > 0) {
-							paiBonusClassHave[eBonusClass]++;
+							viBonusClassHave[eBonusClass]++;
 						}
 					}
 				}
@@ -3451,11 +3444,14 @@ void CvGameTextMgr::setPlotHelp(CvWStringBuffer& szString, CvPlot* pPlot) {
 
 					if (iPathLength <= 3 && !GET_TEAM(pPlot->getTeam()).isHasTech(eTech)) {
 						bool bDummy;
-						szString.append(CvWString::format(L"\n%s(%d)=%8d", GC.getTechInfo(eTech).getDescription(), iPathLength, kPlayer.AI_techValue(eTech, 1, false, true, paiBonusClassRevealed, paiBonusClassUnrevealed, paiBonusClassHave)));
-						szString.append(CvWString::format(L" (bld:%d (%d old), ", kPlayer.AI_techBuildingValue(eTech, true, bDummy), kPlayer.AI_techBuildingValue_old(eTech, 1, bDummy)));
+						szString.append(CvWString::format(L"\n%s(%d)=%8d", GC.getTechInfo(eTech).getDescription(), iPathLength, kPlayer.AI_techValue(eTech, 1, false, true, viBonusClassRevealed, viBonusClassUnrevealed, viBonusClassHave)));
+						szString.append(CvWString::format(L" (bld:%d, ", kPlayer.AI_techBuildingValue(eTech, true, bDummy)));
 						int iObs = kPlayer.AI_obsoleteBuildingPenalty(eTech, true);
 						if (iObs != 0)
 							szString.append(CvWString::format(L"obs:%d, ", -iObs));
+						int iPrj = kPlayer.AI_techProjectValue(eTech, 1, bDummy);
+						if (iPrj != 0)
+							szString.append(CvWString::format(L"prj:%d, ", iPrj));
 						szString.append(CvWString::format(L"unt:%d)", kPlayer.AI_techUnitValue(eTech, 1, bDummy)));
 					}
 				}
@@ -4706,7 +4702,7 @@ void CvGameTextMgr::setCityBarHelp(CvWStringBuffer& szString, CvCity* pCity) {
 
 	szString.append(NEWLINE);
 	szString.append(gDLL->getText("INTERFACE_CITY_MAINTENANCE"));
-	int iMaintenance = pCity->getMaintenanceTimes100();
+	int iMaintenance = pCity->getMaintenanceTimes100() * (100 + GET_PLAYER(pCity->getOwnerINLINE()).getInflationRate()) / 100; // K-Mod
 	szString.append(CvWString::format(L" -%d.%02d %c", iMaintenance / 100, iMaintenance % 100, GC.getCommerceInfo(COMMERCE_GOLD).getChar()));
 
 	// Building icons
@@ -5608,7 +5604,7 @@ void CvGameTextMgr::parseFreeSpecialistHelp(CvWStringBuffer& szHelpString, const
 			szHelpString.append(szCommerceString);
 
 			if (GC.getSpecialistInfo(eSpecialist).getExperience() > 0) {
-				if (!szYield.isEmpty() || !szYield.isEmpty()) {
+				if (!szYield.isEmpty() || !szCommerceString.isEmpty()) {
 					szHelpString.append(L", ");
 				}
 				szHelpString.append(gDLL->getText("TXT_KEY_SPECIALIST_EXPERIENCE_SHORT", iNumSpecialists * GC.getSpecialistInfo(eSpecialist).getExperience()));
@@ -6394,16 +6390,15 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer& szHelpText, CivicTypes eCivi
 		}
 	}
 
+	float fInflationFactor = bPlayerContext ? (float)(100 + GET_PLAYER(GC.getGameINLINE().getActivePlayer()).getInflationRate()) / 100 : 1.0f;
 	//	Gold cost per unit
 	if (kCivic.getGoldPerUnit() != 0) {
-		szHelpText.append(CvWString::format(L"\n%c%+.2f%c %s", gDLL->getSymbolID(BULLET_CHAR), (float)kCivic.getGoldPerUnit() / 100, GC.getCommerceInfo(COMMERCE_GOLD).getChar(),
-			gDLL->getText("TXT_KEY_CIVIC_SUPPORT_COSTS").GetCString()));
+		szHelpText.append(CvWString::format(L"\n%c%+.2f%c %s", gDLL->getSymbolID(BULLET_CHAR), (float)GC.getCivicInfo(eCivic).getGoldPerUnit() * fInflationFactor / 100, GC.getCommerceInfo(COMMERCE_GOLD).getChar(), gDLL->getText("TXT_KEY_CIVIC_SUPPORT_COSTS").GetCString()));
 	}
 
 	//	Gold cost per military unit
 	if (kCivic.getGoldPerMilitaryUnit() != 0) {
-		szHelpText.append(CvWString::format(L"\n%c%+.2f%c %s", gDLL->getSymbolID(BULLET_CHAR), (float)kCivic.getGoldPerMilitaryUnit() / 100, GC.getCommerceInfo(COMMERCE_GOLD).getChar(),
-			gDLL->getText("TXT_KEY_CIVIC_MILITARY_SUPPORT_COSTS").GetCString()));
+		szHelpText.append(CvWString::format(L"\n%c%+.2f%c %s", gDLL->getSymbolID(BULLET_CHAR), (float)GC.getCivicInfo(eCivic).getGoldPerMilitaryUnit() * fInflationFactor / 100, GC.getCommerceInfo(COMMERCE_GOLD).getChar(), gDLL->getText("TXT_KEY_CIVIC_MILITARY_SUPPORT_COSTS").GetCString()));
 	}
 
 	BuildingTypes eLoopBuilding;
@@ -6781,6 +6776,12 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 		buildDomainExtraMovesString(szBuffer, eTech, eDomain, true, bPlayerContext);
 	}
 
+	//	Extra specialist commerce
+	setCommerceChangeHelp(szBuffer, L"", L"", gDLL->getText("TXT_KEY_CIVIC_PER_SPECIALIST").GetCString(), kTech.getSpecialistExtraCommerceArray());
+
+	//	Global commerce modifers
+	setCommerceChangeHelp(szBuffer, L"", L"", gDLL->getText("TXT_KEY_CIVIC_IN_ALL_CITIES").GetCString(), kTech.getCommerceModifierArray(), true);
+
 	//	Adjusting culture, science, etc
 	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
 		buildAdjustString(szBuffer, eTech, eCommerce, true, bPlayerContext);
@@ -6807,7 +6808,7 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	setYieldChangeHelp(szBuffer, gDLL->getText("TXT_KEY_TECH_RIVER_PLOTS").c_str(), L": ", L"", kTech.getRiverPlotYieldChangeArray());
 	setYieldChangeHelp(szBuffer, gDLL->getText("TXT_KEY_TECH_SEA_PLOTS").c_str(), L": ", L"", kTech.getSeaPlotYieldChangeArray());
 
-	if (GC.getTechInfo(eTech).isCaptureCities()) {
+	if (kTech.isCaptureCities()) {
 		szBuffer.append(NEWLINE);
 		szBuffer.append(gDLL->getText("TXT_KEY_TECH_ALLOW_CITY_CAPTURE"));
 	}
@@ -8146,7 +8147,7 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit, bool
 			if (!bCivilopediaText) {
 				szBuffer.append(L" (");
 			} else {
-				szTempBuffer.Format(L"%s%c", NEWLINE, gDLL->getSymbolID(BULLET_CHAR), szTempBuffer);
+				szTempBuffer.Format(L"%s%c", NEWLINE, gDLL->getSymbolID(BULLET_CHAR), szTempBuffer.GetCString());
 				szBuffer.append(szTempBuffer);
 			}
 			if (kUnit.getBonusProductionModifier(eBonus) == 100) {
@@ -9236,7 +9237,7 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 				if (!bCivilopediaText) {
 					szBuffer.append(L" (");
 				} else {
-					szTempBuffer.Format(L"\n%c", gDLL->getSymbolID(BULLET_CHAR), szTempBuffer);
+					szTempBuffer.Format(L"\n%c", gDLL->getSymbolID(BULLET_CHAR), szTempBuffer.GetCString());
 					szBuffer.append(szTempBuffer);
 				}
 				if (iModifier == 100) {
@@ -10057,7 +10058,7 @@ void CvGameTextMgr::setProjectHelp(CvWStringBuffer& szBuffer, ProjectTypes eProj
 			if (!bCivilopediaText) {
 				szBuffer.append(L" (");
 			} else {
-				szTempBuffer.Format(L"%s%c", NEWLINE, gDLL->getSymbolID(BULLET_CHAR), szTempBuffer);
+				szTempBuffer.Format(L"%s%c", NEWLINE, gDLL->getSymbolID(BULLET_CHAR), szTempBuffer.GetCString());
 				szBuffer.append(szTempBuffer);
 			}
 			if (kProject.getBonusProductionModifier(iI) == 100) {
@@ -11356,6 +11357,7 @@ void CvGameTextMgr::setCorporationHelpCity(CvWStringBuffer& szBuffer, Corporatio
 		iMaintenance += pCity->calculateCorporationMaintenanceTimes100(eCorporation);
 		iMaintenance *= 100 + pCity->getMaintenanceModifier();
 		iMaintenance /= 100;
+		iMaintenance = (100 + GET_PLAYER(pCity->getOwnerINLINE()).getInflationRate()) * iMaintenance / 100; // K-Mod
 	}
 
 	if (0 != iMaintenance) {
@@ -12622,7 +12624,7 @@ void CvGameTextMgr::buildFinanceInflationString(CvWStringBuffer& szBuffer, Playe
 	}
 	const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
 
-	int iInflationRate = kPlayer.calculateInflationRate();
+	int iInflationRate = kPlayer.getInflationRate();
 	if (iInflationRate != 0) {
 		int iPreInflation = kPlayer.calculatePreInflatedCosts();
 		szBuffer.append(NEWLINE);
@@ -12647,6 +12649,11 @@ void CvGameTextMgr::buildFinanceUnitCostString(CvWStringBuffer& szBuffer, Player
 	int iExtraCost = 0;
 	int iCost = kPlayer.calculateUnitCost(iFreeUnits, iFreeMilitaryUnits, iPaidUnits, iPaidMilitaryUnits, iUnitCost, iMilitaryCost, iExtraCost);
 	int iHandicap = iCost - iUnitCost - iMilitaryCost - iExtraCost;
+
+	iCost = ROUND_DIVIDE(iCost * (100 + kPlayer.getInflationRate()), 100);
+	iUnitCost = ROUND_DIVIDE(iUnitCost * (100 + kPlayer.getInflationRate()), 100);
+	iMilitaryCost = ROUND_DIVIDE(iMilitaryCost * (100 + kPlayer.getInflationRate()), 100);
+	iHandicap = ROUND_DIVIDE(iHandicap * (100 + kPlayer.getInflationRate()), 100);
 
 	szBuffer.append(NEWLINE);
 	szBuffer.append(gDLL->getText("TXT_KEY_FINANCE_ADVISOR_UNIT_COST", iUnits, iFreeUnits, iUnitCost)); // K-Mod
@@ -12677,6 +12684,10 @@ void CvGameTextMgr::buildFinanceAwaySupplyString(CvWStringBuffer& szBuffer, Play
 	int iCost = kPlayer.calculateUnitSupply(iPaidUnits, iBaseCost);
 	int iHandicap = iCost - iBaseCost;
 
+	iCost = ROUND_DIVIDE(iCost * (100 + kPlayer.getInflationRate()), 100);
+	iBaseCost = ROUND_DIVIDE(iBaseCost * (100 + kPlayer.getInflationRate()), 100);
+	iHandicap = ROUND_DIVIDE(iHandicap * (100 + kPlayer.getInflationRate()), 100);
+
 	CvWString szHandicap;
 	if (iHandicap != 0) {
 		FAssertMsg(false, "not all supply costs were accounted for"); // K-Mod (handicap modifier are now rolled into the other costs)
@@ -12699,19 +12710,22 @@ void CvGameTextMgr::buildFinanceCityMaintString(CvWStringBuffer& szBuffer, Playe
 	int iLoop;
 	for (CvCity* pLoopCity = kPlayer.firstCity(&iLoop); pLoopCity != NULL; pLoopCity = kPlayer.nextCity(&iLoop)) {
 		if (!pLoopCity->isDisorder() && !pLoopCity->isWeLoveTheKingDay() && (pLoopCity->getPopulation() > 0)) {
-			iDistanceMaint += (pLoopCity->calculateDistanceMaintenanceTimes100() * std::max(0, (pLoopCity->getMaintenanceModifier() + 100))) / 100;
-			iColonyMaint += (pLoopCity->calculateColonyMaintenanceTimes100() * std::max(0, (pLoopCity->getMaintenanceModifier() + 100))) / 100;
-			iCorporationMaint += (pLoopCity->calculateCorporationMaintenanceTimes100() * std::max(0, (pLoopCity->getMaintenanceModifier() + 100))) / 100;
+			iDistanceMaint += (pLoopCity->calculateDistanceMaintenanceTimes100() * std::max(0, (pLoopCity->getMaintenanceModifier() + 100)) + 50) / 100;
+			iColonyMaint += (pLoopCity->calculateColonyMaintenanceTimes100() * std::max(0, (pLoopCity->getMaintenanceModifier() + 100)) + 50) / 100;
+			iCorporationMaint += (pLoopCity->calculateCorporationMaintenanceTimes100() * std::max(0, (pLoopCity->getMaintenanceModifier() + 100)) + 50) / 100;
 		}
 	}
-	iDistanceMaint /= 100;
-	iColonyMaint /= 100;
-	iCorporationMaint /= 100;
+	// K-Mod. Changed to include the effects of inflation.
+	int iInflationFactor = kPlayer.getInflationRate() + 100;
 
-	int iNumCityMaint = kPlayer.getTotalMaintenance() - iDistanceMaint - iColonyMaint - iCorporationMaint;
+	iDistanceMaint = ROUND_DIVIDE(iDistanceMaint * iInflationFactor, 10000);
+	iColonyMaint = ROUND_DIVIDE(iColonyMaint * iInflationFactor, 10000);
+	iCorporationMaint = ROUND_DIVIDE(iCorporationMaint * iInflationFactor, 10000); // Note: currently, calculateCorporationMaintenanceTimes100 includes the inverse of this factor.
+
+	int iNumCityMaint = ROUND_DIVIDE(kPlayer.getTotalMaintenance() * iInflationFactor, 100) - iDistanceMaint - iColonyMaint - iCorporationMaint;
 
 	szBuffer.append(NEWLINE);
-	szBuffer.append(gDLL->getText("TXT_KEY_FINANCE_ADVISOR_CITY_MAINT_COST", iDistanceMaint, iNumCityMaint, iColonyMaint, iCorporationMaint, kPlayer.getTotalMaintenance()));
+	szBuffer.append(gDLL->getText("TXT_KEY_FINANCE_ADVISOR_CITY_MAINT_COST", iDistanceMaint, iNumCityMaint, iColonyMaint, iCorporationMaint, kPlayer.getTotalMaintenance() * iInflationFactor / 100));
 }
 
 void CvGameTextMgr::buildFinanceCivicUpkeepString(CvWStringBuffer& szBuffer, PlayerTypes ePlayer) {
@@ -12724,13 +12738,13 @@ void CvGameTextMgr::buildFinanceCivicUpkeepString(CvWStringBuffer& szBuffer, Pla
 		CivicTypes eCivic = kPlayer.getCivics((CivicOptionTypes)iI);
 		if (NO_CIVIC != eCivic) {
 			CvWString szTemp;
-			szTemp.Format(L"%d%c: %s", kPlayer.getSingleCivicUpkeep(eCivic), GC.getCommerceInfo(COMMERCE_GOLD).getChar(), GC.getCivicInfo(eCivic).getDescription());
+			szTemp.Format(L"%d%c: %s", ROUND_DIVIDE(kPlayer.getSingleCivicUpkeep(eCivic) * (100 + kPlayer.getInflationRate()), 100), GC.getCommerceInfo(COMMERCE_GOLD).getChar(), GC.getCivicInfo(eCivic).getDescription()); // K-Mod
 			szCivicOptionCosts += NEWLINE + szTemp;
 		}
 	}
 
 	szBuffer.append(NEWLINE);
-	szBuffer.append(gDLL->getText("TXT_KEY_FINANCE_ADVISOR_CIVIC_UPKEEP_COST", szCivicOptionCosts.GetCString(), kPlayer.getCivicUpkeep()));
+	szBuffer.append(gDLL->getText("TXT_KEY_FINANCE_ADVISOR_CIVIC_UPKEEP_COST", szCivicOptionCosts.GetCString(), ROUND_DIVIDE(kPlayer.getCivicUpkeep() * (100 + kPlayer.getInflationRate()), 100)));
 }
 
 void CvGameTextMgr::buildFinanceForeignIncomeString(CvWStringBuffer& szBuffer, PlayerTypes ePlayer) {
@@ -13234,7 +13248,7 @@ void CvGameTextMgr::getOtherRelationsString(CvWStringBuffer& szString, PlayerTyp
 	if (!szWorstEnemyString.isEmpty()) {
 		CvWString szTempBuffer;
 
-		szTempBuffer.assign(gDLL->getText(L"TXT_KEY_WORST_ENEMY_OF", szWorstEnemyString));
+		szTempBuffer.assign(gDLL->getText(L"TXT_KEY_WORST_ENEMY_OF", szWorstEnemyString.getCString()));
 
 		szString.append(NEWLINE);
 		szString.append(szTempBuffer);
@@ -13242,7 +13256,7 @@ void CvGameTextMgr::getOtherRelationsString(CvWStringBuffer& szString, PlayerTyp
 	if (!szWarWithString.isEmpty()) {
 		CvWString szTempBuffer;
 
-		szTempBuffer.assign(gDLL->getText(L"TXT_KEY_AT_WAR_WITH", szWarWithString));
+		szTempBuffer.assign(gDLL->getText(L"TXT_KEY_AT_WAR_WITH", szWarWithString.getCString()));
 
 		szString.append(NEWLINE);
 		szString.append(szTempBuffer);
@@ -13394,6 +13408,13 @@ void CvGameTextMgr::setCommerceHelp(CvWStringBuffer& szBuffer, CvCity& city, Com
 		szBuffer.append(gDLL->getText("TXT_KEY_MISC_HELP_YIELD_CIVICS", iCivicMod, kCommerce.getChar()));
 		szBuffer.append(NEWLINE);
 		iModifier += iCivicMod;
+	}
+
+	int iUnaccountedModifiers = city.getTotalCommerceRateModifier(eCommerceType) - iModifier;
+	if (iUnaccountedModifiers != 0) {
+		szBuffer.append(gDLL->getText("TXT_KEY_MISC_HELP_MODIFIER_FROM_CIV", iUnaccountedModifiers, kCommerce.getChar()));
+		szBuffer.append(NEWLINE);
+		iModifier += iUnaccountedModifiers;
 	}
 
 	int iModYield = (iModifier * iBaseCommerceRate) / 100;
@@ -14870,7 +14891,7 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 
 	if (kMission.getStealTreasuryTypes() > 0) {
 		if (NO_PLAYER != eTargetPlayer) {
-			int iNumTotalGold;
+			int iNumTotalGold = 0;
 
 			if (NULL != pPlot) {
 				CvCity* pCity = pPlot->getPlotCity();
@@ -15079,7 +15100,7 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 
 
 		if (NULL != pSpyUnit) {
-			int iInterceptChance = (pSpyUnit->getSpyInterceptPercent(GET_PLAYER(eTargetPlayer).getTeam()) * (100 + kMission.getDifficultyMod())) / 100;
+			int iInterceptChance = (pSpyUnit->getSpyInterceptPercent(GET_PLAYER(eTargetPlayer).getTeam(), true) * (100 + kMission.getDifficultyMod())) / 100;
 
 			szBuffer.append(NEWLINE);
 			szBuffer.append(NEWLINE);

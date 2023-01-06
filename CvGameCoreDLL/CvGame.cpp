@@ -1043,7 +1043,7 @@ void CvGame::normalizeRemoveBadFeatures() {
 												pLoopPlot->setFeatureType(NO_FEATURE);
 											}
 										} else {
-											if (!(iDistance == iMaxRange) && (getSorenRandNum((2 + (pLoopPlot->getBonusType() == NO_BONUS) ? 0 : 2), "Remove Bad Feature") == 0)) {
+											if (!(iDistance == iMaxRange) && (getSorenRandNum(2 + (pLoopPlot->getBonusType() == NO_BONUS ? 0 : 2), "Remove Bad Feature") == 0)) {
 												pLoopPlot->setFeatureType(NO_FEATURE);
 											}
 										}
@@ -2328,10 +2328,11 @@ void CvGame::clearSecretaryGeneral(VoteSourceTypes eVoteSource) {
 		if (kVote.isVoteSourceType(eVoteSource)) {
 			if (kVote.isSecretaryGeneral()) {
 				VoteTriggeredData kData;
+				kData.iId = FFreeList::INVALID_INDEX;
 				kData.eVoteSource = eVoteSource;
 				kData.kVoteOption.eVote = (VoteTypes)j;
 				kData.kVoteOption.iCityId = -1;
-				kData.kVoteOption.szText.empty();
+				kData.kVoteOption.szText.clear();
 				kData.kVoteOption.ePlayer = NO_PLAYER;
 				setVoteOutcome(kData, NO_PLAYER_VOTE);
 				setSecretaryGeneralTimer(eVoteSource, 0);
@@ -3284,16 +3285,17 @@ int CvGame::calculateGwSustainabilityThreshold(PlayerTypes ePlayer) const {
 }
 
 int CvGame::calculateGwSeverityRating() const {
-	// originally I wanted something like this:
-	// (1-(1-warming prob)^(rolls/map_size * max turns))
-	// (with some factor in the exponent to make it better...)
-	// but since that is impractical, I've just made an ad-hoc formula with a similar shape.
+	// Here are some of the properties I want from this function:
+	// - the severity should be a number between 0 and 100 (ie. a percentage value)
+	// - zero severity should mean zero global warming
+	// - the function should asymptote towards 100
+	//
+	// - It should be a function of the index divided by (total land area * game length).
 
-	// Note: watch out for integer overflow and rounding errors.
-
-	// new version: lower at the start, higher at the end.
+	// I recommend looking at the graph of this function to get a sense of how it works.
 	const long x = GC.getDefineINT("GLOBAL_WARMING_PROB") * GC.getGameINLINE().getGlobalWarmingIndex() / (std::max(1, 4 * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getVictoryDelayPercent() * GC.getMapINLINE().getLandPlots()));
-	return 100L - 12000L / (120L + x * x);
+	const long b = 70; // shape parameter. Lower values result in the function being steeper earlier.
+	return 100L - b * 100L / (b + x * x);
 }
 
 unsigned int CvGame::getInitialTime() {
@@ -4607,7 +4609,7 @@ void CvGame::setName(const TCHAR* szName) {
 
 
 bool CvGame::isDestroyedCityName(CvWString& szName) const {
-	for (std::vector<CvWString>::const_iterator it = m_aszDestroyedCities.begin(); it != m_aszDestroyedCities.end(); it++) {
+	for (std::vector<CvWString>::const_iterator it = m_aszDestroyedCities.begin(); it != m_aszDestroyedCities.end(); ++it) {
 		if (*it == szName) {
 			return true;
 		}
@@ -4621,7 +4623,7 @@ void CvGame::addDestroyedCityName(const CvWString& szName) {
 }
 
 bool CvGame::isGreatPersonBorn(CvWString& szName) const {
-	for (std::vector<CvWString>::const_iterator it = m_aszGreatPeopleBorn.begin(); it != m_aszGreatPeopleBorn.end(); it++) {
+	for (std::vector<CvWString>::const_iterator it = m_aszGreatPeopleBorn.begin(); it != m_aszGreatPeopleBorn.end(); ++it) {
 		if (*it == szName) {
 			return true;
 		}
@@ -4879,6 +4881,10 @@ void CvGame::doGlobalWarming() {
 		}
 	}
 	updateGwPercentAnger();
+
+	if (getGlobalWarmingIndex() > 0) {
+		changeGlobalWarmingIndex(-getGlobalWarmingIndex() * GC.getDefineINT("GLOBAL_WARMING_RESTORATION_RATE", 0) / 100);
+	}
 }
 
 // Choose the best plot for global warming to strike from a set of iPool random plots
@@ -6250,7 +6256,7 @@ void CvGame::addReplayMessage(ReplayMessageTypes eType, PlayerTypes ePlayer, CvW
 }
 
 void CvGame::clearReplayMessageMap() {
-	for (ReplayMessageList::const_iterator itList = m_listReplayMessages.begin(); itList != m_listReplayMessages.end(); itList++) {
+	for (ReplayMessageList::const_iterator itList = m_listReplayMessages.begin(); itList != m_listReplayMessages.end(); ++itList) {
 		const CvReplayMessage* pMessage = *itList;
 		if (NULL != pMessage) {
 			delete pMessage;
@@ -6637,12 +6643,12 @@ void CvGame::write(FDataStreamBase* pStream) {
 
 	{
 		pStream->Write(m_aszDestroyedCities.size());
-		for (std::vector<CvWString>::iterator it = m_aszDestroyedCities.begin(); it != m_aszDestroyedCities.end(); it++) {
+		for (std::vector<CvWString>::iterator it = m_aszDestroyedCities.begin(); it != m_aszDestroyedCities.end(); ++it) {
 			pStream->WriteString(*it);
 		}
 
 		pStream->Write(m_aszGreatPeopleBorn.size());
-		for (std::vector<CvWString>::iterator it = m_aszGreatPeopleBorn.begin(); it != m_aszGreatPeopleBorn.end(); it++) {
+		for (std::vector<CvWString>::iterator it = m_aszGreatPeopleBorn.begin(); it != m_aszGreatPeopleBorn.end(); ++it) {
 			pStream->WriteString(*it);
 		}
 	}
@@ -6656,7 +6662,7 @@ void CvGame::write(FDataStreamBase* pStream) {
 
 	ReplayMessageList::_Alloc::size_type iSize = m_listReplayMessages.size();
 	pStream->Write(iSize);
-	for (ReplayMessageList::const_iterator it = m_listReplayMessages.begin(); it != m_listReplayMessages.end(); it++) {
+	for (ReplayMessageList::const_iterator it = m_listReplayMessages.begin(); it != m_listReplayMessages.end(); ++it) {
 		const CvReplayMessage* pMessage = *it;
 		if (NULL != pMessage) {
 			pMessage->write(*pStream);
@@ -7509,13 +7515,15 @@ void CvGame::doVoteSelection() {
 					} else {
 						setSecretaryGeneralTimer(eVoteSource, GC.getDefineINT("DIPLO_VOTE_SECRETARY_GENERAL_INTERVAL"));
 
-						for (int iJ = 0; iJ < GC.getNumVoteInfos(); iJ++) {
-							if (GC.getVoteInfo((VoteTypes)iJ).isSecretaryGeneral() && GC.getVoteInfo((VoteTypes)iJ).isVoteSourceType(iI)) {
+						for (VoteTypes eVote = (VoteTypes)0; eVote < GC.getNumVoteInfos(); eVote = (VoteTypes)(eVote + 1)) {
+							const CvVoteInfo& kVote = GC.getVoteInfo(eVote);
+							if (kVote.isSecretaryGeneral() && kVote.isVoteSourceType(iI)) {
 								VoteSelectionSubData kOptionData;
 								kOptionData.iCityId = -1;
 								kOptionData.ePlayer = NO_PLAYER;
-								kOptionData.eVote = (VoteTypes)iJ;
-								kOptionData.szText = gDLL->getText("TXT_KEY_POPUP_ELECTION_OPTION", GC.getVoteInfo((VoteTypes)iJ).getTextKeyWide(), getVoteRequired((VoteTypes)iJ, eVoteSource), countPossibleVote((VoteTypes)iJ, eVoteSource));
+								kOptionData.eOtherPlayer = NO_PLAYER;
+								kOptionData.eVote = eVote;
+								kOptionData.szText = gDLL->getText("TXT_KEY_POPUP_ELECTION_OPTION", kVote.getTextKeyWide(), getVoteRequired(eVote, eVoteSource), countPossibleVote(eVote, eVoteSource));
 								addVoteTriggered(eVoteSource, kOptionData);
 								bSecretaryGeneralVote = true;
 								break;

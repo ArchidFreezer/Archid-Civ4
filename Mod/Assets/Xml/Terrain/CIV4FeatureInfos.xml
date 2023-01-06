@@ -194,7 +194,7 @@
 			<iHealthPercent>50</iHealthPercent>
 			<iDefense>50</iDefense>
 			<iGrowth>8</iGrowth>
-			<iWarmingDefense>15</iWarmingDefense>
+			<iWarmingDefense>10</iWarmingDefense>
 			<TerrainBooleans>
 				<TerrainType>TERRAIN_GRASS</TerrainType>
 				<TerrainType>TERRAIN_PLAINS</TerrainType>
@@ -371,7 +371,7 @@
 			<iHealthPercent>-25</iHealthPercent>
 			<iDefense>50</iDefense>
 			<iGrowth>16</iGrowth>
-			<iWarmingDefense>15</iWarmingDefense>
+			<iWarmingDefense>10</iWarmingDefense>
 			<TerrainBooleans>
 				<TerrainType>TERRAIN_GRASS</TerrainType>
 			</TerrainBooleans>

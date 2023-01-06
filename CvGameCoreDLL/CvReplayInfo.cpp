@@ -33,7 +33,6 @@ CvReplayInfo::CvReplayInfo() :
 }
 
 CvReplayInfo::~CvReplayInfo() {
-	ReplayMessageList::const_iterator it;
 	for (uint i = 0; i < m_listReplayMessages.size(); i++) {
 		SAFE_DELETE(m_listReplayMessages[i]);
 	}

@@ -297,7 +297,7 @@ inline bool CvString::formatv(std::string& out, const char* fmt, va_list args) {
 	if (success)
 		out = pbuf;
 	else
-		out = "";
+		out.clear();
 
 	if (pbuf != buf)
 		delete[] pbuf;

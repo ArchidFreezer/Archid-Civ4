@@ -2722,7 +2722,7 @@ int CvCity::getProductionDifference(int iProductionNeeded, int iProduction, int 
 		return 0;
 	}
 
-	int iFoodProduction = ((bFoodProduction) ? std::max(0, (getYieldRate(YIELD_FOOD) - foodConsumption(true))) : 0);
+	int iFoodProduction = bFoodProduction ? std::max(0, getYieldRate(YIELD_FOOD) - foodConsumption()) : 0;
 
 	int iOverflow = ((bOverflow) ? (getOverflowProduction() + getFeatureProduction()) : 0);
 
@@ -4750,7 +4750,7 @@ int CvCity::getSavedMaintenanceTimes100ByBuilding(BuildingTypes eBuilding) const
 	int iModifier = kBuilding.getMaintenanceModifier();
 	if (iModifier != 0 && !isDisorder() && !isWeLoveTheKingDay() && (getPopulation() > 0)) {
 		int iNewMaintenance = calculateBaseMaintenanceTimes100() * std::max(0, getMaintenanceModifier() + iModifier + 100) / 100;
-		return getMaintenanceTimes100() - iNewMaintenance;
+		return ROUND_DIVIDE((getMaintenanceTimes100() - iNewMaintenance) * (100 + GET_PLAYER(getOwnerINLINE()).getInflationRate()), 100); // K-Mod
 	}
 
 	return 0;
@@ -4973,7 +4973,12 @@ int CvCity::calculateCorporationMaintenanceTimes100(CorporationTypes eCorporatio
 	iMaintenance *= std::max(0, (GET_PLAYER(getOwnerINLINE()).getCorporationMaintenanceModifier() + 100));
 	iMaintenance /= 100;
 
-	int iInflation = GET_PLAYER(getOwnerINLINE()).calculateInflationRate() + 100;
+	// K-Mod note. This division by inflation effectively cancels with the inflation factor in calculateInflatedCosts.
+	// However, since city maintenance is cached and is only updated in particular situations; this adjustment
+	// may result in corporation maintenance sometimes being higher than it should be - as inflation grows and
+	// the correction factor to counter inflation remains unchanged.
+	// This is obviously a bug; but I'm not going to worry about it right now.
+	int iInflation = GET_PLAYER(getOwnerINLINE()).getInflationRate() + 100;
 	if (iInflation > 0) {
 		iMaintenance *= 100;
 		iMaintenance /= iInflation;
@@ -6129,11 +6134,14 @@ void CvCity::changeForeignTradeRouteModifier(int iChange) {
 
 // K-Mod - Trade culture calculation
 int CvCity::getTradeCultureRateTimes100(int iLevel) const {
-	// I've disabled the cap since trade culture isn't added to city culture now, 11/dec/10
-	int iPercent = (int)getCultureLevel();
+	// Note: iLevel currently isn't used.
+
+	// Note: GC.getNumCultureLevelInfos() is 7 with the standard xml, which means legendary culture is level 6.
+	// So we have 3, 4, 4, 5, 5, 6, 6
+	int iPercent = (GC.getNumCultureLevelInfos() + (int)getCultureLevel()) / 2;
 
 	if (iPercent > 0) {
-		// 1% of culture rate for each culture level.
+		// (originally this was 1% of culture rate for each culture level.)
 		return (m_aiCommerceRate[COMMERCE_CULTURE] * iPercent) / 100;
 	}
 	return 0;
@@ -9394,7 +9402,7 @@ int CvCity::getReligionGrip(ReligionTypes eReligion) const {
 
 	int iCurrentTurn = GC.getGame().getGameTurn();
 	int iTurnFounded = GC.getGame().getReligionGameTurnFounded(eReligion);
-	int iTimeScale = GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getVictoryDelayPercent() / 3;
+	int iTimeScale = GC.getDefineINT("RELIGION_INFLUENCE_TIME_SCALE") * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getVictoryDelayPercent() / 100;
 	iScore += GC.getDefineINT("RELIGION_INFLUENCE_TIME_WEIGHT") * (iTurnFounded + iTimeScale) / (iCurrentTurn + iTimeScale);
 
 	return iScore; // note. the random part is not included in this function.
@@ -10368,6 +10376,11 @@ void CvCity::doPlotCultureTimes100(bool bUpdate, PlayerTypes ePlayer, int iCultu
 	}
 
 	// K-Mod - increased culture range, added a percentage based distance bonus (decreasing the importance flat rate bonus).
+	// Experimental culture profile...
+	// Ae^(-bx). A = 10 (no effect), b = log(full_range_ratio)/range, x = distance from centre
+	//
+	// (iScale-1)(iDistance - iRange)^2/(iRange^2) + 1   // This approximates the exponential pretty well
+	// In our case, 10^(-x/R), where x is distance, and R is max range. So it's 10 times culture at the centre compared to the edge.
 	const int iScale = 10;
 	const int iCultureRange = eCultureLevel + 3;
 
@@ -10385,7 +10398,9 @@ void CvCity::doPlotCultureTimes100(bool bUpdate, PlayerTypes ePlayer, int iCultu
 
 					if (pLoopPlot != NULL) {
 						if (pLoopPlot->isPotentialCityWorkForArea(area())) {
-							int iCultureToAdd = iCultureRateTimes100 * ((iScale - 1) * (iDistance - iCultureRange) * (iDistance - iCultureRange) + iCultureRange * iCultureRange) / (100 * iCultureRange * iCultureRange);
+							// Cast to double to avoid overflow. (The world-builder can add a lot of culture in one hit.)
+							int delta = iDistance - iCultureRange;
+							int iCultureToAdd = static_cast<int>(iCultureRateTimes100 * static_cast<double>((iScale - 1) * delta * delta + iCultureRange * iCultureRange) / (100.0 * iCultureRange * iCultureRange));
 							pLoopPlot->changeCulture(ePlayer, iCultureToAdd, (bUpdate || !(pLoopPlot->isOwned())));
 						}
 					}
@@ -10682,7 +10697,7 @@ void CvCity::doReligion() {
 							iDivisor /= 100;
 
 							// now iDivisor is in the range [1, 1+iDistanceFactor] * iDivisorBase
-							// this is approximately in the range [4, 60], depending on what the xml value are. (the value currently being tested and tuned.)
+							// this is approximately in the range [5, 50], depending on what the xml value are. (the value currently being tested and tuned.)
 							iSpread /= iDivisor;
 
 							iRandThreshold = std::max(iRandThreshold, iSpread);
@@ -12019,7 +12034,7 @@ void CvCity::invalidateYieldRankCache(YieldTypes eYield) {
 }
 
 void CvCity::invalidateCommerceRankCache(CommerceTypes eCommerce) {
-	FAssertMsg(eCommerce >= NO_YIELD && eCommerce < NUM_YIELD_TYPES, "invalidateCommerceRankCache passed bogus commerce index");
+	FAssertMsg(eCommerce >= NO_COMMERCE && eCommerce < NUM_COMMERCE_TYPES, "invalidateCommerceRankCache passed bogus commerce index");
 
 	if (eCommerce == NO_COMMERCE) {
 		for (int iI = 0; iI < NUM_COMMERCE_TYPES; iI++) {

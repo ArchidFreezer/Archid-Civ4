@@ -124,6 +124,13 @@
 	<ElementType name="WorldViewRevoltTurnChanges" content="eltOnly">
 		<element type="WorldViewRevoltTurnChange" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="iCommerce" content="textOnly" dt:type="int"/>
+	<ElementType name="SpecialistExtraCommerces" content="eltOnly">
+		<element type="iCommerce" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="CommerceModifiers" content="eltOnly">
+		<element type="iCommerce" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="TechInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -175,6 +182,8 @@
 		<element type="iGridX"/>
 		<element type="iGridY"/>
 		<element type="DomainExtraMoves" minOccurs="0"/>
+		<element type="CommerceModifiers" minOccurs="0"/>
+		<element type="SpecialistExtraCommerces" minOccurs="0"/>
 		<element type="CommerceFlexible" minOccurs="0"/>
 		<element type="TerrainTrades" minOccurs="0"/>
 		<element type="bRiverTrade" minOccurs="0"/>

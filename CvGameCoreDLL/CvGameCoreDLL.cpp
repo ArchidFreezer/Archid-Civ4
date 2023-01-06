@@ -311,7 +311,7 @@ void IFPEnd(void) {
 	for (int i = 0; i < numSamples; i++) {
 		if (sampleList[i]->ProfileInstances != 0) {
 			sprintf(buffer,
-				"%s\t%d\t%d\t%d\t%d\t%s\n",
+				"%s\t%d\t%d\t%u\t%d\t%s\n",
 				sampleList[i]->Name,
 				(int)((1000 * sampleList[i]->Accumulator.QuadPart) / freq.QuadPart),
 				(int)((1000 * sampleList[i]->Accumulator.QuadPart) / (freq.QuadPart * sampleList[i]->ProfileInstances)),

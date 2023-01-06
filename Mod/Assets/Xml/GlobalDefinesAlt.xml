@@ -30,4 +30,12 @@
 		<DefineName>GLOBAL_WARMING_PROB</DefineName>
 		<iDefineIntVal>20</iDefineIntVal>
 	</Define>
+	<Define>
+		<DefineName>REVOLT_TEST_PROB</DefineName>
+		<iDefineIntVal>15</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>NUM_WARNING_REVOLTS</DefineName>
+		<iDefineIntVal>2</iDefineIntVal>
+	</Define>
 </Civ4Defines>

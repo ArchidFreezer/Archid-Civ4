@@ -9,7 +9,7 @@
 #define PYBugModule      PYCivModule
 
 #define KMOD_NAME        L"K-Mod"
-#define KMOD_VERSION     L"1.44b"
+#define KMOD_VERSION     L"1.46"
 
 #define MOD_NAME         L"Archid"
 #define MOD_VERSION      L"0.1"

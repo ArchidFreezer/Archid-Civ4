@@ -508,6 +508,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iCombatExperience = 0;
 	m_iPopRushHurryCount = 0;
 	m_iInflationModifier = 0;
+	m_iInflationRate = 0;
 	m_iExtraRange = 0;
 	m_iExtraRangePercent = 0;
 	m_iUnitRangeUnboundCount = 0;
@@ -2487,6 +2488,8 @@ void CvPlayer::doTurn() {
 	updateTradeRoutes();
 
 	updateWarWearinessPercentAnger();
+
+	updateInflationRate();
 
 	doWorldViews();
 
@@ -4786,6 +4789,39 @@ bool CvPlayer::canTrain(UnitTypes eUnit, bool bContinue, bool bTestVisible, bool
 	return true;
 }
 
+// K-Mod. Check that we have the required bonuses to train the given unit.
+// This isn't for any particular city. It's just a rough guide for whether or not we could build the unit.
+bool CvPlayer::haveResourcesToTrain(UnitTypes eUnit) const {
+	FASSERT_BOUNDS(0, GC.getNumUnitInfos(), eUnit, "CvPlayer::haveResourcesToTrain");
+
+	const CvUnitInfo& kUnit = GC.getUnitInfo(eUnit);
+	//const CvTeam& kTeam = GET_TEAM(getTeam());
+
+	// "and" bonus
+	BonusTypes ePrereqBonus = (BonusTypes)kUnit.getPrereqAndBonus();
+	if (ePrereqBonus != NO_BONUS) {
+		if (!hasBonus(ePrereqBonus) && countOwnedBonuses(ePrereqBonus) == 0) {
+			return false;
+		}
+	}
+
+	// "or" bonuses
+	bool bMissingBonus = false;
+	for (int i = 0; i < kUnit.getNumPrereqOrBonuses(); ++i) {
+		BonusTypes ePrereqBonus = (BonusTypes)kUnit.getPrereqOrBonus(i);
+
+		if (ePrereqBonus == NO_BONUS)
+			continue;
+
+		if (hasBonus(ePrereqBonus) || countOwnedBonuses(ePrereqBonus) > 0) {
+			bMissingBonus = false;
+			break;
+		}
+		bMissingBonus = true;
+	}
+
+	return !bMissingBonus;
+}
 
 bool CvPlayer::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestVisible, bool bIgnoreCost, bool bIgnoreTech) const {
 	const CvTeamAI& currentTeam = GET_TEAM(getTeam());
@@ -5394,7 +5430,7 @@ int CvPlayer::getBuildCost(const CvPlot* pPlot, BuildTypes eBuild) const {
 		return 0;
 	}
 
-	return std::max(0, GC.getBuildInfo(eBuild).getCost() * (100 + calculateInflationRate())) / 100;
+	return std::max(0, GC.getBuildInfo(eBuild).getCost() * (100 + getInflationRate())) / 100;
 }
 
 
@@ -5686,17 +5722,41 @@ int CvPlayer::calculatePreInflatedCosts() const {
 }
 
 
-int CvPlayer::calculateInflationRate() const {
+void CvPlayer::updateInflationRate() {
 	int iTurns = ((GC.getGameINLINE().getGameTurn() + GC.getGameINLINE().getElapsedGameTurns()) / 2);
 
 	if (GC.getGameINLINE().getMaxTurns() > 0) {
 		iTurns = std::min(GC.getGameINLINE().getMaxTurns(), iTurns);
 	}
 
+	// K-Mod. Advance the effective turn proportionally with total techs discovered;
+	// so that games which lots of tech trading will still have a reasonable inflation rate.
+	// Note. This is an experimental change. I might have to revise it in the future.
+	{
+		PROFILE("tech inflation");
+		long iPotentialTech = 0;
+		long iCurrentTech = 0;
+		for (TechTypes eTech = (TechTypes)0; eTech < GC.getNumTechInfos(); eTech = (TechTypes)(eTech + 1)) {
+			for (PlayerTypes j = (PlayerTypes)0; j < MAX_CIV_PLAYERS; j = (PlayerTypes)(j + 1)) {
+				const CvPlayer& kLoopPlayer = GET_PLAYER(j);
+				if (kLoopPlayer.isAlive() && !kLoopPlayer.isMinorCiv() && kLoopPlayer.canEverResearch(eTech)) {
+					int iWeight = kLoopPlayer.getTotalPopulation() * (kLoopPlayer.getTeam() == getTeam() ? 2 : 1);
+					iPotentialTech += iWeight;
+					if (GET_TEAM(kLoopPlayer.getTeam()).isHasTech(eTech)) {
+						iCurrentTech += iWeight;
+					}
+				}
+			}
+		}
+		iTurns += iCurrentTech * GC.getGameINLINE().getEstimateEndTurn() * 4 / (3 * std::max(1L, iPotentialTech)); // based on full tech at 3/4 of max time.
+		iTurns /= 2;
+	}
+
 	iTurns += GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getInflationOffset();
 
 	if (iTurns <= 0) {
-		return 0;
+		m_iInflationRate = 0;
+		return;
 	}
 
 	int iInflationPerTurnTimes10000 = GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getInflationPercent();
@@ -5721,7 +5781,7 @@ int CvPlayer::calculateInflationRate() const {
 
 	FAssert(iRatePercent >= 0);
 
-	return iRatePercent;
+	m_iInflationRate = iRatePercent;
 }
 
 
@@ -5730,7 +5790,7 @@ int CvPlayer::calculateInflatedCosts() const {
 
 	int iCosts = calculatePreInflatedCosts();
 
-	iCosts *= std::max(0, (calculateInflationRate() + 100));
+	iCosts *= std::max(0, (getInflationRate() + 100));
 	iCosts /= 100;
 
 	return iCosts;
@@ -10490,7 +10550,7 @@ int CvPlayer::findPathLength(TechTypes eTech, bool bCost) const {
 		//	If this is a valid tech
 		if (ePreReq != NO_TECH) {
 			//	Recursively find the path length (takes into account all ANDs)
-			int iNumSteps = findPathLength(ePreReq, bCost);
+			int iNumSteps = findPathLength(ePreReq, bCost); // K-Mod note: This will double-count any shared AND-prepreqs.
 
 			//	If the prereq is a valid tech and its the current shortest, mark it as such
 			if (iNumSteps < iShortestPath) {
@@ -10971,10 +11031,10 @@ void CvPlayer::clearSpaceShipPopups() {
 				it = m_listPopups.erase(it);
 				SAFE_DELETE(pInfo);
 			} else {
-				it++;
+				++it;
 			}
 		} else {
-			it++;
+			++it;
 		}
 	}
 }
@@ -11336,11 +11396,11 @@ int CvPlayer::getEspionageMissionCost(EspionageMissionTypes eMission, PlayerType
 		return -1;
 	}
 
-	iMissionCost *= getEspionageMissionCostModifier(eMission, eTargetPlayer, pPlot, iExtraData, pSpyUnit);
-	iMissionCost /= 100;
-
 	// Multiply cost of mission * number of team members
 	iMissionCost *= GET_TEAM(getTeam()).getNumMembers();
+
+	iMissionCost *= getEspionageMissionCostModifier(eMission, eTargetPlayer, pPlot, iExtraData, pSpyUnit);
+	iMissionCost /= 100;
 
 	return std::max(0, iMissionCost);
 }
@@ -11380,7 +11440,7 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 
 	if (kMission.getStealTreasuryTypes() > 0) {
 		// Steal Treasury
-		int iNumTotalGold;
+		int iNumTotalGold = 0;
 
 		if (NULL != pCity) {
 			iNumTotalGold = getEspionageGoldQuantity(eMission, eTargetPlayer, pCity);
@@ -11999,7 +12059,7 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 
 	if (kMission.getStealTreasuryTypes() > 0) {
 		if (NO_PLAYER != eTargetPlayer) {
-			int iNumTotalGold;
+			int iNumTotalGold = 0;
 
 			if (NULL != pPlot) {
 				CvCity* pCity = pPlot->getPlotCity();
@@ -14024,6 +14084,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 
 	pStream->Read(&m_iPopRushHurryCount);
 	pStream->Read(&m_iInflationModifier);
+	pStream->Read(&m_iInflationRate);
 }
 
 //
@@ -14436,9 +14497,16 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 
 	pStream->Write(m_iPopRushHurryCount);
 	pStream->Write(m_iInflationModifier);
+	pStream->Write(m_iInflationRate);
 }
 
 void CvPlayer::createGreatPeople(UnitTypes eGreatPersonUnit, bool bIncrementThreshold, bool bIncrementExperience, int iX, int iY) {
+	CvPlot* pPlot = GC.getMapINLINE().plot(iX, iY);
+	if (pPlot == NULL) {
+		FAssertMsg(false, "Invalid plot in createGreatPeople()");
+		return;
+	}
+
 	CvUnit* pGreatPeopleUnit = initUnit(eGreatPersonUnit, iX, iY);
 	if (NULL == pGreatPeopleUnit) {
 		FAssert(false);
@@ -14469,29 +14537,26 @@ void CvPlayer::createGreatPeople(UnitTypes eGreatPersonUnit, bool bIncrementThre
 		}
 	}
 
-
-	CvPlot* pPlot = GC.getMapINLINE().plot(iX, iY);
 	CvCity* pCity = pPlot->getPlotCity();
 	CvWString szReplayMessage;
 
-	if (pPlot) {
-		if (pCity) {
-			CvWString szCity;
-			szCity.Format(L"%s (%s)", pCity->getName().GetCString(), GET_PLAYER(pCity->getOwnerINLINE()).getReplayName());
-			szReplayMessage = gDLL->getText("TXT_KEY_MISC_GP_BORN", pGreatPeopleUnit->getName().GetCString(), szCity.GetCString());
-		} else {
-			szReplayMessage = gDLL->getText("TXT_KEY_MISC_GP_BORN_FIELD", pGreatPeopleUnit->getName().GetCString());
-		}
-		GC.getGameINLINE().addReplayMessage(REPLAY_MESSAGE_MAJOR_EVENT, getID(), szReplayMessage, iX, iY, (ColorTypes)GC.getInfoTypeForString("COLOR_UNIT_TEXT"));
+	if (pCity) {
+		CvWString szCity;
+		szCity.Format(L"%s (%s)", pCity->getName().GetCString(), GET_PLAYER(pCity->getOwnerINLINE()).getReplayName());
+		szReplayMessage = gDLL->getText("TXT_KEY_MISC_GP_BORN", pGreatPeopleUnit->getName().GetCString(), szCity.GetCString());
+	} else {
+		szReplayMessage = gDLL->getText("TXT_KEY_MISC_GP_BORN_FIELD", pGreatPeopleUnit->getName().GetCString());
 	}
+	GC.getGameINLINE().addReplayMessage(REPLAY_MESSAGE_MAJOR_EVENT, getID(), szReplayMessage, iX, iY, (ColorTypes)GC.getInfoTypeForString("COLOR_UNIT_TEXT"));
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
-			if (pPlot->isRevealed(GET_PLAYER((PlayerTypes)iI).getTeam(), false)) {
-				gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szReplayMessage, "AS2D_UNIT_GREATPEOPLE", MESSAGE_TYPE_MAJOR_EVENT, pGreatPeopleUnit->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_UNIT_TEXT"), iX, iY, true, true);
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+		if (kPlayer.isAlive()) {
+			if (pPlot->isRevealed(kPlayer.getTeam(), false)) {
+				gDLL->getInterfaceIFace()->addHumanMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szReplayMessage, "AS2D_UNIT_GREATPEOPLE", MESSAGE_TYPE_MAJOR_EVENT, pGreatPeopleUnit->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_UNIT_TEXT"), iX, iY, true, true);
 			} else {
 				CvWString szMessage = gDLL->getText("TXT_KEY_MISC_GP_BORN_SOMEWHERE", pGreatPeopleUnit->getName().GetCString());
-				gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szMessage, "AS2D_UNIT_GREATPEOPLE", MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_UNIT_TEXT"));
+				gDLL->getInterfaceIFace()->addHumanMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szMessage, "AS2D_UNIT_GREATPEOPLE", MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_UNIT_TEXT"));
 			}
 		}
 	}
@@ -14500,7 +14565,6 @@ void CvPlayer::createGreatPeople(UnitTypes eGreatPersonUnit, bool bIncrementThre
 	if (pCity) {
 		CvEventReporter::getInstance().greatPersonBorn(pGreatPeopleUnit, getID(), pCity);
 	}
-
 }
 
 
@@ -15376,7 +15440,7 @@ void CvPlayer::applyEvent(EventTypes eEvent, int iEventTriggeredId, bool bUpdate
 			if (iBeakers > 0) {
 				for (int iI = 0; iI < MAX_CIV_PLAYERS; iI++) {
 					if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
-						if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID()) {
+						if (GET_PLAYER((PlayerTypes)iI).getTeam() == getTeam()) {
 							CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_PROGRESS_TOWARDS_TECH", iBeakers, GC.getTechInfo(eBestTech).getTextKeyWide());
 
 							gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, NULL, MESSAGE_TYPE_MINOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_TECH_TEXT"));
@@ -15980,7 +16044,7 @@ int CvPlayer::getEventCost(EventTypes eEvent, PlayerTypes eOtherPlayer, bool bRa
 		iGold += kEvent.getRandomGold();
 	}
 
-	iGold *= std::max(0, calculateInflationRate() + 100);
+	iGold *= std::max(0, getInflationRate() + 100);
 	iGold /= 100;
 
 	TechTypes eBestTech = getBestEventTech(eEvent, eOtherPlayer);
@@ -17382,7 +17446,7 @@ bool CvPlayer::canForceCivics(PlayerTypes eTarget, CivicTypes eCivic) const {
 }
 
 bool CvPlayer::canForceReligion(PlayerTypes eTarget, ReligionTypes eReligion) const {
-	// K-Mod - You shouldn't be able to force a relgion on an irreligious civ.
+	// K-Mod - You shouldn't be able to force a religion on an irreligious civ.
 	return (GET_PLAYER(eTarget).isStateReligion() && GET_PLAYER(eTarget).canDoReligion(eReligion) && GET_PLAYER(eTarget).getStateReligion() != eReligion && getStateReligion() == eReligion);
 }
 

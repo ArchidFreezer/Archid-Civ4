@@ -65,7 +65,7 @@
 			<Civilopedia>TXT_KEY_CORPORATION_3_PEDIA</Civilopedia>
 			<iSpreadFactor>200</iSpreadFactor>
 			<iSpreadCost>50</iSpreadCost>
-			<iMaintenance>100</iMaintenance>
+			<iMaintenance>80</iMaintenance>
 			<iTGAIndex>2</iTGAIndex>
 			<PrereqBonuses>
 				<BonusType>BONUS_CORN</BonusType>
@@ -144,7 +144,7 @@
 			<Civilopedia>TXT_KEY_CORPORATION_6_PEDIA</Civilopedia>
 			<iSpreadFactor>200</iSpreadFactor>
 			<iSpreadCost>50</iSpreadCost>
-			<iMaintenance>100</iMaintenance>
+			<iMaintenance>80</iMaintenance>
 			<iTGAIndex>5</iTGAIndex>
 			<PrereqBonuses>
 				<BonusType>BONUS_COAL</BonusType>
@@ -166,7 +166,7 @@
 			<Civilopedia>TXT_KEY_CORPORATION_7_PEDIA</Civilopedia>
 			<iSpreadFactor>200</iSpreadFactor>
 			<iSpreadCost>50</iSpreadCost>
-			<iMaintenance>100</iMaintenance>
+			<iMaintenance>120</iMaintenance>
 			<iTGAIndex>6</iTGAIndex>
 			<PrereqBonuses>
 				<BonusType>BONUS_GOLD</BonusType>
