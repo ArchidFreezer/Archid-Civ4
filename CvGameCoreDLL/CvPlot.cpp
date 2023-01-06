@@ -5830,23 +5830,24 @@ void CvPlot::setRevealed(TeamTypes eTeam, bool bNewValue, bool bTerrainOnly, Tea
 		}
 	}
 
-	if (bFirstReveal && getFeatureType() != NO_FEATURE && GC.getFeatureInfo(getFeatureType()).isUnique()) {
-		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
-			CvPlayer& kPlayer = GET_PLAYER(ePlayer);
-			if (kPlayer.getTeam() == eTeam && kPlayer.isHuman()) {
-				const CvFeatureInfo& kFeature = GC.getFeatureInfo(getFeatureType());
+	if (getFeatureType() != NO_FEATURE) {
+		const CvFeatureInfo& kFeature = GC.getFeatureInfo(getFeatureType());
+		if (bFirstReveal && kFeature.isUnique()) {
+			for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+				CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+				if (kPlayer.getTeam() == eTeam && kPlayer.isHuman()) {
+					CvWString szBuffer = gDLL->getText("TXT_KEY_WONDERDISCOVERED_YOU", kFeature.getDescription());
+					gDLL->getInterfaceIFace()->addHumanMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_WONDER_BUILDING_BUILD", MESSAGE_TYPE_INFO, kFeature.getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE(), true, true);
 
-				CvWString szBuffer = gDLL->getText("TXT_KEY_WONDERDISCOVERED_YOU", GC.getFeatureInfo(getFeatureType()).getDescription());
-				gDLL->getInterfaceIFace()->addHumanMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_WONDER_BUILDING_BUILD", MESSAGE_TYPE_INFO, GC.getFeatureInfo(getFeatureType()).getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE(), true, true);
-
-				if (!CvString(kFeature.getMovieArtDef()).empty()) {
-					// show movie
-					CvPopupInfo* pInfo = new CvPopupInfo(BUTTONPOPUP_PYTHON_SCREEN);
-					if (NULL != pInfo) {
-						pInfo->setText(L"showWonderMovie");
-						pInfo->setData1((int)getFeatureType());
-						pInfo->setData3(6);
-						kPlayer.addPopup(pInfo);
+					if (!CvString(kFeature.getMovieArtDef()).empty()) {
+						// show movie
+						CvPopupInfo* pInfo = new CvPopupInfo(BUTTONPOPUP_PYTHON_SCREEN);
+						if (NULL != pInfo) {
+							pInfo->setText(L"showWonderMovie");
+							pInfo->setData1((int)getFeatureType());
+							pInfo->setData3(6);
+							kPlayer.addPopup(pInfo);
+						}
 					}
 				}
 			}
