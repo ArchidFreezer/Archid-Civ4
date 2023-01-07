@@ -340,6 +340,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_eOwner = eOwner;
 	m_eCapturingPlayer = NO_PLAYER;
 	m_eUnitType = eUnit;
+	m_eDesiredDiscoveryTech = NO_TECH;
 	m_pUnitInfo = (NO_UNIT != m_eUnitType) ? &GC.getUnitInfo(m_eUnitType) : NULL;
 	m_iBaseCombat = (NO_UNIT != m_eUnitType) ? m_pUnitInfo->getCombat() : 0;
 	m_eLeaderUnitType = NO_UNIT;
@@ -709,6 +710,14 @@ void CvUnit::doTurn() {
 	setReconPlot(NULL);
 
 	setMoves(0);
+
+	if (getDesiredDiscoveryTech() != NO_TECH) {
+		if (GET_PLAYER(getOwnerINLINE()).canResearch(getDesiredDiscoveryTech())) {
+			getGroup()->setActivityType(ACTIVITY_AWAKE);
+			discover(getDesiredDiscoveryTech());
+			setDesiredDiscoveryTech(NO_TECH);
+		}
+	}
 }
 
 
@@ -5034,20 +5043,22 @@ bool CvUnit::canDiscover(const CvPlot* pPlot) const {
 	return true;
 }
 
-
 bool CvUnit::discover() {
+	return discover(getDiscoveryTech());
+}
+
+bool CvUnit::discover(TechTypes eTech) {
 	if (!canDiscover(plot())) {
 		return false;
 	}
 
-	TechTypes eDiscoveryTech = getDiscoveryTech();
-	FAssertMsg(eDiscoveryTech != NO_TECH, "DiscoveryTech is not assigned a valid value");
+	FAssertMsg(eTech != NO_TECH, "Tech is not assigned a valid value");
 
-	GET_TEAM(getTeam()).changeResearchProgress(eDiscoveryTech, getDiscoverResearch(eDiscoveryTech), getOwnerINLINE());
+	GET_TEAM(getTeam()).changeResearchProgress(eTech, getDiscoverResearch(eTech), getOwnerINLINE());
 
 	// K-Mod. If the AI bulbs something, let them reconsider their current research.
 	CvPlayerAI& kOwner = GET_PLAYER(getOwnerINLINE());
-	if (!kOwner.isHuman() && kOwner.getCurrentResearch() != eDiscoveryTech) {
+	if (!kOwner.isHuman() && kOwner.getCurrentResearch() != eTech) {
 		kOwner.clearResearchQueue();
 	}
 
@@ -6493,6 +6504,7 @@ BuildTypes CvUnit::getBuildType() const {
 		case MISSION_UPDATE_WORLD_VIEWS:
 		case MISSION_SELL_SLAVE:
 		case MISSION_SHADOW:
+		case MISSION_WAIT_FOR_TECH:
 			break;
 
 		case MISSION_BUILD:
@@ -9929,6 +9941,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	FAssert(NO_UNIT != m_eUnitType);
 	m_pUnitInfo = (NO_UNIT != m_eUnitType) ? &GC.getUnitInfo(m_eUnitType) : NULL;
 	pStream->Read((int*)&m_eLeaderUnitType);
+	pStream->Read((int*)&m_eDesiredDiscoveryTech);
 
 	pStream->Read((int*)&m_combatUnit.eOwner);
 	pStream->Read(&m_combatUnit.iID);
@@ -10047,6 +10060,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_eCapturingPlayer);
 	pStream->Write(m_eUnitType);
 	pStream->Write(m_eLeaderUnitType);
+	pStream->Write(m_eDesiredDiscoveryTech);
 
 	pStream->Write(m_combatUnit.eOwner);
 	pStream->Write(m_combatUnit.iID);
@@ -12790,4 +12804,25 @@ float CvUnit::doInfluenceCulture(float fInfluence, PlayerTypes eTargetPlayer) {
 	float fInfluenceRatio = ((iOurCultureAfter - iOurCultureBefore) * 100.0f) / pPlot->countTotalCulture();
 
 	return fInfluenceRatio;
+}
+
+void CvUnit::setDesiredDiscoveryTech(TechTypes eTech) {
+	m_eDesiredDiscoveryTech = eTech;
+
+	getGroup()->setActivityType(ACTIVITY_SLEEP);
+}
+
+TechTypes CvUnit::getDesiredDiscoveryTech() const {
+	return m_eDesiredDiscoveryTech;
+}
+
+void CvUnit::waitForTech(int iFlag, int eTech) {
+	if (eTech == NO_TECH) {
+		CvPopupInfo* pInfo = new CvPopupInfo(BUTTONPOPUP_SELECT_DISCOVERY_TECH, getID(), 0, 0);
+		if (pInfo) {
+			gDLL->getInterfaceIFace()->addPopup(pInfo, getOwnerINLINE(), true);
+		}
+	} else {
+		setDesiredDiscoveryTech((TechTypes)eTech);
+	}
 }

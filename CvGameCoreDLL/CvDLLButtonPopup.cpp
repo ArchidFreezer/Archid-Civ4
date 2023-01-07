@@ -628,6 +628,11 @@ void CvDLLButtonPopup::OnOkClicked(CvPopup* pPopup, PopupReturn* pPopupReturn, C
 			GC.getGameINLINE().selectionListGameNetMessage(GAMEMESSAGE_PUSH_MISSION, MISSION_SHADOW, info.getData2(), info.getData3(), pPopupReturn->getButtonClicked());
 		break;
 
+	case BUTTONPOPUP_SELECT_DISCOVERY_TECH:
+		if (pPopupReturn->getButtonClicked() != GC.getNumTechInfos())
+			GC.getGameINLINE().selectionListGameNetMessage(GAMEMESSAGE_PUSH_MISSION, MISSION_WAIT_FOR_TECH, pPopupReturn->getButtonClicked(), pPopupReturn->getButtonClicked(), GC.getNumTechInfos());
+		break;
+
 	default:
 		FAssert(false);
 		break;
@@ -857,6 +862,9 @@ bool CvDLLButtonPopup::launchButtonPopup(CvPopup* pPopup, CvPopupInfo& info) {
 		break;
 	case BUTTONPOPUP_SELECT_UNIT:
 		bLaunched = launchSelectShadowUnitPopup(pPopup, info);
+		break;
+	case BUTTONPOPUP_SELECT_DISCOVERY_TECH:
+		bLaunched = launchSelectDiscoveryTechPopup(pPopup, info);
 		break;
 	default:
 		FAssert(false);
@@ -2382,6 +2390,58 @@ bool CvDLLButtonPopup::launchSelectShadowUnitPopup(CvPopup* pPopup, CvPopupInfo&
 	}
 
 	gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_NEVER_MIND"), NULL, 0, WIDGET_GENERAL);
+	gDLL->getInterfaceIFace()->popupLaunch(pPopup, false, POPUPSTATE_IMMEDIATE);
+
+	return (true);
+}
+
+// The algorithm here is fairly poor as we are looping through the techs multiple times
+// Should consider using a map of <int, vector<TechTypes> > that we could populate using
+// a single pass through the techs with the key being the x position. For the number of techs we have
+// now this populates quickly enough and it is triggered by a manual action so is not called by the AI
+bool CvDLLButtonPopup::launchSelectDiscoveryTechPopup(CvPopup* pPopup, CvPopupInfo& info) {
+	int iUnitID = info.getData1();
+	PlayerTypes ePlayer = GC.getGameINLINE().getActivePlayer();
+	if (ePlayer == NO_PLAYER)
+		return false;
+
+	const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+	CvUnit* pUnit = kPlayer.getUnit(iUnitID);
+	if (pUnit == NULL)
+		return false;
+
+	gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, gDLL->getText("TXT_KEY_CHOOSE_TECH_TO_WAIT_FOR"));
+
+	CvWString szBuffer;
+	//Find the last tech
+	int iBestX = 0;
+	for (TechTypes eTech = (TechTypes)0; eTech < GC.getNumTechInfos(); eTech = (TechTypes)(eTech + 1)) {
+		if (kPlayer.canEverResearch(eTech)) {
+			if (GC.getTechInfo(eTech).getGridX() > iBestX) {
+				iBestX = GC.getTechInfo(eTech).getGridX();
+			}
+		}
+	}
+	//Forces sorting by the columns in the tech screen
+	for (int iColumn = 0; iColumn < iBestX + 1; iColumn++) {
+		for (TechTypes eLoopTech = (TechTypes)0; eLoopTech < GC.getNumTechInfos(); eLoopTech = (TechTypes)(eLoopTech + 1)) {
+			if (GC.getTechInfo(eLoopTech).getGridX() == iColumn) {
+				if (kPlayer.canEverResearch(eLoopTech) && !GET_TEAM(kPlayer.getTeam()).isHasTech(eLoopTech)) {
+					int iValue = 0;
+
+					for (FlavorTypes eFlavor = (FlavorTypes)0; eFlavor < GC.getNumFlavorTypes(); eFlavor = (FlavorTypes)(eFlavor + 1)) {
+						iValue += (GC.getTechInfo(eLoopTech).getFlavorValue(eFlavor) * GC.getUnitInfo(pUnit->getUnitType()).getFlavorValue(eFlavor));
+					}
+					if (iValue > 0) {
+						szBuffer.Format(L"%s", GC.getTechInfo(eLoopTech).getDescription());
+						gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, GC.getTechInfo(eLoopTech).getButton(), int(eLoopTech), WIDGET_GENERAL);
+					}
+				}
+			}
+		}
+	}
+
+	gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_NEVER_MIND"), NULL, GC.getNumTechInfos(), WIDGET_GENERAL);
 	gDLL->getInterfaceIFace()->popupLaunch(pPopup, false, POPUPSTATE_IMMEDIATE);
 
 	return (true);

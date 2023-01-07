@@ -813,6 +813,22 @@
 			<bBuild>0</bBuild>
 			<bSound>0</bSound>
 		</MissionInfo>
+<!-- +++++++++++++++++++++++ -->
+<!-- New Missions after here -->
+<!-- +++++++++++++++++++++++ -->
+		<MissionInfo>
+			<Type>MISSION_WAIT_FOR_TECH</Type>
+			<Description>TXT_KEY_MISSION_WAIT_FOR_TECH</Description>
+			<Help>TXT_KEY_MISSION_WAIT_FOR_TECH_HELP</Help>
+			<Waypoint>NONE</Waypoint>
+			<EntityEventType>ENTITY_EVENT_SLEEP</EntityEventType>
+			<iTime>0</iTime>
+			<bTarget>0</bTarget>
+			<bBuild>0</bBuild>
+			<bSound>1</bSound>
+			<bVisible>1</bVisible>
+			<Button>Art/Interface/Buttons/Actions/wait_discover.dds</Button>
+		</MissionInfo>
 <!-- Sentry Actions -->
 		<MissionInfo>
 			<Type>MISSION_MOVE_TO_SENTRY</Type>

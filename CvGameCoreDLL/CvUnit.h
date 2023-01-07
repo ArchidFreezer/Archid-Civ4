@@ -103,6 +103,10 @@ public:
 	CvUnit* getShadowUnit() const;
 	void clearShadowUnit();
 
+	void setDesiredDiscoveryTech(TechTypes eTech);
+	void waitForTech(int iFlag, int eTech);
+	TechTypes getDesiredDiscoveryTech() const;
+
 	// Expanded espionage functions
 	bool canAssassinate(const CvPlot* pPlot, SpecialistTypes eSpecialist, bool bTestVisible) const;
 	bool isDoubleAgent() const;
@@ -364,6 +368,7 @@ public:
 	TechTypes getDiscoveryTech() const;																														// Exposed to Python
 	int getDiscoverResearch(TechTypes eTech) const;																								// Exposed to Python
 	bool canDiscover(const CvPlot* pPlot) const;																									// Exposed to Python
+	bool discover(TechTypes eTech);
 	bool discover();
 
 	int getMaxHurryProduction(CvCity* pCity) const;																													// Exposed to Python
@@ -1003,6 +1008,7 @@ protected:
 
 	PlayerTypes m_eOwner;
 	PlayerTypes m_eCapturingPlayer;
+	TechTypes m_eDesiredDiscoveryTech;
 	UnitTypes m_eUnitType;
 	UnitTypes m_eLeaderUnitType;
 	CvUnitInfo* m_pUnitInfo;

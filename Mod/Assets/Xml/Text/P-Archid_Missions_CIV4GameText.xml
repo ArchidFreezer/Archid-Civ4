@@ -131,4 +131,17 @@
 		<English>The unit allows the player to toggle the status of any known world views.</English>
 	</TEXT>
 	
+<!-- Wait for Tech (GP Units) -->
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_WAIT_FOR_TECH</Tag>
+		<English>Choose Desired Discovery Tech</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_WAIT_FOR_TECH_HELP</Tag>
+		<English>Allows selection of a of the desired discovery tech. The unit will sleep until that tech becomes available to research, and then will be consumed in researching it.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CHOOSE_TECH_TO_WAIT_FOR</Tag>
+		<English>Choose Your Desired Discovery :</English>
+	</TEXT>
 </Civ4GameText>

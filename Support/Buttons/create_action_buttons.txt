@@ -1,0 +1,23 @@
+The action buttons require the creation of a mask in the border alpha layer. The way to do this is as follows:
+
+1 - Select and view only the Image layer
+2 - Paste the required image into the Image layer
+3 - Ensure the background has been deleted. The Magic Eraser tool is usually what you need here
+4 - Select the complete layer, which will select the whole square image
+5 - Select the Move tool (top icon) and move the image, once you start to move the selection area will snap to the outline of the image.
+6 - Drag the Move back to where it started so the image has not actually moved
+7 - Select & View the Border layer
+8 - Stop viewing the Image layer
+9 - Whilst the Border layer is selected click the Channels tab (just above the layers)
+10 - Select the Alpha1 channel and deselect the RGB channel
+11 - The original selection outline should still be visble so delete the background inside this selection. You need to use the normal Eraser tool and not the Magic or Background Eraser.
+12 - The image is now ready to be saved as a DDS, so save the PDF and then save as DDS
+13 - Reselect RGB channel and deselect the Alpha1 channel
+14 - Go back to the layers tab and select both Border & Image
+
+Alternatively you can keep all layers in view and show both RGB and Alpha channels and create the alpha mask that way, but it is harder to see what you have deleted that way.
+NOTE: The pink border around the Border layer is for convenience only to indicate what will be masked out, it has no significance other than a visual clue.
+
+
+
+
