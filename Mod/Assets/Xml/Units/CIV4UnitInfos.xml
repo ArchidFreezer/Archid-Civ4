@@ -8170,6 +8170,7 @@
 			<iCost>30</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
+			<UnitRangeType>UNITRANGE_TERRITORY</UnitRangeType>
 			<iWorkRate>100</iWorkRate>
 			<TerrainImpassables>
 				<TerrainType>TERRAIN_OCEAN</TerrainType>
