@@ -110,6 +110,7 @@ protected:
 	void AI_slaveMove();
 	void AI_slaverMove();
 	void AI_shadowMove();
+	void AI_autoEspionage();
 
 	int AI_promotionValue(PromotionTypes ePromotion);
 

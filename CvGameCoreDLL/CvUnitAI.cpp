@@ -190,6 +190,10 @@ bool CvUnitAI::AI_update() {
 			AI_shadowMove();
 			break;
 
+		case AUTOMATE_ESPIONAGE:
+			AI_autoEspionage();
+			break;
+
 		default:
 			FAssert(false);
 			break;
@@ -17831,4 +17835,108 @@ bool CvUnitAI::AI_protectTarget(CvUnit* pTarget) {
 	}
 
 	return false;
+}
+
+void CvUnitAI::AI_autoEspionage() {
+	PROFILE_FUNC();
+
+	EspionageMissionTypes eBestMission = NO_ESPIONAGEMISSION;
+	PlayerTypes	eTargetPlayer = plot()->getOwnerINLINE();
+	int iExtraData = -1;
+
+	// always and only the counter espionage mission
+	for (EspionageMissionTypes eEspionageMission = (EspionageMissionTypes)0; eEspionageMission < GC.getNumEspionageMissionInfos(); eEspionageMission = (EspionageMissionTypes)(eEspionageMission + 1)) {
+		CvEspionageMissionInfo& kMissionInfo = GC.getEspionageMissionInfo(eEspionageMission);
+		if (kMissionInfo.getCounterespionageNumTurns() > 0) {
+			eBestMission = eEspionageMission;
+			break;
+		}
+	}
+
+	if (plot()->isOwned() && (plot()->getTeam() != getTeam())) {
+		if (plot()->isCity()) {
+			// foreign city
+			if (NO_ESPIONAGEMISSION != eBestMission) {
+				// player level espionage questions
+				if (GET_PLAYER(getOwnerINLINE()).canDoEspionageMission(eBestMission, eTargetPlayer, plot(), iExtraData, this)) {
+					// conduct the mission
+					if (!espionage(eBestMission, iExtraData)) {
+						// couldn't do it so wait next turn and try again
+						getGroup()->pushMission(MISSION_SKIP, -1, -1, 0, false, false, MISSIONAI_ATTACK_SPY);
+					}
+					// spy might wander from city to city until the counter espionage timer has lapsed
+					return;
+				} else {
+					// player can't do espionage so wait next turn and try again
+					getGroup()->pushMission(MISSION_SKIP, -1, -1, 0, false, false, MISSIONAI_ATTACK_SPY);
+					return;
+				}
+			} else {
+				// won't happen unless mission xml is empty
+				getGroup()->pushMission(MISSION_SKIP, -1, -1, 0, false, false, MISSIONAI_ATTACK_SPY);
+				return;
+			}
+		}
+
+		// foreign territory but not a city plot
+		else {
+			// test for interception
+			bool bReveal = false;
+			if (testSpyIntercepted(eTargetPlayer, false, bReveal, GC.getEspionageMissionInfo(eBestMission).getDifficultyMod())) {
+				return;
+			}
+		}
+	}
+
+	// neutral territory, home territory, team territory city or not
+	// give the spy a target based on AI_cityOffenseSpy function call
+	int iBestValue = 0;
+	CvPlot* pBestPlot = NULL;
+	CvCity* pSkipCity = NULL;
+
+	for (int iPlayer = 0; iPlayer < MAX_CIV_PLAYERS; ++iPlayer) {
+		CvPlayer& kLoopPlayer = GET_PLAYER((PlayerTypes)iPlayer);
+		if (kLoopPlayer.isAlive() && kLoopPlayer.getTeam() != getTeam() && !GET_TEAM(getTeam()).isVassal(kLoopPlayer.getTeam())) {
+			int counterEspTurnsLeft = GET_TEAM(getTeam()).getCounterespionageTurnsLeftAgainstTeam(kLoopPlayer.getTeam());
+			// Only move to cities where we will run missions
+			if (GET_PLAYER(getOwnerINLINE()).AI_getAttitudeWeight((PlayerTypes)iPlayer) < (GC.getGameINLINE().isOption(GAMEOPTION_AGGRESSIVE_AI) ? 51 : 1)
+				|| GET_TEAM(getTeam()).AI_getWarPlan(kLoopPlayer.getTeam()) != NO_WARPLAN
+				/*|| GET_TEAM(getTeam()).getBestKnownTechScorePercent() < 85*/) {
+				if (counterEspTurnsLeft <= 1) {
+					int iLoop;
+					for (CvCity* pLoopCity = kLoopPlayer.firstCity(&iLoop); NULL != pLoopCity; pLoopCity = kLoopPlayer.nextCity(&iLoop)) {
+						if (pLoopCity == pSkipCity) {
+							continue;
+						}
+
+						if (pLoopCity->area() == area() || canMoveAllTerrain()) {
+							CvPlot* pLoopPlot = pLoopCity->plot();
+							if (AI_plotValid(pLoopPlot)) {
+								int iValue = AI_getEspionageTargetValue(pLoopPlot);
+								if (iValue > iBestValue) {
+									iBestValue = iValue;
+									if (GET_PLAYER(getOwnerINLINE()).canDoEspionageMission(eBestMission, (PlayerTypes)iPlayer, pLoopPlot, iExtraData, this)) {
+										pBestPlot = pLoopPlot;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	if (pBestPlot != NULL) {
+		if (atPlot(pBestPlot)) {
+			getGroup()->pushMission(MISSION_SKIP, -1, -1, 0, false, false, MISSIONAI_ATTACK_SPY);
+		} else {
+			getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), 0, false, false, MISSIONAI_ATTACK_SPY);
+			getGroup()->pushMission(MISSION_SKIP, -1, -1, 0, false, false, MISSIONAI_ATTACK_SPY);
+		}
+		return;
+	}
+
+	getGroup()->pushMission(MISSION_SKIP, -1, -1, 0, false, false, MISSIONAI_ATTACK_SPY);
+	return;
 }

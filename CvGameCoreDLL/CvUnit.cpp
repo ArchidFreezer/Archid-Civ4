@@ -2614,6 +2614,11 @@ bool CvUnit::canAutomate(AutomateTypes eAutomate) const {
 		}
 		break;
 
+	case AUTOMATE_ESPIONAGE:
+		if (!isSpy())
+			return false;
+		break;
+
 	default:
 		FAssert(false);
 		break;
@@ -5379,6 +5384,8 @@ bool CvUnit::espionage(EspionageMissionTypes eMission, int iData) {
 				setMadeAttack(true);
 				finishMoves();
 
+				bool bAutomated = getGroup()->getAutomateType() == AUTOMATE_ESPIONAGE;
+
 				if (!plot()->isCity()) // Actions that aren't in a city such as improvement destruction don't cause the spy to be sent back
 				{
 					CvCity* pNearestCity = GC.getMapINLINE().findCity(plot()->getX_INLINE(), plot()->getY_INLINE(), plot()->getOwnerINLINE(), NO_TEAM, false);
@@ -5395,6 +5402,10 @@ bool CvUnit::espionage(EspionageMissionTypes eMission, int iData) {
 						CvWString szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_SPY_SUCCESS", getNameKey(), pReturnCity->getNameKey());
 						gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_POSITIVE_DINK", MESSAGE_TYPE_INFO, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), pReturnCity->getX_INLINE(), pReturnCity->getY_INLINE(), true, true);
 					}
+				}
+
+				if (bAutomated) {
+					getGroup()->setAutomateType(AUTOMATE_ESPIONAGE);
 				}
 
 				// Give spies experience for successful missions
