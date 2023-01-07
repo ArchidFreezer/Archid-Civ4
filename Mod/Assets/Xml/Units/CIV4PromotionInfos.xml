@@ -807,6 +807,7 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
