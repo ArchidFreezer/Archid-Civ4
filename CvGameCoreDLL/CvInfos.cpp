@@ -1654,6 +1654,7 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_iSpyDestroyProductionChange(0),
 	m_iSpyDestroyProjectChange(0),
 	m_iSpyDestroyBuildingChange(0),
+	m_iSpyBuyTechChange(0),
 	m_bLeader(false),
 	m_bBlitz(false),
 	m_bAmphib(false),
@@ -1695,6 +1696,10 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_piDomainModifierPercent);
 	SAFE_DELETE_ARRAY(m_pbTerrainDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
+}
+
+int CvPromotionInfo::getSpyBuyTechChange() const {
+	return m_iSpyBuyTechChange;
 }
 
 int CvPromotionInfo::getSpyResearchSabotageChange() const {
@@ -2148,6 +2153,7 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iSpyDestroyProjectChange);
 	stream->Read(&m_iSpyDestroyBuildingChange);
 	stream->Read(&m_iSpyDestroyProductionChange);
+	stream->Read(&m_iSpyBuyTechChange);
 
 	stream->Read(&m_bLeader);
 	stream->Read(&m_bBlitz);
@@ -2288,6 +2294,7 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iSpyDestroyProjectChange);
 	stream->Write(m_iSpyDestroyBuildingChange);
 	stream->Write(m_iSpyDestroyProductionChange);
+	stream->Write(m_iSpyBuyTechChange);
 
 	stream->Write(m_bLeader);
 	stream->Write(m_bBlitz);
@@ -2414,6 +2421,7 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iSpyResearchSabotageChange, "iSpyResearchSabotageChange");
 	pXML->GetChildXmlValByName(&m_iSpyReligionRemovalChange, "iSpyReligionRemovalChange");
 	pXML->GetChildXmlValByName(&m_iSpyCorporationRemovalChange, "iSpyCorporationRemovalChange");
+	pXML->GetChildXmlValByName(&m_iSpyBuyTechChange, "iSpyBuyTechChange");
 	pXML->GetChildXmlValByName(&m_iSpySwitchCivicChange, "iSpySwitchCivicChange");
 	pXML->GetChildXmlValByName(&m_iSpySwitchReligionChange, "iSpySwitchReligionChange");
 	pXML->GetChildXmlValByName(&m_iSpyDestroyProjectChange, "iSpyDestroyProjectChange");

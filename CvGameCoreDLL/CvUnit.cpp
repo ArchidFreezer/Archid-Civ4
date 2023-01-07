@@ -9691,6 +9691,7 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 		changeSpyDestroyProjectChange(kPromotion.getSpyDestroyProjectChange() * iChange);
 		changeSpyDestroyBuildingChange(kPromotion.getSpyDestroyBuildingChange() * iChange);
 		changeSpyDestroyProductionChange(kPromotion.getSpyDestroyProductionChange() * iChange);
+		changeSpyBuyTechChange(kPromotion.getSpyBuyTechChange() * iChange);
 
 		for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
 			changeExtraTerrainAttackPercent(eTerrain, kPromotion.getTerrainAttackPercent(eTerrain) * iChange);
@@ -12486,4 +12487,12 @@ int CvUnit::getSpyDestroyProductionChange() const {
 
 void CvUnit::changeSpyDestroyProductionChange(int iChange) {
 	if (m_pSpy) m_pSpy->changeDestroyProductionChange(iChange);
+}
+
+int CvUnit::getSpyBuyTechChange() const {
+	return  m_pSpy ? m_pSpy->getBuyTechChange() : 0;
+}
+
+void CvUnit::changeSpyBuyTechChange(int iChange) {
+	if (m_pSpy) m_pSpy->changeBuyTechChange(iChange);
 }

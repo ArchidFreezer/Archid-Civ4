@@ -36,6 +36,7 @@ void CvSpy::reset()
 	m_iDestroyProductionChange = 0;
 	m_iDestroyProjectChange = 0;
 	m_iResearchSabotageChange = 0;
+	m_iBuyTechChange = 0;
 
 	m_eOriginalSpymaster = NO_PLAYER;
 }
@@ -66,6 +67,7 @@ void CvSpy::read(FDataStreamBase* pStream)
 	pStream->Read(&m_iDestroyProductionChange);
 	pStream->Read(&m_iDestroyProjectChange);
 	pStream->Read(&m_iResearchSabotageChange);
+	pStream->Read(&m_iBuyTechChange);
 	pStream->Read((int*)&m_eOriginalSpymaster);
 }
 
@@ -93,6 +95,7 @@ void CvSpy::write(FDataStreamBase* pStream)
 	pStream->Write(m_iDestroyProductionChange);
 	pStream->Write(m_iDestroyProjectChange);
 	pStream->Write(m_iResearchSabotageChange);
+	pStream->Write(m_iBuyTechChange);
 	pStream->Write(m_eOriginalSpymaster);
 }
 
@@ -331,4 +334,12 @@ int CvSpy::getDestroyProductionChange() const {
 
 void CvSpy::changeDestroyProductionChange(int iChange) {
 	m_iDestroyProductionChange += iChange;
+}
+
+int CvSpy::getBuyTechChange() const {
+	return m_iBuyTechChange;
+}
+
+void CvSpy::changeBuyTechChange(int iChange) {
+	m_iBuyTechChange += iChange;
 }

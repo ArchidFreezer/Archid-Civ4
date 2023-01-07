@@ -215,10 +215,22 @@
 		<Tag>TXT_KEY_PROMOTION_SLAVER3</Tag>
 		<English>Slaver III</English>
 	</TEXT>
+	<TEXT> <!-- Steal Tech I -->
+		<Tag>TXT_KEY_PROMOTION_STEALTECH1</Tag>
+		<English>Steal Tech I</English>
+	</TEXT>
+	<TEXT> <!-- Steal Tech II -->
+		<Tag>TXT_KEY_PROMOTION_STEALTECH2</Tag>
+		<English>Steal Tech II</English>
+	</TEXT>
+	<TEXT> <!-- Steal Tech III -->
+		<Tag>TXT_KEY_PROMOTION_STEALTECH3</Tag>
+		<English>Steal Tech III</English>
+	</TEXT>
 
-<!-- ************ -->
+<!-- ************	-->
 <!-- Text         -->
-<!-- ************ -->
+<!-- ************	-->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_RANGE_UNBOUND</Tag>
 		<English>Unlimited range</English>
@@ -402,4 +414,8 @@
 		<Tag>TXT_KEY_PROMOTION_SPY_DESTROY_PRODUCTION_TEXT</Tag>
 		<English>[ICON_BULLET]%d1_percent%% destroy production cost reduction</English>
 	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_BUY_TECH_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_percent%% steal tech cost reduction</English>
+	</TEXT>
 </Civ4GameText>

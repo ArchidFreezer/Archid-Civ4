@@ -1088,6 +1088,11 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_CULTURE_TEXT", pUnit->getSpyCultureChange()));
 		}
 
+		if (pUnit->getSpyBuyTechChange() > 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_BUY_TECH_TEXT", pUnit->getSpyBuyTechChange()));
+		}
+
 		if (pUnit->getUnitInfo().isNoRevealMap()) {
 			szString.append(NEWLINE);
 			szString.append(gDLL->getText("TXT_KEY_UNIT_VISIBILITY_MOVE_RANGE"));
@@ -5911,6 +5916,11 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 	if (kPromotion.getSpyDestroyProductionChange() != 0) {
 		szBuffer.append(pcNewline);
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_DESTROY_PRODUCTION_TEXT", kPromotion.getSpyDestroyProductionChange()));
+	}
+
+	if (kPromotion.getSpyBuyTechChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_BUY_TECH_TEXT", kPromotion.getSpyBuyTechChange()));
 	}
 
 	if (kPromotion.isUnitRangeUnbound()) {

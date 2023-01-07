@@ -1474,6 +1474,47 @@
 			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/slaver3.dds</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Steal Tech I -->
+			<Type>PROMOTION_STEALTECH1</Type>
+			<Description>TXT_KEY_PROMOTION_STEALTECH1</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<iSpyBuyTechChange>20</iSpyBuyTechChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/steal_tech1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Steal Tech II -->
+			<Type>PROMOTION_STEALTECH2</Type>
+			<Description>TXT_KEY_PROMOTION_STEALTECH2</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_STEALTECH1</PromotionType>
+			</PrereqOrPromotions>
+			<iSpyBuyTechChange>20</iSpyBuyTechChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/steal_tech2.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Steal Tech III -->
+			<Type>PROMOTION_STEALTECH3</Type>
+			<Description>TXT_KEY_PROMOTION_STEALTECH3</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_STEALTECH2</PromotionType>
+			</PrereqOrPromotions>
+			<TechPrereq>TECH_PRINTING_PRESS</TechPrereq>
+			<iSpyEvasionChange>10</iSpyEvasionChange>
+			<iSpyBuyTechChange>10</iSpyBuyTechChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/steal_tech3.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Tactics -->
 			<Type>PROMOTION_TACTICS</Type>
 			<Description>TXT_KEY_PROMOTION_TACTICS</Description>

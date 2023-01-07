@@ -850,6 +850,7 @@
 	<ElementType name="iSpyResearchSabotageChange" content="textOnly" dt:type="int"/>	
 	<ElementType name="iSpyReligionRemovalChange" content="textOnly" dt:type="int"/>	
 	<ElementType name="iSpyCorporationRemovalChange" content="textOnly" dt:type="int"/>	
+	<ElementType name="iSpyBuyTechChange" content="textOnly" dt:type="int"/>		
 	<ElementType name="iSpySwitchCivicChange" content="textOnly" dt:type="int"/>	
 	<ElementType name="iSpySwitchReligionChange" content="textOnly" dt:type="int"/>		
 	<ElementType name="iSpyDestroyProjectChange" content="textOnly" dt:type="int"/>	
@@ -918,6 +919,7 @@
 		<element type="iSpyResearchSabotageChange" minOccurs="0"/>
 		<element type="iSpyReligionRemovalChange" minOccurs="0"/>
 		<element type="iSpyCorporationRemovalChange" minOccurs="0"/>
+		<element type="iSpyBuyTechChange" minOccurs="0"/>
 		<element type="iSpySwitchCivicChange" minOccurs="0"/>
 		<element type="iSpySwitchReligionChange" minOccurs="0"/>
 		<element type="iSpyDestroyProjectChange" minOccurs="0"/>
