@@ -7100,6 +7100,11 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		}
 	}
 
+	if (AI_getUnitAIType() == UNITAI_SPY) {
+		// If we are already going down the evasion line in promotions then give it extra weight
+		iValue += (kPromotion.getSpyEvasionChange() * 2) + getSpyEvasionChanceExtra();
+	}
+
 	if (kPromotion.isEnemyRoute()) {
 		if (AI_getUnitAIType() == UNITAI_PILLAGE) {
 			iValue += 40;

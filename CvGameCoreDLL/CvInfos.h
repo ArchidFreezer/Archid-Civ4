@@ -532,6 +532,7 @@ public:
 	int getNumOrCombatTypes() const;
 	int getNumPrereqOrPromotions() const;
 	int getEnslaveCountChange() const;
+	int getSpyEvasionChange() const;
 
 	bool isLeader() const;				// Exposed to Python
 	bool isBlitz() const;				// Exposed to Python
@@ -614,6 +615,7 @@ protected:
 	int m_iUnitRangePercentChange;
 	int m_iPromotionGroup;
 	int m_iEnslaveCountChange;
+	int m_iSpyEvasionChange;
 
 	bool m_bLeader;
 	bool m_bBlitz;

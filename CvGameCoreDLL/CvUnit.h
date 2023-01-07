@@ -105,8 +105,11 @@ public:
 	bool isDoubleAgent() const;
 	bool isLoyal() const;
 	int getLoyaltyCount() const;
+	int getSpyEvasionChance() const;
+	int getSpyEvasionChanceExtra() const;
 	void awardSpyExperience(TeamTypes eTargetTeam, int iModifier);
 	void changeLoyaltyCount(int iChange);
+	void changeSpyEvasionChanceExtra(int iChange);
 	void setOriginalSpymaster(PlayerTypes ePlayer);
 	PlayerTypes getOriginalSpymaster() const;
 
@@ -922,6 +925,7 @@ protected:
 	int m_iSlaveSpecialistType;
 	int m_iSlaveControlCount;
 	int m_iLoyaltyCount;
+	int m_iSpyEvasionChanceExtra;
 
 	bool m_bMadeAttack;
 	bool m_bMadeInterception;

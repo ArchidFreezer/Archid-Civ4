@@ -981,6 +981,11 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 			}
 		}
 
+		if (pUnit->getSpyEvasionChance() > 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_UNIT_SPY_EVADE_CHANCE", pUnit->getSpyEvasionChance()));
+		}
+
 		if (pUnit->getUnitInfo().isNoRevealMap()) {
 			szString.append(NEWLINE);
 			szString.append(gDLL->getText("TXT_KEY_UNIT_VISIBILITY_MOVE_RANGE"));
@@ -5692,6 +5697,11 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 	if (kPromotion.isLoyal()) {
 		szBuffer.append(pcNewline);
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_LOYAL_TEXT"));
+	}
+
+	if (kPromotion.getSpyEvasionChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_UNIT_SPY_EVADE_CHANCE", kPromotion.getSpyEvasionChange()));
 	}
 
 	if (kPromotion.isUnitRangeUnbound()) {

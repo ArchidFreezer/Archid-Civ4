@@ -320,6 +320,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iSlaveSpecialistType = (NO_UNIT != eUnit) ? ((CvUnitInfo*)&GC.getUnitInfo(eUnit))->getSlaveSpecialistType() : NO_SPECIALIST;
 	m_iSlaveControlCount = 0;
 	m_iLoyaltyCount = 0;
+	m_iSpyEvasionChanceExtra = 0;
 
 	m_bMadeAttack = false;
 	m_bMadeInterception = false;
@@ -5491,6 +5492,9 @@ int CvUnit::getSpyInterceptPercent(TeamTypes eTargetTeam, bool bMission) const {
 		iSuccess += GC.getDefineINT("ESPIONAGE_INTERCEPT_SPENDING_MAX") * iTargetPoints / std::max(1, iTargetPoints + iOurPoints);
 	}
 
+	// Apply evasion chance from the spy
+	iSuccess -= getSpyEvasionChance();
+
 	if (plot()->isEspionageCounterSpy(eTargetTeam)) {
 		iSuccess += GC.getDefineINT("ESPIONAGE_INTERCEPT_COUNTERSPY");
 	}
@@ -9614,6 +9618,7 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 		changeExtraRange(kPromotion.getUnitRangeChange() * iChange);
 		changeExtraRangePercent(kPromotion.getUnitRangePercentChange() * iChange);
 		changeEnslaveCountExtra(kPromotion.getEnslaveCountChange() * iChange);
+		changeSpyEvasionChanceExtra(kPromotion.getSpyEvasionChange() * iChange);
 
 		for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
 			changeExtraTerrainAttackPercent(eTerrain, kPromotion.getTerrainAttackPercent(eTerrain) * iChange);
@@ -9760,6 +9765,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iSlaveSpecialistType);
 	pStream->Read(&m_iSlaveControlCount);
 	pStream->Read(&m_iLoyaltyCount);
+	pStream->Read(&m_iSpyEvasionChanceExtra);
 
 	pStream->Read(&m_bMadeAttack);
 	pStream->Read(&m_bMadeInterception);
@@ -9880,6 +9886,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iSlaveSpecialistType);
 	pStream->Write(m_iSlaveControlCount);
 	pStream->Write(m_iLoyaltyCount);
+	pStream->Write(m_iSpyEvasionChanceExtra);
 
 	pStream->Write(m_bMadeAttack);
 	pStream->Write(m_bMadeInterception);
@@ -12092,4 +12099,17 @@ void CvUnit::changeLoyaltyCount(int iChange) {
 
 int CvUnit::getLoyaltyCount() const {
 	return m_iLoyaltyCount;
+}
+
+// In anticpation of spies receiving modifiers to their evasion
+int CvUnit::getSpyEvasionChance() const {
+	return getSpyEvasionChanceExtra();
+}
+
+int CvUnit::getSpyEvasionChanceExtra() const {
+	return m_iSpyEvasionChanceExtra;
+}
+
+void CvUnit::changeSpyEvasionChanceExtra(int iChange) {
+	m_iSpyEvasionChanceExtra += iChange;
 }

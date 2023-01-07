@@ -6,6 +6,18 @@
 		<English>Disorganized</English>
 		<Spanish>Desorganizado</Spanish>
 	</TEXT>
+	<TEXT> <!-- Evasion I -->
+		<Tag>TXT_KEY_PROMOTION_EVASION1</Tag>
+		<English>Evasion I</English>
+	</TEXT>	
+	<TEXT> <!-- Evasion II -->
+		<Tag>TXT_KEY_PROMOTION_EVASION2</Tag>
+		<English>Evasion II</English>
+	</TEXT>
+	<TEXT> <!-- Evasion III -->
+		<Tag>TXT_KEY_PROMOTION_EVASION3</Tag>
+		<English>Evasion III</English>
+	</TEXT>
 	<TEXT> <!-- Loyalty -->
 		<Tag>TXT_KEY_PROMOTION_LOYALTY</Tag>
 		<English>Loyalty</English>
@@ -28,9 +40,9 @@
 		<English>Slaver III</English>
 	</TEXT>
 
-<!-- ************	-->
+<!-- ************ -->
 <!-- Text         -->
-<!-- ************	-->
+<!-- ************ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_RANGE_UNBOUND</Tag>
 		<English>Unlimited range</English>
@@ -59,4 +71,8 @@
 		<Tag>TXT_KEY_PROMOTION_LOYAL_TEXT</Tag>
 		<English>[ICON_BULLET]Never switches allegiance</English>
 	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SPY_EVADE_CHANCE</Tag>
+		<English>[ICON_BULLET]%d1_Amount%% chance to evade enemy interception</English>
+	</TEXT>
 </Civ4GameText>

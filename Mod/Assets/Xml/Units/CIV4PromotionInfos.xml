@@ -596,6 +596,41 @@
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Drill4.dds,Art/Interface/Buttons/Promotions_Atlas.dds,5,3</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Evasion 1 -->
+			<Type>PROMOTION_EVASION1</Type>
+			<Description>TXT_KEY_PROMOTION_EVASION1</Description>
+			<Sound>AS2D_PING</Sound>
+			<iSpyEvasionChange>15</iSpyEvasionChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Evasion1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Evasion 2 -->
+			<Type>PROMOTION_EVASION2</Type>
+			<Description>TXT_KEY_PROMOTION_EVASION2</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_EVASION1</PromotionPrereq>
+			<iSpyEvasionChange>15</iSpyEvasionChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Evasion2.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Evasion 3 -->
+			<Type>PROMOTION_EVASION3</Type>
+			<Description>TXT_KEY_PROMOTION_EVASION3</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_EVASION2</PromotionPrereq>
+			<iSpyEvasionChange>20</iSpyEvasionChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Evasion3.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Flanking 1 -->
 			<Type>PROMOTION_FLANKING1</Type>
 			<Description>TXT_KEY_PROMOTION_FLANKING1</Description>
