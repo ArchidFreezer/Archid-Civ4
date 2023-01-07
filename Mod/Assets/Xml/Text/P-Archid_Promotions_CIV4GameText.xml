@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- Game Text - New -->
 <Civ4GameText xmlns="http://www.firaxis.com">
-	<TEXT> <!-- Alchemist I -->
+<!-- +++ Alchemist +++ -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_ALCHEMIST1</Tag>
 		<English>Alchemist I</English>
 		<French>Alchimiste I</French>
@@ -9,7 +10,7 @@
 		<Italian>Alchimista I</Italian>
 		<Spanish>Alquimista I</Spanish>
 	</TEXT>
-	<TEXT> <!-- Alchemist II -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_ALCHEMIST2</Tag>
 		<English>Alchemist II</English>
 		<French>Alchimiste II</French>
@@ -17,7 +18,7 @@
 		<Italian>Alchimista II</Italian>
 		<Spanish>Alquimista II</Spanish>
 	</TEXT>
-	<TEXT> <!-- Alchemist III -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_ALCHEMIST3</Tag>
 		<English>Alchemist III</English>
 		<French>Alchimiste III</French>
@@ -25,27 +26,32 @@
 		<Italian>Alchimista III</Italian>
 		<Spanish>Alquimista III</Spanish>
 	</TEXT>
-	<TEXT> <!-- Conspiracy I -->
+
+<!-- +++ Conspiracy +++ -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_CONSPIRACY1</Tag>
 		<English>Conspiracy I</English>
 		<French>Conspiration I</French>
 	</TEXT>
-	<TEXT> <!-- Conspiracy II -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_CONSPIRACY2</Tag>
 		<English>Conspiracy II</English>
 		<French>Conspiration II</French>
 	</TEXT>
-	<TEXT> <!-- Conspiracy III -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_CONSPIRACY3</Tag>
 		<English>Conspiracy III</English>
 		<French>Conspiration III</French>
 	</TEXT>
+
 	<TEXT> <!-- Disorganised (Barbarian Ships) -->
 		<Tag>TXT_KEY_PROMOTION_DISORGANIZED</Tag>
 		<English>Disorganized</English>
 		<Spanish>Desorganizado</Spanish>
 	</TEXT>
-	<TEXT> <!-- Escape Artist I -->
+	
+<!-- +++ Escape Artist +++ -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_ESCAPE1</Tag>
 		<English>Escape Artist I</English>
 		<French>Artiste d'evasion I</French>
@@ -53,7 +59,7 @@
 		<Italian>Artista di fuga I</Italian>
 		<Spanish>Artista de escape I</Spanish>
 	</TEXT>
-	<TEXT> <!-- Escape Artist II -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_ESCAPE2</Tag>
 		<English>Escape Artist II</English>
 		<French>Artiste d'evasion II</French>
@@ -61,19 +67,23 @@
 		<Italian>Artista di fuga II</Italian>
 		<Spanish>Artista de escape II</Spanish>
 	</TEXT>
-	<TEXT> <!-- Evasion I -->
+
+<!-- +++ Evasion +++ -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_EVASION1</Tag>
 		<English>Evasion I</English>
 	</TEXT>	
-	<TEXT> <!-- Evasion II -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_EVASION2</Tag>
 		<English>Evasion II</English>
 	</TEXT>
-	<TEXT> <!-- Evasion III -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_EVASION3</Tag>
 		<English>Evasion III</English>
 	</TEXT>
-	<TEXT> <!-- Improviser I -->
+
+<!-- +++ Improviser +++ -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_IMPROVISE1</Tag>
 		<English>Improviser I</English>
 		<French>Improvisateur I</French>
@@ -81,7 +91,7 @@
 		<Italian>Improvvisazione I</Italian>
 		<Spanish>Improvisacien I</Spanish>
 	</TEXT>
-	<TEXT> <!-- Improviser II -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_IMPROVISE2</Tag>
 		<English>Improviser II</English>
 		<French>Improvisateur II</French>
@@ -89,7 +99,7 @@
 		<Italian>Improvvisazione II</Italian>
 		<Spanish>Improvisacien II</Spanish>
 	</TEXT>
-	<TEXT> <!-- Improviser III -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_IMPROVISE3</Tag>
 		<English>Improviser III</English>
 		<French>Improvisateur III</French>
@@ -97,7 +107,7 @@
 		<Italian>Improvvisazione III</Italian>
 		<Spanish>Improvisacien III</Spanish>
 	</TEXT>
-	<TEXT> <!-- Improviser IV -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_IMPROVISE4</Tag>
 		<English>Improviser IV</English>
 		<French>Improvisateur IV</French>
@@ -105,7 +115,7 @@
 		<Italian>Improvvisazione IV</Italian>
 		<Spanish>Improvisacien IV</Spanish>
 	</TEXT>
-	<TEXT> <!-- Improviser V -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_IMPROVISE5</Tag>
 		<English>Improviser V</English>
 		<French>Improvisateur V</French>
@@ -113,7 +123,9 @@
 		<Italian>Improvvisazione V</Italian>
 		<Spanish>Improvisacien V</Spanish>
 	</TEXT>
-	<TEXT> <!-- Informant I -->
+
+<!-- +++ Informant +++ -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_INFORMANT1</Tag>
 		<English>Informant I</English>
 		<French>Denonciateur  I</French>
@@ -121,7 +133,7 @@
 		<Italian>Informatore I</Italian>
 		<Spanish>Denunciante I</Spanish>
 	</TEXT>
-	<TEXT> <!-- Informant II -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_INFORMANT2</Tag>
 		<English>Informant II</English>
 		<French>Denonciateur  II</French>
@@ -129,7 +141,7 @@
 		<Italian>Informatore II</Italian>
 		<Spanish>Denunciante II</Spanish>
 	</TEXT>
-	<TEXT> <!-- Informant III -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_INFORMANT3</Tag>
 		<English>Informant III</English>
 		<French>Denonciateur  III</French>
@@ -137,7 +149,9 @@
 		<Italian>Informatore III</Italian>
 		<Spanish>Denunciante III</Spanish>
 	</TEXT>
-	<TEXT> <!-- Instigator I -->
+
+<!-- +++ Instigator +++ -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_INSTIGATOR1</Tag>
 		<English>Instigator I</English>
 		<French>Instigateur I</French>
@@ -145,7 +159,7 @@
 		<Italian>Istigatore I</Italian>
 		<Spanish>Instigador I</Spanish>
 	</TEXT>
-	<TEXT> <!-- Instigator II -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_INSTIGATOR2</Tag>
 		<English>Instigator II</English>
 		<French>Instigateur II</French>
@@ -153,7 +167,7 @@
 		<Italian>Istigatore II</Italian>
 		<Spanish>Instigador II</Spanish>
 	</TEXT>
-	<TEXT> <!-- Instigator III -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_INSTIGATOR3</Tag>
 		<English>Instigator III</English>
 		<French>Instigateur III</French>
@@ -161,39 +175,44 @@
 		<Italian>Istigatore III</Italian>
 		<Spanish>Instigador III</Spanish>
 	</TEXT>
-	<TEXT> <!-- Intrigue I -->
+
+<!-- +++ Intrigue +++ -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_INTRIGUE1</Tag>
 		<English>Intrigue I</English>
 	</TEXT>
-	<TEXT> <!-- Intrigue II -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_INTRIGUE2</Tag>
 		<English>Intrigue II</English>
 	</TEXT>
-	<TEXT> <!-- Intrigue III -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_INTRIGUE3</Tag>
 		<English>Intrigue III</English>
 	</TEXT>
-	<TEXT> <!-- Logistics I -->
+
+<!-- +++ Logistics +++ -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_LOGISTICS1</Tag>
 		<English>Logistics I</English>
 		<French>Logistique I</French>
 		<German>Logistik I</German>
 		<Italian>Logistica I</Italian>
 	</TEXT>
-	<TEXT> <!-- Logistics II -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_LOGISTICS2</Tag>
 		<English>Logistics II</English>
 		<French>Logistique II</French>
 		<German>Logistik II</German>
 		<Italian>Logistica II</Italian>
 	</TEXT>
-	<TEXT> <!-- Logistics III -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_LOGISTICS3</Tag>
 		<English>Logistics III</English>
 		<French>Logistique III</French>
 		<German>Logistik III</German>
 		<Italian>Logistica III</Italian>
 	</TEXT>
+
 	<TEXT> <!-- Loyalty -->
 		<Tag>TXT_KEY_PROMOTION_LOYALTY</Tag>
 		<English>Loyalty</English>
@@ -202,40 +221,45 @@
 		<Italian>Lealte</Italian>
 		<Spanish>Lealtad</Spanish>
 	</TEXT>	
-		<TEXT> <!-- Safecracker I -->
+
+<!-- +++ Safecracker +++ -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_SAFECRACKER1</Tag>
 		<English>Safecracker I</English>
 	</TEXT>
-	<TEXT> <!-- Safecracker II -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_SAFECRACKER2</Tag>
 		<English>Safecracker II</English>
 	</TEXT>
-	<TEXT> <!-- Safecracker III -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_SAFECRACKER3</Tag>
 		<English>Safecracker III</English>
 	</TEXT>
-<!-- Slaver Promotions -->
-	<TEXT> <!-- Slaver I -->
+
+<!-- +++ Slaver +++ -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_SLAVER1</Tag>
 		<English>Slaver I</English>
 	</TEXT>
-	<TEXT> <!-- Slaver II -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_SLAVER2</Tag>
 		<English>Slaver II</English>
 	</TEXT>
-	<TEXT> <!-- Slaver III -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_SLAVER3</Tag>
 		<English>Slaver III</English>
 	</TEXT>
-	<TEXT> <!-- Steal Tech I -->
+
+<!-- +++ Slaver +++ -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_STEALTECH1</Tag>
 		<English>Steal Tech I</English>
 	</TEXT>
-	<TEXT> <!-- Steal Tech II -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_STEALTECH2</Tag>
 		<English>Steal Tech II</English>
 	</TEXT>
-	<TEXT> <!-- Steal Tech III -->
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_STEALTECH3</Tag>
 		<English>Steal Tech III</English>
 	</TEXT>
