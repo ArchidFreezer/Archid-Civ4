@@ -6386,21 +6386,8 @@ public:
 	virtual ~CvEspionageMissionInfo();
 
 	int getCost() const;
-	bool isPassive() const;
-	bool isTwoPhases() const;
-	bool isTargetsCity() const;
-	bool isSelectPlot() const;
-
 	int getTechPrereq() const;
 	int getVisibilityLevel() const;
-	bool isInvestigateCity() const;
-	bool isSeeDemographics() const;
-	bool isNoActiveMissions() const;
-	bool isSeeResearch() const;
-	bool isNuke() const;
-	bool isDisablePower() const;
-
-	bool isDestroyImprovement() const;
 	int getDestroyBuildingCostFactor() const;
 	int getDestroyUnitCostFactor() const;
 	int getDestroyProjectCostFactor() const;
@@ -6422,27 +6409,26 @@ public:
 	int getDifficultyMod() const;
 	int getAttitudeModifier() const;
 
+	bool isPassive() const;
+	bool isTwoPhases() const;
+	bool isTargetsCity() const;
+	bool isSelectPlot() const;
+	bool isInvestigateCity() const;
+	bool isSeeDemographics() const;
+	bool isNoActiveMissions() const;
+	bool isSeeResearch() const;
+	bool isNuke() const;
+	bool isDisablePower() const;
+	bool isDestroyImprovement() const;
+
 	bool read(CvXMLLoadUtility* pXML);
 
 	//---------------------------------------PROTECTED MEMBER VARIABLES---------------------------------
 protected:
 
 	int m_iCost;
-	bool m_bIsPassive;
-	bool m_bIsTwoPhases;
-	bool m_bTargetsCity;
-	bool m_bSelectPlot;
-
 	int m_iTechPrereq;
 	int m_iVisibilityLevel;
-	bool m_bInvestigateCity;
-	bool m_bSeeDemographics;
-	bool m_bNoActiveMissions;
-	bool m_bSeeResearch;
-	bool m_bNuke;
-	bool m_bDisablePower;
-
-	bool m_bDestroyImprovement;
 	int m_iDestroyBuildingCostFactor;
 	int m_iDestroyUnitCostFactor;
 	int m_iDestroyProjectCostFactor;
@@ -6463,6 +6449,18 @@ protected:
 	int m_iCounterespionageMod;
 	int m_iDifficultyMod;
 	int m_iAttitudeModifier;
+
+	bool m_bIsPassive;
+	bool m_bIsTwoPhases;
+	bool m_bTargetsCity;
+	bool m_bSelectPlot;
+	bool m_bInvestigateCity;
+	bool m_bSeeDemographics;
+	bool m_bNoActiveMissions;
+	bool m_bSeeResearch;
+	bool m_bNuke;
+	bool m_bDisablePower;
+	bool m_bDestroyImprovement;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
