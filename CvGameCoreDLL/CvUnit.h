@@ -167,6 +167,8 @@ public:
 	void setOriginalSpymaster(PlayerTypes ePlayer);
 	PlayerTypes getOriginalSpymaster() const;
 
+	CvCity* getClosestSafeCity() const;
+
 	int getEnslaveCountExtra() const;
 	int getMaxSlaves() const;
 	int getSlaveControlCount() const;

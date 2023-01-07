@@ -5379,14 +5379,25 @@ bool CvUnit::espionage(EspionageMissionTypes eMission, int iData) {
 				setMadeAttack(true);
 				finishMoves();
 
-				CvCity* pCapital = GET_PLAYER(getOwnerINLINE()).getCapitalCity();
-				if (NULL != pCapital) {
-					setXY(pCapital->getX_INLINE(), pCapital->getY_INLINE(), false, false, false);
+				if (!plot()->isCity()) // Actions that aren't in a city such as improvement destruction don't cause the spy to be sent back
+				{
+					CvCity* pNearestCity = GC.getMapINLINE().findCity(plot()->getX_INLINE(), plot()->getY_INLINE(), plot()->getOwnerINLINE(), NO_TEAM, false);
+					CvWString szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_SPY_SUCCESS_OUTSIDE", getNameKey(), pNearestCity->getNameKey());
+					gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_POSITIVE_DINK", MESSAGE_TYPE_INFO, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), pNearestCity->getX_INLINE(), pNearestCity->getY_INLINE(), true, true);
+				} else {
+					// Check the best city to return to after our mission
+					CvCity* pReturnCity = getClosestSafeCity();
 
-					CvWString szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_SPY_SUCCESS", getNameKey(), pCapital->getNameKey());
-					gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_POSITIVE_DINK", MESSAGE_TYPE_INFO, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), pCapital->getX_INLINE(), pCapital->getY_INLINE(), true, true);
+					if (pReturnCity) // Require complete kills game option may be enabled so we can't assume there is a capital city
+					{
+						setXY(pReturnCity->getX_INLINE(), pReturnCity->getY_INLINE(), false, false, false);
+
+						CvWString szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_SPY_SUCCESS", getNameKey(), pReturnCity->getNameKey());
+						gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_POSITIVE_DINK", MESSAGE_TYPE_INFO, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), pReturnCity->getX_INLINE(), pReturnCity->getY_INLINE(), true, true);
+					}
 				}
 
+				// Give spies experience for successful missions
 				awardSpyExperience(GET_PLAYER(eTargetPlayer).getTeam(), GC.getEspionageMissionInfo(eMission).getDifficultyMod());
 			}
 			if (getTeam() == GC.getGameINLINE().getActiveTeam())
@@ -5492,9 +5503,10 @@ bool CvUnit::testSpyIntercepted(PlayerTypes eTargetPlayer, bool bMission, bool& 
 		setMadeAttack(true);
 		finishMoves();
 
-		CvCity* pCapital = GET_PLAYER(getOwnerINLINE()).getCapitalCity();
-		if (NULL != pCapital) {
-			setXY(pCapital->getX_INLINE(), pCapital->getY_INLINE(), false, false, false);
+		// Get the best city to escape to
+		CvCity* pEscapeToCity = getClosestSafeCity();
+		if (pEscapeToCity) {
+			setXY(pEscapeToCity->getX_INLINE(), pEscapeToCity->getY_INLINE(), false, false, false);
 		}
 		szFormatReveal = "TXT_KEY_SPY_ESCAPED_REVEAL";
 		szFormatNoReveal = "TXT_KEY_SPY_ESCAPED";
@@ -12504,4 +12516,20 @@ int CvUnit::getSpyStealTreasuryChange() const {
 
 void CvUnit::changeSpyStealTreasuryChange(int iChange) {
 	if (m_pSpy) m_pSpy->changeStealTreasuryChange(iChange);
+}
+
+CvCity* CvUnit::getClosestSafeCity() const {
+	// Check for a city on the same landmass
+	CvCity* pReturnCity = GC.getMapINLINE().findCity(getX_INLINE(), getY_INLINE(), NO_PLAYER, getTeam(), true, false);
+
+	if (!pReturnCity) // Check for a coastal city on another landmass
+		pReturnCity = GC.getMapINLINE().findCity(getX_INLINE(), getY_INLINE(), NO_PLAYER, getTeam(), false, true);
+
+	if (!pReturnCity) // Check for any city on another landmass
+		pReturnCity = GC.getMapINLINE().findCity(getX_INLINE(), getY_INLINE(), NO_PLAYER, getTeam(), false, false);
+
+	if (!pReturnCity) // Otherwise use the capital - We should never get here as the capital should have been selected previously
+		pReturnCity = GET_PLAYER(getOwnerINLINE()).getCapitalCity();
+
+	return pReturnCity;
 }

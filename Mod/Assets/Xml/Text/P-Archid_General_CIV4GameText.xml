@@ -1131,6 +1131,14 @@
 		<English>Will sabatoge all of %s1's [ICON_RESEARCH] toward [COLOR_POSITIVE_TEXT]%s2[COLOR_REVERT]</English>
 		<French>Saboter les recherches de %s2 e %s1</French>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_SPY_SUCCESS_OUTSIDE</Tag>
+		<English>Upon successfully completing the mission the %s1_unit is moving on near %s2_CityName.</English>
+		<French>Apres avoir complete la mission, l'unite : %s1_unit est revenue saine et sauve e %s2_city.</French>
+		<German>Nach Beendigung der Mission ist die Einheit %s1_unit sicher nach %s2_city zureckgekehrt.</German>
+		<Italian>Dopo aver completato la missione, l'unite %s1_unit e tornata sana e salva a %s2_city.</Italian>
+		<Spanish>Tras completar la misien, [NUM1:el:la:los:las] %s1_unit [NUM1:ha:ha:han:han] vuelto a salvo a %s2_city.</Spanish>
+	</TEXT>
 
 <!-- Specialists -->
 	<TEXT> <!-- Slave: Artist -->
