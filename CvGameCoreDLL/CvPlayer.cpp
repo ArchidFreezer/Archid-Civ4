@@ -11648,36 +11648,12 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 			iMissionCost = iBaseMissionCost + (kMission.getCityInsertCultureCostFactor() * iCultureAmount) / 100;
 		}
 	} else if (kMission.getDestroyUnitCostFactor() > 0) {
-		// Destroys Unit
-		CvUnit* pUnit = GET_PLAYER(eTargetPlayer).getUnit(iExtraData);
-		int iCost = MAX_INT;
-
-		if (NULL == pUnit) {
-			if (NULL != pPlot) {
-				CLLNode<IDInfo>* pUnitNode = pPlot->headUnitNode();
-
-				while (pUnitNode != NULL) {
-					CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
-					pUnitNode = pPlot->nextUnitNode(pUnitNode);
-
-					if (canSpyDestroyUnit(eTargetPlayer, *pLoopUnit)) {
-						int iValue = getProductionNeeded(pLoopUnit->getUnitType());
-						if (iValue < iCost) {
-							iCost = iValue;
-							pUnit = pLoopUnit;
-						}
-					}
-				}
-
-			}
+		// Assassinate Specialist
+		if (pSpyUnit && pSpyUnit->canAssassinate(pPlot, (SpecialistTypes)iExtraData, false)) {
+			iMissionCost = iBaseMissionCost + ((100 + kMission.getDestroyUnitCostFactor()) / 100);
 		} else {
-			iCost = getProductionNeeded(pUnit->getUnitType());
-		}
-
-		if (NULL != pUnit) {
-			if (canSpyDestroyUnit(eTargetPlayer, *pUnit)) {
-				iMissionCost = iBaseMissionCost + ((100 + kMission.getDestroyUnitCostFactor()) * iCost) / 100;
-			}
+			// We can't perform mission on this target
+			iMissionCost = -1;
 		}
 	} else if (kMission.getDestroyProjectCostFactor() > 0) {
 		ProjectTypes eProject = (ProjectTypes)iExtraData;
@@ -12146,21 +12122,17 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 	}
 
 	//////////////////////////////
-	// Destroy Unit
+	// Assassinate Specialist
 
 	if (kMission.getDestroyUnitCostFactor() > 0) {
-		if (NO_PLAYER != eTargetPlayer) {
-			int iTargetUnitID = iExtraData;
-
-			CvUnit* pUnit = GET_PLAYER(eTargetPlayer).getUnit(iTargetUnitID);
-
-			if (NULL != pUnit) {
-				FAssert(pUnit->plot() == pPlot);
-				szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_TARGET_SOMETHING_DESTROYED", pUnit->getNameKey()).GetCString();
-				pUnit->kill(false, getID());
-
+		SpecialistTypes eTarget = (SpecialistTypes)iExtraData;
+		if (pSpyUnit && pSpyUnit->canAssassinate(pPlot, eTarget, false)) {
+			//Assassinate
+			CvCity* pCity = pPlot->getPlotCity();
+			if (pCity) {
+				pCity->changeFreeSpecialistCount(eTarget, -1);
+				szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_TARGET_SOMETHING_ASSASSINATED", GC.getSpecialistInfo(eTarget).getDescription(), pCity->getNameKey()).GetCString();
 				bSomethingHappened = true;
-				bShowExplosion = true;
 			}
 		}
 	}

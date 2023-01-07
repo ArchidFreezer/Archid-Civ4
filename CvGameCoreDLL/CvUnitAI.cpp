@@ -16566,6 +16566,8 @@ EspionageMissionTypes CvUnitAI::AI_bestPlotEspionage(PlayerTypes& eTargetPlayer,
 					iTestData = GC.getNumBuildingInfos();
 				} else if (kMissionInfo.getAttitudeModifier() != 0) {
 					iTestData = MAX_PLAYERS;
+				} else if (kMissionInfo.getDestroyUnitCostFactor() > 0) {
+					iTestData = GC.getNumSpecialistInfos();
 				}
 
 				// estimate the risk cost of losing the spy.

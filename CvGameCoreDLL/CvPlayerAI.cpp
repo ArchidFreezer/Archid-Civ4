@@ -11424,7 +11424,23 @@ int CvPlayerAI::AI_espionageVal(PlayerTypes eTargetPlayer, EspionageMissionTypes
 		}
 	}
 
-	if (bMalicious && (GC.getEspionageMissionInfo(eMission).getDestroyUnitCostFactor() > 0 || GC.getEspionageMissionInfo(eMission).getBuyUnitCostFactor() > 0)) {
+	if (bMalicious && GC.getEspionageMissionInfo(eMission).getDestroyUnitCostFactor() > 0) {
+		if (NULL != pPlot) {
+			CvCity* pCity = pPlot->getPlotCity();
+			if (pCity) {
+				SpecialistTypes eSpecialist = (SpecialistTypes)iData;
+				// We need to discount slaves and ordinary specialists who provide GPP
+				CvSpecialistInfo& kSpecialist = GC.getSpecialistInfo(eSpecialist);
+				if (kSpecialist.isSlave() || kSpecialist.getGreatPeopleRateChange() > 0) {
+					iValue = 0;
+				} else if (pCity->getSpecialistCount(eSpecialist) > 0) {
+					iValue += pCity->AI_permanentSpecialistValue(eSpecialist);
+				}
+			}
+		}
+	}
+
+	if (bMalicious && GC.getEspionageMissionInfo(eMission).getBuyUnitCostFactor() > 0) {
 		if (NULL != pPlot) {
 			CvUnit* pUnit = GET_PLAYER(eTargetPlayer).getUnit(iData);
 

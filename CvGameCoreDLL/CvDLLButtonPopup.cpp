@@ -1653,18 +1653,15 @@ bool CvDLLButtonPopup::launchDoEspionageTargetPopup(CvPopup* pPopup, CvPopupInfo
 			}
 		}
 	} else if (kMission.getDestroyUnitCostFactor() > 0) {
-		CLLNode<IDInfo>* pUnitNode = pPlot->headUnitNode();
-		while (pUnitNode != NULL) {
-			CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
-			pUnitNode = pPlot->nextUnitNode(pUnitNode);
-
-			if (NULL != pLoopUnit) {
-				if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, pLoopUnit->getUnitType(), pUnit)) {
-					if (pLoopUnit->getTeam() == GET_PLAYER(eTargetPlayer).getTeam()) {
-						const CvUnitInfo& kUnit = pLoopUnit->getUnitInfo();
-						int iCost = kPlayer.getEspionageMissionCost(eMission, eTargetPlayer, pPlot, pLoopUnit->getUnitType(), pUnit);
-						CvWString szBuffer = gDLL->getText("TXT_KET_ESPIONAGE_MISSION_COST", kUnit.getDescription(), iCost);
-						gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, pLoopUnit->getButton(), pLoopUnit->getID(), WIDGET_HELP_ESPIONAGE_COST, eMission, pLoopUnit->getUnitType());
+		if (NULL != pCity) {
+			for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
+				if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, eSpecialist, pUnit)) {
+					CvSpecialistInfo& kSpecialist = GC.getSpecialistInfo(eSpecialist);
+					//does this city contain this great specialist type?
+					if (pCity->getFreeSpecialistCount(eSpecialist) > 0) {
+						int iCost = kPlayer.getEspionageMissionCost(eMission, eTargetPlayer, pPlot, eSpecialist, pUnit);
+						CvWString szBuffer = gDLL->getText("TXT_KET_ESPIONAGE_MISSION_COST", kSpecialist.getDescription(), iCost);
+						gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, kSpecialist.getButton(), eSpecialist, WIDGET_HELP_ESPIONAGE_COST, eMission, eSpecialist);
 					}
 				}
 			}

@@ -103,6 +103,8 @@ public:
 	CvUnit* getShadowUnit() const;
 	void clearShadowUnit();
 
+	// Expanded espionage functions
+	bool canAssassinate(const CvPlot* pPlot, SpecialistTypes eSpecialist, bool bTestVisible) const;
 	bool isDoubleAgent() const;
 	bool isLoyal() const;
 	bool isSpyRadiation() const;

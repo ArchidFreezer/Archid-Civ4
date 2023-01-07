@@ -1108,6 +1108,14 @@
 		<English>Will remove %s1 from %s2_CityName.</English>
 		<French>Faire disparaetre la religion %s1 de %s2.</French>
 	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_TARGET_SOMETHING_ASSASSINATED</Tag>
+		<English>A %s1_Specialist was assassinated in %s2_CityName!</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_HELP_ASSASSINATE_SPECIALIST</Tag>
+		<English>Assassinate %s1_unit_name[ICON_GREATPEOPLE]</English>
+	</TEXT>
 
 <!-- Specialists -->
 	<TEXT> <!-- Slave: Artist -->

@@ -15013,12 +15013,9 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 
 	if (kMission.getDestroyUnitCostFactor() > 0) {
 		if (NO_PLAYER != eTargetPlayer) {
-			int iTargetUnitID = iExtraData;
-
-			CvUnit* pUnit = kTarget.getUnit(iTargetUnitID);
-
-			if (NULL != pUnit) {
-				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_DESTROY_UNIT", pUnit->getNameKey()));
+			SpecialistTypes eTarget = (SpecialistTypes)iExtraData;
+			if (eTarget != NO_SPECIALIST) {
+				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_ASSASSINATE_SPECIALIST", GC.getSpecialistInfo(eTarget).getTextKeyWide()));
 				szBuffer.append(NEWLINE);
 			}
 		}

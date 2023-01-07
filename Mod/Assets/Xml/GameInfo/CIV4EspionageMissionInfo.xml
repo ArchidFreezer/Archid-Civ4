@@ -151,6 +151,15 @@
 			<iCounterespionageMod>100</iCounterespionageMod>
 		</EspionageMissionInfo>
 		<EspionageMissionInfo>
+			<Type>ESPIONAGEMISSION_ASSASSINATE</Type>
+			<Description>TXT_KEY_ESPIONAGE_ASSASSIN</Description>
+			<iCost>500</iCost>
+			<bIsTwoPhases>1</bIsTwoPhases>
+			<bTargetsCity>1</bTargetsCity>
+			<iDifficultyMod>50</iDifficultyMod>
+			<iDestroyUnitCostFactor>1</iDestroyUnitCostFactor>
+		</EspionageMissionInfo>
+		<EspionageMissionInfo>
 			<Type>ESPIONAGEMISSION_CAUSE_INCIDENT</Type>
 			<Description>TXT_KEY_ESPIONAGE_CAUSE_INCIDENT</Description>
 			<iCost>200</iCost>

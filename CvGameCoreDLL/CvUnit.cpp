@@ -12429,3 +12429,25 @@ int CvUnit::getSpyCultureChange() const {
 void CvUnit::changeSpyCultureChange(int iChange) {
 	if (m_pSpy) m_pSpy->changeCultureChange(iChange);
 }
+
+bool CvUnit::canAssassinate(const CvPlot* pPlot, SpecialistTypes eSpecialist, bool bTestVisible) const {
+
+	if (!canEspionage(pPlot, bTestVisible))
+		return false;
+
+	CvCity* pCity = pPlot->getPlotCity();
+	if (!pCity)
+		return false;
+
+	if (pCity->getFreeSpecialistCount(eSpecialist) <= 0)
+		return false;
+
+	if (eSpecialist != NO_SPECIALIST) {
+		CvSpecialistInfo& kSpecialist = GC.getSpecialistInfo(eSpecialist);
+		if (kSpecialist.isSlave() || kSpecialist.getGreatPeopleRateChange() > 0) {
+			return false;
+		}
+	}
+
+	return true;
+}
