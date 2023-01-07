@@ -9619,6 +9619,7 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 		changeExtraRangePercent(kPromotion.getUnitRangePercentChange() * iChange);
 		changeEnslaveCountExtra(kPromotion.getEnslaveCountChange() * iChange);
 		changeSpyEvasionChanceExtra(kPromotion.getSpyEvasionChange() * iChange);
+		changeSpyPreparationModifier(kPromotion.getSpyPreparationModifier() * iChange);
 
 		for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
 			changeExtraTerrainAttackPercent(eTerrain, kPromotion.getTerrainAttackPercent(eTerrain) * iChange);
@@ -9766,6 +9767,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iSlaveControlCount);
 	pStream->Read(&m_iLoyaltyCount);
 	pStream->Read(&m_iSpyEvasionChanceExtra);
+	pStream->Read(&m_iSpyPreparationModifier);
 
 	pStream->Read(&m_bMadeAttack);
 	pStream->Read(&m_bMadeInterception);
@@ -9887,6 +9889,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iSlaveControlCount);
 	pStream->Write(m_iLoyaltyCount);
 	pStream->Write(m_iSpyEvasionChanceExtra);
+	pStream->Write(m_iSpyPreparationModifier);
 
 	pStream->Write(m_bMadeAttack);
 	pStream->Write(m_bMadeInterception);
@@ -12112,4 +12115,12 @@ int CvUnit::getSpyEvasionChanceExtra() const {
 
 void CvUnit::changeSpyEvasionChanceExtra(int iChange) {
 	m_iSpyEvasionChanceExtra += iChange;
+}
+
+int CvUnit::getSpyPreparationModifier() const {
+	return m_iSpyPreparationModifier;
+}
+
+void CvUnit::changeSpyPreparationModifier(int iChange) {
+	m_iSpyPreparationModifier += iChange;
 }

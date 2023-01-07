@@ -983,6 +983,10 @@
 		<Tag>TXT_KEY_UNIT_DOUBLE_AGENT_MISSION_COST</Tag>
 		<English>[ICON_BULLET]%d1_Cost% mission cost vs. %s1_CivAdj</English>
 	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SPY_PREPARATION_BONUS</Tag>
+		<English>[ICON_BULLET]%d1_Rounds free preparation rounds</English>
+	</TEXT>
 
 <!-- Specialists -->
 	<TEXT> <!-- Slave: Artist -->

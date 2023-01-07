@@ -11796,7 +11796,7 @@ int CvPlayer::getEspionageMissionCostModifier(EspionageMissionTypes eMission, Pl
 
 	// Spy presence mission cost alteration
 	if (NULL != pSpyUnit) {
-		iModifier *= 100 - (pSpyUnit->getFortifyTurns() * GC.getDefineINT("ESPIONAGE_EACH_TURN_UNIT_COST_DECREASE"));
+		iModifier *= 100 - (std::min(5, pSpyUnit->getFortifyTurns() + pSpyUnit->getSpyPreparationModifier()) * GC.getDefineINT("ESPIONAGE_EACH_TURN_UNIT_COST_DECREASE"));
 		iModifier /= 100;
 	}
 

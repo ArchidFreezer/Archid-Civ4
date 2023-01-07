@@ -18,6 +18,46 @@
 		<Tag>TXT_KEY_PROMOTION_EVASION3</Tag>
 		<English>Evasion III</English>
 	</TEXT>
+	<TEXT> <!-- Improviser I -->
+		<Tag>TXT_KEY_PROMOTION_IMPROVISE1</Tag>
+		<English>Improviser I</English>
+		<French>Improvisateur I</French>
+		<German>Improvisator  I</German>
+		<Italian>Improvvisazione I</Italian>
+		<Spanish>Improvisacien I</Spanish>
+	</TEXT>
+	<TEXT> <!-- Improviser II -->
+		<Tag>TXT_KEY_PROMOTION_IMPROVISE2</Tag>
+		<English>Improviser II</English>
+		<French>Improvisateur II</French>
+		<German>Improvisator  II</German>
+		<Italian>Improvvisazione II</Italian>
+		<Spanish>Improvisacien II</Spanish>
+	</TEXT>
+	<TEXT> <!-- Improviser III -->
+		<Tag>TXT_KEY_PROMOTION_IMPROVISE3</Tag>
+		<English>Improviser III</English>
+		<French>Improvisateur III</French>
+		<German>Improvisator  III</German>
+		<Italian>Improvvisazione III</Italian>
+		<Spanish>Improvisacien III</Spanish>
+	</TEXT>
+	<TEXT> <!-- Improviser IV -->
+		<Tag>TXT_KEY_PROMOTION_IMPROVISE4</Tag>
+		<English>Improviser IV</English>
+		<French>Improvisateur IV</French>
+		<German>Improvisator  IV</German>
+		<Italian>Improvvisazione IV</Italian>
+		<Spanish>Improvisacien IV</Spanish>
+	</TEXT>
+	<TEXT> <!-- Improviser V -->
+		<Tag>TXT_KEY_PROMOTION_IMPROVISE5</Tag>
+		<English>Improviser V</English>
+		<French>Improvisateur V</French>
+		<German>Improvisator  V</German>
+		<Italian>Improvvisazione V</Italian>
+		<Spanish>Improvisacien V</Spanish>
+	</TEXT>
 	<TEXT> <!-- Loyalty -->
 		<Tag>TXT_KEY_PROMOTION_LOYALTY</Tag>
 		<English>Loyalty</English>
@@ -74,5 +114,9 @@
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_SPY_EVADE_CHANCE</Tag>
 		<English>[ICON_BULLET]%d1_Amount%% chance to evade enemy interception</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_PREPARATION_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_Rounds free preparation rounds</English>
 	</TEXT>
 </Civ4GameText>

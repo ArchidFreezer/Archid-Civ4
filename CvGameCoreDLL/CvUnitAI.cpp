@@ -7105,6 +7105,12 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		iValue += (kPromotion.getSpyEvasionChange() * 2) + getSpyEvasionChanceExtra();
 	}
 
+	if (kPromotion.getSpyPreparationModifier()) {
+		if (AI_getUnitAIType() == UNITAI_SPY) {
+			iValue += kPromotion.getSpyPreparationModifier() * 20;
+		}
+	}
+
 	if (kPromotion.isEnemyRoute()) {
 		if (AI_getUnitAIType() == UNITAI_PILLAGE) {
 			iValue += 40;

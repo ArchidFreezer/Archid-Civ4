@@ -745,6 +745,65 @@
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Guerilla2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,7,5</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Improvise 1 -->
+			<Type>PROMOTION_IMPROVISE1</Type>
+			<Description>TXT_KEY_PROMOTION_IMPROVISE1</Description>
+			<Sound>AS2D_PING</Sound>
+			<iSpyPreparationModifier>1</iSpyPreparationModifier>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Improvise1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Improvise 2 -->
+			<Type>PROMOTION_IMPROVISE2</Type>
+			<Description>TXT_KEY_PROMOTION_IMPROVISE2</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_IMPROVISE1</PromotionPrereq>
+			<iSpyPreparationModifier>1</iSpyPreparationModifier>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Improvise2.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Improvise 3 -->
+			<Type>PROMOTION_IMPROVISE3</Type>
+			<Description>TXT_KEY_PROMOTION_IMPROVISE3</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_IMPROVISE2</PromotionPrereq>
+			<iSpyPreparationModifier>1</iSpyPreparationModifier>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Improvise3.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Improvise 4 -->
+			<Type>PROMOTION_IMPROVISE4</Type>
+			<Description>TXT_KEY_PROMOTION_IMPROVISE4</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_IMPROVISE3</PromotionPrereq>
+			<iSpyPreparationModifier>1</iSpyPreparationModifier>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Improvise4.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Improvise 5 -->
+			<Type>PROMOTION_IMPROVISE5</Type>
+			<Description>TXT_KEY_PROMOTION_IMPROVISE5</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_IMPROVISE4</PromotionPrereq>
+			<iSpyPreparationModifier>1</iSpyPreparationModifier>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Improvise5.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Interception 1 -->
 			<Type>PROMOTION_INTERCEPTION1</Type>
 			<Description>TXT_KEY_PROMOTION_INTERCEPTION1</Description>

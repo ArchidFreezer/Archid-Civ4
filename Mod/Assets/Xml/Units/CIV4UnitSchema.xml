@@ -835,6 +835,7 @@
 	<ElementType name="bCanMovePeaks" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iEnslaveCountChange" content="textOnly" dt:type="int"/>
 	<ElementType name="bLoyal" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iSpyPreparationModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iSpyEvasionChange" content="textOnly" dt:type="int"/>
 	<ElementType name="PromotionInfo" content="eltOnly">
 		<element type="Type"/>
@@ -882,6 +883,7 @@
 		<element type="iHillsAttack" minOccurs="0"/>
 		<element type="iHillsDefense" minOccurs="0"/>
 		<element type="iKamikazePercent" minOccurs="0"/>
+		<element type="iSpyPreparationModifier" minOccurs="0"/>
 		<element type="iSpyEvasionChange" minOccurs="0"/>
 		<element type="iRevoltProtection" minOccurs="0"/>
 		<element type="iCollateralDamageProtection" minOccurs="0"/>

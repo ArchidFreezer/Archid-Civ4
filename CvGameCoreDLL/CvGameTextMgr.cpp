@@ -352,8 +352,8 @@ void CvGameTextMgr::setEspionageMissionHelp(CvWStringBuffer& szBuffer, const CvU
 					} else if (!pUnit->isInvisible(kOwner.getTeam(), false)) {
 						szBuffer.append(gDLL->getText("TXT_KEY_UNIT_HELP_NO_ESPIONAGE_REASON_VISIBLE", kOwner.getNameKey()));
 					}
-				} else if (pUnit->getFortifyTurns() > 0) {
-					int iModifier = -(pUnit->getFortifyTurns() * GC.getDefineINT("ESPIONAGE_EACH_TURN_UNIT_COST_DECREASE"));
+				} else if (pUnit->getFortifyTurns() + pUnit->getSpyPreparationModifier() > 0) {
+					int iModifier = -(std::min(5, pUnit->getFortifyTurns() + pUnit->getSpyPreparationModifier()) * GC.getDefineINT("ESPIONAGE_EACH_TURN_UNIT_COST_DECREASE"));
 					if (0 != iModifier) {
 						szBuffer.append(NEWLINE);
 						szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_COST", iModifier));
@@ -984,6 +984,11 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 		if (pUnit->getSpyEvasionChance() > 0) {
 			szString.append(NEWLINE);
 			szString.append(gDLL->getText("TXT_KEY_UNIT_SPY_EVADE_CHANCE", pUnit->getSpyEvasionChance()));
+		}
+
+		if (pUnit->getSpyPreparationModifier() > 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_UNIT_SPY_PREPARATION_BONUS", pUnit->getSpyPreparationModifier()));
 		}
 
 		if (pUnit->getUnitInfo().isNoRevealMap()) {
@@ -5702,6 +5707,11 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 	if (kPromotion.getSpyEvasionChange() != 0) {
 		szBuffer.append(pcNewline);
 		szBuffer.append(gDLL->getText("TXT_KEY_UNIT_SPY_EVADE_CHANCE", kPromotion.getSpyEvasionChange()));
+	}
+
+	if (kPromotion.getSpyPreparationModifier() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_PREPARATION_TEXT", kPromotion.getSpyPreparationModifier()));
 	}
 
 	if (kPromotion.isUnitRangeUnbound()) {
@@ -15076,7 +15086,7 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 
 		// Spy presence mission cost alteration
 		if (NULL != pSpyUnit) {
-			iTempModifier = -(pSpyUnit->getFortifyTurns() * GC.getDefineINT("ESPIONAGE_EACH_TURN_UNIT_COST_DECREASE"));
+			iTempModifier = -(std::min(5, pSpyUnit->getFortifyTurns() + pSpyUnit->getSpyPreparationModifier()) * GC.getDefineINT("ESPIONAGE_EACH_TURN_UNIT_COST_DECREASE"));
 			if (0 != iTempModifier) {
 				szBuffer.append(NEWLINE);
 				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_SPY_STATIONARY_MOD", iTempModifier));

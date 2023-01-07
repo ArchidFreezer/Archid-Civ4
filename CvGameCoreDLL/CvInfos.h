@@ -533,6 +533,7 @@ public:
 	int getNumPrereqOrPromotions() const;
 	int getEnslaveCountChange() const;
 	int getSpyEvasionChange() const;
+	int getSpyPreparationModifier() const;				// Exposed to Python 
 
 	bool isLeader() const;				// Exposed to Python
 	bool isBlitz() const;				// Exposed to Python
@@ -616,6 +617,7 @@ protected:
 	int m_iPromotionGroup;
 	int m_iEnslaveCountChange;
 	int m_iSpyEvasionChange;
+	int m_iSpyPreparationModifier;
 
 	bool m_bLeader;
 	bool m_bBlitz;
