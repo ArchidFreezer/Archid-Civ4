@@ -564,6 +564,56 @@
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Cover.dds,Art/Interface/Buttons/Promotions_Atlas.dds,2,5</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Crew Buccaneers -->
+			<Type>PROMOTION_CREW_BUCCANEER</Type>
+			<Description>TXT_KEY_PROMOTION_CREW_BUCCANEER</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<bCityPrereq>1</bCityPrereq>
+			<iPromotionGroup>1</iPromotionGroup>
+			<iMovesChange>-1</iMovesChange>
+			<iCombatPercent>20</iCombatPercent>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/crew_buccaneers.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Crew Racing -->
+			<Type>PROMOTION_CREW_RACING</Type>
+			<Description>TXT_KEY_PROMOTION_CREW_RACING</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<bCityPrereq>1</bCityPrereq>
+			<iPromotionGroup>1</iPromotionGroup>
+			<iMovesChange>1</iMovesChange>
+			<iCargoChange>-1</iCargoChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/crew_racing.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Crew Skeleton -->
+			<Type>PROMOTION_CREW_SKELETON</Type>
+			<Description>TXT_KEY_PROMOTION_CREW_SKELETON</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<bCityPrereq>1</bCityPrereq>
+			<iPromotionGroup>1</iPromotionGroup>
+			<iCargoChange>1</iCargoChange>
+			<iCombatPercent>-20</iCombatPercent>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/crew_skeleton.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Crew Standard -->
+			<Type>PROMOTION_CREW_STANDARD</Type>
+			<Description>TXT_KEY_PROMOTION_CREW_STANDARD</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<bCityPrereq>1</bCityPrereq>
+			<iPromotionGroup>1</iPromotionGroup>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>,Art/Interface/Buttons/Promotions/Naval_Units.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,7</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Disorganized -->
 			<Type>PROMOTION_DISORGANIZED</Type>
 			<Description>TXT_KEY_PROMOTION_DISORGANIZED</Description>

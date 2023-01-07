@@ -44,6 +44,24 @@
 		<French>Conspiration III</French>
 	</TEXT>
 
+<!-- +++ Crew +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_CREW_STANDARD</Tag>
+		<English>Standard Crew</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_CREW_SKELETON</Tag>
+		<English>Skeleton Crew</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_CREW_BUCCANEER</Tag>
+		<English>Buccaneers</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_CREW_RACING</Tag>
+		<English>Racing Crew</English>
+	</TEXT>
+
 	<TEXT> <!-- Disorganised (Barbarian Ships) -->
 		<Tag>TXT_KEY_PROMOTION_DISORGANIZED</Tag>
 		<English>Disorganized</English>
