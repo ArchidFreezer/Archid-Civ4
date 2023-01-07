@@ -674,6 +674,33 @@
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Drill4.dds,Art/Interface/Buttons/Promotions_Atlas.dds,5,3</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Escape 1 -->
+			<Type>PROMOTION_ESCAPE1</Type>
+			<Description>TXT_KEY_PROMOTION_ESCAPE1</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_INFORMANT1</PromotionPrereq>
+			<iSpyEscapeChange>40</iSpyEscapeChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Escape1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Escape 2 -->
+			<Type>PROMOTION_ESCAPE2</Type>
+			<Description>TXT_KEY_PROMOTION_ESCAPE2</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_INFORMANT2</PromotionPrereq>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_ESCAPE1</PromotionType>
+			</PrereqOrPromotions>
+			<iSpyEscapeChange>40</iSpyEscapeChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Escape2.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Evasion 1 -->
 			<Type>PROMOTION_EVASION1</Type>
 			<Description>TXT_KEY_PROMOTION_EVASION1</Description>

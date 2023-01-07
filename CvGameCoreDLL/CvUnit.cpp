@@ -329,6 +329,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iSpySwitchCivicChange = 0;
 	m_iSpySwitchReligionChange = 0;
 	m_iSpyDisablePowerChange = 0;
+	m_iSpyEscapeChanceExtra = 0;
 
 	m_bMadeAttack = false;
 	m_bMadeInterception = false;
@@ -5418,19 +5419,23 @@ bool CvUnit::testSpyIntercepted(PlayerTypes eTargetPlayer, bool bMission, bool& 
 	CvString szFormatNoReveal;
 	CvString szFormatReveal;
 	CvString szFormatRevealTurned;
+	CvString szFormatYou;
 
 	if (GET_TEAM(kTargetPlayer.getTeam()).getCounterespionageModAgainstTeam(getTeam()) > 0) { // Counterespionage
 		szFormatNoReveal = "TXT_KEY_SPY_INTERCEPTED_MISSION";
 		szFormatReveal = "TXT_KEY_SPY_INTERCEPTED_MISSION_REVEAL";
 		szFormatRevealTurned = "TXT_KEY_SPY_INTERCEPTED_MISSION_REVEAL_TURNED";
+		szFormatYou = "TXT_KEY_SPY_YOU_INTERCEPTED_MISSION";
 	} else if (plot()->isEspionageCounterSpy(kTargetPlayer.getTeam())) { // Spy presence
 		szFormatNoReveal = "TXT_KEY_SPY_INTERCEPTED_SPY";
 		szFormatReveal = "TXT_KEY_SPY_INTERCEPTED_SPY_REVEAL";
 		szFormatRevealTurned = "TXT_KEY_SPY_INTERCEPTED_SPY_REVEAL_TURNED";
+		szFormatYou = "TXT_KEY_SPY_YOU_INTERCEPTED_SPY";
 	} else { // Chance
 		szFormatNoReveal = "TXT_KEY_SPY_INTERCEPTED";
 		szFormatReveal = "TXT_KEY_SPY_INTERCEPTED_REVEAL";
 		szFormatRevealTurned = "TXT_KEY_SPY_INTERCEPTED_REVEAL_TURNED";
+		szFormatYou = "TXT_KEY_SPY_YOU_INTERCEPTED";
 	}
 
 	CvWString szCityName = kTargetPlayer.getCivilizationShortDescription();
@@ -5439,7 +5444,7 @@ bool CvUnit::testSpyIntercepted(PlayerTypes eTargetPlayer, bool bMission, bool& 
 		szCityName = pClosestCity->getName();
 	}
 
-	CvWString szBuffer = gDLL->getText(szFormatReveal.GetCString(), GET_PLAYER(getOwnerINLINE()).getCivilizationAdjectiveKey(), getNameKey(), kTargetPlayer.getCivilizationAdjectiveKey(), szCityName.GetCString());
+	CvWString szBuffer = gDLL->getText(szFormatYou.GetCString(), getNameKey(), kTargetPlayer.getCivilizationAdjectiveKey(), szCityName.GetCString());
 	gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_EXPOSED", MESSAGE_TYPE_INFO, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), getX_INLINE(), getY_INLINE(), true, true);
 
 	// Determine if the target identifies the owner of the spy
@@ -5484,6 +5489,31 @@ bool CvUnit::testSpyIntercepted(PlayerTypes eTargetPlayer, bool bMission, bool& 
 	if (NULL != pCounterUnit) {
 		pCounterUnit->changeExperience(1);
 		pCounterUnit->testPromotionReady();
+	}
+
+	// The spy is intercepted, but they manage to escape before they are interrogated
+	if (GC.getGameINLINE().getSorenRandNum(100, "Spy Escape Chance") < getSpyEscapeChance()) {
+		setFortifyTurns(0);
+		setMadeAttack(true);
+		finishMoves();
+
+		CvCity* pCapital = GET_PLAYER(getOwnerINLINE()).getCapitalCity();
+		if (NULL != pCapital) {
+			setXY(pCapital->getX_INLINE(), pCapital->getY_INLINE(), false, false, false);
+		}
+		szFormatReveal = "TXT_KEY_SPY_ESCAPED_REVEAL";
+		szFormatNoReveal = "TXT_KEY_SPY_ESCAPED";
+		if (bReveal)
+			szBuffer = gDLL->getText(szFormatReveal.GetCString(), GET_PLAYER(getOwnerINLINE()).getCivilizationAdjectiveKey(), getNameKey(), kTargetPlayer.getCivilizationAdjectiveKey(), szCityName.GetCString());
+		else
+			szBuffer = gDLL->getText(szFormatNoReveal.GetCString(), getNameKey(), kTargetPlayer.getCivilizationAdjectiveKey(), szCityName.GetCString());
+		gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_EXPOSED", MESSAGE_TYPE_INFO, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), getX_INLINE(), getY_INLINE(), true, true);
+		gDLL->getInterfaceIFace()->addHumanMessage(eTargetPlayer, true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_EXPOSE", MESSAGE_TYPE_INFO, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), getX_INLINE(), getY_INLINE(), true, true);
+
+		changeExperience(1);
+		testPromotionReady();
+
+		return true;
 	}
 
 	if (bDoubleAgent)
@@ -9647,6 +9677,7 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 		changeSpySwitchCivicChange(kPromotion.getSpySwitchCivicChange() * iChange);
 		changeSpySwitchReligionChange(kPromotion.getSpySwitchReligionChange() * iChange);
 		changeSpyDisablePowerChange(kPromotion.getSpyDisablePowerChange() * iChange);
+		changeSpyEscapeExtra(kPromotion.getSpyEscapeChange() * iChange);
 
 		for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
 			changeExtraTerrainAttackPercent(eTerrain, kPromotion.getTerrainAttackPercent(eTerrain) * iChange);
@@ -9803,6 +9834,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iSpySwitchCivicChange);
 	pStream->Read(&m_iSpySwitchReligionChange);
 	pStream->Read(&m_iSpyDisablePowerChange);
+	pStream->Read(&m_iSpyEscapeChanceExtra);
 
 	pStream->Read(&m_bMadeAttack);
 	pStream->Read(&m_bMadeInterception);
@@ -9933,6 +9965,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iSpySwitchCivicChange);
 	pStream->Write(m_iSpySwitchReligionChange);
 	pStream->Write(m_iSpyDisablePowerChange);
+	pStream->Write(m_iSpyEscapeChanceExtra);
 
 	pStream->Write(m_bMadeAttack);
 	pStream->Write(m_bMadeInterception);
@@ -12332,4 +12365,16 @@ int CvUnit::getSpyDisablePowerChange() const {
 
 void CvUnit::changeSpyDisablePowerChange(int iChange) {
 	m_iSpyDisablePowerChange += iChange;
+}
+
+int CvUnit::getSpyEscapeChanceExtra() const {
+	return m_iSpyEscapeChanceExtra;
+}
+
+void CvUnit::changeSpyEscapeExtra(int iChange) {
+	m_iSpyEscapeChanceExtra += iChange;
+}
+
+int CvUnit::getSpyEscapeChance() const {
+	return getSpyEscapeChanceExtra();
 }

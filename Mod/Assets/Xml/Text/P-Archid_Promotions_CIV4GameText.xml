@@ -45,6 +45,22 @@
 		<English>Disorganized</English>
 		<Spanish>Desorganizado</Spanish>
 	</TEXT>
+	<TEXT> <!-- Escape Artist I -->
+		<Tag>TXT_KEY_PROMOTION_ESCAPE1</Tag>
+		<English>Escape Artist I</English>
+		<French>Artiste d'evasion I</French>
+		<German>Fluchtexperte I</German>
+		<Italian>Artista di fuga I</Italian>
+		<Spanish>Artista de escape I</Spanish>
+	</TEXT>
+	<TEXT> <!-- Escape Artist II -->
+		<Tag>TXT_KEY_PROMOTION_ESCAPE2</Tag>
+		<English>Escape Artist II</English>
+		<French>Artiste d'evasion II</French>
+		<German>Fluchtexperte II</German>
+		<Italian>Artista di fuga II</Italian>
+		<Spanish>Artista de escape II</Spanish>
+	</TEXT>
 	<TEXT> <!-- Evasion I -->
 		<Tag>TXT_KEY_PROMOTION_EVASION1</Tag>
 		<English>Evasion I</English>
@@ -206,5 +222,39 @@
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_SPY_DISABLE_POWER_TEXT</Tag>
 		<English>[ICON_BULLET]%d1_percent%% increase in duration of disabled power</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_ESCAPE_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_percent%% escape chance following interception</English>
+		<French>[ICON_BULLET] chance d'evasion de bonification de %d1_percent%%</French>
+		<German>[ICON_BULLET]%d1_percent%% Chance einer Gefangennahme zu entkommen</German>
+		<Italian>[ICON_BULLET] probabilite di fuga di indennite di %d1_percent%%</Italian>
+		<Spanish>[ICON_BULLET] ocasien del escape de la prima del %d1_percent%%</Spanish>
+		<Finnish>[ICON_BULLET]%d1_percent%% Bonus Escape Chance</Finnish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPY_ESCAPED</Tag>
+		<English>A %s1_unit managed to escape from the %s2_civ_adjective city of %s3_city!</English>
+		<French>Un %s1_unit est parvenu e s'echapper de la ville de %s2_civ_adjective de %s3_city!</French>
+		<German>Einem %[s1_unit]en gelang die Flucht aus der %s2_civ_adjective Stadt %s3_city!</German>
+		<Italian>Un %s1_unit e riuscito a fuoriuscire dalla citte di %s2_civ_adjective di %s3_city!</Italian>
+		<Spanish>Un %s1_unit maneje escaparse de la ciudad de %s2_civ_adjective de %s3_city!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPY_ESCAPED_REVEAL</Tag>
+		<English>A %s1_civ_adjective %s2_unit managed to escape from the %s3_civ_adjective city of %s4_city!</English>
+		<French>Un %s1_civ_adjective %s2_unit est parvenu e s'echapper de la ville de %s3_civ_adjective de %s4_city!</French>
+		<German>Ein %[s1_civ_adjective]er %s2_unit konnte aus der %[s3_civ_adjective]en Stadt %s4_city entkommen!</German>
+		<Italian>Un %s1_civ_adjective %s2_unit e riuscito a fuoriuscire dalla cittedi %s3_civ_adjective di %s4_city!</Italian>
+		<Spanish>Un %s1_civ_adjective %s2_unit maneje escaparse de la ciudad de %s3_civ_adjective de %s4_city!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SPY_ESCAPE_CHANCE</Tag>
+		<English>[ICON_BULLET]Can escape following capture (%d1_Amount%% chance)</English>
+		<French>[ICON_BULLET] Peut echapper e la capture (la chance de %d1_Amount%%)</French>
+		<German>[ICON_BULLET]Kann Gefangennahme entkommen (%d1_Amount%% Chance)</German>
+		<Italian>[ICON_BULLET] Pue fuoriuscire il bloccaggio (probabilite di %d1_Amount%%)</Italian>
+		<Spanish>[ICON_BULLET] Puede escapar la captura (la ocasien del %d1_Amount%%)</Spanish>
+		<Finnish>[ICON_BULLET]Can Escape Capture (%d1_Amount%% Chance)</Finnish>
 	</TEXT>
 </Civ4GameText>

@@ -119,6 +119,8 @@ public:
 	int getSpyNukeCityChange() const;
 	int getSpySwitchCivicChange() const;
 	int getSpySwitchReligionChange() const;
+	int getSpyEscapeChance() const;
+	int getSpyEscapeChanceExtra() const;
 	void awardSpyExperience(TeamTypes eTargetTeam, int iModifier);
 	void changeLoyaltyCount(int iChange);
 	void changeSpyEvasionChanceExtra(int iChange);
@@ -126,12 +128,13 @@ public:
 	void changeSpyDestroyImprovementChange(int iChange);
 	void changeSpyPoisonChangeExtra(int iChange);
 	void changeSpyRadiationCount(int iChange);
-	void setOriginalSpymaster(PlayerTypes ePlayer);
 	void changeSpyDiplomacyPenalty(int iChange);
 	void changeSpyDisablePowerChange(int iChange);
 	void changeSpyNukeCityChange(int iChange);
 	void changeSpySwitchCivicChange(int iChange);
 	void changeSpySwitchReligionChange(int iChange);
+	void changeSpyEscapeExtra(int iChange);
+	void setOriginalSpymaster(PlayerTypes ePlayer);
 	PlayerTypes getOriginalSpymaster() const;
 
 	int getEnslaveCountExtra() const;
@@ -956,6 +959,7 @@ protected:
 	int m_iSpySwitchCivicChange;
 	int m_iSpySwitchReligionChange;
 	int m_iSpyDisablePowerChange;
+	int m_iSpyEscapeChanceExtra;
 
 	bool m_bMadeAttack;
 	bool m_bMadeInterception;

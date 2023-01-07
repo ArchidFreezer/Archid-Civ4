@@ -7159,6 +7159,12 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		}
 	}
 
+	if (kPromotion.getSpyEscapeChange()) {
+		if (AI_getUnitAIType() == UNITAI_SPY) {
+			iValue += 20;
+		}
+	}
+
 	if (kPromotion.isEnemyRoute()) {
 		if (AI_getUnitAIType() == UNITAI_PILLAGE) {
 			iValue += 40;

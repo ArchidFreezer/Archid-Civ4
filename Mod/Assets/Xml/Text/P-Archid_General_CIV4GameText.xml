@@ -1033,6 +1033,18 @@
 		<English>The %s1_city power grid has been temporarily disabled by a spy from %s2.</English>
 		<French>Les Centrales electriques de la Ville de %s1 ont ete desactivees. On suspecte l'intervention d'un espion de %s2.</French>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPY_YOU_INTERCEPTED</Tag>
+		<English>Your %s1_unit has been stumbled upon while operating near the %s2_civ_adjective city of %s3_city!</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPY_YOU_INTERCEPTED_SPY</Tag>
+		<English>Your %s1_unit operating near %s3_city has been thwarted by %s2_civ_adjective counterintelligence agents!</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPY_YOU_INTERCEPTED_MISSION</Tag>
+		<English>Your %s1_unit operating near %s3_city has been caught due to elevated %s2_civ_adjective counterespionage efforts!</English>
+	</TEXT>
 
 <!-- Specialists -->
 	<TEXT> <!-- Slave: Artist -->
