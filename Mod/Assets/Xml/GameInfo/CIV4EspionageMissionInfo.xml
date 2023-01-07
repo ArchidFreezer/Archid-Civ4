@@ -175,5 +175,32 @@
 			<iDifficultyMod>15</iDifficultyMod>
 			<bDisablePower>1</bDisablePower>
 		</EspionageMissionInfo>
+		<EspionageMissionInfo>
+			<Type>ESPIONAGEMISSION_WAR_WEARINESS</Type>
+			<Description>TXT_KEY_ESPIONAGE_CAUSE_WAR_WEARINESS</Description>
+			<iCost>3000</iCost>
+			<bTargetsCity>1</bTargetsCity>
+			<iDifficultyMod>75</iDifficultyMod>
+			<iCityRevoltCounter>1</iCityRevoltCounter>
+			<iWarWearinessCounter>150</iWarWearinessCounter>
+		</EspionageMissionInfo>
+		<EspionageMissionInfo>
+			<Type>ESPIONAGEMISSION_REMOVE_RELIGION</Type>
+			<Description>TXT_KEY_ESPIONAGE_REMOVE_RELIGIONS</Description>
+			<iCost>350</iCost>
+			<bIsTwoPhases>1</bIsTwoPhases>
+			<bTargetsCity>1</bTargetsCity>
+			<iDifficultyMod>55</iDifficultyMod>
+			<iRemoveReligionsCostFactor>250</iRemoveReligionsCostFactor>
+		</EspionageMissionInfo>
+		<EspionageMissionInfo>
+			<Type>ESPIONAGEMISSION_REMOVE_CORPORATION</Type>
+			<Description>TXT_KEY_ESPIONAGE_REMOVE_CORPORATIONS</Description>
+			<iCost>350</iCost>
+			<bIsTwoPhases>1</bIsTwoPhases>
+			<bTargetsCity>1</bTargetsCity>
+			<iDifficultyMod>55</iDifficultyMod>
+			<iRemoveCorporationsCostFactor>250</iRemoveCorporationsCostFactor>
+		</EspionageMissionInfo>
 	</EspionageMissionInfos>
 </Civ4EspionageMissionInfo>

@@ -1148,6 +1148,9 @@
 	<ElementType name="iAttitudeModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="bNuke" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bDisablePower" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iWarWearinessCounter" content="textOnly" dt:type="int"/>
+	<ElementType name="iRemoveReligionsCostFactor" content="textOnly" dt:type="int"/>
+	<ElementType name="iRemoveCorporationsCostFactor" content="textOnly" dt:type="int"/>
 	<ElementType name="EspionageMissionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -1185,6 +1188,9 @@
 		<element type="iAttitudeModifier" minOccurs="0"/>
 		<element type="bNuke" minOccurs="0"/>
 		<element type="bDisablePower" minOccurs="0"/>
+		<element type="iWarWearinessCounter" minOccurs="0"/>
+		<element type="iRemoveReligionsCostFactor" minOccurs="0"/>
+		<element type="iRemoveCorporationsCostFactor" minOccurs="0"/>
 	</ElementType>
 	<ElementType name="EspionageMissionInfos" content="eltOnly">
 		<element type="EspionageMissionInfo" maxOccurs="*"/>

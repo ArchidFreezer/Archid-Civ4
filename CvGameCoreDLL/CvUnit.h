@@ -123,6 +123,12 @@ public:
 	int getSpyEscapeChanceExtra() const;
 	int getSpyInterceptChance() const;
 	int getSpyInterceptChanceExtra() const;
+	int getSpyCorporationRemovalChange() const;
+	int getSpyCultureChange() const;
+	int getSpyReligionRemovalChange() const;
+	int getSpyRevoltChange() const;
+	int getSpyUnhappyChange() const;
+	int getSpyWarWearinessChange() const;
 	void awardSpyExperience(TeamTypes eTargetTeam, int iModifier);
 	void changeLoyaltyCount(int iChange);
 	void changeSpyEvasionChanceExtra(int iChange);
@@ -137,6 +143,12 @@ public:
 	void changeSpySwitchReligionChange(int iChange);
 	void changeSpyEscapeExtra(int iChange);
 	void changeSpyInterceptChanceExtra(int iChange);
+	void changeSpyCorporationRemovalChange(int iChange);
+	void changeSpyCultureChange(int iChange);
+	void changeSpyReligionRemovalChange(int iChange);
+	void changeSpyRevoltChange(int iChange);
+	void changeSpyUnhappyChange(int iChange);
+	void changeSpyWarWearinessChange(int iChange);
 	void setOriginalSpymaster(PlayerTypes ePlayer);
 	PlayerTypes getOriginalSpymaster() const;
 
@@ -964,6 +976,12 @@ protected:
 	int m_iSpyDisablePowerChange;
 	int m_iSpyEscapeChanceExtra;
 	int m_iSpyInterceptChanceExtra;
+	int m_iSpyUnhappyChange;
+	int m_iSpyRevoltChange;
+	int m_iSpyWarWearinessChange;
+	int m_iSpyReligionRemovalChange;
+	int m_iSpyCorporationRemovalChange;
+	int m_iSpyCultureChange;
 
 	bool m_bMadeAttack;
 	bool m_bMadeInterception;

@@ -388,7 +388,13 @@ public:
 	void changeMaintenanceModifier(int iChange);
 
 	int getWarWearinessModifier() const;																	// Exposed to Python
+	int getWarWearinessTimer() const;
 	void changeWarWearinessModifier(int iChange);
+	void changeWarWearinessTimer(int iChange);
+	void doWarWeariness();
+
+	int getEventAnger() const;
+	void changeEventAnger(int iChange);
 
 	int getHurryAngerModifier() const;																	// Exposed to Python
 	void changeHurryAngerModifier(int iChange);
@@ -1134,6 +1140,8 @@ protected:
 	int m_iStarSignAngerTimer;
 	int m_iSlaveMarketCount;
 	int m_iDisabledPowerTimer;
+	int m_iWarWearinessTimer;
+	int m_iEventAnger;
 
 	bool m_bNeverLost;
 	bool m_bBombarded;

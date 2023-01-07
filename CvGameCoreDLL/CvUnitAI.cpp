@@ -7172,6 +7172,42 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		}
 	}
 
+	if (kPromotion.getSpyUnhappyChange()) {
+		if (AI_getUnitAIType() == UNITAI_SPY) {
+			iValue += 15;
+		}
+	}
+
+	if (kPromotion.getSpyRevoltChange()) {
+		if (AI_getUnitAIType() == UNITAI_SPY) {
+			iValue += 15;
+		}
+	}
+
+	if (kPromotion.getSpyWarWearinessChange()) {
+		if (AI_getUnitAIType() == UNITAI_SPY) {
+			iValue += 15;
+		}
+	}
+
+	if (kPromotion.getSpyReligionRemovalChange()) {
+		if (AI_getUnitAIType() == UNITAI_SPY) {
+			iValue += 15;
+		}
+	}
+
+	if (kPromotion.getSpyCorporationRemovalChange()) {
+		if (AI_getUnitAIType() == UNITAI_SPY) {
+			iValue += 15;
+		}
+	}
+
+	if (kPromotion.getSpyCultureChange()) {
+		if (AI_getUnitAIType() == UNITAI_SPY) {
+			iValue += 15;
+		}
+	}
+
 	if (kPromotion.isEnemyRoute()) {
 		if (AI_getUnitAIType() == UNITAI_PILLAGE) {
 			iValue += 40;

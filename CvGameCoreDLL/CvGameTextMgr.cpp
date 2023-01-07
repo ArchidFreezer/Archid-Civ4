@@ -1038,6 +1038,36 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 			szString.append(gDLL->getText("TXT_KEY_UNIT_SPY_INTERCEPT_COUNTER_CHANCE", pUnit->getSpyInterceptChance() * 2));
 		}
 
+		if (pUnit->getSpyUnhappyChange() != 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_UNHAPPY_TEXT", pUnit->getSpyUnhappyChange()));
+		}
+
+		if (pUnit->getSpyRevoltChange() != 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_UNREST_TEXT", pUnit->getSpyRevoltChange()));
+		}
+
+		if (pUnit->getSpyWarWearinessChange() > 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_WAR_WEARINESS_TEXT", pUnit->getSpyWarWearinessChange()));
+		}
+
+		if (pUnit->getSpyReligionRemovalChange() > 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_RELIGION_REMOVAL_TEXT", pUnit->getSpyReligionRemovalChange()));
+		}
+
+		if (pUnit->getSpyCorporationRemovalChange() > 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_CORPORATION_REMOVAL_TEXT", pUnit->getSpyCorporationRemovalChange()));
+		}
+
+		if (pUnit->getSpyCultureChange() > 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_CULTURE_TEXT", pUnit->getSpyCultureChange()));
+		}
+
 		if (pUnit->getUnitInfo().isNoRevealMap()) {
 			szString.append(NEWLINE);
 			szString.append(gDLL->getText("TXT_KEY_UNIT_VISIBILITY_MOVE_RANGE"));
@@ -5811,6 +5841,36 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_INTERCEPT_TEXT", kPromotion.getSpyInterceptChange()));
 		szBuffer.append(pcNewline);
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_INTERCEPT_COUNTER_TEXT", kPromotion.getSpyInterceptChange() * 2));
+	}
+
+	if (kPromotion.getSpyUnhappyChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_UNHAPPY_TEXT", kPromotion.getSpyUnhappyChange()));
+	}
+
+	if (kPromotion.getSpyRevoltChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_UNREST_TEXT", kPromotion.getSpyRevoltChange()));
+	}
+
+	if (kPromotion.getSpyWarWearinessChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_WAR_WEARINESS_TEXT", kPromotion.getSpyWarWearinessChange()));
+	}
+
+	if (kPromotion.getSpyReligionRemovalChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_RELIGION_REMOVAL_TEXT", kPromotion.getSpyReligionRemovalChange()));
+	}
+
+	if (kPromotion.getSpyCorporationRemovalChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_CORPORATION_REMOVAL_TEXT", kPromotion.getSpyCorporationRemovalChange()));
+	}
+
+	if (kPromotion.getSpyCultureChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_CULTURE_TEXT", kPromotion.getSpyCultureChange()));
 	}
 
 	if (kPromotion.isUnitRangeUnbound()) {
@@ -15022,7 +15082,13 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 			CvCity* pCity = pPlot->getPlotCity();
 
 			if (NULL != pCity) {
-				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_POISON", kMission.getCityUnhappinessCounter(), gDLL->getSymbolID(UNHAPPY_CHAR), pCity->getNameKey(), kMission.getCityUnhappinessCounter()));
+				int iAmount = kMission.getCityUnhappinessCounter();
+				if (pSpyUnit != NULL) {
+					iAmount *= 100 + pSpyUnit->getSpyUnhappyChange();
+					iAmount /= 100;
+				}
+
+				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_POISON", kMission.getCityUnhappinessCounter(), gDLL->getSymbolID(UNHAPPY_CHAR), pCity->getNameKey(), iAmount));
 				szBuffer.append(NEWLINE);
 			}
 		}
@@ -15033,7 +15099,12 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 			CvCity* pCity = pPlot->getPlotCity();
 
 			if (NULL != pCity) {
-				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_REVOLT", pCity->getNameKey(), kMission.getCityRevoltCounter()));
+				int iTurns = kMission.getCityRevoltCounter();
+				if (pSpyUnit != NULL) {
+					iTurns *= 100 + pSpyUnit->getSpyRevoltChange();
+					iTurns /= 100;
+				}
+				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_REVOLT", pCity->getNameKey(), iTurns));
 				szBuffer.append(NEWLINE);
 			}
 		}
@@ -15075,6 +15146,16 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 		}
 	}
 
+	if (kMission.getRemoveReligionsCostFactor() > 0) {
+		if (NULL != pPlot) {
+			CvCity* pCity = pPlot->getPlotCity();
+			if (NULL != pCity) {
+				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_REMOVE_RELIGION", GC.getReligionInfo((ReligionTypes)iExtraData).getTextKeyWide(), pCity->getNameKey()));
+				szBuffer.append(NEWLINE);
+			}
+		}
+	}
+
 	if (kMission.getPlayerAnarchyCounter() > 0) {
 		if (NO_PLAYER != eTargetPlayer) {
 			int iTurns = (kMission.getPlayerAnarchyCounter() * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getAnarchyPercent()) / 100;
@@ -15086,6 +15167,10 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 	if (kMission.getCounterespionageNumTurns() > 0 && kMission.getCounterespionageMod() > 0) {
 		if (NO_PLAYER != eTargetPlayer) {
 			int iTurns = (kMission.getCounterespionageNumTurns() * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getResearchPercent()) / 100;
+			if (pSpyUnit != NULL) {
+				iTurns *= 100 + pSpyUnit->getSpyRevoltChange();
+				iTurns /= 100;
+			}
 
 			szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_COUNTERESPIONAGE", kMission.getCounterespionageMod() + (2 * pSpyUnit->getSpyInterceptChance()), kTarget.getCivilizationAdjectiveKey(), iTurns));
 			szBuffer.append(NEWLINE);
@@ -15095,8 +15180,10 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 	if (kMission.getAttitudeModifier() < 0) {
 		int iAttitudeMod = kMission.getAttitudeModifier();
 		//Promotion Affects Attitude
-		iAttitudeMod *= 100 + pSpyUnit->getSpyDiplomacyPenalty();
-		iAttitudeMod /= 100;
+		if (pSpyUnit != NULL) {
+			iAttitudeMod *= 100 + pSpyUnit->getSpyDiplomacyPenalty();
+			iAttitudeMod /= 100;
+		}
 
 		szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_CAUSE_INCIDENT", kTarget.getNameKey(), iAttitudeMod));
 		szBuffer.append(NEWLINE);
@@ -15121,11 +15208,63 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 			iTurns *= GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getTrainPercent();
 			iTurns /= 100;
 			//Promotion effects Turns
-			iTurns *= 100 + pSpyUnit->getSpyDisablePowerChange();
-			iTurns /= 100;
+			if (pSpyUnit != NULL) {
+				iTurns *= 100 + pSpyUnit->getSpyDisablePowerChange();
+				iTurns /= 100;
+			}
 
 			if (NULL != pCity) {
 				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_POWER", pCity->getNameKey(), iTurns));
+				szBuffer.append(NEWLINE);
+			}
+		}
+	}
+
+	if (kMission.getWarWearinessCounter() > 0) {
+		if (NULL != pPlot) {
+			CvCity* pCity = pPlot->getPlotCity();
+
+			if (NULL != pCity) {
+				int iAmount = kMission.getWarWearinessCounter();
+				iAmount *= GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getTrainPercent();
+				iAmount /= 100;
+				if (pSpyUnit != NULL) {
+					iAmount *= 100 + pSpyUnit->getSpyWarWearinessChange();
+					iAmount /= 100;
+				}
+
+				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_WAR_WEARINESS", pCity->getNameKey(), iAmount));
+				szBuffer.append(NEWLINE);
+			}
+		}
+	}
+
+	if (kMission.getRemoveCorporationsCostFactor() > 0) {
+		if (NULL != pPlot) {
+			CvCity* pCity = pPlot->getPlotCity();
+
+			if (NULL != pCity) {
+				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_REMOVE_CORPORATION", GC.getCorporationInfo((CorporationTypes)iExtraData).getTextKeyWide(), pCity->getNameKey()));
+				szBuffer.append(NEWLINE);
+			}
+		}
+	}
+
+	if (kMission.getCityInsertCultureCostFactor() > 0) {
+		if (NULL != pPlot) {
+			CvCity* pCity = pPlot->getPlotCity();
+
+			if (NULL != pCity && pPlot->getCulture(GC.getGameINLINE().getActivePlayer()) > 0) {
+				int iCultureAmount = kMission.getCityInsertCultureAmountFactor() * pCity->countTotalCultureTimes100();
+				iCultureAmount /= 10000;
+				iCultureAmount = std::max(1, iCultureAmount);
+
+				if (pSpyUnit != NULL) {
+					iCultureAmount *= 100 + pSpyUnit->getSpyCultureChange();
+					iCultureAmount /= 100;
+				}
+
+				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_INSERT_CULTURE", pCity->getNameKey(), iCultureAmount));
 				szBuffer.append(NEWLINE);
 			}
 		}

@@ -137,6 +137,30 @@
 		<Italian>Informatore III</Italian>
 		<Spanish>Denunciante III</Spanish>
 	</TEXT>
+	<TEXT> <!-- Instigator I -->
+		<Tag>TXT_KEY_PROMOTION_INSTIGATOR1</Tag>
+		<English>Instigator I</English>
+		<French>Instigateur I</French>
+		<German>Aufhetzer I</German>
+		<Italian>Istigatore I</Italian>
+		<Spanish>Instigador I</Spanish>
+	</TEXT>
+	<TEXT> <!-- Instigator II -->
+		<Tag>TXT_KEY_PROMOTION_INSTIGATOR2</Tag>
+		<English>Instigator II</English>
+		<French>Instigateur II</French>
+		<German>Aufhetzer II</German>
+		<Italian>Istigatore II</Italian>
+		<Spanish>Instigador II</Spanish>
+	</TEXT>
+	<TEXT> <!-- Instigator III -->
+		<Tag>TXT_KEY_PROMOTION_INSTIGATOR3</Tag>
+		<English>Instigator III</English>
+		<French>Instigateur III</French>
+		<German>Aufhetzer III</German>
+		<Italian>Istigatore III</Italian>
+		<Spanish>Instigador III</Spanish>
+	</TEXT>
 	<TEXT> <!-- Loyalty -->
 		<Tag>TXT_KEY_PROMOTION_LOYALTY</Tag>
 		<English>Loyalty</English>
@@ -296,4 +320,37 @@
 		<Italian>[ICON_BULLET] indennitedi %d1_percent%% alle missioni di contro spionaggio</Italian>
 		<Spanish>[ICON_BULLET] prima del %d1_percent%% a las misiones del espionaje contrario</Spanish>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_UNHAPPY_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_percent%% additional unhappiness from missions</English>
+		<French>[ICON_BULLET] malaise de bonification de %d1_percent%% des missions</French>
+		<German>[ICON_BULLET]%d1_percent%% mehr Unruhe durch Einsetze</German>
+		<Italian>[ICON_BULLET] agitazione di indennite di %d1_percent%% dalle missioni</Italian>
+		<Spanish>[ICON_BULLET] malestar de la prima del %d1_percent%% de misiones</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_UNREST_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_percent%% additional unrest from missions</English>
+		<French>[ICON_BULLET] revolte de ville de bonification de %d1_percent%% des missions</French>
+		<German>[ICON_BULLET]%d1_percent%% effektivere Revolte durch Einsetze</German>
+		<Italian>[ICON_BULLET] sommossa della citte di indennite di %d1_percent%% dalle missioni</Italian>
+		<Spanish>[ICON_BULLET] rebelien de la ciudad de la prima del %d1_percent%% de misiones</Spanish>
+		<Finnish>[ICON_BULLET]%d1_percent%% Bonus City Revolt From Missions</Finnish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_WAR_WEARINESS_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_percent%% additional war weariness</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_RELIGION_REMOVAL_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_percent%% religion removal cost reduction</English>
+	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_CORPORATION_REMOVAL_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_percent%% corporation removal cost reduction</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_CULTURE_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_percent%% additional culture inserted</English>
+	</TEXT>		
 </Civ4GameText>

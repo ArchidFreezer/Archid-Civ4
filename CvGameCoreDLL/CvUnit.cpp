@@ -331,6 +331,12 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iSpyDisablePowerChange = 0;
 	m_iSpyEscapeChanceExtra = 0;
 	m_iSpyInterceptChanceExtra = 0;
+	m_iSpyUnhappyChange = 0;
+	m_iSpyRevoltChange = 0;
+	m_iSpyWarWearinessChange = 0;
+	m_iSpyReligionRemovalChange = 0;
+	m_iSpyCorporationRemovalChange = 0;
+	m_iSpyCultureChange = 0;
 
 	m_bMadeAttack = false;
 	m_bMadeInterception = false;
@@ -9687,6 +9693,12 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 		changeSpyDisablePowerChange(kPromotion.getSpyDisablePowerChange() * iChange);
 		changeSpyEscapeExtra(kPromotion.getSpyEscapeChange() * iChange);
 		changeSpyInterceptChanceExtra(kPromotion.getSpyInterceptChange() * iChange);
+		changeSpyUnhappyChange(kPromotion.getSpyUnhappyChange() * iChange);
+		changeSpyRevoltChange(kPromotion.getSpyRevoltChange() * iChange);
+		changeSpyWarWearinessChange(kPromotion.getSpyWarWearinessChange() * iChange);
+		changeSpyReligionRemovalChange(kPromotion.getSpyReligionRemovalChange() * iChange);
+		changeSpyCorporationRemovalChange(kPromotion.getSpyCorporationRemovalChange() * iChange);
+		changeSpyCultureChange(kPromotion.getSpyCultureChange() * iChange);
 
 		for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
 			changeExtraTerrainAttackPercent(eTerrain, kPromotion.getTerrainAttackPercent(eTerrain) * iChange);
@@ -9845,6 +9857,12 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iSpyDisablePowerChange);
 	pStream->Read(&m_iSpyEscapeChanceExtra);
 	pStream->Read(&m_iSpyInterceptChanceExtra);
+	pStream->Read(&m_iSpyUnhappyChange);
+	pStream->Read(&m_iSpyRevoltChange);
+	pStream->Read(&m_iSpyWarWearinessChange);
+	pStream->Read(&m_iSpyReligionRemovalChange);
+	pStream->Read(&m_iSpyCorporationRemovalChange);
+	pStream->Read(&m_iSpyCultureChange);
 
 	pStream->Read(&m_bMadeAttack);
 	pStream->Read(&m_bMadeInterception);
@@ -9977,6 +9995,12 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iSpyDisablePowerChange);
 	pStream->Write(m_iSpyEscapeChanceExtra);
 	pStream->Write(m_iSpyInterceptChanceExtra);
+	pStream->Write(m_iSpyUnhappyChange);
+	pStream->Write(m_iSpyRevoltChange);
+	pStream->Write(m_iSpyWarWearinessChange);
+	pStream->Write(m_iSpyReligionRemovalChange);
+	pStream->Write(m_iSpyCorporationRemovalChange);
+	pStream->Write(m_iSpyCultureChange);
 
 	pStream->Write(m_bMadeAttack);
 	pStream->Write(m_bMadeInterception);
@@ -12400,4 +12424,52 @@ void CvUnit::changeSpyInterceptChanceExtra(int iChange) {
 
 int CvUnit::getSpyInterceptChance() const {
 	return getSpyInterceptChanceExtra();
+}
+
+int CvUnit::getSpyUnhappyChange() const {
+	return m_iSpyUnhappyChange;
+}
+
+void CvUnit::changeSpyUnhappyChange(int iChange) {
+	m_iSpyUnhappyChange += iChange;
+}
+
+int CvUnit::getSpyRevoltChange() const {
+	return m_iSpyRevoltChange;
+}
+
+void CvUnit::changeSpyRevoltChange(int iChange) {
+	m_iSpyRevoltChange += iChange;
+}
+
+int CvUnit::getSpyWarWearinessChange() const {
+	return m_iSpyWarWearinessChange;
+}
+
+void CvUnit::changeSpyWarWearinessChange(int iChange) {
+	m_iSpyWarWearinessChange += iChange;
+}
+
+int CvUnit::getSpyReligionRemovalChange() const {
+	return m_iSpyReligionRemovalChange;
+}
+
+void CvUnit::changeSpyReligionRemovalChange(int iChange) {
+	m_iSpyReligionRemovalChange += iChange;
+}
+
+int CvUnit::getSpyCorporationRemovalChange() const {
+	return m_iSpyCorporationRemovalChange;
+}
+
+void CvUnit::changeSpyCorporationRemovalChange(int iChange) {
+	m_iSpyCorporationRemovalChange += iChange;
+}
+
+int CvUnit::getSpyCultureChange() const {
+	return m_iSpyCultureChange;
+}
+
+void CvUnit::changeSpyCultureChange(int iChange) {
+	m_iSpyCultureChange += iChange;
 }

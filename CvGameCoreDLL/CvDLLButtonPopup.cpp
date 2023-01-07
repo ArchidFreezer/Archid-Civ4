@@ -1718,6 +1718,24 @@ bool CvDLLButtonPopup::launchDoEspionageTargetPopup(CvPopup* pPopup, CvPopupInfo
 				}
 			}
 		}
+	} else if (kMission.getRemoveReligionsCostFactor() > 0) {
+		for (ReligionTypes eReligion = (ReligionTypes)0; eReligion < GC.getNumReligionInfos(); eReligion = (ReligionTypes)(eReligion + 1)) {
+			if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, eReligion, pUnit)) {
+				const CvReligionInfo& kReligion = GC.getReligionInfo(eReligion);
+				int iCost = kPlayer.getEspionageMissionCost(eMission, eTargetPlayer, pPlot, eReligion, pUnit);
+				CvWString szBuffer = gDLL->getText("TXT_KET_ESPIONAGE_MISSION_COST", kReligion.getDescription(), iCost);
+				gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, kReligion.getButton(), eReligion, WIDGET_HELP_ESPIONAGE_COST, eMission, eReligion);
+			}
+		}
+	} else if (kMission.getRemoveCorporationsCostFactor() > 0) {
+		for (CorporationTypes eCorporation = (CorporationTypes)0; eCorporation < GC.getNumCorporationInfos(); eCorporation = (CorporationTypes)(eCorporation + 1)) {
+			if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, eCorporation, pUnit)) {
+				int iCost = kPlayer.getEspionageMissionCost(eMission, eTargetPlayer, pPlot, eCorporation, pUnit);
+				CvCorporationInfo& kCorp = GC.getCorporationInfo(eCorporation);
+				CvWString szBuffer = gDLL->getText("TXT_KET_ESPIONAGE_MISSION_COST", kCorp.getDescription(), iCost);
+				gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, kCorp.getButton(), eCorporation, WIDGET_HELP_ESPIONAGE_COST, eMission, eCorporation);
+			}
+		}
 	}
 
 	gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_NEVER_MIND"), ARTFILEMGR.getInterfaceArtInfo("INTERFACE_BUTTONS_CANCEL")->getPath(), NO_ESPIONAGEMISSION, WIDGET_GENERAL);

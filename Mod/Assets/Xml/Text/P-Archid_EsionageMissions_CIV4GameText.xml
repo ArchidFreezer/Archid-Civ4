@@ -13,5 +13,20 @@
 		<Tag>TXT_KEY_ESPIONAGE_DISABLE_POWER</Tag>
 		<English>Disable City Power</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CAUSE_WAR_WEARINESS</Tag>
+		<English>Stage Anti-War Rally</English>
+		<French>Organiser un Rassemblement Pacifiste</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_REMOVE_RELIGIONS</Tag>
+		<English>Remove Religions</English>
+		<French>Faire disparaetre les Religions</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_REMOVE_CORPORATIONS</Tag>
+		<English>Remove Corporations</English>
+		<French>Faire disparaetre les Religions</French>
+	</TEXT>
 
 </Civ4GameText>

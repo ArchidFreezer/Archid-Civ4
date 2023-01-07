@@ -1063,6 +1063,51 @@
 		<Spanish>[ICON_BULLET] Misiones mejoradas del espionaje contrario (los %d1_Amount%%)</Spanish>
 		<Finnish>[ICON_BULLET]Improved Counter Espionage Missions (%d1_Amount%%)</Finnish>
 	</TEXT>
+	<TEXT>  
+		<Tag>TXT_KEY_ESPIONAGE_HELP_UNHAPPINESS</Tag>
+		<English>Causes %d2[ICON_UNHAPPY] in %s1_CityName</English>
+		<French>Permet aux faction rebelles de %s1 d'obtenir plus de soutien du peuple.</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_WAR_WEARINESS</Tag>
+		<English>Anti-War Rallies in %s1 have been causing trouble for local officials.</English>
+		<French>Les Pacifistes se rassemblent dans %s1 et engendrent des troubles que les autorites locales peinent e contreler.</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_WAR_WEARINESS_CAUGHT</Tag>
+		<English>Anti-War Rallies in %s1, incited by %s2, have been causing trouble for local officials.</English>
+		<French>Les Pacifistes se rassemblent dans %s1, incites par un espion %s2, et engendrent des troubles que les autorites locales peinent e contreler.</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_RELIGION_REMOVED</Tag>
+		<English>The people of %s1 have abandonded their faith in %s2</English>
+		<French>Le Peuple de %s1 a abandonne leur croyance en la religion %s2</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_RELIGION_REMOVED_CAUGHT</Tag>
+		<English>The people of %s1 have been tricked by %s2 spies into abandoning their faith in %s3</English>
+		<French>Le Peuple de %s1, incite par un espion %s2, est en train d'abandonner leur croyance en la religion %s3</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_HELP_REMOVE_RELIGION</Tag>
+		<English>Will remove %s1[ICON_RELIGION] from %s2_CityName.</English>
+		<French>Faire disparaetre la religion %s1 de %s2.</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CORPORATION_REMOVED</Tag>
+		<English>The people of %s1 have boycott %s2</English>
+		<French>Le Peuple de %s1 boycotte %s2</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CORPORATION_REMOVED_CAUGHT</Tag>
+		<English>The people of %s1 have been tricked by %s2 spies into boycotting %s3</English>
+		<French>Le Peuple de %s1, incite par un espion %s2, boycotte %s3!</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_HELP_REMOVE_CORPORATION</Tag>
+		<English>Will remove %s1 from %s2_CityName.</English>
+		<French>Faire disparaetre la religion %s1 de %s2.</French>
+	</TEXT>	
 
 <!-- Specialists -->
 	<TEXT> <!-- Slave: Artist -->

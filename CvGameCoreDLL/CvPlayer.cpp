@@ -11573,6 +11573,80 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 				}
 			}
 		}
+	} else if (kMission.getRemoveReligionsCostFactor() > 0) {
+		if (NULL != pCity) {
+			ReligionTypes eReligion = (ReligionTypes)iExtraData;
+			int iCityNonHolyReligionCount = 0;
+
+			for (ReligionTypes eLoopReligion = (ReligionTypes)0; eLoopReligion < GC.getNumReligionInfos(); eLoopReligion = (ReligionTypes)(eLoopReligion + 1)) {
+				if (pCity->isHasReligion(eLoopReligion) && !pCity->isHolyCity(eLoopReligion)) {
+					iCityNonHolyReligionCount++;
+					if (NO_RELIGION == eReligion) {
+						eReligion = eLoopReligion;
+					}
+				}
+			}
+
+			if (NO_RELIGION != eReligion) {
+				if (pCity->isHasReligion(eReligion) && !pCity->isHolyCity(eReligion)) {
+					iMissionCost = iBaseMissionCost + (kMission.getRemoveReligionsCostFactor() * pCity->getPopulation() / iCityNonHolyReligionCount);
+					if (iCityNonHolyReligionCount == 1) {
+						iMissionCost *= 2;
+					}
+					iMissionCost *= GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getAnarchyPercent();
+					iMissionCost /= 100;
+					if (GET_PLAYER(eTargetPlayer).getStateReligion() == eReligion) {
+						iMissionCost *= 2;
+					}
+					if (pSpyUnit != NULL) {
+						iMissionCost *= 100 - pSpyUnit->getSpyReligionRemovalChange();
+						iMissionCost /= 100;
+					}
+				}
+			}
+		}
+	} else if (kMission.getRemoveCorporationsCostFactor() > 0) {
+		if (NULL != pCity) {
+			CorporationTypes eCorporation = (CorporationTypes)iExtraData;
+
+			if (NO_CORPORATION == eCorporation) {
+				for (CorporationTypes eLoopCorporation = (CorporationTypes)0; eLoopCorporation < GC.getNumCorporationInfos(); eLoopCorporation = (CorporationTypes)(eLoopCorporation + 1)) {
+					if (pCity->isActiveCorporation(eLoopCorporation) && GC.getGameINLINE().getHeadquarters(eLoopCorporation) != pCity) {
+						eCorporation = eLoopCorporation;
+						break;
+					}
+				}
+			}
+
+			if (NO_CORPORATION != eCorporation) {
+				if (pCity->isActiveCorporation(eCorporation) && GC.getGameINLINE().getHeadquarters(eCorporation) != pCity) {
+					iMissionCost = iBaseMissionCost + (kMission.getRemoveCorporationsCostFactor() * pCity->getPopulation() / pCity->getCorporationCount());
+					iMissionCost *= GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getAnarchyPercent();
+					iMissionCost /= 100;
+					if (GC.getGameINLINE().getHeadquarters(eCorporation) != NULL && GC.getGameINLINE().getHeadquarters(eCorporation)->getOwnerINLINE() == eTargetPlayer) {
+						iMissionCost *= 2;
+					}
+					if (pSpyUnit != NULL) {
+						iMissionCost *= 100 - pSpyUnit->getSpyCorporationRemovalChange();
+						iMissionCost /= 100;
+					}
+				}
+			}
+		}
+	} else if (kMission.getCityInsertCultureCostFactor() > 0) {
+		// Insert Culture into City
+		if (NULL != pPlot && pPlot->getCulture(getID()) > 0) {
+			int iCultureAmount = kMission.getCityInsertCultureAmountFactor() * pCity->countTotalCultureTimes100();
+			iCultureAmount /= 10000;
+			iCultureAmount = std::max(1, iCultureAmount);
+
+			if (pSpyUnit != NULL) {
+				iCultureAmount *= 100 + pSpyUnit->getSpyCultureChange();
+				iCultureAmount /= 100;
+			}
+
+			iMissionCost = iBaseMissionCost + (kMission.getCityInsertCultureCostFactor() * iCultureAmount) / 100;
+		}
 	} else if (kMission.getDestroyUnitCostFactor() > 0) {
 		// Destroys Unit
 		CvUnit* pUnit = GET_PLAYER(eTargetPlayer).getUnit(iExtraData);
@@ -11985,6 +12059,34 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 	}
 
 	//////////////////////////////
+	// Cause War Weariness
+	if (kMission.getWarWearinessCounter() > 0) {
+		if (NULL != pPlot) {
+			CvCity* pCity = pPlot->getPlotCity();
+
+			if (NULL != pCity) {
+				int iAmount = kMission.getWarWearinessCounter();
+				iAmount *= GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getTrainPercent();
+				iAmount /= 100;
+				//Promotion effects amount of War Weariness
+				iAmount *= 100 + pSpyUnit->getSpyWarWearinessChange();
+				iAmount /= 100;
+
+				pCity->changeWarWearinessTimer(iAmount);
+				bSomethingHappened = true;
+
+				strcpy(szSound, "AS2D_STRIKE");
+
+				if (bReveal) {
+					szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_WAR_WEARINESS_CAUGHT", pCity->getNameKey(), getCivilizationAdjectiveKey()).GetCString();
+				} else {
+					szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_WAR_WEARINESS", pCity->getNameKey()).GetCString();
+				}
+			}
+		}
+	}
+
+	//////////////////////////////
 	// Destroy Building
 
 	if (kMission.getDestroyBuildingCostFactor() > 0) {
@@ -12115,7 +12217,12 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 				szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_TARGET_CITY_CULTURE_INSERTED", pCity->getNameKey()).GetCString();
 
 				// K-Mod. apply culture in one hit. We don't need fake 'free city culture' anymore.
-				int iCultureTimes100 = std::max(1, kMission.getCityInsertCultureAmountFactor() * pCity->countTotalCultureTimes100() / 100);
+				int iCultureAmount = kMission.getCityInsertCultureAmountFactor();
+				if (pSpyUnit != NULL) {
+					iCultureAmount *= 100 + pSpyUnit->getSpyCultureChange();
+					iCultureAmount /= 100;
+				}
+				int iCultureTimes100 = std::max(1, iCultureAmount * pCity->countTotalCultureTimes100() / 100);
 
 				pCity->doPlotCultureTimes100(true, getID(), iCultureTimes100, false); // plot culture only.
 
@@ -12154,7 +12261,7 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 
 			if (NULL != pCity) {
 				szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_TARGET_CITY_UNHAPPY", pCity->getNameKey()).GetCString();
-				pCity->changeEspionageHappinessCounter(kMission.getCityUnhappinessCounter());
+				pCity->changeEspionageHappinessCounter(kMission.getCityUnhappinessCounter()* (100 + pSpyUnit->getSpyUnhappyChange()) / 100);
 
 				bShowExplosion = true;
 				bSomethingHappened = true;
@@ -12171,14 +12278,59 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 
 			if (NULL != pCity) {
 				szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_TARGET_CITY_REVOLT", pCity->getNameKey()).GetCString();
-				pCity->changeCultureUpdateTimer(kMission.getCityRevoltCounter());
-				pCity->changeOccupationTimer(kMission.getCityRevoltCounter());
+				pCity->changeCultureUpdateTimer(kMission.getCityRevoltCounter()* (100 + pSpyUnit->getSpyRevoltChange()) / 100);
+				pCity->changeOccupationTimer(kMission.getCityRevoltCounter()* (100 + pSpyUnit->getSpyRevoltChange()) / 100);
+				strcpy(szSound, "AS2D_REVOLTSTART");
 
 				bSomethingHappened = true;
 				bShowExplosion = true;
 
 				if (gUnitLogLevel >= 2 && !isHuman()) {
 					logBBAI("      Spy for player %d (%S) causes revolt in %S, owned by %S (%d)", getID(), getCivilizationDescription(0), pCity->getName().GetCString(), GET_PLAYER(pCity->getOwner()).getCivilizationDescription(0), pCity->getOwner());
+				}
+			}
+		}
+	}
+
+	//////////////////////////////
+	// Remove Religion
+	if (kMission.getRemoveReligionsCostFactor() > 0) {
+		if (NULL != pPlot) {
+			ReligionTypes eTargetReligion = (ReligionTypes)iExtraData;
+			CvCity* pCity = pPlot->getPlotCity();
+
+			if (NULL != pCity) {
+				pCity->setHasReligion(eTargetReligion, false, false, false);
+				strcpy(szSound, GC.getReligionInfo(eTargetReligion).getSound());
+				bSomethingHappened = true;
+				if (bReveal) {
+					szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_RELIGION_REMOVED_CAUGHT", pCity->getNameKey(), getCivilizationAdjectiveKey(), GC.getReligionInfo(eTargetReligion).getTextKeyWide()).GetCString();
+				} else {
+					szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_RELIGION_REMOVED", pCity->getNameKey(), GC.getReligionInfo(eTargetReligion).getTextKeyWide());
+				}
+			}
+		}
+	}
+
+	//////////////////////////////
+	// Remove Corporation
+	if (kMission.getRemoveCorporationsCostFactor() > 0) {
+		if (NULL != pPlot) {
+			CvCity* pCity = pPlot->getPlotCity();
+			if (NULL != pCity) {
+				CorporationTypes eCorporation = (CorporationTypes)iExtraData;
+
+				if (NO_CORPORATION != eCorporation) {
+					if (pCity->isActiveCorporation(eCorporation) && GC.getGameINLINE().getHeadquarters(eCorporation) != pCity) {
+						pCity->setHasCorporation(eCorporation, false, false, false);
+						strcpy(szSound, GC.getCorporationInfo(eCorporation).getSound());
+						bSomethingHappened = true;
+						if (bReveal) {
+							szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_CORPORATION_REMOVED_CAUGHT", pCity->getNameKey(), getCivilizationAdjectiveKey(), GC.getCorporationInfo(eCorporation).getTextKeyWide()).GetCString();
+						} else {
+							szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_CORPORATION_REMOVED", pCity->getNameKey(), GC.getCorporationInfo(eCorporation).getTextKeyWide());
+						}
+					}
 				}
 			}
 		}
@@ -12256,7 +12408,8 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 
 	if (kMission.getPlayerAnarchyCounter() > 0) {
 		if (NO_PLAYER != eTargetPlayer) {
-			int iTurns = (kMission.getPlayerAnarchyCounter() * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getAnarchyPercent()) / 100;
+			int iTempTurns = (kMission.getPlayerAnarchyCounter() * (100 + pSpyUnit->getSpyRevoltChange())) / 100;
+			int iTurns = (iTempTurns * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getAnarchyPercent()) / 100;
 			szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_TARGET_PLAYER_ANARCHY").GetCString();
 			GET_PLAYER(eTargetPlayer).changeAnarchyTurns(iTurns);
 

@@ -838,15 +838,21 @@
 	<ElementType name="bSpyRadiation" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iSpyPreparationModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iSpyPoisonModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="iSpyRevoltChange" content="textOnly" dt:type="int"/>
+	<ElementType name="iSpyUnhappyChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iSpyInterceptChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iSpyEvasionChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iSpyDiploPenaltyChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iSpyEscapeChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iSpyNukeCityChange" content="textOnly" dt:type="int"/>	
 	<ElementType name="iSpyDisablePowerChange" content="textOnly" dt:type="int"/>	
+	<ElementType name="iSpyWarWearinessChange" content="textOnly" dt:type="int"/>	
+	<ElementType name="iSpyReligionRemovalChange" content="textOnly" dt:type="int"/>	
+	<ElementType name="iSpyCorporationRemovalChange" content="textOnly" dt:type="int"/>	
 	<ElementType name="iSpySwitchCivicChange" content="textOnly" dt:type="int"/>	
 	<ElementType name="iSpySwitchReligionChange" content="textOnly" dt:type="int"/>		
 	<ElementType name="iSpyDestroyImprovementChange" content="textOnly" dt:type="int"/>	
+	<ElementType name="iSpyCultureChange" content="textOnly" dt:type="int"/>		
 	<ElementType name="PromotionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -896,15 +902,21 @@
 		<element type="iKamikazePercent" minOccurs="0"/>
 		<element type="iSpyPreparationModifier" minOccurs="0"/>
 		<element type="iSpyPoisonModifier" minOccurs="0"/>
+		<element type="iSpyRevoltChange" minOccurs="0"/>
+		<element type="iSpyUnhappyChange" minOccurs="0"/>
 		<element type="iSpyInterceptChange" minOccurs="0"/>
 		<element type="iSpyEvasionChange" minOccurs="0"/>
 		<element type="iSpyDiploPenaltyChange" minOccurs="0"/>
 		<element type="iSpyEscapeChange" minOccurs="0"/>
 		<element type="iSpyNukeCityChange" minOccurs="0"/>
 		<element type="iSpyDisablePowerChange" minOccurs="0"/>
+		<element type="iSpyWarWearinessChange" minOccurs="0"/>
+		<element type="iSpyReligionRemovalChange" minOccurs="0"/>
+		<element type="iSpyCorporationRemovalChange" minOccurs="0"/>
 		<element type="iSpySwitchCivicChange" minOccurs="0"/>
 		<element type="iSpySwitchReligionChange" minOccurs="0"/>
 		<element type="iSpyDestroyImprovementChange" minOccurs="0"/>
+		<element type="iSpyCultureChange" minOccurs="0"/>				
 		<element type="iRevoltProtection" minOccurs="0"/>
 		<element type="iCollateralDamageProtection" minOccurs="0"/>
 		<element type="iPillageChange" minOccurs="0"/>

@@ -2280,8 +2280,8 @@ class CvMainInterface:
 					sText1 += CyTranslator().getText("[ICON_DEFENSIVEPACT]", ())
 				if pTeam.getEspionagePointsAgainstTeam(CyGame().getActiveTeam()) < gc.getTeam(CyGame().getActiveTeam()).getEspionagePointsAgainstTeam(iTeam):
 					sText1 += CyTranslator().getText("[ICON_ESPIONAGE]", ())
-				if (gc.getTeam(CyGame().getActiveTeam()).getCounterespionageTurnsLeftAgainstTeam(eTeam) != 0):
-					sText1 += u"(%d)%c" %(gc.getTeam(CyGame().getActiveTeam()).getCounterespionageTurnsLeftAgainstTeam(eTeam), CyGame().getSymbolID(FontSymbols.OCCUPATION_CHAR))
+				if (gc.getTeam(CyGame().getActiveTeam()).getCounterespionageTurnsLeftAgainstTeam(iTeam) != 0):
+					sText1 += u"(%d)%c" %(gc.getTeam(CyGame().getActiveTeam()).getCounterespionageTurnsLeftAgainstTeam(iTeam), CyGame().getSymbolID(FontSymbols.OCCUPATION_CHAR))
 			if pTeam.isAVassal():
 				sText1 += CyTranslator().getText("[ICON_SILVER_STAR]", ())
 			sText1 += u"<color=%d,%d,%d,%d>%d</color>" %(pPlayer.getPlayerTextColorR(), pPlayer.getPlayerTextColorG(), pPlayer.getPlayerTextColorB(), pPlayer.getPlayerTextColorA(), CyGame().getPlayerScore(iPlayer)) + u"</font>"
