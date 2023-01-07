@@ -554,6 +554,7 @@ public:
 	int getSpyDestroyBuildingChange() const;
 	int getSpyDestroyProductionChange() const;
 	int getSpyBuyTechChange() const;
+	int getSpyStealTreasuryChange() const;
 
 	bool isLeader() const;				// Exposed to Python
 	bool isBlitz() const;				// Exposed to Python
@@ -659,6 +660,7 @@ protected:
 	int m_iSpyDestroyBuildingChange;
 	int m_iSpyDestroyProductionChange;
 	int m_iSpyBuyTechChange;
+	int m_iSpyStealTreasuryChange;
 
 	bool m_bLeader;
 	bool m_bBlitz;

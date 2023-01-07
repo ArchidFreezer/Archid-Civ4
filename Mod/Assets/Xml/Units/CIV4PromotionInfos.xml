@@ -1381,6 +1381,45 @@
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,2,15</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Safecracker I -->
+			<Type>PROMOTION_SAFECRACKER1</Type>
+			<Description>TXT_KEY_PROMOTION_SAFECRACKER1</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<iSpyStealTreasuryChange>20</iSpyStealTreasuryChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/safecracker1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Safecracker II -->
+			<Type>PROMOTION_SAFECRACKER2</Type>
+			<Description>TXT_KEY_PROMOTION_SAFECRACKER2</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_SAFECRACKER1</PromotionType>
+			</PrereqOrPromotions>
+			<iSpyStealTreasuryChange>20</iSpyStealTreasuryChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/safecracker2.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Safecracker III -->
+			<Type>PROMOTION_SAFECRACKER3</Type>
+			<Description>TXT_KEY_PROMOTION_SAFECRACKER3</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_SAFECRACKER2</PromotionType>
+			</PrereqOrPromotions>
+			<iSpyStealTreasuryChange>30</iSpyStealTreasuryChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/safecracker3.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Sentry -->
 			<Type>PROMOTION_SENTRY</Type>
 			<Description>TXT_KEY_PROMOTION_SENTRY</Description>

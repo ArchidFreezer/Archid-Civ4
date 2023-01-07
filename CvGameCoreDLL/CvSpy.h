@@ -39,6 +39,7 @@ public:
 	int getDestroyProjectChange() const;
 	int getResearchSabotageChange() const;
 	int getBuyTechChange() const;
+	int getStealTreasuryChange() const;
 
 	void changeEvasionChanceExtra(int iChange);
 	void changePreparationModifier(int iChange);
@@ -64,6 +65,7 @@ public:
 	void changeDestroyProjectChange(int iChange);
 	void changeResearchSabotageChange(int iChange);
 	void changeBuyTechChange(int iChange);
+	void changeStealTreasuryChange(int iChange);
 
 	PlayerTypes getOriginalSpymaster() const;
 
@@ -91,6 +93,7 @@ protected:
 	int m_iDestroyProjectChange;
 	int m_iResearchSabotageChange;
 	int m_iBuyTechChange;
+	int m_iStealTreasuryChange;
 
 	PlayerTypes m_eOriginalSpymaster;
 };
