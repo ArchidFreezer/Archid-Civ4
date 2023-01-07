@@ -1788,8 +1788,8 @@
 			<iPower>10</iPower>
 			<bTrade>1</bTrade>
 			<bGoodyTech>1</bGoodyTech>
-			<iGridX>3</iGridX>
-			<iGridY>6</iGridY>
+			<iGridX>4</iGridX>
+			<iGridY>5</iGridY>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
@@ -2081,7 +2081,7 @@
 			<iAsset>24</iAsset>
 			<iPower>8</iPower>
 			<bTrade>1</bTrade>
-			<iGridX>6</iGridX>
+			<iGridX>7</iGridX>
 			<iGridY>12</iGridY>
 			<Flavors>
 				<Flavor>
