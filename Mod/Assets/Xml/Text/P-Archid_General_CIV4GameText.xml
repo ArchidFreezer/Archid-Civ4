@@ -1045,6 +1045,24 @@
 		<Tag>TXT_KEY_SPY_YOU_INTERCEPTED_MISSION</Tag>
 		<English>Your %s1_unit operating near %s3_city has been caught due to elevated %s2_civ_adjective counterespionage efforts!</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SPY_INTERCEPT_CHANCE</Tag>
+		<English>[ICON_BULLET]%d1_Amount%% chance to intercept enemy Spies</English>
+		<French>[ICON_BULLET] Peut arreter les espions ennemis (la chance de %d1_Amount%%)</French>
+		<German>[ICON_BULLET]Kann feindliche Agenten abfangen (%d1_Amount%% Chance)</German>
+		<Italian>[ICON_BULLET] Pue intercettare le spie nemiche (probabilite di %d1_Amount%%)</Italian>
+		<Spanish>[ICON_BULLET] Puede interceptar a los espeas enemigos (la ocasien del %d1_Amount%%)</Spanish>
+		<Finnish>[ICON_BULLET]Can Intercept Enemy Spies (%d1_Amount%% Chance)</Finnish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SPY_INTERCEPT_COUNTER_CHANCE</Tag>
+		<English>[ICON_BULLET]%d1_Amount%% improved counter espionage missions</English>
+		<French>[ICON_BULLET] Missions ameliorees de contre- espionnage (%d1_Amount%%)</French>
+		<German>[ICON_BULLET]Verbesserte Spionageabwehr (%d1_Amount%%)</German>
+		<Italian>[ICON_BULLET] Missioni migliori di contro spionaggio (%d1_Amount%%)</Italian>
+		<Spanish>[ICON_BULLET] Misiones mejoradas del espionaje contrario (los %d1_Amount%%)</Spanish>
+		<Finnish>[ICON_BULLET]Improved Counter Espionage Missions (%d1_Amount%%)</Finnish>
+	</TEXT>
 
 <!-- Specialists -->
 	<TEXT> <!-- Slave: Artist -->

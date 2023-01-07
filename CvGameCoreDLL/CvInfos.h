@@ -542,6 +542,7 @@ public:
 	int getSpySwitchCivicChange() const;
 	int getSpySwitchReligionChange() const;
 	int getSpyEscapeChange() const;
+	int getSpyInterceptChange() const;
 
 	bool isLeader() const;				// Exposed to Python
 	bool isBlitz() const;				// Exposed to Python
@@ -635,6 +636,7 @@ protected:
 	int m_iSpySwitchCivicChange;
 	int m_iSpySwitchReligionChange;
 	int m_iSpyEscapeChange;
+	int m_iSpyInterceptChange;
 
 	bool m_bLeader;
 	bool m_bBlitz;

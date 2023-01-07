@@ -909,6 +909,44 @@
 			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Improvise5.dds</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Informant 1 -->
+			<Type>PROMOTION_INFORMANT1</Type>
+			<Description>TXT_KEY_PROMOTION_INFORMANT1</Description>
+			<Sound>AS2D_PING</Sound>
+			<iVisibilityChange>1</iVisibilityChange>
+			<iSpyInterceptChange>10</iSpyInterceptChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Informant1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Informant 2 -->
+			<Type>PROMOTION_INFORMANT2</Type>
+			<Description>TXT_KEY_PROMOTION_INFORMANT2</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_INFORMANT1</PromotionPrereq>
+			<iVisibilityChange>1</iVisibilityChange>
+			<iSpyInterceptChange>10</iSpyInterceptChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Informant2.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Informant 3 -->
+			<Type>PROMOTION_INFORMANT3</Type>
+			<Description>TXT_KEY_PROMOTION_INFORMANT3</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_INFORMANT2</PromotionPrereq>
+			<iVisibilityChange>1</iVisibilityChange>
+			<iSpyInterceptChange>10</iSpyInterceptChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Informant3.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Interception 1 -->
 			<Type>PROMOTION_INTERCEPTION1</Type>
 			<Description>TXT_KEY_PROMOTION_INTERCEPTION1</Description>

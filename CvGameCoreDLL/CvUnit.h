@@ -121,6 +121,8 @@ public:
 	int getSpySwitchReligionChange() const;
 	int getSpyEscapeChance() const;
 	int getSpyEscapeChanceExtra() const;
+	int getSpyInterceptChance() const;
+	int getSpyInterceptChanceExtra() const;
 	void awardSpyExperience(TeamTypes eTargetTeam, int iModifier);
 	void changeLoyaltyCount(int iChange);
 	void changeSpyEvasionChanceExtra(int iChange);
@@ -134,6 +136,7 @@ public:
 	void changeSpySwitchCivicChange(int iChange);
 	void changeSpySwitchReligionChange(int iChange);
 	void changeSpyEscapeExtra(int iChange);
+	void changeSpyInterceptChanceExtra(int iChange);
 	void setOriginalSpymaster(PlayerTypes ePlayer);
 	PlayerTypes getOriginalSpymaster() const;
 
@@ -960,6 +963,7 @@ protected:
 	int m_iSpySwitchReligionChange;
 	int m_iSpyDisablePowerChange;
 	int m_iSpyEscapeChanceExtra;
+	int m_iSpyInterceptChanceExtra;
 
 	bool m_bMadeAttack;
 	bool m_bMadeInterception;

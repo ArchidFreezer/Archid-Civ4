@@ -838,6 +838,7 @@
 	<ElementType name="bSpyRadiation" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iSpyPreparationModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iSpyPoisonModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="iSpyInterceptChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iSpyEvasionChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iSpyDiploPenaltyChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iSpyEscapeChange" content="textOnly" dt:type="int"/>
@@ -895,6 +896,7 @@
 		<element type="iKamikazePercent" minOccurs="0"/>
 		<element type="iSpyPreparationModifier" minOccurs="0"/>
 		<element type="iSpyPoisonModifier" minOccurs="0"/>
+		<element type="iSpyInterceptChange" minOccurs="0"/>
 		<element type="iSpyEvasionChange" minOccurs="0"/>
 		<element type="iSpyDiploPenaltyChange" minOccurs="0"/>
 		<element type="iSpyEscapeChange" minOccurs="0"/>

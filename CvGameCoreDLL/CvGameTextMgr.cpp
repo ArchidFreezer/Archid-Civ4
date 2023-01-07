@@ -1031,6 +1031,13 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 			szString.append(gDLL->getText("TXT_KEY_UNIT_SPY_ESCAPE_CHANCE", pUnit->getSpyEscapeChance()));
 		}
 
+		if (pUnit->getSpyInterceptChance() > 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_UNIT_SPY_INTERCEPT_CHANCE", pUnit->getSpyInterceptChance()));
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_UNIT_SPY_INTERCEPT_COUNTER_CHANCE", pUnit->getSpyInterceptChance() * 2));
+		}
+
 		if (pUnit->getUnitInfo().isNoRevealMap()) {
 			szString.append(NEWLINE);
 			szString.append(gDLL->getText("TXT_KEY_UNIT_VISIBILITY_MOVE_RANGE"));
@@ -5797,6 +5804,13 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 	if (kPromotion.getSpyEscapeChange() != 0) {
 		szBuffer.append(pcNewline);
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_ESCAPE_TEXT", kPromotion.getSpyEscapeChange()));
+	}
+
+	if (kPromotion.getSpyInterceptChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_INTERCEPT_TEXT", kPromotion.getSpyInterceptChange()));
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_INTERCEPT_COUNTER_TEXT", kPromotion.getSpyInterceptChange() * 2));
 	}
 
 	if (kPromotion.isUnitRangeUnbound()) {
@@ -15073,7 +15087,7 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 		if (NO_PLAYER != eTargetPlayer) {
 			int iTurns = (kMission.getCounterespionageNumTurns() * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getResearchPercent()) / 100;
 
-			szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_COUNTERESPIONAGE", kMission.getCounterespionageMod(), kTarget.getCivilizationAdjectiveKey(), iTurns));
+			szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_COUNTERESPIONAGE", kMission.getCounterespionageMod() + (2 * pSpyUnit->getSpyInterceptChance()), kTarget.getCivilizationAdjectiveKey(), iTurns));
 			szBuffer.append(NEWLINE);
 		}
 	}

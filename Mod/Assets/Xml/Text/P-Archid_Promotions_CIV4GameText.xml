@@ -113,6 +113,30 @@
 		<Italian>Improvvisazione V</Italian>
 		<Spanish>Improvisacien V</Spanish>
 	</TEXT>
+	<TEXT> <!-- Informant I -->
+		<Tag>TXT_KEY_PROMOTION_INFORMANT1</Tag>
+		<English>Informant I</English>
+		<French>Denonciateur  I</French>
+		<German>Informant I</German>
+		<Italian>Informatore I</Italian>
+		<Spanish>Denunciante I</Spanish>
+	</TEXT>
+	<TEXT> <!-- Informant II -->
+		<Tag>TXT_KEY_PROMOTION_INFORMANT2</Tag>
+		<English>Informant II</English>
+		<French>Denonciateur  II</French>
+		<German>Informant II</German>
+		<Italian>Informatore II</Italian>
+		<Spanish>Denunciante II</Spanish>
+	</TEXT>
+	<TEXT> <!-- Informant III -->
+		<Tag>TXT_KEY_PROMOTION_INFORMANT3</Tag>
+		<English>Informant III</English>
+		<French>Denonciateur  III</French>
+		<German>Informant III</German>
+		<Italian>Informatore III</Italian>
+		<Spanish>Denunciante III</Spanish>
+	</TEXT>
 	<TEXT> <!-- Loyalty -->
 		<Tag>TXT_KEY_PROMOTION_LOYALTY</Tag>
 		<English>Loyalty</English>
@@ -255,6 +279,21 @@
 		<German>[ICON_BULLET]Kann Gefangennahme entkommen (%d1_Amount%% Chance)</German>
 		<Italian>[ICON_BULLET] Pue fuoriuscire il bloccaggio (probabilite di %d1_Amount%%)</Italian>
 		<Spanish>[ICON_BULLET] Puede escapar la captura (la ocasien del %d1_Amount%%)</Spanish>
-		<Finnish>[ICON_BULLET]Can Escape Capture (%d1_Amount%% Chance)</Finnish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_INTERCEPT_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_percent%% enemy spy detection change</English>
+		<French>[ICON_BULLET] bonification ennemie de detection d'espion de %d1_percent%%</French>
+		<German>[ICON_BULLET]%d1_percent%% Bonus zur Entdeckung feindlicher Agenten</German>
+		<Italian>[ICON_BULLET] indennite nemica di rilevazione della spia di %d1_percent%%</Italian>
+		<Spanish>[ICON_BULLET] prima enemiga de la deteccien del espea del %d1_percent%%</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_INTERCEPT_COUNTER_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_percent%% counter espionage mission change</English>
+		<French>[ICON_BULLET] bonification de %d1_percent%% aux missions de contre- espionnage</French>
+		<German>[ICON_BULLET]%d1_percent%% Bonus auf Spionageabwehr</German>
+		<Italian>[ICON_BULLET] indennitedi %d1_percent%% alle missioni di contro spionaggio</Italian>
+		<Spanish>[ICON_BULLET] prima del %d1_percent%% a las misiones del espionaje contrario</Spanish>
 	</TEXT>
 </Civ4GameText>

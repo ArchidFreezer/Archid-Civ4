@@ -330,6 +330,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iSpySwitchReligionChange = 0;
 	m_iSpyDisablePowerChange = 0;
 	m_iSpyEscapeChanceExtra = 0;
+	m_iSpyInterceptChanceExtra = 0;
 
 	m_bMadeAttack = false;
 	m_bMadeInterception = false;
@@ -5546,6 +5547,13 @@ int CvUnit::getSpyInterceptPercent(TeamTypes eTargetTeam, bool bMission) const {
 
 	if (plot()->isEspionageCounterSpy(eTargetTeam)) {
 		iSuccess += GC.getDefineINT("ESPIONAGE_INTERCEPT_COUNTERSPY");
+		// Add intercept attribute of any enemy spies present to chances
+		if (plot()->plotCheck(PUF_isCounterSpy, -1, -1, NO_PLAYER, eTargetTeam)) {
+			CvUnit* pCounterUnit = plot()->plotCheck(PUF_isCounterSpy, -1, -1, NO_PLAYER, eTargetTeam);
+			if (pCounterUnit->getSpyInterceptChanceExtra()) {
+				iSuccess += pCounterUnit->getSpyInterceptChance();
+			}
+		}
 	}
 
 	if (GET_TEAM(eTargetTeam).getCounterespionageModAgainstTeam(getTeam()) > 0) {
@@ -6495,7 +6503,7 @@ bool CvUnit::isInvestigate() const {
 
 
 bool CvUnit::isCounterSpy() const {
-	return m_pUnitInfo->isCounterSpy();
+	return m_pUnitInfo->isCounterSpy() || getSpyInterceptChance() > 0;
 }
 
 
@@ -9678,6 +9686,7 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 		changeSpySwitchReligionChange(kPromotion.getSpySwitchReligionChange() * iChange);
 		changeSpyDisablePowerChange(kPromotion.getSpyDisablePowerChange() * iChange);
 		changeSpyEscapeExtra(kPromotion.getSpyEscapeChange() * iChange);
+		changeSpyInterceptChanceExtra(kPromotion.getSpyInterceptChange() * iChange);
 
 		for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
 			changeExtraTerrainAttackPercent(eTerrain, kPromotion.getTerrainAttackPercent(eTerrain) * iChange);
@@ -9835,6 +9844,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iSpySwitchReligionChange);
 	pStream->Read(&m_iSpyDisablePowerChange);
 	pStream->Read(&m_iSpyEscapeChanceExtra);
+	pStream->Read(&m_iSpyInterceptChanceExtra);
 
 	pStream->Read(&m_bMadeAttack);
 	pStream->Read(&m_bMadeInterception);
@@ -9966,6 +9976,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iSpySwitchReligionChange);
 	pStream->Write(m_iSpyDisablePowerChange);
 	pStream->Write(m_iSpyEscapeChanceExtra);
+	pStream->Write(m_iSpyInterceptChanceExtra);
 
 	pStream->Write(m_bMadeAttack);
 	pStream->Write(m_bMadeInterception);
@@ -12377,4 +12388,16 @@ void CvUnit::changeSpyEscapeExtra(int iChange) {
 
 int CvUnit::getSpyEscapeChance() const {
 	return getSpyEscapeChanceExtra();
+}
+
+int CvUnit::getSpyInterceptChanceExtra() const {
+	return m_iSpyInterceptChanceExtra;
+}
+
+void CvUnit::changeSpyInterceptChanceExtra(int iChange) {
+	m_iSpyInterceptChanceExtra += iChange;
+}
+
+int CvUnit::getSpyInterceptChance() const {
+	return getSpyInterceptChanceExtra();
 }
