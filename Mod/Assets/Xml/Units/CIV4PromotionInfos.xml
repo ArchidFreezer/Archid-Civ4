@@ -1108,6 +1108,42 @@
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,5,16</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Logistics 1 -->
+			<Type>PROMOTION_LOGISTICS1</Type>
+			<Description>TXT_KEY_PROMOTION_LOGISTICS1</Description>
+			<Sound>AS2D_PING</Sound>
+			<iMovesChange>1</iMovesChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Logistics1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Logistics 2 -->
+			<Type>PROMOTION_LOGISTICS2</Type>
+			<Description>TXT_KEY_PROMOTION_LOGISTICS2</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_LOGISTICS1</PromotionPrereq>
+			<bEnemyRoute>1</bEnemyRoute>
+			<iMoveDiscountChange>1</iMoveDiscountChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Logistics2.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Logistics 3 -->
+			<Type>PROMOTION_LOGISTICS3</Type>
+			<Description>TXT_KEY_PROMOTION_LOGISTICS3</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_LOGISTICS2</PromotionPrereq>
+			<iMovesChange>1</iMovesChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Logistics3.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Loyalty -->
 			<Type>PROMOTION_LOYALTY</Type>
 			<Description>TXT_KEY_PROMOTION_LOYALTY</Description>

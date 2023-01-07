@@ -173,6 +173,27 @@
 		<Tag>TXT_KEY_PROMOTION_INTRIGUE3</Tag>
 		<English>Intrigue III</English>
 	</TEXT>
+	<TEXT> <!-- Logistics I -->
+		<Tag>TXT_KEY_PROMOTION_LOGISTICS1</Tag>
+		<English>Logistics I</English>
+		<French>Logistique I</French>
+		<German>Logistik I</German>
+		<Italian>Logistica I</Italian>
+	</TEXT>
+	<TEXT> <!-- Logistics II -->
+		<Tag>TXT_KEY_PROMOTION_LOGISTICS2</Tag>
+		<English>Logistics II</English>
+		<French>Logistique II</French>
+		<German>Logistik II</German>
+		<Italian>Logistica II</Italian>
+	</TEXT>
+	<TEXT> <!-- Logistics III -->
+		<Tag>TXT_KEY_PROMOTION_LOGISTICS3</Tag>
+		<English>Logistics III</English>
+		<French>Logistique III</French>
+		<German>Logistik III</German>
+		<Italian>Logistica III</Italian>
+	</TEXT>
 	<TEXT> <!-- Loyalty -->
 		<Tag>TXT_KEY_PROMOTION_LOYALTY</Tag>
 		<English>Loyalty</English>
