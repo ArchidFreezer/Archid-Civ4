@@ -1351,13 +1351,28 @@ void CvUnit::updateCombat(bool bQuick) {
 				GET_TEAM(pDefender->getTeam()).AI_changeWarSuccess(getTeam(), GC.getDefineINT("WAR_SUCCESS_DEFENDING"));
 			}
 
+			// Display the losers message including the influence driven war culture
 			CvWString szBuffer;
 			szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_UNIT_DIED_ATTACKING", getNameKey(), pDefender->getNameKey());
+			float fInfluenceRatio = 0.0;
+			if (GC.getIDW_ENABLED()) {
+				fInfluenceRatio = pDefender->doVictoryInfluence(this, false, false);
+				CvWString szTempBuffer;
+				szTempBuffer.Format(L" Influence: -%.1f%%", fInfluenceRatio);
+				szBuffer += szTempBuffer;
+			}
 			gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getEraInfo(GC.getGameINLINE().getCurrentEra()).getAudioUnitDefeatScript(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), pPlot->getX_INLINE(), pPlot->getY_INLINE());
+
+			// Display the winners message including the influence driven war culture
 			if (enslaveUnit(pDefender, this)) {
 				szBuffer = gDLL->getText("TXT_KEY_SLAVERY_DEFEND_YOU_ENSLAVED_ENEMY_UNIT", getNameKey());
 			} else {
 				szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_KILLED_ENEMY_UNIT", pDefender->getNameKey(), getNameKey(), getVisualCivAdjective(pDefender->getTeam()));
+			}
+			if (GC.getIDW_ENABLED()) {
+				CvWString szTempBuffer;
+				szTempBuffer.Format(L" Influence: +%.1f%%", fInfluenceRatio);
+				szBuffer += szTempBuffer;
 			}
 			gDLL->getInterfaceIFace()->addHumanMessage(pDefender->getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getEraInfo(GC.getGameINLINE().getCurrentEra()).getAudioUnitVictoryScript(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), pPlot->getX_INLINE(), pPlot->getY_INLINE());
 
@@ -1379,16 +1394,34 @@ void CvUnit::updateCombat(bool bQuick) {
 			}
 
 			CvWString szBuffer;
+			// Check if any slaves have been taken
 			if (enslaveUnit(this, pDefender)) {
 				szBuffer = gDLL->getText("TXT_KEY_SLAVERY_ATTACK_YOU_ENSLAVED_ENEMY_UNIT", pDefender->getNameKey());
 			} else {
 				szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_UNIT_DESTROYED_ENEMY", getNameKey(), pDefender->getNameKey());
 			}
+
+			// Process influence driven war victory
+			float fInfluenceRatio = 0.0;
+			if (GC.getIDW_ENABLED()) {
+				fInfluenceRatio = doVictoryInfluence(pDefender, true, false);
+				CvWString szTempBuffer;
+				szTempBuffer.Format(L" Influence: +%.1f%%", fInfluenceRatio);
+				szBuffer += szTempBuffer;
+			}
 			gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getEraInfo(GC.getGameINLINE().getCurrentEra()).getAudioUnitVictoryScript(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), pPlot->getX_INLINE(), pPlot->getY_INLINE());
+
 			if (getVisualOwner(pDefender->getTeam()) != getOwnerINLINE()) {
 				szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_UNIT_WAS_DESTROYED_UNKNOWN", pDefender->getNameKey(), getNameKey());
 			} else {
 				szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_UNIT_WAS_DESTROYED", pDefender->getNameKey(), getNameKey(), getVisualCivAdjective(pDefender->getTeam()));
+			}
+
+			// Process influence driven war loss
+			if (GC.getIDW_ENABLED()) {
+				CvWString szTempBuffer;
+				szTempBuffer.Format(L" Influence: -%.1f%%", fInfluenceRatio);
+				szBuffer += szTempBuffer;
 			}
 			gDLL->getInterfaceIFace()->addHumanMessage(pDefender->getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getEraInfo(GC.getGameINLINE().getCurrentEra()).getAudioUnitDefeatScript(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), pPlot->getX_INLINE(), pPlot->getY_INLINE());
 
@@ -4017,14 +4050,27 @@ bool CvUnit::pillage() {
 			}
 
 			if (iPillageGold > 0) {
+				// Influence driven war culture change
+				float fInfluenceRatio = (atWar(pPlot->getTeam(), getTeam()) && GC.getIDW_PILLAGE_INFLUENCE_ENABLED()) ? doPillageInfluence() : 0.0f;
+
 				GET_PLAYER(getOwnerINLINE()).changeGold(iPillageGold);
 
 				CvWString szBuffer;
 				szBuffer = gDLL->getText("TXT_KEY_MISC_PLUNDERED_GOLD_FROM_IMP", iPillageGold, GC.getImprovementInfo(pPlot->getImprovementType()).getTextKeyWide());
+				if (fInfluenceRatio > 0.0f) {
+					CvWString szInfluence;
+					szInfluence.Format(L" Tile influence: +%.1f%%", fInfluenceRatio);
+					szBuffer += szInfluence;
+				}
 				gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_PILLAGE", MESSAGE_TYPE_INFO, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), pPlot->getX_INLINE(), pPlot->getY_INLINE());
 
 				if (pPlot->isOwned()) {
 					szBuffer = gDLL->getText("TXT_KEY_MISC_IMP_DESTROYED", GC.getImprovementInfo(pPlot->getImprovementType()).getTextKeyWide(), getNameKey(), getVisualCivAdjective(pPlot->getTeam()));
+					if (fInfluenceRatio > 0.0f) {
+						CvWString szInfluence;
+						szInfluence.Format(L" Tile influence: -%.1f%%", fInfluenceRatio);
+						szBuffer += szInfluence;
+					}
 					gDLL->getInterfaceIFace()->addHumanMessage(pPlot->getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_PILLAGED", MESSAGE_TYPE_INFO, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), pPlot->getX_INLINE(), pPlot->getY_INLINE(), true, true);
 				}
 			}
@@ -12543,4 +12589,205 @@ CvCity* CvUnit::getClosestSafeCity() const {
 		pReturnCity = GET_PLAYER(getOwnerINLINE()).getCapitalCity();
 
 	return pReturnCity;
+}
+
+// unit influences combat area after victory 
+// returns influence % in defended plot
+float CvUnit::doVictoryInfluence(CvUnit* pLoserUnit, bool bAttacking, bool bWithdrawal) {
+
+	if (isAnimal() || pLoserUnit->isAnimal())
+		return 0.0f;
+
+	if (isAlwaysHostile(plot()) || pLoserUnit->isAlwaysHostile(pLoserUnit->plot()))
+		return 0.0f;
+
+	if ((isBarbarian() || pLoserUnit->isBarbarian()) && !GC.getIDW_BARBARIAN_INFLUENCE_ENABLED())
+		return 0.0f;
+
+	if ((DOMAIN_SEA == getDomainType()) && !GC.getIDW_NAVAL_INFLUENCE_ENABLED())
+		return 0.0f;
+
+	CvPlot* pWinnerPlot = plot();
+	CvPlot* pLoserPlot = pLoserUnit->plot();
+	CvPlot* pDefenderPlot = bAttacking ? pLoserPlot : pWinnerPlot;
+	int iWinnerCultureBefore = pDefenderPlot->getCulture(getOwnerINLINE()); //used later for influence %
+
+	float fWinnerPlotMultiplier = GC.getIDW_WINNER_PLOT_MULTIPLIER(); // default 1.0 : same influence in WinnerPlot and LoserPlot
+	float fLoserPlotMultiplier = GC.getIDW_LOSER_PLOT_MULTIPLIER(); // by default 1.0 : same influence in WinnerPlot and LoserPlot
+	float bWithdrawalMultiplier = 0.5f;
+	if (bWithdrawal) {
+		fWinnerPlotMultiplier *= bWithdrawalMultiplier;
+		fLoserPlotMultiplier *= bWithdrawalMultiplier;
+	}
+
+	if (pLoserPlot->isEnemyCity(*this)) // city combat 
+	{
+		if (pLoserPlot->getNumVisibleEnemyDefenders(this) > 1) {
+			// if there are still some city defenders ->
+			// we use same influence rules as for field combat
+			influencePlots(pLoserPlot, pLoserUnit->getOwnerINLINE(), fLoserPlotMultiplier);
+			influencePlots(pWinnerPlot, pLoserUnit->getOwnerINLINE(), fWinnerPlotMultiplier);
+		} else // last defender is dead
+		{
+			// last city defender is dead -> influence is increased
+			influencePlots(pLoserPlot, pLoserUnit->getOwnerINLINE(), fLoserPlotMultiplier * GC.getIDW_NO_CITY_DEFENDER_MULTIPLIER());
+			influencePlots(pWinnerPlot, pLoserUnit->getOwnerINLINE(), fWinnerPlotMultiplier * GC.getIDW_NO_CITY_DEFENDER_MULTIPLIER());
+
+			if (GC.getIDW_EMERGENCY_DRAFT_ENABLED()) {
+				int iDefenderCulture = pLoserPlot->getCulture(pLoserUnit->getOwnerINLINE());
+				int iAttackerCulture = pLoserPlot->getCulture(getOwnerINLINE());
+
+				if (iDefenderCulture >= iAttackerCulture) {
+					// if defender culture in city's central tile is still higher then atacker culture 
+					// -> city is not captured yet but emergency militia is drafted
+					pLoserPlot->getPlotCity()->emergencyConscript();
+
+					// calculate city resistance % (to be displayed in game log)
+					float fResistence = ((iDefenderCulture - iAttackerCulture) * 100.0f) / (2 * pDefenderPlot->countTotalCulture());
+
+					CvWString szBuffer;
+					szBuffer.Format(L"City militia has emerged! Resistance: %.1f%%", fResistence);
+					gDLL->getInterfaceIFace()->addMessage(pLoserUnit->getOwnerINLINE(), false, GC.getDefineINT("EVENT_MESSAGE_TIME"), szBuffer, "AS2D_UNIT_BUILD_UNIT", MESSAGE_TYPE_INFO, GC.getUnitInfo(getUnitType()).getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), pLoserPlot->getX_INLINE(), pLoserPlot->getY_INLINE(), true, true);
+					gDLL->getInterfaceIFace()->addMessage(getOwnerINLINE(), true, GC.getDefineINT("EVENT_MESSAGE_TIME"), szBuffer, "AS2D_UNIT_BUILD_UNIT", MESSAGE_TYPE_INFO, GC.getUnitInfo(getUnitType()).getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), pLoserPlot->getX_INLINE(), pLoserPlot->getY_INLINE());
+
+				}
+			}
+		}
+	} else // field combat
+	{
+		if (!pLoserUnit->canDefend()) {
+			// no influence from worker capture
+			return 0.0f;
+		}
+
+		if (pLoserPlot->getImprovementType() != NO_IMPROVEMENT
+			&& GC.getImprovementInfo(pLoserPlot->getImprovementType()).getDefenseModifier() > 0
+			&& pLoserPlot->getNumVisibleEnemyDefenders(this) > 1) {
+			// fighting a defensive fortification
+			influencePlots(pLoserPlot, pLoserUnit->getOwnerINLINE(), fLoserPlotMultiplier * GC.getIDW_FORT_CAPTURE_MULTIPLIER());
+			influencePlots(pWinnerPlot, pLoserUnit->getOwnerINLINE(), fWinnerPlotMultiplier * GC.getIDW_FORT_CAPTURE_MULTIPLIER());
+
+		} else {
+			influencePlots(pLoserPlot, pLoserUnit->getOwnerINLINE(), fLoserPlotMultiplier);
+			influencePlots(pWinnerPlot, pLoserUnit->getOwnerINLINE(), fWinnerPlotMultiplier);
+		}
+	}
+
+	// calculate influence % in defended plot (to be displayed in game log)
+
+	int iWinnerCultureAfter = pDefenderPlot->getCulture(getOwnerINLINE());
+	int iTotalCulture = pDefenderPlot->countTotalCulture();
+	float fInfluenceRatio = iTotalCulture <= 0 ? 0.0f : ((iWinnerCultureAfter - iWinnerCultureBefore) * 100.0f) / iTotalCulture;
+
+	return fInfluenceRatio;
+}
+
+// unit influences given plot and surounding area i.e. transfers culture from target civ to unit's owner
+void CvUnit::influencePlots(CvPlot* pCentralPlot, PlayerTypes eTargetPlayer, float fLocationMultiplier) {
+	// calculate base multiplier used for all plots
+	float fGameSpeedMultiplier = (float)GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getConstructPercent();
+	fGameSpeedMultiplier /= 100;
+	fGameSpeedMultiplier *= GC.getEraInfo(GC.getGameINLINE().getStartEra()).getConstructPercent();
+	fGameSpeedMultiplier /= 100;
+	fGameSpeedMultiplier = sqrt(fGameSpeedMultiplier);
+
+	// each point of experience increases influence by 1%
+	float fExperienceMultiplier = 1.0f + (getExperience() * GC.getIDW_EXPERIENCE_FACTOR());
+	float fWarlordMultiplier = NO_UNIT == getLeaderUnitType() ? 1.0f : GC.getIDW_WARLORD_MULTIPLIER(); // default: +50%
+	float fBaseMultiplier = GC.getIDW_BASE_COMBAT_INFLUENCE() * fGameSpeedMultiplier * fLocationMultiplier * fExperienceMultiplier * fWarlordMultiplier;
+	if (fBaseMultiplier <= 0.0f)
+		return;
+
+	// get influence radius
+	int iInfluenceRadius = GC.getIDW_INFLUENCE_RADIUS(); // like 2 square city workable radius
+	if (iInfluenceRadius < 0)
+		return;
+
+	float fPlotDistanceFactor = GC.getIDW_PLOT_DISTANCE_FACTOR(); // default 0.2: influence decreases by 20% with plot distance
+	for (int iDX = -iInfluenceRadius; iDX <= iInfluenceRadius; iDX++) {
+		for (int iDY = -iInfluenceRadius; iDY <= iInfluenceRadius; iDY++) {
+			int iDistance = plotDistance(0, 0, iDX, iDY);
+
+			if (iDistance <= iInfluenceRadius) {
+				CvPlot* pLoopPlot = plotXY(pCentralPlot->getX_INLINE(), pCentralPlot->getY_INLINE(), iDX, iDY);
+
+				if (pLoopPlot != NULL) {
+					// calculate distance multiplier for current plot
+					float fDistanceMultiplier = 0.5f + 0.5f * fPlotDistanceFactor - fPlotDistanceFactor * iDistance;
+					if (fDistanceMultiplier <= 0.0f)
+						continue;
+					int iTargetCulture = pLoopPlot->getCulture(eTargetPlayer);
+					if (iTargetCulture <= 0)
+						continue;
+					int iCultureTransfer = int(fBaseMultiplier * fDistanceMultiplier * sqrt((float)iTargetCulture));
+					if (iTargetCulture < iCultureTransfer) {
+						// cannot transfer more culture than remaining target culture
+						iCultureTransfer = iTargetCulture;
+					}
+					if (iCultureTransfer == 0 && iTargetCulture > 0) {
+						// always at least 1 point of culture must be transfered
+						// othervise we may have the problems with capturing of very low culture cities. 
+						iCultureTransfer = 1;
+					}
+
+					if (iCultureTransfer > 0) {
+						// target player's culture in plot is lowered
+						pLoopPlot->changeCulture(eTargetPlayer, -iCultureTransfer, false);
+						// unit owners's culture in plot is raised
+						pLoopPlot->changeCulture(getOwnerINLINE(), iCultureTransfer, true);
+					}
+				}
+			}
+		}
+	}
+}
+
+// unit influences current tile via pillaging 
+// returns influence % in current plot
+float CvUnit::doPillageInfluence() {
+	return doInfluenceCulture(GC.getIDW_BASE_PILLAGE_INFLUENCE(), plot()->getOwner());
+}
+
+// unit influences current tile
+// returns influence % in current plot
+float CvUnit::doInfluenceCulture(float fInfluence, PlayerTypes eTargetPlayer) {
+	if (isBarbarian() && !GC.getIDW_BARBARIAN_INFLUENCE_ENABLED())
+		return 0.0f;
+
+	if ((DOMAIN_SEA == getDomainType()) && !GC.getIDW_NAVAL_INFLUENCE_ENABLED())
+		return 0.0f;
+
+	CvPlot* pPlot = plot();
+	if (pPlot == NULL) //should not happen
+		return 0.0f;
+
+	int iOurCultureBefore = pPlot->getCulture(getOwnerINLINE()); //used later for influence %
+
+	float fGameSpeedMultiplier = (float)GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getConstructPercent();
+	fGameSpeedMultiplier /= 100;
+	fGameSpeedMultiplier *= GC.getEraInfo(GC.getGameINLINE().getStartEra()).getConstructPercent();
+	fGameSpeedMultiplier /= 100;
+	fGameSpeedMultiplier = sqrt(fGameSpeedMultiplier);
+
+	int iTargetCulture = pPlot->getCulture(eTargetPlayer);
+	if (iTargetCulture <= 0) {
+		//should not happen
+		return 0.0f;
+	}
+	int iCultureTransfer = int(fInfluence * fGameSpeedMultiplier * sqrt((float)iTargetCulture));
+	if (iTargetCulture < iCultureTransfer) {
+		// cannot transfer more culture than remaining target culture
+		iCultureTransfer = iTargetCulture;
+	}
+
+	// target player's culture in plot is lowered
+	pPlot->changeCulture(eTargetPlayer, -iCultureTransfer, false);
+	// owners's culture in plot is raised
+	pPlot->changeCulture(getOwnerINLINE(), iCultureTransfer, true);
+
+	// calculate influence % in pillaged plot (to be displayed in game log)
+	int iOurCultureAfter = pPlot->getCulture(getOwnerINLINE());
+	float fInfluenceRatio = ((iOurCultureAfter - iOurCultureBefore) * 100.0f) / pPlot->countTotalCulture();
+
+	return fInfluenceRatio;
 }

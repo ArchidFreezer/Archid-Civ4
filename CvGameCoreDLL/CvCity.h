@@ -191,6 +191,7 @@ public:
 	int flatConscriptAngerLength() const;																				// Exposed to Python
 	bool canConscript() const;																				// Exposed to Python
 	void conscript();																											// Exposed to Python
+	void emergencyConscript();
 
 	int getBonusHealth(BonusTypes eBonus) const;																// Exposed to Python - getBonusHealth
 	int getBonusHappiness(BonusTypes eBonus) const;															// Exposed to Python - getBonusHappiness

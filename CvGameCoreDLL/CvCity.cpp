@@ -13535,3 +13535,37 @@ void CvCity::changeEventAnger(int iChange) {
 		}
 	}
 }
+
+// When the last defender in a city is defeated there is a chance that a militia unit may emerge dependent on the
+// defenders culture level in relation to the attackers.
+void CvCity::emergencyConscript() {
+	if (getPopulation() < GC.getIDW_EMERGENCY_DRAFT_MIN_POPULATION() || getConscriptUnit() == NO_UNIT)
+		return;
+
+	UnitTypes eConscriptUnit = getConscriptUnit();
+
+	CvPlayer& kPlayer = GET_PLAYER(getOwnerINLINE());
+	UnitAITypes eCityAI;
+	if (kPlayer.AI_unitValue(eConscriptUnit, UNITAI_CITY_DEFENSE, area()) > 0) {
+		eCityAI = UNITAI_CITY_DEFENSE;
+	} else if (kPlayer.AI_unitValue(eConscriptUnit, UNITAI_CITY_COUNTER, area()) > 0) {
+		eCityAI = UNITAI_CITY_COUNTER;
+	} else if (kPlayer.AI_unitValue(eConscriptUnit, UNITAI_CITY_SPECIAL, area()) > 0) {
+		eCityAI = UNITAI_CITY_SPECIAL;
+	} else {
+		eCityAI = NO_UNITAI;
+	}
+
+	CvUnit* pUnit = kPlayer.initUnit(eConscriptUnit, getX_INLINE(), getY_INLINE(), eCityAI);
+	FAssertMsg(pUnit != NULL, "Emergency conscript unit should not be NULL");
+	if (pUnit == NULL)
+		return;
+
+	changePopulation(-1);
+	changeConscriptAngerTimer(int(flatConscriptAngerLength() * GC.getIDW_EMERGENCY_DRAFT_ANGER_MULTIPLIER())); // default: 50% of normal conscription anger
+	addProductionExperience(pUnit, true);
+
+	// default: 25% of full health: represents very low training level
+	pUnit->setDamage(int((1 - GC.getIDW_EMERGENCY_DRAFT_STRENGTH()) * pUnit->maxHitPoints()), getOwnerINLINE());
+	pUnit->setMoves(0);
+}

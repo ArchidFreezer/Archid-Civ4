@@ -27,6 +27,8 @@
 #include "CvEventReporter.h"
 #include "CvPopupInfo.h"
 #include "FAStarNode.h"
+#include <vector>
+#include <map>
 
 #define STANDARD_MINIMAP_ALPHA		(0.6f)
 
@@ -6725,6 +6727,77 @@ void CvPlot::doCulture() {
 								gDLL->getInterfaceIFace()->addHumanMessage(eCulturalOwner, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_CITY_REVOLT", MESSAGE_TYPE_MINOR_EVENT, ARTFILEMGR.getInterfaceArtInfo("INTERFACE_RESISTANCE")->getPath(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), getX_INLINE(), getY_INLINE(), true, true);
 							}
 						}
+					}
+				}
+			}
+		}
+	} else {
+		// No point in trying to change the culture if there isn't any
+		PlayerTypes eCulturalOwner = calculateCulturalOwner();
+		if (eCulturalOwner != NO_PLAYER && GC.getIDW_STATIONED_INFLUENCE_ENABLED()) {
+			std::map<PlayerTypes, std::vector<CvUnit*> > mAllPlayerUnits;
+			int iTotalEnemyUnits = 0;
+
+			// Iterate through the units on the plot storing for each player
+			CLLNode<IDInfo>* pUnitNode = headUnitNode();
+			while (pUnitNode != NULL) {
+				CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+				if (!pLoopUnit->isAnimal()) {
+					// Append the unit to the list of units for that player
+					mAllPlayerUnits[pLoopUnit->getOwner()].push_back(pLoopUnit);
+
+					// If this is an enemy increment the total count
+					if (pLoopUnit->isEnemy(GET_PLAYER(eCulturalOwner).getTeam(), this))
+						iTotalEnemyUnits++;
+				}
+				pUnitNode = nextUnitNode(pUnitNode);
+			}
+
+			// Now we have the list of all the players and their units on the plot
+			// iterate through the list and do any appropriate culture exchange
+			if (!mAllPlayerUnits.empty()) {
+				for (std::map<PlayerTypes, std::vector<CvUnit*> >::const_iterator it = mAllPlayerUnits.begin(); it != mAllPlayerUnits.end(); ++it) {
+					// Get the info from the map
+					PlayerTypes ePlayer = it->first;
+					std::vector<CvUnit*> vPlayerUnits = it->second;
+
+					// Check we have some units, otherwise skip to the next player
+					if (vPlayerUnits.empty())
+						continue;
+
+					// Get the first unit from the vector of units so we can use it to test for enemy status
+					CvUnit* pUnit = vPlayerUnits[0];
+					if (pUnit == NULL)
+						continue;
+
+					// Check if this player is the plot owner
+					if (ePlayer == eCulturalOwner) {
+						std::map<PlayerTypes, int> mEnemyCultures;
+						int iTotalCulture = 0;
+
+						// Loop through the players finding the culture owners
+						for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) // Include barbarians
+						{
+							int iPlayerCulture = 0;
+							if (GET_PLAYER(ePlayer).isAlive()) {
+								iPlayerCulture = getCulture(ePlayer);
+								iTotalCulture += iPlayerCulture;
+								if (iPlayerCulture > 0 && pUnit->isEnemy(GET_PLAYER(ePlayer).getTeam(), this)) {
+									mEnemyCultures[ePlayer] = iPlayerCulture;
+								}
+							}
+						}
+
+						// Loop through the enemies with culture on the plot and do the exchange
+						for (std::map<PlayerTypes, int>::const_iterator it = mEnemyCultures.begin(); it != mEnemyCultures.end(); ++it) {
+							float fInfluence = GC.getIDW_BASE_STATIONED_OWNER_INFLUENCE() * it->second / iTotalCulture;
+							pUnit->doInfluenceCulture(fInfluence, it->first);
+						}
+					}
+					// Now deal with enemies on the plot
+					else if (pUnit->isEnemy(GET_PLAYER(eCulturalOwner).getTeam(), this)) {
+						float fInfluence = GC.getIDW_BASE_STATIONED_ENEMY_INFLUENCE() * vPlayerUnits.size() / iTotalEnemyUnits;
+						pUnit->doInfluenceCulture(fInfluence, eCulturalOwner);
 					}
 				}
 			}

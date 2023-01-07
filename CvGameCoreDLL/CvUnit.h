@@ -169,6 +169,7 @@ public:
 
 	CvCity* getClosestSafeCity() const;
 
+	// Slavery
 	int getEnslaveCountExtra() const;
 	int getMaxSlaves() const;
 	int getSlaveControlCount() const;
@@ -190,6 +191,12 @@ public:
 	UnitTypes getSlaveUnit() const;
 	CvPlot* getBestSlaveMarket(bool bCurrentAreaOnly = true);
 	CvUnit* getSlaver(CvUnit* pWinner);
+
+	// Influence Driven War
+	float doVictoryInfluence(CvUnit* pLoserUnit, bool bAttacking, bool bWithdrawal);
+	float doPillageInfluence();
+	float doInfluenceCulture(float fInfluence, PlayerTypes eTargetPlayer);
+	void influencePlots(CvPlot* pCentralPlot, PlayerTypes eTargetPlayer, float fLocationMultiplier);
 
 	bool canTradeUnit(PlayerTypes eReceivingPlayer);
 	void tradeUnit(PlayerTypes eReceivingPlayer);
