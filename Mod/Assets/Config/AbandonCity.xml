@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+	Abandon City or Raise Building
+	by unknown, Bhruic, Nemo, OrionVetran, Dancing Hoskuld
+	
+	Modified by Archid to re-enable user configuration file and fix minor bug
+
+	for The BUG Mod.
+-->
+<mod id="AbandonCity" 
+	 module="AbandonCity" 
+	 name="AbandonCity" 
+	 author="unknown, Bhruic, Nemo, OrionVetran, Dancing Hoskuld, Archid" 
+	 version="1.02" 
+	 date="13/04/2012"
+	 url="http://forums.civfanatics.com/showthread.php?t=252243">
+
+	<options id="AbandonCity" file="AbandonCity.ini">
+		<section id="AbandonCity">
+			<option id="Mod Enabled" 
+					type="boolean" default="True" 
+					get="isEnabled" set="setEnabled" 
+					label="Enable Abandon City" 
+					help="Allow player(s) to abandon city or demolish buildings."/>
+			<option id="Abandon City only" 
+					type="boolean" default="False" 
+					get="isAbandonOnly" set="setAbandonOnly" 
+					label="Abandon City only (no selling of buildings)" 
+					help="Allow player(s) to only abandon city not demolish buildings."/>
+			<option id="Allow settlers" 
+					type="boolean" default="True" 
+					get="isAllowSettlers" set="setAllowSettlers" 
+					label="Enable settler creation" 
+					help="Allow settlers to be created when abandoning a city, if False only workers are produced."/>
+			<option id="Allow advanced settlers" 
+					type="boolean" default="True" 
+					get="isAllowAdvancedSettlers" set="setAllowAdvancedSettlers" 
+					label="Enable advanced settler creation" 
+					help="Allow pioneers and other advanced settlers to be created when abandoning a city it the appropraite technology is known, if False only basic settlers are produced."/>
+			<option id="Population for settlers" 
+					type="int" default="10" 
+					get="getSettlerPop" set="setSettlerPop" 
+					label="Min population for settler creation" 
+					help="If producing settlers then produce 1 per each full city population of this value."/>
+			<option id="Population for workers" 
+					type="int" default="3" 
+					get="getWorkerPop" set="setWorkerPop" 
+					label="Min population for worker creation" 
+					help="Produce 1 worker for each full city population of this value, after any settlers have been produced."/>
+			<option id="Building value return" 
+					type="double" default="0.2" 
+					get="getBuildingReturn" set="setBuildingReturn" 
+					label="Ammount of building cost recovered" 
+					help="The ammount of the original cost of a building that is recovered when it is sold."/>
+			<option id="Building obsolete factor" 
+					type="double" default="0.5" 
+					get="getBuildingObsoleteFactor" set="setBuildingObsoleteFactor" 
+					label="Additional reduction of cost recovered for obsolete buildings" 
+					help="Obsolete buildings give a lesser return on the recovery cost of this factor."/>
+			<option id="Autolog" 
+					type="boolean" default="True" 
+					get="isAutolog" set="setAutolog"
+					help="Turn on logging"/>
+		</section>
+	</options>
+
+	<events class="AbandonCityEventHandler"/>
+	<shortcut key="Ctrl A" function="abandonCityPopup"/>
+
+</mod>

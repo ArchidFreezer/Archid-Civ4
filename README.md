@@ -21,6 +21,9 @@ There are several additional screens available with the mod that are accessed vi
 - [Ctrl-X] - Toggle dot map visibility
 - [Alt-X]  - Toggle dot map edit mode
 
+### Abandon City/Raze Building
+- [Ctrl-A] - When in a city screen allows for buildings to be sold for cash or cities to be abandoned
+
 ### Testing
 - [Ctrl-Shift-K] - Open popup to kill player units, cities and/or deals
 - [Ctrl-Shift-L] - Open popup to switch which player the human controls 

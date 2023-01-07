@@ -66,6 +66,7 @@
 	<!--   events that log the creation of objects -->
 	<load mod="PlatyUI"/>
 
+	<load mod="AbandonCity"/>
 	<load mod="AdvancedCombatOdds"/>
 	<load mod="AIAutoPlay"/>
 	<load mod="ChangePlayer"/>

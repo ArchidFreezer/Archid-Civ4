@@ -1148,6 +1148,28 @@
 		<English>Will conduct counter espionage missions against rivals</English>
 	</TEXT>
 
+<!-- Abandon City Raze Building Mod -->
+	<TEXT>
+		<Tag>TXT_KEY_ABANDON_CITY_HEADER1</Tag>
+		<English>Choose building to demolish.</English>
+</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ABANDON_CITY_HEADER2</Tag>
+		<English>% of building's production cost is converted to gold.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ABANDON_CITY</Tag>
+		<English>Abandon City</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ABANDON_FREE</Tag>
+		<English>Free</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ABANDON_UNHAPPINESS</Tag>
+		<English>+1 unhappy</English>
+</TEXT>
+
 <!-- Specialists -->
 	<TEXT> <!-- Slave: Artist -->
 		<Tag>TXT_KEY_SPECIALIST_ARTIST_SLAVE</Tag>
