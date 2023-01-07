@@ -1116,6 +1116,21 @@
 		<Tag>TXT_KEY_ESPIONAGE_HELP_ASSASSINATE_SPECIALIST</Tag>
 		<English>Assassinate %s1_unit_name[ICON_GREATPEOPLE]</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_RESEARCH_SABATAGED</Tag>
+		<English>All of our research in %s1 has been destroyed!</English>
+		<French>Tous nos travaux de recherche e %s1 ont ete detruits!</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_RESEARCH_SABATAGED_CAUGHT</Tag>
+		<English>All of our research in %s1 has been destroyed by a %s2 spy!</English>
+		<French>Tous nos travaux de recherche e %s1 ont ete detruits par un espion %s2!</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_HELP_SABATOGE_RESEARCH</Tag>
+		<English>Will sabatoge all of %s1's [ICON_RESEARCH] toward [COLOR_POSITIVE_TEXT]%s2[COLOR_REVERT]</English>
+		<French>Saboter les recherches de %s2 e %s1</French>
+	</TEXT>
 
 <!-- Specialists -->
 	<TEXT> <!-- Slave: Artist -->

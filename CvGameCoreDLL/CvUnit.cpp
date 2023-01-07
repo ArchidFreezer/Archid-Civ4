@@ -9687,6 +9687,10 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 		changeSpyReligionRemovalChange(kPromotion.getSpyReligionRemovalChange() * iChange);
 		changeSpyCorporationRemovalChange(kPromotion.getSpyCorporationRemovalChange() * iChange);
 		changeSpyCultureChange(kPromotion.getSpyCultureChange() * iChange);
+		changeSpyResearchSabotageChange(kPromotion.getSpyResearchSabotageChange() * iChange);
+		changeSpyDestroyProjectChange(kPromotion.getSpyDestroyProjectChange() * iChange);
+		changeSpyDestroyBuildingChange(kPromotion.getSpyDestroyBuildingChange() * iChange);
+		changeSpyDestroyProductionChange(kPromotion.getSpyDestroyProductionChange() * iChange);
 
 		for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
 			changeExtraTerrainAttackPercent(eTerrain, kPromotion.getTerrainAttackPercent(eTerrain) * iChange);
@@ -12450,4 +12454,36 @@ bool CvUnit::canAssassinate(const CvPlot* pPlot, SpecialistTypes eSpecialist, bo
 	}
 
 	return true;
+}
+
+int CvUnit::getSpyResearchSabotageChange() const {
+	return  m_pSpy ? m_pSpy->getResearchSabotageChange() : 0;
+}
+
+void CvUnit::changeSpyResearchSabotageChange(int iChange) {
+	if (m_pSpy) m_pSpy->changeResearchSabotageChange(iChange);
+}
+
+int CvUnit::getSpyDestroyProjectChange() const {
+	return  m_pSpy ? m_pSpy->getDestroyProjectChange() : 0;
+}
+
+void CvUnit::changeSpyDestroyProjectChange(int iChange) {
+	if (m_pSpy) m_pSpy->changeDestroyProjectChange(iChange);
+}
+
+int CvUnit::getSpyDestroyBuildingChange() const {
+	return  m_pSpy ? m_pSpy->getDestroyBuildingChange() : 0;
+}
+
+void CvUnit::changeSpyDestroyBuildingChange(int iChange) {
+	if (m_pSpy) m_pSpy->changeDestroyBuildingChange(iChange);
+}
+
+int CvUnit::getSpyDestroyProductionChange() const {
+	return  m_pSpy ? m_pSpy->getDestroyProductionChange() : 0;
+}
+
+void CvUnit::changeSpyDestroyProductionChange(int iChange) {
+	if (m_pSpy) m_pSpy->changeDestroyProductionChange(iChange);
 }

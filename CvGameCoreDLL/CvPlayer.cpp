@@ -11462,6 +11462,9 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 		return -1;
 	}
 
+	const CvTeam& kTeam = GET_TEAM(getTeam());
+	const CvPlayer& kTargetPlayer = GET_PLAYER(eTargetPlayer);
+
 	CvCity* pCity = NULL;
 	if (NULL != pPlot) {
 		pCity = pPlot->getPlotCity();
@@ -11502,7 +11505,7 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 		if (NO_TECH == eTech) {
 			for (int iTech = 0; iTech < GC.getNumTechInfos(); ++iTech) {
 				if (canStealTech(eTargetPlayer, (TechTypes)iTech)) {
-					int iCost = GET_TEAM(getTeam()).getResearchCost((TechTypes)iTech);
+					int iCost = kTeam.getResearchCost((TechTypes)iTech);
 					if (iCost < iProdCost) {
 						iProdCost = iCost;
 						eTech = (TechTypes)iTech;
@@ -11510,7 +11513,7 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 				}
 			}
 		} else {
-			iProdCost = GET_TEAM(getTeam()).getResearchCost(eTech);
+			iProdCost = kTeam.getResearchCost(eTech);
 		}
 
 		if (NO_TECH != eTech) {
@@ -11533,7 +11536,7 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 
 		if (NO_CIVIC != eCivic) {
 			if (canForceCivics(eTargetPlayer, eCivic)) {
-				iMissionCost = iBaseMissionCost + (kMission.getSwitchCivicCostFactor() * GET_PLAYER(eTargetPlayer).getTotalPopulation() * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getAnarchyPercent()) / 10000;
+				iMissionCost = iBaseMissionCost + (kMission.getSwitchCivicCostFactor() * kTargetPlayer.getTotalPopulation() * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getAnarchyPercent()) / 10000;
 				if (pSpyUnit != NULL) {
 					iMissionCost *= 100 - pSpyUnit->getSpySwitchCivicChange();
 					iMissionCost /= 100;
@@ -11555,13 +11558,13 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 
 		if (NO_RELIGION != eReligion) {
 			if (canForceReligion(eTargetPlayer, eReligion)) {
-				iMissionCost = iBaseMissionCost + (kMission.getSwitchReligionCostFactor() * GET_PLAYER(eTargetPlayer).getTotalPopulation() * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getAnarchyPercent()) / 10000;
-				ReligionTypes eCurrentReligion = GET_PLAYER(eTargetPlayer).getStateReligion();
+				iMissionCost = iBaseMissionCost + (kMission.getSwitchReligionCostFactor() * kTargetPlayer.getTotalPopulation() * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getAnarchyPercent()) / 10000;
+				ReligionTypes eCurrentReligion = kTargetPlayer.getStateReligion();
 				// amplify the mission cost if we are trying to switch to a minority religion.
 				if (eCurrentReligion != NO_RELIGION) {
 					// maybe getReligionPopulation would be slightly better, but it's a bit slower.
-					int iCurrent = GET_PLAYER(eTargetPlayer).getHasReligionCount(eCurrentReligion);
-					int iNew = GET_PLAYER(eTargetPlayer).getHasReligionCount(eReligion);
+					int iCurrent = kTargetPlayer.getHasReligionCount(eCurrentReligion);
+					int iNew = kTargetPlayer.getHasReligionCount(eReligion);
 					int iCitiesTarget = GC.getWorldInfo(GC.getMapINLINE().getWorldSize()).getTargetNumCities();
 					FAssert(iCurrent > 0 && iNew > 0);
 					iMissionCost *= std::max(iCurrent, iNew) + iCitiesTarget;
@@ -11595,7 +11598,7 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 					}
 					iMissionCost *= GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getAnarchyPercent();
 					iMissionCost /= 100;
-					if (GET_PLAYER(eTargetPlayer).getStateReligion() == eReligion) {
+					if (kTargetPlayer.getStateReligion() == eReligion) {
 						iMissionCost *= 2;
 					}
 					if (pSpyUnit != NULL) {
@@ -11677,16 +11680,24 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 		if (NO_PROJECT != eProject) {
 			if (canSpyDestroyProject(eTargetPlayer, eProject)) {
 				iMissionCost = iBaseMissionCost + ((100 + kMission.getDestroyProjectCostFactor()) * iCost) / 100;
+				if (pSpyUnit) {
+					iMissionCost *= 100 - pSpyUnit->getSpyDestroyProjectChange();
+					iMissionCost /= 100;
+				}
 			}
 		}
 	} else if (kMission.getDestroyProductionCostFactor() > 0) {
 		FAssert(NULL != pCity);
 		if (NULL != pCity) {
 			iMissionCost = iBaseMissionCost + ((100 + kMission.getDestroyProductionCostFactor()) * pCity->getProduction()) / 100;
+			if (pSpyUnit) {
+				iMissionCost *= 100 - pSpyUnit->getSpyDestroyProductionChange();
+				iMissionCost /= 100;
+			}
 		}
 	} else if (kMission.getBuyUnitCostFactor() > 0) {
 		// Buy Unit
-		CvUnit* pUnit = GET_PLAYER(eTargetPlayer).getUnit(iExtraData);
+		CvUnit* pUnit = kTargetPlayer.getUnit(iExtraData);
 		int iCost = MAX_INT;
 
 		if (NULL == pUnit) {
@@ -11742,6 +11753,10 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 			if (NULL != pCity && pCity->getNumRealBuilding(eBuilding) > 0) {
 				if (canSpyDestroyBuilding(eTargetPlayer, eBuilding)) {
 					iMissionCost = iBaseMissionCost + ((100 + kMission.getDestroyBuildingCostFactor()) * iCost) / 100;
+					if (pSpyUnit) {
+						iMissionCost *= 100 - pSpyUnit->getSpyDestroyBuildingChange();
+						iMissionCost /= 100;
+					}
 				}
 			}
 		}
@@ -11793,12 +11808,12 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 			iMissionCost = iBaseMissionCost;
 		}
 	} else if (kMission.getCounterespionageMod() > 0) {
-		if (GET_TEAM(getTeam()).getCounterespionageTurnsLeftAgainstTeam(GET_PLAYER(eTargetPlayer).getTeam()) <= 0) {
+		if (kTeam.getCounterespionageTurnsLeftAgainstTeam(kTargetPlayer.getTeam()) <= 0) {
 			iMissionCost = (iBaseMissionCost * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getResearchPercent()) / 100;
 		}
 	} else if (kMission.getPlayerAnarchyCounter() > 0) {
 		// Player anarchy timer: can't add more turns of anarchy to player already in the midst of it
-		if (!GET_PLAYER(eTargetPlayer).isAnarchy()) {
+		if (!kTargetPlayer.isAnarchy()) {
 			iMissionCost = (iBaseMissionCost * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getAnarchyPercent()) / 100;
 		}
 	} else if (kMission.isNuke()) {
@@ -11813,8 +11828,18 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 				}
 			}
 		}
+	} else if (kMission.getSabatogeResearchCostFactor() > 0) {
+		if (kTargetPlayer.getCurrentResearch() != NO_TECH) {
+			if (GET_TEAM(kTargetPlayer.getTeam()).getResearchProgress(kTargetPlayer.getCurrentResearch()) > 0) {
+				iMissionCost = iBaseMissionCost + (kMission.getSabatogeResearchCostFactor() * GET_TEAM(kTargetPlayer.getTeam()).getResearchProgress(kTargetPlayer.getCurrentResearch()) / 100);
+				if (pSpyUnit) {
+					iMissionCost *= 100 - pSpyUnit->getSpyResearchSabotageChange();
+					iMissionCost /= 100;
+				}
+			}
+		}
 	} else if (kMission.isPassive()) {
-		iMissionCost = (iBaseMissionCost * (100 + GET_TEAM(GET_PLAYER(eTargetPlayer).getTeam()).getEspionagePointsAgainstTeam(getTeam()))) / 100;
+		iMissionCost = (iBaseMissionCost * (100 + GET_TEAM(kTargetPlayer.getTeam()).getEspionagePointsAgainstTeam(getTeam()))) / 100;
 	} else {
 		iMissionCost = (iBaseMissionCost * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getResearchPercent()) / 100;
 	}
@@ -12133,6 +12158,27 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 				pCity->changeFreeSpecialistCount(eTarget, -1);
 				szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_TARGET_SOMETHING_ASSASSINATED", GC.getSpecialistInfo(eTarget).getDescription(), pCity->getNameKey()).GetCString();
 				bSomethingHappened = true;
+			}
+		}
+	}
+
+	//////////////////////////////
+	// Sabatoge Research
+	if (kMission.getSabatogeResearchCostFactor() > 0) {
+		if (NULL != pPlot) {
+			CvCity* pCity = pPlot->getPlotCity();
+
+			if (NULL != pCity) {
+				TechTypes eCurrResearch = GET_PLAYER(pCity->getOwnerINLINE()).getCurrentResearch();
+				GET_TEAM(pCity->getTeam()).setResearchProgress(eCurrResearch, 0, pCity->getOwnerINLINE());
+				bSomethingHappened = true;
+
+				if (bReveal) {
+					szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_RESEARCH_SABATAGED_CAUGHT", GC.getTechInfo(eCurrResearch).getDescription(), getCivilizationAdjectiveKey()).GetCString();
+				} else {
+					szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_RESEARCH_SABATAGED", GC.getTechInfo(eCurrResearch).getDescription());
+					bShowExplosion = true;
+				}
 			}
 		}
 	}

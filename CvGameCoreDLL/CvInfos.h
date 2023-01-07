@@ -549,6 +549,10 @@ public:
 	int getSpyReligionRemovalChange() const;
 	int getSpyCorporationRemovalChange() const;
 	int getSpyCultureChange() const;
+	int getSpyResearchSabotageChange() const;
+	int getSpyDestroyProjectChange() const;
+	int getSpyDestroyBuildingChange() const;
+	int getSpyDestroyProductionChange() const;
 
 	bool isLeader() const;				// Exposed to Python
 	bool isBlitz() const;				// Exposed to Python
@@ -649,6 +653,10 @@ protected:
 	int m_iSpyReligionRemovalChange;
 	int m_iSpyCorporationRemovalChange;
 	int m_iSpyCultureChange;
+	int m_iSpyResearchSabotageChange;
+	int m_iSpyDestroyProjectChange;
+	int m_iSpyDestroyBuildingChange;
+	int m_iSpyDestroyProductionChange;
 
 	bool m_bLeader;
 	bool m_bBlitz;
@@ -6423,6 +6431,7 @@ public:
 	int getWarWearinessCounter() const;
 	int getRemoveReligionsCostFactor() const;
 	int getRemoveCorporationsCostFactor() const;
+	int getSabatogeResearchCostFactor() const;
 
 	bool isPassive() const;
 	bool isTwoPhases() const;
@@ -6467,6 +6476,7 @@ protected:
 	int m_iWarWearinessCounter;
 	int m_iRemoveReligionsCostFactor;
 	int m_iRemoveCorporationsCostFactor;
+	int m_iSabatogeResearchCostFactor;
 
 	bool m_bIsPassive;
 	bool m_bIsTwoPhases;

@@ -847,11 +847,15 @@
 	<ElementType name="iSpyNukeCityChange" content="textOnly" dt:type="int"/>	
 	<ElementType name="iSpyDisablePowerChange" content="textOnly" dt:type="int"/>	
 	<ElementType name="iSpyWarWearinessChange" content="textOnly" dt:type="int"/>	
+	<ElementType name="iSpyResearchSabotageChange" content="textOnly" dt:type="int"/>	
 	<ElementType name="iSpyReligionRemovalChange" content="textOnly" dt:type="int"/>	
 	<ElementType name="iSpyCorporationRemovalChange" content="textOnly" dt:type="int"/>	
 	<ElementType name="iSpySwitchCivicChange" content="textOnly" dt:type="int"/>	
 	<ElementType name="iSpySwitchReligionChange" content="textOnly" dt:type="int"/>		
+	<ElementType name="iSpyDestroyProjectChange" content="textOnly" dt:type="int"/>	
+	<ElementType name="iSpyDestroyBuildingChange" content="textOnly" dt:type="int"/>	
 	<ElementType name="iSpyDestroyImprovementChange" content="textOnly" dt:type="int"/>	
+	<ElementType name="iSpyDestroyProductionChange" content="textOnly" dt:type="int"/>	
 	<ElementType name="iSpyCultureChange" content="textOnly" dt:type="int"/>		
 	<ElementType name="PromotionInfo" content="eltOnly">
 		<element type="Type"/>
@@ -911,11 +915,15 @@
 		<element type="iSpyNukeCityChange" minOccurs="0"/>
 		<element type="iSpyDisablePowerChange" minOccurs="0"/>
 		<element type="iSpyWarWearinessChange" minOccurs="0"/>
+		<element type="iSpyResearchSabotageChange" minOccurs="0"/>
 		<element type="iSpyReligionRemovalChange" minOccurs="0"/>
 		<element type="iSpyCorporationRemovalChange" minOccurs="0"/>
 		<element type="iSpySwitchCivicChange" minOccurs="0"/>
 		<element type="iSpySwitchReligionChange" minOccurs="0"/>
+		<element type="iSpyDestroyProjectChange" minOccurs="0"/>
+		<element type="iSpyDestroyBuildingChange" minOccurs="0"/>
 		<element type="iSpyDestroyImprovementChange" minOccurs="0"/>
+		<element type="iSpyDestroyProductionChange" minOccurs="0"/>	
 		<element type="iSpyCultureChange" minOccurs="0"/>				
 		<element type="iRevoltProtection" minOccurs="0"/>
 		<element type="iCollateralDamageProtection" minOccurs="0"/>

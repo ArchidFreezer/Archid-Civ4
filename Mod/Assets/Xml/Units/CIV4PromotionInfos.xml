@@ -1023,6 +1023,42 @@
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,4,15</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Intrigue 1 -->
+			<Type>PROMOTION_INTRIGUE1</Type>
+			<Description>TXT_KEY_PROMOTION_INTRIGUE1</Description>
+			<Sound>AS2D_PING</Sound>
+			<iSpyDestroyProductionChange>50</iSpyDestroyProductionChange>				
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Intrigue1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Intrigue 2 -->
+			<Type>PROMOTION_INTRIGUE2</Type>
+			<Description>TXT_KEY_PROMOTION_INTRIGUE2</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_INTRIGUE1</PromotionPrereq>
+			<iSpyResearchSabotageChange>50</iSpyResearchSabotageChange>	
+			<iSpyDestroyBuildingChange>50</iSpyDestroyBuildingChange>			
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Intrigue2.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Intrigue 3 -->
+			<Type>PROMOTION_INTRIGUE3</Type>
+			<Description>TXT_KEY_PROMOTION_INTRIGUE3</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_INTRIGUE2</PromotionPrereq>
+			<iSpyDestroyProjectChange>50</iSpyDestroyProjectChange>	
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Intrigue3.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Leader -->
 			<Type>PROMOTION_LEADER</Type>
 			<Description>TXT_KEY_PROMOTION_GREAT_GENERAL</Description>

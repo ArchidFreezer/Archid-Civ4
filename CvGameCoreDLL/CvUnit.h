@@ -132,6 +132,10 @@ public:
 	int getSpyRevoltChange() const;
 	int getSpyUnhappyChange() const;
 	int getSpyWarWearinessChange() const;
+	int getSpyDestroyBuildingChange() const;
+	int getSpyDestroyProductionChange() const;
+	int getSpyDestroyProjectChange() const;
+	int getSpyResearchSabotageChange() const;
 	void awardSpyExperience(TeamTypes eTargetTeam, int iModifier);
 	void changeLoyaltyCount(int iChange);
 	void changeSpyEvasionChanceExtra(int iChange);
@@ -152,6 +156,10 @@ public:
 	void changeSpyRevoltChange(int iChange);
 	void changeSpyUnhappyChange(int iChange);
 	void changeSpyWarWearinessChange(int iChange);
+	void changeSpyDestroyBuildingChange(int iChange);
+	void changeSpyDestroyProductionChange(int iChange);
+	void changeSpyDestroyProjectChange(int iChange);
+	void changeSpyResearchSabotageChange(int iChange);
 	void setOriginalSpymaster(PlayerTypes ePlayer);
 	PlayerTypes getOriginalSpymaster() const;
 

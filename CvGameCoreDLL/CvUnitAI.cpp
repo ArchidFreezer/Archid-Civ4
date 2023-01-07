@@ -7208,6 +7208,30 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		}
 	}
 
+	if (kPromotion.getSpyResearchSabotageChange()) {
+		if (AI_getUnitAIType() == UNITAI_SPY) {
+			iValue += 15;
+		}
+	}
+
+	if (kPromotion.getSpyDestroyProjectChange()) {
+		if (AI_getUnitAIType() == UNITAI_SPY) {
+			iValue += 15;
+		}
+	}
+
+	if (kPromotion.getSpyDestroyBuildingChange()) {
+		if (AI_getUnitAIType() == UNITAI_SPY) {
+			iValue += 15;
+		}
+	}
+
+	if (kPromotion.getSpyDestroyProductionChange()) {
+		if (AI_getUnitAIType() == UNITAI_SPY) {
+			iValue += 15;
+		}
+	}
+
 	if (kPromotion.isEnemyRoute()) {
 		if (AI_getUnitAIType() == UNITAI_PILLAGE) {
 			iValue += 40;

@@ -1149,6 +1149,7 @@
 	<ElementType name="bNuke" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bDisablePower" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iWarWearinessCounter" content="textOnly" dt:type="int"/>
+	<ElementType name="iSabatogeResearchCostFactor" content="textOnly" dt:type="int"/>
 	<ElementType name="iRemoveReligionsCostFactor" content="textOnly" dt:type="int"/>
 	<ElementType name="iRemoveCorporationsCostFactor" content="textOnly" dt:type="int"/>
 	<ElementType name="EspionageMissionInfo" content="eltOnly">
@@ -1189,6 +1190,7 @@
 		<element type="bNuke" minOccurs="0"/>
 		<element type="bDisablePower" minOccurs="0"/>
 		<element type="iWarWearinessCounter" minOccurs="0"/>
+		<element type="iSabatogeResearchCostFactor" minOccurs="0"/>
 		<element type="iRemoveReligionsCostFactor" minOccurs="0"/>
 		<element type="iRemoveCorporationsCostFactor" minOccurs="0"/>
 	</ElementType>

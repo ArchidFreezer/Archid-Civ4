@@ -31,5 +31,9 @@
 		<Tag>TXT_KEY_ESPIONAGE_ASSASSIN</Tag>
 		<English>Assassinate Great Person</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_SABATOGE_RESEARCH</Tag>
+		<English>Sabotage Research</English>
+	</TEXT>
 
 </Civ4GameText>

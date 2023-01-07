@@ -34,6 +34,10 @@ public:
 	int getRevoltChange() const;
 	int getUnhappyChange() const;
 	int getWarWearinessChange() const;
+	int getDestroyBuildingChange() const;
+	int getDestroyProductionChange() const;
+	int getDestroyProjectChange() const;
+	int getResearchSabotageChange() const;
 
 	void changeEvasionChanceExtra(int iChange);
 	void changePreparationModifier(int iChange);
@@ -54,6 +58,10 @@ public:
 	void changeUnhappyChange(int iChange);
 	void changeWarWearinessChange(int iChange);
 	void setOriginalSpymaster(PlayerTypes ePlayer);
+	void changeDestroyBuildingChange(int iChange);
+	void changeDestroyProductionChange(int iChange);
+	void changeDestroyProjectChange(int iChange);
+	void changeResearchSabotageChange(int iChange);
 
 	PlayerTypes getOriginalSpymaster() const;
 
@@ -76,6 +84,10 @@ protected:
 	int m_iReligionRemovalChange;
 	int m_iCorporationRemovalChange;
 	int m_iCultureChange;
+	int m_iDestroyBuildingChange;
+	int m_iDestroyProductionChange;
+	int m_iDestroyProjectChange;
+	int m_iResearchSabotageChange;
 
 	PlayerTypes m_eOriginalSpymaster;
 };

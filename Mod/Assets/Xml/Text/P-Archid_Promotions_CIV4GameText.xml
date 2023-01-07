@@ -161,6 +161,18 @@
 		<Italian>Istigatore III</Italian>
 		<Spanish>Instigador III</Spanish>
 	</TEXT>
+	<TEXT> <!-- Intrigue I -->
+		<Tag>TXT_KEY_PROMOTION_INTRIGUE1</Tag>
+		<English>Intrigue I</English>
+	</TEXT>
+	<TEXT> <!-- Intrigue II -->
+		<Tag>TXT_KEY_PROMOTION_INTRIGUE2</Tag>
+		<English>Intrigue II</English>
+	</TEXT>
+	<TEXT> <!-- Intrigue III -->
+		<Tag>TXT_KEY_PROMOTION_INTRIGUE3</Tag>
+		<English>Intrigue III</English>
+	</TEXT>
 	<TEXT> <!-- Loyalty -->
 		<Tag>TXT_KEY_PROMOTION_LOYALTY</Tag>
 		<English>Loyalty</English>
@@ -353,4 +365,20 @@
 		<Tag>TXT_KEY_PROMOTION_SPY_CULTURE_TEXT</Tag>
 		<English>[ICON_BULLET]%d1_percent%% additional culture inserted</English>
 	</TEXT>		
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_RESEARCH_SABOTAGE_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_percent%% sabotage research cost reduction</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_DESTROY_PROJECT_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_percent%% destroy project cost reduction</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_DESTROY_BUILDING_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_percent%% destroy building cost reduction</English>
+	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_DESTROY_PRODUCTION_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_percent%% destroy production cost reduction</English>
+	</TEXT>	
 </Civ4GameText>

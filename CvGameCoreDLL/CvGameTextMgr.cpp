@@ -1063,6 +1063,26 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_CORPORATION_REMOVAL_TEXT", pUnit->getSpyCorporationRemovalChange()));
 		}
 
+		if (pUnit->getSpyResearchSabotageChange() > 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_RESEARCH_SABOTAGE_TEXT", pUnit->getSpyResearchSabotageChange()));
+		}
+
+		if (pUnit->getSpyDestroyProjectChange() > 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_DESTROY_PROJECT_TEXT", pUnit->getSpyDestroyProjectChange()));
+		}
+
+		if (pUnit->getSpyDestroyBuildingChange() > 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_DESTROY_BUILDING_TEXT", pUnit->getSpyDestroyBuildingChange()));
+		}
+
+		if (pUnit->getSpyDestroyProductionChange() > 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_DESTROY_PRODUCTION_TEXT", pUnit->getSpyDestroyProductionChange()));
+		}
+
 		if (pUnit->getSpyCultureChange() > 0) {
 			szString.append(NEWLINE);
 			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_CULTURE_TEXT", pUnit->getSpyCultureChange()));
@@ -5871,6 +5891,26 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 	if (kPromotion.getSpyCultureChange() != 0) {
 		szBuffer.append(pcNewline);
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_CULTURE_TEXT", kPromotion.getSpyCultureChange()));
+	}
+
+	if (kPromotion.getSpyResearchSabotageChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_RESEARCH_SABOTAGE_TEXT", kPromotion.getSpyResearchSabotageChange()));
+	}
+
+	if (kPromotion.getSpyDestroyProjectChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_DESTROY_PROJECT_TEXT", kPromotion.getSpyDestroyProjectChange()));
+	}
+
+	if (kPromotion.getSpyDestroyBuildingChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_DESTROY_BUILDING_TEXT", kPromotion.getSpyDestroyBuildingChange()));
+	}
+
+	if (kPromotion.getSpyDestroyProductionChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_DESTROY_PRODUCTION_TEXT", kPromotion.getSpyDestroyProductionChange()));
 	}
 
 	if (kPromotion.isUnitRangeUnbound()) {
@@ -15262,6 +15302,17 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 				}
 
 				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_INSERT_CULTURE", pCity->getNameKey(), iCultureAmount));
+				szBuffer.append(NEWLINE);
+			}
+		}
+	}
+
+	if (kMission.getSabatogeResearchCostFactor() > 0) {
+		if (NULL != pPlot) {
+			CvCity* pCity = pPlot->getPlotCity();
+
+			if (NULL != pCity) {
+				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_SABATOGE_RESEARCH", kTarget.getNameKey(), GC.getTechInfo(GET_PLAYER(eTargetPlayer).getCurrentResearch()).getTextKeyWide()));
 				szBuffer.append(NEWLINE);
 			}
 		}

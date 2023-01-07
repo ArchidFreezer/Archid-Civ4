@@ -194,6 +194,14 @@
 			<iWarWearinessCounter>150</iWarWearinessCounter>
 		</EspionageMissionInfo>
 		<EspionageMissionInfo>
+			<Type>ESPIONAGEMISSION_SABOTAGE_RESEARCH</Type>
+			<Description>TXT_KEY_ESPIONAGE_SABATOGE_RESEARCH</Description>
+			<iCost>100</iCost>
+			<bTargetsCity>1</bTargetsCity>
+			<iDifficultyMod>25</iDifficultyMod>
+			<iSabatogeResearchCostFactor>85</iSabatogeResearchCostFactor>
+		</EspionageMissionInfo>
+		<EspionageMissionInfo>
 			<Type>ESPIONAGEMISSION_REMOVE_RELIGION</Type>
 			<Description>TXT_KEY_ESPIONAGE_REMOVE_RELIGIONS</Description>
 			<iCost>350</iCost>

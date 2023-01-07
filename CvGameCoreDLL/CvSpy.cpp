@@ -32,6 +32,10 @@ void CvSpy::reset()
 	m_iSwitchReligionChange = 0;
 	m_iUnhappyChange = 0;
 	m_iWarWearinessChange = 0;
+	m_iDestroyBuildingChange = 0;
+	m_iDestroyProductionChange = 0;
+	m_iDestroyProjectChange = 0;
+	m_iResearchSabotageChange = 0;
 
 	m_eOriginalSpymaster = NO_PLAYER;
 }
@@ -58,6 +62,10 @@ void CvSpy::read(FDataStreamBase* pStream)
 	pStream->Read(&m_iSwitchReligionChange);
 	pStream->Read(&m_iUnhappyChange);
 	pStream->Read(&m_iWarWearinessChange);
+	pStream->Read(&m_iDestroyBuildingChange);
+	pStream->Read(&m_iDestroyProductionChange);
+	pStream->Read(&m_iDestroyProjectChange);
+	pStream->Read(&m_iResearchSabotageChange);
 	pStream->Read((int*)&m_eOriginalSpymaster);
 }
 
@@ -81,6 +89,10 @@ void CvSpy::write(FDataStreamBase* pStream)
 	pStream->Write(m_iSwitchReligionChange);
 	pStream->Write(m_iUnhappyChange);
 	pStream->Write(m_iWarWearinessChange);
+	pStream->Write(m_iDestroyBuildingChange);
+	pStream->Write(m_iDestroyProductionChange);
+	pStream->Write(m_iDestroyProjectChange);
+	pStream->Write(m_iResearchSabotageChange);
 	pStream->Write(m_eOriginalSpymaster);
 }
 
@@ -289,3 +301,34 @@ void CvSpy::setOriginalSpymaster(PlayerTypes ePlayer)
 	m_eOriginalSpymaster = ePlayer;
 }
 
+int CvSpy::getResearchSabotageChange() const {
+	return m_iResearchSabotageChange;
+}
+
+void CvSpy::changeResearchSabotageChange(int iChange) {
+	m_iResearchSabotageChange += iChange;
+}
+
+int CvSpy::getDestroyProjectChange() const {
+	return m_iDestroyProjectChange;
+}
+
+void CvSpy::changeDestroyProjectChange(int iChange) {
+	m_iDestroyProjectChange += iChange;
+}
+
+int CvSpy::getDestroyBuildingChange() const {
+	return m_iDestroyBuildingChange;
+}
+
+void CvSpy::changeDestroyBuildingChange(int iChange) {
+	m_iDestroyBuildingChange += iChange;
+}
+
+int CvSpy::getDestroyProductionChange() const {
+	return m_iDestroyProductionChange;
+}
+
+void CvSpy::changeDestroyProductionChange(int iChange) {
+	m_iDestroyProductionChange += iChange;
+}
