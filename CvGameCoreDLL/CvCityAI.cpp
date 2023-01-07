@@ -3008,13 +3008,13 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 				}
 			}
 
-			if (kBuilding.isAreaCleanPower() && !(area()->isCleanPower(getTeam()))) {
+			if (kBuilding.isAreaCleanPower() && !area()->isCleanPower(getTeam())) {
 				int iLoop;
 				for (CvCity* pLoopCity = GET_PLAYER(getOwnerINLINE()).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER(getOwnerINLINE()).nextCity(&iLoop)) {
 					if (pLoopCity->area() == area()) {
 						if (pLoopCity->isDirtyPower()) {
 							iValue += 12;
-						} else if (!(pLoopCity->isPower())) {
+						} else if (!pLoopCity->isPower(true)) {
 							iValue += 24; // K-Mod. Giving power should be more valuable than replacing existing power!
 						}
 					}
@@ -3448,13 +3448,13 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 				iTempValue += kBuilding.getYieldModifier(eYield) * iBaseRate / 25;
 				iTempValue += kBuilding.getPowerYieldModifier(eYield) * iBaseRate / (bProvidesPower || isPower() ? 27 : 50);
 
-				if (bProvidesPower && !isPower()) {
+				if (bProvidesPower && !isPower(true)) {
 					iTempValue += ((getPowerYieldRateModifier(eYield) * iBaseRate) / 27); // originally 12
 				}
 
-				for (int iJ = 0; iJ < GC.getNumBonusInfos(); iJ++) {
-					if (hasBonus((BonusTypes)iJ)) {
-						iTempValue += ((kBuilding.getBonusYieldModifier(iJ, eYield) * iBaseRate) / 27); // originally 12
+				for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
+					if (hasBonus(eBonus)) {
+						iTempValue += ((kBuilding.getBonusYieldModifier(eBonus, eYield) * iBaseRate) / 27); // originally 12
 					}
 				}
 
@@ -3530,7 +3530,7 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 
 			if (iFocusFlags & BUILDINGFOCUS_PRODUCTION) {
 				int iTempValue = ((kBuilding.getYieldModifier(YIELD_PRODUCTION) * getBaseYieldRate(YIELD_PRODUCTION)) / 20);
-				iTempValue += ((kBuilding.getPowerYieldModifier(YIELD_PRODUCTION) * getBaseYieldRate(YIELD_PRODUCTION)) / ((bProvidesPower || isPower()) ? 24 : 30));
+				iTempValue += ((kBuilding.getPowerYieldModifier(YIELD_PRODUCTION) * getBaseYieldRate(YIELD_PRODUCTION)) / ((bProvidesPower || isPower(true)) ? 24 : 30));
 				if (kBuilding.getSeaPlotYieldChange(YIELD_PRODUCTION) > 0) {
 					int iNumWaterPlots = countNumWaterPlots();
 					if (!bIsLimitedWonder || (iNumWaterPlots > getNumCityPlots() / 2)) {
@@ -3540,7 +3540,7 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 				if (kBuilding.getRiverPlotYieldChange(YIELD_PRODUCTION) > 0) {
 					iTempValue += (kBuilding.getRiverPlotYieldChange(YIELD_PRODUCTION) * countNumRiverPlots() * 4);
 				}
-				if (bProvidesPower && !isPower()) {
+				if (bProvidesPower && !isPower(true)) {
 					iTempValue += ((getPowerYieldRateModifier(YIELD_PRODUCTION) * getBaseYieldRate(YIELD_PRODUCTION)) / 24); // K-Mod, consistency
 				}
 

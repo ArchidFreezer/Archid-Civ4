@@ -1006,6 +1006,26 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_RADIATION_TEXT"));
 		}
 
+		if (pUnit->getSpyNukeCityChange() > 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_NUKE_CITY_TEXT", pUnit->getSpyNukeCityChange()));
+		}
+
+		if (pUnit->getSpySwitchCivicChange() > 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_SWITCH_CIVIC_TEXT", pUnit->getSpySwitchCivicChange()));
+		}
+
+		if (pUnit->getSpySwitchReligionChange() > 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_SWITCH_RELIGION_TEXT", pUnit->getSpySwitchReligionChange()));
+		}
+
+		if (pUnit->getSpyDisablePowerChange() > 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_DISABLE_POWER_TEXT", pUnit->getSpyDisablePowerChange()));
+		}
+
 		if (pUnit->getUnitInfo().isNoRevealMap()) {
 			szString.append(NEWLINE);
 			szString.append(gDLL->getText("TXT_KEY_UNIT_VISIBILITY_MOVE_RANGE"));
@@ -5742,6 +5762,31 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 	if (kPromotion.getSpyDestroyImprovementChange() != 0) {
 		szBuffer.append(pcNewline);
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_DESTROY_IMPROVEMENT_TEXT", kPromotion.getSpyDestroyImprovementChange()));
+	}
+
+	if (kPromotion.getSpyDiploPenaltyChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_INCREASE_DIPLO_PENALTY", kPromotion.getSpyDiploPenaltyChange()));
+	}
+
+	if (kPromotion.getSpyNukeCityChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_NUKE_CITY_TEXT", kPromotion.getSpyNukeCityChange()));
+	}
+
+	if (kPromotion.getSpySwitchCivicChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_SWITCH_CIVIC_TEXT", kPromotion.getSpySwitchCivicChange()));
+	}
+
+	if (kPromotion.getSpySwitchReligionChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_SWITCH_RELIGION_TEXT", kPromotion.getSpySwitchReligionChange()));
+	}
+
+	if (kPromotion.getSpyDisablePowerChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_DISABLE_POWER_TEXT", kPromotion.getSpyDisablePowerChange()));
 	}
 
 	if (kPromotion.isUnitRangeUnbound()) {
@@ -14829,6 +14874,7 @@ void CvGameTextMgr::setTradeRouteHelp(CvWStringBuffer& szBuffer, int iRoute, CvC
 
 void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, const CvPlot* pPlot, int iExtraData, const CvUnit* pSpyUnit) {
 	const CvPlayer& kPlayer = GET_PLAYER(GC.getGameINLINE().getActivePlayer());
+	const CvPlayer& kTarget = GET_PLAYER(eTargetPlayer);
 	const CvEspionageMissionInfo& kMission = GC.getEspionageMissionInfo(eMission);
 
 	int iMissionCost = kPlayer.getEspionageMissionBaseCost(eMission, eTargetPlayer, pPlot, iExtraData, pSpyUnit);
@@ -14885,7 +14931,7 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 		if (NO_PLAYER != eTargetPlayer) {
 			int iTargetUnitID = iExtraData;
 
-			CvUnit* pUnit = GET_PLAYER(eTargetPlayer).getUnit(iTargetUnitID);
+			CvUnit* pUnit = kTarget.getUnit(iTargetUnitID);
 
 			if (NULL != pUnit) {
 				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_DESTROY_UNIT", pUnit->getNameKey()));
@@ -14898,7 +14944,7 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 		if (NO_PLAYER != eTargetPlayer) {
 			int iTargetUnitID = iExtraData;
 
-			CvUnit* pUnit = GET_PLAYER(eTargetPlayer).getUnit(iTargetUnitID);
+			CvUnit* pUnit = kTarget.getUnit(iTargetUnitID);
 
 			if (NULL != pUnit) {
 				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_BRIBE", pUnit->getNameKey()));
@@ -14981,7 +15027,7 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 				}
 			}
 
-			szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_STEAL_TREASURY", iNumTotalGold, GET_PLAYER(eTargetPlayer).getCivilizationAdjectiveKey()));
+			szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_STEAL_TREASURY", iNumTotalGold, kTarget.getCivilizationAdjectiveKey()));
 			szBuffer.append(NEWLINE);
 		}
 	}
@@ -14993,14 +15039,14 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 
 	if (kMission.getSwitchCivicCostFactor() > 0) {
 		if (NO_PLAYER != eTargetPlayer) {
-			szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_SWITCH_CIVIC", GET_PLAYER(eTargetPlayer).getNameKey(), GC.getCivicInfo((CivicTypes)iExtraData).getTextKeyWide()));
+			szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_SWITCH_CIVIC", kTarget.getNameKey(), GC.getCivicInfo((CivicTypes)iExtraData).getTextKeyWide()));
 			szBuffer.append(NEWLINE);
 		}
 	}
 
 	if (kMission.getSwitchReligionCostFactor() > 0) {
 		if (NO_PLAYER != eTargetPlayer) {
-			szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_SWITCH_CIVIC", GET_PLAYER(eTargetPlayer).getNameKey(), GC.getReligionInfo((ReligionTypes)iExtraData).getTextKeyWide()));
+			szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_SWITCH_CIVIC", kTarget.getNameKey(), GC.getReligionInfo((ReligionTypes)iExtraData).getTextKeyWide()));
 			szBuffer.append(NEWLINE);
 		}
 	}
@@ -15008,7 +15054,7 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 	if (kMission.getPlayerAnarchyCounter() > 0) {
 		if (NO_PLAYER != eTargetPlayer) {
 			int iTurns = (kMission.getPlayerAnarchyCounter() * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getAnarchyPercent()) / 100;
-			szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_ANARCHY", GET_PLAYER(eTargetPlayer).getNameKey(), iTurns));
+			szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_ANARCHY", kTarget.getNameKey(), iTurns));
 			szBuffer.append(NEWLINE);
 		}
 	}
@@ -15017,8 +15063,47 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 		if (NO_PLAYER != eTargetPlayer) {
 			int iTurns = (kMission.getCounterespionageNumTurns() * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getResearchPercent()) / 100;
 
-			szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_COUNTERESPIONAGE", kMission.getCounterespionageMod(), GET_PLAYER(eTargetPlayer).getCivilizationAdjectiveKey(), iTurns));
+			szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_COUNTERESPIONAGE", kMission.getCounterespionageMod(), kTarget.getCivilizationAdjectiveKey(), iTurns));
 			szBuffer.append(NEWLINE);
+		}
+	}
+
+	if (kMission.getAttitudeModifier() < 0) {
+		int iAttitudeMod = kMission.getAttitudeModifier();
+		//Promotion Affects Attitude
+		iAttitudeMod *= 100 + pSpyUnit->getSpyDiplomacyPenalty();
+		iAttitudeMod /= 100;
+
+		szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_CAUSE_INCIDENT", kTarget.getNameKey(), iAttitudeMod));
+		szBuffer.append(NEWLINE);
+	}
+
+	if (kMission.isNuke()) {
+		if (NULL != pPlot) {
+			CvCity* pCity = pPlot->getPlotCity();
+
+			if (NULL != pCity) {
+				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_NUKE", pCity->getNameKey()));
+				szBuffer.append(NEWLINE);
+			}
+		}
+	}
+
+	if (kMission.isDisablePower()) {
+		if (NULL != pPlot) {
+			CvCity* pCity = pPlot->getPlotCity();
+
+			int iTurns = GC.getDefineINT("DISABLE_POWER_TURNS");
+			iTurns *= GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getTrainPercent();
+			iTurns /= 100;
+			//Promotion effects Turns
+			iTurns *= 100 + pSpyUnit->getSpyDisablePowerChange();
+			iTurns /= 100;
+
+			if (NULL != pCity) {
+				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_POWER", pCity->getNameKey(), iTurns));
+				szBuffer.append(NEWLINE);
+			}
 		}
 	}
 
@@ -15059,7 +15144,7 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 				iTempModifier = 0;
 
 				if (pCity->isHasReligion(eReligion)) {
-					if (GET_PLAYER(eTargetPlayer).getStateReligion() != eReligion) {
+					if (kTarget.getStateReligion() != eReligion) {
 						iTempModifier += GC.getDefineINT("ESPIONAGE_CITY_RELIGION_STATE_MOD");
 					}
 
@@ -15105,7 +15190,7 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 				if (kMission.isSelectPlot() || kMission.isTargetsCity()) {
 					iDistance = plotDistance(pOurCapital->getX_INLINE(), pOurCapital->getY_INLINE(), pPlot->getX_INLINE(), pPlot->getY_INLINE());
 				} else {
-					CvCity* pTheirCapital = GET_PLAYER(eTargetPlayer).getCapitalCity();
+					CvCity* pTheirCapital = kTarget.getCapitalCity();
 					if (NULL != pTheirCapital) {
 						iDistance = plotDistance(pOurCapital->getX_INLINE(), pOurCapital->getY_INLINE(), pTheirCapital->getX_INLINE(), pTheirCapital->getY_INLINE());
 					}
@@ -15133,7 +15218,7 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 		}
 
 		// My points VS. Your points to mod cost
-		iTempModifier = ::getEspionageModifier(kPlayer.getTeam(), GET_PLAYER(eTargetPlayer).getTeam()) - 100;
+		iTempModifier = ::getEspionageModifier(kPlayer.getTeam(), kTarget.getTeam()) - 100;
 		if (0 != iTempModifier) {
 			szBuffer.append(SEPARATOR);
 			szBuffer.append(NEWLINE);
@@ -15143,7 +15228,7 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 		}
 
 		// Counterespionage Mission Mod
-		CvTeam& kTargetTeam = GET_TEAM(GET_PLAYER(eTargetPlayer).getTeam());
+		CvTeam& kTargetTeam = GET_TEAM(kTarget.getTeam());
 		if (kTargetTeam.getCounterespionageModAgainstTeam(kPlayer.getTeam()) > 0) {
 			iTempModifier = std::max(-100, kTargetTeam.getCounterespionageModAgainstTeam(kPlayer.getTeam()));
 			if (0 != iTempModifier) {
@@ -15180,7 +15265,7 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 
 
 		if (NULL != pSpyUnit) {
-			int iInterceptChance = (pSpyUnit->getSpyInterceptPercent(GET_PLAYER(eTargetPlayer).getTeam(), true) * (100 + kMission.getDifficultyMod())) / 100;
+			int iInterceptChance = (pSpyUnit->getSpyInterceptPercent(kTarget.getTeam(), true) * (100 + kMission.getDifficultyMod())) / 100;
 
 			szBuffer.append(NEWLINE);
 			szBuffer.append(NEWLINE);

@@ -7129,6 +7129,36 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		}
 	}
 
+	if (kPromotion.getSpyDiploPenaltyChange()) {
+		if (AI_getUnitAIType() == UNITAI_SPY) {
+			iValue += 15;
+		}
+	}
+
+	if (kPromotion.getSpyNukeCityChange()) {
+		if (AI_getUnitAIType() == UNITAI_SPY) {
+			iValue += 15;
+		}
+	}
+
+	if (kPromotion.getSpySwitchCivicChange()) {
+		if (AI_getUnitAIType() == UNITAI_SPY) {
+			iValue += 15;
+		}
+	}
+
+	if (kPromotion.getSpySwitchReligionChange()) {
+		if (AI_getUnitAIType() == UNITAI_SPY) {
+			iValue += 15;
+		}
+	}
+
+	if (kPromotion.getSpyDisablePowerChange()) {
+		if (AI_getUnitAIType() == UNITAI_SPY) {
+			iValue += 15;
+		}
+	}
+
 	if (kPromotion.isEnemyRoute()) {
 		if (AI_getUnitAIType() == UNITAI_PILLAGE) {
 			iValue += 40;
@@ -16483,6 +16513,8 @@ EspionageMissionTypes CvUnitAI::AI_bestPlotEspionage(PlayerTypes& eTargetPlayer,
 					iTestData = GC.getNumProjectInfos();
 				} else if (kMissionInfo.getDestroyBuildingCostFactor() > 0) {
 					iTestData = GC.getNumBuildingInfos();
+				} else if (kMissionInfo.getAttitudeModifier() != 0) {
+					iTestData = MAX_PLAYERS;
 				}
 
 				// estimate the risk cost of losing the spy.

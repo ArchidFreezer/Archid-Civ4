@@ -11352,6 +11352,78 @@ int CvPlayerAI::AI_espionageVal(PlayerTypes eTargetPlayer, EspionageMissionTypes
 	}
 
 
+	// Value for Cause Incident
+	if (bMalicious && GC.getEspionageMissionInfo(eMission).getAttitudeModifier() < 0) {
+		int iTempValue = 800 + GC.getGameINLINE().getSorenRandNum(500, "Cause Incident Chance Random");
+
+		// We can discount some scapegoat players straight away
+		if (GET_PLAYER((PlayerTypes)iData).isBarbarian())
+			iTempValue = 0;
+		if (!GET_PLAYER((PlayerTypes)iData).isAlive())
+			iTempValue = 0;
+		if ((PlayerTypes)iData == eTargetPlayer)
+			iTempValue = 0;
+		if ((PlayerTypes)iData == getID())
+			iTempValue = 0;
+
+		// If we reach here then this is a valid scapegoat target
+		if (iTempValue > 0) {
+			TeamTypes eScapegoatTeam = GET_PLAYER((PlayerTypes)iData).getTeam();
+			if (GET_TEAM(getTeam()).isHasMet(eScapegoatTeam)) {
+				iTempValue *= GET_PLAYER((PlayerTypes)iData).getPower();
+				iTempValue /= getPower();
+			}
+		}
+		iValue += iTempValue;
+	}
+
+	if (bMalicious && GC.getEspionageMissionInfo(eMission).isNuke()) {
+		if (NULL != pPlot) {
+			CvCity* pCity = pPlot->getPlotCity();
+
+			if (NULL != pCity) {
+				int iTempValue = 1;
+				int iRange = 1;
+
+				iTempValue += GC.getGameINLINE().getSorenRandNum((pCity->getPopulation() + 1), "AI Nuke City Value");
+				iTempValue += std::max(0, pCity->getPopulation() - 10);
+
+				iTempValue += ((pCity->getPopulation() * (100 + pCity->calculateCulturePercent(pCity->getOwnerINLINE()))) / 100);
+
+				iTempValue += AI_getAttitudeVal(pCity->getOwnerINLINE()) / 3;
+
+				for (int iDX = -(iRange); iDX <= iRange; iDX++) {
+					for (int iDY = -(iRange); iDY <= iRange; iDY++) {
+						CvPlot* pLoopPlot = plotXY(pCity->getX_INLINE(), pCity->getY_INLINE(), iDX, iDY);
+
+						if (pLoopPlot != NULL) {
+							if (pLoopPlot->getImprovementType() != NO_IMPROVEMENT) {
+								iTempValue++;
+							}
+							if (pLoopPlot->getNonObsoleteBonusType(getTeam()) != NO_BONUS) {
+								iTempValue++;
+							}
+						}
+					}
+				}
+				if (!(pCity->isEverOwned(getID()))) {
+					iTempValue *= 3;
+					iTempValue /= 2;
+				}
+				if (!GET_TEAM(pCity->getTeam()).isAVassal()) {
+					iTempValue *= 2;
+				}
+				if (pCity->plot()->isVisible(getTeam(), false)) {
+					iTempValue += 2 * pCity->plot()->getNumVisibleUnits(getID());
+				} else {
+					iTempValue += 6;
+				}
+
+				iValue += iTempValue * 10;
+			}
+		}
+	}
+
 	if (bMalicious && (GC.getEspionageMissionInfo(eMission).getDestroyUnitCostFactor() > 0 || GC.getEspionageMissionInfo(eMission).getBuyUnitCostFactor() > 0)) {
 		if (NULL != pPlot) {
 			CvUnit* pUnit = GET_PLAYER(eTargetPlayer).getUnit(iData);

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Game Text - New -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CAUSE_INCIDENT</Tag>
+		<English>Cause Diplomatic Incident</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_NUKE</Tag>
+		<English>Detonate Nuclear Device</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_DISABLE_POWER</Tag>
+		<English>Disable City Power</English>
+	</TEXT>
+
+</Civ4GameText>

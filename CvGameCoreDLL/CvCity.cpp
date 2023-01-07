@@ -426,6 +426,7 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 	m_iStarSignScalePercent = 0;
 	m_iStarSignAngerTimer = 0;
 	m_iSlaveMarketCount = 0;
+	m_iDisabledPowerTimer = 0;
 
 	m_bNeverLost = true;
 	m_bBombarded = false;
@@ -820,6 +821,8 @@ void CvCity::doTurn() {
 	setDrafted(false);
 	setAirliftTargeted(false);
 	setCurrAirlift(0);
+
+	doDisabledPower();
 
 	AI_doTurn();
 
@@ -6281,8 +6284,11 @@ int CvCity::getPowerCount() const {
 }
 
 
-bool CvCity::isPower() const {
-	return ((getPowerCount() > 0) || isAreaCleanPower());
+bool CvCity::isPower(bool bIgnoreDisabled) const {
+	if (!bIgnoreDisabled && getDisabledPowerTimer() > 0)
+		return false;
+
+	return (getPowerCount() > 0 || isAreaCleanPower());
 }
 
 
@@ -10930,6 +10936,7 @@ void CvCity::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iStarSignScalePercent);
 	pStream->Read(&m_iStarSignAngerTimer);
 	pStream->Read(&m_iSlaveMarketCount);
+	pStream->Read(&m_iDisabledPowerTimer);
 
 	pStream->Read(&m_bNeverLost);
 	pStream->Read(&m_bBombarded);
@@ -11169,6 +11176,7 @@ void CvCity::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iStarSignScalePercent);
 	pStream->Write(m_iStarSignAngerTimer);
 	pStream->Write(m_iSlaveMarketCount);
+	pStream->Write(m_iDisabledPowerTimer);
 
 	pStream->Write(m_bNeverLost);
 	pStream->Write(m_bBombarded);
@@ -13450,4 +13458,34 @@ bool CvCity::canSuppressSlaveRevolt() const {
 		}
 	}
 	return (iStrength >= iExcessSlaves);
+}
+
+int CvCity::getDisabledPowerTimer() const {
+	return m_iDisabledPowerTimer;
+}
+
+void CvCity::changeDisabledPowerTimer(int iChange) {
+	bool bTimerWasActive = (getDisabledPowerTimer() >= 0);
+	m_iDisabledPowerTimer = std::max(0, m_iDisabledPowerTimer += iChange);
+	// If we have changed the status the update the associated settings
+	if (bTimerWasActive != (getDisabledPowerTimer() >= 0)) {
+		doPowerStatusChange();
+	}
+}
+
+void CvCity::doDisabledPower() {
+	if (getDisabledPowerTimer() > 0) {
+		changeDisabledPowerTimer(-1);
+		if (getDisabledPowerTimer() == 0) {
+			doPowerStatusChange();
+			CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_POWER_RESTORED", getNameKey());
+			gDLL->getInterfaceIFace()->addMessage(getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_POSITIVE_DINK", MESSAGE_TYPE_MINOR_EVENT, ARTFILEMGR.getInterfaceArtInfo("WORLDBUILDER_CITY_EDIT")->getPath(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), getX_INLINE(), getY_INLINE(), false, false);
+		}
+	}
+}
+
+void CvCity::doPowerStatusChange() {
+	updateCommerce();
+	updatePowerHealth();
+	setInfoDirty(true);
 }

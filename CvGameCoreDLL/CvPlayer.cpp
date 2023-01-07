@@ -11393,6 +11393,44 @@ bool CvPlayer::canDoEspionageMission(EspionageMissionTypes eMission, PlayerTypes
 		}
 	}
 
+	// Check if there are any valid targets for a scapegoat when changing attitudes
+	if (kMission.getAttitudeModifier() < 0) {
+		if (iExtraData == NO_PLAYER) {
+			bool bfoundScapegoat = false;
+			for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS, !bfoundScapegoat; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+				if (!GET_PLAYER(ePlayer).isAlive())
+					continue;
+				if (ePlayer == eTargetPlayer)
+					continue;
+				if (ePlayer == getID())
+					continue;
+				TeamTypes eScapegoatTeam = GET_PLAYER(ePlayer).getTeam();
+				if (GET_TEAM(getTeam()).isHasMet(eScapegoatTeam) && GET_TEAM(GET_PLAYER(eTargetPlayer).getTeam()).isHasMet(eScapegoatTeam)) {
+					bfoundScapegoat = true;
+				}
+			}
+			if (!bfoundScapegoat)
+				return false;
+		} else {
+			PlayerTypes eScapegoat = (PlayerTypes)iExtraData;
+			if (eScapegoat == eTargetPlayer)
+				return false;
+			if (eScapegoat == getID())
+				return false;
+			TeamTypes eScapegoatTeam = GET_PLAYER(eScapegoat).getTeam();
+			if (!GET_TEAM(getTeam()).isHasMet(eScapegoatTeam))
+				return false;
+			if (!GET_TEAM(GET_PLAYER(eTargetPlayer).getTeam()).isHasMet(eScapegoatTeam))
+				return false;
+		}
+	}
+
+	if (kMission.isNuke()) {
+		if (!GC.getGameINLINE().canTrainNukes()) {
+			return false;
+		}
+	}
+
 	return true;
 }
 
@@ -11496,6 +11534,10 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 		if (NO_CIVIC != eCivic) {
 			if (canForceCivics(eTargetPlayer, eCivic)) {
 				iMissionCost = iBaseMissionCost + (kMission.getSwitchCivicCostFactor() * GET_PLAYER(eTargetPlayer).getTotalPopulation() * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getAnarchyPercent()) / 10000;
+				if (pSpyUnit != NULL) {
+					iMissionCost *= 100 - pSpyUnit->getSpySwitchCivicChange();
+					iMissionCost /= 100;
+				}
 			}
 		}
 	} else if (kMission.getSwitchReligionCostFactor() > 0) {
@@ -11524,6 +11566,10 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 					FAssert(iCurrent > 0 && iNew > 0);
 					iMissionCost *= std::max(iCurrent, iNew) + iCitiesTarget;
 					iMissionCost /= iNew + iCitiesTarget;
+				}
+				if (pSpyUnit != NULL) {
+					iMissionCost *= 100 - pSpyUnit->getSpySwitchReligionChange();
+					iMissionCost /= 100;
 				}
 			}
 		}
@@ -11705,6 +11751,18 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 		if (!GET_PLAYER(eTargetPlayer).isAnarchy()) {
 			iMissionCost = (iBaseMissionCost * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getAnarchyPercent()) / 100;
 		}
+	} else if (kMission.isNuke()) {
+		if (NULL != pPlot) {
+			FAssert(NULL != pCity);
+			if (NULL != pCity) {
+				if (NULL != pSpyUnit) {
+					iMissionCost = iBaseMissionCost;
+					//Promotion affects Mission Cost
+					iMissionCost *= 100 - pSpyUnit->getSpyNukeCityChange();
+					iMissionCost /= 100;
+				}
+			}
+		}
 	} else if (kMission.isPassive()) {
 		iMissionCost = (iBaseMissionCost * (100 + GET_TEAM(GET_PLAYER(eTargetPlayer).getTeam()).getEspionagePointsAgainstTeam(getTeam()))) / 100;
 	} else {
@@ -11834,7 +11892,7 @@ int CvPlayer::getEspionageMissionCostModifier(EspionageMissionTypes eMission, Pl
 }
 
 
-bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, CvPlot* pPlot, int iExtraData, CvUnit* pSpyUnit) {
+bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, CvPlot* pPlot, int iExtraData, CvUnit* pSpyUnit, bool bReveal) {
 	if (!canDoEspionageMission(eMission, eTargetPlayer, pPlot, iExtraData, pSpyUnit)) {
 		return false;
 	}
@@ -11849,6 +11907,7 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 	bool bSomethingHappened = false;
 	bool bShowExplosion = false;
 	CvWString szBuffer;
+	TCHAR szSound[1024] = "AS2D_DEAL_CANCELLED";
 	int iMissionCost = getEspionageMissionCost(eMission, eTargetPlayer, pPlot, iExtraData, pSpyUnit);
 
 
@@ -11876,6 +11935,51 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 
 			if (bSomethingHappened) {
 				bShowExplosion = true;
+			}
+		}
+	}
+
+	//////////////////////////////
+	// Cause Incident	
+
+	if (kMission.getAttitudeModifier() < 0) {
+		// eTarget gets negative diplo reaction to iExtraData
+		if ((NO_PLAYER != eTargetPlayer) && (NULL != pPlot)) {
+			CvCity* pCity = pPlot->getPlotCity();
+			if (NULL != pCity) {
+				szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_TARGET_CAUSE_INCIDENT", pCity->getNameKey()).GetCString();
+				int iAttitudeMod = -1 * (kMission.getAttitudeModifier() * (100 + pSpyUnit->getSpyDiplomacyPenalty())) / 100;
+				GET_PLAYER(eTargetPlayer).AI_changeMemoryCount((PlayerTypes)iExtraData, MEMORY_EVENT_BAD_TO_US, iAttitudeMod);
+				bSomethingHappened = true;
+			}
+		}
+	}
+
+	//////////////////////////////
+	// Disable Power
+
+	if (kMission.isDisablePower()) {
+		if (NULL != pPlot) {
+			CvCity* pCity = pPlot->getPlotCity();
+
+			if (NULL != pCity && pCity->isPower()) {
+				int iTurns = 6;
+				iTurns *= GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getTrainPercent();
+				iTurns /= 100;
+				//Promotion effects Turns
+				iTurns *= 100 + pSpyUnit->getSpyDisablePowerChange();
+				iTurns /= 100;
+
+				pCity->changeDisabledPowerTimer(iTurns);
+				bSomethingHappened = true;
+
+				strcpy(szSound, "AS2D_BUILD_PLANTNUCLEAR");
+
+				if (bReveal) {
+					szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_POWER_CUT_CAUGHT", pCity->getNameKey(), getCivilizationDescription()).GetCString();
+				} else {
+					szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_POWER_CUT", pCity->getNameKey()).GetCString();
+				}
 			}
 		}
 	}
@@ -12176,11 +12280,23 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 		}
 	}
 
+	//////////////////////////////
+	// Nuclear Bomb
+	// We use a different variable from bSomethingHappened as the pSpyUnit->spyNUke call displays messages so we
+	//  don't want them duplicated here
+
+	bool bNuked = false;
+	if (NULL != pPlot && NULL != pSpyUnit && kMission.isNuke()) {
+		if (pSpyUnit->spyNuke(pPlot->getX_INLINE(), pPlot->getY_INLINE(), bReveal)) {
+			bNuked = true;
+		}
+	}
+
 	int iHave = 0;
 	if (NO_TEAM != eTargetTeam) {
 		iHave = GET_TEAM(getTeam()).getEspionagePointsAgainstTeam(eTargetTeam);
 
-		if (bSomethingHappened) {
+		if (bSomethingHappened || bNuked) {
 			GET_TEAM(getTeam()).changeEspionagePointsAgainstTeam(eTargetTeam, -iMissionCost);
 		}
 	}
@@ -12204,7 +12320,7 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 		}
 
 		gDLL->getInterfaceIFace()->addHumanMessage(getID(), true, GC.getEVENT_MESSAGE_TIME(), gDLL->getText("TXT_KEY_ESPIONAGE_MISSION_PERFORMED"), "AS2D_POSITIVE_DINK", MESSAGE_TYPE_INFO, ARTFILEMGR.getInterfaceArtInfo("ESPIONAGE_BUTTON")->getPath(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), iX, iY, true, true);
-	} else if (getID() == GC.getGameINLINE().getActivePlayer()) {
+	} else if (getID() == GC.getGameINLINE().getActivePlayer() && !bNuked) {
 		CvPopupInfo* pInfo = new CvPopupInfo(BUTTONPOPUP_TEXT);
 		if (iHave < iMissionCost) {
 			pInfo->setText(gDLL->getText("TXT_KEY_ESPIONAGE_TOO_EXPENSIVE", iMissionCost, iHave));
@@ -12228,7 +12344,7 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 		}
 	}
 
-	return bSomethingHappened;
+	return bSomethingHappened || bNuked;
 }
 
 int CvPlayer::getEspionageSpendingWeightAgainstTeam(TeamTypes eIndex) const {

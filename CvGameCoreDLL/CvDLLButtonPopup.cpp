@@ -1641,13 +1641,13 @@ bool CvDLLButtonPopup::launchDoEspionageTargetPopup(CvPopup* pPopup, CvPopupInfo
 	CvEspionageMissionInfo& kMission = GC.getEspionageMissionInfo(eMission);
 	if (kMission.getDestroyBuildingCostFactor() > 0) {
 		if (NULL != pCity) {
-			for (int iBuilding = 0; iBuilding < GC.getNumBuildingInfos(); ++iBuilding) {
-				if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, iBuilding, pUnit)) {
-					CvBuildingInfo& kBuilding = GC.getBuildingInfo((BuildingTypes)iBuilding);
-					if (pCity->getNumRealBuilding((BuildingTypes)iBuilding) > 0) {
-						int iCost = kPlayer.getEspionageMissionCost(eMission, eTargetPlayer, pPlot, iBuilding, pUnit);
+			for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+				if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, eBuilding, pUnit)) {
+					CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+					if (pCity->getNumRealBuilding(eBuilding) > 0) {
+						int iCost = kPlayer.getEspionageMissionCost(eMission, eTargetPlayer, pPlot, eBuilding, pUnit);
 						CvWString szBuffer = gDLL->getText("TXT_KET_ESPIONAGE_MISSION_COST", kBuilding.getDescription(), iCost);
-						gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, kBuilding.getButton(), iBuilding, WIDGET_HELP_ESPIONAGE_COST, eMission, iBuilding);
+						gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, kBuilding.getButton(), eBuilding, WIDGET_HELP_ESPIONAGE_COST, eMission, eBuilding);
 					}
 				}
 			}
@@ -1661,7 +1661,7 @@ bool CvDLLButtonPopup::launchDoEspionageTargetPopup(CvPopup* pPopup, CvPopupInfo
 			if (NULL != pLoopUnit) {
 				if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, pLoopUnit->getUnitType(), pUnit)) {
 					if (pLoopUnit->getTeam() == GET_PLAYER(eTargetPlayer).getTeam()) {
-						CvUnitInfo& kUnit = pLoopUnit->getUnitInfo();
+						const CvUnitInfo& kUnit = pLoopUnit->getUnitInfo();
 						int iCost = kPlayer.getEspionageMissionCost(eMission, eTargetPlayer, pPlot, pLoopUnit->getUnitType(), pUnit);
 						CvWString szBuffer = gDLL->getText("TXT_KET_ESPIONAGE_MISSION_COST", kUnit.getDescription(), iCost);
 						gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, pLoopUnit->getButton(), pLoopUnit->getID(), WIDGET_HELP_ESPIONAGE_COST, eMission, pLoopUnit->getUnitType());
@@ -1670,40 +1670,52 @@ bool CvDLLButtonPopup::launchDoEspionageTargetPopup(CvPopup* pPopup, CvPopupInfo
 			}
 		}
 	} else if (kMission.getDestroyProjectCostFactor() > 0) {
-		for (int iProject = 0; iProject < GC.getNumProjectInfos(); ++iProject) {
-			if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, iProject, pUnit)) {
-				if (GET_TEAM(GET_PLAYER(eTargetPlayer).getTeam()).getProjectCount((ProjectTypes)iProject) > 0) {
-					int iCost = kPlayer.getEspionageMissionCost(eMission, eTargetPlayer, pPlot, iProject, pUnit);
-					CvWString szBuffer = gDLL->getText("TXT_KET_ESPIONAGE_MISSION_COST", GC.getProjectInfo((ProjectTypes)iProject).getDescription(), iCost);
-					gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, GC.getProjectInfo((ProjectTypes)iProject).getButton(), iProject, WIDGET_HELP_ESPIONAGE_COST, eMission, iProject);
+		for (ProjectTypes eProject = (ProjectTypes)0; eProject < GC.getNumProjectInfos(); eProject = (ProjectTypes)(eProject + 1)) {
+			if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, eProject, pUnit)) {
+				if (GET_TEAM(GET_PLAYER(eTargetPlayer).getTeam()).getProjectCount(eProject) > 0) {
+					int iCost = kPlayer.getEspionageMissionCost(eMission, eTargetPlayer, pPlot, eProject, pUnit);
+					const CvProjectInfo& kProject = GC.getProjectInfo(eProject);
+					CvWString szBuffer = gDLL->getText("TXT_KET_ESPIONAGE_MISSION_COST", kProject.getDescription(), iCost);
+					gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, kProject.getButton(), eProject, WIDGET_HELP_ESPIONAGE_COST, eMission, eProject);
 				}
 			}
 		}
 	} else if (kMission.getBuyTechCostFactor() > 0) {
-		for (int iTech = 0; iTech < GC.getNumTechInfos(); ++iTech) {
-			if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, iTech, pUnit)) {
-				int iCost = kPlayer.getEspionageMissionCost(eMission, eTargetPlayer, pPlot, iTech, pUnit);
-				CvTechInfo& kTech = GC.getTechInfo((TechTypes)iTech);
+		for (TechTypes eTech = (TechTypes)0; eTech < GC.getNumTechInfos(); eTech = (TechTypes)(eTech + 1)) {
+			if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, eTech, pUnit)) {
+				int iCost = kPlayer.getEspionageMissionCost(eMission, eTargetPlayer, pPlot, eTech, pUnit);
+				const CvTechInfo& kTech = GC.getTechInfo(eTech);
 				CvWString szBuffer = gDLL->getText("TXT_KET_ESPIONAGE_MISSION_COST", kTech.getDescription(), iCost);
-				gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, kTech.getButton(), iTech, WIDGET_HELP_ESPIONAGE_COST, eMission, iTech);
+				gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, kTech.getButton(), eTech, WIDGET_HELP_ESPIONAGE_COST, eMission, eTech);
 			}
 		}
 	} else if (kMission.getSwitchCivicCostFactor() > 0) {
-		for (int iCivic = 0; iCivic < GC.getNumCivicInfos(); ++iCivic) {
-			if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, iCivic, pUnit)) {
-				int iCost = kPlayer.getEspionageMissionCost(eMission, eTargetPlayer, pPlot, iCivic, pUnit);
-				CvCivicInfo& kCivic = GC.getCivicInfo((CivicTypes)iCivic);
+		for (CivicTypes eCivic = (CivicTypes)0; eCivic < GC.getNumCivicInfos(); eCivic = (CivicTypes)(eCivic + 1)) {
+			if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, eCivic, pUnit)) {
+				int iCost = kPlayer.getEspionageMissionCost(eMission, eTargetPlayer, pPlot, eCivic, pUnit);
+				const CvCivicInfo& kCivic = GC.getCivicInfo(eCivic);
 				CvWString szBuffer = gDLL->getText("TXT_KET_ESPIONAGE_MISSION_COST", kCivic.getDescription(), iCost);
-				gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, kCivic.getButton(), iCivic, WIDGET_HELP_ESPIONAGE_COST, eMission, iCivic);
+				gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, kCivic.getButton(), eCivic, WIDGET_HELP_ESPIONAGE_COST, eMission, eCivic);
 			}
 		}
 	} else if (kMission.getSwitchReligionCostFactor() > 0) {
-		for (int iReligion = 0; iReligion < GC.getNumReligionInfos(); ++iReligion) {
-			if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, iReligion, pUnit)) {
-				int iCost = kPlayer.getEspionageMissionCost(eMission, eTargetPlayer, pPlot, iReligion, pUnit);
-				CvReligionInfo& kReligion = GC.getReligionInfo((ReligionTypes)iReligion);
+		for (ReligionTypes eReligion = (ReligionTypes)0; eReligion < GC.getNumReligionInfos(); eReligion = (ReligionTypes)(eReligion + 1)) {
+			if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, eReligion, pUnit)) {
+				int iCost = kPlayer.getEspionageMissionCost(eMission, eTargetPlayer, pPlot, eReligion, pUnit);
+				const CvReligionInfo& kReligion = GC.getReligionInfo(eReligion);
 				CvWString szBuffer = gDLL->getText("TXT_KET_ESPIONAGE_MISSION_COST", kReligion.getDescription(), iCost);
-				gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, kReligion.getButton(), iReligion, WIDGET_HELP_ESPIONAGE_COST, eMission, iReligion);
+				gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, kReligion.getButton(), eReligion, WIDGET_HELP_ESPIONAGE_COST, eMission, eReligion);
+			}
+		}
+	} else if (kMission.getAttitudeModifier() < 0) {
+		for (PlayerTypes eScapegoat = (PlayerTypes)0; eScapegoat < MAX_CIV_PLAYERS; eScapegoat = (PlayerTypes)(eScapegoat + 1)) {
+			if (GET_PLAYER(eScapegoat).isAlive()) {
+				if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, eScapegoat, pUnit)) {
+					int iCost = kPlayer.getEspionageMissionCost(eMission, eTargetPlayer, pPlot, eScapegoat, pUnit);
+					const CvPlayer& kScapegoat = GET_PLAYER(eScapegoat);
+					CvWString szBuffer = gDLL->getText("TXT_KET_ESPIONAGE_MISSION_COST", kScapegoat.getNameKey(), iCost);
+					gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, GC.getCivilizationInfo(kScapegoat.getCivilizationType()).getButton(), eScapegoat, WIDGET_HELP_ESPIONAGE_COST, eMission, eScapegoat);
+				}
 			}
 		}
 	}

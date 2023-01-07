@@ -38,4 +38,8 @@
 		<DefineName>NUM_WARNING_REVOLTS</DefineName>
 		<iDefineIntVal>2</iDefineIntVal>
 	</Define>
+	<Define>
+		<DefineName>DISABLE_POWER_TURNS</DefineName>
+		<iDefineIntVal>6</iDefineIntVal>
+	</Define>	
 </Civ4Defines>

@@ -503,6 +503,45 @@
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Commando.dds,Art/Interface/Buttons/Promotions_Atlas.dds,1,3</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Conspiracy 1 -->
+			<Type>PROMOTION_CONSPIRACY1</Type>
+			<Description>TXT_KEY_PROMOTION_CONSPIRACY1</Description>
+			<Sound>AS2D_PING</Sound>
+			<iSpyDiploPenaltyChange>50</iSpyDiploPenaltyChange>
+			<iSpySwitchCivicChange>50</iSpySwitchCivicChange>
+			<iSpySwitchReligionChange>50</iSpySwitchReligionChange>				
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Conspiracy1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Conspiracy 2 -->
+			<Type>PROMOTION_CONSPIRACY2</Type>
+			<Description>TXT_KEY_PROMOTION_CONSPIRACY2</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_CONSPIRACY1</PromotionPrereq>
+			<iSpyDiploPenaltyChange>50</iSpyDiploPenaltyChange>
+			<iSpyDisablePowerChange>50</iSpyDisablePowerChange>		
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Conspiracy2.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Conspiracy 3 -->
+			<Type>PROMOTION_CONSPIRACY3</Type>
+			<Description>TXT_KEY_PROMOTION_CONSPIRACY3</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_CONSPIRACY2</PromotionPrereq>
+			<iSpyDiploPenaltyChange>50</iSpyDiploPenaltyChange>
+			<iSpyNukeCityChange>50</iSpyNukeCityChange>		
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Conspiracy3.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Cover -->
 			<Type>PROMOTION_COVER</Type>
 			<Description>TXT_KEY_PROMOTION_COVER</Description>

@@ -566,11 +566,15 @@ public:
 	void changeFreeSpecialist(int iChange);
 
 	int getPowerCount() const;
-	bool isPower() const;														// Exposed to Python
+	bool isPower(bool bIgnoreDisabled = false) const;														// Exposed to Python
 	bool isAreaCleanPower() const;												// Exposed to Python
 	int getDirtyPowerCount() const;
 	bool isDirtyPower() const;													// Exposed to Python
 	void changePowerCount(int iChange, bool bDirty);
+	int getDisabledPowerTimer() const;
+	void changeDisabledPowerTimer(int iChange);
+	void doDisabledPower();
+	void doPowerStatusChange();
 
 	bool isAreaBorderObstacle() const;											// Exposed to Python
 
@@ -1129,6 +1133,7 @@ protected:
 	int m_iStarSignScalePercent;
 	int m_iStarSignAngerTimer;
 	int m_iSlaveMarketCount;
+	int m_iDisabledPowerTimer;
 
 	bool m_bNeverLost;
 	bool m_bBombarded;

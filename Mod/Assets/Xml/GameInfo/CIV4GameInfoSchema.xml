@@ -1145,6 +1145,9 @@
 	<ElementType name="iPlayerAnarchyCounter" content="textOnly" dt:type="int"/>
 	<ElementType name="iCounterespionageNumTurns" content="textOnly" dt:type="int"/>
 	<ElementType name="iCounterespionageMod" content="textOnly" dt:type="int"/>
+	<ElementType name="iAttitudeModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="bNuke" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bDisablePower" content="textOnly" dt:type="boolean"/>
 	<ElementType name="EspionageMissionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -1179,6 +1182,9 @@
 		<element type="iPlayerAnarchyCounter" minOccurs="0"/>
 		<element type="iCounterespionageNumTurns" minOccurs="0"/>
 		<element type="iCounterespionageMod" minOccurs="0"/>
+		<element type="iAttitudeModifier" minOccurs="0"/>
+		<element type="bNuke" minOccurs="0"/>
+		<element type="bDisablePower" minOccurs="0"/>
 	</ElementType>
 	<ElementType name="EspionageMissionInfos" content="eltOnly">
 		<element type="EspionageMissionInfo" maxOccurs="*"/>

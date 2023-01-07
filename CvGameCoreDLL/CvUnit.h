@@ -105,6 +105,8 @@ public:
 	bool isDoubleAgent() const;
 	bool isLoyal() const;
 	bool isSpyRadiation() const;
+	bool spyNuke(int iX, int iY, bool bReveal);
+	bool spyNukeAffected(const CvPlot* pPlot, TeamTypes eTeam, int iRange) const;
 	int getLoyaltyCount() const;
 	int getSpyEvasionChance() const;
 	int getSpyEvasionChanceExtra() const;
@@ -112,6 +114,11 @@ public:
 	int getSpyDestroyImprovementChange() const;
 	int getSpyPoisonChangeExtra() const;
 	int getSpyRadiationCount() const;
+	int getSpyDiplomacyPenalty() const;
+	int getSpyDisablePowerChange() const;
+	int getSpyNukeCityChange() const;
+	int getSpySwitchCivicChange() const;
+	int getSpySwitchReligionChange() const;
 	void awardSpyExperience(TeamTypes eTargetTeam, int iModifier);
 	void changeLoyaltyCount(int iChange);
 	void changeSpyEvasionChanceExtra(int iChange);
@@ -120,6 +127,11 @@ public:
 	void changeSpyPoisonChangeExtra(int iChange);
 	void changeSpyRadiationCount(int iChange);
 	void setOriginalSpymaster(PlayerTypes ePlayer);
+	void changeSpyDiplomacyPenalty(int iChange);
+	void changeSpyDisablePowerChange(int iChange);
+	void changeSpyNukeCityChange(int iChange);
+	void changeSpySwitchCivicChange(int iChange);
+	void changeSpySwitchReligionChange(int iChange);
 	PlayerTypes getOriginalSpymaster() const;
 
 	int getEnslaveCountExtra() const;
@@ -331,7 +343,7 @@ public:
 
 	bool canEspionage(const CvPlot* pPlot, bool bTestVisible = false) const;
 	bool espionage(EspionageMissionTypes eMission, int iData);
-	bool testSpyIntercepted(PlayerTypes eTargetPlayer, bool bMission, int iModifier = 0);
+	bool testSpyIntercepted(PlayerTypes eTargetPlayer, bool bMission, bool& bRevealCiv, int iModifier = 0);
 	int getSpyInterceptPercent(TeamTypes eTargetTeam, bool bMission) const;
 	bool isIntruding() const;
 
@@ -939,6 +951,11 @@ protected:
 	int m_iSpyPoisonChangeExtra;
 	int m_iSpyDestroyImprovementChange;
 	int m_iSpyRadiationCount;
+	int m_iSpyDiplomacyPenalty;
+	int m_iSpyNukeCityChange;
+	int m_iSpySwitchCivicChange;
+	int m_iSpySwitchReligionChange;
+	int m_iSpyDisablePowerChange;
 
 	bool m_bMadeAttack;
 	bool m_bMadeInterception;

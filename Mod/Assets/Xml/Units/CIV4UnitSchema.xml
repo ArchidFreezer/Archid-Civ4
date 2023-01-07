@@ -839,6 +839,11 @@
 	<ElementType name="iSpyPreparationModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iSpyPoisonModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iSpyEvasionChange" content="textOnly" dt:type="int"/>
+	<ElementType name="iSpyDiploPenaltyChange" content="textOnly" dt:type="int"/>
+	<ElementType name="iSpyNukeCityChange" content="textOnly" dt:type="int"/>	
+	<ElementType name="iSpyDisablePowerChange" content="textOnly" dt:type="int"/>	
+	<ElementType name="iSpySwitchCivicChange" content="textOnly" dt:type="int"/>	
+	<ElementType name="iSpySwitchReligionChange" content="textOnly" dt:type="int"/>		
 	<ElementType name="iSpyDestroyImprovementChange" content="textOnly" dt:type="int"/>	
 	<ElementType name="PromotionInfo" content="eltOnly">
 		<element type="Type"/>
@@ -890,6 +895,11 @@
 		<element type="iSpyPreparationModifier" minOccurs="0"/>
 		<element type="iSpyPoisonModifier" minOccurs="0"/>
 		<element type="iSpyEvasionChange" minOccurs="0"/>
+		<element type="iSpyDiploPenaltyChange" minOccurs="0"/>
+		<element type="iSpyNukeCityChange" minOccurs="0"/>
+		<element type="iSpyDisablePowerChange" minOccurs="0"/>
+		<element type="iSpySwitchCivicChange" minOccurs="0"/>
+		<element type="iSpySwitchReligionChange" minOccurs="0"/>		
 		<element type="iSpyDestroyImprovementChange" minOccurs="0"/>			
 		<element type="iRevoltProtection" minOccurs="0"/>
 		<element type="iCollateralDamageProtection" minOccurs="0"/>

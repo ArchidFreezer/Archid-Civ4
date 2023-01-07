@@ -25,6 +25,21 @@
 		<Italian>Alchimista III</Italian>
 		<Spanish>Alquimista III</Spanish>
 	</TEXT>
+	<TEXT> <!-- Conspiracy I -->
+		<Tag>TXT_KEY_PROMOTION_CONSPIRACY1</Tag>
+		<English>Conspiracy I</English>
+		<French>Conspiration I</French>
+	</TEXT>
+	<TEXT> <!-- Conspiracy II -->
+		<Tag>TXT_KEY_PROMOTION_CONSPIRACY2</Tag>
+		<English>Conspiracy II</English>
+		<French>Conspiration II</French>
+	</TEXT>
+	<TEXT> <!-- Conspiracy III -->
+		<Tag>TXT_KEY_PROMOTION_CONSPIRACY3</Tag>
+		<English>Conspiracy III</English>
+		<French>Conspiration III</French>
+	</TEXT>
 	<TEXT> <!-- Disorganised (Barbarian Ships) -->
 		<Tag>TXT_KEY_PROMOTION_DISORGANIZED</Tag>
 		<English>Disorganized</English>
@@ -154,7 +169,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_SPY_DESTROY_IMPROVEMENT_TEXT</Tag>
-		<English>[ICON_BULLET]%d1_percent%% destroy improvement cost bonus</English>
+		<English>[ICON_BULLET]%d1_percent%% destroy improvement cost reduction</English>
 	</TEXT>		
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_SPY_RADIATION_TEXT</Tag>
@@ -171,5 +186,25 @@
 		<German>Erzeugt Kontamination auf dem Feld.</German>
 		<Italian>Generere la precipitazione radioattiva sulle mattonelle.</Italian>
 		<Spanish>Creare el polvillo radiactivo en el azulejo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_INCREASE_DIPLO_PENALTY</Tag>
+		<English>[ICON_BULLET]%d1_percent%% increase in scale when causing a diplomatic incident</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_NUKE_CITY_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_percent%% nuke city cost reduction</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_SWITCH_CIVIC_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_percent%% switch civic cost reduction</English>
+	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_SWITCH_RELIGION_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_percent%% switch religion cost reduction</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_DISABLE_POWER_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_percent%% increase in duration of disabled power</English>
 	</TEXT>
 </Civ4GameText>

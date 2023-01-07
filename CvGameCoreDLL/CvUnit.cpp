@@ -324,6 +324,11 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iSpyPoisonChangeExtra = 0;
 	m_iSpyDestroyImprovementChange = 0;
 	m_iSpyRadiationCount = 0;
+	m_iSpyDiplomacyPenalty = 0;
+	m_iSpyNukeCityChange = 0;
+	m_iSpySwitchCivicChange = 0;
+	m_iSpySwitchReligionChange = 0;
+	m_iSpyDisablePowerChange = 0;
 
 	m_bMadeAttack = false;
 	m_bMadeInterception = false;
@@ -668,10 +673,11 @@ void CvUnit::doTurn() {
 	if (isSpy() && isIntruding() && !isCargo()) {
 		TeamTypes eTeam = plot()->getTeam();
 		if (NO_TEAM != eTeam) {
+			bool bReveal = false;
 			if (GET_TEAM(getTeam()).isOpenBorders(eTeam)) {
-				testSpyIntercepted(plot()->getOwnerINLINE(), false, GC.getDefineINT("ESPIONAGE_SPY_NO_INTRUDE_INTERCEPT_MOD"));
+				testSpyIntercepted(plot()->getOwnerINLINE(), false, bReveal, GC.getDefineINT("ESPIONAGE_SPY_NO_INTRUDE_INTERCEPT_MOD"));
 			} else {
-				testSpyIntercepted(plot()->getOwnerINLINE(), false, GC.getDefineINT("ESPIONAGE_SPY_INTERCEPT_MOD"));
+				testSpyIntercepted(plot()->getOwnerINLINE(), false, bReveal, GC.getDefineINT("ESPIONAGE_SPY_INTERCEPT_MOD"));
 			}
 		}
 	}
@@ -5355,16 +5361,24 @@ bool CvUnit::espionage(EspionageMissionTypes eMission, int iData) {
 		}
 	} else {
 		PlayerTypes eTargetPlayer = plot()->getOwnerINLINE();
-		if (testSpyIntercepted(eTargetPlayer, true, GC.getEspionageMissionInfo(eMission).getDifficultyMod())) {
+
+		bool bReveal = false; // Whether the spy reveals their civ
+
+		// Check if the spy is intercepted before they get chance to complete their mission.
+		if (testSpyIntercepted(eTargetPlayer, true, bReveal, GC.getEspionageMissionInfo(eMission).getDifficultyMod())) {
 			return false;
 		}
 
-		if (GET_PLAYER(getOwnerINLINE()).doEspionageMission(eMission, eTargetPlayer, plot(), iData, this)) {
+		// Spy gets to perform the mission, we check whether his identity was revealed at the start as this impacts some of the strings
+		//  displayed during the doEspionageMission call ... this is a hack and should be tidied up at some point
+		bool bCaught = testSpyIntercepted(eTargetPlayer, true, bReveal, GC.getDefineINT("ESPIONAGE_SPY_MISSION_ESCAPE_MOD"));
+		if (GET_PLAYER(getOwnerINLINE()).doEspionageMission(eMission, eTargetPlayer, plot(), iData, this, bReveal)) {
 			if (plot()->isActiveVisible(false)) {
 				NotifyEntity(MISSION_ESPIONAGE);
 			}
 
-			if (!testSpyIntercepted(eTargetPlayer, true, GC.getDefineINT("ESPIONAGE_SPY_MISSION_ESCAPE_MOD"))) {
+			if (!bCaught)
+			{
 				setFortifyTurns(0);
 				setMadeAttack(true);
 				finishMoves();
@@ -5388,7 +5402,7 @@ bool CvUnit::espionage(EspionageMissionTypes eMission, int iData) {
 	return false;
 }
 
-bool CvUnit::testSpyIntercepted(PlayerTypes eTargetPlayer, bool bMission, int iModifier) {
+bool CvUnit::testSpyIntercepted(PlayerTypes eTargetPlayer, bool bMission, bool& bReveal, int iModifier) {
 	CvPlayer& kTargetPlayer = GET_PLAYER(eTargetPlayer);
 
 	if (kTargetPlayer.isBarbarian()) {
@@ -5431,6 +5445,7 @@ bool CvUnit::testSpyIntercepted(PlayerTypes eTargetPlayer, bool bMission, int iM
 	// Determine if the target identifies the owner of the spy
 	bool bDoubleAgent = false;
 	if (!isLoyal() && GC.getGameINLINE().getSorenRandNum(100, "Spy Reveal identity") < GC.getDefineINT("ESPIONAGE_SPY_REVEAL_IDENTITY_PERCENT")) {
+		bReveal = true;
 		// Determine whether the spy can be turned to provide the target a double agent
 		bDoubleAgent = GC.getGameINLINE().getSorenRandNum(100, "Spy turning") < GC.getDOUBLE_AGENT_CREATE_CHANCE();
 
@@ -5455,6 +5470,7 @@ bool CvUnit::testSpyIntercepted(PlayerTypes eTargetPlayer, bool bMission, int iM
 		}
 
 	} else {
+		bReveal = false;
 		szBuffer = gDLL->getText(szFormatNoReveal.GetCString(), getNameKey(), kTargetPlayer.getCivilizationAdjectiveKey(), szCityName.GetCString());
 		gDLL->getInterfaceIFace()->addHumanMessage(eTargetPlayer, true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_EXPOSE", MESSAGE_TYPE_INFO, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), getX_INLINE(), getY_INLINE(), true, true);
 	}
@@ -9626,6 +9642,11 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 		changeSpyPreparationModifier(kPromotion.getSpyPreparationModifier() * iChange);
 		changeSpyPoisonChangeExtra(kPromotion.getSpyPoisonModifier() * iChange);
 		changeSpyDestroyImprovementChange(kPromotion.getSpyDestroyImprovementChange() * iChange);
+		changeSpyDiplomacyPenalty(kPromotion.getSpyDiploPenaltyChange() * iChange);
+		changeSpyNukeCityChange(kPromotion.getSpyNukeCityChange() * iChange);
+		changeSpySwitchCivicChange(kPromotion.getSpySwitchCivicChange() * iChange);
+		changeSpySwitchReligionChange(kPromotion.getSpySwitchReligionChange() * iChange);
+		changeSpyDisablePowerChange(kPromotion.getSpyDisablePowerChange() * iChange);
 
 		for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
 			changeExtraTerrainAttackPercent(eTerrain, kPromotion.getTerrainAttackPercent(eTerrain) * iChange);
@@ -9777,6 +9798,11 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iSpyPoisonChangeExtra);
 	pStream->Read(&m_iSpyDestroyImprovementChange);
 	pStream->Read(&m_iSpyRadiationCount);
+	pStream->Read(&m_iSpyDiplomacyPenalty);
+	pStream->Read(&m_iSpyNukeCityChange);
+	pStream->Read(&m_iSpySwitchCivicChange);
+	pStream->Read(&m_iSpySwitchReligionChange);
+	pStream->Read(&m_iSpyDisablePowerChange);
 
 	pStream->Read(&m_bMadeAttack);
 	pStream->Read(&m_bMadeInterception);
@@ -9902,6 +9928,11 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iSpyPoisonChangeExtra);
 	pStream->Write(m_iSpyDestroyImprovementChange);
 	pStream->Write(m_iSpyRadiationCount);
+	pStream->Write(m_iSpyDiplomacyPenalty);
+	pStream->Write(m_iSpyNukeCityChange);
+	pStream->Write(m_iSpySwitchCivicChange);
+	pStream->Write(m_iSpySwitchReligionChange);
+	pStream->Write(m_iSpyDisablePowerChange);
 
 	pStream->Write(m_bMadeAttack);
 	pStream->Write(m_bMadeInterception);
@@ -12163,4 +12194,142 @@ bool CvUnit::isSpyRadiation() const {
 
 void CvUnit::changeSpyRadiationCount(int iChange) {
 	m_iSpyRadiationCount += iChange;
+}
+
+int CvUnit::getSpyDiplomacyPenalty() const {
+	return m_iSpyDiplomacyPenalty;
+}
+
+void CvUnit::changeSpyDiplomacyPenalty(int iChange) {
+	m_iSpyDiplomacyPenalty += iChange;
+}
+
+int CvUnit::getSpyNukeCityChange() const {
+	return m_iSpyNukeCityChange;
+}
+
+void CvUnit::changeSpyNukeCityChange(int iChange) {
+	m_iSpyNukeCityChange += iChange;
+}
+
+bool CvUnit::spyNukeAffected(const CvPlot* pPlot, TeamTypes eTeam, int iRange) const {
+	if (!(GET_TEAM(eTeam).isAlive())) {
+		return false;
+	}
+
+	if (eTeam == getTeam()) {
+		return false;
+	}
+
+	CvPlot* pLoopPlot;
+	for (int iDX = -(iRange); iDX <= iRange; iDX++) {
+		for (int iDY = -(iRange); iDY <= iRange; iDY++) {
+			pLoopPlot = plotXY(pPlot->getX_INLINE(), pPlot->getY_INLINE(), iDX, iDY);
+
+			if (pLoopPlot != NULL) {
+				if (pLoopPlot->getTeam() == eTeam) {
+					return true;
+				}
+
+				if (pLoopPlot->plotCheck(PUF_isCombatTeam, eTeam, getTeam()) != NULL) {
+					return true;
+				}
+			}
+		}
+	}
+
+	return false;
+}
+
+bool CvUnit::spyNuke(int iX, int iY, bool bReveal) {
+	CvPlot* pPlot = GC.getMapINLINE().plotINLINE(iX, iY);
+
+	bool abTeamsAffected[MAX_TEAMS];
+	for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_TEAMS; eTeam = (TeamTypes)(eTeam + 1)) {
+		abTeamsAffected[eTeam] = spyNukeAffected(pPlot, eTeam, 1);
+	}
+
+	if (bReveal) {
+		for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_TEAMS; eTeam = (TeamTypes)(eTeam + 1)) {
+			if (abTeamsAffected[eTeam]) {
+				if (!isEnemy(eTeam)) {
+					if (!(eTeam == GET_TEAM(getTeam()).getID())) {
+						GET_TEAM(getTeam()).declareWar(eTeam, false, WARPLAN_TOTAL);
+					}
+				}
+				GET_TEAM(eTeam).changeWarWeariness(getTeam(), 100 * GC.getDefineINT("WW_HIT_BY_NUKE"));
+				GET_TEAM(getTeam()).changeWarWeariness(eTeam, 100 * GC.getDefineINT("WW_ATTACKED_WITH_NUKE"));
+				GET_TEAM(getTeam()).AI_changeWarSuccess(eTeam, GC.getDefineINT("WAR_SUCCESS_NUKE"));
+			}
+		}
+	}
+
+	if (bReveal) {
+		for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_TEAMS; eTeam = (TeamTypes)(eTeam + 1)) {
+			if (GET_TEAM(eTeam).isAlive() && eTeam != getTeam() && abTeamsAffected[eTeam]) {
+				for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+					CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+					if (kPlayer.isAlive() && kPlayer.getTeam() == eTeam) {
+						kPlayer.AI_changeMemoryCount(getOwnerINLINE(), MEMORY_NUKED_US, 1);
+					}
+				}
+			} else {
+				for (TeamTypes eInnerTeam = (TeamTypes)0; eInnerTeam < MAX_TEAMS; eInnerTeam = (TeamTypes)(eInnerTeam + 1)) {
+					if (GET_TEAM(eInnerTeam).isAlive() && abTeamsAffected[eInnerTeam] && GET_TEAM(eTeam).isHasMet(eInnerTeam) && GET_TEAM(eTeam).AI_getAttitude(eInnerTeam) >= ATTITUDE_CAUTIOUS) {
+						for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+							CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+							if (kPlayer.isAlive() && kPlayer.getTeam() == eTeam) {
+								kPlayer.AI_changeMemoryCount(getOwnerINLINE(), MEMORY_NUKED_FRIEND, 1);
+							}
+						}
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		if (GET_PLAYER(ePlayer).isAlive()) {
+			CvWString szBuffer;
+			if (bReveal)
+				szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_NUKE_CAUGHT", GET_PLAYER(getOwnerINLINE()).getNameKey(), GET_PLAYER(pPlot->getOwnerINLINE()).getNameKey());
+			else
+				szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_NUKE_UNKNOWN", GET_PLAYER(pPlot->getOwnerINLINE()).getNameKey());
+
+			gDLL->getInterfaceIFace()->addHumanMessage(ePlayer, true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_NUKE_EXPLODES", MESSAGE_TYPE_MAJOR_EVENT, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), pPlot->getX_INLINE(), pPlot->getY_INLINE(), true, true);
+		}
+	}
+
+	//This is just so the espionage mission makes the cool explosion effect.
+	if (GC.getInfoTypeForString("EFFECT_ICBM_NUCLEAR_EXPLOSION") != -1) {
+		gDLL->getEngineIFace()->TriggerEffect((EffectTypes)GC.getInfoTypeForString("EFFECT_ICBM_NUCLEAR_EXPLOSION"), pPlot->getPoint(), 0);
+		gDLL->getInterfaceIFace()->playGeneralSound("AS2D_NUKE_EXPLODES", pPlot->getPoint());
+	}
+	pPlot->nukeExplosion(1, this);
+	return true;
+}
+
+int CvUnit::getSpySwitchCivicChange() const {
+	return m_iSpySwitchCivicChange;
+}
+
+void CvUnit::changeSpySwitchCivicChange(int iChange) {
+	m_iSpySwitchCivicChange += iChange;
+}
+
+int CvUnit::getSpySwitchReligionChange() const {
+	return m_iSpySwitchReligionChange;
+}
+
+void CvUnit::changeSpySwitchReligionChange(int iChange) {
+	m_iSpySwitchReligionChange += iChange;
+}
+
+int CvUnit::getSpyDisablePowerChange() const {
+	return m_iSpyDisablePowerChange;
+}
+
+void CvUnit::changeSpyDisablePowerChange(int iChange) {
+	m_iSpyDisablePowerChange += iChange;
 }
