@@ -86,6 +86,7 @@
     <ClInclude Include="CvReplayMessage.h" />
     <ClInclude Include="CvSelectionGroup.h" />
     <ClInclude Include="CvSelectionGroupAI.h" />
+    <ClInclude Include="CvSpy.h" />
     <ClInclude Include="CvStatistics.h" />
     <ClInclude Include="CvString.h" />
     <ClInclude Include="CvStructs.h" />
@@ -131,6 +132,7 @@
   <ItemGroup>
     <ClCompile Include="BetterBTSAI.cpp" />
     <ClCompile Include="CvIniOptions.cpp" />
+    <ClCompile Include="CvSpy.cpp" />
     <ClCompile Include="KmodPathFinder.cpp" />
     <ClCompile Include="_precompile.cpp" />
     <ClCompile Include="CvArea.cpp" />

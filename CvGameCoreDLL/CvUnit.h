@@ -6,6 +6,7 @@
 #define CIV4_UNIT_H
 
 #include "CvDLLEntity.h"
+#include "CvSpy.h"
 
 #pragma warning( disable: 4251 )		// needs to have dll-interface to be used by clients of class
 
@@ -141,7 +142,7 @@ public:
 	void changeSpyNukeCityChange(int iChange);
 	void changeSpySwitchCivicChange(int iChange);
 	void changeSpySwitchReligionChange(int iChange);
-	void changeSpyEscapeExtra(int iChange);
+	void changeSpyEscapeChanceExtra(int iChange);
 	void changeSpyInterceptChanceExtra(int iChange);
 	void changeSpyCorporationRemovalChange(int iChange);
 	void changeSpyCultureChange(int iChange);
@@ -964,24 +965,6 @@ protected:
 	int m_iSlaveSpecialistType;
 	int m_iSlaveControlCount;
 	int m_iLoyaltyCount;
-	int m_iSpyEvasionChanceExtra;
-	int m_iSpyPreparationModifier;
-	int m_iSpyPoisonChangeExtra;
-	int m_iSpyDestroyImprovementChange;
-	int m_iSpyRadiationCount;
-	int m_iSpyDiplomacyPenalty;
-	int m_iSpyNukeCityChange;
-	int m_iSpySwitchCivicChange;
-	int m_iSpySwitchReligionChange;
-	int m_iSpyDisablePowerChange;
-	int m_iSpyEscapeChanceExtra;
-	int m_iSpyInterceptChanceExtra;
-	int m_iSpyUnhappyChange;
-	int m_iSpyRevoltChange;
-	int m_iSpyWarWearinessChange;
-	int m_iSpyReligionRemovalChange;
-	int m_iSpyCorporationRemovalChange;
-	int m_iSpyCultureChange;
 
 	bool m_bMadeAttack;
 	bool m_bMadeInterception;
@@ -997,10 +980,10 @@ protected:
 
 	PlayerTypes m_eOwner;
 	PlayerTypes m_eCapturingPlayer;
-	PlayerTypes m_eOriginalSpymaster;
 	UnitTypes m_eUnitType;
 	UnitTypes m_eLeaderUnitType;
 	CvUnitInfo* m_pUnitInfo;
+	CvSpy* m_pSpy;
 
 	IDInfo m_combatUnit;
 	IDInfo m_transportUnit;
