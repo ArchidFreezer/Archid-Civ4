@@ -987,6 +987,14 @@
 		<Tag>TXT_KEY_UNIT_SPY_PREPARATION_BONUS</Tag>
 		<English>[ICON_BULLET]%d1_Rounds free preparation rounds</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_USED_RADIATION</Tag>
+		<English>A dirty bomb was used! Radioactive fallout has covered the area!</English>
+		<French>Une bombe sale a ete employee! Les retombees radioactives radioactives ont couvert le domaine!</French>
+		<German>Eine schmutzige Bombe wurde benutzt! Die betroffenen Gebiete wurden radioaktiv kontaminiert</German>
+		<Italian>Una bomba sporca e stata usata! La precipitazione radioattiva radioattiva ha riguardato la zona!</Italian>
+		<Spanish>Una bomba sucia fue utilizada! El polvillo radiactivo radiactivo ha cubierto el erea!</Spanish>
+	</TEXT>
 
 <!-- Specialists -->
 	<TEXT> <!-- Slave: Artist -->

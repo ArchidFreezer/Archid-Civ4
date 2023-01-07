@@ -29,6 +29,45 @@
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,5,15</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Alchemist 1 -->
+			<Type>PROMOTION_ALCHEMIST1</Type>
+			<Description>TXT_KEY_PROMOTION_ALCHEMIST1</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_DECEPTION1</PromotionPrereq>
+			<iSpyPoisonModifier>50</iSpyPoisonModifier>
+			<iSpyDestroyImprovementChange>50</iSpyDestroyImprovementChange>			
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Alchemist1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Alchemist 2 -->
+			<Type>PROMOTION_ALCHEMIST2</Type>
+			<Description>TXT_KEY_PROMOTION_ALCHEMIST2</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_ALCHEMIST1</PromotionPrereq>
+			<iSpyPoisonModifier>50</iSpyPoisonModifier>
+			<iSpyDestroyImprovementChange>50</iSpyDestroyImprovementChange>				
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Alchemist2.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Alchemist 3 -->
+			<Type>PROMOTION_ALCHEMIST3</Type>
+			<Description>TXT_KEY_PROMOTION_ALCHEMIST3</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_ALCHEMIST2</PromotionPrereq>
+			<TechPrereq>TECH_COMPOSITES</TechPrereq>
+			<bSpyRadiation>1</bSpyRadiation>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Alchemist3.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Ambush -->
 			<Type>PROMOTION_AMBUSH</Type>
 			<Description>TXT_KEY_PROMOTION_AMBUSH</Description>

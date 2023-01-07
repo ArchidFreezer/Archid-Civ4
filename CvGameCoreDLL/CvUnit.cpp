@@ -321,6 +321,9 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iSlaveControlCount = 0;
 	m_iLoyaltyCount = 0;
 	m_iSpyEvasionChanceExtra = 0;
+	m_iSpyPoisonChangeExtra = 0;
+	m_iSpyDestroyImprovementChange = 0;
+	m_iSpyRadiationCount = 0;
 
 	m_bMadeAttack = false;
 	m_bMadeInterception = false;
@@ -9586,6 +9589,7 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 		changeTerritoryUnboundCount(kPromotion.isUnitTerritoryUnbound() ? iChange : 0);
 		changeCanMovePeaksCount(kPromotion.isCanMovePeaks() ? iChange : 0);
 		changeLoyaltyCount(kPromotion.isLoyal() ? iChange : 0);
+		changeSpyRadiationCount(kPromotion.isSpyRadiation() ? iChange : 0);
 
 		changeExtraVisibilityRange(kPromotion.getVisibilityChange() * iChange);
 		changeExtraMoves(kPromotion.getMovesChange() * iChange);
@@ -9620,6 +9624,8 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 		changeEnslaveCountExtra(kPromotion.getEnslaveCountChange() * iChange);
 		changeSpyEvasionChanceExtra(kPromotion.getSpyEvasionChange() * iChange);
 		changeSpyPreparationModifier(kPromotion.getSpyPreparationModifier() * iChange);
+		changeSpyPoisonChangeExtra(kPromotion.getSpyPoisonModifier() * iChange);
+		changeSpyDestroyImprovementChange(kPromotion.getSpyDestroyImprovementChange() * iChange);
 
 		for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
 			changeExtraTerrainAttackPercent(eTerrain, kPromotion.getTerrainAttackPercent(eTerrain) * iChange);
@@ -9768,6 +9774,9 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iLoyaltyCount);
 	pStream->Read(&m_iSpyEvasionChanceExtra);
 	pStream->Read(&m_iSpyPreparationModifier);
+	pStream->Read(&m_iSpyPoisonChangeExtra);
+	pStream->Read(&m_iSpyDestroyImprovementChange);
+	pStream->Read(&m_iSpyRadiationCount);
 
 	pStream->Read(&m_bMadeAttack);
 	pStream->Read(&m_bMadeInterception);
@@ -9890,6 +9899,9 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iLoyaltyCount);
 	pStream->Write(m_iSpyEvasionChanceExtra);
 	pStream->Write(m_iSpyPreparationModifier);
+	pStream->Write(m_iSpyPoisonChangeExtra);
+	pStream->Write(m_iSpyDestroyImprovementChange);
+	pStream->Write(m_iSpyRadiationCount);
 
 	pStream->Write(m_bMadeAttack);
 	pStream->Write(m_bMadeInterception);
@@ -12123,4 +12135,32 @@ int CvUnit::getSpyPreparationModifier() const {
 
 void CvUnit::changeSpyPreparationModifier(int iChange) {
 	m_iSpyPreparationModifier += iChange;
+}
+
+int CvUnit::getSpyPoisonChangeExtra() const {
+	return m_iSpyPoisonChangeExtra;
+}
+
+void CvUnit::changeSpyPoisonChangeExtra(int iChange) {
+	m_iSpyPoisonChangeExtra += iChange;
+}
+
+int CvUnit::getSpyDestroyImprovementChange() const {
+	return m_iSpyDestroyImprovementChange;
+}
+
+void CvUnit::changeSpyDestroyImprovementChange(int iChange) {
+	m_iSpyDestroyImprovementChange += iChange;
+}
+
+int CvUnit::getSpyRadiationCount() const {
+	return m_iSpyRadiationCount;
+}
+
+bool CvUnit::isSpyRadiation() const {
+	return (getSpyRadiationCount() > 0);
+}
+
+void CvUnit::changeSpyRadiationCount(int iChange) {
+	m_iSpyRadiationCount += iChange;
 }

@@ -104,14 +104,21 @@ public:
 
 	bool isDoubleAgent() const;
 	bool isLoyal() const;
+	bool isSpyRadiation() const;
 	int getLoyaltyCount() const;
 	int getSpyEvasionChance() const;
 	int getSpyEvasionChanceExtra() const;
 	int getSpyPreparationModifier() const;
+	int getSpyDestroyImprovementChange() const;
+	int getSpyPoisonChangeExtra() const;
+	int getSpyRadiationCount() const;
 	void awardSpyExperience(TeamTypes eTargetTeam, int iModifier);
 	void changeLoyaltyCount(int iChange);
 	void changeSpyEvasionChanceExtra(int iChange);
 	void changeSpyPreparationModifier(int iChange);
+	void changeSpyDestroyImprovementChange(int iChange);
+	void changeSpyPoisonChangeExtra(int iChange);
+	void changeSpyRadiationCount(int iChange);
 	void setOriginalSpymaster(PlayerTypes ePlayer);
 	PlayerTypes getOriginalSpymaster() const;
 
@@ -929,6 +936,9 @@ protected:
 	int m_iLoyaltyCount;
 	int m_iSpyEvasionChanceExtra;
 	int m_iSpyPreparationModifier;
+	int m_iSpyPoisonChangeExtra;
+	int m_iSpyDestroyImprovementChange;
+	int m_iSpyRadiationCount;
 
 	bool m_bMadeAttack;
 	bool m_bMadeInterception;

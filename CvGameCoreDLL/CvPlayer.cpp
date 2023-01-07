@@ -11673,6 +11673,10 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 		// Cannot poison a city's water supply if it's already poisoned (value is negative when active)
 		if (NULL != pCity && pCity->getEspionageHealthCounter() <= 0) {
 			iMissionCost = iBaseMissionCost;
+			if (NULL != pSpyUnit) {
+				iMissionCost *= 100 - pSpyUnit->getSpyDestroyImprovementChange();
+				iMissionCost /= 100;
+			}
 		}
 	}
 
@@ -11864,6 +11868,12 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 				bSomethingHappened = true;
 			}
 
+			if (pSpyUnit != NULL && pSpyUnit->isSpyRadiation()) {
+				pPlot->setFeatureType((FeatureTypes)(GC.getDefineINT("NUKE_FEATURE")));
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_USED_RADIATION").GetCString());
+			}
+
 			if (bSomethingHappened) {
 				bShowExplosion = true;
 			}
@@ -12020,7 +12030,10 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 
 			if (NULL != pCity) {
 				szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_TARGET_CITY_POISONED", pCity->getNameKey()).GetCString();
-				pCity->changeEspionageHealthCounter(kMission.getCityPoisonWaterCounter());
+				int iChange = kMission.getCityPoisonWaterCounter();
+				if (pSpyUnit != NULL)
+					iChange = iChange * (100 + pSpyUnit->getSpyPoisonChangeExtra()) / 100;
+				pCity->changeEspionageHealthCounter(iChange);
 
 				bShowExplosion = true;
 				bSomethingHappened = true;

@@ -991,6 +991,21 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 			szString.append(gDLL->getText("TXT_KEY_UNIT_SPY_PREPARATION_BONUS", pUnit->getSpyPreparationModifier()));
 		}
 
+		if (pUnit->getSpyPoisonChangeExtra() != 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_POISON_TEXT", pUnit->getSpyPoisonChangeExtra()));
+		}
+
+		if (pUnit->getSpyDestroyImprovementChange() > 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_DESTROY_IMPROVEMENT_TEXT", pUnit->getSpyDestroyImprovementChange()));
+		}
+
+		if (pUnit->isSpyRadiation()) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_RADIATION_TEXT"));
+		}
+
 		if (pUnit->getUnitInfo().isNoRevealMap()) {
 			szString.append(NEWLINE);
 			szString.append(gDLL->getText("TXT_KEY_UNIT_VISIBILITY_MOVE_RANGE"));
@@ -5704,6 +5719,11 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_LOYAL_TEXT"));
 	}
 
+	if (kPromotion.isSpyRadiation()) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_RADIATION_TEXT"));
+	}
+
 	if (kPromotion.getSpyEvasionChange() != 0) {
 		szBuffer.append(pcNewline);
 		szBuffer.append(gDLL->getText("TXT_KEY_UNIT_SPY_EVADE_CHANCE", kPromotion.getSpyEvasionChange()));
@@ -5712,6 +5732,16 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 	if (kPromotion.getSpyPreparationModifier() != 0) {
 		szBuffer.append(pcNewline);
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_PREPARATION_TEXT", kPromotion.getSpyPreparationModifier()));
+	}
+
+	if (kPromotion.getSpyPoisonModifier() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_POISON_TEXT", kPromotion.getSpyPoisonModifier()));
+	}
+
+	if (kPromotion.getSpyDestroyImprovementChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_DESTROY_IMPROVEMENT_TEXT", kPromotion.getSpyDestroyImprovementChange()));
 	}
 
 	if (kPromotion.isUnitRangeUnbound()) {
@@ -14806,6 +14836,10 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 	if (kMission.isDestroyImprovement()) {
 		if (NULL != pPlot && NO_IMPROVEMENT != pPlot->getImprovementType()) {
 			szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_DESTROY_IMPROVEMENT", GC.getImprovementInfo(pPlot->getImprovementType()).getTextKeyWide()));
+			if (NULL != pSpyUnit && pSpyUnit->isSpyRadiation()) {
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_DESTROY_IMPROVEMENT_RADIATION", GC.getImprovementInfo(pPlot->getImprovementType()).getTextKeyWide()));
+			}
 			szBuffer.append(NEWLINE);
 		}
 	}
@@ -14904,7 +14938,10 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 			CvCity* pCity = pPlot->getPlotCity();
 
 			if (NULL != pCity) {
-				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_POISON", kMission.getCityPoisonWaterCounter(), gDLL->getSymbolID(UNHEALTHY_CHAR), pCity->getNameKey(), kMission.getCityPoisonWaterCounter()));
+				if (NULL != pSpyUnit)
+					szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_POISON", kMission.getCityPoisonWaterCounter() * (100 + pSpyUnit->getSpyPoisonChangeExtra()) / 100, gDLL->getSymbolID(UNHEALTHY_CHAR), pCity->getNameKey(), kMission.getCityPoisonWaterCounter() * (100 + pSpyUnit->getSpyPoisonChangeExtra()) / 100));
+				else
+					szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_POISON", kMission.getCityPoisonWaterCounter(), gDLL->getSymbolID(UNHEALTHY_CHAR), pCity->getNameKey(), kMission.getCityPoisonWaterCounter()));
 				szBuffer.append(NEWLINE);
 			}
 		}

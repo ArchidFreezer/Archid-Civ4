@@ -533,7 +533,9 @@ public:
 	int getNumPrereqOrPromotions() const;
 	int getEnslaveCountChange() const;
 	int getSpyEvasionChange() const;
-	int getSpyPreparationModifier() const;				// Exposed to Python 
+	int getSpyPreparationModifier() const;
+	int getSpyPoisonModifier() const;
+	int getSpyDestroyImprovementChange() const;
 
 	bool isLeader() const;				// Exposed to Python
 	bool isBlitz() const;				// Exposed to Python
@@ -548,6 +550,7 @@ public:
 	bool isCityPrereq() const;
 	bool isCanMovePeaks() const;
 	bool isLoyal() const;
+	bool isSpyRadiation() const;
 
 	const TCHAR* getSound() const;				// Exposed to Python
 	void setSound(const TCHAR* szVal);
@@ -618,6 +621,8 @@ protected:
 	int m_iEnslaveCountChange;
 	int m_iSpyEvasionChange;
 	int m_iSpyPreparationModifier;
+	int m_iSpyPoisonModifier;
+	int m_iSpyDestroyImprovementChange;
 
 	bool m_bLeader;
 	bool m_bBlitz;
@@ -632,6 +637,7 @@ protected:
 	bool m_bCityPrereq;
 	bool m_bCanMovePeaks;
 	bool m_bLoyal;
+	bool m_bSpyRadiation;
 
 	CvString m_szSound;
 
