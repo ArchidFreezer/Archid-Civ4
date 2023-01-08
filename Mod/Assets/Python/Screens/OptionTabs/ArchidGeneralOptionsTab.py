@@ -17,7 +17,10 @@ class ArchidGeneralOptionsTab(BugOptionsTab.BugOptionsTab):
 		column = self.addOneColumnLayout(screen, panel)
 
 		left, right = self.addTwoColumnLayout(screen, column, "Page", True)
+
 		self.createActionsPanel(screen, left)
+		self.addSpacer(screen, left, "GeneralScreen1")
+		self.createAutomationsPanel(screen, left)
 		self.createAutoPlayPanel(screen, right)
 
 	def createActionsPanel(self, screen, panel):
@@ -29,6 +32,12 @@ class ArchidGeneralOptionsTab(BugOptionsTab.BugOptionsTab):
 		self.addCheckbox(screen, panel, "Actions__PreChopForests")
 		self.addCheckbox(screen, panel, "Actions__PreChopImprovements")
 		self.addCheckbox(screen, panel, "Actions__IgnoreHarmlessBarbarians")
+
+	def createAutomationsPanel(self, screen, panel):
+		self.addLabel(screen, panel, "Automations", "Automations:")
+		self.addCheckbox(screen, panel, "Automations__PillageBarbarians")
+		self.addCheckbox(screen, panel, "Automations__PillageIgnoreDanger")
+
 	def createAutoPlayPanel(self, screen, panel):
 		self.addLabel(screen, panel, "AIAutoPlay", "AI Auto Play:")
 		self.addCheckbox(screen, panel, "AIAutoPlay__Debug")

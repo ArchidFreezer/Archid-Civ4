@@ -959,6 +959,18 @@
 		<English>Select a unit to protect :</English>
 	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_PILLAGE</Tag>
+		<English>Automate Pillage</English>
+		<French>Pillage Automatisé</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_PILLAGE_HELP</Tag>
+		<English>Send the unit to search and destroy enemy's improvements</English>
+		<French>Envoie l'unité pour rechercher et détruire les aménagements de terrain ennemis.</French>
+	</TEXT>
+
+<!-- Super Spies -->
+	<TEXT>
 		<Tag>TXT_KEY_SPY_INTERCEPTED_REVEAL_TURNED</Tag>
 		<English>A %s1_civ_adjective %s2_unit has been stumbled upon while operating near the %s3_civ_adjective city of %s4_city and turned into a double agent!</English>
 	</TEXT>

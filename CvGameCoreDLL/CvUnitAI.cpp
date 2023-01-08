@@ -17,6 +17,7 @@
 #include "CvInfos.h"
 #include "FProfiler.h"
 #include "FAStarNode.h"
+#include "CvIniOptions.h"
 
 // interface uses
 #include "CvDLLInterfaceIFaceBase.h"
@@ -192,6 +193,10 @@ bool CvUnitAI::AI_update() {
 
 		case AUTOMATE_ESPIONAGE:
 			AI_autoEspionage();
+			break;
+
+		case AUTOMATE_PILLAGE:
+			AI_autoPillageMove();
 			break;
 
 		default:
@@ -11927,7 +11932,7 @@ bool CvUnitAI::AI_seaBombardRange(int iMaxRange) {
 
 
 // Returns true if a mission was pushed...
-bool CvUnitAI::AI_pillage(int iBonusValueThreshold, int iFlags) {
+bool CvUnitAI::AI_pillage(int iBonusValueThreshold, bool bCheckCity, bool bNoPotentialWarCheck, int iFlags) {
 	PROFILE_FUNC();
 
 	int iBestValue = 0;
@@ -11937,32 +11942,34 @@ bool CvUnitAI::AI_pillage(int iBonusValueThreshold, int iFlags) {
 	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++) {
 		CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
 
-		if (AI_plotValid(pLoopPlot) && !(pLoopPlot->isBarbarian())) {
+		if (AI_plotValid(pLoopPlot) && (!pLoopPlot->isBarbarian() || getOptionBOOL("Automations__PillageBarbarians", false))) {
 			if (pLoopPlot->isOwned() && isEnemy(pLoopPlot->getTeam(), pLoopPlot)) {
 				CvCity* pWorkingCity = pLoopPlot->getWorkingCity();
 
-				if (pWorkingCity != NULL) {
+				if (pWorkingCity || !bCheckCity) {
 					if (!(pWorkingCity == area()->getTargetCity(getOwnerINLINE())) && canPillage(pLoopPlot)) {
-						if (!(pLoopPlot->isVisibleEnemyUnit(this))) {
-							if (GET_PLAYER(getOwnerINLINE()).AI_plotTargetMissionAIs(pLoopPlot, MISSIONAI_PILLAGE, getGroup(), 1) == 0) {
-								int iValue = AI_pillageValue(pLoopPlot, iBonusValueThreshold);
-								iValue *= 1000;
+						if (bNoPotentialWarCheck || potentialWarAction(pLoopPlot)) {
+							if (!pLoopPlot->isVisibleEnemyUnit(this) || getOptionBOOL("Automations__PillageIgnoreDanger")) {
+								if (GET_PLAYER(getOwnerINLINE()).AI_plotTargetMissionAIs(pLoopPlot, MISSIONAI_PILLAGE, getGroup(), 1) == 0) {
+									int iValue = AI_pillageValue(pLoopPlot, iBonusValueThreshold);
+									iValue *= 1000;
 
-								// if not at war with this plot owner, then devalue plot if we already inside this owner's borders
-								// (because declaring war will pop us some unknown distance away)
-								if (!isEnemy(pLoopPlot->getTeam()) && plot()->getTeam() == pLoopPlot->getTeam()) {
-									iValue /= 10;
-								}
+									// if not at war with this plot owner, then devalue plot if we already inside this owner's borders
+									// (because declaring war will pop us some unknown distance away)
+									if (!isEnemy(pLoopPlot->getTeam()) && plot()->getTeam() == pLoopPlot->getTeam()) {
+										iValue /= 10;
+									}
 
-								if (iValue > iBestValue) {
-									int iPathTurns;
-									if (generatePath(pLoopPlot, iFlags, true, &iPathTurns)) {
-										iValue /= (iPathTurns + 1);
+									if (iValue > iBestValue) {
+										int iPathTurns;
+										if (generatePath(pLoopPlot, iFlags, true, &iPathTurns)) {
+											iValue /= (iPathTurns + 1);
 
-										if (iValue > iBestValue) {
-											iBestValue = iValue;
-											pBestPlot = getPathEndTurnPlot();
-											pBestPillagePlot = pLoopPlot;
+											if (iValue > iBestValue) {
+												iBestValue = iValue;
+												pBestPlot = getPathEndTurnPlot();
+												pBestPillagePlot = pLoopPlot;
+											}
 										}
 									}
 								}
@@ -17938,5 +17945,51 @@ void CvUnitAI::AI_autoEspionage() {
 	}
 
 	getGroup()->pushMission(MISSION_SKIP, -1, -1, 0, false, false, MISSIONAI_ATTACK_SPY);
+	return;
+}
+
+void CvUnitAI::AI_autoPillageMove() {
+	PROFILE_FUNC();
+
+	if (AI_heal(30, 1))
+		return;
+
+	if (plot()->isOwned() && plot()->getOwnerINLINE() != getOwnerINLINE())
+		if (AI_pillage(40, false, false))
+			return;
+
+	if (AI_pillageRange(3, 11))
+		return;
+
+	if (AI_pillageRange(1))
+		return;
+
+	if (AI_heal(50, 3))
+		return;
+
+	if (!isEnemy(plot()->getTeam()))
+		if (AI_heal())
+			return;
+
+	if (AI_pillage(20, false, false))
+		return;
+
+	if ((area()->getAreaAIType(getTeam()) == AREAAI_OFFENSIVE) || isEnemy(plot()->getTeam()))
+		if (AI_pillage(20))
+			return;
+
+	if (AI_heal())
+		return;
+
+	if (AI_pillage(0))
+		return;
+
+	if (AI_retreatToCity())
+		return;
+
+	if (AI_safety())
+		return;
+
+	getGroup()->pushMission(MISSION_SKIP);
 	return;
 }

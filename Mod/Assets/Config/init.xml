@@ -75,6 +75,7 @@
 	<load mod="MiscHovers"/>
 	<load mod="StrategyOverlay"/>
 	<load mod="UnitActions"/>
+	<load mod="UnitAutomations"/>
 
 	<load mod="Tester"/>
 

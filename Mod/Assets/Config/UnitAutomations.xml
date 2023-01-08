@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<mod id="Automations" name="Unit Automations">
+
+	<options id="Automations" file="UnitAutomations.ini">
+		<section id="Units">
+			<!-- Pillaging -->
+			<option id="PillageBarbarians" key="Pillage Barbarians" type="boolean" default="False"/>
+			<option id="PillageIgnoreDanger" key="Pillage Ignore Danger" type="boolean" default="True"/>
+		</section>
+	</options>
+</mod>

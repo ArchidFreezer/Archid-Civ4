@@ -1299,4 +1299,22 @@
 		<English>Percentage hightlight brightness of the overlay dotmaps</English>
 	</TEXT>
 
+<!-- Unit Automations -->
+	<TEXT> <!-- Automations_PillageBarbarians -->
+		<Tag>TXT_KEY_ARCHID_OPT_AUTOMATIONS__PILLAGEBARBARIANS_TEXT</Tag>
+		<English>Automated Pillaging Hits Barbarians</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_AUTOMATIONS__PILLAGEBARBARIANS_HOVER</Tag>
+		<English>Troops automated to pillage will enter barbarian territory and will pillage barbarian settlements</English>
+	</TEXT>
+	<TEXT> <!-- Automations_IgnoreDanger -->
+		<Tag>TXT_KEY_ARCHID_OPT_AUTOMATIONS__PILLAGEIGNOREDANGER_TEXT</Tag>
+		<English>Automated Pillaging Ignores Danger</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_AUTOMATIONS__PILLAGEIGNOREDANGER_HOVER</Tag>
+		<English>Troops automated to pillage will ignore enemy units and may enter dangerous situations</English>
+	</TEXT>
+
 </Civ4GameText>

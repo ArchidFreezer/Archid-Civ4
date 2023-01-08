@@ -2611,8 +2611,7 @@ bool CvSelectionGroup::groupAttack(int iX, int iY, int iFlags, bool& bFailedAlre
 
 						if (bFailedAlreadyFighting || !bStack) {
 							// if this is AI stack, follow through with the attack to the end
-							if (!isHuman() && getNumUnits() > 1 && !(iFlags & MOVE_SINGLE_ATTACK)) // K-Mod
-							{
+							if ((!isHuman() || isAutomated()) && getNumUnits() > 1 && !(iFlags & MOVE_SINGLE_ATTACK)) {
 								AI_queueGroupAttack(pDestPlot->getX_INLINE(), pDestPlot->getY_INLINE()); // K-Mod
 							}
 

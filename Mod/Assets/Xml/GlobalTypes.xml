@@ -89,6 +89,7 @@
 		<AutomateType>AUTOMATE_RELIGION</AutomateType>
 		<AutomateType>AUTOMATE_SHADOW</AutomateType>
 		<AutomateType>AUTOMATE_ESPIONAGE</AutomateType>
+		<AutomateType>AUTOMATE_PILLAGE</AutomateType>
 	</AutomateTypes>
 	<DirectionTypes>
 		<!--Changes must be reflected in CvEnums.h-->
