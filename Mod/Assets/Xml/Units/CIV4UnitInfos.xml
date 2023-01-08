@@ -884,6 +884,7 @@
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
 			<TerrainNatives>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
 				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</TerrainNatives>
 			<FeatureNatives>
@@ -984,6 +985,7 @@
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
 			<TerrainNatives>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
 				<TerrainType>TERRAIN_TUNDRA</TerrainType>
 				<TerrainType>TERRAIN_SNOW</TerrainType>
 			</TerrainNatives>
