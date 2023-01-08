@@ -115,10 +115,12 @@ void CvUnit::init(int iID, UnitTypes eUnit, UnitAITypes eUnitAI, PlayerTypes eOw
 
 	// If this unit is created in one of the owners cities then set that city as its home
 	// otherwise set the owners closest city, favouring cities on the same landmass
-	if (plot()->getPlotCity() != NULL && plot()->getPlotCity()->getOwnerINLINE() == getOwnerINLINE()) {
-		setHomeCity(plot()->getPlotCity());
-	} else {
-		setHomeCity(kOwner.findCity(getX_INLINE(), getY_INLINE(), true));
+	if (!m_pUnitInfo->isAnimal()) {
+		if (plot()->getPlotCity() != NULL && plot()->getPlotCity()->getOwnerINLINE() == getOwnerINLINE()) {
+			setHomeCity(plot()->getPlotCity());
+		} else {
+			setHomeCity(kOwner.findCity(getX_INLINE(), getY_INLINE(), true));
+		}
 	}
 	int iUnitName = GC.getGameINLINE().getUnitCreatedCount(getUnitType());
 	int iNumNames = m_pUnitInfo->getNumUnitNames();
