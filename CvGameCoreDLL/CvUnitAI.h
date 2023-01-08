@@ -242,6 +242,7 @@ protected:
 	bool AI_protectTarget(CvUnit* pTarget);
 	bool AI_returnToBorders();
 	bool AI_patrolBorders();
+	bool AI_caravan(bool bAnyCity = false);
 
 	bool AI_defendPlot(CvPlot* pPlot);
 	int AI_pillageValue(CvPlot* pPlot, int iBonusValueThreshold = 0);

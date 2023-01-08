@@ -2673,6 +2673,15 @@ bool CvUnit::canAutomate(AutomateTypes eAutomate) const {
 			return false;
 		break;
 
+	case AUTOMATE_HURRY:
+		if (m_pUnitInfo->getBaseHurry() <= 0)
+			return false;
+
+		//Do not give ability to great people
+		if (m_pUnitInfo->getProductionCost() < 0)
+			return false;
+		break;
+
 	default:
 		FAssert(false);
 		break;

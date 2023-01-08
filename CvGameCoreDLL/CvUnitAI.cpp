@@ -211,6 +211,10 @@ bool CvUnitAI::AI_update() {
 			AI_borderPatrol();
 			break;
 
+		case AUTOMATE_HURRY:
+			AI_merchantMove();
+			break;
+
 		default:
 			FAssert(false);
 			break;
@@ -3934,6 +3938,14 @@ void CvUnitAI::AI_merchantMove() {
 		if (AI_discover()) {
 			return;
 		}
+	}
+
+	if (AI_caravan(false)) {
+		return;
+	}
+
+	if (AI_caravan(true)) {
+		return;
 	}
 
 	if (AI_retreatToCity()) {
@@ -18201,6 +18213,77 @@ bool CvUnitAI::AI_patrolBorders() {
 		FAssert(!atPlot(pBestPlot));
 		getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE());
 		return true;
+	}
+
+	return false;
+}
+
+bool CvUnitAI::AI_caravan(bool bAnyCity) {
+	PROFILE_FUNC();
+
+	//Avoid using Great People
+	if (getUnitInfo().getProductionCost() < 0)
+		return false;
+
+	int iNumCities = GET_PLAYER(getOwnerINLINE()).getNumCities();
+	int iBestValue = 0;
+	CvPlot* pBestPlot = NULL;
+	CvPlot* pBestHurryPlot = NULL;
+
+	int iLoop;
+	for (CvCity* pLoopCity = GET_PLAYER(getOwnerINLINE()).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER(getOwnerINLINE()).nextCity(&iLoop)) {
+		if ((pLoopCity->area() == area()) && AI_plotValid(pLoopCity->plot())) {
+			if (canHurry(pLoopCity->plot())) {
+				if (!(pLoopCity->plot()->isVisibleEnemyUnit(this))) {
+					int iPathTurns;
+					if (generatePath(pLoopCity->plot(), MOVE_SAFE_TERRITORY, true, &iPathTurns)) {
+						bool bCandidate = false;
+
+						if (!bAnyCity) {
+							// Only check cities where the population is below 2/3 the average
+							if (pLoopCity->findPopulationRank() >= ((iNumCities * 2) / 3)) {
+								int iPopulation = pLoopCity->getPopulation();
+								int iEmpirePop = GET_PLAYER(getOwnerINLINE()).getTotalPopulation();
+								int iAvgPop = iEmpirePop / iNumCities;
+								if (iPopulation < ((iAvgPop * 2) / 3)) {
+									bCandidate = true;
+								}
+							}
+						}
+
+						if (bCandidate || bAnyCity) {
+							int iTurnsLeft = pLoopCity->getProductionTurnsLeft();
+
+							iTurnsLeft -= iPathTurns;
+							int iMinTurns = 2;
+							iMinTurns *= GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getAnarchyPercent();
+							iMinTurns /= 100;
+							// Best city is the one that will have its production turns reduced the most
+							if (iTurnsLeft > iMinTurns) {
+								int iValue = iTurnsLeft;
+
+								if (iValue > iBestValue) {
+									iBestValue = iValue;
+									pBestPlot = getPathEndTurnPlot();
+									pBestHurryPlot = pLoopCity->plot();
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	if ((pBestPlot != NULL) && (pBestHurryPlot != NULL)) {
+		if (atPlot(pBestHurryPlot)) {
+			getGroup()->pushMission(MISSION_HURRY);
+			return true;
+		} else {
+			FAssert(!atPlot(pBestPlot));
+			getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), MOVE_SAFE_TERRITORY, false, false, MISSIONAI_HURRY, pBestHurryPlot);
+			return true;
+		}
 	}
 
 	return false;

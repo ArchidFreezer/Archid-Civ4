@@ -93,6 +93,7 @@
 		<AutomateType>AUTOMATE_HUNT</AutomateType>
 		<AutomateType>AUTOMATE_CITY_DEFENSE</AutomateType>
 		<AutomateType>AUTOMATE_BORDER_PATROL</AutomateType>
+		<AutomateType>AUTOMATE_HURRY</AutomateType>
 	</AutomateTypes>
 	<DirectionTypes>
 		<!--Changes must be reflected in CvEnums.h-->
