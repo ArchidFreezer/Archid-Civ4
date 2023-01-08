@@ -229,6 +229,11 @@ bool CvUnitAI::AI_update() {
 			AI_exploreAirMove();
 			break;
 
+		case AUTOMATE_PROMOTIONS:
+		case AUTOMATE_CANCEL_PROMOTIONS:
+			FAssertMsg(false, "SelectionGroup Should Not be Using These Automations!")
+				break;
+
 		default:
 			FAssert(false);
 			break;

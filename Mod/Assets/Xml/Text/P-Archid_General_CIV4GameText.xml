@@ -1239,6 +1239,26 @@
 		<English>Will recon nearby enemy emplacements.</English>
 		<French>Effectue automatiquement des opérations de reconnaissance</French>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_PROMOTIONS</Tag>
+		<English>Automate Promote</English>
+		<French>Promotions Automatisées</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_PROMOTIONS_HELP</Tag>
+		<English>Will auto-promote whenever the unit can gain a promotion</English>
+		<French>Attribue automaiquement une promotion lorsque l'unité peut en gagner</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_CANCEL_PROMOTIONS</Tag>
+		<English>Cancel Automate Promote</English>
+		<French>Annuler Promotions Automatisées</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_CANCEL_PROMOTIONS_HELP</Tag>
+		<English>Cancels the Automate Promote Order</English>
+		<French>Annule les ordres de Promotions Automatisées</French>
+	</TEXT>
 
 <!-- Abandon City Raze Building Mod -->
 	<TEXT>

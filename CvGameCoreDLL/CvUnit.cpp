@@ -336,6 +336,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_bCivicEnabled = true;
 	m_bGroupPromotionChanged = false;
 	m_bWorldViewEnabled = true;
+	m_bAutoPromoting = false;
 
 	m_eOwner = eOwner;
 	m_eCapturingPlayer = NO_PLAYER;
@@ -454,6 +455,7 @@ void CvUnit::convert(CvUnit* pUnit) {
 	setGameTurnCreated(pUnit->getGameTurnCreated());
 	setDamage(pUnit->getDamage());
 	setMoves(pUnit->getMoves());
+	setAutoPromoting(pUnit->isAutoPromoting());
 
 	setLevel(pUnit->getLevel());
 	int iOldModifier = std::max(1, 100 + GET_PLAYER(pUnit->getOwnerINLINE()).getLevelExperienceModifier());
@@ -2715,6 +2717,20 @@ bool CvUnit::canAutomate(AutomateTypes eAutomate) const {
 			return false;
 		break;
 
+	case AUTOMATE_PROMOTIONS:
+		if (!canAcquirePromotionAny())
+			return false;
+		if (isAutoPromoting())
+			return false;
+		break;
+
+	case AUTOMATE_CANCEL_PROMOTIONS:
+		if (!canAcquirePromotionAny())
+			return false;
+		if (!isAutoPromoting())
+			return false;
+		break;
+
 	default:
 		FAssert(false);
 		break;
@@ -2726,6 +2742,19 @@ bool CvUnit::canAutomate(AutomateTypes eAutomate) const {
 
 void CvUnit::automate(AutomateTypes eAutomate) {
 	if (!canAutomate(eAutomate)) {
+		return;
+	}
+
+	if (eAutomate == AUTOMATE_PROMOTIONS || eAutomate == AUTOMATE_CANCEL_PROMOTIONS) {
+		CLLNode<IDInfo>* pUnitNode = getGroup()->headUnitNode();
+		while (pUnitNode != NULL) {
+			CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+			pUnitNode = getGroup()->nextUnitNode(pUnitNode);
+			pLoopUnit->setAutoPromoting(eAutomate == AUTOMATE_PROMOTIONS);
+		}
+		if (IsSelected())
+			gDLL->getInterfaceIFace()->setDirty(SelectionButtons_DIRTY_BIT, true);
+
 		return;
 	}
 
@@ -9133,13 +9162,19 @@ void CvUnit::setPromotionReady(bool bNewValue) {
 	if (isPromotionReady() != bNewValue) {
 		m_bPromotionReady = bNewValue;
 
-		if (m_bPromotionReady) {
-			getGroup()->setAutomateType(NO_AUTOMATE);
-			getGroup()->clearMissionQueue();
-			getGroup()->setActivityType(ACTIVITY_AWAKE);
-		}
-
 		gDLL->getEntityIFace()->showPromotionGlow(getUnitEntity(), bNewValue);
+
+		if (m_bPromotionReady) {
+			if (isAutoPromoting()) {
+				AI_promote();
+				setPromotionReady(false);
+				testPromotionReady();
+			} else {
+				getGroup()->setAutomateType(NO_AUTOMATE);
+				getGroup()->clearMissionQueue();
+				getGroup()->setActivityType(ACTIVITY_AWAKE);
+			}
+		}
 
 		if (IsSelected()) {
 			gDLL->getInterfaceIFace()->setDirty(SelectionButtons_DIRTY_BIT, true);
@@ -9988,6 +10023,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_bCivicEnabled);
 	pStream->Read(&m_bGroupPromotionChanged);
 	pStream->Read(&m_bWorldViewEnabled);
+	pStream->Read(&m_bAutoPromoting);
 
 	pStream->Read((int*)&m_eOwner);
 	pStream->Read((int*)&m_eCapturingPlayer);
@@ -10109,6 +10145,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_bCivicEnabled);
 	pStream->Write(m_bGroupPromotionChanged);
 	pStream->Write(m_bWorldViewEnabled);
+	pStream->Write(m_bAutoPromoting);
 
 	pStream->Write(m_eOwner);
 	pStream->Write(m_eCapturingPlayer);
@@ -12878,5 +12915,18 @@ void CvUnit::waitForTech(int iFlag, int eTech) {
 		}
 	} else {
 		setDesiredDiscoveryTech((TechTypes)eTech);
+	}
+}
+
+bool CvUnit::isAutoPromoting() const {
+	return m_bAutoPromoting;
+}
+
+void CvUnit::setAutoPromoting(bool bNewValue) {
+	m_bAutoPromoting = bNewValue;
+	if (bNewValue) {
+		//Force recalculation
+		setPromotionReady(false);
+		testPromotionReady();
 	}
 }
