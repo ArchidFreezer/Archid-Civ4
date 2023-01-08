@@ -1607,7 +1607,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 				lTemp = []
 				for item in lItems:
 					ItemInfo = gc.getPromotionInfo(item[1])
-					if ItemInfo.getUnitCombat(iClass):
+					if ItemInfo.isOrCombatType(iClass):
 						lTemp.append(item)
 				if lTemp:
 					SortInfo = gc.getUnitCombatInfo(iClass)
