@@ -1708,15 +1708,6 @@ void CvUnitAI::AI_slaverMove() {
 		}
 	}
 
-	// Join any group that is looking for trouble
-	if (AI_groupMergeRange(UNITAI_ATTACK, 1, true, true, true)) {
-		return;
-	}
-
-	if (AI_groupMergeRange(UNITAI_ATTACK_CITY, 3, true, true, true)) {
-		return;
-	}
-
 	// Pop some goodies if we can
 	if (AI_goody(4)) {
 		return;
@@ -1726,6 +1717,16 @@ void CvUnitAI::AI_slaverMove() {
 	// Look for someone to enslave or just explore in a widening area
 	//
 	if (AI_huntRange(1, 20, false, 10)) {
+		return;
+	}
+
+	// Shadow any group that is looking for trouble in enemy territory
+	if (plot()->getOwnerINLINE() != NO_PLAYER && GET_TEAM(getTeam()).isAtWar(GET_PLAYER(plot()->getOwnerINLINE()).getTeam()) && AI_shadow(UNITAI_ATTACK, 1, -1, false, true, 1)) {
+		return;
+	}
+
+	// Allow 2 slavers to shadow city breakers
+	if (plot()->getOwnerINLINE() != NO_PLAYER && GET_TEAM(getTeam()).isAtWar(GET_PLAYER(plot()->getOwnerINLINE()).getTeam()) && AI_shadow(UNITAI_ATTACK_CITY, 2, -1, false, true, 1)) {
 		return;
 	}
 
@@ -1742,6 +1743,14 @@ void CvUnitAI::AI_slaverMove() {
 	}
 
 	if (AI_exploreRange(3)) {
+		return;
+	}
+
+	if (plot()->getOwnerINLINE() != NO_PLAYER && GET_TEAM(getTeam()).isAtWar(GET_PLAYER(plot()->getOwnerINLINE()).getTeam()) && AI_shadow(UNITAI_ATTACK, 1, -1, false, true, 3)) {
+		return;
+	}
+
+	if (plot()->getOwnerINLINE() != NO_PLAYER && GET_TEAM(getTeam()).isAtWar(GET_PLAYER(plot()->getOwnerINLINE()).getTeam()) && AI_shadow(UNITAI_ATTACK_CITY, 2, -1, false, true, 3)) {
 		return;
 	}
 

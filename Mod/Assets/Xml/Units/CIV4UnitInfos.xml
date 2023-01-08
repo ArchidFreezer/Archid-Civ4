@@ -7454,7 +7454,7 @@
 				<TechType>TECH_BRONZE_WORKING</TechType>
 			</PrereqTechs>
 			<PrereqWorldViews>
-				<WorldViewType>WORLD_VIEW_DUMMY</WorldViewType>
+				<WorldViewType>WORLD_VIEW_SLAVERY</WorldViewType>
 			</PrereqWorldViews>
 			<iCost>35</iCost>
 			<iEnslaveCount>1</iEnslaveCount>
@@ -7529,7 +7529,7 @@
 				<TechType>TECH_MACHINERY</TechType>
 			</PrereqTechs>
 			<PrereqWorldViews>
-				<WorldViewType>WORLD_VIEW_DUMMY</WorldViewType>
+				<WorldViewType>WORLD_VIEW_SLAVERY</WorldViewType>
 			</PrereqWorldViews>
 			<iCost>70</iCost>
 			<iEnslaveCount>2</iEnslaveCount>
@@ -7602,7 +7602,7 @@
 				<TechType>TECH_RIFLING</TechType>
 			</PrereqTechs>
 			<PrereqWorldViews>
-				<WorldViewType>WORLD_VIEW_DUMMY</WorldViewType>
+				<WorldViewType>WORLD_VIEW_SLAVERY</WorldViewType>
 			</PrereqWorldViews>
 			<iCost>140</iCost>
 			<iEnslaveCount>3</iEnslaveCount>
