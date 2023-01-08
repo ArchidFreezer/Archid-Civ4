@@ -91,6 +91,7 @@
 		<AutomateType>AUTOMATE_ESPIONAGE</AutomateType>
 		<AutomateType>AUTOMATE_PILLAGE</AutomateType>
 		<AutomateType>AUTOMATE_HUNT</AutomateType>
+		<AutomateType>AUTOMATE_CITY_DEFENSE</AutomateType>
 	</AutomateTypes>
 	<DirectionTypes>
 		<!--Changes must be reflected in CvEnums.h-->

@@ -203,6 +203,10 @@ bool CvUnitAI::AI_update() {
 			AI_searchAndDestroyMove();
 			break;
 
+		case AUTOMATE_CITY_DEFENCE:
+			AI_cityDefence();
+			break;
+
 		default:
 			FAssert(false);
 			break;
@@ -17986,4 +17990,94 @@ void CvUnitAI::AI_searchAndDestroyMove() {
 
 	getGroup()->pushMission(MISSION_SKIP);
 	return;
+}
+
+void CvUnitAI::AI_cityDefence() {
+
+	if (AI_returnToBorders())
+		return;
+
+	if (AI_guardCityBestDefender())
+		return;
+
+	if (AI_guardCityMinDefender(false))
+		return;
+
+	if (AI_leaveAttack(2, 50, 100))
+		return;
+
+	if (AI_leaveAttack(3, 55, 130))
+		return;
+
+	if (AI_guardCity())
+		return;
+
+	if (AI_heal())
+		return;
+
+	if (AI_retreatToCity())
+		return;
+
+	if (AI_safety())
+		return;
+
+	getGroup()->pushMission(MISSION_SKIP);
+	return;
+}
+
+bool CvUnitAI::AI_returnToBorders() {
+	PROFILE_FUNC();
+
+	//Allows the unit to be a maximum of 2 tiles from our borders before ordering him back
+	if (plot()->getOwnerINLINE() == getOwnerINLINE())
+		return false;
+
+	for (DirectionTypes eDirection = (DirectionTypes)0; eDirection < NUM_DIRECTION_TYPES; eDirection = (DirectionTypes)(eDirection + 1)) {
+		CvPlot* pAdjacentPlot = plotDirection(getX_INLINE(), getY_INLINE(), eDirection);
+		if (pAdjacentPlot != NULL) {
+			if (pAdjacentPlot->getOwnerINLINE() == getOwnerINLINE()) {
+				return false;
+			}
+			CvPlot* pAdjacentPlot2;
+			for (DirectionTypes eInnerDirection = (DirectionTypes)0; eInnerDirection < NUM_DIRECTION_TYPES; eInnerDirection = (DirectionTypes)(eInnerDirection + 1)) {
+				pAdjacentPlot2 = plotDirection(pAdjacentPlot->getX_INLINE(), pAdjacentPlot->getY_INLINE(), eInnerDirection);
+				if (pAdjacentPlot2 != NULL) {
+					if (pAdjacentPlot2->getOwnerINLINE() == getOwnerINLINE()) {
+						return false;
+					}
+				}
+			}
+		}
+	}
+
+	int iBestValue = 0;
+	CvPlot* pBestPlot = NULL;
+	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++) {
+		CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
+		if (AI_plotValid(pLoopPlot)) {
+			if (pLoopPlot->getOwnerINLINE() == getOwnerINLINE()) {
+				if (!pLoopPlot->isVisibleEnemyUnit(this)) {
+
+					int iPathTurns;
+					if (generatePath(pLoopPlot, 0, true, &iPathTurns)) {
+						int iValue = 1000;
+						iValue /= (iPathTurns + 1);
+
+						if (iValue > iBestValue) {
+							iBestValue = iValue;
+							pBestPlot = getPathEndTurnPlot();
+						}
+					}
+				}
+			}
+		}
+	}
+
+	if (pBestPlot != NULL) {
+		FAssert(!atPlot(pBestPlot));
+		getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE());
+		return true;
+	}
+
+	return false;
 }

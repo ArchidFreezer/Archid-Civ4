@@ -978,6 +978,16 @@
 		<English>Send the unit to hunt down and kill any enemy units it can find.</English>
 		<French>Envoi l'unité pour traquer et tuer toutes les unités ennemies.</French>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_CITY_DEFENSE</Tag>
+		<English>Automate City Defense</English>
+		<French>Défense de Ville Automatisée</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_CITY_DEFENSE_HELP</Tag>
+		<English>Will protect the city from nearby attackers.</English>
+		<French>L'unité protège la Ville des attaquants à proximité.</French>
+	</TEXT>
 
 <!-- Super Spies -->
 	<TEXT>
