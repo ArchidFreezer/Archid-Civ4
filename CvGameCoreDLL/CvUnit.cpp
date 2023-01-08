@@ -8842,7 +8842,7 @@ int CvUnit::getExtraMoves() const {
 
 void CvUnit::changeExtraMoves(int iChange) {
 	m_iExtraMoves += iChange;
-	FAssert(getExtraMoves() >= 0);
+	// FAssert(getExtraMoves() >= 0); assert is no longer valid as at least one naval promotion reduces unit movement
 }
 
 
