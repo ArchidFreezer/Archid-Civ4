@@ -55,6 +55,7 @@ public:
 
 	void doImprovement();
 	bool isCanFortAttack() const;
+	bool isSubjectToFortAttack() const;
 
 	void updateCulture(bool bBumpUnits, bool bUpdatePlotGroups);
 

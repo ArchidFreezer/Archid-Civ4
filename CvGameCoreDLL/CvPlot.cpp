@@ -8140,10 +8140,26 @@ bool CvPlot::isTeamBonus(TeamTypes eTeam) const {
 }
 
 bool CvPlot::isCanFortAttack() const {
-	if (GC.getFORT_ATTACK_CITIES_ALSO())
-		return isCity(true);
-	else
-		return getImprovementType() != NO_IMPROVEMENT && GC.getImprovementInfo(getImprovementType()).isActsAsCity();
+	bool bValid = false;
+
+	bool bImprovementValid = GC.getFORT_ATTACK_CITIES_ALSO() ? isCity(true) : (getImprovementType() != NO_IMPROVEMENT && GC.getImprovementInfo(getImprovementType()).isActsAsCity());
+
+	if (bImprovementValid) {
+		// Check if there are any valid attackers in the plot
+		CLLNode<IDInfo>* pUnitNode = headUnitNode();
+		while (pUnitNode != NULL) {
+			CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+			pUnitNode = nextUnitNode(pUnitNode);
+			if (pLoopUnit->getUnitCombatType() == NO_UNITCOMBAT)
+				continue;
+
+			if (pLoopUnit->canFortAttack() && !pLoopUnit->isOnlyDefensive()) {
+				bValid = true;
+				break;
+			}
+		}
+	}
+	return bValid;
 }
 
 void CvPlot::doFortAttack() {
@@ -8280,4 +8296,18 @@ int CvPlot::getNumVisibleAdjacentEnemyDefenders(const CvUnit* pUnit) const {
 		}
 	}
 	return iCount;
+}
+
+bool CvPlot::isSubjectToFortAttack() const {
+	bool bActiveFort = false;
+	for (DirectionTypes eDirection = (DirectionTypes)0; eDirection < NUM_DIRECTION_TYPES; eDirection = (DirectionTypes)(eDirection + 1)) {
+		CvPlot* pAdjacentPlot = plotDirection(getX_INLINE(), getY_INLINE(), eDirection);
+		if (pAdjacentPlot != NULL) {
+			if (pAdjacentPlot->isCanFortAttack()) {
+				bActiveFort = true;
+				break;
+			}
+		}
+	}
+	return bActiveFort;
 }
