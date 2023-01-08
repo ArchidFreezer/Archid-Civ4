@@ -207,6 +207,10 @@ bool CvUnitAI::AI_update() {
 			AI_cityDefence();
 			break;
 
+		case AUTOMATE_BORDER_PATROL:
+			AI_borderPatrol();
+			break;
+
 		default:
 			FAssert(false);
 			break;
@@ -18073,6 +18077,126 @@ bool CvUnitAI::AI_returnToBorders() {
 		}
 	}
 
+	if (pBestPlot != NULL) {
+		FAssert(!atPlot(pBestPlot));
+		getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE());
+		return true;
+	}
+
+	return false;
+}
+
+void CvUnitAI::AI_borderPatrol() {
+	PROFILE_FUNC();
+
+	bool bStayInBorders = getOptionBOOL("Automations__StayInBorders", false);
+
+	if (AI_returnToBorders()) {
+		return;
+	}
+
+	if (AI_heal()) {
+		return;
+	}
+
+	if (AI_huntRange(1, 35, bStayInBorders)) {
+		return;
+	}
+
+	if (AI_huntRange(2, 40, true)) {
+		return;
+	}
+
+	if (AI_huntRange(2, 50, bStayInBorders)) {
+		return;
+	}
+
+	if (AI_huntRange(4, 50, true)) {
+		return;
+	}
+
+	if (AI_huntRange(6, 60, true)) {
+		return;
+	}
+
+	if (AI_patrolBorders()) {
+		return;
+	}
+
+	if (AI_huntRange(10, 60, true)) {
+		return;
+	}
+
+	if (!bStayInBorders) {
+		if (AI_patrol()) {
+			return;
+		}
+	}
+
+	if (AI_retreatToCity()) {
+		return;
+	}
+
+	if (AI_safety()) {
+		return;
+	}
+
+	getGroup()->pushMission(MISSION_SKIP);
+	return;
+}
+
+//AI_patrolBorders relys heavily on the units current facing direction to determine where the next
+//move should be. For example, units facing north should not turn around south, or any southerly
+//direction (southwest, southeast) to patrol, since that would cause them to oscilate. Instead, 
+//they should appear to be intelligent, and move around the players borders in a circuit, without
+//turning back or leaving the boundries of the cultural borders. This is not in fact the most optimal
+//method of patroling, but it produces results that make sense to the average human, which is the actual goal,
+//since the AI actually never use this function, only automated human units do.
+bool CvUnitAI::AI_patrolBorders() {
+	PROFILE_FUNC();
+
+	int iBestValue = 0;
+	CvPlot* pBestPlot = NULL;
+
+	int iSearchRange = baseMoves();
+
+	for (int iDX = -(iSearchRange); iDX <= iSearchRange; iDX++) {
+		for (int iDY = -(iSearchRange); iDY <= iSearchRange; iDY++) {
+			CvPlot* pLoopPlot = plotXY(getX_INLINE(), getY_INLINE(), iDX, iDY);
+
+			if (pLoopPlot != NULL) {
+				if (canMoveInto(pLoopPlot, false, false, true)) {
+					DirectionTypes eNewDirection = estimateDirection(plot(), pLoopPlot);
+					int iValue = GC.getGameINLINE().getSorenRandNum(10000, "AI Border Patrol");
+					if (pLoopPlot->isBorder(true)) {
+						iValue += GC.getGameINLINE().getSorenRandNum(10000, "AI Border Patrol");
+					} else if (pLoopPlot->isBorder(false)) {
+						iValue += GC.getGameINLINE().getSorenRandNum(5000, "AI Border Patrol");
+					}
+					//Avoid heading backwards, we want to circuit our borders, if possible.
+					if (eNewDirection == getOppositeDirection(getFacingDirection(false))) {
+						iValue /= 25;
+					} else if (isAdjacentDirection(getOppositeDirection(getFacingDirection(false)), eNewDirection)) {
+						iValue /= 10;
+					}
+					if (pLoopPlot->getOwnerINLINE() != getOwnerINLINE()) {
+						if (getOptionBOOL("Automations__StayInBorders", false)) {
+							iValue = -1;
+						} else {
+							iValue /= 10;
+						}
+					}
+					if (getDomainType() == DOMAIN_LAND && pLoopPlot->isWater() || getDomainType() == DOMAIN_SEA && !pLoopPlot->isWater()) {
+						iValue /= 10;
+					}
+					if (iValue > iBestValue) {
+						iBestValue = iValue;
+						pBestPlot = pLoopPlot;
+					}
+				}
+			}
+		}
+	}
 	if (pBestPlot != NULL) {
 		FAssert(!atPlot(pBestPlot));
 		getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE());

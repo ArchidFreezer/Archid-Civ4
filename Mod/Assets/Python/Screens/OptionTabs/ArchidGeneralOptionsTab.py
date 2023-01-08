@@ -37,6 +37,7 @@ class ArchidGeneralOptionsTab(BugOptionsTab.BugOptionsTab):
 		self.addLabel(screen, panel, "Automations", "Automations:")
 		self.addCheckbox(screen, panel, "Automations__PillageBarbarians")
 		self.addCheckbox(screen, panel, "Automations__PillageIgnoreDanger")
+		self.addCheckbox(screen, panel, "Automations__StayInBorders")
 
 	def createAutoPlayPanel(self, screen, panel):
 		self.addLabel(screen, panel, "AIAutoPlay", "AI Auto Play:")

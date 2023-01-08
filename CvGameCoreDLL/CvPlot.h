@@ -90,6 +90,7 @@ public:
 
 	bool isVisibleWorked() const;
 	bool isWithinTeamCityRadius(TeamTypes eTeam, PlayerTypes eIgnorePlayer = NO_PLAYER) const;	// Exposed to Python
+	bool isBorder(bool bIgnoreWater = false) const;
 
 	DllExport bool isLake() const;																															// Exposed to Python
 	bool isFreshWater() const;																												// Exposed to Python

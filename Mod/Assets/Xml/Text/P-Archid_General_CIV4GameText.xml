@@ -988,6 +988,16 @@
 		<English>Will protect the city from nearby attackers.</English>
 		<French>L'unité protège la Ville des attaquants à proximité.</French>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_BORDER_PATROL</Tag>
+		<English>Automate Border Patrol</English>
+		<French>Patrouille Automatisée</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_BORDER_PATROL_HELP</Tag>
+		<English>Send the unit to patrol your civilization's borders and kill invading enemy units</English>
+		<French>Envoi l'unité patrouiller les frontières et tuer les envahisseurs ennemis.</French>
+	</TEXT>
 
 <!-- Super Spies -->
 	<TEXT>

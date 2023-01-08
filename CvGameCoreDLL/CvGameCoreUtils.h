@@ -205,6 +205,8 @@ DllExport bool isCardinalDirection(DirectionTypes eDirection);															// 
 DllExport DirectionTypes estimateDirection(int iDX, int iDY);																// Exposed to Python
 DllExport DirectionTypes estimateDirection(const CvPlot* pFromPlot, const CvPlot* pToPlot);
 DllExport float directionAngle(DirectionTypes eDirection);
+DirectionTypes getOppositeDirection(DirectionTypes eDirection);
+bool isAdjacentDirection(DirectionTypes eFacingDirection, DirectionTypes eOtherDirection);
 
 DllExport bool atWar(TeamTypes eTeamA, TeamTypes eTeamB);												// Exposed to Python
 bool isPotentialEnemy(TeamTypes eOurTeam, TeamTypes eTheirTeam);			// Exposed to Python

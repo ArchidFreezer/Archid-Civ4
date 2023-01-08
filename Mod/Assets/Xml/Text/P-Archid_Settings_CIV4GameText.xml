@@ -1316,5 +1316,13 @@
 		<Tag>TXT_KEY_ARCHID_OPT_AUTOMATIONS__PILLAGEIGNOREDANGER_HOVER</Tag>
 		<English>Troops automated to pillage will ignore enemy units and may enter dangerous situations</English>
 	</TEXT>
+	<TEXT> <!-- Automations__StayInBorders -->
+		<Tag>TXT_KEY_ARCHID_OPT_AUTOMATIONS__STAYINBORDERS_TEXT</Tag>
+		<English>Patrolling Units stay in borders</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_AUTOMATIONS__STAYINBORDERS_HOVER</Tag>
+		<English>Units with Border Patrol automation will not leave friendly territory for any reason</English>
+	</TEXT>
 
 </Civ4GameText>

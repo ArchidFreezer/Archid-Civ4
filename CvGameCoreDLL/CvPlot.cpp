@@ -8311,3 +8311,18 @@ bool CvPlot::isSubjectToFortAttack() const {
 	}
 	return bActiveFort;
 }
+
+bool CvPlot::isBorder(bool bIgnoreWater) const {
+	for (DirectionTypes eDirection = (DirectionTypes)0; eDirection < NUM_DIRECTION_TYPES; eDirection = (DirectionTypes)(eDirection + 1)) {
+		CvPlot* pAdjacentPlot = plotDirection(getX_INLINE(), getY_INLINE(), eDirection);
+		if (pAdjacentPlot != NULL) {
+			if (!isWater() && pAdjacentPlot->isWater() && !bIgnoreWater)
+				return true;
+
+			if (pAdjacentPlot->getOwnerINLINE() != getOwnerINLINE())
+				return true;
+		}
+	}
+
+	return false;
+}

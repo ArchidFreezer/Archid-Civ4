@@ -2483,3 +2483,48 @@ int LFBcalculateCombatOdds(int iFirstStrikes, int iNeededRoundsAttacker, int iNe
 	return iOdds;
 }
 // lfb end
+
+DirectionTypes getOppositeDirection(DirectionTypes eDirection) {
+	switch (eDirection) {
+	case DIRECTION_NORTH:
+		return DIRECTION_SOUTH;
+	case DIRECTION_NORTHEAST:
+		return DIRECTION_SOUTHWEST;
+	case DIRECTION_EAST:
+		return DIRECTION_WEST;
+	case DIRECTION_SOUTHEAST:
+		return DIRECTION_NORTHWEST;
+	case DIRECTION_SOUTH:
+		return DIRECTION_NORTH;
+	case DIRECTION_SOUTHWEST:
+		return DIRECTION_NORTHEAST;
+	case DIRECTION_WEST:
+		return DIRECTION_EAST;
+	case DIRECTION_NORTHWEST:
+		return DIRECTION_SOUTHEAST;
+	default:
+		return NO_DIRECTION;
+	}
+}
+
+bool isAdjacentDirection(DirectionTypes eFacingDirection, DirectionTypes eOtherDirection) {
+	switch (eFacingDirection) {
+	case DIRECTION_NORTH:
+		return eOtherDirection == DIRECTION_NORTHEAST || eOtherDirection == DIRECTION_NORTHWEST;
+	case DIRECTION_NORTHEAST:
+		return eOtherDirection == DIRECTION_NORTH || eOtherDirection == DIRECTION_EAST;
+	case DIRECTION_EAST:
+		return eOtherDirection == DIRECTION_NORTHEAST || eOtherDirection == DIRECTION_SOUTHEAST;
+	case DIRECTION_SOUTHEAST:
+		return eOtherDirection == DIRECTION_EAST || eOtherDirection == DIRECTION_SOUTH;
+	case DIRECTION_SOUTH:
+		return eOtherDirection == DIRECTION_SOUTHEAST || eOtherDirection == DIRECTION_SOUTHWEST;
+	case DIRECTION_SOUTHWEST:
+		return eOtherDirection == DIRECTION_SOUTH || eOtherDirection == DIRECTION_WEST;
+	case DIRECTION_WEST:
+		return eOtherDirection == DIRECTION_SOUTHWEST || eOtherDirection == DIRECTION_NORTHWEST;
+	case DIRECTION_NORTHWEST:
+		return eOtherDirection == DIRECTION_NORTH || eOtherDirection == DIRECTION_WEST;
+	}
+	return false;
+}
