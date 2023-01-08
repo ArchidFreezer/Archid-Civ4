@@ -97,6 +97,7 @@
 		<AutomateType>AUTOMATE_PIRACY</AutomateType>
 		<AutomateType>AUTOMATE_AIRSTRIKE</AutomateType>
 		<AutomateType>AUTOMATE_AIRBOMB</AutomateType>
+		<AutomateType>AUTOMATE_AIR_RECON</AutomateType>
 	</AutomateTypes>
 	<DirectionTypes>
 		<!--Changes must be reflected in CvEnums.h-->

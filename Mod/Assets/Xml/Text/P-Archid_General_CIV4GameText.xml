@@ -1229,6 +1229,16 @@
 		<English>Send the unit to attack enemy fortifications, improvements, and cities wherevever possible.</English>
 		<French>Envoi l'unité attaquer les fortifications ennemies, les aménagement et les Villes dès que possible.</French>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_AIR_RECON</Tag>
+		<English>Automate Air Recon</English>
+		<French>Reconnaissance aérienne Automatisée</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATEAIR_RECON_HELP</Tag>
+		<English>Will recon nearby enemy emplacements.</English>
+		<French>Effectue automatiquement des opérations de reconnaissance</French>
+	</TEXT>
 
 <!-- Abandon City Raze Building Mod -->
 	<TEXT>

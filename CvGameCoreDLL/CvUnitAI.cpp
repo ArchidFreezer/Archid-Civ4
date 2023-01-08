@@ -225,6 +225,10 @@ bool CvUnitAI::AI_update() {
 			AI_autoAirStrike();
 			break;
 
+		case AUTOMATE_AIR_RECON:
+			AI_exploreAirMove();
+			break;
+
 		default:
 			FAssert(false);
 			break;
