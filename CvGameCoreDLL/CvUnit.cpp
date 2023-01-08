@@ -2666,6 +2666,11 @@ bool CvUnit::canAutomate(AutomateTypes eAutomate) const {
 			return false;
 		break;
 
+	case AUTOMATE_HUNT:
+		if (!canAttack())
+			return false;
+		break;
+
 	default:
 		FAssert(false);
 		break;

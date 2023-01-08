@@ -90,6 +90,7 @@
 		<AutomateType>AUTOMATE_SHADOW</AutomateType>
 		<AutomateType>AUTOMATE_ESPIONAGE</AutomateType>
 		<AutomateType>AUTOMATE_PILLAGE</AutomateType>
+		<AutomateType>AUTOMATE_HUNT</AutomateType>
 	</AutomateTypes>
 	<DirectionTypes>
 		<!--Changes must be reflected in CvEnums.h-->

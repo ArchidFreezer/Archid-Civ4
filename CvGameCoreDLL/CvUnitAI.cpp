@@ -199,6 +199,10 @@ bool CvUnitAI::AI_update() {
 			AI_autoPillageMove();
 			break;
 
+		case AUTOMATE_HUNT:
+			AI_searchAndDestroyMove();
+			break;
+
 		default:
 			FAssert(false);
 			break;
@@ -17935,6 +17939,43 @@ void CvUnitAI::AI_autoPillageMove() {
 
 	// We are bored so lets just go find anything to pillage
 	if (AI_pillageRange(25, 0, false, false, bPillageBarbarians, bIgnoreDanger))
+		return;
+
+	if (AI_retreatToCity())
+		return;
+
+	if (AI_safety())
+		return;
+
+	getGroup()->pushMission(MISSION_SKIP);
+	return;
+}
+
+void CvUnitAI::AI_searchAndDestroyMove() {
+	PROFILE_FUNC();
+
+	if (AI_goody(4))
+		return;
+
+	if (AI_heal())
+		return;
+
+	if (AI_huntRange(1, 20, false, 10))
+		return;
+
+	if (AI_huntRange(3, 40, false, 15))
+		return;
+
+	if (AI_exploreRange(2))
+		return;
+
+	if (AI_huntRange(5, 60, false, 10))
+		return;
+
+	if (AI_exploreRange(5))
+		return;
+
+	if (AI_patrol())
 		return;
 
 	if (AI_retreatToCity())

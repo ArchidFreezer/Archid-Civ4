@@ -112,6 +112,7 @@ protected:
 	void AI_shadowMove();
 	void AI_autoEspionage();
 	void AI_autoPillageMove();
+	void AI_searchAndDestroyMove();
 
 	int AI_promotionValue(PromotionTypes ePromotion);
 

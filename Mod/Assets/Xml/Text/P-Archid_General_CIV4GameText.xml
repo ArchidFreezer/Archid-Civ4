@@ -968,6 +968,16 @@
 		<English>Send the unit to search and destroy enemy's improvements</English>
 		<French>Envoie l'unité pour rechercher et détruire les aménagements de terrain ennemis.</French>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_HUNT</Tag>
+		<English>Automate Hunt</English>
+		<French>Traque Automatisée</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_HUNT_HELP</Tag>
+		<English>Send the unit to hunt down and kill any enemy units it can find.</English>
+		<French>Envoi l'unité pour traquer et tuer toutes les unités ennemies.</French>
+	</TEXT>
 
 <!-- Super Spies -->
 	<TEXT>
