@@ -801,5 +801,12 @@
 				<Parameter/>
 			</PathEntry>
 		</AnimationPath>
+		<AnimationPath>
+			<Type>ANIMATIONPATH_MEDIC_ICON_ON</Type>
+			<bMissionPath>0</bMissionPath>
+			<PathEntry>
+				<Category>ANIMCAT_MEDIC_ICON_ON</Category>
+			</PathEntry>
+		</AnimationPath>
 	</AnimationPaths>
 </Civ4AnimationPathInfos>

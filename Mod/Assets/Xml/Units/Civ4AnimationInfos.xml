@@ -261,5 +261,10 @@
 			<DefaultTo>ANIMCAT_NONE</DefaultTo>
 			<BaseID>530</BaseID>
 		</AnimationCategory>
+		<AnimationCategory>
+			<Type>ANIMCAT_MEDIC_ICON_ON</Type>
+			<DefaultTo>ANIMCAT_NONE</DefaultTo>
+			<BaseID>201</BaseID>
+		</AnimationCategory>
 	</AnimationCategories>
 </Civ4AnimationInfos>

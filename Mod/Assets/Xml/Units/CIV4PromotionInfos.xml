@@ -1256,6 +1256,7 @@
 			<Type>PROMOTION_MEDIC2</Type>
 			<Description>TXT_KEY_PROMOTION_MEDIC2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
+			<LayerAnimationPath>ANIMATIONPATH_MEDIC_ICON_ON</LayerAnimationPath>
 			<PrereqOrPromotions>
 				<PromotionType>PROMOTION_MEDIC1</PromotionType>
 			</PrereqOrPromotions>
@@ -1280,6 +1281,7 @@
 			<Type>PROMOTION_MEDIC3</Type>
 			<Description>TXT_KEY_PROMOTION_MEDIC3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
+			<LayerAnimationPath>ANIMATIONPATH_MEDIC_ICON_ON</LayerAnimationPath>
 			<PromotionPrereq>PROMOTION_LEADER</PromotionPrereq>
 			<PrereqOrPromotions>
 				<PromotionType>PROMOTION_MEDIC2</PromotionType>
