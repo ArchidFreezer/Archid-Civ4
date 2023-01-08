@@ -19044,11 +19044,15 @@ int CvPlayer::getWorkRate(BuildTypes eBuild) const {
 	const CvCivilizationInfo& kCiv = GC.getCivilizationInfo(getCivilizationType());
 
 	for (UnitClassTypes eUnitClass = (UnitClassTypes)0; eUnitClass < GC.getNumUnitClassInfos(); eUnitClass = (UnitClassTypes)(eUnitClass + 1)) {
-		const CvUnitInfo& kUnit = GC.getUnitInfo((UnitTypes)kCiv.getCivilizationUnits(eUnitClass));
+		// Not all civs have a unit for each unitclass so we need to check here
+		UnitTypes eUnit = (UnitTypes)kCiv.getCivilizationUnits(eUnitClass);
+		if (eUnit != NO_UNIT) {
+			const CvUnitInfo& kUnit = GC.getUnitInfo(eUnit);
 
-		if (kUnit.getBuilds(eBuild)) {
-			iRate = kUnit.getWorkRate();
-			break;
+			if (kUnit.getBuilds(eBuild)) {
+				iRate = kUnit.getWorkRate();
+				break;
+			}
 		}
 	}
 
