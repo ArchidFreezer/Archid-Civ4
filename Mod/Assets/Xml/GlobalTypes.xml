@@ -96,6 +96,7 @@
 		<AutomateType>AUTOMATE_HURRY</AutomateType>
 		<AutomateType>AUTOMATE_PIRACY</AutomateType>
 		<AutomateType>AUTOMATE_AIRSTRIKE</AutomateType>
+		<AutomateType>AUTOMATE_AIRBOMB</AutomateType>
 	</AutomateTypes>
 	<DirectionTypes>
 		<!--Changes must be reflected in CvEnums.h-->

@@ -1219,6 +1219,16 @@
 		<English>Send the unit to attack enemy units whereever possible.</English>
 		<French>Envoi l'unité attaquer les unités ennemies dès que possible.</French>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_AIRBOMB</Tag>
+		<English>Automate Airbomb</English>
+		<French>Bombardement Automatisé</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_AIRBOMB_HELP</Tag>
+		<English>Send the unit to attack enemy fortifications, improvements, and cities wherevever possible.</English>
+		<French>Envoi l'unité attaquer les fortifications ennemies, les aménagement et les Villes dès que possible.</French>
+	</TEXT>
 
 <!-- Abandon City Raze Building Mod -->
 	<TEXT>

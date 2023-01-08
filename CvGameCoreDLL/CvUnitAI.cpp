@@ -219,6 +219,8 @@ bool CvUnitAI::AI_update() {
 			AI_pirateSeaMove();
 			break;
 
+			//Yes, these automations do the same thing, but they act differently for different units. 
+		case AUTOMATE_AIRBOMB:
 		case AUTOMATE_AIRSTRIKE:
 			AI_autoAirStrike();
 			break;

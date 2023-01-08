@@ -2701,6 +2701,15 @@ bool CvUnit::canAutomate(AutomateTypes eAutomate) const {
 			return false;
 		break;
 
+	case AUTOMATE_AIRBOMB:
+		if (getDomainType() != DOMAIN_AIR)
+			return false;
+		if (airBombBaseRate() == 0)
+			return false;
+		if (canAutomate(AUTOMATE_AIRSTRIKE))
+			return false;
+		break;
+
 	default:
 		FAssert(false);
 		break;
