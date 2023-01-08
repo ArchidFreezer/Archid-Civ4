@@ -282,9 +282,47 @@
 		<English>Steal Tech III</English>
 	</TEXT>
 
-<!-- ************	-->
+<!-- +++ Work Rate +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_WORKRATE1</Tag>
+		<English>Work Rate I</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_WORKRATE2</Tag>
+		<English>Work Rate II</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_WORKRATE3</Tag>
+		<English>Work Rate III</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_WORKRATE4</Tag>
+		<English>Work Rate IV</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_WORKRATE5</Tag>
+		<English>Work Rate V</English>
+	</TEXT>
+	<TEXT> <!-- Skilled Help (1) -->
+		<Tag>TXT_KEY_PROMOTION_WORK_RATE_MODIFY</Tag>
+		<English>[ICON_BULLET]%D1_Change% Work Rate</English>
+		<French>[ICON_BULLET]%D1_Change chances de première attaque</French>
+		<German>[ICON_BULLET]%D1_Change Erstangriffschancen</German>
+		<Italian>[ICON_BULLET]%D1_Change possibilità di 'Attacco improvviso'</Italian>
+		<Spanish>[ICON_BULLET]Probabilidad de %D1_Change [NUM1:ataque de iniciativa:ataques de iniciativa]</Spanish>
+	</TEXT>
+	<TEXT> <!-- Skilled Help (1) -->
+		<Tag>TXT_KEY_UNIT_WORK_RATE</Tag>
+		<English>[ICON_BULLET]%D1_Change% Work Rate</English>
+		<French>[ICON_BULLET]%D1_Change chances de première attaque</French>
+		<German>[ICON_BULLET]%D1_Change Erstangriffschancen</German>
+		<Italian>[ICON_BULLET]%D1_Change possibilità di 'Attacco improvviso'</Italian>
+		<Spanish>[ICON_BULLET]Probabilidad de %D1_Change [NUM1:ataque de iniciativa:ataques de iniciativa]</Spanish>
+	</TEXT>
+
+<!-- ************ -->
 <!-- Text         -->
-<!-- ************	-->
+<!-- ************ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_RANGE_UNBOUND</Tag>
 		<English>Unlimited range</English>

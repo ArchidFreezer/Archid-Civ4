@@ -583,6 +583,11 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 			szString.append(gDLL->getText("TXT_KEY_UNIT_IMMUNE_FIRST_STRIKES"));
 		}
 
+		if (pUnit->getWorkRateModifier() > 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_UNIT_WORK_RATE", pUnit->getWorkRateModifier()));
+		}
+
 		if (!bShort) {
 			if (pUnit->noDefensiveBonus()) {
 				szString.append(NEWLINE);
@@ -6120,6 +6125,11 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 	if (kPromotion.getKamikazePercent() != 0) {
 		szBuffer.append(pcNewline);
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_KAMIKAZE_TEXT", kPromotion.getKamikazePercent()));
+	}
+
+	if (kPromotion.getWorkRateModifier() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_WORK_RATE_MODIFY", kPromotion.getWorkRateModifier()));
 	}
 
 	for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {

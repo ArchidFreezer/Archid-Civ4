@@ -7119,6 +7119,15 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 	}
 
 	int iValue = 0;
+	// Worker promotions
+	if (AI_getUnitAIType() == UNITAI_WORKER) {
+		if (kPromotion.getWorkRateModifier() > 0) {
+			iValue += kPromotion.getWorkRateModifier();
+		}
+
+		return iValue;
+	}
+
 	if (kPromotion.isBlitz()) {
 		if ((AI_getUnitAIType() == UNITAI_RESERVE && baseMoves() > 1) ||
 			AI_getUnitAIType() == UNITAI_PARADROP) {

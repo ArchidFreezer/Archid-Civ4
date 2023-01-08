@@ -1710,5 +1710,72 @@
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Woodsman2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,8,6</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Work Rate 1 -->
+			<Type>PROMOTION_WORKRATE1</Type>
+			<Description>TXT_KEY_PROMOTION_WORKRATE1</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<iWorkRateModifier>20</iWorkRateModifier>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/workrate1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Work Rate 2 -->
+			<Type>PROMOTION_WORKRATE2</Type>
+			<Description>TXT_KEY_PROMOTION_WORKRATE2</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_WORKRATE1</PromotionType>
+			</PrereqOrPromotions>
+			<iWorkRateModifier>15</iWorkRateModifier>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/workrate2.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Work Rate 3 -->
+			<Type>PROMOTION_WORKRATE3</Type>
+			<Description>TXT_KEY_PROMOTION_WORKRATE3</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_WORKRATE2</PromotionType>
+			</PrereqOrPromotions>
+			<iWorkRateModifier>15</iWorkRateModifier>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/workrate3.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Work Rate 4 -->
+			<Type>PROMOTION_WORKRATE4</Type>
+			<Description>TXT_KEY_PROMOTION_WORKRATE4</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_WORKRATE3</PromotionType>
+			</PrereqOrPromotions>
+			<iWorkRateModifier>20</iWorkRateModifier>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/workrate4.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Work Rate 5 -->
+			<Type>PROMOTION_WORKRATE5</Type>
+			<Description>TXT_KEY_PROMOTION_WORKRATE5</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_WORKRATE4</PromotionType>
+			</PrereqOrPromotions>
+			<iWorkRateModifier>30</iWorkRateModifier>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/workrate5.dds</Button>
+		</PromotionInfo>
 	</PromotionInfos>
 </Civ4PromotionInfos>

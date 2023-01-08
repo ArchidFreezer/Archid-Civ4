@@ -1656,6 +1656,7 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_iSpyDestroyBuildingChange(0),
 	m_iSpyBuyTechChange(0),
 	m_iSpyStealTreasuryChange(0),
+	m_iWorkRateModifier(0),
 	m_bLeader(false),
 	m_bBlitz(false),
 	m_bAmphib(false),
@@ -1697,6 +1698,10 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_piDomainModifierPercent);
 	SAFE_DELETE_ARRAY(m_pbTerrainDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
+}
+
+int CvPromotionInfo::getWorkRateModifier() const {
+	return m_iWorkRateModifier;
 }
 
 int CvPromotionInfo::getSpyStealTreasuryChange() const {
@@ -2160,6 +2165,7 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iSpyDestroyProductionChange);
 	stream->Read(&m_iSpyBuyTechChange);
 	stream->Read(&m_iSpyStealTreasuryChange);
+	stream->Read(&m_iWorkRateModifier);
 
 	stream->Read(&m_bLeader);
 	stream->Read(&m_bBlitz);
@@ -2302,6 +2308,7 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iSpyDestroyProductionChange);
 	stream->Write(m_iSpyBuyTechChange);
 	stream->Write(m_iSpyStealTreasuryChange);
+	stream->Write(m_iWorkRateModifier);
 
 	stream->Write(m_bLeader);
 	stream->Write(m_bBlitz);
@@ -2437,6 +2444,7 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iSpyDestroyImprovementChange, "iSpyDestroyImprovementChange");
 	pXML->GetChildXmlValByName(&m_iSpyDestroyProductionChange, "iSpyDestroyProductionChange");
 	pXML->GetChildXmlValByName(&m_iSpyCultureChange, "iSpyCultureChange");
+	pXML->GetChildXmlValByName(&m_iWorkRateModifier, "iWorkRateModifier");
 	pXML->GetChildXmlValByName(&m_bUnitRangeUnbound, "bUnitRangeUnbound");
 	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
 	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");

@@ -1,0 +1,47 @@
+Bevel & Emboss
+  Structure
+	Style: Inner Bevel
+	Technique: Smooth
+	Depth 100%
+	Direction: Up
+	Size: 2
+  Shading
+	Angle: 75
+	Use Global Light
+	Altitude: 25
+	Highlight Mode: Screen
+	Opacity: 75
+	Shadow Mode: Multiply
+	Opacity: 75
+
+Inner Glow
+  Structure
+	Blend Mode: Screen
+	Opacity: 75
+	Noise: 0
+	Solid Colour
+  Elements
+	Technique: Softer
+	Source: Edge
+	Choke: 0
+	Size: 2
+  Quality
+	Contour: Flat Diagonal
+	No Anti-alias
+	Range: 50
+	Jitter: 0
+
+Drop Shadow
+  Structure
+	Blend Mode: Multiply
+	Opacity: 75
+	Angle: 75
+	Use Global Light
+	Distance: 2
+	Spread: 0
+	Size: 5
+  Quality
+	Contour: Straight Angle
+	No Anti-alias
+	Noise: 0
+  Layer Knocks Out Drop Shadow

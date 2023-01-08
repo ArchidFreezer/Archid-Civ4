@@ -859,6 +859,7 @@
 	<ElementType name="iSpyDestroyImprovementChange" content="textOnly" dt:type="int"/>	
 	<ElementType name="iSpyDestroyProductionChange" content="textOnly" dt:type="int"/>	
 	<ElementType name="iSpyCultureChange" content="textOnly" dt:type="int"/>		
+	<ElementType name="iWorkRateModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="PromotionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -934,6 +935,7 @@
 		<element type="iPillageChange" minOccurs="0"/>
 		<element type="iUpgradeDiscount" minOccurs="0"/>
 		<element type="iExperiencePercent" minOccurs="0"/>
+		<element type="iWorkRateModifier" minOccurs="0"/>
 		<element type="bUnitRangeUnbound" minOccurs="0"/>
 		<element type="bUnitTerritoryUnbound" minOccurs="0"/>
 		<element type="iUnitRangeChange" minOccurs="0"/>
