@@ -215,6 +215,10 @@ bool CvUnitAI::AI_update() {
 			AI_merchantMove();
 			break;
 
+		case AUTOMATE_PIRACY:
+			AI_pirateSeaMove();
+			break;
+
 		default:
 			FAssert(false);
 			break;

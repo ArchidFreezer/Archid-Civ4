@@ -2682,6 +2682,15 @@ bool CvUnit::canAutomate(AutomateTypes eAutomate) const {
 			return false;
 		break;
 
+	case AUTOMATE_PIRACY:
+		if (getDomainType() != DOMAIN_SEA)
+			return false;
+		if (!canAttack())
+			return false;
+		if (!m_pUnitInfo->isHiddenNationality() || !m_pUnitInfo->isAlwaysHostile())
+			return false;
+		break;
+
 	default:
 		FAssert(false);
 		break;

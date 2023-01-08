@@ -1008,6 +1008,16 @@
 		<English>Send the unit to hurry the construction of a building in a nearby city.</English>
 		<French>Envoi l'unité pour accélérer la construction d'un bâtiment dans la ville la plus proche.</French>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_PIRACY</Tag>
+		<English>Automate Piracy</English>
+		<French>Piratage Automatisé</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_PIRACY_HELP</Tag>
+		<English>Send the unit to plunder and raid nearby settlements, and sink weak or unprotected transports.</English>
+		<French>Envoi l'unité pour piller et couller les transports sans protections et les installations maritimes.</French>
+	</TEXT>
 
 <!-- Super Spies -->
 	<TEXT>
