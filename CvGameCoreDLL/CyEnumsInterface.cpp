@@ -1995,6 +1995,7 @@ void CyEnumsPythonInterface() {
 		;
 
 	python::enum_<UnitRangeTypes>("UnitRangeTypes")
+		.value("UNITRANGE_IMMOBILE", UNITRANGE_IMMOBILE)
 		.value("UNITRANGE_HOME", UNITRANGE_HOME)
 		.value("UNITRANGE_TERRITORY", UNITRANGE_TERRITORY)
 		.value("UNITRANGE_RANGE", UNITRANGE_RANGE)

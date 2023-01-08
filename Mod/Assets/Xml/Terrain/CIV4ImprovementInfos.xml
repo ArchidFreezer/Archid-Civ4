@@ -10,6 +10,26 @@
 <!-- ****************** -->
 <!-- No Construct       -->
 <!-- ****************** -->
+		<ImprovementInfo> <!-- Animal Den -->
+			<Type>IMPROVEMENT_ANIMAL_DEN</Type>
+			<Description>TXT_KEY_IMPROVEMENT_ANIMAL_DEN</Description>
+			<Civilopedia>TXT_KEY_IMPROVEMENT_ANIMAL_DEN_PEDIA</Civilopedia>
+			<ArtDefineTag>ART_DEF_IMPROVEMENT_ANIMAL_DEN</ArtDefineTag>
+			<iAppearanceProbability>5</iAppearanceProbability>
+			<iAnimalSpawnRatePercentage>20</iAnimalSpawnRatePercentage>
+			<bOutsideBorders>1</bOutsideBorders>
+			<TerrainMakesValids>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+				<TerrainType>TERRAIN_DESERT</TerrainType>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
+				<TerrainType>TERRAIN_SNOW</TerrainType>
+			</TerrainMakesValids>
+			<FeatureMakesValids>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
+				<FeatureType>FEATURE_FOREST</FeatureType>
+			</FeatureMakesValids>
+		</ImprovementInfo>
 		<ImprovementInfo> <!-- City Ruins -->
 			<Type>IMPROVEMENT_CITY_RUINS</Type>
 			<Description>TXT_KEY_IMPROVEMENT_CITY_RUINS</Description>

@@ -40,6 +40,7 @@ void CvDllTranslator::initializeTags(CvWString& szTagStartIcon, CvWString& szTag
 	aIconMap[L"[ICON_RANGE_BOUND]"] = std::wstring(1, (wchar)gDLL->getSymbolID(RANGE_BOUND_CHAR));
 	aIconMap[L"[ICON_TERRITORY_BOUND]"] = std::wstring(1, (wchar)gDLL->getSymbolID(TERRITORY_BOUND_CHAR));
 	aIconMap[L"[ICON_HOME_BOUND]"] = std::wstring(1, (wchar)gDLL->getSymbolID(HOME_BOUND_CHAR));
+	aIconMap[L"[ICON_IMMOBILE]"] = std::wstring(1, (wchar)gDLL->getSymbolID(IMMOBILE_CHAR));
 
 	aIconMap[L"[ICON_GOLD]"] = std::wstring(1, (wchar)GC.getCommerceInfo(COMMERCE_GOLD).getChar());
 	aIconMap[L"[ICON_RESEARCH]"] = std::wstring(1, (wchar)GC.getCommerceInfo(COMMERCE_RESEARCH).getChar());

@@ -405,6 +405,8 @@ void CvGame::reset(HandicapTypes eHandicap, bool bConstructorCall) {
 	m_bHotPbemBetweenTurns = false;
 	m_bPlayerOptionsSent = false;
 	m_bNukesValid = false;
+	m_bAnimalSpawnImprovementsDone = false;
+	m_bBarbSpawnImprovementsDone = false;
 
 	m_eHandicap = eHandicap;
 	m_ePausePlayer = NO_PLAYER;
@@ -5304,6 +5306,10 @@ void CvGame::createBarbarianUnits() {
 	}
 
 	if (bCreateBarbs) {
+		if (!getBarbSpawnImprovementsDone()) {
+			CvMapGenerator::GetInstance().addImprovements(false, true);
+		}
+
 		int iLoop;
 		for (CvArea* pLoopArea = GC.getMapINLINE().firstArea(&iLoop); pLoopArea != NULL; pLoopArea = GC.getMapINLINE().nextArea(&iLoop)) {
 			UnitAITypes eBarbUnitAI;
@@ -5458,6 +5464,10 @@ void CvGame::createAnimals() {
 
 	if (getElapsedGameTurns() < 5) {
 		return;
+	}
+
+	if (!getAnimalSpawnImprovementsDone()) {
+		CvMapGenerator::GetInstance().addImprovements(true, false);
 	}
 
 	int iLoop;
@@ -6406,6 +6416,8 @@ void CvGame::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_bHotPbemBetweenTurns);
 	// m_bPlayerOptionsSent not saved
 	pStream->Read(&m_bNukesValid);
+	pStream->Read(&m_bAnimalSpawnImprovementsDone);
+	pStream->Read(&m_bBarbSpawnImprovementsDone);
 
 	pStream->Read((int*)&m_eHandicap);
 	pStream->Read((int*)&m_ePausePlayer);
@@ -6609,6 +6621,8 @@ void CvGame::write(FDataStreamBase* pStream) {
 	pStream->Write(m_bHotPbemBetweenTurns);
 	// m_bPlayerOptionsSent not saved
 	pStream->Write(m_bNukesValid);
+	pStream->Write(m_bAnimalSpawnImprovementsDone);
+	pStream->Write(m_bBarbSpawnImprovementsDone);
 
 	pStream->Write(m_eHandicap);
 	pStream->Write(m_ePausePlayer);
@@ -7679,4 +7693,20 @@ void CvGame::doStarSign() {
 			}
 		}
 	}
+}
+
+bool CvGame::getAnimalSpawnImprovementsDone() const {
+	return m_bAnimalSpawnImprovementsDone;
+}
+
+void CvGame::setAnimalSpawnImprovementsDone(bool bValue) {
+	m_bAnimalSpawnImprovementsDone = bValue;
+}
+
+bool CvGame::getBarbSpawnImprovementsDone() const {
+	return m_bBarbSpawnImprovementsDone;
+}
+
+void CvGame::setBarbSpawnImprovementsDone(bool bValue) {
+	m_bBarbSpawnImprovementsDone = bValue;
 }

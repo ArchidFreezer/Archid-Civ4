@@ -369,6 +369,7 @@
 	<ElementType name="AIFreeTechs" content="eltOnly">
 		<element type="TechType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="iLairSpawnRate" content="textOnly" dt:type="int"/>
 	<ElementType name="HandicapInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -430,6 +431,7 @@
 		<element type="iAIWarWearinessPercent" minOccurs="0"/> <!-- Default: 100 -->
 		<element type="iAIPerEraModifier" minOccurs="0"/>
 		<element type="iAIAdvancedStartPercent" minOccurs="0"/> <!-- Default: 100 -->
+		<element type="iLairSpawnRate"/>
 		<element type="Goodies" minOccurs="0" maxOccurs="*"/>
 		<element type="FreeTechs" minOccurs="0" maxOccurs="*"/>
 		<element type="AIFreeTechs" minOccurs="0" maxOccurs="*"/>

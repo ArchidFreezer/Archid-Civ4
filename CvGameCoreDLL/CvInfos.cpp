@@ -9743,6 +9743,7 @@ CvHandicapInfo::CvHandicapInfo() :
 	m_iAIPerEraModifier(0),
 	m_iAIAdvancedStartPercent(0),
 	m_iNumGoodies(0),
+	m_iLairSpawnRate(0),
 	m_piGoodies(NULL),
 	m_pbFreeTechs(NULL),
 	m_pbAIFreeTechs(NULL) {
@@ -9759,6 +9760,10 @@ CvHandicapInfo::~CvHandicapInfo() {
 	SAFE_DELETE_ARRAY(m_piGoodies);
 	SAFE_DELETE_ARRAY(m_pbFreeTechs);
 	SAFE_DELETE_ARRAY(m_pbAIFreeTechs);
+}
+
+int CvHandicapInfo::getLairSpawnRate() const {
+	return m_iLairSpawnRate;
 }
 
 int CvHandicapInfo::getFreeWinsVsBarbs() const {
@@ -10051,7 +10056,6 @@ void CvHandicapInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iBarbarianCombatModifier);
 	stream->Read(&m_iAIAnimalCombatModifier);
 	stream->Read(&m_iAIBarbarianCombatModifier);
-
 	stream->Read(&m_iStartingDefenseUnits);
 	stream->Read(&m_iStartingWorkerUnits);
 	stream->Read(&m_iStartingExploreUnits);
@@ -10078,6 +10082,7 @@ void CvHandicapInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iAIPerEraModifier);
 	stream->Read(&m_iAIAdvancedStartPercent);
 	stream->Read(&m_iNumGoodies);
+	stream->Read(&m_iLairSpawnRate);
 
 	stream->ReadString(m_szHandicapName);
 
@@ -10134,7 +10139,6 @@ void CvHandicapInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iBarbarianCombatModifier);
 	stream->Write(m_iAIAnimalCombatModifier);
 	stream->Write(m_iAIBarbarianCombatModifier);
-
 	stream->Write(m_iStartingDefenseUnits);
 	stream->Write(m_iStartingWorkerUnits);
 	stream->Write(m_iStartingExploreUnits);
@@ -10161,6 +10165,7 @@ void CvHandicapInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iAIPerEraModifier);
 	stream->Write(m_iAIAdvancedStartPercent);
 	stream->Write(m_iNumGoodies);
+	stream->Write(m_iLairSpawnRate);
 
 	stream->WriteString(m_szHandicapName);
 
@@ -10233,6 +10238,7 @@ bool CvHandicapInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iAIWarWearinessPercent, "iAIWarWearinessPercent", 100);
 	pXML->GetChildXmlValByName(&m_iAIPerEraModifier, "iAIPerEraModifier");
 	pXML->GetChildXmlValByName(&m_iAIAdvancedStartPercent, "iAIAdvancedStartPercent", 100);
+	pXML->GetChildXmlValByName(&m_iLairSpawnRate, "iLairSpawnRate");
 
 	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "Goodies")) {
 		CvString* pszGoodyNames = NULL;
@@ -11002,6 +11008,9 @@ CvImprovementInfo::CvImprovementInfo() :
 	m_iDefenseModifier(0),
 	m_iHappiness(0),
 	m_iPillageGold(0),
+	m_iAppearanceProbability(0),
+	m_iAnimalSpawnRatePercentage(0),
+	m_iBarbarianSpawnRatePercentage(0),
 	m_iImprovementPillage(NO_IMPROVEMENT),
 	m_iImprovementUpgrade(NO_IMPROVEMENT),
 	m_iUpgradeTech(NO_TECH),
@@ -11068,6 +11077,22 @@ CvImprovementInfo::~CvImprovementInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppiRouteYieldChanges);
 	}
+}
+
+int CvImprovementInfo::getAnimalSpawnRatePercentage() const {
+	return m_iAnimalSpawnRatePercentage;
+}
+
+int CvImprovementInfo::getBarbarianSpawnRatePercentage() const {
+	return m_iBarbarianSpawnRatePercentage;
+}
+
+bool CvImprovementInfo::isAnySpawn() const {
+	return (getAnimalSpawnRatePercentage() > 0 || getBarbarianSpawnRatePercentage() > 0);
+}
+
+int CvImprovementInfo::getAppearanceProbability() const {
+	return m_iAppearanceProbability;
 }
 
 bool CvImprovementInfo::isPeakMakesValid() const {
@@ -11348,6 +11373,9 @@ void CvImprovementInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iImprovementPillage);
 	stream->Read(&m_iImprovementUpgrade);
 	stream->Read(&m_iUpgradeTech);
+	stream->Read(&m_iAppearanceProbability);
+	stream->Read(&m_iAnimalSpawnRatePercentage);
+	stream->Read(&m_iBarbarianSpawnRatePercentage);
 
 	stream->Read(&m_bActsAsCity);
 	stream->Read(&m_bHillsMakesValid);
@@ -11452,6 +11480,9 @@ void CvImprovementInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iImprovementPillage);
 	stream->Write(m_iImprovementUpgrade);
 	stream->Write(m_iUpgradeTech);
+	stream->Write(m_iAppearanceProbability);
+	stream->Write(m_iAnimalSpawnRatePercentage);
+	stream->Write(m_iBarbarianSpawnRatePercentage);
 
 	stream->Write(m_bActsAsCity);
 	stream->Write(m_bHillsMakesValid);
@@ -11539,6 +11570,9 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iDefenseModifier, "iDefenseModifier");
 	pXML->GetChildXmlValByName(&m_iHappiness, "iHappiness");
 	pXML->GetChildXmlValByName(&m_iPillageGold, "iPillageGold");
+	pXML->GetChildXmlValByName(&m_iAppearanceProbability, "iAppearanceProbability");
+	pXML->GetChildXmlValByName(&m_iAnimalSpawnRatePercentage, "iAnimalSpawnRatePercentage");
+	pXML->GetChildXmlValByName(&m_iBarbarianSpawnRatePercentage, "iBarbarianSpawnRatePercentage");
 	pXML->GetChildXmlValByName(&m_bOutsideBorders, "bOutsideBorders");
 
 	pXML->SetListInfoBool(&m_pbTerrainMakesValid, "TerrainMakesValids", GC.getNumTerrainInfos());

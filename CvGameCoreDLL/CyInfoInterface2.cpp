@@ -281,6 +281,7 @@ void CyInfoPythonInterface2() {
 		.def("getImprovementPillage", &CvImprovementInfo::getImprovementPillage, "int ()")
 		.def("getImprovementUpgrade", &CvImprovementInfo::getImprovementUpgrade, "int ()")
 		.def("getUpgradeTech", &CvImprovementInfo::getUpgradeTech, "int ()")
+		.def("getAppearanceProbability", &CvImprovementInfo::getAppearanceProbability, "int ()")
 
 		.def("isActsAsCity", &CvImprovementInfo::isActsAsCity, "bool ()")
 		.def("isHillsMakesValid", &CvImprovementInfo::isHillsMakesValid, "bool ()")

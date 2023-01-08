@@ -403,6 +403,9 @@
 		<element type="FeatureType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="UpgradeTech" content="textOnly"/>
+	<ElementType name="iAppearanceProbability" content="textOnly" dt:type="int"/>
+	<ElementType name="iAnimalSpawnRatePercentage" content="textOnly" dt:type="int"/>
+	<ElementType name="iBarbarianSpawnRatePercentage" content="textOnly" dt:type="int"/>
 	<ElementType name="ImprovementInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -439,6 +442,9 @@
 		<element type="iDefenseModifier" minOccurs="0"/>
 		<element type="iHappiness" minOccurs="0"/>
 		<element type="iPillageGold" minOccurs="0"/>
+		<element type="iAppearanceProbability" minOccurs="0"/>
+		<element type="iAnimalSpawnRatePercentage" minOccurs="0"/>
+		<element type="iBarbarianSpawnRatePercentage" minOccurs="0"/>
 		<element type="bOutsideBorders" minOccurs="0"/>
 		<element type="TerrainMakesValids" minOccurs="0"/>
 		<element type="FeatureMakesValids" minOccurs="0"/>

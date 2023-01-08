@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- Game Text - New -->
 <Civ4GameText xmlns="http://www.firaxis.com">
+<!-- Animal Den -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_ANIMAL_DEN</Tag>
+		<English>Animal Den</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_ANIMAL_DEN_PEDIA</Tag>
+		<English>An animal den is a place where animals routinely habituate. The animals often have their young here and new animals can spwan periodically. There is also, typically, a resident animal that is stronger than usual to guard the den from intruders.</English>
+	</TEXT>
+
 	<TEXT> <!-- Camp -->
 		<Tag>TXT_KEY_IMPROVEMENT_CAMP_PEDIA</Tag>
 		<English>[TAB]The term camp comes from the Latin word campus, meaning "field". Therefore, a campsite consists typically of open pieces of ground where a camper can pitch a tent or park a camper. More specifically a campsite is a dedicated area set aside for camping and for which often a user fee is charged. Campsites typically feature a few (but sometimes no) improvements.</English>

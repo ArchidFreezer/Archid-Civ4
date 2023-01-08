@@ -19021,6 +19021,9 @@ int CvPlayer::getExtraRangePercent() const {
 
 UnitRangeTypes CvPlayer::getUnitRangeType(const CvUnitInfo* pUnitInfo) const {
 	switch (pUnitInfo->getRangeType()) {
+	case UNITRANGE_IMMOBILE:
+		return UNITRANGE_IMMOBILE;
+		break;
 	case UNITRANGE_HOME:
 		return UNITRANGE_HOME;
 		break;

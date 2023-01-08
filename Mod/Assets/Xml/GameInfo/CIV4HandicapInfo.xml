@@ -53,6 +53,7 @@
 			<iAIWorldCreatePercent>160</iAIWorldCreatePercent>
 			<iAIUnitSupplyPercent>50</iAIUnitSupplyPercent>
 			<iAIUnitUpgradePercent>50</iAIUnitUpgradePercent>
+			<iLairSpawnRate>2</iLairSpawnRate>
 			<Goodies>
 				<GoodyType>GOODY_HIGH_GOLD</GoodyType>
 				<GoodyType>GOODY_HIGH_GOLD</GoodyType>
@@ -130,6 +131,7 @@
 			<iAIUnitUpgradePercent>50</iAIUnitUpgradePercent>
 			<iAIInflationPercent>90</iAIInflationPercent>
 			<iAIWarWearinessPercent>90</iAIWarWearinessPercent>
+			<iLairSpawnRate>2</iLairSpawnRate>
 			<Goodies>
 				<GoodyType>GOODY_HIGH_GOLD</GoodyType>
 				<GoodyType>GOODY_HIGH_GOLD</GoodyType>
@@ -206,6 +208,7 @@
 			<iAIUnitUpgradePercent>50</iAIUnitUpgradePercent>
 			<iAIInflationPercent>80</iAIInflationPercent>
 			<iAIWarWearinessPercent>80</iAIWarWearinessPercent>
+			<iLairSpawnRate>3</iLairSpawnRate>
 			<Goodies>
 				<GoodyType>GOODY_HIGH_GOLD</GoodyType>
 				<GoodyType>GOODY_HIGH_GOLD</GoodyType>
@@ -274,6 +277,7 @@
 			<iAIUnitUpgradePercent>50</iAIUnitUpgradePercent>
 			<iAIInflationPercent>80</iAIInflationPercent>
 			<iAIWarWearinessPercent>80</iAIWarWearinessPercent>
+			<iLairSpawnRate>3</iLairSpawnRate>
 			<Goodies>
 				<GoodyType>GOODY_HIGH_GOLD</GoodyType>
 				<GoodyType>GOODY_HIGH_GOLD</GoodyType>
@@ -346,6 +350,7 @@
 			<iAIWarWearinessPercent>80</iAIWarWearinessPercent>
 			<iAIPerEraModifier>-1</iAIPerEraModifier>
 			<iAIAdvancedStartPercent>110</iAIAdvancedStartPercent>
+			<iLairSpawnRate>4</iLairSpawnRate>
 			<Goodies>
 				<GoodyType>GOODY_HIGH_GOLD</GoodyType>
 				<GoodyType>GOODY_HIGH_GOLD</GoodyType>
@@ -420,6 +425,7 @@
 			<iAIWarWearinessPercent>75</iAIWarWearinessPercent>
 			<iAIPerEraModifier>-2</iAIPerEraModifier>
 			<iAIAdvancedStartPercent>120</iAIAdvancedStartPercent>
+			<iLairSpawnRate>4</iLairSpawnRate>
 			<Goodies>
 				<GoodyType>GOODY_HIGH_GOLD</GoodyType>
 				<GoodyType>GOODY_LOW_GOLD</GoodyType>
@@ -498,6 +504,7 @@
 			<iAIWarWearinessPercent>70</iAIWarWearinessPercent>
 			<iAIPerEraModifier>-3</iAIPerEraModifier>
 			<iAIAdvancedStartPercent>135</iAIAdvancedStartPercent>
+			<iLairSpawnRate>5</iLairSpawnRate>
 			<Goodies>
 				<GoodyType>GOODY_HIGH_GOLD</GoodyType>
 				<GoodyType>GOODY_LOW_GOLD</GoodyType>
@@ -578,6 +585,7 @@
 			<iAIWarWearinessPercent>60</iAIWarWearinessPercent>
 			<iAIPerEraModifier>-4</iAIPerEraModifier>
 			<iAIAdvancedStartPercent>150</iAIAdvancedStartPercent>
+			<iLairSpawnRate>5</iLairSpawnRate>
 			<Goodies>
 				<GoodyType>GOODY_LOW_GOLD</GoodyType>
 				<GoodyType>GOODY_LOW_GOLD</GoodyType>
@@ -660,6 +668,7 @@
 			<iAIWarWearinessPercent>50</iAIWarWearinessPercent>
 			<iAIPerEraModifier>-5</iAIPerEraModifier>
 			<iAIAdvancedStartPercent>170</iAIAdvancedStartPercent>
+			<iLairSpawnRate>6</iLairSpawnRate>
 			<Goodies>
 				<GoodyType>GOODY_LOW_GOLD</GoodyType>
 				<GoodyType>GOODY_LOW_GOLD</GoodyType>

@@ -34,6 +34,7 @@ public:
 	void addUniqueBonusType(BonusTypes eBonusType);				// Exposed to Python
 	void addNonUniqueBonusType(BonusTypes eBonusType);		// Exposed to Python
 	DllExport void addGoodies();													// Exposed to Python
+	void addImprovements(bool bAddAnimalSpawning, bool bAddBarbSpawning);
 
 	DllExport void eraseRivers();													// Exposed to Python
 	DllExport void eraseFeatures();												// Exposed to Python

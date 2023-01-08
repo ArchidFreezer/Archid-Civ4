@@ -412,7 +412,9 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 	}
 
 	int iCurrMoves = ((pUnit->movesLeft() / GC.getMOVE_DENOMINATOR()) + (((pUnit->movesLeft() % GC.getMOVE_DENOMINATOR()) > 0) ? 1 : 0));
-	if ((pUnit->baseMoves() == iCurrMoves) || (pUnit->getTeam() != GC.getGameINLINE().getActiveTeam())) {
+	if (pUnit->isImmobile()) {
+		szTempBuffer.Format(L"%d%c", 0, gDLL->getSymbolID(MOVES_CHAR));
+	} else if ((pUnit->baseMoves() == iCurrMoves) || (pUnit->getTeam() != GC.getGameINLINE().getActiveTeam())) {
 		szTempBuffer.Format(L"%d%c", pUnit->baseMoves(), gDLL->getSymbolID(MOVES_CHAR));
 	} else {
 		szTempBuffer.Format(L"%d/%d%c", iCurrMoves, pUnit->baseMoves(), gDLL->getSymbolID(MOVES_CHAR));
@@ -420,6 +422,9 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 	szString.append(szTempBuffer);
 
 	switch (pUnit->getRangeType()) {
+	case UNITRANGE_IMMOBILE:
+		// This case is dealt with above when we set the moves to 0 so no need to duplicate information
+		break;
 	case UNITRANGE_HOME:
 		szTempBuffer.Format(L", %c", gDLL->getSymbolID(HOME_BOUND_CHAR));
 		szString.append(szTempBuffer);
@@ -12414,6 +12419,16 @@ void CvGameTextMgr::setImprovementHelp(CvWStringBuffer& szBuffer, ImprovementTyp
 	} else if (kImprovement.getFeatureGrowthProbability() < 0) {
 		szBuffer.append(NEWLINE);
 		szBuffer.append(gDLL->getText("TXT_KEY_IMPROVEMENT_LESS_GROWTH"));
+	}
+
+	if (kImprovement.getAnimalSpawnRatePercentage() > 0) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_IMPROVEMENT_SPAWN_ANIMAL"));
+	}
+
+	if (kImprovement.getBarbarianSpawnRatePercentage() > 0) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_IMPROVEMENT_SPAWN_BARBARIAN"));
 	}
 
 	if (bCivilopediaText) {

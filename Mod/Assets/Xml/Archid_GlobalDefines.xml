@@ -508,6 +508,13 @@
 		<DefineName>DOUBLE_AGENT_MISSION_COST_PERCENT_MOD</DefineName>
 		<iDefineIntVal>50</iDefineIntVal>
 	</Define>
+
+<!-- Number of free tiles before a lair can spawn a unit -->
+	<Define>
+		<DefineName>TILES_PER_SPAWN</DefineName>
+		<iDefineIntVal>6</iDefineIntVal>
+	</Define>
+
 <!-- Influence Driven War -->
 	<Define>
 		<DefineName>IDW_ENABLED</DefineName>

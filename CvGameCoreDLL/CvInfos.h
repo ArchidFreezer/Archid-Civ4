@@ -2624,7 +2624,6 @@ public:
 	int getBarbarianCombatModifier() const;				// Exposed to Python
 	int getAIAnimalCombatModifier() const;				// Exposed to Python
 	int getAIBarbarianCombatModifier() const;				// Exposed to Python
-
 	int getStartingDefenseUnits() const;						// Exposed to Python
 	int getStartingWorkerUnits() const;							// Exposed to Python
 	int getStartingExploreUnits() const;						// Exposed to Python
@@ -2651,6 +2650,7 @@ public:
 	int getAIPerEraModifier() const;						// Exposed to Python
 	int getAIAdvancedStartPercent() const;						// Exposed to Python
 	int getNumGoodies() const;				// Exposed to Python
+	int getLairSpawnRate() const;
 
 	// Arrays
 
@@ -2698,7 +2698,6 @@ protected:
 	int m_iBarbarianCombatModifier;
 	int m_iAIAnimalCombatModifier;
 	int m_iAIBarbarianCombatModifier;
-
 	int m_iStartingDefenseUnits;
 	int m_iStartingWorkerUnits;
 	int m_iStartingExploreUnits;
@@ -2725,6 +2724,7 @@ protected:
 	int m_iAIPerEraModifier;
 	int m_iAIAdvancedStartPercent;
 	int m_iNumGoodies;
+	int m_iLairSpawnRate;
 
 	CvString m_szHandicapName;
 
@@ -3092,6 +3092,9 @@ public:
 	int getImprovementPillage() const;				// Exposed to Python
 	int getImprovementUpgrade() const;				// Exposed to Python
 	int getUpgradeTech() const;
+	int getAnimalSpawnRatePercentage() const;
+	int getAppearanceProbability() const;
+	int getBarbarianSpawnRatePercentage() const;
 
 	bool isActsAsCity() const;				// Exposed to Python
 	bool isHillsMakesValid() const;				// Exposed to Python
@@ -3108,6 +3111,7 @@ public:
 	bool isPermanent() const;				// Exposed to Python
 	bool isOutsideBorders() const;				// Exposed to Python
 	bool isPeakMakesValid() const;				// Exposed to Python
+	bool isAnySpawn() const;
 
 	const TCHAR* getArtDefineTag() const;
 	void setArtDefineTag(const TCHAR* szVal);
@@ -3168,6 +3172,9 @@ protected:
 	int m_iImprovementPillage;
 	int m_iImprovementUpgrade;
 	int m_iUpgradeTech;
+	int m_iAppearanceProbability;
+	int m_iAnimalSpawnRatePercentage;
+	int m_iBarbarianSpawnRatePercentage;
 
 	bool m_bActsAsCity;
 	bool m_bHillsMakesValid;

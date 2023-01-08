@@ -54,6 +54,13 @@ public:
 	void doTurn();
 
 	void doImprovement();
+	void doImprovementSpawn();
+	void getNativeAnimals(std::vector<UnitTypes>& vAnimals) const;
+	void getNativeBarbarians(std::vector<std::pair<UnitTypes, int> >& vBarbarians, UnitAITypes eAI = NO_UNITAI, bool bIncludeWater = false, bool bIncludeDefensive = false) const;
+	UnitTypes getNativeAnimalRand() const;
+	UnitTypes getNativeBarbarianRand(UnitAITypes eAI = NO_UNITAI, bool bIncludeWater = true) const;
+	UnitTypes getNativeBarbarianBest(UnitAITypes eAI = NO_UNITAI, bool bIncludeWater = false, bool bIncludeDefensive = false) const;
+
 	bool isCanFortAttack() const;
 	bool isSubjectToFortAttack() const;
 

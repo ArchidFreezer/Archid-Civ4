@@ -208,6 +208,9 @@ void CvMapGenerator::addGameElements() {
 	addGoodies();
 	gDLL->logMemState("CvMapGen after add goodies");
 
+	addImprovements(false, false);
+	gDLL->logMemState("CvMapGen after add improvements");
+
 	// Call for Python to make map modifications after it's been generated
 	afterGeneration();
 }
@@ -1038,4 +1041,94 @@ void CvMapGenerator::addUniqueFeatures() {
 		vWonderPlots.clear();
 	}
 	SAFE_DELETE_ARRAY(piShuffle);
+}
+
+void CvMapGenerator::addImprovements(bool bAddAnimalSpawning, bool bAddBarbSpawning) {
+	if (gDLL->getPythonIFace()->callFunction(gDLL->getPythonIFace()->getMapScriptModule(), "addImprovements", NULL)) {
+		if (!gDLL->getPythonIFace()->pythonUsingDefaultImpl()) {
+			return;
+		}
+	}
+
+	if (bAddAnimalSpawning) {
+		if (GC.getGame().getAnimalSpawnImprovementsDone())
+			return;
+		else
+			GC.getGame().setAnimalSpawnImprovementsDone(true);
+	}
+
+	if (bAddBarbSpawning) {
+		if (GC.getGame().getBarbSpawnImprovementsDone())
+			return;
+		else
+			GC.getGame().setBarbSpawnImprovementsDone(true);
+	}
+
+	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++) {
+		CvPlot* pPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
+		if (pPlot->getImprovementType() != NO_IMPROVEMENT) {
+			continue;
+		}
+		if (pPlot->isCity() || pPlot->getNumUnits() > 0) {
+			continue;
+		}
+		if ((bAddAnimalSpawning || bAddBarbSpawning) && pPlot->isOwned() && pPlot->getOwnerINLINE() != BARBARIAN_PLAYER) {
+			continue;
+		}
+
+		// bValid used as there is no way of continuing an outer loop in c++ when nesting without either a variable or a goto
+		bool bValid = true;
+		for (DirectionTypes eDirection = (DirectionTypes)0; eDirection < NUM_DIRECTION_TYPES; eDirection = (DirectionTypes)(eDirection + 1)) {
+			CvPlot* pAdjacentPlot = plotDirection(pPlot->getX_INLINE(), pPlot->getY_INLINE(), eDirection);
+			if (pAdjacentPlot != NULL) {
+				if (pAdjacentPlot->getImprovementType() != NO_IMPROVEMENT || pAdjacentPlot->isCity()) {
+					bValid = false;
+					break;
+				}
+			}
+		}
+		if (!bValid) continue;
+
+		for (ImprovementTypes eImprovement = (ImprovementTypes)0; eImprovement < GC.getNumImprovementInfos(); eImprovement = (ImprovementTypes)(eImprovement + 1)) {
+			if (pPlot->canHaveImprovement(eImprovement, NO_TEAM)) {
+				if (GC.getGameINLINE().getSorenRandNum(100, "Spawn Improvement") < GC.getImprovementInfo(eImprovement).getAppearanceProbability()) {
+					bool bAnimalSpawn = false;
+					bool bBarbSpawn = false;
+
+					if (GC.getImprovementInfo(eImprovement).getAnimalSpawnRatePercentage() > 0)
+						bAnimalSpawn = true;
+					else if (GC.getImprovementInfo(eImprovement).getBarbarianSpawnRatePercentage() > 0)
+						bBarbSpawn = true;
+
+					// Only add the appropriate improvements 
+					if ((bAddAnimalSpawning && bAnimalSpawn) || (bAddBarbSpawning && bBarbSpawn)) {
+						pPlot->setImprovementType(eImprovement);
+						// If this is a spawning improvement then seed it with a unit
+						if (bAnimalSpawn) {
+							UnitTypes eAnimal = pPlot->getNativeAnimalRand();
+							if (eAnimal != NO_UNIT) {
+								CvUnit* pUnit = GET_PLAYER(BARBARIAN_PLAYER).initUnit(eAnimal, pPlot->getX_INLINE(), pPlot->getY_INLINE(), NO_UNITAI);
+								// Set first unit to stay put and defend the improvement
+								pUnit->setImmobile(true);
+								pUnit->setBaseCombatStr(pUnit->getUnitInfo().getCombat() * 2);
+								pUnit->changeFortifyTurns(5);
+								pUnit->changeAlwaysHealCount(1);
+							}
+						}
+						if (bBarbSpawn) {
+							UnitTypes eBarbarian = pPlot->getNativeBarbarianBest(NO_UNITAI, true, true);
+							if (eBarbarian != NO_UNIT) {
+								CvUnit* pUnit = GET_PLAYER(BARBARIAN_PLAYER).initUnit(eBarbarian, pPlot->getX_INLINE(), pPlot->getY_INLINE(), NO_UNITAI);
+								// Set first unit to stay put and defend the improvement
+								pUnit->setImmobile(true);
+								pUnit->setBaseCombatStr(pUnit->getUnitInfo().getCombat() * 2);
+								pUnit->changeFortifyTurns(5);
+								pUnit->changeAlwaysHealCount(1);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }

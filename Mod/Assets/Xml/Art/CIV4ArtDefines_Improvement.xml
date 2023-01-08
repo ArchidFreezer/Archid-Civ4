@@ -9,6 +9,15 @@
 <!-- ******************	-->
 <!-- No Construct				-->
 <!-- ******************	-->
+		<ImprovementArtInfo> <!-- Animal Den -->
+			<Type>ART_DEF_IMPROVEMENT_ANIMAL_DEN</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>10.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/animal_den/LargeRockCave_Shelter.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/WorldBuilder/animal_den.dds</Button>
+		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- City Ruins -->
 			<Type>ART_DEF_IMPROVEMENT_CITY_RUINS</Type>
 			<bExtraAnimations>0</bExtraAnimations>

@@ -346,6 +346,8 @@ void CvPlot::doTurn() {
 
 	doCulture();
 
+	doImprovementSpawn();
+
 	verifyUnitValidPlot();
 
 	doFortAttack();
@@ -2667,6 +2669,15 @@ bool CvPlot::isGoody(TeamTypes eTeam) const {
 bool CvPlot::isRevealedGoody(TeamTypes eTeam) const {
 	if (eTeam == NO_TEAM) {
 		return isGoody();
+	}
+
+	if (getImprovementType() != NO_IMPROVEMENT) {
+		const CvImprovementInfo& kImprovement = GC.getImprovementInfo((ImprovementTypes)getImprovementType());
+		if (kImprovement.isAnySpawn() && !kImprovement.isPermanent()) {
+			if (atWar(eTeam, GET_PLAYER(BARBARIAN_PLAYER).getTeam())) {
+				return true;
+			}
+		}
 	}
 
 	if (GET_TEAM(eTeam).isBarbarian()) {
@@ -8329,4 +8340,221 @@ bool CvPlot::isBorder(bool bIgnoreWater) const {
 	}
 
 	return false;
+}
+
+void CvPlot::doImprovementSpawn() {
+	if (getImprovementType() != NO_IMPROVEMENT) {
+		const CvImprovementInfo& kImprovement = GC.getImprovementInfo(getImprovementType());
+		UnitTypes eSpawn = NO_UNIT;
+		bool  bResident = false;
+		int iSpawnRatePercentage = 0;
+
+		bool bSpawnAnimal = false;
+		bool bSpawnBarbarian = false;
+		if (kImprovement.getAnimalSpawnRatePercentage() > 0) {
+			bSpawnAnimal = true;
+			iSpawnRatePercentage = kImprovement.getAnimalSpawnRatePercentage();
+		} else if (kImprovement.getBarbarianSpawnRatePercentage() > 0) {
+			bSpawnBarbarian = true;
+			iSpawnRatePercentage = kImprovement.getBarbarianSpawnRatePercentage();
+		}
+
+		if (bSpawnAnimal || bSpawnBarbarian) {
+			CvUnit* pResident;
+			// If we have an existing resident spawn another of those
+			CLLNode<IDInfo>* pUnitNode = headUnitNode();
+			while (pUnitNode != NULL) {
+				CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+				pUnitNode = nextUnitNode(pUnitNode);
+				if (!bResident && NULL != pLoopUnit && pLoopUnit->isImmobile()) {
+					bResident = true;
+					pResident = pLoopUnit;
+					eSpawn = pLoopUnit->getUnitType();
+				}
+			}
+
+			// If we have no resident then look to create another
+
+			if (bSpawnAnimal) {
+				if (!bResident)
+					eSpawn = getNativeAnimalRand();
+			} else if (bSpawnBarbarian) {
+				UnitTypes eBestUnit = getNativeBarbarianBest(NO_UNITAI, true, true);
+				if (eSpawn != eBestUnit && eBestUnit != NO_UNIT) {
+					eSpawn = eBestUnit;
+					pResident->kill(false);
+					bResident = false;
+				}
+			}
+
+			if (eSpawn != NO_UNIT) {
+				CvUnitInfo& kUnitInfo = GC.getUnitInfo(eSpawn);
+				CvGame& kGame = GC.getGameINLINE();
+				if (!kGame.isOption(GAMEOPTION_NO_BARBARIANS)) {
+					CvArea* pArea = GC.getMapINLINE().getArea(getArea());
+					if (pArea->getNumUnownedTiles() > 0) {
+						int iTiles = GC.getTILES_PER_SPAWN();
+						if (kUnitInfo.isAnimal()) {
+							iTiles *= 2;
+						}
+						if (!bResident || pArea->getUnitsPerPlayer((PlayerTypes)BARBARIAN_PLAYER) == 0 || (pArea->getNumUnownedTiles() / pArea->getUnitsPerPlayer((PlayerTypes)BARBARIAN_PLAYER)) > iTiles) {
+							int iChance = GC.getHandicapInfo(kGame.getHandicapType()).getLairSpawnRate();
+							iChance *= 10000;
+
+							iChance *= iSpawnRatePercentage;
+							iChance /= 100;
+
+							iChance /= GC.getGameSpeedInfo(kGame.getGameSpeedType()).getTrainPercent();
+
+							if (kGame.isOption(GAMEOPTION_RAGING_BARBARIANS))
+								iChance *= 3;
+
+							if (!bResident)
+								iChance *= 2;
+
+							if (kGame.getSorenRandNum(100, "Spawn Unit") < iChance) {
+								if (!isVisibleOtherUnit(BARBARIAN_PLAYER)) {
+									UnitAITypes eAI;
+									if (kUnitInfo.isAnimal())
+										eAI = UNITAI_ANIMAL;
+									else
+										eAI = kUnitInfo.getDomainType() == DOMAIN_SEA ? UNITAI_ATTACK_SEA : UNITAI_ATTACK;
+									CvUnit* pUnit = GET_PLAYER(BARBARIAN_PLAYER).initUnit(eSpawn, getX_INLINE(), getY_INLINE(), eAI);
+									if (!bResident) {
+										// Set the unit to stay put and defend the improvement
+										pUnit->setImmobile(true);
+										pUnit->setBaseCombatStr(pUnit->getUnitInfo().getCombat() * 2);
+										pUnit->changeFortifyTurns(5);
+										pUnit->changeAlwaysHealCount(1);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+void CvPlot::getNativeAnimals(std::vector<UnitTypes>& vAnimals) const {
+	vAnimals.clear();
+	for (UnitTypes eUnit = (UnitTypes)0; eUnit < GC.getNumUnitInfos(); eUnit = (UnitTypes)(eUnit + 1)) {
+		const CvUnitInfo& kUnit = GC.getUnitInfo(eUnit);
+
+		// If this is not an animal then go to the next unit
+		if (!kUnit.isAnimal()) continue;
+
+		// If there are any terrain natives defined for the animal then it must match
+		// If there are no terrain natives then we are neutral, but we must have a feature to match
+		bool bTerrainMatch = false;
+		bool bAnyTerrain = true;
+		TerrainTypes ePlotTerrain = getTerrainType();
+		for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
+			if (kUnit.getTerrainNative(eTerrain)) {
+				bAnyTerrain = false;
+				if (eTerrain == ePlotTerrain) {
+					bTerrainMatch = true;
+					break;
+				}
+			}
+		}
+		if (!bAnyTerrain && !bTerrainMatch) continue;
+
+		// If no terrain match then we need to check the features
+		if (!bTerrainMatch) {
+			bool bFeatureMatch = false;
+			bool bAnyFeature = true;
+			FeatureTypes ePlotFeature = getFeatureType();
+			for (FeatureTypes eFeature = (FeatureTypes)0; eFeature < GC.getNumFeatureInfos(); eFeature = (FeatureTypes)(eFeature + 1)) {
+				if (kUnit.getFeatureNative(eFeature)) {
+					bAnyFeature = false;
+					if (eFeature == ePlotFeature) {
+						bFeatureMatch = true;
+						break;
+					}
+				}
+			}
+			if (!bAnyFeature && !bFeatureMatch) continue;
+		}
+
+		vAnimals.push_back(eUnit);
+	}
+}
+
+UnitTypes CvPlot::getNativeAnimalRand() const {
+	UnitTypes eAnimal = NO_UNIT;
+	std::vector<UnitTypes> vAnimals;
+	getNativeAnimals(vAnimals);
+	if (vAnimals.size() > 0) {
+		std::random_shuffle(vAnimals.begin(), vAnimals.end());
+		eAnimal = vAnimals.front();
+	}
+	return eAnimal;
+}
+
+void CvPlot::getNativeBarbarians(std::vector<std::pair<UnitTypes, int> >& vBarbarians, UnitAITypes eAI, bool bIncludeWater, bool bIncludeDefensive) const {
+	vBarbarians.clear();
+	for (UnitClassTypes eUnitClass = (UnitClassTypes)0; eUnitClass < GC.getNumUnitClassInfos(); eUnitClass = (UnitClassTypes)(eUnitClass + 1)) {
+		int iTmp = eUnitClass;
+		bool bValid = false;
+		UnitTypes eLoopUnit = ((UnitTypes)(GC.getCivilizationInfo(GET_PLAYER(BARBARIAN_PLAYER).getCivilizationType()).getCivilizationUnits(eUnitClass)));
+
+		if (eLoopUnit != NO_UNIT) {
+			const CvUnitInfo& kUnit = GC.getUnitInfo(eLoopUnit);
+
+			if (kUnit.getCombat() <= 0)
+				continue;
+
+			if (eAI != NO_UNITAI && !kUnit.getUnitAIType(eAI))
+				continue;
+
+			if (!bIncludeDefensive && kUnit.isOnlyDefensive())
+				continue;
+
+			if (kUnit.getDomainType() == DOMAIN_SEA) {
+				if (!bIncludeWater)
+					continue;
+
+				if (!isWater())
+					continue;
+			}
+
+			if (!GET_PLAYER(BARBARIAN_PLAYER).canTrain(eLoopUnit))
+				continue;
+
+			if (!canTrain(eLoopUnit, false, true))
+				continue;
+
+			vBarbarians.push_back(std::make_pair(eLoopUnit, kUnit.getCombat()));
+		}
+	}
+}
+
+UnitTypes CvPlot::getNativeBarbarianRand(UnitAITypes eAI, bool bIncludeWater) const {
+	UnitTypes eBestUnit = NO_UNIT;
+	std::vector<std::pair<UnitTypes, int> > vBarbarians;
+	getNativeBarbarians(vBarbarians, eAI);
+	if (vBarbarians.size() > 0) {
+		std::random_shuffle(vBarbarians.begin(), vBarbarians.end());
+		eBestUnit = vBarbarians[0].first;
+	}
+	return eBestUnit;
+}
+
+UnitTypes CvPlot::getNativeBarbarianBest(UnitAITypes eAI, bool bIncludeWater, bool bIncludeDefensive) const {
+	UnitTypes eBestUnit = NO_UNIT;
+	int iBestValue = 0;
+
+	std::vector<std::pair<UnitTypes, int> > vBarbarians;
+	getNativeBarbarians(vBarbarians, eAI, bIncludeWater, bIncludeDefensive);
+	if (vBarbarians.size() > 0) {
+		for (std::vector<std::pair<UnitTypes, int> >::iterator it = vBarbarians.begin(); it != vBarbarians.end(); ++it) {
+			if ((*it).second > iBestValue) {
+				eBestUnit = (*it).first;
+				iBestValue = (*it).second;
+			}
+		}
+	}
+	return eBestUnit;
 }

@@ -1982,6 +1982,15 @@ void CvUnitAI::AI_attackMove() {
 		}
 	}
 
+	// If we are on a spawning improvement pillage it
+	if (plot()->getImprovementType() != NO_IMPROVEMENT) {
+		CvImprovementInfo& kImprovement = GC.getImprovementInfo(plot()->getImprovementType());
+		if (kImprovement.getAnimalSpawnRatePercentage() > 0 || kImprovement.getBarbarianSpawnRatePercentage() > 0) {
+			getGroup()->pushMission(MISSION_PILLAGE, -1, -1, 0, false, false, MISSIONAI_PILLAGE, plot());
+			return;
+		}
+	}
+
 	{
 		PROFILE("CvUnitAI::AI_attackMove() 1");
 
@@ -3651,9 +3660,17 @@ void CvUnitAI::AI_exploreMove() {
 		}
 	}
 
+	// If we are on a spawning improvement pillage it
+	if (plot()->getImprovementType() != NO_IMPROVEMENT) {
+		CvImprovementInfo& kImprovement = GC.getImprovementInfo(plot()->getImprovementType());
+		if (kImprovement.getAnimalSpawnRatePercentage() > 0 || kImprovement.getBarbarianSpawnRatePercentage() > 0) {
+			getGroup()->pushMission(MISSION_PILLAGE, -1, -1, 0, false, false, MISSIONAI_PILLAGE, plot());
+			return;
+		}
+	}
+
 	if (!isHuman()) {
-		if (AI_pillageRange(3, 10)) // K-Mod
-		{
+		if (AI_pillageRange(3, 10)) {
 			return;
 		}
 

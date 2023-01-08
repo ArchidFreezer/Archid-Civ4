@@ -32,6 +32,11 @@ protected:
 
 public:
 
+	void setAnimalSpawnImprovementsDone(bool bValue);
+	bool getAnimalSpawnImprovementsDone() const;
+	void setBarbSpawnImprovementsDone(bool bValue);
+	bool getBarbSpawnImprovementsDone() const;
+
 	DllExport void setInitialItems();
 	DllExport void regenerateMap();
 
@@ -600,6 +605,8 @@ protected:
 	bool m_bHotPbemBetweenTurns;
 	bool m_bPlayerOptionsSent;
 	bool m_bNukesValid;
+	bool m_bAnimalSpawnImprovementsDone;
+	bool m_bBarbSpawnImprovementsDone;
 
 	HandicapTypes m_eHandicap;
 	PlayerTypes m_ePausePlayer;
