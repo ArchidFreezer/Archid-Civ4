@@ -9751,7 +9751,7 @@ bool CvUnit::canAcquirePromotion(PromotionTypes ePromotion) const {
 			}
 		}
 		// If the net reduction in cargo space is greater than the available space block the promotion
-		if (cargoSpace() + kPromotion.getCargoChange() - iExistingGroupCargoChange < getCargo()) {
+		if (kPromotion.getCargoChange() - iExistingGroupCargoChange + cargoSpaceAvailable() <= 0) {
 			return false;
 		}
 	}
