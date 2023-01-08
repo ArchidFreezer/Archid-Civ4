@@ -171,8 +171,7 @@ protected:
 	bool AI_blockade();
 	bool AI_pirateBlockade();
 	bool AI_seaBombardRange(int iMaxRange);
-	bool AI_pillage(int iBonusValueThreshold = 0, bool bCheckCity = true, bool bNoPotentialWarCheck = true, int iFlags = 0);
-	bool AI_pillageRange(int iRange, int iBonusValueThreshold = 0, int iFlags = 0);
+	bool AI_pillageRange(int iRange, int iBonusValueThreshold = 0, bool bCheckCity = true, bool bWarOnly = true, bool bPillageBarbarians = false, bool bIgnoreDanger = false, int iFlags = 0);
 	bool AI_found(int iFlags = MOVE_NO_ENEMY_TERRITORY); // K-Mod added iFlags
 	bool AI_foundFollow(); // K-Mod
 	bool AI_assaultSeaTransport(bool bAttackBarbs = false, bool bLocal = false); // K-mod added bLocal
