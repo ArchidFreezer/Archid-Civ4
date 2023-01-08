@@ -337,6 +337,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_bGroupPromotionChanged = false;
 	m_bWorldViewEnabled = true;
 	m_bAutoPromoting = false;
+	m_bAutoUpgrading = false;
 
 	m_eOwner = eOwner;
 	m_eCapturingPlayer = NO_PLAYER;
@@ -456,6 +457,7 @@ void CvUnit::convert(CvUnit* pUnit) {
 	setDamage(pUnit->getDamage());
 	setMoves(pUnit->getMoves());
 	setAutoPromoting(pUnit->isAutoPromoting());
+	setAutoUpgrading(pUnit->isAutoUpgrading());
 
 	setLevel(pUnit->getLevel());
 	int iOldModifier = std::max(1, 100 + GET_PLAYER(pUnit->getOwnerINLINE()).getLevelExperienceModifier());
@@ -718,6 +720,13 @@ void CvUnit::doTurn() {
 			getGroup()->setActivityType(ACTIVITY_AWAKE);
 			discover(getDesiredDiscoveryTech());
 			setDesiredDiscoveryTech(NO_TECH);
+		}
+	}
+
+	if (isAutoUpgrading()) {
+		if (GET_PLAYER(getOwnerINLINE()).AI_getPlotDanger(plot(), 3) == 0 || plot()->isCity()) {
+			AI_upgrade();
+			//Could Delete Unit!!!
 		}
 	}
 }
@@ -2731,6 +2740,20 @@ bool CvUnit::canAutomate(AutomateTypes eAutomate) const {
 			return false;
 		break;
 
+	case AUTOMATE_UPGRADING:
+		if (GC.getUnitInfo(getUnitType()).getUpgradeUnitClassTypes().size() == 0)
+			return false;
+		if (isAutoUpgrading())
+			return false;
+		break;
+
+	case AUTOMATE_CANCEL_UPGRADING:
+		if (GC.getUnitInfo(getUnitType()).getUpgradeUnitClassTypes().size() == 0)
+			return false;
+		if (!isAutoUpgrading())
+			return false;
+		break;
+
 	default:
 		FAssert(false);
 		break;
@@ -2742,6 +2765,19 @@ bool CvUnit::canAutomate(AutomateTypes eAutomate) const {
 
 void CvUnit::automate(AutomateTypes eAutomate) {
 	if (!canAutomate(eAutomate)) {
+		return;
+	}
+
+	if (eAutomate == AUTOMATE_UPGRADING || eAutomate == AUTOMATE_CANCEL_UPGRADING) {
+		CLLNode<IDInfo>* pUnitNode = getGroup()->headUnitNode();
+		while (pUnitNode != NULL) {
+			CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+			pUnitNode = getGroup()->nextUnitNode(pUnitNode);
+			pLoopUnit->setAutoUpgrading((eAutomate == AUTOMATE_UPGRADING));
+		}
+		if (IsSelected()) {
+			gDLL->getInterfaceIFace()->setDirty(SelectionButtons_DIRTY_BIT, true);
+		}
 		return;
 	}
 
@@ -10024,6 +10060,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_bGroupPromotionChanged);
 	pStream->Read(&m_bWorldViewEnabled);
 	pStream->Read(&m_bAutoPromoting);
+	pStream->Read(&m_bAutoUpgrading);
 
 	pStream->Read((int*)&m_eOwner);
 	pStream->Read((int*)&m_eCapturingPlayer);
@@ -10146,6 +10183,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_bGroupPromotionChanged);
 	pStream->Write(m_bWorldViewEnabled);
 	pStream->Write(m_bAutoPromoting);
+	pStream->Write(m_bAutoUpgrading);
 
 	pStream->Write(m_eOwner);
 	pStream->Write(m_eCapturingPlayer);
@@ -12929,4 +12967,12 @@ void CvUnit::setAutoPromoting(bool bNewValue) {
 		setPromotionReady(false);
 		testPromotionReady();
 	}
+}
+
+bool CvUnit::isAutoUpgrading() const {
+	return m_bAutoUpgrading;
+}
+
+void CvUnit::setAutoUpgrading(bool bNewValue) {
+	m_bAutoUpgrading = bNewValue;
 }

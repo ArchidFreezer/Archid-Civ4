@@ -1259,6 +1259,26 @@
 		<English>Cancels the Automate Promote Order</English>
 		<French>Annule les ordres de Promotions Automatisées</French>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_UPGRADING</Tag>
+		<English>Automate Upgrade</English>
+		<French>Améliorations automatisées</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_UPGRADING_HELP</Tag>
+		<English>Will Upgrade to New Units whenever possible.</English>
+		<French>Améliore automatiquement les Unités lorsque c'est possible.</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_CANCEL_UPGRADING</Tag>
+		<English>Cancel Automate Upgrade</English>
+		<French>Annuler les Améliorations automatisées</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_CANCEL_UPGRADING_HELP</Tag>
+		<English>Cancels the Automate Upgrade Order</English>
+		<French>Annule les ordres d'Améliorations automatisées</French>
+	</TEXT>
 
 <!-- Abandon City Raze Building Mod -->
 	<TEXT>

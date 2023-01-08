@@ -100,6 +100,8 @@
 		<AutomateType>AUTOMATE_AIR_RECON</AutomateType>
 		<AutomateType>AUTOMATE_PROMOTIONS</AutomateType>
 		<AutomateType>AUTOMATE_CANCEL_PROMOTIONS</AutomateType>
+		<AutomateType>AUTOMATE_UPGRADING</AutomateType>
+		<AutomateType>AUTOMATE_CANCEL_UPGRADING</AutomateType>
 	</AutomateTypes>
 	<DirectionTypes>
 		<!--Changes must be reflected in CvEnums.h-->

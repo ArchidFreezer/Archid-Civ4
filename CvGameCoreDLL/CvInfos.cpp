@@ -4318,6 +4318,22 @@ bool CvUnitInfo::isPrereqOrCivic(int i) const {
 	return (std::find(m_viPrereqOrCivics.begin(), m_viPrereqOrCivics.end(), i) != m_viPrereqOrCivics.end());
 }
 
+std::vector<UnitClassTypes> CvUnitInfo::getUpgradeUnitClassTypes() const {
+	return m_viUpgradeUnitClassTypes;
+}
+
+void CvUnitInfo::addUpgradeUnitClassTypes(UnitClassTypes eUnitClassType) {
+	FAssert(eUnitClassType > -1 && eUnitClassType < GC.getNumUnitClassInfos());
+	if (find(m_viUpgradeUnitClassTypes.begin(), m_viUpgradeUnitClassTypes.end(), eUnitClassType) == m_viUpgradeUnitClassTypes.end()) {
+		m_viUpgradeUnitClassTypes.push_back(eUnitClassType);
+	}
+}
+
+bool CvUnitInfo::isUpgradeUnitClassTypes(UnitClassTypes eUnitClassType) {
+	FAssert(eUnitClassType > -1 && eUnitClassType < GC.getNumUnitClassInfos());
+	return find(m_viUpgradeUnitClassTypes.begin(), m_viUpgradeUnitClassTypes.end(), eUnitClassType) != m_viUpgradeUnitClassTypes.end();
+}
+
 void CvUnitInfo::read(FDataStreamBase* stream) {
 	CvHotkeyInfo::read(stream);
 

@@ -231,6 +231,8 @@ bool CvUnitAI::AI_update() {
 
 		case AUTOMATE_PROMOTIONS:
 		case AUTOMATE_CANCEL_PROMOTIONS:
+		case AUTOMATE_UPGRADING:
+		case AUTOMATE_CANCEL_UPGRADING:
 			FAssertMsg(false, "SelectionGroup Should Not be Using These Automations!")
 				break;
 
@@ -491,7 +493,8 @@ bool CvUnitAI::AI_follow(bool bFirst) {
 void CvUnitAI::AI_upgrade() {
 	PROFILE_FUNC();
 
-	FAssert(!isHuman());
+	// We use this function for autoupgrading units so Humans can use it now
+	// FAssert(!isHuman()); 
 	FAssert(AI_getUnitAIType() != NO_UNITAI);
 
 	if (!isReadyForUpgrade())
@@ -509,11 +512,10 @@ void CvUnitAI::AI_upgrade() {
 	// In the first pass, they checked only units which were flagged with the right unitAI.
 	// Then, only if no such units were found, they checked all other units.
 	//
-	// I'm just jumping straight to the second (slower) pass, because most of the time no upgrades are available at all and so both passes would be used anyway.
-	//
-	// I've reversed the order of iteration because the stronger units are typically later in the list
-	for (UnitClassTypes i = (UnitClassTypes)(GC.getNumUnitClassInfos() - 1); i >= 0; i = (UnitClassTypes)(i - 1)) {
-		UnitTypes eLoopUnit = (UnitTypes)kCivInfo.getCivilizationUnits(i);
+	// Now we cache the potential upgrades we can jump straight in
+	std::vector<UnitClassTypes> aPotentialUnitClassTypes = GC.getUnitInfo(getUnitType()).getUpgradeUnitClassTypes();
+	for (int iIndex = 0; iIndex < (int)aPotentialUnitClassTypes.size(); iIndex++) {
+		UnitTypes eLoopUnit = (UnitTypes)kCivInfo.getCivilizationUnits(aPotentialUnitClassTypes[iIndex]);
 
 		if (eLoopUnit != NO_UNIT) {
 			int iValue = kPlayer.AI_unitValue(eLoopUnit, eUnitAI, pArea);

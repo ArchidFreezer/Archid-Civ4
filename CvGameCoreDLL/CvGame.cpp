@@ -540,6 +540,17 @@ void CvGame::reset(HandicapTypes eHandicap, bool bConstructorCall) {
 		AI_reset();
 	}
 	m_ActivePlayerCycledGroups.clear(); // K-Mod
+
+	// Cache the upgrade unit classes in the UnitInfo for performance
+	for (UnitTypes eLoopUnit = (UnitTypes)0; eLoopUnit < GC.getNumUnitInfos(); eLoopUnit = (UnitTypes)(eLoopUnit + 1)) {
+		CvUnitInfo& kUnit = GC.getUnitInfo(eLoopUnit);
+		for (UnitClassTypes eUnitClass = (UnitClassTypes)0; eUnitClass < GC.getNumUnitClassInfos(); eUnitClass = (UnitClassTypes)(eUnitClass + 1)) {
+			if (kUnit.getUpgradeUnitClass(eUnitClass)) {
+				kUnit.addUpgradeUnitClassTypes(eUnitClass);
+			}
+		}
+	}
+
 }
 
 
