@@ -5276,9 +5276,13 @@ int CvPlayer::getProductionModifier(ProjectTypes eProject) const {
 	return iMultiplier;
 }
 
+// Gets the number of building with the given class scaled to the world size
+// iExtra is added to the default number of prereqs prior to the scaling being applied if this is not a limited wonder
 int CvPlayer::getBuildingClassPrereqBuilding(BuildingTypes eBuilding, BuildingClassTypes ePrereqBuildingClass, int iExtra) const {
+	// The building info we want to get the number of prereqs for
 	CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
 
+	// Get the default number of the building class we need
 	int iPrereqs = kBuilding.getPrereqNumOfBuildingClass(ePrereqBuildingClass);
 
 	// dont bother with the rest of the calcs if we have no prereqs
@@ -5286,8 +5290,10 @@ int CvPlayer::getBuildingClassPrereqBuilding(BuildingTypes eBuilding, BuildingCl
 		return 0;
 	}
 
+	// The building class we want the preqs for
 	BuildingClassTypes eBuildingClass = (BuildingClassTypes)kBuilding.getBuildingClassType();
 
+	// Get the worldsize scaling factors
 	iPrereqs *= std::max(0, (GC.getWorldInfo(GC.getMapINLINE().getWorldSize()).getBuildingClassPrereqModifier() + 100));
 	iPrereqs /= 100;
 

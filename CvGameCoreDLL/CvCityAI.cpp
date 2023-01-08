@@ -2483,23 +2483,23 @@ BuildingTypes CvCityAI::AI_bestBuildingThreshold(int iFocusFlags, int iMaxTurns,
 		// (the value check is just for efficiency. 1250 takes into account the possible +25 random boost)
 		if (iFocusFlags == 0 && iValue * 1250 / std::max(1, iTurnsLeft + 3) >= iBestValue) {
 			int iLimit = limitedWonderClassLimit(eLoopClass);
-			if (iLimit == -1) {
+			if (iLimit == -1) { // This is not a limited wonder
 				// We're not out of the woods yet. Check for prereq buildings.
-				for (int iJ = 0; iJ < GC.getNumBuildingClassInfos(); iJ++) {
-					if (kBuilding.getPrereqNumOfBuildingClass(iJ) > 0) {
+				for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
+					if (kBuilding.getPrereqNumOfBuildingClass(eBuildingClass) > 0) {
 						// I wish this was easier to calculate...
 						int iBuilt = kOwner.getBuildingClassCount(eLoopClass);
 						int iBuilding = kOwner.getBuildingClassMaking(eLoopClass);
-						int iPrereqEach = kOwner.getBuildingClassPrereqBuilding(eLoopBuilding, (BuildingClassTypes)iJ, -iBuilt);
-						int iPrereqBuilt = kOwner.getBuildingClassCount((BuildingClassTypes)iJ);
+						int iPrereqEach = kOwner.getBuildingClassPrereqBuilding(eLoopBuilding, eBuildingClass);
+						int iPrereqBuilt = kOwner.getBuildingClassCount(eBuildingClass);
 						FAssert(iPrereqEach > 0);
-						iLimit = iPrereqBuilt / iPrereqEach - iBuilt - iBuilding;
-						FAssert(iLimit > 0);
+						int iPrereqsUsed = (iBuilt + iBuilding) * iPrereqEach; // How many prereqs are 'used' by existing buildings
+						iLimit = (iPrereqBuilt - iPrereqsUsed) / iPrereqEach;
 						break;
 					}
 				}
 			}
-			if (iLimit != -1) {
+			if (iLimit > 0) {
 				const int iMaxNumWonders = (GC.getGameINLINE().isOption(GAMEOPTION_ONE_CITY_CHALLENGE) && isHuman()) ? GC.getDefineINT("MAX_NATIONAL_WONDERS_PER_CITY_FOR_OCC") : GC.getDefineINT("MAX_NATIONAL_WONDERS_PER_CITY");
 
 				if (isNationalWonderClass(eLoopClass) && iMaxNumWonders != -1) {
