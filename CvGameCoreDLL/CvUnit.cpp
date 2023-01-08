@@ -2691,6 +2691,16 @@ bool CvUnit::canAutomate(AutomateTypes eAutomate) const {
 			return false;
 		break;
 
+	case AUTOMATE_AIRSTRIKE:
+		if (getDomainType() != DOMAIN_AIR)
+			return false;
+		if (!canAirAttack())
+			return false;
+		//Jets and Fighters can intercept, modders, if you have fighters with 0 interception, feel free to get rid of this check
+		if (m_pUnitInfo->getInterceptionProbability() <= 0)
+			return false;
+		break;
+
 	default:
 		FAssert(false);
 		break;

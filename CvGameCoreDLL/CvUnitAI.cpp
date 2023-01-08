@@ -219,6 +219,10 @@ bool CvUnitAI::AI_update() {
 			AI_pirateSeaMove();
 			break;
 
+		case AUTOMATE_AIRSTRIKE:
+			AI_autoAirStrike();
+			break;
+
 		default:
 			FAssert(false);
 			break;
@@ -18288,6 +18292,264 @@ bool CvUnitAI::AI_caravan(bool bAnyCity) {
 			getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), MOVE_SAFE_TERRITORY, false, false, MISSIONAI_HURRY, pBestHurryPlot);
 			return true;
 		}
+	}
+
+	return false;
+}
+
+void CvUnitAI::AI_autoAirStrike() {
+	PROFILE_FUNC();
+
+	//Heal
+	if (getDamage() > 0) {
+		if ((100 * currHitPoints() / maxHitPoints()) < 50) {
+			getGroup()->pushMission(MISSION_SKIP);
+			return;
+		}
+	}
+
+	// Attack the invaders!
+	if (AI_defendBaseAirStrike())
+		return;
+
+	//Attack enemies in range
+	if (AI_defensiveAirStrike())
+		return;
+
+	//Attack anyone
+	if (AI_airStrike())
+		return;
+
+	if (getOptionBOOL("Automations__AirRebaseUnits")) {
+		// If no targets, no sense staying in risky place
+		if (AI_airOffensiveCity())
+			return;
+
+		if (canAirDefend()) {
+			if (AI_airDefensiveCity())
+				return;
+		}
+
+		if (healTurns(plot()) > 1) {
+			// If very damaged, no sense staying in risky place
+			if (AI_airOffensiveCity())
+				return;
+
+			if (canAirDefend()) {
+				if (AI_airDefensiveCity())
+					return;
+			}
+		}
+	}
+
+	CvArea* pArea = area();
+	if (getOptionBOOL("Automations__AirCanDefend")) {
+		CvPlayerAI& kPlayer = GET_PLAYER(getOwnerINLINE());
+		int iAttackValue = kPlayer.AI_unitValue(getUnitType(), UNITAI_ATTACK_AIR, pArea);
+		int iDefenseValue = kPlayer.AI_unitValue(getUnitType(), UNITAI_DEFENSE_AIR, pArea);
+		if (iDefenseValue > iAttackValue) {
+			if (kPlayer.AI_bestAreaUnitAIValue(UNITAI_ATTACK_AIR, pArea) > iAttackValue) {
+				AI_setUnitAIType(UNITAI_DEFENSE_AIR);
+				getGroup()->pushMission(MISSION_SKIP);
+				return;
+			}
+		}
+	}
+
+
+	bool bDefensive = false;
+	if (pArea != NULL) {
+		bDefensive = pArea->getAreaAIType(getTeam()) == AREAAI_DEFENSIVE;
+	}
+	if (getOptionBOOL("Automations__AirRebaseUnits") && getOptionBOOL("Automations__AirCanDefend")) {
+		if (GC.getGameINLINE().getSorenRandNum(bDefensive ? 3 : 6, "AI Air Attack Move") == 0) {
+			if (AI_defensiveAirStrike())
+				return;
+		}
+	}
+
+	if (getOptionBOOL("Automations__AirCanDefend")) {
+		if (GC.getGameINLINE().getSorenRandNum(4, "AI Air Attack Move") == 0) {
+			// only moves unit in a fort
+			if (AI_travelToUpgradeCity())
+				return;
+		}
+	}
+
+	// Support ground attacks
+	if (canAirBomb(NULL)) {
+		if (AI_airBombPlots())
+			return;
+	}
+
+	if (AI_airStrike())
+		return;
+
+	if (AI_airBombCities())
+		return;
+
+	if (canAirDefend() && getOptionBOOL("Automations__AirCanDefend")) {
+		if (bDefensive || GC.getGameINLINE().getSorenRandNum(2, "AI Air Attack Move") == 0) {
+			getGroup()->pushMission(MISSION_AIRPATROL);
+			return;
+		}
+	}
+
+	if (canRecon(plot())) {
+		if (AI_exploreAir())
+			return;
+	}
+
+	getGroup()->pushMission(MISSION_SKIP);
+	return;
+}
+
+bool CvUnitAI::AI_airBombCities() {
+	//PROFILE_FUNC();
+
+	int iSearchRange = airRange();
+	int iBestValue = (isSuicide() && m_pUnitInfo->getProductionCost() > 0) ? (5 * m_pUnitInfo->getProductionCost()) / 6 : 0;
+	CvPlot* pBestPlot = NULL;
+
+	for (int iDX = -(iSearchRange); iDX <= iSearchRange; iDX++) {
+		for (int iDY = -(iSearchRange); iDY <= iSearchRange; iDY++) {
+			CvPlot* pLoopPlot = plotXY(getX_INLINE(), getY_INLINE(), iDX, iDY);
+
+			if (pLoopPlot != NULL) {
+				if (canMoveInto(pLoopPlot, true)) {
+					int iValue = 0;
+					int iPotentialAttackers = pLoopPlot->getNumVisibleEnemyDefenders(this);
+
+					if (iPotentialAttackers > 0) {
+						CvUnit* pDefender = pLoopPlot->getBestDefender(NO_PLAYER, getOwnerINLINE(), this, true);
+
+						FAssert(pDefender != NULL);
+						FAssert(pDefender->canDefend());
+
+						// XXX factor in air defenses...
+
+						int iDamage = airCombatDamage(pDefender);
+
+						iValue = std::max(0, (std::min((pDefender->getDamage() + iDamage), airCombatLimit()) - pDefender->getDamage()));
+
+						iValue += ((((iDamage * collateralDamage()) / 100) * std::min((pLoopPlot->getNumVisibleEnemyDefenders(this) - 1), collateralDamageMaxUnits())) / 2);
+
+						iValue *= (3 + iPotentialAttackers);
+						iValue /= 4;
+
+						CvUnit* pInterceptor = bestInterceptor(pLoopPlot);
+
+						if (pInterceptor != NULL) {
+							int iInterceptProb = isSuicide() ? 100 : pInterceptor->currInterceptionProbability();
+
+							iInterceptProb *= std::max(0, (100 - evasionProbability()));
+							iInterceptProb /= 100;
+
+							iValue *= std::max(0, 100 - iInterceptProb / 2);
+							iValue /= 100;
+						}
+
+						if (pLoopPlot->isWater())
+							iValue *= 2;
+
+						if (pLoopPlot->isCity())
+							iValue *= 2;
+
+						if (iValue > iBestValue) {
+							iBestValue = iValue;
+							pBestPlot = pLoopPlot;
+							FAssert(!atPlot(pBestPlot));
+						}
+					}
+				}
+			}
+		}
+	}
+
+	if (pBestPlot != NULL) {
+		FAssert(!atPlot(pBestPlot));
+		getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE());
+		return true;
+	}
+
+	return false;
+}
+
+// Air strike focused on weakening enemy stacks threatening our cities
+// Returns true if a mission was pushed...
+bool CvUnitAI::AI_defensiveAirStrike() {
+	PROFILE_FUNC();
+
+	int iSearchRange = airRange();
+	int iBestValue = (isSuicide() && m_pUnitInfo->getProductionCost() > 0) ? (60 * m_pUnitInfo->getProductionCost()) : 0;
+	CvPlot* pBestPlot = NULL;
+
+	for (int iDX = -(iSearchRange); iDX <= iSearchRange; iDX++) {
+		for (int iDY = -(iSearchRange); iDY <= iSearchRange; iDY++) {
+			CvPlot* pLoopPlot = plotXY(getX_INLINE(), getY_INLINE(), iDX, iDY);
+
+			if (pLoopPlot != NULL) {
+				if (canMoveInto(pLoopPlot, true)) // Only true of plots this unit can airstrike
+				{
+					// Only attack enemy land units near our cities
+					if (pLoopPlot->isPlayerCityRadius(getOwnerINLINE()) && !pLoopPlot->isWater()) {
+						CvCity* pClosestCity = GC.getMapINLINE().findCity(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), getOwnerINLINE(), getTeam(), true, false);
+
+						if (pClosestCity != NULL) {
+							// City and pLoopPlot forced to be in same area, check they're still close
+							int iStepDist = plotDistance(pClosestCity->getX_INLINE(), pClosestCity->getY_INLINE(), pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE());
+
+							if (iStepDist < 3) {
+								int iValue = 0;
+
+								CvUnit* pDefender = pLoopPlot->getBestDefender(NO_PLAYER, getOwnerINLINE(), this, true);
+
+								FAssert(pDefender != NULL);
+								FAssert(pDefender->canDefend());
+
+								int iDamage = airCombatDamage(pDefender);
+
+								iValue = std::max(0, (std::min((pDefender->getDamage() + iDamage), airCombatLimit()) - pDefender->getDamage()));
+
+								iValue += ((((iDamage * collateralDamage()) / 100) * std::min((pLoopPlot->getNumVisibleEnemyDefenders(this) - 1), collateralDamageMaxUnits())) / 2);
+
+								iValue *= GET_PLAYER(getOwnerINLINE()).AI_localAttackStrength(pClosestCity->plot(), NO_TEAM);
+								iValue /= std::max(1, GET_PLAYER(getOwnerINLINE()).AI_localAttackStrength(pClosestCity->plot(), getTeam()));
+
+								if (iStepDist == 1) {
+									iValue *= 5;
+									iValue /= 4;
+								}
+
+								CvUnit* pInterceptor = bestInterceptor(pLoopPlot);
+
+								if (pInterceptor != NULL) {
+									int iInterceptProb = isSuicide() ? 100 : pInterceptor->currInterceptionProbability();
+
+									iInterceptProb *= std::max(0, (100 - evasionProbability()));
+									iInterceptProb /= 100;
+
+									iValue *= std::max(0, 100 - iInterceptProb / 2);
+									iValue /= 100;
+								}
+
+								if (iValue > iBestValue) {
+									iBestValue = iValue;
+									pBestPlot = pLoopPlot;
+									FAssert(!atPlot(pBestPlot));
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	if (pBestPlot != NULL) {
+		FAssert(!atPlot(pBestPlot));
+		getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE());
+		return true;
 	}
 
 	return false;

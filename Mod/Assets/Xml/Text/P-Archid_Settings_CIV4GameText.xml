@@ -1324,5 +1324,21 @@
 		<Tag>TXT_KEY_ARCHID_OPT_AUTOMATIONS__STAYINBORDERS_HOVER</Tag>
 		<English>Units with Border Patrol automation will not leave friendly territory for any reason</English>
 	</TEXT>
+	<TEXT> <!-- Automations__AirCanRebase -->
+		<Tag>TXT_KEY_ARCHID_OPT_AUTOMATIONS__AIRREBASEUNITS_TEXT</Tag>
+		<English>Automated Air Units Can Rebase</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_AUTOMATIONS__AIRREBASEUNITS_HOVER</Tag>
+		<English>Automated Strike Craft will be allowed to rebase into more offensive positions</English>
+	</TEXT>
+	<TEXT> <!-- Automations__AirCanDefend -->
+		<Tag>TXT_KEY_ARCHID_OPT_AUTOMATIONS__AIRCANDEFEND_TEXT</Tag>
+		<English>Automated Air Units Can Defend</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_AUTOMATIONS__AIRCANDEFEND_HOVER</Tag>
+		<English>Automated Strike Craft will be allowed to intercept potiental enemy aircraft</English>
+	</TEXT>
 
 </Civ4GameText>

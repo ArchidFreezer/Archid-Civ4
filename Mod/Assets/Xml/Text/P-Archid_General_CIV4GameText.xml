@@ -1209,6 +1209,16 @@
 		<Tag>TXT_KEY_ACTION_AUTOMATE_ESPIONAGE_HELP</Tag>
 		<English>Will conduct counter espionage missions against rivals</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_AIRSTRIKE</Tag>
+		<English>Automate Airstrike</English>
+		<French>Interception Automatisé</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_AUTOMATE_AIRSTRIKE_HELP</Tag>
+		<English>Send the unit to attack enemy units whereever possible.</English>
+		<French>Envoi l'unité attaquer les unités ennemies dès que possible.</French>
+	</TEXT>
 
 <!-- Abandon City Raze Building Mod -->
 	<TEXT>

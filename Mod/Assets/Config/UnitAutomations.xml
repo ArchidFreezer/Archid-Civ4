@@ -8,6 +8,10 @@
 			<option id="PillageIgnoreDanger" key="Pillage Ignore Danger" type="boolean" default="True"/>
 			<!-- Patrols -->
 			<option id="StayInBorders" key="Stay In Borders" type="boolean" default="True"/>
+			<!-- Air -->
+			<option id="AirRebaseUnits" key="Rebase Air Units" type="boolean" default="True"/>
+			<option id="AirCanDefend" key="Air Units Can Defend" type="boolean" default="True"/>
+			
 		</section>
 	</options>
 </mod>

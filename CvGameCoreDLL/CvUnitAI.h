@@ -115,6 +115,7 @@ protected:
 	void AI_searchAndDestroyMove();
 	void AI_cityDefence();
 	void AI_borderPatrol();
+	void AI_autoAirStrike();
 
 	int AI_promotionValue(PromotionTypes ePromotion);
 
@@ -243,6 +244,8 @@ protected:
 	bool AI_returnToBorders();
 	bool AI_patrolBorders();
 	bool AI_caravan(bool bAnyCity = false);
+	bool AI_defensiveAirStrike();
+	bool AI_airBombCities();
 
 	bool AI_defendPlot(CvPlot* pPlot);
 	int AI_pillageValue(CvPlot* pPlot, int iBonusValueThreshold = 0);
