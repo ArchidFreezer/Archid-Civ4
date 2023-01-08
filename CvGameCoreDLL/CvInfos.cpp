@@ -1700,6 +1700,14 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
 }
 
+int CvPromotionInfo::getNumBuildLeaveFeatures() const {
+	return m_vpBuildLeaveFeatures.size();
+}
+
+std::pair<int, int> CvPromotionInfo::getBuildLeaveFeature(int i) const {
+	return getNumBuildLeaveFeatures() > i ? m_vpBuildLeaveFeatures[i] : std::make_pair(NO_BUILD, NO_FEATURE);
+}
+
 int CvPromotionInfo::getWorkRateModifier() const {
 	return m_iWorkRateModifier;
 }
@@ -2240,6 +2248,15 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 		stream->Read(&iElement);
 		m_viPrereqOrPromotions.push_back(iElement);
 	}
+	int iElement2;
+	stream->Read(&iNumElements);
+	m_vpBuildLeaveFeatures.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		stream->Read(&iElement2);
+		m_vpBuildLeaveFeatures.push_back(std::make_pair(iElement, iElement2));
+	}
+
 }
 
 void CvPromotionInfo::write(FDataStreamBase* stream) {
@@ -2352,6 +2369,12 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	for (std::vector<int>::iterator it = m_viPrereqOrPromotions.begin(); it != m_viPrereqOrPromotions.end(); ++it) {
 		stream->Write(*it);
 	}
+
+	stream->Write(m_vpBuildLeaveFeatures.size());
+	for (std::vector<std::pair <int, int> >::iterator it = m_vpBuildLeaveFeatures.begin(); it != m_vpBuildLeaveFeatures.end(); ++it) {
+		stream->Write((*it).first);
+		stream->Write((*it).second);
+	}
 }
 
 bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
@@ -2459,6 +2482,7 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->SetListInfoBool(&m_pbTerrainDoubleMove, "TerrainDoubleMoves", GC.getNumTerrainInfos());
 	pXML->SetListInfoBool(&m_pbFeatureDoubleMove, "FeatureDoubleMoves", GC.getNumFeatureInfos());
+	pXML->SetVectorPairInfos(m_vpBuildLeaveFeatures, "BuildLeaveFeatures");
 	pXML->SetVectorInfo(m_viNotCombatTypes, "NotUnitCombatTypes");
 	pXML->SetVectorInfo(m_viOrCombatTypes, "OrUnitCombatTypes");
 

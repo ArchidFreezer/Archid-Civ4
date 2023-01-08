@@ -416,7 +416,7 @@ public:
 	void setRevealedRouteType(TeamTypes eTeam, RouteTypes eNewValue);
 
 	int getBuildProgress(BuildTypes eBuild) const;																											// Exposed to Python  
-	bool changeBuildProgress(BuildTypes eBuild, int iChange, TeamTypes eTeam = NO_TEAM);								// Exposed to Python 
+	bool changeBuildProgress(BuildTypes eBuild, int iChange, CvUnit* pUnit);
 	bool hasAnyBuildProgress() const;
 
 	void updateFeatureSymbolVisibility();

@@ -7122,7 +7122,37 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 	// Worker promotions
 	if (AI_getUnitAIType() == UNITAI_WORKER) {
 		if (kPromotion.getWorkRateModifier() > 0) {
-			iValue += kPromotion.getWorkRateModifier();
+			iValue += kPromotion.getWorkRateModifier() * 5;
+		}
+
+		CvCity* pCity = plot()->getWorkingCity();
+		BuildTypes eBestPlotBuild = NO_BUILD;
+		FeatureTypes eBestPlotFeature = NO_FEATURE;
+		if (pCity) {
+			// If we are in a city radius then find the best build/feature combination
+			// Only need to check this once
+			CvPlot* pBestPlot;
+			if (AI_bestCityBuild(pCity, &pBestPlot, &eBestPlotBuild)) {
+				eBestPlotFeature = pBestPlot->getFeatureType();
+			}
+		}
+		for (int i = 0; i < kPromotion.getNumBuildLeaveFeatures(); i++) {
+			std::pair<int, int> pPair = kPromotion.getBuildLeaveFeature(i);
+			BuildTypes eBuild = (BuildTypes)pPair.first;
+			FeatureTypes eFeature = (FeatureTypes)pPair.second;
+
+			// Base value
+			iValue += 25;
+
+			// If this promotion assists with the best build type then add extra value as this is probably
+			//  a common build irrespective of whether the plot has the feature.
+			if (eBestPlotBuild == eBuild) {
+				iValue += 25;
+				// If it is also for the correct feature type then go for it!
+				if (eBestPlotFeature == eFeature) {
+					iValue += 250;
+				}
+			}
 		}
 
 		return iValue;

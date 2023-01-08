@@ -238,7 +238,7 @@ void CyPlotPythonInterface1(python::class_<CyPlot>& x) {
 		.def("getRevealedImprovementType", &CyPlot::getRevealedImprovementType, "int (int /*TeamTypes*/ eTeam, bool bDebug)")
 		.def("getRevealedRouteType", &CyPlot::getRevealedRouteType, "int (int /*TeamTypes*/ eTeam, bool bDebug)")
 		.def("getBuildProgress", &CyPlot::getBuildProgress, "int (int /*BuildTypes*/ eBuild)")
-		.def("changeBuildProgress", &CyPlot::changeBuildProgress, "bool (int /*BuildTypes*/ eBuild, int iChange, int /*TeamTypes*/ eTeam)")
+			.def("changeBuildProgress", &CyPlot::changeBuildProgress, "bool (int /*BuildTypes*/ eBuild, int iChange, CyUnit* pUnit)")
 
 		.def("getCultureRangeCities", &CyPlot::getCultureRangeCities, "int (int /*PlayerTypes*/ eOwnerIndex, int iRangeIndex)")
 		.def("isCultureRangeCity", &CyPlot::isCultureRangeCity, "bool (int /*PlayerTypes*/ eOwnerIndex, int iRangeIndex)")

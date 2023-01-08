@@ -2266,3 +2266,44 @@ void CvXMLLoadUtility::RemoveTGABogusCorporation(std::vector<T*>& aInfos) {
 		aInfos.erase(aInfos.begin() + viDeletionVector.at(iI));
 	}
 }
+
+void CvXMLLoadUtility::SetVectorPairInfos(std::vector< std::pair< int, int > >& vpList, const TCHAR* szRootTagName) {
+
+	vpList.clear();
+	if (gDLL->getXMLIFace()->SetToChildByTagName(GetXML(), szRootTagName)) {
+		if (SkipToNextVal()) {
+			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
+
+			if (0 < iNumSibs) {
+				if (gDLL->getXMLIFace()->SetToChild(m_pFXml)) {
+					CvString szTextVal;
+					for (int i = 0; i < iNumSibs; i++) {
+						if (SkipToNextVal() && GetChildXmlVal(szTextVal)) // K-Mod. (without this, a comment in the xml could break this)
+						{
+							int iIndexVal1 = FindInInfoClass(szTextVal);
+							if (iIndexVal1 != -1) {
+								if (GetNextXmlVal(szTextVal)) {
+									int iIndexVal2 = FindInInfoClass(szTextVal);
+									if (iIndexVal2 != -1) {
+										vpList.push_back(std::make_pair(iIndexVal1, iIndexVal2));
+									}
+								}
+							}
+							gDLL->getXMLIFace()->SetToParent(m_pFXml);
+						}
+
+						if (!gDLL->getXMLIFace()->NextSibling(m_pFXml)) {
+							break;
+						}
+
+					}
+					gDLL->getXMLIFace()->SetToParent(m_pFXml);
+				}
+			}
+		}
+
+		gDLL->getXMLIFace()->SetToParent(m_pFXml);
+	}
+
+}
+

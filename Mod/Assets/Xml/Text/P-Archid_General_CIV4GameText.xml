@@ -1302,6 +1302,12 @@
 		<English>+1 unhappy</English>
 </TEXT>
 
+<!-- Build Leaves Features -->
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_BUILD_FEATURE_LEAVES</Tag>
+		<English>[ICON_BULLET]%s1_build leaves %s2_featurelist</English>
+	</TEXT>
+
 <!-- Specialists -->
 	<TEXT> <!-- Slave: Artist -->
 		<Tag>TXT_KEY_SPECIALIST_ARTIST_SLAVE</Tag>

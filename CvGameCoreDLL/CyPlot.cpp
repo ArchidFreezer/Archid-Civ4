@@ -795,8 +795,8 @@ int CyPlot::getBuildProgress(int /*BuildTypes*/ eBuild) {
 	return m_pPlot ? m_pPlot->getBuildProgress((BuildTypes)eBuild) : -1;
 }
 
-bool CyPlot::changeBuildProgress(int /*BuildTypes*/ eBuild, int iChange, int /*TeamTypes*/ eTeam) {
-	return m_pPlot ? m_pPlot->changeBuildProgress((BuildTypes)eBuild, iChange, (TeamTypes)eTeam) : false;
+bool CyPlot::changeBuildProgress(int /*BuildTypes*/ eBuild, int iChange, CyUnit* pUnit) {
+	return m_pPlot ? m_pPlot->changeBuildProgress((BuildTypes)eBuild, iChange, pUnit->getUnit()) : false;
 }
 
 int CyPlot::getCultureRangeCities(int /*PlayerTypes*/ eOwnerIndex, int iRangeIndex) {

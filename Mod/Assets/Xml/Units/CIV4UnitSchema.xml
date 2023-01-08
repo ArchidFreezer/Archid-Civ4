@@ -860,6 +860,13 @@
 	<ElementType name="iSpyDestroyProductionChange" content="textOnly" dt:type="int"/>	
 	<ElementType name="iSpyCultureChange" content="textOnly" dt:type="int"/>		
 	<ElementType name="iWorkRateModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="BuildLeaveFeatures" content="eltOnly">
+		<element type="BuildLeaveFeature" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="BuildLeaveFeature" content="eltOnly">
+		<element type="BuildType" minOccurs="0" maxOccurs="*"/>
+		<element type="FeatureType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="PromotionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -948,6 +955,7 @@
 		<element type="DomainMods" minOccurs="0"/>
 		<element type="TerrainDoubleMoves" minOccurs="0"/>
 		<element type="FeatureDoubleMoves" minOccurs="0"/>
+		<element type="BuildLeaveFeatures" minOccurs="0"/>
 		<element type="NotUnitCombatTypes" minOccurs="0"/>
 		<element type="OrUnitCombatTypes" minOccurs="0"/>
 		<element type="HotKey" minOccurs="0"/>

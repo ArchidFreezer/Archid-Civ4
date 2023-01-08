@@ -962,6 +962,25 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 			szString.append(gDLL->getText("TXT_KEY_UNIT_FLANKING_STRIKES", szTempBuffer.GetCString()));
 		}
 
+		for (BuildTypes eBuild = (BuildTypes)0; eBuild < GC.getNumBuildInfos(); eBuild = (BuildTypes)(eBuild + 1)) {
+			bFirst = true;
+			for (FeatureTypes eFeature = (FeatureTypes)0; eFeature < GC.getNumFeatureInfos(); eFeature = (FeatureTypes)(eFeature + 1)) {
+				if (pUnit->isBuildLeaveFeature(eBuild, eFeature)) {
+					if (bFirst) {
+						bFirst = false;
+					} else {
+						szTempBuffer += L", ";
+					}
+
+					szTempBuffer += CvWString::format(L"<link=literal>%s</link>", GC.getFeatureInfo(eFeature).getDescription());
+				}
+			}
+			if (!bFirst) {
+				szString.append(NEWLINE);
+				szString.append(gDLL->getText("TXT_KEY_UNIT_BUILD_FEATURE_LEAVES", GC.getBuildInfo(eBuild).getDescription(), szTempBuffer.GetCString()));
+			}
+		}
+
 		if (pUnit->bombardRate() > 0) {
 			if (bShort) {
 				szString.append(NEWLINE);
@@ -6153,6 +6172,13 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 		if (kPromotion.getFeatureDefensePercent(eFeature) != 0) {
 			szBuffer.append(pcNewline);
 			szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_DEFENSE_TEXT", kPromotion.getFeatureDefensePercent(eFeature), GC.getFeatureInfo(eFeature).getTextKeyWide()));
+		}
+	}
+
+	if (kPromotion.getNumBuildLeaveFeatures() > 0) {
+		for (int i = 0; i < kPromotion.getNumBuildLeaveFeatures(); i++) {
+			szBuffer.append(pcNewline);
+			szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_BUILD_LEAVE_FEATURE_TEXT", GC.getBuildInfo((BuildTypes)kPromotion.getBuildLeaveFeature(i).first).getTextKeyWide(), GC.getFeatureInfo((FeatureTypes)kPromotion.getBuildLeaveFeature(i).second).getTextKeyWide()));
 		}
 	}
 

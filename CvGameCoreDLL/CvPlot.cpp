@@ -6011,7 +6011,11 @@ int CvPlot::getBuildProgress(BuildTypes eBuild) const {
 
 
 // Returns true if build finished...
-bool CvPlot::changeBuildProgress(BuildTypes eBuild, int iChange, TeamTypes eTeam) {
+// The signature of this method has changed, but as it was not referenced in Python it was safe to do so
+bool CvPlot::changeBuildProgress(BuildTypes eBuild, int iChange, CvUnit* pUnit) {
+
+	FAssertMsg(pUnit != NULL, "pUnit should be valid");
+
 	CvWString szBuffer;
 	bool bFinished = false;
 
@@ -6038,22 +6042,22 @@ bool CvPlot::changeBuildProgress(BuildTypes eBuild, int iChange, TeamTypes eTeam
 			}
 
 			if (getFeatureType() != NO_FEATURE) {
-				if (GC.getBuildInfo(eBuild).isFeatureRemove(getFeatureType())) {
-					FAssertMsg(eTeam != NO_TEAM, "eTeam should be valid");
+				if (pUnit && !pUnit->isBuildLeaveFeature(eBuild, getFeatureType())) {
+					if (GC.getBuildInfo(eBuild).isFeatureRemove(getFeatureType())) {
+						CvCity* pCity;
+						int iProduction = getFeatureProduction(eBuild, pUnit->getTeam(), &pCity);
+						if (iProduction > 0) {
+							pCity->changeFeatureProduction(iProduction);
 
-					CvCity* pCity;
-					int iProduction = getFeatureProduction(eBuild, eTeam, &pCity);
-					if (iProduction > 0) {
-						pCity->changeFeatureProduction(iProduction);
+							szBuffer = gDLL->getText("TXT_KEY_MISC_CLEARING_FEATURE_BONUS", GC.getFeatureInfo(getFeatureType()).getTextKeyWide(), iProduction, pCity->getNameKey());
+							gDLL->getInterfaceIFace()->addHumanMessage(pCity->getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, ARTFILEMGR.getInterfaceArtInfo("WORLDBUILDER_CITY_EDIT")->getPath(), MESSAGE_TYPE_INFO, GC.getFeatureInfo(getFeatureType()).getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE(), true, true);
+						}
 
-						szBuffer = gDLL->getText("TXT_KEY_MISC_CLEARING_FEATURE_BONUS", GC.getFeatureInfo(getFeatureType()).getTextKeyWide(), iProduction, pCity->getNameKey());
-						gDLL->getInterfaceIFace()->addHumanMessage(pCity->getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, ARTFILEMGR.getInterfaceArtInfo("WORLDBUILDER_CITY_EDIT")->getPath(), MESSAGE_TYPE_INFO, GC.getFeatureInfo(getFeatureType()).getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE(), true, true);
+						// Python Event
+						CvEventReporter::getInstance().plotFeatureRemoved(this, getFeatureType(), pCity);
+
+						setFeatureType(NO_FEATURE);
 					}
-
-					// Python Event
-					CvEventReporter::getInstance().plotFeatureRemoved(this, getFeatureType(), pCity);
-
-					setFeatureType(NO_FEATURE);
 				}
 			}
 

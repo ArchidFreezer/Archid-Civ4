@@ -242,7 +242,7 @@ public:
 	int /* ImprovementTypes */ getRevealedImprovementType(int /*TeamTypes*/ eTeam, bool bDebug);
 	int /* RouteTypes */ getRevealedRouteType(int /*TeamTypes*/ eTeam, bool bDebug);
 	int getBuildProgress(int /*BuildTypes*/ eBuild);
-	bool changeBuildProgress(int /*BuildTypes*/ eBuild, int iChange, int /*TeamTypes*/ eTeam);
+	bool changeBuildProgress(int /*BuildTypes*/ eBuild, int iChange, CyUnit* pUnit);
 
 	int getCultureRangeCities(int /*PlayerTypes*/ eOwnerIndex, int iRangeIndex);
 	bool isCultureRangeCity(int /*PlayerTypes*/ eOwnerIndex, int iRangeIndex);

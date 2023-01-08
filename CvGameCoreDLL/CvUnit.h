@@ -112,6 +112,9 @@ public:
 	void waitForTech(int iFlag, int eTech);
 	TechTypes getDesiredDiscoveryTech() const;
 
+	bool isBuildLeaveFeature(BuildTypes eBuild, FeatureTypes eFeature) const;
+	void changeBuildLeaveFeatureCount(BuildTypes eBuild, FeatureTypes eFeature, int iCount);
+
 	// Expanded espionage functions
 	bool canAssassinate(const CvPlot* pPlot, SpecialistTypes eSpecialist, bool bTestVisible) const;
 	bool isDoubleAgent() const;
@@ -1043,6 +1046,8 @@ protected:
 	int* m_paiExtraFeatureDefensePercent;
 	int* m_paiExtraUnitCombatModifier;
 	int* m_paiEnslavedCount;
+
+	std::map<BuildTypes, std::map< FeatureTypes, int> > m_mmBuildLeavesFeatures;
 
 	IDInfo m_homeCity;
 
