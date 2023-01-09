@@ -8171,11 +8171,16 @@ void CvUnit::setXY(int iX, int iY, bool bGroup, bool bUpdate, bool bShow, bool b
 									GET_TEAM(getTeam()).AI_changeWarSuccess(pLoopUnit->getTeam(), GC.getDefineINT("WAR_SUCCESS_UNIT_CAPTURING"));
 								}
 
-								if (!isNoCapture()) {
-									pLoopUnit->setCapturingPlayer(getOwnerINLINE());
-								}
+								// Slavers will enslave any unit on the plot that they have room for, any other unit will ignore them
+								if (isSlaver() && enslaveUnit(this, pLoopUnit)) {
+									pLoopUnit->kill(false, getOwnerINLINE());
+								} else {
+									if (!isNoCapture()) {
+										pLoopUnit->setCapturingPlayer(getOwnerINLINE());
+									}
 
-								pLoopUnit->kill(false, getOwnerINLINE());
+									pLoopUnit->kill(false, getOwnerINLINE());
+								}
 							}
 						}
 					}
