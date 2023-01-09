@@ -505,7 +505,7 @@ void CvUnitAI::AI_upgrade() {
 	UnitAITypes eUnitAI = AI_getUnitAIType();
 	CvArea* pArea = area();
 
-	int iBestValue = kPlayer.AI_unitValue(getUnitType(), eUnitAI, pArea) * 100;
+	int iBestValue = kPlayer.AI_unitValue(this, eUnitAI, pArea) * 100;
 	UnitTypes eBestUnit = NO_UNIT;
 
 	// Note: the original code did two passes, presumably for speed reasons.
@@ -2033,6 +2033,10 @@ void CvUnitAI::AI_attackMove() {
 			return;
 		}
 
+		//Check if we need any slavers
+		if (AI_becomeSlaver())
+			return;
+
 		//join any city attacks in progress
 		if (isEnemy(plot()->getTeam())) {
 			if (AI_omniGroup(UNITAI_ATTACK_CITY, -1, -1, true, 0, 2, true, false)) {
@@ -3047,7 +3051,7 @@ void CvUnitAI::AI_collateralMove() {
 		const CvPlayerAI& kOwner = GET_PLAYER(getOwnerINLINE());
 		// if more than a third of our floating defenders are collateral units, convert this one to city attack
 		if (3 * kOwner.AI_totalAreaUnitAIs(area(), UNITAI_COLLATERAL) > kOwner.AI_getTotalFloatingDefenders(area())) {
-			if (kOwner.AI_unitValue(getUnitType(), UNITAI_ATTACK_CITY, area()) > 0) {
+			if (kOwner.AI_unitValue(this, UNITAI_ATTACK_CITY, area()) > 0) {
 				AI_setUnitAIType(UNITAI_ATTACK_CITY);
 				return; // no mission pushed.
 			}
@@ -3722,7 +3726,7 @@ void CvUnitAI::AI_exploreMove() {
 		if (GET_PLAYER(getOwnerINLINE()).AI_totalAreaUnitAIs(area(), UNITAI_EXPLORE) > GET_PLAYER(getOwnerINLINE()).AI_neededExplorers(area())) {
 			if (GET_PLAYER(getOwnerINLINE()).calculateUnitCost() > 0) {
 				// K-Mod. Maybe we can still use this unit.
-				if (GET_PLAYER(getOwnerINLINE()).AI_unitValue(getUnitType(), UNITAI_ATTACK, area()) > 0) {
+				if (GET_PLAYER(getOwnerINLINE()).AI_unitValue(this, UNITAI_ATTACK, area()) > 0) {
 					AI_setUnitAIType(UNITAI_ATTACK);
 				} else {
 					scrap();
@@ -5317,16 +5321,16 @@ void CvUnitAI::AI_escortSeaMove() {
 	if (!isHuman() && !isBarbarian()) {
 		if (getCargo() > 0 && (GC.getUnitInfo(getUnitType()).getSpecialCargo() == NO_SPECIALUNIT)) {
 			//Obsolete?
-			int iValue = kOwner.AI_unitValue(getUnitType(), AI_getUnitAIType(), area());
+			int iValue = kOwner.AI_unitValue(this, AI_getUnitAIType(), area());
 			int iBestValue = kOwner.AI_bestAreaUnitAIValue(AI_getUnitAIType(), area());
 
 			if (iValue < iBestValue) {
-				if (kOwner.AI_unitValue(getUnitType(), UNITAI_ASSAULT_SEA, area()) > 0) {
+				if (kOwner.AI_unitValue(this, UNITAI_ASSAULT_SEA, area()) > 0) {
 					AI_setUnitAIType(UNITAI_ASSAULT_SEA);
 					return;
 				}
 
-				if (kOwner.AI_unitValue(getUnitType(), UNITAI_SETTLER_SEA, area()) > 0) {
+				if (kOwner.AI_unitValue(this, UNITAI_SETTLER_SEA, area()) > 0) {
 					AI_setUnitAIType(UNITAI_SETTLER_SEA);
 					return;
 				}
@@ -5456,27 +5460,27 @@ void CvUnitAI::AI_exploreSeaMove() {
 	if (!isHuman() && !isBarbarian()) //XXX move some of this into a function? maybe useful elsewhere
 	{
 		//Obsolete?
-		int iValue = kOwner.AI_unitValue(getUnitType(), AI_getUnitAIType(), area());
+		int iValue = kOwner.AI_unitValue(this, AI_getUnitAIType(), area());
 		int iBestValue = kOwner.AI_bestAreaUnitAIValue(AI_getUnitAIType(), area());
 
 		if (iValue < iBestValue) {
 			//Transform
-			if (kOwner.AI_unitValue(getUnitType(), UNITAI_WORKER_SEA, area()) > 0) {
+			if (kOwner.AI_unitValue(this, UNITAI_WORKER_SEA, area()) > 0) {
 				AI_setUnitAIType(UNITAI_WORKER_SEA);
 				return;
 			}
 
-			if (kOwner.AI_unitValue(getUnitType(), UNITAI_PIRATE_SEA, area()) > 0) {
+			if (kOwner.AI_unitValue(this, UNITAI_PIRATE_SEA, area()) > 0) {
 				AI_setUnitAIType(UNITAI_PIRATE_SEA);
 				return;
 			}
 
-			if (kOwner.AI_unitValue(getUnitType(), UNITAI_MISSIONARY_SEA, area()) > 0) {
+			if (kOwner.AI_unitValue(this, UNITAI_MISSIONARY_SEA, area()) > 0) {
 				AI_setUnitAIType(UNITAI_MISSIONARY_SEA);
 				return;
 			}
 
-			if (kOwner.AI_unitValue(getUnitType(), UNITAI_RESERVE_SEA, area()) > 0) {
+			if (kOwner.AI_unitValue(this, UNITAI_RESERVE_SEA, area()) > 0) {
 				AI_setUnitAIType(UNITAI_RESERVE_SEA);
 				return;
 			}
@@ -6177,7 +6181,7 @@ void CvUnitAI::AI_settlerSeaMove() {
 			FAssert(pWaterArea != NULL);
 			if (pWaterArea != NULL) {
 				if (kOwner.AI_totalWaterAreaUnitAIs(pWaterArea, UNITAI_SETTLER_SEA) > 1) {
-					if (kOwner.AI_unitValue(getUnitType(), UNITAI_ASSAULT_SEA, pWaterArea) > 0) {
+					if (kOwner.AI_unitValue(this, UNITAI_ASSAULT_SEA, pWaterArea) > 0) {
 						AI_setUnitAIType(UNITAI_ASSAULT_SEA);
 						AI_assaultSeaMove();
 						return;
@@ -6278,7 +6282,7 @@ void CvUnitAI::AI_settlerSeaMove() {
 							FAssert(pWaterArea != NULL);
 							if (pWaterArea != NULL) {
 								if (kOwner.AI_totalUnitAIs(UNITAI_EXPLORE_SEA) == 0) {
-									if (kOwner.AI_unitValue(getUnitType(), UNITAI_EXPLORE_SEA, pWaterArea) > 0) {
+									if (kOwner.AI_unitValue(this, UNITAI_EXPLORE_SEA, pWaterArea) > 0) {
 										AI_setUnitAIType(UNITAI_EXPLORE_SEA);
 										AI_exploreSeaMove();
 										return;
@@ -6286,7 +6290,7 @@ void CvUnitAI::AI_settlerSeaMove() {
 								}
 
 								if (kOwner.AI_totalUnitAIs(UNITAI_SPY_SEA) == 0) {
-									if (kOwner.AI_unitValue(getUnitType(), UNITAI_SPY_SEA, area()) > 0) {
+									if (kOwner.AI_unitValue(this, UNITAI_SPY_SEA, area()) > 0) {
 										AI_setUnitAIType(UNITAI_SPY_SEA);
 										AI_spySeaMove();
 										return;
@@ -6294,14 +6298,14 @@ void CvUnitAI::AI_settlerSeaMove() {
 								}
 
 								if (kOwner.AI_totalUnitAIs(UNITAI_MISSIONARY_SEA) == 0) {
-									if (kOwner.AI_unitValue(getUnitType(), UNITAI_MISSIONARY_SEA, area()) > 0) {
+									if (kOwner.AI_unitValue(this, UNITAI_MISSIONARY_SEA, area()) > 0) {
 										AI_setUnitAIType(UNITAI_MISSIONARY_SEA);
 										AI_missionarySeaMove();
 										return;
 									}
 								}
 
-								if (kOwner.AI_unitValue(getUnitType(), UNITAI_ATTACK_SEA, pWaterArea) > 0) {
+								if (kOwner.AI_unitValue(this, UNITAI_ATTACK_SEA, pWaterArea) > 0) {
 									AI_setUnitAIType(UNITAI_ATTACK_SEA);
 									AI_attackSeaMove();
 									return;
@@ -6743,8 +6747,8 @@ void CvUnitAI::AI_attackAirMove() {
 
 	CvPlayerAI& kPlayer = GET_PLAYER(getOwnerINLINE());
 	CvArea* pArea = area();
-	int iAttackValue = kPlayer.AI_unitValue(getUnitType(), UNITAI_ATTACK_AIR, pArea);
-	int iCarrierValue = kPlayer.AI_unitValue(getUnitType(), UNITAI_CARRIER_AIR, pArea);
+	int iAttackValue = kPlayer.AI_unitValue(this, UNITAI_ATTACK_AIR, pArea);
+	int iCarrierValue = kPlayer.AI_unitValue(this, UNITAI_CARRIER_AIR, pArea);
 	if (iCarrierValue > 0) {
 		int iCarriers = kPlayer.AI_totalUnitAIs(UNITAI_CARRIER_SEA);
 		if (iCarriers > 0) {
@@ -6761,7 +6765,7 @@ void CvUnitAI::AI_attackAirMove() {
 		}
 	}
 
-	int iDefenseValue = kPlayer.AI_unitValue(getUnitType(), UNITAI_DEFENSE_AIR, pArea);
+	int iDefenseValue = kPlayer.AI_unitValue(this, UNITAI_DEFENSE_AIR, pArea);
 	if (iDefenseValue > iAttackValue) {
 		if (kPlayer.AI_bestAreaUnitAIValue(UNITAI_ATTACK_AIR, pArea) > iAttackValue) {
 			AI_setUnitAIType(UNITAI_DEFENSE_AIR);
@@ -7425,8 +7429,7 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		}
 	}
 
-	if (kPromotion.isImmuneToFirstStrikes()
-		&& !immuneToFirstStrikes()) {
+	if (kPromotion.isImmuneToFirstStrikes() && !immuneToFirstStrikes()) {
 		if ((AI_getUnitAIType() == UNITAI_ATTACK_CITY)) {
 			iValue += 12;
 		} else if ((AI_getUnitAIType() == UNITAI_ATTACK)) {
@@ -7436,7 +7439,13 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		}
 	}
 
-	int iTemp = kPromotion.getVisibilityChange();
+	int iTemp = kPromotion.getEnslaveCountChange();
+	if (AI_getUnitAIType() == UNITAI_SLAVER && iTemp > 0) {
+		// This line of promotions should be a priority for slavers
+		iValue += (iTemp * 25);
+	}
+
+	iTemp = kPromotion.getVisibilityChange();
 	if ((AI_getUnitAIType() == UNITAI_EXPLORE_SEA) ||
 		(AI_getUnitAIType() == UNITAI_EXPLORE)) {
 		iValue += (iTemp * 40);
@@ -18423,8 +18432,8 @@ void CvUnitAI::AI_autoAirStrike() {
 	CvArea* pArea = area();
 	if (getOptionBOOL("Automations__AirCanDefend")) {
 		CvPlayerAI& kPlayer = GET_PLAYER(getOwnerINLINE());
-		int iAttackValue = kPlayer.AI_unitValue(getUnitType(), UNITAI_ATTACK_AIR, pArea);
-		int iDefenseValue = kPlayer.AI_unitValue(getUnitType(), UNITAI_DEFENSE_AIR, pArea);
+		int iAttackValue = kPlayer.AI_unitValue(this, UNITAI_ATTACK_AIR, pArea);
+		int iDefenseValue = kPlayer.AI_unitValue(this, UNITAI_DEFENSE_AIR, pArea);
 		if (iDefenseValue > iAttackValue) {
 			if (kPlayer.AI_bestAreaUnitAIValue(UNITAI_ATTACK_AIR, pArea) > iAttackValue) {
 				AI_setUnitAIType(UNITAI_DEFENSE_AIR);
@@ -18631,4 +18640,20 @@ bool CvUnitAI::AI_defensiveAirStrike() {
 	}
 
 	return false;
+}
+
+bool CvUnitAI::AI_becomeSlaver() {
+	CvPlayerAI& kPlayer = GET_PLAYER(getOwnerINLINE());
+	CvArea* pArea = area();
+	bool bLandWar = kPlayer.AI_isLandWar(pArea);
+	bool bAssaultAssist = (pArea->getAreaAIType(getTeam()) == AREAAI_ASSAULT_ASSIST);
+	bool bAssault = bAssaultAssist || (pArea->getAreaAIType(getTeam()) == AREAAI_ASSAULT) || (pArea->getAreaAIType(getTeam()) == AREAAI_ASSAULT_MASSING);
+
+	if (kPlayer.AI_totalAreaUnitAIs(pArea, UNITAI_SLAVER) < (kPlayer.AI_neededSlavers(pArea, (bLandWar || bAssault)))) {
+		getGroup()->pushMission(MISSION_BECOME_SLAVER);
+		return true;
+	}
+
+	return false;
+
 }

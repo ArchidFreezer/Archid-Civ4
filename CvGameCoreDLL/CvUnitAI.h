@@ -246,6 +246,7 @@ protected:
 	bool AI_caravan(bool bAnyCity = false);
 	bool AI_defensiveAirStrike();
 	bool AI_airBombCities();
+	bool AI_becomeSlaver();
 
 	bool AI_defendPlot(CvPlot* pPlot);
 	int AI_pillageValue(CvPlot* pPlot, int iBonusValueThreshold = 0);

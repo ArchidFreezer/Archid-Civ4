@@ -2090,6 +2090,7 @@ void getMissionTypeString(CvWString& szString, MissionTypes eMissionType) {
 	case MISSION_SELL_SLAVE: szString = L"MISSION_SELL_SLAVE"; break;
 	case MISSION_SHADOW: szString = L"MISSION_SHADOW"; break;
 	case MISSION_WAIT_FOR_TECH: szString = L"MISSION_WAIT_FOR_TECH"; break;
+	case MISSION_BECOME_SLAVER: szString = L"MISSION_BECOME_SLAVER"; break;
 
 	default: szString = CvWString::format(L"UNKOWN_MISSION(%d)", eMissionType); break;
 	}

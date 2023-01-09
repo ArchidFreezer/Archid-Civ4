@@ -342,6 +342,9 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_bAutoPromoting = false;
 	m_bAutoUpgrading = false;
 	m_bImmobile = false;
+	m_bFixedAI = (NO_UNIT != eUnit) ? GC.getUnitInfo(eUnit).isFixedAI() : false;
+	m_bAlwaysHostile = (NO_UNIT != eUnit) ? GC.getUnitInfo(eUnit).isAlwaysHostile() : false;
+	m_bHiddenNationality = (NO_UNIT != eUnit) ? GC.getUnitInfo(eUnit).isHiddenNationality() : false;
 
 	m_eOwner = eOwner;
 	m_eCapturingPlayer = NO_PLAYER;
@@ -351,6 +354,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iBaseCombat = (NO_UNIT != m_eUnitType) ? m_pUnitInfo->getCombat() : 0;
 	m_eLeaderUnitType = NO_UNIT;
 	m_iCargoCapacity = (NO_UNIT != m_eUnitType) ? m_pUnitInfo->getCargoSpace() : 0;
+	m_eUnitCombatType = (NO_UNIT != m_eUnitType) ? (UnitCombatTypes)m_pUnitInfo->getUnitCombatType() : NO_UNITCOMBAT;
 	m_pSpy = (m_pUnitInfo && m_pUnitInfo->isSpy()) ? m_pSpy = new CvSpy : NULL;
 	if (m_pSpy) m_pSpy->reset();
 
@@ -432,6 +436,11 @@ void CvUnit::setupGraphical() {
 void CvUnit::convert(CvUnit* pUnit) {
 	CvPlot* pPlot = plot();
 
+	// We need to this first in order to allow any slaver promotions to be carried over
+	if (pUnit->getMaxSlaves() > 0 && canBecomeSlaver()) {
+		becomeSlaver();
+	}
+
 	// We can't assume that all promotions are immedaitely valid as there are some that modify cargo capacity and if the upgrade reduces or removes the
 	// cargo capacity then the promotion would not be valid. It may also be the case that there is more than one cargo capacity modifying promotions and
 	// the net result may be valid so we don't immediately dismiss a promotion but store it to try again later.
@@ -459,17 +468,26 @@ void CvUnit::convert(CvUnit* pUnit) {
 		}
 	} while (bAddedPromotion);
 
+	// We need to do this after the promotions to ensure that our enslave count is high enough to hold all the slaves
+	if (pUnit->getSlaveCountTotal() > 0) {
+		for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
+			changeSlaveCount(eSpecialist, pUnit->getSlaveCount(eSpecialist));
+		}
+	}
+
 	setGameTurnCreated(pUnit->getGameTurnCreated());
 	setDamage(pUnit->getDamage());
 	setMoves(pUnit->getMoves());
 	setAutoPromoting(pUnit->isAutoPromoting());
 	setAutoUpgrading(pUnit->isAutoUpgrading());
+	setFixedAI(pUnit->isFixedAI());
+	setHiddenNationality(pUnit->isHiddenNationality());
+	setAlwaysHostile(pUnit->isAlwaysHostile());
 
 	setLevel(pUnit->getLevel());
 	int iOldModifier = std::max(1, 100 + GET_PLAYER(pUnit->getOwnerINLINE()).getLevelExperienceModifier());
 	int iOurModifier = std::max(1, 100 + GET_PLAYER(getOwnerINLINE()).getLevelExperienceModifier());
 	setExperience(std::max(0, (pUnit->getExperience() * iOurModifier) / iOldModifier));
-
 	setName(pUnit->getNameNoDesc());
 	setLeaderUnitType(pUnit->getLeaderUnitType());
 
@@ -1371,7 +1389,7 @@ void CvUnit::updateCombat(bool bQuick) {
 				pDefender->salvage(this);
 			}
 
-			if (!m_pUnitInfo->isHiddenNationality() && !pDefender->getUnitInfo().isHiddenNationality()) {
+			if (!isHiddenNationality() && !pDefender->isHiddenNationality()) {
 				GET_TEAM(getTeam()).changeWarWeariness(pDefender->getTeam(), *pPlot, GC.getDefineINT("WW_UNIT_KILLED_ATTACKING"));
 				GET_TEAM(pDefender->getTeam()).changeWarWeariness(getTeam(), *pPlot, GC.getDefineINT("WW_KILLED_UNIT_DEFENDING"));
 				GET_TEAM(pDefender->getTeam()).AI_changeWarSuccess(getTeam(), GC.getDefineINT("WAR_SUCCESS_DEFENDING"));
@@ -1413,7 +1431,7 @@ void CvUnit::updateCombat(bool bQuick) {
 				salvage(pDefender);
 			}
 
-			if (!m_pUnitInfo->isHiddenNationality() && !pDefender->getUnitInfo().isHiddenNationality()) {
+			if (!isHiddenNationality() && !pDefender->isHiddenNationality()) {
 				GET_TEAM(pDefender->getTeam()).changeWarWeariness(getTeam(), *pPlot, GC.getDefineINT("WW_UNIT_KILLED_DEFENDING"));
 				GET_TEAM(getTeam()).changeWarWeariness(pDefender->getTeam(), *pPlot, GC.getDefineINT("WW_KILLED_UNIT_ATTACKING"));
 				GET_TEAM(getTeam()).AI_changeWarSuccess(pDefender->getTeam(), GC.getDefineINT("WAR_SUCCESS_ATTACKING"));
@@ -2007,7 +2025,7 @@ bool CvUnit::canEnterTerritory(TeamTypes eTeam, bool bIgnoreRightOfPassage) cons
 		return true;
 	}
 
-	if (m_pUnitInfo->isHiddenNationality()) {
+	if (isHiddenNationality()) {
 		return true;
 	}
 
@@ -2704,7 +2722,7 @@ bool CvUnit::canAutomate(AutomateTypes eAutomate) const {
 			return false;
 		if (!canAttack())
 			return false;
-		if (!m_pUnitInfo->isHiddenNationality() || !m_pUnitInfo->isAlwaysHostile())
+		if (!isHiddenNationality() || !isAlwaysHostile())
 			return false;
 		break;
 
@@ -2912,7 +2930,7 @@ void CvUnit::gift(bool bTestTransport) {
 			? GET_TEAM(kRecievingPlayer.getTeam()).AI_getWarSuccessRating()
 			: 60 - (kRecievingPlayer.AI_isDoStrategy(AI_STRATEGY_ALERT1) ? 20 : 0) - (kRecievingPlayer.AI_isDoStrategy(AI_STRATEGY_ALERT2) ? 20 : 0);
 
-		int iUnitValue = std::max(0, kRecievingPlayer.AI_unitValue(pGiftUnit->getUnitType(), pGiftUnit->AI_getUnitAIType(), plot()->area()));
+		int iUnitValue = std::max(0, kRecievingPlayer.AI_unitValue(pGiftUnit, pGiftUnit->AI_getUnitAIType(), plot()->area()));
 		int iBestValue = kRecievingPlayer.AI_bestAreaUnitAIValue(pGiftUnit->AI_getUnitAIType(), plot()->area());
 
 		int iGiftValue = pGiftUnit->getUnitInfo().getProductionCost() * 4 * std::min(300, 100 * iUnitValue / std::max(1, iBestValue)) / 100;
@@ -2969,7 +2987,7 @@ bool CvUnit::canLoadUnit(const CvUnit* pUnit, const CvPlot* pPlot) const {
 		return false;
 	}
 
-	if (!m_pUnitInfo->isHiddenNationality() && pUnit->getUnitInfo().isHiddenNationality()) {
+	if (!isHiddenNationality() && pUnit->isHiddenNationality()) {
 		return false;
 	}
 
@@ -6250,7 +6268,7 @@ CvCity* CvUnit::getUpgradeCity(bool bSearch) const {
 	UnitAITypes eUnitAI = AI_getUnitAIType();
 	CvArea* pArea = area();
 
-	int iCurrentValue = kPlayer.AI_unitValue(getUnitType(), eUnitAI, pArea);
+	int iCurrentValue = kPlayer.AI_unitValue(this, eUnitAI, pArea);
 
 	int iBestSearchValue = MAX_INT;
 	CvCity* pBestUpgradeCity = NULL;
@@ -6470,9 +6488,12 @@ UnitTypes CvUnit::getCaptureUnitType(CivilizationTypes eCivilization) const {
 	return ((m_pUnitInfo->getUnitCaptureClassType() == NO_UNITCLASS) ? NO_UNIT : (UnitTypes)GC.getCivilizationInfo(eCivilization).getCivilizationUnits(m_pUnitInfo->getUnitCaptureClassType()));
 }
 
+void CvUnit::setUnitCombatType(UnitCombatTypes eUnitCombat) {
+	m_eUnitCombatType = eUnitCombat;
+}
 
 UnitCombatTypes CvUnit::getUnitCombatType() const {
-	return ((UnitCombatTypes)(m_pUnitInfo->getUnitCombatType()));
+	return m_eUnitCombatType;
 }
 
 bool CvUnit::isUnitCombatType(UnitCombatTypes eUnitCombat) const {
@@ -6638,6 +6659,7 @@ BuildTypes CvUnit::getBuildType() const {
 		case MISSION_SELL_SLAVE:
 		case MISSION_SHADOW:
 		case MISSION_WAIT_FOR_TECH:
+		case MISSION_BECOME_SLAVER:
 			break;
 
 		case MISSION_BUILD:
@@ -8130,7 +8152,7 @@ void CvUnit::setXY(int iX, int iY, bool bGroup, bool bUpdate, bool bShow, bool b
 							if (NO_UNITCLASS == pLoopUnit->getUnitInfo().getUnitCaptureClassType() && pLoopUnit->canDefend(pNewPlot)) {
 								pLoopUnit->jumpToNearestValidPlot(); // can kill unit
 							} else {
-								if (!m_pUnitInfo->isHiddenNationality() && !pLoopUnit->getUnitInfo().isHiddenNationality()) {
+								if (!isHiddenNationality() && !pLoopUnit->isHiddenNationality()) {
 									GET_TEAM(pLoopUnit->getTeam()).changeWarWeariness(getTeam(), *pNewPlot, GC.getDefineINT("WW_UNIT_CAPTURED"));
 									GET_TEAM(getTeam()).changeWarWeariness(pLoopUnit->getTeam(), *pNewPlot, GC.getDefineINT("WW_CAPTURED_UNIT"));
 									GET_TEAM(getTeam()).AI_changeWarSuccess(pLoopUnit->getTeam(), GC.getDefineINT("WAR_SUCCESS_UNIT_CAPTURING"));
@@ -8281,7 +8303,7 @@ void CvUnit::setXY(int iX, int iY, bool bGroup, bool bUpdate, bool bShow, bool b
 			load();
 		}
 
-		if (!alwaysInvisible() && !m_pUnitInfo->isHiddenNationality()) // K-Mod (just this condition)
+		if (!alwaysInvisible() && !isHiddenNationality()) // K-Mod (just this condition)
 		{
 			for (int iI = 0; iI < MAX_CIV_TEAMS; iI++) {
 				if (GET_TEAM((TeamTypes)iI).isAlive()) {
@@ -9331,7 +9353,7 @@ PlayerTypes CvUnit::getVisualOwner(TeamTypes eForTeam) const {
 	}
 
 	if (getTeam() != eForTeam && eForTeam != BARBARIAN_TEAM) {
-		if (m_pUnitInfo->isHiddenNationality()) {
+		if (isHiddenNationality()) {
 			if (!plot()->isCity(true, getTeam())) {
 				return BARBARIAN_PLAYER;
 			}
@@ -10083,6 +10105,9 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_bAutoPromoting);
 	pStream->Read(&m_bAutoUpgrading);
 	pStream->Read(&m_bImmobile);
+	pStream->Read(&m_bFixedAI);
+	pStream->Read(&m_bHiddenNationality);
+	pStream->Read(&m_bAlwaysHostile);
 
 	pStream->Read((int*)&m_eOwner);
 	pStream->Read((int*)&m_eCapturingPlayer);
@@ -10091,6 +10116,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	m_pUnitInfo = (NO_UNIT != m_eUnitType) ? &GC.getUnitInfo(m_eUnitType) : NULL;
 	pStream->Read((int*)&m_eLeaderUnitType);
 	pStream->Read((int*)&m_eDesiredDiscoveryTech);
+	pStream->Read((int*)&m_eUnitCombatType);
 
 	pStream->Read((int*)&m_combatUnit.eOwner);
 	pStream->Read(&m_combatUnit.iID);
@@ -10227,12 +10253,16 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_bAutoPromoting);
 	pStream->Write(m_bAutoUpgrading);
 	pStream->Write(m_bImmobile);
+	pStream->Write(m_bFixedAI);
+	pStream->Write(m_bHiddenNationality);
+	pStream->Write(m_bAlwaysHostile);
 
 	pStream->Write(m_eOwner);
 	pStream->Write(m_eCapturingPlayer);
 	pStream->Write(m_eUnitType);
 	pStream->Write(m_eLeaderUnitType);
 	pStream->Write(m_eDesiredDiscoveryTech);
+	pStream->Write(m_eUnitCombatType);
 
 	pStream->Write(m_combatUnit.eOwner);
 	pStream->Write(m_combatUnit.iID);
@@ -11133,7 +11163,7 @@ int CvUnit::getRenderPriority(UnitSubEntityTypes eUnitSubEntity, int iMeshGroupT
 }
 
 bool CvUnit::isAlwaysHostile(const CvPlot* pPlot) const {
-	if (!m_pUnitInfo->isAlwaysHostile()) {
+	if (!isAlwaysHostile()) {
 		return false;
 	}
 
@@ -13081,4 +13111,59 @@ void CvUnit::setImmobile(bool bImmobile) {
 
 bool CvUnit::isImmobile() const {
 	return m_bImmobile || getImmobileTimer() > 0;
+}
+
+void CvUnit::becomeSlaver() {
+	float fNewCombat = (float)(m_iBaseCombat * 90);
+	fNewCombat /= 100;
+	int iNewCombat = (int)floor(fNewCombat);
+
+	setBaseCombatStr(std::max(0, iNewCombat));
+	setUnitCombatType((UnitCombatTypes)GC.getInfoTypeForString("UNITCOMBAT_SLAVER", true));
+	AI_setUnitAIType(UNITAI_SLAVER);
+	changeEnslaveCountExtra(1);
+	setFixedAI(true);
+	setHiddenNationality(true);
+	setAlwaysHostile(true);
+
+}
+
+bool CvUnit::canBecomeSlaver() const {
+	if (!GET_PLAYER(getOwnerINLINE()).isWorldViewActivated(WORLD_VIEW_SLAVERY))
+		return false;
+
+	if (!canAttack())
+		return false;
+
+	if (m_iBaseCombat < 2)
+		return false;
+
+	if (isUnitCombatType((UnitCombatTypes)GC.getInfoTypeForString("UNITCOMBAT_SLAVER", true)))
+		return false;
+
+	return true;
+}
+
+void CvUnit::setFixedAI(bool bFixed) {
+	m_bFixedAI = bFixed;
+}
+
+bool CvUnit::isFixedAI() const {
+	return m_bFixedAI;
+}
+
+void CvUnit::setHiddenNationality(bool bHidden) {
+	m_bHiddenNationality = bHidden;
+}
+
+bool CvUnit::isHiddenNationality() const {
+	return m_bHiddenNationality;
+}
+
+void CvUnit::setAlwaysHostile(bool bHostile) {
+	m_bAlwaysHostile = bHostile;
+}
+
+bool CvUnit::isAlwaysHostile() const {
+	return m_bAlwaysHostile;
 }

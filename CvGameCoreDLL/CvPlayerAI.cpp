@@ -8361,6 +8361,13 @@ int CvPlayerAI::AI_unitImpassableCount(UnitTypes eUnit) const {
 	return iCount;
 }
 
+int CvPlayerAI::AI_unitValue(const CvUnit* pUnit, UnitAITypes eUnitAI, CvArea* pArea) const {
+	if (pUnit->isFixedAI() && pUnit->AI_getUnitAIType() != eUnitAI)
+		return 0;
+	else
+		return AI_unitValue(pUnit->getUnitType(), eUnitAI, pArea);
+}
+
 // K-Mod note: currently, unit promotions are considered in CvCityAI::AI_bestUnitAI rather than here.
 int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea) const {
 	PROFILE_FUNC();
@@ -16803,7 +16810,7 @@ void CvPlayerAI::AI_convertUnitAITypesForCrush() {
 		}
 
 		if (bValid) {
-			int iValue = AI_unitValue(pLoopUnit->getUnitType(), UNITAI_ATTACK_CITY, pLoopUnit->area());
+			int iValue = AI_unitValue(pLoopUnit, UNITAI_ATTACK_CITY, pLoopUnit->area());
 			unit_list.push_back(std::make_pair(iValue, pLoopUnit->getID()));
 		}
 	}
@@ -18808,7 +18815,7 @@ int CvPlayerAI::AI_militaryUnitTradeVal(CvUnit* pUnit) const {
 
 		iValue = 200;
 	}
-	iValue += AI_unitValue(eUnit, (UnitAITypes)GC.getUnitInfo(eUnit).getDefaultUnitAIType(), getCapitalCity()->area());
+	iValue += AI_unitValue(pUnit, (UnitAITypes)GC.getUnitInfo(eUnit).getDefaultUnitAIType(), getCapitalCity()->area());
 
 	return iValue;
 }

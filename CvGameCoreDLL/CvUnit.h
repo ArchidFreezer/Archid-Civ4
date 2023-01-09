@@ -181,6 +181,17 @@ public:
 
 	CvCity* getClosestSafeCity() const;
 
+	// Slaver Units
+	bool canBecomeSlaver() const;
+	bool isAlwaysHostile() const;
+	bool isFixedAI() const;
+	bool isHiddenNationality() const;
+	void becomeSlaver();
+	void setAlwaysHostile(bool bHostile);
+	void setFixedAI(bool bFixed);
+	void setHiddenNationality(bool bHidden);
+	void setUnitCombatType(UnitCombatTypes eCombat);
+
 	// Slavery
 	int getEnslaveCountExtra() const;
 	int getMaxSlaves() const;
@@ -1021,10 +1032,14 @@ protected:
 	bool m_bAutoPromoting;
 	bool m_bAutoUpgrading;
 	bool m_bImmobile;
+	bool m_bFixedAI;
+	bool m_bAlwaysHostile;
+	bool m_bHiddenNationality;
 
 	PlayerTypes m_eOwner;
 	PlayerTypes m_eCapturingPlayer;
 	TechTypes m_eDesiredDiscoveryTech;
+	UnitCombatTypes m_eUnitCombatType;
 	UnitTypes m_eUnitType;
 	UnitTypes m_eLeaderUnitType;
 	CvUnitInfo* m_pUnitInfo;

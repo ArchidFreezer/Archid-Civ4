@@ -555,6 +555,7 @@ CvPlot* CvSelectionGroup::lastMissionPlot() {
 		case MISSION_SELL_SLAVE:
 		case MISSION_SHADOW:
 		case MISSION_WAIT_FOR_TECH:
+		case MISSION_BECOME_SLAVER:
 			break;
 
 		default:
@@ -724,6 +725,7 @@ void CvSelectionGroup::startMission() {
 		case MISSION_ESPIONAGE:
 		case MISSION_DIE_ANIMATION:
 		case MISSION_SHADOW:
+		case MISSION_BECOME_SLAVER:
 			break;
 
 		case MISSION_WAIT_FOR_TECH:
@@ -1017,6 +1019,10 @@ void CvSelectionGroup::startMission() {
 					pUnitNode = NULL; // allow one unit at a time to do espionage
 					break;
 
+				case MISSION_BECOME_SLAVER:
+					pLoopUnit->becomeSlaver();
+					break;
+
 				case MISSION_SELL_SLAVE:
 					if (pLoopUnit->sellSlaves()) {
 						bAction = true;
@@ -1264,6 +1270,7 @@ bool CvSelectionGroup::continueMission_bulk(int iSteps) {
 				case MISSION_SELL_SLAVE:
 				case MISSION_SHADOW:
 				case MISSION_WAIT_FOR_TECH:
+				case MISSION_BECOME_SLAVER:
 					break;
 
 				case MISSION_BUILD:
@@ -1350,6 +1357,7 @@ bool CvSelectionGroup::continueMission_bulk(int iSteps) {
 			case MISSION_SELL_SLAVE:
 			case MISSION_SHADOW:
 			case MISSION_WAIT_FOR_TECH:
+			case MISSION_BECOME_SLAVER:
 				bDone = true;
 				break;
 
@@ -3301,6 +3309,11 @@ bool CvSelectionGroup::canDoMission(int iMission, int iData1, int iData2, CvPlot
 				return true;
 			break;
 
+		case MISSION_BECOME_SLAVER:
+			if (pLoopUnit->canBecomeSlaver())
+				return true;
+			break;
+
 		case MISSION_DIE_ANIMATION:
 			return false;
 			break;
@@ -3672,7 +3685,7 @@ void CvSelectionGroup::mergeIntoGroup(CvSelectionGroup* pSelectionGroup) {
 				UnitAITypes eNewHeadUnitAI = pSelectionGroup->getHeadUnitAI();
 				if (pNewHeadUnit != NULL && eUnitAI != eNewHeadUnitAI && pLoopUnit->AI_groupFirstVal() > pNewHeadUnit->AI_groupFirstVal()) {
 					// non-zero AI_unitValue means that this UnitAI is valid for this unit (that is the check used everywhere)
-					if (kPlayer.AI_unitValue(pLoopUnit->getUnitType(), eNewHeadUnitAI, NULL) > 0) {
+					if (kPlayer.AI_unitValue(pLoopUnit, eNewHeadUnitAI, NULL) > 0) {
 						// this will remove pLoopUnit from the current group
 						pLoopUnit->AI_setUnitAIType(eNewHeadUnitAI);
 
