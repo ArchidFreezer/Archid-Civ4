@@ -6502,7 +6502,16 @@ UnitCombatTypes CvUnit::getUnitCombatType() const {
 }
 
 bool CvUnit::isUnitCombatType(UnitCombatTypes eUnitCombat) const {
-	return (getUnitCombatType() == eUnitCombat || m_pUnitInfo->isSubCombatType(eUnitCombat));
+
+	if (getUnitCombatType() == eUnitCombat)
+		return true;
+
+	// In some case the units combat class does not match its unitinfo class and in
+	// those cases we don't want to to check the unitinfo
+	if (getUnitCombatType() == m_pUnitInfo->getUnitCombatType())
+		return m_pUnitInfo->isSubCombatType(eUnitCombat);
+
+	return false;
 }
 
 DomainTypes CvUnit::getDomainType() const {

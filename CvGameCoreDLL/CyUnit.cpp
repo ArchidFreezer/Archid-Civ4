@@ -385,6 +385,10 @@ int /*UnitCombatTypes*/ CyUnit::getUnitCombatType() {
 	return m_pUnit ? (int)m_pUnit->getUnitCombatType() : (int)NO_UNITCOMBAT;
 }
 
+bool CyUnit::isUnitCombatType(int /*UnitCombatTypes*/ eUnitCombat) {
+	return m_pUnit ? m_pUnit->isUnitCombatType((UnitCombatTypes)eUnitCombat) : false;
+}
+
 int /*DomainTypes*/ CyUnit::getDomainType() {
 	return m_pUnit ? (int)m_pUnit->getDomainType() : (int)NO_DOMAIN;
 }

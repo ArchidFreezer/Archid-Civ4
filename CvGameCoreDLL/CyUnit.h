@@ -27,6 +27,8 @@ public:
 	void setHomeCity(CyCity* pCity);
 	CyCity* getHomeCity();
 
+	bool isUnitCombatType(int /*UnitCombatTypes*/ eUnitCombat);
+
 	int getExperience100();
 	float getRealExperience();
 	void setExperience100(int iNewValue, int iMax);
