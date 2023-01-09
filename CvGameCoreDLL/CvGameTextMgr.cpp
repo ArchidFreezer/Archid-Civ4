@@ -555,10 +555,11 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 				szString.append(gDLL->getText("TXT_KEY_UNIT_INVISIBLE_MOST"));
 			}
 
-			for (int iInvisible = 0; iInvisible < pUnit->getNumSeeInvisibleTypes(); ++iInvisible) {
-				if (pUnit->getSeeInvisibleType(iInvisible) != pUnit->getInvisibleType()) {
+			for (int i = 0; i < pUnit->getNumSeeInvisibleTypes(); ++i) {
+				InvisibleTypes eLoopInvisible = pUnit->getSeeInvisibleType(i);
+				if (eLoopInvisible != NO_INVISIBLE && eLoopInvisible != pUnit->getInvisibleType()) {
 					szString.append(NEWLINE);
-					szString.append(gDLL->getText("TXT_KEY_UNIT_SEE_INVISIBLE", GC.getInvisibleInfo(pUnit->getSeeInvisibleType(iInvisible)).getTextKeyWide()));
+					szString.append(gDLL->getText("TXT_KEY_UNIT_SEE_INVISIBLE", GC.getInvisibleInfo(eLoopInvisible).getTextKeyWide()));
 				}
 			}
 
