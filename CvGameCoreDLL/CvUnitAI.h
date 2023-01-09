@@ -119,7 +119,7 @@ protected:
 
 	int AI_promotionValue(PromotionTypes ePromotion);
 
-	bool AI_shadow(UnitAITypes eUnitAI, int iMax = -1, int iMaxRatio = -1, bool bWithCargoOnly = true, bool bOutsideCityOnly = false, int iMaxPath = MAX_INT);
+	bool AI_shadow(UnitAITypes eUnitAI, int iMax = -1, int iMaxRatio = -1, bool bWithCargoOnly = true, bool bOutsideCityOnly = false, int iMaxPath = MAX_INT, bool bIgnoreMoves = false);
 	// K-Mod. I've created AI_omniGroup with the intention of using it to phase out AI_group and AI_groupMergeRange.
 	bool AI_omniGroup(UnitAITypes eUnitAI, int iMaxGroup = -1, int iMaxOwnUnitAI = -1, bool bStackOfDoom = false, int iFlags = 0, int iMaxPath = -1, bool bMergeGroups = true, bool bSafeOnly = true, bool bIgnoreFaster = false, bool bIgnoreOwnUnitType = false, bool bBiggerOnly = true, int iMinUnitAI = -1, bool bWithCargoOnly = false, bool bIgnoreBusyTransports = false);
 	bool AI_group(UnitAITypes eUnitAI, int iMaxGroup = -1, int iMaxOwnUnitAI = -1, int iMinUnitAI = -1, bool bIgnoreFaster = false, bool bIgnoreOwnUnitType = false, bool bStackOfDoom = false, int iMaxPath = MAX_INT, bool bAllowRegrouping = false, bool bWithCargoOnly = false, bool bInCityOnly = false, MissionAITypes eIgnoreMissionAIType = NO_MISSIONAI);
@@ -247,6 +247,7 @@ protected:
 	bool AI_defensiveAirStrike();
 	bool AI_airBombCities();
 	bool AI_becomeSlaver();
+	bool AI_enslave(int iRange, int iOddsThreshold);
 
 	bool AI_defendPlot(CvPlot* pPlot);
 	int AI_pillageValue(CvPlot* pPlot, int iBonusValueThreshold = 0);

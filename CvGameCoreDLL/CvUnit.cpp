@@ -12203,12 +12203,13 @@ bool CvUnit::enslaveUnit(CvUnit* pWinner, CvUnit* pLoser) {
 
 						iSlaveSlotsLeft -= iNumSlaves;
 						if (iSlaveSlotsLeft == 0) {
-							return bEnslaved;
+							break;
 						}
 					} else if (iNumSlaves > 0 && iSlaveSlotsLeft > 0) {
 						// We can only keep some of the slaves so fill up and exit
 						pSlaver->changeSlaveCount(eSpecialist, iSlaveSlotsLeft);
-						return true;
+						bEnslaved = true;
+						continue;
 					}
 				}
 			}
@@ -12220,6 +12221,9 @@ bool CvUnit::enslaveUnit(CvUnit* pWinner, CvUnit* pLoser) {
 				bEnslaved = true;
 			}
 		}
+
+		// If a unit is enslaved then have the loser remember this
+		area()->resetSlaveMemoryPerPlayer(pLoser->getOwnerINLINE());
 	}
 	return bEnslaved;
 }
