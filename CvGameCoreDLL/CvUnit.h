@@ -7,6 +7,7 @@
 
 #include "CvDLLEntity.h"
 #include "CvSpy.h"
+#include "CvUnitMeshGroups.h"
 
 #pragma warning( disable: 4251 )		// needs to have dll-interface to be used by clients of class
 
@@ -198,17 +199,21 @@ public:
 	int getSlaveControlCount() const;
 	int getSlaveCount(SpecialistTypes eSlaveSpecialist) const;
 	int getSlaveCountTotal() const;
+	int getMeleeWaveSize() const;
+	int getRangedWaveSize() const;
 	bool canEnslave() const;													// Exposed to Python 
 	bool canSellSlave(const CvPlot* pPlot) const;
 	bool canWorkCity(const CvPlot* pPlot) const;
 	bool enslaveUnit(CvUnit* pWinner, CvUnit* pLoser);
 	bool isSlave() const;
+	bool isSlaver() const;
 	bool isWorldViewEnabled() const;
 	bool sellSlaves();
 	void changeEnslaveCountExtra(int iChange);
 	void changeSlaveControlCount(int iChange);
 	void changeSlaveCount(SpecialistTypes eSlaveSpecialist, int iChange);
 	void checkWorldViewStatus();
+	void setSlaverGraphics();
 	void setSlaveSpecialistType(SpecialistTypes eSpecialistType);
 	SpecialistTypes getSlaveSpecialistType() const;
 	UnitTypes getSlaveUnit() const;
@@ -1044,6 +1049,7 @@ protected:
 	UnitTypes m_eLeaderUnitType;
 	CvUnitInfo* m_pUnitInfo;
 	CvSpy* m_pSpy;
+	CvUnitMeshGroups* m_pCustomUnitMeshGroup;
 
 	IDInfo m_combatUnit;
 	IDInfo m_transportUnit;

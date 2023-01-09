@@ -882,6 +882,9 @@ public:
 	inline const CvString& getSTAR_SIGN_DEFAULT_TEXT_KEY_MITIGATE() { return m_szSTAR_SIGN_DEFAULT_TEXT_KEY_MITIGATE; }
 	inline const CvString& getSTAR_SIGN_DEFAULT_TEXT_KEY_NEUTRAL() { return m_szSTAR_SIGN_DEFAULT_TEXT_KEY_NEUTRAL; }
 	inline const CvString& getSTAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET() { return m_szSTAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET; }
+	inline const CvString& getSLAVER_EARLY_UNIT_ART_DEF() { return m_szSLAVER_EARLY_UNIT_ART_DEF; }
+	inline const CvString& getSLAVER_MIDDLE_UNIT_ART_DEF() { return m_szSLAVER_MIDDLE_UNIT_ART_DEF; }
+	inline const CvString& getSLAVER_LATE_UNIT_ART_DEF() { return m_szSLAVER_LATE_UNIT_ART_DEF; }
 
 	// more reliable versions of the 'gDLL->xxxKey' functions:
 	inline bool altKey() { return (GetKeyState(VK_MENU) & 0x8000); }
@@ -1428,6 +1431,9 @@ protected:
 	CvString m_szSTAR_SIGN_DEFAULT_TEXT_KEY_MITIGATE;
 	CvString m_szSTAR_SIGN_DEFAULT_TEXT_KEY_NEUTRAL;
 	CvString m_szSTAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET;
+	CvString m_szSLAVER_EARLY_UNIT_ART_DEF;
+	CvString m_szSLAVER_MIDDLE_UNIT_ART_DEF;
+	CvString m_szSLAVER_LATE_UNIT_ART_DEF;
 
 	stdext::hash_map<std::string, bool> m_aIniOptsBool;
 	stdext::hash_map<std::string, int> m_aIniOptsInt;

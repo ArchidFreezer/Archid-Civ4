@@ -357,6 +357,11 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_eUnitCombatType = (NO_UNIT != m_eUnitType) ? (UnitCombatTypes)m_pUnitInfo->getUnitCombatType() : NO_UNITCOMBAT;
 	m_pSpy = (m_pUnitInfo && m_pUnitInfo->isSpy()) ? m_pSpy = new CvSpy : NULL;
 	if (m_pSpy) m_pSpy->reset();
+	if (m_eUnitCombatType == (UnitCombatTypes)GC.getInfoTypeForString("UNITCOMBAT_SLAVER", true)) {
+		// We should have a custom unit mesh
+		if (GC.getGameINLINE().isSlaverUnitMeshGroupExists(m_eUnitType))
+			m_pCustomUnitMeshGroup = GC.getGameINLINE().getSlaverUnitMeshGroup(m_eUnitType);
+	}
 
 	m_combatUnit.reset();
 	m_transportUnit.reset();
@@ -7607,8 +7612,7 @@ int CvUnit::maxFirstStrikes() const {
 
 
 bool CvUnit::isRanged() const {
-	CvUnitInfo* pkUnitInfo = &getUnitInfo();
-	for (int i = 0; i < pkUnitInfo->getGroupDefinitions(); i++) {
+	for (int i = 0; i < getGroupDefinitions(); i++) {
 		if (!getArtInfo(i, GET_PLAYER(getOwnerINLINE()).getCurrentEra())->getActAsRanged()) {
 			return false;
 		}
@@ -9974,7 +9978,7 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 
 
 int CvUnit::getSubUnitCount() const {
-	return m_pUnitInfo->getGroupSize();
+	return m_pCustomUnitMeshGroup ? m_pCustomUnitMeshGroup->getGroupSize() : m_pUnitInfo->getGroupSize();
 }
 
 
@@ -9987,7 +9991,7 @@ int CvUnit::getSubUnitsAlive(int iDamage) const {
 	if (iDamage >= maxHitPoints()) {
 		return 0;
 	} else {
-		return std::max(1, (((m_pUnitInfo->getGroupSize() * (maxHitPoints() - iDamage)) + (maxHitPoints() / ((m_pUnitInfo->getGroupSize() * 2) + 1))) / maxHitPoints()));
+		return std::max(1, (((getGroupSize() * (maxHitPoints() - iDamage)) + (maxHitPoints() / ((getGroupSize() * 2) + 1))) / maxHitPoints()));
 	}
 }
 // returns true if unit can initiate a war action with plot (possibly by declaring war)
@@ -10164,6 +10168,9 @@ void CvUnit::read(FDataStreamBase* pStream) {
 
 	m_pSpy = (m_pUnitInfo && m_pUnitInfo->isSpy()) ? m_pSpy = new CvSpy : NULL;
 	if (m_pSpy) m_pSpy->read(pStream);
+
+	if (isSlaver())
+		setSlaverGraphics();
 }
 
 
@@ -10749,7 +10756,7 @@ int CvUnit::planBattle(CvBattleDefinition& kBattle, const std::vector<int>& comb
 	int iTotalBattleRounds = (iStandardNumRounds * (int)combat_log.size() * GC.getCOMBAT_DAMAGE() + GC.getMAX_HIT_POINTS()) / (2 * GC.getMAX_HIT_POINTS());
 
 	// Reduce number of rounds if both units have groupSize == 1, because nothing much happens in those battles.
-	if (pAttackUnit->getGroupSize() == 1 && pDefenceUnit->getGroupSize() == 1)
+	if (getGroupSize() == 1 && getGroupSize() == 1)
 		iTotalBattleRounds = (2 * iTotalBattleRounds + 1) / 3;
 
 	// apparently, there is a hardcoded minimum of 2 rounds. (game will crash if there less than 2 rounds.)
@@ -10895,11 +10902,11 @@ int CvUnit::computeWaveSize(bool bRangedRound, int iAttackerMax, int iDefenderMa
 	FAssertMsg(getCombatUnit() != NULL, "You must be fighting somebody!");
 	int aiDesiredSize[BATTLE_UNIT_COUNT];
 	if (bRangedRound) {
-		aiDesiredSize[BATTLE_UNIT_ATTACKER] = getUnitInfo().getRangedWaveSize();
-		aiDesiredSize[BATTLE_UNIT_DEFENDER] = getCombatUnit()->getUnitInfo().getRangedWaveSize();
+		aiDesiredSize[BATTLE_UNIT_ATTACKER] = getRangedWaveSize();
+		aiDesiredSize[BATTLE_UNIT_DEFENDER] = getCombatUnit()->getRangedWaveSize();
 	} else {
-		aiDesiredSize[BATTLE_UNIT_ATTACKER] = getUnitInfo().getMeleeWaveSize();
-		aiDesiredSize[BATTLE_UNIT_DEFENDER] = getCombatUnit()->getUnitInfo().getMeleeWaveSize();
+		aiDesiredSize[BATTLE_UNIT_ATTACKER] = getMeleeWaveSize();
+		aiDesiredSize[BATTLE_UNIT_DEFENDER] = getCombatUnit()->getMeleeWaveSize();
 	}
 
 	aiDesiredSize[BATTLE_UNIT_DEFENDER] = aiDesiredSize[BATTLE_UNIT_DEFENDER] <= 0 ? iDefenderMax : aiDesiredSize[BATTLE_UNIT_DEFENDER];
@@ -11105,7 +11112,7 @@ void CvUnit::applyEvent(EventTypes eEvent) {
 }
 
 const CvArtInfoUnit* CvUnit::getArtInfo(int i, EraTypes eEra) const {
-	return m_pUnitInfo->getArtInfo(i, eEra, (UnitArtStyleTypes)GC.getCivilizationInfo(getCivilizationType()).getUnitArtStyleType());
+	return m_pCustomUnitMeshGroup ? m_pCustomUnitMeshGroup->getArtInfo(i, eEra, (UnitArtStyleTypes)GC.getCivilizationInfo(getCivilizationType()).getUnitArtStyleType()) : m_pUnitInfo->getArtInfo(i, eEra, (UnitArtStyleTypes)GC.getCivilizationInfo(getCivilizationType()).getUnitArtStyleType());
 }
 
 const TCHAR* CvUnit::getButton() const {
@@ -11119,15 +11126,15 @@ const TCHAR* CvUnit::getButton() const {
 }
 
 int CvUnit::getGroupSize() const {
-	return m_pUnitInfo->getGroupSize();
+	return m_pCustomUnitMeshGroup ? m_pCustomUnitMeshGroup->getGroupSize() : m_pUnitInfo->getGroupSize();
 }
 
 int CvUnit::getGroupDefinitions() const {
-	return m_pUnitInfo->getGroupDefinitions();
+	return m_pCustomUnitMeshGroup ? m_pCustomUnitMeshGroup->getGroupDefinitions() : m_pUnitInfo->getGroupDefinitions();
 }
 
 int CvUnit::getUnitGroupRequired(int i) const {
-	return m_pUnitInfo->getUnitGroupRequired(i);
+	return m_pCustomUnitMeshGroup ? m_pCustomUnitMeshGroup->getUnitGroupRequired(i) : m_pUnitInfo->getUnitGroupRequired(i);
 }
 
 bool CvUnit::isRenderAlways() const {
@@ -11135,11 +11142,11 @@ bool CvUnit::isRenderAlways() const {
 }
 
 float CvUnit::getAnimationMaxSpeed() const {
-	return m_pUnitInfo->getUnitMaxSpeed();
+	return m_pCustomUnitMeshGroup ? m_pCustomUnitMeshGroup->getUnitMaxSpeed() : m_pUnitInfo->getUnitMaxSpeed();
 }
 
 float CvUnit::getAnimationPadTime() const {
-	return m_pUnitInfo->getUnitPadTime();
+	return m_pCustomUnitMeshGroup ? m_pCustomUnitMeshGroup->getUnitPadTime() : m_pUnitInfo->getUnitPadTime();
 }
 
 const char* CvUnit::getFormationType() const {
@@ -13125,7 +13132,8 @@ void CvUnit::becomeSlaver() {
 	setFixedAI(true);
 	setHiddenNationality(true);
 	setAlwaysHostile(true);
-
+	setSlaverGraphics();
+	reloadEntity();
 }
 
 bool CvUnit::canBecomeSlaver() const {
@@ -13166,4 +13174,23 @@ void CvUnit::setAlwaysHostile(bool bHostile) {
 
 bool CvUnit::isAlwaysHostile() const {
 	return m_bAlwaysHostile;
+}
+
+void CvUnit::setSlaverGraphics() {
+	if (!GC.getGameINLINE().isSlaverUnitMeshGroupExists(getUnitType())) {
+		GC.getGameINLINE().addSlaverUnitMeshGroup(getUnitType());
+	}
+	m_pCustomUnitMeshGroup = GC.getGameINLINE().getSlaverUnitMeshGroup(getUnitType());
+}
+
+bool CvUnit::isSlaver() const {
+	return isUnitCombatType((UnitCombatTypes)GC.getInfoTypeForString("UNITCOMBAT_SLAVER", true));
+}
+
+int CvUnit::getMeleeWaveSize() const {
+	return m_pCustomUnitMeshGroup ? m_pCustomUnitMeshGroup->getMeleeWaveSize() : m_pUnitInfo->getMeleeWaveSize();
+}
+
+int CvUnit::getRangedWaveSize() const {
+	return m_pCustomUnitMeshGroup ? m_pCustomUnitMeshGroup->getRangedWaveSize() : m_pUnitInfo->getRangedWaveSize();
 }
