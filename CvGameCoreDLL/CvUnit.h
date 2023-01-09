@@ -457,6 +457,8 @@ public:
 	InvisibleTypes getInvisibleType() const;										// Exposed to Python								
 	int getNumSeeInvisibleTypes() const;									// Exposed to Python
 	InvisibleTypes getSeeInvisibleType(int i) const;									// Exposed to Python
+	void changeSeeInvisibleCount(InvisibleTypes eInvisibleType, int iChange);
+	bool isSeeInvisible(InvisibleTypes eInvisibleType) const;
 
 	int flavorValue(FlavorTypes eFlavor) const;														// Exposed to Python		
 
@@ -1070,6 +1072,7 @@ protected:
 	int* m_paiExtraFeatureDefensePercent;
 	int* m_paiExtraUnitCombatModifier;
 	int* m_paiEnslavedCount;
+	int* m_paiSeeInvisibleCount;
 
 	std::map<BuildTypes, std::map< FeatureTypes, int> > m_mmBuildLeavesFeatures;
 

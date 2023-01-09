@@ -45,6 +45,7 @@ CvUnit::CvUnit() {
 	m_paiExtraFeatureDefensePercent = NULL;
 	m_paiExtraUnitCombatModifier = NULL;
 	m_paiEnslavedCount = NULL;
+	m_paiSeeInvisibleCount = NULL;
 
 	CvDLLEntity::createUnitEntity(this);		// create and attach entity to unit
 
@@ -99,6 +100,13 @@ void CvUnit::init(int iID, UnitTypes eUnit, UnitAITypes eUnitAI, PlayerTypes eOw
 
 	//--------------------------------
 	// Init pre-setup() data
+
+	// This needs to be before the setXY call as that is the one that sets the units visibility
+	//  so we need to have configured the invisibles that it can see beforehand
+	for (int i = 0; i < m_pUnitInfo->getNumSeeInvisibleTypes(); i++) {
+		changeSeeInvisibleCount((InvisibleTypes)m_pUnitInfo->getSeeInvisibleType(i), 1);
+	}
+
 	setXY(iX, iY, false, false);
 
 	//--------------------------------
@@ -248,6 +256,7 @@ void CvUnit::uninit() {
 	SAFE_DELETE_ARRAY(m_paiExtraFeatureDefensePercent);
 	SAFE_DELETE_ARRAY(m_paiExtraUnitCombatModifier);
 	SAFE_DELETE_ARRAY(m_paiEnslavedCount);
+	SAFE_DELETE_ARRAY(m_paiSeeInvisibleCount);
 
 	if (m_pSpy != NULL)
 		delete m_pSpy;
@@ -412,6 +421,12 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 		m_paiExtraUnitCombatModifier = new int[GC.getNumUnitCombatInfos()];
 		for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
 			m_paiExtraUnitCombatModifier[eUnitCombat] = 0;
+		}
+
+		FAssertMsg((0 < GC.getNumInvisibleInfos()), "GC.getNumInvisibleInfos() is not greater than zero but an array is being allocated in CvUnit::reset");
+		m_paiSeeInvisibleCount = new int[GC.getNumInvisibleInfos()];
+		for (InvisibleTypes eInvisible = (InvisibleTypes)0; eInvisible < GC.getNumInvisibleInfos(); eInvisible = (InvisibleTypes)(eInvisible + 1)) {
+			m_paiSeeInvisibleCount[eInvisible] = 0;
 		}
 
 		m_mmBuildLeavesFeatures.clear();
@@ -6524,11 +6539,22 @@ InvisibleTypes CvUnit::getInvisibleType() const {
 }
 
 int CvUnit::getNumSeeInvisibleTypes() const {
-	return m_pUnitInfo->getNumSeeInvisibleTypes();
+	int iNumSeeInvisibles = 0;
+	for (InvisibleTypes eInvisible = (InvisibleTypes)0; eInvisible < GC.getNumInvisibleInfos(); eInvisible = (InvisibleTypes)(eInvisible + 1)) {
+		if (isSeeInvisible(eInvisible)) {
+			iNumSeeInvisibles++;
+		}
+	}
+	return iNumSeeInvisibles;
 }
 
 InvisibleTypes CvUnit::getSeeInvisibleType(int i) const {
-	return (InvisibleTypes)(m_pUnitInfo->getSeeInvisibleType(i));
+	for (InvisibleTypes eLoopInvisible = (InvisibleTypes)0; eLoopInvisible < GC.getNumInvisibleInfos(); eLoopInvisible = (InvisibleTypes)(eLoopInvisible + 1)) {
+		if (isSeeInvisible(eLoopInvisible)) {
+			return eLoopInvisible;
+		}
+	}
+	return NO_INVISIBLE;
 }
 
 
@@ -9980,6 +10006,16 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 			changeBuildLeaveFeatureCount((BuildTypes)pPair.first, (FeatureTypes)pPair.second, iChange);
 		}
 
+		std::vector<InvisibleTypes> vInvisibilityTypes;
+		for (int i = 0; i < kPromotion.getNumSeeInvisibleTypes(); i++) {
+			changeSeeInvisibleCount((InvisibleTypes)kPromotion.getSeeInvisibleType(i), iChange);
+			vInvisibilityTypes.push_back((InvisibleTypes)kPromotion.getSeeInvisibleType(i));
+		}
+		if (vInvisibilityTypes.size() > 0) {
+			plot()->changeAdjacentSight(getTeam(), visibilityRange(), (iChange == 1), this, true, vInvisibilityTypes);
+		}
+		vInvisibilityTypes.clear();
+
 		if (IsSelected()) {
 			gDLL->getInterfaceIFace()->setDirty(SelectionButtons_DIRTY_BIT, true);
 			gDLL->getInterfaceIFace()->setDirty(InfoPane_DIRTY_BIT, true);
@@ -10160,6 +10196,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(GC.getNumFeatureInfos(), m_paiExtraFeatureDefensePercent);
 	pStream->Read(GC.getNumUnitCombatInfos(), m_paiExtraUnitCombatModifier);
 	pStream->Read(GC.getNumSpecialistInfos(), m_paiEnslavedCount);
+	pStream->Read(GC.getNumInvisibleInfos(), m_paiSeeInvisibleCount);
 
 	int iOuterMapCount;
 	pStream->Read(&iOuterMapCount);
@@ -10309,6 +10346,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(GC.getNumFeatureInfos(), m_paiExtraFeatureDefensePercent);
 	pStream->Write(GC.getNumUnitCombatInfos(), m_paiExtraUnitCombatModifier);
 	pStream->Write(GC.getNumSpecialistInfos(), m_paiEnslavedCount);
+	pStream->Write(GC.getNumInvisibleInfos(), m_paiSeeInvisibleCount);
 
 	pStream->Write(m_mmBuildLeavesFeatures.size());
 	for (std::map<BuildTypes, std::map< FeatureTypes, int> >::iterator itB = m_mmBuildLeavesFeatures.begin(); itB != m_mmBuildLeavesFeatures.end(); itB++) {
@@ -13211,4 +13249,16 @@ int CvUnit::getMeleeWaveSize() const {
 
 int CvUnit::getRangedWaveSize() const {
 	return m_pCustomUnitMeshGroup ? m_pCustomUnitMeshGroup->getRangedWaveSize() : m_pUnitInfo->getRangedWaveSize();
+}
+
+void CvUnit::changeSeeInvisibleCount(InvisibleTypes eInvisibleType, int iChange) {
+	FAssertMsg(eInvisibleType >= 0, "iIndex expected to be >= 0");
+	FAssertMsg(eInvisibleType < GC.getNumInvisibleInfos(), "eInvisibleType expected to be < GC.getNumInvisibleInfos()");
+
+	m_paiSeeInvisibleCount[eInvisibleType] = m_paiSeeInvisibleCount[eInvisibleType] + iChange;
+	FAssert(getSeeInvisibleCount(eInvisibleType) >= 0);
+}
+
+bool CvUnit::isSeeInvisible(InvisibleTypes eInvisibleType) const {
+	return m_paiSeeInvisibleCount[eInvisibleType] > 0;
 }

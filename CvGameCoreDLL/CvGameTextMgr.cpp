@@ -5790,6 +5790,14 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 
 	const CvPromotionInfo& kPromotion = GC.getPromotionInfo(ePromotion);
 
+	//Slaver Hunter Promotion
+	for (int iI = 0; iI < kPromotion.getNumSeeInvisibleTypes(); ++iI) {
+		if (kPromotion.getSeeInvisibleType(iI) != NO_INVISIBLE) {
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText("TXT_KEY_UNIT_SEE_INVISIBLE", GC.getInvisibleInfo((InvisibleTypes)kPromotion.getSeeInvisibleType(iI)).getTextKeyWide()));
+		}
+	}
+
 	if (kPromotion.getEnslaveCountChange() != 0) {
 		szBuffer.append(pcNewline);
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_ENSLAVE_TEXT", kPromotion.getEnslaveCountChange()));

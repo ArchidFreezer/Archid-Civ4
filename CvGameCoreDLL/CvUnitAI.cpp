@@ -7541,9 +7541,33 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 	}
 
 	int iTemp = kPromotion.getEnslaveCountChange();
-	if (AI_getUnitAIType() == UNITAI_SLAVER && iTemp > 0) {
+	if (isSlaver() && iTemp > 0) {
 		// This line of promotions should be a priority for slavers
-		iValue += (iTemp * 25);
+		iValue += (iTemp * 50);
+	}
+
+	// Generic see invisibles
+	iTemp = kPromotion.getNumSeeInvisibleTypes();
+	if ((AI_getUnitAIType() == UNITAI_RESERVE) ||
+		(AI_getUnitAIType() == UNITAI_COUNTER) ||
+		(AI_getUnitAIType() == UNITAI_CITY_DEFENSE) ||
+		(AI_getUnitAIType() == UNITAI_CITY_COUNTER) ||
+		(AI_getUnitAIType() == UNITAI_CITY_SPECIAL) ||
+		(AI_getUnitAIType() == UNITAI_ATTACK)) {
+		iValue += (iTemp * 4);
+	} else {
+		iValue += (iTemp * 2);
+	}
+
+	// Anti-slavery specific value if we are in our cultural borders, remember being hit by slavers in this area and don't have slaver visibility
+	InvisibleTypes eSlaverInvisibility = (InvisibleTypes)GC.getInfoTypeForString("INVISIBLE_SLAVER");
+	for (int iI = 0; iI < kPromotion.getNumSeeInvisibleTypes(); ++iI) {
+		if (kPromotion.getSeeInvisibleType(iI) == eSlaverInvisibility) {
+			if ((AI_getUnitAIType() == UNITAI_CITY_DEFENSE || AI_getUnitAIType() == UNITAI_ATTACK)
+				&& (area()->getSlaveMemoryPerPlayer(getOwnerINLINE()) > 0 && plot()->getOwnerINLINE() == getOwnerINLINE() && plot()->getInvisibleVisibilityCount(getTeam(), eSlaverInvisibility) < 1)) {
+				iValue += 50;
+			}
+		}
 	}
 
 	iTemp = kPromotion.getVisibilityChange();

@@ -1700,6 +1700,15 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
 }
 
+int CvPromotionInfo::getSeeInvisibleType(int i) const {
+	FAssert(i < (int)m_viSeeInvisibleTypes.size());
+	return m_viSeeInvisibleTypes[i];
+}
+
+int CvPromotionInfo::getNumSeeInvisibleTypes() const {
+	return (int)m_viSeeInvisibleTypes.size();
+}
+
 int CvPromotionInfo::getNumBuildLeaveFeatures() const {
 	return m_vpBuildLeaveFeatures.size();
 }
@@ -2248,6 +2257,13 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 		stream->Read(&iElement);
 		m_viPrereqOrPromotions.push_back(iElement);
 	}
+	stream->Read(&iNumElements);
+	m_viSeeInvisibleTypes.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viSeeInvisibleTypes.push_back(iElement);
+	}
+
 	int iElement2;
 	stream->Read(&iNumElements);
 	m_vpBuildLeaveFeatures.clear();
@@ -2370,6 +2386,11 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 		stream->Write(*it);
 	}
 
+	stream->Write(m_viSeeInvisibleTypes.size());
+	for (std::vector<int>::iterator it = m_viSeeInvisibleTypes.begin(); it != m_viSeeInvisibleTypes.end(); ++it) {
+		stream->Write(*it);
+	}
+
 	stream->Write(m_vpBuildLeaveFeatures.size());
 	for (std::vector<std::pair <int, int> >::iterator it = m_vpBuildLeaveFeatures.begin(); it != m_vpBuildLeaveFeatures.end(); ++it) {
 		stream->Write((*it).first);
@@ -2399,6 +2420,7 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "StateReligionPrereq");
 	m_iStateReligionPrereq = pXML->FindInInfoClass(szTextVal);
 
+	pXML->SetVectorInfo(m_viSeeInvisibleTypes, "SeeInvisibles");
 	pXML->GetChildXmlValByName(&m_bCityPrereq, "bCityPrereq");
 	pXML->GetChildXmlValByName(&m_iPromotionGroup, "iPromotionGroup");
 	pXML->GetChildXmlValByName(&m_bLeader, "bLeader");

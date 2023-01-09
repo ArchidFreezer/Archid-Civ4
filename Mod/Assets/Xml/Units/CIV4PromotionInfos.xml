@@ -1796,6 +1796,26 @@
 			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/slaver3.dds</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Slaver Hunter -->
+			<Type>PROMOTION_SLAVER_HUNTER</Type>
+			<Description>TXT_KEY_PROMOTION_SLAVER_HUNTER</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<TechPrereq>TECH_BRONZE_WORKING</TechPrereq>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
+			</SeeInvisibles>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/slaver_hunter.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Steal Tech I -->
 			<Type>PROMOTION_STEALTECH1</Type>
 			<Description>TXT_KEY_PROMOTION_STEALTECH1</Description>

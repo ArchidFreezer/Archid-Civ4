@@ -877,6 +877,7 @@
 		<element type="PrereqOrPromotions" minOccurs="0"/>
 		<element type="TechPrereq" minOccurs="0"/>
 		<element type="StateReligionPrereq" minOccurs="0"/>
+		<element type="SeeInvisibles" minOccurs="0"/>
 		<element type="bCityPrereq" minOccurs="0"/>
 		<element type="iPromotionGroup" minOccurs="0"/>
 		<element type="bLeader" minOccurs="0"/>
