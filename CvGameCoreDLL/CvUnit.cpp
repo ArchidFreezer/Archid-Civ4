@@ -9804,7 +9804,7 @@ bool CvUnit::canAcquirePromotion(PromotionTypes ePromotion) const {
 }
 
 bool CvUnit::isPromotionValid(PromotionTypes ePromotion) const {
-	if (!::isPromotionValid(ePromotion, getUnitType(), true)) {
+	if (!::isPromotionValid(ePromotion, this, true)) {
 		return false;
 	}
 

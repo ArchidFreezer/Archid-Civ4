@@ -109,6 +109,10 @@ bool cyIsPromotionValid(int /*PromotionTypes*/ ePromotion, int /*UnitTypes*/ eUn
 	return isPromotionValid((PromotionTypes)ePromotion, (UnitTypes)eUnit, bLeader);
 }
 
+bool cyIsPromotionValidForUnit(int /*PromotionTypes*/ ePromotion, CyUnit* pUnit, bool bLeader) {
+	return isPromotionValid((PromotionTypes)ePromotion, pUnit->getUnit(), bLeader);
+}
+
 int cyGetPopulationAsset(int iPopulation) {
 	return getPopulationAsset(iPopulation);
 }

@@ -40,6 +40,7 @@ CyCity* cyGetCity(IDInfo city);
 CyUnit* cyGetUnit(IDInfo unit);
 
 bool cyIsPromotionValid(int /*PromotionTypes*/ ePromotion, int /*UnitTypes*/ eUnit, bool bLeader);
+bool cyIsPromotionValidForUnit(int /*PromotionTypes*/ ePromotion, CyUnit* pUnit, bool bLeader);
 int cyGetPopulationAsset(int iPopulation);
 int cyGetLandPlotsAsset(int iLandPlots);
 int cyGetPopulationPower(int iPopulation);

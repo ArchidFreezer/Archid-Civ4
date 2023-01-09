@@ -240,38 +240,41 @@ int groupCycleDistance(const CvSelectionGroup* pFirstGroup, const CvSelectionGro
 	return iDistance + iPenalty;
 }
 
-bool isPromotionValid(PromotionTypes ePromotion, UnitTypes eUnit, bool bLeader) {
+// This is a wrapper that allows us to check for units where the UnitCombat has been forced such as slavers so the value in
+// the base unit type is incorrect
+bool isPromotionValid(PromotionTypes ePromotion, const CvUnit* pUnit, bool bLeader) {
+
+	if (pUnit == NULL)
+		return false;
+
+	if (!isPromotionValid(ePromotion, pUnit->getUnitCombatType()))
+		return false;
+
+	return  isPromotionValid(ePromotion, pUnit->getUnitType(), bLeader, false);
+}
+
+bool isPromotionValid(PromotionTypes ePromotion, UnitTypes eUnit, bool bLeader, bool bCheckUnitCombat) {
+
+	if (ePromotion == NO_PROMOTION)
+		return false;
+
+	if (eUnit == NO_UNIT)
+		return false;
+
 	CvUnitInfo& kUnit = GC.getUnitInfo(eUnit);
+
+	if (bCheckUnitCombat && !isPromotionValid(ePromotion, (UnitCombatTypes)kUnit.getUnitCombatType()))
+		return false;
+
 	CvPromotionInfo& kPromotion = GC.getPromotionInfo(ePromotion);
 
 	if (kUnit.getFreePromotions(ePromotion)) {
 		return true;
 	}
 
-	if (kUnit.getUnitCombatType() == NO_UNITCOMBAT) {
-		return false;
-	}
-
 	if (!bLeader && kPromotion.isLeader()) {
 		return false;
 	}
-
-	for (int iI = 0; iI < kPromotion.getNumNotCombatTypes(); iI++) {
-		if (kUnit.isCombatType((UnitCombatTypes)kPromotion.getNotCombatType(iI))) {
-			return false;
-		}
-	}
-
-	bool bFound = false;
-	for (int iI = 0; iI < kPromotion.getNumOrCombatTypes() && !bFound; iI++) {
-		if (kUnit.isCombatType((UnitCombatTypes)kPromotion.getOrCombatType(iI))) {
-			bFound = true;
-		}
-	}
-	if (!bFound) {
-		return false;
-	}
-
 
 	if (kUnit.isOnlyDefensive()) {
 		if ((kPromotion.getCityAttackPercent() != 0) ||
@@ -315,7 +318,7 @@ bool isPromotionValid(PromotionTypes ePromotion, UnitTypes eUnit, bool bLeader) 
 	}
 
 	if (NO_PROMOTION != kPromotion.getPrereqPromotion()) {
-		if (!isPromotionValid((PromotionTypes)kPromotion.getPrereqPromotion(), eUnit, bLeader)) {
+		if (!isPromotionValid((PromotionTypes)kPromotion.getPrereqPromotion(), eUnit, bLeader, false)) {
 			return false;
 		}
 	}
@@ -323,11 +326,40 @@ bool isPromotionValid(PromotionTypes ePromotion, UnitTypes eUnit, bool bLeader) 
 	if (kPromotion.getNumPrereqOrPromotions() > 0) {
 		bool bFoundPrereq = false;
 		for (int iI = 0; iI < kPromotion.getNumPrereqOrPromotions() && !bFoundPrereq; iI++) {
-			bFoundPrereq = isPromotionValid((PromotionTypes)kPromotion.getPrereqOrPromotion(iI), eUnit, bLeader);
+			bFoundPrereq = isPromotionValid((PromotionTypes)kPromotion.getPrereqOrPromotion(iI), eUnit, bLeader, false);
 		}
 		if (!bFoundPrereq) {
 			return false;
 		}
+	}
+
+	return true;
+}
+
+// This part has been refactored out to prevent duplication of code
+bool isPromotionValid(PromotionTypes ePromotion, UnitCombatTypes eUnitCombat) {
+	if (ePromotion == NO_PROMOTION)
+		return false;
+
+	if (eUnitCombat == NO_UNITCOMBAT) {
+		return false;
+	}
+
+	CvPromotionInfo& kPromotion = GC.getPromotionInfo(ePromotion);
+	for (int iI = 0; iI < kPromotion.getNumNotCombatTypes(); iI++) {
+		if (eUnitCombat == (UnitCombatTypes)kPromotion.getNotCombatType(iI)) {
+			return false;
+		}
+	}
+
+	bool bFound = false;
+	for (int iI = 0; iI < kPromotion.getNumOrCombatTypes() && !bFound; iI++) {
+		if (eUnitCombat == (UnitCombatTypes)kPromotion.getOrCombatType(iI)) {
+			bFound = true;
+		}
+	}
+	if (!bFound) {
+		return false;
 	}
 
 	return true;

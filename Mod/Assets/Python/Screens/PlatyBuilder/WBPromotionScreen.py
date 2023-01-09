@@ -163,7 +163,7 @@ class WBPromotionScreen:
 		lList = []
 		for i in xrange(gc.getNumPromotionInfos()):
 			ItemInfo = gc.getPromotionInfo(i)
-			if CvPlatyBuilderScreen.bHideInactive and not isPromotionValid(i, pUnit.getUnitType(), True): continue
+			if CvPlatyBuilderScreen.bHideInactive and not cyIsPromotionValidForUnit(i, pUnit, True): continue
 			if iSelectedClass == -2 or ItemInfo.getUnitCombat(iSelectedClass):
 				lList.append([ItemInfo.getDescription(), i])
 		lList.sort()
