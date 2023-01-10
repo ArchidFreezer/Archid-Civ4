@@ -1345,12 +1345,8 @@ int CvPlot::seeThroughLevel() const {
 
 
 void CvPlot::changeAdjacentSight(TeamTypes eTeam, int iRange, bool bIncrement, CvUnit* pUnit, bool bUpdatePlotGroups) {
-	bool bAerial = (pUnit != NULL && pUnit->getDomainType() == DOMAIN_AIR);
-
-	DirectionTypes eFacingDirection = NO_DIRECTION;
-	if (!bAerial && NULL != pUnit) {
-		eFacingDirection = pUnit->getFacingDirection(true);
-	}
+	// Most original code moved to 
+	// void CvPlot::changeAdjacentSight(TeamTypes eTeam, int iRange, bool bIncrement, CvUnit* pUnit, bool bUpdatePlotGroups, std::vector<InvisibleTypes>& vSeeInvisibles)
 
 	//fill invisible types
 	std::vector<InvisibleTypes> aSeeInvisibleTypes;
@@ -1360,8 +1356,19 @@ void CvPlot::changeAdjacentSight(TeamTypes eTeam, int iRange, bool bIncrement, C
 		}
 	}
 
-	if (aSeeInvisibleTypes.size() == 0) {
-		aSeeInvisibleTypes.push_back(NO_INVISIBLE);
+	changeAdjacentSight(eTeam, iRange, bIncrement, pUnit, bUpdatePlotGroups, aSeeInvisibleTypes);
+}
+
+void CvPlot::changeAdjacentSight(TeamTypes eTeam, int iRange, bool bIncrement, CvUnit* pUnit, bool bUpdatePlotGroups, std::vector<InvisibleTypes>& vSeeInvisibles) {
+	bool bAerial = (pUnit != NULL && pUnit->getDomainType() == DOMAIN_AIR);
+
+	DirectionTypes eFacingDirection = NO_DIRECTION;
+	if (!bAerial && NULL != pUnit) {
+		eFacingDirection = pUnit->getFacingDirection(true);
+	}
+
+	if (vSeeInvisibles.size() == 0) {
+		vSeeInvisibles.push_back(NO_INVISIBLE);
 	}
 
 	//check one extra outer ring
@@ -1369,7 +1376,7 @@ void CvPlot::changeAdjacentSight(TeamTypes eTeam, int iRange, bool bIncrement, C
 		iRange++;
 	}
 
-	for (int i = 0; i < (int)aSeeInvisibleTypes.size(); i++) {
+	for (int i = 0; i < (int)vSeeInvisibles.size(); i++) {
 		for (int dx = -iRange; dx <= iRange; dx++) {
 			for (int dy = -iRange; dy <= iRange; dy++) {
 				//check if in facing direction
@@ -1383,7 +1390,7 @@ void CvPlot::changeAdjacentSight(TeamTypes eTeam, int iRange, bool bIncrement, C
 					if (bAerial || canSeeDisplacementPlot(eTeam, dx, dy, dx, dy, true, outerRing)) {
 						CvPlot* pPlot = plotXY(getX_INLINE(), getY_INLINE(), dx, dy);
 						if (NULL != pPlot) {
-							pPlot->changeVisibilityCount(eTeam, ((bIncrement) ? 1 : -1), aSeeInvisibleTypes[i], bUpdatePlotGroups);
+							pPlot->changeVisibilityCount(eTeam, ((bIncrement) ? 1 : -1), vSeeInvisibles[i], bUpdatePlotGroups);
 						}
 					}
 				}
@@ -1393,8 +1400,8 @@ void CvPlot::changeAdjacentSight(TeamTypes eTeam, int iRange, bool bIncrement, C
 					{
 						CvPlot* pPlot = plotXY(getX_INLINE(), getY_INLINE(), dx, dy);
 						if (NULL != pPlot) {
-							pPlot->changeVisibilityCount(eTeam, 1, aSeeInvisibleTypes[i], bUpdatePlotGroups);
-							pPlot->changeVisibilityCount(eTeam, -1, aSeeInvisibleTypes[i], bUpdatePlotGroups);
+							pPlot->changeVisibilityCount(eTeam, 1, vSeeInvisibles[i], bUpdatePlotGroups);
+							pPlot->changeVisibilityCount(eTeam, -1, vSeeInvisibles[i], bUpdatePlotGroups);
 						}
 					}
 				}

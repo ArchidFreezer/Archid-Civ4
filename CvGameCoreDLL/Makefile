@@ -260,8 +260,8 @@ source_list: Make_Dir
 
 fastdep:
 	@ECHO Running fastdep
-	@$(FD) --objectextension=pch -q --removepath=$(SOURCE_DIR)\ -O $(TEMP_TARGET_FILES) $(SOURCE_DIR)\CvGameCoreDLL.cpp >> $(FILE_DEPENDS)
-    @$(FD) --objectextension=obj -q --removepath=$(SOURCE_DIR)\ -O $(TEMP_TARGET_FILES) $(SOURCES) >> $(FILE_DEPENDS)
+	@$(FD) --objectextension=pch -q -O $(TEMP_TARGET_FILES) $(SOURCE_DIR)\CvGameCoreDLL.cpp >> $(FILE_DEPENDS)
+    @$(FD) --objectextension=obj -q -O $(TEMP_TARGET_FILES) $(SOURCES) >> $(FILE_DEPENDS)
 
 Make_Dir:
 	@FOR %j in ($(SUBDIRS)) DO @(IF NOT EXIST "$(TEMP_TARGET_FILES)\%j\." MKDIR "$(TEMP_TARGET_FILES)\%j")

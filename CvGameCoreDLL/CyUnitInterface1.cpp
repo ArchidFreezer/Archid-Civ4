@@ -24,6 +24,7 @@ void CyUnitPythonInterface1(python::class_<CyUnit>& x) {
 		.def("NotifyEntity", &CyUnit::NotifyEntity, "void (int EntityEventType)")
 		.def("getHomeCity", &CyUnit::getHomeCity, python::return_value_policy<python::manage_new_object>(), "CyCity* ()")
 		.def("setHomeCity", &CyUnit::setHomeCity, "void (CyCity* pCity)")
+		.def("isUnitCombatType", &CyUnit::isUnitCombatType, "bool (int /*UnitCombatTypes*/ eUnitCombat)")
 
 		.def("getRangeType", &CyUnit::getRangeType, "UnitRangeTypes ()")
 		.def("changeRangeUnboundCount", &CyUnit::changeRangeUnboundCount, "void (int iChange)")

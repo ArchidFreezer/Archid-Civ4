@@ -95,6 +95,7 @@
     <ClInclude Include="CvTeamAI.h" />
     <ClInclude Include="CvUnit.h" />
     <ClInclude Include="CvUnitAI.h" />
+    <ClInclude Include="CvUnitMeshGroups.h" />
     <ClInclude Include="CvXMLLoadUtility.h" />
     <ClInclude Include="CyArea.h" />
     <ClInclude Include="CyArgsList.h" />
@@ -133,6 +134,7 @@
     <ClCompile Include="BetterBTSAI.cpp" />
     <ClCompile Include="CvIniOptions.cpp" />
     <ClCompile Include="CvSpy.cpp" />
+    <ClCompile Include="CvUnitMeshGroups.cpp" />
     <ClCompile Include="KmodPathFinder.cpp" />
     <ClCompile Include="_precompile.cpp" />
     <ClCompile Include="CvArea.cpp" />

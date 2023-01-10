@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- Game Text - New -->
 <Civ4GameText xmlns="http://www.firaxis.com">
+<!-- Become Slaver -->
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_BECOME_SLAVER</Tag>
+		<English>Become Slaver</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_BECOME_SLAVER_HELP</Tag>
+		<English>Order the selected unit to convert to a slaver unit. This changes the default AI and cannot be reversed.</English>
+	</TEXT>
+
 <!-- Go To and Sentry -->
 	<TEXT>
 		<Tag>TXT_KEY_INTERFACEMODE_GO_TO_SENTRY</Tag>

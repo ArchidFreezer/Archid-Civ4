@@ -9,8 +9,9 @@ The action buttons require the creation of a mask in the border alpha layer. The
 7 - Select & View the Border layer
 8 - Stop viewing the Image layer
 9 - Whilst the Border layer is selected click the Channels tab (just above the layers)
-10 - Select the Alpha1 channel and deselect the RGB channel
-11 - The original selection outline should still be visble so delete the background inside this selection. You need to use the normal Eraser tool and not the Magic or Background Eraser.
+10 - Select the Alpha1 channel whilst also viewing the RGB channels
+11 - The original selection outline should still be visible so delete the background inside this selection. 
+     You need to use the normal Eraser tool and not the Magic or Background Eraser
 12 - The image is now ready to be saved as a DDS, so save the PDF and then save as DDS
 13 - Reselect RGB channel and deselect the Alpha1 channel
 14 - Go back to the layers tab and select both Border & Image

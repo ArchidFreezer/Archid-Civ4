@@ -505,7 +505,7 @@ void CvUnitAI::AI_upgrade() {
 	UnitAITypes eUnitAI = AI_getUnitAIType();
 	CvArea* pArea = area();
 
-	int iBestValue = kPlayer.AI_unitValue(getUnitType(), eUnitAI, pArea) * 100;
+	int iBestValue = kPlayer.AI_unitValue(this, eUnitAI, pArea) * 100;
 	UnitTypes eBestUnit = NO_UNIT;
 
 	// Note: the original code did two passes, presumably for speed reasons.
@@ -1694,64 +1694,79 @@ void CvUnitAI::AI_slaverMove() {
 
 	PROFILE_FUNC();
 
-	// Decide if we should offload any slaves we have
+	const CvPlayerAI& kOwner = GET_PLAYER(getOwnerINLINE()); // K-Mod
+
+	bool bDanger = (kOwner.AI_getAnyPlotDanger(plot(), 3));
+
+	// If we are in a safe city so offload slaves or heal up
+	if (plot()->isCity()) {
+		// Our city
+		if (plot()->getOwnerINLINE() == getOwnerINLINE()) {
+			if (AI_sellSlaves()) {
+				return;
+			}
+		}
+
+		// Team city
+		if (plot()->getTeam() == getTeam()) {
+			if (AI_heal()) {
+				return;
+			}
+		}
+	}
+
+	// Offload any slaves if we need to
 	if (getSlaveCountTotal() > 0) {
 		if (AI_sellSlaves()) {
 			return;
 		}
 	}
 
-	// heal if we feel safe
-	if (plot()->isCity(true) || (GET_PLAYER(getOwnerINLINE()).AI_getPlotDanger(plot(), 2) <= 0)) {
-		if (AI_heal()) {
+	// A hunting we will go ... look for some easy pickings close by
+	if (AI_enslave(3, 100)) {
+		return;
+	}
+
+	// Take a stim pack
+	if (!bDanger) {
+		if (AI_heal(30, 1)) {
 			return;
 		}
 	}
 
-	// Join any group that is looking for trouble
-	if (AI_groupMergeRange(UNITAI_ATTACK, 1, true, true, true)) {
+	// Shadow any group that is looking for trouble in enemy territory
+	if (plot()->getOwnerINLINE() != NO_PLAYER && GET_TEAM(getTeam()).isAtWar(GET_PLAYER(plot()->getOwnerINLINE()).getTeam()) && AI_shadow(UNITAI_ATTACK, 1, -1, false, true, 1)) {
 		return;
 	}
 
-	if (AI_groupMergeRange(UNITAI_ATTACK_CITY, 3, true, true, true)) {
+	// Allow 2 slavers to shadow city breakers
+	if (plot()->getOwnerINLINE() != NO_PLAYER && GET_TEAM(getTeam()).isAtWar(GET_PLAYER(plot()->getOwnerINLINE()).getTeam()) && AI_shadow(UNITAI_ATTACK_CITY, 2, -1, false, true, 1)) {
 		return;
 	}
 
-	// Pop some goodies if we can
-	if (AI_goody(4)) {
+	// Lets get a bit more adventurous ... but we are cowardly slavers so lets not get too ambitious
+	if (AI_enslave(3, 90)) {
 		return;
 	}
 
-	// 
-	// Look for someone to enslave or just explore in a widening area
-	//
-	if (AI_huntRange(1, 20, false, 10)) {
+	// Lets add a bit more risk, but not too much
+	if (AI_enslave(3, 80)) {
 		return;
 	}
 
-	if (AI_huntRange(2, 40, false, 15)) {
+	if (AI_travelToUpgradeCity()) {
 		return;
 	}
 
-	if (AI_exploreRange(2)) {
+	// Nothing really to do so lets wander around and hope to stumble on something
+	if (AI_slaverExplore(3)) {
 		return;
 	}
 
-	if (AI_huntRange(3, 50, false, 10)) {
+	if (AI_handleStranded()) {
 		return;
 	}
 
-	if (AI_exploreRange(3)) {
-		return;
-	}
-
-	if (AI_patrol()) {
-		return;
-	}
-
-	// 
-	// Run away, run away!
-	//
 	if (AI_retreatToCity()) {
 		return;
 	}
@@ -1763,6 +1778,99 @@ void CvUnitAI::AI_slaverMove() {
 	// Boring!!
 	getGroup()->pushMission(MISSION_SKIP);
 	return;
+}
+
+// Returns true if a mission was pushed...
+// Searches the area defined by iRange for targets to enslave
+// Priority is units with no defence, followed by the defender with the best odds of victory under the threshold
+// If nothing to enslave then do nothing
+bool CvUnitAI::AI_enslave(int iRange, int iOddsThreshold) {
+	PROFILE_FUNC();
+
+	if (getMaxSlaves() <= getSlaveCountTotal())
+		return false;
+
+	iRange = AI_searchRange(iRange);
+
+	bool bPoachTarget = false;
+	bool bPoachTemp = false;
+	int iBestValue = 0;
+	CvPlot* pBestPlot = NULL;
+	for (int iDX = -iRange; iDX <= iRange; iDX++) {
+		for (int iDY = -iRange; iDY <= iRange; iDY++) {
+			bool bFoundTarget = false;
+			CvPlot* pLoopPlot = plotXY(getX_INLINE(), getY_INLINE(), iDX, iDY);
+
+			if (pLoopPlot == NULL || pLoopPlot == plot() || !AI_plotValid(pLoopPlot) || pLoopPlot->isCity())
+				continue;
+
+			int iPathTurns;
+			if (!generatePath(pLoopPlot, 0, true, &iPathTurns) || (iPathTurns > iRange))
+				continue;
+
+			// Use weighting to pick the easiest target
+			int iValueWeighting = 100;
+			if (pLoopPlot->isVisibleEnemyDefender(this)) {
+				int iWeightedOdds = AI_getWeightedOdds(pLoopPlot, true);
+				if (iWeightedOdds < iOddsThreshold)
+					continue;
+
+				iValueWeighting += iWeightedOdds - iOddsThreshold;
+				bFoundTarget = true;
+			} else {
+				// No defender so see if there are any units that provide a slave
+				int iFreeSlaves = getMaxSlaves() - getSlaveCountTotal();
+
+				CLLNode<IDInfo>* pUnitNode = pLoopPlot->headUnitNode();
+				while (pUnitNode != NULL && iFreeSlaves) {
+					CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+					pUnitNode = pLoopPlot->nextUnitNode(pUnitNode);
+
+					if (pLoopUnit->getTeam() == getTeam())
+						continue;
+
+					if (pLoopUnit->getSlaveSpecialistType() != NO_SPECIALIST) {
+						bPoachTemp = true;
+						iFreeSlaves--;
+						iValueWeighting *= atWar(getTeam(), pLoopUnit->getTeam()) ? 3 : 2;
+						bFoundTarget = true;
+					}
+				}
+			}
+
+			if (pLoopPlot->isRevealedGoody(getTeam())) {
+				iValueWeighting += 100000;
+				bFoundTarget = true;
+			}
+
+			if (!bFoundTarget)
+				continue;
+
+			int iValue = (1 + GC.getGameINLINE().getSorenRandNum(10000, "AI Enslave"));
+			iValue *= iValueWeighting;
+			iValue /= 100;
+
+			// We want to prioritise poaching first
+			if (bPoachTarget && !bPoachTemp)
+				continue;
+
+
+			if (iValue > iBestValue) {
+				iBestValue = iValue;
+				pBestPlot = getPathEndTurnPlot();
+				bPoachTarget = bPoachTemp;
+			}
+
+		}
+	}
+
+	if (pBestPlot != NULL) {
+		FAssert(!atPlot(pBestPlot));
+		getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE());
+		return true;
+	}
+
+	return false;
 }
 
 bool CvUnitAI::AI_sellSlaves(bool bForce) {
@@ -1990,6 +2098,17 @@ void CvUnitAI::AI_attackMove() {
 			return;
 		}
 	}
+
+	// if Slavers have been picking off our workers then protect them
+	if (area()->getSlaveMemoryPerPlayer(getOwnerINLINE())) {
+		if (AI_shadow(UNITAI_WORKER, 1, -1, false, true, 3, true)) {
+			return;
+		}
+	}
+
+	//Check if we need any slavers
+	if (AI_becomeSlaver())
+		return;
 
 	{
 		PROFILE("CvUnitAI::AI_attackMove() 1");
@@ -3038,7 +3157,7 @@ void CvUnitAI::AI_collateralMove() {
 		const CvPlayerAI& kOwner = GET_PLAYER(getOwnerINLINE());
 		// if more than a third of our floating defenders are collateral units, convert this one to city attack
 		if (3 * kOwner.AI_totalAreaUnitAIs(area(), UNITAI_COLLATERAL) > kOwner.AI_getTotalFloatingDefenders(area())) {
-			if (kOwner.AI_unitValue(getUnitType(), UNITAI_ATTACK_CITY, area()) > 0) {
+			if (kOwner.AI_unitValue(this, UNITAI_ATTACK_CITY, area()) > 0) {
 				AI_setUnitAIType(UNITAI_ATTACK_CITY);
 				return; // no mission pushed.
 			}
@@ -3713,7 +3832,7 @@ void CvUnitAI::AI_exploreMove() {
 		if (GET_PLAYER(getOwnerINLINE()).AI_totalAreaUnitAIs(area(), UNITAI_EXPLORE) > GET_PLAYER(getOwnerINLINE()).AI_neededExplorers(area())) {
 			if (GET_PLAYER(getOwnerINLINE()).calculateUnitCost() > 0) {
 				// K-Mod. Maybe we can still use this unit.
-				if (GET_PLAYER(getOwnerINLINE()).AI_unitValue(getUnitType(), UNITAI_ATTACK, area()) > 0) {
+				if (GET_PLAYER(getOwnerINLINE()).AI_unitValue(this, UNITAI_ATTACK, area()) > 0) {
 					AI_setUnitAIType(UNITAI_ATTACK);
 				} else {
 					scrap();
@@ -5308,16 +5427,16 @@ void CvUnitAI::AI_escortSeaMove() {
 	if (!isHuman() && !isBarbarian()) {
 		if (getCargo() > 0 && (GC.getUnitInfo(getUnitType()).getSpecialCargo() == NO_SPECIALUNIT)) {
 			//Obsolete?
-			int iValue = kOwner.AI_unitValue(getUnitType(), AI_getUnitAIType(), area());
+			int iValue = kOwner.AI_unitValue(this, AI_getUnitAIType(), area());
 			int iBestValue = kOwner.AI_bestAreaUnitAIValue(AI_getUnitAIType(), area());
 
 			if (iValue < iBestValue) {
-				if (kOwner.AI_unitValue(getUnitType(), UNITAI_ASSAULT_SEA, area()) > 0) {
+				if (kOwner.AI_unitValue(this, UNITAI_ASSAULT_SEA, area()) > 0) {
 					AI_setUnitAIType(UNITAI_ASSAULT_SEA);
 					return;
 				}
 
-				if (kOwner.AI_unitValue(getUnitType(), UNITAI_SETTLER_SEA, area()) > 0) {
+				if (kOwner.AI_unitValue(this, UNITAI_SETTLER_SEA, area()) > 0) {
 					AI_setUnitAIType(UNITAI_SETTLER_SEA);
 					return;
 				}
@@ -5447,27 +5566,27 @@ void CvUnitAI::AI_exploreSeaMove() {
 	if (!isHuman() && !isBarbarian()) //XXX move some of this into a function? maybe useful elsewhere
 	{
 		//Obsolete?
-		int iValue = kOwner.AI_unitValue(getUnitType(), AI_getUnitAIType(), area());
+		int iValue = kOwner.AI_unitValue(this, AI_getUnitAIType(), area());
 		int iBestValue = kOwner.AI_bestAreaUnitAIValue(AI_getUnitAIType(), area());
 
 		if (iValue < iBestValue) {
 			//Transform
-			if (kOwner.AI_unitValue(getUnitType(), UNITAI_WORKER_SEA, area()) > 0) {
+			if (kOwner.AI_unitValue(this, UNITAI_WORKER_SEA, area()) > 0) {
 				AI_setUnitAIType(UNITAI_WORKER_SEA);
 				return;
 			}
 
-			if (kOwner.AI_unitValue(getUnitType(), UNITAI_PIRATE_SEA, area()) > 0) {
+			if (kOwner.AI_unitValue(this, UNITAI_PIRATE_SEA, area()) > 0) {
 				AI_setUnitAIType(UNITAI_PIRATE_SEA);
 				return;
 			}
 
-			if (kOwner.AI_unitValue(getUnitType(), UNITAI_MISSIONARY_SEA, area()) > 0) {
+			if (kOwner.AI_unitValue(this, UNITAI_MISSIONARY_SEA, area()) > 0) {
 				AI_setUnitAIType(UNITAI_MISSIONARY_SEA);
 				return;
 			}
 
-			if (kOwner.AI_unitValue(getUnitType(), UNITAI_RESERVE_SEA, area()) > 0) {
+			if (kOwner.AI_unitValue(this, UNITAI_RESERVE_SEA, area()) > 0) {
 				AI_setUnitAIType(UNITAI_RESERVE_SEA);
 				return;
 			}
@@ -5631,8 +5750,7 @@ void CvUnitAI::AI_assaultSeaMove() {
 	bool bLandWar = !bIsBarbarian && kOwner.AI_isLandWar(area()); // K-Mod
 
 	// Plot danger case handled above
-
-	if (hasCargo() && (getUnitAICargo(UNITAI_SETTLE) > 0 || getUnitAICargo(UNITAI_WORKER) > 0)) {
+	if (hasCargo() && (getUnitAICargo(UNITAI_SETTLE) > 0 || getUnitAICargo(UNITAI_WORKER) > 0 || getUnitAICargo(UNITAI_SLAVE) > 0)) {
 		// Dump inappropriate load at first oppurtunity after pick up
 		if (bIsCity && (plot()->getOwnerINLINE() == getOwnerINLINE())) {
 			getGroup()->unloadAll();
@@ -6168,7 +6286,7 @@ void CvUnitAI::AI_settlerSeaMove() {
 			FAssert(pWaterArea != NULL);
 			if (pWaterArea != NULL) {
 				if (kOwner.AI_totalWaterAreaUnitAIs(pWaterArea, UNITAI_SETTLER_SEA) > 1) {
-					if (kOwner.AI_unitValue(getUnitType(), UNITAI_ASSAULT_SEA, pWaterArea) > 0) {
+					if (kOwner.AI_unitValue(this, UNITAI_ASSAULT_SEA, pWaterArea) > 0) {
 						AI_setUnitAIType(UNITAI_ASSAULT_SEA);
 						AI_assaultSeaMove();
 						return;
@@ -6269,7 +6387,7 @@ void CvUnitAI::AI_settlerSeaMove() {
 							FAssert(pWaterArea != NULL);
 							if (pWaterArea != NULL) {
 								if (kOwner.AI_totalUnitAIs(UNITAI_EXPLORE_SEA) == 0) {
-									if (kOwner.AI_unitValue(getUnitType(), UNITAI_EXPLORE_SEA, pWaterArea) > 0) {
+									if (kOwner.AI_unitValue(this, UNITAI_EXPLORE_SEA, pWaterArea) > 0) {
 										AI_setUnitAIType(UNITAI_EXPLORE_SEA);
 										AI_exploreSeaMove();
 										return;
@@ -6277,7 +6395,7 @@ void CvUnitAI::AI_settlerSeaMove() {
 								}
 
 								if (kOwner.AI_totalUnitAIs(UNITAI_SPY_SEA) == 0) {
-									if (kOwner.AI_unitValue(getUnitType(), UNITAI_SPY_SEA, area()) > 0) {
+									if (kOwner.AI_unitValue(this, UNITAI_SPY_SEA, area()) > 0) {
 										AI_setUnitAIType(UNITAI_SPY_SEA);
 										AI_spySeaMove();
 										return;
@@ -6285,14 +6403,14 @@ void CvUnitAI::AI_settlerSeaMove() {
 								}
 
 								if (kOwner.AI_totalUnitAIs(UNITAI_MISSIONARY_SEA) == 0) {
-									if (kOwner.AI_unitValue(getUnitType(), UNITAI_MISSIONARY_SEA, area()) > 0) {
+									if (kOwner.AI_unitValue(this, UNITAI_MISSIONARY_SEA, area()) > 0) {
 										AI_setUnitAIType(UNITAI_MISSIONARY_SEA);
 										AI_missionarySeaMove();
 										return;
 									}
 								}
 
-								if (kOwner.AI_unitValue(getUnitType(), UNITAI_ATTACK_SEA, pWaterArea) > 0) {
+								if (kOwner.AI_unitValue(this, UNITAI_ATTACK_SEA, pWaterArea) > 0) {
 									AI_setUnitAIType(UNITAI_ATTACK_SEA);
 									AI_attackSeaMove();
 									return;
@@ -6734,8 +6852,8 @@ void CvUnitAI::AI_attackAirMove() {
 
 	CvPlayerAI& kPlayer = GET_PLAYER(getOwnerINLINE());
 	CvArea* pArea = area();
-	int iAttackValue = kPlayer.AI_unitValue(getUnitType(), UNITAI_ATTACK_AIR, pArea);
-	int iCarrierValue = kPlayer.AI_unitValue(getUnitType(), UNITAI_CARRIER_AIR, pArea);
+	int iAttackValue = kPlayer.AI_unitValue(this, UNITAI_ATTACK_AIR, pArea);
+	int iCarrierValue = kPlayer.AI_unitValue(this, UNITAI_CARRIER_AIR, pArea);
 	if (iCarrierValue > 0) {
 		int iCarriers = kPlayer.AI_totalUnitAIs(UNITAI_CARRIER_SEA);
 		if (iCarriers > 0) {
@@ -6752,7 +6870,7 @@ void CvUnitAI::AI_attackAirMove() {
 		}
 	}
 
-	int iDefenseValue = kPlayer.AI_unitValue(getUnitType(), UNITAI_DEFENSE_AIR, pArea);
+	int iDefenseValue = kPlayer.AI_unitValue(this, UNITAI_DEFENSE_AIR, pArea);
 	if (iDefenseValue > iAttackValue) {
 		if (kPlayer.AI_bestAreaUnitAIValue(UNITAI_ATTACK_AIR, pArea) > iAttackValue) {
 			AI_setUnitAIType(UNITAI_DEFENSE_AIR);
@@ -7416,8 +7534,7 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		}
 	}
 
-	if (kPromotion.isImmuneToFirstStrikes()
-		&& !immuneToFirstStrikes()) {
+	if (kPromotion.isImmuneToFirstStrikes() && !immuneToFirstStrikes()) {
 		if ((AI_getUnitAIType() == UNITAI_ATTACK_CITY)) {
 			iValue += 12;
 		} else if ((AI_getUnitAIType() == UNITAI_ATTACK)) {
@@ -7427,7 +7544,37 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		}
 	}
 
-	int iTemp = kPromotion.getVisibilityChange();
+	int iTemp = kPromotion.getEnslaveCountChange();
+	if (isSlaver() && iTemp > 0) {
+		// This line of promotions should be a priority for slavers
+		iValue += (iTemp * 50);
+	}
+
+	// Generic see invisibles
+	iTemp = kPromotion.getNumSeeInvisibleTypes();
+	if ((AI_getUnitAIType() == UNITAI_RESERVE) ||
+		(AI_getUnitAIType() == UNITAI_COUNTER) ||
+		(AI_getUnitAIType() == UNITAI_CITY_DEFENSE) ||
+		(AI_getUnitAIType() == UNITAI_CITY_COUNTER) ||
+		(AI_getUnitAIType() == UNITAI_CITY_SPECIAL) ||
+		(AI_getUnitAIType() == UNITAI_ATTACK)) {
+		iValue += (iTemp * 4);
+	} else {
+		iValue += (iTemp * 2);
+	}
+
+	// Anti-slavery specific value if we are in our cultural borders, remember being hit by slavers in this area and don't have slaver visibility
+	InvisibleTypes eSlaverInvisibility = (InvisibleTypes)GC.getInfoTypeForString("INVISIBLE_SLAVER");
+	for (int iI = 0; iI < kPromotion.getNumSeeInvisibleTypes(); ++iI) {
+		if (kPromotion.getSeeInvisibleType(iI) == eSlaverInvisibility) {
+			if ((AI_getUnitAIType() == UNITAI_CITY_DEFENSE || AI_getUnitAIType() == UNITAI_ATTACK)
+				&& (area()->getSlaveMemoryPerPlayer(getOwnerINLINE()) > 0 && plot()->getOwnerINLINE() == getOwnerINLINE() && plot()->getInvisibleVisibilityCount(getTeam(), eSlaverInvisibility) < 1)) {
+				iValue += 50;
+			}
+		}
+	}
+
+	iTemp = kPromotion.getVisibilityChange();
 	if ((AI_getUnitAIType() == UNITAI_EXPLORE_SEA) ||
 		(AI_getUnitAIType() == UNITAI_EXPLORE)) {
 		iValue += (iTemp * 40);
@@ -7506,6 +7653,7 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		(AI_getUnitAIType() == UNITAI_CITY_DEFENSE) ||
 		(AI_getUnitAIType() == UNITAI_CITY_COUNTER) ||
 		(AI_getUnitAIType() == UNITAI_CITY_SPECIAL) ||
+		(AI_getUnitAIType() == UNITAI_SLAVER) ||
 		(AI_getUnitAIType() == UNITAI_ATTACK)) {
 		iTemp *= 8;
 		int iExtra = getExtraChanceFirstStrikes() + getExtraFirstStrikes() * 2;
@@ -7558,6 +7706,7 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 
 	iTemp = kPromotion.getEnemyHealChange();
 	if ((AI_getUnitAIType() == UNITAI_ATTACK) ||
+		(AI_getUnitAIType() == UNITAI_SLAVER) ||
 		(AI_getUnitAIType() == UNITAI_PILLAGE) ||
 		(AI_getUnitAIType() == UNITAI_ATTACK_SEA) ||
 		(AI_getUnitAIType() == UNITAI_PARADROP) ||
@@ -7625,6 +7774,7 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 
 	iTemp = kPromotion.getCombatPercent();
 	if ((AI_getUnitAIType() == UNITAI_ATTACK) ||
+		(AI_getUnitAIType() == UNITAI_SLAVER) ||
 		(AI_getUnitAIType() == UNITAI_COUNTER) ||
 		(AI_getUnitAIType() == UNITAI_CITY_COUNTER) ||
 		(AI_getUnitAIType() == UNITAI_ATTACK_SEA) ||
@@ -7671,6 +7821,7 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		iTemp *= (100 + iExtra * 2);
 		iTemp /= 100;
 		if ((AI_getUnitAIType() == UNITAI_ATTACK) ||
+			(AI_getUnitAIType() == UNITAI_SLAVER) ||
 			(AI_getUnitAIType() == UNITAI_COUNTER)) {
 			iValue += (iTemp / 4);
 		} else {
@@ -7736,6 +7887,7 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 
 	iTemp = kPromotion.getExperiencePercent();
 	if ((AI_getUnitAIType() == UNITAI_ATTACK) ||
+		(AI_getUnitAIType() == UNITAI_SLAVER) ||
 		(AI_getUnitAIType() == UNITAI_ATTACK_SEA) ||
 		(AI_getUnitAIType() == UNITAI_PIRATE_SEA) ||
 		(AI_getUnitAIType() == UNITAI_RESERVE_SEA) ||
@@ -7754,27 +7906,26 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		iValue += (iTemp / 64);
 	}
 
-	for (int iI = 0; iI < GC.getNumTerrainInfos(); iI++) {
-		iTemp = kPromotion.getTerrainAttackPercent(iI);
+	for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
+		iTemp = kPromotion.getTerrainAttackPercent(eTerrain);
 		if (iTemp != 0) {
-			int iExtra = getExtraTerrainAttackPercent((TerrainTypes)iI);
+			int iExtra = getExtraTerrainAttackPercent(eTerrain);
 			iTemp *= (100 + iExtra * 2);
 			iTemp /= 100;
-			if ((AI_getUnitAIType() == UNITAI_ATTACK) ||
-				(AI_getUnitAIType() == UNITAI_COUNTER)) {
+			if (AI_getUnitAIType() == UNITAI_ATTACK || AI_getUnitAIType() == UNITAI_COUNTER || AI_getUnitAIType() == UNITAI_SLAVER) {
 				iValue += (iTemp / 4);
 			} else {
 				iValue += (iTemp / 16);
 			}
 		}
 
-		iTemp = kPromotion.getTerrainDefensePercent(iI);
+		iTemp = kPromotion.getTerrainDefensePercent(eTerrain);
 		if (iTemp != 0) {
-			int iExtra = getExtraTerrainDefensePercent((TerrainTypes)iI);
+			int iExtra = getExtraTerrainDefensePercent(eTerrain);
 			iTemp *= (100 + iExtra);
 			iTemp /= 100;
 			if (AI_getUnitAIType() == UNITAI_COUNTER) {
-				if (plot()->getTerrainType() == (TerrainTypes)iI) {
+				if (plot()->getTerrainType() == eTerrain) {
 					iValue += (iTemp / 4);
 				} else {
 					iValue++;
@@ -7784,10 +7935,10 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 			}
 		}
 
-		if (kPromotion.getTerrainDoubleMove(iI)) {
+		if (kPromotion.getTerrainDoubleMove(eTerrain)) {
 			if (AI_getUnitAIType() == UNITAI_EXPLORE) {
 				iValue += 20;
-			} else if ((AI_getUnitAIType() == UNITAI_ATTACK) || (AI_getUnitAIType() == UNITAI_PILLAGE)) {
+			} else if (AI_getUnitAIType() == UNITAI_ATTACK || AI_getUnitAIType() == UNITAI_PILLAGE) {
 				iValue += 10;
 			} else {
 				iValue += 1;
@@ -7795,29 +7946,28 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		}
 	}
 
-	for (int iI = 0; iI < GC.getNumFeatureInfos(); iI++) {
-		iTemp = kPromotion.getFeatureAttackPercent(iI);
+	for (FeatureTypes eFeature = (FeatureTypes)0; eFeature < GC.getNumFeatureInfos(); eFeature = (FeatureTypes)(eFeature + 1)) {
+		iTemp = kPromotion.getFeatureAttackPercent(eFeature);
 		if (iTemp != 0) {
-			int iExtra = getExtraFeatureAttackPercent((FeatureTypes)iI);
+			int iExtra = getExtraFeatureAttackPercent(eFeature);
 			iTemp *= (100 + iExtra * 2);
 			iTemp /= 100;
-			if ((AI_getUnitAIType() == UNITAI_ATTACK) ||
-				(AI_getUnitAIType() == UNITAI_COUNTER)) {
+			if (AI_getUnitAIType() == UNITAI_ATTACK || AI_getUnitAIType() == UNITAI_SLAVER || AI_getUnitAIType() == UNITAI_COUNTER) {
 				iValue += (iTemp / 4);
 			} else {
 				iValue += (iTemp / 16);
 			}
 		}
 
-		iTemp = kPromotion.getFeatureDefensePercent(iI);
+		iTemp = kPromotion.getFeatureDefensePercent(eFeature);
 		if (iTemp != 0) {
-			int iExtra = getExtraFeatureDefensePercent((FeatureTypes)iI);
+			int iExtra = getExtraFeatureDefensePercent(eFeature);
 			iTemp *= (100 + iExtra * 2);
 			iTemp /= 100;
 
 			if (!noDefensiveBonus()) {
 				if (AI_getUnitAIType() == UNITAI_COUNTER) {
-					if (plot()->getFeatureType() == (FeatureTypes)iI) {
+					if (plot()->getFeatureType() == eFeature) {
 						iValue += (iTemp / 4);
 					} else {
 						iValue++;
@@ -7828,10 +7978,10 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 			}
 		}
 
-		if (kPromotion.getFeatureDoubleMove(iI)) {
+		if (kPromotion.getFeatureDoubleMove(eFeature)) {
 			if (AI_getUnitAIType() == UNITAI_EXPLORE) {
 				iValue += 20;
-			} else if ((AI_getUnitAIType() == UNITAI_ATTACK) || (AI_getUnitAIType() == UNITAI_PILLAGE)) {
+			} else if (AI_getUnitAIType() == UNITAI_ATTACK || AI_getUnitAIType() == UNITAI_PILLAGE) {
 				iValue += 10;
 			} else {
 				iValue += 1;
@@ -7842,19 +7992,19 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 	int iOtherCombat = 0;
 	int iSameCombat = 0;
 
-	for (int iI = 0; iI < GC.getNumUnitCombatInfos(); iI++) {
-		if ((UnitCombatTypes)iI == getUnitCombatType()) {
-			iSameCombat += unitCombatModifier((UnitCombatTypes)iI);
+	for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+		if (eUnitCombat == getUnitCombatType()) {
+			iSameCombat += unitCombatModifier(eUnitCombat);
 		} else {
-			iOtherCombat += unitCombatModifier((UnitCombatTypes)iI);
+			iOtherCombat += unitCombatModifier(eUnitCombat);
 		}
 	}
 
-	for (int iI = 0; iI < GC.getNumUnitCombatInfos(); iI++) {
-		iTemp = kPromotion.getUnitCombatModifierPercent(iI);
+	for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+		iTemp = kPromotion.getUnitCombatModifierPercent(eUnitCombat);
 		int iCombatWeight = 0;
 		//Fighting their own kind
-		if ((UnitCombatTypes)iI == getUnitCombatType()) {
+		if (eUnitCombat == getUnitCombatType()) {
 			if (iSameCombat >= iOtherCombat) {
 				iCombatWeight = 70;//"axeman takes formation"
 			} else {
@@ -7862,20 +8012,19 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 			}
 		} else {
 			//fighting other kinds
-			if (unitCombatModifier((UnitCombatTypes)iI) > 10) {
+			if (unitCombatModifier(eUnitCombat) > 10) {
 				iCombatWeight = 70;//"spearman takes formation"
 			} else {
 				iCombatWeight = 30;
 			}
 		}
 
-		iCombatWeight *= GET_PLAYER(getOwnerINLINE()).AI_getUnitCombatWeight((UnitCombatTypes)iI);
+		iCombatWeight *= GET_PLAYER(getOwnerINLINE()).AI_getUnitCombatWeight(eUnitCombat);
 		iCombatWeight /= 100;
 
-		if ((AI_getUnitAIType() == UNITAI_COUNTER) || (AI_getUnitAIType() == UNITAI_CITY_COUNTER)) {
+		if (AI_getUnitAIType() == UNITAI_COUNTER || AI_getUnitAIType() == UNITAI_CITY_COUNTER) {
 			iValue += (iTemp * iCombatWeight) / 50;
-		} else if ((AI_getUnitAIType() == UNITAI_ATTACK) ||
-			(AI_getUnitAIType() == UNITAI_RESERVE)) {
+		} else if (AI_getUnitAIType() == UNITAI_ATTACK || AI_getUnitAIType() == UNITAI_RESERVE) {
 			iValue += (iTemp * iCombatWeight) / 100;
 		} else {
 			iValue += (iTemp * iCombatWeight) / 200;
@@ -7887,8 +8036,7 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		iTemp = kPromotion.getDomainModifierPercent(iI);
 		if (AI_getUnitAIType() == UNITAI_COUNTER) {
 			iValue += (iTemp * 1);
-		} else if ((AI_getUnitAIType() == UNITAI_ATTACK) ||
-			(AI_getUnitAIType() == UNITAI_RESERVE)) {
+		} else if (AI_getUnitAIType() == UNITAI_ATTACK || AI_getUnitAIType() == UNITAI_SLAVER || AI_getUnitAIType() == UNITAI_RESERVE) {
 			iValue += (iTemp / 2);
 		} else {
 			iValue += (iTemp / 8);
@@ -7904,7 +8052,7 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 
 
 // Returns true if a mission was pushed...
-bool CvUnitAI::AI_shadow(UnitAITypes eUnitAI, int iMax, int iMaxRatio, bool bWithCargoOnly, bool bOutsideCityOnly, int iMaxPath) {
+bool CvUnitAI::AI_shadow(UnitAITypes eUnitAI, int iMax, int iMaxRatio, bool bWithCargoOnly, bool bOutsideCityOnly, int iMaxPath, bool bIgnoreMoves) {
 	PROFILE_FUNC();
 
 	int iBestValue = 0;
@@ -7917,15 +8065,14 @@ bool CvUnitAI::AI_shadow(UnitAITypes eUnitAI, int iMax, int iMaxRatio, bool bWit
 				if (pLoopUnit->isGroupHead()) {
 					if (!(pLoopUnit->isCargo())) {
 						if (pLoopUnit->AI_getUnitAIType() == eUnitAI) {
-							if (pLoopUnit->getGroup()->baseMoves() <= getGroup()->baseMoves()) {
+							if (bIgnoreMoves || pLoopUnit->getGroup()->baseMoves() <= getGroup()->baseMoves()) {
 								if (!bWithCargoOnly || pLoopUnit->getGroup()->hasCargo()) {
 									if (bOutsideCityOnly && pLoopUnit->plot()->isCity()) {
 										continue;
 									}
 
 									int iShadowerCount = GET_PLAYER(getOwnerINLINE()).AI_unitTargetMissionAIs(pLoopUnit, MISSIONAI_SHADOW, getGroup());
-									if (((-1 == iMax) || (iShadowerCount < iMax)) &&
-										((-1 == iMaxRatio) || (iShadowerCount == 0) || (((100 * iShadowerCount) / std::max(1, pLoopUnit->getGroup()->countNumUnitAIType(eUnitAI))) <= iMaxRatio))) {
+									if ((-1 == iMax || iShadowerCount < iMax) && (-1 == iMaxRatio || iShadowerCount == 0 || (100 * iShadowerCount) / std::max(1, pLoopUnit->getGroup()->countNumUnitAIType(eUnitAI)) <= iMaxRatio)) {
 										if (!(pLoopUnit->plot()->isVisibleEnemyUnit(this))) {
 											int iPathTurns;
 											if (generatePath(pLoopUnit->plot(), 0, true, &iPathTurns, iMaxPath)) {
@@ -10239,7 +10386,7 @@ bool CvUnitAI::AI_patrol() {
 							if ((pAdjacentPlot->getFeatureType() != NO_FEATURE && getUnitInfo().getFeatureNative(pAdjacentPlot->getFeatureType())) || getUnitInfo().getTerrainNative(pAdjacentPlot->getTerrainType())) {
 								iValue += 20000;
 							}
-						} else if (isBarbarian() || canEnslave()) {
+						} else if (isBarbarian() || isHiddenNationality()) {
 							if (!pAdjacentPlot->isOwned()) {
 								iValue += 20000;
 							}
@@ -16833,7 +16980,9 @@ bool CvUnitAI::AI_followBombard() {
 bool CvUnitAI::AI_potentialEnemy(TeamTypes eTeam, const CvPlot* pPlot) {
 	PROFILE_FUNC();
 
-	if (getGroup()->AI_isDeclareWar(pPlot)) {
+	if (isHiddenNationality()) {
+		return true;
+	} else if (getGroup()->AI_isDeclareWar(pPlot)) {
 		return isPotentialEnemy(eTeam, pPlot);
 	} else {
 		return isEnemy(eTeam, pPlot);
@@ -18414,8 +18563,8 @@ void CvUnitAI::AI_autoAirStrike() {
 	CvArea* pArea = area();
 	if (getOptionBOOL("Automations__AirCanDefend")) {
 		CvPlayerAI& kPlayer = GET_PLAYER(getOwnerINLINE());
-		int iAttackValue = kPlayer.AI_unitValue(getUnitType(), UNITAI_ATTACK_AIR, pArea);
-		int iDefenseValue = kPlayer.AI_unitValue(getUnitType(), UNITAI_DEFENSE_AIR, pArea);
+		int iAttackValue = kPlayer.AI_unitValue(this, UNITAI_ATTACK_AIR, pArea);
+		int iDefenseValue = kPlayer.AI_unitValue(this, UNITAI_DEFENSE_AIR, pArea);
 		if (iDefenseValue > iAttackValue) {
 			if (kPlayer.AI_bestAreaUnitAIValue(UNITAI_ATTACK_AIR, pArea) > iAttackValue) {
 				AI_setUnitAIType(UNITAI_DEFENSE_AIR);
@@ -18618,6 +18767,125 @@ bool CvUnitAI::AI_defensiveAirStrike() {
 	if (pBestPlot != NULL) {
 		FAssert(!atPlot(pBestPlot));
 		getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE());
+		return true;
+	}
+
+	return false;
+}
+
+bool CvUnitAI::AI_becomeSlaver() {
+	CvPlayerAI& kPlayer = GET_PLAYER(getOwnerINLINE());
+	CvArea* pArea = area();
+	bool bLandWar = kPlayer.AI_isLandWar(pArea);
+	bool bAssaultAssist = (pArea->getAreaAIType(getTeam()) == AREAAI_ASSAULT_ASSIST);
+	bool bAssault = bAssaultAssist || (pArea->getAreaAIType(getTeam()) == AREAAI_ASSAULT) || (pArea->getAreaAIType(getTeam()) == AREAAI_ASSAULT_MASSING);
+
+	if (kPlayer.AI_totalAreaUnitAIs(pArea, UNITAI_SLAVER) < (kPlayer.AI_neededSlavers(pArea, (bLandWar || bAssault)))) {
+		getGroup()->pushMission(MISSION_BECOME_SLAVER);
+		return true;
+	}
+
+	return false;
+
+}
+
+// Returns true if a mission was pushed...
+bool CvUnitAI::AI_slaverExplore(int iRange) {
+	PROFILE_FUNC();
+
+	int iSearchRange = AI_searchRange(iRange);
+
+	int iBestValue = 0;
+	CvPlot* pBestPlot = NULL;
+	CvPlot* pBestExplorePlot = NULL;
+
+	int iImpassableCount = GET_PLAYER(getOwnerINLINE()).AI_unitImpassableCount(getUnitType());
+
+	const CvTeam& kTeam = GET_TEAM(getTeam()); // K-Mod
+
+	for (int iDX = -(iSearchRange); iDX <= iSearchRange; iDX++) {
+		for (int iDY = -(iSearchRange); iDY <= iSearchRange; iDY++) {
+			PROFILE("AI_slaverExplore 1");
+
+			CvPlot* pLoopPlot = plotXY(getX_INLINE(), getY_INLINE(), iDX, iDY);
+
+			if (pLoopPlot != NULL) {
+				if (AI_plotValid(pLoopPlot)) {
+					int iValue = 0;
+
+					if (pLoopPlot->isRevealedGoody(getTeam())) {
+						iValue += 100000;
+					}
+
+					if (!(pLoopPlot->isRevealed(getTeam(), false))) {
+						iValue += 10000;
+					}
+
+					// Try to meet teams that we have seen through map trading
+					if (pLoopPlot->getRevealedOwner(kTeam.getID(), false) != NO_PLAYER && !kTeam.isHasMet(pLoopPlot->getRevealedTeam(kTeam.getID(), false)))
+						iValue += 1000;
+
+					for (DirectionTypes eDirection = (DirectionTypes)0; eDirection < NUM_DIRECTION_TYPES; eDirection = (DirectionTypes)(eDirection + 1)) {
+						PROFILE("AI_exploreRange 2");
+
+						CvPlot* pAdjacentPlot = plotDirection(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), eDirection);
+
+						if (pAdjacentPlot != NULL) {
+							if (!(pAdjacentPlot->isRevealed(getTeam(), false))) {
+								iValue += 1000;
+							}
+						}
+					}
+
+					// Enemy plots gets priority
+					if (pLoopPlot->isOwned()) {
+						if (atWar(GET_PLAYER(pLoopPlot->getOwnerINLINE()).getTeam(), getTeam())) {
+							iValue += 20000;
+						} else if (pLoopPlot->getOwnerINLINE() != getOwnerINLINE()) {
+							iValue += 15000;
+						}
+					}
+
+					if (iValue > 0) {
+						if (!(pLoopPlot->isVisibleEnemyUnit(this))) {
+							PROFILE("AI_exploreRange 3");
+
+							int iPathTurns;
+							if (!atPlot(pLoopPlot) && generatePath(pLoopPlot, MOVE_NO_ENEMY_TERRITORY, true, &iPathTurns, iRange)) {
+								if (iPathTurns <= iRange) {
+									iValue += GC.getGameINLINE().getSorenRandNum(10000, "AI Explore");
+
+									if (pLoopPlot->isAdjacentToLand()) {
+										iValue += 10000;
+									}
+
+									if (pLoopPlot->isOwned()) {
+										iValue += 5000;
+									}
+
+									if (iValue > iBestValue) {
+										iBestValue = iValue;
+										if (getDomainType() == DOMAIN_LAND) {
+											pBestPlot = getPathEndTurnPlot();
+										} else {
+											pBestPlot = pLoopPlot;
+										}
+										pBestExplorePlot = pLoopPlot;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	if ((pBestPlot != NULL) && (pBestExplorePlot != NULL)) {
+		PROFILE("AI_exploreRange 5");
+
+		FAssert(!atPlot(pBestPlot));
+		getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), MOVE_NO_ENEMY_TERRITORY, false, false, MISSIONAI_EXPLORE, pBestExplorePlot);
 		return true;
 	}
 

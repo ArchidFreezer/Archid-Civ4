@@ -7,6 +7,7 @@
 
 #include "CvDLLEntity.h"
 #include "CvSpy.h"
+#include "CvUnitMeshGroups.h"
 
 #pragma warning( disable: 4251 )		// needs to have dll-interface to be used by clients of class
 
@@ -181,23 +182,39 @@ public:
 
 	CvCity* getClosestSafeCity() const;
 
+	// Slaver Units
+	bool canBecomeSlaver() const;
+	bool isAlwaysHostile() const;
+	bool isFixedAI() const;
+	bool isHiddenNationality() const;
+	void becomeSlaver();
+	void setAlwaysHostile(bool bHostile);
+	void setFixedAI(bool bFixed);
+	void setHiddenNationality(bool bHidden);
+	void setInvisibleType(InvisibleTypes eInvisible);
+	void setUnitCombatType(UnitCombatTypes eCombat);
+
 	// Slavery
-	int getEnslaveCountExtra() const;
 	int getMaxSlaves() const;
 	int getSlaveControlCount() const;
 	int getSlaveCount(SpecialistTypes eSlaveSpecialist) const;
 	int getSlaveCountTotal() const;
+	int getMeleeWaveSize() const;
+	int getRangedWaveSize() const;
 	bool canEnslave() const;													// Exposed to Python 
 	bool canSellSlave(const CvPlot* pPlot) const;
 	bool canWorkCity(const CvPlot* pPlot) const;
 	bool enslaveUnit(CvUnit* pWinner, CvUnit* pLoser);
 	bool isSlave() const;
+	bool isSlaver() const;
 	bool isWorldViewEnabled() const;
 	bool sellSlaves();
-	void changeEnslaveCountExtra(int iChange);
+	void changeMaxSlaves(int iChange);
 	void changeSlaveControlCount(int iChange);
 	void changeSlaveCount(SpecialistTypes eSlaveSpecialist, int iChange);
 	void checkWorldViewStatus();
+	void setMaxSlaves(int iValue);
+	void setSlaverGraphics();
 	void setSlaveSpecialistType(SpecialistTypes eSpecialistType);
 	SpecialistTypes getSlaveSpecialistType() const;
 	UnitTypes getSlaveUnit() const;
@@ -441,6 +458,8 @@ public:
 	InvisibleTypes getInvisibleType() const;										// Exposed to Python								
 	int getNumSeeInvisibleTypes() const;									// Exposed to Python
 	InvisibleTypes getSeeInvisibleType(int i) const;									// Exposed to Python
+	void changeSeeInvisibleCount(InvisibleTypes eInvisibleType, int iChange);
+	bool isSeeInvisible(InvisibleTypes eInvisibleType) const;
 
 	int flavorValue(FlavorTypes eFlavor) const;														// Exposed to Python		
 
@@ -1001,7 +1020,7 @@ protected:
 	int m_iRangeUnboundCount;
 	int m_iTerritoryUnboundCount;
 	int m_iCanMovePeaksCount;
-	int m_iEnslaveCountExtra;
+	int m_iMaxSlaves;
 	int m_iSlaveSpecialistType;
 	int m_iSlaveControlCount;
 	int m_iLoyaltyCount;
@@ -1021,14 +1040,20 @@ protected:
 	bool m_bAutoPromoting;
 	bool m_bAutoUpgrading;
 	bool m_bImmobile;
+	bool m_bFixedAI;
+	bool m_bAlwaysHostile;
+	bool m_bHiddenNationality;
 
+	InvisibleTypes m_eInvisible;
 	PlayerTypes m_eOwner;
 	PlayerTypes m_eCapturingPlayer;
 	TechTypes m_eDesiredDiscoveryTech;
+	UnitCombatTypes m_eUnitCombatType;
 	UnitTypes m_eUnitType;
 	UnitTypes m_eLeaderUnitType;
 	CvUnitInfo* m_pUnitInfo;
 	CvSpy* m_pSpy;
+	CvUnitMeshGroups* m_pCustomUnitMeshGroup;
 
 	IDInfo m_combatUnit;
 	IDInfo m_transportUnit;
@@ -1049,6 +1074,7 @@ protected:
 	int* m_paiExtraFeatureDefensePercent;
 	int* m_paiExtraUnitCombatModifier;
 	int* m_paiEnslavedCount;
+	int* m_paiSeeInvisibleCount;
 
 	std::map<BuildTypes, std::map< FeatureTypes, int> > m_mmBuildLeavesFeatures;
 

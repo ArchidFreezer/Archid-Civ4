@@ -8361,6 +8361,13 @@ int CvPlayerAI::AI_unitImpassableCount(UnitTypes eUnit) const {
 	return iCount;
 }
 
+int CvPlayerAI::AI_unitValue(const CvUnit* pUnit, UnitAITypes eUnitAI, CvArea* pArea) const {
+	if (pUnit->isFixedAI() && pUnit->AI_getUnitAIType() != eUnitAI)
+		return 0;
+	else
+		return AI_unitValue(pUnit->getUnitType(), eUnitAI, pArea);
+}
+
 // K-Mod note: currently, unit promotions are considered in CvCityAI::AI_bestUnitAI rather than here.
 int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea) const {
 	PROFILE_FUNC();
@@ -8410,12 +8417,6 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 					bValid = true;
 					break;
 				}
-			}
-			break;
-
-		case UNITAI_SLAVER:
-			if (kUnit.getEnslaveCount() > 0) {
-				bValid = true;
 			}
 			break;
 
@@ -8725,6 +8726,7 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			break;
 
 		case UNITAI_ATTACK_CITY_LEMMING:
+		case UNITAI_SLAVER:
 			bValid = false;
 			break;
 
@@ -8769,27 +8771,6 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			}
 		}
 		iValue += (kUnit.getMoves() * 100);
-		break;
-
-	case UNITAI_SLAVER:
-
-		iValue += iCombatValue;
-
-		iValue += (kUnit.getEnslaveCount() * 25);
-		if (kUnit.getCombatLimit() < 100) {
-			iValue -= (iCombatValue * (125 - kUnit.getCombatLimit())) / 100;
-		}
-
-		if (kUnit.getMoves() > 1) {
-			// (the bts / bbai bonus was too high)
-			int iFastMoverMultiplier = AI_isDoStrategy(AI_STRATEGY_FASTMOVERS) ? 6 : 1;
-			iValue += iCombatValue * iFastMoverMultiplier * kUnit.getMoves() / 8;
-		}
-
-		if (kUnit.isNoCapture()) {
-			iValue -= iCombatValue * 30 / 100;
-		}
-
 		break;
 
 	case UNITAI_ATTACK:
@@ -16803,7 +16784,7 @@ void CvPlayerAI::AI_convertUnitAITypesForCrush() {
 		}
 
 		if (bValid) {
-			int iValue = AI_unitValue(pLoopUnit->getUnitType(), UNITAI_ATTACK_CITY, pLoopUnit->area());
+			int iValue = AI_unitValue(pLoopUnit, UNITAI_ATTACK_CITY, pLoopUnit->area());
 			unit_list.push_back(std::make_pair(iValue, pLoopUnit->getID()));
 		}
 	}
@@ -18808,7 +18789,7 @@ int CvPlayerAI::AI_militaryUnitTradeVal(CvUnit* pUnit) const {
 
 		iValue = 200;
 	}
-	iValue += AI_unitValue(eUnit, (UnitAITypes)GC.getUnitInfo(eUnit).getDefaultUnitAIType(), getCapitalCity()->area());
+	iValue += AI_unitValue(pUnit, (UnitAITypes)GC.getUnitInfo(eUnit).getDefaultUnitAIType(), getCapitalCity()->area());
 
 	return iValue;
 }

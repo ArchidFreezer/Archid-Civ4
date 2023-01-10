@@ -37,6 +37,10 @@ public:
 	void setBarbSpawnImprovementsDone(bool bValue);
 	bool getBarbSpawnImprovementsDone() const;
 
+	bool isSlaverUnitMeshGroupExists(UnitTypes eBaseUnit) const;
+	void addSlaverUnitMeshGroup(UnitTypes eBaseUnit);
+	CvUnitMeshGroups* getSlaverUnitMeshGroup(UnitTypes eBaseUnit) const;
+
 	DllExport void setInitialItems();
 	DllExport void regenerateMap();
 
@@ -665,6 +669,7 @@ protected:
 	std::vector<PlotExtraCost> m_aPlotExtraCosts;
 	stdext::hash_map<VoteSourceTypes, ReligionTypes> m_mapVoteSourceReligions;
 	std::vector<EventTriggerTypes> m_aeInactiveTriggers;
+	std::map<UnitTypes, CvUnitMeshGroups*> m_mSlaverMeshes;
 
 	// CACHE: cache frequently used values
 	int		m_iShrineBuildingCount;

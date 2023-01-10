@@ -218,7 +218,9 @@ inline bool isCycleGroup(const CvSelectionGroup* pGroup) { return pGroup->getNum
 bool isBeforeUnitCycle(const CvUnit* pFirstUnit, const CvUnit* pSecondUnit);
 bool isBeforeGroupOnPlot(const CvSelectionGroup* pFirstGroup, const CvSelectionGroup* pSecondGroup); // K-Mod
 int groupCycleDistance(const CvSelectionGroup* pFirstGroup, const CvSelectionGroup* pSecondGroup); // K-Mod
-bool isPromotionValid(PromotionTypes ePromotion, UnitTypes eUnit, bool bLeader);	// Exposed to Python
+bool isPromotionValid(PromotionTypes ePromotion, UnitTypes eUnit, bool bLeader, bool bCheckUnitCombat = true);	// Exposed to Python
+bool isPromotionValid(PromotionTypes ePromotion, const CvUnit* pUnit, bool bLeader);	// Exposed to Python
+bool isPromotionValid(PromotionTypes ePromotion, UnitCombatTypes eUnitCombat);
 
 int getPopulationAsset(int iPopulation);								// Exposed to Python
 int getLandPlotsAsset(int iLandPlots);									// Exposed to Python

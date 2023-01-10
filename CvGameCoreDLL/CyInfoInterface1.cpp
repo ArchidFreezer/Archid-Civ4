@@ -309,7 +309,6 @@ void CyInfoPythonInterface1() {
 		.def("getNumPrereqOrBonuses", &CvUnitInfo::getNumPrereqOrBonuses, "int ()")
 		.def("getNumPrereqWorldViews", &CvUnitInfo::getNumPrereqWorldViews, "int ()")
 		.def("getSlaveSpecialistType", &CvUnitInfo::getSlaveSpecialistType, "int ()")
-		.def("getEnslaveCount", &CvUnitInfo::getEnslaveCount, "int ()")
 
 		.def("isAnimal", &CvUnitInfo::isAnimal, "bool ()")
 		.def("isFoodProduction", &CvUnitInfo::isFoodProduction, "bool ()")

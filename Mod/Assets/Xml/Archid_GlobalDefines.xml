@@ -621,5 +621,18 @@
 		<!-- Higher value: more influence from stationing troops-->
 		<fDefineFloatVal>2.0</fDefineFloatVal>
 	</Define>
+<!-- Slaver unit art definition -->
+	<Define>
+		<DefineName>SLAVER_EARLY_UNIT_ART_DEF</DefineName>
+		<DefineTextVal>ART_DEF_UNIT_SLAVER</DefineTextVal>
+	</Define>
+	<Define>
+		<DefineName>SLAVER_MIDDLE_UNIT_ART_DEF</DefineName>
+		<DefineTextVal>ART_DEF_UNIT_SLAVER</DefineTextVal>
+	</Define>
+	<Define>
+		<DefineName>SLAVER_LATE_UNIT_ART_DEF</DefineName>
+		<DefineTextVal>ART_DEF_UNIT_SLAVER</DefineTextVal>
+	</Define>
 
 </Civ4Defines>

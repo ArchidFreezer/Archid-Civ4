@@ -328,6 +328,11 @@
 		<English>Steal Tech III</English>
 	</TEXT>
 
+	<TEXT> <!-- Slaver Hunter -->
+		<Tag>TXT_KEY_PROMOTION_SLAVER_HUNTER</Tag>
+		<English>Slaver Hunter</English>
+	</TEXT>
+
 <!-- +++ Work Rate +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_WORKRATE1</Tag>

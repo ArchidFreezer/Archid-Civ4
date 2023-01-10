@@ -550,25 +550,6 @@
 		</UnitClassInfo>
 
 <!-- ************ -->
-<!-- Slavery      -->
-<!-- ************ -->
-		<UnitClassInfo> <!-- Slaver -->
-			<Type>UNITCLASS_SLAVER</Type>
-			<Description>TXT_KEY_UNIT_SLAVER</Description>
-			<DefaultUnit>UNIT_SLAVER</DefaultUnit>
-		</UnitClassInfo>
-		<UnitClassInfo> <!-- Slave Catcher -->
-			<Type>UNITCLASS_SLAVE_CATCHER</Type>
-			<Description>TXT_KEY_UNIT_SLAVE_CATCHER</Description>
-			<DefaultUnit>UNIT_SLAVE_CATCHER</DefaultUnit>
-		</UnitClassInfo>
-		<UnitClassInfo> <!-- People Trafficker -->
-			<Type>UNITCLASS_PEOPLE_TRAFFICKER</Type>
-			<Description>TXT_KEY_UNIT_PEOPLE_TRAFFICKER</Description>
-			<DefaultUnit>UNIT_PEOPLE_TRAFFICKER</DefaultUnit>
-		</UnitClassInfo>
-
-<!-- ************ -->
 <!-- Tracked      -->
 <!-- ************ -->
 		<UnitClassInfo> <!-- Tank -->

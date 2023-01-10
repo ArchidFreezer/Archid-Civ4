@@ -2045,9 +2045,8 @@ class CvMainInterface:
 					sButton = gc.getUnitCombatInfo(iCombatType).getButton()
 					screen.addDDSGFC("SelectedUnitCombat", sButton, 18, yResolution - 136, 21, 21, WidgetTypes.WIDGET_PEDIA_JUMP_TO_UNIT_COMBAT, iCombatType, 1 )
 					iSubCombatTypeIndex = 0
-					UnitInfo = gc.getUnitInfo(pHeadSelectedUnit.getUnitType())
 					for iSubCombatType in xrange(gc.getNumUnitCombatInfos()):
-						if UnitInfo.isSubCombatType(iSubCombatType) and iSubCombatTypeIndex < 10:
+						if pHeadSelectedUnit.isUnitCombatType(iSubCombatType) and iSubCombatType != iCombatType and iSubCombatTypeIndex < 10:
 							sButton = gc.getUnitCombatInfo(iSubCombatType).getButton()
 							screen.addDDSGFC("SelectedUnitSubCombat" + str(iSubCombatTypeIndex), sButton, 18 + 21 + (iSubCombatTypeIndex * 21), yResolution - 136, 21, 21, WidgetTypes.WIDGET_PEDIA_JUMP_TO_UNIT_COMBAT, iSubCombatType, 1 )
 							iSubCombatTypeIndex += 1

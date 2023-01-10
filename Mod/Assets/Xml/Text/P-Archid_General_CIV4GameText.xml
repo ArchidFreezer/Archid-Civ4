@@ -933,6 +933,10 @@
 		<Tag>TXT_KEY_CITY_SLAVE_PROPERTY_REVOLT</Tag>
 		<English>Slaves destroyed the %s2Building during their revolt in %s1_CityName.</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SLAVER_RENAME</Tag>
+		<English>Slaver</English>
+	</TEXT>
 <!-- Automations -->
 	<TEXT>
 		<Tag>TXT_KEY_ACTION_AUTOMATE_PROTECT</Tag>

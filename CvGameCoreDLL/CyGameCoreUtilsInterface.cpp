@@ -40,6 +40,7 @@ void CyGameCoreUtilsPythonInterface() {
 	python::def("getUnit", cyGetUnit, python::return_value_policy<python::manage_new_object>(), "CyUnit* (IDInfo unit)");
 
 	python::def("isPromotionValid", cyIsPromotionValid, "bool (int /*PromotionTypes*/ ePromotion, int /*UnitTypes*/ eUnit, bool bLeader)");
+	python::def("cyIsPromotionValidForUnit", cyIsPromotionValidForUnit, "bool (int /*PromotionTypes*/ ePromotion, CyUnit* pUnit, bool bLeader)");
 	python::def("getPopulationAsset", cyGetPopulationAsset, "int (int iPopulation)");
 	python::def("getLandPlotsAsset", cyGetLandPlotsAsset, "int (int iLandPlots)");
 	python::def("getPopulationPower", cyGetPopulationPower, "int (int iPopulation)");

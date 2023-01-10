@@ -358,6 +358,7 @@ void CvGame::uninit() {
 	m_aPlotExtraCosts.clear();
 	m_mapVoteSourceReligions.clear();
 	m_aeInactiveTriggers.clear();
+	m_mSlaverMeshes.clear();
 }
 
 
@@ -6556,11 +6557,24 @@ void CvGame::read(FDataStreamBase* pStream) {
 		}
 	}
 
+	{
+		int iSize;
+		m_mSlaverMeshes.clear();
+		pStream->Read(&iSize);
+		for (int i = 0; i < iSize; ++i) {
+			UnitTypes eUnitType;
+			pStream->Read((int*)&eUnitType);
+			CvUnitMeshGroups* kUnitMeshGroup = new CvUnitMeshGroups;
+			kUnitMeshGroup->read(pStream);
+			m_mSlaverMeshes.insert(std::make_pair(eUnitType, kUnitMeshGroup));
+		}
+	}
+
 	// Get the active player information from the initialization structure
 	if (!isGameMultiPlayer()) {
-		for (int iI = 0; iI < MAX_CIV_PLAYERS; iI++) {
-			if (GET_PLAYER((PlayerTypes)iI).isHuman()) {
-				setActivePlayer((PlayerTypes)iI);
+		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+			if (GET_PLAYER(ePlayer).isHuman()) {
+				setActivePlayer(ePlayer);
 				break;
 			}
 		}
@@ -6716,6 +6730,12 @@ void CvGame::write(FDataStreamBase* pStream) {
 	pStream->Write(m_aeInactiveTriggers.size());
 	for (std::vector<EventTriggerTypes>::iterator it = m_aeInactiveTriggers.begin(); it != m_aeInactiveTriggers.end(); ++it) {
 		pStream->Write(*it);
+	}
+
+	pStream->Write(m_mSlaverMeshes.size());
+	for (std::map<UnitTypes, CvUnitMeshGroups*>::iterator it = m_mSlaverMeshes.begin(); it != m_mSlaverMeshes.end(); ++it) {
+		pStream->Write(it->first);
+		((*it).second)->write(pStream);
 	}
 
 	pStream->Write(m_iShrineBuildingCount);
@@ -7709,4 +7729,27 @@ bool CvGame::getBarbSpawnImprovementsDone() const {
 
 void CvGame::setBarbSpawnImprovementsDone(bool bValue) {
 	m_bBarbSpawnImprovementsDone = bValue;
+}
+
+bool CvGame::isSlaverUnitMeshGroupExists(UnitTypes eBaseUnit) const {
+	std::map<UnitTypes, CvUnitMeshGroups*>::const_iterator it = m_mSlaverMeshes.find(eBaseUnit);
+	return it != m_mSlaverMeshes.end();
+}
+
+void CvGame::addSlaverUnitMeshGroup(UnitTypes eBaseUnit) {
+	if (isSlaverUnitMeshGroupExists(eBaseUnit))
+		return;
+
+	CvUnitMeshGroups* pUnitMesh = new CvUnitMeshGroups;
+	pUnitMesh->init(eBaseUnit);
+	pUnitMesh->addGroup(0, 1, GC.getSLAVER_EARLY_UNIT_ART_DEF(), GC.getSLAVER_MIDDLE_UNIT_ART_DEF(), GC.getSLAVER_LATE_UNIT_ART_DEF());
+	m_mSlaverMeshes.insert(std::make_pair(eBaseUnit, pUnitMesh));
+}
+
+CvUnitMeshGroups* CvGame::getSlaverUnitMeshGroup(UnitTypes eBaseUnit) const {
+	std::map<UnitTypes, CvUnitMeshGroups*>::const_iterator it = m_mSlaverMeshes.find(eBaseUnit);
+	if (it != m_mSlaverMeshes.end())
+		return it->second;
+	else
+		return NULL;
 }

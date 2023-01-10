@@ -1700,6 +1700,15 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
 }
 
+int CvPromotionInfo::getSeeInvisibleType(int i) const {
+	FAssert(i < (int)m_viSeeInvisibleTypes.size());
+	return m_viSeeInvisibleTypes[i];
+}
+
+int CvPromotionInfo::getNumSeeInvisibleTypes() const {
+	return (int)m_viSeeInvisibleTypes.size();
+}
+
 int CvPromotionInfo::getNumBuildLeaveFeatures() const {
 	return m_vpBuildLeaveFeatures.size();
 }
@@ -2248,6 +2257,13 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 		stream->Read(&iElement);
 		m_viPrereqOrPromotions.push_back(iElement);
 	}
+	stream->Read(&iNumElements);
+	m_viSeeInvisibleTypes.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viSeeInvisibleTypes.push_back(iElement);
+	}
+
 	int iElement2;
 	stream->Read(&iNumElements);
 	m_vpBuildLeaveFeatures.clear();
@@ -2370,6 +2386,11 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 		stream->Write(*it);
 	}
 
+	stream->Write(m_viSeeInvisibleTypes.size());
+	for (std::vector<int>::iterator it = m_viSeeInvisibleTypes.begin(); it != m_viSeeInvisibleTypes.end(); ++it) {
+		stream->Write(*it);
+	}
+
 	stream->Write(m_vpBuildLeaveFeatures.size());
 	for (std::vector<std::pair <int, int> >::iterator it = m_vpBuildLeaveFeatures.begin(); it != m_vpBuildLeaveFeatures.end(); ++it) {
 		stream->Write((*it).first);
@@ -2399,6 +2420,7 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "StateReligionPrereq");
 	m_iStateReligionPrereq = pXML->FindInInfoClass(szTextVal);
 
+	pXML->SetVectorInfo(m_viSeeInvisibleTypes, "SeeInvisibles");
 	pXML->GetChildXmlValByName(&m_bCityPrereq, "bCityPrereq");
 	pXML->GetChildXmlValByName(&m_iPromotionGroup, "iPromotionGroup");
 	pXML->GetChildXmlValByName(&m_bLeader, "bLeader");
@@ -3191,7 +3213,6 @@ CvUnitInfo::CvUnitInfo() :
 	m_iCommandType(NO_COMMAND),
 	m_iMinPopulation(0),
 	m_iObsoleteTech(NO_TECH),
-	m_iEnslaveCount(0),
 	m_iSlaveSpecialistType(NO_SPECIALIST),
 	m_eRangeType(UNITRANGE_RANGE),
 	m_eMinCultureLevel(NO_CULTURELEVEL),
@@ -3356,10 +3377,6 @@ int CvUnitInfo::getSlaveSpecialistType() const {
 	} else {
 		return m_iSlaveSpecialistType == NO_SPECIALIST ? GC.getDefineINT("SLAVERY_DEFAULT_SLAVE_SPECIALIST") : m_iSlaveSpecialistType;
 	}
-}
-
-int CvUnitInfo::getEnslaveCount() const {
-	return m_iEnslaveCount;
 }
 
 bool CvUnitInfo::isSlave() const {
@@ -4453,7 +4470,6 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iCommandType);
 	stream->Read(&m_iMinPopulation);
 	stream->Read(&m_iObsoleteTech);
-	stream->Read(&m_iEnslaveCount);
 	stream->Read(&m_iSlaveSpecialistType);
 
 	int iTemp;
@@ -4862,7 +4878,6 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iCommandType);
 	stream->Write(m_iMinPopulation);
 	stream->Write(m_iObsoleteTech);
-	stream->Write(m_iEnslaveCount);
 	stream->Write(m_iSlaveSpecialistType);
 
 	stream->Write(m_eRangeType);
@@ -5193,7 +5208,6 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(&m_iAIWeight, "iAIWeight");
 	pXML->GetChildXmlValByName(&m_iProductionCost, "iCost");
-	pXML->GetChildXmlValByName(&m_iEnslaveCount, "iEnslaveCount");
 	pXML->GetChildXmlValByName(&m_iHurryCostModifier, "iHurryCostModifier");
 	pXML->GetChildXmlValByName(&m_iAdvancedStartCost, "iAdvancedStartCost");
 	pXML->GetChildXmlValByName(&m_iAdvancedStartCostIncrease, "iAdvancedStartCostIncrease");

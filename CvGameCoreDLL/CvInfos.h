@@ -557,6 +557,7 @@ public:
 	int getSpyStealTreasuryChange() const;
 	int getWorkRateModifier() const;
 	int getNumBuildLeaveFeatures() const;
+	int getNumSeeInvisibleTypes() const;
 
 	bool isLeader() const;				// Exposed to Python
 	bool isBlitz() const;				// Exposed to Python
@@ -587,12 +588,15 @@ public:
 	int getNotCombatType(int i) const;
 	int getOrCombatType(int i) const;
 	int getPrereqOrPromotion(int i) const;
+	int getSeeInvisibleType(int i) const;
 
 	bool getTerrainDoubleMove(int i) const;				// Exposed to Python
 	bool getFeatureDoubleMove(int i) const;				// Exposed to Python
 	bool isNotCombatType(int i) const;
 	bool isOrCombatType(int i) const;
 	bool isPrereqOrPromotion(int i) const;
+
+	std::vector<int> m_viSeeInvisibleTypes;
 
 	std::pair<int, int> getBuildLeaveFeature(int i) const;
 
@@ -1011,7 +1015,6 @@ public:
 	int getNumPrereqAndTechs() const;
 	int getNumPrereqOrBonuses() const;				// Exposed to Python
 	int getSlaveSpecialistType() const;
-	int getEnslaveCount() const;
 	int getNumPrereqWorldViews() const;
 
 	bool isAnimal() const;				// Exposed to Python
@@ -1236,7 +1239,6 @@ protected:
 	int m_iLeaderPromotion;
 	int m_iMinPopulation;
 	int m_iObsoleteTech;
-	int m_iEnslaveCount;
 	int m_iSlaveSpecialistType;
 
 	bool m_bAnimal;

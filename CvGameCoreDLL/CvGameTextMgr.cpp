@@ -375,7 +375,7 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 	szTempBuffer.Format(SETCOLR L"%s" ENDCOLR, TEXT_COLOR("COLOR_UNIT_TEXT"), pUnit->getName().GetCString());
 	szString.append(szTempBuffer);
 
-	if (pUnit->getHomeCity() != NULL && !pUnit->getUnitInfo().isHiddenNationality()) {
+	if (pUnit->getHomeCity() != NULL && !pUnit->isHiddenNationality()) {
 		szTempBuffer.Format(SETCOLR L" (%s)" ENDCOLR, TEXT_COLOR("COLOR_HIGHLIGHT_TEXT"), pUnit->getHomeCity()->getName().GetCString());
 		szString.append(szTempBuffer);
 	}
@@ -495,7 +495,7 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 		}
 	}
 
-	if (pUnit->getOwnerINLINE() != GC.getGameINLINE().getActivePlayer() && !pUnit->isAnimal() && !pUnit->getUnitInfo().isHiddenNationality()) {
+	if (pUnit->getOwnerINLINE() != GC.getGameINLINE().getActivePlayer() && !pUnit->isAnimal() && !pUnit->isHiddenNationality()) {
 		szString.append(L", ");
 		szTempBuffer.Format(SETCOLR L"%s" ENDCOLR, GET_PLAYER(pUnit->getOwnerINLINE()).getPlayerTextColorR(), GET_PLAYER(pUnit->getOwnerINLINE()).getPlayerTextColorG(), GET_PLAYER(pUnit->getOwnerINLINE()).getPlayerTextColorB(), GET_PLAYER(pUnit->getOwnerINLINE()).getPlayerTextColorA(), GET_PLAYER(pUnit->getOwnerINLINE()).getName());
 		szString.append(szTempBuffer);
@@ -555,10 +555,11 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 				szString.append(gDLL->getText("TXT_KEY_UNIT_INVISIBLE_MOST"));
 			}
 
-			for (int iInvisible = 0; iInvisible < pUnit->getNumSeeInvisibleTypes(); ++iInvisible) {
-				if (pUnit->getSeeInvisibleType(iInvisible) != pUnit->getInvisibleType()) {
+			for (int i = 0; i < pUnit->getNumSeeInvisibleTypes(); ++i) {
+				InvisibleTypes eLoopInvisible = pUnit->getSeeInvisibleType(i);
+				if (eLoopInvisible != NO_INVISIBLE && eLoopInvisible != pUnit->getInvisibleType()) {
 					szString.append(NEWLINE);
-					szString.append(gDLL->getText("TXT_KEY_UNIT_SEE_INVISIBLE", GC.getInvisibleInfo(pUnit->getSeeInvisibleType(iInvisible)).getTextKeyWide()));
+					szString.append(gDLL->getText("TXT_KEY_UNIT_SEE_INVISIBLE", GC.getInvisibleInfo(eLoopInvisible).getTextKeyWide()));
 				}
 			}
 
@@ -5790,6 +5791,14 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 
 	const CvPromotionInfo& kPromotion = GC.getPromotionInfo(ePromotion);
 
+	//Slaver Hunter Promotion
+	for (int iI = 0; iI < kPromotion.getNumSeeInvisibleTypes(); ++iI) {
+		if (kPromotion.getSeeInvisibleType(iI) != NO_INVISIBLE) {
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText("TXT_KEY_UNIT_SEE_INVISIBLE", GC.getInvisibleInfo((InvisibleTypes)kPromotion.getSeeInvisibleType(iI)).getTextKeyWide()));
+		}
+	}
+
 	if (kPromotion.getEnslaveCountChange() != 0) {
 		szBuffer.append(pcNewline);
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_ENSLAVE_TEXT", kPromotion.getEnslaveCountChange()));
@@ -7363,11 +7372,6 @@ void CvGameTextMgr::setBasicUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit,
 	if ((kUnit.getBaseTrade() > 0) || (kUnit.getTradeMultiplier() > 0)) {
 		szBuffer.append(NEWLINE);
 		szBuffer.append(gDLL->getText("TXT_KEY_UNIT_TRADE_MISSION"));
-	}
-
-	if (kUnit.getEnslaveCount() > 0) {
-		szBuffer.append(NEWLINE);
-		szBuffer.append(gDLL->getText("TXT_KEY_UNIT_ENSLAVER_COUNT", kUnit.getEnslaveCount()));
 	}
 
 	if (kUnit.isSlave()) {
