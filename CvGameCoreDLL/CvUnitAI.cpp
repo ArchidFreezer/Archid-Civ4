@@ -1749,7 +1749,17 @@ void CvUnitAI::AI_slaverMove() {
 		return;
 	}
 
+	// Lets add a bit more risk, but not too much
+	if (AI_enslave(3, 80)) {
+		return;
+	}
+
 	if (AI_travelToUpgradeCity()) {
+		return;
+	}
+
+	// Nothing really to do so lets wander around and hope to stumble on something
+	if (AI_slaverExplore(3)) {
 		return;
 	}
 
@@ -1773,20 +1783,19 @@ void CvUnitAI::AI_slaverMove() {
 // Returns true if a mission was pushed...
 // Searches the area defined by iRange for targets to enslave
 // Priority is units with no defence, followed by the defender with the best odds of victory under the threshold
-// If nothing to enslave then patrol, picking enemy territory first
+// If nothing to enslave then do nothing
 bool CvUnitAI::AI_enslave(int iRange, int iOddsThreshold) {
 	PROFILE_FUNC();
-
-	bool bPoachTarget = false;
-	bool bPoachTemp = false;
-	int iBestValue = 0;
-	CvPlot* pBestPlot = NULL;
 
 	if (getMaxSlaves() <= getSlaveCountTotal())
 		return false;
 
 	iRange = AI_searchRange(iRange);
 
+	bool bPoachTarget = false;
+	bool bPoachTemp = false;
+	int iBestValue = 0;
+	CvPlot* pBestPlot = NULL;
 	for (int iDX = -iRange; iDX <= iRange; iDX++) {
 		for (int iDY = -iRange; iDY <= iRange; iDY++) {
 			CvPlot* pLoopPlot = plotXY(getX_INLINE(), getY_INLINE(), iDX, iDY);
@@ -1830,17 +1839,6 @@ bool CvUnitAI::AI_enslave(int iRange, int iOddsThreshold) {
 
 			if (pLoopPlot->isRevealedGoody(getTeam())) {
 				iValue += 100000;
-			}
-
-
-			if (pLoopPlot->isOwned()) {
-				if (atWar(GET_PLAYER(pLoopPlot->getOwnerINLINE()).getTeam(), getTeam())) {
-					iValue += 20000;
-				} else if (pLoopPlot->getOwnerINLINE() != getOwnerINLINE()) {
-					iValue += 15000;
-				}
-			} else {
-				iValue += 10000;
 			}
 
 			iValue *= iValueWeighting;
@@ -18783,4 +18781,107 @@ bool CvUnitAI::AI_becomeSlaver() {
 
 	return false;
 
+}
+
+// Returns true if a mission was pushed...
+bool CvUnitAI::AI_slaverExplore(int iRange) {
+	PROFILE_FUNC();
+
+	int iSearchRange = AI_searchRange(iRange);
+
+	int iBestValue = 0;
+	CvPlot* pBestPlot = NULL;
+	CvPlot* pBestExplorePlot = NULL;
+
+	int iImpassableCount = GET_PLAYER(getOwnerINLINE()).AI_unitImpassableCount(getUnitType());
+
+	const CvTeam& kTeam = GET_TEAM(getTeam()); // K-Mod
+
+	for (int iDX = -(iSearchRange); iDX <= iSearchRange; iDX++) {
+		for (int iDY = -(iSearchRange); iDY <= iSearchRange; iDY++) {
+			PROFILE("AI_slaverExplore 1");
+
+			CvPlot* pLoopPlot = plotXY(getX_INLINE(), getY_INLINE(), iDX, iDY);
+
+			if (pLoopPlot != NULL) {
+				if (AI_plotValid(pLoopPlot)) {
+					int iValue = 0;
+
+					if (pLoopPlot->isRevealedGoody(getTeam())) {
+						iValue += 100000;
+					}
+
+					if (!(pLoopPlot->isRevealed(getTeam(), false))) {
+						iValue += 10000;
+					}
+
+					// Try to meet teams that we have seen through map trading
+					if (pLoopPlot->getRevealedOwner(kTeam.getID(), false) != NO_PLAYER && !kTeam.isHasMet(pLoopPlot->getRevealedTeam(kTeam.getID(), false)))
+						iValue += 1000;
+
+					for (DirectionTypes eDirection = (DirectionTypes)0; eDirection < NUM_DIRECTION_TYPES; eDirection = (DirectionTypes)(eDirection + 1)) {
+						PROFILE("AI_exploreRange 2");
+
+						CvPlot* pAdjacentPlot = plotDirection(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), eDirection);
+
+						if (pAdjacentPlot != NULL) {
+							if (!(pAdjacentPlot->isRevealed(getTeam(), false))) {
+								iValue += 1000;
+							}
+						}
+					}
+
+					// Enemy plots gets priority
+					if (pLoopPlot->isOwned()) {
+						if (atWar(GET_PLAYER(pLoopPlot->getOwnerINLINE()).getTeam(), getTeam())) {
+							iValue += 20000;
+						} else if (pLoopPlot->getOwnerINLINE() != getOwnerINLINE()) {
+							iValue += 15000;
+						}
+					}
+
+					if (iValue > 0) {
+						if (!(pLoopPlot->isVisibleEnemyUnit(this))) {
+							PROFILE("AI_exploreRange 3");
+
+							int iPathTurns;
+							if (!atPlot(pLoopPlot) && generatePath(pLoopPlot, MOVE_NO_ENEMY_TERRITORY, true, &iPathTurns, iRange)) {
+								if (iPathTurns <= iRange) {
+									iValue += GC.getGameINLINE().getSorenRandNum(10000, "AI Explore");
+
+									if (pLoopPlot->isAdjacentToLand()) {
+										iValue += 10000;
+									}
+
+									if (pLoopPlot->isOwned()) {
+										iValue += 5000;
+									}
+
+									if (iValue > iBestValue) {
+										iBestValue = iValue;
+										if (getDomainType() == DOMAIN_LAND) {
+											pBestPlot = getPathEndTurnPlot();
+										} else {
+											pBestPlot = pLoopPlot;
+										}
+										pBestExplorePlot = pLoopPlot;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	if ((pBestPlot != NULL) && (pBestExplorePlot != NULL)) {
+		PROFILE("AI_exploreRange 5");
+
+		FAssert(!atPlot(pBestPlot));
+		getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), MOVE_NO_ENEMY_TERRITORY, false, false, MISSIONAI_EXPLORE, pBestExplorePlot);
+		return true;
+	}
+
+	return false;
 }

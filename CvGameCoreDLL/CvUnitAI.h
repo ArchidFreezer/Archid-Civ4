@@ -248,6 +248,7 @@ protected:
 	bool AI_airBombCities();
 	bool AI_becomeSlaver();
 	bool AI_enslave(int iRange, int iOddsThreshold);
+	bool AI_slaverExplore(int iRange);
 
 	bool AI_defendPlot(CvPlot* pPlot);
 	int AI_pillageValue(CvPlot* pPlot, int iBonusValueThreshold = 0);
