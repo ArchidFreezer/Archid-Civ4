@@ -13181,6 +13181,7 @@ void CvUnit::becomeSlaver() {
 	fNewCombat /= 100;
 	int iNewCombat = (int)floor(fNewCombat);
 
+	setName(gDLL->getText("TXT_KEY_SLAVER_RENAME", getName().GetCString()));
 	setBaseCombatStr(std::max(0, iNewCombat));
 	setUnitCombatType((UnitCombatTypes)GC.getInfoTypeForString("UNITCOMBAT_SLAVER", true));
 	AI_setUnitAIType(UNITAI_SLAVER);
