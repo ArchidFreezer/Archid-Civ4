@@ -4,36 +4,191 @@
 <!-- Copyright Firaxis Games 2005 -->
 <!-- -->
 <!-- Game Speed -->
-<!-- NOTE: If you remove any of these you need to update GameInfo/CultureLevelInfos.xml. Also you will need to update the GlobalDefines.xml if you remove GAMESPEED_STANDARD -->
+<!-- NOTE: If you remove any of these you need to update GameInfo/CultureLevelInfos.xml.	-->
+<!--       Also you will need to update the GlobalDefines.xml if you remove GAMESPEED_STANDARD -->
 <Civ4GameSpeedInfo xmlns="x-schema:CIV4GameInfoSchema.xml">
 	<GameSpeedInfos>
+		<GameSpeedInfo>
+			<Type>GAMESPEED_ETERNITY</Type>
+			<Description>TXT_KEY_GAMESPEED_ETERNITY</Description>
+			<Help>TXT_KEY_GAMESPEED_ETERNITY_HELP</Help>
+			<iGrowthPercent>440</iGrowthPercent>
+			<iTrainPercent>960</iTrainPercent>
+			<iConstructPercent>640</iConstructPercent>
+			<iCreatePercent>704</iCreatePercent>
+			<iResearchPercent>576</iResearchPercent>
+			<iBuildPercent>640</iBuildPercent>
+			<iImprovementPercent>640</iImprovementPercent>
+			<iGreatPeoplePercent>1280</iGreatPeoplePercent>
+			<iCulturePercent>520</iCulturePercent>
+			<iAnarchyPercent>800</iAnarchyPercent>
+			<iBarbPercent>800</iBarbPercent>
+			<iFeatureProductionPercent>704</iFeatureProductionPercent>
+			<iUnitDiscoverPercent>704</iUnitDiscoverPercent>
+			<iUnitHurryPercent>704</iUnitHurryPercent>
+			<iUnitTradePercent>704</iUnitTradePercent>
+			<iUnitGreatWorkPercent>704</iUnitGreatWorkPercent>
+			<iGoldenAgePercent>800</iGoldenAgePercent>
+			<iHurryPercent>5</iHurryPercent>
+			<iHurryConscriptAngerPercent>800</iHurryConscriptAngerPercent>
+			<iInflationPercent>3</iInflationPercent>
+			<iInflationOffset>-880</iInflationOffset>
+			<iVictoryDelayPercent>800</iVictoryDelayPercent>
+			<GameTurnInfos>
+				<GameTurnInfo>
+					<iMonthIncrement>900</iMonthIncrement>
+					<iTurnsPerIncrement>190</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>750</iMonthIncrement>
+					<iTurnsPerIncrement>140</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>600</iMonthIncrement>
+					<iTurnsPerIncrement>140</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>480</iMonthIncrement>
+					<iTurnsPerIncrement>180</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>260</iMonthIncrement>
+					<iTurnsPerIncrement>350</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>100</iMonthIncrement>
+					<iTurnsPerIncrement>400</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>50</iMonthIncrement>
+					<iTurnsPerIncrement>450</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>20</iMonthIncrement>
+					<iTurnsPerIncrement>700</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>10</iMonthIncrement>
+					<iTurnsPerIncrement>650</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>1</iMonthIncrement>
+					<iTurnsPerIncrement>1000</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>5</iMonthIncrement>
+					<iTurnsPerIncrement>600</iTurnsPerIncrement>
+				</GameTurnInfo>
+			</GameTurnInfos>
+		</GameSpeedInfo>
+		<GameSpeedInfo>
+			<Type>GAMESPEED_SNAIL</Type>
+			<Description>TXT_KEY_GAMESPEED_SNAIL</Description>
+			<Help>TXT_KEY_GAMESPEED_SNAIL_HELP</Help>
+			<iGrowthPercent>330</iGrowthPercent>
+			<iTrainPercent>720</iTrainPercent>
+			<iConstructPercent>480</iConstructPercent>
+			<iCreatePercent>528</iCreatePercent>
+			<iResearchPercent>432</iResearchPercent>
+			<iBuildPercent>480</iBuildPercent>
+			<iImprovementPercent>480</iImprovementPercent>
+			<iGreatPeoplePercent>960</iGreatPeoplePercent>
+			<iCulturePercent>390</iCulturePercent>
+			<iAnarchyPercent>600</iAnarchyPercent>
+			<iBarbPercent>600</iBarbPercent>
+			<iFeatureProductionPercent>528</iFeatureProductionPercent>
+			<iUnitDiscoverPercent>528</iUnitDiscoverPercent>
+			<iUnitHurryPercent>528</iUnitHurryPercent>
+			<iUnitTradePercent>528</iUnitTradePercent>
+			<iUnitGreatWorkPercent>528</iUnitGreatWorkPercent>
+			<iGoldenAgePercent>600</iGoldenAgePercent>
+			<iHurryPercent>7</iHurryPercent>
+			<iHurryConscriptAngerPercent>600</iHurryConscriptAngerPercent>
+			<iInflationPercent>4</iInflationPercent>
+			<iInflationOffset>-660</iInflationOffset>
+			<iVictoryDelayPercent>600</iVictoryDelayPercent>
+			<GameTurnInfos>
+				<GameTurnInfo>
+					<iMonthIncrement>1800</iMonthIncrement>
+					<iTurnsPerIncrement>170</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>800</iMonthIncrement>
+					<iTurnsPerIncrement>150</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>750</iMonthIncrement>
+					<iTurnsPerIncrement>150</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>150</iMonthIncrement>
+					<iTurnsPerIncrement>160</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>100</iMonthIncrement>
+					<iTurnsPerIncrement>250</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>50</iMonthIncrement>
+					<iTurnsPerIncrement>350</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>20</iMonthIncrement>
+					<iTurnsPerIncrement>4505</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>10</iMonthIncrement>
+					<iTurnsPerIncrement>475</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>5</iMonthIncrement>
+					<iTurnsPerIncrement>600</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>1</iMonthIncrement>
+					<iTurnsPerIncrement>745</iTurnsPerIncrement>
+				</GameTurnInfo>
+			</GameTurnInfos>
+		</GameSpeedInfo>
 		<GameSpeedInfo>
 			<Type>GAMESPEED_MARATHON</Type>
 			<Description>TXT_KEY_GAMESPEED_MARATHON</Description>
 			<Help>TXT_KEY_GAMESPEED_MARATHON_HELP</Help>
-			<iGrowthPercent>300</iGrowthPercent>
-			<iTrainPercent>200</iTrainPercent>
-			<iConstructPercent>300</iConstructPercent>
-			<iCreatePercent>300</iCreatePercent>
-			<iResearchPercent>300</iResearchPercent>
-			<iBuildPercent>300</iBuildPercent>
-			<iImprovementPercent>300</iImprovementPercent>
-			<iGreatPeoplePercent>300</iGreatPeoplePercent>
-			<iCulturePercent>300</iCulturePercent>
-			<iAnarchyPercent>200</iAnarchyPercent>
+			<iGrowthPercent>220</iGrowthPercent>
+			<iTrainPercent>480</iTrainPercent>
+			<iConstructPercent>320</iConstructPercent>
+			<iCreatePercent>352</iCreatePercent>
+			<iResearchPercent>288</iResearchPercent>
+			<iBuildPercent>320</iBuildPercent>
+			<iImprovementPercent>320</iImprovementPercent>
+			<iGreatPeoplePercent>640</iGreatPeoplePercent>
+			<iCulturePercent>260</iCulturePercent>
+			<iAnarchyPercent>400</iAnarchyPercent>
 			<iBarbPercent>400</iBarbPercent>
-			<iFeatureProductionPercent>300</iFeatureProductionPercent>
-			<iUnitDiscoverPercent>300</iUnitDiscoverPercent>
-			<iUnitHurryPercent>300</iUnitHurryPercent>
-			<iUnitTradePercent>300</iUnitTradePercent>
-			<iUnitGreatWorkPercent>300</iUnitGreatWorkPercent>
-			<iGoldenAgePercent>200</iGoldenAgePercent>
-			<iHurryPercent>33</iHurryPercent>
-			<iHurryConscriptAngerPercent>300</iHurryConscriptAngerPercent>
-			<iInflationPercent>10</iInflationPercent>
-			<iInflationOffset>-270</iInflationOffset>
-			<iVictoryDelayPercent>300</iVictoryDelayPercent>
+			<iFeatureProductionPercent>352</iFeatureProductionPercent>
+			<iUnitDiscoverPercent>352</iUnitDiscoverPercent>
+			<iUnitHurryPercent>352</iUnitHurryPercent>
+			<iUnitTradePercent>352</iUnitTradePercent>
+			<iUnitGreatWorkPercent>352</iUnitGreatWorkPercent>
+			<iGoldenAgePercent>400</iGoldenAgePercent>
+			<iHurryPercent>10</iHurryPercent>
+			<iHurryConscriptAngerPercent>400</iHurryConscriptAngerPercent>
+			<iInflationPercent>6</iInflationPercent>
+			<iInflationOffset>-440</iInflationOffset>
+			<iVictoryDelayPercent>400</iVictoryDelayPercent>
 			<GameTurnInfos>
+				<GameTurnInfo>
+					<iMonthIncrement>2400</iMonthIncrement>
+					<iTurnsPerIncrement>150</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>960</iMonthIncrement>
+					<iTurnsPerIncrement>125</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>576</iMonthIncrement>
+					<iTurnsPerIncrement>125</iTurnsPerIncrement>
+				</GameTurnInfo>
 				<GameTurnInfo>
 					<iMonthIncrement>180</iMonthIncrement>
 					<iTurnsPerIncrement>100</iTurnsPerIncrement>
@@ -48,7 +203,7 @@
 				</GameTurnInfo>
 				<GameTurnInfo>
 					<iMonthIncrement>24</iMonthIncrement>
-					<iTurnsPerIncrement>201</iTurnsPerIncrement>
+					<iTurnsPerIncrement>221</iTurnsPerIncrement>
 				</GameTurnInfo>
 				<GameTurnInfo>
 					<iMonthIncrement>12</iMonthIncrement>
@@ -60,11 +215,11 @@
 				</GameTurnInfo>
 				<GameTurnInfo>
 					<iMonthIncrement>3</iMonthIncrement>
-					<iTurnsPerIncrement>264</iTurnsPerIncrement>
+					<iTurnsPerIncrement>300</iTurnsPerIncrement>
 				</GameTurnInfo>
 				<GameTurnInfo>
 					<iMonthIncrement>1</iMonthIncrement>
-					<iTurnsPerIncrement>156</iTurnsPerIncrement>
+					<iTurnsPerIncrement>200</iTurnsPerIncrement>
 				</GameTurnInfo>
 			</GameTurnInfos>
 		</GameSpeedInfo>
@@ -72,47 +227,59 @@
 			<Type>GAMESPEED_EPIC</Type>
 			<Description>TXT_KEY_GAMESPEED_EPIC</Description>
 			<Help>TXT_KEY_GAMESPEED_EPIC_HELP</Help>
-			<iGrowthPercent>150</iGrowthPercent>
-			<iTrainPercent>150</iTrainPercent>
-			<iConstructPercent>150</iConstructPercent>
-			<iCreatePercent>150</iCreatePercent>
-			<iResearchPercent>150</iResearchPercent>
-			<iBuildPercent>150</iBuildPercent>
-			<iImprovementPercent>150</iImprovementPercent>
-			<iGreatPeoplePercent>150</iGreatPeoplePercent>
-			<iCulturePercent>150</iCulturePercent>
-			<iAnarchyPercent>150</iAnarchyPercent>
-			<iBarbPercent>150</iBarbPercent>
-			<iFeatureProductionPercent>150</iFeatureProductionPercent>
-			<iUnitDiscoverPercent>150</iUnitDiscoverPercent>
-			<iUnitHurryPercent>150</iUnitHurryPercent>
-			<iUnitTradePercent>150</iUnitTradePercent>
-			<iUnitGreatWorkPercent>150</iUnitGreatWorkPercent>
-			<iGoldenAgePercent>125</iGoldenAgePercent>
-			<iHurryPercent>66</iHurryPercent>
-			<iHurryConscriptAngerPercent>150</iHurryConscriptAngerPercent>
-			<iInflationPercent>20</iInflationPercent>
-			<iInflationOffset>-135</iInflationOffset>
-			<iVictoryDelayPercent>150</iVictoryDelayPercent>
+			<iGrowthPercent>165</iGrowthPercent>
+			<iTrainPercent>360</iTrainPercent>
+			<iConstructPercent>240</iConstructPercent>
+			<iCreatePercent>264</iCreatePercent>
+			<iResearchPercent>216</iResearchPercent>
+			<iBuildPercent>240</iBuildPercent>
+			<iImprovementPercent>240</iImprovementPercent>
+			<iGreatPeoplePercent>480</iGreatPeoplePercent>
+			<iCulturePercent>195</iCulturePercent>
+			<iAnarchyPercent>300</iAnarchyPercent>
+			<iBarbPercent>300</iBarbPercent>
+			<iFeatureProductionPercent>264</iFeatureProductionPercent>
+			<iUnitDiscoverPercent>264</iUnitDiscoverPercent>
+			<iUnitHurryPercent>264</iUnitHurryPercent>
+			<iUnitTradePercent>264</iUnitTradePercent>
+			<iUnitGreatWorkPercent>264</iUnitGreatWorkPercent>
+			<iGoldenAgePercent>300</iGoldenAgePercent>
+			<iHurryPercent>13</iHurryPercent>
+			<iHurryConscriptAngerPercent>300</iHurryConscriptAngerPercent>
+			<iInflationPercent>8</iInflationPercent>
+			<iInflationOffset>-330</iInflationOffset>
+			<iVictoryDelayPercent>300</iVictoryDelayPercent>
 			<GameTurnInfos>
 				<GameTurnInfo>
-					<iMonthIncrement>300</iMonthIncrement>
-					<iTurnsPerIncrement>140</iTurnsPerIncrement>
+					<iMonthIncrement>4800</iMonthIncrement>
+					<iTurnsPerIncrement>70</iTurnsPerIncrement>
 				</GameTurnInfo>
 				<GameTurnInfo>
-					<iMonthIncrement>180</iMonthIncrement>
-					<iTurnsPerIncrement>90</iTurnsPerIncrement>
+					<iMonthIncrement>1800</iMonthIncrement>
+					<iTurnsPerIncrement>80</iTurnsPerIncrement>
 				</GameTurnInfo>
 				<GameTurnInfo>
-					<iMonthIncrement>120</iMonthIncrement>
+					<iMonthIncrement>1300</iMonthIncrement>
 					<iTurnsPerIncrement>40</iTurnsPerIncrement>
 				</GameTurnInfo>
 				<GameTurnInfo>
-					<iMonthIncrement>60</iMonthIncrement>
+					<iMonthIncrement>380</iMonthIncrement>
+					<iTurnsPerIncrement>140</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>220</iMonthIncrement>
 					<iTurnsPerIncrement>90</iTurnsPerIncrement>
 				</GameTurnInfo>
 				<GameTurnInfo>
-					<iMonthIncrement>24</iMonthIncrement>
+					<iMonthIncrement>150</iMonthIncrement>
+					<iTurnsPerIncrement>40</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>80</iMonthIncrement>
+					<iTurnsPerIncrement>90</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>30</iMonthIncrement>
 					<iTurnsPerIncrement>70</iTurnsPerIncrement>
 				</GameTurnInfo>
 				<GameTurnInfo>
@@ -129,29 +296,37 @@
 			<Type>GAMESPEED_NORMAL</Type>
 			<Description>TXT_KEY_GAMESPEED_NORMAL</Description>
 			<Help>TXT_KEY_GAMESPEED_NORMAL_HELP</Help>
-			<iGrowthPercent>100</iGrowthPercent>
-			<iTrainPercent>100</iTrainPercent>
-			<iConstructPercent>100</iConstructPercent>
-			<iCreatePercent>100</iCreatePercent>
-			<iResearchPercent>100</iResearchPercent>
-			<iBuildPercent>100</iBuildPercent>
-			<iImprovementPercent>100</iImprovementPercent>
-			<iGreatPeoplePercent>100</iGreatPeoplePercent>
-			<iCulturePercent>100</iCulturePercent>
-			<iAnarchyPercent>100</iAnarchyPercent>
-			<iBarbPercent>100</iBarbPercent>
-			<iFeatureProductionPercent>100</iFeatureProductionPercent>
-			<iUnitDiscoverPercent>100</iUnitDiscoverPercent>
-			<iUnitHurryPercent>100</iUnitHurryPercent>
-			<iUnitTradePercent>100</iUnitTradePercent>
-			<iUnitGreatWorkPercent>100</iUnitGreatWorkPercent>
-			<iGoldenAgePercent>100</iGoldenAgePercent>
-			<iHurryPercent>100</iHurryPercent>
-			<iHurryConscriptAngerPercent>100</iHurryConscriptAngerPercent>
-			<iInflationPercent>30</iInflationPercent>
-			<iInflationOffset>-90</iInflationOffset>
-			<iVictoryDelayPercent>100</iVictoryDelayPercent>
+			<iGrowthPercent>110</iGrowthPercent>
+			<iTrainPercent>240</iTrainPercent>
+			<iConstructPercent>160</iConstructPercent>
+			<iCreatePercent>176</iCreatePercent>
+			<iResearchPercent>144</iResearchPercent>
+			<iBuildPercent>160</iBuildPercent>
+			<iImprovementPercent>160</iImprovementPercent>
+			<iGreatPeoplePercent>320</iGreatPeoplePercent>
+			<iCulturePercent>130</iCulturePercent>
+			<iAnarchyPercent>200</iAnarchyPercent>
+			<iBarbPercent>200</iBarbPercent>
+			<iFeatureProductionPercent>176</iFeatureProductionPercent>
+			<iUnitDiscoverPercent>176</iUnitDiscoverPercent>
+			<iUnitHurryPercent>176</iUnitHurryPercent>
+			<iUnitTradePercent>176</iUnitTradePercent>
+			<iUnitGreatWorkPercent>176</iUnitGreatWorkPercent>
+			<iGoldenAgePercent>200</iGoldenAgePercent>
+			<iHurryPercent>19</iHurryPercent>
+			<iHurryConscriptAngerPercent>200</iHurryConscriptAngerPercent>
+			<iInflationPercent>12</iInflationPercent>
+			<iInflationOffset>-220</iInflationOffset>
+			<iVictoryDelayPercent>200</iVictoryDelayPercent>
 			<GameTurnInfos>
+				<GameTurnInfo>
+					<iMonthIncrement>6000</iMonthIncrement>
+					<iTurnsPerIncrement>60</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>2400</iMonthIncrement>
+					<iTurnsPerIncrement>80</iTurnsPerIncrement>
+				</GameTurnInfo>
 				<GameTurnInfo>
 					<iMonthIncrement>480</iMonthIncrement>
 					<iTurnsPerIncrement>75</iTurnsPerIncrement>
@@ -178,41 +353,53 @@
 				</GameTurnInfo>
 				<GameTurnInfo>
 					<iMonthIncrement>12</iMonthIncrement>
-					<iTurnsPerIncrement>120</iTurnsPerIncrement>
+					<iTurnsPerIncrement>100</iTurnsPerIncrement>
 				</GameTurnInfo>
 				<GameTurnInfo>
-					<iMonthIncrement>6</iMonthIncrement>
+					<iMonthIncrement>4</iMonthIncrement>
 					<iTurnsPerIncrement>60</iTurnsPerIncrement>
 				</GameTurnInfo>
 			</GameTurnInfos>
-		</GameSpeedInfo>
+		</GameSpeedInfo>	
 		<GameSpeedInfo>
 			<Type>GAMESPEED_QUICK</Type>
 			<Description>TXT_KEY_GAMESPEED_QUICK</Description>
 			<Help>TXT_KEY_GAMESPEED_QUICK_HELP</Help>
-			<iGrowthPercent>67</iGrowthPercent>
-			<iTrainPercent>67</iTrainPercent>
-			<iConstructPercent>67</iConstructPercent>
-			<iCreatePercent>67</iCreatePercent>
-			<iResearchPercent>67</iResearchPercent>
-			<iBuildPercent>67</iBuildPercent>
-			<iImprovementPercent>67</iImprovementPercent>
-			<iGreatPeoplePercent>67</iGreatPeoplePercent>
-			<iCulturePercent>67</iCulturePercent>
-			<iAnarchyPercent>67</iAnarchyPercent>
-			<iBarbPercent>67</iBarbPercent>
-			<iFeatureProductionPercent>67</iFeatureProductionPercent>
-			<iUnitDiscoverPercent>67</iUnitDiscoverPercent>
-			<iUnitHurryPercent>67</iUnitHurryPercent>
-			<iUnitTradePercent>67</iUnitTradePercent>
-			<iUnitGreatWorkPercent>67</iUnitGreatWorkPercent>
-			<iGoldenAgePercent>80</iGoldenAgePercent>
-			<iHurryPercent>150</iHurryPercent>
-			<iHurryConscriptAngerPercent>67</iHurryConscriptAngerPercent>
-			<iInflationPercent>45</iInflationPercent>
-			<iInflationOffset>-60</iInflationOffset>
-			<iVictoryDelayPercent>67</iVictoryDelayPercent>
+			<iGrowthPercent>83</iGrowthPercent>
+			<iTrainPercent>180</iTrainPercent>
+			<iConstructPercent>120</iConstructPercent>
+			<iCreatePercent>132</iCreatePercent>
+			<iResearchPercent>100</iResearchPercent> <!-- was 108 30/1/14 -->
+			<iBuildPercent>120</iBuildPercent>
+			<iImprovementPercent>120</iImprovementPercent>
+			<iGreatPeoplePercent>240</iGreatPeoplePercent>
+			<iCulturePercent>97</iCulturePercent>
+			<iAnarchyPercent>150</iAnarchyPercent>
+			<iBarbPercent>150</iBarbPercent>
+			<iFeatureProductionPercent>132</iFeatureProductionPercent>
+			<iUnitDiscoverPercent>132</iUnitDiscoverPercent>
+			<iUnitHurryPercent>132</iUnitHurryPercent>
+			<iUnitTradePercent>132</iUnitTradePercent>
+			<iUnitGreatWorkPercent>132</iUnitGreatWorkPercent>
+			<iGoldenAgePercent>150</iGoldenAgePercent>
+			<iHurryPercent>26</iHurryPercent>
+			<iHurryConscriptAngerPercent>150</iHurryConscriptAngerPercent>
+			<iInflationPercent>17</iInflationPercent>
+			<iInflationOffset>-165</iInflationOffset>
+			<iVictoryDelayPercent>110</iVictoryDelayPercent>
 			<GameTurnInfos>
+				<GameTurnInfo>
+					<iMonthIncrement>12000</iMonthIncrement>
+					<iTurnsPerIncrement>30</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>3600</iMonthIncrement>
+					<iTurnsPerIncrement>20</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>2400</iMonthIncrement>
+					<iTurnsPerIncrement>50</iTurnsPerIncrement>
+				</GameTurnInfo>
 				<GameTurnInfo>
 					<iMonthIncrement>720</iMonthIncrement>
 					<iTurnsPerIncrement>50</iTurnsPerIncrement>
@@ -244,6 +431,75 @@
 				<GameTurnInfo>
 					<iMonthIncrement>12</iMonthIncrement>
 					<iTurnsPerIncrement>70</iTurnsPerIncrement>
+				</GameTurnInfo>
+			</GameTurnInfos>
+		</GameSpeedInfo>		
+		<GameSpeedInfo>
+			<Type>GAMESPEED_BLITZ</Type>
+			<Description>TXT_KEY_GAMESPEED_BLITZ</Description>
+			<Help>TXT_KEY_GAMESPEED_NORMAL_BLITZ</Help>
+			<iGrowthPercent>55</iGrowthPercent>
+			<iTrainPercent>110</iTrainPercent>
+			<iConstructPercent>80</iConstructPercent>
+			<iCreatePercent>88</iCreatePercent>
+			<iResearchPercent>72</iResearchPercent>
+			<iBuildPercent>80</iBuildPercent>
+			<iImprovementPercent>80</iImprovementPercent>
+			<iGreatPeoplePercent>160</iGreatPeoplePercent>
+			<iCulturePercent>65</iCulturePercent>
+			<iAnarchyPercent>100</iAnarchyPercent>
+			<iBarbPercent>100</iBarbPercent>
+			<iFeatureProductionPercent>88</iFeatureProductionPercent>
+			<iUnitDiscoverPercent>88</iUnitDiscoverPercent>
+			<iUnitHurryPercent>88</iUnitHurryPercent>
+			<iUnitTradePercent>88</iUnitTradePercent>
+			<iUnitGreatWorkPercent>88</iUnitGreatWorkPercent>
+			<iGoldenAgePercent>100</iGoldenAgePercent>
+			<iHurryPercent>39</iHurryPercent>
+			<iHurryConscriptAngerPercent>100</iHurryConscriptAngerPercent>
+			<iInflationPercent>25</iInflationPercent>
+			<iInflationOffset>-110</iInflationOffset>
+			<iVictoryDelayPercent>100</iVictoryDelayPercent>
+			<GameTurnInfos>
+				<GameTurnInfo>
+					<iMonthIncrement>15000</iMonthIncrement>
+					<iTurnsPerIncrement>20</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>4800</iMonthIncrement>
+					<iTurnsPerIncrement>30</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>3600</iMonthIncrement>
+					<iTurnsPerIncrement>30</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>900</iMonthIncrement>
+					<iTurnsPerIncrement>40</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>500</iMonthIncrement>
+					<iTurnsPerIncrement>40</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>250</iMonthIncrement>
+					<iTurnsPerIncrement>50</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>120</iMonthIncrement>
+					<iTurnsPerIncrement>50</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>60</iMonthIncrement>
+					<iTurnsPerIncrement>40</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>20</iMonthIncrement>
+					<iTurnsPerIncrement>30</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iMonthIncrement>10</iMonthIncrement>
+					<iTurnsPerIncrement>20</iTurnsPerIncrement>
 				</GameTurnInfo>
 			</GameTurnInfos>
 		</GameSpeedInfo>

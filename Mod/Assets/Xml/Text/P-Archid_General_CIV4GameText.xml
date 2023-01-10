@@ -1434,5 +1434,39 @@
 		<English>Neolithic</English>
 		<Spanish>Neol&#237;tico</Spanish>
 	</TEXT>
+<!-- Game Speed -->
+	<TEXT>
+		<Tag>TXT_KEY_GAMESPEED_ETERNITY</Tag>
+		<English>Eternity</English>
+		<French>Éternité</French>
+		<German>Ewigkeit</German>
+		<Polish>Wieczno&#228;&#226; (4800)</Polish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GAMESPEED_ETERNITY_HELP</Tag>
+		<English>Expect to spend all of time completing these games!</English>
+		<French>Attendez-vous à passer tout votre temps pour finir ces parties!</French>
+		<German>Rechne damit, unendliche Zeiten bis zur Vollendung dieses Spieles zu ben&#246;tigen!</German>
+		<Polish>Spodziewaj si&#234; sp&#234;dzenia ca&#244;ego swojego czasu przy tych rozgrywkach!</Polish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GAMESPEED_SNAIL</Tag>
+		<English>Snail</English>
+		<French>Escargot</French>
+		<Polish>&#196;limak</Polish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GAMESPEED_SNAIL_HELP</Tag>
+		<English>This extremely slow game speed will allow games that can last weeks or even months!</English>
+		<French>Cette vitesse de jeu extrêmement lente permet des parties qui peuvent durer des semaines, voire des mois!</French>
+		<German>Diese extrem langsame Spielgeschwindigkeit bewirkt Spiele die Wochen oder Monate dauern!</German>
+		<Polish>Ta ekstremalnie wolna szybko&#228;&#226; gry sprawia, &#235;e pojedy&#241;cza gra mo&#235;e trwa&#226; tygodniami a nawet miesi&#225;cami!</Polish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GAMESPEED_BLITZ</Tag>
+		<English>Blitz</English>
+		<French>Eclair</French>
+		<Polish>B&#244;yskawiczna</Polish>
+	</TEXT>
 
 </Civ4GameText>

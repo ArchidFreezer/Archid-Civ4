@@ -13,6 +13,14 @@
 			<iCityRadius>0</iCityRadius>
 			<SpeedThresholds>
 				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_ETERNITY</GameSpeedType>
+					<iThreshold>0</iThreshold>
+				</SpeedThreshold>
+				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_SNAIL</GameSpeedType>
+					<iThreshold>0</iThreshold>
+				</SpeedThreshold>
+				<SpeedThreshold>
 					<GameSpeedType>GAMESPEED_MARATHON</GameSpeedType>
 					<iThreshold>0</iThreshold>
 				</SpeedThreshold>
@@ -26,6 +34,10 @@
 				</SpeedThreshold>
 				<SpeedThreshold>
 					<GameSpeedType>GAMESPEED_QUICK</GameSpeedType>
+					<iThreshold>0</iThreshold>
+				</SpeedThreshold>
+				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_BLITZ</GameSpeedType>
 					<iThreshold>0</iThreshold>
 				</SpeedThreshold>
 			</SpeedThresholds>
@@ -37,20 +49,32 @@
 			<iCityRadius>1</iCityRadius>
 			<SpeedThresholds>
 				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_ETERNITY</GameSpeedType>
+					<iThreshold>30</iThreshold>
+				</SpeedThreshold>
+				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_SNAIL</GameSpeedType>
+					<iThreshold>23</iThreshold>
+				</SpeedThreshold>
+				<SpeedThreshold>
 					<GameSpeedType>GAMESPEED_MARATHON</GameSpeedType>
-					<iThreshold>0</iThreshold>
+					<iThreshold>15</iThreshold>
 				</SpeedThreshold>
 				<SpeedThreshold>
 					<GameSpeedType>GAMESPEED_EPIC</GameSpeedType>
-					<iThreshold>0</iThreshold>
+					<iThreshold>8</iThreshold>
 				</SpeedThreshold>
 				<SpeedThreshold>
 					<GameSpeedType>GAMESPEED_NORMAL</GameSpeedType>
-					<iThreshold>0</iThreshold>
+					<iThreshold>5</iThreshold>
 				</SpeedThreshold>
 				<SpeedThreshold>
 					<GameSpeedType>GAMESPEED_QUICK</GameSpeedType>
-					<iThreshold>0</iThreshold>
+					<iThreshold>3</iThreshold>
+				</SpeedThreshold>
+				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_BLITZ</GameSpeedType>
+					<iThreshold>2</iThreshold>
 				</SpeedThreshold>
 			</SpeedThresholds>
 		</CultureLevelInfo>
@@ -60,6 +84,14 @@
 			<iCityDefenseModifier>20</iCityDefenseModifier>
 			<iCityRadius>2</iCityRadius>
 			<SpeedThresholds>
+				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_ETERNITY</GameSpeedType>
+					<iThreshold>60</iThreshold>
+				</SpeedThreshold>
+				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_SNAIL</GameSpeedType>
+					<iThreshold>45</iThreshold>
+				</SpeedThreshold>
 				<SpeedThreshold>
 					<GameSpeedType>GAMESPEED_MARATHON</GameSpeedType>
 					<iThreshold>30</iThreshold>
@@ -76,6 +108,10 @@
 					<GameSpeedType>GAMESPEED_QUICK</GameSpeedType>
 					<iThreshold>5</iThreshold>
 				</SpeedThreshold>
+				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_BLITZ</GameSpeedType>
+					<iThreshold>3</iThreshold>
+				</SpeedThreshold>
 			</SpeedThresholds>
 		</CultureLevelInfo>
 		<CultureLevelInfo>
@@ -84,6 +120,14 @@
 			<iCityDefenseModifier>40</iCityDefenseModifier>
 			<iCityRadius>2</iCityRadius>
 			<SpeedThresholds>
+				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_ETERNITY</GameSpeedType>
+					<iThreshold>600</iThreshold>
+				</SpeedThreshold>
+				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_SNAIL</GameSpeedType>
+					<iThreshold>450</iThreshold>
+				</SpeedThreshold>
 				<SpeedThreshold>
 					<GameSpeedType>GAMESPEED_MARATHON</GameSpeedType>
 					<iThreshold>300</iThreshold>
@@ -100,6 +144,10 @@
 					<GameSpeedType>GAMESPEED_QUICK</GameSpeedType>
 					<iThreshold>50</iThreshold>
 				</SpeedThreshold>
+				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_BLITZ</GameSpeedType>
+					<iThreshold>25</iThreshold>
+				</SpeedThreshold>
 			</SpeedThresholds>
 		</CultureLevelInfo>
 		<CultureLevelInfo>
@@ -108,6 +156,14 @@
 			<iCityDefenseModifier>60</iCityDefenseModifier>
 			<iCityRadius>2</iCityRadius>
 			<SpeedThresholds>
+				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_ETERNITY</GameSpeedType>
+					<iThreshold>3000</iThreshold>
+				</SpeedThreshold>
+				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_SNAIL</GameSpeedType>
+					<iThreshold>2250</iThreshold>
+				</SpeedThreshold>
 				<SpeedThreshold>
 					<GameSpeedType>GAMESPEED_MARATHON</GameSpeedType>
 					<iThreshold>1500</iThreshold>
@@ -124,6 +180,10 @@
 					<GameSpeedType>GAMESPEED_QUICK</GameSpeedType>
 					<iThreshold>250</iThreshold>
 				</SpeedThreshold>
+				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_BLITZ</GameSpeedType>
+					<iThreshold>100</iThreshold>
+				</SpeedThreshold>
 			</SpeedThresholds>
 		</CultureLevelInfo>
 		<CultureLevelInfo>
@@ -132,6 +192,14 @@
 			<iCityDefenseModifier>80</iCityDefenseModifier>
 			<iCityRadius>3</iCityRadius>
 			<SpeedThresholds>
+				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_ETERNITY</GameSpeedType>
+					<iThreshold>30000</iThreshold>
+				</SpeedThreshold>
+				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_SNAIL</GameSpeedType>
+					<iThreshold>22500</iThreshold>
+				</SpeedThreshold>
 				<SpeedThreshold>
 					<GameSpeedType>GAMESPEED_MARATHON</GameSpeedType>
 					<iThreshold>15000</iThreshold>
@@ -148,6 +216,10 @@
 					<GameSpeedType>GAMESPEED_QUICK</GameSpeedType>
 					<iThreshold>2500</iThreshold>
 				</SpeedThreshold>
+				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_BLITZ</GameSpeedType>
+					<iThreshold>1000</iThreshold>
+				</SpeedThreshold>
 			</SpeedThresholds>
 		</CultureLevelInfo>
 		<CultureLevelInfo>
@@ -156,6 +228,14 @@
 			<iCityDefenseModifier>100</iCityDefenseModifier>
 			<iCityRadius>3</iCityRadius>
 			<SpeedThresholds>
+				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_ETERNITY</GameSpeedType>
+					<iThreshold>300000</iThreshold>
+				</SpeedThreshold>
+				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_SNAIL</GameSpeedType>
+					<iThreshold>225000</iThreshold>
+				</SpeedThreshold>
 				<SpeedThreshold>
 					<GameSpeedType>GAMESPEED_MARATHON</GameSpeedType>
 					<iThreshold>150000</iThreshold>
@@ -171,6 +251,10 @@
 				<SpeedThreshold>
 					<GameSpeedType>GAMESPEED_QUICK</GameSpeedType>
 					<iThreshold>25000</iThreshold>
+				</SpeedThreshold>
+				<SpeedThreshold>
+					<GameSpeedType>GAMESPEED_BLITZ</GameSpeedType>
+					<iThreshold>12000</iThreshold>
 				</SpeedThreshold>
 			</SpeedThresholds>
 		</CultureLevelInfo>
