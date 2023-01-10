@@ -1066,6 +1066,10 @@
 		<element type="iCulturePercent" minOccurs="0"/>
 		<element type="iAnarchyPercent" minOccurs="0"/>
 		<element type="iEventChancePerTurn" minOccurs="0"/>
+		<element type="bUnitRangeUnbound" minOccurs="0"/>
+		<element type="bUnitTerritoryUnbound" minOccurs="0"/>
+		<element type="iUnitRangeChange" minOccurs="0"/>
+		<element type="iUnitRangePercentChange" minOccurs="0"/>
 		<element type="iSoundtrackSpace" minOccurs="0"/>
 		<element type="bFirstSoundtrackFirst" minOccurs="0"/>
 		<element type="EraInfoSoundtracks" minOccurs="0"/>

@@ -1418,4 +1418,21 @@
 		<English>[ICON_BULLET]%d1_Perc% [COLOR_HIGHLIGHT_TEXT]cultural defence[COLOR_REVERT] in all cities</English>
 	</TEXT>
 
+<!-- Eras -->
+	<TEXT>
+		<Tag>TXT_KEY_ERA_EPIPALAEOLITHIC</Tag>
+		<English>Epipalaeolithic</English>
+		<Spanish>Epipaleol&#237;tico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ERA_MESOLITHIC</Tag>
+		<English>Mesolithic</English>
+		<Spanish>Mesol&#237;tico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ERA_NEOLITHIC</Tag>
+		<English>Neolithic</English>
+		<Spanish>Neol&#237;tico</Spanish>
+	</TEXT>
+
 </Civ4GameText>

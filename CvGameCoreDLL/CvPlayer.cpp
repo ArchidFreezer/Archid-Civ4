@@ -19009,7 +19009,7 @@ void CvPlayer::changeExtraRange(int iChange) {
 }
 
 int CvPlayer::getExtraRange() const {
-	return m_iExtraRange;
+	return m_iExtraRange + GC.getEraInfo(getCurrentEra()).getUnitRangeChange();
 }
 
 void CvPlayer::setExtraRangePercent(int iModifier) {
@@ -19023,10 +19023,11 @@ void CvPlayer::changeExtraRangePercent(int iChange) {
 }
 
 int CvPlayer::getExtraRangePercent() const {
-	return m_iExtraRangePercent;
+	return m_iExtraRangePercent + GC.getEraInfo(getCurrentEra()).getUnitRangePercentChange();
 }
 
 UnitRangeTypes CvPlayer::getUnitRangeType(const CvUnitInfo* pUnitInfo) const {
+	const CvEraInfo& kEra = GC.getEraInfo(getCurrentEra());
 	switch (pUnitInfo->getRangeType()) {
 	case UNITRANGE_IMMOBILE:
 		return UNITRANGE_IMMOBILE;
@@ -19035,12 +19036,12 @@ UnitRangeTypes CvPlayer::getUnitRangeType(const CvUnitInfo* pUnitInfo) const {
 		return UNITRANGE_HOME;
 		break;
 	case UNITRANGE_TERRITORY:
-		if (m_iUnitTerritoryUnboundCount <= 0) {
+		if (m_iUnitTerritoryUnboundCount <= 0 && !kEra.isUnitTerritoryUnbound()) {
 			return UNITRANGE_TERRITORY;
 		}
 		// No break here deliberately
 	case UNITRANGE_RANGE:
-		if (m_iUnitRangeUnboundCount <= 0) {
+		if (m_iUnitRangeUnboundCount <= 0 && !kEra.isUnitRangeUnbound()) {
 			return UNITRANGE_RANGE;
 		}
 		// No break here deliberately

@@ -17050,11 +17050,15 @@ CvEraInfo::CvEraInfo() :
 	m_iSoundtrackSpace(0),
 	m_iNumSoundtracks(0),
 	m_iMaxCities(0),
+	m_iUnitRangeChange(0),
+	m_iUnitRangePercentChange(0),
 	m_bNoGoodies(false),
 	m_bNoAnimals(false),
 	m_bNoBarbUnits(false),
 	m_bNoBarbCities(false),
 	m_bFirstSoundtrackFirst(false),
+	m_bUnitRangeUnbound(false),
+	m_bUnitTerritoryUnbound(false),
 	m_paiCitySoundscapeSciptIds(NULL),
 	m_paiSoundtracks(NULL) {
 }
@@ -17062,6 +17066,22 @@ CvEraInfo::CvEraInfo() :
 CvEraInfo::~CvEraInfo() {
 	SAFE_DELETE_ARRAY(m_paiCitySoundscapeSciptIds);
 	SAFE_DELETE_ARRAY(m_paiSoundtracks);
+}
+
+int CvEraInfo::getUnitRangeChange() const {
+	return m_iUnitRangeChange;
+}
+
+int CvEraInfo::getUnitRangePercentChange() const {
+	return m_iUnitRangePercentChange;
+}
+
+bool CvEraInfo::isUnitRangeUnbound() const {
+	return m_bUnitRangeUnbound;
+}
+
+bool CvEraInfo::isUnitTerritoryUnbound() const {
+	return m_bUnitTerritoryUnbound;
 }
 
 int CvEraInfo::getMaxCities() const {
@@ -17223,6 +17243,10 @@ bool CvEraInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iGreatPeoplePercent, "iGreatPeoplePercent");
 	pXML->GetChildXmlValByName(&m_iAnarchyPercent, "iAnarchyPercent");
 	pXML->GetChildXmlValByName(&m_iEventChancePerTurn, "iEventChancePerTurn");
+	pXML->GetChildXmlValByName(&m_bUnitRangeUnbound, "bUnitRangeUnbound");
+	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
+	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
+	pXML->GetChildXmlValByName(&m_iUnitRangePercentChange, "iUnitRangePercentChange");
 	pXML->GetChildXmlValByName(&m_iSoundtrackSpace, "iSoundtrackSpace");
 	pXML->GetChildXmlValByName(&m_bFirstSoundtrackFirst, "bFirstSoundtrackFirst");
 	pXML->GetChildXmlValByName(m_szAudioUnitVictoryScript, "AudioUnitVictoryScript");

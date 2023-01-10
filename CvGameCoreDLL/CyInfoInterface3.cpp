@@ -452,11 +452,15 @@ void CyInfoPythonInterface3() {
 		.def("getNumSoundtracks", &CvEraInfo::getNumSoundtracks, "int () -")
 		.def("getAudioUnitVictoryScript", &CvEraInfo::getAudioUnitVictoryScript, "string () -")
 		.def("getAudioUnitDefeatScript", &CvEraInfo::getAudioUnitDefeatScript, "string () -")
+		.def("getUnitRangeChange", &CvEraInfo::getUnitRangeChange, "int ()")
+		.def("getUnitRangePercentChange", &CvEraInfo::getUnitRangePercentChange, "int ()")
 
 		.def("isNoGoodies", &CvEraInfo::isNoGoodies, "bool () -")
 		.def("isNoAnimals", &CvEraInfo::isNoAnimals, "bool () -")
 		.def("isNoBarbUnits", &CvEraInfo::isNoBarbUnits, "bool () -")
 		.def("isNoBarbCities", &CvEraInfo::isNoBarbCities, "bool () -")
+		.def("isUnitRangeUnbound", &CvEraInfo::isUnitRangeUnbound, "bool ()")
+		.def("isUnitTerritoryUnbound", &CvEraInfo::isUnitTerritoryUnbound, "bool ()")
 
 		// Arrays
 

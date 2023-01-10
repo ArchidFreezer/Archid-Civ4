@@ -42,4 +42,24 @@
 		<DefineName>DISABLE_POWER_TURNS</DefineName>
 		<iDefineIntVal>6</iDefineIntVal>
 	</Define>	
+	<Define>
+		<DefineName>STANDARD_ERA</DefineName>
+		<DefineTextVal>ERA_EPIPALAEOLITHIC</DefineTextVal>
+	</Define>
+	<Define>
+		<DefineName>START_YEAR</DefineName>
+		<iDefineIntVal>-50000</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>INITIAL_TRADE_ROUTES</DefineName>
+		<iDefineIntVal>0</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>INITIAL_BASE_FREE_UNITS</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>INITIAL_BASE_FREE_MILITARY_UNITS</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
 </Civ4Defines>

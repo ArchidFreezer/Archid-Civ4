@@ -5450,6 +5450,8 @@ public:
 	int getSoundtrackSpace() const;				//	Exposed to Python
 	int getNumSoundtracks() const;				//	Exposed to Python
 	int getMaxCities() const;
+	int getUnitRangeChange() const;
+	int getUnitRangePercentChange() const;
 	const TCHAR* getAudioUnitVictoryScript() const;				//	Exposed to Python
 	const TCHAR* getAudioUnitDefeatScript() const;				//	Exposed to Python
 
@@ -5458,6 +5460,8 @@ public:
 	bool isNoBarbUnits() const;				//	Exposed to Python
 	bool isNoBarbCities() const;			//	Exposed to Python
 	bool isFirstSoundtrackFirst() const;			//	Exposed to Python
+	bool isUnitRangeUnbound() const;
+	bool isUnitTerritoryUnbound() const;
 
 	// Arrays
 
@@ -5490,6 +5494,8 @@ protected:
 	int m_iSoundtrackSpace;
 	int m_iNumSoundtracks;
 	int m_iMaxCities;
+	int m_iUnitRangeChange;
+	int m_iUnitRangePercentChange;
 	CvString m_szAudioUnitVictoryScript;
 	CvString m_szAudioUnitDefeatScript;
 
@@ -5498,6 +5504,8 @@ protected:
 	bool m_bNoBarbUnits;
 	bool m_bNoBarbCities;
 	bool m_bFirstSoundtrackFirst;
+	bool m_bUnitRangeUnbound;
+	bool m_bUnitTerritoryUnbound;
 
 	// Arrays
 
