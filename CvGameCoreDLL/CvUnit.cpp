@@ -371,6 +371,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 		if (GC.getGameINLINE().isSlaverUnitMeshGroupExists(m_eUnitType))
 			m_pCustomUnitMeshGroup = GC.getGameINLINE().getSlaverUnitMeshGroup(m_eUnitType);
 	}
+	m_eInvisible = (NO_UNIT != m_eUnitType) ? (InvisibleTypes)m_pUnitInfo->getInvisibleType() : NO_INVISIBLE;
 
 	m_combatUnit.reset();
 	m_transportUnit.reset();
@@ -6535,7 +6536,7 @@ DomainTypes CvUnit::getDomainType() const {
 
 
 InvisibleTypes CvUnit::getInvisibleType() const {
-	return ((InvisibleTypes)(m_pUnitInfo->getInvisibleType()));
+	return m_eInvisible;
 }
 
 int CvUnit::getNumSeeInvisibleTypes() const {
@@ -10171,6 +10172,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read((int*)&m_eLeaderUnitType);
 	pStream->Read((int*)&m_eDesiredDiscoveryTech);
 	pStream->Read((int*)&m_eUnitCombatType);
+	pStream->Read((int*)&m_eInvisible);
 
 	pStream->Read((int*)&m_combatUnit.eOwner);
 	pStream->Read(&m_combatUnit.iID);
@@ -10321,6 +10323,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_eLeaderUnitType);
 	pStream->Write(m_eDesiredDiscoveryTech);
 	pStream->Write(m_eUnitCombatType);
+	pStream->Write(m_eInvisible);
 
 	pStream->Write(m_combatUnit.eOwner);
 	pStream->Write(m_combatUnit.iID);
@@ -13184,6 +13187,7 @@ void CvUnit::becomeSlaver() {
 	setName(gDLL->getText("TXT_KEY_SLAVER_RENAME", getName().GetCString()));
 	setBaseCombatStr(std::max(0, iNewCombat));
 	setUnitCombatType((UnitCombatTypes)GC.getInfoTypeForString("UNITCOMBAT_SLAVER", true));
+	setInvisibleType((InvisibleTypes)GC.getInfoTypeForString("INVISIBLE_SLAVER", true));
 	AI_setUnitAIType(UNITAI_SLAVER);
 	changeEnslaveCountExtra(1);
 	setFixedAI(true);
@@ -13262,4 +13266,8 @@ void CvUnit::changeSeeInvisibleCount(InvisibleTypes eInvisibleType, int iChange)
 
 bool CvUnit::isSeeInvisible(InvisibleTypes eInvisibleType) const {
 	return m_paiSeeInvisibleCount[eInvisibleType] > 0;
+}
+
+void CvUnit::setInvisibleType(InvisibleTypes eInvisible) {
+	m_eInvisible = eInvisible;
 }

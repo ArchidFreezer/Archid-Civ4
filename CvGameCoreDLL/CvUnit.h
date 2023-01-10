@@ -191,6 +191,7 @@ public:
 	void setAlwaysHostile(bool bHostile);
 	void setFixedAI(bool bFixed);
 	void setHiddenNationality(bool bHidden);
+	void setInvisibleType(InvisibleTypes eInvisible);
 	void setUnitCombatType(UnitCombatTypes eCombat);
 
 	// Slavery
@@ -1043,6 +1044,7 @@ protected:
 	bool m_bAlwaysHostile;
 	bool m_bHiddenNationality;
 
+	InvisibleTypes m_eInvisible;
 	PlayerTypes m_eOwner;
 	PlayerTypes m_eCapturingPlayer;
 	TechTypes m_eDesiredDiscoveryTech;
