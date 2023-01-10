@@ -19,6 +19,10 @@
 			<iUnique>5</iUnique>
 		</BonusClassInfo>
 		<BonusClassInfo>
+			<Type>BONUSCLASS_SEAFOOD</Type>
+			<iUnique>5</iUnique>
+		</BonusClassInfo>
+		<BonusClassInfo>
 			<Type>BONUSCLASS_RUSH</Type>
 			<iUnique>4</iUnique>
 		</BonusClassInfo>
@@ -29,6 +33,26 @@
 		<BonusClassInfo>
 			<Type>BONUSCLASS_WONDER</Type>
 			<iUnique>8</iUnique>
+		</BonusClassInfo>
+		<BonusClassInfo>
+			<Type>BONUSCLASS_LUXURY</Type>
+			<iUnique>8</iUnique>
+		</BonusClassInfo>
+		<BonusClassInfo>
+			<Type>BONUSCLASS_FUEL</Type>
+			<iUnique>6</iUnique>
+		</BonusClassInfo>
+		<BonusClassInfo>
+			<Type>BONUSCLASS_MANUFACTURED</Type>
+			<iUnique>0</iUnique>
+		</BonusClassInfo>
+		<BonusClassInfo>
+			<Type>BONUSCLASS_FUTURE</Type>
+			<iUnique>0</iUnique>
+		</BonusClassInfo>
+		<BonusClassInfo>
+			<Type>BONUSCLASS_HIDDEN</Type>
+			<iUnique>5</iUnique>
 		</BonusClassInfo>
 	</BonusClassInfos>
 </Civ4BonusClassInfos>
