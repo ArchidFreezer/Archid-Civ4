@@ -718,6 +718,7 @@
 	<ElementType name="bEnableStarSigns" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iStarSignMitigateChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
+	<ElementType name="iCultureDefenceChange" content="textOnly" dt:type="int"/>
 	<ElementType name="CivicInfo" content="eltOnly">
 		<element type="CivicOptionType"/>
 		<element type="Type"/>
@@ -777,6 +778,7 @@
 		<element type="bUnitTerritoryUnbound" minOccurs="0"/>
 		<element type="iUnitRangeChange" minOccurs="0"/>
 		<element type="iUnitRangePercentChange" minOccurs="0"/>
+		<element type="iCultureDefenceChange" minOccurs="0"/>
 		<element type="YieldModifiers" minOccurs="0"/>
 		<element type="CapitalYieldModifiers" minOccurs="0"/>
 		<element type="TradeYieldModifiers" minOccurs="0"/>

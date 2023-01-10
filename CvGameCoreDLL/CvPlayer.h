@@ -36,6 +36,11 @@ public:
 	CvPlayerAI* AI() { return (CvPlayerAI*)(this); }
 	const CvPlayerAI* AI() const { return (const CvPlayerAI*)(this); }
 
+	int getCultureDefenceChange() const;
+	void changeCultureDefenceChange(int iChange);
+	int getCultureDefenceModifier() const;
+	void changeCultureDefenceModifier(int iChange);
+
 	void turnSpy(CvUnit* pSpy);
 
 	int getNumSlaves() const;
@@ -1300,6 +1305,8 @@ protected:
 	int m_iStarSignPersistDecay;
 	int m_iWorldViewChangeTimer;
 	int m_iNumSlaves;
+	int m_iCultureDefenceChange;
+	int m_iCultureDefenceModifier;
 
 	uint m_uiStartTime;  // XXX save these?
 

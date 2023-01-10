@@ -67,6 +67,7 @@ void CyInfoPythonInterface1() {
 		.def("getUnitRangePercentChange", &CvTechInfo::getUnitRangePercentChange, "int ()")
 		.def("getNumPrereqAndTechs", &CvTechInfo::getNumPrereqAndTechs, "int (int i)")
 		.def("getNumPrereqOrTechs", &CvTechInfo::getNumPrereqOrTechs, "int (int i)")
+		.def("getCultureDefenceModifier", &CvTechInfo::getCultureDefenceModifier, "int ()")
 
 		.def("getGridX", &CvTechInfo::getGridX, "int ()")
 		.def("getGridY", &CvTechInfo::getGridY, "int ()")
@@ -472,6 +473,7 @@ void CyInfoPythonInterface1() {
 		.def("getExpInBorderModifier", &CvCivicInfo::getExpInBorderModifier, "bool ()")
 		.def("getUnitRangeChange", &CvCivicInfo::getUnitRangeChange, "int ()")
 		.def("getUnitRangePercentChange", &CvCivicInfo::getUnitRangePercentChange, "int ()")
+		.def("getCultureDefenceChange", &CvCivicInfo::getCultureDefenceChange, "int ()")
 
 		.def("isMilitaryFoodProduction", &CvCivicInfo::isMilitaryFoodProduction, "bool ()")
 		//.def("isNoUnhealthyPopulation", &CvCivicInfo::isNoUnhealthyPopulation, "bool ()")

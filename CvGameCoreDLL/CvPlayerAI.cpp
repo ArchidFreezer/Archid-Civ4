@@ -3779,6 +3779,12 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bFreeTech, b
 		iValue += iTemp;
 	}
 
+	if (kTechInfo.getCultureDefenceModifier() != 0) {
+		int iTemp = kTechInfo.getCultureDefenceModifier() * getNumCities() * iWarmongerFactor;
+		iTemp /= 100;
+		iValue += iTemp;
+	}
+
 	// Expand trading options
 	if (kTechInfo.isMapTrading() && !kTeam.isMapTrading()) // K-Mod
 	{
@@ -10401,6 +10407,10 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 		int iTemp = (100 + kCivic.getUnitRangePercentChange()) * getNumMilitaryUnits() * iWarmongerFactor;
 		iTemp /= 10000;
 		iValue += iTemp;
+	}
+
+	if (kCivic.getCultureDefenceChange() != 0) {
+		iValue += kCivic.getCultureDefenceChange() * iCities;
 	}
 
 	// K-Mod. After looking at a couple of examples, it's plain to see that the above maintenance estimates are far too big.

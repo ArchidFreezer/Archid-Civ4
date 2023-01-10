@@ -6713,6 +6713,12 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer& szHelpText, CivicTypes eCivi
 		szHelpText.append(CvWString::format(L"\n%c%+.2f%c %s", gDLL->getSymbolID(BULLET_CHAR), (float)GC.getCivicInfo(eCivic).getGoldPerMilitaryUnit() * fInflationFactor / 100, GC.getCommerceInfo(COMMERCE_GOLD).getChar(), gDLL->getText("TXT_KEY_CIVIC_MILITARY_SUPPORT_COSTS").GetCString()));
 	}
 
+	// City Defence
+	if (kCivic.getCultureDefenceChange() > 0) {
+		szHelpText.append(NEWLINE);
+		szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_INCREASES_CULTURE_DEFENCE", kCivic.getCultureDefenceChange()));
+	}
+
 	BuildingTypes eLoopBuilding;
 	bFirst = true;
 	bool bNewPrereqAnd = false;
@@ -7123,6 +7129,11 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	if (kTech.isCaptureCities()) {
 		szBuffer.append(NEWLINE);
 		szBuffer.append(gDLL->getText("TXT_KEY_TECH_ALLOW_CITY_CAPTURE"));
+	}
+
+	if (kTech.getCultureDefenceModifier() != 0) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_TECH_CULTURE_DEFENCE_HELP", kTech.getCultureDefenceModifier()));
 	}
 
 	bool bFirst = true;

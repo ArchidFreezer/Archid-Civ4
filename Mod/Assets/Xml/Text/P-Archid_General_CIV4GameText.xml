@@ -1407,5 +1407,15 @@
 		<French>Antre Détruite!</French>
 		<German>Ein Unterschlupf wurde zerstört!</German>
 	</TEXT>
+<!-- Cultural Defence -->
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_INCREASES_CULTURE_DEFENCE</Tag>
+		<English>[ICON_BULLET]+%d1 [COLOR_HIGHLIGHT_TEXT]cultural defence[COLOR_REVERT] in all cities</English>
+		<Spanish>[ICON_BULLET]+%d1 de defensa por cultura en todas las ciudades</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_CULTURE_DEFENCE_HELP</Tag>
+		<English>[ICON_BULLET]%d1_Perc% [COLOR_HIGHLIGHT_TEXT]cultural defence[COLOR_REVERT] in all cities</English>
+	</TEXT>
 
 </Civ4GameText>

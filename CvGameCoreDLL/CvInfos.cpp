@@ -847,6 +847,7 @@ CvTechInfo::CvTechInfo() :
 	m_iGridY(0),
 	m_iUnitRangeChange(0),
 	m_iUnitRangePercentChange(0),
+	m_iCultureDefenceModifier(0),
 	m_bRepeat(false),
 	m_bTrade(false),
 	m_bDisable(false),
@@ -906,6 +907,10 @@ CvTechInfo::~CvTechInfo() {
 	SAFE_DELETE_ARRAY(m_piCommerceModifier);
 	SAFE_DELETE_ARRAY(m_pbCommerceFlexible);
 	SAFE_DELETE_ARRAY(m_pbTerrainTrade);
+}
+
+int CvTechInfo::getCultureDefenceModifier() const {
+	return m_iCultureDefenceModifier;
 }
 
 int CvTechInfo::getWorldViewRevoltTurnChange(int i) const {
@@ -1305,6 +1310,7 @@ void CvTechInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iPowerValue);
 	stream->Read(&m_iUnitRangeChange);
 	stream->Read(&m_iUnitRangePercentChange);
+	stream->Read(&m_iCultureDefenceModifier);
 	stream->Read(&m_bRepeat);
 	stream->Read(&m_bTrade);
 	stream->Read(&m_bDisable);
@@ -1430,6 +1436,7 @@ void CvTechInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iPowerValue);
 	stream->Write(m_iUnitRangeChange);
 	stream->Write(m_iUnitRangePercentChange);
+	stream->Write(m_iCultureDefenceModifier);
 	stream->Write(m_bRepeat);
 	stream->Write(m_bTrade);
 	stream->Write(m_bDisable);
@@ -1552,6 +1559,7 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
 	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
 	pXML->GetChildXmlValByName(&m_iUnitRangePercentChange, "iUnitRangePercentChange");
+	pXML->GetChildXmlValByName(&m_iCultureDefenceModifier, "iCultureDefenceModifier");
 	pXML->GetChildXmlValByName(&m_bCanPassPeaks, "bCanPassPeaks");
 	pXML->GetChildXmlValByName(&m_bMoveFastPeaks, "bMoveFastPeaks");
 	pXML->GetChildXmlValByName(&m_bCanFoundOnPeaks, "bCanFoundOnPeaks");
@@ -5621,6 +5629,7 @@ CvCivicInfo::CvCivicInfo() :
 	m_iUnitRangePercentChange(0),
 	m_iStarSignMitigateChangePercent(0),
 	m_iStarSignScaleChangePercent(0),
+	m_iCultureDefenceChange(0),
 	m_bMilitaryFoodProduction(false),
 	m_iUnhealthyPopulationModifier(0), // K-Mod
 	m_bBuildingOnlyHealthy(false),
@@ -5675,6 +5684,10 @@ CvCivicInfo::~CvCivicInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppiImprovementYieldChanges);
 	}
+}
+
+int CvCivicInfo::getCultureDefenceChange() const {
+	return m_iCultureDefenceChange;
 }
 
 bool CvCivicInfo::isEnableStarSigns() const {
@@ -6047,6 +6060,7 @@ void CvCivicInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iUnitRangePercentChange);
 	stream->Read(&m_iStarSignMitigateChangePercent);
 	stream->Read(&m_iStarSignScaleChangePercent);
+	stream->Read(&m_iCultureDefenceChange);
 
 	stream->Read(&m_bMilitaryFoodProduction);
 	stream->Read(&m_iUnhealthyPopulationModifier); // K-Mod
@@ -6172,6 +6186,7 @@ void CvCivicInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iUnitRangePercentChange);
 	stream->Write(m_iStarSignMitigateChangePercent);
 	stream->Write(m_iStarSignScaleChangePercent);
+	stream->Write(m_iCultureDefenceChange);
 
 	stream->Write(m_bMilitaryFoodProduction);
 	stream->Write(m_iUnhealthyPopulationModifier); // K-Mod
@@ -6274,6 +6289,7 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
 	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
 	pXML->GetChildXmlValByName(&m_iUnitRangePercentChange, "iUnitRangePercentChange");
+	pXML->GetChildXmlValByName(&m_iCultureDefenceChange, "iCultureDefenceChange");
 
 	pXML->SetList(&m_piYieldModifier, "YieldModifiers", NUM_YIELD_TYPES);
 	pXML->SetList(&m_piCapitalYieldModifier, "CapitalYieldModifiers", NUM_YIELD_TYPES);

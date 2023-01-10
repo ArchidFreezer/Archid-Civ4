@@ -6398,7 +6398,15 @@ int CvCity::getNaturalDefense() const {
 		return 0;
 	}
 
-	return GC.getCultureLevelInfo(getCultureLevel()).getCityDefenseModifier();
+	const CvPlayer& kPlayer = GET_PLAYER(getOwnerINLINE());
+	int iNaturalDefence = GC.getCultureLevelInfo(getCultureLevel()).getCityDefenseModifier();
+	iNaturalDefence += kPlayer.getCultureDefenceChange();
+	if (kPlayer.getCultureDefenceModifier() != 0) {
+		iNaturalDefence *= kPlayer.getCultureDefenceModifier();
+		iNaturalDefence /= 100;
+	}
+
+	return iNaturalDefence;
 }
 
 

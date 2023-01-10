@@ -124,6 +124,7 @@
 	<ElementType name="WorldViewRevoltTurnChanges" content="eltOnly">
 		<element type="WorldViewRevoltTurnChange" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="iCultureDefenceModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iCommerce" content="textOnly" dt:type="int"/>
 	<ElementType name="SpecialistExtraCommerces" content="eltOnly">
 		<element type="iCommerce" minOccurs="0" maxOccurs="*"/>
@@ -192,6 +193,7 @@
 		<element type="bUnitTerritoryUnbound" minOccurs="0"/>
 		<element type="iUnitRangeChange" minOccurs="0"/>
 		<element type="iUnitRangePercentChange" minOccurs="0"/>
+		<element type="iCultureDefenceModifier" minOccurs="0"/>
 		<element type="ForestPlotYieldChanges" minOccurs="0"/>
 		<element type="RiverPlotYieldChanges" minOccurs="0"/>
 		<element type="SeaPlotYieldChanges" minOccurs="0"/>

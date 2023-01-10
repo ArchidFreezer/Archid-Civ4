@@ -522,6 +522,8 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iStarSignPersistDecay = 0;
 	m_iWorldViewChangeTimer = 0;
 	m_iNumSlaves = 0;
+	m_iCultureDefenceChange = 0;
+	m_iCultureDefenceModifier = 0;
 
 	m_uiStartTime = 0;
 
@@ -13850,6 +13852,7 @@ void CvPlayer::processCivics(CivicTypes eCivic, int iChange) {
 	changeStarSignImpactedCount(kCivic.isEnableStarSigns() ? iChange : 0);
 	changeStarSignMitigatePercent(kCivic.getStarSignMitigateChangePercent() * iChange);
 	changeStarSignScalePercent(kCivic.getStarSignScaleChangePercent() * iChange);
+	changeCultureDefenceChange(kCivic.getCultureDefenceChange() * iChange);
 
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 		changeYieldRateModifier(eYield, kCivic.getYieldModifier(eYield) * iChange);
@@ -14038,6 +14041,8 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iStarSignPersistDecay);
 	pStream->Read(&m_iWorldViewChangeTimer);
 	pStream->Read(&m_iNumSlaves);
+	pStream->Read(&m_iCultureDefenceChange);
+	pStream->Read(&m_iCultureDefenceModifier);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14529,6 +14534,8 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iStarSignPersistDecay);
 	pStream->Write(m_iWorldViewChangeTimer);
 	pStream->Write(m_iNumSlaves);
+	pStream->Write(m_iCultureDefenceChange);
+	pStream->Write(m_iCultureDefenceModifier);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -20084,4 +20091,20 @@ void CvPlayer::turnSpy(CvUnit* pSpy) {
 	pTurnedSpy->setOriginalSpymaster(eOriginalSpymaster);
 
 	pSpy->kill(true);
+}
+
+int CvPlayer::getCultureDefenceChange() const {
+	return m_iCultureDefenceChange;
+}
+
+void CvPlayer::changeCultureDefenceChange(int iChange) {
+	m_iCultureDefenceChange += iChange;
+}
+
+int CvPlayer::getCultureDefenceModifier() const {
+	return m_iCultureDefenceModifier;
+}
+
+void CvPlayer::changeCultureDefenceModifier(int iChange) {
+	m_iCultureDefenceModifier += iChange;
 }

@@ -322,6 +322,7 @@ public:
 	int getNumPrereqAndTechs() const;
 	int getNumPrereqOrTechs() const;
 	int getNumEnabledWorldViews() const;
+	int getCultureDefenceModifier() const;
 
 	int getGridX() const;									// Exposed to Python
 	int getGridY() const;									// Exposed to Python
@@ -423,6 +424,7 @@ protected:
 	int m_iUnitRangePercentChange;
 	int m_iGridX;
 	int m_iGridY;
+	int m_iCultureDefenceModifier;
 
 	bool m_bRepeat;
 	bool m_bTrade;
@@ -1536,6 +1538,7 @@ public:
 	int getUnitRangePercentChange() const;
 	int getStarSignScaleChangePercent() const;
 	int getStarSignMitigateChangePercent() const;
+	int getCultureDefenceChange() const;
 
 	bool isMilitaryFoodProduction() const;				// Exposed to Python
 	bool isBuildingOnlyHealthy() const;				// Exposed to Python
@@ -1625,6 +1628,7 @@ protected:
 	int m_iUnitRangePercentChange;
 	int m_iStarSignScaleChangePercent;
 	int m_iStarSignMitigateChangePercent;
+	int m_iCultureDefenceChange;
 
 	bool m_bMilitaryFoodProduction;
 	int m_iUnhealthyPopulationModifier; // K-Mod

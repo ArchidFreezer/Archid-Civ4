@@ -4976,10 +4976,10 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 				kPlayer.changeUnitTerritoryUnboundCount(iChange);
 			kPlayer.changeExtraRange(kTech.getUnitRangeChange() * iChange);
 			kPlayer.changeExtraRangePercent(kTech.getUnitRangePercentChange() * iChange);
-
 			kPlayer.changeAssets(kTech.getAssetValue() * iChange);
 			kPlayer.changePower(kTech.getPowerValue() * iChange);
 			kPlayer.changeTechScore(getTechScore(eTech) * iChange);
+			kPlayer.changeCultureDefenceModifier(kTech.getCultureDefenceModifier() * iChange);
 
 			UnitTypes eFreeUnit = kPlayer.getTechFreeUnit(eTech, false);
 			if (eFreeUnit != NO_UNIT) {
