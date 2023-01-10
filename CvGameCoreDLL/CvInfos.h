@@ -1015,7 +1015,6 @@ public:
 	int getNumPrereqAndTechs() const;
 	int getNumPrereqOrBonuses() const;				// Exposed to Python
 	int getSlaveSpecialistType() const;
-	int getEnslaveCount() const;
 	int getNumPrereqWorldViews() const;
 
 	bool isAnimal() const;				// Exposed to Python
@@ -1240,7 +1239,6 @@ protected:
 	int m_iLeaderPromotion;
 	int m_iMinPopulation;
 	int m_iObsoleteTech;
-	int m_iEnslaveCount;
 	int m_iSlaveSpecialistType;
 
 	bool m_bAnimal;

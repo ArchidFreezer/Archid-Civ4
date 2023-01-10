@@ -331,7 +331,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iRangeUnboundCount = 0;
 	m_iTerritoryUnboundCount = 0;
 	m_iCanMovePeaksCount = 0;
-	m_iEnslaveCountExtra = 0;
+	m_iMaxSlaves = 0;
 	m_iSlaveSpecialistType = (NO_UNIT != eUnit) ? ((CvUnitInfo*)&GC.getUnitInfo(eUnit))->getSlaveSpecialistType() : NO_SPECIALIST;
 	m_iSlaveControlCount = 0;
 	m_iLoyaltyCount = 0;
@@ -9956,7 +9956,7 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 		changeCargoSpace(kPromotion.getCargoChange() * iChange);
 		changeExtraRange(kPromotion.getUnitRangeChange() * iChange);
 		changeExtraRangePercent(kPromotion.getUnitRangePercentChange() * iChange);
-		changeEnslaveCountExtra(kPromotion.getEnslaveCountChange() * iChange);
+		changeMaxSlaves(kPromotion.getEnslaveCountChange() * iChange);
 		changeSpyEvasionChanceExtra(kPromotion.getSpyEvasionChange() * iChange);
 		changeSpyPreparationModifier(kPromotion.getSpyPreparationModifier() * iChange);
 		changeSpyPoisonChangeExtra(kPromotion.getSpyPoisonModifier() * iChange);
@@ -10138,7 +10138,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iRangeUnboundCount);
 	pStream->Read(&m_iTerritoryUnboundCount);
 	pStream->Read(&m_iCanMovePeaksCount);
-	pStream->Read(&m_iEnslaveCountExtra);
+	pStream->Read(&m_iMaxSlaves);
 	pStream->Read(&m_iSlaveSpecialistType);
 	pStream->Read(&m_iSlaveControlCount);
 	pStream->Read(&m_iLoyaltyCount);
@@ -10293,7 +10293,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iRangeUnboundCount);
 	pStream->Write(m_iTerritoryUnboundCount);
 	pStream->Write(m_iCanMovePeaksCount);
-	pStream->Write(m_iEnslaveCountExtra);
+	pStream->Write(m_iMaxSlaves);
 	pStream->Write(m_iSlaveSpecialistType);
 	pStream->Write(m_iSlaveControlCount);
 	pStream->Write(m_iLoyaltyCount);
@@ -12161,12 +12161,16 @@ void CvUnit::changeSlaveCount(SpecialistTypes iIndex, int iChange) {
 	FAssert(getSlaveCount(iIndex) >= 0);
 }
 
-void CvUnit::changeEnslaveCountExtra(int iChange) {
-	m_iEnslaveCountExtra += iChange;
+void CvUnit::setMaxSlaves(int iValue) {
+	m_iMaxSlaves = iValue;
 }
 
-int CvUnit::getEnslaveCountExtra() const {
-	return m_iEnslaveCountExtra;
+void CvUnit::changeMaxSlaves(int iChange) {
+	m_iMaxSlaves += iChange;
+}
+
+int CvUnit::getMaxSlaves() const {
+	return m_iMaxSlaves;
 }
 
 void CvUnit::changeSlaveControlCount(int iChange) {
@@ -12175,10 +12179,6 @@ void CvUnit::changeSlaveControlCount(int iChange) {
 
 int CvUnit::getSlaveControlCount() const {
 	return std::max(m_iSlaveControlCount, getMaxSlaves() - getSlaveCountTotal());
-}
-
-int CvUnit::getMaxSlaves() const {
-	return m_pUnitInfo->getEnslaveCount() + getEnslaveCountExtra();
 }
 
 bool CvUnit::canEnslave() const {
@@ -13192,7 +13192,7 @@ void CvUnit::becomeSlaver() {
 	// Units can manage 1 slave for every 8 combat or part thereof
 	float fSlaves = fNewCombat * 12.5f;
 	fSlaves /= 100;
-	changeEnslaveCountExtra((int)ceil(fSlaves));
+	setMaxSlaves((int)ceil(fSlaves));
 	setFixedAI(true);
 	setHiddenNationality(true);
 	setAlwaysHostile(true);

@@ -490,7 +490,6 @@
 		<element type="WorldViewType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="SlaveSpecialistType" content="textOnly"/>
-	<ElementType name="iEnslaveCount" content="textOnly" dt:type="int"/>
 	<ElementType name="bSlave" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bFixedAI" content="textOnly" dt:type="boolean"/>
 	<ElementType name="UnitInfo" content="eltOnly">
@@ -595,7 +594,6 @@
 		<element type="Flavors" minOccurs="0"/>
 		<element type="iAIWeight" minOccurs="0"/>
 		<element type="iCost" minOccurs="0"/>
-		<element type="iEnslaveCount" minOccurs="0"/>
 		<element type="iHurryCostModifier" minOccurs="0"/>
 		<element type="iAdvancedStartCost" minOccurs="0"/>
 		<element type="iAdvancedStartCostIncrease" minOccurs="0"/>

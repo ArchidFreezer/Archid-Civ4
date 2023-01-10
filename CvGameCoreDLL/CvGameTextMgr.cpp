@@ -7374,11 +7374,6 @@ void CvGameTextMgr::setBasicUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit,
 		szBuffer.append(gDLL->getText("TXT_KEY_UNIT_TRADE_MISSION"));
 	}
 
-	if (kUnit.getEnslaveCount() > 0) {
-		szBuffer.append(NEWLINE);
-		szBuffer.append(gDLL->getText("TXT_KEY_UNIT_ENSLAVER_COUNT", kUnit.getEnslaveCount()));
-	}
-
 	if (kUnit.isSlave()) {
 		szBuffer.append(NEWLINE);
 		szBuffer.append(gDLL->getText("TXT_KEY_UNIT_TYPE_SLAVE"));

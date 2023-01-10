@@ -3213,7 +3213,6 @@ CvUnitInfo::CvUnitInfo() :
 	m_iCommandType(NO_COMMAND),
 	m_iMinPopulation(0),
 	m_iObsoleteTech(NO_TECH),
-	m_iEnslaveCount(0),
 	m_iSlaveSpecialistType(NO_SPECIALIST),
 	m_eRangeType(UNITRANGE_RANGE),
 	m_eMinCultureLevel(NO_CULTURELEVEL),
@@ -3378,10 +3377,6 @@ int CvUnitInfo::getSlaveSpecialistType() const {
 	} else {
 		return m_iSlaveSpecialistType == NO_SPECIALIST ? GC.getDefineINT("SLAVERY_DEFAULT_SLAVE_SPECIALIST") : m_iSlaveSpecialistType;
 	}
-}
-
-int CvUnitInfo::getEnslaveCount() const {
-	return m_iEnslaveCount;
 }
 
 bool CvUnitInfo::isSlave() const {
@@ -4475,7 +4470,6 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iCommandType);
 	stream->Read(&m_iMinPopulation);
 	stream->Read(&m_iObsoleteTech);
-	stream->Read(&m_iEnslaveCount);
 	stream->Read(&m_iSlaveSpecialistType);
 
 	int iTemp;
@@ -4884,7 +4878,6 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iCommandType);
 	stream->Write(m_iMinPopulation);
 	stream->Write(m_iObsoleteTech);
-	stream->Write(m_iEnslaveCount);
 	stream->Write(m_iSlaveSpecialistType);
 
 	stream->Write(m_eRangeType);
@@ -5215,7 +5208,6 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(&m_iAIWeight, "iAIWeight");
 	pXML->GetChildXmlValByName(&m_iProductionCost, "iCost");
-	pXML->GetChildXmlValByName(&m_iEnslaveCount, "iEnslaveCount");
 	pXML->GetChildXmlValByName(&m_iHurryCostModifier, "iHurryCostModifier");
 	pXML->GetChildXmlValByName(&m_iAdvancedStartCost, "iAdvancedStartCost");
 	pXML->GetChildXmlValByName(&m_iAdvancedStartCostIncrease, "iAdvancedStartCostIncrease");

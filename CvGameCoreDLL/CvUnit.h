@@ -195,7 +195,6 @@ public:
 	void setUnitCombatType(UnitCombatTypes eCombat);
 
 	// Slavery
-	int getEnslaveCountExtra() const;
 	int getMaxSlaves() const;
 	int getSlaveControlCount() const;
 	int getSlaveCount(SpecialistTypes eSlaveSpecialist) const;
@@ -210,10 +209,11 @@ public:
 	bool isSlaver() const;
 	bool isWorldViewEnabled() const;
 	bool sellSlaves();
-	void changeEnslaveCountExtra(int iChange);
+	void changeMaxSlaves(int iChange);
 	void changeSlaveControlCount(int iChange);
 	void changeSlaveCount(SpecialistTypes eSlaveSpecialist, int iChange);
 	void checkWorldViewStatus();
+	void setMaxSlaves(int iValue);
 	void setSlaverGraphics();
 	void setSlaveSpecialistType(SpecialistTypes eSpecialistType);
 	SpecialistTypes getSlaveSpecialistType() const;
@@ -1020,7 +1020,7 @@ protected:
 	int m_iRangeUnboundCount;
 	int m_iTerritoryUnboundCount;
 	int m_iCanMovePeaksCount;
-	int m_iEnslaveCountExtra;
+	int m_iMaxSlaves;
 	int m_iSlaveSpecialistType;
 	int m_iSlaveControlCount;
 	int m_iLoyaltyCount;
