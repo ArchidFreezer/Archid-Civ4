@@ -1798,6 +1798,7 @@ bool CvUnitAI::AI_enslave(int iRange, int iOddsThreshold) {
 	CvPlot* pBestPlot = NULL;
 	for (int iDX = -iRange; iDX <= iRange; iDX++) {
 		for (int iDY = -iRange; iDY <= iRange; iDY++) {
+			bool bFoundTarget = false;
 			CvPlot* pLoopPlot = plotXY(getX_INLINE(), getY_INLINE(), iDX, iDY);
 
 			if (pLoopPlot == NULL || pLoopPlot == plot() || !AI_plotValid(pLoopPlot) || pLoopPlot->isCity())
@@ -1815,8 +1816,9 @@ bool CvUnitAI::AI_enslave(int iRange, int iOddsThreshold) {
 					continue;
 
 				iValueWeighting += iWeightedOdds - iOddsThreshold;
+				bFoundTarget = true;
 			} else {
-				// No defender so see if there are any units that provide a slaves
+				// No defender so see if there are any units that provide a slave
 				int iFreeSlaves = getMaxSlaves() - getSlaveCountTotal();
 
 				CLLNode<IDInfo>* pUnitNode = pLoopPlot->headUnitNode();
@@ -1831,16 +1833,20 @@ bool CvUnitAI::AI_enslave(int iRange, int iOddsThreshold) {
 						bPoachTemp = true;
 						iFreeSlaves--;
 						iValueWeighting *= atWar(getTeam(), pLoopUnit->getTeam()) ? 3 : 2;
+						bFoundTarget = true;
 					}
 				}
 			}
 
-			int iValue = (1 + GC.getGameINLINE().getSorenRandNum(10000, "AI Enslave"));
-
 			if (pLoopPlot->isRevealedGoody(getTeam())) {
-				iValue += 100000;
+				iValueWeighting += 100000;
+				bFoundTarget = true;
 			}
 
+			if (!bFoundTarget)
+				continue;
+
+			int iValue = (1 + GC.getGameINLINE().getSorenRandNum(10000, "AI Enslave"));
 			iValue *= iValueWeighting;
 			iValue /= 100;
 
