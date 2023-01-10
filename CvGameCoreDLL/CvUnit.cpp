@@ -13189,7 +13189,10 @@ void CvUnit::becomeSlaver() {
 	setUnitCombatType((UnitCombatTypes)GC.getInfoTypeForString("UNITCOMBAT_SLAVER", true));
 	setInvisibleType((InvisibleTypes)GC.getInfoTypeForString("INVISIBLE_SLAVER", true));
 	AI_setUnitAIType(UNITAI_SLAVER);
-	changeEnslaveCountExtra(1);
+	// Units can manage 1 slave for every 8 combat or part thereof
+	float fSlaves = fNewCombat * 12.5f;
+	fSlaves /= 100;
+	changeEnslaveCountExtra((int)ceil(fSlaves));
 	setFixedAI(true);
 	setHiddenNationality(true);
 	setAlwaysHostile(true);
@@ -13261,7 +13264,6 @@ void CvUnit::changeSeeInvisibleCount(InvisibleTypes eInvisibleType, int iChange)
 	FAssertMsg(eInvisibleType < GC.getNumInvisibleInfos(), "eInvisibleType expected to be < GC.getNumInvisibleInfos()");
 
 	m_paiSeeInvisibleCount[eInvisibleType] = m_paiSeeInvisibleCount[eInvisibleType] + iChange;
-	FAssert(getSeeInvisibleCount(eInvisibleType) >= 0);
 }
 
 bool CvUnit::isSeeInvisible(InvisibleTypes eInvisibleType) const {
