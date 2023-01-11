@@ -303,6 +303,16 @@
 			<Description>TXT_KEY_UNIT_WARRIOR</Description>
 			<DefaultUnit>UNIT_WARRIOR</DefaultUnit>
 		</UnitClassInfo>
+		<UnitClassInfo> <!-- Stone Spearman -->
+			<Type>UNITCLASS_STONE_SPEARMAN</Type>
+			<Description>TXT_KEY_UNIT_STONE_SPEARMAN</Description>
+			<DefaultUnit>UNIT_STONE_SPEARMAN</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Stone Axeman -->
+			<Type>UNITCLASS_STONE_AXEMAN</Type>
+			<Description>TXT_KEY_UNIT_STONE_AXEMAN</Description>
+			<DefaultUnit>UNIT_STONE_AXEMAN</DefaultUnit>
+		</UnitClassInfo>
 		<UnitClassInfo> <!-- Spearman -->
 			<Type>UNITCLASS_SPEARMAN</Type>
 			<Description>TXT_KEY_UNIT_SPEARMAN</Description>

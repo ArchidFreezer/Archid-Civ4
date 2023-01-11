@@ -239,6 +239,36 @@
 		<Spanish>Construye [COLOR_UNIT_TEXT]Honderos[COLOR_REVERT] para proteger tus ciudades en la era Paleol&#237;tica.</Spanish>
 	</TEXT>
 
+	<TEXT> <!-- Stone Axemen -->
+		<Tag>TXT_KEY_UNIT_STONE_AXEMAN</Tag>
+		<English>Stone Axeman</English>
+		<Spanish>Hachero de Piedra</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_STONE_AXEMAN_PEDIA</Tag>
+		<English>[TAB][COLOR_UNIT_TEXT]Stone Axeman[COLOR_REVERT] refers to a person who carries a Stone Axe.[NEWLINE][PARAGRAPH:1]During the Neolithic period, large axes were made from flint nodules by chipping a rough shape, a so-called "rough-out". Such products were traded across a wide area. The rough-outs were then polished to give the surface a fine finish to create the axe head. Polishing not only increased the final strength of the product but also meant that the head could penetrate wood more easily.[NEWLINE][PARAGRAPH:1]Such axe heads were needed in large numbers for forest clearance and the establishment of settlements and farmsteads, a characteristic of the Neolithic period. There were many sources of supply, including Grimes Graves in Suffolk, Cissbury in Sussex and Spiennes near Mons in Belgium to mention but a few. In Britain, there were numerous small quarries in downland areas where flint was removed for local use, for example.[NEWLINE][PARAGRAPH:1]Many other rocks were used to make stone axes, including the Langdale axe industry as well as numerous other sites such as Penmaenmawr and Tievebulliagh in Co Antrim, Ulster. In Langdale, there many outcrops of the greenstone were exploited, and knapped where the stone was extracted. The sites exhibit piles of waste flakes, as well as rejected rough-outs. Polishing improved the mechanical strength of the tools, so increasing their life and effectiveness. Many other tools were developed using the same techniques. Such products were traded across the country and abroad.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_STONE_AXEMAN_STRATEGY</Tag>
+		<English>Build [COLOR_UNIT_TEXT]Stone Axemen[COLOR_REVERT] to counter attack early melee units and to attack cities.</English>
+		<Spanish>Construye [COLOR_UNIT_TEXT]Hacheros de Piedra[COLOR_REVERT] para contra-atacar unidades de choque y atacar ciudades.</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Stone Spearman -->
+		<Tag>TXT_KEY_UNIT_STONE_SPEARMAN</Tag>
+		<English>Stone Spearman</English>
+		<Spanish>Lancero de Piedra</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_STONE_SPEARMAN_PEDIA</Tag>
+		<English>[TAB][BOLD]Stone Spearman[\BOLD] is a term that refers to a person who carries a Stone Spear. A Stone Spear consists of a large wood stick with a projectile point on its head.[NEWLINE][PARAGRAPH:1]In archaeology, a projectile point is an object that was hafted and used either as knife or projectile tip or both, commonly called an arrowhead. Occasionally, projectile points made of worked bone or ivory are found at archaeological sites, but generally the term is reserved for a refined chipped-stone biface. Projectile points fall into two general types: dart points and arrow points. Dart points are defined as those bifaces which were used to tip spears.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_STONE_SPEARMAN_STRATEGY</Tag>
+		<English>Build [COLOR_UNIT_TEXT]Stone Spearmen[COLOR_REVERT] to defend against early Mounted/Wheeled units.</English>
+		<Spanish>Construye [COLOR_UNIT_TEXT]Lanceros de Piedra[COLOR_REVERT] para protegerte de las Unidades a Caballo/Rueda anticipadas.</Spanish>
+	</TEXT>
+
 	<TEXT> <!-- Tiger -->
 		<Tag>TXT_KEY_UNIT_TIGER</Tag>
 		<English>Tiger</English>
