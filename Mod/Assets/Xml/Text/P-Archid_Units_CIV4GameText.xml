@@ -62,6 +62,21 @@
 <!-- ******************** -->
 <!-- Units                -->
 <!-- ******************** -->
+	<TEXT> <!-- Atlatl -->
+		<Tag>TXT_KEY_UNIT_ATLATL</Tag>
+		<English>Atlatl</English>
+		<Spanish>Lanzadardos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ATLATL_PEDIA</Tag>
+		<English>[TAB][COLOR_UNIT_TEXT]Atlatl[COLOR_REVERT] refers to a person who uses and Atlatl weapon.[NEWLINE][PARAGRAPH:1]An atlatl or spear-thrower is a tool that uses leverage to achieve greater velocity in spear-throwing, and includes a bearing surface which allows the user to temporarily store energy during the throw. It consists of a shaft with a cup, in which the butt of the spear rests. It is held near the end farthest from the cup, and the spear is thrown by the action of the upper arm and wrist. A well-made atlatl can readily achieve ranges of greater than 100 meters. Atlatl designs may include improvements such as thong loops to fit the fingers, the use of flexible shafts, stone balance weights and thinner, highly flexible darts for added power and range. Darts resemble large arrows or thin spears and are typically from 1.2 to 2.7 meters (4 to 9 feet) in length and 9 to 16 millimetre (3/8” to 5/8”) in diameter.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ATLATL_STRATEGY</Tag>
+		<English>Build [COLOR_UNIT_TEXT]Atlatls[COLOR_REVERT] as early hunters. They will help you bring food to the nearest city.</English>
+		<Spanish>Construye [COLOR_UNIT_TEXT]Atlatls[COLOR_REVERT] como cazadores iniciales. Ellos te ayudar&#225;n a llevar comida a la ciudad m&#225;s cercana.</Spanish>
+	</TEXT>
+	
 	<TEXT> <!-- Canoe -->
 		<Tag>TXT_KEY_UNIT_CANOE</Tag>
 		<English>Canoe</English>
