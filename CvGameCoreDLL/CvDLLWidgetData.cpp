@@ -623,6 +623,9 @@ void CvDLLWidgetData::parseHelp(CvWStringBuffer& szBuffer, CvWidgetDataStruct& w
 	case WIDGET_HELP_GLOBAL_COMMERCE_MODIFIER:
 		GAMETEXT.setCommerceChangeHelp(szBuffer, L"", L"", gDLL->getText("TXT_KEY_CIVIC_IN_ALL_CITIES").GetCString(), GC.getTechInfo((TechTypes)(widgetDataStruct.m_iData1)).getCommerceModifierArray(), true, false);
 		break;
+	case WIDGET_HELP_WEAPON_TYPE:
+		parseWeaponHelp(widgetDataStruct, szBuffer);
+		break;
 	}
 }
 
@@ -945,6 +948,7 @@ bool CvDLLWidgetData::executeAction(CvWidgetDataStruct& widgetDataStruct) {
 	case WIDGET_HELP_SEA_YIELD_CHANGE:
 	case WIDGET_HELP_CAPTURE_CITIES:
 	case WIDGET_HELP_OBSOLETE_BUILD:
+	case WIDGET_HELP_WEAPON_TYPE:
 		//	Nothing on clicked
 		break;
 	}
@@ -4660,4 +4664,10 @@ void CvDLLWidgetData::doGoToCity(CvWidgetDataStruct& widgetDataStruct) {
 	CvPlot* pPlot = pCity->plot();
 
 	GC.getGameINLINE().selectionListMove(pPlot, false, false, false);
+}
+
+void CvDLLWidgetData::parseWeaponHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
+	if (widgetDataStruct.m_iData2 != 0) {
+		GAMETEXT.setWeaponHelp(szBuffer, ((WeaponTypes)(widgetDataStruct.m_iData1)));
+	}
 }

@@ -3241,6 +3241,7 @@ void CvGlobals::deleteInfoArrays() {
 	deleteInfoArray(m_paStarEventTargetInfos);
 	deleteInfoArray(m_paWorldViewInfo);
 	SAFE_DELETE_ARRAY(GC.getStarEventTargetTypes());
+	deleteInfoArray(m_paWeaponInfo);
 
 	clearTypesMap();
 	m_aInfoVectors.clear();
@@ -3485,4 +3486,18 @@ CvWorldViewInfo& CvGlobals::getWorldViewInfo(WorldViewTypes eWorldView) {
 	FAssert(eWorldView > -1);
 	FAssert(eWorldView < NUM_WORLD_VIEWS);
 	return *(m_paWorldViewInfo[eWorldView]);
+}
+
+int CvGlobals::getNumWeaponInfos() {
+	return (int)m_paWeaponInfo.size();
+}
+
+std::vector<CvWeaponInfo*>& CvGlobals::getWeaponInfo() {
+	return m_paWeaponInfo;
+}
+
+CvWeaponInfo& CvGlobals::getWeaponInfo(WeaponTypes eWeapon) {
+	FAssert(eWeapon > -1);
+	FAssert(eWeapon < GC.getNumWeaponInfos());
+	return *(m_paWeaponInfo[eWeapon]);
 }

@@ -137,6 +137,7 @@ void CvXMLLoadUtility::readXMLfiles(bool bFirst) {
 	PreLoadGlobalClassInfo(GC.getMPOptionInfo(), "CIV4MPOptionInfos", "GameInfo", "Civ4MPOptionInfos/MPOptionInfos/MPOptionInfo");
 	PreLoadGlobalClassInfo(GC.getForceControlInfo(), "CIV4ForceControlInfos", "GameInfo", "Civ4ForceControlInfos/ForceControlInfos/ForceControlInfo");
 	PreLoadGlobalClassInfo(GC.getWorldViewInfo(), "CIV4WorldViewInfos", "GameInfo", "Civ4WorldViewInfos/WorldViewInfos/WorldViewInfo");
+	PreLoadGlobalClassInfo(GC.getWeaponInfo(), "CIV4WeaponInfos", "Units", "Civ4WeaponInfos/WeaponInfos/WeaponInfo");
 
 	// SetupGlobalLandscapeInfo()
 	PreLoadGlobalClassInfo(GC.getLandscapeInfo(), "CIV4TerrainSettings", "Terrain", "Civ4TerrainSettings/LandscapeInfos/LandscapeInfo");

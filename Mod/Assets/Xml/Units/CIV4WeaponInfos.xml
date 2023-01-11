@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Alex Mantzaris (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Special Unit Infos -->
+<Civ4WeaponInfos xmlns="x-schema:CIV4UnitSchema.xml">
+	<WeaponInfos>
+		<WeaponInfo>
+			<Type>WEAPON_WOOD</Type>
+			<Description>TXT_KEY_WEAPON_WOOD</Description>
+			<iStrength>0</iStrength>
+			<UnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+			</UnitCombatTypes>
+			<Button>Art/Interface/Buttons/Weapons/weapon_wood.dds</Button>
+		</WeaponInfo>
+		<WeaponInfo>
+			<Type>WEAPON_BRONZE</Type>
+			<Description>TXT_KEY_WEAPON_BRONZE</Description>
+			<iStrength>1</iStrength>
+			<BonusTypes>
+				<BonusType>BONUS_COPPER</BonusType>
+			</BonusTypes>
+			<UnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+			</UnitCombatTypes>
+			<Button>Art/Interface/Buttons/Weapons/weapon_bronze.dds</Button>
+		</WeaponInfo>
+		<WeaponInfo>
+			<Type>WEAPON_IRON</Type>
+			<Description>TXT_KEY_WEAPON_BRONZE</Description>
+			<iStrength>2</iStrength>
+			<BonusTypes>
+				<BonusType>BONUS_IRON</BonusType>
+			</BonusTypes>
+			<UnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+			</UnitCombatTypes>
+			<Button>Art/Interface/Buttons/Weapons/weapon_iron.dds</Button>
+		</WeaponInfo>
+	</WeaponInfos>
+</Civ4WeaponInfos>

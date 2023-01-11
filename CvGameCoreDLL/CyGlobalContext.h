@@ -90,6 +90,7 @@ public:
 	CvInfoBase* getUnitAIInfo(int i) const;
 	CvColorInfo* getColorInfo(int i) const;
 	CvUnitArtStyleTypeInfo* getUnitArtStyleTypeInfo(int i) const;
+	CvWeaponInfo* getWeaponInfo(int i) const;
 
 	int getInfoTypeForString(const char* szInfoType) const;
 	int getTypesEnum(const char* szType) const;
@@ -219,6 +220,7 @@ public:
 	int getNumMainMenus() const { return GC.getNumMainMenus(); }
 	int getNumInvisibleInfos() const { return GC.getNumInvisibleInfos(); }
 	int getNumVoteSourceInfos() const { return GC.getNumVoteSourceInfos(); }
+	int getNumWeaponInfos() const { return GC.getNumWeaponInfos(); }
 
 	// ArtInfos
 	int getNumInterfaceArtInfos() const { return ARTFILEMGR.getNumInterfaceArtInfos(); }

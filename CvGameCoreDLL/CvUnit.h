@@ -95,6 +95,10 @@ public:
 
 	DllExport void NotifyEntity(MissionTypes eMission);
 
+	void setWeaponType(WeaponTypes eWeapon);
+	int getWeaponStrength() const;
+	WeaponTypes getWeaponType() const;
+
 	bool canFortAttack() const;
 
 	bool canShadow() const;
@@ -1025,6 +1029,7 @@ protected:
 	int m_iSlaveControlCount;
 	int m_iLoyaltyCount;
 	int m_iWorkRateModifier;
+	int m_iWeaponStrength; // Cached for speed
 
 	bool m_bMadeAttack;
 	bool m_bMadeInterception;
@@ -1051,6 +1056,7 @@ protected:
 	UnitCombatTypes m_eUnitCombatType;
 	UnitTypes m_eUnitType;
 	UnitTypes m_eLeaderUnitType;
+	WeaponTypes m_eWeaponType;
 	CvUnitInfo* m_pUnitInfo;
 	CvSpy* m_pSpy;
 	CvUnitMeshGroups* m_pCustomUnitMeshGroup;

@@ -784,4 +784,12 @@ void CyInfoPythonInterface3() {
 		.def("getLoadingSlideshow", &CvMainMenuInfo::getLoadingSlideshow, "string ()")
 		;
 
+	python::class_<CvWeaponInfo, python::bases<CvInfoBase> >("CvWeaponInfo")
+		.def("getStrength", &CvWeaponInfo::getStrength, "int ()")
+		.def("getNumBonusPrereqs", &CvWeaponInfo::getNumBonusPrereqs, "int ()")
+		.def("getNumUnitCombatTypes", &CvWeaponInfo::getNumUnitCombatTypes, "int ()")
+		.def("getBonusPrereq", &CvWeaponInfo::getBonusPrereq, "int (int i)")
+		.def("getUnitCombatType", &CvWeaponInfo::getUnitCombatType, "int (int i)")
+		;
+
 }

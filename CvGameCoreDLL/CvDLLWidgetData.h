@@ -213,6 +213,7 @@ public:
 	void parseLimitedBordersHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer);
 	void parseFreeTradeAgreementHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer);
 	void parseNonAggressionHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer);
+	void parseWeaponHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer);
 
 protected:
 

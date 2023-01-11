@@ -24,6 +24,8 @@ public:
 	void convert(CyUnit* pUnit);
 	void kill(bool bDelay, int /*PlayerTypes*/ ePlayer);
 
+	WeaponTypes getWeaponType() const;
+
 	void setHomeCity(CyCity* pCity);
 	CyCity* getHomeCity();
 

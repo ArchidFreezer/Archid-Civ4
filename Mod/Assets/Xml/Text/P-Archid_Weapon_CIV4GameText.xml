@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Game Text - New -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT> <!-- Bronze -->
+		<Tag>TXT_KEY_WEAPON_BRONZE</Tag>
+		<English>Bronze Weapon</English>
+	</TEXT>
+	<TEXT> <!-- Iron -->
+		<Tag>TXT_KEY_WEAPON_IRON</Tag>
+		<English>Iron Weapon</English>
+	</TEXT>
+	<TEXT> <!-- Wood -->
+		<Tag>TXT_KEY_WEAPON_WOOD</Tag>
+		<English>Wooden Weapon</English>
+	</TEXT>
+</Civ4GameText>

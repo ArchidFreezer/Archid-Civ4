@@ -135,6 +135,7 @@ class CvMainMenuInfo;
 class CvStarEventInfo;
 class CvWorldViewInfo;
 class CvUnitCombatInfo;
+class CvWeaponInfo;
 
 class CvGlobals {
 	//	friend class CvDLLUtilityIFace;
@@ -626,6 +627,10 @@ public:
 	CvWorldViewInfo& getWorldViewInfo(WorldViewTypes eWorldView);
 
 	//
+	int getNumWeaponInfos();
+	std::vector<CvWeaponInfo*>& getWeaponInfo();
+	CvWeaponInfo& getWeaponInfo(WeaponTypes eWeapon);
+
 	// Global Types
 	// All type strings are upper case and are kept in this hash map for fast lookup
 	// The other functions are kept for convenience when enumerating, but most are not used
@@ -1203,6 +1208,7 @@ protected:
 	std::vector<CvStarEventInfo*> m_paStarEventInfo;
 	std::vector<CvInfoBase*> m_paStarEventTargetInfos;
 	std::vector<CvWorldViewInfo*> m_paWorldViewInfo;
+	std::vector<CvWeaponInfo*> m_paWeaponInfo;
 
 	// Game Text
 	std::vector<CvGameText*> m_paGameTextXML;

@@ -3222,6 +3222,7 @@ CvUnitInfo::CvUnitInfo() :
 	m_iMinPopulation(0),
 	m_iObsoleteTech(NO_TECH),
 	m_iSlaveSpecialistType(NO_SPECIALIST),
+	m_iDefaultWeaponType(NO_WEAPON),
 	m_eRangeType(UNITRANGE_RANGE),
 	m_eMinCultureLevel(NO_CULTURELEVEL),
 	m_bAnimal(false),
@@ -3361,6 +3362,10 @@ CvUnitInfo::~CvUnitInfo() {
 	SAFE_DELETE_ARRAY(m_paszLateArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszMiddleArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszUnitNames);
+}
+
+int CvUnitInfo::getDefaultWeaponType() const {
+	return m_iDefaultWeaponType;
 }
 
 bool CvUnitInfo::isFixedAI() const {
@@ -4479,6 +4484,7 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iMinPopulation);
 	stream->Read(&m_iObsoleteTech);
 	stream->Read(&m_iSlaveSpecialistType);
+	stream->Read(&m_iDefaultWeaponType);
 
 	int iTemp;
 	stream->Read(&iTemp);
@@ -4887,6 +4893,7 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iMinPopulation);
 	stream->Write(m_iObsoleteTech);
 	stream->Write(m_iSlaveSpecialistType);
+	stream->Write(m_iDefaultWeaponType);
 
 	stream->Write(m_eRangeType);
 	stream->Write(m_eMinCultureLevel);
@@ -5089,6 +5096,9 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "DefaultUnitAI");
 	m_iDefaultUnitAIType = pXML->FindInInfoClass(szTextVal);
 	pXML->GetChildXmlValByName(&m_bFixedAI, "bFixedAI", false);
+
+	pXML->GetChildXmlValByName(szTextVal, "DefaultWeaponType");
+	m_iDefaultWeaponType = pXML->FindInInfoClass(szTextVal);
 
 	pXML->GetChildXmlValByName(szTextVal, "Invisible");
 	m_iInvisibleType = pXML->FindInInfoClass(szTextVal);
@@ -21063,6 +21073,73 @@ bool CvUnitCombatInfo::read(CvXMLLoadUtility* pXML) {
 	}
 
 	pXML->GetChildXmlValByName(&m_bFortAttack, "bFortAttack");
+
+
+	return true;
+}
+
+//======================================================================================================
+//					CvWeaponInfo
+//======================================================================================================
+
+//------------------------------------------------------------------------------------------------------
+//
+//  FUNCTION:   CvWeaponInfo()
+//
+//  PURPOSE :   Default constructor
+//
+//------------------------------------------------------------------------------------------------------
+CvWeaponInfo::CvWeaponInfo() :
+	m_iStrength(0) {
+}
+
+//------------------------------------------------------------------------------------------------------
+//
+//  FUNCTION:   ~CvWeaponInfo()
+//
+//  PURPOSE :   Default destructor
+//
+//------------------------------------------------------------------------------------------------------
+CvWeaponInfo::~CvWeaponInfo() {
+}
+
+int CvWeaponInfo::getStrength() const {
+	return m_iStrength;
+}
+
+int CvWeaponInfo::getNumBonusPrereqs() const {
+	return (int)m_viBonusTypes.size();
+}
+
+int CvWeaponInfo::getNumUnitCombatTypes() const {
+	return (int)m_viUnitCombatTypes.size();
+}
+
+int CvWeaponInfo::getBonusPrereq(int i) const {
+	return getNumBonusPrereqs() > i ? m_viBonusTypes[i] : NO_BONUS;
+}
+
+int CvWeaponInfo::getUnitCombatType(int i) const {
+	return getNumUnitCombatTypes() > i ? m_viUnitCombatTypes[i] : NO_BONUS;
+}
+
+bool CvWeaponInfo::isBonusPrereq(int i) const {
+	return (std::find(m_viBonusTypes.begin(), m_viBonusTypes.end(), i) != m_viBonusTypes.end());
+}
+
+bool CvWeaponInfo::isUnitCombatType(int i) const {
+	return (std::find(m_viUnitCombatTypes.begin(), m_viUnitCombatTypes.end(), i) != m_viUnitCombatTypes.end());
+}
+
+bool CvWeaponInfo::read(CvXMLLoadUtility* pXML) {
+	CvString szTextVal;
+	if (!CvInfoBase::read(pXML)) {
+		return false;
+	}
+
+	pXML->GetChildXmlValByName(&m_iStrength, "iStrength");
+	pXML->SetVectorInfo(m_viBonusTypes, "BonusTypes");
+	pXML->SetVectorInfo(m_viUnitCombatTypes, "UnitCombatTypes");
 
 
 	return true;

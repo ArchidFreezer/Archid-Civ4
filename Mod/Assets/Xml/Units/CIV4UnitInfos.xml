@@ -448,20 +448,20 @@
 				<TerrainType>TERRAIN_GRASS</TerrainType>
 				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</TerrainNatives>
-				<UnitMeshGroups>
-					<iGroupSize>1</iGroupSize>
-					<fMaxSpeed>1.75</fMaxSpeed>
-					<fPadTime>1</fPadTime>
-					<iMeleeWaveSize>1</iMeleeWaveSize>
-					<iRangedWaveSize>0</iRangedWaveSize>
-					<UnitMeshGroup>
-						<iRequired>1</iRequired>
-						<EarlyArtDefineTag>ART_DEF_UNIT_CAVEBEAR</EarlyArtDefineTag>
-					</UnitMeshGroup>
-				</UnitMeshGroups>
-				<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
-				<HotKey/>
-			</UnitInfo>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_CAVEBEAR</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
+			<HotKey/>
+		</UnitInfo>
 		<UnitInfo> <!-- Deer -->
 			<Class>UNITCLASS_DEER</Class>
 			<Type>UNIT_DEER</Type>
@@ -3219,6 +3219,7 @@
 			<Combat>UNITCOMBAT_MELEE</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<DefaultWeaponType>WEAPON_WOOD</DefaultWeaponType>
 			<Description>TXT_KEY_UNIT_WARRIOR</Description>
 			<Civilopedia>TXT_KEY_UNIT_WARRIOR_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_WARRIOR_STRATEGY</Strategy>

@@ -534,3 +534,7 @@ void CyGlobalContext::clearIniOptMaps() {
 	GC.clearIniOptMaps();
 }
 
+CvWeaponInfo* CyGlobalContext::getWeaponInfo(int i) const {
+	return &(GC.getWeaponInfo((WeaponTypes)i));
+}
+

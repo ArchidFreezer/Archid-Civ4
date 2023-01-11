@@ -125,6 +125,7 @@ public:
 	void setDefenseHelp(CvWStringBuffer& szBuffer, CvCity& city);
 	bool setBuildingAdditionalDefenceHelp(CvWStringBuffer& szBuffer, const CvCity& city, const CvWString& szStart, bool bStarted = false);
 	bool setBuildingAdditionalBombardDefenceHelp(CvWStringBuffer& szBuffer, const CvCity& city, const CvWString& szStart, bool bStarted = false);
+	void setWeaponHelp(CvWStringBuffer& szBuffer, WeaponTypes eWeapon);
 
 	DllExport void buildObsoleteString(CvWStringBuffer& szBuffer, int iItem, bool bList = false, bool bPlayerContext = false);
 	DllExport void buildObsoleteBonusString(CvWStringBuffer& szBuffer, int iItem, bool bList = false, bool bPlayerContext = false);
