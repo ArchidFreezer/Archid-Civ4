@@ -9,8 +9,16 @@
 		<Tag>TXT_KEY_WEAPON_IRON</Tag>
 		<English>Iron Weapon</English>
 	</TEXT>
-	<TEXT> <!-- Wood -->
-		<Tag>TXT_KEY_WEAPON_WOOD</Tag>
-		<English>Wooden Weapon</English>
+	<TEXT> <!-- Oak -->
+		<Tag>TXT_KEY_WEAPON_OAK</Tag>
+		<English>Oak Construction</English>
+	</TEXT>
+	<TEXT> <!-- Obsidian -->
+		<Tag>TXT_KEY_WEAPON_OBSIDIAN</Tag>
+		<English>Obsidian Weapon</English>
+	</TEXT>
+	<TEXT> <!-- Yew -->
+		<Tag>TXT_KEY_WEAPON_YEW</Tag>
+		<English>Yew Bow</English>
 	</TEXT>
 </Civ4GameText>

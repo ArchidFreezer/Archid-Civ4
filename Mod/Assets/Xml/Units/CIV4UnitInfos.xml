@@ -6898,6 +6898,7 @@
 			<Combat>UNITCOMBAT_SIEGE</Combat>
 			<SubCombatTypes>
 				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SIEGE_WOODEN</UnitCombatType>
 			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_CITY</DefaultUnitAI>
@@ -6962,6 +6963,7 @@
 			<Combat>UNITCOMBAT_SIEGE</Combat>
 			<SubCombatTypes>
 				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SIEGE_WOODEN</UnitCombatType>
 			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_CITY</DefaultUnitAI>
@@ -7033,6 +7035,7 @@
 			<Combat>UNITCOMBAT_SIEGE</Combat>
 			<SubCombatTypes>
 				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SIEGE_WOODEN</UnitCombatType>
 			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_CITY</DefaultUnitAI>

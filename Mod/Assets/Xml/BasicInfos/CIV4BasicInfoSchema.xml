@@ -70,8 +70,8 @@
 	<ElementType name="bFortAttack" content="textOnly" dt:type="boolean"/>
 	<ElementType name="UnitCombatInfo" content="eltOnly">
 		<element type="Type"/>
-		<element type="Description"/>
-		<element type="Button"/>
+		<element type="Description" minOccurs="0"/>
+		<element type="Button" minOccurs="0"/>
 		<element type="bFortAttack" minOccurs="0"/>
 	</ElementType>
 	<ElementType name="UnitCombatInfos" content="eltOnly">

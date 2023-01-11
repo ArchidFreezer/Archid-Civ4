@@ -15,7 +15,6 @@
 				<BonusType>BONUS_COPPER</BonusType>
 			</BonusTypes>
 			<UnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 			</UnitCombatTypes>
@@ -30,11 +29,51 @@
 				<BonusType>BONUS_IRON</BonusType>
 			</BonusTypes>
 			<UnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 			</UnitCombatTypes>
 			<Button>Art/Interface/Buttons/Weapons/weapon_iron.dds</Button>
+		</WeaponInfo>
+		<WeaponInfo>
+			<Type>WEAPON_OBSIDIAN</Type>
+			<Description>TXT_KEY_WEAPON_OBSIDIAN</Description>
+			<iStrength>1</iStrength>
+			<iTier>1</iTier>
+			<BonusTypes>
+				<BonusType>BONUS_OBSIDIAN</BonusType>
+			</BonusTypes>
+			<UnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+			</UnitCombatTypes>
+			<Button>Art/Interface/Buttons/Weapons/weapon_obsidian.dds</Button>
+		</WeaponInfo>
+		<WeaponInfo>
+			<Type>WEAPON_YEW</Type>
+			<Description>TXT_KEY_WEAPON_YEW</Description>
+			<iStrength>2</iStrength>
+			<iTier>2</iTier>
+			<BonusTypes>
+				<BonusType>BONUS_TIMBER</BonusType>
+			</BonusTypes>
+			<UnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+			</UnitCombatTypes>
+			<Button>Art/Interface/Buttons/Weapons/weapon_yew.dds</Button>
+		</WeaponInfo>
+		<WeaponInfo>
+			<Type>WEAPON_OAK</Type>
+			<Description>TXT_KEY_WEAPON_OAK</Description>
+			<iStrength>1</iStrength>
+			<iTier>1</iTier>
+			<BonusTypes>
+				<BonusType>BONUS_TIMBER</BonusType>
+			</BonusTypes>
+			<UnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SIEGE_WOODEN</UnitCombatType>
+			</UnitCombatTypes>
+			<Button>Art/Interface/Buttons/Weapons/weapon_oak.dds</Button>
 		</WeaponInfo>
 	</WeaponInfos>
 </Civ4WeaponInfos>
