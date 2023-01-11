@@ -1021,6 +1021,7 @@
 			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_CITY_DEFENSE</DefaultUnitAI>
+			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_ARCHER</Description>
 			<Civilopedia>TXT_KEY_UNIT_ARCHER_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ARCHER_STRATEGY</Strategy>
@@ -1076,6 +1077,7 @@
 			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_CITY_DEFENSE</DefaultUnitAI>
+			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_BABYLON_BOWMAN</Description>
 			<Civilopedia>TXT_KEY_UNIT_BABYLON_BOWMAN_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_BABYLON_BOWMAN_STRATEGY</Strategy>
@@ -1137,6 +1139,7 @@
 			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_CITY_DEFENSE</DefaultUnitAI>
+			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_MALI_SKIRMISHER</Description>
 			<Civilopedia>TXT_KEY_UNIT_MALI_SKIRMISHER_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_MALI_SKIRMISHER_STRATEGY</Strategy>
@@ -3219,7 +3222,7 @@
 			<Combat>UNITCOMBAT_MELEE</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
-			<DefaultWeaponType>WEAPON_WOOD</DefaultWeaponType>
+			<iMaxWeaponTypeTier>2</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_WARRIOR</Description>
 			<Civilopedia>TXT_KEY_UNIT_WARRIOR_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_WARRIOR_STRATEGY</Strategy>
@@ -3270,6 +3273,7 @@
 			<Combat>UNITCOMBAT_MELEE</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>2</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_INCAN_QUECHUA</Description>
 			<Civilopedia>TXT_KEY_UNIT_INCAN_QUECHUA_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_INCAN_QUECHUA_STRATEGY</Strategy>
@@ -3448,6 +3452,7 @@
 			<Combat>UNITCOMBAT_MELEE</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
+			<iMaxWeaponTypeTier>3</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_ZULU_IMPI</Description>
 			<Civilopedia>TXT_KEY_UNIT_ZULU_IMPI_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ZULU_IMPI_STRATEGY</Strategy>

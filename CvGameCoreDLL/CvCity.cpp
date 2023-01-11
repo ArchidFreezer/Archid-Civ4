@@ -9879,6 +9879,7 @@ void CvCity::popOrder(int iNum, bool bFinish, bool bChoose) {
 				CvUnit* pUnit = GET_PLAYER(getOwnerINLINE()).initUnit(eTrainUnit, getX_INLINE(), getY_INLINE(), eTrainAIUnit);
 				FAssertMsg(pUnit != NULL, "pUnit is expected to be assigned a valid unit object");
 
+				doUnitWeaponUpgrade(getWeaponTypes(), pUnit);
 				pUnit->finishMoves();
 
 				addProductionExperience(pUnit);
@@ -13581,50 +13582,62 @@ void CvCity::emergencyConscript() {
 }
 
 void CvCity::doUpgradeWeapons() {
+	std::vector<WeaponTypes> vValidWeapons = getWeaponTypes();
+	if (vValidWeapons.size() == 0)
+		return;
+
 	CLLNode<IDInfo>* pUnitNode = plot()->headUnitNode();
 	while (pUnitNode != NULL) {
 		CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+		doUnitWeaponUpgrade(vValidWeapons, pLoopUnit);
 		pUnitNode = plot()->nextUnitNode(pUnitNode);
+	}
+}
 
-		WeaponTypes eCurrWeapon = pLoopUnit->getWeaponType();
-		WeaponTypes eBestWeapon = eCurrWeapon;
-		int iBestWeaponStrength = pLoopUnit->getWeaponStrength();
-
-		for (WeaponTypes eLoopWeapon = (WeaponTypes)0; eLoopWeapon < GC.getNumWeaponInfos(); eLoopWeapon = (WeaponTypes)(eLoopWeapon + 1)) {
-			const CvWeaponInfo& kLoopWeapon = GC.getWeaponInfo(eLoopWeapon);
-			int iLoopStrength = kLoopWeapon.getStrength();
-
-			// If this weapon is not stronger than what we have then forget it
-			if (iLoopStrength <= iBestWeaponStrength)
-				continue;
-
-			bool bValid = true;
-			if (kLoopWeapon.getNumBonusPrereqs() > 0) {
-				bValid = false;
-				for (int i = 0; i < kLoopWeapon.getNumBonusPrereqs(); i++) {
-					BonusTypes eLoopBonus = (BonusTypes)kLoopWeapon.getBonusPrereq(i);
-					if (hasBonus(eLoopBonus)) {
-						bValid = true;
-						break;
-					}
-				}
-			}
-
-			if (bValid) // We have met the bonus prereqs
-			{
-				for (int i = 0; i < kLoopWeapon.getNumUnitCombatTypes(); i++) {
-					UnitCombatTypes eCombatType = (UnitCombatTypes)kLoopWeapon.getUnitCombatType(i);
-					if (pLoopUnit->isUnitCombatType(eCombatType)) {
-						// We can apply this weapon type and we know it is the best we have so far
-						iBestWeaponStrength = iLoopStrength;
-						eBestWeapon = eLoopWeapon;
-					}
+std::vector<WeaponTypes> CvCity::getWeaponTypes() {
+	std::vector<WeaponTypes> vValidWeapons;
+	for (WeaponTypes eWeapon = (WeaponTypes)0; eWeapon < GC.getNumWeaponInfos(); eWeapon = (WeaponTypes)(eWeapon + 1)) {
+		const CvWeaponInfo& kWeapon = GC.getWeaponInfo(eWeapon);
+		if (kWeapon.getNumBonusPrereqs() > 0) {
+			for (int i = 0; i < kWeapon.getNumBonusPrereqs(); i++) {
+				BonusTypes eLoopBonus = (BonusTypes)kWeapon.getBonusPrereq(i);
+				if (hasBonus(eLoopBonus)) {
+					vValidWeapons.push_back(eWeapon);
 				}
 			}
 		}
-
-		if (eCurrWeapon != eBestWeapon)
-			pLoopUnit->setWeaponType(eBestWeapon);
-
 	}
+	return vValidWeapons;
+}
+
+void CvCity::doUnitWeaponUpgrade(std::vector<WeaponTypes> vWeapons, CvUnit* pUnit) {
+	WeaponTypes eCurrWeapon = pUnit->getWeaponType();
+	WeaponTypes eBestWeapon = eCurrWeapon;
+	int iBestWeaponStrength = pUnit->getWeaponStrength();
+	int iMaxTier = pUnit->getUnitInfo().getMaxWeaponTypeTier();
+
+	for (std::vector<WeaponTypes>::iterator it = vWeapons.begin(); it != vWeapons.end(); ++it) {
+		const CvWeaponInfo& kWeapon = GC.getWeaponInfo(*it);
+		int iLoopStrength = kWeapon.getStrength();
+
+		// If this weapon is not stronger than what we have then forget it
+		if (iLoopStrength <= iBestWeaponStrength)
+			continue;
+
+		if (iMaxTier > 0 && iMaxTier < kWeapon.getTier())
+			continue;
+
+		for (int i = 0; i < kWeapon.getNumUnitCombatTypes(); i++) {
+			UnitCombatTypes eCombatType = (UnitCombatTypes)kWeapon.getUnitCombatType(i);
+			if (pUnit->isUnitCombatType(eCombatType)) {
+				// We can apply this weapon type and we know it is the best we have so far
+				iBestWeaponStrength = iLoopStrength;
+				eBestWeapon = *it;
+			}
+		}
+	}
+
+	if (eCurrWeapon != eBestWeapon)
+		pUnit->setWeaponType(eBestWeapon);
+
 }

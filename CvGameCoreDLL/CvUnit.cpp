@@ -373,7 +373,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 			m_pCustomUnitMeshGroup = GC.getGameINLINE().getSlaverUnitMeshGroup(m_eUnitType);
 	}
 	m_eInvisible = (NO_UNIT != m_eUnitType) ? (InvisibleTypes)m_pUnitInfo->getInvisibleType() : NO_INVISIBLE;
-	m_eWeaponType = (NO_UNIT != m_eUnitType) ? (WeaponTypes)m_pUnitInfo->getDefaultWeaponType() : NO_WEAPON;
+	m_eWeaponType = NO_WEAPON;
 
 	m_combatUnit.reset();
 	m_transportUnit.reset();

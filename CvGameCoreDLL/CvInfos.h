@@ -1018,7 +1018,7 @@ public:
 	int getNumPrereqOrBonuses() const;				// Exposed to Python
 	int getSlaveSpecialistType() const;
 	int getNumPrereqWorldViews() const;
-	int getDefaultWeaponType() const;
+	int getMaxWeaponTypeTier() const;
 
 	bool isAnimal() const;				// Exposed to Python
 	bool isFoodProduction() const;				// Exposed to Python
@@ -1243,7 +1243,7 @@ protected:
 	int m_iMinPopulation;
 	int m_iObsoleteTech;
 	int m_iSlaveSpecialistType;
-	int m_iDefaultWeaponType;
+	int m_iMaxWeaponTypeTier;
 
 	bool m_bAnimal;
 	bool m_bFoodProduction;
@@ -6763,6 +6763,7 @@ public:
 	virtual ~CvWeaponInfo();
 
 	int getStrength() const;
+	int getTier() const;
 	int getNumBonusPrereqs() const;
 	int getNumUnitCombatTypes() const;
 
@@ -6777,6 +6778,7 @@ public:
 private:
 
 	int m_iStrength;
+	int m_iTier;
 
 	std::vector<int> m_viBonusTypes;
 	std::vector<int> m_viUnitCombatTypes;

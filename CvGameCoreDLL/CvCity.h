@@ -36,6 +36,8 @@ public:
 
 	void doAutoBuild();
 	void doUpgradeWeapons();
+	void doUnitWeaponUpgrade(std::vector<WeaponTypes> vWeapons, CvUnit* pUnit);
+	std::vector<WeaponTypes> getWeaponTypes();
 
 	int getNumCityPlots() const;
 	int getWorkableRadiusOverride() const;
