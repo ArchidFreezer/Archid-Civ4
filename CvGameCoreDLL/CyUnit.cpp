@@ -1383,20 +1383,20 @@ int CyUnit::getExtraRange() const {
 	return m_pUnit ? m_pUnit->getExtraRange() : -1;
 }
 
-void CyUnit::setExtraRangePercent(int iModifier) {
+void CyUnit::setExtraRangeModifier(int iModifier) {
 	if (m_pUnit != NULL) {
-		m_pUnit->setExtraRangePercent(iModifier);
+		m_pUnit->setExtraRangeModifier(iModifier);
 	}
 }
 
-void CyUnit::changeExtraRangePercent(int iChange) {
+void CyUnit::changeExtraRangeModifier(int iChange) {
 	if (m_pUnit != NULL) {
-		m_pUnit->changeExtraRangePercent(iChange);
+		m_pUnit->changeExtraRangeModifier(iChange);
 	}
 }
 
-int CyUnit::getExtraRangePercent() const {
-	return m_pUnit ? m_pUnit->getExtraRangePercent() : -1;
+int CyUnit::getExtraRangeModifier() const {
+	return m_pUnit ? m_pUnit->getExtraRangeModifier() : -1;
 }
 
 void CyUnit::changeRangeUnboundCount(int iChange) {

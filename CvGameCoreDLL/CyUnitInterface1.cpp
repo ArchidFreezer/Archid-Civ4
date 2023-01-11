@@ -33,9 +33,9 @@ void CyUnitPythonInterface1(python::class_<CyUnit>& x) {
 		.def("setExtraRange", &CyUnit::setExtraRange, "void (int iRange)")
 		.def("changeExtraRange", &CyUnit::changeExtraRange, "void (int iChange)")
 		.def("getExtraRange", &CyUnit::getExtraRange, "int ()")
-		.def("setExtraRangePercent", &CyUnit::setExtraRangePercent, "void (int iModifier)")
-		.def("changeExtraRangePercent", &CyUnit::changeExtraRangePercent, "void (int iChange)")
-		.def("getExtraRangePercent", &CyUnit::getExtraRangePercent, "int ()")
+		.def("setExtraRangeModifier", &CyUnit::setExtraRangeModifier, "void (int iModifier)")
+		.def("changeExtraRangeModifier", &CyUnit::changeExtraRangeModifier, "void (int iChange)")
+		.def("getExtraRangeModifier", &CyUnit::getExtraRangeModifier, "int ()")
 
 		.def("isActionRecommended", &CyUnit::isActionRecommended, "int (int i)")
 		.def("isBetterDefenderThan", &CyUnit::isBetterDefenderThan, "bool (CyUnit* pDefender, CyUnit* pAttacker)")

@@ -322,7 +322,7 @@
 	<ElementType name="bUnitRangeUnbound" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bUnitTerritoryUnbound" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iUnitRangeChange" content="textOnly" dt:type="int"/>
-	<ElementType name="iUnitRangePercentChange" content="textOnly" dt:type="int"/>
+	<ElementType name="iUnitRangeModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="BaseYieldFromUnits" content="eltOnly">
 		<element type="iYield" minOccurs="0"/>
 	</ElementType>
@@ -358,7 +358,7 @@
 		<element type="bUnitRangeUnbound" minOccurs="0"/>
 		<element type="bUnitTerritoryUnbound" minOccurs="0"/>
 		<element type="iUnitRangeChange" minOccurs="0"/>
-		<element type="iUnitRangePercentChange" minOccurs="0"/>
+		<element type="iUnitRangeModifier" minOccurs="0"/>
 		<element type="ExtraYieldThresholds" minOccurs="0"/>
 		<element type="TradeYieldModifiers" minOccurs="0"/>
 		<element type="BaseYieldFromUnits" minOccurs="0"/>

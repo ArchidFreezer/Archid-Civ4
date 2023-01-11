@@ -14,7 +14,7 @@
 <!-- Good luck! -->
 <Civ4EraInfos xmlns="x-schema:CIV4GameInfoSchema.xml">
 	<EraInfos>
-		<EraInfo> <!-- Epipaleolithic -->
+		<EraInfo> <!-- Epipalaeolithic -->
 			<Type>ERA_EPIPALAEOLITHIC</Type>
 			<Description>TXT_KEY_ERA_EPIPALAEOLITHIC</Description>
 			<Strategy>TXT_KEY_ERA_EPIPALAEOLITHIC_STRATEGY</Strategy>
@@ -125,7 +125,8 @@
 			<iCulturePercent>100</iCulturePercent>
 			<iAnarchyPercent>50</iAnarchyPercent>
 			<iEventChancePerTurn>3</iEventChancePerTurn>
-			<iUnitRangePercentChange>50</iUnitRangePercentChange>
+			<iUnitRangeChange>2</iUnitRangeChange>
+			<iUnitRangeModifier>50</iUnitRangeModifier>
 			<bFirstSoundtrackFirst>1</bFirstSoundtrackFirst>
 			<EraInfoSoundtracks>
 				<EraInfoSoundtrack>AS2D_SONG_ALEXANDER</EraInfoSoundtrack>

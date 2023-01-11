@@ -824,7 +824,7 @@
 	<ElementType name="bUnitRangeUnbound" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bUnitTerritoryUnbound" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iUnitRangeChange" content="textOnly" dt:type="int"/>
-	<ElementType name="iUnitRangePercentChange" content="textOnly" dt:type="int"/>
+	<ElementType name="iUnitRangeModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iPromotionGroup" content="textOnly" dt:type="int"/>
 	<ElementType name="bCityPrereq" content="textOnly" dt:type="boolean"/>
 	<ElementType name="PrereqOrPromotions" content="eltOnly">
@@ -945,7 +945,7 @@
 		<element type="bUnitRangeUnbound" minOccurs="0"/>
 		<element type="bUnitTerritoryUnbound" minOccurs="0"/>
 		<element type="iUnitRangeChange" minOccurs="0"/>
-		<element type="iUnitRangePercentChange" minOccurs="0"/>
+		<element type="iUnitRangeModifier" minOccurs="0"/>
 		<element type="TerrainAttacks" minOccurs="0"/>
 		<element type="TerrainDefenses" minOccurs="0"/>
 		<element type="FeatureAttacks" minOccurs="0"/>

@@ -5042,8 +5042,8 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer& szHelpString, TraitTypes eTrait
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_UNIT_RANGE_CHANGE", kTrait.getUnitRangeChange()));
 		}
 
-		if (kTrait.getUnitRangePercentChange() != 0) {
-			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_UNIT_RANGE_MODIFY", kTrait.getUnitRangePercentChange()));
+		if (kTrait.getUnitRangeModifier() != 0) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_UNIT_RANGE_MODIFY", kTrait.getUnitRangeModifier()));
 		}
 
 		CvWString szBuffer;
@@ -6015,9 +6015,9 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_RANGE_CHANGE", kPromotion.getUnitRangeChange()));
 	}
 
-	if (kPromotion.getUnitRangePercentChange() != 0) {
+	if (kPromotion.getUnitRangeModifier() != 0) {
 		szBuffer.append(pcNewline);
-		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_RANGE_MODIFY", kPromotion.getUnitRangePercentChange()));
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_RANGE_MODIFY", kPromotion.getUnitRangeModifier()));
 	}
 
 	if (kPromotion.getAirRangeChange() != 0) {
@@ -6287,9 +6287,9 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer& szHelpText, CivicTypes eCivi
 		szHelpText.append(gDLL->getText("TXT_KEY_MISC_UNIT_RANGE_CHANGE", kCivic.getUnitRangeChange()));
 	}
 
-	if (kCivic.getUnitRangePercentChange() != 0) {
+	if (kCivic.getUnitRangeModifier() != 0) {
 		szHelpText.append(NEWLINE);
-		szHelpText.append(gDLL->getText("TXT_KEY_MISC_UNIT_RANGE_MODIFY", kCivic.getUnitRangePercentChange()));
+		szHelpText.append(gDLL->getText("TXT_KEY_MISC_UNIT_RANGE_MODIFY", kCivic.getUnitRangeModifier()));
 	}
 
 	//	Great People Modifier...
@@ -16311,11 +16311,11 @@ void CvGameTextMgr::buildUnitRangeChangeString(CvWStringBuffer& szBuffer, TechTy
 
 void CvGameTextMgr::buildUnitRangePercentageChangeString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
 	const CvTechInfo& kTech = GC.getTechInfo(eTech);
-	if (kTech.getUnitRangePercentChange() != 0) {
+	if (kTech.getUnitRangeModifier() != 0) {
 		if (bList) {
 			szBuffer.append(NEWLINE);
 		}
-		szBuffer.append(gDLL->getText("TXT_KEY_MISC_UNIT_RANGE_MODIFY", kTech.getUnitRangePercentChange()));
+		szBuffer.append(gDLL->getText("TXT_KEY_MISC_UNIT_RANGE_MODIFY", kTech.getUnitRangeModifier()));
 	}
 }
 

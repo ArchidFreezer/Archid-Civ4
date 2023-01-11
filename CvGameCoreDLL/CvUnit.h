@@ -255,9 +255,9 @@ public:
 	void setExtraRange(int iRange);
 	void changeExtraRange(int iChange);
 	int getExtraRange() const;
-	void setExtraRangePercent(int iModifier);
-	void changeExtraRangePercent(int iChange);
-	int getExtraRangePercent() const;
+	void setExtraRangeModifier(int iModifier);
+	void changeExtraRangeModifier(int iChange);
+	int getExtraRangeModifier() const;
 	bool isImmobile() const;
 	void setImmobile(bool bImmobile);
 
@@ -1016,7 +1016,7 @@ protected:
 	DirectionTypes m_eFacingDirection;
 	int m_iImmobileTimer;
 	int m_iExtraRange;
-	int m_iExtraRangePercent;
+	int m_iExtraRangeModifier;
 	int m_iRangeUnboundCount;
 	int m_iTerritoryUnboundCount;
 	int m_iCanMovePeaksCount;

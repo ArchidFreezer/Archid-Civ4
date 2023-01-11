@@ -318,7 +318,7 @@ public:
 	int getAssetValue() const;						// Exposed to Python
 	int getPowerValue() const;						// Exposed to Python
 	int getUnitRangeChange() const;
-	int getUnitRangePercentChange() const;
+	int getUnitRangeModifier() const;
 	int getNumPrereqAndTechs() const;
 	int getNumPrereqOrTechs() const;
 	int getNumEnabledWorldViews() const;
@@ -421,7 +421,7 @@ protected:
 	int m_iAssetValue;
 	int m_iPowerValue;
 	int m_iUnitRangeChange;
-	int m_iUnitRangePercentChange;
+	int m_iUnitRangeModifier;
 	int m_iGridX;
 	int m_iGridY;
 	int m_iCultureDefenceModifier;
@@ -528,7 +528,7 @@ public:
 	int getExperiencePercent() const;				// Exposed to Python
 	int getKamikazePercent() const;				// Exposed to Python
 	int getUnitRangeChange() const;
-	int getUnitRangePercentChange() const;
+	int getUnitRangeModifier() const;
 	int getPromotionGroup() const;
 	int getNumNotCombatTypes() const;
 	int getNumOrCombatTypes() const;
@@ -645,7 +645,7 @@ protected:
 	int m_iExperiencePercent;
 	int m_iKamikazePercent;
 	int m_iUnitRangeChange;
-	int m_iUnitRangePercentChange;
+	int m_iUnitRangeModifier;
 	int m_iPromotionGroup;
 	int m_iEnslaveCountChange;
 	int m_iSpyEvasionChange;
@@ -1535,7 +1535,7 @@ public:
 	int getExpInBorderModifier() const;				// Exposed to Python
 	int getUnhealthyPopulationModifier() const;	// K-Mod, Exposed to Python
 	int getUnitRangeChange() const;
-	int getUnitRangePercentChange() const;
+	int getUnitRangeModifier() const;
 	int getStarSignScaleChangePercent() const;
 	int getStarSignMitigateChangePercent() const;
 	int getCultureDefenceChange() const;
@@ -1625,7 +1625,7 @@ protected:
 	int m_iStateReligionFreeExperience;
 	int m_iExpInBorderModifier;
 	int m_iUnitRangeChange;
-	int m_iUnitRangePercentChange;
+	int m_iUnitRangeModifier;
 	int m_iStarSignScaleChangePercent;
 	int m_iStarSignMitigateChangePercent;
 	int m_iCultureDefenceChange;
@@ -4451,7 +4451,7 @@ public:
 	int getMaxTeamBuildingProductionModifier() const;				// Exposed to Python
 	int getMaxPlayerBuildingProductionModifier() const;				// Exposed to Python
 	int getUnitRangeChange() const;
-	int getUnitRangePercentChange() const;
+	int getUnitRangeModifier() const;
 	int getStarSignScaleChangePercent() const;
 	int getStarSignMitigateChangePercent() const;
 
@@ -4492,7 +4492,7 @@ protected:
 	int m_iMaxTeamBuildingProductionModifier;
 	int m_iMaxPlayerBuildingProductionModifier;
 	int m_iUnitRangeChange;
-	int m_iUnitRangePercentChange;
+	int m_iUnitRangeModifier;
 	int m_iStarSignScaleChangePercent;
 	int m_iStarSignMitigateChangePercent;
 
@@ -5451,7 +5451,7 @@ public:
 	int getNumSoundtracks() const;				//	Exposed to Python
 	int getMaxCities() const;
 	int getUnitRangeChange() const;
-	int getUnitRangePercentChange() const;
+	int getUnitRangeModifier() const;
 	const TCHAR* getAudioUnitVictoryScript() const;				//	Exposed to Python
 	const TCHAR* getAudioUnitDefeatScript() const;				//	Exposed to Python
 
@@ -5495,7 +5495,7 @@ protected:
 	int m_iNumSoundtracks;
 	int m_iMaxCities;
 	int m_iUnitRangeChange;
-	int m_iUnitRangePercentChange;
+	int m_iUnitRangeModifier;
 	CvString m_szAudioUnitVictoryScript;
 	CvString m_szAudioUnitDefeatScript;
 

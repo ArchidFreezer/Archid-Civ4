@@ -3773,8 +3773,8 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bFreeTech, b
 		iTemp /= 100;
 		iValue += iTemp;
 	}
-	if (kTechInfo.getUnitRangePercentChange() != 0 && !isUnitRangeUnbound()) {
-		int iTemp = (100 + kTechInfo.getUnitRangePercentChange()) * getNumMilitaryUnits() * iWarmongerFactor;
+	if (kTechInfo.getUnitRangeModifier() != 0 && !isUnitRangeUnbound()) {
+		int iTemp = (100 + kTechInfo.getUnitRangeModifier()) * getNumMilitaryUnits() * iWarmongerFactor;
 		iTemp /= 10000;
 		iValue += iTemp;
 	}
@@ -10403,8 +10403,8 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 		iTemp /= 100;
 		iValue += iTemp;
 	}
-	if (kCivic.getUnitRangePercentChange() != 0 && !isUnitRangeUnbound()) {
-		int iTemp = (100 + kCivic.getUnitRangePercentChange()) * getNumMilitaryUnits() * iWarmongerFactor;
+	if (kCivic.getUnitRangeModifier() != 0 && !isUnitRangeUnbound()) {
+		int iTemp = (100 + kCivic.getUnitRangeModifier()) * getNumMilitaryUnits() * iWarmongerFactor;
 		iTemp /= 10000;
 		iValue += iTemp;
 	}

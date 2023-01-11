@@ -7607,7 +7607,7 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		iValue += (iTemp * 4);
 	}
 
-	iTemp = kPromotion.getUnitRangePercentChange() + 100;
+	iTemp = kPromotion.getUnitRangeModifier() + 100;
 	iTemp /= 100;
 	if (getRangeType() == UNITRANGE_RANGE) {
 		iValue += (iTemp * 20);

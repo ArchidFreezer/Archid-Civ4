@@ -176,9 +176,9 @@ public:
 	void setExtraRange(int iRange);
 	void changeExtraRange(int iChange);
 	int getExtraRange() const;
-	void setExtraRangePercent(int iModifier);
-	void changeExtraRangePercent(int iChange);
-	int getExtraRangePercent() const;
+	void setExtraRangeModifier(int iModifier);
+	void changeExtraRangeModifier(int iChange);
+	int getExtraRangeModifier() const;
 
 	bool hasTrait(TraitTypes eTrait) const;																																			// Exposed to Python						
 	void setHumanDisabled(bool newVal);
@@ -1292,7 +1292,7 @@ protected:
 	int m_iInflationModifier;
 	int m_iInflationRate;
 	int m_iExtraRange;
-	int m_iExtraRangePercent;
+	int m_iExtraRangeModifier;
 	int m_iUnitRangeUnboundCount;
 	int m_iUnitTerritoryUnboundCount;
 	int m_iFractionalCombatExperience;

@@ -510,7 +510,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iInflationModifier = 0;
 	m_iInflationRate = 0;
 	m_iExtraRange = 0;
-	m_iExtraRangePercent = 0;
+	m_iExtraRangeModifier = 0;
 	m_iUnitRangeUnboundCount = 0;
 	m_iUnitTerritoryUnboundCount = 0;
 	m_iFractionalCombatExperience = 0;
@@ -14029,7 +14029,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iTechScore);
 	pStream->Read(&m_iCombatExperience);
 	pStream->Read(&m_iExtraRange);
-	pStream->Read(&m_iExtraRangePercent);
+	pStream->Read(&m_iExtraRangeModifier);
 	pStream->Read(&m_iUnitRangeUnboundCount);
 	pStream->Read(&m_iUnitTerritoryUnboundCount);
 	pStream->Read(&m_iFractionalCombatExperience);
@@ -14522,7 +14522,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iTechScore);
 	pStream->Write(m_iCombatExperience);
 	pStream->Write(m_iExtraRange);
-	pStream->Write(m_iExtraRangePercent);
+	pStream->Write(m_iExtraRangeModifier);
 	pStream->Write(m_iUnitRangeUnboundCount);
 	pStream->Write(m_iUnitTerritoryUnboundCount);
 	pStream->Write(m_iFractionalCombatExperience);
@@ -19012,18 +19012,18 @@ int CvPlayer::getExtraRange() const {
 	return m_iExtraRange + GC.getEraInfo(getCurrentEra()).getUnitRangeChange();
 }
 
-void CvPlayer::setExtraRangePercent(int iModifier) {
-	m_iExtraRangePercent = iModifier;
+void CvPlayer::setExtraRangeModifier(int iModifier) {
+	m_iExtraRangeModifier = iModifier;
 }
 
-void CvPlayer::changeExtraRangePercent(int iChange) {
+void CvPlayer::changeExtraRangeModifier(int iChange) {
 	if (iChange > 0) {
-		m_iExtraRangePercent += iChange;
+		m_iExtraRangeModifier += iChange;
 	}
 }
 
-int CvPlayer::getExtraRangePercent() const {
-	return m_iExtraRangePercent + GC.getEraInfo(getCurrentEra()).getUnitRangePercentChange();
+int CvPlayer::getExtraRangeModifier() const {
+	return m_iExtraRangeModifier + GC.getEraInfo(getCurrentEra()).getUnitRangeModifier();
 }
 
 UnitRangeTypes CvPlayer::getUnitRangeType(const CvUnitInfo* pUnitInfo) const {
@@ -19211,7 +19211,7 @@ void CvPlayer::setHasTrait(TraitTypes eTrait, bool bNewValue) {
 	changeUnitRangeUnboundCount(kTrait.isUnitRangeUnbound() ? iChange : 0);
 	changeUnitTerritoryUnboundCount(kTrait.isUnitTerritoryUnbound() ? iChange : 0);
 	changeExtraRange(kTrait.getUnitRangeChange() * iChange);
-	changeExtraRangePercent(kTrait.getUnitRangePercentChange() * iChange);
+	changeExtraRangeModifier(kTrait.getUnitRangeModifier() * iChange);
 	changeStarSignMitigatePercent(kTrait.getStarSignMitigateChangePercent());
 	changeStarSignScalePercent(kTrait.getStarSignScaleChangePercent());
 

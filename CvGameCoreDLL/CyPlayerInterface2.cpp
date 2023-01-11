@@ -69,9 +69,9 @@ void CyPlayerPythonInterface2(python::class_<CyPlayer>& x) {
 		.def("setExtraRange", &CyPlayer::setExtraRange, "void (int)")
 		.def("changeExtraRange", &CyPlayer::changeExtraRange, "void (int)")
 		.def("getExtraRange", &CyPlayer::getExtraRange, "int ()")
-		.def("setExtraRangePercent", &CyPlayer::setExtraRangePercent, "void (int)")
-		.def("changeExtraRangePercent", &CyPlayer::changeExtraRangePercent, "void (int)")
-		.def("getExtraRangePercent", &CyPlayer::getExtraRangePercent, "int ()")
+		.def("setExtraRangeModifier", &CyPlayer::setExtraRangeModifier, "void (int)")
+		.def("changeExtraRangeModifier", &CyPlayer::changeExtraRangeModifier, "void (int)")
+		.def("getExtraRangeModifier", &CyPlayer::getExtraRangeModifier, "int ()")
 
 		.def("setHasTrait", &CyPlayer::setHasTrait, "TraitTypes (eTrait), bool (bNewValue)")
 		.def("isDoNotBotherStatus", &CyPlayer::isDoNotBotherStatus, "bool (int /*PlayerTypes*/ playerID ) - set if player instructed not to contact playerID")

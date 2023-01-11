@@ -846,7 +846,7 @@ CvTechInfo::CvTechInfo() :
 	m_iGridX(0),
 	m_iGridY(0),
 	m_iUnitRangeChange(0),
-	m_iUnitRangePercentChange(0),
+	m_iUnitRangeModifier(0),
 	m_iCultureDefenceModifier(0),
 	m_bRepeat(false),
 	m_bTrade(false),
@@ -1054,8 +1054,8 @@ int CvTechInfo::getUnitRangeChange() const {
 	return m_iUnitRangeChange;
 }
 
-int CvTechInfo::getUnitRangePercentChange() const {
-	return m_iUnitRangePercentChange;
+int CvTechInfo::getUnitRangeModifier() const {
+	return m_iUnitRangeModifier;
 }
 
 bool CvTechInfo::isUnitRangeUnbound() const {
@@ -1309,7 +1309,7 @@ void CvTechInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iAssetValue);
 	stream->Read(&m_iPowerValue);
 	stream->Read(&m_iUnitRangeChange);
-	stream->Read(&m_iUnitRangePercentChange);
+	stream->Read(&m_iUnitRangeModifier);
 	stream->Read(&m_iCultureDefenceModifier);
 	stream->Read(&m_bRepeat);
 	stream->Read(&m_bTrade);
@@ -1435,7 +1435,7 @@ void CvTechInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iAssetValue);
 	stream->Write(m_iPowerValue);
 	stream->Write(m_iUnitRangeChange);
-	stream->Write(m_iUnitRangePercentChange);
+	stream->Write(m_iUnitRangeModifier);
 	stream->Write(m_iCultureDefenceModifier);
 	stream->Write(m_bRepeat);
 	stream->Write(m_bTrade);
@@ -1558,7 +1558,7 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bUnitRangeUnbound, "bUnitRangeUnbound");
 	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
 	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
-	pXML->GetChildXmlValByName(&m_iUnitRangePercentChange, "iUnitRangePercentChange");
+	pXML->GetChildXmlValByName(&m_iUnitRangeModifier, "iUnitRangeModifier");
 	pXML->GetChildXmlValByName(&m_iCultureDefenceModifier, "iCultureDefenceModifier");
 	pXML->GetChildXmlValByName(&m_bCanPassPeaks, "bCanPassPeaks");
 	pXML->GetChildXmlValByName(&m_bMoveFastPeaks, "bMoveFastPeaks");
@@ -1639,7 +1639,7 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_iExperiencePercent(0),
 	m_iKamikazePercent(0),
 	m_iUnitRangeChange(0),
-	m_iUnitRangePercentChange(0),
+	m_iUnitRangeModifier(0),
 	m_iPromotionGroup(0),
 	m_iEnslaveCountChange(0),
 	m_iSpyEvasionChange(0),
@@ -1885,8 +1885,8 @@ int CvPromotionInfo::getUnitRangeChange() const {
 	return m_iUnitRangeChange;
 }
 
-int CvPromotionInfo::getUnitRangePercentChange() const {
-	return m_iUnitRangePercentChange;
+int CvPromotionInfo::getUnitRangeModifier() const {
+	return m_iUnitRangeModifier;
 }
 
 bool CvPromotionInfo::isUnitRangeUnbound() const {
@@ -2164,7 +2164,7 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iExperiencePercent);
 	stream->Read(&m_iKamikazePercent);
 	stream->Read(&m_iUnitRangeChange);
-	stream->Read(&m_iUnitRangePercentChange);
+	stream->Read(&m_iUnitRangeModifier);
 	stream->Read(&m_iPromotionGroup);
 	stream->Read(&m_iEnslaveCountChange);
 	stream->Read(&m_iSpyEvasionChange);
@@ -2323,7 +2323,7 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iExperiencePercent);
 	stream->Write(m_iKamikazePercent);
 	stream->Write(m_iUnitRangeChange);
-	stream->Write(m_iUnitRangePercentChange);
+	stream->Write(m_iUnitRangeModifier);
 	stream->Write(m_iPromotionGroup);
 	stream->Write(m_iEnslaveCountChange);
 	stream->Write(m_iSpyEvasionChange);
@@ -2501,7 +2501,7 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bUnitRangeUnbound, "bUnitRangeUnbound");
 	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
 	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
-	pXML->GetChildXmlValByName(&m_iUnitRangePercentChange, "iUnitRangePercentChange");
+	pXML->GetChildXmlValByName(&m_iUnitRangeModifier, "iUnitRangeModifier");
 
 	pXML->SetListPairInfo(&m_piTerrainAttackPercent, "TerrainAttacks", GC.getNumTerrainInfos());
 	pXML->SetListPairInfo(&m_piTerrainDefensePercent, "TerrainDefenses", GC.getNumTerrainInfos());
@@ -5626,7 +5626,7 @@ CvCivicInfo::CvCivicInfo() :
 	m_iStateReligionFreeExperience(0),
 	m_iExpInBorderModifier(0),
 	m_iUnitRangeChange(0),
-	m_iUnitRangePercentChange(0),
+	m_iUnitRangeModifier(0),
 	m_iStarSignMitigateChangePercent(0),
 	m_iStarSignScaleChangePercent(0),
 	m_iCultureDefenceChange(0),
@@ -5706,8 +5706,8 @@ int CvCivicInfo::getUnitRangeChange() const {
 	return m_iUnitRangeChange;
 }
 
-int CvCivicInfo::getUnitRangePercentChange() const {
-	return m_iUnitRangePercentChange;
+int CvCivicInfo::getUnitRangeModifier() const {
+	return m_iUnitRangeModifier;
 }
 
 bool CvCivicInfo::isUnitRangeUnbound() const {
@@ -6057,7 +6057,7 @@ void CvCivicInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iStateReligionFreeExperience);
 	stream->Read(&m_iExpInBorderModifier);
 	stream->Read(&m_iUnitRangeChange);
-	stream->Read(&m_iUnitRangePercentChange);
+	stream->Read(&m_iUnitRangeModifier);
 	stream->Read(&m_iStarSignMitigateChangePercent);
 	stream->Read(&m_iStarSignScaleChangePercent);
 	stream->Read(&m_iCultureDefenceChange);
@@ -6183,7 +6183,7 @@ void CvCivicInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iStateReligionFreeExperience);
 	stream->Write(m_iExpInBorderModifier);
 	stream->Write(m_iUnitRangeChange);
-	stream->Write(m_iUnitRangePercentChange);
+	stream->Write(m_iUnitRangeModifier);
 	stream->Write(m_iStarSignMitigateChangePercent);
 	stream->Write(m_iStarSignScaleChangePercent);
 	stream->Write(m_iCultureDefenceChange);
@@ -6288,7 +6288,7 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bUnitRangeUnbound, "bUnitRangeUnbound");
 	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
 	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
-	pXML->GetChildXmlValByName(&m_iUnitRangePercentChange, "iUnitRangePercentChange");
+	pXML->GetChildXmlValByName(&m_iUnitRangeModifier, "iUnitRangeModifier");
 	pXML->GetChildXmlValByName(&m_iCultureDefenceChange, "iCultureDefenceChange");
 
 	pXML->SetList(&m_piYieldModifier, "YieldModifiers", NUM_YIELD_TYPES);
@@ -15054,7 +15054,7 @@ CvTraitInfo::CvTraitInfo() :
 	m_iMaxTeamBuildingProductionModifier(0),
 	m_iMaxPlayerBuildingProductionModifier(0),
 	m_iUnitRangeChange(0),
-	m_iUnitRangePercentChange(0),
+	m_iUnitRangeModifier(0),
 	m_iStarSignMitigateChangePercent(0),
 	m_iStarSignScaleChangePercent(0),
 	m_bUnitRangeUnbound(false),
@@ -15119,8 +15119,8 @@ int CvTraitInfo::getUnitRangeChange() const {
 	return m_iUnitRangeChange;
 }
 
-int CvTraitInfo::getUnitRangePercentChange() const {
-	return m_iUnitRangePercentChange;
+int CvTraitInfo::getUnitRangeModifier() const {
+	return m_iUnitRangeModifier;
 }
 
 bool CvTraitInfo::isUnitRangeUnbound() const {
@@ -15234,7 +15234,7 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bUnitRangeUnbound, "bUnitRangeUnbound");
 	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
 	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
-	pXML->GetChildXmlValByName(&m_iUnitRangePercentChange, "iUnitRangePercentChange");
+	pXML->GetChildXmlValByName(&m_iUnitRangeModifier, "iUnitRangeModifier");
 	pXML->SetList(&m_paiExtraYieldThreshold, "ExtraYieldThresholds", NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiTradeYieldModifier, "TradeYieldModifiers", NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiBaseYieldFromUnit, "BaseYieldFromUnits", NUM_YIELD_TYPES);
@@ -17051,7 +17051,7 @@ CvEraInfo::CvEraInfo() :
 	m_iNumSoundtracks(0),
 	m_iMaxCities(0),
 	m_iUnitRangeChange(0),
-	m_iUnitRangePercentChange(0),
+	m_iUnitRangeModifier(0),
 	m_bNoGoodies(false),
 	m_bNoAnimals(false),
 	m_bNoBarbUnits(false),
@@ -17072,8 +17072,8 @@ int CvEraInfo::getUnitRangeChange() const {
 	return m_iUnitRangeChange;
 }
 
-int CvEraInfo::getUnitRangePercentChange() const {
-	return m_iUnitRangePercentChange;
+int CvEraInfo::getUnitRangeModifier() const {
+	return m_iUnitRangeModifier;
 }
 
 bool CvEraInfo::isUnitRangeUnbound() const {
@@ -17246,7 +17246,7 @@ bool CvEraInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bUnitRangeUnbound, "bUnitRangeUnbound");
 	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
 	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
-	pXML->GetChildXmlValByName(&m_iUnitRangePercentChange, "iUnitRangePercentChange");
+	pXML->GetChildXmlValByName(&m_iUnitRangeModifier, "iUnitRangeModifier");
 	pXML->GetChildXmlValByName(&m_iSoundtrackSpace, "iSoundtrackSpace");
 	pXML->GetChildXmlValByName(&m_bFirstSoundtrackFirst, "bFirstSoundtrackFirst");
 	pXML->GetChildXmlValByName(m_szAudioUnitVictoryScript, "AudioUnitVictoryScript");

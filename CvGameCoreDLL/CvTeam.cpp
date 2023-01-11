@@ -4975,7 +4975,7 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 			if (kTech.isUnitTerritoryUnbound())
 				kPlayer.changeUnitTerritoryUnboundCount(iChange);
 			kPlayer.changeExtraRange(kTech.getUnitRangeChange() * iChange);
-			kPlayer.changeExtraRangePercent(kTech.getUnitRangePercentChange() * iChange);
+			kPlayer.changeExtraRangeModifier(kTech.getUnitRangeModifier() * iChange);
 			kPlayer.changeAssets(kTech.getAssetValue() * iChange);
 			kPlayer.changePower(kTech.getPowerValue() * iChange);
 			kPlayer.changeTechScore(getTechScore(eTech) * iChange);

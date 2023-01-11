@@ -92,7 +92,7 @@
 	<ElementType name="bUnitRangeUnbound" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bUnitTerritoryUnbound" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iUnitRangeChange" content="textOnly" dt:type="int"/>
-	<ElementType name="iUnitRangePercentChange" content="textOnly" dt:type="int"/>
+	<ElementType name="iUnitRangeModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iYield" content="textOnly" dt:type="int"/>
 	<ElementType name="ForestPlotYieldChanges" content="eltOnly">
 		<element type="iYield" minOccurs="0" maxOccurs="*"/>
@@ -192,7 +192,7 @@
 		<element type="bUnitRangeUnbound" minOccurs="0"/>
 		<element type="bUnitTerritoryUnbound" minOccurs="0"/>
 		<element type="iUnitRangeChange" minOccurs="0"/>
-		<element type="iUnitRangePercentChange" minOccurs="0"/>
+		<element type="iUnitRangeModifier" minOccurs="0"/>
 		<element type="iCultureDefenceModifier" minOccurs="0"/>
 		<element type="ForestPlotYieldChanges" minOccurs="0"/>
 		<element type="RiverPlotYieldChanges" minOccurs="0"/>

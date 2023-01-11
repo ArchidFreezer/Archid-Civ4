@@ -714,7 +714,7 @@
 	<ElementType name="bUnitRangeUnbound" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bUnitTerritoryUnbound" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iUnitRangeChange" content="textOnly" dt:type="int"/>
-	<ElementType name="iUnitRangePercentChange" content="textOnly" dt:type="int"/>
+	<ElementType name="iUnitRangeModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="bEnableStarSigns" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iStarSignMitigateChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
@@ -777,7 +777,7 @@
 		<element type="bUnitRangeUnbound" minOccurs="0"/>
 		<element type="bUnitTerritoryUnbound" minOccurs="0"/>
 		<element type="iUnitRangeChange" minOccurs="0"/>
-		<element type="iUnitRangePercentChange" minOccurs="0"/>
+		<element type="iUnitRangeModifier" minOccurs="0"/>
 		<element type="iCultureDefenceChange" minOccurs="0"/>
 		<element type="YieldModifiers" minOccurs="0"/>
 		<element type="CapitalYieldModifiers" minOccurs="0"/>
@@ -1069,7 +1069,7 @@
 		<element type="bUnitRangeUnbound" minOccurs="0"/>
 		<element type="bUnitTerritoryUnbound" minOccurs="0"/>
 		<element type="iUnitRangeChange" minOccurs="0"/>
-		<element type="iUnitRangePercentChange" minOccurs="0"/>
+		<element type="iUnitRangeModifier" minOccurs="0"/>
 		<element type="iSoundtrackSpace" minOccurs="0"/>
 		<element type="bFirstSoundtrackFirst" minOccurs="0"/>
 		<element type="EraInfoSoundtracks" minOccurs="0"/>

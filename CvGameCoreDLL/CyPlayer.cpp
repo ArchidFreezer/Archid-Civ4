@@ -1858,18 +1858,18 @@ int CyPlayer::getExtraRange() const {
 	return m_pPlayer ? m_pPlayer->getExtraRange() : 0;
 }
 
-void CyPlayer::setExtraRangePercent(int iModifier) {
+void CyPlayer::setExtraRangeModifier(int iModifier) {
 	if (m_pPlayer)
-		m_pPlayer->setExtraRangePercent(iModifier);
+		m_pPlayer->setExtraRangeModifier(iModifier);
 }
 
-void CyPlayer::changeExtraRangePercent(int iChange) {
+void CyPlayer::changeExtraRangeModifier(int iChange) {
 	if (m_pPlayer)
-		m_pPlayer->changeExtraRangePercent(iChange);
+		m_pPlayer->changeExtraRangeModifier(iChange);
 }
 
-int CyPlayer::getExtraRangePercent() const {
-	return m_pPlayer ? m_pPlayer->getExtraRangePercent() : 0;
+int CyPlayer::getExtraRangeModifier() const {
+	return m_pPlayer ? m_pPlayer->getExtraRangeModifier() : 0;
 }
 
 void CyPlayer::setHasTrait(int /*TraitTypes*/ iIndex, bool bNewValue) {

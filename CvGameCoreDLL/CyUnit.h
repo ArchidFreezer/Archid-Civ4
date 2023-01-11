@@ -41,9 +41,9 @@ public:
 	void setExtraRange(int iRange);
 	void changeExtraRange(int iChange);
 	int getExtraRange() const;
-	void setExtraRangePercent(int iModifier);
-	void changeExtraRangePercent(int iChange);
-	int getExtraRangePercent() const;
+	void setExtraRangeModifier(int iModifier);
+	void changeExtraRangeModifier(int iChange);
+	int getExtraRangeModifier() const;
 
 	void NotifyEntity(int /*MissionTypes*/ eMission);
 

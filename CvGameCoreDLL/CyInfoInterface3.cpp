@@ -299,11 +299,11 @@ void CyInfoPythonInterface3() {
 		.def("getCommerceChange", &CvTraitInfo::getCommerceChange, "int (int i)")
 		.def("getCommerceModifier", &CvTraitInfo::getCommerceModifier, "int (int i)")
 		.def("getUnitRangeChange", &CvTraitInfo::getUnitRangeChange, "int ()")
-		.def("getUnitRangePercentChange", &CvTraitInfo::getUnitRangePercentChange, "int ()")
+		.def("getUnitRangeModifier", &CvTraitInfo::getUnitRangeModifier, "int ()")
 
 		.def("isFreePromotion", &CvTraitInfo::isFreePromotion, "int (int i)")
 		.def("getUnitRangeChange", &CvTraitInfo::getUnitRangeChange, "int ()")
-		.def("getUnitRangePercentChange", &CvTraitInfo::getUnitRangePercentChange, "int ()")
+		.def("getUnitRangeModifier", &CvTraitInfo::getUnitRangeModifier, "int ()")
 		;
 
 	// CvWorldInfo
@@ -453,7 +453,7 @@ void CyInfoPythonInterface3() {
 		.def("getAudioUnitVictoryScript", &CvEraInfo::getAudioUnitVictoryScript, "string () -")
 		.def("getAudioUnitDefeatScript", &CvEraInfo::getAudioUnitDefeatScript, "string () -")
 		.def("getUnitRangeChange", &CvEraInfo::getUnitRangeChange, "int ()")
-		.def("getUnitRangePercentChange", &CvEraInfo::getUnitRangePercentChange, "int ()")
+		.def("getUnitRangeModifier", &CvEraInfo::getUnitRangeModifier, "int ()")
 
 		.def("isNoGoodies", &CvEraInfo::isNoGoodies, "bool () -")
 		.def("isNoAnimals", &CvEraInfo::isNoAnimals, "bool () -")
