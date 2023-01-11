@@ -506,6 +506,11 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 		szString.append(szTempBuffer);
 	}
 
+	if (pUnit->getAmmunitionType() != NO_WEAPON) {
+		szTempBuffer.Format(L"<img=%S size=16></img>", GC.getWeaponInfo(pUnit->getAmmunitionType()).getButton());
+		szString.append(szTempBuffer);
+	}
+
 	for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumPromotionInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
 		if (pUnit->isHasPromotion(ePromotion)) {
 			szTempBuffer.Format(L"<img=%S size=16 />", GC.getPromotionInfo(ePromotion).getButton());

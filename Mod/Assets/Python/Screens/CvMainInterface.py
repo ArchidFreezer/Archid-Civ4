@@ -2036,8 +2036,9 @@ class CvMainInterface:
 				else:
 					szBuffer = localText.getText("INTERFACE_PANE_UNIT_NAME_HOT_KEY", (pHeadSelectedUnit.getHotKeyNumber(), sName))
 				iWeaponType = pHeadSelectedUnit.getWeaponType()
+				iAmmoType = pHeadSelectedUnit.getAmmunitionType()
 				iCombatType = pHeadSelectedUnit.getUnitCombatType()
-				if iWeaponType == -1 and iCombatType == -1:
+				if iWeaponType == -1 and iCombatType == -1 and iAmmoType == -1:
 					if len(szBuffer) > 60:
 						szBuffer = "<font=2>" + szBuffer + "</font>"
 					screen.setText( "SelectedUnitLabel", "Background", szBuffer, CvUtil.FONT_LEFT_JUSTIFY, 18, yResolution - 137, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_UNIT_NAME, -1, -1 )
@@ -2048,6 +2049,10 @@ class CvMainInterface:
 					if iWeaponType > -1:
 						sButton = gc.getWeaponInfo(iWeaponType).getButton()
 						screen.addDDSGFC("SelectedUnitWeapon", sButton, xDelta, yResolution - 136, 21, 21, WidgetTypes.WIDGET_HELP_WEAPON_TYPE, iWeaponType, 1 )
+						xDelta = xDelta + 21
+					if iAmmoType > -1:
+						sButton = gc.getWeaponInfo(iAmmoType).getButton()
+						screen.addDDSGFC("SelectedUnitAmmo", sButton, xDelta, yResolution - 136, 21, 21, WidgetTypes.WIDGET_HELP_WEAPON_TYPE, iAmmoType, 1 )
 						xDelta = xDelta + 21
 					if iCombatType > -1:
 						sButton = gc.getUnitCombatInfo(iCombatType).getButton()

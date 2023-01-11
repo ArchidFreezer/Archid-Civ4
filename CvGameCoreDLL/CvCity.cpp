@@ -13611,36 +13611,61 @@ std::vector<WeaponTypes> CvCity::getWeaponTypes() {
 }
 
 void CvCity::doUnitWeaponUpgrade(std::vector<WeaponTypes> vWeapons, CvUnit* pUnit) {
+	// Weapons
 	WeaponTypes eCurrWeapon = pUnit->getWeaponType();
 	WeaponTypes eBestWeapon = eCurrWeapon;
 	int iBestWeaponStrength = pUnit->getWeaponStrength();
-	int iMaxTier = pUnit->getUnitInfo().getMaxWeaponTypeTier();
+	int iMaxWeaponTier = pUnit->getUnitInfo().getMaxWeaponTypeTier();
+	// Ammo
+	WeaponTypes eCurrAmmo = pUnit->getAmmunitionType();
+	WeaponTypes eBestAmmo = eCurrAmmo;
+	int iBestAmmoStrength = pUnit->getAmmunitionStrength();
+	int iMaxAmmoTier = pUnit->getUnitInfo().getMaxAmmunitionTypeTier();
 
 	for (std::vector<WeaponTypes>::iterator it = vWeapons.begin(); it != vWeapons.end(); ++it) {
-		const CvWeaponInfo& kWeapon = GC.getWeaponInfo(*it);
-		int iLoopStrength = kWeapon.getStrength();
+		const CvWeaponInfo& kLoopWeapon = GC.getWeaponInfo(*it);
+		int iLoopStrength = kLoopWeapon.getStrength();
+		bool bAmmo = kLoopWeapon.isAmmunition();
 
-		// If this weapon is not stronger than what we have then forget it
-		if (iLoopStrength <= iBestWeaponStrength)
-			continue;
+		// If this is not stronger than what we have then forget it
+		if (bAmmo) {
+			if (iLoopStrength <= iBestAmmoStrength)
+				continue;
 
-		if (iMaxTier == 0)
-			continue;
+			if (iMaxAmmoTier == 0)
+				continue;
 
-		if (iMaxTier > 0 && iMaxTier < kWeapon.getTier())
-			continue;
+			if (iMaxAmmoTier > 0 && iMaxAmmoTier < kLoopWeapon.getTier())
+				continue;
+		} else {
+			if (iLoopStrength <= iBestWeaponStrength)
+				continue;
 
-		for (int i = 0; i < kWeapon.getNumUnitCombatTypes(); i++) {
-			UnitCombatTypes eCombatType = (UnitCombatTypes)kWeapon.getUnitCombatType(i);
+			if (iMaxWeaponTier == 0)
+				continue;
+
+			if (iMaxWeaponTier > 0 && iMaxWeaponTier < kLoopWeapon.getTier())
+				continue;
+		}
+
+		for (int i = 0; i < kLoopWeapon.getNumUnitCombatTypes(); i++) {
+			UnitCombatTypes eCombatType = (UnitCombatTypes)kLoopWeapon.getUnitCombatType(i);
 			if (pUnit->isUnitCombatType(eCombatType)) {
-				// We can apply this weapon type and we know it is the best we have so far
-				iBestWeaponStrength = iLoopStrength;
-				eBestWeapon = *it;
+				// We can apply this weapon and we know it is the best we have so far
+				if (bAmmo) {
+					iBestAmmoStrength = iLoopStrength;
+					eBestAmmo = *it;
+				} else {
+					iBestWeaponStrength = iLoopStrength;
+					eBestWeapon = *it;
+				}
 			}
 		}
 	}
 
 	if (eCurrWeapon != eBestWeapon)
 		pUnit->setWeaponType(eBestWeapon);
+	if (eCurrAmmo != eBestAmmo)
+		pUnit->setAmmunitionType(eBestAmmo);
 
 }

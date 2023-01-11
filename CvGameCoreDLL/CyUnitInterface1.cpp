@@ -19,6 +19,7 @@ void CyUnitPythonInterface1(python::class_<CyUnit>& x) {
 
 	x
 		.def("getWeaponType", &CyUnit::getWeaponType, "WeaponTypes ()")
+		.def("getAmmunitionType", &CyUnit::getAmmunitionType, "WeaponTypes ()")
 		.def("isNone", &CyUnit::isNone, "bool () - Is this a valid unit instance?")
 		.def("convert", &CyUnit::convert, "void (CyUnit* pUnit)")
 		.def("kill", &CyUnit::kill, "void (bool bDelay, int /*PlayerTypes*/ ePlayer)")

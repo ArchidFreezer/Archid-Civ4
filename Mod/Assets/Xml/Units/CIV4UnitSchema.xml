@@ -493,6 +493,7 @@
 	<ElementType name="bSlave" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bFixedAI" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iMaxWeaponTypeTier" content="textOnly" dt:type="int"/>		
+	<ElementType name="iMaxAmmoTypeTier" content="textOnly" dt:type="int"/>		
 	<ElementType name="UnitInfo" content="eltOnly">
 		<element type="Class"/>
 		<element type="Type"/>
@@ -505,6 +506,7 @@
 		<element type="DefaultUnitAI"/>
 		<element type="bFixedAI" minOccurs="0"/>
 		<element type="iMaxWeaponTypeTier" minOccurs="0"/> <!-- Default: -1 -->
+		<element type="iMaxAmmoTypeTier" minOccurs="0"/> <!-- Default: -1 -->
 		<element type="Invisible" minOccurs="0"/>
 		<element type="SeeInvisibles" minOccurs="0"/>
 		<element type="Description" minOccurs="0"/>
@@ -1097,10 +1099,12 @@
 	<ElementType name="BonusTypes" content="eltOnly">
 		<element type="BonusType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="bAmmunition" content="textOnly" dt:type="boolean"/>
 	<ElementType name="WeaponInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
 		<element type="Civilopedia" minOccurs="0"/>
+		<element type="bAmmunition" minOccurs="0"/>
 		<element type="iStrength"/>
 		<element type="iTier"/>
 		<element type="BonusTypes" minOccurs="0"/>

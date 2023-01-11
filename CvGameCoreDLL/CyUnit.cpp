@@ -1434,3 +1434,7 @@ void CyUnit::changeExperience100(int iChange, int iMax, bool bFromCombat, bool b
 WeaponTypes CyUnit::getWeaponType() const {
 	return m_pUnit ? m_pUnit->getWeaponType() : NO_WEAPON;
 }
+
+WeaponTypes CyUnit::getAmmunitionType() const {
+	return m_pUnit ? m_pUnit->getAmmunitionType() : NO_WEAPON;
+}

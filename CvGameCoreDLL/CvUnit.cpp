@@ -337,6 +337,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iLoyaltyCount = 0;
 	m_iWorkRateModifier = 0;
 	m_iWeaponStrength = 0;
+	m_iAmmunitionStrength = 0;
 
 	m_bMadeAttack = false;
 	m_bMadeInterception = false;
@@ -374,6 +375,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	}
 	m_eInvisible = (NO_UNIT != m_eUnitType) ? (InvisibleTypes)m_pUnitInfo->getInvisibleType() : NO_INVISIBLE;
 	m_eWeaponType = NO_WEAPON;
+	m_eAmmunitionType = NO_WEAPON;
 
 	m_combatUnit.reset();
 	m_transportUnit.reset();
@@ -6859,7 +6861,7 @@ void CvUnit::setBaseCombatStr(int iCombat) {
 }
 
 int CvUnit::baseCombatStr() const {
-	return m_iBaseCombat + getWeaponStrength();
+	return m_iBaseCombat + getWeaponStrength() + getAmmunitionStrength();
 }
 
 
@@ -10177,6 +10179,8 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read((int*)&m_eInvisible);
 	pStream->Read((int*)&m_eWeaponType);
 	m_iWeaponStrength = m_eWeaponType != NO_WEAPON ? GC.getWeaponInfo(m_eWeaponType).getStrength() : 0;
+	pStream->Read((int*)&m_eAmmunitionType);
+	m_iAmmunitionStrength = m_eAmmunitionType != NO_WEAPON ? GC.getWeaponInfo(m_eAmmunitionType).getStrength() : 0;
 
 	pStream->Read((int*)&m_combatUnit.eOwner);
 	pStream->Read(&m_combatUnit.iID);
@@ -10329,6 +10333,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_eUnitCombatType);
 	pStream->Write(m_eInvisible);
 	pStream->Write(m_eWeaponType);
+	pStream->Write(m_eAmmunitionType);
 
 	pStream->Write(m_combatUnit.eOwner);
 	pStream->Write(m_combatUnit.iID);
@@ -13290,4 +13295,17 @@ int CvUnit::getWeaponStrength() const {
 
 WeaponTypes CvUnit::getWeaponType() const {
 	return m_eWeaponType;
+}
+
+void CvUnit::setAmmunitionType(WeaponTypes eAmmunition) {
+	m_eAmmunitionType = eAmmunition;
+	m_iAmmunitionStrength = m_eAmmunitionType != NO_WEAPON ? GC.getWeaponInfo(m_eAmmunitionType).getStrength() : 0;
+}
+
+int CvUnit::getAmmunitionStrength() const {
+	return m_iAmmunitionStrength;
+}
+
+WeaponTypes CvUnit::getAmmunitionType() const {
+	return m_eAmmunitionType;
 }

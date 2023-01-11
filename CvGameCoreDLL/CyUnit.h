@@ -25,6 +25,7 @@ public:
 	void kill(bool bDelay, int /*PlayerTypes*/ ePlayer);
 
 	WeaponTypes getWeaponType() const;
+	WeaponTypes getAmmunitionType() const;
 
 	void setHomeCity(CyCity* pCity);
 	CyCity* getHomeCity();
