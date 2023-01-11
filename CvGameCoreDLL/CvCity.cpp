@@ -13624,6 +13624,9 @@ void CvCity::doUnitWeaponUpgrade(std::vector<WeaponTypes> vWeapons, CvUnit* pUni
 		if (iLoopStrength <= iBestWeaponStrength)
 			continue;
 
+		if (iMaxTier == 0)
+			continue;
+
 		if (iMaxTier > 0 && iMaxTier < kWeapon.getTier())
 			continue;
 
