@@ -58,6 +58,47 @@
 <!-- ******************** -->
 <!-- Units                -->
 <!-- ******************** -->
+	<TEXT> <!-- Canoe -->
+		<Tag>TXT_KEY_UNIT_CANOE</Tag>
+		<English>Canoe</English>
+		<Spanish>Canoa</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_CANOE_PEDIA</Tag>
+		<English>[TAB]A [BOLD]Canoe[\BOLD] is a small narrow boat, typically human-powered, though it may also be powered by sails or small electric or gas motors. Canoes usually are pointed at both bow and stern and are normally open on top, but can be covered.[NEWLINE][PARAGRAPH:1]In its human-powered form, the canoe is ordinarily propelled by the use of paddles, with the number of paddlers (most commonly two) dependent on the size of the canoe. Paddlers face in the direction of travel, either seated on supports in the hull, or kneeling directly upon the hull. Paddling can be contrasted with rowing, where the rowers usually face away from the direction of travel and use mounted oars (though a wide canoe can be fitted with oarlocks and rowed). Paddles may be single-bladed or double-bladed.[NEWLINE][PARAGRAPH:1]The oldest recovered canoe in the world is the canoe of Pesse (Holland). According to C14 dating analysis it was constructed somewhere between 8200 and 7600 B.C. This canoe is exhibited in the Drents Museum in Assen, Netherlands.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_CANOE_STRATEGY</Tag>
+		<English>Build [COLOR_UNIT_TEXT]Canoes[COLOR_REVERT] to explore. You can also carry one unit on them.</English>
+		<Spanish>Construye [COLOR_UNIT_TEXT]Canoas[COLOR_REVERT] para explorar. Tambi&#233;n puedes llevar una unidad en ellas.</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Portugese Caravela -->
+		<Tag>TXT_KEY_UNIT_PORTUGAL_CARRACK</Tag>
+		<English>Caravela</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_PORTUGAL_CARRACK_STRATEGY</Tag>
+		<English>This early naval unit (the Portuguese replacement for the [COLOR_UNIT_TEXT]Caravel[COLOR_REVERT]) can transport both military and peaceful units, as well as explore enemy territory without penalty.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_PORTUGAL_CARRACK_PEDIA</Tag>
+		<English>[TAB]These four-masted sailing ships were the first European ships able to reliably navigate the open ocean. Although small by modern standards, the Caravela afforded enough space for crew, cargo and small cannons. Its economy, speed, agility, and power made it esteemed as the best sailing vessel of its time.</English>
+	</TEXT>
+
+	<TEXT> <!-- Carrack -->
+		<Tag>TXT_KEY_UNIT_CARRACK</Tag>
+		<English>Carrack</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_CARRACK_STRATEGY</Tag>
+		<English>This ocean going naval unit can transport both military and peaceful units.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_CARRACK_PEDIA</Tag>
+		<English>[TAB]These four-masted sailing ships were the first European ships able to reliably navigate the open ocean. As the forerunner of the great ships of the age of sail, the carrack was one of the most influential ship designs in history; while ships became more specialized, the basic design remained unchanged throughout this time period, being large enough to be stable in heavy seas, and roomy enough to carry provisions for long voyages.</English>
+	</TEXT>
+
 	<TEXT> <!-- Cave Bear -->
 		<Tag>TXT_KEY_UNIT_CAVEBEAR</Tag>
 		<English>Cave Bear</English>
@@ -126,6 +167,52 @@
 		<English>Gorilla</English>
 	</TEXT>
 
+	<TEXT> <!-- Heavy Frigate -->
+		<Tag>TXT_KEY_UNIT_HEAVY_FRIGATE</Tag>
+		<English>Heavy Frigate</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HEAVY_FRIGATE_STRATEGY</Tag>
+		<English>Use to engage the heavy privateer and bombard city defences.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HEAVY_FRIGATE_PEDIA</Tag>
+		<English>[TAB]The heavy frigate first built by the Unoted States Navy and could carry up to sixty guns on two decks. These were so welll armed that they were sometimes considered to be equal to Ships of the Line.  Constitution and her sister ships President and United States were created in a response to deal with the Barbary Coast pirates and in conjunction with the Naval Act of 1794. The three big frigates, when built, had a distinctive building pattern which minimised "hogging" (in which the centre of the keel rises while both ends drop) and improves hydrodynamic efficiency.</English>
+	</TEXT>
+
+	<TEXT> <!-- Heavy Privateer -->
+		<Tag>TXT_KEY_UNIT_HEAVY_PRIVATEER</Tag>
+		<English>Heavy Privateer</English>
+		<French>
+			<Text>Corsaire Lourd</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Gepanzertes Kaperschiff</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Heavy Privateer</Text>
+			<Gender>Male</Gender>
+			<Plural>0:0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Heavy Privateer</Text>
+			<Gender>Male</Gender>
+			<Plural>0:0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HEAVY_PRIVATEER_STRATEGY</Tag>
+		<English>Stronger than a standard Frigate, but weaker than a Ship of the Line, allowing you to harass your enemies without declaring war.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HEAVY_PRIVATEER_PEDIA</Tag>
+		<English>[TAB] The heaviest privateer ship being capable to withstanding the attentions of the Sloops of War that are the bane of the standard privateers and being able to outrun the Ship of the Line. </English>
+	</TEXT>
+
 	<TEXT> <!-- Horse -->
 		<Tag>TXT_KEY_UNIT_HORSE</Tag>
 		<English>Horse</English>
@@ -161,9 +248,39 @@
 		<English>Sabretooth Tiger</English>
 	</TEXT>
 
+	<TEXT> <!-- Sail Gunboat -->
+		<Tag>TXT_KEY_UNIT_SAIL_GUNBOAT</Tag>
+		<English>Sail Gunboat</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SAIL_GUNBOAT_STRATEGY</Tag>
+		<English>Sail gunboats are used to bombard city defences.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SAIL_GUNBOAT_PEDIA</Tag>
+		<English>In the age of sail, a gunboat was usually a small undecked vessel carrying a single smoothbore cannon in the bow, or just two or three such cannons. A gunboat could carry one or two masts or be oar-powered only, but the single-masted version of about 15 m (49 ft) length was most typical.[when?] Some types of gunboat carried two cannons, or else mounted a number of swivel guns on the railings.
+		
+		All navies of the sailing era kept a number of gunboats on hand. Gunboats saw extensive use in the Baltic Sea during the late 18th century as they were well-suited for the extensive coastal skerries and archipelagoes of Sweden, Finland and Russia.</English>
+	</TEXT>
+
 	<TEXT> <!-- Slave Catcher -->
 		<Tag>TXT_KEY_UNIT_SLAVE_CATCHER</Tag>
 		<English>Slave Catcher</English>
+	</TEXT>
+
+	<TEXT> <!-- Siege Quinquereme -->
+		<Tag>TXT_KEY_UNIT_QUINQUEREME</Tag>
+		<English>Siege Quinquereme</English>
+		<Spanish>Barco de Ascedio</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_QUINQUEREME_PEDIA</Tag>
+		<English>[TAB]A [BOLD]Quinquereme[\BOLD] is a type of ancient oar-propelled warship that was used by the Greeks of the Hellenistic period and later by the Carthaginians and Romans, from the 4th century BC to the 1st century. It was developed from the earlier trireme.[NEWLINE][PARAGRAPH:1]Quinqueremes were even more difficult to make stable than triremes, and the increase in speed was not so great as to give the larger galleys much of an advantage. Therefore smaller navies had a core of trireme warships, while bigger navies like Egypt, Rome and Carthage were able to afford a large number of quinqueremes and polyremes. Their advantage was the protection against ramming attacks and the larger body of marines. Comparing the effect of multiple man oars to one man oars you have to look at several men as not fully participating. Because of the restricted movement a large number of rowers did not propel the vessel with as much of their musclepower as on a one man oar. At this time the Greek homeland had declined as a naval power. Only Macedonia's uniting rule was able to afford these juggernauts in larger numbers and with its decline the fleet had to use cheaper triremes again to keep at least a large number of ships in the battleline. But this type of ship had changed into a heavier warship with the rowers now all protected under deck, much more firepower and marines.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_QUINQUEREME_STRATEGY</Tag>
+		<English>Build [COLOR_UNIT_TEXT]Siege Quinqueremes[COLOR_REVERT] to bombard enemy costal cities.</English>
+		<Spanish>Construye [COLOR_UNIT_TEXT]Quinqueremes de Ascedio[COLOR_REVERT] para bombardear ciudades costeras enemigas.</Spanish>
 	</TEXT>
 
 	<TEXT> <!-- Slaver -->
@@ -239,6 +356,25 @@
 		<Spanish>Construye [COLOR_UNIT_TEXT]Honderos[COLOR_REVERT] para proteger tus ciudades en la era Paleol&#237;tica.</Spanish>
 	</TEXT>
 
+
+	<TEXT> <!-- Sloop of War -->
+		<Tag>TXT_KEY_UNIT_SLOOP_OF_WAR</Tag>
+		<English>Sloop of War</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SLOOP_OF_WAR_STRATEGY</Tag>
+		<English>A fast wooden ship strong againt Galleons, Privateers and Brigantines and able to enter Ocean Squares.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SLOOP_OF_WAR_PEDIA</Tag>
+		<English>[TAB] In the 18th and the earlier part of the 19th centuries, a sloop-of-war was a small sailing warship (also known as one of the escort types) with a single gun deck that carried anything up to eighteen cannons. As the rating system covered all vessels with 20 guns and above, this meant that the term sloop-of-war actually encompassed all the unrated combat vessels including the very small gun-brigs and cutters. In technical terms, even the more specialised bomb vessels and fireships were classed as sloops-of-war, and in practice these were actually employed in the sloop role when not carrying out their specialised functions.
+		
+		A ship sloop was generally the equivalent of the smaller corvette of the French Navy (although the French term also covered ships up up to 24 guns, which were classed as 'post ships' within the Sixth Rate of the British Navy). The name corvette was subsequently also applied to British vessels, but not until the 1830s.
+
+A sloop-of-war was smaller than a sailing frigate and outside the rating system. In general, a sloop-of-war would be under the command of a master and commander rather than a post captain, although in day-to-day use at sea the commanding officer of any naval vessels would be addressed as "captain". Until 1794 the master and commander strictly speaking held the permenent rank of lieutenant, and reverted to that rank when he gave up command of the sloop-of-war; in 1794 the rank of commander was created. - Wikipedia
+		</English>
+	</TEXT>
+
 	<TEXT> <!-- Stone Axemen -->
 		<Tag>TXT_KEY_UNIT_STONE_AXEMAN</Tag>
 		<English>Stone Axeman</English>
@@ -276,6 +412,29 @@
 		<German>Tiger</German>
 		<Italian>Tigre</Italian>
 		<Spanish>Tigre</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- War Galley -->
+		<Tag>TXT_KEY_UNIT_WARGALLEY</Tag>
+		<English>War Galley</English>
+		<French>
+			<Text>Galère de Guerre</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Kriegsgaleere</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WARGALLEY_PEDIA</Tag>
+		<English>[TAB]The galley was the first ship designed for war. Introduced by the Greeks, galleys were powered by banks of oars on each side, manned by well-trained oarsmen. These oarsmen were highly paid professionals or patriotic citizens, not slaves and prisoners as depicted in fiction. A huge, bronze "beak" mounted at the bow of the ship was used to ram and sink enemy ships. Because of its long, narrow hull, the galley was very unstable in all but the calmest waters, and as a consequence its crew rarely ventured out of sight of land for long periods of time, lest the ship be caught in a storm and sunk.</English>
+		<French>[TAB]La gal&#232;re fut le premier navire con&#231;u pour la guerre. Cr&#233;e par les Grecs, elle &#233;tait propuls&#233;e par plusieurs rangs de rameurs bien entra&#238;n&#233;s, install&#233;s de chaque c&#244;t&#233; du bateau. Contrairement &#224; ce que l'on pense, ces rameurs &#233;taient des professionnels ou des volontaires, et non des esclaves ou des prisonniers. Un &#233;norme "&#233;peron" en bronze &#233;tait fix&#233; sur la proue pour &#233;peronner et couler les navires ennemis. La longue coque &#233;troite du bateau le rendait instable d&#232;s que la mer s'agitait un peu, et les &#233;quipages &#233;vitaient g&#233;n&#233;ralement de s'aventurer trop longtemps loin des c&#244;tes, de peur qu'une temp&#234;te survienne et coule le navire.</French>
+		<German>[TAB]Die von den Griechen in der Antike entworfene und gebaute Triere war das erste Kriegsschiff &#252;berhaupt. Auf beiden Seiten des Schiffes befanden sich Ruderb&#228;nke, an denen erfahrene Ruderer f&#252;r volle Fahrt sorgten. Entgegen der h&#228;ufig vertretenen Theorie, dass es sich dabei um Sklaven oder Gefangene handelte, bestand die Rudermannschaft normalerweise aus gut bezahlten, fachkundigen Seeleuten oder patriotischen B&#252;rgern. Am Bug befand sich ein riesiger, meist aus Bronze gefertigter Schnabel, mit dessen Hilfe feindliche Schiffe gerammt und versenkt werden konnten. Da die Triere wegen ihres langen, schmalen Rumpfs bei rauer See sehr instabil wurde, entfernte sie sich selten weit von der K&#252;ste, denn jeder Sturm h&#228;tte ausgereicht, um sie zum Kentern zu bringen.</German>
+		<Italian>[TAB]La galea &#232; stata la prima nave appositamente progettata per la guerra. Introdotta dai Greci, quest'imbarcazione si muoveva grazie alla presenza di file di remi su ciascun lato, utilizzati da rematori ben addestrati. Questi uomini erano professionisti con un ottimo salario o cittadini patriottici, non schiavi e prigionieri come si crede. Un grosso "rostro" di bronzo, montato sulla prua della nave, veniva utilizzato per colpire e affondare le navi nemiche. A causa del suo scafo lungo e stretto, la galea era molto instabile al di fuori delle acque placide: di conseguenza, l'equipaggio non perdeva mai di vista la costa, proprio per evitare pericoli durante la navigazione.</Italian>
+		<Spanish>[TAB]La galera fue el primer barco dise&#241;ado para la guerra. Inventadas por los griegos, las galeras contaban con bancos de remos a ambos lados, manejados por marineros avezados.  Los remeros eran profesionales muy bien remunerados o patriotas, no los esclavos y prisioneros que aparecen en las pel&#237;culas. Un enorme ?espol&#243;n? de bronce instalado en la proa de la nave se utilizaba para embestir y hundir las embarcaciones enemigas. Debido a su casco alargado y de poco calado, la galera solo era estable en las aguas m&#225;s tranquilas, y como consecuencia de ello, raramente se alejaba de la costa durante largos periodos de tiempo, no fuera a sucumbir en alguna tormenta.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WARGALLEY_STRATEGY</Tag>
+		<English>War Galley is more combat efficient navy vessel than the Galley and make them better against other early oar based ships. They cannot enter ocean spaces.</English>
 	</TEXT>
 
 </Civ4GameText>

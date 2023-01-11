@@ -432,10 +432,25 @@
 <!-- Naval        -->
 <!-- ************ -->
 <!-- Wooden -->
+		<UnitClassInfo> <!-- Canoe -->
+			<Type>UNITCLASS_CANOE</Type>
+			<Description>TXT_KEY_UNIT_CANOE</Description>
+			<DefaultUnit>UNIT_CANOE</DefaultUnit>
+		</UnitClassInfo>
 		<UnitClassInfo> <!-- Galley -->
 			<Type>UNITCLASS_GALLEY</Type>
 			<Description>TXT_KEY_UNIT_GALLEY</Description>
 			<DefaultUnit>UNIT_GALLEY</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- War Galley -->
+			<Type>UNITCLASS_WARGALLEY</Type>
+			<Description>TXT_KEY_UNIT_WARGALLEY</Description>
+			<DefaultUnit>UNIT_WARGALLEY</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Siege Quinquereme -->
+			<Type>UNITCLASS_QUINQUEREME</Type>
+			<Description>TXT_KEY_UNIT_QUINQUEREME</Description>
+			<DefaultUnit>UNIT_QUINQUEREME</DefaultUnit>
 		</UnitClassInfo>
 		<UnitClassInfo> <!-- Trireme -->
 			<Type>UNITCLASS_TRIREME</Type>
@@ -446,6 +461,21 @@
 			<Type>UNITCLASS_CARAVEL</Type>
 			<Description>TXT_KEY_UNIT_CARAVEL</Description>
 			<DefaultUnit>UNIT_CARAVEL</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Carrack -->
+			<Type>UNITCLASS_CARRACK</Type>
+			<Description>TXT_KEY_UNIT_CARRACK</Description>
+			<DefaultUnit>UNIT_CARRACK</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Sloop of War -->
+			<Type>UNITCLASS_SLOOP_OF_WAR</Type>
+			<Description>TXT_KEY_UNIT_SLOOP_OF_WAR</Description>
+			<DefaultUnit>UNIT_SLOOP_OF_WAR</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Sail Gunboat -->
+			<Type>UNITCLASS_SAIL_GUNBOAT</Type>
+			<Description>TXT_KEY_UNIT_SAIL_GUNBOAT</Description>
+			<DefaultUnit>UNIT_SAIL_GUNBOAT</DefaultUnit>
 		</UnitClassInfo>
 		<UnitClassInfo> <!-- Galleon -->
 			<Type>UNITCLASS_GALLEON</Type>
@@ -461,6 +491,16 @@
 			<Type>UNITCLASS_FRIGATE</Type>
 			<Description>TXT_KEY_UNIT_FRIGATE</Description>
 			<DefaultUnit>UNIT_FRIGATE</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Heavy Privateer -->
+			<Type>UNITCLASS_HEAVY_PRIVATEER</Type>
+			<Description>TXT_KEY_UNIT_HEAVY_PRIVATEER</Description>
+			<DefaultUnit>UNIT_HEAVY_PRIVATEER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Heavy Frigate -->
+			<Type>UNITCLASS_HEAVY_FRIGATE</Type>
+			<Description>TXT_KEY_UNIT_HEAVY_FRIGATE</Description>
+			<DefaultUnit>UNIT_HEAVY_FRIGATE</DefaultUnit>
 		</UnitClassInfo>
 		<UnitClassInfo> <!-- Ship of the Line -->
 			<Type>UNITCLASS_SHIP_OF_THE_LINE</Type>

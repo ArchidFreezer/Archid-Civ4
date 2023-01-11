@@ -6015,6 +6015,58 @@
 <!-- Naval        -->
 <!-- ************ -->
 <!-- Wooden -->
+		<UnitInfo> <!-- Canoe -->
+			<Class>UNITCLASS_CANOE</Class>
+			<Type>UNIT_CANOE</Type>
+			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
+			<Domain>DOMAIN_SEA</Domain>
+			<DefaultUnitAI>UNITAI_EXPLORE</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_CANOE</Description>
+			<Civilopedia>TXT_KEY_UNIT_CANOE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_CANOE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bRivalTerritory>1</bRivalTerritory>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<bMechanized>1</bMechanized>
+			<bRenderBelowWater>1</bRenderBelowWater>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ASSAULT_SEA</UnitAIType>
+				<UnitAIType>UNITAI_EXPLORE</UnitAIType>
+				<UnitAIType>UNITAI_SETTLER_SEA</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_EARLY_FISHING</TechType>
+			</PrereqTechs>
+			<iCost>32</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>20</iMinAreaSize>
+			<iMoves>2</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<TerrainImpassables>
+				<TerrainType>TERRAIN_OCEAN</TerrainType>
+			</TerrainImpassables>
+			<iCombat>2</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<DomainCargo>DOMAIN_LAND</DomainCargo>
+			<iCargo>1</iCargo>
+			<iAsset>1</iAsset>
+			<iPower>2</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>2.25</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>1</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_CANOE</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
+			<HotKey/>
+		</UnitInfo>
 		<UnitInfo> <!-- Galley -->
 			<Class>UNITCLASS_GALLEY</Class>
 			<Type>UNIT_GALLEY</Type>
@@ -6073,6 +6125,138 @@
 				<PromotionType>PROMOTION_CREW_STANDARD</PromotionType>
 			</FreePromotions>
 		</UnitInfo>
+		<UnitInfo> <!-- War Galley -->
+			<Class>UNITCLASS_WARGALLEY</Class>
+			<Type>UNIT_WARGALLEY</Type>
+			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
+			<Domain>DOMAIN_SEA</Domain>
+			<DefaultUnitAI>UNITAI_ASSAULT_SEA</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_WARGALLEY</Description>
+			<Civilopedia>TXT_KEY_UNIT_WARGALLEY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_WARGALLEY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<bMechanized>1</bMechanized>
+			<bRenderBelowWater>1</bRenderBelowWater>
+			<bMilitaryTrade>1</bMilitaryTrade>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_TRIREME</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ATTACK_SEA</UnitAIType>
+				<UnitAIType>UNITAI_ESCORT_SEA</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_NAVAL_WARFARE</TechType>
+			</PrereqTechs>
+			<iCost>50</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>20</iMinAreaSize>
+			<iMoves>2</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<TerrainImpassables>
+				<TerrainType>TERRAIN_OCEAN</TerrainType>
+			</TerrainImpassables>
+			<iCombat>5</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>6</iXPValueAttack>
+			<iXPValueDefense>3</iXPValueDefense>
+			<UnitClassAttackMods>
+				<UnitClassAttackMod>
+					<UnitClassType>UNITCLASS_GALLEY</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassAttackMod>
+				<UnitClassAttackMod>
+					<UnitClassType>UNITCLASS_QUINQUEREME</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassAttackMod>
+			</UnitClassAttackMods>
+			<UnitClassDefenseMods>
+				<UnitClassDefenseMod>
+					<UnitClassType>UNITCLASS_GALLEY</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassDefenseMod>
+				<UnitClassDefenseMod>
+					<UnitClassType>UNITCLASS_QUINQUEREME</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassDefenseMod>
+			</UnitClassDefenseMods>
+			<iAsset>1</iAsset>
+			<iPower>6</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>2.25</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>1</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_WARGALLEY</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
+			<FreePromotions>
+				<PromotionType>PROMOTION_CREW_STANDARD</PromotionType>
+			</FreePromotions>
+		</UnitInfo>
+		<UnitInfo> <!-- Siege Quinquereme -->
+			<Class>UNITCLASS_QUINQUEREME</Class>
+			<Type>UNIT_QUINQUEREME</Type>
+			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
+			<Domain>DOMAIN_SEA</Domain>
+			<DefaultUnitAI>UNITAI_COLLATERAL</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_QUINQUEREME</Description>
+			<Civilopedia>TXT_KEY_UNIT_QUINQUEREME_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_QUINQUEREME_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bMechanized>1</bMechanized>
+			<bRenderBelowWater>1</bRenderBelowWater>
+			<UnitAIs>
+				<UnitAIType>UNITAI_RESERVE_SEA</UnitAIType>
+				<UnitAIType>UNITAI_COLLATERAL</UnitAIType>
+				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_NAVAL_WARFARE</TechType>
+				<TechType>TECH_CONSTRUCTION</TechType>
+			</PrereqTechs>
+			<BonusType>BONUS_COPPER</BonusType>
+			<iCost>60</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>20</iMinAreaSize>
+			<iMoves>2</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<TerrainImpassables>
+				<TerrainType>TERRAIN_OCEAN</TerrainType>
+			</TerrainImpassables>
+			<iCombat>5</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<iBombardRate>2</iBombardRate>
+			<iAsset>1</iAsset>
+			<iPower>4</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>2.25</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>1</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_QUINQUEREME</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
+			<FreePromotions>
+				<PromotionType>PROMOTION_CREW_STANDARD</PromotionType>
+			</FreePromotions>
+			<HotKey/>
+		</UnitInfo>
 		<UnitInfo> <!-- Trireme -->
 			<Class>UNITCLASS_TRIREME</Class>
 			<Type>UNIT_TRIREME</Type>
@@ -6116,13 +6300,13 @@
 			<iXPValueDefense>2</iXPValueDefense>
 			<UnitClassAttackMods>
 				<UnitClassAttackMod>
-					<UnitClassType>UNITCLASS_GALLEY</UnitClassType>
+					<UnitClassType>UNITCLASS_CARRACK</UnitClassType>
 					<iUnitClassMod>50</iUnitClassMod>
 				</UnitClassAttackMod>
 			</UnitClassAttackMods>
 			<UnitClassDefenseMods>
 				<UnitClassDefenseMod>
-					<UnitClassType>UNITCLASS_GALLEY</UnitClassType>
+					<UnitClassType>UNITCLASS_CARRACK</UnitClassType>
 					<iUnitClassMod>50</iUnitClassMod>
 				</UnitClassDefenseMod>
 			</UnitClassDefenseMods>
@@ -6183,9 +6367,19 @@
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
+			<UnitClassDefenseMods>
+				<UnitClassDefenseMod>
+					<UnitClassType>UNITCLASS_CARRACK</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassDefenseMod>
+				<UnitClassDefenseMod>
+					<UnitClassType>UNITCLASS_GALLEON</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassDefenseMod>
+			</UnitClassDefenseMods>
 			<SpecialCargo>SPECIALUNIT_PEOPLE</SpecialCargo>
 			<DomainCargo>DOMAIN_LAND</DomainCargo>
-			<iCargo>1</iCargo>
+			<iCargo>2</iCargo>
 			<iAsset>2</iAsset>
 			<iPower>3</iPower>
 			<UnitMeshGroups>
@@ -6205,7 +6399,7 @@
 				<PromotionType>PROMOTION_CREW_STANDARD</PromotionType>
 			</FreePromotions>
 		</UnitInfo>
-		<UnitInfo> <!-- Caravel: Portugese Carrack -->
+		<UnitInfo> <!-- Caravel: Portugese Caravela -->
 			<Class>UNITCLASS_CARAVEL</Class>
 			<Type>UNIT_PORTUGAL_CARRACK</Type>
 			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
@@ -6244,6 +6438,16 @@
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
+			<UnitClassDefenseMods>
+				<UnitClassDefenseMod>
+					<UnitClassType>UNITCLASS_CARRACK</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassDefenseMod>
+				<UnitClassDefenseMod>
+					<UnitClassType>UNITCLASS_GALLEON</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassDefenseMod>
+			</UnitClassDefenseMods>
 			<DomainCargo>DOMAIN_LAND</DomainCargo>
 			<iCargo>3</iCargo>
 			<iAsset>2</iAsset>
@@ -6261,6 +6465,199 @@
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
 			<HotKey/>
+			<FreePromotions>
+				<PromotionType>PROMOTION_CREW_STANDARD</PromotionType>
+			</FreePromotions>
+		</UnitInfo>
+		<UnitInfo> <!-- Carrack -->
+			<Class>UNITCLASS_CARRACK</Class>
+			<Type>UNIT_CARRACK</Type>
+			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
+			<Domain>DOMAIN_SEA</Domain>
+			<DefaultUnitAI>UNITAI_ASSAULT_SEA</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_CARRACK</Description>
+			<Civilopedia>TXT_KEY_UNIT_CARRACK_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_CARRACK_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<bMechanized>1</bMechanized>
+			<bRenderBelowWater>1</bRenderBelowWater>
+			<bMilitaryTrade>1</bMilitaryTrade>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_GALLEON</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ESCORT_SEA</UnitAIType>
+				<UnitAIType>UNITAI_ASSAULT_SEA</UnitAIType>
+				<UnitAIType>UNITAI_SETTLER_SEA</UnitAIType>
+				<UnitAIType>UNITAI_MISSIONARY_SEA</UnitAIType>
+				<UnitAIType>UNITAI_SPY_SEA</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_OPTICS</TechType>
+			</PrereqTechs>
+			<iCost>85</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>20</iMinAreaSize>
+			<iMoves>3</iMoves>
+			<iCombat>11</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>6</iXPValueAttack>
+			<iXPValueDefense>3</iXPValueDefense>
+			<DomainCargo>DOMAIN_LAND</DomainCargo>
+			<iCargo>4</iCargo>
+			<iAsset>2</iAsset>
+			<iPower>20</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>2.25</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>1</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_CARRACK</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
+			<FreePromotions>
+				<PromotionType>PROMOTION_CREW_STANDARD</PromotionType>
+			</FreePromotions>
+		</UnitInfo>
+		<UnitInfo> <!-- Sloop of War -->
+			<Class>UNITCLASS_SLOOP_OF_WAR</Class>
+			<Type>UNIT_SLOOP_OF_WAR</Type>
+			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
+			<Domain>DOMAIN_SEA</Domain>
+			<DefaultUnitAI>UNITAI_ATTACK_SEA</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_SLOOP_OF_WAR</Description>
+			<Civilopedia>TXT_KEY_UNIT_SLOOP_OF_WAR_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_SLOOP_OF_WAR_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bMechanized>1</bMechanized>
+			<bRenderBelowWater>1</bRenderBelowWater>
+			<bMilitaryTrade>1</bMilitaryTrade>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_FRIGATE</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ATTACK_SEA</UnitAIType>
+				<UnitAIType>UNITAI_RESERVE_SEA</UnitAIType>
+				<UnitAIType>UNITAI_ESCORT_SEA</UnitAIType>
+				<UnitAIType>UNITAI_EXPLORE_SEA</UnitAIType>
+				<UnitAIType>UNITAI_ASSAULT_SEA</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_OPTICS</TechType>
+				<TechType>TECH_ENGINEERING</TechType>
+			</PrereqTechs>
+			<BonusType>BONUS_IRON</BonusType>
+			<iCost>100</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>20</iMinAreaSize>
+			<iMoves>5</iMoves>
+			<iCombat>13</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>6</iXPValueAttack>
+			<iXPValueDefense>3</iXPValueDefense>
+			<iFirstStrikes>1</iFirstStrikes>
+			<iChanceFirstStrikes>1</iChanceFirstStrikes>
+			<iWithdrawalProb>40</iWithdrawalProb>
+			<UnitClassAttackMods>
+				<UnitClassAttackMod>
+					<UnitClassType>UNITCLASS_GALLEON</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassAttackMod>
+				<UnitClassAttackMod>
+					<UnitClassType>UNITCLASS_PRIVATEER</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassAttackMod>
+			</UnitClassAttackMods>
+			<UnitClassDefenseMods>
+				<UnitClassDefenseMod>
+					<UnitClassType>UNITCLASS_GALLEON</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassDefenseMod>
+				<UnitClassDefenseMod>
+					<UnitClassType>UNITCLASS_PRIVATEER</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassDefenseMod>
+			</UnitClassDefenseMods>
+			<DomainCargo>DOMAIN_LAND</DomainCargo>
+			<iAsset>1</iAsset>
+			<iPower>25</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>2.25</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>1</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_SLOOP_OF_WAR</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
+			<FreePromotions>
+				<PromotionType>PROMOTION_CREW_STANDARD</PromotionType>
+			</FreePromotions>
+		</UnitInfo>
+		<UnitInfo> <!-- Sail Gunboat -->
+			<Class>UNITCLASS_SAIL_GUNBOAT</Class>
+			<Type>UNIT_SAIL_GUNBOAT</Type>
+			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
+			<Domain>DOMAIN_SEA</Domain>
+			<DefaultUnitAI>UNITAI_EXPLORE_SEA</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_SAIL_GUNBOAT</Description>
+			<Civilopedia>TXT_KEY_UNIT_SAIL_GUNBOAT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_SAIL_GUNBOAT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bMechanized>1</bMechanized>
+			<bRenderBelowWater>1</bRenderBelowWater>
+			<bMilitaryTrade>1</bMilitaryTrade>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_FRIGATE</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+					<UnitAIType>UNITAI_ATTACK_SEA</UnitAIType>
+					<UnitAIType>UNITAI_RESERVE_SEA</UnitAIType>
+					<UnitAIType>UNITAI_ESCORT_SEA</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_OPTICS</TechType>
+				<TechType>TECH_ENGINEERING</TechType>
+			</PrereqTechs>
+			<BonusType>BONUS_IRON</BonusType>
+			<iCost>125</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>20</iMinAreaSize>
+			<iMoves>4</iMoves>
+			<iCombat>12</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>6</iXPValueAttack>
+			<iXPValueDefense>3</iXPValueDefense>
+			<iWithdrawalProb>20</iWithdrawalProb>
+			<iBombardRate>4</iBombardRate>
+			<iAsset>1</iAsset>
+			<iPower>34</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>3</iGroupSize>
+				<fMaxSpeed>2.25</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>3</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>3</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_SAIL_GUNBOAT</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
 			<FreePromotions>
 				<PromotionType>PROMOTION_CREW_STANDARD</PromotionType>
 			</FreePromotions>
@@ -6419,6 +6816,18 @@
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
+			<UnitClassAttackMods>
+				<UnitClassAttackMod>
+					<UnitClassType>UNITCLASS_GALLEON</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassAttackMod>
+			</UnitClassAttackMods>
+			<UnitClassDefenseMods>
+				<UnitClassDefenseMod>
+					<UnitClassType>UNITCLASS_GALLEON</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassDefenseMod>
+			</UnitClassDefenseMods>
 			<DomainCargo>DOMAIN_LAND</DomainCargo>
 			<iAsset>3</iAsset>
 			<iPower>6</iPower>
@@ -6457,7 +6866,7 @@
 			<bMechanized>1</bMechanized>
 			<bRenderBelowWater>1</bRenderBelowWater>
 			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_SHIP_OF_THE_LINE</UnitClassType>
+				<UnitClassType>UNITCLASS_HEAVY_FRIGATE</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_ATTACK_SEA</UnitAIType>
@@ -6491,6 +6900,126 @@
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_FRIGATE</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
+			<HotKey/>
+			<FreePromotions>
+				<PromotionType>PROMOTION_CREW_STANDARD</PromotionType>
+			</FreePromotions>
+		</UnitInfo>
+		<UnitInfo> <!-- Heavy Privateer -->
+			<Class>UNITCLASS_HEAVY_PRIVATEER</Class>
+			<Type>UNIT_HEAVY_PRIVATEER</Type>
+			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
+			<Domain>DOMAIN_SEA</Domain>
+			<DefaultUnitAI>UNITAI_PIRATE_SEA</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_HEAVY_PRIVATEER</Description>
+			<Civilopedia>TXT_KEY_UNIT_PRIVATEER_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_PRIVATEER_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<bMechanized>1</bMechanized>
+			<bRenderBelowWater>1</bRenderBelowWater>
+			<bHiddenNationality>1</bHiddenNationality>
+			<bAlwaysHostile>1</bAlwaysHostile>
+			<UnitAIs>
+				<UnitAIType>UNITAI_PIRATE_SEA</UnitAIType>
+			</UnitAIs>
+			<NotUnitAIs>
+				<UnitAIType>UNITAI_ESCORT_SEA</UnitAIType>
+				<UnitAIType>UNITAI_RESERVE_SEA</UnitAIType>
+				<UnitAIType>UNITAI_ATTACK_SEA</UnitAIType>
+			</NotUnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_MILITARY_SCIENCE</TechType>
+				<TechType>TECH_ASTRONOMY</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_COPPER</BonusType>
+				<BonusType>BONUS_IRON</BonusType>
+			</PrereqOrBonuses>
+			<iCost>80</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>20</iMinAreaSize>
+			<iMoves>4</iMoves>
+			<iCombat>23</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<DomainCargo>DOMAIN_LAND</DomainCargo>
+			<iAsset>3</iAsset>
+			<iPower>6</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>2.25</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>1</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_HEAVY_PRIVATEER</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
+			<HotKey/>
+			<FreePromotions>
+				<PromotionType>PROMOTION_SENTRY</PromotionType>
+				<PromotionType>PROMOTION_CREW_STANDARD</PromotionType>
+			</FreePromotions>
+		</UnitInfo>
+		<UnitInfo> <!-- Heavy Frigate -->
+			<Class>UNITCLASS_HEAVY_FRIGATE</Class>
+			<Type>UNIT_HEAVY_FRIGATE</Type>
+			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
+			<Domain>DOMAIN_SEA</Domain>
+			<DefaultUnitAI>UNITAI_RESERVE_SEA</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_HEAVY_FRIGATE</Description>
+			<Civilopedia>TXT_KEY_UNIT_HEAVY_FRIGATE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_HEAVY_FRIGATE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
+			<bMechanized>1</bMechanized>
+			<bRenderBelowWater>1</bRenderBelowWater>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_SHIP_OF_THE_LINE</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ATTACK_SEA</UnitAIType>
+				<UnitAIType>UNITAI_RESERVE_SEA</UnitAIType>
+				<UnitAIType>UNITAI_ESCORT_SEA</UnitAIType>
+				<UnitAIType>UNITAI_EXPLORE_SEA</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_MILITARY_SCIENCE</TechType>
+				<TechType>TECH_ASTRONOMY</TechType>
+			</PrereqTechs>
+			<BonusType>BONUS_IRON</BonusType>
+			<iCost>90</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>20</iMinAreaSize>
+			<iMoves>4</iMoves>
+			<iCombat>24</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<iBombardRate>8</iBombardRate>
+			<DomainCargo>DOMAIN_LAND</DomainCargo>
+			<iAsset>3</iAsset>
+			<iPower>8</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>2.25</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>1</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_HEAVY_FRIGATE</EarlyArtDefineTag>
 				</UnitMeshGroup>
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
@@ -6538,18 +7067,6 @@
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
-			<UnitClassAttackMods>
-				<UnitClassAttackMod>
-					<UnitClassType>UNITCLASS_FRIGATE</UnitClassType>
-					<iUnitClassMod>20</iUnitClassMod>
-				</UnitClassAttackMod>
-			</UnitClassAttackMods>
-			<UnitClassDefenseMods>
-				<UnitClassDefenseMod>
-					<UnitClassType>UNITCLASS_FRIGATE</UnitClassType>
-					<iUnitClassMod>20</iUnitClassMod>
-				</UnitClassDefenseMod>
-			</UnitClassDefenseMods>
 			<iBombardRate>12</iBombardRate>
 			<DomainCargo>DOMAIN_LAND</DomainCargo>
 			<iAsset>3</iAsset>
