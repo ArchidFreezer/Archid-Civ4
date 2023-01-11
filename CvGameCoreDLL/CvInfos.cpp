@@ -5097,7 +5097,7 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	m_iDefaultUnitAIType = pXML->FindInInfoClass(szTextVal);
 	pXML->GetChildXmlValByName(&m_bFixedAI, "bFixedAI", false);
 
-	pXML->GetChildXmlValByName(&m_iMaxWeaponTypeTier, "iMaxWeaponTypeTier");
+	pXML->GetChildXmlValByName(&m_iMaxWeaponTypeTier, "iMaxWeaponTypeTier", -1);
 
 	pXML->GetChildXmlValByName(szTextVal, "Invisible");
 	m_iInvisibleType = pXML->FindInInfoClass(szTextVal);
