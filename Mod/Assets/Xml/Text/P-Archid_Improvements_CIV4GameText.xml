@@ -11,6 +11,26 @@
 		<English>An animal den is a place where animals routinely habituate. The animals often have their young here and new animals can spwan periodically. There is also, typically, a resident animal that is stronger than usual to guard the den from intruders.</English>
 	</TEXT>
 
+<!-- Apple Orchard -->
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_APPLE_FARM</Tag>
+		<English>Build an [LINK=IMPROVEMENT_APPLE_FARM]Apple Orchard[\LINK]</English>
+		<French>Construire une [LINK=IMPROVEMENT_APPLE_FARM]Pommeraie[\LINK]</French>
+		<German>Errichte einen [LINK=IMPROVEMENT_APPLE_FARM]Apfelhain[\LINK]</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_APPLE_FARM</Tag>
+		<English>Apple Orchard</English>
+		<French>
+			<Text>Pommeraie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Apfelhain</German>
+		<Italian>Apple Orchard</Italian>
+		<Spanish>Apple Orchard</Spanish>
+	</TEXT>
+
 	<TEXT> <!-- Camp -->
 		<Tag>TXT_KEY_IMPROVEMENT_CAMP_PEDIA</Tag>
 		<English>[TAB]The term camp comes from the Latin word campus, meaning "field". Therefore, a campsite consists typically of open pieces of ground where a camper can pitch a tent or park a camper. More specifically a campsite is a dedicated area set aside for camping and for which often a user fee is charged. Campsites typically feature a few (but sometimes no) improvements.</English>
@@ -55,11 +75,36 @@
 		<Tag>TXT_KEY_IMPROVEMENT_GOODY_HUT_PEDIA</Tag>
 		<English>[TAB]Hut may refer to: Hut (dwelling), a small and crude shelter.</English>
 	</TEXT>
+<!-- Lumberjack -->
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_LUMBERJACK</Tag>
+		<English>Build a Lumberjack Camp</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_LUMBERJACK</Tag>
+		<English>Lumberjack Camp</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_LUMBERJACK_PEDIA</Tag>
+		<English>Lumberjacks fell large trees, ensuring that as much prime timber is recoverable from each tree as possible.</English>
+	</TEXT>
+
 	<TEXT> <!-- Lumbermill -->
 		<Tag>TXT_KEY_IMPROVEMENT_LUMBERMILL_PEDIA</Tag>
 		<English>[TAB]A sawmill is a facility where logs are cut into boards.</English>
 	</TEXT>
-	<TEXT> <!-- Mine -->
+
+<!-- Obsidian Camp -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_OBSIDIAN_CAMP</Tag>
+		<English>Obsidian Camp</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_OBSIDIAN_CAMP</Tag>
+		<English>Build an [LINK=IMPROVEMENT_OBSIDIAN_CAMP]Obsidian Camp[\LINK]</English>
+	</TEXT>
+
+	<TEXT> <!-- Mine -->	
 		<Tag>TXT_KEY_IMPROVEMENT_MINE_PEDIA</Tag>
 		<English>[TAB]Mine or mines can refer to: Mining, extraction of mineral resources from the ground.</English>
 	</TEXT>
@@ -71,6 +116,25 @@
 		<Tag>TXT_KEY_IMPROVEMENT_WELL_PEDIA</Tag>
 		<English>[TAB]An oil well is a general term for any boring through the earth's surface that is designed to find and acquire petroleum oil hydrocarbons. Usually some natural gas is produced along with the oil. A well that is designed to produce mainly or only gas may be termed a gas well.</English>
 	</TEXT>
+
+<!-- Olive Orchard -->
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_OLIVE_FARM</Tag>
+		<English>Build an [LINK=IMPROVEMENT_OLIVE_FARM]Olive Orchard[\LINK]</English>
+		<French>Construire une [LINK=IMPROVEMENT_OLIVE_FARM]Oliveraie[\LINK]</French>
+		<German>Errichte einen [LINK=IMPROVEMENT_OLIVE_FARM]Olivenhain[\LINK]</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_OLIVE_FARM</Tag>
+		<English>Olive Orchard</English>
+		<French>
+			<Text>Oliveraie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Olivenhain</German>
+	</TEXT>
+
 	<TEXT> <!-- Pasture -->
 		<Tag>TXT_KEY_IMPROVEMENT_PASTURE_PEDIA</Tag>
 		<English>[TAB]Pasture is land with vegetation cover used for grazing of livestock as part of a farm, or in ranching or other unenclosed pastoral systems or used by wild animals for grazing or browsing. Prior to the advent of factory farming, pasture was the primary source of food for grazing animals such as cattle and horses. It is still used extensively, particularly in arid regions where pasture land is unsuitable for any other agricultural production. In more humid regions, pasture grazing is exploited extensively for free range and organic farming.</English>
@@ -83,6 +147,64 @@
 		<Tag>TXT_KEY_IMPROVEMENT_QUARRY_PEDIA</Tag>
 		<English>[TAB]A quarry is a type of open-pit mine from which rock or minerals are extracted. Quarries are generally used for extracting building materials, such as dimension stone, construction aggregate, riprap, sand, and gravel. They are often colocated with concrete and asphalt plants due to the requirement for large amounts of aggregate in those materials. The word quarry can include underground quarrying for stone, such as Bath stone.</English>
 	</TEXT>
+	
+<!-- Seed Camp -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_SEED_CAMP</Tag>
+		<English>Seed Camp</English>
+		<Spanish>Campo de Semillas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_SEED_CAMP_PEDIA</Tag>
+		<English>[COLOR_BUILDING_TEXT]Seed Camps[COLOR_REVERT] first appeared in the Stone Ages. Prehistoric humans used to obtain food from Hunting and Grain Gathering. Seed Camps were special places were [COLOR_UNIT_TEXT]Gatherers[COLOR_REVERT] kept the gathered seeds that where used to feed the Tribe.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_SEED_CAMP</Tag>
+		<English>Build a [LINK=IMPROVEMENT_SEED_CAMP]Seed Camp[\LINK]</English>
+	</TEXT>
+
+<!-- Stone Tools Camp -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_STONE_TOOLS_CAMP</Tag>
+		<English>Stone Tools Camp</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_STONE_TOOLS_CAMP</Tag>
+		<English>Build a [LINK=IMPROVEMENT_STONE_TOOLS_CAMP]Stone Tools Camp[\LINK]</English>
+	</TEXT>
+
+<!-- Silk Farm -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_SILK_FARM</Tag>
+		<English>Silk Farm</English>
+		<French>
+			<Text>Culture de Vers à Soie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Seidenfarm</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_SILK_FARM</Tag>
+		<English>Build a [LINK=IMPROVEMENT_SILK_FARM]Silk Farm[\LINK]</English>
+		<French>Construire une [LINK=IMPROVEMENT_SILK_FARM]Culture de Soie[\LINK]</French>
+		<German>Errichte eine [LINK=IMPROVEMENT_SILK_FARM]Seidenfarm[\LINK]</German>
+	</TEXT>
+
+<!-- Timber Camp -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_TIMBER_CAMP</Tag>
+		<English>Timber Camp</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_TIMBER_CAMP_PEDIA</Tag>
+		<English>A [COLOR_BUILDING_TEXT]Timber Camp[COLOR_REVERT] is a location where high quality lumber and wood can be found and managed.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_TIMBER_CAMP</Tag>
+		<English>Build a [LINK=IMPROVEMENT_TIMBER_CAMP]Timber Camp[\LINK]</English>
+	</TEXT>
+	
 	<TEXT> <!-- Watermill -->
 		<Tag>TXT_KEY_IMPROVEMENT_WATERMILL_PEDIA</Tag>
 		<English>[TAB]A watermill is a structure that uses a water wheel or turbine to drive a mechanical process such as flour, lumber or textile production, or metal shaping (rolling, grinding or wire drawing).</English>

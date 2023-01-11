@@ -50,8 +50,8 @@
 			<bExtraAnimations>0</bExtraAnimations>
 			<fScale>1.0</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
-			<NIF>Art/Structures/Improvements/LandWorked/sm_farm_house.nif</NIF>
-			<KFM>Art/Structures/Improvements/LandWorked/sm_farm_house.kfm</KFM>
+			<NIF>Art/Structures/Improvements/land_worked/Teepee.nif</NIF>
+			<KFM/>
 			<Button>,Art/Interface/Buttons/Brown_empty.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,-1,-1</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Town (from Village) -->
@@ -111,6 +111,15 @@
 			<NIF>Art/Structures/Improvements/Fort/eu_med_fort.nif</NIF>
 			<KFM/>
 			<Button>,Art/Interface/Buttons/Builds/BuildFort.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,7,9</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Lumberjack -->
+			<Type>ART_DEF_IMPROVEMENT_LUMBERJACK</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>0.6</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/lumberjack/Camp_fx.nif</NIF>
+			<KFM>Art/Structures/Improvements/lumberjack/Camp.kfm</KFM>
+			<Button>Art/Interface/Buttons/Builds/lumberjack.dds</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Lumbermill -->
 			<Type>ART_DEF_IMPROVEMENT_LUMBERMILL</Type>
@@ -188,6 +197,15 @@
 			<KFM>Art/Structures/Improvements/Mine/Mine.kfm</KFM>
 			<Button>,Art/Interface/Buttons/Builds/BuildMine.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,6,7</Button>
 		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Obsidian Camp -->
+			<Type>ART_DEF_IMPROVEMENT_OBSIDIAN_CAMP</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>0.6</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/Gatherers/Camp.nif</NIF>
+			<KFM>Art/Structures/Improvements/Gatherers/Camp.kfm</KFM>
+			<Button>Art/Interface/Buttons/Builds/obsidian_camp.dds</Button>
+		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Offshore Platform -->
 			<Type>ART_DEF_IMPROVEMENT_OFFSHORE_PLATFORM</Type>
 			<bExtraAnimations>0</bExtraAnimations>
@@ -196,6 +214,15 @@
 			<NIF>Art/Structures/Improvements/OilRig/OilRig.nif</NIF>
 			<KFM>Art/Structures/Improvements/OilRig/OilRig.kfm</KFM>
 			<Button>,Art/Interface/Buttons/Builds/BuildOffshorePlatform.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,4,9</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Orchard -->
+			<Type>ART_DEF_IMPROVEMENT_ORCHARD</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/Plantation/Plantation.nif</NIF>
+			<KFM>Art/Structures/Improvements/Plantation/Plantation.kfm</KFM>
+			<Button>Art/Interface/Buttons/Builds/orchard.dds</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Pasture -->
 			<Type>ART_DEF_IMPROVEMENT_PASTURE</Type>
@@ -223,6 +250,33 @@
 			<NIF>Art/Structures/Improvements/Quarry/Quarry.nif</NIF>
 			<KFM>Art/Structures/Improvements/Quarry/Quarry.kfm</KFM>
 			<Button>,Art/Interface/Buttons/Builds/BuildQuarry.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,2,9</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Stone Tools Camp -->
+			<Type>ART_DEF_IMPROVEMENT_STONE_TOOLS_CAMP</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>0.6</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/Gatherers/Camp.nif</NIF>
+			<KFM>Art/Structures/Improvements/Gatherers/Camp.kfm</KFM>
+			<Button>Art/Interface/Buttons/Builds/stone_tools_camp.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Seed Camp -->
+			<Type>ART_DEF_IMPROVEMENT_SEED_CAMP</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>0.6</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/Gatherers/Camp.nif</NIF>
+			<KFM>Art/Structures/Improvements/Gatherers/Camp.kfm</KFM>
+			<Button>Art/Interface/Buttons/Builds/seed_camp.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Timber Camp -->
+			<Type>ART_DEF_IMPROVEMENT_TIMBER_CAMP</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>0.6</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/Gatherers/Camp.nif</NIF>
+			<KFM>Art/Structures/Improvements/Gatherers/Camp.kfm</KFM>
+			<Button>Art/Interface/Buttons/Builds/timber_camp.dds</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Well -->
 			<Type>ART_DEF_IMPROVEMENT_WELL</Type>

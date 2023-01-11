@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Jon Shafer (Firaxis Games) --><!-- Sid Meier's Civilization 4 --><!-- Copyright Firaxis Games 2005 --><!-- --><!-- Bonus/Resource art path information --><Civ4ArtDefines xmlns="x-schema:CIV4ArtDefinesSchema.xml">
+	<BonusArtInfos>
+<!-- ****************** -->
+<!-- Strategic					-->
+<!-- ****************** -->
+		<BonusArtInfo> <!-- Aluminium -->
+			<Type>ART_DEF_BONUS_ALUMINUM</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Aluminum/Aluminum.nif</NIF>
+			<KFM>Art/Terrain/Resources/Aluminum/Aluminum.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Aluminum.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,1,12</Button>
+			<FontButtonIndex>0</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Coal -->
+			<Type>ART_DEF_BONUS_COAL</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Coal/Coal.nif</NIF>
+			<KFM>Art/Terrain/Resources/Coal/Coal.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Coal.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,4,12</Button>
+			<FontButtonIndex>1</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Copper -->
+			<Type>ART_DEF_BONUS_COPPER</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Copper/Copper.nif</NIF>
+			<KFM>Art/Terrain/Resources/Copper/Copper.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Copper.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,5,12</Button>
+			<FontButtonIndex>2</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Horses -->
+			<Type>ART_DEF_BONUS_HORSE</Type>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>0.9</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Horse/Horse.nif</NIF>
+			<KFM>Art/Terrain/Resources/Horse/Horse.kfm</KFM>
+			<SHADERNIF>Art/Terrain/Resources/Horse/Horse_FX.nif</SHADERNIF>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Horse.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,4,13</Button>
+			<FontButtonIndex>3</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Iron -->
+			<Type>ART_DEF_BONUS_IRON</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Iron/Iron.nif</NIF>
+			<KFM>Art/Terrain/Resources/Iron/Iron.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Iron.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,6,13</Button>
+			<FontButtonIndex>4</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Lead -->
+			<Type>ART_DEF_BONUS_LEAD</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.25</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Lead/iron.nif</NIF>
+			<KFM>Art/Terrain/Resources/Lead/iron.kfm</KFM>
+			<SHADERNIF>Art/Terrain/Resources/Lead/iron.nif</SHADERNIF>
+			<Button>Art/Interface/Buttons/WorldBuilder/Lead.dds</Button>
+			<FontButtonIndex>57</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Marble -->
+			<Type>ART_DEF_BONUS_MARBLE</Type>
+			<fScale>.7</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Marble/Marble.nif</NIF>
+			<KFM>Art/Terrain/Resources/Marble/Marble.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Marble.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,8,13</Button>
+			<FontButtonIndex>5</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Obsidian -->
+			<Type>ART_DEF_BONUS_OBSIDIAN</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.5</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Obsidian/Gems.nif</NIF>
+			<KFM>Art/Terrain/Resources/Obsidian/Gems.kfm</KFM>
+			<SHADERNIF>Art/Terrain/Resources/Obsidian/Gems.nif</SHADERNIF>
+			<Button>Art/Interface/Buttons/WorldBuilder/Obsidian.dds</Button>
+			<FontButtonIndex>98</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Oil -->
+			<Type>ART_DEF_BONUS_OIL</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Oil/Oil.nif</NIF>
+			<KFM>Art/Terrain/Resources/Oil/Oil.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Oil.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,7,15</Button>
+			<FontButtonIndex>6</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Prime Timber -->
+			<Type>ART_DEF_BONUS_TIMBER</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/timber/olives.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/WorldBuilder/timber.dds</Button>
+			<FontButtonIndex>72</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Stone -->
+			<Type>ART_DEF_BONUS_STONE</Type>
+			<fScale>0.7</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Stone/Stone.nif</NIF>
+			<KFM>Art/Terrain/Resources/Stone/Stone.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Stone.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,6,14</Button>
+			<FontButtonIndex>7</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Uranium -->
+			<Type>ART_DEF_BONUS_URANIUM</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Uranium/Uranium.nif</NIF>
+			<KFM>Art/Terrain/Resources/Uranium/Uranium.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Uranium.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,8,14</Button>
+			<FontButtonIndex>8</FontButtonIndex>
+		</BonusArtInfo>
+
+<!-- ******************	-->
+<!-- Health							-->
+<!-- ******************	-->
+		<BonusArtInfo> <!-- Apple -->
+			<Type>ART_DEF_BONUS_APPLE</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.5</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Apple/Banana.nif</NIF>
+			<KFM>Art/Terrain/Resources/Apple/Banana.kfm</KFM>
+			<SHADERNIF>Art/Terrain/Resources/Apple/Banana.nif</SHADERNIF>
+			<Button>Art/Interface/Buttons/WorldBuilder/apple.dds</Button>
+			<FontButtonIndex>47</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Banana -->
+			<Type>ART_DEF_BONUS_BANANA</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Banana/Banana.nif</NIF>
+			<KFM>Art/Terrain/Resources/Banana/Banana.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Banana.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,2,12</Button>
+			<FontButtonIndex>9</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Barley -->
+			<Type>ART_DEF_BONUS_BARLEY</Type>
+			<fScale>1.1</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Barley/Wheat.nif</NIF>
+			<KFM>Art/Terrain/Resources/Barley/Wheat.kfm</KFM>
+			<Button>Art/Interface/Buttons/WorldBuilder/barley.dds</Button>
+			<FontButtonIndex>45</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Bison -->
+			<Type>ART_DEF_BONUS_BISON</Type>
+			<fScale>1.1</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Bison/cow.nif</NIF>
+			<KFM>Art/Terrain/Resources/Bison/cow.kfm</KFM>
+			<SHADERNIF>Art/Terrain/Resources/Bison/cow_FX.nif</SHADERNIF>
+			<Button>Art/Interface/Buttons/WorldBuilder/bison.dds</Button>
+			<FontButtonIndex>104</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Clam -->
+			<Type>ART_DEF_BONUS_CLAM</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Clam/Clam.nif</NIF>
+			<KFM>Art/Terrain/Resources/Clam/Clam.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Clam.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,3,12</Button>
+			<FontButtonIndex>10</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Corn -->
+			<Type>ART_DEF_BONUS_CORN</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Corn/Corn.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Corn.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,6,12</Button>
+			<FontButtonIndex>11</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Cow -->
+			<Type>ART_DEF_BONUS_COW</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.9</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Cow/Cow.nif</NIF>
+			<KFM>Art/Terrain/Resources/Cow/Cow.kfm</KFM>
+			<SHADERNIF>Art/Terrain/Resources/Cow/Cow_FX.nif</SHADERNIF>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Cow.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,7,12</Button>
+			<FontButtonIndex>12</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Crab -->
+			<Type>ART_DEF_BONUS_CRAB</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.1</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Crab/Crab.nif</NIF>
+			<KFM>Art/Terrain/Resources/Crab/Crab.kfm</KFM>
+			<SHADERNIF>Art/Terrain/Resources/Crab/Crab_FX.nif</SHADERNIF>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Crab.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,8,12</Button>
+			<FontButtonIndex>13</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Deer -->
+			<Type>ART_DEF_BONUS_DEER</Type>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Deer/Deer.nif</NIF>
+			<KFM>Art/Terrain/Resources/Deer/Deer.kfm</KFM>
+			<SHADERNIF>Art/Terrain/Resources/Deer/Deer_FX.nif</SHADERNIF>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Deer.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,1,15</Button>
+			<FontButtonIndex>14</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Fish -->
+			<Type>ART_DEF_BONUS_FISH</Type>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Fish/Fish.nif</NIF>
+			<KFM>Art/Terrain/Resources/Fish/Fish.kfm</KFM>
+			<SHADERNIF>Art/Terrain/Resources/Fish/Fish_FX.nif</SHADERNIF>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Fish.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,4,15</Button>
+			<FontButtonIndex>15</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Hemp -->
+			<Type>ART_DEF_BONUS_CANNABIS</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Cannabis/Cnq.nif</NIF>
+			<KFM>Art/Terrain/Resources/Cannabis/Cnq.kfm</KFM>
+			<Button>Art/Interface/Buttons/WorldBuilder/hemp.dds</Button>
+			<FontButtonIndex>35</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Lemon -->
+			<Type>ART_DEF_BONUS_LEMON</Type>
+			<fScale>0.5</fScale>
+			<fInterfaceScale>1.5</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Lemon/Lemqes.nif</NIF>
+			<KFM>Art/Terrain/Resources/Lemon/Lemqes.kfm</KFM>
+			<Button>Art/Interface/Buttons/WorldBuilder/lemon.dds</Button>
+			<FontButtonIndex>41</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Olives -->
+			<Type>ART_DEF_BONUS_OLIVES</Type>
+			<fScale>0.5</fScale>
+			<fInterfaceScale>1.6</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Olives/olives.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Spices.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,1,14</Button>
+			<FontButtonIndex>51</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Pig -->
+			<Type>ART_DEF_BONUS_PIG</Type>
+			<fScale>1.1</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Pig/Pig.nif</NIF>
+			<KFM>Art/Terrain/Resources/Pig/Pig.kfm</KFM>
+			<SHADERNIF>Art/Terrain/Resources/Pig/Pig_FX.nif</SHADERNIF>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Pig.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,8,15</Button>
+			<FontButtonIndex>16</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Potato -->
+			<Type>ART_DEF_BONUS_POTATO</Type>
+			<fScale>0.8</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Potato/Wheat.nif</NIF>
+			<KFM>Art/Terrain/Resources/Potato/Wheat.kfm</KFM>
+			<Button>Art/Interface/Buttons/WorldBuilder/potato.dds</Button>
+			<FontButtonIndex>37</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Rice -->
+			<Type>ART_DEF_BONUS_RICE</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Rice/Rice.nif</NIF>
+			<KFM>Art/Terrain/Resources/Rice/Rice.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Rice.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,1,14</Button>
+			<FontButtonIndex>17</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Salt -->
+			<Type>ART_DEF_BONUS_SALT</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Salt/Marble.nif</NIF>
+			<KFM>Art/Terrain/Resources/Salt/Marble.kfm</KFM>
+			<Button>Art/Interface/Buttons/WorldBuilder/salt.dds</Button>
+			<FontButtonIndex>36</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Sheep -->
+			<Type>ART_DEF_BONUS_SHEEP</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Sheep/Sheep.nif</NIF>
+			<KFM>Art/Terrain/Resources/Sheep/Sheep.kfm</KFM>
+			<SHADERNIF>Art/Terrain/Resources/Sheep/Sheep_FX.nif</SHADERNIF>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Sheep.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,2,14</Button>
+			<FontButtonIndex>18</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Shrimp -->
+			<Type>ART_DEF_BONUS_SHRIMP</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.1</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/shrimp/shrimp.nif</NIF>
+			<KFM>Art/Terrain/Resources/Crab/Crab.kfm</KFM>
+			<SHADERNIF>Art/Terrain/Resources/shrimp/shrimp.nif</SHADERNIF>
+			<Button>Art/Interface/Buttons/WorldBuilder/shrimp.dds</Button>
+			<FontButtonIndex>94</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Wheat -->
+			<Type>ART_DEF_BONUS_WHEAT</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Wheat/Wheat.nif</NIF>
+			<KFM>Art/Terrain/Resources/Wheat/Wheat.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Wheat.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,2,16</Button>
+			<FontButtonIndex>19</FontButtonIndex>
+		</BonusArtInfo>
+
+
+<!-- ******************	-->
+<!-- Luxuries						-->
+<!-- ******************	-->
+		<BonusArtInfo> <!-- Coffee -->
+			<Type>ART_DEF_BONUS_COFFEE</Type>
+			<fScale>0.5</fScale>
+			<fInterfaceScale>1.5</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Coffee/Cofwes.nif</NIF>
+			<KFM>Art/Terrain/Resources/Coffee/Cofwes.kfm</KFM>
+			<Button>Art/Interface/Buttons/WorldBuilder/coffee.dds</Button>
+			<FontButtonIndex>38</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Cotton -->
+			<Type>ART_DEF_BONUS_COTTON</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Cotton/Cop.nif</NIF>
+			<KFM>Art/Terrain/Resources/Cotton/Cop.kfm</KFM>
+			<Button>Art/Interface/Buttons/WorldBuilder/cotton.dds</Button>
+			<FontButtonIndex>42</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Dye -->
+			<Type>ART_DEF_BONUS_DYE</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Dye/Dye.nif</NIF>
+			<KFM>Art/Terrain/Resources/Dye/Dye.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Dye.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,3,15</Button>
+			<FontButtonIndex>20</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Fur -->
+			<Type>ART_DEF_BONUS_FUR</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Fur/Fur.nif</NIF>
+			<KFM>Art/Terrain/Resources/Fur/Fur.kfm</KFM>
+			<SHADERNIF>Art/Terrain/Resources/Fur/Fur_FX.nif</SHADERNIF>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Fur.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,1,13</Button>
+			<FontButtonIndex>21</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Gems -->
+			<Type>ART_DEF_BONUS_GEMS</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Gems/Gems.nif</NIF>
+			<KFM>Art/Terrain/Resources/Gems/Gems.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Gems.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,2,13</Button>
+			<FontButtonIndex>22</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Gold -->
+			<Type>ART_DEF_BONUS_GOLD</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Gold/Gold.nif</NIF>
+			<KFM>Art/Terrain/Resources/Gold/Gold.KFM</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Gold.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,3,13</Button>
+			<FontButtonIndex>23</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Hit Movies -->
+			<Type>ART_DEF_BONUS_MOVIES</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Wheat/Wheat.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Movies.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,5,15</Button>
+			<FontButtonIndex>34</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Hit Musicals -->
+			<Type>ART_DEF_BONUS_DRAMA</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Wheat/Wheat.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Drama.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,2,15</Button>
+			<FontButtonIndex>32</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Hit Singles -->
+			<Type>ART_DEF_BONUS_MUSIC</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Wheat/Wheat.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Music.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,4,16</Button>
+			<FontButtonIndex>33</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Incense -->
+			<Type>ART_DEF_BONUS_INCENSE</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Incense/Incense.nif</NIF>
+			<KFM>Art/Terrain/Resources/Incense/Incense.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Incense.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,5,13</Button>
+			<FontButtonIndex>24</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Ivory -->
+			<Type>ART_DEF_BONUS_IVORY</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Elephant/Elephant.nif</NIF>
+			<KFM>Art/Terrain/Resources/Elephant/Elephant.kfm</KFM>
+			<SHADERNIF>Art/Terrain/Resources/Elephant/Elephant_FX.nif</SHADERNIF>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Ivory.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,7,13</Button>
+			<FontButtonIndex>25</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Pearls -->
+			<Type>ART_DEF_BONUS_PEARLS</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Pearls/Clam.nif</NIF>
+			<KFM>Art/Terrain/Resources/Pearls/Clam.kfm</KFM>
+			<Button>Art/Interface/Buttons/WorldBuilder/pearls.dds</Button>
+			<FontButtonIndex>40</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Silk -->
+			<Type>ART_DEF_BONUS_SILK</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Silk/Silk.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Silk.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,3,14</Button>
+			<FontButtonIndex>26</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Silver -->
+			<Type>ART_DEF_BONUS_SILVER</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>.8</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Silver/Silver.nif</NIF>
+			<KFM>Art/Terrain/Resources/Silver/Silver.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Silver.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,4,14</Button>
+			<FontButtonIndex>27</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Spices -->
+			<Type>ART_DEF_BONUS_SPICES</Type>
+			<fScale>0.5</fScale>
+			<fInterfaceScale>1.6</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Spices/Spices.nif</NIF>
+			<KFM>Art/Terrain/Resources/Spices/Spices.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Spices.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,5,14</Button>
+			<FontButtonIndex>28</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Sugar -->
+			<Type>ART_DEF_BONUS_SUGAR</Type>
+			<fScale>0.5</fScale>
+			<fInterfaceScale>1.3</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Sugar/Sugar.nif</NIF>
+			<KFM>Art/Terrain/Resources/Sugar/Sugar.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Sugar.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,7,14</Button>
+			<FontButtonIndex>29</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Tea -->
+			<Type>ART_DEF_BONUS_TEA</Type>
+			<fScale>0.5</fScale>
+			<fInterfaceScale>1.6</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Tea/Spices.nif</NIF>
+			<KFM>Art/Terrain/Resources/Tea/Spices.kfm</KFM>
+			<Button>Art/Interface/Buttons/WorldBuilder/Tea.dds</Button>
+			<FontButtonIndex>93</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Tobacco -->
+			<Type>ART_DEF_BONUS_TOBACCO</Type>
+			<fScale>0.5</fScale>
+			<fInterfaceScale>1.6</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Tobacco/tobacco.nif</NIF>
+			<KFM/>
+			<SHADERNIF>Art/Terrain/Resources/Tobacco/Tobacco.nif</SHADERNIF>
+			<Button>Art/Interface/Buttons/WorldBuilder/Tobacco.dds</Button>
+			<FontButtonIndex>53</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Wine -->
+			<Type>ART_DEF_BONUS_WINE</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Wine/Wine.nif</NIF>
+			<KFM>Art/Terrain/Resources/Wine/Wine.kfm</KFM>
+			<Button>Art/Interface/Buttons/WorldBuilder/Wine2.dds</Button>
+			<FontButtonIndex>30</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo> <!-- Whale -->
+			<Type>ART_DEF_BONUS_WHALE</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Whale/Whale.nif</NIF>
+			<KFM>Art/Terrain/Resources/Whale/Whale.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Whale.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,1,16</Button>
+			<FontButtonIndex>31</FontButtonIndex>
+		</BonusArtInfo>
+
+<!-- ******************	-->
+<!-- Special						-->
+<!-- ******************	-->
+	</BonusArtInfos>
+</Civ4ArtDefines>

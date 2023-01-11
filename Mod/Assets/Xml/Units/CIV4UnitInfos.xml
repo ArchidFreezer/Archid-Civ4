@@ -7750,9 +7750,16 @@
 				<BuildType>BUILD_FARM</BuildType>
 				<BuildType>BUILD_MINE</BuildType>
 				<BuildType>BUILD_WORKSHOP</BuildType>
+				<BuildType>BUILD_LUMBERJACK</BuildType>
 				<BuildType>BUILD_LUMBERMILL</BuildType>
 				<BuildType>BUILD_WINDMILL</BuildType>
 				<BuildType>BUILD_WATERMILL</BuildType>
+				<BuildType>BUILD_OBSIDIAN_CAMP</BuildType>
+				<BuildType>BUILD_OLIVE_FARM</BuildType>
+				<BuildType>BUILD_SEED_CAMP</BuildType>
+				<BuildType>BUILD_SILK_FARM</BuildType>
+				<BuildType>BUILD_STONE_TOOLS_CAMP</BuildType>
+				<BuildType>BUILD_TIMBER_CAMP</BuildType>
 				<BuildType>BUILD_PLANTATION</BuildType>
 				<BuildType>BUILD_QUARRY</BuildType>
 				<BuildType>BUILD_PASTURE</BuildType>
@@ -7813,9 +7820,16 @@
 				<BuildType>BUILD_FARM</BuildType>
 				<BuildType>BUILD_MINE</BuildType>
 				<BuildType>BUILD_WORKSHOP</BuildType>
+				<BuildType>BUILD_LUMBERJACK</BuildType>
 				<BuildType>BUILD_LUMBERMILL</BuildType>
 				<BuildType>BUILD_WINDMILL</BuildType>
 				<BuildType>BUILD_WATERMILL</BuildType>
+				<BuildType>BUILD_OBSIDIAN_CAMP</BuildType>
+				<BuildType>BUILD_OLIVE_FARM</BuildType>
+				<BuildType>BUILD_SEED_CAMP</BuildType>
+				<BuildType>BUILD_SILK_FARM</BuildType>
+				<BuildType>BUILD_STONE_TOOLS_CAMP</BuildType>
+				<BuildType>BUILD_TIMBER_CAMP</BuildType>
 				<BuildType>BUILD_PLANTATION</BuildType>
 				<BuildType>BUILD_QUARRY</BuildType>
 				<BuildType>BUILD_PASTURE</BuildType>
@@ -7877,9 +7891,16 @@
 				<BuildType>BUILD_FARM</BuildType>
 				<BuildType>BUILD_MINE</BuildType>
 				<BuildType>BUILD_WORKSHOP</BuildType>
+				<BuildType>BUILD_LUMBERJACK</BuildType>
 				<BuildType>BUILD_LUMBERMILL</BuildType>
 				<BuildType>BUILD_WINDMILL</BuildType>
 				<BuildType>BUILD_WATERMILL</BuildType>
+				<BuildType>BUILD_OBSIDIAN_CAMP</BuildType>
+				<BuildType>BUILD_OLIVE_FARM</BuildType>
+				<BuildType>BUILD_SEED_CAMP</BuildType>
+				<BuildType>BUILD_SILK_FARM</BuildType>
+				<BuildType>BUILD_STONE_TOOLS_CAMP</BuildType>
+				<BuildType>BUILD_TIMBER_CAMP</BuildType>
 				<BuildType>BUILD_PLANTATION</BuildType>
 				<BuildType>BUILD_QUARRY</BuildType>
 				<BuildType>BUILD_PASTURE</BuildType>

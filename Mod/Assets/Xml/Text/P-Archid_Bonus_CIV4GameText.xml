@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Game Text - New -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+<!-- Apple -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_APPLE</Tag>
+		<English>Apple</English>
+		<Spanish>Manzana</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_APPLE_PEDIA</Tag>
+		<English>[TAB]The apple is the pomaceous fruit of the apple tree, species Malus domestica in the rose family (Rosaceae) and is a perennial. It is one of the most widely cultivated tree fruits, and the most widely known of the many members of genus Malus that are used by humans. The tree originated in Central Asia, where its wild ancestor is still found today. At least 55 million tons of apples were grown worldwide in 2005, with a value of about $10 billion.</English>
+	</TEXT>
+<!-- Barley -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_BARLEY</Tag>
+		<English>Barley</English>
+		<French>Orge</French>
+		<German>Gerste</German>
+		<Italian>Orzo</Italian>
+		<Spanish>Cebada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_BARLEY_PEDIA</Tag>
+		<English>[TAB]Barley is a cereal grain derived from the annual grass Hordeum vulgare. Barley has many uses. It serves as a major animal fodder, as a base malt for beer and certain distilled beverages, and as a component of various health foods. It is used in soups and stews, and in barley bread of various cultures, from Scotland to Africa. In a 2007 ranking of cereal crops in the world, barley was fourth both in terms of quantity produced (136 million tons) and in area of cultivation (566,000 km²).</English>
+	</TEXT>
+<!-- Bison -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_BISON</Tag>
+		<English>Bison</English>
+		<French>Bison</French>
+		<German>Bison</German>
+		<Italian>Bison</Italian>
+		<Spanish>Bisonte</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_BISON_PEDIA</Tag>
+		<English>[TAB]Members of the genus Bison are large even-toed ungulates within the subfamily Bovinae. Two extant species and four extinct species are recognized. The surviving species are the American bison, Bison bison (with two subspecies, the plains bison, Bison bison bison, and the wood bison, Bison bison athabascae), found in North America, and the European bison, or wisent (Bison bonasus), found in Europe and the Caucasus. While these species are usually grouped into their own genus, they are sometimes included in the closely related genus Bos, together with cattle, gaur, kouprey and yaks, with which bison can interbreed.</English>
+	</TEXT>
+<!-- Coffee -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_COFFEE</Tag>
+		<English>Coffee</English>
+		<French>Caf&#233;</French>
+		<German>Kaffee</German>
+		<Italian>Caff&#232;</Italian>
+		<Spanish>Caf&#233;</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_COFFEE_PEDIA</Tag>
+		<English>[TAB]Originally found in the southwestern highlands of Ethiopia, Coffea arabica is now rare there in its native state, and many populations appear to be mixed native and planted trees. It is common there as an understorey shrub. The first written record of coffee made from roasted coffee beans comes from Arabian scholars who wrote that it was useful in prolonging their working hours. The Arab innovation in Yemen of making a brew from roasted beans, spread first among the Egyptians and Turks and later on found its way around the world.</English>
+	</TEXT>
+<!-- Cotton -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_COTTON</Tag>
+		<English>Cotton</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_COTTON_PEDIA</Tag>
+		<English>[TAB] Cotton is a soft fiber that grows around the seeds of the Cotton plant (Gossypium spp.), a shrub native to the tropical and subtropical regions of both the Old World and the New World. The fibre is most often spun into thread and used to make a soft, breathable textile. Some authorities claim that it was likely that the Egyptians had cotton as early as 12,000 BC, and evidence has been found of cotton in Mexican caves (cotton cloth and fragments of bloody fibre interwoven with feathers and fur) which dated back to approximately 7,000 years ago. There is clear archaeological evidence that people in South America and India domesticated different species of cotton independently thousands of years ago. The earliest written reference to cotton is in India. Cotton has been grown in India for more than three thousand years, and it is referred to in the Rig-Veda, written in 1500 BC. In Peru, cotton was the backbone of the development of coastal cultures such as the Moche and Nazca. Cotton was grown upriver, made into nets and traded with fishing villages along the coast for large supplies of fish. During the late mediaeval period, cotton became known as an imported fibre in northern Europe. By the end of the 16th century AD, cotton was cultivated throughout the warmer regions in Africa, Eurasia and the Americas. The Indian cotton processing industry was eclipsed during the British Industrial Revolution, when the invention of the spinning jenny (1764) and Arkwright's spinning frame (1769) enabled cheap mass-production of cotton cloth in the UK. Production capacity was further improved by the invention of the cotton gin by Eli Whitney in 1793. In the United States, growing the three crops, cotton, indigo and tobacco historically were the leading occupations of slaves. - Wikipedia </English>
+		<German>[TAB] Die Baumwollpflanze oder Baumwolle ist eine Gattung aus der Familie der Malvengew&#228;chse (Malvaceae). Aus den Samenhaaren der Str&#228;ucher wird die Naturfaser Baumwolle gewonnen. Baumwolle wird seit Jahrtausenden zur Herstellung leichter Kleidung vor allem in tropischen Gebieten verwendet. Einige Quellen behaupten, dass schon die &#196;gypter ca. 12.000 v. Chr. mit Baumwolle gearbeitet h&#228;tten. In Babylon wurde Baumwolle als Wei&#223;es Gold bezeichnet. In mexikanischen H&#246;hlen wurden Baumwollkleider gefunden, die etwa 7.000 Jahre alt sind. Die &#228;lteste Aufzeichnung &#252;ber Baumwolle stammt aus Indien. Baumwolle wurde hier seit mehr als 3.000 Jahren angebaut und wird im Rigveda 1.500 v. Chr. erw&#228;hnt. Tausend Jahre sp&#228;ter schrieb der griechische Historiker Herodot &#252;ber indische Baumwolle: "Es gibt wildwachsende B&#228;ume, aus deren Frucht man eine Wolle gewinnen kann, die die Sch&#246;nheit und Qualit&#228;t der Schafwolle weit &#252;bertrifft. Mit der Ausweitung des Fernhandels in der fr&#252;hen Neuzeit begann die Baumwolle, Lein (Flachs) und Hanf auch in Nord- und Mitteleuropa f&#252;r die meisten Anwendungen zu verdr&#228;ngen. Die indische Baumwollindustrie hatte ihre Glanzzeit w&#228;hrend der britischen Industrierevolution, als 1764 die Erfindung der Jenny, einer fr&#252;hen Spinnmaschine mit mehreren Spindeln, und Arkwright's Waterframe 1769 die kosteng&#252;nstige Massenproduktion im Vereinigten K&#246;nigreich erm&#246;glichte. Die Baumwollproduktion in den S&#252;dstaaten der USA profitierte von der Erfindung der Egreniermaschine ("Cotton Gin") im Jahr 1793; Baumwolle blieb bis ins 20. Jahrhundert hinein das wichtigste Exportgut des amerikanischen S&#252;dens. - Wikipedia</German>
+	</TEXT>
+<!-- Hemp -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_CANNABIS</Tag>
+		<English>Hemp</English>
+		<French>
+			<Text>Chanvre</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Hanf</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Canapa</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Canamo</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_CANNABIS_PEDIA</Tag>
+		<English>[TAB]Hemp use dates back to the Stone Age, with hemp fibre imprints found in pottery shards in China and Taiwan over 10,000 years old. These ancient Asians also used the same fibres to make clothes, shoes, ropes, and an early form of paper. 70% of the Cannabis plant's total weight is made up of the 'hurd' or woody inner core. This part of the plant is THC free and can be used in housing construction. The silica leached from the soil by the plant combined with unslaked lime forms a chemical bond similar to cement which is both fire and waterproof. Hemp may be grown also for food (the seed) but in the UK cultivation licences are not available for this purpose. Within Defra (the UK's Department for Environment, Food and Rural Affairs) hemp is treated as purely a non-food crop, despite the fact that seed can and does appear on the UK market as a perfectly legal food product. In Canada, hemp seed food products are common and range from carbonated beverages to frozen waffles. Many companies produce value added hemp seed items that include the oils of the seed, whole hemp grain (which is sterilized as per international law), hulled hemp seed (the whole seed without the mineral rich outer shell), hemp flour, hemp cake (a by-product of pressing the seed for oil) and hemp protein powder. Until its rediscovery in the late 1980s, the use of hemp for fibre production had declined sharply over the past decades, but hemp still occupied an important place amongst natural fibres as it is strong, durable and unaffected by water. The main uses of hemp fibre were in rope, sacking, carpet, nets and webbing. A hemp clothing industry was reborn in the West in 1988, and hemp is being used in increasing quantities in paper manufacturing. The cellulose content is about 70%. Smallholder plots are usually harvested by hand. The plants are cut at 2 to 3 cm above the soil and left on the ground to dry. Mechanical harvesting is now common, using specially adapted cutter-binders or simpler cutters. The cut hemp is laid in swathes to dry for up to four days. This was traditionally followed by retting, either water retting whereby the bundled hemp floats in water or dew retting whereby the hemp remains on the ground and is affected by the moisture in dew moisture, and by moulds and bacterial action. Modern processes use steam and machinery to separate the fibre, a process known as thermo-mechanical pulping. Fuel can be a by-product of hemp cultivation. One fuel would be biodiesel because of the oils in the seeds and stalk of the hemp, another would be bioalcohol from the fibrous stalks. - Wikipedia </English>
+		<German>[TAB]Hanf (Cannabis sativa L.) ist eine der &#228;ltesten Kulturpflanzen der Welt. In China wurde er schon vor mindestens 10.000 Jahren genutzt. "Ma", wie die Chinesen den Hanf nannten, lieferte ihnen nicht nur wohlschmeckende und nahrhafte Samen, auch die St&#228;ngel mit ihren besonders langen und nahezu unverw&#252;stlichen Fasern wusste man schon fr&#252;h zu sch&#228;tzen. Bereits im Shen nung pen Ts'ao king, einem vermutlich ungef&#228;hr zu Beginn unserer Zeitrechnung verfassten chinesischen medizinischen Text, beschreibt der Autor, wie Hanf als Heilmittel gegen Malaria, Rheuma und viele andere Unp&#228;sslichkeiten eingesetzt werden kann. Die so vielseitig einsetzbare, schnell wachsende Pflanze mit ihren charakteristisch handf&#246;rmigen Bl&#228;ttern konnte nur g&#246;ttlichen Ursprungs sein. Von Buddha hei&#223;t es, er habe sich auf seinem Weg zur Erleuchtung nur von Hanfsamen ern&#228;hrt. &#220;ber Indien und die antiken Hochkulturen im heutigen Irak trat der Hanf seinen Siegeszug um die Welt an. Die alten Griechen und ihre &#228;gyptischen Nachbarn kleideten sich oft mit Hanf -- Kleidung aus Hanfgewebe wird von Herodot (450 v. Chr.) erw&#228;hnt. Hanf und Flachs waren lange Zeit die wichtigsten Faserpflanzen Europas. Aber auch die Wirkung von Cannabis-Geb&#228;ck, welches "Ausgelassenheit und Vergn&#252;gen hervorruft" (Galen, 200 n. Chr.) war bei ihnen bekannt. Kaiser Karl der Gro&#223;e erlie&#223; um 800 n. Chr. mit seiner "Capitulare" das erste Hanf-Gesetz. Es verpflichtete seine Untertanen zum Anbau dieser f&#252;r seine Kriegspl&#228;ne wichtigen Rohstoffquelle. &#220;ber Spanien fand im 13. Jahrhundert eine weitere Anwendung der Hanffaser ihren Weg nach Europa - die Papierherstellung. Da die Papierherstellung aus Holz damals noch nicht beherrscht wurde, war Hanf neben Lumpen (die selbst oft aus Hanf bestanden) der wichtigste Rohstoff f&#252;r die Papierproduktion. So entstand in N&#252;rnberg 1290 eine erste Papierm&#252;hle auf deutschem Boden. Gutenberg druckte 1455 seine ber&#252;hmte Gutenberg-Bibel auf Hanfpapier und auch die amerikanische Unabh&#228;ngigkeitserkl&#228;rung von 1776 k&#246;nnen wir nur deshalb heute noch im Original bewundern, weil sie auf fast unverw&#252;stlichem Hanfpapier verfasst wurde (und inzwischen unter Schutzgas konserviert wird). Der erste amerikanische Pr&#228;sident George Washington baute selbst im gro&#223;en Stil Hanf an. Hanfseile und Segeltuch aus Hanf waren in der Schifffahrt wichtig, da die Faser sehr widerstandsf&#228;hig gegen&#252;ber Salzwasser ist und weniger Wasser aufnimmt als beispielsweise Baumwolle. Kolumbus hatte beispielsweise 80 Tonnen Hanffasern in Form von Segeln und Tauen auf seinem Schiff, als er Amerika entdeckte. - Wikipedia </German>
+	</TEXT>
+<!-- Lead -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_LEAD</Tag>
+		<English>Lead</English>
+		<French>Plomb</French>
+		<German>Blei</German>
+		<Italian>Cavo</Italian>
+		<Spanish>Plomo</Spanish>
+		<Finnish>Lyijy</Finnish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_LEAD_PEDIA</Tag>
+		<English>[TAB]Lead, symbol Pb (Latin plumbum, a lead weight), dense, bluish-gray metallic element that was one of the first known metals. The atomic number of lead is 82; the element is in group 14 (or IVa) of the periodic table. Lead is used in enormous quantities in storage batteries and in sheathing electric cables. Large quantities are used in industry for lining pipes, tanks, and X-ray apparatus. Because of its high density and nuclear properties, lead is used extensively as protective shielding for radioactive material. Among numerous alloys containing a high percentage of lead are solder, type metal, and various bearing metals. A considerable amount of lead is consumed in the form of its compounds, particularly in paints and pigments. Lead has been used by humans for at least 7000 years, because it is widespread, easy to extract and easy to work with. It is highly malleable and ductile as well as easy to melt. In the early bronze age lead was used with antimony and arsenic. Lead was mentioned in the Book of Exodus. Alchemists thought that lead was the oldest metal and associated it with the planet Saturn. Lead pipes that bear the insignia of Roman emperors are still in service and many Roman "pigs" (ingots) of lead figure in Derbyshire lead mining history and in the history of the industry in other English centres. Lead's symbol Pb is an abbreviation of its Latin name plumbum. The English word "plumbing" also derives from this Latin root. However, it is also toxic, and lead poisoning was recognized even by the ancients. Similarly, in the Twentieth Century, the use of lead in paint pigments was ended because of the danger of lead poisoning, especially to children. By the mid-1980s, a significant shift in lead end-use patterns had taken place. Much of this shift was a result of the U.S. lead consumers' compliance with environmental regulations that significantly reduced or eliminated the use of lead in nonbattery products, including gasoline, paints, solders, and water systems. Recently, lead use is being further curtailed by the RoHS directive.</English>
+		<French>[TAB]Plomb, Pb de symbole (plumbum latin, un poids de plomb), l'&#233;l&#233;ment m&#233;tallique dense et gris-bleu&#226;tre qui &#233;tait l'un des premiers m&#233;taux connus. Le nombre atomique de plomb est 82 ; l'&#233;l&#233;ment est dans le groupe 14 (ou IVa) de la table p&#233;riodique. Le plomb est employ&#233; en &#233;norme quantit&#233; dans des batteries de stockage et en engainant les c&#226;bles &#233;lectriques. De grandes quantit&#233;s sont employ&#233;es dans l'industrie pour des pipes de doublure, des r&#233;servoirs, et l'appareillage de rayon X. En raison de ses propri&#233;t&#233;s &#224; haute densit&#233; et nucl&#233;aires, le plomb est employ&#233; intensivement comme l'armature protectrice pour le mat&#233;riel radioactif. Parmi de nombreux alliages contenant un pourcentage &#233;lev&#233; de plomb soyez soudure, type m&#233;tal, et divers m&#233;taux de roulement. Une quantit&#233; consid&#233;rable de plomb est consomm&#233;e sous forme de ses compos&#233;s, en particulier en peintures et colorants. Le plomb a &#233;t&#233; employ&#233; par des humains pendant au moins 7000 ann&#233;es, parce qu'il est r&#233;pandu, facile d'extraire et facile &#224; travailler avec. Il est fortement mall&#233;able et mall&#233;able comme facile &#224; fondre. Dans l'&#226;ge en bronze jeune le plomb a &#233;t&#233; employ&#233; avec de l'antimoine et l'arsenic. Le plomb a &#233;t&#233; mentionn&#233; dans le livre de l'exode. Les alchimistes ont pens&#233; que menez &#233;tait le m&#233;tal le plus ancien et associ&#233; lui &#224; la plan&#232;te Saturne. Menez les pipes qui soutiennent les insignes des empereurs romains sont toujours en service et beaucoup de "porcs" romains (des lingots) de chiffre de plomb en plomb de Derbyshire extrayant l'histoire et dans l'histoire de l'industrie &#224; d'autres centres anglais. Le Pb du symbole du plomb est une abr&#233;viation de son plumbum nomm&#233; latin. Le mot anglais "tuyauterie" d&#233;rive &#233;galement de cette racine latine. Cependant, il est &#233;galement toxique, et l'empoisonnement de plomb a &#233;t&#233; identifi&#233; m&#234;me par les ancients. De m&#234;me, au vingti&#232;me si&#232;cle, l'utilisation du plomb en colorants de peinture a &#233;t&#233; finie en raison du danger du plomb empoisonnant, particuli&#232;rement aux enfants. Par le milieu des ann&#233;es 80, une variation significative dans l'usage final de plomb a model&#233; avait eu lieu. Beaucoup de ce d&#233;calage &#233;tait un r&#233;sultat de la conformit&#233; des consommateurs de plomb des ETATS-UNIS aux r&#232;glements environnementaux qui ont r&#233;duit ou ont &#233;limin&#233; de mani&#232;re significative l'utilisation du plomb dans des produits de nonbattery, y compris l'essence, des peintures, des soudures, et des syst&#232;mes de l'eau. R&#233;cemment, l'utilisation de plomb est encore raccourcie par la directive de RoHS.</French>
+		<Italian>[TAB]Cavo, Pb di simbolo (plumbum latino, un peso del cavo), elemento metallico denso e grigio bluastro che era uno dei primi metalli conosciuti. Il numero atomico di cavo &#232; 82; l'elemento &#232; nei gruppi 14 (o IVa) della tabella periodica. Il cavo &#232; usato in quantit&#224; enorme in pile secondarie e nell'inguainamento dei cavi elettrici. Le grandi quantit&#224; sono usate nell'industria per i tubi del rivestimento, i carri armati e l'apparecchiatura dei raggi X. A causa delle relative propriet&#224; ad alta densit&#224; e nucleari, il cavo &#232; usato estesamente come protezione protettiva per materiale radioattivo. Fra le leghe numerose che contengono un'alta percentuale di cavo sia saldatura, lega per caratteri e vari metalli del cuscinetto. Una quantit&#224; considerevole di cavo &#232; consumata sotto forma d'i relativi residui, specialmente in vernici e pigmenti. Il cavo &#232; stato usato dagli esseri umani per almeno 7000 anni, perch&#233; &#232; diffuso, facile da estrarre e facile funzionare con. &#200; altamente malleabile e duttile come pure facile fondersi. Nell'et&#224; bronze giovane il cavo &#232; stato usato con antimonio ed arsenico. Il cavo &#232; stato accennato nel libro del exodus. I alchemists hanno ritenuto che conduca fosse il pi&#249; vecchio metallo ed associato esso con il pianeta Saturno. Conduca i tubi che sopportano i insignia degli imperatori romani sono ancora in servizio e molti "maiali" romani (lingotti) della figura del cavo in cavo del Derbyshire che estrae la storia e nella storia dell'industria in altri centri inglesi. Il Pb di simbolo del cavo &#232; un'abbreviazione del relativo plumbum nome latino. La parola inglese "impianto idraulico" inoltre deriva da questa radice latina. Tuttavia, &#232; inoltre tossica e l'avvelenamento del cavo &#232; stato riconosciuto anche dai ancients. Similmente, nel ventesimo secolo, l'uso di cavo in pigmenti della vernice &#232; stato concluso a causa del pericolo di cavo che avvelena, particolarmente ai bambini. Entro i mid-1980s, una variazione significativa nell'uso finale del cavo ha modellato aveva avvenuto. Molto di questo spostamento era un risultato della conformit&#224; degli STATI UNITI dei consumatori del cavo alle regolazioni ambientali che significativamente hanno ridotto o eliminato l'uso di cavo nei prodotti di nonbattery, compreso benzina, in vernici, in saldature e nei sistemi dell'acqua. Recentemente, l'uso del cavo pi&#249; ulteriormente sta accorciando dall'indirizzamento di RoHS.</Italian>
+		<Spanish>[TAB]Plomo, Pb del s&#237;mbolo (plumbum latino, un peso del plomo), el elemento met&#225;lico denso, gris azulado que era uno de los primeros metales sabidos. El n&#250;mero at&#243;mico del plomo es 82; el elemento est&#225; en el grupo 14 (o IVa) de la tabla peri&#243;dica. El plomo se utiliza en cantidades enormes en bater&#237;as de almacenaje y en el forro de los cables el&#233;ctricos. Las cantidades grandes se utilizan en la industria para las pipas de la guarnici&#243;n, los tanques, y el aparato de la radiograf&#237;a. Debido a sus caracter&#237;sticas de alta densidad y nucleares, el plomo se utiliza extensivamente como blindar protector para el material radiactivo. Entre las aleaciones numerosas que contienen un alto porcentaje del plomo sea soldadura, tipo metal, y varios metales del cojinete. Una cantidad considerable de plomo se consume en la forma de sus compuestos, particularmente en pinturas y pigmentos. El plomo ha sido utilizado por los seres humanos por por lo menos 7000 a&#241;os, porque es extenso, f&#225;cil extraer y f&#225;cil trabajar con. Es altamente maleable y d&#250;ctil tan bien como f&#225;cil derretir. En edad de bronce temprana el plomo fue utilizado con antimonio y ars&#233;nico. El plomo fue mencionado en el libro del &#233;xodo. Los alquimistas pensaron que conduzca era el metal m&#225;s viejo y asociado le al planeta Saturno. Conduzca las pipas que llevan las insignias de los emperadores romanos todav&#237;a est&#225;n en servicio y muchos "cerdos romanos" (los lingotes) de la figura del plomo en el plomo de Derbyshire que mina historia y en la historia de la industria en otros centros ingleses. El Pb del s&#237;mbolo del plomo es una abreviatura de su plumbum conocido latino. La palabra inglesa "plomer&#237;a" tambi&#233;n deriva de esta ra&#237;z latina. Sin embargo, es tambi&#233;n t&#243;xica, y el envenenamiento del plomo fue reconocido incluso por los ancients. Semejantemente, en el vig&#233;simo siglo, el uso del plomo en pigmentos de la pintura fue terminado debido a el peligro del plomo que envenenaba, especialmente a los ni&#241;os. Por los a mediados de los a&#241;os ochenta, una cambio significativa en uso final del plomo model&#243; hab&#237;a ocurrido. Mucha de esta cambio era un resultado de la conformidad de ESTADOS UNIDOS de los consumidores del plomo con las regulaciones ambientales que redujeron o eliminaron perceptiblemente el uso del plomo en productos del nonbattery, incluyendo la gasolina, pinturas, soldaduras, y sistemas del agua. Recientemente, el uso del plomo est&#225; siendo acortado m&#225;s a fondo por el directorio de RoHS.</Spanish>
+	</TEXT>	
+<!-- Lemon -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_LEMON</Tag>
+		<English>Lemons</English>
+		<French>
+			<Text>Citrons</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>
+			<Text>Zitronen</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Limoni</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Limones</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_LEMON_PEDIA</Tag>
+		<English>[TAB] The lemon, Citrus × limon, is a citrus tree, a hybrid of cultivated origin. The fruit are cultivated primarily for their juice, though the pulp and rind (zest) are also used, primarily in cooking or mixing. Lemon juice is about 5% citric acid, which gives lemons a sour taste. This is a small tree, grows to 6 m (20 ft) but usually smaller. The branches are thorny, and form an open crown. The leaves are elliptical-acuminate. Flowers are violet and streaked in the interior and white on the outside. On a lemon tree, flowers and ripe fruits can be found at the same time. The first description of the lemon, which had been introduced from India two centuries earlier, is found in Arabic writings from the 12th century. The origin of the name lemon is through Persian (____ Limu), from the Sanskrit nimbuka. They were cultivated in Genoa in the mid-fifteenth century, and appeared in the Azores in 1494. More recent research has identified lemons in the ruins of Pompeii. Lemons were once used by the British Royal navy to combat scurvy, as they provided a large amount of vitamin C. - Wikipedia </English>
+	</TEXT>
+<!-- Obsidian -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_OBSIDIAN</Tag>
+		<English>Obsidian</English>
+		<French>Obsidienne</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_OBSIDIAN_PEDIA</Tag>
+		<English>[TAB]Obsidian is a naturally occurring glass formed as an extrusive igneous rock. It is produced when felsic lava extruded from a volcano cools without crystal growth. Obsidian is commonly found within the margins of rhyolitic lava flows known as obsidian flows, where the chemical composition (high silica content) induces a high viscosity and polymerisation degree of the lava. The inhibition of atomic diffusion through this highly viscous and polymerized lava explains the lack of crystal growth. Because of the lack of crystal structure, obsidian blade edges can reach almost molecular thinness, leading to its ancient use as projectile points, and its modern use as surgical scalpel blades.[PARAGRAPH:2]Obsidian is mineral-like, but not a true mineral because as a glass it is not crystalline; in addition, its composition is too complex to comprise a single mineral. It is sometimes classified as a mineraloid. Though obsidian is dark in color similar to mafic rocks such as basalt, obsidian's composition is extremely felsic. [PARAGRAPH:2]Pure obsidian is usually dark in appearance, though the color varies depending on the presence of impurities. Iron and magnesium typically give the obsidian a dark green to brown to black color. A very few samples are nearly colorless. In some stones, the inclusion of small, white, radially clustered crystals of cristobalite in the black glass produce a blotchy or snowflake pattern (snowflake obsidian). It may contain patterns of gas bubbles remaining from the lava flow, aligned along layers created as the molten rock was flowing before being cooled. These bubbles can produce interesting effects such as a golden sheen (sheen obsidian) or a rainbow sheen (rainbow obsidian). [PARAGRAPH:2]Obsidian was valued in Stone Age cultures because, like flint, it could be fractured to produce sharp blades or arrowheads. Like all glass and some other types of naturally occurring rocks, obsidian breaks with a characteristic conchoidal fracture. It was also polished to create early mirrors. Pre-Columbian Mesoamericans' use of obsidian was extensive and sophisticated, including carved and worked obsidian for tools and decorative objects. Mesoamericans also made a type of sword with obsidian blades mounted in a wooden body. Called a macuahuitl, the weapon was capable of inflicting terrible injuries, combining the sharp cutting edge of an obsidian blade with the ragged cut of a serrated weapon. Lithic analysis can be instrumental in understanding prehispanic groups in Mesoamerica. A careful analysis of obsidian in a culture or place can be of use to reconstruct commerce, production, distribution and thereby understand economic, social and political aspects of a civilization. This is the case in Yaxchilán, a maya city where even warfare implications have been studied linked with obsidian use and its debris. [PARAGRAPH:2]Obsidian is used in cardiac surgery, as well-crafted obsidian blades have a cutting edge many times sharper than high-quality steel surgical scalpels, with the edge of the blade being only about 3 nanometres wide. Even the sharpest metal knife has a jagged, irregular blade when viewed under a strong enough microscope. When examined under an electron microscope an obsidian blade is still smooth and even. One study found that obsidian produced narrower scars, fewer inflammatory cells, and less granulation tissue in a group of rats. [PARAGRAPH:2]Obsidian is also used for ornamental purposes and as a gemstone. It possesses the property of presenting a different appearance according to the manner in which it is cut. When cut in one direction it is a beautiful jet black; when cut across another direction it is glistening gray. "Apache tears" are small rounded obsidian nuggets embedded within a grayish-white perlite matrix.</English>
+	</TEXT>
+<!-- Olives -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_OLIVES_PEDIA</Tag>
+		<English>[TAB]The olive (Olea europaea) is a species of small tree native to the eastern Mediterranean which bears a fruit bearing the same name. The olive is a bitter fruit but can be eaten (usually after some kind of fermentation or curing) or used to make olive oil. It is not known exactly when olive trees first began being cultivated by humans, but they have been in use since at least 3000 BC. The olive is native to Greece and Palestine, but was later spread to the western Mediterranean and (eventually) all over the world, as it is grown today in California and Australia.[PARAGRAPH:1]Olives and olive oil both possessed special religious significance for the ancient Greeks. According to legend, the olive tree was created by the goddess Athena and used to win a contest with the god Poseidon over who would name a newly founded city; as a result of her gift of the olive, the city of Athens bears her name to this day. The ancient Greeks considered the olive to be sacred; it was a symbol of peace, wisdom, and triumph. Olive wreaths were used to crown Olympic champions. Olive oil was used in Hellenic religious ceremonies, and to this day it continues to possess a special importance in the Greek Orthodox Church. The olive continues to be of economic importance to Greece, which exports more than 400,000 tons of olive oil worldwide each year.</English>
+		<French>/>[TAB]L'olivier (Olea europaea) est une esp&#232;ce d'arbre de petite taille originaire de l'est de la M&#233;diterran&#233;e, et qui produit l'olive. L'olive est un fruit amer comestible (g&#233;n&#233;ralement seulement apr&#232;s fermentation ou salaison), &#233;galement utilis&#233; pour son huile. On ne sait pas exactement quand les premiers oliviers ont &#233;t&#233; cultiv&#233;s par les hommes, mais cela date au minimum de l'an 3000 av. J.-C. L'arbre, originaire de Gr&#232;ce et de Palestine, s'est r&#233;pandu dans l'ouest de la M&#233;diterran&#233;e et finalement un peu partout dans le monde, puisqu'on en trouve aujourd'hui en Californie et en Australie.[PARAGRAPH:1]Les olives et l'huile d'olive avaient une signification religieuse particuli&#232;re pour les Grecs de l'Antiquit&#233;. Selon les l&#233;gendes, l'olivier a &#233;t&#233; cr&#233; et utilis&#233; par la d&#233;esse Ath&#233;na pour gagner une &#233;preuve contre le dieu Pos&#233;idon, le vainqueur obtenant le droit de nommer une nouvelle cit&#233;. C'est ainsi que la ville d'Ath&#232;nes aurait &#233;t&#233; baptis&#233;e. Les anciens Grecs consid&#233;raient l'olive comme sacr&#233;e. Elle &#233;tait un symbole de paix, de sagesse et de victoire. Des couronnes d'oliviers r&#233;compensaient les champions olympiques d'alors. L'huile d'olive &#233;tait utilis&#233;e dans les c&#233;r&#233;monies religieuses hell&#233;niques et a encore de nos jours une grande importance dans le culte de l'&#233;glise orthodoxe grecque. C'est toujours une des principales productions de la Gr&#232;ce qui en exporte annuellement plus de 400 000 tonnes dans le monde entier.</French>
+		<German>[TAB]Der Olivenbaum (Olea Europaea) ist ein kleiner, im &#246;stlichen Mittelmeerraum beheimateter Baum, der die so genannten Olivenfr&#252;chte tr&#228;gt. Die Olive ist eine bittere, aber essbare Frucht (normalerweise nach einem G&#228;rungsvorgang oder dem Marinieren/Einlegen z. B. in Wasser) und dient als Grundlage f&#252;r die Herstellung von Oliven&#246;l. Wann genau die Olivenb&#228;ume erstmals von den Menschen kultiviert wurden, ist nicht bekannt, aber sie werden seit mindestens 3000 vor Christus landwirtschaftlich genutzt. Urspr&#252;nglich in Griechenland und Pal&#228;stina heimisch, fand die Olive sp&#228;ter auch im westlichen Mittelmeerraum und schlie&#223;lich in der ganzen Welt Verbreitung. Heute wird sie sogar in Kalifornien und Australien angebaut. [PARAGRAPH:1]Oliven und Oliven&#246;l hatten f&#252;r die Griechen der Antike eine besondere religi&#246;se Bedeutung. &#220;berlieferungen zufolge soll der Olivenbaum von der G&#246;ttin Athene erschaffen worden sein, die damit einen Wettstreit gegen Poseidon gewinnen wollte, bei dem entschieden wurde, wer von den beiden eine neue Stadt nach sich benennen darf. Am Ende konnte sich Athene mit ihrer Olive durchsetzen und so wurde die Stadt Athen nach ihr benannt. F&#252;r die Griechen der Antike war die Olive eine heilige Frucht: Sie symbolisierte Frieden, Weisheit und den Triumph. Aus diesem Grund wurden siegreiche Olympioniken schon damals mit einem Olivenzweig geehrt. Das Oliven&#246;l wurde in religi&#246;sen hellenistischen Zeremonien verwendet und hat in der griechisch-orthodoxen Kirche nach wie vor besondere Bedeutung. Au&#223;erdem stellt die Olive bis heute auch einen wichtigen Wirtschaftsfaktor f&#252;r Griechenland dar, das jedes Jahr mehr als 400.000 Tonnen Oliven&#246;l in die ganze Welt exportiert.</German>
+		<Italian>[TAB]L'ulivo (olea europaea) &#232; un piccolo albero nativo del Mediterraneo orientale e produce le olive, frutti amari che possono essere mangiati (di solito dopo essere stati fatti fermentare o comunque dopo una qualche preparazione) o utilizzati per ricavarne olio d'oliva. Non si sa esattamente quando gli alberi d'ulivo cominciarono a essere coltivati, ma di certo gi&#224; lo erano nel 3000 a.C. L'ulivo &#232; originario della Grecia e della Palestina, ma pi&#249; tardi si diffuse nel Mediterraneo occidentale e poi in tutto il mondo: oggi lo si coltiva anche in Australia e California.[PARAGRAPH:1]Le olive o l'olio d'oliva avevano entrambi uno speciale significato religioso per gli antichi Greci. Secondo la leggenda, l'ulivo fu creato dalla dea Atena per vincere una disputa con il dio Poseidone su chi avrebbe dovuto dare il nome a una citt&#224; appena fondata: per aver ricevuto in dono l'ulivo, la citt&#224; scelse di chiamarsi Atene (nome che porta ancora oggi). I Greci consideravano l'ulivo sacro: era simbolo di pace, saggezza e trionfo. Corone d'ulivo venivano utilizzate per incoronare i campioni olimpici e l'olio d'oliva era usato in molte cerimonie religiose elleniche e ancora oggi ha una speciale importanza nella Chiesa Greco-Ortodossa. L'ulivo per la Grecia continua ad avere anche un rilevante ruolo economico, dato che il paese esporta pi&#249; di 400.000 tonnellate all'anno d'olio d'oliva in tutto il mondo.</Italian>
+		<Spanish>[TAB]El olivo (olea europaea) es un peque&#241;o &#225;rbol de la familia de las ole&#225;ceas originario del Mediterr&#225;neo oriental que, como su nombre indica, da de fruto las olivas. La oliva, o aceituna, es de gusto algo amargo, aunque se puede comer (normalmente despu&#233;s de fermentarse o curarse) o usarse para hacer aceite. No se sabe exactamente cu&#225;ndo se empez&#243; a cultivar el olivo, pero al menos se lleva haciendo desde el 3000 a. C. Es originario de Grecia y Palestina, pero primero se extendi&#243; por el Mediterr&#225;neo occidental y despu&#233;s por todo el mundo, ya que hoy en d&#237;a se cultiva hasta en California y Australia.[PARAGRAPH:1]Las olivas, los olivos y el aceite ten&#237;an un significado religioso para los antiguos griegos. Seg&#250;n la leyenda, la diosa Atenea cre&#243; el olivo y lo us&#243; para ganar una apuesta con el dios Poseid&#243;n para ver qui&#233;n dar&#237;a nombre a una ciudad reci&#233;n fundada. Gracias a su regalo del olivo, la ciudad de Atenas lleva su nombre hasta hoy en d&#237;a. Los antiguos griegos lo consideraban sagrado, pues era un s&#237;mbolo de paz, sabidur&#237;a y triunfo. Se usaban tocados de ramas y hojas olivo para coronar a los campeones ol&#237;mpicos. El aceite de oliva se usaba en las ceremonias religiosas hel&#233;nicas y, en la actualidad, tiene una gran importancia para la Iglesia Ortodoxa griega. El olivo sigue siendo de una gran importancia econ&#243;mica para Grecia, que exporta al a&#241;o m&#225;s de 400.000 toneladas a todo el mundo.</Spanish>
+	</TEXT>
+<!-- Pearls -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_PEARLS</Tag>
+		<English>Pearls</English>
+		<French>Perles </French>
+		<German>Perlen </German>
+		<Italian>Perle </Italian>
+		<Spanish>Perlas </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_PEARLS_PEDIA</Tag>
+		<English>[TAB]A pearl is a hard object produced within the soft tissue (specifically the mantle) of a living shelled mollusk. Just like the shell of a mollusk, a pearl is made up of calcium carbonate in minute crystalline form, which has been deposited in concentric layers. The ideal pearl is perfectly round and smooth, but many other shapes of pearls (baroque pearls) occur. The finest quality natural pearls have been highly valued as gemstones and objects of beauty for many centuries, and because of this, the word pearl has become a metaphor for something very rare, fine, admirable, and valuable.</English>
+	</TEXT>
+<!-- Potatoes -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_POTATO</Tag>
+		<English>Potatoes</English>
+		<French>Pommes de terre </French>
+		<German>Kartoffeln </German>
+		<Italian>Patate </Italian>
+		<Spanish>Papas </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_POTATO_PEDIA</Tag>
+		<English>[TAB]The potato is a starchy, tuberous crop from the perennial Solanum tuberosum of the Solanaceae family (also known as the nightshades). The word potato may refer to the plant itself as well as the edible tuber. In the region of the Andes, there are some other closely related cultivated potato species. Potatoes are the world's fourth-largest food crop, following rice, wheat, and maize. Long-term storage of potatoes requires specialised care in cold warehouses and such warehouses are among the oldest and largest storage facilities for perishable goods in the world. The annual diet of an average global citizen in the first decade of the twenty-first century included about 33 kg (or 73 lb) of potato. However, the local importance of potato is extremely variable and rapidly changing. It remains an essential crop in Europe (especially eastern and central Europe), where per capita production is still the highest in the world, but the most rapid expansion over the past few decades has occurred in southern and eastern Asia. China is now the world's largest potato-producing country, and nearly a third of the world's potatoes are harvested in China and India.[</English>
+	</TEXT>
+<!-- Prime Timber -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_TIMBER</Tag>
+		<English>Prime Timber</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_TIMBER_PEDIA</Tag>
+		<English>[TAB]Lumber or timber is wood that is used in any of its stages from felling through readiness for use as structural material for construction, or wood pulp for paper production. Lumber is supplied either rough or finished. Besides pulpwood, rough lumber is the raw material for furniture-making and other items requiring additional cutting and shaping. It is available in many species, usually hardwoods. Finished lumber is supplied in standard sizes, mostly for the construction industry, primarily softwood from coniferous species including pine, fir and spruce (collectively known as Spruce-pine-fir), cedar, hemlock, but also some hardwood, for high-grade flooring.</English>
+	</TEXT>	
+<!-- Salt -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_SALT</Tag>
+		<English>Salt</English>
+		<French>Sel</French>
+		<German>Salz</German>
+		<Italian>Sale</Italian>
+		<Spanish>Sal</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_SALT_PEDIA</Tag>
+		<English>[TAB]Salt is a mineral that is composed primarily of sodium chloride. It is essential for animal life in small quantities, but is harmful to animals and plants in excess. Salt flavor is one of the basic tastes, making salt one of the oldest, most ubiquitous food seasonings. Salting is an important method of food preservation. Refined salt, which is most widely used presently, is mainly sodium chloride. Food grade salt accounts for only a small part of salt production in industrialised countries (3% in Europe) although worldwide, food uses account for 17.5% of salt production. The majority is sold for industrial use. Salt has great commercial value because it is a necessary ingredient in the manufacturing of many things. A few common examples include: the production of pulp and paper, setting dyes in textiles and fabrics, and the making of soaps and detergents.</English>
+	</TEXT>
+<!-- Shrimp -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_SHRIMP</Tag>
+		<English>Shrimp</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_SHRIMP_PEDIA</Tag>
+		<English>[TAB]Shrimp are swimming, decapod crustaceans classified in the infraorder Caridea, found widely around the world in both fresh and salt water. Adult shrimp are filter feeding benthic animals living close to the bottom. They can live in schools and can swim rapidly backwards. Shrimp are an important food source for larger animals from fish to whales. They have a high tolerance to toxins in polluted areas, and may contribute to high toxin levels in their predators. Together with prawns, shrimp are widely caught and farmed for human consumption.</English>
+	</TEXT>
+<!-- Tea -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_TEA</Tag>
+		<English>Tea</English>
+		<French>
+			<Text>Th&#233;</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Tee</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Tè</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Té</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_TEA_PEDIA</Tag>
+		<English>Made from the leaves or buds of a bush, tea is the liquid created by soaking the extracted foliage in water and it is a popular beverage throughout the world. The "Camellia Sinesis," (tea plant), is grown in tropical and sub-tropical regions of the planet such as China or India. Originally from Southeast Asia, it early on became a staple in the diet of many person from the Orient. It was not until the sixteenth or seventeenth century that it was introduced to Europe as explorers crossed the globe in search of knowledge and treasure. Tea quickly became popular with the wealthy of Western Europe, and Britain would set up numerous plantations in its colony of India to help satiate the demand - India today remains the biggest producer of tea in the world.</English>
+		<French>Constitu&#233; de feuilles ou de bourgeons d'un buisson, le th&#233; est pr&#233;par&#233; en trempant l'extrait de feuillage dans de l'eau, et c'est une boisson extr&#234;mement populaire &#224; travers le monde. Le "Camellia Sinesis" (la plante) pousse dans les r&#233;gions tropicales et subtropicales de la plan&#232;te, et notamment en Chine et en Inde. Originaire d'Asie du Sud-est, le th&#233; devient tr&#232;s t&#244;t un produit de base dans le r&#233;gime alimentaire de nombreux habitants de l'Orient. Il n'est pas introduit avant le XVIe ou XVIIe si&#232;cles en Europe, quand les explorateurs font le tour du monde en qu&#234;te de nouvelles connaissances et richesses. Le th&#233; devient vite tr&#232;s populaire au sein des classes sup&#233;rieures de l'Europe de l'ouest et la Grande-Bretagne cr&#233;e de nombreuses plantations dans ses colonies des Indes pour r&#233;pondre &#224; la demande. L'Inde reste aujourd'hui le premier producteur mondial. </French>
+		<German>Als Aufguss aus den Bl&#228;ttern oder Knospen eines Busches zubereitet, ist Tee zu einem weltweit beliebten Getr&#228;nk geworden. Die "Camellia Sinensis" (Teegew&#228;chs) wird in tropischen und subtropischen Regionen wie China oder Indien angebaut. Urspr&#252;nglich aus S&#252;dostasien stammend, wurde der Tee zu einem wichtigen Bestandteil der orientalischen Ern&#228;hrungsweise. Erst im 16. oder 17. Jahrhundert brachten Forschungsreisende die Teepflanze schlie&#223;lich auch nach Europa. Da der Tee als Getr&#228;nk im reichen Westeuropa gro&#223;en Anklang fand, legten die Briten in ihrer Kolonie Indien zahlreiche Plantagen an, um die steigende Nachfrage befriedigen zu k&#246;nnen, und auch heute noch geh&#246;rt Indien zu den gr&#246;&#223;ten Tee produzierenden L&#228;ndern der Welt.</German>
+		<Italian>Ricavato dalle foglie o dalle gemme di un arbusto, il tè è una bevanda popolare in tutto il mondo che si ottiene immergendo le foglie nell'acqua calda. la &quot;camellia sinesis&quot; (la pianta del tè) cresce nelle regioni tropicali e sub-tropicali del pianeta (Cina e India, per esempio). Originario del sudest asiatico, ben presto il tè entr&#242; a far parte della dieta di molti orientali, mentre fu introdotto in Europa soltanto nel sedicesimo o diciassettesimo secolo, portato da esploratori che giravano il mondo in lungo e in largo in cerca di nuove conoscenze e tesori. Il tè raccolse in breve tempo il consenso delle classi agiate europee e per soddisfare la domanda, l'Inghilterra cre&#242; enormi piantagioni in India, che ancora oggi rimane il più grande produttore di tè al mondo.</Italian>
+		<Spanish>El té, líquido creado por la infusión en agua de las hojas o los brotes de un matorral, es una bebida que goza de gran fama en todo el mundo. La &quot;camellia sinesis&quot; (planta del té) crece en regiones tropicales y subtropicales del planeta, como China y la India. Procedente del sudeste de Asia, se convirtió desde muy pronto en la base de la dieta de muchos orientales. Hasta los siglos XVI o XVII no fue introducido en Europa por los aventureros que cruzaban el mundo en busca de conocimientos y tesoros. El té se hizo rápidamente popular entre la gente acomodada de Europa occidental, y los británicos crearían inmensas plantaciones en sus colonias de la India para satisfacer la demanda. En la actualidad, la India continúa siendo el mayor productor mundial.</Spanish>
+	</TEXT>
+<!-- Tobacco -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_TOBACCO</Tag>
+		<English>Tobacco</English>
+		<French>Tabac</French>
+		<German>Tabak</German>
+		<Italian>Tobacco</Italian>
+		<Spanish>Tabaco</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_TOBACCO_PEDIA</Tag>
+		<English>[TAB]Tobacco is an agricultural product processed from the leaves of plants in the genus Nicotiana. It can be consumed, used as an organic pesticide and, in the form of nicotine tartrate, it is used in some medicines. In consumption it most commonly appears in the forms of smoking, chewing, snuffing, or dipping tobacco, or snus. Tobacco has long been in use as an entheogen in the Americas. However, upon the arrival of Europeans in North America, it quickly became popularized as a trade item and as a recreational drug. This popularization led to the development of the southern economy of the United States until it gave way to cotton. Following the American Civil War, a change in demand and a change in labor force allowed for the development of the cigarette. This new product quickly led to the growth of tobacco companies, until the scientific controversy of the mid-1900s.</English>
+	</TEXT>
+
+</Civ4GameText>
