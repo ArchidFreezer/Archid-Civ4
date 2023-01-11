@@ -1410,7 +1410,7 @@
 <!-- Weapon Types -->
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_HELP_WEAPON</Tag>
-		<English>%s1_weapon: (%d2_strength [ICON_STRENGTH])</English>
+		<English>%s1_weapon: (%d2_strength[ICON_STRENGTH])</English>
 	</TEXT>
 
 <!-- Cultural Defence -->

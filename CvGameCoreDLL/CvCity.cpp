@@ -849,6 +849,8 @@ void CvCity::doTurn() {
 
 	doSlaveDeath();
 
+	doUpgradeWeapons();
+
 	updateEspionageVisibility(true);
 
 	if (!isDisorder()) {
@@ -13576,4 +13578,53 @@ void CvCity::emergencyConscript() {
 	// default: 25% of full health: represents very low training level
 	pUnit->setDamage(int((1 - GC.getIDW_EMERGENCY_DRAFT_STRENGTH()) * pUnit->maxHitPoints()), getOwnerINLINE());
 	pUnit->setMoves(0);
+}
+
+void CvCity::doUpgradeWeapons() {
+	CLLNode<IDInfo>* pUnitNode = plot()->headUnitNode();
+	while (pUnitNode != NULL) {
+		CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+		pUnitNode = plot()->nextUnitNode(pUnitNode);
+
+		WeaponTypes eCurrWeapon = pLoopUnit->getWeaponType();
+		WeaponTypes eBestWeapon = eCurrWeapon;
+		int iBestWeaponStrength = pLoopUnit->getWeaponStrength();
+
+		for (WeaponTypes eLoopWeapon = (WeaponTypes)0; eLoopWeapon < GC.getNumWeaponInfos(); eLoopWeapon = (WeaponTypes)(eLoopWeapon + 1)) {
+			const CvWeaponInfo& kLoopWeapon = GC.getWeaponInfo(eLoopWeapon);
+			int iLoopStrength = kLoopWeapon.getStrength();
+
+			// If this weapon is not stronger than what we have then forget it
+			if (iLoopStrength <= iBestWeaponStrength)
+				continue;
+
+			bool bValid = true;
+			if (kLoopWeapon.getNumBonusPrereqs() > 0) {
+				bValid = false;
+				for (int i = 0; i < kLoopWeapon.getNumBonusPrereqs(); i++) {
+					BonusTypes eLoopBonus = (BonusTypes)kLoopWeapon.getBonusPrereq(i);
+					if (hasBonus(eLoopBonus)) {
+						bValid = true;
+						break;
+					}
+				}
+			}
+
+			if (bValid) // We have met the bonus prereqs
+			{
+				for (int i = 0; i < kLoopWeapon.getNumUnitCombatTypes(); i++) {
+					UnitCombatTypes eCombatType = (UnitCombatTypes)kLoopWeapon.getUnitCombatType(i);
+					if (pLoopUnit->isUnitCombatType(eCombatType)) {
+						// We can apply this weapon type and we know it is the best we have so far
+						iBestWeaponStrength = iLoopStrength;
+						eBestWeapon = eLoopWeapon;
+					}
+				}
+			}
+		}
+
+		if (eCurrWeapon != eBestWeapon)
+			pLoopUnit->setWeaponType(eBestWeapon);
+
+	}
 }
