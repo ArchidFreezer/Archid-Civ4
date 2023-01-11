@@ -1,0 +1,242 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4ImprovementInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4ImprovementInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">ArtDefineTag</span><td><td>Refers to a tag in the Civ4ArtDefines_Improvement file
+    <tr><td><span class="tagmandatory">Civilopedia</span><td><td>Refers to a tag in the Civ4GameText file which stores the Platypedia description for the improvement
+    <tr><td><span class="tagmandatory">Description</span><td><td>A reference to the text files, which contain an entry for this improvement
+    <tr><td><span class="tagoptional">Help</span><td><td>Additional help text that will be displayed in the Platypedia
+    <tr><td><span class="tagoptional">ImprovementPillage</span><td>NONE<td>If the improvement is pillaged, this lists what it is downgraded to. (Ex. A pillaged Cottage downgrades to a Hamlet.
+    <tr><td><span class="tagoptional">ImprovementUpgrade</span><td>NONE<td>The improvement to which this one is upgraded after iUpgradeTime is passed
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal name of this Improvement
+    <tr><td><span class="tagoptional"><b>UpgradeTech</b></span><td>NO_TECH<td>Refers to a tag in the CIV4TechInfos file to a tech that the players team must know in order to upgrade the improvement
+    <tr><td><span class="tagoptional">WorldSoundscapeAudioScript</span><td><td>Refers to the Audiodefines file for the ambient background music that is played when the tile is on screen
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iAdvancedStartCost</span><td>-1<td>Cost to build the improvement in Advanced Start mode
+    <tr><td><span class="tagoptional">iAdvancedStartCostIncrease</span><td>0<td>Additional cost for each improvement built in Advanced Start mode
+    <tr><td><span class="tagoptional">iAirBombDefense</span><td>-1<td>The defence of this improvement against attacks by air units. (it seems that if the strength of the air unit is equal to the airbombdefense, there is a 50-50 chance that it gets destroyed on attack.)
+    <tr><td><span class="tagoptional"><b>iAnimalSpawnRatePercentage</b></span><td>0<td>Percentile modifier in the rate that th eimprovement spawns animals
+    <tr><td><span class="tagoptional"><b>iAppearanceProbability</b></span><td>0<td>Percentage chance that the improvement will placed on each valid tile during map generation
+    <tr><td><span class="tagoptional"><b>iBarbarianSpawnRatePercentage</b></span><td>0<td>Percentile modifier in the rate that th eimprovement spawns barbarian units
+    <tr><td><span class="tagoptional">iDefenseModifier</span><td>0<td>The defence percentage added to all units on the tile of the improvement
+    <tr><td><span class="tagoptional">iFeatureGrowth</span><td>0<td>Chance modifier for spreading local terrain feature (aka Forest) to adjacent plots
+    <tr><td><span class="tagoptional">iGoodyRange</span><td>0<td>The minimum distance between goody huts
+    <tr><td><span class="tagoptional">iHappiness</span><td>0<td>The Happiness modifier that the improvement provides to the nearest city
+    <tr><td><span class="tagoptional">iPillageGold</span><td>0<td>The base gold value that a unit gets if this improvement is pillaged 
+    <tr><td><span class="tagoptional">iTilesPerGoody</span><td>0<td>States how many tiles must exist per goody hut generated. (E.g If the value is 40, for every forty tiles in game, one goody hut is placed.)
+    <tr><td><span class="tagoptional">iUpgradeTime</span><td>0<td>The time in turns that is needed on standard gamespeed until it upgrades to another improvement
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bActsAsCity</span><td>0<td>If true, this improvement acts as a city when determining things such as unit healing rates
+    <tr><td><span class="tagoptional">bCarriesIrrigation</span><td>0<td>If true, the improvement will count as irrigated so you can irrigate tiles next to it
+    <tr><td><span class="tagoptional">bFreshWaterMakesValid</span><td>0<td>If true, the improvement always can be built next to a river or a lake
+    <tr><td><span class="tagoptional">bGoody</span><td>0<td>If true, the improvement acts as a goody hut
+    <tr><td><span class="tagoptional">bGraphicalOnly</span><td>0<td>If true, the improvement is not displayed in the Platypedia or WorldBuilder
+    <tr><td><span class="tagoptional">bHillsMakesValid</span><td>0<td>If true, the improvement always can be built on a hill, regardless of anything else
+    <tr><td><span class="tagoptional">bNoFreshWater</span><td>0<td>If true, the improvement cannot be built on a fresh water plot
+    <tr><td><span class="tagoptional">bOutsideBorders</span><td>0<td>If true, the improvement can be built outside a players borders
+    <tr><td><span class="tagoptional"><b>bPeakMakesValid</b></span><td>0<td>If true, this improvement may be built on peaks
+    <tr><td><span class="tagoptional">bPermanent</span><td>0<td>If true, the improvement cannot be destroyed
+    <tr><td><span class="tagoptional">bRequiresFeature</span><td>0<td>If true, the improvement needs a feature on the plot or it will be removed
+    <tr><td><span class="tagoptional">bRequiresFlatlands</span><td>0<td>If true, the improvement can on be built on flatlands
+    <tr><td><span class="tagoptional">bRequiresIrrigation</span><td>0<td>if true, the improvement needs an irrigated tile next to it before it can be built
+    <tr><td><span class="tagoptional">bRequiresRiverSide</span><td>0<td>If true, the improvement can only be built on a plot with a river flowing next to it
+    <tr><td><span class="tagoptional">bRiverSideMakesValid</span><td>0<td>If true, the improvement always can be built next to a river
+    <tr><td><span class="tagoptional">bUseLSystem</span><td>0<td>Uses the L system,a art file,and is always 1. 
+    <tr><td><span class="tagoptional">bWater</span><td>0<td>If true, the improvement needs to be built on water
+  </table>	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">BonusTypeStructs</span><td>NONE<td>The bonus resource(s) that allows the improvement to be built upon and its impact<br><pre class="code">
+  &lt;BonusTypeStruct&gt;
+    &lt;BonusType&gt;&lt;/BonusType&gt;
+    &lt;bBonusMakesValid&gt;0&lt;/bBonusMakesValid&gt;
+    &lt;bBonusTrade&gt;0&lt;/bBonusTrade&gt;
+    &lt;iDiscoverRand&gt;0&lt;/iDiscoverRand&gt;
+    &lt;YieldChanges&gt;
+      &lt;iYield&gt;0&lt;/iYield&gt;
+    &lt;/YieldChanges&gt;
+  &lt;/BonusTypeStruct&gt;</pre>
+    <tr><td><span class="tagoptional"><b>FeatureMakesValids</b></span><td>NONE<td>The specified feature types on which this improvement can be built (bRequiresFeature makes these mandatory)<br><pre class="code">
+  &lt;FeatureType&gt;&lt;/FeatureType&gt;</pre>
+    <tr><td><span class="tagoptional">HillsYieldChange</span><td>NONE<td>The food, production, commerce changes that occur if this improvement has been built on a hill<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional">IrrigatedYieldChange</span><td>NONE<td>The food, production, commerce changes that occur if this improvement is irrigated<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional">PrereqNatureYields</span><td>NONE<td>The amount of food, production, commerce that already has to be on the tile before the improvement can be built there. (note that a river adds one commerce and that a forest adds one production.)<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional">RiverSideYieldChange</span><td>NONE<td>The food, production, commerce changes that occur if this improvement has been built next to a river<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional">RouteYieldChanges</span><td>NONE<td>Food, production, commerce changes if a road or railroad was built on the improvement tile<br><pre class="code">
+  &lt;RouteYieldChange&gt;
+    &lt;RouteType&gt;&lt;/RouteType&gt;
+    &lt;RouteYields&gt;
+      &lt;iYield&gt;0&lt;/iYield&gt;
+    &lt;/RouteYields&gt;
+  &lt;/RouteYieldChange&gt;</pre>
+    <tr><td><span class="tagoptional">TechYieldChanges</span><td>NONE<td>Food, production, commerce changes for the improvement after the specified tech has been researched<br><pre class="code">
+  &lt;TechYieldChange&gt;
+    &lt;TechType&gt;&lt;/TechType&gt;
+    &lt;TechYields&gt;
+      &lt;iYield&gt;0&lt;/iYield&gt;
+    &lt;/TechYields&gt;
+  &lt;/TechYieldChange&gt;</pre>
+    <tr><td><span class="tagoptional"><b>TerrainMakesValids</b></span><td>NONE<td>The terrain types on which this improvement can be built<br><pre class="code">
+  &lt;TerrainType&gt;&lt;/TerrainType&gt;</pre>
+    <tr><td><span class="tagoptional">YieldChanges</span><td>NONE<td>The food, production, commerce changes that occur if this improvement has been built on a tile<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;ImprovementInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;ArtDefineTag&gt;&lt;/ArtDefineTag&gt;
+&lt;/ImprovementInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;ImprovementInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;Help&gt;&lt;/Help&gt;
+  &lt;ArtDefineTag&gt;&lt;/ArtDefineTag&gt;
+  &lt;PrereqNatureYields&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/PrereqNatureYields&gt;
+  &lt;YieldChanges&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/YieldChanges&gt;
+  &lt;RiverSideYieldChange&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/RiverSideYieldChange&gt;
+  &lt;HillsYieldChange&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/HillsYieldChange&gt;
+  &lt;IrrigatedYieldChange&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/IrrigatedYieldChange&gt;
+  &lt;bActsAsCity&gt;0&lt;/bActsAsCity&gt;
+  &lt;bHillsMakesValid&gt;0&lt;/bHillsMakesValid&gt;
+  &lt;bPeakMakesValid&gt;0&lt;/bPeakMakesValid&gt;
+  &lt;bFreshWaterMakesValid&gt;0&lt;/bFreshWaterMakesValid&gt;
+  &lt;bRiverSideMakesValid&gt;0&lt;/bRiverSideMakesValid&gt;
+  &lt;bNoFreshWater&gt;0&lt;/bNoFreshWater&gt;
+  &lt;bRequiresFlatlands&gt;0&lt;/bRequiresFlatlands&gt;
+  &lt;bRequiresRiverSide&gt;0&lt;/bRequiresRiverSide&gt;
+  &lt;bRequiresIrrigation&gt;0&lt;/bRequiresIrrigation&gt;
+  &lt;bCarriesIrrigation&gt;0&lt;/bCarriesIrrigation&gt;
+  &lt;bRequiresFeature&gt;0&lt;/bRequiresFeature&gt;
+  &lt;bWater&gt;0&lt;/bWater&gt;
+  &lt;bGoody&gt;0&lt;/bGoody&gt;
+  &lt;bPermanent&gt;0&lt;/bPermanent&gt;
+  &lt;bUseLSystem&gt;0&lt;/bUseLSystem&gt;
+  &lt;iAdvancedStartCost&gt;-1&lt;/iAdvancedStartCost&gt;
+  &lt;iAdvancedStartCostIncrease&gt;0&lt;/iAdvancedStartCostIncrease&gt;
+  &lt;iTilesPerGoody&gt;0&lt;/iTilesPerGoody&gt;
+  &lt;iGoodyRange&gt;0&lt;/iGoodyRange&gt;
+  &lt;iFeatureGrowth&gt;0&lt;/iFeatureGrowth&gt;
+  &lt;iUpgradeTime&gt;0&lt;/iUpgradeTime&gt;
+  &lt;iAirBombDefense&gt;-1&lt;/iAirBombDefense&gt;
+  &lt;iDefenseModifier&gt;0&lt;/iDefenseModifier&gt;
+  &lt;iHappiness&gt;0&lt;/iHappiness&gt;
+  &lt;iPillageGold&gt;0&lt;/iPillageGold&gt;
+  &lt;iAppearanceProbability&gt;0&lt;/iAppearanceProbability&gt;
+  &lt;iAnimalSpawnRatePercentage&gt;0&lt;/iAnimalSpawnRatePercentage&gt;
+  &lt;iBarbarianSpawnRatePercentage&gt;0&lt;/iBarbarianSpawnRatePercentage&gt;
+  &lt;bOutsideBorders&gt;0&lt;/bOutsideBorders&gt;
+  &lt;TerrainMakesValids&gt;
+    &lt;TerrainType&gt;&lt;/TerrainType&gt;
+  &lt;/TerrainMakesValids&gt;
+  &lt;FeatureMakesValids&gt;
+    &lt;FeatureType&gt;&lt;/FeatureType&gt;
+  &lt;/FeatureMakesValids&gt;
+  &lt;BonusTypeStructs&gt;
+    &lt;BonusTypeStruct&gt;
+      &lt;BonusType&gt;&lt;/BonusType&gt;
+      &lt;bBonusMakesValid&gt;0&lt;/bBonusMakesValid&gt;
+      &lt;bBonusTrade&gt;0&lt;/bBonusTrade&gt;
+      &lt;iDiscoverRand&gt;0&lt;/iDiscoverRand&gt;
+      &lt;YieldChanges&gt;
+        &lt;iYield&gt;0&lt;/iYield&gt;
+      &lt;/YieldChanges&gt;
+    &lt;/BonusTypeStruct&gt;
+  &lt;/BonusTypeStructs&gt;
+  &lt;ImprovementPillage&gt;&lt;/ImprovementPillage&gt;
+  &lt;ImprovementUpgrade&gt;&lt;/ImprovementUpgrade&gt;
+  &lt;UpgradeTech&gt;&lt;/UpgradeTech&gt;
+  &lt;TechYieldChanges&gt;
+    &lt;TechYieldChange&gt;
+      &lt;TechType&gt;&lt;/TechType&gt;
+      &lt;TechYields&gt;
+        &lt;iYield&gt;0&lt;/iYield&gt;
+      &lt;/TechYields&gt;
+    &lt;/TechYieldChange&gt;
+  &lt;/TechYieldChanges&gt;
+  &lt;RouteYieldChanges&gt;
+    &lt;RouteYieldChange&gt;
+      &lt;RouteType&gt;&lt;/RouteType&gt;
+      &lt;RouteYields&gt;
+        &lt;iYield&gt;0&lt;/iYield&gt;
+      &lt;/RouteYields&gt;
+    &lt;/RouteYieldChange&gt;
+  &lt;/RouteYieldChanges&gt;
+  &lt;WorldSoundscapeAudioScript&gt;&lt;/WorldSoundscapeAudioScript&gt;
+  &lt;bGraphicalOnly&gt;0&lt;/bGraphicalOnly&gt;
+&lt;/ImprovementInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

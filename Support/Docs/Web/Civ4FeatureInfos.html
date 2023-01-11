@@ -1,0 +1,181 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4FeatureInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4FeatureInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">ArtDefineTag</span><td><td>Refers to a tag in the Civ4ArtDefines_Features file
+    <tr><td><span class="tagmandatory">Civilopedia</span><td><td>Refers to a tag in the Civ4GameText file which stores the Platypedia description for the feature
+    <tr><td><span class="tagmandatory">Description</span><td><td>A reference to the text files, which contain an entry for this feature
+    <tr><td><span class="tagoptional">EffectType</span><td><td>The internal reference to an object instance of this type
+    <tr><td><span class="tagoptional">Help</span><td><td>Additional help text that will be displayed in the Platypedia
+    <tr><td><span class="tagoptional">MovieDefineTag</span><td><td>The path to the moviw file to play when this feature is first seen by a player
+    <tr><td><span class="tagoptional">OnUnitChangeTo</span><td>NO_FEATURE<td>When any unit moves through the plot the feature is on it will change to the feature defined here
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal name of this feature
+    <tr><td><span class="tagoptional">WorldSoundscapeAudioScript</span><td><td>Audio played on close zooms for plots with the feature
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iAdvancedStartRemoveCost</span><td>0<td>Cost to remove the feature in advanced start 
+    <tr><td><span class="tagoptional">iAppearance</span><td>0<td>Chance out of 10000 that a feature will be added to a valid plot when generating the map. Setting this value to 10000 guarantees that the feature will exist wherever possible. If the value is exactly 10000 then this has a spoecial meaning to the map generator as it expects the feature to be a Flood Plain and will place it next to rivers if the terrain allows it, removing any bonuses that exist on the plot.
+    <tr><td><span class="tagoptional">iDefense</span><td>0<td>Defensive bonus (percent) given to unit on a plot with the feature 
+    <tr><td><span class="tagoptional">iDisappearance</span><td>0<td>Chance that a feature will disappear naturally over time.
+    <tr><td><span class="tagoptional">iEffectProbability</span><td>0<td>Chance for effect listed in EffectType to occur when a unit enters the plot with the feature
+    <tr><td><span class="tagoptional">iGrowth</span><td>0<td>Modifier to the chance that a feature will expand to a neighbouring plot
+    <tr><td><span class="tagoptional">iHealthPercent</span><td>0<td>Modifier to health of city with feature nearby; ex: iHeathPercent = -25 means that each plot with the feature causes .25 unhealthiness to the city 
+    <tr><td><span class="tagoptional">iMaxLatitude</span><td>0<td>The maximum latitude that this feature may appear
+    <tr><td><span class="tagoptional">iMinLatitude</span><td>0<td>The minimum latitude that this feature may appear
+    <tr><td><span class="tagoptional">iMovement</span><td>1<td>Movement cost for units entering a plot due to the feature
+    <tr><td><span class="tagoptional">iSeeThrough</span><td>0<td>The change in height that the feature causes. This goes towards determining whether a unit can see through the plot or not
+    <tr><td><span class="tagoptional">iTurnDamage</span><td>0<td>Percentage of a units current hit points taken as damage on a plot with the feature each turn
+    <tr><td><span class="tagoptional"><b>iUniqueSize</b></span><td>0<td>For unique features te minimum number of tiles the feature requires
+    <tr><td><span class="tagoptional"><b>iWarmingDefense</b></span><td>0<td>Impact the feature has in reducing global warming
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bAddsFreshWater</span><td>0<td>If true, the feature is counted as fresh water 
+    <tr><td><span class="tagoptional">bImpassable</span><td>0<td>xxxDESCxxx
+    <tr><td><span class="tagoptional">bNoAdjacent</span><td>0<td>If true, the feature is allowed on a tile next to a tile with the same feature 
+    <tr><td><span class="tagoptional">bNoCity</span><td>0<td>If true, or not the feature removes the ability to found a city on the tile 
+    <tr><td><span class="tagoptional">bNoCoast</span><td>0<td>If true, the feature is allowed on a tile next to the coast 
+    <tr><td><span class="tagoptional">bNoImprovement</span><td>0<td>If true, or not the feature makes it impossible to build an improvement on the tile
+    <tr><td><span class="tagoptional">bNoRiver</span><td>0<td>If true, the feature is allowed on a tile next to a river 
+    <tr><td><span class="tagoptional">bNukeImmune</span><td>0<td>If true, the feature is immune to destruction by nukes
+    <tr><td><span class="tagoptional">bRequiresFlatlands</span><td>0<td>If true, the feature requires a flat tile (as in, not hills or peaks)
+    <tr><td><span class="tagoptional">bRequiresRiver</span><td>0<td>If true, the feature must be next to a river 
+    <tr><td><span class="tagoptional"><b>bUnique</b></span><td>0<td>If true, there will only be one of these features in the game
+    <tr><td><span class="tagoptional">bVisibleAlways</span><td>0<td>If true, the feature is always visible on the map even if the player can no longer see the plot
+  </table>	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">FootstepSounds</span><td><td>Sound played when unit enters a plot with the feature for different unit types<br><pre class="code">
+  &lt;FootstepSound&gt;
+    &lt;FootstepAudioType&gt;&lt;/FootstepAudioType&gt;
+    &lt;FootstepAudioScript&gt;&lt;/FootstepAudioScript&gt;
+  &lt;/FootstepSound&gt;</pre>
+    <tr><td><span class="tagoptional">HillsYieldChange</span><td>NONE<td>Additional change to yield of the plot due to feature when on a hill<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional">RiverYieldChange</span><td>NONE<td>Additional change to yield of the plot due to feature when next to river<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional"><b>TerrainBooleans</b></span><td>NONE<td>Terrains the feature can appear on <br><pre class="code">
+  &lt;TerrainType&gt;&lt;/TerrainType&gt;</pre>
+    <tr><td><span class="tagoptional">YieldChanges</span><td>NONE<td>Additional change to yield of the plot due to feature<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;FeatureInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;ArtDefineTag&gt;&lt;/ArtDefineTag&gt;
+  &lt;FootstepSounds&gt;
+  &lt;/FootstepSounds&gt;
+&lt;/FeatureInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;FeatureInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;Help&gt;&lt;/Help&gt;
+  &lt;ArtDefineTag&gt;&lt;/ArtDefineTag&gt;
+  &lt;MovieDefineTag&gt;&lt;/MovieDefineTag&gt;
+  &lt;bUnique&gt;0&lt;/bUnique&gt;
+  &lt;iUniqueSize&gt;0&lt;/iUniqueSize&gt;
+  &lt;iMinLatitude&gt;0&lt;/iMinLatitude&gt;
+  &lt;iMaxLatitude&gt;0&lt;/iMaxLatitude&gt;
+  &lt;YieldChanges&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/YieldChanges&gt;
+  &lt;RiverYieldChange&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/RiverYieldChange&gt;
+  &lt;HillsYieldChange&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/HillsYieldChange&gt;
+  &lt;iMovement&gt;0&lt;/iMovement&gt;
+  &lt;iSeeThrough&gt;0&lt;/iSeeThrough&gt;
+  &lt;iHealthPercent&gt;0&lt;/iHealthPercent&gt;
+  &lt;iDefense&gt;0&lt;/iDefense&gt;
+  &lt;iAppearance&gt;0&lt;/iAppearance&gt;
+  &lt;iDisappearance&gt;0&lt;/iDisappearance&gt;
+  &lt;iGrowth&gt;0&lt;/iGrowth&gt;
+  &lt;iTurnDamage&gt;0&lt;/iTurnDamage&gt;
+  &lt;iWarmingDefense&gt;0&lt;/iWarmingDefense&gt;
+  &lt;bNoCoast&gt;0&lt;/bNoCoast&gt;
+  &lt;bNoRiver&gt;0&lt;/bNoRiver&gt;
+  &lt;bNoAdjacent&gt;0&lt;/bNoAdjacent&gt;
+  &lt;bRequiresFlatlands&gt;0&lt;/bRequiresFlatlands&gt;
+  &lt;bRequiresRiver&gt;0&lt;/bRequiresRiver&gt;
+  &lt;bAddsFreshWater&gt;0&lt;/bAddsFreshWater&gt;
+  &lt;bImpassable&gt;0&lt;/bImpassable&gt;
+  &lt;bNoCity&gt;0&lt;/bNoCity&gt;
+  &lt;bNoImprovement&gt;0&lt;/bNoImprovement&gt;
+  &lt;bVisibleAlways&gt;0&lt;/bVisibleAlways&gt;
+  &lt;bNukeImmune&gt;0&lt;/bNukeImmune&gt;
+  &lt;OnUnitChangeTo&gt;&lt;/OnUnitChangeTo&gt;
+  &lt;TerrainBooleans&gt;
+    &lt;TerrainType&gt;&lt;/TerrainType&gt;
+  &lt;/TerrainBooleans&gt;
+  &lt;FootstepSounds&gt;
+    &lt;FootstepSound&gt;
+      &lt;FootstepAudioType&gt;&lt;/FootstepAudioType&gt;
+      &lt;FootstepAudioScript&gt;&lt;/FootstepAudioScript&gt;
+    &lt;/FootstepSound&gt;
+  &lt;/FootstepSounds&gt;
+  &lt;WorldSoundscapeAudioScript&gt;&lt;/WorldSoundscapeAudioScript&gt;
+  &lt;EffectType&gt;&lt;/EffectType&gt;
+  &lt;iEffectProbability&gt;0&lt;/iEffectProbability&gt;
+  &lt;iAdvancedStartRemoveCost&gt;0&lt;/iAdvancedStartRemoveCost&gt;
+&lt;/FeatureInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

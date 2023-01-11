@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4TechInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4TechInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">Advisor</span><td>NO_ADVISOR<td>The main focus of this technology. Used to determine which technologies your advisors will tell you to research
+    <tr><td><span class="tagmandatory">Button</span><td><td>A comma separated field that lists four things: the path of the normal tech image, the path of the image map for this tech, and then x-y grid coordinates of the image within the image map. The path of the normal image must be written
+    <tr><td><span class="tagoptional">Civilopedia</span><td><td>Refers to a tag in the Civ4GameText file which stores the Platypedia description for the improvement
+    <tr><td><span class="tagmandatory">Description</span><td><td>A reference to the text files, which contain an entry for this Technology
+    <tr><td><span class="tagmandatory">Era</span><td>NO_ERA<td>The pre-defined era of technologies that this technology belongs to
+    <tr><td><span class="tagoptional">FirstFreeUnitClass</span><td>NO_UNITCLASS<td>Provides the first player to research this technology a unit of the specified unit class
+    <tr><td><span class="tagoptional">FreeUnitClass</span><td>NO_UNITCLASS<td>Provides a player who researches this tech a unit of the specified unit class
+    <tr><td><span class="tagoptional">Help</span><td><td>Additional help text that will be displayed in the Platypedia
+    <tr><td><span class="tagoptional">Quote</span><td><td>The quote displayed in the civilopedia for this tech
+    <tr><td><span class="tagoptional">Sound</span><td>NO_SOUND<td>Reference to the sound played when this tech is researched
+    <tr><td><span class="tagoptional">SoundMP</span><td>NO_SOUND<td>Reference to the sound played when this tech is researched in a multiplayer game
+    <tr><td><span class="tagoptional">Strategy</span><td><td>This contains the strategy text for the technology
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal name of this Technology
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iAITradeModifier</span><td>0<td>Value of this technology when trading. This is used as a percentage modifier to determine the overall value of the tech.
+    <tr><td><span class="tagoptional">iAIWeight</span><td>0<td>The relative value the AI puts on this technology to determine its research order
+    <tr><td><span class="tagmandatory">iAdvancedStartCost</span><td>0<td>Cost to start with technology via Advanced Start. All technologies have a value of 100
+    <tr><td><span class="tagoptional">iAdvancedStartCostIncrease</span><td>0<td>Additional cost per technology bought through Advanced Start. All technologies have a value of 0
+    <tr><td><span class="tagmandatory">iAsset</span><td>0<td>The change to the value of the players assets to determine their score
+    <tr><td><span class="tagmandatory">iCost</span><td>0<td>The default research cost, before modifiers like difficulty level are applied.
+    <tr><td><span class="tagoptional"><b>iCultureDefenceModifier</b></span><td>0<td>The increase in defence that culture applies to a city
+    <tr><td><span class="tagoptional">iFeatureProductionModifier</span><td>0<td>Percentage change in the production gained from worker actions, e.g. hammers gained from chopping
+    <tr><td><span class="tagoptional">iFirstFreeTechs</span><td>0<td>The number of free technologies for the first leader to research this technology
+    <tr><td><span class="tagmandatory">iGridX</span><td>0<td>The x-coordinate, or column, to place the technology item in the tech tree
+    <tr><td><span class="tagmandatory">iGridY</span><td>0<td>The y-coordinate, or row, to place the technology item in the tech tree
+    <tr><td><span class="tagoptional">iHappiness</span><td>0<td>Change to the happiness of each player city
+    <tr><td><span class="tagoptional">iHealth</span><td>0<td>Change to the healthiness of each player city
+    <tr><td><span class="tagoptional">iPower</span><td>0<td>Change to the overall power of the player as seen by the AI
+    <tr><td><span class="tagoptional">iTradeRoutes</span><td>0<td>Change to the number of trade routes a city can maintain
+    <tr><td><span class="tagoptional"><b>iUnitRangeChange</b></span><td>0<td>Absolute change in range for a range bound unit
+    <tr><td><span class="tagoptional"><b>iUnitRangePercentChange</b></span><td>0<td>Percentile change in range for a range bound unit
+    <tr><td><span class="tagoptional">iWorkerSpeedModifier</span><td>0<td>Percentage change to the rate at which units work
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bBridgeBuilding</span><td>0<td>If true, enables bridge building allowing routes to pass over rivers with no additional movement cost
+    <tr><td><span class="tagoptional"><b>bCanFoundOnPeaks</b></span><td>0<td>If true, settlers can found cities on peaks
+    <tr><td><span class="tagoptional"><b>bCanPassPeaks</b></span><td>0<td>If true, units can traverse peaks
+    <tr><td><span class="tagoptional"><b>bCaptureCities</b></span><td>0<td>If true, players units can capture cities
+    <tr><td><span class="tagoptional">bDefensivePactTrading</span><td>0<td>If true, allows the player to trade defensive pacts
+    <tr><td><span class="tagoptional">bDisable</span><td>0<td>If true, the technology cannot be researched
+    <tr><td><span class="tagoptional"><b>bEmbassyTrading</b></span><td>0<td>If true, players can include the creation of an embassy in a trade deal
+    <tr><td><span class="tagoptional">bExtraWaterSeeFrom</span><td>0<td>If true, increases naval units line of sight by 1
+    <tr><td><span class="tagoptional"><b>bFreeTradeAgreementTrading</b></span><td>0<td>If true, players can include a free trade agreement in a trade deal
+    <tr><td><span class="tagoptional">bGoldTrading</span><td>0<td>If true, allows the player to trade gold
+    <tr><td><span class="tagoptional">bGoodyTech</span><td>0<td>If true, the technology can be gained from a goody hut
+    <tr><td><span class="tagoptional">bIgnoreIrrigation</span><td>0<td>If true, tiles are considered irrigated even if they are not next to fresh water or another irrigated tile
+    <tr><td><span class="tagoptional">bIrrigation</span><td>0<td>If true, allows irrigation to be 'chained' where tiles next to irrigation can be irrigated themselves
+    <tr><td><span class="tagoptional"><b>bLimitedBordersTrading</b></span><td>0<td>If true, players can include a limited borders agreement in a trade deal, this agreement allows none combat units only
+    <tr><td><span class="tagoptional">bMapCentering</span><td>0<td>If true, centres the world map for the player
+    <tr><td><span class="tagoptional">bMapTrading</span><td>0<td>If true, allows maps to be traded in diplomacy
+    <tr><td><span class="tagoptional">bMapVisible</span><td>0<td>If true, reveals the complete world map
+    <tr><td><span class="tagoptional"><b>bMoveFastPeaks</b></span><td>0<td>If true, units do not have an additional movement penalty when crossing peaks
+    <tr><td><span class="tagoptional"><b>bNonAggressionTrading</b></span><td>0<td>If true, players can include a non agression agreement in a trade deal
+    <tr><td><span class="tagoptional">bOpenBordersTrading</span><td>0<td>If true, allows the player to trade open borders
+    <tr><td><span class="tagoptional">bPermanentAllianceTrading</span><td>0<td>If true, allows the player to trade permanent alliances
+    <tr><td><span class="tagoptional">bRepeat</span><td>0<td>If true, allows the technology to be researched multiple times (Future Tech)
+    <tr><td><span class="tagoptional">bRiverTrade</span><td>0<td>If true, allows rivers to become part of the trade network
+    <tr><td><span class="tagoptional">bTechTrading</span><td>0<td>If true, allows the player to trade technologies
+    <tr><td><span class="tagoptional">bTrade</span><td>0<td>If true, allows the technology to be used as part of a trade
+    <tr><td><span class="tagoptional"><b>bUnitRangeUnbound</b></span><td>0<td>If true, units with a maximum range have the range cap removed
+    <tr><td><span class="tagoptional"><b>bUnitTerritoryUnbound</b></span><td>0<td>If true, units that are normally restricted ot the players territory may venture outside it
+    <tr><td><span class="tagoptional">bVassalTrading</span><td>0<td>If true, allows the player to negotiate vassalage agreements, as well as capitulation during war
+    <tr><td><span class="tagoptional">bWaterWork</span><td>0<td>If true, allows working of coast and ocean tiles
+  </table>	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">AndPreReqs</span><td>NONE<td>A player must know all of the listed technologies in order to research this technology<br><pre class="code">
+  &lt;PrereqTech&gt;&lt;/PrereqTech&gt;</pre>
+    <tr><td><span class="tagoptional">CommerceFlexible</span><td>NONE<td>Allows for the adjustment of the specified commerce slider<br><pre class="code">
+  &lt;bFlexible&gt;0&lt;/bFlexible&gt;</pre>
+    <tr><td><span class="tagoptional">DomainExtraMoves</span><td>NONE<td>Change to the number of moves of units from the specified domain<br><pre class="code">
+  &lt;DomainExtraMove&gt;
+    &lt;DomainType&gt;&lt;/DomainType&gt;
+    &lt;iExtraMoves&gt;0&lt;/iExtraMoves&gt;
+  &lt;/DomainExtraMove&gt;</pre>
+    <tr><td><span class="tagoptional"><b>EnabledWorldViews</b></span><td>NO_WORLDVIEW<td>List of world views that are enabled for a player by this tech<br><pre class="code">
+  &lt;WorldViewType&gt;&lt;/WorldViewType&gt;</pre>
+    <tr><td><span class="tagmandatory">Flavors</span><td>NONE<td>Modifies AI point weighting based on an assigned flavour<br><pre class="code">
+  &lt;Flavor&gt;
+    &lt;FlavorType&gt;&lt;/FlavorType&gt;
+    &lt;iFlavor&gt;0&lt;/iFlavor&gt;
+  &lt;/Flavor&gt;</pre>
+    <tr><td><span class="tagoptional"><b>ForestPlotYieldChanges</b></span><td>NONE<td>The yield change for plots that contain forest terrain<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional">OrPreReqs</span><td>NONE<td>A player must know one of the listed technologies in order to research this technology<br><pre class="code">
+  &lt;PrereqTech&gt;&lt;/PrereqTech&gt;</pre>
+    <tr><td><span class="tagoptional">RiverPlotYieldChanges</span><td>NONE<td>The yield change for plots that borders a river<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional">SeaPlotYieldChanges</span><td>NONE<td>The yield change for plots that contain sea or ocean tiles<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional"><b>TerrainTrades</b></span><td>NONE<td>Allows trade across the specified terrain types. E.g., Sailing allows trade on coastal tiles<br><pre class="code">
+  &lt;TerrainType&gt;&lt;/TerrainType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>WorldViewRevoltTurnChanges</b></span><td>NONE<td>The change in the revolt counter per turn for a world view<br><pre class="code">
+  &lt;WorldViewRevoltTurnChange&gt;
+    &lt;WorldViewType&gt;&lt;/WorldViewType&gt;
+    &lt;iChange&gt;0&lt;/iChange&gt;
+  &lt;/WorldViewRevoltTurnChange&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;TechInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Advisor&gt;&lt;/Advisor&gt;
+  &lt;iCost&gt;0&lt;/iCost&gt;
+  &lt;iAdvancedStartCost&gt;0&lt;/iAdvancedStartCost&gt;
+  &lt;Era&gt;&lt;/Era&gt;
+  &lt;iAsset&gt;0&lt;/iAsset&gt;
+  &lt;iGridX&gt;0&lt;/iGridX&gt;
+  &lt;iGridY&gt;0&lt;/iGridY&gt;
+  &lt;Flavors&gt;
+  &lt;/Flavors&gt;
+  &lt;Button&gt;&lt;/Button&gt;
+&lt;/TechInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;TechInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;Help&gt;&lt;/Help&gt;
+  &lt;Strategy&gt;&lt;/Strategy&gt;
+  &lt;Advisor&gt;&lt;/Advisor&gt;
+  &lt;iAIWeight&gt;0&lt;/iAIWeight&gt;
+  &lt;iAITradeModifier&gt;0&lt;/iAITradeModifier&gt;
+  &lt;iCost&gt;0&lt;/iCost&gt;
+  &lt;iAdvancedStartCost&gt;0&lt;/iAdvancedStartCost&gt;
+  &lt;iAdvancedStartCostIncrease&gt;0&lt;/iAdvancedStartCostIncrease&gt;
+  &lt;Era&gt;&lt;/Era&gt;
+  &lt;FirstFreeUnitClass&gt;&lt;/FirstFreeUnitClass&gt;
+  &lt;FreeUnitClass&gt;&lt;/FreeUnitClass&gt;
+  &lt;iFeatureProductionModifier&gt;0&lt;/iFeatureProductionModifier&gt;
+  &lt;iWorkerSpeedModifier&gt;0&lt;/iWorkerSpeedModifier&gt;
+  &lt;iTradeRoutes&gt;0&lt;/iTradeRoutes&gt;
+  &lt;iHealth&gt;0&lt;/iHealth&gt;
+  &lt;iHappiness&gt;0&lt;/iHappiness&gt;
+  &lt;iFirstFreeTechs&gt;0&lt;/iFirstFreeTechs&gt;
+  &lt;iAsset&gt;0&lt;/iAsset&gt;
+  &lt;iPower&gt;0&lt;/iPower&gt;
+  &lt;bRepeat&gt;0&lt;/bRepeat&gt;
+  &lt;bTrade&gt;0&lt;/bTrade&gt;
+  &lt;bEmbassyTrading&gt;0&lt;/bEmbassyTrading&gt;
+  &lt;bFreeTradeAgreementTrading&gt;0&lt;/bFreeTradeAgreementTrading&gt;
+  &lt;bNonAggressionTrading&gt;0&lt;/bNonAggressionTrading&gt;
+  &lt;bDisable&gt;0&lt;/bDisable&gt;
+  &lt;bGoodyTech&gt;0&lt;/bGoodyTech&gt;
+  &lt;bExtraWaterSeeFrom&gt;0&lt;/bExtraWaterSeeFrom&gt;
+  &lt;bMapCentering&gt;0&lt;/bMapCentering&gt;
+  &lt;bMapVisible&gt;0&lt;/bMapVisible&gt;
+  &lt;bMapTrading&gt;0&lt;/bMapTrading&gt;
+  &lt;bTechTrading&gt;0&lt;/bTechTrading&gt;
+  &lt;bGoldTrading&gt;0&lt;/bGoldTrading&gt;
+  &lt;bOpenBordersTrading&gt;0&lt;/bOpenBordersTrading&gt;
+  &lt;bLimitedBordersTrading&gt;0&lt;/bLimitedBordersTrading&gt;
+  &lt;bDefensivePactTrading&gt;0&lt;/bDefensivePactTrading&gt;
+  &lt;bPermanentAllianceTrading&gt;0&lt;/bPermanentAllianceTrading&gt;
+  &lt;bVassalTrading&gt;0&lt;/bVassalTrading&gt;
+  &lt;bBridgeBuilding&gt;0&lt;/bBridgeBuilding&gt;
+  &lt;bIrrigation&gt;0&lt;/bIrrigation&gt;
+  &lt;bIgnoreIrrigation&gt;0&lt;/bIgnoreIrrigation&gt;
+  &lt;bWaterWork&gt;0&lt;/bWaterWork&gt;
+  &lt;bCanPassPeaks&gt;0&lt;/bCanPassPeaks&gt;
+  &lt;bMoveFastPeaks&gt;0&lt;/bMoveFastPeaks&gt;
+  &lt;bCanFoundOnPeaks&gt;0&lt;/bCanFoundOnPeaks&gt;
+  &lt;iGridX&gt;0&lt;/iGridX&gt;
+  &lt;iGridY&gt;0&lt;/iGridY&gt;
+  &lt;DomainExtraMoves&gt;
+    &lt;DomainExtraMove&gt;
+      &lt;DomainType&gt;&lt;/DomainType&gt;
+      &lt;iExtraMoves&gt;0&lt;/iExtraMoves&gt;
+    &lt;/DomainExtraMove&gt;
+  &lt;/DomainExtraMoves&gt;
+  &lt;CommerceFlexible&gt;
+    &lt;bFlexible&gt;0&lt;/bFlexible&gt;
+  &lt;/CommerceFlexible&gt;
+  &lt;TerrainTrades&gt;
+    &lt;TerrainType&gt;&lt;/TerrainType&gt;
+  &lt;/TerrainTrades&gt;
+  &lt;bRiverTrade&gt;0&lt;/bRiverTrade&gt;
+  &lt;bCaptureCities&gt;0&lt;/bCaptureCities&gt;
+  &lt;bUnitRangeUnbound&gt;0&lt;/bUnitRangeUnbound&gt;
+  &lt;bUnitTerritoryUnbound&gt;0&lt;/bUnitTerritoryUnbound&gt;
+  &lt;iUnitRangeChange&gt;0&lt;/iUnitRangeChange&gt;
+  &lt;iUnitRangePercentChange&gt;0&lt;/iUnitRangePercentChange&gt;
+  &lt;iCultureDefenceModifier&gt;0&lt;/iCultureDefenceModifier&gt;
+  &lt;ForestPlotYieldChanges&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/ForestPlotYieldChanges&gt;
+  &lt;RiverPlotYieldChanges&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/RiverPlotYieldChanges&gt;
+  &lt;SeaPlotYieldChanges&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/SeaPlotYieldChanges&gt;
+  &lt;WorldViewRevoltTurnChanges&gt;
+    &lt;WorldViewRevoltTurnChange&gt;
+      &lt;WorldViewType&gt;&lt;/WorldViewType&gt;
+      &lt;iChange&gt;0&lt;/iChange&gt;
+    &lt;/WorldViewRevoltTurnChange&gt;
+  &lt;/WorldViewRevoltTurnChanges&gt;
+  &lt;Flavors&gt;
+    &lt;Flavor&gt;
+      &lt;FlavorType&gt;&lt;/FlavorType&gt;
+      &lt;iFlavor&gt;0&lt;/iFlavor&gt;
+    &lt;/Flavor&gt;
+  &lt;/Flavors&gt;
+  &lt;OrPreReqs&gt;
+    &lt;PrereqTech&gt;&lt;/PrereqTech&gt;
+  &lt;/OrPreReqs&gt;
+  &lt;AndPreReqs&gt;
+    &lt;PrereqTech&gt;&lt;/PrereqTech&gt;
+  &lt;/AndPreReqs&gt;
+  &lt;EnabledWorldViews&gt;
+    &lt;WorldViewType&gt;&lt;/WorldViewType&gt;
+  &lt;/EnabledWorldViews&gt;
+  &lt;Quote&gt;&lt;/Quote&gt;
+  &lt;Sound&gt;&lt;/Sound&gt;
+  &lt;SoundMP&gt;&lt;/SoundMP&gt;
+  &lt;Button&gt;&lt;/Button&gt;
+&lt;/TechInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

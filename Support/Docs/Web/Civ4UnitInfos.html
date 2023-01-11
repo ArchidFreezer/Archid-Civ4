@@ -1,0 +1,742 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4UnitInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4UnitInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">Advisor</span><td>NO_ADVISOR<td>The strategic path that training this unit will most benefit. Reference to Civ4AdvisorInfos.xml
+    <tr><td><span class="tagoptional">BonusType</span><td>NO_BONUS<td>Bonus that the city must have to train this unit
+    <tr><td><span class="tagoptional">Capture</span><td>NO_UNIT<td>Reference to another unit. If this unit is captured the capturing player will gain a unit of the referenced type instead of this unit
+    <tr><td><span class="tagoptional">Civilopedia</span><td><td>A reference to the text files, which contain the Platypedia entry for this unit
+    <tr><td><span class="tagmandatory">Class</span><td><td>The class as defined in CIV4UnitClassInfos.xml. Class is the thing that holds, say, a Swordsman and a Praetorian together; each civilization can only have one of each class.
+    <tr><td><span class="tagoptional">Combat</span><td>NO_UNITCOMBAT<td>The unit combat type of the unit. Reference to CIV4UnitCombatInfos.xml
+    <tr><td><span class="tagmandatory">DefaultUnitAI</span><td><td>The default AI routine that the unit uses. Reference to Civ4UnitAIInfos.xml
+    <tr><td><span class="tagoptional">Description</span><td><td>A reference to the text files, which contains the name displayed for this unit
+    <tr><td><span class="tagmandatory">Domain</span><td><td>The domain that the unit moves in: Land, Sea, Water or Immobile. Reference to Civ4DomainInfos.xml
+    <tr><td><span class="tagoptional">DomainCargo</span><td>NO_DOMAIN<td>The Domain (AIR, SEA, or LAND) of units that the unit can carry
+    <tr><td><span class="tagmandatory">FormationType</span><td><td>The formation that the unit adopts when displayed
+    <tr><td><span class="tagoptional">Help</span><td><td>Additional help text that will be displayed in the Platypedia
+    <tr><td><span class="tagoptional">HolyCity</span><td>NO_RELIGION<td>The unit can only be built in the holy city of this religion
+    <tr><td><span class="tagoptional">HotKey</span><td><td>The key, that when pressed selects the unit.
+    <tr><td><span class="tagoptional">Invisible</span><td>NO_INVISIBLE<td>The type of invisibility that the unit possesses. If the unit has an invisibility type that unit can only be seen by other units (or buildings) that are specially configured to be able to see the invisibility type. Reference to Civ4InvisibleInfos.xml
+    <tr><td><span class="tagoptional">LeaderPromotion</span><td>NO_PROMOTION<td>Promotion that the unit gives to another unit when attached as a warlord
+    <tr><td><span class="tagoptional"><b>MinCultureLevel</b></span><td>NO_CULTURELEVEL<td>The minimum culture level that a city must have in order to train this unit
+    <tr><td><span class="tagoptional">ObsoleteTech</span><td>NO_TECH<td>A tech, which once researched by a player, prevents the training of this unit
+    <tr><td><span class="tagoptional">PrereqBuilding</span><td>NO_BUILDING<td>This building must be present in the city to train the unit
+    <tr><td><span class="tagoptional">PrereqCorporation</span><td>NO_CORPORATION<td>This corporation must be present in the city to train the unit
+    <tr><td><span class="tagoptional">PrereqReligion</span><td>NO_RELIGION<td>This religion must be present in the city to train the unit
+    <tr><td><span class="tagoptional">ReligionType</span><td>NO_RELIGION<td>Not used in the DLL, but exposed to python for mod use there
+    <tr><td><span class="tagoptional"><b>SlaveSpecialistType</b></span><td>N0_SPECIALIST<td>The type of slave that will be formed if the unit is captured by a slaver and the slave settled in a city. If there is no value here then the default slave specialist as defined in the GlobalDefineAlt SLAVERY_DEFAULT_SLAVE_SPECIALIST setting will be used
+    <tr><td><span class="tagoptional">Special</span><td>NO_SPECIALUNIT<td>Reference to CIV4SpecialUnitInfos.xml
+    <tr><td><span class="tagoptional">SpecialCargo</span><td>NO_SPECIALUNIT<td>The type of SpecialUnit that the unit can carry
+    <tr><td><span class="tagoptional">StateReligion</span><td>NO_RELIGION<td>The player must have this religion as a state religion in order to train the unit
+    <tr><td><span class="tagoptional">Strategy</span><td><td>Sid's Tips entry that will also be displayed in the Platypedia
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal name of this unit
+    <tr><td><span class="tagoptional"><b>UnitRangeType</b></span><td>UNITRANGE_UNLIMITED<td>The range that the unit is allowed to move
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iAIWeight</span><td>0<td>The preference given by the AI to this unit, generally for Unique Units
+    <tr><td><span class="tagoptional">iAdvancedStartCost</span><td>-1<td>The cost to train one of these units in advanced start mode
+    <tr><td><span class="tagoptional">iAdvancedStartCostIncrease</span><td>0<td>The additional cost per unit to train more than one in advanced start mode
+    <tr><td><span class="tagoptional">iAirCombat</span><td>0<td>The base strength for air attacks. Used in FTTW for the strength of opportunity ranged attacks
+    <tr><td><span class="tagoptional">iAirCombatLimit</span><td>0<td>Percentage of the maximum amount of air or opportunity ranged damage that this unit can give that is actually given. So a value of 50 means that the unit will only ever deal out 50% of the damage it can do based on its iComnbat value
+    <tr><td><span class="tagoptional">iAirRange</span><td>0<td>The range at which an air unit it can operate or the range at which a ground unit can attack
+    <tr><td><span class="tagoptional">iAirUnitCap</span><td>0<td>The number of air unit capacity slots the unit takes up -- should be 1 for most, if not all, air units
+    <tr><td><span class="tagoptional">iAnimalCombat</span><td>0<td>The percent bonus that the unit gets against Animals, in attack and defense
+    <tr><td><span class="tagoptional">iAsset</span><td>0<td>A rough guide to the value of the unit to a player. This is used when determining which units are the best attackers/defenders, it is also used to help determine the strength of a player.
+    <tr><td><span class="tagoptional">iBaseDiscover</span><td>0<td>The base number of research points this unit can provide when discovering a technology, used in conjunction with iDiscoverMultiplier. The gamespeed also applies a multiplier on top of this value
+    <tr><td><span class="tagoptional">iBaseHurry</span><td>0<td>The base number of hammers this unit can provide when hurrying a building, used in conjunction with iHurryMultiplier. The gamespeed also applies a multiplier on top of this value
+    <tr><td><span class="tagoptional">iBaseTrade</span><td>0<td>The base golds this unit can provide when conducting a trade mission, used in conjunction with iTradeMultiplier. The gamespeed also applies a multiplier on top of this value
+    <tr><td><span class="tagoptional">iBombRate</span><td>0<td>The base amount that the air unit will reduce a cities defence by when bombing
+    <tr><td><span class="tagoptional">iBombardRate</span><td>0<td>The base amount that the unit will reduce a cities defence by when bombarding
+    <tr><td><span class="tagoptional">iCargo</span><td>0<td>The number of units that the unit can carry
+    <tr><td><span class="tagoptional">iChanceFirstStrikes</span><td>0<td>The number of First Strike Chances that the unit has
+    <tr><td><span class="tagoptional">iCityAttack</span><td>0<td>The percent bonus that the unit gets when attacking cities
+    <tr><td><span class="tagoptional">iCityDefense</span><td>0<td>The percent bonus that the unit gets when defending cities
+    <tr><td><span class="tagoptional">iCollateralDamage</span><td>0<td>The amount of collateral damage (in percent) that the unit deals
+    <tr><td><span class="tagoptional">iCollateralDamageLimit</span><td>0<td>The maximum amount of collateral damage that the unit can deal
+    <tr><td><span class="tagoptional">iCollateralDamageMaxUnits</span><td>0<td>The greatest number of enemy units that the unit can inflict collateral damage upon
+    <tr><td><span class="tagoptional">iCombat</span><td>0<td>The base combat strength of the unit
+    <tr><td><span class="tagoptional">iCombatLimit</span><td>0<td>Percentage of the maximum amount of damage that this unit can give that is actually given. So a value of 50 means that the unit will only ever deal out 50% of the damage it can do based on its iComnbat value
+    <tr><td><span class="tagoptional">iConscription</span><td>0<td>The conscription value of this unit. When determining which unit to conscript a city loops through all the units it can build and the one with the highest conscription value is chosen
+    <tr><td><span class="tagoptional">iCost</span><td>-1<td>The cost in hammers of the unit
+    <tr><td><span class="tagoptional">iCultureGarrison</span><td>0<td>The amount of cultural pressure having this unit in a city provides. This impacts the suppression rate of a conquered city and revolt resistance.
+    <tr><td><span class="tagoptional">iDiscoverMultiplier</span><td>0<td>This value, multiplied by the teams population is added to the iBaseDiscover value to determine the total research a unit can provide
+    <tr><td><span class="tagoptional">iDropRange</span><td>0<td>The range at which the unit can 'jump'/paradrop from a friendly city
+    <tr><td><span class="tagoptional"><b>iEnslaveCount</b></span><td>0<td>The number of slaves this unit may carry before it needs to return to a city to sell them
+    <tr><td><span class="tagoptional">iEspionagePoints</span><td>0<td>The number of espionage points gained when infiltrating a rival player
+    <tr><td><span class="tagoptional">iEvasionProbability</span><td>0<td>For air and parachute units; the odds of evading interception
+    <tr><td><span class="tagoptional">iExtraCost</span><td>0<td>The additional upkeep in gold that this unit costs each turn over and above the standard cost
+    <tr><td><span class="tagoptional">iFirstStrikes</span><td>0<td>The number of automatic First Strikes that the unit has
+    <tr><td><span class="tagoptional">iGreatWorkCulture</span><td>0<td>The culture this unit provides when creating a great work, the value is multiplied by the number of the Era the player is in and modified by the gamespeed
+    <tr><td><span class="tagoptional">iHillsAttack</span><td>0<td>The percent bonus that the unit gets when attacking hills
+    <tr><td><span class="tagoptional">iHillsDefense</span><td>0<td>The percent bonus that the unit gets when defending hills
+    <tr><td><span class="tagoptional">iHotKeyPriority</span><td>0<td>If two objects have similar HotKey combinations then the one with the highest priority will take precedence
+    <tr><td><span class="tagoptional">iHurryCostModifier</span><td>0<td>Modifier used as a divisor to determine the production gained when hurrying this unit
+    <tr><td><span class="tagoptional">iHurryMultiplier</span><td>0<td>This value, multiplied by the city population is added to the iBaseHurry value to determine the total hammers a unit can provide
+    <tr><td><span class="tagoptional">iInterceptionProbability</span><td>0<td>The percent chance a unit has of intercepting an enemy unit within range trying to carry out an air mission
+    <tr><td><span class="tagoptional">iLeaderExperience</span><td>0<td>The amount of experience this unit gives to units in the same stack when leading as a warlord
+    <tr><td><span class="tagoptional"><b>iMaxAmmoTypeTier</b></span><td>-1<td>The maximum applicable ammunition type that this unit can upgrade to; -1 indicates no limit
+    <tr><td><span class="tagoptional"><b>iMaxWeaponTypeTier</b></span><td>-1<td>The maximum applicable weapon type that this unit can upgrade to; -1 indicates no limit
+    <tr><td><span class="tagoptional">iMinAreaSize</span><td>-1<td>The number of tiles in the area the city is on in order to train this unit
+    <tr><td><span class="tagoptional">iMinPopulation</span><td>0<td>The minimum population a city must have in order to train this unit
+    <tr><td><span class="tagoptional">iMoves</span><td>0<td>The number of moves the unit has at the start of each turn. Each tile has a movement cost that is reduced from this value whenever a unit moves onto it, the combination of these values determines how many tiles a unit can move in the turn
+    <tr><td><span class="tagoptional">iNukeRange</span><td>-1<td>The range at which the 'nuke' can be launched - missiles only
+    <tr><td><span class="tagoptional">iOrderPriority</span><td>0<td>The priority of this unit when determining the order in which actions are performed. A unit with a high order priority will act first
+    <tr><td><span class="tagoptional">iPower</span><td>0<td>Affects the amount that the AI factors it into the equation when determining your military power
+    <tr><td><span class="tagoptional"><b>iSpyEscapeChance</b></span><td>0<td>For spies, the percentage chance the spy has to escape if captures
+    <tr><td><span class="tagoptional"><b>iSpyEvasionChance</b></span><td>0<td>For spies, the percentage chance the spy has to evade capture if intercepted
+    <tr><td><span class="tagoptional"><b>iSpyInterceptChance</b></span><td>0<td>For spies, the percentage chance the spy has to avoid interception
+    <tr><td><span class="tagoptional">iTradeMultiplier</span><td>0<td>This value, multiplied by the capital cities trade profits is added to the iBaseTrade value to determine the total gold a unit can provide in a trade mission
+    <tr><td><span class="tagoptional">iWithdrawalProb</span><td>0<td>The percent chance a unit has of withdrawing from a battle if it is losing. Maximum Value is in GlobalDefines.xml
+    <tr><td><span class="tagoptional">iWorkRate</span><td>0<td>The rate at which the unit improves tiles
+    <tr><td><span class="tagoptional">iXPValueAttack</span><td>0<td>The value, in Experience Points, that this unit is worth when attacking
+    <tr><td><span class="tagoptional">iXPValueDefense</span><td>0<td>The value, in Experience Points, that this unit is worth when defending
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bAltDown</span><td>0<td>If true, the HotKey is only used if the Alt key is also pressed
+    <tr><td><span class="tagoptional">bAlwaysHostile</span><td>0<td>If true, is treated it as an enemy unit by both friends and foes
+    <tr><td><span class="tagoptional">bAnimal</span><td>0<td>If true, this unit is an animal. Barbarian animals do not enter cultural borders and have basic AI routines, they also tend to stick to their natural habitats.
+    <tr><td><span class="tagoptional">bCanMoveAllTerrain</span><td>0<td>If true, can move through terrain marked as impassible
+    <tr><td><span class="tagoptional">bCanMoveImpassable</span><td>0<td>If true, can move through plots flagged as impassible, typically used for air units
+    <tr><td><span class="tagoptional">bCounterSpy</span><td>0<td>If true, this unit will help detect any rival spying activities on the plot and may be able to prevent them succeeding
+    <tr><td><span class="tagoptional">bCtrlDown</span><td>0<td>If true, the HotKey is only used if the Control key is also pressed
+    <tr><td><span class="tagoptional">bDestroy</span><td>0<td>If true, can half a cities production, used by spies
+    <tr><td><span class="tagoptional">bFirstStrikeImmune</span><td>0<td>If true, the unit is immune to first strikes
+    <tr><td><span class="tagoptional"><b>bFixedAI</b></span><td>0<td>If true, the unit cannot change out of the default AI
+    <tr><td><span class="tagoptional">bFlatMovementCost</span><td>0<td>If true, ignores movement modifiers such as routes
+    <tr><td><span class="tagoptional">bFood</span><td>0<td>If true, the unit is produced with food as well as hammers; a city does not generate food while building this unit
+    <tr><td><span class="tagoptional">bFound</span><td>0<td>If true, the unit can found a new city
+    <tr><td><span class="tagoptional">bGoldenAge</span><td>0<td>If true, the unit counts as a Great Person to start a Golden Age
+    <tr><td><span class="tagoptional">bHiddenNationality</span><td>0<td>If true, unit appears as a barbarian to other players so can cause havoc without starting a war
+    <tr><td><span class="tagoptional">bIgnoreBuildingDefense</span><td>0<td>If true, bypasses all defences provided by buildings when attacking a city
+    <tr><td><span class="tagoptional">bIgnoreTerrainCost</span><td>0<td>If true, ignores movement penalties from terrain
+    <tr><td><span class="tagoptional">bInvestigate</span><td>0<td>If true and you your unit is in a rival city, you may be able to look at the city details
+    <tr><td><span class="tagoptional">bInvisible</span><td>0<td>If true, the unit is always invisible to rivals
+    <tr><td><span class="tagoptional">bLineOfSight</span><td>0<td>If true, unit can only reveal the content in the tiles in the direction they are facing
+    <tr><td><span class="tagoptional">bMechanized</span><td>0<td>If true, the unit is considered to be a machine rather than organic
+    <tr><td><span class="tagoptional">bMilitaryHappiness</span><td>0<td>If true, counts as a Military Unit in the eyes of the rabble; contributes to the '+happy for each military unit in a city' civic modifier
+    <tr><td><span class="tagoptional">bMilitaryProduction</span><td>0<td>If true, counts as a military unit for production bonuses/penalties
+    <tr><td><span class="tagoptional">bMilitarySupport</span><td>0<td>If true, costs money to maintain as part of your military
+    <tr><td><span class="tagoptional"><b>bMilitaryTrade</b></span><td>0<td>If true, the unit may be part of a military trade agreement
+    <tr><td><span class="tagoptional">bNoBadGoodies</span><td>0<td>If true, when this unit is entering a Tribal Village, the villagers will never be hostile
+    <tr><td><span class="tagoptional">bNoCapture</span><td>0<td>If true, the unit cannot capture cities
+    <tr><td><span class="tagoptional">bNoDefensiveBonus</span><td>0<td>If true, does not receive defensive bonuses
+    <tr><td><span class="tagoptional">bNoRevealMap</span><td>0<td>If true, the unit does not reveal any tiles except the one it is standing on
+    <tr><td><span class="tagoptional">bNukeImmune</span><td>0<td>If true, takes no damage from nukes
+    <tr><td><span class="tagoptional">bOnlyDefensive</span><td>0<td>If true, the unit cannot attack other units
+    <tr><td><span class="tagoptional">bPillage</span><td>0<td>If true, can pillage improvements
+    <tr><td><span class="tagoptional">bPrereqBonuses</span><td>0<td>If true and the unit is a boat, it only be trained if one of the areas around the city has water bonuses in it. This is used for water working units so they are not built where there is nothing for them to do. If the unit is not a water unit then it cannot be trained if there <em>are</em> bonuses in the surrounding area! That looks like a bug to me!
+    <tr><td><span class="tagoptional"><b>bPrereqPower</b></span><td>0<td>If true, city must have power to train the unit
+    <tr><td><span class="tagoptional">bPrereqReligion</span><td>0<td>If true, can only be trained in a city with a religion. Any religion will meet the prereq
+    <tr><td><span class="tagoptional">bQuickCombat</span><td>0<td>If true, the unit never triggers the camera-angle change and other battle effects when combating another unit
+    <tr><td><span class="tagoptional">bRenderAlways</span><td>0<td>Used by graphics engine in main exe
+    <tr><td><span class="tagoptional">bRenderBelowWater</span><td>0<td>Used by graphics engine in main exe
+    <tr><td><span class="tagoptional">bRivalTerritory</span><td>0<td>If true, can explore rival territory without triggering a war
+    <tr><td><span class="tagoptional">bSabotage</span><td>0<td>If true, can pillage improvements. This is the spy equivalent of bPillage
+    <tr><td><span class="tagoptional">bShiftDown</span><td>0<td>If true, the HotKey is only used if the Shift key is also pressed
+    <tr><td><span class="tagoptional"><b>bSingleBuild</b></span><td>0<td>If true, unit is killed after building an improvement. Used by slave units
+    <tr><td><span class="tagoptional"><b>bSlave</b></span><td>0<td>If true, is a slave
+    <tr><td><span class="tagoptional">bSpy</span><td>0<td>If true, is a spy
+    <tr><td><span class="tagoptional">bStealPlans</span><td>0<td>If true, the unit can see all a rival civs maps for 2 turns
+    <tr><td><span class="tagoptional">bSuicide</span><td>0<td>If true, unit is always killed after combat
+    <tr><td><span class="tagoptional"><b>bWorkerTrade</b></span><td>0<td>If true, this unit may be part of a worker trade agreement
+  </table>	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">BonusProductionModifiers</span><td>NONE<td>The bonuses/penalties to the production of the unit by the presence of a bonus in the city<br><pre class="code">
+  &lt;BonusProductionModifier&gt;
+    &lt;BonusType&gt;&lt;/BonusType&gt;
+    &lt;iProductonModifier&gt;0&lt;/iProductonModifier&gt;
+  &lt;/BonusProductionModifier&gt;</pre>
+    <tr><td><span class="tagoptional">Buildings</span><td>NONE<td>The buildings which the unit can construct in a friendly city<br><pre class="code">
+  &lt;Building&gt;
+    &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
+    &lt;BuildingType&gt;&lt;/BuildingType&gt;
+  &lt;/Building&gt;</pre>
+    <tr><td><span class="tagoptional"><b>Builds</b></span><td>NONE<td>The list of improvements that the unit can build<br><pre class="code">
+  &lt;BuildType&gt;&lt;/BuildType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>CommercesFromKill</b></span><td>NONE<td>When a unit is killed the victor may gain thsi commerce from the kill<br><pre class="code">
+  &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
+    <tr><td><span class="tagoptional">CorporationSpreads</span><td>NONE<td>The chance that the unit can spread a corporation. This value is used as a modifier and the final spread chance is based on the city size, number of corporations, whether the city is a team member, etc.<br><pre class="code">
+  &lt;CorporationSpread&gt;
+    &lt;CorporationType&gt;&lt;/CorporationType&gt;
+    &lt;iCorporationSpread&gt;0&lt;/iCorporationSpread&gt;
+  &lt;/CorporationSpread&gt;</pre>
+    <tr><td><span class="tagoptional">DomainMods</span><td>NONE<td>The bonuses/penalties that the unit gets against Air, Sea or Land units<br><pre class="code">
+  &lt;DomainMod&gt;
+    &lt;DomainType&gt;&lt;/DomainType&gt;
+    &lt;iDomainMod&gt;0&lt;/iDomainMod&gt;
+  &lt;/DomainMod&gt;</pre>
+    <tr><td><span class="tagoptional">FeatureAttacks</span><td>NONE<td>Percentage bonus the unit receives when attacking in a feature<br><pre class="code">
+  &lt;FeatureAttack&gt;
+    &lt;FeatureType&gt;&lt;/FeatureType&gt;
+    &lt;iFeatureAttack&gt;0&lt;/iFeatureAttack&gt;
+  &lt;/FeatureAttack&gt;</pre>
+    <tr><td><span class="tagoptional">FeatureDefenses</span><td>NONE<td>Percentage bonus the unit receives when defending in a feature<br><pre class="code">
+  &lt;FeatureDefense&gt;
+    &lt;FeatureType&gt;&lt;/FeatureType&gt;
+    &lt;iFeatureDefense&gt;0&lt;/iFeatureDefense&gt;
+  &lt;/FeatureDefense&gt;</pre>
+    <tr><td><span class="tagoptional"><b>FeatureImpassables</b></span><td>NONE<td>List of terrains which the unit cannot move onto<br><pre class="code">
+  &lt;FeatureType&gt;&lt;/FeatureType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>FeatureNatives</b></span><td>NONE<td>The list of features than an animal will be found in. Animals tend to stay in their native features unless actively pursuing prey<br><pre class="code">
+  &lt;FeatureType&gt;&lt;/FeatureType&gt;</pre>
+    <tr><td><span class="tagoptional">FeaturePassableTechs</span><td>NONE<td>List of techs, the discovery of which allows the unit to move onto the defined feature<br><pre class="code">
+  &lt;FeaturePassableTech&gt;
+    &lt;FeatureType&gt;&lt;/FeatureType&gt;
+    &lt;PassableTech&gt;&lt;/PassableTech&gt;
+  &lt;/FeaturePassableTech&gt;</pre>
+    <tr><td><span class="tagoptional">FlankingStrikes</span><td>NONE<td>All unit classes against which the unit gets a Flank Attack<br><pre class="code">
+  &lt;FlankingStrike&gt;
+    &lt;FlankingStrikeUnitClass&gt;&lt;/FlankingStrikeUnitClass&gt;
+    &lt;iFlankingStrength&gt;0&lt;/iFlankingStrength&gt;
+  &lt;/FlankingStrike&gt;</pre>
+    <tr><td><span class="tagoptional">Flavors</span><td>NONE<td>The set of flavour values of this unit, used to determine the value of the tech that enables this<br><pre class="code">
+  &lt;Flavor&gt;
+    &lt;FlavorType&gt;&lt;/FlavorType&gt;
+    &lt;iFlavor&gt;0&lt;/iFlavor&gt;
+  &lt;/Flavor&gt;</pre>
+    <tr><td><span class="tagoptional"><b>ForceBuildings</b></span><td>NONE<td>The buildings the unit can construct in any city regardless of tech, building prerequisites, or other restrictions (ex: could construct a world wonder in multiple cities)<br><pre class="code">
+  &lt;BuildingType&gt;&lt;/BuildingType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>FreePromotions</b></span><td>NONE<td>The promotions that this unit starts with. These promotions do not impact the units level<br><pre class="code">
+  &lt;PromotionType&gt;&lt;/PromotionType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>GreatPeoples</b></span><td>NONE<td>Contains the specialist formed if the unit settles in a city<br><pre class="code">
+  &lt;GreatPeopleType&gt;&lt;/GreatPeopleType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>NotUnitAIs</b></span><td>NONE<td>Contains a list of the AI routines that the unit cannot take<br><pre class="code">
+  &lt;UnitAIType&gt;&lt;/UnitAIType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqAndCivics</b></span><td>NONE<td>List of civics all of which the player must be running to train this unit<br><pre class="code">
+  &lt;CivicType&gt;&lt;/CivicType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqAndTerrains</b></span><td>NONE<td>List of terrains, all of which must be in the cities workable area in order to train this unit<br><pre class="code">
+  &lt;TerrainType&gt;&lt;/TerrainType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqNotBuildingClasses</b></span><td>NONE<td>List building classes none which may be in the city to train this unit<br><pre class="code">
+  &lt;BuildingClass&gt;&lt;/BuildingClass&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqOrBonuses</b></span><td>NONE<td>List of bonuses, one of which must be available in the city in order to train this unit<br><pre class="code">
+  &lt;BonusType&gt;&lt;/BonusType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqOrBuildingClasses</b></span><td>NONE<td>List of buildings classes, one of which must be in the city to train this unit<br><pre class="code">
+  &lt;BuildingClass&gt;&lt;/BuildingClass&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqOrCivics</b></span><td>NONE<td>List of civics one of which the player must be running to train this unit<br><pre class="code">
+  &lt;CivicType&gt;&lt;/CivicType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqOrTerrains</b></span><td>NONE<td>List of terrains, one of which must be in the cities workable area in order to train this unit<br><pre class="code">
+  &lt;TerrainType&gt;&lt;/TerrainType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqTechs</b></span><td>NONE<td>List techs that a player must know in order to train this unit<br><pre class="code">
+  &lt;TechType&gt;&lt;/TechType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqVicinityAndBonus</b></span><td>NONE<td>List of bonuses, all of which must be in the cities workable area in order to train this unit<br><pre class="code">
+  &lt;BonusType&gt;&lt;/BonusType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqVicinityFeatures</b></span><td>NONE<td>List of terrain features one of which must be present in the city radius to train this unit<br><pre class="code">
+  &lt;FeatureType&gt;&lt;/FeatureType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqVicinityImprovements</b></span><td>NONE<td>List of improvements one of which must be present in the city radius to train this unit<br><pre class="code">
+  &lt;ImprovementType&gt;&lt;/ImprovementType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqVicinityOrBonus</b></span><td>NONE<td>List of bonuses, one of which must be in the cities workable area in order to train this unit<br><pre class="code">
+  &lt;BonusType&gt;&lt;/BonusType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqWorldViews</b></span><td>NONE<td>List of world views, all of which must be enabled by the player in order to train the unit<br><pre class="code">
+  &lt;WorldViewType&gt;&lt;/WorldViewType&gt;</pre>
+    <tr><td><span class="tagoptional">ProductionTraits</span><td>NONE<td>The amount that a trait modifies the production on this unit<br><pre class="code">
+  &lt;ProductionTrait&gt;
+    &lt;ProductionTraitType&gt;&lt;/ProductionTraitType&gt;
+    &lt;iProductionTrait&gt;0&lt;/iProductionTrait&gt;
+  &lt;/ProductionTrait&gt;</pre>
+    <tr><td><span class="tagoptional">ReligionSpreads</span><td>NONE<td>The chance that the unit can spread a religion. This value is used as a modifier and the final spread chance is based on the city size, number of religions, etc.<br><pre class="code">
+  &lt;ReligionSpread&gt;
+    &lt;ReligionType&gt;&lt;/ReligionType&gt;
+    &lt;iReligionSpread&gt;0&lt;/iReligionSpread&gt;
+  &lt;/ReligionSpread&gt;</pre>
+    <tr><td><span class="tagoptional"><b>SeeInvisibles</b></span><td>NONE<td>List of invisible types that the unit can see<br><pre class="code">
+  &lt;InvisibleType&gt;&lt;/InvisibleType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>SubCombatTypes</b></span><td>NONE<td>List of combat types that the unit is considered to be a member of<br><pre class="code">
+  &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;</pre>
+    <tr><td><span class="tagoptional">TerrainAttacks</span><td>NONE<td>Percentage bonus the unit receives when attacking in a terrain<br><pre class="code">
+  &lt;TerrainAttack&gt;
+    &lt;TerrainType&gt;&lt;/TerrainType&gt;
+    &lt;iTerrainAttack&gt;0&lt;/iTerrainAttack&gt;
+  &lt;/TerrainAttack&gt;</pre>
+    <tr><td><span class="tagoptional">TerrainDefenses</span><td>NONE<td>Percentage bonus the unit receives when defending in a terrain<br><pre class="code">
+  &lt;TerrainDefense&gt;
+    &lt;TerrainType&gt;&lt;/TerrainType&gt;
+    &lt;iTerrainDefense&gt;0&lt;/iTerrainDefense&gt;
+  &lt;/TerrainDefense&gt;</pre>
+    <tr><td><span class="tagoptional"><b>TerrainImpassables</b></span><td>NONE<td>List of terrains which the unit cannot move onto<br><pre class="code">
+  &lt;TerrainType&gt;&lt;/TerrainType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>TerrainNatives</b></span><td>NONE<td>The list of terrains than an animal will be found in. Animals tend to stay in their native terrains unless actively pursuing prey<br><pre class="code">
+  &lt;TerrainType&gt;&lt;/TerrainType&gt;</pre>
+    <tr><td><span class="tagoptional">TerrainPassableTechs</span><td>NONE<td>List of techs, the discovery of which allows the unit to move onto the defined terrain<br><pre class="code">
+  &lt;TerrainPassableTech&gt;
+    &lt;TerrainType&gt;&lt;/TerrainType&gt;
+    &lt;PassableTech&gt;&lt;/PassableTech&gt;
+  &lt;/TerrainPassableTech&gt;</pre>
+    <tr><td><span class="tagoptional">UniqueNames</span><td><td>Allows an instance of a unit to have a distinct name<br><pre class="code">
+  &lt;UniqueName&gt;&lt;/UniqueName&gt;</pre>
+    <tr><td><span class="tagmandatory"><b>UnitAIs</b></span><td>NONE<td>Contains a list of the AI routines that the unit can take<br><pre class="code">
+  &lt;UnitAIType&gt;&lt;/UnitAIType&gt;</pre>
+    <tr><td><span class="tagoptional">UnitClassAttackMods</span><td>NONE<td>The percent bonuses/penalties that the unit gets against specific UnitClasses in attack<br><pre class="code">
+  &lt;UnitClassAttackMod&gt;
+    &lt;UnitClassType&gt;&lt;/UnitClassType&gt;
+    &lt;iUnitClassMod&gt;0&lt;/iUnitClassMod&gt;
+  &lt;/UnitClassAttackMod&gt;</pre>
+    <tr><td><span class="tagoptional"><b>UnitClassDefenders</b></span><td>NONE<td>Unit is defended against by the specified UnitClasses<br><pre class="code">
+  &lt;UnitClassType&gt;&lt;/UnitClassType&gt;</pre>
+    <tr><td><span class="tagoptional">UnitClassDefenseMods</span><td>NONE<td>The percent bonuses/penalties that the unit gets against specific UnitClasses when defending<br><pre class="code">
+  &lt;UnitClassDefenseMod&gt;
+    &lt;UnitClassType&gt;&lt;/UnitClassType&gt;
+    &lt;iUnitClassMod&gt;0&lt;/iUnitClassMod&gt;
+  &lt;/UnitClassDefenseMod&gt;</pre>
+    <tr><td><span class="tagoptional"><b>UnitClassTargets</b></span><td>NONE<td>Unit attacks first against the specified UnitClasses<br><pre class="code">
+  &lt;UnitClassType&gt;&lt;/UnitClassType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>UnitClassUpgrades</b></span><td>NONE<td>The UnitClasses to which this unit upgrades<br><pre class="code">
+  &lt;UnitClassType&gt;&lt;/UnitClassType&gt;</pre>
+    <tr><td><span class="tagoptional">UnitCombatCollateralImmunes</span><td>NONE<td>The UnitCombat(s) that this unit does not receive collateral damage from<br><pre class="code">
+  &lt;UnitCombatCollateralImmune&gt;
+    &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;
+    &lt;iUnitCombatCollateralImmune&gt;0&lt;/iUnitCombatCollateralImmune&gt;
+  &lt;/UnitCombatCollateralImmune&gt;</pre>
+    <tr><td><span class="tagoptional"><b>UnitCombatDefenders</b></span><td>NONE<td>Unit is defended against by the specified UnitCombats<br><pre class="code">
+  &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;</pre>
+    <tr><td><span class="tagoptional">UnitCombatMods</span><td>NONE<td>The percent bonuses/penalties that the unit gets against different UnitCombat groups<br><pre class="code">
+  &lt;UnitCombatMod&gt;
+    &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;
+    &lt;iUnitCombatMod&gt;0&lt;/iUnitCombatMod&gt;
+  &lt;/UnitCombatMod&gt;</pre>
+    <tr><td><span class="tagoptional"><b>UnitCombatTargets</b></span><td>NONE<td>Unit attacks first against the specified UnitCombats<br><pre class="code">
+  &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;</pre>
+    <tr><td><span class="tagmandatory">UnitMeshGroups</span><td>NONE<td>Describes how the unit is displayed on the map<br><pre class="code">
+  &lt;iGroupSize&gt;0&lt;/iGroupSize&gt;
+  &lt;fMaxSpeed&gt;0.0&lt;/fMaxSpeed&gt;
+  &lt;fPadTime&gt;0.0&lt;/fPadTime&gt;
+  &lt;iMeleeWaveSize&gt;0&lt;/iMeleeWaveSize&gt;
+  &lt;iRangedWaveSize&gt;0&lt;/iRangedWaveSize&gt;
+  &lt;UnitMeshGroup&gt;
+    &lt;EarlyArtDefineTag&gt;&lt;/EarlyArtDefineTag&gt;
+    &lt;LateArtDefineTag&gt;&lt;/LateArtDefineTag&gt;
+    &lt;MiddleArtDefineTag&gt;&lt;/MiddleArtDefineTag&gt;
+  &lt;/UnitMeshGroup&gt;</pre>
+    <tr><td><span class="tagoptional"><b>YieldsFromKill</b></span><td>NONE<td>When a unit is killed the victor may gain this yield from the kill<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;UnitInfo&gt;
+  &lt;Class&gt;&lt;/Class&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Domain&gt;&lt;/Domain&gt;
+  &lt;DefaultUnitAI&gt;&lt;/DefaultUnitAI&gt;
+  &lt;UnitAIs&gt;
+  &lt;/UnitAIs&gt;
+  &lt;UnitMeshGroups&gt;
+    &lt;iGroupSize&gt;0&lt;/iGroupSize&gt;
+    &lt;fMaxSpeed&gt;0.0&lt;/fMaxSpeed&gt;
+    &lt;fPadTime&gt;0.0&lt;/fPadTime&gt;
+    &lt;iMeleeWaveSize&gt;0&lt;/iMeleeWaveSize&gt;
+    &lt;iRangedWaveSize&gt;0&lt;/iRangedWaveSize&gt;
+    &lt;UnitMeshGroup&gt;
+    &lt;/UnitMeshGroup&gt;
+  &lt;/UnitMeshGroups&gt;
+  &lt;FormationType&gt;&lt;/FormationType&gt;
+&lt;/UnitInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;UnitInfo&gt;
+  &lt;Class&gt;&lt;/Class&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;UniqueNames&gt;
+    &lt;UniqueName&gt;&lt;/UniqueName&gt;
+  &lt;/UniqueNames&gt;
+  &lt;Special&gt;&lt;/Special&gt;
+  &lt;Capture&gt;&lt;/Capture&gt;
+  &lt;Combat&gt;&lt;/Combat&gt;
+  &lt;SubCombatTypes&gt;
+    &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;
+  &lt;/SubCombatTypes&gt;
+  &lt;Domain&gt;&lt;/Domain&gt;
+  &lt;DefaultUnitAI&gt;&lt;/DefaultUnitAI&gt;
+  &lt;bFixedAI&gt;0&lt;/bFixedAI&gt;
+  &lt;iMaxWeaponTypeTier&gt;-1&lt;/iMaxWeaponTypeTier&gt;
+  &lt;iMaxAmmoTypeTier&gt;-1&lt;/iMaxAmmoTypeTier&gt;
+  &lt;Invisible&gt;&lt;/Invisible&gt;
+  &lt;SeeInvisibles&gt;
+    &lt;InvisibleType&gt;&lt;/InvisibleType&gt;
+  &lt;/SeeInvisibles&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;Strategy&gt;&lt;/Strategy&gt;
+  &lt;Help&gt;&lt;/Help&gt;
+  &lt;Advisor&gt;&lt;/Advisor&gt;
+  &lt;bAnimal&gt;0&lt;/bAnimal&gt;
+  &lt;bFood&gt;0&lt;/bFood&gt;
+  &lt;bNoBadGoodies&gt;0&lt;/bNoBadGoodies&gt;
+  &lt;bOnlyDefensive&gt;0&lt;/bOnlyDefensive&gt;
+  &lt;bNoCapture&gt;0&lt;/bNoCapture&gt;
+  &lt;bQuickCombat&gt;0&lt;/bQuickCombat&gt;
+  &lt;bRivalTerritory&gt;0&lt;/bRivalTerritory&gt;
+  &lt;bMilitaryHappiness&gt;0&lt;/bMilitaryHappiness&gt;
+  &lt;bMilitarySupport&gt;0&lt;/bMilitarySupport&gt;
+  &lt;bMilitaryProduction&gt;0&lt;/bMilitaryProduction&gt;
+  &lt;bPillage&gt;0&lt;/bPillage&gt;
+  &lt;bSpy&gt;0&lt;/bSpy&gt;
+  &lt;bSabotage&gt;0&lt;/bSabotage&gt;
+  &lt;bDestroy&gt;0&lt;/bDestroy&gt;
+  &lt;bStealPlans&gt;0&lt;/bStealPlans&gt;
+  &lt;bInvestigate&gt;0&lt;/bInvestigate&gt;
+  &lt;bCounterSpy&gt;0&lt;/bCounterSpy&gt;
+  &lt;bFound&gt;0&lt;/bFound&gt;
+  &lt;bGoldenAge&gt;0&lt;/bGoldenAge&gt;
+  &lt;bInvisible&gt;0&lt;/bInvisible&gt;
+  &lt;bFirstStrikeImmune&gt;0&lt;/bFirstStrikeImmune&gt;
+  &lt;bNoDefensiveBonus&gt;0&lt;/bNoDefensiveBonus&gt;
+  &lt;bIgnoreBuildingDefense&gt;0&lt;/bIgnoreBuildingDefense&gt;
+  &lt;bCanMoveImpassable&gt;0&lt;/bCanMoveImpassable&gt;
+  &lt;bCanMoveAllTerrain&gt;0&lt;/bCanMoveAllTerrain&gt;
+  &lt;bFlatMovementCost&gt;0&lt;/bFlatMovementCost&gt;
+  &lt;bIgnoreTerrainCost&gt;0&lt;/bIgnoreTerrainCost&gt;
+  &lt;bNukeImmune&gt;0&lt;/bNukeImmune&gt;
+  &lt;bPrereqBonuses&gt;0&lt;/bPrereqBonuses&gt;
+  &lt;bPrereqReligion&gt;0&lt;/bPrereqReligion&gt;
+  &lt;bMechanized&gt;0&lt;/bMechanized&gt;
+  &lt;bRenderBelowWater&gt;0&lt;/bRenderBelowWater&gt;
+  &lt;bRenderAlways&gt;0&lt;/bRenderAlways&gt;
+  &lt;bSuicide&gt;0&lt;/bSuicide&gt;
+  &lt;bSingleBuild&gt;0&lt;/bSingleBuild&gt;
+  &lt;bSlave&gt;0&lt;/bSlave&gt;
+  &lt;bLineOfSight&gt;0&lt;/bLineOfSight&gt;
+  &lt;bHiddenNationality&gt;0&lt;/bHiddenNationality&gt;
+  &lt;bAlwaysHostile&gt;0&lt;/bAlwaysHostile&gt;
+  &lt;bWorkerTrade&gt;0&lt;/bWorkerTrade&gt;
+  &lt;bMilitaryTrade&gt;0&lt;/bMilitaryTrade&gt;
+  &lt;UnitClassUpgrades&gt;
+    &lt;UnitClassType&gt;&lt;/UnitClassType&gt;
+  &lt;/UnitClassUpgrades&gt;
+  &lt;UnitClassTargets&gt;
+    &lt;UnitClassType&gt;&lt;/UnitClassType&gt;
+  &lt;/UnitClassTargets&gt;
+  &lt;UnitCombatTargets&gt;
+    &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;
+  &lt;/UnitCombatTargets&gt;
+  &lt;UnitClassDefenders&gt;
+    &lt;UnitClassType&gt;&lt;/UnitClassType&gt;
+  &lt;/UnitClassDefenders&gt;
+  &lt;UnitCombatDefenders&gt;
+    &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;
+  &lt;/UnitCombatDefenders&gt;
+  &lt;FlankingStrikes&gt;
+    &lt;FlankingStrike&gt;
+      &lt;FlankingStrikeUnitClass&gt;&lt;/FlankingStrikeUnitClass&gt;
+      &lt;iFlankingStrength&gt;0&lt;/iFlankingStrength&gt;
+    &lt;/FlankingStrike&gt;
+  &lt;/FlankingStrikes&gt;
+  &lt;UnitAIs&gt;
+    &lt;UnitAIType&gt;&lt;/UnitAIType&gt;
+  &lt;/UnitAIs&gt;
+  &lt;NotUnitAIs&gt;
+    &lt;UnitAIType&gt;&lt;/UnitAIType&gt;
+  &lt;/NotUnitAIs&gt;
+  &lt;Builds&gt;
+    &lt;BuildType&gt;&lt;/BuildType&gt;
+  &lt;/Builds&gt;
+  &lt;ReligionSpreads&gt;
+    &lt;ReligionSpread&gt;
+      &lt;ReligionType&gt;&lt;/ReligionType&gt;
+      &lt;iReligionSpread&gt;0&lt;/iReligionSpread&gt;
+    &lt;/ReligionSpread&gt;
+  &lt;/ReligionSpreads&gt;
+  &lt;CorporationSpreads&gt;
+    &lt;CorporationSpread&gt;
+      &lt;CorporationType&gt;&lt;/CorporationType&gt;
+      &lt;iCorporationSpread&gt;0&lt;/iCorporationSpread&gt;
+    &lt;/CorporationSpread&gt;
+  &lt;/CorporationSpreads&gt;
+  &lt;GreatPeoples&gt;
+    &lt;GreatPeopleType&gt;&lt;/GreatPeopleType&gt;
+  &lt;/GreatPeoples&gt;
+  &lt;SlaveSpecialistType&gt;&lt;/SlaveSpecialistType&gt;
+  &lt;Buildings&gt;
+    &lt;Building&gt;
+      &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
+      &lt;BuildingType&gt;&lt;/BuildingType&gt;
+    &lt;/Building&gt;
+  &lt;/Buildings&gt;
+  &lt;ForceBuildings&gt;
+    &lt;BuildingType&gt;&lt;/BuildingType&gt;
+  &lt;/ForceBuildings&gt;
+  &lt;HolyCity&gt;&lt;/HolyCity&gt;
+  &lt;ReligionType&gt;&lt;/ReligionType&gt;
+  &lt;StateReligion&gt;&lt;/StateReligion&gt;
+  &lt;PrereqReligion&gt;&lt;/PrereqReligion&gt;
+  &lt;PrereqCorporation&gt;&lt;/PrereqCorporation&gt;
+  &lt;PrereqBuilding&gt;&lt;/PrereqBuilding&gt;
+  &lt;PrereqTechs&gt;
+    &lt;TechType&gt;&lt;/TechType&gt;
+  &lt;/PrereqTechs&gt;
+  &lt;ObsoleteTech&gt;&lt;/ObsoleteTech&gt;
+  &lt;BonusType&gt;&lt;/BonusType&gt;
+  &lt;PrereqOrBonuses&gt;
+    &lt;BonusType&gt;&lt;/BonusType&gt;
+  &lt;/PrereqOrBonuses&gt;
+  &lt;PrereqAndCivics&gt;
+    &lt;CivicType&gt;&lt;/CivicType&gt;
+  &lt;/PrereqAndCivics&gt;
+  &lt;PrereqOrCivics&gt;
+    &lt;CivicType&gt;&lt;/CivicType&gt;
+  &lt;/PrereqOrCivics&gt;
+  &lt;PrereqAndTerrains&gt;
+    &lt;TerrainType&gt;&lt;/TerrainType&gt;
+  &lt;/PrereqAndTerrains&gt;
+  &lt;PrereqOrTerrains&gt;
+    &lt;TerrainType&gt;&lt;/TerrainType&gt;
+  &lt;/PrereqOrTerrains&gt;
+  &lt;PrereqOrBuildingClasses&gt;
+    &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+  &lt;/PrereqOrBuildingClasses&gt;
+  &lt;PrereqNotBuildingClasses&gt;
+    &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+  &lt;/PrereqNotBuildingClasses&gt;
+  &lt;PrereqVicinityAndBonus&gt;
+    &lt;BonusType&gt;&lt;/BonusType&gt;
+  &lt;/PrereqVicinityAndBonus&gt;
+  &lt;PrereqVicinityOrBonus&gt;
+    &lt;BonusType&gt;&lt;/BonusType&gt;
+  &lt;/PrereqVicinityOrBonus&gt;
+  &lt;PrereqVicinityImprovements&gt;
+    &lt;ImprovementType&gt;&lt;/ImprovementType&gt;
+  &lt;/PrereqVicinityImprovements&gt;
+  &lt;PrereqVicinityFeatures&gt;
+    &lt;FeatureType&gt;&lt;/FeatureType&gt;
+  &lt;/PrereqVicinityFeatures&gt;
+  &lt;PrereqWorldViews&gt;
+    &lt;WorldViewType&gt;&lt;/WorldViewType&gt;
+  &lt;/PrereqWorldViews&gt;
+  &lt;iMinPopulation&gt;0&lt;/iMinPopulation&gt;
+  &lt;MinCultureLevel&gt;&lt;/MinCultureLevel&gt;
+  &lt;bPrereqPower&gt;0&lt;/bPrereqPower&gt;
+  &lt;ProductionTraits&gt;
+    &lt;ProductionTrait&gt;
+      &lt;ProductionTraitType&gt;&lt;/ProductionTraitType&gt;
+      &lt;iProductionTrait&gt;0&lt;/iProductionTrait&gt;
+    &lt;/ProductionTrait&gt;
+  &lt;/ProductionTraits&gt;
+  &lt;Flavors&gt;
+    &lt;Flavor&gt;
+      &lt;FlavorType&gt;&lt;/FlavorType&gt;
+      &lt;iFlavor&gt;0&lt;/iFlavor&gt;
+    &lt;/Flavor&gt;
+  &lt;/Flavors&gt;
+  &lt;iAIWeight&gt;0&lt;/iAIWeight&gt;
+  &lt;iCost&gt;0&lt;/iCost&gt;
+  &lt;iEnslaveCount&gt;0&lt;/iEnslaveCount&gt;
+  &lt;iHurryCostModifier&gt;0&lt;/iHurryCostModifier&gt;
+  &lt;iAdvancedStartCost&gt;0&lt;/iAdvancedStartCost&gt;
+  &lt;iAdvancedStartCostIncrease&gt;0&lt;/iAdvancedStartCostIncrease&gt;
+  &lt;iMinAreaSize&gt;-1&lt;/iMinAreaSize&gt;
+  &lt;iMoves&gt;0&lt;/iMoves&gt;
+  &lt;UnitRangeType&gt;UNITRANGE_UNLIMITED&lt;/UnitRangeType&gt;
+  &lt;bNoRevealMap&gt;0&lt;/bNoRevealMap&gt;
+  &lt;iAirRange&gt;0&lt;/iAirRange&gt;
+  &lt;iAirUnitCap&gt;0&lt;/iAirUnitCap&gt;
+  &lt;iDropRange&gt;0&lt;/iDropRange&gt;
+  &lt;iNukeRange&gt;-1&lt;/iNukeRange&gt;
+  &lt;iWorkRate&gt;0&lt;/iWorkRate&gt;
+  &lt;iBaseDiscover&gt;0&lt;/iBaseDiscover&gt;
+  &lt;iDiscoverMultiplier&gt;0&lt;/iDiscoverMultiplier&gt;
+  &lt;iBaseHurry&gt;0&lt;/iBaseHurry&gt;
+  &lt;iHurryMultiplier&gt;0&lt;/iHurryMultiplier&gt;
+  &lt;iBaseTrade&gt;0&lt;/iBaseTrade&gt;
+  &lt;iTradeMultiplier&gt;0&lt;/iTradeMultiplier&gt;
+  &lt;iGreatWorkCulture&gt;0&lt;/iGreatWorkCulture&gt;
+  &lt;iEspionagePoints&gt;0&lt;/iEspionagePoints&gt;
+  &lt;iSpyEscapeChance&gt;0&lt;/iSpyEscapeChance&gt;
+  &lt;iSpyEvasionChance&gt;0&lt;/iSpyEvasionChance&gt;
+  &lt;iSpyInterceptChance&gt;0&lt;/iSpyInterceptChance&gt;
+  &lt;TerrainImpassables&gt;
+    &lt;TerrainType&gt;&lt;/TerrainType&gt;
+  &lt;/TerrainImpassables&gt;
+  &lt;FeatureImpassables&gt;
+    &lt;FeatureType&gt;&lt;/FeatureType&gt;
+  &lt;/FeatureImpassables&gt;
+  &lt;TerrainPassableTechs&gt;
+    &lt;TerrainPassableTech&gt;
+      &lt;TerrainType&gt;&lt;/TerrainType&gt;
+      &lt;PassableTech&gt;&lt;/PassableTech&gt;
+    &lt;/TerrainPassableTech&gt;
+  &lt;/TerrainPassableTechs&gt;
+  &lt;FeaturePassableTechs&gt;
+    &lt;FeaturePassableTech&gt;
+      &lt;FeatureType&gt;&lt;/FeatureType&gt;
+      &lt;PassableTech&gt;&lt;/PassableTech&gt;
+    &lt;/FeaturePassableTech&gt;
+  &lt;/FeaturePassableTechs&gt;
+  &lt;iCombat&gt;0&lt;/iCombat&gt;
+  &lt;iCombatLimit&gt;0&lt;/iCombatLimit&gt;
+  &lt;iAirCombat&gt;0&lt;/iAirCombat&gt;
+  &lt;iAirCombatLimit&gt;0&lt;/iAirCombatLimit&gt;
+  &lt;iXPValueAttack&gt;0&lt;/iXPValueAttack&gt;
+  &lt;iXPValueDefense&gt;0&lt;/iXPValueDefense&gt;
+  &lt;iFirstStrikes&gt;0&lt;/iFirstStrikes&gt;
+  &lt;iChanceFirstStrikes&gt;0&lt;/iChanceFirstStrikes&gt;
+  &lt;iInterceptionProbability&gt;0&lt;/iInterceptionProbability&gt;
+  &lt;iEvasionProbability&gt;0&lt;/iEvasionProbability&gt;
+  &lt;iWithdrawalProb&gt;0&lt;/iWithdrawalProb&gt;
+  &lt;iCollateralDamage&gt;0&lt;/iCollateralDamage&gt;
+  &lt;iCollateralDamageLimit&gt;0&lt;/iCollateralDamageLimit&gt;
+  &lt;iCollateralDamageMaxUnits&gt;0&lt;/iCollateralDamageMaxUnits&gt;
+  &lt;iCityAttack&gt;0&lt;/iCityAttack&gt;
+  &lt;iCityDefense&gt;0&lt;/iCityDefense&gt;
+  &lt;iAnimalCombat&gt;0&lt;/iAnimalCombat&gt;
+  &lt;iHillsAttack&gt;0&lt;/iHillsAttack&gt;
+  &lt;iHillsDefense&gt;0&lt;/iHillsDefense&gt;
+  &lt;TerrainNatives&gt;
+    &lt;TerrainType&gt;&lt;/TerrainType&gt;
+  &lt;/TerrainNatives&gt;
+  &lt;FeatureNatives&gt;
+    &lt;FeatureType&gt;&lt;/FeatureType&gt;
+  &lt;/FeatureNatives&gt;
+  &lt;TerrainAttacks&gt;
+    &lt;TerrainAttack&gt;
+      &lt;TerrainType&gt;&lt;/TerrainType&gt;
+      &lt;iTerrainAttack&gt;0&lt;/iTerrainAttack&gt;
+    &lt;/TerrainAttack&gt;
+  &lt;/TerrainAttacks&gt;
+  &lt;TerrainDefenses&gt;
+    &lt;TerrainDefense&gt;
+      &lt;TerrainType&gt;&lt;/TerrainType&gt;
+      &lt;iTerrainDefense&gt;0&lt;/iTerrainDefense&gt;
+    &lt;/TerrainDefense&gt;
+  &lt;/TerrainDefenses&gt;
+  &lt;FeatureAttacks&gt;
+    &lt;FeatureAttack&gt;
+      &lt;FeatureType&gt;&lt;/FeatureType&gt;
+      &lt;iFeatureAttack&gt;0&lt;/iFeatureAttack&gt;
+    &lt;/FeatureAttack&gt;
+  &lt;/FeatureAttacks&gt;
+  &lt;FeatureDefenses&gt;
+    &lt;FeatureDefense&gt;
+      &lt;FeatureType&gt;&lt;/FeatureType&gt;
+      &lt;iFeatureDefense&gt;0&lt;/iFeatureDefense&gt;
+    &lt;/FeatureDefense&gt;
+  &lt;/FeatureDefenses&gt;
+  &lt;UnitClassAttackMods&gt;
+    &lt;UnitClassAttackMod&gt;
+      &lt;UnitClassType&gt;&lt;/UnitClassType&gt;
+      &lt;iUnitClassMod&gt;0&lt;/iUnitClassMod&gt;
+    &lt;/UnitClassAttackMod&gt;
+  &lt;/UnitClassAttackMods&gt;
+  &lt;UnitClassDefenseMods&gt;
+    &lt;UnitClassDefenseMod&gt;
+      &lt;UnitClassType&gt;&lt;/UnitClassType&gt;
+      &lt;iUnitClassMod&gt;0&lt;/iUnitClassMod&gt;
+    &lt;/UnitClassDefenseMod&gt;
+  &lt;/UnitClassDefenseMods&gt;
+  &lt;UnitCombatMods&gt;
+    &lt;UnitCombatMod&gt;
+      &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;
+      &lt;iUnitCombatMod&gt;0&lt;/iUnitCombatMod&gt;
+    &lt;/UnitCombatMod&gt;
+  &lt;/UnitCombatMods&gt;
+  &lt;UnitCombatCollateralImmunes&gt;
+    &lt;UnitCombatCollateralImmune&gt;
+      &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;
+      &lt;iUnitCombatCollateralImmune&gt;0&lt;/iUnitCombatCollateralImmune&gt;
+    &lt;/UnitCombatCollateralImmune&gt;
+  &lt;/UnitCombatCollateralImmunes&gt;
+  &lt;DomainMods&gt;
+    &lt;DomainMod&gt;
+      &lt;DomainType&gt;&lt;/DomainType&gt;
+      &lt;iDomainMod&gt;0&lt;/iDomainMod&gt;
+    &lt;/DomainMod&gt;
+  &lt;/DomainMods&gt;
+  &lt;BonusProductionModifiers&gt;
+    &lt;BonusProductionModifier&gt;
+      &lt;BonusType&gt;&lt;/BonusType&gt;
+      &lt;iProductonModifier&gt;0&lt;/iProductonModifier&gt;
+    &lt;/BonusProductionModifier&gt;
+  &lt;/BonusProductionModifiers&gt;
+  &lt;YieldsFromKill&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/YieldsFromKill&gt;
+  &lt;CommercesFromKill&gt;
+    &lt;iCommerce&gt;0&lt;/iCommerce&gt;
+  &lt;/CommercesFromKill&gt;
+  &lt;iBombRate&gt;0&lt;/iBombRate&gt;
+  &lt;iBombardRate&gt;0&lt;/iBombardRate&gt;
+  &lt;SpecialCargo&gt;&lt;/SpecialCargo&gt;
+  &lt;DomainCargo&gt;&lt;/DomainCargo&gt;
+  &lt;iCargo&gt;0&lt;/iCargo&gt;
+  &lt;iConscription&gt;0&lt;/iConscription&gt;
+  &lt;iCultureGarrison&gt;0&lt;/iCultureGarrison&gt;
+  &lt;iExtraCost&gt;0&lt;/iExtraCost&gt;
+  &lt;iAsset&gt;0&lt;/iAsset&gt;
+  &lt;iPower&gt;0&lt;/iPower&gt;
+  &lt;UnitMeshGroups&gt;
+    &lt;iGroupSize&gt;0&lt;/iGroupSize&gt;
+    &lt;fMaxSpeed&gt;0.0&lt;/fMaxSpeed&gt;
+    &lt;fPadTime&gt;0.0&lt;/fPadTime&gt;
+    &lt;iMeleeWaveSize&gt;0&lt;/iMeleeWaveSize&gt;
+    &lt;iRangedWaveSize&gt;0&lt;/iRangedWaveSize&gt;
+    &lt;UnitMeshGroup&gt;
+      &lt;EarlyArtDefineTag&gt;&lt;/EarlyArtDefineTag&gt;
+      &lt;LateArtDefineTag&gt;&lt;/LateArtDefineTag&gt;
+      &lt;MiddleArtDefineTag&gt;&lt;/MiddleArtDefineTag&gt;
+    &lt;/UnitMeshGroup&gt;
+  &lt;/UnitMeshGroups&gt;
+  &lt;FormationType&gt;&lt;/FormationType&gt;
+  &lt;HotKey&gt;&lt;/HotKey&gt;
+  &lt;bAltDown&gt;0&lt;/bAltDown&gt;
+  &lt;bShiftDown&gt;0&lt;/bShiftDown&gt;
+  &lt;bCtrlDown&gt;0&lt;/bCtrlDown&gt;
+  &lt;iHotKeyPriority&gt;0&lt;/iHotKeyPriority&gt;
+  &lt;FreePromotions&gt;
+    &lt;PromotionType&gt;&lt;/PromotionType&gt;
+  &lt;/FreePromotions&gt;
+  &lt;LeaderPromotion&gt;&lt;/LeaderPromotion&gt;
+  &lt;iLeaderExperience&gt;0&lt;/iLeaderExperience&gt;
+  &lt;iOrderPriority&gt;0&lt;/iOrderPriority&gt;
+&lt;/UnitInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

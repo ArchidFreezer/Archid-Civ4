@@ -1,0 +1,169 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4BonusInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4BonusInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">ArtDefineTag</span><td><td>Refers to a tag in the Civ4ArtDefines_Bonus file
+    <tr><td><span class="tagoptional">BonusClassType</span><td>NO_BONUSCLASS<td>Used to specify the category of the bonus. Must be a type from the file Civ4BonusClassInfos where a frequency for each bonus class can be stated
+    <tr><td><span class="tagoptional">Civilopedia</span><td><td>Refers to a tag in the Civ4GameText file which stores the Platypedia description for the bonus
+    <tr><td><span class="tagmandatory">Description</span><td><td>A reference to the text files, which contain an entry for this bonus
+    <tr><td><span class="tagoptional">Help</span><td><td>Additional help text that will be displayed in the Platypedia
+    <tr><td><span class="tagoptional">TechCityTrade</span><td>NO_TECH<td>The technology that enables the trading of this resource
+    <tr><td><span class="tagoptional">TechObsolete</span><td>NO_TECH<td>The technology that obsoletes the resource
+    <tr><td><span class="tagoptional">TechReveal</span><td>NO_TECH<td>The technology that reveals the resource to the player
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal name of this bonus
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iAIObjective</span><td>0<td>Defines how much the AI values the resource. If this is set units will try and protect the resource when on the defensive or use it when calculating whether they want to start a war. This is set to 0 for all existing bonuses.
+    <tr><td><span class="tagoptional">iAITradeModifier</span><td>0<td>Defines how much the AI values the resource when trading
+    <tr><td><span class="tagoptional">iConstAppearance</span><td>0<td>The chance that the resource will be placed on the map 
+    <tr><td><span class="tagoptional">iGroupRand</span><td>0<td>If iGroupRange is non-zero, this is the percentage chance that each tile within iGroupRange radius will contain that resource
+    <tr><td><span class="tagoptional">iGroupRange</span><td>0<td>If non-zero, every time this resource is placed, all tiles within iGroupRange radius have an iGroupRand chance to have this resource
+    <tr><td><span class="tagoptional">iHappiness</span><td>0<td>Change in happiness the resource provides 
+    <tr><td><span class="tagoptional">iHealth</span><td>0<td>Change in healthiness the resource provides
+    <tr><td><span class="tagoptional">iMaxLatitude</span><td>90<td>Maximum latitude plots with this bonus can be
+    <tr><td><span class="tagoptional">iMinAreaSize</span><td>0<td>Minimum needed size of island or continent to make appear the resource 
+    <tr><td><span class="tagoptional">iMinLandPercent</span><td>0<td>If a resource can be on land and ocean, this is the percentage that will be located on land
+    <tr><td><span class="tagoptional">iMinLatitude</span><td>0<td>Minimum latitude plots with this bonus can be
+    <tr><td><span class="tagoptional">iPlacementOrder</span><td>0<td>The order in which bonuses are placed, starting at zero and counting up. All of the zero resources will be placed before proceed to those with iPlacementOrder 1 and so on. If after the higher priority bonuses are placed there are no available squares left, then none of the lower priority bonuses will actually appear
+    <tr><td><span class="tagoptional">iPlayer</span><td>0<td>Approximate occurrences per player, in percent (%), so 150 is about 1.5 per player
+    <tr><td><span class="tagoptional">iTilesPer</span><td>0<td>The fixed number of additional occurrences per x tiles, so 120 would mean an additional occurrence every 120 tiles existing on the map
+    <tr><td><span class="tagoptional">iUnique</span><td>0<td>This is the range in tiles that this resource will be unique, all tiles within this radius are invalid for another resource
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bArea</span><td>0<td>If true and the map has more than one continent, this resource will only be placed on one continent instead of all possible areas
+    <tr><td><span class="tagoptional">bFlatlands</span><td>0<td>If true, the resource may appear only on flat land
+    <tr><td><span class="tagoptional">bHills</span><td>0<td>If true, the resource may appear only on hills
+    <tr><td><span class="tagoptional">bNoRiverSide</span><td>0<td>If true, the resource can not appear next to a river 
+    <tr><td><span class="tagoptional">bNormalize</span><td>0<td>If true, bonus is used for starting location normalization (extra resources that are added to even out starting locations)
+    <tr><td><span class="tagoptional"><b>bPeaks</b></span><td>0<td>If true, the resource may appear on peaks
+    <tr><td><span class="tagoptional">bUseLSystem</span><td>0<td>If true, the bonus uses the LSystem for graphics placement
+  </table>	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional"><b>FeatureBooleans</b></span><td>NONE<td>Defines a set of features that may exist on a plot for the bonus to appear<br><pre class="code">
+  &lt;FeatureType&gt;&lt;/FeatureType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>FeatureTerrainBooleans</b></span><td>NONE<td>Defines which terrains that features defined in FeatureBooleans must be on in order for the bonus to appear<br><pre class="code">
+  &lt;FeatureType&gt;&lt;/FeatureType&gt;</pre>
+    <tr><td><span class="tagoptional">Rands</span><td>NONE<td>Used to randomise the number of a bonus to place on a map. A random number will be generated up to the range of each of these values and added to iConstAppearance when determining the number of bonuses to place on a map<br><pre class="code">
+  &lt;iRandApp1&gt;0&lt;/iRandApp1&gt;
+  &lt;iRandApp2&gt;0&lt;/iRandApp2&gt;
+  &lt;iRandApp3&gt;0&lt;/iRandApp3&gt;
+  &lt;iRandApp4&gt;0&lt;/iRandApp4&gt;</pre>
+    <tr><td><span class="tagoptional"><b>TerrainBooleans</b></span><td>NONE<td>Defines which terrain types the resource may appear on<br><pre class="code">
+  &lt;TerrainType&gt;&lt;/TerrainType&gt;</pre>
+    <tr><td><span class="tagoptional">YieldChanges</span><td>NONE<td>Defines the change in plot yields<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;BonusInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+&lt;/BonusInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;BonusInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;Help&gt;&lt;/Help&gt;
+  &lt;BonusClassType&gt;&lt;/BonusClassType&gt;
+  &lt;ArtDefineTag&gt;&lt;/ArtDefineTag&gt;
+  &lt;TechReveal&gt;&lt;/TechReveal&gt;
+  &lt;TechCityTrade&gt;&lt;/TechCityTrade&gt;
+  &lt;TechObsolete&gt;&lt;/TechObsolete&gt;
+  &lt;YieldChanges&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/YieldChanges&gt;
+  &lt;iAITradeModifier&gt;0&lt;/iAITradeModifier&gt;
+  &lt;iAIObjective&gt;0&lt;/iAIObjective&gt;
+  &lt;iHealth&gt;0&lt;/iHealth&gt;
+  &lt;iHappiness&gt;0&lt;/iHappiness&gt;
+  &lt;iPlacementOrder&gt;0&lt;/iPlacementOrder&gt;
+  &lt;iConstAppearance&gt;0&lt;/iConstAppearance&gt;
+  &lt;iMinAreaSize&gt;0&lt;/iMinAreaSize&gt;
+  &lt;iMinLatitude&gt;0&lt;/iMinLatitude&gt;
+  &lt;iMaxLatitude&gt;0&lt;/iMaxLatitude&gt;
+  &lt;Rands&gt;
+    &lt;iRandApp1&gt;0&lt;/iRandApp1&gt;
+    &lt;iRandApp2&gt;0&lt;/iRandApp2&gt;
+    &lt;iRandApp3&gt;0&lt;/iRandApp3&gt;
+    &lt;iRandApp4&gt;0&lt;/iRandApp4&gt;
+  &lt;/Rands&gt;
+  &lt;iPlayer&gt;0&lt;/iPlayer&gt;
+  &lt;iTilesPer&gt;0&lt;/iTilesPer&gt;
+  &lt;iMinLandPercent&gt;0&lt;/iMinLandPercent&gt;
+  &lt;iUnique&gt;0&lt;/iUnique&gt;
+  &lt;iGroupRange&gt;0&lt;/iGroupRange&gt;
+  &lt;iGroupRand&gt;0&lt;/iGroupRand&gt;
+  &lt;bArea&gt;0&lt;/bArea&gt;
+  &lt;bHills&gt;0&lt;/bHills&gt;
+  &lt;bPeaks&gt;0&lt;/bPeaks&gt;
+  &lt;bFlatlands&gt;0&lt;/bFlatlands&gt;
+  &lt;bNoRiverSide&gt;0&lt;/bNoRiverSide&gt;
+  &lt;bNormalize&gt;0&lt;/bNormalize&gt;
+  &lt;TerrainBooleans&gt;
+    &lt;TerrainType&gt;&lt;/TerrainType&gt;
+  &lt;/TerrainBooleans&gt;
+  &lt;FeatureBooleans&gt;
+    &lt;FeatureType&gt;&lt;/FeatureType&gt;
+  &lt;/FeatureBooleans&gt;
+  &lt;FeatureTerrainBooleans&gt;
+    &lt;FeatureType&gt;&lt;/FeatureType&gt;
+  &lt;/FeatureTerrainBooleans&gt;
+  &lt;bUseLSystem&gt;0&lt;/bUseLSystem&gt;
+&lt;/BonusInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

@@ -1,0 +1,143 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4TerrainInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4TerrainInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">ArtDefineTag</span><td><td>Reference to the art definition for the terrain
+    <tr><td><span class="tagmandatory">Button</span><td><td>Path to a .dds file that contains the image for the object
+    <tr><td><span class="tagmandatory">Civilopedia</span><td><td>The pedia text for the terrain
+    <tr><td><span class="tagmandatory">Description</span><td><td>Reference to the text that contains a description of the terrain. The text may be defined in any of the files in \Assets\XML\Text 
+    <tr><td><span class="tagoptional">Help</span><td><td>Additional help text that will be displayed in the Pedia
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal reference to the terrain
+    <tr><td><span class="tagoptional">WorldSoundscapeAudioScript</span><td><td>Sound played on close zooms for the terrain
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iBuildModifier</span><td>0<td>Percentage change to the cost of improvements on this terrain
+    <tr><td><span class="tagoptional">iDefense</span><td>0<td>Percentage change to the defdensive bonus of troops on the terrain
+    <tr><td><span class="tagoptional">iMovement</span><td>1<td>Number of movement points required to move through the terrain
+    <tr><td><span class="tagoptional">iSeeFrom</span><td>0<td>The level (height) of the terrain, used when determining which plots are visible from the plot
+    <tr><td><span class="tagoptional">iSeeThrough</span><td>0<td>The level (height) of the terrain, used when determining whether units can see plots behind the one this terrain is on
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bFound</span><td>0<td>If true, it is possible to found a city on the terrain
+    <tr><td><span class="tagoptional">bFoundCoast</span><td>0<td>If true, it is possible to found a city on this terrain if it is next to a coast line
+    <tr><td><span class="tagoptional">bFoundFreshWater</span><td>0<td>If true, it is possible to found a city on this terrain if it is next to a fresh water supply
+    <tr><td><span class="tagoptional">bGraphicalOnly</span><td>0<td>If true, the terrain is not a true terrain, but rather a way of displaying the tile. Used for hills and peaks, which are plot types rather than true terrains.
+    <tr><td><span class="tagoptional">bImpassable</span><td>0<td>If true, the tearrin is considered impassable to normal non-air units.
+    <tr><td><span class="tagoptional">bWater</span><td>0<td>If true, the terrain is considered to be water for the purposes of determining which domain of unit can pass through it, etc.
+  </table>	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">FootstepSounds</span><td>NONE<td>Sound played for various unit types as they move over the terrain<br><pre class="code">
+  &lt;FootstepSound&gt;
+    &lt;FootstepAudioType&gt;&lt;/FootstepAudioType&gt;
+    &lt;FootstepAudioScript&gt;&lt;/FootstepAudioScript&gt;
+  &lt;/FootstepSound&gt;</pre>
+    <tr><td><span class="tagoptional">HillsYieldChange</span><td>NONE<td>Change in the tile yields if it is on a hill<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional">RiverYieldChange</span><td>NONE<td>Change in the tile yields caused by being next to a river<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional">Yields</span><td>NONE<td>The base yields for the terrain<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;TerrainInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;ArtDefineTag&gt;&lt;/ArtDefineTag&gt;
+  &lt;Button&gt;&lt;/Button&gt;
+  &lt;FootstepSounds&gt;
+  &lt;/FootstepSounds&gt;
+&lt;/TerrainInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;TerrainInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;Help&gt;&lt;/Help&gt;
+  &lt;ArtDefineTag&gt;&lt;/ArtDefineTag&gt;
+  &lt;Yields&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/Yields&gt;
+  &lt;RiverYieldChange&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/RiverYieldChange&gt;
+  &lt;HillsYieldChange&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/HillsYieldChange&gt;
+  &lt;bWater&gt;0&lt;/bWater&gt;
+  &lt;bImpassable&gt;0&lt;/bImpassable&gt;
+  &lt;bFound&gt;0&lt;/bFound&gt;
+  &lt;bFoundCoast&gt;0&lt;/bFoundCoast&gt;
+  &lt;bFoundFreshWater&gt;0&lt;/bFoundFreshWater&gt;
+  &lt;iMovement&gt;1&lt;/iMovement&gt;
+  &lt;iSeeFrom&gt;0&lt;/iSeeFrom&gt;
+  &lt;iSeeThrough&gt;0&lt;/iSeeThrough&gt;
+  &lt;iBuildModifier&gt;0&lt;/iBuildModifier&gt;
+  &lt;iDefense&gt;0&lt;/iDefense&gt;
+  &lt;Button&gt;&lt;/Button&gt;
+  &lt;FootstepSounds&gt;
+    &lt;FootstepSound&gt;
+      &lt;FootstepAudioType&gt;&lt;/FootstepAudioType&gt;
+      &lt;FootstepAudioScript&gt;&lt;/FootstepAudioScript&gt;
+    &lt;/FootstepSound&gt;
+  &lt;/FootstepSounds&gt;
+  &lt;WorldSoundscapeAudioScript&gt;&lt;/WorldSoundscapeAudioScript&gt;
+  &lt;bGraphicalOnly&gt;0&lt;/bGraphicalOnly&gt;
+&lt;/TerrainInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

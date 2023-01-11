@@ -1,0 +1,112 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4RouteInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4RouteInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">BonusType</span><td>NO_BONUS<td>A bonus that must be available on an adjacent plot. This typically means that there must be a route from an adjacent plot to a city that has the bonus.
+    <tr><td><span class="tagmandatory">Button</span><td><td>The icon to display for the route
+    <tr><td><span class="tagmandatory">Description</span><td><td>A reference to the text files, which contain an entry for this Route
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal name of this Route
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iAdvancedStartCost</span><td>0<td>The cost of the route when using an Advanced Start. 
+    <tr><td><span class="tagoptional">iAdvancedStartCostIncrease</span><td>0<td>The cost of increasing the build level of the route in the Advanced Start
+    <tr><td><span class="tagoptional">iFlatMovement</span><td>0<td>The number of movement points taken up irrespective of the units movement value. This means that all units have a base point total of 60 irrespective of the units movement value. The distance any unit can travel on the route is iFlatMovement / 60.
+    <tr><td><span class="tagoptional">iMovement</span><td>0<td>The number of movement points used when moving along the route. Each movement point that a unit is shown as having provides 60 base units. This tag defines how many of those points moving along the route takes. E.g. a worker with movement 2 has 60 points, so a road with a value of 30 iMovement allows the worker to move 4 places (60 * 2) / 30.
+    <tr><td><span class="tagoptional">iValue</span><td>0<td>The relative value of the route; a higher number is considered an upgrade of the route type
+  </table>	<p>
+	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional"><b>PrereqOrBonuses</b></span><td>NONE<td>A list of bonuses one of which must be available in an adjacent plot<br><pre class="code">
+  &lt;BonusType&gt;&lt;/BonusType&gt;</pre>
+    <tr><td><span class="tagoptional">TechMovementChanges</span><td>NONE<td>The change in the iMovement value once the tech is known<br><pre class="code">
+  &lt;TechMovementChange&gt;
+    &lt;PrereqTech&gt;&lt;/PrereqTech&gt;
+    &lt;iMovementChange&gt;0&lt;/iMovementChange&gt;
+  &lt;/TechMovementChange&gt;</pre>
+    <tr><td><span class="tagoptional">Yields</span><td>NONE<td>Yield changes to the plot when the route is present<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;RouteInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Button&gt;&lt;/Button&gt;
+&lt;/RouteInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;RouteInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;iValue&gt;0&lt;/iValue&gt;
+  &lt;iAdvancedStartCost&gt;0&lt;/iAdvancedStartCost&gt;
+  &lt;iAdvancedStartCostIncrease&gt;0&lt;/iAdvancedStartCostIncrease&gt;
+  &lt;iMovement&gt;0&lt;/iMovement&gt;
+  &lt;iFlatMovement&gt;0&lt;/iFlatMovement&gt;
+  &lt;BonusType&gt;&lt;/BonusType&gt;
+  &lt;PrereqOrBonuses&gt;
+    &lt;BonusType&gt;&lt;/BonusType&gt;
+  &lt;/PrereqOrBonuses&gt;
+  &lt;Yields&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/Yields&gt;
+  &lt;TechMovementChanges&gt;
+    &lt;TechMovementChange&gt;
+      &lt;PrereqTech&gt;&lt;/PrereqTech&gt;
+      &lt;iMovementChange&gt;0&lt;/iMovementChange&gt;
+    &lt;/TechMovementChange&gt;
+  &lt;/TechMovementChanges&gt;
+  &lt;Button&gt;&lt;/Button&gt;
+&lt;/RouteInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

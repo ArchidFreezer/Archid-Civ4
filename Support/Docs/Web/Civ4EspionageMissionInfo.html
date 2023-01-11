@@ -1,0 +1,151 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4EspionageMissionInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4EspionageMissionInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">Description</span><td><td>Reference to the text that containms a description of an instance of this esionage mission. The text may be defined in any of the files in \Assets\XML\Text 
+    <tr><td><span class="tagoptional">TechPrereq</span><td>NO_TECH<td>The tech that a player needs to know in order to conduct this espionage mission
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal reference to this espionage mission
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iAttitudeModifier</span><td>0<td>If true, the mission will change the attitude of the target towards the spys civ
+    <tr><td><span class="tagoptional">iBuyCityCostFactor</span><td>0<td>Percentage change to the cost of a buy city mission, depending on the gamespeed and base mission cost. If successful, the mission will convert the city to the players team.
+    <tr><td><span class="tagoptional">iBuyTechCostFactor</span><td>0<td>Percentage change to the mission cost based on how much research went into the technology. 
+    <tr><td><span class="tagoptional">iBuyUnitCostFactor</span><td>0<td>Percentage change to the mission cost based on the production cost of the unit. If successful, the mission will convert the unit to the players team
+    <tr><td><span class="tagoptional">iCityInsertCultureAmountFactor</span><td>0<td>Percentage change to the city culture that is converted to yours. (A value of 5 will convert 5% of the city culture) 
+    <tr><td><span class="tagoptional">iCityInsertCultureCostFactor</span><td>0<td>Percentage change to the mission cost based on the existing culture in the city.
+    <tr><td><span class="tagoptional">iCityPoisonWaterCounter</span><td>0<td>The number of turns that the cities water supply will be poisoned with this mission.
+    <tr><td><span class="tagoptional">iCityRevoltCounter</span><td>0<td>The number of turns that the city will be in revolt with this mission.
+    <tr><td><span class="tagoptional">iCityUnhappinessCounter</span><td>0<td>The number of turns of unrest that the city will be subjected to with this mission.
+    <tr><td><span class="tagoptional">iCost</span><td>0<td>The Base Espionage Point cost the mission will require 
+    <tr><td><span class="tagoptional">iCounterespionageMod</span><td>0<td>Percentage change to the cost of espionage missions carried out by the victim harder. It lasts for the number of counter espionage turns. 
+    <tr><td><span class="tagoptional">iCounterespionageNumTurns</span><td>0<td>The number of turns that the counter espionage modifier applies. 
+    <tr><td><span class="tagoptional">iDestroyBuildingCostFactor</span><td>0<td>Percentage change to the mission cost depending on the production cost of the building. If successful, the mission will destroy the building
+    <tr><td><span class="tagoptional">iDestroyProductionCostFactor</span><td>0<td>Percentage change to the mission cost depending on the number of hammers already spent. If successful, the mission will wipe out the existing production
+    <tr><td><span class="tagoptional">iDestroyProjectCostFactor</span><td>0<td>Percentage change to the mission cost depending on the production cost of the project. If successful, the mission will destroy the project
+    <tr><td><span class="tagoptional">iDestroyUnitCostFactor</span><td>0<td>Percentage change to the mission cost depending on the production cost of the unit. If successful, the mission will wipe out all progress on training the unit
+    <tr><td><span class="tagoptional">iDifficultyMod</span><td>0<td>Percentage change to the difficulty of the mission
+    <tr><td><span class="tagoptional">iPlayerAnarchyCounter</span><td>0<td>The number of turns the target nation will be in anarchy
+    <tr><td><span class="tagoptional"><b>iRemoveCorporationsCostFactor</b></span><td>0<td>The modifier to the base cost of a mission in order to remove a corporation from the city
+    <tr><td><span class="tagoptional"><b>iRemoveReligionsCostFactor</b></span><td>0<td>The modifier to the base cost of a mission in order to remove a religion from the city
+    <tr><td><span class="tagoptional"><b>iSabatogeResearchCostFactor</b></span><td>0<td>The modifier to the base cost of a mission in order to sabotage the targets current research
+    <tr><td><span class="tagoptional">iStealTreasuryTypes</span><td>0<td>Percentage of the mission targets gold that is stolen
+    <tr><td><span class="tagoptional">iSwitchCivicCostFactor</span><td>0<td>Percentage change to the cost of the mission based on how much the target likes the civic
+    <tr><td><span class="tagoptional">iSwitchReligionCostFactor</span><td>0<td>Percentage change to the cost of the mission based on how much the target likes the religion
+    <tr><td><span class="tagoptional">iVisibilityLevel</span><td>0<td>Used to turn on city visibility (Only 0 or 1 will have any effect. I don't know why Firaxis didn't make this Boolean.) 
+    <tr><td><span class="tagoptional"><b>iWarWearinessCounter</b></span><td>0<td>The amount the war weariness in the target city is increased, this is modified by ganme speed and other factors
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bDestroyImprovement</span><td>0<td>If true, the mission destroys the improvement that the spy is on.
+    <tr><td><span class="tagoptional"><b>bDisablePower</b></span><td>0<td>If true, the mission will disable power in a city
+    <tr><td><span class="tagoptional">bInvestigateCity</span><td>0<td>If true, allows the unit to investigate an enemy city
+    <tr><td><span class="tagoptional">bIsPassive</span><td>0<td>If true the mission does not need to be actively selected by the player and is always active, such as viewing enemy cities
+    <tr><td><span class="tagoptional">bIsTwoPhases</span><td>0<td>If true, the mission requires a secondary screen to determine the exact mission, e.g. sabotaging a building requires a secondary screen to select the building.
+    <tr><td><span class="tagoptional">bNoActiveMissions</span><td>0<td>If true, the mission requires no other active missions to be taking place
+    <tr><td><span class="tagoptional"><b>bNuke</b></span><td>0<td>If true, the mission will be considered to have used a nuclear device
+    <tr><td><span class="tagoptional">bSeeDemographics</span><td>0<td>If true, allows the player to see the statistics of the target civ
+    <tr><td><span class="tagoptional">bSeeResearch</span><td>0<td>If true, allows the player to see the research target of a rival
+    <tr><td><span class="tagoptional">bSelectPlot</span><td>0<td>If true, requires a unit to be on a game tile. (Examining foreign countries research is considered a espionage mission and does not require a tile) 
+    <tr><td><span class="tagoptional">bTargetsCity</span><td>0<td>If true, the mission can only be carried out when the spy is in a city
+  </table>	<p>
+	<p>
+	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;EspionageMissionInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+&lt;/EspionageMissionInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;EspionageMissionInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;iCost&gt;0&lt;/iCost&gt;
+  &lt;bIsPassive&gt;0&lt;/bIsPassive&gt;
+  &lt;bIsTwoPhases&gt;0&lt;/bIsTwoPhases&gt;
+  &lt;bTargetsCity&gt;0&lt;/bTargetsCity&gt;
+  &lt;bSelectPlot&gt;0&lt;/bSelectPlot&gt;
+  &lt;TechPrereq&gt;&lt;/TechPrereq&gt;
+  &lt;iVisibilityLevel&gt;0&lt;/iVisibilityLevel&gt;
+  &lt;bInvestigateCity&gt;0&lt;/bInvestigateCity&gt;
+  &lt;bSeeDemographics&gt;0&lt;/bSeeDemographics&gt;
+  &lt;bNoActiveMissions&gt;0&lt;/bNoActiveMissions&gt;
+  &lt;bSeeResearch&gt;0&lt;/bSeeResearch&gt;
+  &lt;bDestroyImprovement&gt;0&lt;/bDestroyImprovement&gt;
+  &lt;iDifficultyMod&gt;0&lt;/iDifficultyMod&gt;
+  &lt;iDestroyBuildingCostFactor&gt;0&lt;/iDestroyBuildingCostFactor&gt;
+  &lt;iDestroyUnitCostFactor&gt;0&lt;/iDestroyUnitCostFactor&gt;
+  &lt;iDestroyProjectCostFactor&gt;0&lt;/iDestroyProjectCostFactor&gt;
+  &lt;iDestroyProductionCostFactor&gt;0&lt;/iDestroyProductionCostFactor&gt;
+  &lt;iBuyUnitCostFactor&gt;0&lt;/iBuyUnitCostFactor&gt;
+  &lt;iBuyCityCostFactor&gt;0&lt;/iBuyCityCostFactor&gt;
+  &lt;iStealTreasuryTypes&gt;0&lt;/iStealTreasuryTypes&gt;
+  &lt;iCityInsertCultureAmountFactor&gt;0&lt;/iCityInsertCultureAmountFactor&gt;
+  &lt;iCityInsertCultureCostFactor&gt;0&lt;/iCityInsertCultureCostFactor&gt;
+  &lt;iCityPoisonWaterCounter&gt;0&lt;/iCityPoisonWaterCounter&gt;
+  &lt;iCityUnhappinessCounter&gt;0&lt;/iCityUnhappinessCounter&gt;
+  &lt;iCityRevoltCounter&gt;0&lt;/iCityRevoltCounter&gt;
+  &lt;iBuyTechCostFactor&gt;0&lt;/iBuyTechCostFactor&gt;
+  &lt;iSwitchCivicCostFactor&gt;0&lt;/iSwitchCivicCostFactor&gt;
+  &lt;iSwitchReligionCostFactor&gt;0&lt;/iSwitchReligionCostFactor&gt;
+  &lt;iPlayerAnarchyCounter&gt;0&lt;/iPlayerAnarchyCounter&gt;
+  &lt;iCounterespionageNumTurns&gt;0&lt;/iCounterespionageNumTurns&gt;
+  &lt;iCounterespionageMod&gt;0&lt;/iCounterespionageMod&gt;
+  &lt;iAttitudeModifier&gt;0&lt;/iAttitudeModifier&gt;
+  &lt;bNuke&gt;0&lt;/bNuke&gt;
+  &lt;bDisablePower&gt;0&lt;/bDisablePower&gt;
+  &lt;iWarWearinessCounter&gt;0&lt;/iWarWearinessCounter&gt;
+  &lt;iSabatogeResearchCostFactor&gt;0&lt;/iSabatogeResearchCostFactor&gt;
+  &lt;iRemoveReligionsCostFactor&gt;0&lt;/iRemoveReligionsCostFactor&gt;
+  &lt;iRemoveCorporationsCostFactor&gt;0&lt;/iRemoveCorporationsCostFactor&gt;
+&lt;/EspionageMissionInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

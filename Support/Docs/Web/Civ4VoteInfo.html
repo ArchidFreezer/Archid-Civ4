@@ -1,0 +1,124 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4VoteInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4VoteInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">Description</span><td><td>Reference to the text that contains the name of this vote type. The text may be defined in any of the files in \Assets\XML\Text 
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal reference to this vote type
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iMinVoters</span><td>0<td>Number of voting members necessary for the vote to go ahead
+    <tr><td><span class="tagoptional">iPopulationThreshold</span><td>0<td>Percentage change to the number of votes that are required for a vote to go ahead. If the &lt;bCityVoting&gt; or &lt;bCivVoting&gt; flags are set then it relates to those values and not the population.
+    <tr><td><span class="tagoptional">iStateReligionVotePercent</span><td>0<td>Percentage change to the number of votes a player has in religious votes if the religion is their state religion.
+    <tr><td><span class="tagoptional">iTradeRoutes</span><td>0<td>Number of trade routes granted to each member if vote passes
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bAssignCity</span><td>0<td>Whether vote is to change the ownership of a city from one member to another (return control after conquest) 
+    <tr><td><span class="tagoptional">bCityVoting</span><td>0<td>Determines if the number of votes a player has is based on the number of cities they control rather than the (total\religious) population, or for religious votes the number of cities they control that have the religion.
+    <tr><td><span class="tagoptional">bCivVoting</span><td>0<td>If true, then a civ can only have a maximum of 1 vote. If this is a religious vote and they don't have the religion then they don;t get to vote. This takes precedence over &lt;bCityVoting&gt;
+    <tr><td><span class="tagoptional">bDefensivePact</span><td>0<td>Whether vote is for a defensive pact between members 
+    <tr><td><span class="tagoptional">bForceNoTrade</span><td>0<td>Whether vote is to create an embargo against a non-member
+    <tr><td><span class="tagoptional">bForcePeace</span><td>0<td>Whether vote is to end a war between members
+    <tr><td><span class="tagoptional">bForceWar</span><td>0<td>Whether vote is to have members declare war against a non-member
+    <tr><td><span class="tagoptional">bFreeTrade</span><td>0<td>Whether vote is for free trade between members
+    <tr><td><span class="tagoptional">bNoNukes</span><td>0<td>Whether vote is to ban nukes
+    <tr><td><span class="tagoptional">bOpenBorders</span><td>0<td>Whether vote is for open borders between members
+    <tr><td><span class="tagoptional">bSecretaryGeneral</span><td>0<td>Whether vote is for the leader of the UN/AP
+    <tr><td><span class="tagoptional">bVictory</span><td>0<td>Whether vote is for diplomatic victory
+  </table>	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory"><b>DiploVotes</b></span><td>NONE<td>The vote sources that a vote of this type can be initiated from<br><pre class="code">
+  &lt;DiploVoteType&gt;&lt;/DiploVoteType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>ForceCivics</b></span><td>NONE<td>If passed, the vote will require all members to run these civics<br><pre class="code">
+  &lt;CivicType&gt;&lt;/CivicType&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;VoteInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;DiploVotes&gt;
+  &lt;/DiploVotes&gt;
+&lt;/VoteInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;VoteInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;iPopulationThreshold&gt;0&lt;/iPopulationThreshold&gt;
+  &lt;bCityVoting&gt;0&lt;/bCityVoting&gt;
+  &lt;bCivVoting&gt;0&lt;/bCivVoting&gt;
+  &lt;iMinVoters&gt;0&lt;/iMinVoters&gt;
+  &lt;iStateReligionVotePercent&gt;0&lt;/iStateReligionVotePercent&gt;
+  &lt;iTradeRoutes&gt;0&lt;/iTradeRoutes&gt;
+  &lt;bSecretaryGeneral&gt;0&lt;/bSecretaryGeneral&gt;
+  &lt;bVictory&gt;0&lt;/bVictory&gt;
+  &lt;bFreeTrade&gt;0&lt;/bFreeTrade&gt;
+  &lt;bNoNukes&gt;0&lt;/bNoNukes&gt;
+  &lt;bDefensivePact&gt;0&lt;/bDefensivePact&gt;
+  &lt;bOpenBorders&gt;0&lt;/bOpenBorders&gt;
+  &lt;bForcePeace&gt;0&lt;/bForcePeace&gt;
+  &lt;bForceNoTrade&gt;0&lt;/bForceNoTrade&gt;
+  &lt;bForceWar&gt;0&lt;/bForceWar&gt;
+  &lt;bAssignCity&gt;0&lt;/bAssignCity&gt;
+  &lt;ForceCivics&gt;
+    &lt;CivicType&gt;&lt;/CivicType&gt;
+  &lt;/ForceCivics&gt;
+  &lt;DiploVotes&gt;
+    &lt;DiploVoteType&gt;&lt;/DiploVoteType&gt;
+  &lt;/DiploVotes&gt;
+&lt;/VoteInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

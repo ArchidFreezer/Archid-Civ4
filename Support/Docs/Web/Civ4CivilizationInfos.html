@@ -1,0 +1,178 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4CivilizationInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4CivilizationInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">Adjective</span><td><td>References the Text which contains the civilization adjective (eg: "American", or "English")
+    <tr><td><span class="tagmandatory">ArtDefineTag</span><td><td>Refers to a tag in the Civ4ArtDefines_Civilization file
+    <tr><td><span class="tagmandatory">ArtStyleType</span><td><td>Sets the art style for the civilization. This is used when displaying city buildings.
+    <tr><td><span class="tagmandatory">CivilizationActionSound</span><td><td>The sound set for the unit actions. The sound sets are defined in the AudioAudio3DScripts.xml file
+    <tr><td><span class="tagmandatory">CivilizationSelectionSound</span><td><td>The sound set for the unit selections. The sound sets are defined in the AudioAudio3DScripts.xml file
+    <tr><td><span class="tagmandatory">Civilopedia</span><td><td>Refers to a tag in the Civ4GameText file which stores the Platypedia description for the improvement
+    <tr><td><span class="tagmandatory">DefaultPlayerColor</span><td><td>References the default color for that civilization, in the game. The possible values are defined in the \Assets\XML\Interface\CIV4PlayerColorInfos.xml file
+    <tr><td><span class="tagmandatory">DerivativeCiv</span><td>NONE<td>Either NONE, or the civilization that is more likely to be created when a colony is split off.
+    <tr><td><span class="tagmandatory">Description</span><td><td>References the Text which contains the civilization description (eg: "American empire", or "English empire")
+    <tr><td><span class="tagmandatory">ShortDescription</span><td><td>References the Text which contains the civilization short description (eg: "America", or "England")
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal name of this Civilization
+    <tr><td><span class="tagoptional">UnitArtStyleType</span><td><td>Sets the art style for the civilization units. This is used when displaying units, and allows, for example, China and Japan to be displayed as asiatic, while Egypt and Mali will be displayed as african. The possible values are defined in the \Assets\XML\Civilizations\CIV4UnitArtStyleTypeInfos.xml file
+  </table>	<p>
+	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">bAIPlayable</span><td>1<td>Specifies if a civilization can be played by an AI player
+    <tr><td><span class="tagmandatory">bPlayable</span><td>1<td>Specifies if a civilization can be played by a player (either human or AI)
+  </table>	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">AnarchyCivics</span><td>NONE<td><em>UNUSED</em><br><pre class="code">
+  &lt;CivicType&gt;&lt;/CivicType&gt;</pre>
+    <tr><td><span class="tagoptional">Buildings</span><td>NONE<td>Specifies if a civilization uses unique buildings. It contains a list of Building Classes, and the correspondant Buildings enabled for that civilization. The possible values are defined: for Building Classes in the \Assets\XML\Buildings\CIV4BuildingClassInfos.xml file, for Building Types in the AssetsXMLBuildingsCIV4BuildingInfos.xml file<br><pre class="code">
+  &lt;Building&gt;
+    &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
+    &lt;BuildingType&gt;&lt;/BuildingType&gt;
+  &lt;/Building&gt;</pre>
+    <tr><td><span class="tagmandatory">Cities</span><td>NONE<td>The list of city names to be used for that civilization. The names will be available in the specified order (for non barbarian civilizations) or in a random order (for barbarian cities).<br><pre class="code">
+  &lt;City&gt;&lt;/City&gt;</pre>
+    <tr><td><span class="tagoptional"><b>DisableTechs</b></span><td>NONE<td>Specifies the technologies this civilization cannot research, this would also cut off any techs that have this as a prereq<br><pre class="code">
+  &lt;TechType&gt;&lt;/TechType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>FreeBuildingClasses</b></span><td>NONE<td>Specifies which building classes a civilization starts with in its cities<br><pre class="code">
+  &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>FreeTechs</b></span><td>NONE<td>Specifies which techs a civilization starts with<br><pre class="code">
+  &lt;TechType&gt;&lt;/TechType&gt;</pre>
+    <tr><td><span class="tagoptional">FreeUnitClasses</span><td>NONE<td>Specifies how many units a civilization starts with, and their types. It contains a list of unit classes, and a number for each of them<br><pre class="code">
+  &lt;FreeUnitClass&gt;&lt;/FreeUnitClass&gt;</pre>
+    <tr><td><span class="tagmandatory">InitialCivics</span><td>NONE<td>Specifies the civics this civilization starts in. There should be a civic defined for each CivicOptionType<br><pre class="code">
+  &lt;CivicType&gt;&lt;/CivicType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>Leaders</b></span><td>NONE<td>Lists the leaders for this civilization<br><pre class="code">
+  &lt;LeaderType&gt;&lt;/LeaderType&gt;</pre>
+    <tr><td><span class="tagoptional">Units</span><td>NONE<td>Specifies if a civilization uses unique units. It contains a list of Unit Classes, and the corresponding Units enabled for that civilization<br><pre class="code">
+  &lt;Unit&gt;
+    &lt;UnitClassType&gt;&lt;/UnitClassType&gt;
+    &lt;UnitType&gt;&lt;/UnitType&gt;
+  &lt;/Unit&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;CivilizationInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;ShortDescription&gt;&lt;/ShortDescription&gt;
+  &lt;Adjective&gt;&lt;/Adjective&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;DefaultPlayerColor&gt;&lt;/DefaultPlayerColor&gt;
+  &lt;ArtDefineTag&gt;&lt;/ArtDefineTag&gt;
+  &lt;ArtStyleType&gt;&lt;/ArtStyleType&gt;
+  &lt;bPlayable&gt;0&lt;/bPlayable&gt;
+  &lt;bAIPlayable&gt;0&lt;/bAIPlayable&gt;
+  &lt;Cities&gt;
+    &lt;City&gt;&lt;/City&gt;
+  &lt;/Cities&gt;
+  &lt;InitialCivics&gt;
+  &lt;/InitialCivics&gt;
+  &lt;DerivativeCiv&gt;&lt;/DerivativeCiv&gt;
+  &lt;CivilizationSelectionSound&gt;&lt;/CivilizationSelectionSound&gt;
+  &lt;CivilizationActionSound&gt;&lt;/CivilizationActionSound&gt;
+&lt;/CivilizationInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;CivilizationInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;ShortDescription&gt;&lt;/ShortDescription&gt;
+  &lt;Adjective&gt;&lt;/Adjective&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;DefaultPlayerColor&gt;&lt;/DefaultPlayerColor&gt;
+  &lt;ArtDefineTag&gt;&lt;/ArtDefineTag&gt;
+  &lt;ArtStyleType&gt;&lt;/ArtStyleType&gt;
+  &lt;UnitArtStyleType&gt;&lt;/UnitArtStyleType&gt;
+  &lt;bPlayable&gt;0&lt;/bPlayable&gt;
+  &lt;bAIPlayable&gt;0&lt;/bAIPlayable&gt;
+  &lt;Cities&gt;
+    &lt;City&gt;&lt;/City&gt;
+  &lt;/Cities&gt;
+  &lt;Buildings&gt;
+    &lt;Building&gt;
+      &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
+      &lt;BuildingType&gt;&lt;/BuildingType&gt;
+    &lt;/Building&gt;
+  &lt;/Buildings&gt;
+  &lt;Units&gt;
+    &lt;Unit&gt;
+      &lt;UnitClassType&gt;&lt;/UnitClassType&gt;
+      &lt;UnitType&gt;&lt;/UnitType&gt;
+    &lt;/Unit&gt;
+  &lt;/Units&gt;
+  &lt;FreeUnitClasses&gt;
+    &lt;FreeUnitClass&gt;&lt;/FreeUnitClass&gt;
+  &lt;/FreeUnitClasses&gt;
+  &lt;FreeBuildingClasses&gt;
+    &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
+  &lt;/FreeBuildingClasses&gt;
+  &lt;FreeTechs&gt;
+    &lt;TechType&gt;&lt;/TechType&gt;
+  &lt;/FreeTechs&gt;
+  &lt;DisableTechs&gt;
+    &lt;TechType&gt;&lt;/TechType&gt;
+  &lt;/DisableTechs&gt;
+  &lt;InitialCivics&gt;
+    &lt;CivicType&gt;&lt;/CivicType&gt;
+  &lt;/InitialCivics&gt;
+  &lt;AnarchyCivics&gt;
+    &lt;CivicType&gt;&lt;/CivicType&gt;
+  &lt;/AnarchyCivics&gt;
+  &lt;Leaders&gt;
+    &lt;LeaderType&gt;&lt;/LeaderType&gt;
+  &lt;/Leaders&gt;
+  &lt;DerivativeCiv&gt;&lt;/DerivativeCiv&gt;
+  &lt;CivilizationSelectionSound&gt;&lt;/CivilizationSelectionSound&gt;
+  &lt;CivilizationActionSound&gt;&lt;/CivilizationActionSound&gt;
+&lt;/CivilizationInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

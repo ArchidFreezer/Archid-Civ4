@@ -1,0 +1,162 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4GameSpeedInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4GameSpeedInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">Description</span><td><td>A reference to the text files, which contain an entry for this GameSpeed
+    <tr><td><span class="tagmandatory">Help</span><td><td>Additional help text that will be displayed in the Platypedia
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal name of this GameSpeed
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">iAnarchyPercent</span><td>0<td>Percentage change in the length of periods of anarchy
+    <tr><td><span class="tagmandatory">iBarbPercent</span><td>0<td>Percentage change in the rate of barbarian spawning
+    <tr><td><span class="tagmandatory">iBuildPercent</span><td>0<td>Percentage change in the time it takes a worker to complete a build
+    <tr><td><span class="tagmandatory">iConstructPercent</span><td>0<td>Percentage change in the production cost of buildings
+    <tr><td><span class="tagmandatory">iCreatePercent</span><td>0<td>Percentage change in the production cost of projects
+    <tr><td><span class="tagmandatory">iCulturePercent</span><td>0<td>Percentage change in the threshold for city culture growth
+    <tr><td><span class="tagmandatory">iFeatureProductionPercent</span><td>0<td>Percentage change in the rate which features spread to neighbouring tiles
+    <tr><td><span class="tagmandatory">iGoldenAgePercent</span><td>0<td>Percentage change in the length of golden ages
+    <tr><td><span class="tagmandatory">iGreatPeoplePercent</span><td>0<td>Percentage change in the threshold for creating great people
+    <tr><td><span class="tagmandatory">iGrowthPercent</span><td>0<td>Percentage change in the growth threshold of cites
+    <tr><td><span class="tagmandatory">iHurryConscriptAngerPercent</span><td>0<td>Percentage change in the time taken for the anger from whipping to subside
+    <tr><td><span class="tagmandatory">iHurryPercent</span><td>0<td>Percentage change in the hammers gained from hurrying a building or unit
+    <tr><td><span class="tagmandatory">iImprovementPercent</span><td>0<td>Percentage change in the time taken for an improvement to upgrade
+    <tr><td><span class="tagmandatory">iInflationOffset</span><td>0<td>Percentage change in the number of turns before inflation begins
+    <tr><td><span class="tagmandatory">iInflationPercent</span><td>0<td>Percentage change in the inflation rate
+    <tr><td><span class="tagmandatory">iResearchPercent</span><td>0<td>Percentage change in the cost of researching a tech
+    <tr><td><span class="tagmandatory">iTrainPercent</span><td>0<td>Percentage change in the production cost of training a unit
+    <tr><td><span class="tagmandatory">iUnitDiscoverPercent</span><td>0<td>Percentage change in the amount of research a great person can provide
+    <tr><td><span class="tagmandatory">iUnitGreatWorkPercent</span><td>0<td>Percentage change in the amount of culture a great person can provide
+    <tr><td><span class="tagmandatory">iUnitHurryPercent</span><td>0<td>Percentage change in the amount of hammers a great person can provide
+    <tr><td><span class="tagmandatory">iUnitTradePercent</span><td>0<td>Percentage change in the amount of gold a great person can provide from a trade mission
+    <tr><td><span class="tagmandatory">iVictoryDelayPercent</span><td>0<td>Percentage change in the time taken for a spaceship to reach Alpha Centuria
+  </table>	<p>
+	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">GameTurnInfos</span><td>NONE<td>Definition of how the game progresses with respect to the default calendar<br><pre class="code">
+  &lt;GameTurnInfo&gt;
+    &lt;iMonthIncrement&gt;0&lt;/iMonthIncrement&gt;
+    &lt;iTurnsPerIncrement&gt;0&lt;/iTurnsPerIncrement&gt;
+  &lt;/GameTurnInfo&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;GameSpeedInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Help&gt;&lt;/Help&gt;
+  &lt;iGrowthPercent&gt;0&lt;/iGrowthPercent&gt;
+  &lt;iTrainPercent&gt;0&lt;/iTrainPercent&gt;
+  &lt;iConstructPercent&gt;0&lt;/iConstructPercent&gt;
+  &lt;iCreatePercent&gt;0&lt;/iCreatePercent&gt;
+  &lt;iResearchPercent&gt;0&lt;/iResearchPercent&gt;
+  &lt;iBuildPercent&gt;0&lt;/iBuildPercent&gt;
+  &lt;iImprovementPercent&gt;0&lt;/iImprovementPercent&gt;
+  &lt;iGreatPeoplePercent&gt;0&lt;/iGreatPeoplePercent&gt;
+  &lt;iCulturePercent&gt;0&lt;/iCulturePercent&gt;
+  &lt;iAnarchyPercent&gt;0&lt;/iAnarchyPercent&gt;
+  &lt;iBarbPercent&gt;0&lt;/iBarbPercent&gt;
+  &lt;iFeatureProductionPercent&gt;0&lt;/iFeatureProductionPercent&gt;
+  &lt;iUnitDiscoverPercent&gt;0&lt;/iUnitDiscoverPercent&gt;
+  &lt;iUnitHurryPercent&gt;0&lt;/iUnitHurryPercent&gt;
+  &lt;iUnitTradePercent&gt;0&lt;/iUnitTradePercent&gt;
+  &lt;iUnitGreatWorkPercent&gt;0&lt;/iUnitGreatWorkPercent&gt;
+  &lt;iGoldenAgePercent&gt;0&lt;/iGoldenAgePercent&gt;
+  &lt;iHurryPercent&gt;0&lt;/iHurryPercent&gt;
+  &lt;iHurryConscriptAngerPercent&gt;0&lt;/iHurryConscriptAngerPercent&gt;
+  &lt;iInflationPercent&gt;0&lt;/iInflationPercent&gt;
+  &lt;iInflationOffset&gt;0&lt;/iInflationOffset&gt;
+  &lt;iVictoryDelayPercent&gt;0&lt;/iVictoryDelayPercent&gt;
+  &lt;GameTurnInfos&gt;
+    &lt;GameTurnInfo&gt;
+      &lt;iMonthIncrement&gt;0&lt;/iMonthIncrement&gt;
+      &lt;iTurnsPerIncrement&gt;0&lt;/iTurnsPerIncrement&gt;
+    &lt;/GameTurnInfo&gt;
+  &lt;/GameTurnInfos&gt;
+&lt;/GameSpeedInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;GameSpeedInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Help&gt;&lt;/Help&gt;
+  &lt;iGrowthPercent&gt;0&lt;/iGrowthPercent&gt;
+  &lt;iTrainPercent&gt;0&lt;/iTrainPercent&gt;
+  &lt;iConstructPercent&gt;0&lt;/iConstructPercent&gt;
+  &lt;iCreatePercent&gt;0&lt;/iCreatePercent&gt;
+  &lt;iResearchPercent&gt;0&lt;/iResearchPercent&gt;
+  &lt;iBuildPercent&gt;0&lt;/iBuildPercent&gt;
+  &lt;iImprovementPercent&gt;0&lt;/iImprovementPercent&gt;
+  &lt;iGreatPeoplePercent&gt;0&lt;/iGreatPeoplePercent&gt;
+  &lt;iCulturePercent&gt;0&lt;/iCulturePercent&gt;
+  &lt;iAnarchyPercent&gt;0&lt;/iAnarchyPercent&gt;
+  &lt;iBarbPercent&gt;0&lt;/iBarbPercent&gt;
+  &lt;iFeatureProductionPercent&gt;0&lt;/iFeatureProductionPercent&gt;
+  &lt;iUnitDiscoverPercent&gt;0&lt;/iUnitDiscoverPercent&gt;
+  &lt;iUnitHurryPercent&gt;0&lt;/iUnitHurryPercent&gt;
+  &lt;iUnitTradePercent&gt;0&lt;/iUnitTradePercent&gt;
+  &lt;iUnitGreatWorkPercent&gt;0&lt;/iUnitGreatWorkPercent&gt;
+  &lt;iGoldenAgePercent&gt;0&lt;/iGoldenAgePercent&gt;
+  &lt;iHurryPercent&gt;0&lt;/iHurryPercent&gt;
+  &lt;iHurryConscriptAngerPercent&gt;0&lt;/iHurryConscriptAngerPercent&gt;
+  &lt;iInflationPercent&gt;0&lt;/iInflationPercent&gt;
+  &lt;iInflationOffset&gt;0&lt;/iInflationOffset&gt;
+  &lt;iVictoryDelayPercent&gt;0&lt;/iVictoryDelayPercent&gt;
+  &lt;GameTurnInfos&gt;
+    &lt;GameTurnInfo&gt;
+      &lt;iMonthIncrement&gt;0&lt;/iMonthIncrement&gt;
+      &lt;iTurnsPerIncrement&gt;0&lt;/iTurnsPerIncrement&gt;
+    &lt;/GameTurnInfo&gt;
+  &lt;/GameTurnInfos&gt;
+&lt;/GameSpeedInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4EventTriggerInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4EventTriggerInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">Civic</span><td>NO_CIVIC<td>A player must be running this civic for the trigger to fire
+    <tr><td><span class="tagoptional">MinDifficulty</span><td>NO_DIFFICULTY<td>Minimum game difficulty level that the trigger will fire in
+    <tr><td><span class="tagoptional">OtherPlayerHasTech</span><td>NO_TECH<td>Specifies the technology that the other player must have for the trigger to activate.
+    <tr><td><span class="tagoptional">PythonCallback</span><td><td>The name of the Python function which is called when the trigger activates. Don't confuse with <PythonCallback> in event descriptions in Civ4EventInfos.xml, which is the function which gets called when the event happens. 
+    <tr><td><span class="tagoptional">PythonCanDo</span><td><td>The name of the Python function which is executed to check whether the trigger can be triggered. 
+    <tr><td><span class="tagoptional">PythonCanDoCity</span><td><td>The name of the Python function which checks whether a city is eligible to be picked by the trigger. 
+    <tr><td><span class="tagoptional">PythonCanDoUnit</span><td><td>The name of the Python function which checks whether a unit is eligible to be picked by the trigger. 
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal name of this EventTrigger
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bTeam</span><td>0<td>If true,  the trigger applies to all players on the same team.
+    <tr><td><span class="tagoptional">iAngry</span><td>0<td>Minimum anger level of a city for the trigger to fire. Only applicable when the target is a city
+    <tr><td><span class="tagoptional">iCityFoodWeight</span><td>0<td>Acts as a probability multiplier for the food stored in a city. That is, for triggers that pick a city, cities with more food stored will have a higher probability of being picked as iCityFoodWeight increases. 1 is a sane value to prioritize cities with a lot of food stored. 
+    <tr><td><span class="tagoptional">iMaxOurLandmass</span><td>-1<td>Maximum number of land areas (islands or continents) the player has cities on for the trigger to fire. A value of -1 is taken to mean unlimited.
+    <tr><td><span class="tagoptional">iMaxPopulation</span><td>0<td>Maximum population player must have for the trigger to fire
+    <tr><td><span class="tagoptional">iMinMapLandmass</span><td>0<td>Minimum number of land areas (islands or continents) that must be on the map for the trigger to fire
+    <tr><td><span class="tagoptional">iMinOurLandmass</span><td>0<td>Minimum number of land areas (islands or continents) the player has cities on for the trigger to fire
+    <tr><td><span class="tagoptional">iMinPopulation</span><td>0<td>Minimum population player must have for the trigger to fire
+    <tr><td><span class="tagoptional">iMinTreasury</span><td>0<td>Minimum gold player must have for the trigger to fire
+    <tr><td><span class="tagoptional">iNumBuildings</span><td>0<td>Used in conjunction with <BuildingsRequired>. Set to 1 to indicate that 1 building of that type is required in a city, for city-picking events. 
+    <tr><td><span class="tagoptional">iNumBuildingsGlobal</span><td>0<td>Specifies the minimum amount of buildings listed in <BuildingsRequired> that the player must have in total for the trigger to activate
+    <tr><td><span class="tagoptional">iNumCorporations</span><td>0<td>Specifies how many of the corporations listed in <CorporationsRequired> must be present for the trigger to activate. If <CorporationsRequired> has been left empty, then any corporations will do. For example, for a trigger that affects a city, if <CorporationsRequired> is empty and <iNumCorporations> is 2, then cities with at least different 2 corporations in them will be eligible for the trigger. 
+    <tr><td><span class="tagoptional">iNumPlotsRequired</span><td>0<td>Should be set to 1 for triggers that require a plot that meets specific conditions.
+    <tr><td><span class="tagoptional">iNumReligions</span><td>0<td>Specifies how many of the religions listed in <ReligionsRequired> must be present for the trigger to activate. If <ReligionsRequired> has been left empty, then any religions will do. For example, for a trigger that affects a city, if <ReligionsRequired> is empty and <iNumReligions> is 2, then cities with at least different 2 religions in them will be eligible for the trigger. 
+    <tr><td><span class="tagoptional">iNumUnits</span><td>0<td>Specifies the amount of units that must be on a plot for the trigger to activate - used for events which pick a plot. If used in conjunction with <UnitsRequired>, only units of the listed classes will be counted
+    <tr><td><span class="tagoptional">iNumUnitsGlobal</span><td>0<td>Specifies the amount of units that the player must have for the trigger to activate. If used in conjunction with <UnitsRequired>, only units of the listed classes will be counted
+    <tr><td><span class="tagoptional">iOtherPlayerShareBorders</span><td>0<td>Minimum amount of land plots that the affected player and the other player must have along the border (adjacent to one another).
+    <tr><td><span class="tagoptional">iPercentGamesActive</span><td>0<td>Percentage chance that the event that this triggers will be in the game. When a new game is started each trigger is checked to see whether it is present in the game or not.
+    <tr><td><span class="tagoptional">iPlotType</span><td>-1<td>Specifies the plot type that the plot must have to meet the condition. Set to -1 to ignore plot type. 0 stands for peaks (PLOT_PEAK), 1 for hills (PLOT_HILLS), 2 for land plots (PLOT_LAND) and 3 for ocean plots (PLOT_OCEAN)
+    <tr><td><span class="tagoptional">iUnhealthy</span><td>0<td>Minimum unhealthiness level of a city for the trigger to fire. Only applicable when the target is a city
+    <tr><td><span class="tagoptional">iUnitDamagedWeight</span><td>0<td>Affects the probability of the trigger activating for wounded units. The value is multiplied by the units damage to determine the final trigger weight so higher values make the trigger more likely to fire for wounded units
+    <tr><td><span class="tagoptional">iUnitDistanceWeight</span><td>0<td>For events that affect a plot, affects the probability of the trigger activating for wounded units. The value is multiplied by the units distance to the plot to determine the final trigger weight so higher values make the trigger more likely to fire for far away units
+    <tr><td><span class="tagoptional">iUnitExperienceWeight</span><td>0<td>Affects the probability of the trigger activating for experienced units. The value is multiplied by the units experience to determine the final trigger weight so higher values make the trigger more likely to fire for experienced unitsWhen set to 1, increases the probability of triggering for a highly-experienced unit
+    <tr><td><span class="tagoptional">iWeight</span><td>0<td>Relative probability that this event will be triggered if all its prereqs are met. If this is set to -1 it will always trigger when it can. If it is higher than 0 then the valid trigger with the highest value will be fired.
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bGlobal</span><td>0<td>If true, applies to all players. That means that, when triggered for one player, it's considered to have triggered for all players. Combined with <bRecurring> set to 0, it will result in triggers that can only happen once per game.
+    <tr><td><span class="tagoptional">bHeadquarters</span><td>0<td>If true, and <bPickCorporation> is 1 then the player must own the corporation's headquarters in order for it to be picked. If the trigger also picks a city, then the picked city must be the corporation headquarters. Works like <bHolyCity> does for religions
+    <tr><td><span class="tagoptional">bHolyCity</span><td>0<td>If true, and <bPickReligion> is 1, then the player must own the religion's holy city in order for it to be picked. If the trigger also picks a city, then the picked city must be the religion's holy city. For example, if <bPickReligion>, <bStateReligion>, <bHolyCity> are all 1 and the trigger picks a city (<bPickCity> is also 1), then the city picked will be the holy city of the player's state religion, provided he owns that city.
+    <tr><td><span class="tagoptional">bOtherPlayerAI</span><td>0<td>If true, then the other player must be an AI player.
+    <tr><td><span class="tagoptional">bOtherPlayerHasOtherReligion</span><td>0<td>If true, the other player must have a different religion than the picked one. If <bStateReligion> is 1, then the other player's state religion must be different.
+    <tr><td><span class="tagoptional">bOtherPlayerHasReligion</span><td>0<td>If true, then the other player must have the religion picked by the trigger (see <bPickReligion>). If <bStateReligion> is 0, then the other player must have the religion somewhere in his empire. If <bStateReligion> is 1, then the other player must have the same state religion. 
+    <tr><td><span class="tagoptional">bOtherPlayerWar</span><td>0<td>If true, then the trigger can activate when the affected player and the other player are at war. When set to 1, the trigger activates for player pairs at peace
+    <tr><td><span class="tagoptional">bOwnPlot</span><td>0<td>If true, the plot must be owned by the player for the trigger to fire
+    <tr><td><span class="tagoptional">bPickCity</span><td>0<td>If true, then the trigger will pick a city. 
+    <tr><td><span class="tagoptional">bPickCorporation</span><td>0<td>If true, then a corporation will be picked by the trigger. The corporation must be present in the player's civilization to be picked
+    <tr><td><span class="tagoptional">bPickOtherPlayerCity</span><td>0<td>If true, then the trigger will pick one of the other player's cities. 
+    <tr><td><span class="tagoptional">bPickPlayer</span><td>0<td>If true, then the trigger will pick another player to affect by the event. This is how events that give stuff to other players or affect relations with them are created. The specific player who gets selected can be further narrowed down by the six tags starting with [bi]OtherPlayer.
+    <tr><td><span class="tagoptional">bPickReligion</span><td>0<td>If true, the trigger will pick a religion for the events that it activates. Which religion is picked can be further specified by the other variables
+    <tr><td><span class="tagoptional">bPrereqEventPlot</span><td>0<td>For triggers that have PrereqEvents specified, if set to 1, means that the trigger will fire on the same plot where the prerequisite events fired. This is used with triggers such as continuing slave revolts or dustbowls - if the prerequisite event has fired, dustbowl or revolts will, if triggered, happen again in the same place where they did before. 
+    <tr><td><span class="tagoptional">bProbabilityBuildingMultiply</span><td>0<td>If true, the probability of the trigger firing increases with each additional building. Only used in conjunction with iNumBuildings.
+    <tr><td><span class="tagoptional">bProbabilityUnitMultiply</span><td>0<td>If true, the probability of the trigger firing increases with each additional unit. Only used in conjunction with &lt;iNumUnits&gt;
+    <tr><td><span class="tagoptional">bRecurring</span><td>0<td>If true,  the trigger can activate multiple times throughout the game for the same player. If set to 0, it can only activate once per player. Note that the <ClearEvents> field in event description can reset events, making the game forget they have occurred.
+    <tr><td><span class="tagoptional">bShowPlot</span><td>0<td>If true, then the plot in which the event happens will be visually highlighted.
+    <tr><td><span class="tagoptional">bSinglePlayer</span><td>0<td>If true, the event can only trigger in single player games
+    <tr><td><span class="tagoptional">bStateReligion</span><td>0<td>If true, and <bPickReligion> is 1, then the affected player's state religion will be picked.
+    <tr><td><span class="tagoptional">bUnitsOnPlot</span><td>0<td>If true, the trigger will only fire if the player has units on the plot
+  </table>	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">AndPreReqs</span><td>NONE<td>List of technologies that player must have for the trigger to activate. These requirements are And requirements - that is, all the listed technologies must be known<br><pre class="code">
+  &lt;PrereqTech&gt;&lt;/PrereqTech&gt;</pre>
+    <tr><td><span class="tagoptional">BonusesRequired</span><td>NONE<td>List of bonuses, one of which must be on the plot for the trigger to fire. You can specify that the plot must not have any bonuses through the use of the value NO_BONUS. To ignore improvements the tag must not be present<br><pre class="code">
+  &lt;BonusType&gt;&lt;/BonusType&gt;</pre>
+    <tr><td><span class="tagoptional">BuildingsRequired</span><td>NONE<td>List of building classes that must be present for the trigger to fire<br><pre class="code">
+  &lt;BuildingClass&gt;&lt;/BuildingClass&gt;</pre>
+    <tr><td><span class="tagoptional">CorporationsRequired</span><td>NONE<td>List of corporations, one of which must be present for the trigger to fire.  For triggers that affect a city, the corporation must be present in the city. For triggers not affecting a city, the corporation must be present anywhere in the civilization. <br><pre class="code">
+  &lt;CorporationType&gt;&lt;/CorporationType&gt;</pre>
+    <tr><td><span class="tagoptional">Events</span><td>NONE<td>This, ladies and gentlemen, is the holy grail of the trigger XML file. Here event identifiers from Civ4EventInfos.xml are listed that denote the events triggered by this particular trigger. Note that each choice is also technically an event - therefore, for events that have choices, multiple identifiers will be listed. Take a look at the slave revolt event example: <br><pre class="code">
+  &lt;Event&gt;&lt;/Event&gt;</pre>
+    <tr><td><span class="tagoptional">FeaturesRequired</span><td>NONE<td>List of features, one of which must be on the plot for the trigger to fire. You can specify that the plot must not have any features through the use of the value NO_FEATURE. To ignore features the tag must not be present<br><pre class="code">
+  &lt;FeatureType&gt;&lt;/FeatureType&gt;</pre>
+    <tr><td><span class="tagoptional">ImprovementsRequired</span><td>NONE<td>List of improvements, one of which must be on the plot for the trigger to fire. You can specify that the plot must not have any improvements through the use of the value NO_IMPROVEMENT. To ignore improvements the tag must not be present<br><pre class="code">
+  &lt;ImprovementType&gt;&lt;/ImprovementType&gt;</pre>
+    <tr><td><span class="tagoptional">ObsoleteTechs</span><td>NONE<td>List of technologies that obsolete the trigger, making it in-eligible to activate. If multiple technologies are listed, having any of those will invalidate the trigger for that player.<br><pre class="code">
+  &lt;ObsoleteTech&gt;&lt;/ObsoleteTech&gt;</pre>
+    <tr><td><span class="tagoptional">OrPreReqs</span><td>NONE<td>List of technologies that player must have for the trigger to activate. These requirements are Or requirements - that is, only one technology of the listed ones is required<br><pre class="code">
+  &lt;PrereqTech&gt;&lt;/PrereqTech&gt;</pre>
+    <tr><td><span class="tagoptional">PrereqEvents</span><td>NONE<td>This lists the events that must have already happened for this trigger to possibly activate. There are two main uses. One is to simply specify conditional triggers.<br><pre class="code">
+  &lt;Event&gt;&lt;/Event&gt;</pre>
+    <tr><td><span class="tagoptional">ReligionsRequired</span><td>NONE<td>List of religions, one of which must be present for the trigger to fire.  For triggers that affect a city, the religions must be present in the city. For triggers not affecting a city, the religion must be present anywhere in the civilization. <br><pre class="code">
+  &lt;ReligionType&gt;&lt;/ReligionType&gt;</pre>
+    <tr><td><span class="tagoptional">RoutesRequired</span><td>NONE<td>List of routes, one of which must be on the plot for the trigger to fire. You can specify that the plot must not have any routes through the use of the value NO_ROUTE. To ignore improvements the tag must not be present<br><pre class="code">
+  &lt;RouteType&gt;&lt;/RouteType&gt;</pre>
+    <tr><td><span class="tagoptional">TerrainsRequired</span><td>NONE<td>List of terrains, the plot must be one of these for the trigger to fire. To ignore terrains the tag must not be present<br><pre class="code">
+  &lt;TerrainType&gt;&lt;/TerrainType&gt;</pre>
+    <tr><td><span class="tagoptional">TriggerTexts</span><td>NONE<td>Text strings that are tied to the era that the event is triggered in<br><pre class="code">
+  &lt;TriggerText&gt;
+    &lt;Text&gt;&lt;/Text&gt;
+    &lt;Era&gt;&lt;/Era&gt;
+  &lt;/TriggerText&gt;</pre>
+    <tr><td><span class="tagoptional">UnitsRequired</span><td>NONE<td>List of unit classes that must be present for the trigger to fire<br><pre class="code">
+  &lt;UnitClass&gt;&lt;/UnitClass&gt;</pre>
+    <tr><td><span class="tagoptional">WorldNewsTexts</span><td>NONE<td>Text string identifier, which specifies the text to be displayed to all players when the event occurs<br><pre class="code">
+  &lt;Text&gt;&lt;/Text&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;EventTriggerInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+&lt;/EventTriggerInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;EventTriggerInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;WorldNewsTexts&gt;
+    &lt;Text&gt;&lt;/Text&gt;
+  &lt;/WorldNewsTexts&gt;
+  &lt;TriggerTexts&gt;
+    &lt;TriggerText&gt;
+      &lt;Text&gt;&lt;/Text&gt;
+      &lt;Era&gt;&lt;/Era&gt;
+    &lt;/TriggerText&gt;
+  &lt;/TriggerTexts&gt;
+  &lt;bSinglePlayer&gt;0&lt;/bSinglePlayer&gt;
+  &lt;iPercentGamesActive&gt;0&lt;/iPercentGamesActive&gt;
+  &lt;iWeight&gt;0&lt;/iWeight&gt;
+  &lt;bProbabilityUnitMultiply&gt;0&lt;/bProbabilityUnitMultiply&gt;
+  &lt;bProbabilityBuildingMultiply&gt;0&lt;/bProbabilityBuildingMultiply&gt;
+  &lt;Civic&gt;&lt;/Civic&gt;
+  &lt;iMinTreasury&gt;0&lt;/iMinTreasury&gt;
+  &lt;iMinPopulation&gt;0&lt;/iMinPopulation&gt;
+  &lt;iMaxPopulation&gt;0&lt;/iMaxPopulation&gt;
+  &lt;iMinMapLandmass&gt;0&lt;/iMinMapLandmass&gt;
+  &lt;iMinOurLandmass&gt;0&lt;/iMinOurLandmass&gt;
+  &lt;iMaxOurLandmass&gt;-1&lt;/iMaxOurLandmass&gt;
+  &lt;MinDifficulty&gt;&lt;/MinDifficulty&gt;
+  &lt;iAngry&gt;0&lt;/iAngry&gt;
+  &lt;iUnhealthy&gt;0&lt;/iUnhealthy&gt;
+  &lt;UnitsRequired&gt;
+    &lt;UnitClass&gt;&lt;/UnitClass&gt;
+  &lt;/UnitsRequired&gt;
+  &lt;iNumUnits&gt;0&lt;/iNumUnits&gt;
+  &lt;iNumUnitsGlobal&gt;0&lt;/iNumUnitsGlobal&gt;
+  &lt;iUnitDamagedWeight&gt;0&lt;/iUnitDamagedWeight&gt;
+  &lt;iUnitDistanceWeight&gt;0&lt;/iUnitDistanceWeight&gt;
+  &lt;iUnitExperienceWeight&gt;0&lt;/iUnitExperienceWeight&gt;
+  &lt;bUnitsOnPlot&gt;0&lt;/bUnitsOnPlot&gt;
+  &lt;BuildingsRequired&gt;
+    &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+  &lt;/BuildingsRequired&gt;
+  &lt;iNumBuildings&gt;0&lt;/iNumBuildings&gt;
+  &lt;iNumBuildingsGlobal&gt;0&lt;/iNumBuildingsGlobal&gt;
+  &lt;iNumPlotsRequired&gt;0&lt;/iNumPlotsRequired&gt;
+  &lt;bOwnPlot&gt;0&lt;/bOwnPlot&gt;
+  &lt;iPlotType&gt;-1&lt;/iPlotType&gt;
+  &lt;FeaturesRequired&gt;
+    &lt;FeatureType&gt;&lt;/FeatureType&gt;
+  &lt;/FeaturesRequired&gt;
+  &lt;TerrainsRequired&gt;
+    &lt;TerrainType&gt;&lt;/TerrainType&gt;
+  &lt;/TerrainsRequired&gt;
+  &lt;ImprovementsRequired&gt;
+    &lt;ImprovementType&gt;&lt;/ImprovementType&gt;
+  &lt;/ImprovementsRequired&gt;
+  &lt;BonusesRequired&gt;
+    &lt;BonusType&gt;&lt;/BonusType&gt;
+  &lt;/BonusesRequired&gt;
+  &lt;RoutesRequired&gt;
+    &lt;RouteType&gt;&lt;/RouteType&gt;
+  &lt;/RoutesRequired&gt;
+  &lt;ReligionsRequired&gt;
+    &lt;ReligionType&gt;&lt;/ReligionType&gt;
+  &lt;/ReligionsRequired&gt;
+  &lt;iNumReligions&gt;0&lt;/iNumReligions&gt;
+  &lt;CorporationsRequired&gt;
+    &lt;CorporationType&gt;&lt;/CorporationType&gt;
+  &lt;/CorporationsRequired&gt;
+  &lt;iNumCorporations&gt;0&lt;/iNumCorporations&gt;
+  &lt;bPickReligion&gt;0&lt;/bPickReligion&gt;
+  &lt;bStateReligion&gt;0&lt;/bStateReligion&gt;
+  &lt;bHolyCity&gt;0&lt;/bHolyCity&gt;
+  &lt;bPickCorporation&gt;0&lt;/bPickCorporation&gt;
+  &lt;bHeadquarters&gt;0&lt;/bHeadquarters&gt;
+  &lt;Events&gt;
+    &lt;Event&gt;&lt;/Event&gt;
+  &lt;/Events&gt;
+  &lt;PrereqEvents&gt;
+    &lt;Event&gt;&lt;/Event&gt;
+  &lt;/PrereqEvents&gt;
+  &lt;bPrereqEventPlot&gt;0&lt;/bPrereqEventPlot&gt;
+  &lt;OrPreReqs&gt;
+    &lt;PrereqTech&gt;&lt;/PrereqTech&gt;
+  &lt;/OrPreReqs&gt;
+  &lt;AndPreReqs&gt;
+    &lt;PrereqTech&gt;&lt;/PrereqTech&gt;
+  &lt;/AndPreReqs&gt;
+  &lt;ObsoleteTechs&gt;
+    &lt;ObsoleteTech&gt;&lt;/ObsoleteTech&gt;
+  &lt;/ObsoleteTechs&gt;
+  &lt;bRecurring&gt;0&lt;/bRecurring&gt;
+  &lt;bTeam&gt;0&lt;/bTeam&gt;
+  &lt;bGlobal&gt;0&lt;/bGlobal&gt;
+  &lt;bPickPlayer&gt;0&lt;/bPickPlayer&gt;
+  &lt;bOtherPlayerWar&gt;0&lt;/bOtherPlayerWar&gt;
+  &lt;bOtherPlayerHasReligion&gt;0&lt;/bOtherPlayerHasReligion&gt;
+  &lt;bOtherPlayerHasOtherReligion&gt;0&lt;/bOtherPlayerHasOtherReligion&gt;
+  &lt;bOtherPlayerAI&gt;0&lt;/bOtherPlayerAI&gt;
+  &lt;iOtherPlayerShareBorders&gt;0&lt;/iOtherPlayerShareBorders&gt;
+  &lt;OtherPlayerHasTech&gt;&lt;/OtherPlayerHasTech&gt;
+  &lt;bPickCity&gt;0&lt;/bPickCity&gt;
+  &lt;bPickOtherPlayerCity&gt;0&lt;/bPickOtherPlayerCity&gt;
+  &lt;bShowPlot&gt;0&lt;/bShowPlot&gt;
+  &lt;iCityFoodWeight&gt;0&lt;/iCityFoodWeight&gt;
+  &lt;PythonCanDo&gt;&lt;/PythonCanDo&gt;
+  &lt;PythonCanDoCity&gt;&lt;/PythonCanDoCity&gt;
+  &lt;PythonCanDoUnit&gt;&lt;/PythonCanDoUnit&gt;
+  &lt;PythonCallback&gt;&lt;/PythonCallback&gt;
+&lt;/EventTriggerInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

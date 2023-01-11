@@ -1,0 +1,713 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4BuildingInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4BuildingInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">Advisor</span><td><td>Defines the type of advisor that would recommend this building in the in-game menus
+    <tr><td><span class="tagmandatory">ArtDefineTag</span><td><td>Refers to a tag in the Civ4ArtDefines_Building file
+    <tr><td><span class="tagmandatory">BuildingClass</span><td><td>The class of the building, as defined in the Civ4BuildingClassInfos file
+    <tr><td><span class="tagoptional">CivicOption</span><td>NO_CIVICOPTION<td>All the civics in this civic option are available to the player on construction
+    <tr><td><span class="tagmandatory">Civilopedia</span><td><td>Refers to a tag in the Civ4GameText file which stores the Pedia description for the building
+    <tr><td><span class="tagoptional">ConstructSound</span><td>NO_SOUND<td>The sound to play when the building is constructed
+    <tr><td><span class="tagmandatory">Description</span><td><td>A reference to the text files, which contain an entry for this Building
+    <tr><td><span class="tagoptional">DiploVoteType</span><td>NO_DIPLOVOTE<td>The type of diplomatic vote that this building allows the player to participate in
+    <tr><td><span class="tagoptional">FoundsCorporation</span><td>NO_CORPORATION<td>If set, the corporation that will be create din the city if this building is constructed
+    <tr><td><span class="tagoptional">FreeBonus</span><td>NO_BONUS<td>Makes this bonus available to the city, the number of free bonuses is defined in iNumFreeBonuses
+    <tr><td><span class="tagoptional">FreeBuilding</span><td>NO_BUILDING<td>Provides this building free to <em>every</em> city
+    <tr><td><span class="tagoptional">FreePromotion</span><td>NO_PROMOTION<td>Provides this promotion to every unit trained in the city if the unit can gain it
+    <tr><td><span class="tagoptional">FreeStartEra</span><td>NO_ERA<td>Building is free if you start in this Era or later.
+    <tr><td><span class="tagoptional">GlobalCorporationCommerce</span><td>NO_CORPORATION<td>Earns gold from every city with this corporation.
+    <tr><td><span class="tagoptional">GlobalReligionCommerce</span><td>NO_RELIGION<td>Earns gold from every city with this religion.
+    <tr><td><span class="tagoptional">GreatPeopleUnitClass</span><td>NO_UNITCLASS<td>Type of Great Person points the building generates
+    <tr><td><span class="tagoptional">Help</span><td><td>Additional help text that will be displayed in the Pedia
+    <tr><td><span class="tagoptional">HolyCity</span><td>NO_RELIGION<td>If set, the building can only be constructed in the Holy City of the religion specified
+    <tr><td><span class="tagoptional">HotKey</span><td><td>The key, that when pressed selects the building.
+    <tr><td><span class="tagoptional">MaxStartEra</span><td>NO_ERA<td>If the game is started in an ERA after this then the building is not available.
+    <tr><td><span class="tagoptional"><b>MinCultureLevel</b></span><td>NO_CULTURELEVEL<td>The minimum culture level that the city must be at in order to construct this building
+    <tr><td><span class="tagoptional">MovieDefineTag</span><td><td>Specifies the tag in the Civ4ArtDefines_Movie file that will play when this building is constructed
+    <tr><td><span class="tagoptional">NoBonus</span><td>NO_BONUS<td>Blocks this bonus from being available in the city
+    <tr><td><span class="tagoptional">ObsoleteTech</span><td>NO_TECH<td>Tech that makes the building obsolete (like Economics for Castles).
+    <tr><td><span class="tagoptional">PowerBonus</span><td>NO_BONUS<td>Provides power to the city if this bonus is available.
+    <tr><td><span class="tagoptional"><b>PrereqBonus</b></span><td>NO_BONUS<td>List of bonuses required to construct this building
+    <tr><td><span class="tagoptional">PrereqCorporation</span><td>NO_CORPORATION<td>If set, the Building can only be constructed if the specified corporation is present in the city.
+    <tr><td><span class="tagoptional">PrereqReligion</span><td>NO_RELIGION<td>If set, the Building can only be constructed if the specified Religion type is present in the city.
+    <tr><td><span class="tagoptional">ReligionType</span><td>NO_RELIGION<td>If set, the Building is considered to be on the specified religion when determining things such as religious building happiness, etc.
+    <tr><td><span class="tagoptional">SpecialBuildingType</span><td>NO_SPECIALBUILDING<td>Determines whether or not the building is one the special types listed in the Civ4SpecialBuildingInfos file, like a monastery or cathedral
+    <tr><td><span class="tagoptional">StateReligion</span><td>NO_RELIGION<td>If set, the Building can only be constructed while the specified Religion type is the Civilizations State Religion
+    <tr><td><span class="tagmandatory">Strategy</span><td><td>Refers to a tag in the Civ4GameText_Strategy file that stores the strategic or usage info on the Building, displayed in mouseover pop-ups
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal name of this Building
+    <tr><td><span class="tagoptional">VictoryPrereq</span><td>NO_VICTORY<td>Victory type required for construction of the building (e.g. the Diplomacy victory condition must be enabled for the United Nations to be available)
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iAIWeight</span><td>0<td>The relative importance of the building to the AI when deciding on the best production target of a city
+    <tr><td><span class="tagoptional">iAdvancedStartCost</span><td>-1<td>The cost to add this building to a city ion Advanced Start mode
+    <tr><td><span class="tagoptional">iAdvancedStartCostIncrease</span><td>0<td>The additional cost to add this building to a city for each existing instance of the building (appears to be bugged and has no impact)
+    <tr><td><span class="tagoptional">iAirModifier</span><td>0<td>Percentage change to the damage the city receives from air units
+    <tr><td><span class="tagoptional">iAirUnitCapacity</span><td>0<td>Change to the number of air units that can be stationed in the city
+    <tr><td><span class="tagoptional">iAirlift</span><td>0<td>The change to the number of units that can be airlifted from this city each turn
+    <tr><td><span class="tagoptional">iAllCityDefense</span><td>0<td>Change in defence value of all player cities
+    <tr><td><span class="tagoptional">iAnarchyModifier</span><td>0<td>The percentage change in duration of player anarchy
+    <tr><td><span class="tagoptional">iAreaFreeSpecialist</span><td>0<td>Change to the number of free specialists allowed in all cities in the area
+    <tr><td><span class="tagoptional">iAreaHappiness</span><td>0<td>Change to the happiness of all player cities in the area
+    <tr><td><span class="tagoptional">iAreaHealth</span><td>0<td>Change to the healthiness of all player cities in the area
+    <tr><td><span class="tagoptional">iAsset</span><td>0<td>Relative value of building to teams asset value. This is used during diplomacy when determining which deals should be agreeable 
+    <tr><td><span class="tagoptional">iBombardDefense</span><td>0<td>Percent reduction in damage to defence a city gets from bombardment from non-gunpowder units
+    <tr><td><span class="tagoptional">iCitiesPrereq</span><td>0<td>The minimum number of cities that must exist in the empire before this building can be constructed
+    <tr><td><span class="tagoptional">iCoastalTradeRoutes</span><td>0<td>Change to the number of trade routes across water in the city
+    <tr><td><span class="tagoptional">iConquestProb</span><td>0<td>Percentage chance that a building will survive if the city is captured
+    <tr><td><span class="tagoptional">iCost</span><td>-1<td>The cost of the building in hammers
+    <tr><td><span class="tagoptional">iDefense</span><td>0<td>Change to the defence value of the city
+    <tr><td><span class="tagoptional">iDomesticGreatGeneralRateModifier</span><td>0<td>The percentage change in the rate at which the player accumulates great general points within their own borders
+    <tr><td><span class="tagoptional">iEnemyWarWearinessModifier</span><td>0<td>Percentage change to war weariness in all enemy cities
+    <tr><td><span class="tagoptional">iEspionageDefense</span><td>0<td>Change to the cities defence against spies. This impacts the cost of missions against the city and the chance of success.
+    <tr><td><span class="tagoptional">iExperience</span><td>0<td>Change to the free experience given to all units trained in the city
+    <tr><td><span class="tagoptional">iFoodKept</span><td>0<td>Percentage change to the food kept in a city after growth
+    <tr><td><span class="tagoptional">iForeignTradeRouteModifier</span><td>0<td>Percentage change to the value of foreign trade routes in the city
+    <tr><td><span class="tagoptional">iFreeSpecialist</span><td>0<td>Change to the number of free specialists allowed in the city
+    <tr><td><span class="tagoptional">iFreeTechs</span><td>0<td>Number of free techs that can be chosen on construction of the building
+    <tr><td><span class="tagoptional">iGlobalExperience</span><td>0<td>Change to the free experience given to all units trained in all cities
+    <tr><td><span class="tagoptional">iGlobalFreeSpecialist</span><td>0<td>Change to the number of free specialists allowed in all cities
+    <tr><td><span class="tagoptional">iGlobalGreatPeopleRateModifier</span><td>0<td>The percentage change in the rate at which the player accumulates great people points in all cities
+    <tr><td><span class="tagoptional">iGlobalHappiness</span><td>0<td>Change to the happiness of all player cities
+    <tr><td><span class="tagoptional">iGlobalHealth</span><td>0<td>Change to the healthiness of all player cities
+    <tr><td><span class="tagoptional">iGlobalHurryModifier</span><td>0<td>Percentage change to the cost of hurrying in all cities
+    <tr><td><span class="tagoptional">iGlobalPopulationChange</span><td>0<td>One-time change to the population of all player cities
+    <tr><td><span class="tagoptional">iGlobalSpaceProductionModifier</span><td>0<td>Percentage change to the rate at which space ship components are constructed in all player cities
+    <tr><td><span class="tagoptional"><b>iGlobalStarSignMitigateChangePercent</b></span><td>0<td>A percentile multiplier that impacts the chance of mitigating any star sign in any of the players cities
+    <tr><td><span class="tagoptional"><b>iGlobalStarSignScaleChangePercent</b></span><td>0<td>A percentile multiplier that impacts the scale of any star sign applied to the players cities
+    <tr><td><span class="tagoptional">iGlobalTradeRoutes</span><td>0<td>Change to the number of trade routes in all player cities
+    <tr><td><span class="tagoptional">iGlobalWarWearinessModifier</span><td>0<td>Percentage change to war weariness in all player cities
+    <tr><td><span class="tagoptional">iGoldenAgeModifier</span><td>0<td>Percentage change in the duration of Golden Ages
+    <tr><td><span class="tagoptional">iGreatGeneralRateModifier</span><td>0<td>The percentage change in the rate at which the city accumulates great general points
+    <tr><td><span class="tagoptional">iGreatPeopleRateChange</span><td>0<td>The number of Great People points the building generates
+    <tr><td><span class="tagoptional">iGreatPeopleRateModifier</span><td>0<td>The percentage change in the rate that the city accumulates great people points
+    <tr><td><span class="tagoptional">iHappiness</span><td>0<td>Change to the happiness of the city
+    <tr><td><span class="tagoptional">iHealRateChange</span><td>0<td>Percentage change to rate at which injured troops heal in the city
+    <tr><td><span class="tagoptional">iHealth</span><td>0<td>Change to the healthiness of the city
+    <tr><td><span class="tagoptional">iHotKeyPriority</span><td>0<td>If two objects have similar HotKey combinations then the one with the highest priority will take precedence
+    <tr><td><span class="tagoptional">iHurryAngerModifier</span><td>0<td>Percentage change in the duration of anger following hurrying in a city by whipping
+    <tr><td><span class="tagoptional">iHurryCostModifier</span><td>0<td>Percentage change to the cost of hurrying in the city
+    <tr><td><span class="tagoptional">iLevelPrereq</span><td>0<td>The player must have a unit of at least this level before the building can be constructed
+    <tr><td><span class="tagoptional">iMaintenanceModifier</span><td>0<td>Percentage change to the maintenance costs of the city
+    <tr><td><span class="tagoptional">iMaxLatitude</span><td>90<td>The maximum latitude that the building can be constructed at
+    <tr><td><span class="tagoptional">iMilitaryProductionModifier</span><td>0<td>Percentage change to the rate at which military units are trained
+    <tr><td><span class="tagoptional">iMinAreaSize</span><td>-1<td>If bWater or bRiver are set then the city must be adjacent to a body of water that is <em>smaller</em> than this value in tiles so it is considered to be fresh water. If the water flags are not set then the landmass must be larger than the specified value.
+    <tr><td><span class="tagoptional">iMinLatitude</span><td>0<td>The minimum latitude that the building can be constructed at
+    <tr><td><span class="tagoptional">iMinPopulation</span><td>0<td>Minimum city population to construct this building
+    <tr><td><span class="tagoptional">iNukeExplosionRand</span><td>0<td>1 in value chance each turn of a nuclear meltdown in the city
+    <tr><td><span class="tagoptional">iNukeModifier</span><td>0<td>The percentage change in the damage taken from nukes
+    <tr><td><span class="tagoptional">iNumFreeBonuses</span><td>0<td>The number of free bonuses defined in FreeBonus that are available to the city on construction. If this value is -1 then the iNumFreeBuildingBonuses from the appropriate WorldInfo is used.
+    <tr><td><span class="tagoptional">iOrderPriority</span><td>0<td>Has no meaning for buildings
+    <tr><td><span class="tagoptional">iPower</span><td>0<td>Relative value of the building to the players strength
+    <tr><td><span class="tagoptional">iSpaceProductionModifier</span><td>0<td>Percentage change to the rate at which space ship components are constructed in the city
+    <tr><td><span class="tagoptional"><b>iStarSignMitigateChangePercent</b></span><td>0<td>A percentile multiplier that impacts the chance of mitigating any star sign in this city
+    <tr><td><span class="tagoptional"><b>iStarSignScaleChangePercent</b></span><td>0<td>A percentile multiplier that impacts the scale of any star sign applied to this city
+    <tr><td><span class="tagoptional">iStateReligionHappiness</span><td>0<td>Change to the happiness of the city if the state religion is present
+    <tr><td><span class="tagoptional">iTeamsPrereq</span><td>0<td>The number of teams that must be present in the game before the building can be constructed.
+    <tr><td><span class="tagoptional">iTradeRouteModifier</span><td>0<td>Percentage change to the value of trade routes in the city
+    <tr><td><span class="tagoptional">iTradeRoutes</span><td>0<td>Change to the number of trade routes in the city
+    <tr><td><span class="tagoptional"><b>iUnhealthyPopulationModifier</b></span><td>0<td>Percentage change to the pollution produced by the city population
+    <tr><td><span class="tagoptional">iWarWearinessModifier</span><td>0<td>Percentage change to war weariness in the city
+    <tr><td><span class="tagoptional"><b>iWorkableRadius</b></span><td>0<td>The city radius that this building allows the city to work. This will never reduce the working radius of a city.
+    <tr><td><span class="tagoptional">iWorkerSpeedModifier</span><td>0<td>Change to the rate at which workers build improvements
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bAllowsNukes</span><td>0<td>If true, allows <em>all</em> players to construct nukes
+    <tr><td><span class="tagoptional">bAltDown</span><td>0<td>If true, the HotKey is only used if the Alt key is also pressed
+    <tr><td><span class="tagoptional">bAreaCleanPower</span><td>0<td>If true, provided non-polluting power to all player cites in the area
+    <tr><td><span class="tagoptional"><b>bAutoBuild</b></span><td>0<td>If true, the building will be constructed automatically if all its other preqs are met
+    <tr><td><span class="tagoptional">bBorderObstacle</span><td>0<td>If true, barbarians cannot cross into your borders in this area
+    <tr><td><span class="tagoptional">bBuildingOnlyHealthy</span><td>0<td>If true, buildings do not contribute any pollution
+    <tr><td><span class="tagoptional">bCapital</span><td>0<td>If true, on construction the city becomes the capital
+    <tr><td><span class="tagoptional">bCenterInCity</span><td>0<td>If true, the graphic for the building will be placed on the city tile and not in one of the surrounding ones
+    <tr><td><span class="tagoptional">bCtrlDown</span><td>0<td>If true, the HotKey is only used if the Control key is also pressed
+    <tr><td><span class="tagoptional">bDirtyPower</span><td>0<td>If true, the power provided to the city is polluting
+    <tr><td><span class="tagoptional"><b>bForceDisableStarSigns</b></span><td>0<td>If true, star signs are not applied to this city
+    <tr><td><span class="tagoptional">bForceTeamVoteEligible</span><td>0<td>If true, guarantees eligibility for diplomatic votes
+    <tr><td><span class="tagoptional">bGoldenAge</span><td>0<td>If true, starts a Golden Age on construction
+    <tr><td><span class="tagoptional">bGovernmentCenter</span><td>0<td>If true, the city becomes a government centre. Other cities treat a government centre as the capital when determining things such as distance maintenance modifiers.
+    <tr><td><span class="tagoptional">bMapCentering</span><td>0<td>If true, centres the world map in the MiniMap display on completion
+    <tr><td><span class="tagoptional">bNeverCapture</span><td>0<td>If true, the building is always destroyed if the city is captured by another player
+    <tr><td><span class="tagoptional">bNoUnhappiness</span><td>0<td>If true, the city suffers no unhappiness
+    <tr><td><span class="tagoptional">bNukeImmune</span><td>0<td>If true, the building is not destroyed by a nuke detonating
+    <tr><td><span class="tagoptional">bPower</span><td>0<td>If true, provides power to the city
+    <tr><td><span class="tagoptional"><b>bPrereqPower</b></span><td>0<td>If true, the city must have access to a power source in order to construct this building. If access to power is list the building becomes disabled.
+    <tr><td><span class="tagoptional">bPrereqReligion</span><td>0<td>If true, a religion must be present in the city before it can be constructed
+    <tr><td><span class="tagoptional">bRiver</span><td>0<td>If true, requires an adjacent river before it can be constructed
+    <tr><td><span class="tagoptional">bShiftDown</span><td>0<td>If true, the HotKey is only used if the Shift key is also pressed
+    <tr><td><span class="tagoptional"><b>bSlaveMarket</b></span><td>0<td>If slavers can sell slaves in this city
+    <tr><td><span class="tagoptional"><b>bStarSignGoodOnly</b></span><td>0<td>If true, only good star signs effects will be applied to the city
+    <tr><td><span class="tagoptional">bStateReligion</span><td>0<td>If true, this building requires a state religion before it can be constructed.
+    <tr><td><span class="tagoptional">bTeamShare</span><td>0<td>If true, the building effects all members of the constructing players team
+    <tr><td><span class="tagoptional">bWater</span><td>0<td>If true, requires an adjacent water source before it can be constructed
+  </table>	<p>
+
+  <h3 id="float">Float</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">fVisibilityPriority</span><td>1<td>Used to give certain buildings priority when drawing them on the screen. Most buildings have a value of 1.0 but the Aqueduct, for example, has a value of 10240000.0 in order to ensure that it is always drawn first
+  </table>	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">AreaYieldModifiers</span><td>NONE<td>Percentage change to the yields all player cities in the area<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional">BonusHappinessChanges</span><td>NONE<td>Changes to the city happiness that a bonus provides<br><pre class="code">
+  &lt;BonusHappinessChange&gt;
+    &lt;BonusType&gt;&lt;/BonusType&gt;
+    &lt;iHappinessChange&gt;0&lt;/iHappinessChange&gt;
+  &lt;/BonusHappinessChange&gt;</pre>
+    <tr><td><span class="tagoptional">BonusHealthChanges</span><td>NONE<td>Changes to the city health that a bonus provides<br><pre class="code">
+  &lt;BonusHealthChange&gt;
+    &lt;BonusType&gt;&lt;/BonusType&gt;
+    &lt;iHealthChange&gt;0&lt;/iHealthChange&gt;
+  &lt;/BonusHealthChange&gt;</pre>
+    <tr><td><span class="tagoptional">BonusProductionModifiers</span><td>NONE<td>Percentage change in production of the building that possession of the bonus in the city provides<br><pre class="code">
+  &lt;BonusProductionModifier&gt;
+    &lt;BonusType&gt;&lt;/BonusType&gt;
+    &lt;iProductonModifier&gt;0&lt;/iProductonModifier&gt;
+  &lt;/BonusProductionModifier&gt;</pre>
+    <tr><td><span class="tagoptional">BonusYieldModifiers</span><td>NONE<td>Percentage change to the city yields for specific bonuses<br><pre class="code">
+  &lt;BonusYieldModifier&gt;
+    &lt;BonusType&gt;&lt;/BonusType&gt;
+    &lt;YieldModifiers&gt;
+      &lt;iYield&gt;0&lt;/iYield&gt;
+    &lt;/YieldModifiers&gt;
+  &lt;/BonusYieldModifier&gt;</pre>
+    <tr><td><span class="tagoptional">BuildingHappinessChanges</span><td>NONE<td>Changes to city happiness that other buildings provide<br><pre class="code">
+  &lt;BuildingHappinessChange&gt;
+    &lt;BuildingType&gt;&lt;/BuildingType&gt;
+    &lt;iHappinessChange&gt;0&lt;/iHappinessChange&gt;
+  &lt;/BuildingHappinessChange&gt;</pre>
+    <tr><td><span class="tagoptional">CommerceChangeDoubleTimes</span><td>NONE<td>Commerce changes provided by this building are doubled after this number of years have passed relative to the game speed<br><pre class="code">
+  &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
+    <tr><td><span class="tagoptional">CommerceChangeOriginalOwners</span><td>NONE<td>Defines that only the original owner of the building gets the commerce changes defined<br><pre class="code">
+  &lt;bCommerceChangeOriginalOwner&gt;0&lt;/bCommerceChangeOriginalOwner&gt;</pre>
+    <tr><td><span class="tagoptional">CommerceChanges</span><td>NONE<td>Changes to the commerces received by the city<br><pre class="code">
+  &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
+    <tr><td><span class="tagoptional">CommerceFlexibles</span><td>NONE<td>Allows the player to adjust the commerce slider rate for the chosen commerces<br><pre class="code">
+  &lt;bCommerce&gt;0&lt;/bCommerce&gt;</pre>
+    <tr><td><span class="tagoptional">CommerceHappinesses</span><td>NONE<td>Percentage change in tax/research/culture sliders' rates, respectively, that produce happy faces<br><pre class="code">
+  &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
+    <tr><td><span class="tagoptional">CommerceModifiers</span><td>NONE<td>Percentage change to the commerce received by the city<br><pre class="code">
+  &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
+    <tr><td><span class="tagoptional">DomainFreeExperiences</span><td>NONE<td>Free experience provided to all units of the given domains trained in the city<br><pre class="code">
+  &lt;DomainFreeExperience&gt;
+    &lt;DomainType&gt;&lt;/DomainType&gt;
+    &lt;iExperience&gt;0&lt;/iExperience&gt;
+  &lt;/DomainFreeExperience&gt;</pre>
+    <tr><td><span class="tagoptional">DomainProductionModifiers</span><td>NONE<td>Percentage change to the production of units of the given domains trained in the city<br><pre class="code">
+  &lt;DomainProductionModifier&gt;
+    &lt;DomainType&gt;&lt;/DomainType&gt;
+    &lt;iProductionModifier&gt;0&lt;/iProductionModifier&gt;
+  &lt;/DomainProductionModifier&gt;</pre>
+    <tr><td><span class="tagoptional">Flavors</span><td>NONE<td>Value of the building to specific flavours, used to determine the value of the building to the AI when trying to achieve specific goals<br><pre class="code">
+  &lt;Flavor&gt;
+    &lt;FlavorType&gt;&lt;/FlavorType&gt;
+    &lt;iFlavor&gt;0&lt;/iFlavor&gt;
+  &lt;/Flavor&gt;</pre>
+    <tr><td><span class="tagoptional">FreeSpecialistCounts</span><td>NONE<td>Change to the number of free specialists of each type that the city gains<br><pre class="code">
+  &lt;FreeSpecialistCount&gt;
+    &lt;SpecialistType&gt;&lt;/SpecialistType&gt;
+    &lt;iFreeSpecialistCount&gt;0&lt;/iFreeSpecialistCount&gt;
+  &lt;/FreeSpecialistCount&gt;</pre>
+    <tr><td><span class="tagoptional">GlobalCommerceModifiers</span><td>NONE<td>Percentage change to the commerce received by all the players cities<br><pre class="code">
+  &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
+    <tr><td><span class="tagoptional">GlobalSeaPlotYieldChanges</span><td>NONE<td>Changes to the yield output of sea plots in all player cities<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional">GlobalYieldModifiers</span><td>NONE<td>Percentage change to the yields all player cities<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional">HappinessTraits</span><td>NONE<td>Set of traits and the change to the city happiness that they provide<br><pre class="code">
+  &lt;HappinessTrait&gt;
+    &lt;HappinessTraitType&gt;&lt;/HappinessTraitType&gt;
+    &lt;iHappinessTrait&gt;0&lt;/iHappinessTrait&gt;
+  &lt;/HappinessTrait&gt;</pre>
+    <tr><td><span class="tagoptional">ImprovementFreeSpecialists</span><td>NONE<td>Change to the number of free specialists that an improvement provides<br><pre class="code">
+  &lt;ImprovementFreeSpecialist&gt;
+    &lt;ImprovementType&gt;&lt;/ImprovementType&gt;
+    &lt;iFreeSpecialistCount&gt;0&lt;/iFreeSpecialistCount&gt;
+  &lt;/ImprovementFreeSpecialist&gt;</pre>
+    <tr><td><span class="tagoptional">ObsoleteSafeCommerceChanges</span><td>NONE<td>Changes to the commerces received by the city that are not impacted by whether a building is made obsolete<br><pre class="code">
+  &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
+    <tr><td><span class="tagoptional">PowerYieldModifiers</span><td>NONE<td>Percentage change to the yields in the city if power is present<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqAndBuildingClasses</b></span><td>NO_BUILDINGCLASS<td>List of building calsses that must be present in the city in order for the building to be constructed. If subsequently any of these building classes is not longer in the city then this building is disabled.<br><pre class="code">
+  &lt;BuildingClass&gt;&lt;/BuildingClass&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqAndCivics</b></span><td>NO_CIVIC<td>List of civics the player must be running to construct this building. Changing out of any of these civics will cause the building to become disabled.<br><pre class="code">
+  &lt;CivicType&gt;&lt;/CivicType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqAndTechs</b></span><td>NO_TECH<td>List of techs that the player must know in order to construct the building<br><pre class="code">
+  &lt;TechType&gt;&lt;/TechType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqAndTerrains</b></span><td>NO_TERRAIN<td>List of terrains that must all be present in the city working area for the building to be constructed. If subsequently the city working radius changes and any of the terrains are no longer present the building will be disabled.<br><pre class="code">
+  &lt;TerrainType&gt;&lt;/TerrainType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqNotBuildingClasses</b></span><td>NO_BUILDINGCLASS<td>List of building classes that, if present in the coity, prevent the construction of the building.<br><pre class="code">
+  &lt;BuildingClass&gt;&lt;/BuildingClass&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqNumOfBuildingClasses</b></span><td>NONE<td>List of definitions of the number of a building class that are required in the civ before this building can be constructed<br><pre class="code">
+  &lt;PrereqNumOfBuildingClass&gt;
+    &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
+    &lt;iNumBuildingNeeded&gt;0&lt;/iNumBuildingNeeded&gt;
+  &lt;/PrereqNumOfBuildingClass&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqOrBonuses</b></span><td>NO_BONUS<td>List of bonuses, one of which must be present in the city for the building to be constructed. If subsequently the city no longer has access to any of the bonuses the building will be disabled.<br><pre class="code">
+  &lt;BonusType&gt;&lt;/BonusType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqOrBuildingClasses</b></span><td>NO_BUILDINGCLASS<td>List of building classes, one of which must be present in the city before the building can be constructed. If subsequently none of these building classes exist in the city the building will be disabled.<br><pre class="code">
+  &lt;BuildingClass&gt;&lt;/BuildingClass&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqOrCivics</b></span><td>NO_CIVIC<td>List of civics one of which the player must be running to construct this building. Changing out of all of these civics will cause the building to become disabled.<br><pre class="code">
+  &lt;CivicType&gt;&lt;/CivicType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqOrTerrains</b></span><td>NO_TERRAIN<td>List of terrains, one of which must be present in the city working area for the building to be constructed. If subsequently the city working radius changes and none of the terrains are present the building will be disabled.<br><pre class="code">
+  &lt;TerrainType&gt;&lt;/TerrainType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqVicinityAndBonus</b></span><td>NO_BONUS<td>List of bonuses, all of which must be present in the city working radius for the building to be constructed. If subsequently the city workable area changes and any of the bonuses are no longer present the building will be disabled.<br><pre class="code">
+  &lt;BonusType&gt;&lt;/BonusType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqVicinityFeatures</b></span><td>NO_FEATURE<td>List of features that one of which must be present in the city working area for the building to be constructed. If subsequently the city working radius changes and none of the features are present the building will be disabled.<br><pre class="code">
+  &lt;FeatureType&gt;&lt;/FeatureType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqVicinityImprovements</b></span><td>NO_IMPROVEMENT<td>List of improvements, one of which must be present in the city working radius for the building to be constructed. If subsequently the city workable area changes and none of the improvements are present the building will be disabled.<br><pre class="code">
+  &lt;ImprovementType&gt;&lt;/ImprovementType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqVicinityOrBonus</b></span><td>NO_BONUS<td>List of bonuses, one of which must be present in the city working radius for the building to be constructed. If subsequently the city workable area changes and none of the bonuses are present the building will be disabled.<br><pre class="code">
+  &lt;BonusType&gt;&lt;/BonusType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqWorldViews</b></span><td>NO_WORLDVIEW<td>List of world views that the player must hold in order for the building to be constructed. If subsequently the player no longer holds any of the world view the building will be disabled.<br><pre class="code">
+  &lt;WorldViewType&gt;&lt;/WorldViewType&gt;</pre>
+    <tr><td><span class="tagoptional">ProductionTraits</span><td>NONE<td>Set of traits and the percentage production bonus to this building that they provide.<br><pre class="code">
+  &lt;ProductionTrait&gt;
+    &lt;ProductionTraitType&gt;&lt;/ProductionTraitType&gt;
+    &lt;iProductionTrait&gt;0&lt;/iProductionTrait&gt;
+  &lt;/ProductionTrait&gt;</pre>
+    <tr><td><span class="tagoptional">ReligionChanges</span><td>NONE<td>Change in religious influence the city has, which is used when determining religion spread<br><pre class="code">
+  &lt;ReligionChange&gt;
+    &lt;ReligionType&gt;&lt;/ReligionType&gt;
+    &lt;iReligionChange&gt;0&lt;/iReligionChange&gt;
+  &lt;/ReligionChange&gt;</pre>
+    <tr><td><span class="tagoptional"><b>ReplacedByBuildingClasses</b></span><td>NO_BUILDINGCLASS<td>List of building classes that if constructed in the city replace this building making it obsolete.<br><pre class="code">
+  &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;</pre>
+    <tr><td><span class="tagoptional">RiverPlotYieldChanges</span><td>NONE<td>Changes to the yield output of plots beside rivers<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional">SeaPlotYieldChanges</span><td>NONE<td>Changes to the yield output of sea plots<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional">SpecialistCounts</span><td>NONE<td>Changes to the number of each specialist type that the city can maintain<br><pre class="code">
+  &lt;SpecialistCount&gt;
+    &lt;SpecialistType&gt;&lt;/SpecialistType&gt;
+    &lt;iSpecialistCount&gt;0&lt;/iSpecialistCount&gt;
+  &lt;/SpecialistCount&gt;</pre>
+    <tr><td><span class="tagoptional">SpecialistExtraCommerces</span><td>NONE<td>Change to city commerces that every specialist provides<br><pre class="code">
+  &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
+    <tr><td><span class="tagoptional">SpecialistYieldChanges</span><td>NONE<td>Change to yields provided by a specific specialists<br><pre class="code">
+  &lt;SpecialistYieldChange&gt;
+    &lt;SpecialistType&gt;&lt;/SpecialistType&gt;
+    &lt;YieldChanges&gt;
+      &lt;iYield&gt;0&lt;/iYield&gt;
+    &lt;/YieldChanges&gt;
+  &lt;/SpecialistYieldChange&gt;</pre>
+    <tr><td><span class="tagoptional">StateReligionCommerces</span><td>NONE<td>Change to the commerce bonus of all state religion buildings in the city<br><pre class="code">
+  &lt;iStateReligionCommerce&gt;0&lt;/iStateReligionCommerce&gt;</pre>
+    <tr><td><span class="tagoptional">UnitCombatFreeExperiences</span><td>NONE<td>Free experience provided to all units of the given UnitCombat types trained in the city<br><pre class="code">
+  &lt;UnitCombatFreeExperience&gt;
+    &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;
+    &lt;iExperience&gt;0&lt;/iExperience&gt;
+  &lt;/UnitCombatFreeExperience&gt;</pre>
+    <tr><td><span class="tagoptional">YieldChanges</span><td>NONE<td>Changes to the yield output of all city plots<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional">YieldModifiers</span><td>NONE<td>Percentage change to the yields in the city<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;BuildingInfo&gt;
+  &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;Strategy&gt;&lt;/Strategy&gt;
+  &lt;Advisor&gt;&lt;/Advisor&gt;
+  &lt;ArtDefineTag&gt;&lt;/ArtDefineTag&gt;
+&lt;/BuildingInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;BuildingInfo&gt;
+  &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;SpecialBuildingType&gt;&lt;/SpecialBuildingType&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;Strategy&gt;&lt;/Strategy&gt;
+  &lt;Help&gt;&lt;/Help&gt;
+  &lt;Advisor&gt;&lt;/Advisor&gt;
+  &lt;ArtDefineTag&gt;&lt;/ArtDefineTag&gt;
+  &lt;MovieDefineTag&gt;&lt;/MovieDefineTag&gt;
+  &lt;bAutoBuild&gt;0&lt;/bAutoBuild&gt;
+  &lt;HolyCity&gt;&lt;/HolyCity&gt;
+  &lt;ReligionType&gt;&lt;/ReligionType&gt;
+  &lt;StateReligion&gt;&lt;/StateReligion&gt;
+  &lt;bStateReligion&gt;0&lt;/bStateReligion&gt;
+  &lt;PrereqReligion&gt;&lt;/PrereqReligion&gt;
+  &lt;PrereqCorporation&gt;&lt;/PrereqCorporation&gt;
+  &lt;FoundsCorporation&gt;&lt;/FoundsCorporation&gt;
+  &lt;GlobalReligionCommerce&gt;&lt;/GlobalReligionCommerce&gt;
+  &lt;GlobalCorporationCommerce&gt;&lt;/GlobalCorporationCommerce&gt;
+  &lt;VictoryPrereq&gt;&lt;/VictoryPrereq&gt;
+  &lt;FreeStartEra&gt;&lt;/FreeStartEra&gt;
+  &lt;MaxStartEra&gt;&lt;/MaxStartEra&gt;
+  &lt;ObsoleteTech&gt;&lt;/ObsoleteTech&gt;
+  &lt;PrereqAndTechs&gt;
+    &lt;TechType&gt;&lt;/TechType&gt;
+  &lt;/PrereqAndTechs&gt;
+  &lt;PrereqBonus&gt;&lt;/PrereqBonus&gt;
+  &lt;PrereqOrBonuses&gt;
+    &lt;BonusType&gt;&lt;/BonusType&gt;
+  &lt;/PrereqOrBonuses&gt;
+  &lt;PrereqAndCivics&gt;
+    &lt;CivicType&gt;&lt;/CivicType&gt;
+  &lt;/PrereqAndCivics&gt;
+  &lt;PrereqOrCivics&gt;
+    &lt;CivicType&gt;&lt;/CivicType&gt;
+  &lt;/PrereqOrCivics&gt;
+  &lt;PrereqAndTerrains&gt;
+    &lt;TerrainType&gt;&lt;/TerrainType&gt;
+  &lt;/PrereqAndTerrains&gt;
+  &lt;PrereqOrTerrains&gt;
+    &lt;TerrainType&gt;&lt;/TerrainType&gt;
+  &lt;/PrereqOrTerrains&gt;
+  &lt;PrereqVicinityAndBonus&gt;
+    &lt;BonusType&gt;&lt;/BonusType&gt;
+  &lt;/PrereqVicinityAndBonus&gt;
+  &lt;PrereqVicinityOrBonus&gt;
+    &lt;BonusType&gt;&lt;/BonusType&gt;
+  &lt;/PrereqVicinityOrBonus&gt;
+  &lt;PrereqVicinityImprovements&gt;
+    &lt;ImprovementType&gt;&lt;/ImprovementType&gt;
+  &lt;/PrereqVicinityImprovements&gt;
+  &lt;PrereqVicinityFeatures&gt;
+    &lt;FeatureType&gt;&lt;/FeatureType&gt;
+  &lt;/PrereqVicinityFeatures&gt;
+  &lt;PrereqWorldViews&gt;
+    &lt;WorldViewType&gt;&lt;/WorldViewType&gt;
+  &lt;/PrereqWorldViews&gt;
+  &lt;iMinPopulation&gt;0&lt;/iMinPopulation&gt;
+  &lt;MinCultureLevel&gt;&lt;/MinCultureLevel&gt;
+  &lt;bPrereqPower&gt;0&lt;/bPrereqPower&gt;
+  &lt;ProductionTraits&gt;
+    &lt;ProductionTrait&gt;
+      &lt;ProductionTraitType&gt;&lt;/ProductionTraitType&gt;
+      &lt;iProductionTrait&gt;0&lt;/iProductionTrait&gt;
+    &lt;/ProductionTrait&gt;
+  &lt;/ProductionTraits&gt;
+  &lt;HappinessTraits&gt;
+    &lt;HappinessTrait&gt;
+      &lt;HappinessTraitType&gt;&lt;/HappinessTraitType&gt;
+      &lt;iHappinessTrait&gt;0&lt;/iHappinessTrait&gt;
+    &lt;/HappinessTrait&gt;
+  &lt;/HappinessTraits&gt;
+  &lt;NoBonus&gt;&lt;/NoBonus&gt;
+  &lt;PowerBonus&gt;&lt;/PowerBonus&gt;
+  &lt;FreeBonus&gt;&lt;/FreeBonus&gt;
+  &lt;iNumFreeBonuses&gt;0&lt;/iNumFreeBonuses&gt;
+  &lt;FreeBuilding&gt;&lt;/FreeBuilding&gt;
+  &lt;FreePromotion&gt;&lt;/FreePromotion&gt;
+  &lt;CivicOption&gt;&lt;/CivicOption&gt;
+  &lt;GreatPeopleUnitClass&gt;&lt;/GreatPeopleUnitClass&gt;
+  &lt;iGreatPeopleRateChange&gt;0&lt;/iGreatPeopleRateChange&gt;
+  &lt;iHurryAngerModifier&gt;0&lt;/iHurryAngerModifier&gt;
+  &lt;bBorderObstacle&gt;0&lt;/bBorderObstacle&gt;
+  &lt;bTeamShare&gt;0&lt;/bTeamShare&gt;
+  &lt;bWater&gt;0&lt;/bWater&gt;
+  &lt;bRiver&gt;0&lt;/bRiver&gt;
+  &lt;bPower&gt;0&lt;/bPower&gt;
+  &lt;bDirtyPower&gt;0&lt;/bDirtyPower&gt;
+  &lt;bAreaCleanPower&gt;0&lt;/bAreaCleanPower&gt;
+  &lt;DiploVoteType&gt;&lt;/DiploVoteType&gt;
+  &lt;bForceTeamVoteEligible&gt;0&lt;/bForceTeamVoteEligible&gt;
+  &lt;bCapital&gt;0&lt;/bCapital&gt;
+  &lt;bGovernmentCenter&gt;0&lt;/bGovernmentCenter&gt;
+  &lt;bGoldenAge&gt;0&lt;/bGoldenAge&gt;
+  &lt;bAllowsNukes&gt;0&lt;/bAllowsNukes&gt;
+  &lt;bMapCentering&gt;0&lt;/bMapCentering&gt;
+  &lt;bNoUnhappiness&gt;0&lt;/bNoUnhappiness&gt;
+  &lt;iUnhealthyPopulationModifier&gt;0&lt;/iUnhealthyPopulationModifier&gt;
+  &lt;bBuildingOnlyHealthy&gt;0&lt;/bBuildingOnlyHealthy&gt;
+  &lt;bNeverCapture&gt;0&lt;/bNeverCapture&gt;
+  &lt;bNukeImmune&gt;0&lt;/bNukeImmune&gt;
+  &lt;bPrereqReligion&gt;0&lt;/bPrereqReligion&gt;
+  &lt;bCenterInCity&gt;0&lt;/bCenterInCity&gt;
+  &lt;bSlaveMarket&gt;0&lt;/bSlaveMarket&gt;
+  &lt;bForceDisableStarSigns&gt;0&lt;/bForceDisableStarSigns&gt;
+  &lt;bStarSignGoodOnly&gt;0&lt;/bStarSignGoodOnly&gt;
+  &lt;iStarSignMitigateChangePercent&gt;0&lt;/iStarSignMitigateChangePercent&gt;
+  &lt;iGlobalStarSignMitigateChangePercent&gt;0&lt;/iGlobalStarSignMitigateChangePercent&gt;
+  &lt;iStarSignScaleChangePercent&gt;0&lt;/iStarSignScaleChangePercent&gt;
+  &lt;iGlobalStarSignScaleChangePercent&gt;0&lt;/iGlobalStarSignScaleChangePercent&gt;
+  &lt;iAIWeight&gt;0&lt;/iAIWeight&gt;
+  &lt;iCost&gt;0&lt;/iCost&gt;
+  &lt;iHurryCostModifier&gt;0&lt;/iHurryCostModifier&gt;
+  &lt;iAdvancedStartCost&gt;-1&lt;/iAdvancedStartCost&gt;
+  &lt;iAdvancedStartCostIncrease&gt;0&lt;/iAdvancedStartCostIncrease&gt;
+  &lt;iMinAreaSize&gt;-1&lt;/iMinAreaSize&gt;
+  &lt;iConquestProb&gt;0&lt;/iConquestProb&gt;
+  &lt;iCitiesPrereq&gt;0&lt;/iCitiesPrereq&gt;
+  &lt;iTeamsPrereq&gt;0&lt;/iTeamsPrereq&gt;
+  &lt;iLevelPrereq&gt;0&lt;/iLevelPrereq&gt;
+  &lt;iMinLatitude&gt;0&lt;/iMinLatitude&gt;
+  &lt;iMaxLatitude&gt;90&lt;/iMaxLatitude&gt;
+  &lt;iWorkableRadius&gt;0&lt;/iWorkableRadius&gt;
+  &lt;iGreatPeopleRateModifier&gt;0&lt;/iGreatPeopleRateModifier&gt;
+  &lt;iGreatGeneralRateModifier&gt;0&lt;/iGreatGeneralRateModifier&gt;
+  &lt;iDomesticGreatGeneralRateModifier&gt;0&lt;/iDomesticGreatGeneralRateModifier&gt;
+  &lt;iGlobalGreatPeopleRateModifier&gt;0&lt;/iGlobalGreatPeopleRateModifier&gt;
+  &lt;iAnarchyModifier&gt;0&lt;/iAnarchyModifier&gt;
+  &lt;iGoldenAgeModifier&gt;0&lt;/iGoldenAgeModifier&gt;
+  &lt;iGlobalHurryModifier&gt;0&lt;/iGlobalHurryModifier&gt;
+  &lt;iExperience&gt;0&lt;/iExperience&gt;
+  &lt;iGlobalExperience&gt;0&lt;/iGlobalExperience&gt;
+  &lt;iFoodKept&gt;0&lt;/iFoodKept&gt;
+  &lt;iAirlift&gt;0&lt;/iAirlift&gt;
+  &lt;iAirModifier&gt;0&lt;/iAirModifier&gt;
+  &lt;iAirUnitCapacity&gt;0&lt;/iAirUnitCapacity&gt;
+  &lt;iNukeModifier&gt;0&lt;/iNukeModifier&gt;
+  &lt;iNukeExplosionRand&gt;0&lt;/iNukeExplosionRand&gt;
+  &lt;iFreeSpecialist&gt;0&lt;/iFreeSpecialist&gt;
+  &lt;iAreaFreeSpecialist&gt;0&lt;/iAreaFreeSpecialist&gt;
+  &lt;iGlobalFreeSpecialist&gt;0&lt;/iGlobalFreeSpecialist&gt;
+  &lt;iMaintenanceModifier&gt;0&lt;/iMaintenanceModifier&gt;
+  &lt;iWarWearinessModifier&gt;0&lt;/iWarWearinessModifier&gt;
+  &lt;iGlobalWarWearinessModifier&gt;0&lt;/iGlobalWarWearinessModifier&gt;
+  &lt;iEnemyWarWearinessModifier&gt;0&lt;/iEnemyWarWearinessModifier&gt;
+  &lt;iHealRateChange&gt;0&lt;/iHealRateChange&gt;
+  &lt;iHealth&gt;0&lt;/iHealth&gt;
+  &lt;iAreaHealth&gt;0&lt;/iAreaHealth&gt;
+  &lt;iGlobalHealth&gt;0&lt;/iGlobalHealth&gt;
+  &lt;iHappiness&gt;0&lt;/iHappiness&gt;
+  &lt;iAreaHappiness&gt;0&lt;/iAreaHappiness&gt;
+  &lt;iGlobalHappiness&gt;0&lt;/iGlobalHappiness&gt;
+  &lt;iStateReligionHappiness&gt;0&lt;/iStateReligionHappiness&gt;
+  &lt;iWorkerSpeedModifier&gt;0&lt;/iWorkerSpeedModifier&gt;
+  &lt;iMilitaryProductionModifier&gt;0&lt;/iMilitaryProductionModifier&gt;
+  &lt;iSpaceProductionModifier&gt;0&lt;/iSpaceProductionModifier&gt;
+  &lt;iGlobalSpaceProductionModifier&gt;0&lt;/iGlobalSpaceProductionModifier&gt;
+  &lt;iTradeRoutes&gt;0&lt;/iTradeRoutes&gt;
+  &lt;iCoastalTradeRoutes&gt;0&lt;/iCoastalTradeRoutes&gt;
+  &lt;iGlobalTradeRoutes&gt;0&lt;/iGlobalTradeRoutes&gt;
+  &lt;iTradeRouteModifier&gt;0&lt;/iTradeRouteModifier&gt;
+  &lt;iForeignTradeRouteModifier&gt;0&lt;/iForeignTradeRouteModifier&gt;
+  &lt;iGlobalPopulationChange&gt;0&lt;/iGlobalPopulationChange&gt;
+  &lt;iFreeTechs&gt;0&lt;/iFreeTechs&gt;
+  &lt;iDefense&gt;0&lt;/iDefense&gt;
+  &lt;iBombardDefense&gt;0&lt;/iBombardDefense&gt;
+  &lt;iAllCityDefense&gt;0&lt;/iAllCityDefense&gt;
+  &lt;iEspionageDefense&gt;0&lt;/iEspionageDefense&gt;
+  &lt;iAsset&gt;0&lt;/iAsset&gt;
+  &lt;iPower&gt;0&lt;/iPower&gt;
+  &lt;fVisibilityPriority&gt;1&lt;/fVisibilityPriority&gt;
+  &lt;SeaPlotYieldChanges&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/SeaPlotYieldChanges&gt;
+  &lt;RiverPlotYieldChanges&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/RiverPlotYieldChanges&gt;
+  &lt;GlobalSeaPlotYieldChanges&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/GlobalSeaPlotYieldChanges&gt;
+  &lt;YieldChanges&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/YieldChanges&gt;
+  &lt;YieldModifiers&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/YieldModifiers&gt;
+  &lt;PowerYieldModifiers&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/PowerYieldModifiers&gt;
+  &lt;AreaYieldModifiers&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/AreaYieldModifiers&gt;
+  &lt;GlobalYieldModifiers&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/GlobalYieldModifiers&gt;
+  &lt;CommerceChanges&gt;
+    &lt;iCommerce&gt;0&lt;/iCommerce&gt;
+  &lt;/CommerceChanges&gt;
+  &lt;ObsoleteSafeCommerceChanges&gt;
+    &lt;iCommerce&gt;0&lt;/iCommerce&gt;
+  &lt;/ObsoleteSafeCommerceChanges&gt;
+  &lt;CommerceChangeDoubleTimes&gt;
+    &lt;iCommerce&gt;0&lt;/iCommerce&gt;
+  &lt;/CommerceChangeDoubleTimes&gt;
+  &lt;CommerceModifiers&gt;
+    &lt;iCommerce&gt;0&lt;/iCommerce&gt;
+  &lt;/CommerceModifiers&gt;
+  &lt;GlobalCommerceModifiers&gt;
+    &lt;iCommerce&gt;0&lt;/iCommerce&gt;
+  &lt;/GlobalCommerceModifiers&gt;
+  &lt;SpecialistExtraCommerces&gt;
+    &lt;iCommerce&gt;0&lt;/iCommerce&gt;
+  &lt;/SpecialistExtraCommerces&gt;
+  &lt;StateReligionCommerces&gt;
+    &lt;iStateReligionCommerce&gt;0&lt;/iStateReligionCommerce&gt;
+  &lt;/StateReligionCommerces&gt;
+  &lt;CommerceHappinesses&gt;
+    &lt;iCommerce&gt;0&lt;/iCommerce&gt;
+  &lt;/CommerceHappinesses&gt;
+  &lt;ReligionChanges&gt;
+    &lt;ReligionChange&gt;
+      &lt;ReligionType&gt;&lt;/ReligionType&gt;
+      &lt;iReligionChange&gt;0&lt;/iReligionChange&gt;
+    &lt;/ReligionChange&gt;
+  &lt;/ReligionChanges&gt;
+  &lt;SpecialistCounts&gt;
+    &lt;SpecialistCount&gt;
+      &lt;SpecialistType&gt;&lt;/SpecialistType&gt;
+      &lt;iSpecialistCount&gt;0&lt;/iSpecialistCount&gt;
+    &lt;/SpecialistCount&gt;
+  &lt;/SpecialistCounts&gt;
+  &lt;FreeSpecialistCounts&gt;
+    &lt;FreeSpecialistCount&gt;
+      &lt;SpecialistType&gt;&lt;/SpecialistType&gt;
+      &lt;iFreeSpecialistCount&gt;0&lt;/iFreeSpecialistCount&gt;
+    &lt;/FreeSpecialistCount&gt;
+  &lt;/FreeSpecialistCounts&gt;
+  &lt;CommerceFlexibles&gt;
+    &lt;bCommerce&gt;0&lt;/bCommerce&gt;
+  &lt;/CommerceFlexibles&gt;
+  &lt;CommerceChangeOriginalOwners&gt;
+    &lt;bCommerceChangeOriginalOwner&gt;0&lt;/bCommerceChangeOriginalOwner&gt;
+  &lt;/CommerceChangeOriginalOwners&gt;
+  &lt;ConstructSound&gt;&lt;/ConstructSound&gt;
+  &lt;BonusHealthChanges&gt;
+    &lt;BonusHealthChange&gt;
+      &lt;BonusType&gt;&lt;/BonusType&gt;
+      &lt;iHealthChange&gt;0&lt;/iHealthChange&gt;
+    &lt;/BonusHealthChange&gt;
+  &lt;/BonusHealthChanges&gt;
+  &lt;BonusHappinessChanges&gt;
+    &lt;BonusHappinessChange&gt;
+      &lt;BonusType&gt;&lt;/BonusType&gt;
+      &lt;iHappinessChange&gt;0&lt;/iHappinessChange&gt;
+    &lt;/BonusHappinessChange&gt;
+  &lt;/BonusHappinessChanges&gt;
+  &lt;BonusProductionModifiers&gt;
+    &lt;BonusProductionModifier&gt;
+      &lt;BonusType&gt;&lt;/BonusType&gt;
+      &lt;iProductonModifier&gt;0&lt;/iProductonModifier&gt;
+    &lt;/BonusProductionModifier&gt;
+  &lt;/BonusProductionModifiers&gt;
+  &lt;UnitCombatFreeExperiences&gt;
+    &lt;UnitCombatFreeExperience&gt;
+      &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;
+      &lt;iExperience&gt;0&lt;/iExperience&gt;
+    &lt;/UnitCombatFreeExperience&gt;
+  &lt;/UnitCombatFreeExperiences&gt;
+  &lt;DomainFreeExperiences&gt;
+    &lt;DomainFreeExperience&gt;
+      &lt;DomainType&gt;&lt;/DomainType&gt;
+      &lt;iExperience&gt;0&lt;/iExperience&gt;
+    &lt;/DomainFreeExperience&gt;
+  &lt;/DomainFreeExperiences&gt;
+  &lt;DomainProductionModifiers&gt;
+    &lt;DomainProductionModifier&gt;
+      &lt;DomainType&gt;&lt;/DomainType&gt;
+      &lt;iProductionModifier&gt;0&lt;/iProductionModifier&gt;
+    &lt;/DomainProductionModifier&gt;
+  &lt;/DomainProductionModifiers&gt;
+  &lt;BuildingHappinessChanges&gt;
+    &lt;BuildingHappinessChange&gt;
+      &lt;BuildingType&gt;&lt;/BuildingType&gt;
+      &lt;iHappinessChange&gt;0&lt;/iHappinessChange&gt;
+    &lt;/BuildingHappinessChange&gt;
+  &lt;/BuildingHappinessChanges&gt;
+  &lt;PrereqNumOfBuildingClasses&gt;
+    &lt;PrereqNumOfBuildingClass&gt;
+      &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
+      &lt;iNumBuildingNeeded&gt;0&lt;/iNumBuildingNeeded&gt;
+    &lt;/PrereqNumOfBuildingClass&gt;
+  &lt;/PrereqNumOfBuildingClasses&gt;
+  &lt;PrereqAndBuildingClasses&gt;
+    &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+  &lt;/PrereqAndBuildingClasses&gt;
+  &lt;PrereqOrBuildingClasses&gt;
+    &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+  &lt;/PrereqOrBuildingClasses&gt;
+  &lt;PrereqNotBuildingClasses&gt;
+    &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+  &lt;/PrereqNotBuildingClasses&gt;
+  &lt;ReplacedByBuildingClasses&gt;
+    &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
+  &lt;/ReplacedByBuildingClasses&gt;
+  &lt;SpecialistYieldChanges&gt;
+    &lt;SpecialistYieldChange&gt;
+      &lt;SpecialistType&gt;&lt;/SpecialistType&gt;
+      &lt;YieldChanges&gt;
+        &lt;iYield&gt;0&lt;/iYield&gt;
+      &lt;/YieldChanges&gt;
+    &lt;/SpecialistYieldChange&gt;
+  &lt;/SpecialistYieldChanges&gt;
+  &lt;BonusYieldModifiers&gt;
+    &lt;BonusYieldModifier&gt;
+      &lt;BonusType&gt;&lt;/BonusType&gt;
+      &lt;YieldModifiers&gt;
+        &lt;iYield&gt;0&lt;/iYield&gt;
+      &lt;/YieldModifiers&gt;
+    &lt;/BonusYieldModifier&gt;
+  &lt;/BonusYieldModifiers&gt;
+  &lt;ImprovementFreeSpecialists&gt;
+    &lt;ImprovementFreeSpecialist&gt;
+      &lt;ImprovementType&gt;&lt;/ImprovementType&gt;
+      &lt;iFreeSpecialistCount&gt;0&lt;/iFreeSpecialistCount&gt;
+    &lt;/ImprovementFreeSpecialist&gt;
+  &lt;/ImprovementFreeSpecialists&gt;
+  &lt;Flavors&gt;
+    &lt;Flavor&gt;
+      &lt;FlavorType&gt;&lt;/FlavorType&gt;
+      &lt;iFlavor&gt;0&lt;/iFlavor&gt;
+    &lt;/Flavor&gt;
+  &lt;/Flavors&gt;
+  &lt;HotKey&gt;&lt;/HotKey&gt;
+  &lt;bAltDown&gt;0&lt;/bAltDown&gt;
+  &lt;bShiftDown&gt;0&lt;/bShiftDown&gt;
+  &lt;bCtrlDown&gt;0&lt;/bCtrlDown&gt;
+  &lt;iHotKeyPriority&gt;0&lt;/iHotKeyPriority&gt;
+  &lt;iOrderPriority&gt;0&lt;/iOrderPriority&gt;
+&lt;/BuildingInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

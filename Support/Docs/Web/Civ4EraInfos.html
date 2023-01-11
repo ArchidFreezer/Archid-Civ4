@@ -1,0 +1,163 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4EraInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4EraInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">AudioUnitDefeatScript</span><td>NO_AS2D<td>Sound used when unit loses combat
+    <tr><td><span class="tagoptional">AudioUnitVictoryScript</span><td>NO_AS2D<td>Sound used when unit wins combat
+    <tr><td><span class="tagoptional">Description</span><td><td>A reference to the text files, which contain an entry for this Era
+    <tr><td><span class="tagoptional">Strategy</span><td><td>Refers to a tag in the Civ4GameText file which stores the Ppedia strategy for the Era
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal name of this Era
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iAdvancedStartPoints</span><td>0<td>Number of advanced start points given
+    <tr><td><span class="tagoptional">iAnarchyPercent</span><td>0<td>Percentage change in the length of periods of anarchy
+    <tr><td><span class="tagoptional">iBuildPercent</span><td>0<td>Percentage change in the work rate of units
+    <tr><td><span class="tagoptional">iConstructPercent</span><td>0<td>Percentage change in the production cost of buildings
+    <tr><td><span class="tagoptional">iCreatePercent</span><td>0<td>Percentage change in the production cost of projects
+    <tr><td><span class="tagoptional">iCulturePercent</span><td>0<td>Percentage change in the threshold for city culture growth
+    <tr><td><span class="tagoptional">iEventChancePerTurn</span><td>0<td>Multiplier applied to the chance of events happening each turn
+    <tr><td><span class="tagoptional">iFreePopulation</span><td>0<td>Amount of extra population points to cities founded for this era start
+    <tr><td><span class="tagoptional">iGreatPeoplePercent</span><td>0<td>Percentage change in the threshold for creating great people
+    <tr><td><span class="tagoptional">iGrowthPercent</span><td>0<td>Percentage change to the rate that cities and other game elements grow at
+    <tr><td><span class="tagoptional">iImprovementPercent</span><td>0<td>Percentage change in the time taken for an improvement to upgrade
+    <tr><td><span class="tagoptional"><b>iMaxCities</b></span><td>0<td>The maximum number of cities a player can control in this era
+    <tr><td><span class="tagoptional">iResearchPercent</span><td>0<td>Percentage change in the research cost of techs
+    <tr><td><span class="tagoptional">iSoundtrackSpace</span><td>0<td>Unknown, not used in the DLL, exported for the EXE
+    <tr><td><span class="tagoptional">iStartPercent</span><td>0<td>Percentage of the expected number of game turns that starts in this era begin at
+    <tr><td><span class="tagoptional">iStartingDefenseUnits</span><td>0<td>Number of defensive units given to a player at the start of the game
+    <tr><td><span class="tagoptional">iStartingExploreUnits</span><td>0<td>Number of explorer units given to a player at the start of the game
+    <tr><td><span class="tagoptional">iStartingGold</span><td>0<td>Amount of gold given to each player at the start of the game
+    <tr><td><span class="tagoptional">iStartingUnitMultiplier</span><td>0<td>Multiplier applied to the number of starting units a player has. Used for late starts
+    <tr><td><span class="tagoptional">iStartingWorkerUnits</span><td>0<td>Number of worker units given to a player at the start of the game
+    <tr><td><span class="tagoptional"><b>iTechCostModifier</b></span><td>0<td>Multiplier applied to the rate at which research points are gained
+    <tr><td><span class="tagoptional">iTrainPercent</span><td>0<td>Percentage change in the production cost of units
+    <tr><td><span class="tagoptional"><b>iUnitRangeChange</b></span><td>0<td>Absolute change in range for a range bound unit
+    <tr><td><span class="tagoptional"><b>iUnitRangePercentChange</b></span><td>0<td>Percentile change in range for a range bound unit
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bFirstSoundtrackFirst</span><td>0<td>Unknown, not used in the DLL, exported for the EXE
+    <tr><td><span class="tagoptional">bNoAnimals</span><td>0<td>If true, then no animals will be spawned in this era
+    <tr><td><span class="tagoptional">bNoBarbCities</span><td>0<td>If true, no barbarian cities will be created
+    <tr><td><span class="tagoptional">bNoBarbUnits</span><td>0<td>If true, n barbarian units will be spawned
+    <tr><td><span class="tagoptional">bNoGoodies</span><td>0<td>If true, then any map created using this era will have no goody huts placed on it
+    <tr><td><span class="tagoptional"><b>bUnitRangeUnbound</b></span><td>0<td>If true, units with a maximum range have the range cap removed
+    <tr><td><span class="tagoptional"><b>bUnitTerritoryUnbound</b></span><td>0<td>If true, units that are normally restricted ot the players territory may venture outside it
+  </table>	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">CitySoundscapes</span><td>NONE<td>References to sound files used near a city of the specified size, stored in Assets\XML\Audio\AudioSoundscapeScripts.xml <br><pre class="code">
+  &lt;CitySoundscape&gt;
+    &lt;CitySizeType&gt;&lt;/CitySizeType&gt;
+    &lt;SoundscapeScript&gt;&lt;/SoundscapeScript&gt;
+  &lt;/CitySoundscape&gt;</pre>
+    <tr><td><span class="tagoptional">EraInfoSoundtracks</span><td>NONE<td>A list of references to sound files used for the soundtrack of the era<br><pre class="code">
+  &lt;EraInfoSoundtrack&gt;&lt;/EraInfoSoundtrack&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;EraInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+&lt;/EraInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;EraInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Strategy&gt;&lt;/Strategy&gt;
+  &lt;bNoGoodies&gt;0&lt;/bNoGoodies&gt;
+  &lt;bNoAnimals&gt;0&lt;/bNoAnimals&gt;
+  &lt;bNoBarbUnits&gt;0&lt;/bNoBarbUnits&gt;
+  &lt;bNoBarbCities&gt;0&lt;/bNoBarbCities&gt;
+  &lt;iAdvancedStartPoints&gt;0&lt;/iAdvancedStartPoints&gt;
+  &lt;iStartingUnitMultiplier&gt;0&lt;/iStartingUnitMultiplier&gt;
+  &lt;iStartingDefenseUnits&gt;0&lt;/iStartingDefenseUnits&gt;
+  &lt;iStartingWorkerUnits&gt;0&lt;/iStartingWorkerUnits&gt;
+  &lt;iStartingExploreUnits&gt;0&lt;/iStartingExploreUnits&gt;
+  &lt;iStartingGold&gt;0&lt;/iStartingGold&gt;
+  &lt;iMaxCities&gt;0&lt;/iMaxCities&gt;
+  &lt;iFreePopulation&gt;0&lt;/iFreePopulation&gt;
+  &lt;iStartPercent&gt;0&lt;/iStartPercent&gt;
+  &lt;iGrowthPercent&gt;0&lt;/iGrowthPercent&gt;
+  &lt;iTrainPercent&gt;0&lt;/iTrainPercent&gt;
+  &lt;iConstructPercent&gt;0&lt;/iConstructPercent&gt;
+  &lt;iCreatePercent&gt;0&lt;/iCreatePercent&gt;
+  &lt;iResearchPercent&gt;0&lt;/iResearchPercent&gt;
+  &lt;iTechCostModifier&gt;0&lt;/iTechCostModifier&gt;
+  &lt;iBuildPercent&gt;0&lt;/iBuildPercent&gt;
+  &lt;iImprovementPercent&gt;0&lt;/iImprovementPercent&gt;
+  &lt;iGreatPeoplePercent&gt;0&lt;/iGreatPeoplePercent&gt;
+  &lt;iCulturePercent&gt;0&lt;/iCulturePercent&gt;
+  &lt;iAnarchyPercent&gt;0&lt;/iAnarchyPercent&gt;
+  &lt;iEventChancePerTurn&gt;0&lt;/iEventChancePerTurn&gt;
+  &lt;bUnitRangeUnbound&gt;0&lt;/bUnitRangeUnbound&gt;
+  &lt;bUnitTerritoryUnbound&gt;0&lt;/bUnitTerritoryUnbound&gt;
+  &lt;iUnitRangeChange&gt;0&lt;/iUnitRangeChange&gt;
+  &lt;iUnitRangePercentChange&gt;0&lt;/iUnitRangePercentChange&gt;
+  &lt;iSoundtrackSpace&gt;0&lt;/iSoundtrackSpace&gt;
+  &lt;bFirstSoundtrackFirst&gt;0&lt;/bFirstSoundtrackFirst&gt;
+  &lt;EraInfoSoundtracks&gt;
+    &lt;EraInfoSoundtrack&gt;&lt;/EraInfoSoundtrack&gt;
+  &lt;/EraInfoSoundtracks&gt;
+  &lt;CitySoundscapes&gt;
+    &lt;CitySoundscape&gt;
+      &lt;CitySizeType&gt;&lt;/CitySizeType&gt;
+      &lt;SoundscapeScript&gt;&lt;/SoundscapeScript&gt;
+    &lt;/CitySoundscape&gt;
+  &lt;/CitySoundscapes&gt;
+  &lt;AudioUnitVictoryScript&gt;&lt;/AudioUnitVictoryScript&gt;
+  &lt;AudioUnitDefeatScript&gt;&lt;/AudioUnitDefeatScript&gt;
+&lt;/EraInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4EventInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4EventInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">BonusGift</span><td>NO_BONUS<td>Makes the affected player gift the specified bonus to the other player. As such, it can only be used with events that affect two players. 
+    <tr><td><span class="tagoptional">BonusRevealed</span><td>NO_BONUS<td>Reveals the specified bonus to the affected player, even if he has no technology to normally see the bonus. 
+    <tr><td><span class="tagoptional">BonusType</span><td>NO_BONUS<td>Sets the bonus type that the event will add or remove in a plot, used in conjunction with &lt;iBonusChange&gt; 
+    <tr><td><span class="tagoptional">BuildingClass</span><td>NO_BUILDINGCLASS<td>Explicitly gives a building class to be affected by the event. Used with &lt;iBuildingChange&gt;
+    <tr><td><span class="tagoptional">Button</span><td><td>Path to a .dds file that contains the art file which is displayed as the event's button.
+    <tr><td><span class="tagoptional">Description</span><td><td>Reference to the text that contains a description of an instance of this event. The text may be defined in any of the files in \Assets\XML\Text 
+    <tr><td><span class="tagoptional">FeatureType</span><td>NO_FEATURE<td>Feature type that the event will add or remove in a plot, used in conjunction with &lt;iFeatureChange&gt;.
+    <tr><td><span class="tagoptional">ImprovementType</span><td>NO_IMPROVEMENT<td>Improvement type that the event will add or remove in a plot, used in conjunction with &lt;iImprovementChange&gt;
+    <tr><td><span class="tagoptional">LocalInfoText</span><td><td>Identifier of the text string, if any, to be shown to the affected player. 
+    <tr><td><span class="tagoptional">OtherPlayerPopup</span><td><td>Specifies text, if any, to show in a popup to the other player affected.
+    <tr><td><span class="tagoptional">PrereqTech</span><td>NO_TECH<td>Technology is required for this event. Used to create event choices that the player can not pick unless he has the tech. 
+    <tr><td><span class="tagoptional">PythonCallback</span><td><td>Specifies the Python function that is called when the event occurs.
+    <tr><td><span class="tagoptional">PythonCanDo</span><td><td>Specifies the Python function that is called to verify whether the event can be triggered. 
+    <tr><td><span class="tagoptional">PythonExpireCheck</span><td><td>Specifies the Python function that is called to check whether the event expires. 
+    <tr><td><span class="tagoptional">PythonHelp</span><td><td>Specifies the Python function that generates the help text for this event.
+    <tr><td><span class="tagoptional">QuestFailText</span><td><td>Specifies text, if any, to be displayed if the quest has been failed.
+    <tr><td><span class="tagoptional">RouteType</span><td>NO_ROUTE<td>Route type that the event will add or remove in a plot, used in conjunction with &lt;iRouteChange&gt;
+    <tr><td><span class="tagoptional">Tech</span><td>NO_TECH<td>Technology towards which the event recipient gains beakers. 
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal reference to this event. Takes the form EVENT_NAME_xxx
+    <tr><td><span class="tagoptional">UnitClass</span><td>NO_UNITCLASS<td>The recipient of this event will receive a unit of this unit class.
+    <tr><td><span class="tagoptional">UnitName</span><td><td>If specified, will set the affected unit's name to the specified string. 
+    <tr><td><span class="tagoptional">UnitPromotion</span><td>NO_PROMOTION<td>For events that affect a specific unit (as determined by the trigger), can be used to apply a promotion to that specific unit.
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bTeam</span><td>0<td>If treu, the event will apply to all players on the same team
+    <tr><td><span class="tagoptional">iAIValue</span><td>0<td>Reflects the AI trigger value for this event. 
+    <tr><td><span class="tagoptional">iAttitudeModifier</span><td>0<td>Attitude modifier of the other player towards the affected player. 
+    <tr><td><span class="tagoptional">iBonusChange</span><td>0<td>If used, should only take the values of 1 or -1. Setting to 1 would add the bonus described in &lt;BonusType&gt; to the affected plot, setting to -1 would remove the bonus. 
+    <tr><td><span class="tagoptional">iBuildingChange</span><td>0<td>Specifies how many buildings of the class specified in &lt;BuildingClass&gt; to add. Since a city can only contain 1 of a building, the only useful values are 1 to add a building and -1 to remove it.
+    <tr><td><span class="tagoptional">iConvertOtherCities</span><td>0<td>Specifies the number of foreign cities that will be converted to the trigger religion. The religion is determined in event triggers. 
+    <tr><td><span class="tagoptional">iConvertOwnCities</span><td>0<td>Specifies the number of the player's cities that will be converted to the trigger religion, the religion being added to the city if not already present. The religion is determined in event triggers.
+    <tr><td><span class="tagoptional">iCulture</span><td>0<td>Specifies the change in culture to be applied to a city â?? only useful for events targeting a city. 
+    <tr><td><span class="tagoptional">iEspionagePoints</span><td>0<td>Specifies the amount of espionage points that the affected player will gain towards the other player. 
+    <tr><td><span class="tagoptional">iFeatureChange</span><td>0<td>If used, should only take the values of 1 or -1. Setting to 1 would add the feature described in &lt;FeatureType&gt; to the affected plot, setting to -1 would remove the feature. 
+    <tr><td><span class="tagoptional">iFood</span><td>0<td>Specifies the amount of stored food to be added in a city. If &lt;bPickCity&gt; is 0, the change will apply to the entire civ. If &lt;bPickCity&gt; is 1, only the affected city's food stores will be modified. 
+    <tr><td><span class="tagoptional">iFoodPercent</span><td>0<td>Specifies by how many percent to modify the stored food in a city. You can remove all the stored food by setting this value to -100. If &lt;bPickCity&gt; is 0, the change will apply to the entire civ. If &lt;bPickCity&gt; is 1, only the affected city's food stores will be modified. 
+    <tr><td><span class="tagoptional">iFreeUnitSupport</span><td>0<td>Specifies how many extra free units the player is allowed before they begin to cost support. 
+    <tr><td><span class="tagoptional">iGold</span><td>0<td>Change in the gold reserves of a player.
+    <tr><td><span class="tagoptional">iHappy</span><td>0<td>Change in happiness of cities. If &lt;bPickCity&gt; is 0, the change will apply to the entire civ. If bPickCity&gt; is 1, only the affected city's happiness will be modified. 
+    <tr><td><span class="tagoptional">iHappyTurns</span><td>0<td>Specifies the amount of turns to give temporary happiness. The amount of happy faces given is specified in Assets\XML\GlobalAssets.xml as the TEMP_HAPPY variable. It defaults to 1 in BtS. Therefore, setting &lt;iHappyTurns&gt; to 10 would maen the happiness change lasts for 10 turns. Once again, if &lt;bPickCity&gt; is 0, the change will apply to the entire civ. If &lt;bPickCity&gt; is 1, only the affected city's happiness will be modified. 
+    <tr><td><span class="tagoptional">iHealth</span><td>0<td>Change in health of cities. If &lt;bPickCity&gt; is 0, the change will apply to the entire civ. If bPickCity&gt; is 1, only the affected city's health will be modified. 
+    <tr><td><span class="tagoptional">iHurryAnger</span><td>0<td>Specifies extra whipping unhappiness to give. Unhappy citizens created by events using this variable will have the "We can not forget your cruel oppression!" unhappiness. You can be extra evil by setting &lt;bPickCity&gt; to 0, which would give the penalty in all cities. 
+    <tr><td><span class="tagoptional">iImprovementChange</span><td>0<td>If used, should only take the values of 1 or -1. Setting to 1 would add the improvement described in &lt;ImprovementType&gt; to the affected plot, setting to -1 would remove the improvement. 
+    <tr><td><span class="tagoptional">iInflationMod</span><td>0<td>Change to the targetted players inflation rate
+    <tr><td><span class="tagoptional">iMaxNumReligions</span><td>-1<td>Specifies the maximum amount of religions that may be present in a city in order for it to be converted by either &lt;iConvertOwnCities&gt; or &lt;iConvertOtherCities&gt;. If you wish to ignore the amount of religions already in the city, set this variable to -1. 
+    <tr><td><span class="tagoptional">iMaxPillage</span><td>0<td>Specifies the maximum number of terrain improvements that will be pillaged(removed). Works in conjunction with &lt;iMinPillage&gt; and must be equal or greater than &lt;iMinPillage&gt;, see above. Setting both variables to an equal value will result in exactly that many improvements getting pillaged. 
+    <tr><td><span class="tagoptional">iMinPillage</span><td>0<td>Specifies the minimum number of terrain improvements that will be pillaged (removed). If used with a city-targeting event, then the pillaged improvement will be in the city's radius. If the event doesn't target a city, the improvement may be anywhere. 
+    <tr><td><span class="tagoptional">iNumFreeUnits</span><td>0<td>Specifies how many free units of the class given in &lt;UnitClass&gt; the player should receive.
+    <tr><td><span class="tagoptional">iOurAttitudeModifier</span><td>0<td>Specifies the attitude modifier of the affected player towards the other player. 
+    <tr><td><span class="tagoptional">iPopulationChange</span><td>0<td>Specifies the population change in the city. If &lt;bPickCity&gt; is 0, the change will apply to the entire civ. If &lt;bPickCity&gt; is 1, only the affected city's population will be modified. 
+    <tr><td><span class="tagoptional">iRandomGold</span><td>0<td>Specifies the cap for an extra random amount of gold that is added to &lt;iGold&gt; to produce the total amount of gold. 
+    <tr><td><span class="tagoptional">iRevoltTurns</span><td>0<td>Specifies the amount of turns that the city will spend in revolt (no production, etc., like newly captured cities). Must be city-targeted, that is, used in conjunction with &lt;bPickCity&gt; or &lt;bPickOtherPlayerCity&gt; set to 1.
+    <tr><td><span class="tagoptional">iRouteChange</span><td>0<td>If used, should only take the values of 1 or -1. Setting to 1 would add the route described in &lt;RouteType&gt; to the affected plot, setting to -1 would remove the route. 
+    <tr><td><span class="tagoptional">iSpaceProductionMod</span><td>0<td>Percentage change to the rate at which the targetted players space ship parts are produced
+    <tr><td><span class="tagoptional">iTechCostPercent</span><td>0<td>Specifies how many percent of the technology's beaker cost to convert to a gold value. 
+    <tr><td><span class="tagoptional">iTechMinTurnsLeft</span><td>0<td>Specifies that the event may only affect techs for which the player needs at least this many turns to research. For example, setting to 2 for an event that advances research progress would mean that progress won't be advanced for a tech that you're about to complete in 2 turns. 
+    <tr><td><span class="tagoptional">iTechPercent</span><td>0<td>Percent change to the time the player will learn a technology. The technology can be set explicitly (see &lt;Tech&gt;) or chosen randomly. Negative numbers can be used to set research back. 
+    <tr><td><span class="tagoptional">iTheirEnemyAttitudeModifier</span><td>0<td>Specifies the attitude modifier of the affected player towards the other player's worst enemy and vice versa. For example, if set to -1, Civ A is the affected player and Civ B is the other player, then Civ A will have -1 towards Civ B's worst enemy and Civ B's worst enemy will also have a -1 modifier towards Civ A. 
+    <tr><td><span class="tagoptional">iUnitExperience</span><td>0<td>Specifies the amount of free XP received by the affected unit.
+    <tr><td><span class="tagoptional">iUnitImmobileTurns</span><td>0<td>Specifies the number of turns that the affected unit will remain immobile. Immobile units can still defend. 
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bDeclareWar</span><td>0<td>If true, will cause the affected player and the other player to go to war. 
+    <tr><td><span class="tagoptional">bDisbandUnit</span><td>0<td>If true, disbands (kills) the affected unit. 
+    <tr><td><span class="tagoptional">bGlobal</span><td>0<td>If true, then the event will apply to all players. That is used for events that complete a quest in order to reset it for every player. 
+    <tr><td><span class="tagoptional">bGoldToPlayer</span><td>0<td>If treu, the gold value specified by &lt;iGold&gt; will be given to the other player. Since it requires another player, it's only useful for events that involve another player. 
+    <tr><td><span class="tagoptional">bGoldenAge</span><td>0<td>If true, triggers a golden age for the affected player. 
+    <tr><td><span class="tagoptional">bPickCity</span><td>0<td>If true, then the event affects a city of the player for whom the event was triggered. 
+    <tr><td><span class="tagoptional">bPickOtherPlayerCity</span><td>0<td>If true, the event affects a foreign city. For example, you can be given the choice of spending some espionage points to worsen the effects this event deals to the foreign city. Used in conjunction with &lt;bPickCity&gt;, creates an event that affects the player's city and a foreign city.
+    <tr><td><span class="tagoptional">bQuest</span><td>0<td>If true, the event is a quest
+  </table>	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">AdditionalEvents</span><td>NONE<td>Specifies the chance of extra events occuring if this event happens.<br><pre class="code">
+  &lt;EventChance&gt;
+    &lt;Event&gt;&lt;/Event&gt;
+    &lt;iEventChance&gt;0&lt;/iEventChance&gt;
+  &lt;/EventChance&gt;</pre>
+    <tr><td><span class="tagoptional">BuildingExtraCommerces</span><td>NONE<td>Modifies commerce outputs given by a building. Note that this is not for pure commerce (to change that, use BuildingExtraYields and YIELD_COMMERCE as per the above example), but rather for commerce types â?? research, culture, gold or espionage. If &lt;bPickCity&gt; is 0, the change will apply to all buildings of the class in your civ. If &lt;bPickCity&gt; is 1, only the building in the affected city will be modified. <br><pre class="code">
+  &lt;BuildingExtraCommerce&gt;
+    &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+    &lt;CommerceType&gt;&lt;/CommerceType&gt;
+    &lt;iExtraCommerce&gt;0&lt;/iExtraCommerce&gt;
+  &lt;/BuildingExtraCommerce&gt;</pre>
+    <tr><td><span class="tagoptional">BuildingExtraHappies</span><td>NONE<td>Modifies the happiness provided by a building. C<br><pre class="code">
+  &lt;BuildingExtraHappy&gt;
+    &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+    &lt;iHappy&gt;0&lt;/iHappy&gt;
+  &lt;/BuildingExtraHappy&gt;</pre>
+    <tr><td><span class="tagoptional">BuildingExtraHealths</span><td>NONE<td>Modifies the health provided by a building. If &lt;bPickCity&gt; is 0, the change will apply to all buildings of the class in your civ. If &lt;bPickCity&gt; is 1, only the building in the affected city will be modified. <br><pre class="code">
+  &lt;BuildingExtraHealth&gt;
+    &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+    &lt;iHealth&gt;0&lt;/iHealth&gt;
+  &lt;/BuildingExtraHealth&gt;</pre>
+    <tr><td><span class="tagoptional">BuildingExtraYields</span><td>NONE<td>Modifies yield given by a building, e.g., a building can be made to produce extra food or hammers. If &lt;bPickCity&gt; is 0, the change will apply to all buildings of the class in your civ. If &lt;bPickCity&gt; is 1, only the building in the affected city will be modified. <br><pre class="code">
+  &lt;BuildingExtraYield&gt;
+    &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+    &lt;YieldType&gt;&lt;/YieldType&gt;
+    &lt;iExtraYield&gt;0&lt;/iExtraYield&gt;
+  &lt;/BuildingExtraYield&gt;</pre>
+    <tr><td><span class="tagoptional">ClearEvents</span><td>NONE<td>Percentage chance that the specified events wil be reset and allowed to happen again<br><pre class="code">
+  &lt;EventChance&gt;
+    &lt;Event&gt;&lt;/Event&gt;
+    &lt;iEventChance&gt;0&lt;/iEventChance&gt;
+  &lt;/EventChance&gt;</pre>
+    <tr><td><span class="tagoptional">EventTimes</span><td>NONE<td>Used to set up delayed events in conjunction with &lt;AdditionalEvents&gt;. If the events in &lt;AdditionalEvents&gt; do not trigger due to the random roll, the event timer will kick in, making it occur later.<br><pre class="code">
+  &lt;EventTime&gt;
+    &lt;Event&gt;&lt;/Event&gt;
+    &lt;iEventTime&gt;0&lt;/iEventTime&gt;
+  &lt;/EventTime&gt;</pre>
+    <tr><td><span class="tagoptional">FreeSpecialistCounts</span><td>NONE<td>Free specialists added to a city. Can only be used with events that target a city<br><pre class="code">
+  &lt;FreeSpecialistCount&gt;
+    &lt;SpecialistType&gt;&lt;/SpecialistType&gt;
+    &lt;iFreeSpecialistCount&gt;0&lt;/iFreeSpecialistCount&gt;
+  &lt;/FreeSpecialistCount&gt;</pre>
+    <tr><td><span class="tagoptional">PlotExtraYields</span><td>NONE<td>Modifier to the yield produced on ehe affected plot<br><pre class="code">
+  &lt;PlotExtraYield&gt;
+    &lt;YieldType&gt;&lt;/YieldType&gt;
+    &lt;iExtraYield&gt;0&lt;/iExtraYield&gt;
+  &lt;/PlotExtraYield&gt;</pre>
+    <tr><td><span class="tagoptional">TechFlavors</span><td>NO_FLAVOR<td>For events that result in progress towards a technology, flavors affect which technology will be picked. For example, FLAVOR_RELIGION with a value of 1 will make you more likely to have progress towards a religious technology. <br><pre class="code">
+  &lt;TechFlavor&gt;
+    &lt;FlavorType&gt;&lt;/FlavorType&gt;
+    &lt;iFlavor&gt;0&lt;/iFlavor&gt;
+  &lt;/TechFlavor&gt;</pre>
+    <tr><td><span class="tagoptional">UnitClassPromotions</span><td>NONE<td>Free promotions for all units of the selected unit classes will receive.<br><pre class="code">
+  &lt;UnitClassPromotion&gt;
+    &lt;UnitClass&gt;&lt;/UnitClass&gt;
+    &lt;UnitPromotion&gt;&lt;/UnitPromotion&gt;
+  &lt;/UnitClassPromotion&gt;</pre>
+    <tr><td><span class="tagoptional">UnitCombatPromotions</span><td>NONE<td>Free promotions for all units of the selected unit combat types will receive.<br><pre class="code">
+  &lt;UnitCombatPromotion&gt;
+    &lt;UnitCombat&gt;&lt;/UnitCombat&gt;
+    &lt;UnitPromotion&gt;&lt;/UnitPromotion&gt;
+  &lt;/UnitCombatPromotion&gt;</pre>
+    <tr><td><span class="tagoptional">WorldNewsTexts</span><td>NONE<td>Specifies text, if any, to be shown to every player in the world (who has met the affected civilization) when the event occurs. <br><pre class="code">
+  &lt;Text&gt;&lt;/Text&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;EventInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+&lt;/EventInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;EventInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;LocalInfoText&gt;&lt;/LocalInfoText&gt;
+  &lt;WorldNewsTexts&gt;
+    &lt;Text&gt;&lt;/Text&gt;
+  &lt;/WorldNewsTexts&gt;
+  &lt;OtherPlayerPopup&gt;&lt;/OtherPlayerPopup&gt;
+  &lt;QuestFailText&gt;&lt;/QuestFailText&gt;
+  &lt;bQuest&gt;0&lt;/bQuest&gt;
+  &lt;bGlobal&gt;0&lt;/bGlobal&gt;
+  &lt;bTeam&gt;0&lt;/bTeam&gt;
+  &lt;bPickCity&gt;0&lt;/bPickCity&gt;
+  &lt;bPickOtherPlayerCity&gt;0&lt;/bPickOtherPlayerCity&gt;
+  &lt;bDeclareWar&gt;0&lt;/bDeclareWar&gt;
+  &lt;iGold&gt;0&lt;/iGold&gt;
+  &lt;bGoldToPlayer&gt;0&lt;/bGoldToPlayer&gt;
+  &lt;iRandomGold&gt;0&lt;/iRandomGold&gt;
+  &lt;iCulture&gt;0&lt;/iCulture&gt;
+  &lt;iEspionagePoints&gt;0&lt;/iEspionagePoints&gt;
+  &lt;bGoldenAge&gt;0&lt;/bGoldenAge&gt;
+  &lt;iFreeUnitSupport&gt;0&lt;/iFreeUnitSupport&gt;
+  &lt;iInflationMod&gt;0&lt;/iInflationMod&gt;
+  &lt;iSpaceProductionMod&gt;0&lt;/iSpaceProductionMod&gt;
+  &lt;Tech&gt;&lt;/Tech&gt;
+  &lt;TechFlavors&gt;
+    &lt;TechFlavor&gt;
+      &lt;FlavorType&gt;&lt;/FlavorType&gt;
+      &lt;iFlavor&gt;0&lt;/iFlavor&gt;
+    &lt;/TechFlavor&gt;
+  &lt;/TechFlavors&gt;
+  &lt;iTechPercent&gt;0&lt;/iTechPercent&gt;
+  &lt;iTechCostPercent&gt;0&lt;/iTechCostPercent&gt;
+  &lt;iTechMinTurnsLeft&gt;0&lt;/iTechMinTurnsLeft&gt;
+  &lt;PrereqTech&gt;&lt;/PrereqTech&gt;
+  &lt;UnitClass&gt;&lt;/UnitClass&gt;
+  &lt;iNumFreeUnits&gt;0&lt;/iNumFreeUnits&gt;
+  &lt;bDisbandUnit&gt;0&lt;/bDisbandUnit&gt;
+  &lt;iUnitExperience&gt;0&lt;/iUnitExperience&gt;
+  &lt;iUnitImmobileTurns&gt;0&lt;/iUnitImmobileTurns&gt;
+  &lt;UnitPromotion&gt;&lt;/UnitPromotion&gt;
+  &lt;UnitName&gt;&lt;/UnitName&gt;
+  &lt;UnitCombatPromotions&gt;
+    &lt;UnitCombatPromotion&gt;
+      &lt;UnitCombat&gt;&lt;/UnitCombat&gt;
+      &lt;UnitPromotion&gt;&lt;/UnitPromotion&gt;
+    &lt;/UnitCombatPromotion&gt;
+  &lt;/UnitCombatPromotions&gt;
+  &lt;UnitClassPromotions&gt;
+    &lt;UnitClassPromotion&gt;
+      &lt;UnitClass&gt;&lt;/UnitClass&gt;
+      &lt;UnitPromotion&gt;&lt;/UnitPromotion&gt;
+    &lt;/UnitClassPromotion&gt;
+  &lt;/UnitClassPromotions&gt;
+  &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+  &lt;iBuildingChange&gt;0&lt;/iBuildingChange&gt;
+  &lt;BuildingExtraYields&gt;
+    &lt;BuildingExtraYield&gt;
+      &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+      &lt;YieldType&gt;&lt;/YieldType&gt;
+      &lt;iExtraYield&gt;0&lt;/iExtraYield&gt;
+    &lt;/BuildingExtraYield&gt;
+  &lt;/BuildingExtraYields&gt;
+  &lt;BuildingExtraCommerces&gt;
+    &lt;BuildingExtraCommerce&gt;
+      &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+      &lt;CommerceType&gt;&lt;/CommerceType&gt;
+      &lt;iExtraCommerce&gt;0&lt;/iExtraCommerce&gt;
+    &lt;/BuildingExtraCommerce&gt;
+  &lt;/BuildingExtraCommerces&gt;
+  &lt;BuildingExtraHappies&gt;
+    &lt;BuildingExtraHappy&gt;
+      &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+      &lt;iHappy&gt;0&lt;/iHappy&gt;
+    &lt;/BuildingExtraHappy&gt;
+  &lt;/BuildingExtraHappies&gt;
+  &lt;BuildingExtraHealths&gt;
+    &lt;BuildingExtraHealth&gt;
+      &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+      &lt;iHealth&gt;0&lt;/iHealth&gt;
+    &lt;/BuildingExtraHealth&gt;
+  &lt;/BuildingExtraHealths&gt;
+  &lt;iHappy&gt;0&lt;/iHappy&gt;
+  &lt;iHealth&gt;0&lt;/iHealth&gt;
+  &lt;iHurryAnger&gt;0&lt;/iHurryAnger&gt;
+  &lt;iHappyTurns&gt;0&lt;/iHappyTurns&gt;
+  &lt;iRevoltTurns&gt;0&lt;/iRevoltTurns&gt;
+  &lt;iMinPillage&gt;0&lt;/iMinPillage&gt;
+  &lt;iMaxPillage&gt;0&lt;/iMaxPillage&gt;
+  &lt;iFood&gt;0&lt;/iFood&gt;
+  &lt;iFoodPercent&gt;0&lt;/iFoodPercent&gt;
+  &lt;FreeSpecialistCounts&gt;
+    &lt;FreeSpecialistCount&gt;
+      &lt;SpecialistType&gt;&lt;/SpecialistType&gt;
+      &lt;iFreeSpecialistCount&gt;0&lt;/iFreeSpecialistCount&gt;
+    &lt;/FreeSpecialistCount&gt;
+  &lt;/FreeSpecialistCounts&gt;
+  &lt;FeatureType&gt;&lt;/FeatureType&gt;
+  &lt;iFeatureChange&gt;0&lt;/iFeatureChange&gt;
+  &lt;ImprovementType&gt;&lt;/ImprovementType&gt;
+  &lt;iImprovementChange&gt;0&lt;/iImprovementChange&gt;
+  &lt;BonusType&gt;&lt;/BonusType&gt;
+  &lt;iBonusChange&gt;0&lt;/iBonusChange&gt;
+  &lt;RouteType&gt;&lt;/RouteType&gt;
+  &lt;iRouteChange&gt;0&lt;/iRouteChange&gt;
+  &lt;BonusRevealed&gt;&lt;/BonusRevealed&gt;
+  &lt;BonusGift&gt;&lt;/BonusGift&gt;
+  &lt;PlotExtraYields&gt;
+    &lt;PlotExtraYield&gt;
+      &lt;YieldType&gt;&lt;/YieldType&gt;
+      &lt;iExtraYield&gt;0&lt;/iExtraYield&gt;
+    &lt;/PlotExtraYield&gt;
+  &lt;/PlotExtraYields&gt;
+  &lt;iConvertOwnCities&gt;0&lt;/iConvertOwnCities&gt;
+  &lt;iConvertOtherCities&gt;0&lt;/iConvertOtherCities&gt;
+  &lt;iMaxNumReligions&gt;-1&lt;/iMaxNumReligions&gt;
+  &lt;iOurAttitudeModifier&gt;0&lt;/iOurAttitudeModifier&gt;
+  &lt;iAttitudeModifier&gt;0&lt;/iAttitudeModifier&gt;
+  &lt;iTheirEnemyAttitudeModifier&gt;0&lt;/iTheirEnemyAttitudeModifier&gt;
+  &lt;iPopulationChange&gt;0&lt;/iPopulationChange&gt;
+  &lt;AdditionalEvents&gt;
+    &lt;EventChance&gt;
+      &lt;Event&gt;&lt;/Event&gt;
+      &lt;iEventChance&gt;0&lt;/iEventChance&gt;
+    &lt;/EventChance&gt;
+  &lt;/AdditionalEvents&gt;
+  &lt;EventTimes&gt;
+    &lt;EventTime&gt;
+      &lt;Event&gt;&lt;/Event&gt;
+      &lt;iEventTime&gt;0&lt;/iEventTime&gt;
+    &lt;/EventTime&gt;
+  &lt;/EventTimes&gt;
+  &lt;ClearEvents&gt;
+    &lt;EventChance&gt;
+      &lt;Event&gt;&lt;/Event&gt;
+      &lt;iEventChance&gt;0&lt;/iEventChance&gt;
+    &lt;/EventChance&gt;
+  &lt;/ClearEvents&gt;
+  &lt;PythonCallback&gt;&lt;/PythonCallback&gt;
+  &lt;PythonExpireCheck&gt;&lt;/PythonExpireCheck&gt;
+  &lt;PythonCanDo&gt;&lt;/PythonCanDo&gt;
+  &lt;PythonHelp&gt;&lt;/PythonHelp&gt;
+  &lt;Button&gt;&lt;/Button&gt;
+  &lt;iAIValue&gt;0&lt;/iAIValue&gt;
+&lt;/EventInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

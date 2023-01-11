@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4CivicInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4CivicInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">Button</span><td><td>Path to a .dds file that contains the icon for this civic
+    <tr><td><span class="tagmandatory">CivicOptionType</span><td><td>The internal reference to this civic
+    <tr><td><span class="tagmandatory">Civilopedia</span><td><td>Pedia text for this civic
+    <tr><td><span class="tagmandatory">Description</span><td><td>Reference to the text that contains the civic name. The text may be defined in any of the files in \Assets\XML\Text 
+    <tr><td><span class="tagoptional">Help</span><td><td>Additional help text that will be displayed in the Pedia
+    <tr><td><span class="tagmandatory">Strategy</span><td><td>Strategy text for the civic
+    <tr><td><span class="tagoptional">TechPrereq</span><td>NO_TECH<td>Tech that must be known in order to run the civic
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal reference to this civic
+    <tr><td><span class="tagoptional">Upkeep</span><td>NO_UPKEEP<td>Reference to an UpkeepType that defines the maintenance costs of the civic
+    <tr><td><span class="tagoptional">WeLoveTheKing</span><td><td>Text shown when a city is on "We Love The King day"
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iAIWeight</span><td>0<td>Modifies the AI preference for this civic
+    <tr><td><span class="tagoptional">iAnarchyLength</span><td>1<td>Base number of turns of anarchy when switching to this civic
+    <tr><td><span class="tagoptional">iBaseFreeMilitaryUnits</span><td>0<td>Base number of military units that don't need maintainance
+    <tr><td><span class="tagoptional">iBaseFreeUnits</span><td>0<td>Base number of units that don't need maintainance
+    <tr><td><span class="tagoptional">iCivicPercentAnger</span><td>0<td>A weight for unhappiness in every city of the empire, per every known civilization that is adopting this civic while you aren't. The percentage is applied to the population of the city and modified by the PERCENT_ANGER_DIVISOR global define.
+    <tr><td><span class="tagoptional">iCorporationMaintenanceModifier</span><td>0<td>Percentage change to the maintenance costs of corporations in your cities
+    <tr><td><span class="tagoptional"><b>iCultureDefenceChange</b></span><td>0<td>The increase in defence that culture applies to a city
+    <tr><td><span class="tagoptional">iDistanceMaintenanceModifier</span><td>0<td>Percentage change to the maintenance costs of cities due to their distance from a government centre
+    <tr><td><span class="tagoptional">iDomesticGreatGeneralRateModifier</span><td>0<td>Percentage change to the rate at which great generals points are gained inside your cultural borders
+    <tr><td><span class="tagoptional">iExpInBorderModifier</span><td>0<td>Percentage change top the rate at which units gain experience within the players cultural borders
+    <tr><td><span class="tagoptional"><b>iExtraHappiness</b></span><td>0<td>Change in happiness for every city
+    <tr><td><span class="tagoptional">iExtraHealth</span><td>0<td>Change in health for every city
+    <tr><td><span class="tagoptional">iFreeExperience</span><td>0<td>Change in experience a units trained in your cities gain
+    <tr><td><span class="tagoptional">iFreeMilitaryUnitsPopulationPercent</span><td>0<td>Specifies how many extra military units (based on population) don't need maintainance
+    <tr><td><span class="tagoptional">iFreeSpecialist</span><td>0<td>Number of free specialists in every city
+    <tr><td><span class="tagoptional">iFreeUnitsPopulationPercent</span><td>0<td>Specifies how many extra units (based on population) don't need maintainance.
+    <tr><td><span class="tagoptional">iGoldPerMilitaryUnit</span><td>0<td>The cost in gold for each military unit that has a maintenance cost
+    <tr><td><span class="tagoptional">iGoldPerUnit</span><td>0<td>The cost in gold for each unit that has a maintenance cost
+    <tr><td><span class="tagoptional">iGreatGeneralRateModifier</span><td>0<td>Percentage change in the rate at which great general points are gained
+    <tr><td><span class="tagoptional">iGreatPeopleRateModifier</span><td>0<td>Percentage change in the rate at which great people points are gained
+    <tr><td><span class="tagoptional">iHappyPerMilitaryUnit</span><td>0<td>Change in the number of units that provide happiness in a city when they are garrisoned there
+    <tr><td><span class="tagoptional">iImprovementUpgradeRateModifier</span><td>0<td>Percentage change to the rate at which improvements grow
+    <tr><td><span class="tagoptional">iLargestCityHappiness</span><td>0<td>Change in happiness for the largest cities in the empire based on the target number of cities for the world size
+    <tr><td><span class="tagoptional">iMaxConscript</span><td>0<td>Change to the number of units that can be conscripted in a city each turn
+    <tr><td><span class="tagoptional">iMilitaryProductionModifier</span><td>0<td>Percentage change to the production rate of military units
+    <tr><td><span class="tagoptional">iNonStateReligionHappiness</span><td>0<td>Chaage to the happiness in cities for each non-state religion that is present
+    <tr><td><span class="tagoptional">iNumCitiesMaintenanceModifier</span><td>0<td>Percentage change to the maintenance cost of a city based on the number of cities in the empire
+    <tr><td><span class="tagoptional"><b>iStarSignMitigateChangePercent</b></span><td>0<td>Percentile change in the chance to mitigate the eefcts of a negative star event
+    <tr><td><span class="tagoptional"><b>iStarSignScaleChangePercent</b></span><td>0<td>Percentile change to the effect that a ster event has on an impacted city
+    <tr><td><span class="tagoptional">iStateReligionBuildingProductionModifier</span><td>0<td>Percentage change to the production rate of buildings in cities wioth the state religion
+    <tr><td><span class="tagoptional">iStateReligionFreeExperience</span><td>0<td>Change to the experience of unit trained in a city with the state religion
+    <tr><td><span class="tagoptional">iStateReligionGreatPeopleRateModifier</span><td>0<td>Change to the rate of great people points in cities with the state religion
+    <tr><td><span class="tagoptional">iStateReligionHappiness</span><td>0<td>Chnage to the happiness of cities with the state religion
+    <tr><td><span class="tagoptional">iStateReligionUnitProductionModifier</span><td>0<td>Percentage change to the production rate of units in cities wioth the state religion
+    <tr><td><span class="tagoptional">iTradeRoutes</span><td>0<td>Chnage to the number of trade routes in cities
+    <tr><td><span class="tagoptional"><b>iUnhealthyPopulationModifier</b></span><td>0<td>Percentage change to the unhealthiness created by the cities population
+    <tr><td><span class="tagoptional"><b>iUnitRangeChange</b></span><td>0<td>Absolute change in range for a range bound unit
+    <tr><td><span class="tagoptional"><b>iUnitRangePercentChange</b></span><td>0<td>Percentile change in range for a range bound unit
+    <tr><td><span class="tagoptional">iWarWearinessModifier</span><td>0<td>Percentage change to the war weariness in cities
+    <tr><td><span class="tagoptional">iWorkerSpeedModifier</span><td>0<td>Percentage change to the work rate of units
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bBuildingOnlyHealthy</span><td>0<td>If true, buildings don't contribute to unhealthiness in cities
+    <tr><td><span class="tagoptional"><b>bEnableStarSigns</b></span><td>0<td>If true, star signs may impact the players cities
+    <tr><td><span class="tagoptional">bMilitaryFoodProduction</span><td>0<td>If true, cities convert food into production when training military units
+    <tr><td><span class="tagoptional">bNoCorporations</span><td>0<td>If true, corporations cannot be founded or spread and any existing have no effect
+    <tr><td><span class="tagoptional">bNoForeignCorporations</span><td>0<td>If true, foreign corporations cannot be founded or spread and any existing have no effect
+    <tr><td><span class="tagoptional">bNoForeignTrade</span><td>0<td>If true, foreign trade routes cannot exist
+    <tr><td><span class="tagoptional">bNoNonStateReligionSpread</span><td>0<td>If true, only the state religion can be spread in your cities
+    <tr><td><span class="tagoptional">bStateReligion</span><td>0<td>If true, a state religionmay be adopted. If you switch to a civic that doesn't allow a state religion, your state religion will be automatically switched to NO_RELIGION
+    <tr><td><span class="tagoptional"><b>bUnitRangeUnbound</b></span><td>0<td>If true, units with a maximum range have the range cap removed
+    <tr><td><span class="tagoptional"><b>bUnitTerritoryUnbound</b></span><td>0<td>If true, units that are normally restricted ot the players territory may venture outside it
+  </table>	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">BuildingHappinessChanges</span><td>NONE<td>List of buildings and the change in happiness that they provide under this civic<br><pre class="code">
+  &lt;BuildingHappinessChange&gt;
+    &lt;BuildingType&gt;&lt;/BuildingType&gt;
+    &lt;iHappinessChange&gt;0&lt;/iHappinessChange&gt;
+  &lt;/BuildingHappinessChange&gt;</pre>
+    <tr><td><span class="tagoptional">BuildingHealthChanges</span><td>NONE<td>List of buildings and the change in health that they provide under this civic<br><pre class="code">
+  &lt;BuildingHealthChange&gt;
+    &lt;BuildingType&gt;&lt;/BuildingType&gt;
+    &lt;iHealthChange&gt;0&lt;/iHealthChange&gt;
+  &lt;/BuildingHealthChange&gt;</pre>
+    <tr><td><span class="tagoptional">CapitalCommerceModifiers</span><td>NONE<td>Percentage change to the commerce in the capital<br><pre class="code">
+  &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
+    <tr><td><span class="tagoptional">CapitalYieldModifiers</span><td>NONE<td>Percentage change to the yields in the capital<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional">CommerceModifiers</span><td>NONE<td>Percentage change to the commerce in cities<br><pre class="code">
+  &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
+    <tr><td><span class="tagoptional">FeatureHappinessChanges</span><td>NONE<td>List of features that change the happiness if they are in a cities BFC<br><pre class="code">
+  &lt;FeatureHappinessChange&gt;
+    &lt;FeatureType&gt;&lt;/FeatureType&gt;
+    &lt;iHappinessChange&gt;0&lt;/iHappinessChange&gt;
+  &lt;/FeatureHappinessChange&gt;</pre>
+    <tr><td><span class="tagoptional"><b>Hurrys</b></span><td>NO_HURRY<td>The methods that can be used to rush production in cities<br><pre class="code">
+  &lt;HurryType&gt;&lt;/HurryType&gt;</pre>
+    <tr><td><span class="tagoptional">ImprovementYieldChanges</span><td>NONE<td>List of improvements and the change in yields that they provide<br><pre class="code">
+  &lt;ImprovementYieldChange&gt;
+    &lt;ImprovementType&gt;&lt;/ImprovementType&gt;
+    &lt;ImprovementYields&gt;
+      &lt;iYield&gt;0&lt;/iYield&gt;
+    &lt;/ImprovementYields&gt;
+  &lt;/ImprovementYieldChange&gt;</pre>
+    <tr><td><span class="tagoptional"><b>SpecialBuildingNotRequireds</b></span><td>NONE<td>Lists which special buildings are no longer a prerequisite (like when monasteries are no longer needed to train missionaries)<br><pre class="code">
+  &lt;SpecialBuildingType&gt;&lt;/SpecialBuildingType&gt;</pre>
+    <tr><td><span class="tagoptional">SpecialistExtraCommerces</span><td>NONE<td>Change in commrece that each specialist provides<br><pre class="code">
+  &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
+    <tr><td><span class="tagoptional"><b>SpecialistValids</b></span><td>NONE<td>List of specialists that can be used with no limit<br><pre class="code">
+  &lt;SpecialistType&gt;&lt;/SpecialistType&gt;</pre>
+    <tr><td><span class="tagoptional">TradeYieldModifiers</span><td>NONE<td>Percentage change in yield for all trade routes<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional">YieldModifiers</span><td>NONE<td>Percentage change to yields in all the players cities<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;CivicInfo&gt;
+  &lt;CivicOptionType&gt;&lt;/CivicOptionType&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;Strategy&gt;&lt;/Strategy&gt;
+  &lt;Button&gt;&lt;/Button&gt;
+&lt;/CivicInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;CivicInfo&gt;
+  &lt;CivicOptionType&gt;&lt;/CivicOptionType&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;Strategy&gt;&lt;/Strategy&gt;
+  &lt;Help&gt;&lt;/Help&gt;
+  &lt;Button&gt;&lt;/Button&gt;
+  &lt;TechPrereq&gt;&lt;/TechPrereq&gt;
+  &lt;bEnableStarSigns&gt;0&lt;/bEnableStarSigns&gt;
+  &lt;iStarSignMitigateChangePercent&gt;0&lt;/iStarSignMitigateChangePercent&gt;
+  &lt;iStarSignScaleChangePercent&gt;0&lt;/iStarSignScaleChangePercent&gt;
+  &lt;iAnarchyLength&gt;1&lt;/iAnarchyLength&gt;
+  &lt;Upkeep&gt;&lt;/Upkeep&gt;
+  &lt;iAIWeight&gt;0&lt;/iAIWeight&gt;
+  &lt;iGreatPeopleRateModifier&gt;0&lt;/iGreatPeopleRateModifier&gt;
+  &lt;iGreatGeneralRateModifier&gt;0&lt;/iGreatGeneralRateModifier&gt;
+  &lt;iDomesticGreatGeneralRateModifier&gt;0&lt;/iDomesticGreatGeneralRateModifier&gt;
+  &lt;iStateReligionGreatPeopleRateModifier&gt;0&lt;/iStateReligionGreatPeopleRateModifier&gt;
+  &lt;iDistanceMaintenanceModifier&gt;0&lt;/iDistanceMaintenanceModifier&gt;
+  &lt;iNumCitiesMaintenanceModifier&gt;0&lt;/iNumCitiesMaintenanceModifier&gt;
+  &lt;iCorporationMaintenanceModifier&gt;0&lt;/iCorporationMaintenanceModifier&gt;
+  &lt;iExtraHealth&gt;0&lt;/iExtraHealth&gt;
+  &lt;iExtraHappiness&gt;0&lt;/iExtraHappiness&gt;
+  &lt;iFreeExperience&gt;0&lt;/iFreeExperience&gt;
+  &lt;iWorkerSpeedModifier&gt;0&lt;/iWorkerSpeedModifier&gt;
+  &lt;iImprovementUpgradeRateModifier&gt;0&lt;/iImprovementUpgradeRateModifier&gt;
+  &lt;iMilitaryProductionModifier&gt;0&lt;/iMilitaryProductionModifier&gt;
+  &lt;iBaseFreeUnits&gt;0&lt;/iBaseFreeUnits&gt;
+  &lt;iBaseFreeMilitaryUnits&gt;0&lt;/iBaseFreeMilitaryUnits&gt;
+  &lt;iFreeUnitsPopulationPercent&gt;0&lt;/iFreeUnitsPopulationPercent&gt;
+  &lt;iFreeMilitaryUnitsPopulationPercent&gt;0&lt;/iFreeMilitaryUnitsPopulationPercent&gt;
+  &lt;iGoldPerUnit&gt;0&lt;/iGoldPerUnit&gt;
+  &lt;iGoldPerMilitaryUnit&gt;0&lt;/iGoldPerMilitaryUnit&gt;
+  &lt;iHappyPerMilitaryUnit&gt;0&lt;/iHappyPerMilitaryUnit&gt;
+  &lt;bMilitaryFoodProduction&gt;0&lt;/bMilitaryFoodProduction&gt;
+  &lt;iMaxConscript&gt;0&lt;/iMaxConscript&gt;
+  &lt;iUnhealthyPopulationModifier&gt;0&lt;/iUnhealthyPopulationModifier&gt;
+  &lt;iExpInBorderModifier&gt;0&lt;/iExpInBorderModifier&gt;
+  &lt;bBuildingOnlyHealthy&gt;0&lt;/bBuildingOnlyHealthy&gt;
+  &lt;iLargestCityHappiness&gt;0&lt;/iLargestCityHappiness&gt;
+  &lt;iWarWearinessModifier&gt;0&lt;/iWarWearinessModifier&gt;
+  &lt;iFreeSpecialist&gt;0&lt;/iFreeSpecialist&gt;
+  &lt;iTradeRoutes&gt;0&lt;/iTradeRoutes&gt;
+  &lt;bNoForeignTrade&gt;0&lt;/bNoForeignTrade&gt;
+  &lt;bNoCorporations&gt;0&lt;/bNoCorporations&gt;
+  &lt;bNoForeignCorporations&gt;0&lt;/bNoForeignCorporations&gt;
+  &lt;iCivicPercentAnger&gt;0&lt;/iCivicPercentAnger&gt;
+  &lt;bStateReligion&gt;0&lt;/bStateReligion&gt;
+  &lt;bNoNonStateReligionSpread&gt;0&lt;/bNoNonStateReligionSpread&gt;
+  &lt;iStateReligionHappiness&gt;0&lt;/iStateReligionHappiness&gt;
+  &lt;iNonStateReligionHappiness&gt;0&lt;/iNonStateReligionHappiness&gt;
+  &lt;iStateReligionUnitProductionModifier&gt;0&lt;/iStateReligionUnitProductionModifier&gt;
+  &lt;iStateReligionBuildingProductionModifier&gt;0&lt;/iStateReligionBuildingProductionModifier&gt;
+  &lt;iStateReligionFreeExperience&gt;0&lt;/iStateReligionFreeExperience&gt;
+  &lt;bUnitRangeUnbound&gt;0&lt;/bUnitRangeUnbound&gt;
+  &lt;bUnitTerritoryUnbound&gt;0&lt;/bUnitTerritoryUnbound&gt;
+  &lt;iUnitRangeChange&gt;0&lt;/iUnitRangeChange&gt;
+  &lt;iUnitRangePercentChange&gt;0&lt;/iUnitRangePercentChange&gt;
+  &lt;iCultureDefenceChange&gt;0&lt;/iCultureDefenceChange&gt;
+  &lt;YieldModifiers&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/YieldModifiers&gt;
+  &lt;CapitalYieldModifiers&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/CapitalYieldModifiers&gt;
+  &lt;TradeYieldModifiers&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/TradeYieldModifiers&gt;
+  &lt;CommerceModifiers&gt;
+    &lt;iCommerce&gt;0&lt;/iCommerce&gt;
+  &lt;/CommerceModifiers&gt;
+  &lt;CapitalCommerceModifiers&gt;
+    &lt;iCommerce&gt;0&lt;/iCommerce&gt;
+  &lt;/CapitalCommerceModifiers&gt;
+  &lt;SpecialistExtraCommerces&gt;
+    &lt;iCommerce&gt;0&lt;/iCommerce&gt;
+  &lt;/SpecialistExtraCommerces&gt;
+  &lt;Hurrys&gt;
+    &lt;HurryType&gt;&lt;/HurryType&gt;
+  &lt;/Hurrys&gt;
+  &lt;SpecialBuildingNotRequireds&gt;
+    &lt;SpecialBuildingType&gt;&lt;/SpecialBuildingType&gt;
+  &lt;/SpecialBuildingNotRequireds&gt;
+  &lt;SpecialistValids&gt;
+    &lt;SpecialistType&gt;&lt;/SpecialistType&gt;
+  &lt;/SpecialistValids&gt;
+  &lt;BuildingHappinessChanges&gt;
+    &lt;BuildingHappinessChange&gt;
+      &lt;BuildingType&gt;&lt;/BuildingType&gt;
+      &lt;iHappinessChange&gt;0&lt;/iHappinessChange&gt;
+    &lt;/BuildingHappinessChange&gt;
+  &lt;/BuildingHappinessChanges&gt;
+  &lt;BuildingHealthChanges&gt;
+    &lt;BuildingHealthChange&gt;
+      &lt;BuildingType&gt;&lt;/BuildingType&gt;
+      &lt;iHealthChange&gt;0&lt;/iHealthChange&gt;
+    &lt;/BuildingHealthChange&gt;
+  &lt;/BuildingHealthChanges&gt;
+  &lt;FeatureHappinessChanges&gt;
+    &lt;FeatureHappinessChange&gt;
+      &lt;FeatureType&gt;&lt;/FeatureType&gt;
+      &lt;iHappinessChange&gt;0&lt;/iHappinessChange&gt;
+    &lt;/FeatureHappinessChange&gt;
+  &lt;/FeatureHappinessChanges&gt;
+  &lt;ImprovementYieldChanges&gt;
+    &lt;ImprovementYieldChange&gt;
+      &lt;ImprovementType&gt;&lt;/ImprovementType&gt;
+      &lt;ImprovementYields&gt;
+        &lt;iYield&gt;0&lt;/iYield&gt;
+      &lt;/ImprovementYields&gt;
+    &lt;/ImprovementYieldChange&gt;
+  &lt;/ImprovementYieldChanges&gt;
+  &lt;WeLoveTheKing&gt;&lt;/WeLoveTheKing&gt;
+&lt;/CivicInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

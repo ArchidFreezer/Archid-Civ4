@@ -1,0 +1,167 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4TraitInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4TraitInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">Description</span><td><td>A reference to the text files, which contain an entry for this trait. This is only required for the ParentTrait of multi-level traits
+    <tr><td><span class="tagoptional">Help</span><td><td>Additional help text that will be displayed in the Platypedia
+    <tr><td><span class="tagoptional">ShortDescription</span><td><td>A reference to the text files, which contains the short version which is typically a 3 character abbreviation. This is only used for LeaderHead traits, but should be considered mandatory for those.
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal name of this Trait
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iDomesticGreatGeneralRateModifier</span><td>0<td>Change to the rate that Great General points are gained within the players borders
+    <tr><td><span class="tagoptional">iGreatGeneralRateModifier</span><td>0<td>Change to the rate that Great General points are gained
+    <tr><td><span class="tagoptional">iGreatPeopleRateModifier</span><td>0<td>Change to the rate that Great Person points are gained in each city
+    <tr><td><span class="tagoptional">iHappiness</span><td>0<td>The extra happiness each city gains
+    <tr><td><span class="tagoptional">iHealth</span><td>0<td>The extra health each city gains
+    <tr><td><span class="tagoptional">iLevelExperienceModifier</span><td>0<td>Percentage change in required experience points per promotion
+    <tr><td><span class="tagoptional">iMaxAnarchy</span><td>-1<td>Maximum number of turns of anarchy. -1 = no limit; 0 = no anarchy
+    <tr><td><span class="tagoptional">iMaxGlobalBuildingProductionModifier</span><td>0<td>Percentage change in the production of all world wonders in your cities
+    <tr><td><span class="tagoptional">iMaxPlayerBuildingProductionModifier</span><td>0<td>Percentage change in the production of all national wonders in your cities
+    <tr><td><span class="tagoptional">iMaxTeamBuildingProductionModifier</span><td>0<td>Percentage change in the production of all team wonders in your cities
+    <tr><td><span class="tagoptional"><b>iStarSignMitigateChangePercent</b></span><td>0<td>A percentile multiplier that impacts the scale of any star sign applied to the players cities
+    <tr><td><span class="tagoptional"><b>iStarSignScaleChangePercent</b></span><td>0<td>A percentile multiplier that impacts the scale of any star sign applied to cities
+    <tr><td><span class="tagoptional"><b>iUnitRangeChange</b></span><td>0<td>A change in range applied to all units with range restrictions
+    <tr><td><span class="tagoptional"><b>iUnitRangePercentChange</b></span><td>0<td>Percentage change in the range of units that have a range restriction
+    <tr><td><span class="tagoptional">iUpkeepModifier</span><td>0<td>Percentage amount civic maintenance costs are reduced
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional"><b>bUnitRangeUnbound</b></span><td>0<td>If true, units have all range restrictions, except UNITRANGE_HOME, lifted
+    <tr><td><span class="tagoptional"><b>bUnitTerritoryUnbound</b></span><td>0<td>If true, units that have a range of UNITRANGE_TERRITORY have the restriction lifted and can move outside the civ territory
+  </table>	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional"><b>BaseCommerceFromUnits</b></span><td>NONE<td>Base commerce values received from units that provide yields when killed. Thus value or the units value is used whichever is larger<br><pre class="code">
+  &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
+    <tr><td><span class="tagoptional"><b>BaseYieldFromUnits</b></span><td>NONE<td>Base yield values received from units that provide yields when killed. Thus value or the units value is used whichever is larger<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional">CommerceChanges</span><td>NONE<td>Extra commerce for each city<br><pre class="code">
+  &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
+    <tr><td><span class="tagoptional"><b>CommerceFromUnitModifiers</b></span><td>NONE<td>Percentage change in the commerce received when killing a unit that provide some commerces<br><pre class="code">
+  &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
+    <tr><td><span class="tagoptional">CommerceModifiers</span><td>NONE<td>Percentage change in commerce for each city<br><pre class="code">
+  &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
+    <tr><td><span class="tagoptional">ExtraYieldThresholds</span><td>NONE<td>Provides 1 extra yield in each tile which produces at least the specified amount of each yield type<br><pre class="code">
+  &lt;iExtraYieldThreshold&gt;0&lt;/iExtraYieldThreshold&gt;</pre>
+    <tr><td><span class="tagoptional"><b>FreePromotionUnitCombats</b></span><td>NONE<td>The unit types that will be given the promotions specified in the FreePromotions tag<br><pre class="code">
+  &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>FreePromotions</b></span><td>NONE<td>The promotions that will be given to every new unit whose type is specified in the FreePromotionUnitCombats tag<br><pre class="code">
+  &lt;PromotionType&gt;&lt;/PromotionType&gt;</pre>
+    <tr><td><span class="tagoptional">TradeYieldModifiers</span><td>NONE<td>Given a trade profit value, provides extra percentage yield for each trade route<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional"><b>YieldFromUnitModifiers</b></span><td>NONE<td>Percentage change in the yield received when killing a unit that provide some yields<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;TraitInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+&lt;/TraitInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;TraitInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;ShortDescription&gt;&lt;/ShortDescription&gt;
+  &lt;Help&gt;&lt;/Help&gt;
+  &lt;iStarSignMitigateChangePercent&gt;0&lt;/iStarSignMitigateChangePercent&gt;
+  &lt;iStarSignScaleChangePercent&gt;0&lt;/iStarSignScaleChangePercent&gt;
+  &lt;iHealth&gt;0&lt;/iHealth&gt;
+  &lt;iHappiness&gt;0&lt;/iHappiness&gt;
+  &lt;iMaxAnarchy&gt;0&lt;/iMaxAnarchy&gt;
+  &lt;iUpkeepModifier&gt;0&lt;/iUpkeepModifier&gt;
+  &lt;iLevelExperienceModifier&gt;0&lt;/iLevelExperienceModifier&gt;
+  &lt;iGreatPeopleRateModifier&gt;0&lt;/iGreatPeopleRateModifier&gt;
+  &lt;iGreatGeneralRateModifier&gt;0&lt;/iGreatGeneralRateModifier&gt;
+  &lt;iDomesticGreatGeneralRateModifier&gt;0&lt;/iDomesticGreatGeneralRateModifier&gt;
+  &lt;iMaxGlobalBuildingProductionModifier&gt;0&lt;/iMaxGlobalBuildingProductionModifier&gt;
+  &lt;iMaxTeamBuildingProductionModifier&gt;0&lt;/iMaxTeamBuildingProductionModifier&gt;
+  &lt;iMaxPlayerBuildingProductionModifier&gt;0&lt;/iMaxPlayerBuildingProductionModifier&gt;
+  &lt;bUnitRangeUnbound&gt;0&lt;/bUnitRangeUnbound&gt;
+  &lt;bUnitTerritoryUnbound&gt;0&lt;/bUnitTerritoryUnbound&gt;
+  &lt;iUnitRangeChange&gt;0&lt;/iUnitRangeChange&gt;
+  &lt;iUnitRangePercentChange&gt;0&lt;/iUnitRangePercentChange&gt;
+  &lt;ExtraYieldThresholds&gt;
+    &lt;iExtraYieldThreshold&gt;0&lt;/iExtraYieldThreshold&gt;
+  &lt;/ExtraYieldThresholds&gt;
+  &lt;TradeYieldModifiers&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/TradeYieldModifiers&gt;
+  &lt;BaseYieldFromUnits&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/BaseYieldFromUnits&gt;
+  &lt;YieldFromUnitModifiers&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/YieldFromUnitModifiers&gt;
+  &lt;CommerceChanges&gt;
+    &lt;iCommerce&gt;0&lt;/iCommerce&gt;
+  &lt;/CommerceChanges&gt;
+  &lt;CommerceModifiers&gt;
+    &lt;iCommerce&gt;0&lt;/iCommerce&gt;
+  &lt;/CommerceModifiers&gt;
+  &lt;BaseCommerceFromUnits&gt;
+    &lt;iCommerce&gt;0&lt;/iCommerce&gt;
+  &lt;/BaseCommerceFromUnits&gt;
+  &lt;CommerceFromUnitModifiers&gt;
+    &lt;iCommerce&gt;0&lt;/iCommerce&gt;
+  &lt;/CommerceFromUnitModifiers&gt;
+  &lt;FreePromotions&gt;
+    &lt;PromotionType&gt;&lt;/PromotionType&gt;
+  &lt;/FreePromotions&gt;
+  &lt;FreePromotionUnitCombats&gt;
+    &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;
+  &lt;/FreePromotionUnitCombats&gt;
+&lt;/TraitInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

@@ -1,0 +1,211 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4HandicapInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4HandicapInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">Description</span><td><td>A reference to the text files, which contain an entry for this Handicap
+    <tr><td><span class="tagmandatory">Help</span><td><td>Additional help text that will be displayed in the Platypedia
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal name of this Handicap
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iAIAdvancedStartPercent</span><td>100<td>Percentage change in advanced starting points for AI players
+    <tr><td><span class="tagoptional">iAIAnimalBonus</span><td>0<td>Percentage change in an animals strength against AI players
+    <tr><td><span class="tagoptional">iAIBarbarianBonus</span><td>0<td>Percentage change in a barbarian units strength against AI players
+    <tr><td><span class="tagoptional">iAICivicUpkeepPercent</span><td>100<td>Percentage change in the maintenance costs of running civics for the AI
+    <tr><td><span class="tagoptional">iAIConstructPercent</span><td>100<td>Percentage change in the construction costs of normal buildings for the AI
+    <tr><td><span class="tagoptional">iAICreatePercent</span><td>100<td>Percentage change in the construction costs of normal projects for the AI
+    <tr><td><span class="tagoptional">iAIDeclareWarProb</span><td>0<td>Chance that the AI will start a war if other checks pass
+    <tr><td><span class="tagoptional">iAIGrowthPercent</span><td>100<td>Percentage change to amount of food AI cities need to grow
+    <tr><td><span class="tagoptional">iAIInflationPercent</span><td>100<td>Inflation rate in percent for the AI
+    <tr><td><span class="tagoptional">iAIPerEraModifier</span><td>0<td>Percentage modifier, multiplied for the current era, affecting units cost, buildings cost, projects cost, unit support, unit supply, inflation rate, war weariness, civic upkeep, required food for city growth, unit upgrade cost.
+    <tr><td><span class="tagoptional">iAIStartingDefenseUnits</span><td>0<td>Number of defensive units an AI player starts with
+    <tr><td><span class="tagoptional">iAIStartingExploreUnits</span><td>0<td>Number of explorer units an AI player starts with
+    <tr><td><span class="tagoptional">iAIStartingUnitMultiplier</span><td>0<td>Multiplier to the number of starting units of each type the AI gets on starting the game
+    <tr><td><span class="tagoptional">iAIStartingWorkerUnits</span><td>0<td>Number of worker units an AI player starts with
+    <tr><td><span class="tagoptional">iAITrainPercent</span><td>100<td>Percentage change in the rate at which the AI can train units
+    <tr><td><span class="tagoptional">iAIUnitCostPercent</span><td>100<td>Percentage change in the maintenance cost of units for the AI
+    <tr><td><span class="tagoptional">iAIUnitSupplyPercent</span><td>100<td>Percentage change in the maintenance costs of units for the AI
+    <tr><td><span class="tagoptional">iAIUnitUpgradePercent</span><td>100<td>Percentage change in the cost to upgrade a unit for the AI
+    <tr><td><span class="tagoptional">iAIWarWearinessPercent</span><td>100<td>Percentage change to the war weariness in AI cities
+    <tr><td><span class="tagoptional">iAIWorkRateModifier</span><td>0<td>Percentage change to the work rate of AI units
+    <tr><td><span class="tagoptional">iAIWorldConstructPercent</span><td>100<td>Percentage change in the construction costs of wonders for the AI
+    <tr><td><span class="tagoptional">iAIWorldCreatePercent</span><td>100<td>Percentage change in the construction costs of world projects for the AI
+    <tr><td><span class="tagoptional">iAIWorldTrainPercent</span><td>100<td>Percentage change in the rate at which the AI can train units
+    <tr><td><span class="tagoptional">iAdvancedStartPointsMod</span><td>0<td>Percentage change in advanced starting points for human players
+    <tr><td><span class="tagoptional">iAnimalAttackProb</span><td>0<td>Percentage chance that an animal will attack a unit
+    <tr><td><span class="tagoptional">iAnimalBonus</span><td>0<td>Percentage change in an animals strength against human players
+    <tr><td><span class="tagoptional">iAttitudeChange</span><td>0<td>Change in attitude of AI players to another player
+    <tr><td><span class="tagoptional">iBarbarianBonus</span><td>0<td>Percentage change in a barbarian units strength against human players
+    <tr><td><span class="tagoptional">iBarbarianCityCreationProb</span><td>0<td>Percentage chance that a barbarian city can be founded if all other criteria are passed
+    <tr><td><span class="tagoptional">iBarbarianCityCreationTurnsElapsed</span><td>0<td>Number of turns that must elapse before the first barbarian city can be created
+    <tr><td><span class="tagoptional">iBarbarianCreationTurnsElapsed</span><td>0<td>Number of turns that must elapse before the first barbarian unit is spawned
+    <tr><td><span class="tagoptional">iBarbarianDefenders</span><td>0<td>Number of defenders a barbarian city starts with
+    <tr><td><span class="tagoptional">iCivicUpkeepPercent</span><td>0<td>Percentage change to the maintenance costs of the civics the player is running
+    <tr><td><span class="tagoptional">iColonyMaintenancePercent</span><td>0<td>Percentage change to the maintenance cost of a city based on the number of colonies (cities in different areas from the capital). This value modifies the number of citries taken into account when working out the maintenance cost.
+    <tr><td><span class="tagoptional">iCorporationMaintenancePercent</span><td>0<td>Percentage change to the maintenance cost of a city based on the number of corporations it has present
+    <tr><td><span class="tagoptional">iDistanceMaintenancePercent</span><td>0<td>Percentage change in the maintenance costs of cities based on their distance to a government centre
+    <tr><td><span class="tagoptional">iFreeUnits</span><td>0<td>Number of units that don't incur any maintenance costs to a human player
+    <tr><td><span class="tagoptional">iFreeWinsVsBarbs</span><td>0<td>Number of battles against barbarians that are automatically won at the start of the game.
+    <tr><td><span class="tagoptional">iGold</span><td>0<td>The amount of gold each player starts with
+    <tr><td><span class="tagoptional">iHappyBonus</span><td>0<td>Change to the happiness of each  of human players
+    <tr><td><span class="tagoptional">iHealthBonus</span><td>0<td>Change to the health of each city of human players
+    <tr><td><span class="tagoptional">iInflationPercent</span><td>0<td>Inflation rate in percent for human players
+    <tr><td><span class="tagmandatory"><b>iLairSpawnRate</b></span><td>0<td>Percentage change to the rate at which lairs spawn units
+    <tr><td><span class="tagoptional">iMaxColonyMaintenance</span><td>0<td>Percentage change to the final colony cities maintenance calculation
+    <tr><td><span class="tagoptional">iMaxNumCitiesMaintenance</span><td>0<td>Unused
+    <tr><td><span class="tagoptional">iNoTechTradeModifier</span><td>0<td>Percent modifier for an AI, that determines how many techs a rival can get by trade before the AI thinks he is becoming too advanced
+    <tr><td><span class="tagoptional">iNumCitiesMaintenancePercent</span><td>0<td>Percentage change in the maintenance cost of cities based on the number of cities the player owns
+    <tr><td><span class="tagoptional">iResearchPercent</span><td>0<td>Percentage change in the cost to research techs for human players
+    <tr><td><span class="tagoptional">iStartingDefenseUnits</span><td>0<td>Number of defensive units a human player starts with
+    <tr><td><span class="tagoptional">iStartingExploreUnits</span><td>0<td>Number of explorer units a human player starts with
+    <tr><td><span class="tagoptional">iStartingLocPercent</span><td>0<td>Used to determine where a human player is in the order of players when deciding the best map starting plots. A lower number pushes the human player up the pecking order.
+    <tr><td><span class="tagoptional">iStartingWorkerUnits</span><td>0<td>Number of worker units a human player starts with
+    <tr><td><span class="tagoptional">iTechTradeKnownModifier</span><td>0<td>Percentage modifier for the AI to determine whether he will hang onto techs that nobody else knows
+    <tr><td><span class="tagoptional">iUnitCostPercent</span><td>0<td>Percentage change in the maintenance cost of units for human players
+    <tr><td><span class="tagoptional">iUnownedTilesPerBarbarianCity</span><td>0<td>If there are at least this number of unowned tiles in an area there is a chance that a barbarian city will be founded
+    <tr><td><span class="tagoptional">iUnownedTilesPerBarbarianUnit</span><td>0<td>If there are at least this number of unowned tiles in an area there is a chance that a barbarian unit will be spawned
+    <tr><td><span class="tagoptional">iUnownedTilesPerGameAnimal</span><td>0<td>If there are at least this number of unowned tiles in an area there is a chance that an animal unit will be spawned
+    <tr><td><span class="tagoptional">iUnownedWaterTilesPerBarbarianUnit</span><td>0<td>If there are at least this number of unowned tiles in a water area there is a chance that a barbarian naval unit will be spawned
+  </table>	<p>
+	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional"><b>AIFreeTechs</b></span><td>NONE<td>Techs known to each AI player at the start of the game<br><pre class="code">
+  &lt;TechType&gt;&lt;/TechType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>FreeTechs</b></span><td>NONE<td>Techs known to each human player at the start of the game<br><pre class="code">
+  &lt;TechType&gt;&lt;/TechType&gt;</pre>
+    <tr><td><span class="tagoptional">Goodies</span><td>NONE<td>Set of goodies available from tribal villages. The chance of the goody being received is 1 in the number of goodies in the set. Each goody can be included multiple times to alter the chance of receiving it<br><pre class="code">
+  &lt;GoodyType&gt;&lt;/GoodyType&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;HandicapInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Help&gt;&lt;/Help&gt;
+  &lt;iLairSpawnRate&gt;0&lt;/iLairSpawnRate&gt;
+&lt;/HandicapInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;HandicapInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Help&gt;&lt;/Help&gt;
+  &lt;iFreeWinsVsBarbs&gt;0&lt;/iFreeWinsVsBarbs&gt;
+  &lt;iAnimalAttackProb&gt;0&lt;/iAnimalAttackProb&gt;
+  &lt;iStartingLocPercent&gt;0&lt;/iStartingLocPercent&gt;
+  &lt;iAdvancedStartPointsMod&gt;0&lt;/iAdvancedStartPointsMod&gt;
+  &lt;iGold&gt;0&lt;/iGold&gt;
+  &lt;iFreeUnits&gt;0&lt;/iFreeUnits&gt;
+  &lt;iUnitCostPercent&gt;0&lt;/iUnitCostPercent&gt;
+  &lt;iResearchPercent&gt;0&lt;/iResearchPercent&gt;
+  &lt;iDistanceMaintenancePercent&gt;0&lt;/iDistanceMaintenancePercent&gt;
+  &lt;iNumCitiesMaintenancePercent&gt;0&lt;/iNumCitiesMaintenancePercent&gt;
+  &lt;iMaxNumCitiesMaintenance&gt;0&lt;/iMaxNumCitiesMaintenance&gt;
+  &lt;iColonyMaintenancePercent&gt;0&lt;/iColonyMaintenancePercent&gt;
+  &lt;iMaxColonyMaintenance&gt;0&lt;/iMaxColonyMaintenance&gt;
+  &lt;iCorporationMaintenancePercent&gt;0&lt;/iCorporationMaintenancePercent&gt;
+  &lt;iCivicUpkeepPercent&gt;0&lt;/iCivicUpkeepPercent&gt;
+  &lt;iInflationPercent&gt;0&lt;/iInflationPercent&gt;
+  &lt;iHealthBonus&gt;0&lt;/iHealthBonus&gt;
+  &lt;iHappyBonus&gt;0&lt;/iHappyBonus&gt;
+  &lt;iAttitudeChange&gt;0&lt;/iAttitudeChange&gt;
+  &lt;iNoTechTradeModifier&gt;0&lt;/iNoTechTradeModifier&gt;
+  &lt;iTechTradeKnownModifier&gt;0&lt;/iTechTradeKnownModifier&gt;
+  &lt;iUnownedTilesPerGameAnimal&gt;0&lt;/iUnownedTilesPerGameAnimal&gt;
+  &lt;iUnownedTilesPerBarbarianUnit&gt;0&lt;/iUnownedTilesPerBarbarianUnit&gt;
+  &lt;iUnownedWaterTilesPerBarbarianUnit&gt;0&lt;/iUnownedWaterTilesPerBarbarianUnit&gt;
+  &lt;iUnownedTilesPerBarbarianCity&gt;0&lt;/iUnownedTilesPerBarbarianCity&gt;
+  &lt;iBarbarianCreationTurnsElapsed&gt;0&lt;/iBarbarianCreationTurnsElapsed&gt;
+  &lt;iBarbarianCityCreationTurnsElapsed&gt;0&lt;/iBarbarianCityCreationTurnsElapsed&gt;
+  &lt;iBarbarianCityCreationProb&gt;0&lt;/iBarbarianCityCreationProb&gt;
+  &lt;iAnimalBonus&gt;0&lt;/iAnimalBonus&gt;
+  &lt;iBarbarianBonus&gt;0&lt;/iBarbarianBonus&gt;
+  &lt;iAIAnimalBonus&gt;0&lt;/iAIAnimalBonus&gt;
+  &lt;iAIBarbarianBonus&gt;0&lt;/iAIBarbarianBonus&gt;
+  &lt;iStartingDefenseUnits&gt;0&lt;/iStartingDefenseUnits&gt;
+  &lt;iStartingWorkerUnits&gt;0&lt;/iStartingWorkerUnits&gt;
+  &lt;iStartingExploreUnits&gt;0&lt;/iStartingExploreUnits&gt;
+  &lt;iAIStartingUnitMultiplier&gt;0&lt;/iAIStartingUnitMultiplier&gt;
+  &lt;iAIStartingDefenseUnits&gt;0&lt;/iAIStartingDefenseUnits&gt;
+  &lt;iAIStartingWorkerUnits&gt;0&lt;/iAIStartingWorkerUnits&gt;
+  &lt;iAIStartingExploreUnits&gt;0&lt;/iAIStartingExploreUnits&gt;
+  &lt;iBarbarianDefenders&gt;0&lt;/iBarbarianDefenders&gt;
+  &lt;iAIDeclareWarProb&gt;0&lt;/iAIDeclareWarProb&gt;
+  &lt;iAIWorkRateModifier&gt;0&lt;/iAIWorkRateModifier&gt;
+  &lt;iAIGrowthPercent&gt;100&lt;/iAIGrowthPercent&gt;
+  &lt;iAITrainPercent&gt;100&lt;/iAITrainPercent&gt;
+  &lt;iAIWorldTrainPercent&gt;100&lt;/iAIWorldTrainPercent&gt;
+  &lt;iAIConstructPercent&gt;100&lt;/iAIConstructPercent&gt;
+  &lt;iAIWorldConstructPercent&gt;100&lt;/iAIWorldConstructPercent&gt;
+  &lt;iAICreatePercent&gt;100&lt;/iAICreatePercent&gt;
+  &lt;iAIWorldCreatePercent&gt;100&lt;/iAIWorldCreatePercent&gt;
+  &lt;iAICivicUpkeepPercent&gt;100&lt;/iAICivicUpkeepPercent&gt;
+  &lt;iAIUnitCostPercent&gt;100&lt;/iAIUnitCostPercent&gt;
+  &lt;iAIUnitSupplyPercent&gt;100&lt;/iAIUnitSupplyPercent&gt;
+  &lt;iAIUnitUpgradePercent&gt;100&lt;/iAIUnitUpgradePercent&gt;
+  &lt;iAIInflationPercent&gt;100&lt;/iAIInflationPercent&gt;
+  &lt;iAIWarWearinessPercent&gt;100&lt;/iAIWarWearinessPercent&gt;
+  &lt;iAIPerEraModifier&gt;0&lt;/iAIPerEraModifier&gt;
+  &lt;iAIAdvancedStartPercent&gt;100&lt;/iAIAdvancedStartPercent&gt;
+  &lt;iLairSpawnRate&gt;0&lt;/iLairSpawnRate&gt;
+  &lt;Goodies&gt;
+    &lt;GoodyType&gt;&lt;/GoodyType&gt;
+  &lt;/Goodies&gt;
+  &lt;FreeTechs&gt;
+    &lt;TechType&gt;&lt;/TechType&gt;
+  &lt;/FreeTechs&gt;
+  &lt;AIFreeTechs&gt;
+    &lt;TechType&gt;&lt;/TechType&gt;
+  &lt;/AIFreeTechs&gt;
+&lt;/HandicapInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

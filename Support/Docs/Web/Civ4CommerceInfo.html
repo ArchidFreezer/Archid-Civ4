@@ -1,0 +1,87 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4CommerceInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4CommerceInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">Button</span><td><td>Path to a .dds file that contains the image for the object
+    <tr><td><span class="tagmandatory">Description</span><td><td>Reference to the text that containms a description of an instance of this object. The text may be defined in any of the files in \Assets\XML\Text 
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal reference to an object instance of this type
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iAIWeightPercent</span><td>0<td>Sets the importance of this commerce type for the AI (default is 100 for gold, 125 for research, and 25 for culture and espionage)
+    <tr><td><span class="tagoptional">iInitialHappiness</span><td>0<td>Sets the happiness received by this commerce type. Each n% to that commerce type provides a happy face (default is 10 for culture, 0 for all others)
+    <tr><td><span class="tagoptional">iInitialPercent</span><td>0<td>The percent value given to a commerce type when the game starts (default is 100 for research, 0 for all others).
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bFlexiblePercent</span><td>0<td>Sets whether a commerce type can be given a % of your total commerce. "Flexible" commerce types have their percent slider on the main screen. "Non-Flexible" commerce types might require certain techs to be given a percent slider, like Drama for culture (default is 1 for science and espionage, 0 for gold and culture).
+  </table>	<p>
+	<p>
+	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;CommerceInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Button&gt;&lt;/Button&gt;
+&lt;/CommerceInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;CommerceInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;iInitialPercent&gt;0&lt;/iInitialPercent&gt;
+  &lt;iInitialHappiness&gt;0&lt;/iInitialHappiness&gt;
+  &lt;iAIWeightPercent&gt;0&lt;/iAIWeightPercent&gt;
+  &lt;bFlexiblePercent&gt;0&lt;/bFlexiblePercent&gt;
+  &lt;Button&gt;&lt;/Button&gt;
+&lt;/CommerceInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

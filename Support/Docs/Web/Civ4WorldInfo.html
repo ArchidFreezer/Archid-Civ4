@@ -1,0 +1,132 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4WorldInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4WorldInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">Description</span><td><td>A reference to the text files, which contain an entry for this world size
+    <tr><td><span class="tagmandatory">Help</span><td><td>Additional help text that will be displayed in the Platypedia
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal name of this world size
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">iAdvancedStartPointsMod</span><td>0<td>Percentage change to the number of advanced start points a player receives when starting a new advanced start game
+    <tr><td><span class="tagmandatory">iBuildingClassPrereqModifier</span><td>0<td>Percentage change to the number of prereq building classes required to construct a building
+    <tr><td><span class="tagmandatory">iColonyMaintenancePercent</span><td>0<td>Percentage change to the maintenance cost of a city based on the number of colonies (cities in different areas from the capital). This value modifies the number of citries taken into account when working out the maintenance cost.
+    <tr><td><span class="tagmandatory">iCorporationMaintenancePercent</span><td>0<td>Percentage change to the maintenance cost of a city based on the number of corporations it has present
+    <tr><td><span class="tagmandatory">iDefaultPlayers</span><td>0<td>The default number of players when a new game is selected using this world size
+    <tr><td><span class="tagmandatory">iDistanceMaintenancePercent</span><td>0<td>Percentage change to the maintenance cost of a city based on the distance from the closest government centre (capital or building with bGovernmentCenter set to true)
+    <tr><td><span class="tagmandatory">iFeatureGrainChange</span><td>0<td>Used by the Python MapGenerator, it impacts how big clusters of features are. The smaller the value the larger the relative cluster sizes of feature types
+    <tr><td><span class="tagmandatory">iGridHeight</span><td>0<td>The height of the world map in tiles
+    <tr><td><span class="tagmandatory">iGridWidth</span><td>0<td>The width of the world map in tiles
+    <tr><td><span class="tagmandatory">iMaxConscriptModifier</span><td>0<td>Percentage change to the number of units that can be conscripted in a city each turn
+    <tr><td><span class="tagmandatory">iNumCitiesAnarchyPercent</span><td>0<td>Percentage change to the duration of anarchy suffered by a player based on the number of cities they have
+    <tr><td><span class="tagmandatory">iNumCitiesMaintenancePercent</span><td>0<td>Percentage change to the maintenance cost of a city based on the total number of cities the player has
+    <tr><td><span class="tagmandatory">iNumFreeBuildingBonuses</span><td>0<td>The number of free bonuses that a building provides if the BuildingInfo iNumFreeBonuses is set to -1
+    <tr><td><span class="tagmandatory">iResearchPercent</span><td>0<td>Percentage change to the cost of researching techs. It is also used as a percentage change to the cost of espionage missions
+    <tr><td><span class="tagmandatory">iTargetNumCities</span><td>0<td>This is the number of cities the AI works towards owning in a world of this size. It is used in various AI decisions such as choosing city production; the value of buildings, tech, etc.; starting locations ...
+    <tr><td><span class="tagmandatory">iTerrainGrainChange</span><td>0<td>Used by the Python MapGenerator, it impacts how big clusters of terrains are. The smaller the value the larger the relative cluster sizes of terrain types
+    <tr><td><span class="tagmandatory">iTradeProfitPercent</span><td>0<td>Percentage change in the profit a city gains from trade
+    <tr><td><span class="tagmandatory">iUnitNameModifier</span><td>0<td>Unknown. This value is not used in the DLL and not exposed to the EXE
+    <tr><td><span class="tagmandatory">iWarWearinessModifier</span><td>0<td>Percentage change applied to the war weariness in each city
+  </table>	<p>
+	<p>
+	<p>
+	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;WorldInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Help&gt;&lt;/Help&gt;
+  &lt;iDefaultPlayers&gt;0&lt;/iDefaultPlayers&gt;
+  &lt;iUnitNameModifier&gt;0&lt;/iUnitNameModifier&gt;
+  &lt;iTargetNumCities&gt;0&lt;/iTargetNumCities&gt;
+  &lt;iNumFreeBuildingBonuses&gt;0&lt;/iNumFreeBuildingBonuses&gt;
+  &lt;iBuildingClassPrereqModifier&gt;0&lt;/iBuildingClassPrereqModifier&gt;
+  &lt;iMaxConscriptModifier&gt;0&lt;/iMaxConscriptModifier&gt;
+  &lt;iWarWearinessModifier&gt;0&lt;/iWarWearinessModifier&gt;
+  &lt;iGridWidth&gt;0&lt;/iGridWidth&gt;
+  &lt;iGridHeight&gt;0&lt;/iGridHeight&gt;
+  &lt;iTerrainGrainChange&gt;0&lt;/iTerrainGrainChange&gt;
+  &lt;iFeatureGrainChange&gt;0&lt;/iFeatureGrainChange&gt;
+  &lt;iResearchPercent&gt;0&lt;/iResearchPercent&gt;
+  &lt;iTradeProfitPercent&gt;0&lt;/iTradeProfitPercent&gt;
+  &lt;iDistanceMaintenancePercent&gt;0&lt;/iDistanceMaintenancePercent&gt;
+  &lt;iNumCitiesMaintenancePercent&gt;0&lt;/iNumCitiesMaintenancePercent&gt;
+  &lt;iColonyMaintenancePercent&gt;0&lt;/iColonyMaintenancePercent&gt;
+  &lt;iCorporationMaintenancePercent&gt;0&lt;/iCorporationMaintenancePercent&gt;
+  &lt;iNumCitiesAnarchyPercent&gt;0&lt;/iNumCitiesAnarchyPercent&gt;
+  &lt;iAdvancedStartPointsMod&gt;0&lt;/iAdvancedStartPointsMod&gt;
+&lt;/WorldInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;WorldInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Help&gt;&lt;/Help&gt;
+  &lt;iDefaultPlayers&gt;0&lt;/iDefaultPlayers&gt;
+  &lt;iUnitNameModifier&gt;0&lt;/iUnitNameModifier&gt;
+  &lt;iTargetNumCities&gt;0&lt;/iTargetNumCities&gt;
+  &lt;iNumFreeBuildingBonuses&gt;0&lt;/iNumFreeBuildingBonuses&gt;
+  &lt;iBuildingClassPrereqModifier&gt;0&lt;/iBuildingClassPrereqModifier&gt;
+  &lt;iMaxConscriptModifier&gt;0&lt;/iMaxConscriptModifier&gt;
+  &lt;iWarWearinessModifier&gt;0&lt;/iWarWearinessModifier&gt;
+  &lt;iGridWidth&gt;0&lt;/iGridWidth&gt;
+  &lt;iGridHeight&gt;0&lt;/iGridHeight&gt;
+  &lt;iTerrainGrainChange&gt;0&lt;/iTerrainGrainChange&gt;
+  &lt;iFeatureGrainChange&gt;0&lt;/iFeatureGrainChange&gt;
+  &lt;iResearchPercent&gt;0&lt;/iResearchPercent&gt;
+  &lt;iTradeProfitPercent&gt;0&lt;/iTradeProfitPercent&gt;
+  &lt;iDistanceMaintenancePercent&gt;0&lt;/iDistanceMaintenancePercent&gt;
+  &lt;iNumCitiesMaintenancePercent&gt;0&lt;/iNumCitiesMaintenancePercent&gt;
+  &lt;iColonyMaintenancePercent&gt;0&lt;/iColonyMaintenancePercent&gt;
+  &lt;iCorporationMaintenancePercent&gt;0&lt;/iCorporationMaintenancePercent&gt;
+  &lt;iNumCitiesAnarchyPercent&gt;0&lt;/iNumCitiesAnarchyPercent&gt;
+  &lt;iAdvancedStartPointsMod&gt;0&lt;/iAdvancedStartPointsMod&gt;
+&lt;/WorldInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

@@ -1,0 +1,89 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4ProcessInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4ProcessInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">Button</span><td><td>Path to a .dds file that contains the image for the process in the city screen and city production popup
+    <tr><td><span class="tagmandatory">Description</span><td><td>Reference to the text that contains a description of this process. The text may be defined in any of the files in \Assets\XML\Text 
+    <tr><td><span class="tagmandatory">Strategy</span><td><td>Strategy text for the process in the game 
+    <tr><td><span class="tagmandatory">TechPrereq</span><td>NO_TECH<td>Technology that must ne known to the player before they can build the process in the city
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal reference to this process
+  </table>	<p>
+	<p>
+	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">ProductionToCommerceModifiers</span><td>NONE<td>The percent of the city's production applied to each commerce type<br><pre class="code">
+  &lt;iProductionToCommerceModifier&gt;0&lt;/iProductionToCommerceModifier&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;ProcessInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Strategy&gt;&lt;/Strategy&gt;
+  &lt;TechPrereq&gt;&lt;/TechPrereq&gt;
+  &lt;ProductionToCommerceModifiers&gt;
+    &lt;iProductionToCommerceModifier&gt;0&lt;/iProductionToCommerceModifier&gt;
+  &lt;/ProductionToCommerceModifiers&gt;
+  &lt;Button&gt;&lt;/Button&gt;
+&lt;/ProcessInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;ProcessInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Strategy&gt;&lt;/Strategy&gt;
+  &lt;TechPrereq&gt;&lt;/TechPrereq&gt;
+  &lt;ProductionToCommerceModifiers&gt;
+    &lt;iProductionToCommerceModifier&gt;0&lt;/iProductionToCommerceModifier&gt;
+  &lt;/ProductionToCommerceModifiers&gt;
+  &lt;Button&gt;&lt;/Button&gt;
+&lt;/ProcessInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

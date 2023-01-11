@@ -1,0 +1,119 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4DiplomacyInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4DiplomacyInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal reference to an object instance of this type
+  </table>	<p>
+	<p>
+	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">Responses</span><td>NONE<td>Set of diplomacy responses. contains a set of tags which define when the response may be used. These are the set of civilizations that use the response, the leaders that use the response, the attitude level the response can be used at, whether the response is used when the AI is stronger or weaker than the other civ and the reference to the actual text of the response.<br><pre class="code">
+  &lt;Response&gt;
+    &lt;Civilizations&gt;
+      &lt;CivilizationType&gt;&lt;/CivilizationType&gt;
+    &lt;/Civilizations&gt;
+    &lt;Leaders&gt;
+      &lt;LeaderType&gt;&lt;/LeaderType&gt;
+    &lt;/Leaders&gt;
+    &lt;Attitudes&gt;
+      &lt;AttitudeType&gt;&lt;/AttitudeType&gt;
+    &lt;/Attitudes&gt;
+    &lt;DiplomacyPowers&gt;
+      &lt;DiplomacyPower&gt;
+        &lt;DiplomacyPowerType&gt;&lt;/DiplomacyPowerType&gt;
+        &lt;bDiplomacyPowerType&gt;0&lt;/bDiplomacyPowerType&gt;
+      &lt;/DiplomacyPower&gt;
+    &lt;/DiplomacyPowers&gt;
+    &lt;DiplomacyText&gt;
+      &lt;Text&gt;&lt;/Text&gt;
+    &lt;/DiplomacyText&gt;
+  &lt;/Response&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;DiplomacyInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Responses&gt;
+    &lt;Response&gt;
+      &lt;DiplomacyText&gt;
+        &lt;Text&gt;&lt;/Text&gt;
+      &lt;/DiplomacyText&gt;
+    &lt;/Response&gt;
+  &lt;/Responses&gt;
+&lt;/DiplomacyInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;DiplomacyInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Responses&gt;
+    &lt;Response&gt;
+      &lt;Civilizations&gt;
+        &lt;CivilizationType&gt;&lt;/CivilizationType&gt;
+      &lt;/Civilizations&gt;
+      &lt;Leaders&gt;
+        &lt;LeaderType&gt;&lt;/LeaderType&gt;
+      &lt;/Leaders&gt;
+      &lt;Attitudes&gt;
+        &lt;AttitudeType&gt;&lt;/AttitudeType&gt;
+      &lt;/Attitudes&gt;
+      &lt;DiplomacyPowers&gt;
+        &lt;DiplomacyPower&gt;
+          &lt;DiplomacyPowerType&gt;&lt;/DiplomacyPowerType&gt;
+          &lt;bDiplomacyPowerType&gt;0&lt;/bDiplomacyPowerType&gt;
+        &lt;/DiplomacyPower&gt;
+      &lt;/DiplomacyPowers&gt;
+      &lt;DiplomacyText&gt;
+        &lt;Text&gt;&lt;/Text&gt;
+      &lt;/DiplomacyText&gt;
+    &lt;/Response&gt;
+  &lt;/Responses&gt;
+&lt;/DiplomacyInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

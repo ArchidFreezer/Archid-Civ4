@@ -1,0 +1,119 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4ReligionInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4ReligionInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">Adjective</span><td><td>A reference to the text files, which contain an entry containing the adjective used this religion
+    <tr><td><span class="tagoptional">Button</span><td><td>Path to the button to display for the religion
+    <tr><td><span class="tagoptional">Civilopedia</span><td><td>Refers to a tag in the Civ4GameText file which stores the Platypedia description for the religion
+    <tr><td><span class="tagoptional">Description</span><td><td>A reference to the text files, which contain an entry describing this religion
+    <tr><td><span class="tagoptional">FreeUnitClass</span><td>NO_UNITCLASS<td>The first to found this religion receives a number of units of this class, see iFreeUnits
+    <tr><td><span class="tagoptional">GenericTechButton</span><td><td>Path to the button to display for the religion on the main screen if the game option to pick religions is enabled
+    <tr><td><span class="tagoptional">MovieFile</span><td><td>Path to the movie file to be played when the religion is founded
+    <tr><td><span class="tagoptional">MovieSound</span><td><td>Reference to the sound file used when playing the movie
+    <tr><td><span class="tagoptional">Sound</span><td><td>Reference to the sound file used when the religion spreads to a new city
+    <tr><td><span class="tagoptional">TechButton</span><td><td>Path to the button to display for the religion in the tech chooser
+    <tr><td><span class="tagoptional">TechPrereq</span><td>NO_TECH<td>The tech that unlocks this religion
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal name of this religion
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iFreeUnits</span><td>0<td>The number of units received by the first to found this religion, see FreeUnitClass
+    <tr><td><span class="tagoptional">iOrderPriority</span><td>0<td>Has no meaning for religions
+    <tr><td><span class="tagoptional">iSpreadFactor</span><td>0<td>Determines how likely the religion is to spread to other cities without missionaries or buildings
+    <tr><td><span class="tagmandatory"><b>iTGAIndex</b></span><td>0<td>The index number of the religion in the GameFont files
+  </table>	<p>
+	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">GlobalReligionCommerces</span><td>NONE<td>The commerce gained by the holy city of this religion for each city, of any player, that has the religion<br><pre class="code">
+  &lt;iGlobalReligionCommerce&gt;0&lt;/iGlobalReligionCommerce&gt;</pre>
+    <tr><td><span class="tagoptional">HolyCityCommerces</span><td>NONE<td>The commerce gained in the holy city of this religion<br><pre class="code">
+  &lt;iHolyCityCommerce&gt;0&lt;/iHolyCityCommerce&gt;</pre>
+    <tr><td><span class="tagoptional">StateReligionCommerces</span><td>NONE<td>The commerce gained by every city that has this religion for which it is also the state religion<br><pre class="code">
+  &lt;iStateReligionCommerce&gt;0&lt;/iStateReligionCommerce&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;ReligionInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;iTGAIndex&gt;0&lt;/iTGAIndex&gt;
+&lt;/ReligionInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;ReligionInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Adjective&gt;&lt;/Adjective&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;TechPrereq&gt;&lt;/TechPrereq&gt;
+  &lt;FreeUnitClass&gt;&lt;/FreeUnitClass&gt;
+  &lt;iFreeUnits&gt;0&lt;/iFreeUnits&gt;
+  &lt;iSpreadFactor&gt;0&lt;/iSpreadFactor&gt;
+  &lt;iTGAIndex&gt;0&lt;/iTGAIndex&gt;
+  &lt;GlobalReligionCommerces&gt;
+    &lt;iGlobalReligionCommerce&gt;0&lt;/iGlobalReligionCommerce&gt;
+  &lt;/GlobalReligionCommerces&gt;
+  &lt;HolyCityCommerces&gt;
+    &lt;iHolyCityCommerce&gt;0&lt;/iHolyCityCommerce&gt;
+  &lt;/HolyCityCommerces&gt;
+  &lt;StateReligionCommerces&gt;
+    &lt;iStateReligionCommerce&gt;0&lt;/iStateReligionCommerce&gt;
+  &lt;/StateReligionCommerces&gt;
+  &lt;Button&gt;&lt;/Button&gt;
+  &lt;TechButton&gt;&lt;/TechButton&gt;
+  &lt;GenericTechButton&gt;&lt;/GenericTechButton&gt;
+  &lt;MovieFile&gt;&lt;/MovieFile&gt;
+  &lt;MovieSound&gt;&lt;/MovieSound&gt;
+  &lt;Sound&gt;&lt;/Sound&gt;
+  &lt;iOrderPriority&gt;0&lt;/iOrderPriority&gt;
+&lt;/ReligionInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

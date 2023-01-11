@@ -1,0 +1,23 @@
+body { background: #afc3ab;}
+div.margin { margin: 5px 20px 20px; }
+a.breadcrumb { font-size:10px; }
+h1 { color: green; font-size: 16pt; font-style: italic; font-weight: bold }
+h2 { color: green; font-size: 14pt; font-weight: bold }
+h3 { color: green; font-size: 12pt; text-indent: 20px }
+input.showhidebutton { width:45px; font-size:10px; margin:0px; padding:0px }
+span.tagoptional { color: blue }
+span.tagmandatory { color: red }
+span.code { font: 12px Courier; }
+table { border: 1px solid; }
+th  { border: 1px inset; background-color: #b5ce85; }
+td  { border: 1px inset; }
+td.toc  { border: none; }
+.code { margin: 0px; padding: 6px; border: 1px inset; text-align: left; overflow: auto; dir="ltr"; background: #d9d9d9; border-style: inset; font: 12px Courier; }
+
+.collapse { vertical-align: top; height:auto !important; }
+.collapse-data { display: none; height:auto; margin:0; }
+.hide { display: none; font-size: 9pt; }
+.show { font-size: 9pt; }
+.show:target + .hide { display: inline; }
+.show:target { display: none; }
+.show:target ~ .collapse-data { display: inline; }

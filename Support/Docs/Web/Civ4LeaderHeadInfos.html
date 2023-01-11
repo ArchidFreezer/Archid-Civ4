@@ -1,0 +1,372 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4LeaderHeadInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4LeaderHeadInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">AdoptCivicRefuseAttitudeThreshold</span><td>NO_ATTITUDE<td>An AI will refuse to change his civics, unless his attitude towards the trading partner exceeds this value
+    <tr><td><span class="tagoptional">ArtDefineTag</span><td><td>Refers to a tag in the Civ4ArtDefines_Leaderhead file
+    <tr><td><span class="tagoptional">Civilopedia</span><td><td>Refers to a tag in the Civ4GameText file which stores the Platypedia description for the LeaderHead
+    <tr><td><span class="tagoptional">ConvertReligionRefuseAttitudeThreshold</span><td>NO_ATTITUDE<td>An AI will refuse to change his state religion, unless his attitude towards the trading partner exceeds this value
+    <tr><td><span class="tagoptional">DeclareWarRefuseAttitudeThreshold</span><td>NO_ATTITUDE<td>An AI will refuse to declare war on a third party leader, unless his attitude towards the trading partner exceeds this value
+    <tr><td><span class="tagoptional">DeclareWarThemRefuseAttitudeThreshold</span><td>NO_ATTITUDE<td>An AI will refuse to declare war on a third party leader if his attitude towards the third party exceeds this value
+    <tr><td><span class="tagoptional">DefensivePactRefuseAttitudeThreshold</span><td>NO_ATTITUDE<td>An AI will refuse a defensive pact, unless his attitude towards the trading partner exceeds this value
+    <tr><td><span class="tagoptional">DemandTributeAttitudeThreshold</span><td>NO_ATTITUDE<td>An AI won't ask for tribute if their attitude to the recipient is above the recipients value of this tag
+    <tr><td><span class="tagoptional">Description</span><td><td>A reference to the text files, which contain an entry for this LeaderHead
+    <tr><td><span class="tagoptional">FavoriteCivic</span><td>NO_CIVIC<td>The civic this AI leader prefers. When he is running this civic, he will refuse to switch away from it
+    <tr><td><span class="tagoptional">FavoriteReligion</span><td>NO_RELIGION<td>The religion this AI leader prefers
+    <tr><td><span class="tagoptional">HappinessBonusRefuseAttitudeThreshold</span><td>NO_ATTITUDE<td>An AI will refuse to trade happiness bonus resources, unless his attitude towards the trading partner exceeds this value
+    <tr><td><span class="tagoptional">HealthBonusRefuseAttitudeThreshold</span><td>NO_ATTITUDE<td>An AI will refuse to trade health bonus resources, unless his attitude towards the trading partner exceeds this value
+    <tr><td><span class="tagoptional">MapRefuseAttitudeThreshold</span><td>NO_ATTITUDE<td>An AI will refuse to trade his map, unless his attitude towards the trading partner exceeds this value
+    <tr><td><span class="tagoptional">NoGiveHelpAttitudeThreshold</span><td>NO_ATTITUDE<td>An AI won't give help via diplomacy if their attitude to the recipient is below the recipients value of this tag
+    <tr><td><span class="tagoptional">OpenBordersRefuseAttitudeThreshold</span><td>NO_ATTITUDE<td>An AI will refuse to open his borders, unless his attitude towards the trading partner exceeds this value
+    <tr><td><span class="tagoptional">PermanentAllianceRefuseAttitudeThreshold</span><td>NO_ATTITUDE<td>An AI will refuse a permanent alliance, unless his attitude towards the trading partner exceeds this value
+    <tr><td><span class="tagoptional">StopTradingRefuseAttitudeThreshold</span><td>NO_ATTITUDE<td>An AI will refuse to stop trading with a third party leader, unless his attitude towards the trading partner exceeds this value
+    <tr><td><span class="tagoptional">StopTradingThemRefuseAttitudeThreshold</span><td>NO_ATTITUDE<td>An AI will refuse to stop trading with a third party leader if his attitude towards the third party exceeds this value
+    <tr><td><span class="tagoptional">StrategicBonusRefuseAttitudeThreshold</span><td>NO_ATTITUDE<td>An AI will refuse to trade strategic bonus resources, unless his attitude towards the trading partner exceeds this value
+    <tr><td><span class="tagoptional">TechRefuseAttitudeThreshold</span><td>NO_ATTITUDE<td>An AI will refuse to share his technologies, unless his attitude towards the trading partner exceeds this value
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal name of this LeaderHead
+    <tr><td><span class="tagoptional">VassalRefuseAttitudeThreshold</span><td>NO_ATTITUDE<td>An AI will refuse to become a vassal, unless his attitude towards the trading partner exceeds this value
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iAtPeaceAttitudeChangeLimit</span><td>0<td>Sets the maximum value for the good attitude due to be in peace.
+    <tr><td><span class="tagoptional">iAtPeaceAttitudeDivisor</span><td>0<td>Determines how fast a peace builds up a good attitude toward another leader.
+    <tr><td><span class="tagoptional">iAtWarAttitudeChangeLimit</span><td>0<td>Sets the maximum value for the bad attitude due to be at war.
+    <tr><td><span class="tagoptional">iAtWarAttitudeDivisor</span><td>0<td>Determines how fast a war builds up a bad attitude toward an enemy.
+    <tr><td><span class="tagoptional">iAttackOddsChangeRand</span><td>0<td>Modifies the Attack odds chance, to make an AI think that a battle is more likely to be won, thus having him more likely to attack (without any real effect on the battle). The total modifier is: iBaseAttackOddsChange + rand(0, iAttackOddsChangeRand) + rand(0, iAttackOddsChangeRand)
+    <tr><td><span class="tagoptional">iBaseAttackOddsChange</span><td>0<td>Modifies the Attack odds chance, to make an AI think that a battle is more likely to be won, thus having him more likely to attack (without any real effect on the battle). The total modifier is: iBaseAttackOddsChange + rand(0, iAttackOddsChangeRand) + rand(0, iAttackOddsChangeRand)
+    <tr><td><span class="tagoptional">iBaseAttitude</span><td>0<td>The base attitude value the leader has toward everyone else
+    <tr><td><span class="tagoptional">iBasePeaceWeight</span><td>0<td>The base value for the Peace Weight, which will be added to a random value (see iPeaceWeightRand). The more the Peace Weights are different between two leaders, the more the two leaders will be unfriendly toward each other.
+    <tr><td><span class="tagoptional">iBetterRankDifferenceAttitudeChange</span><td>0<td>Affects how much relations between other leaders are affected by the others to be better in rank.
+    <tr><td><span class="tagoptional">iBonusTradeAttitudeChangeLimit</span><td>0<td>Sets the maximum value for the good attitude due to trade bonus resources with another leader.
+    <tr><td><span class="tagoptional">iBonusTradeAttitudeDivisor</span><td>0<td>Determines how fast trading bonus resources with another leader builds up a good attitude toward him.
+    <tr><td><span class="tagoptional">iBuildUnitProb</span><td>0<td>Affects how many units an AI will tend to build
+    <tr><td><span class="tagoptional">iCloseBordersAttitudeChange</span><td>0<td>Affects how much close borders cause tensions with other leaders.
+    <tr><td><span class="tagoptional"><b>iConquestVictoryWeight</b></span><td>0<td>The relative weight the leader puts on a conquest victory
+    <tr><td><span class="tagoptional"><b>iCultureVictoryWeight</b></span><td>0<td>The relative weight the leader puts on a cultural victory
+    <tr><td><span class="tagoptional">iDeclareWarTradeRand</span><td>0<td>Determines how likely an AI leader will try to bring other leaders at war with him against an enemy.
+    <tr><td><span class="tagoptional">iDefensivePactAttitudeChangeLimit</span><td>0<td>Sets the maximum value for the good attitude due to having a defensive pact with another leader.
+    <tr><td><span class="tagoptional">iDefensivePactAttitudeDivisor</span><td>0<td>Determines how fast having a defensive pact builds up a good attitude toward another leader.
+    <tr><td><span class="tagoptional">iDemandRebukedSneakProb</span><td>0<td>The chance (in percent) an AI leader will start preparing a war against a weaker enemy who denied a request of tribute.
+    <tr><td><span class="tagoptional">iDemandRebukedWarProb</span><td>0<td>The chance (in percent) an AI leader will instantly declare war against a weaker enemy who denied a request of tribute. (Note: this tag is not called by the SDK, but by Python: CvDiplomacy)
+    <tr><td><span class="tagoptional">iDifferentReligionAttitudeChange</span><td>0<td>The base attitude to have a different state religions than another leader.
+    <tr><td><span class="tagoptional">iDifferentReligionAttitudeChangeLimit</span><td>0<td>Sets the maximum value for the bad attitude due to have different state religions.
+    <tr><td><span class="tagoptional">iDifferentReligionAttitudeDivisor</span><td>0<td>Determines how fast two different state religions builds up a bad attitude toward another leader.
+    <tr><td><span class="tagoptional"><b>iDiplomacyVictoryWeight</b></span><td>0<td>The relative weight the leader puts on a diplomacy victory
+    <tr><td><span class="tagoptional">iDogpileWarRand</span><td>0<td>A factor that affects how likely an AI leader will start a war to 'dogpile' an enemy (join an existing war against a common victim).
+    <tr><td><span class="tagoptional"><b>iDominationVictoryWeight</b></span><td>0<td>The relative weight the leader puts on a domination victory
+    <tr><td><span class="tagoptional">iEspionageWeight</span><td>0<td>Sets how much the AI leader likes espionage (affects both the slider and the overall strategy).
+    <tr><td><span class="tagoptional">iFavoriteCivicAttitudeChange</span><td>0<td>The base attitude for adopting the favourite civic of another leader.
+    <tr><td><span class="tagoptional">iFavoriteCivicAttitudeChangeLimit</span><td>0<td>Sets the maximum value for the good attitude due to adopting the favourite civic of another leader.
+    <tr><td><span class="tagoptional">iFavoriteCivicAttitudeDivisor</span><td>0<td>Determines how fast adopting another leader's favourite civic builds up a good attitude toward him.
+    <tr><td><span class="tagoptional">iFreedomAppreciation</span><td>0<td>The bonus attitude for leaders who have given independence to another leader (when a colony is split).
+    <tr><td><span class="tagoptional">iLimitedWarPowerRatio</span><td>0<td>Specifies the minimum power ratio (in percent) an AI leader must have with a leader, to consider him a valid target for a "limited" war.
+    <tr><td><span class="tagoptional">iLimitedWarRand</span><td>0<td>A factor that affects how likely an AI leader will start a "limited" war.
+    <tr><td><span class="tagoptional">iLostWarAttitudeChange</span><td>0<td>An attitude modifier used during a war, when the AI leader has lost more battles than his enemy.
+    <tr><td><span class="tagoptional">iMakePeaceRand</span><td>0<td>Determines how likely an AI leader will try to stop a war he has started.
+    <tr><td><span class="tagoptional">iMaxGoldPerTurnTradePercent</span><td>0<td>Affects how much of this AI leader's gold per turn will be available for trade.
+    <tr><td><span class="tagoptional">iMaxGoldTradePercent</span><td>0<td>Affects how much of this AI leader's gold will be available for trade.
+    <tr><td><span class="tagoptional">iMaxWarDistantPowerRatio</span><td>0<td>Specifies the minimum power ratio (in percent) an AI leader must have with a distant leader, to consider him a valid target for a "total" war.
+    <tr><td><span class="tagoptional">iMaxWarMinAdjacentLandPercent</span><td>0<td>Affects how much an adjacent rival can be target for a "total" war (specifying how many "adjacent land" tiles must be between the two empires)
+    <tr><td><span class="tagoptional">iMaxWarNearbyPowerRatio</span><td>0<td>Specifies the minimum power ratio (in percent) an AI leader must have with a nearby leader, to consider him a valid target for a "total" war.
+    <tr><td><span class="tagoptional">iMaxWarRand</span><td>0<td>A factor that affects how likely an AI leader will start a "total" war.
+    <tr><td><span class="tagoptional">iNoTechTradeThreshold</span><td>0<td>An AI leader will stop trading a rival any technology, if he realizes that the rival is becoming too advanced, and this happens when the rival has received via trade a certain number of technologies. This value sets the number of technologies.
+    <tr><td><span class="tagoptional">iOpenBordersAttitudeChangeLimit</span><td>0<td>Sets the maximum value for the good attitude due to having open borders with another leader.
+    <tr><td><span class="tagoptional">iOpenBordersAttitudeDivisor</span><td>0<td>Determines how fast having open borders builds up a good attitude toward another leader.
+    <tr><td><span class="tagoptional">iPeaceWeightRand</span><td>0<td>The maximum random value for the Peace Weight, which will be added to a base value (see iBasePeaceWeight). The more the Peace Weights are different between two leaders, the more the two leaders will be unfriendly toward each other.
+    <tr><td><span class="tagoptional">iRazeCityProb</span><td>0<td>Affects how likely an AI will raze enemy cities.
+    <tr><td><span class="tagoptional">iRefuseToTalkWarThreshold</span><td>0<td>A factor that affects how long an AI leader refuses to talk when at war.
+    <tr><td><span class="tagoptional">iSameReligionAttitudeChange</span><td>0<td>The base attitude to have the same state religion as another leader.
+    <tr><td><span class="tagoptional">iSameReligionAttitudeChangeLimit</span><td>0<td>Sets the maximum value for the good attitude due to have the same state religion.
+    <tr><td><span class="tagoptional">iSameReligionAttitudeDivisor</span><td>0<td>Determines how fast the same state religion builds up a good attitude toward another leader.
+    <tr><td><span class="tagoptional">iShareWarAttitudeChange</span><td>0<td>The base attitude for sharing a war with another leader against a common enemy.
+    <tr><td><span class="tagoptional">iShareWarAttitudeChangeLimit</span><td>0<td>Sets the maximum value for the good attitude due to sharing a war with another leader against a common enemy.
+    <tr><td><span class="tagoptional">iShareWarAttitudeDivisor</span><td>0<td>Determines how fast sharing a war builds up a good attitude toward another leader.
+    <tr><td><span class="tagoptional"><b>iSpaceVictoryWeight</b></span><td>0<td>The relative weight the leader puts on a space victory
+    <tr><td><span class="tagoptional">iTechTradeKnownPercent</span><td>0<td>An AI leader will monopoly a technology (refusing to trade it) until the specified percent of rivals have acquired it.
+    <tr><td><span class="tagoptional">iVassalPowerModifier</span><td>0<td>Affects how much a leader can resist before he accepts to be vassal of someone else.
+    <tr><td><span class="tagoptional">iWarmongerRespect</span><td>0<td>Specifies how much relations are affected by warmonger attitudes. Given two leaders and the minimum value of their WarmongerRespect, this bonus applies to both
+    <tr><td><span class="tagoptional">iWonderConstructRand</span><td>0<td>A factor that determines how likely the AI leader will build world wonders
+    <tr><td><span class="tagoptional">iWorseRankDifferenceAttitudeChange</span><td>0<td>Affects how much relations between other leaders are affected by the others to be worse in rank.
+  </table>	<p>
+	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">ContactDelays</span><td>NONE<td>How many turns an AI leader must wait before contacting again another leader for a particular reason. The possible values for reasons are defined both in the GlobalTypes.xml file (in the section ContactTypes), and in the SDK<br><pre class="code">
+  &lt;ContactDelay&gt;
+    &lt;ContactType&gt;&lt;/ContactType&gt;
+    &lt;iContactDelay&gt;0&lt;/iContactDelay&gt;
+  &lt;/ContactDelay&gt;</pre>
+    <tr><td><span class="tagoptional">ContactRands</span><td>NONE<td>How likely an AI leader may contact another leader for a particular reason. The possible values for reasons are defined both in the GlobalTypes.xml file (in the section ContactTypes), and in the SDK.<br><pre class="code">
+  &lt;ContactRand&gt;
+    &lt;ContactType&gt;&lt;/ContactType&gt;
+    &lt;iContactRand&gt;0&lt;/iContactRand&gt;
+  &lt;/ContactRand&gt;</pre>
+    <tr><td><span class="tagoptional">DiplomacyIntroMusicPeace</span><td><td>Specifies the music to be played as intro in diplomacy in each game era, when in peace. Values for eras are defined in the GameInfoCiv4EraInfos file. Music entries are defined in the AudioAudio2DScripts.xml file<br><pre class="code">
+  &lt;DiploMusicPeaceEra&gt;
+    &lt;EraType&gt;&lt;/EraType&gt;
+    &lt;DiploScriptId&gt;&lt;/DiploScriptId&gt;
+  &lt;/DiploMusicPeaceEra&gt;</pre>
+    <tr><td><span class="tagoptional">DiplomacyIntroMusicWar</span><td><td>Specifies the music to be played as intro in diplomacy in each game era, when at war. Values for eras are defined in the GameInfoCiv4EraInfos file. Music entries are defined in the AudioAudio2DScripts.xml file.<br><pre class="code">
+  &lt;DiploMusicWarEra&gt;
+    &lt;EraType&gt;&lt;/EraType&gt;
+    &lt;DiploScriptId&gt;&lt;/DiploScriptId&gt;
+  &lt;/DiploMusicWarEra&gt;</pre>
+    <tr><td><span class="tagoptional">DiplomacyMusicPeace</span><td><td>Specifies the music to be played in diplomacy in each game era, when in peace. Values for eras are defined in the GameInfoCiv4EraInfos file. Music entries are defined in the AudioAudio2DScripts.xml file. <br><pre class="code">
+  &lt;DiploMusicPeaceEra&gt;
+    &lt;EraType&gt;&lt;/EraType&gt;
+    &lt;DiploScriptId&gt;&lt;/DiploScriptId&gt;
+  &lt;/DiploMusicPeaceEra&gt;</pre>
+    <tr><td><span class="tagoptional">DiplomacyMusicWar</span><td><td>Specifies the music to be played in diplomacy in each game era, when at war. Values for eras are defined in the GameInfoCiv4EraInfos file. Music entries are defined in the AudioAudio2DScripts.xml file. <br><pre class="code">
+  &lt;DiploMusicWarEra&gt;
+    &lt;EraType&gt;&lt;/EraType&gt;
+    &lt;DiploScriptId&gt;&lt;/DiploScriptId&gt;
+  &lt;/DiploMusicWarEra&gt;</pre>
+    <tr><td><span class="tagoptional">Flavors</span><td>NONE<td>The list of flavors for this leader, and their weights. Flavors make the leader prefer some aspects (gold, culture, military,...) when choosing technologies, buildings, and so on. Possible values for flavors are defined in the GlobalTypes.xml, in the section FlavorTypes<br><pre class="code">
+  &lt;Flavor&gt;
+    &lt;FlavorType&gt;&lt;/FlavorType&gt;
+    &lt;iFlavor&gt;0&lt;/iFlavor&gt;
+  &lt;/Flavor&gt;</pre>
+    <tr><td><span class="tagoptional">ImprovementWeightModifiers</span><td>NONE<td>Modifies the weight for an AI leader to prefer some land improvements. The possible values for ImprovementType are defined in the TerrainCIV4ImprovementInfos.xml file<br><pre class="code">
+  &lt;ImprovementWeightModifier&gt;
+    &lt;ImprovementType&gt;&lt;/ImprovementType&gt;
+    &lt;iWeightModifier&gt;0&lt;/iWeightModifier&gt;
+  &lt;/ImprovementWeightModifier&gt;</pre>
+    <tr><td><span class="tagoptional">MemoryAttitudePercents</span><td>NONE<td>How much past events affect attitude of this leader (in percent). The possible values for event types are defined both in the BasicInfosCIV4MemoryInfos.xml file, and in the SDK.<br>100 = +1 attitude, -500 = -5 attitude<br><pre class="code">
+  &lt;MemoryAttitudePercent&gt;
+    &lt;MemoryType&gt;&lt;/MemoryType&gt;
+    &lt;iMemoryAttitudePercent&gt;0&lt;/iMemoryAttitudePercent&gt;
+  &lt;/MemoryAttitudePercent&gt;</pre>
+    <tr><td><span class="tagoptional">MemoryDecays</span><td>NONE<td>How likely is an AI leader to forget past events. The XML value is the denominator of a fractional value. The numorator is randomly generated, between 0 and the XML value. This function is checked for each new turn. If the randomly generated value is 0 that turn, the AI will forget one point for that diplomacy type. This is a binomial distribution.<br>For example, setting the value to 20 for "MEMORY_MADE_DEMAND_RECENT" will cause the game to generate a value between 0 and 20, and divide it by 20. If it turns out to be 0/20, the AI will forget a one point of diplomacy for the "You made an arrogant demand!<br><pre class="code">
+  &lt;MemoryDecay&gt;
+    &lt;MemoryType&gt;&lt;/MemoryType&gt;
+    &lt;iMemoryRand&gt;0&lt;/iMemoryRand&gt;
+  &lt;/MemoryDecay&gt;</pre>
+    <tr><td><span class="tagoptional">NoWarAttitudeProbs</span><td>NONE<td>Specifies the chance an AI leader will reconsider a war plan, based on his attitude toward the potential victim<br>0 will never reconsider; 100 will always reconsider and never declare<br><pre class="code">
+  &lt;NoWarAttitudeProb&gt;
+    &lt;AttitudeType&gt;&lt;/AttitudeType&gt;
+    &lt;iNoWarProb&gt;0&lt;/iNoWarProb&gt;
+  &lt;/NoWarAttitudeProb&gt;</pre>
+    <tr><td><span class="tagoptional"><b>Traits</b></span><td>NONE<td>The list of traits this leader starts with. The possible values are defined in the CivilizationsCIV4TraitInfos.xml file<br><pre class="code">
+  &lt;TraitType&gt;&lt;/TraitType&gt;</pre>
+    <tr><td><span class="tagoptional">UnitAIWeightModifiers</span><td>NONE<td>Modifies the weight for an AI leader to prefer some unit types. The possible values for UnitAIType are defined in the BasicInfosCIV4BasicInfos.xml file, in the section UnitAIInfos<br><pre class="code">
+  &lt;UnitAIWeightModifier&gt;
+    &lt;UnitAIType&gt;&lt;/UnitAIType&gt;
+    &lt;iWeightModifier&gt;0&lt;/iWeightModifier&gt;
+  &lt;/UnitAIWeightModifier&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;LeaderHeadInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+&lt;/LeaderHeadInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;LeaderHeadInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;ArtDefineTag&gt;&lt;/ArtDefineTag&gt;
+  &lt;iWonderConstructRand&gt;0&lt;/iWonderConstructRand&gt;
+  &lt;iBaseAttitude&gt;0&lt;/iBaseAttitude&gt;
+  &lt;iBasePeaceWeight&gt;0&lt;/iBasePeaceWeight&gt;
+  &lt;iPeaceWeightRand&gt;0&lt;/iPeaceWeightRand&gt;
+  &lt;iWarmongerRespect&gt;0&lt;/iWarmongerRespect&gt;
+  &lt;iEspionageWeight&gt;0&lt;/iEspionageWeight&gt;
+  &lt;iRefuseToTalkWarThreshold&gt;0&lt;/iRefuseToTalkWarThreshold&gt;
+  &lt;iNoTechTradeThreshold&gt;0&lt;/iNoTechTradeThreshold&gt;
+  &lt;iTechTradeKnownPercent&gt;0&lt;/iTechTradeKnownPercent&gt;
+  &lt;iMaxGoldTradePercent&gt;0&lt;/iMaxGoldTradePercent&gt;
+  &lt;iMaxGoldPerTurnTradePercent&gt;0&lt;/iMaxGoldPerTurnTradePercent&gt;
+  &lt;iCultureVictoryWeight&gt;0&lt;/iCultureVictoryWeight&gt;
+  &lt;iSpaceVictoryWeight&gt;0&lt;/iSpaceVictoryWeight&gt;
+  &lt;iConquestVictoryWeight&gt;0&lt;/iConquestVictoryWeight&gt;
+  &lt;iDominationVictoryWeight&gt;0&lt;/iDominationVictoryWeight&gt;
+  &lt;iDiplomacyVictoryWeight&gt;0&lt;/iDiplomacyVictoryWeight&gt;
+  &lt;iMaxWarRand&gt;0&lt;/iMaxWarRand&gt;
+  &lt;iMaxWarNearbyPowerRatio&gt;0&lt;/iMaxWarNearbyPowerRatio&gt;
+  &lt;iMaxWarDistantPowerRatio&gt;0&lt;/iMaxWarDistantPowerRatio&gt;
+  &lt;iMaxWarMinAdjacentLandPercent&gt;0&lt;/iMaxWarMinAdjacentLandPercent&gt;
+  &lt;iLimitedWarRand&gt;0&lt;/iLimitedWarRand&gt;
+  &lt;iLimitedWarPowerRatio&gt;0&lt;/iLimitedWarPowerRatio&gt;
+  &lt;iDogpileWarRand&gt;0&lt;/iDogpileWarRand&gt;
+  &lt;iMakePeaceRand&gt;0&lt;/iMakePeaceRand&gt;
+  &lt;iDeclareWarTradeRand&gt;0&lt;/iDeclareWarTradeRand&gt;
+  &lt;iDemandRebukedSneakProb&gt;0&lt;/iDemandRebukedSneakProb&gt;
+  &lt;iDemandRebukedWarProb&gt;0&lt;/iDemandRebukedWarProb&gt;
+  &lt;iRazeCityProb&gt;0&lt;/iRazeCityProb&gt;
+  &lt;iBuildUnitProb&gt;0&lt;/iBuildUnitProb&gt;
+  &lt;iBaseAttackOddsChange&gt;0&lt;/iBaseAttackOddsChange&gt;
+  &lt;iAttackOddsChangeRand&gt;0&lt;/iAttackOddsChangeRand&gt;
+  &lt;iWorseRankDifferenceAttitudeChange&gt;0&lt;/iWorseRankDifferenceAttitudeChange&gt;
+  &lt;iBetterRankDifferenceAttitudeChange&gt;0&lt;/iBetterRankDifferenceAttitudeChange&gt;
+  &lt;iCloseBordersAttitudeChange&gt;0&lt;/iCloseBordersAttitudeChange&gt;
+  &lt;iLostWarAttitudeChange&gt;0&lt;/iLostWarAttitudeChange&gt;
+  &lt;iAtWarAttitudeDivisor&gt;0&lt;/iAtWarAttitudeDivisor&gt;
+  &lt;iAtWarAttitudeChangeLimit&gt;0&lt;/iAtWarAttitudeChangeLimit&gt;
+  &lt;iAtPeaceAttitudeDivisor&gt;0&lt;/iAtPeaceAttitudeDivisor&gt;
+  &lt;iAtPeaceAttitudeChangeLimit&gt;0&lt;/iAtPeaceAttitudeChangeLimit&gt;
+  &lt;iSameReligionAttitudeChange&gt;0&lt;/iSameReligionAttitudeChange&gt;
+  &lt;iSameReligionAttitudeDivisor&gt;0&lt;/iSameReligionAttitudeDivisor&gt;
+  &lt;iSameReligionAttitudeChangeLimit&gt;0&lt;/iSameReligionAttitudeChangeLimit&gt;
+  &lt;iDifferentReligionAttitudeChange&gt;0&lt;/iDifferentReligionAttitudeChange&gt;
+  &lt;iDifferentReligionAttitudeDivisor&gt;0&lt;/iDifferentReligionAttitudeDivisor&gt;
+  &lt;iDifferentReligionAttitudeChangeLimit&gt;0&lt;/iDifferentReligionAttitudeChangeLimit&gt;
+  &lt;iBonusTradeAttitudeDivisor&gt;0&lt;/iBonusTradeAttitudeDivisor&gt;
+  &lt;iBonusTradeAttitudeChangeLimit&gt;0&lt;/iBonusTradeAttitudeChangeLimit&gt;
+  &lt;iOpenBordersAttitudeDivisor&gt;0&lt;/iOpenBordersAttitudeDivisor&gt;
+  &lt;iOpenBordersAttitudeChangeLimit&gt;0&lt;/iOpenBordersAttitudeChangeLimit&gt;
+  &lt;iDefensivePactAttitudeDivisor&gt;0&lt;/iDefensivePactAttitudeDivisor&gt;
+  &lt;iDefensivePactAttitudeChangeLimit&gt;0&lt;/iDefensivePactAttitudeChangeLimit&gt;
+  &lt;iShareWarAttitudeChange&gt;0&lt;/iShareWarAttitudeChange&gt;
+  &lt;iShareWarAttitudeDivisor&gt;0&lt;/iShareWarAttitudeDivisor&gt;
+  &lt;iShareWarAttitudeChangeLimit&gt;0&lt;/iShareWarAttitudeChangeLimit&gt;
+  &lt;iFavoriteCivicAttitudeChange&gt;0&lt;/iFavoriteCivicAttitudeChange&gt;
+  &lt;iFavoriteCivicAttitudeDivisor&gt;0&lt;/iFavoriteCivicAttitudeDivisor&gt;
+  &lt;iFavoriteCivicAttitudeChangeLimit&gt;0&lt;/iFavoriteCivicAttitudeChangeLimit&gt;
+  &lt;DemandTributeAttitudeThreshold&gt;&lt;/DemandTributeAttitudeThreshold&gt;
+  &lt;NoGiveHelpAttitudeThreshold&gt;&lt;/NoGiveHelpAttitudeThreshold&gt;
+  &lt;TechRefuseAttitudeThreshold&gt;&lt;/TechRefuseAttitudeThreshold&gt;
+  &lt;StrategicBonusRefuseAttitudeThreshold&gt;&lt;/StrategicBonusRefuseAttitudeThreshold&gt;
+  &lt;HappinessBonusRefuseAttitudeThreshold&gt;&lt;/HappinessBonusRefuseAttitudeThreshold&gt;
+  &lt;HealthBonusRefuseAttitudeThreshold&gt;&lt;/HealthBonusRefuseAttitudeThreshold&gt;
+  &lt;MapRefuseAttitudeThreshold&gt;&lt;/MapRefuseAttitudeThreshold&gt;
+  &lt;DeclareWarRefuseAttitudeThreshold&gt;&lt;/DeclareWarRefuseAttitudeThreshold&gt;
+  &lt;DeclareWarThemRefuseAttitudeThreshold&gt;&lt;/DeclareWarThemRefuseAttitudeThreshold&gt;
+  &lt;StopTradingRefuseAttitudeThreshold&gt;&lt;/StopTradingRefuseAttitudeThreshold&gt;
+  &lt;StopTradingThemRefuseAttitudeThreshold&gt;&lt;/StopTradingThemRefuseAttitudeThreshold&gt;
+  &lt;AdoptCivicRefuseAttitudeThreshold&gt;&lt;/AdoptCivicRefuseAttitudeThreshold&gt;
+  &lt;ConvertReligionRefuseAttitudeThreshold&gt;&lt;/ConvertReligionRefuseAttitudeThreshold&gt;
+  &lt;OpenBordersRefuseAttitudeThreshold&gt;&lt;/OpenBordersRefuseAttitudeThreshold&gt;
+  &lt;DefensivePactRefuseAttitudeThreshold&gt;&lt;/DefensivePactRefuseAttitudeThreshold&gt;
+  &lt;PermanentAllianceRefuseAttitudeThreshold&gt;&lt;/PermanentAllianceRefuseAttitudeThreshold&gt;
+  &lt;VassalRefuseAttitudeThreshold&gt;&lt;/VassalRefuseAttitudeThreshold&gt;
+  &lt;iVassalPowerModifier&gt;0&lt;/iVassalPowerModifier&gt;
+  &lt;iFreedomAppreciation&gt;0&lt;/iFreedomAppreciation&gt;
+  &lt;FavoriteCivic&gt;&lt;/FavoriteCivic&gt;
+  &lt;FavoriteReligion&gt;&lt;/FavoriteReligion&gt;
+  &lt;Traits&gt;
+    &lt;TraitType&gt;&lt;/TraitType&gt;
+  &lt;/Traits&gt;
+  &lt;Flavors&gt;
+    &lt;Flavor&gt;
+      &lt;FlavorType&gt;&lt;/FlavorType&gt;
+      &lt;iFlavor&gt;0&lt;/iFlavor&gt;
+    &lt;/Flavor&gt;
+  &lt;/Flavors&gt;
+  &lt;ContactRands&gt;
+    &lt;ContactRand&gt;
+      &lt;ContactType&gt;&lt;/ContactType&gt;
+      &lt;iContactRand&gt;0&lt;/iContactRand&gt;
+    &lt;/ContactRand&gt;
+  &lt;/ContactRands&gt;
+  &lt;ContactDelays&gt;
+    &lt;ContactDelay&gt;
+      &lt;ContactType&gt;&lt;/ContactType&gt;
+      &lt;iContactDelay&gt;0&lt;/iContactDelay&gt;
+    &lt;/ContactDelay&gt;
+  &lt;/ContactDelays&gt;
+  &lt;MemoryDecays&gt;
+    &lt;MemoryDecay&gt;
+      &lt;MemoryType&gt;&lt;/MemoryType&gt;
+      &lt;iMemoryRand&gt;0&lt;/iMemoryRand&gt;
+    &lt;/MemoryDecay&gt;
+  &lt;/MemoryDecays&gt;
+  &lt;MemoryAttitudePercents&gt;
+    &lt;MemoryAttitudePercent&gt;
+      &lt;MemoryType&gt;&lt;/MemoryType&gt;
+      &lt;iMemoryAttitudePercent&gt;0&lt;/iMemoryAttitudePercent&gt;
+    &lt;/MemoryAttitudePercent&gt;
+  &lt;/MemoryAttitudePercents&gt;
+  &lt;NoWarAttitudeProbs&gt;
+    &lt;NoWarAttitudeProb&gt;
+      &lt;AttitudeType&gt;&lt;/AttitudeType&gt;
+      &lt;iNoWarProb&gt;0&lt;/iNoWarProb&gt;
+    &lt;/NoWarAttitudeProb&gt;
+  &lt;/NoWarAttitudeProbs&gt;
+  &lt;UnitAIWeightModifiers&gt;
+    &lt;UnitAIWeightModifier&gt;
+      &lt;UnitAIType&gt;&lt;/UnitAIType&gt;
+      &lt;iWeightModifier&gt;0&lt;/iWeightModifier&gt;
+    &lt;/UnitAIWeightModifier&gt;
+  &lt;/UnitAIWeightModifiers&gt;
+  &lt;ImprovementWeightModifiers&gt;
+    &lt;ImprovementWeightModifier&gt;
+      &lt;ImprovementType&gt;&lt;/ImprovementType&gt;
+      &lt;iWeightModifier&gt;0&lt;/iWeightModifier&gt;
+    &lt;/ImprovementWeightModifier&gt;
+  &lt;/ImprovementWeightModifiers&gt;
+  &lt;DiplomacyIntroMusicPeace&gt;
+    &lt;DiploMusicPeaceEra&gt;
+      &lt;EraType&gt;&lt;/EraType&gt;
+      &lt;DiploScriptId&gt;&lt;/DiploScriptId&gt;
+    &lt;/DiploMusicPeaceEra&gt;
+  &lt;/DiplomacyIntroMusicPeace&gt;
+  &lt;DiplomacyMusicPeace&gt;
+    &lt;DiploMusicPeaceEra&gt;
+      &lt;EraType&gt;&lt;/EraType&gt;
+      &lt;DiploScriptId&gt;&lt;/DiploScriptId&gt;
+    &lt;/DiploMusicPeaceEra&gt;
+  &lt;/DiplomacyMusicPeace&gt;
+  &lt;DiplomacyIntroMusicWar&gt;
+    &lt;DiploMusicWarEra&gt;
+      &lt;EraType&gt;&lt;/EraType&gt;
+      &lt;DiploScriptId&gt;&lt;/DiploScriptId&gt;
+    &lt;/DiploMusicWarEra&gt;
+  &lt;/DiplomacyIntroMusicWar&gt;
+  &lt;DiplomacyMusicWar&gt;
+    &lt;DiploMusicWarEra&gt;
+      &lt;EraType&gt;&lt;/EraType&gt;
+      &lt;DiploScriptId&gt;&lt;/DiploScriptId&gt;
+    &lt;/DiploMusicWarEra&gt;
+  &lt;/DiplomacyMusicWar&gt;
+&lt;/LeaderHeadInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

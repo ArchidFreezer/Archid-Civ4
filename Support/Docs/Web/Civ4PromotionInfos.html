@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4PromotionInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4PromotionInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">Button</span><td><td>The button to display the promotion
+    <tr><td><span class="tagoptional">Description</span><td><td>A reference to the text files, which contain an entry for this promotion
+    <tr><td><span class="tagoptional">Help</span><td><td>Additional help text that will be displayed in the Platypedia
+    <tr><td><span class="tagoptional">HotKey</span><td><td>The key, that when pressed selects the promotion.
+    <tr><td><span class="tagoptional">LayerAnimationPath</span><td><td>Unknown; used within the exe
+    <tr><td><span class="tagoptional">PromotionPrereq</span><td>NO_PROMOTION<td>A unit must have the promotion defined in order to gain this one
+    <tr><td><span class="tagoptional">Sound</span><td><td>Sound played when the promotion is given to a unit; typically AS2D_IF_LEVELUP
+    <tr><td><span class="tagoptional">StateReligionPrereq</span><td>NO_RELIGION<td>The player must have this religion as their state religion in order for their units to gain this promotion
+    <tr><td><span class="tagoptional">TechPrereq</span><td>NO_TECH<td>The player must know the tech before their units can gain this promotion
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal name of this promotion
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iAdjacentTileHealChange</span><td>0<td>Change to the unit's ability to heal other units on adjacent tiles by the given percentage
+    <tr><td><span class="tagoptional">iAirRangeChange</span><td>0<td>Change to the air range of the recipient
+    <tr><td><span class="tagoptional">iBombardRateChange</span><td>0<td>Change to the damage which the unit does to fortifications
+    <tr><td><span class="tagoptional">iCargoChange</span><td>0<td>Change to the units cargo capacity
+    <tr><td><span class="tagoptional">iChanceFirstStrikesChange</span><td>0<td>Change to the chance a unit has of receiving a First Strike
+    <tr><td><span class="tagoptional">iCityAttack</span><td>0<td>Changes the unit's strength value by the given percentage when attacking a city
+    <tr><td><span class="tagoptional">iCityDefense</span><td>0<td>Changes the unit's strength value by the given percentage when defending a city
+    <tr><td><span class="tagoptional">iCollateralDamageChange</span><td>0<td>Change to the collateral damage a unit can cause
+    <tr><td><span class="tagoptional">iCollateralDamageProtection</span><td>0<td>Changes the damage a unit takes from collateral damage by the given percentage value
+    <tr><td><span class="tagoptional">iCombatPercent</span><td>0<td>Changes the unit's strength value by the given percentage
+    <tr><td><span class="tagoptional">iEnemyHealChange</span><td>0<td>Change to the unit's damage healing capabilities in enemy territory by the given percentage
+    <tr><td><span class="tagoptional"><b>iEnslaveCountChange</b></span><td>0<td>Change to the number of slaves a unit can carry
+    <tr><td><span class="tagoptional">iEvasionChange</span><td>0<td>Change to the percentage chance a unit has of evading interception
+    <tr><td><span class="tagoptional">iExperiencePercent</span><td>0<td>Changes the experience points received by a unit in combat by the given percentage
+    <tr><td><span class="tagoptional">iFirstStrikesChange</span><td>0<td>Change to the number of First Strikes the unit has
+    <tr><td><span class="tagoptional">iFriendlyHealChange</span><td>0<td>Change to the unit's damage healing capabilities in friendly territory by the given percentage
+    <tr><td><span class="tagoptional">iHillsAttack</span><td>0<td>Changes the unit's strength value by the given percentage when attacking a hill
+    <tr><td><span class="tagoptional">iHillsDefense</span><td>0<td>Changes the unit's strength value by the given percentage when defending a hill
+    <tr><td><span class="tagoptional">iHotKeyPriority</span><td>0<td>If two objects have similar HotKey combinations then the one with the highest priority will take precedence
+    <tr><td><span class="tagoptional">iInterceptChange</span><td>0<td>Change to the percentage chance a unit has of intercepting an enemy unit within range trying to carry out an air mission
+    <tr><td><span class="tagoptional">iKamikazePercent</span><td>0<td>Raises the units strength by iKamikazePercent BUT the unit will die in its next combat
+    <tr><td><span class="tagoptional">iMoveDiscountChange</span><td>0<td>Changes the cost of moving onto terrain. Cannot reduce the cost to lower than 1
+    <tr><td><span class="tagoptional">iMovesChange</span><td>0<td>The change in the number of moves the recipient has
+    <tr><td><span class="tagoptional">iNeutralHealChange</span><td>0<td>Change to the unit's damage healing capabilities in neutral territory by the given percentage
+    <tr><td><span class="tagoptional">iOrderPriority</span><td>0<td>Unknown for promotions; typically 0
+    <tr><td><span class="tagoptional">iPillageChange</span><td>0<td>Percentage change in the amount of gold received when pillaging
+    <tr><td><span class="tagoptional"><b>iPromotionGroup</b></span><td>0<td>An identifier that allows promotions ot be grouped. A unit can only have one promotion from each promotion group at any time
+    <tr><td><span class="tagoptional">iRevoltProtection</span><td>0<td>Percentage decrease in base city revolt chance when unit is in the city
+    <tr><td><span class="tagoptional">iSameTileHealChange</span><td>0<td>Change to the unit's ability to heal other units on the same tile by the given percentage
+    <tr><td><span class="tagoptional"><b>iSpyBuyTechChange</b></span><td>0<td>The change in cost for spies to buy technologies
+    <tr><td><span class="tagoptional"><b>iSpyCorporationRemovalChange</b></span><td>0<td>The change in cost for spies to remove corporations
+    <tr><td><span class="tagoptional"><b>iSpyCultureChange</b></span><td>0<td>The change in cost for spies to change a cities culture
+    <tr><td><span class="tagoptional"><b>iSpyDestroyBuildingChange</b></span><td>0<td>The change in cost for spies to destroy a target city building
+    <tr><td><span class="tagoptional"><b>iSpyDestroyImprovementChange</b></span><td>0<td>The change in cost for spies to destroy an enemy improvement
+    <tr><td><span class="tagoptional"><b>iSpyDestroyProductionChange</b></span><td>0<td>The change in cost for spies to reduce a cities current production
+    <tr><td><span class="tagoptional"><b>iSpyDestroyProjectChange</b></span><td>0<td>The change in cost for spies to reduce a cities current project production
+    <tr><td><span class="tagoptional"><b>iSpyDiploPenaltyChange</b></span><td>0<td>The change in cost for spies to create a diplomatic penalty
+    <tr><td><span class="tagoptional"><b>iSpyDisablePowerChange</b></span><td>0<td>The change in cost for spies to disable the power ina city
+    <tr><td><span class="tagoptional"><b>iSpyEscapeChange</b></span><td>0<td>The percentage change for a spy to escape if they are captured
+    <tr><td><span class="tagoptional"><b>iSpyEvasionChange</b></span><td>0<td>The percentage change for a spy to evade capture if intercepted
+    <tr><td><span class="tagoptional"><b>iSpyInterceptChange</b></span><td>0<td>The percentage change for a spy to prevent interception
+    <tr><td><span class="tagoptional"><b>iSpyNukeCityChange</b></span><td>0<td>The change in cost for spies to nuke a city
+    <tr><td><span class="tagoptional"><b>iSpyPoisonModifier</b></span><td>0<td>Percentage change to the duration of spy poison mission effects
+    <tr><td><span class="tagoptional"><b>iSpyPreparationModifier</b></span><td>0<td>Change to the number of turns a spy must take to gain the maximum preparation bonus
+    <tr><td><span class="tagoptional"><b>iSpyReligionRemovalChange</b></span><td>0<td>The change in cost for a spy to remove a religion from a city
+    <tr><td><span class="tagoptional"><b>iSpyResearchSabotageChange</b></span><td>0<td>The change in cost for a spy to sabotage the research of a player
+    <tr><td><span class="tagoptional"><b>iSpyRevoltChange</b></span><td>0<td>The percentage change to the number of turns a spy can place a city in anarchy
+    <tr><td><span class="tagoptional"><b>iSpyStealTreasuryChange</b></span><td>0<td>The percentage change in the amount of gold stolen from a players treasury by a spy
+    <tr><td><span class="tagoptional"><b>iSpySwitchCivicChange</b></span><td>0<td>The change in cost for spies to change a players civics
+    <tr><td><span class="tagoptional"><b>iSpySwitchReligionChange</b></span><td>0<td>The change in cost for spies to change a players religion
+    <tr><td><span class="tagoptional"><b>iSpyUnhappyChange</b></span><td>0<td>The percentage change to the number of turns a spy can make a city unhappy
+    <tr><td><span class="tagoptional"><b>iSpyWarWearinessChange</b></span><td>0<td>The percentage change taht a spy can change the war weariness of a player
+    <tr><td><span class="tagoptional"><b>iUnitRangeChange</b></span><td>0<td>Absolute change in range for a range bound unit
+    <tr><td><span class="tagoptional"><b>iUnitRangePercentChange</b></span><td>0<td>Percentile change in range for a range bound unit
+    <tr><td><span class="tagoptional">iUpgradeDiscount</span><td>0<td>Percentage change to the cost of upgrading a unit
+    <tr><td><span class="tagoptional">iVisibilityChange</span><td>0<td>The number of tiles that the unit's Line of Sight is changed by
+    <tr><td><span class="tagoptional">iWithdrawalChange</span><td>0<td>Change to the percentage chance a unit has of withdrawing from battle if it is losing
+    <tr><td><span class="tagoptional"><b>iWorkRateModify</b></span><td>0<td>Change to the work rate of units impacting the speed at which they can build improvements
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bAltDown</span><td>0<td>If true, the HotKey is only used if the Alt key is also pressed
+    <tr><td><span class="tagoptional">bAlwaysHeal</span><td>0<td>If true, the recipient can heal whilst moving
+    <tr><td><span class="tagoptional">bAmphib</span><td>0<td>If true, the recipient can attack from a transport without penalty
+    <tr><td><span class="tagoptional">bBlitz</span><td>0<td>If true, the recipient can attack multiple times per turn
+    <tr><td><span class="tagoptional"><b>bCanMovePeaks</b></span><td>0<td>If true, the unit can pass over peaks
+    <tr><td><span class="tagoptional"><b>bCityPrereq</b></span><td>0<td>If true, this promotion can only be gained when a unit is in a city plot
+    <tr><td><span class="tagoptional">bCtrlDown</span><td>0<td>If true, the HotKey is only used if the Control key is also pressed
+    <tr><td><span class="tagoptional">bEnemyRoute</span><td>0<td>If true, recipient can use enemy roads as if they were friendly
+    <tr><td><span class="tagoptional">bHillsDoubleMove</span><td>0<td>If true, the recipient can move twice as far in hills
+    <tr><td><span class="tagoptional">bImmuneToFirstStrikes</span><td>0<td>If true, the recipient is immune to First Strikes
+    <tr><td><span class="tagoptional">bLeader</span><td>0<td>If true, the recipient is considered a warlord
+    <tr><td><span class="tagoptional"><b>bLoyal</b></span><td>0<td>If true, spy units will never reveal their civ.
+    <tr><td><span class="tagoptional">bRiver</span><td>0<td>If true, the recipient can attack across a river without penalty
+    <tr><td><span class="tagoptional">bShiftDown</span><td>0<td>If true, the HotKey is only used if the Shift key is also pressed
+    <tr><td><span class="tagoptional"><b>bSpyRadiation</b></span><td>0<td>If true, spies will be able to use nuclear devices in missions
+    <tr><td><span class="tagoptional"><b>bUnitRangeUnbound</b></span><td>0<td>If true, the unit has not range cap
+    <tr><td><span class="tagoptional"><b>bUnitTerritoryUnbound</b></span><td>0<td>If true, the unit can move out the the players territory
+  </table>	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional"><b>BuildLeaveFeatures</b></span><td>NONE<td>Features that are not removed when the associated build is completed<br><pre class="code">
+  &lt;BuildLeaveFeature&gt;
+    &lt;BuildType&gt;&lt;/BuildType&gt;
+    &lt;FeatureType&gt;&lt;/FeatureType&gt;
+  &lt;/BuildLeaveFeature&gt;</pre>
+    <tr><td><span class="tagoptional">DomainMods</span><td>NONE<td>Change to the bonuses/penalties that the unit gets against Air, Sea or Land units<br><pre class="code">
+  &lt;DomainMod&gt;
+    &lt;DomainType&gt;&lt;/DomainType&gt;
+    &lt;iDomainMod&gt;0&lt;/iDomainMod&gt;
+  &lt;/DomainMod&gt;</pre>
+    <tr><td><span class="tagoptional">FeatureAttacks</span><td>NONE<td>Change to the bonus the unit receives when attacking in a feature<br><pre class="code">
+  &lt;FeatureAttack&gt;
+    &lt;FeatureType&gt;&lt;/FeatureType&gt;
+    &lt;iFeatureAttack&gt;0&lt;/iFeatureAttack&gt;
+  &lt;/FeatureAttack&gt;</pre>
+    <tr><td><span class="tagoptional">FeatureDefenses</span><td>NONE<td>Change to the bonus the unit receives when defending in a feature<br><pre class="code">
+  &lt;FeatureDefense&gt;
+    &lt;FeatureType&gt;&lt;/FeatureType&gt;
+    &lt;iFeatureDefense&gt;0&lt;/iFeatureDefense&gt;
+  &lt;/FeatureDefense&gt;</pre>
+    <tr><td><span class="tagoptional"><b>FeatureDoubleMoves</b></span><td>NONE<td>Features in which the unit receives double moves<br><pre class="code">
+  &lt;FeatureType&gt;&lt;/FeatureType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>NotUnitCombatTypes</b></span><td>NONE<td>List of unit combat types that can not gain this promotion<br><pre class="code">
+  &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>OrUnitCombatTypes</b></span><td>NONE<td>List of unit combat types that can gain this promotion<br><pre class="code">
+  &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqOrPromotions</b></span><td>NONE<td>List of promotions, one of which a unit must have in order to gain this promotion<br><pre class="code">
+  &lt;PromotionType&gt;&lt;/PromotionType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>SeeInvisibles</b></span><td>NONE<td>List of invisible types that units with this promotion can see<br><pre class="code">
+  &lt;InvisibleType&gt;&lt;/InvisibleType&gt;</pre>
+    <tr><td><span class="tagoptional">TerrainAttacks</span><td>NONE<td>Change to the bonus the unit receives when attacking in a terrain<br><pre class="code">
+  &lt;TerrainAttack&gt;
+    &lt;TerrainType&gt;&lt;/TerrainType&gt;
+    &lt;iTerrainAttack&gt;0&lt;/iTerrainAttack&gt;
+  &lt;/TerrainAttack&gt;</pre>
+    <tr><td><span class="tagoptional">TerrainDefenses</span><td>NONE<td>Change to the bonus the unit receives when defending in a terrain<br><pre class="code">
+  &lt;TerrainDefense&gt;
+    &lt;TerrainType&gt;&lt;/TerrainType&gt;
+    &lt;iTerrainDefense&gt;0&lt;/iTerrainDefense&gt;
+  &lt;/TerrainDefense&gt;</pre>
+    <tr><td><span class="tagoptional"><b>TerrainDoubleMoves</b></span><td>NONE<td>Terrains in which the unit receives double moves<br><pre class="code">
+  &lt;TerrainType&gt;&lt;/TerrainType&gt;</pre>
+    <tr><td><span class="tagoptional">UnitCombatMods</span><td>NONE<td>Change to the bonuses/penalties that the unit gets against different UnitCombat groups<br><pre class="code">
+  &lt;UnitCombatMod&gt;
+    &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;
+    &lt;iUnitCombatMod&gt;0&lt;/iUnitCombatMod&gt;
+  &lt;/UnitCombatMod&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;PromotionInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+&lt;/PromotionInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;PromotionInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Help&gt;&lt;/Help&gt;
+  &lt;Sound&gt;&lt;/Sound&gt;
+  &lt;LayerAnimationPath&gt;&lt;/LayerAnimationPath&gt;
+  &lt;PromotionPrereq&gt;&lt;/PromotionPrereq&gt;
+  &lt;PrereqOrPromotions&gt;
+    &lt;PromotionType&gt;&lt;/PromotionType&gt;
+  &lt;/PrereqOrPromotions&gt;
+  &lt;TechPrereq&gt;&lt;/TechPrereq&gt;
+  &lt;StateReligionPrereq&gt;&lt;/StateReligionPrereq&gt;
+  &lt;SeeInvisibles&gt;
+    &lt;InvisibleType&gt;&lt;/InvisibleType&gt;
+  &lt;/SeeInvisibles&gt;
+  &lt;bCityPrereq&gt;0&lt;/bCityPrereq&gt;
+  &lt;iPromotionGroup&gt;0&lt;/iPromotionGroup&gt;
+  &lt;bLeader&gt;0&lt;/bLeader&gt;
+  &lt;bBlitz&gt;0&lt;/bBlitz&gt;
+  &lt;bAmphib&gt;0&lt;/bAmphib&gt;
+  &lt;bRiver&gt;0&lt;/bRiver&gt;
+  &lt;bEnemyRoute&gt;0&lt;/bEnemyRoute&gt;
+  &lt;bAlwaysHeal&gt;0&lt;/bAlwaysHeal&gt;
+  &lt;bHillsDoubleMove&gt;0&lt;/bHillsDoubleMove&gt;
+  &lt;bCanMovePeaks&gt;0&lt;/bCanMovePeaks&gt;
+  &lt;bImmuneToFirstStrikes&gt;0&lt;/bImmuneToFirstStrikes&gt;
+  &lt;bLoyal&gt;0&lt;/bLoyal&gt;
+  &lt;bSpyRadiation&gt;0&lt;/bSpyRadiation&gt;
+  &lt;iEnslaveCountChange&gt;0&lt;/iEnslaveCountChange&gt;
+  &lt;iVisibilityChange&gt;0&lt;/iVisibilityChange&gt;
+  &lt;iMovesChange&gt;0&lt;/iMovesChange&gt;
+  &lt;iMoveDiscountChange&gt;0&lt;/iMoveDiscountChange&gt;
+  &lt;iAirRangeChange&gt;0&lt;/iAirRangeChange&gt;
+  &lt;iInterceptChange&gt;0&lt;/iInterceptChange&gt;
+  &lt;iEvasionChange&gt;0&lt;/iEvasionChange&gt;
+  &lt;iWithdrawalChange&gt;0&lt;/iWithdrawalChange&gt;
+  &lt;iCargoChange&gt;0&lt;/iCargoChange&gt;
+  &lt;iCollateralDamageChange&gt;0&lt;/iCollateralDamageChange&gt;
+  &lt;iBombardRateChange&gt;0&lt;/iBombardRateChange&gt;
+  &lt;iFirstStrikesChange&gt;0&lt;/iFirstStrikesChange&gt;
+  &lt;iChanceFirstStrikesChange&gt;0&lt;/iChanceFirstStrikesChange&gt;
+  &lt;iEnemyHealChange&gt;0&lt;/iEnemyHealChange&gt;
+  &lt;iNeutralHealChange&gt;0&lt;/iNeutralHealChange&gt;
+  &lt;iFriendlyHealChange&gt;0&lt;/iFriendlyHealChange&gt;
+  &lt;iSameTileHealChange&gt;0&lt;/iSameTileHealChange&gt;
+  &lt;iAdjacentTileHealChange&gt;0&lt;/iAdjacentTileHealChange&gt;
+  &lt;iCombatPercent&gt;0&lt;/iCombatPercent&gt;
+  &lt;iCityAttack&gt;0&lt;/iCityAttack&gt;
+  &lt;iCityDefense&gt;0&lt;/iCityDefense&gt;
+  &lt;iHillsAttack&gt;0&lt;/iHillsAttack&gt;
+  &lt;iHillsDefense&gt;0&lt;/iHillsDefense&gt;
+  &lt;iKamikazePercent&gt;0&lt;/iKamikazePercent&gt;
+  &lt;iSpyPreparationModifier&gt;0&lt;/iSpyPreparationModifier&gt;
+  &lt;iSpyPoisonModifier&gt;0&lt;/iSpyPoisonModifier&gt;
+  &lt;iSpyRevoltChange&gt;0&lt;/iSpyRevoltChange&gt;
+  &lt;iSpyUnhappyChange&gt;0&lt;/iSpyUnhappyChange&gt;
+  &lt;iSpyInterceptChange&gt;0&lt;/iSpyInterceptChange&gt;
+  &lt;iSpyEvasionChange&gt;0&lt;/iSpyEvasionChange&gt;
+  &lt;iSpyDiploPenaltyChange&gt;0&lt;/iSpyDiploPenaltyChange&gt;
+  &lt;iSpyEscapeChange&gt;0&lt;/iSpyEscapeChange&gt;
+  &lt;iSpyNukeCityChange&gt;0&lt;/iSpyNukeCityChange&gt;
+  &lt;iSpyDisablePowerChange&gt;0&lt;/iSpyDisablePowerChange&gt;
+  &lt;iSpyWarWearinessChange&gt;0&lt;/iSpyWarWearinessChange&gt;
+  &lt;iSpyResearchSabotageChange&gt;0&lt;/iSpyResearchSabotageChange&gt;
+  &lt;iSpyReligionRemovalChange&gt;0&lt;/iSpyReligionRemovalChange&gt;
+  &lt;iSpyCorporationRemovalChange&gt;0&lt;/iSpyCorporationRemovalChange&gt;
+  &lt;iSpyStealTreasuryChange&gt;0&lt;/iSpyStealTreasuryChange&gt;
+  &lt;iSpyBuyTechChange&gt;0&lt;/iSpyBuyTechChange&gt;
+  &lt;iSpySwitchCivicChange&gt;0&lt;/iSpySwitchCivicChange&gt;
+  &lt;iSpySwitchReligionChange&gt;0&lt;/iSpySwitchReligionChange&gt;
+  &lt;iSpyDestroyProjectChange&gt;0&lt;/iSpyDestroyProjectChange&gt;
+  &lt;iSpyDestroyBuildingChange&gt;0&lt;/iSpyDestroyBuildingChange&gt;
+  &lt;iSpyDestroyImprovementChange&gt;0&lt;/iSpyDestroyImprovementChange&gt;
+  &lt;iSpyDestroyProductionChange&gt;0&lt;/iSpyDestroyProductionChange&gt;
+  &lt;iSpyCultureChange&gt;0&lt;/iSpyCultureChange&gt;
+  &lt;iRevoltProtection&gt;0&lt;/iRevoltProtection&gt;
+  &lt;iCollateralDamageProtection&gt;0&lt;/iCollateralDamageProtection&gt;
+  &lt;iPillageChange&gt;0&lt;/iPillageChange&gt;
+  &lt;iUpgradeDiscount&gt;0&lt;/iUpgradeDiscount&gt;
+  &lt;iExperiencePercent&gt;0&lt;/iExperiencePercent&gt;
+  &lt;iWorkRateModify&gt;0&lt;/iWorkRateModify&gt;
+  &lt;bUnitRangeUnbound&gt;0&lt;/bUnitRangeUnbound&gt;
+  &lt;bUnitTerritoryUnbound&gt;0&lt;/bUnitTerritoryUnbound&gt;
+  &lt;iUnitRangeChange&gt;0&lt;/iUnitRangeChange&gt;
+  &lt;iUnitRangePercentChange&gt;0&lt;/iUnitRangePercentChange&gt;
+  &lt;TerrainAttacks&gt;
+    &lt;TerrainAttack&gt;
+      &lt;TerrainType&gt;&lt;/TerrainType&gt;
+      &lt;iTerrainAttack&gt;0&lt;/iTerrainAttack&gt;
+    &lt;/TerrainAttack&gt;
+  &lt;/TerrainAttacks&gt;
+  &lt;TerrainDefenses&gt;
+    &lt;TerrainDefense&gt;
+      &lt;TerrainType&gt;&lt;/TerrainType&gt;
+      &lt;iTerrainDefense&gt;0&lt;/iTerrainDefense&gt;
+    &lt;/TerrainDefense&gt;
+  &lt;/TerrainDefenses&gt;
+  &lt;FeatureAttacks&gt;
+    &lt;FeatureAttack&gt;
+      &lt;FeatureType&gt;&lt;/FeatureType&gt;
+      &lt;iFeatureAttack&gt;0&lt;/iFeatureAttack&gt;
+    &lt;/FeatureAttack&gt;
+  &lt;/FeatureAttacks&gt;
+  &lt;FeatureDefenses&gt;
+    &lt;FeatureDefense&gt;
+      &lt;FeatureType&gt;&lt;/FeatureType&gt;
+      &lt;iFeatureDefense&gt;0&lt;/iFeatureDefense&gt;
+    &lt;/FeatureDefense&gt;
+  &lt;/FeatureDefenses&gt;
+  &lt;UnitCombatMods&gt;
+    &lt;UnitCombatMod&gt;
+      &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;
+      &lt;iUnitCombatMod&gt;0&lt;/iUnitCombatMod&gt;
+    &lt;/UnitCombatMod&gt;
+  &lt;/UnitCombatMods&gt;
+  &lt;DomainMods&gt;
+    &lt;DomainMod&gt;
+      &lt;DomainType&gt;&lt;/DomainType&gt;
+      &lt;iDomainMod&gt;0&lt;/iDomainMod&gt;
+    &lt;/DomainMod&gt;
+  &lt;/DomainMods&gt;
+  &lt;TerrainDoubleMoves&gt;
+    &lt;TerrainType&gt;&lt;/TerrainType&gt;
+  &lt;/TerrainDoubleMoves&gt;
+  &lt;FeatureDoubleMoves&gt;
+    &lt;FeatureType&gt;&lt;/FeatureType&gt;
+  &lt;/FeatureDoubleMoves&gt;
+  &lt;BuildLeaveFeatures&gt;
+    &lt;BuildLeaveFeature&gt;
+      &lt;BuildType&gt;&lt;/BuildType&gt;
+      &lt;FeatureType&gt;&lt;/FeatureType&gt;
+    &lt;/BuildLeaveFeature&gt;
+  &lt;/BuildLeaveFeatures&gt;
+  &lt;NotUnitCombatTypes&gt;
+    &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;
+  &lt;/NotUnitCombatTypes&gt;
+  &lt;OrUnitCombatTypes&gt;
+    &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;
+  &lt;/OrUnitCombatTypes&gt;
+  &lt;HotKey&gt;&lt;/HotKey&gt;
+  &lt;bAltDown&gt;0&lt;/bAltDown&gt;
+  &lt;bShiftDown&gt;0&lt;/bShiftDown&gt;
+  &lt;bCtrlDown&gt;0&lt;/bCtrlDown&gt;
+  &lt;iHotKeyPriority&gt;0&lt;/iHotKeyPriority&gt;
+  &lt;Button&gt;&lt;/Button&gt;
+  &lt;iOrderPriority&gt;0&lt;/iOrderPriority&gt;
+&lt;/PromotionInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

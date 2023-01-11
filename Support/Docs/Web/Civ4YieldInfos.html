@@ -1,0 +1,108 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4YieldInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4YieldInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">ColorType</span><td>NO_COLOR<td>This refers to a color specified in the Civ4ColorVals file that is applied to this yield type
+    <tr><td><span class="tagmandatory">Description</span><td><td>Reference to the text that contains the name of this yield. The text may be defined in any of the files in \Assets\XML\Text 
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal reference to this yield type
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iAIWeightPercent</span><td>0<td>Used to control the AI's strategy and weighting of individual yields
+    <tr><td><span class="tagoptional">iCityChange</span><td>0<td>Change to this yield of a plot on which a city is founded
+    <tr><td><span class="tagoptional">iGoldenAgeYield</span><td>0<td>If the player enters a golden age and &lt;iGoldenAgeYieldThreshold&gt; is met, change the yield value by this amount.
+    <tr><td><span class="tagoptional">iGoldenAgeYieldThreshold</span><td>0<td>The minimum number of yield per turn for the &lt;iGoldenAgeYield&gt; bonus to kick in (e.g. all tiles producing 1 or more hammers will produce an extra hammer during a golden age).
+    <tr><td><span class="tagoptional">iHillsChange</span><td>0<td>Change to the yield value for plots on hills
+    <tr><td><span class="tagoptional">iLakeChange</span><td>0<td>Change to the yield value for plots next to fesh water
+    <tr><td><span class="tagoptional">iMinCity</span><td>0<td>The minimum yield per turn that a city can have
+    <tr><td><span class="tagoptional">iPeakChange</span><td>0<td>Change to the yield value for plots on peaks
+    <tr><td><span class="tagoptional">iPopulationChangeDivisor</span><td>0<td>Change to a cities yield based on the city population multiplied by the &lt;iPopulationChangeOffset&gt; value divided by this value
+    <tr><td><span class="tagoptional">iPopulationChangeOffset</span><td>0<td>Change to a cities yield based on the city population multiplied by the this value divided by the &lt;iPopulationChangeDivisor&gt; value
+    <tr><td><span class="tagoptional">iTradeModifier</span><td>0<td>Percentage change in the yield for each trade route in a city
+  </table>	<p>
+	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">SymbolPaths</span><td>NONE<td>List the directory paths for yield icons for different numbers of yields<br><pre class="code">
+  &lt;SymbolPath&gt;&lt;/SymbolPath&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;YieldInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;ColorType&gt;&lt;/ColorType&gt;
+  &lt;SymbolPaths&gt;
+  &lt;/SymbolPaths&gt;
+&lt;/YieldInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;YieldInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;iHillsChange&gt;0&lt;/iHillsChange&gt;
+  &lt;iPeakChange&gt;0&lt;/iPeakChange&gt;
+  &lt;iLakeChange&gt;0&lt;/iLakeChange&gt;
+  &lt;iCityChange&gt;0&lt;/iCityChange&gt;
+  &lt;iPopulationChangeOffset&gt;0&lt;/iPopulationChangeOffset&gt;
+  &lt;iPopulationChangeDivisor&gt;0&lt;/iPopulationChangeDivisor&gt;
+  &lt;iMinCity&gt;0&lt;/iMinCity&gt;
+  &lt;iTradeModifier&gt;0&lt;/iTradeModifier&gt;
+  &lt;iGoldenAgeYield&gt;0&lt;/iGoldenAgeYield&gt;
+  &lt;iGoldenAgeYieldThreshold&gt;0&lt;/iGoldenAgeYieldThreshold&gt;
+  &lt;iAIWeightPercent&gt;0&lt;/iAIWeightPercent&gt;
+  &lt;ColorType&gt;&lt;/ColorType&gt;
+  &lt;SymbolPaths&gt;
+    &lt;SymbolPath&gt;&lt;/SymbolPath&gt;
+  &lt;/SymbolPaths&gt;
+&lt;/YieldInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

@@ -1,0 +1,121 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4VictoryInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4VictoryInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">CityCulture</span><td><td>Sets the minimum CultureLevel a city needs to attain to count towards a cultural victory
+    <tr><td><span class="tagmandatory">Civilopedia</span><td><td>Pedia text for this victory type
+    <tr><td><span class="tagmandatory">Description</span><td><td>Reference to the text that contains the name of this victory type. The text may be defined in any of the files in \Assets\XML\Text 
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal reference this victory type
+    <tr><td><span class="tagmandatory">VictoryMovie</span><td>NO_MOVIE<td>Reference to a movie file that is played when a player acheives this victory
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">iLandPercent</span><td>0<td>Total percentage of land you and your vassals must control to achieve this victory
+    <tr><td><span class="tagmandatory">iMinLandPercent</span><td>0<td>Minimum percentage of land that you personally must control to achieve victory. 
+    <tr><td><span class="tagmandatory">iNumCultureCities</span><td>0<td>Number of cities that must meet the &lt;CityCulture&gt; tag's level of culture points to acheive this victory.
+    <tr><td><span class="tagmandatory">iPopulationPercentLead</span><td>0<td>The percentage of your teams population against the world population, in addition to being the most populous team that must be reached to achieve this victory. The actrual formula has more factors that this simple explanation.
+    <tr><td><span class="tagmandatory">iReligionPercent</span><td>0<td>Percentage of cities that must be following your state religion (when you control the holy city) in order to win. 
+    <tr><td><span class="tagmandatory">iTotalCultureRatio</span><td>0<td>You must have at least this percentage of the highest players culture value to achieve the victory. It is a gate to ensure that a player cannopt be too far behind in the culture race.
+    <tr><td><span class="tagmandatory">iVictoryDelayTurns</span><td>0<td>Number of turns before the victory is registered officially by the game and a win is triggered. This is used for the Spaceship victory condition.
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">bConquest</span><td>0<td>If true, this victory requires the elimination of all enemies and qualifies as a Conquest win
+    <tr><td><span class="tagmandatory">bDiploVote</span><td>0<td>If true, this victory requires the player to be elected in a worldwide vote and qualifies as a Diplomatic win
+    <tr><td><span class="tagmandatory">bEndScore</span><td>0<td>If true, the victory is based on the player with the highest score at the end of the game (2050 by default)
+    <tr><td><span class="tagmandatory">bPermanent</span><td>0<td>Unused in the dll, exposed to the exe and Python
+    <tr><td><span class="tagmandatory">bTargetScore</span><td>0<td>If true, the victory will trigger if a team reaches a target score as defined in a wouldbuildersave file.
+  </table>	<p>
+	<p>
+	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;VictoryInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;bTargetScore&gt;0&lt;/bTargetScore&gt;
+  &lt;bEndScore&gt;0&lt;/bEndScore&gt;
+  &lt;bConquest&gt;0&lt;/bConquest&gt;
+  &lt;bDiploVote&gt;0&lt;/bDiploVote&gt;
+  &lt;bPermanent&gt;0&lt;/bPermanent&gt;
+  &lt;iPopulationPercentLead&gt;0&lt;/iPopulationPercentLead&gt;
+  &lt;iLandPercent&gt;0&lt;/iLandPercent&gt;
+  &lt;iMinLandPercent&gt;0&lt;/iMinLandPercent&gt;
+  &lt;iReligionPercent&gt;0&lt;/iReligionPercent&gt;
+  &lt;CityCulture&gt;&lt;/CityCulture&gt;
+  &lt;iNumCultureCities&gt;0&lt;/iNumCultureCities&gt;
+  &lt;iTotalCultureRatio&gt;0&lt;/iTotalCultureRatio&gt;
+  &lt;iVictoryDelayTurns&gt;0&lt;/iVictoryDelayTurns&gt;
+  &lt;VictoryMovie&gt;&lt;/VictoryMovie&gt;
+&lt;/VictoryInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;VictoryInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;bTargetScore&gt;0&lt;/bTargetScore&gt;
+  &lt;bEndScore&gt;0&lt;/bEndScore&gt;
+  &lt;bConquest&gt;0&lt;/bConquest&gt;
+  &lt;bDiploVote&gt;0&lt;/bDiploVote&gt;
+  &lt;bPermanent&gt;0&lt;/bPermanent&gt;
+  &lt;iPopulationPercentLead&gt;0&lt;/iPopulationPercentLead&gt;
+  &lt;iLandPercent&gt;0&lt;/iLandPercent&gt;
+  &lt;iMinLandPercent&gt;0&lt;/iMinLandPercent&gt;
+  &lt;iReligionPercent&gt;0&lt;/iReligionPercent&gt;
+  &lt;CityCulture&gt;&lt;/CityCulture&gt;
+  &lt;iNumCultureCities&gt;0&lt;/iNumCultureCities&gt;
+  &lt;iTotalCultureRatio&gt;0&lt;/iTotalCultureRatio&gt;
+  &lt;iVictoryDelayTurns&gt;0&lt;/iVictoryDelayTurns&gt;
+  &lt;VictoryMovie&gt;&lt;/VictoryMovie&gt;
+&lt;/VictoryInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

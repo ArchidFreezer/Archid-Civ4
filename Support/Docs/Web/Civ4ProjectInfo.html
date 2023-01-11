@@ -1,0 +1,163 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4ProjectInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4ProjectInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">AnyonePrereqProject</span><td>NO_PROJECT<td>Specifies wheter another project has already to be completed by anyone, in order to be able to build this project.
+    <tr><td><span class="tagmandatory">Button</span><td><td>Path to a .dds file that contains the image of the project
+    <tr><td><span class="tagoptional">Civilopedia</span><td><td>References the Text for the pedia content. The text is specified in any of the \Assets\XML\Text files.
+    <tr><td><span class="tagoptional">CreateSound</span><td><td>The sound to be played to a human player when he completes the project. The possible values are defined in the Audio\Civ4Audio2DScripts.xml file
+    <tr><td><span class="tagoptional">Description</span><td><td>Reference to the text that contains a description of this project. The text may be defined in any of the files in \Assets\XML\Text 
+    <tr><td><span class="tagoptional">EveryoneSpecialBuilding</span><td>NO_SPECIALBUILDING<td>Allows every player to build the specified type of special building. Special building types are defined in the \Assets\XML\Buildings\Civ4SpecialBuildingInfos.xml file
+    <tr><td><span class="tagoptional">EveryoneSpecialUnit</span><td>NO_SPECIALUNIT<td>Allows every player to train the specified type of special unit. Special unit types are defined in the \Assets\XML\UnitsCiv4SpecialUnitInfos.xml file. 
+    <tr><td><span class="tagoptional">MovieDefineTag</span><td>NO_MOVIE<td>The movie to be shown to a human player when he completes the project. The possible values are defined in the \Assets\XML\Art\Civ4ArtDefines_Movie.xml file
+    <tr><td><span class="tagoptional">Strategy</span><td><td>References the Text for the strategy content. The text is specified in any of the \Assets\XML\Text files. 
+    <tr><td><span class="tagoptional">TechPrereq</span><td>NO_TECH<td>Technology that must be known to a player before they can start on the project
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal reference to this project
+    <tr><td><span class="tagoptional">VictoryPrereq</span><td>NO_VICTORY<td>Specifies if a victory condition has to be enabled, in order to be able to build this project.
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">iCost</span><td>0<td>The production cost of this project. If -1, the project cannot be directly built by a city. 
+    <tr><td><span class="tagoptional">iMaxGlobalInstances</span><td>-1<td>Specifies how many times this project can be completed globally in the world. If -1, there's no limit. 
+    <tr><td><span class="tagoptional">iMaxTeamInstances</span><td>-1<td>Specifies how many times this project can be completed by a given team. If -1, there's no limit. 
+    <tr><td><span class="tagoptional">iNukeInterception</span><td>0<td>The chance this project has to intercept (and destroy) missiles dropped on your land. 
+    <tr><td><span class="tagoptional">iSuccessRate</span><td>0<td>Specifies the failure chance of the project, for each missing istance from the value of VictoryThreshold. (e.g.: if the iSuccessRate is 20 and the VictoryThreshold is 5, if I build 3 times this project I still have a 40% chance of failure; if I reach 5, the failure chance is 0). 
+    <tr><td><span class="tagoptional">iTechShare</span><td>0<td>Allows the project to give its owner all the techs discovered by at least this number of known civilizations.
+    <tr><td><span class="tagoptional">iVictoryDelayPercent</span><td>0<td>Affects how much a victory is delayed in time, when some istances of this project have not been completed yet (see the VictoryThresholds value).
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bAllowsNukes</span><td>0<td>If true, all players can now build nukes
+    <tr><td><span class="tagoptional">bSpaceship</span><td>0<td>If true, this project is considered as a spaceship part for the purposes of city production bonuses and espionage missions
+  </table>	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">BonusProductionModifiers</span><td>NONE<td>Percentage modifier to city production when the specified bonus resource is available<br><pre class="code">
+  &lt;BonusProductionModifier&gt;
+    &lt;BonusType&gt;&lt;/BonusType&gt;
+    &lt;iProductonModifier&gt;0&lt;/iProductonModifier&gt;
+  &lt;/BonusProductionModifier&gt;</pre>
+    <tr><td><span class="tagoptional">PrereqProjects</span><td>NONE<td>Projects that must be completed by the team, to be able to build this project. <br><pre class="code">
+  &lt;PrereqProject&gt;
+    &lt;ProjectType&gt;&lt;/ProjectType&gt;
+    &lt;iNeeded&gt;0&lt;/iNeeded&gt;
+  &lt;/PrereqProject&gt;</pre>
+    <tr><td><span class="tagoptional">VictoryMinThresholds</span><td>NONE<td>Specifies how many times this project must be completed, to enable a victory condition. If it is not specified, the iMaxTeamInstances value is considered instead. The possible values are either NONE or the ones defined in the \Assets\XML\GameInfo\Civ4VictoryInfo file. <br><pre class="code">
+  &lt;VictoryMinThreshold&gt;
+    &lt;VictoryType&gt;&lt;/VictoryType&gt;
+    &lt;iThreshold&gt;0&lt;/iThreshold&gt;
+  &lt;/VictoryMinThreshold&gt;</pre>
+    <tr><td><span class="tagoptional">VictoryThresholds</span><td>NONE<td>Affects the project success rate (see: iSuccessRate) and the delay rate (see: iVictoryDelayPercent). Indirectly, sets a project as a prerequisite for a given victory type.<br><pre class="code">
+  &lt;VictoryThreshold&gt;
+    &lt;VictoryType&gt;&lt;/VictoryType&gt;
+    &lt;iThreshold&gt;0&lt;/iThreshold&gt;
+  &lt;/VictoryThreshold&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;ProjectInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;iCost&gt;0&lt;/iCost&gt;
+  &lt;Button&gt;&lt;/Button&gt;
+&lt;/ProjectInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;ProjectInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;Strategy&gt;&lt;/Strategy&gt;
+  &lt;VictoryPrereq&gt;&lt;/VictoryPrereq&gt;
+  &lt;TechPrereq&gt;&lt;/TechPrereq&gt;
+  &lt;AnyonePrereqProject&gt;&lt;/AnyonePrereqProject&gt;
+  &lt;iMaxGlobalInstances&gt;0&lt;/iMaxGlobalInstances&gt;
+  &lt;iMaxTeamInstances&gt;0&lt;/iMaxTeamInstances&gt;
+  &lt;iCost&gt;0&lt;/iCost&gt;
+  &lt;iNukeInterception&gt;0&lt;/iNukeInterception&gt;
+  &lt;iTechShare&gt;0&lt;/iTechShare&gt;
+  &lt;EveryoneSpecialUnit&gt;&lt;/EveryoneSpecialUnit&gt;
+  &lt;EveryoneSpecialBuilding&gt;&lt;/EveryoneSpecialBuilding&gt;
+  &lt;bSpaceship&gt;0&lt;/bSpaceship&gt;
+  &lt;bAllowsNukes&gt;0&lt;/bAllowsNukes&gt;
+  &lt;Button&gt;&lt;/Button&gt;
+  &lt;PrereqProjects&gt;
+    &lt;PrereqProject&gt;
+      &lt;ProjectType&gt;&lt;/ProjectType&gt;
+      &lt;iNeeded&gt;0&lt;/iNeeded&gt;
+    &lt;/PrereqProject&gt;
+  &lt;/PrereqProjects&gt;
+  &lt;VictoryThresholds&gt;
+    &lt;VictoryThreshold&gt;
+      &lt;VictoryType&gt;&lt;/VictoryType&gt;
+      &lt;iThreshold&gt;0&lt;/iThreshold&gt;
+    &lt;/VictoryThreshold&gt;
+  &lt;/VictoryThresholds&gt;
+  &lt;VictoryMinThresholds&gt;
+    &lt;VictoryMinThreshold&gt;
+      &lt;VictoryType&gt;&lt;/VictoryType&gt;
+      &lt;iThreshold&gt;0&lt;/iThreshold&gt;
+    &lt;/VictoryMinThreshold&gt;
+  &lt;/VictoryMinThresholds&gt;
+  &lt;iVictoryDelayPercent&gt;0&lt;/iVictoryDelayPercent&gt;
+  &lt;iSuccessRate&gt;0&lt;/iSuccessRate&gt;
+  &lt;BonusProductionModifiers&gt;
+    &lt;BonusProductionModifier&gt;
+      &lt;BonusType&gt;&lt;/BonusType&gt;
+      &lt;iProductonModifier&gt;0&lt;/iProductonModifier&gt;
+    &lt;/BonusProductionModifier&gt;
+  &lt;/BonusProductionModifiers&gt;
+  &lt;CreateSound&gt;&lt;/CreateSound&gt;
+  &lt;MovieDefineTag&gt;&lt;/MovieDefineTag&gt;
+&lt;/ProjectInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

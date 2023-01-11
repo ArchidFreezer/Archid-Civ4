@@ -1,0 +1,128 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4BuildInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4BuildInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">Button</span><td><td>Path to a .dds file that contains the image for the build
+    <tr><td><span class="tagoptional">Description</span><td><td>Reference to the text that contains the name of the build. The text may be defined in any of the files in \Assets\XML\Text 
+    <tr><td><span class="tagoptional">EntityEvent</span><td><td>This describes the graphics displayed while this build is being constructed (e.g. a worker using a shovel).
+    <tr><td><span class="tagoptional">Help</span><td><td>Additional help text that will be displayed in the Pedia
+    <tr><td><span class="tagoptional">HotKey</span><td><td>The key, that when pressed selects this object
+    <tr><td><span class="tagoptional">ImprovementType</span><td>NO_IMPROVEMENT<td>Reference to an improvement created on completion
+    <tr><td><span class="tagoptional">ObsoleteTech</span><td>NO_TECH<td>A technology, that once researched, prevents this build from being available for a players units
+    <tr><td><span class="tagoptional">PrereqTech</span><td>NO_TECH<td>The technology required to initiate this build type
+    <tr><td><span class="tagoptional">RouteType</span><td>NO_ROUTE<td>Reference to a route created on completion 
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal reference to this build
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iCost</span><td>0<td>The cost in gold to initiate the build
+    <tr><td><span class="tagoptional">iHotKeyPriority</span><td>0<td>If two objects have similar HotKey combinations then the one with the highest priority will take precedence
+    <tr><td><span class="tagoptional">iOrderPriority</span><td>0<td>The priority of this build when determining the order in which actions are performed. A build with a high order priority will be processed first
+    <tr><td><span class="tagoptional">iTime</span><td>0<td>The base time taken to complete the build. The actual number of turns is dependant on the work rate of the units performing the build.
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bAltDown</span><td>0<td>If true, the HotKey is only used if the Alt key is also pressed
+    <tr><td><span class="tagoptional">bCtrlDown</span><td>0<td>If true, the HotKey is only used if the Control key is also pressed
+    <tr><td><span class="tagoptional">bKill</span><td>0<td>If true, the unit completing the build will be killed
+    <tr><td><span class="tagoptional">bShiftDown</span><td>0<td>If true, the HotKey is only used if the Shift key is also pressed
+  </table>	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">FeatureStructs</span><td>NONE<td>Any features that impact the time te build takes, any hammers gained on completion of the build, or will be removed on completion of the build<br><pre class="code">
+  &lt;FeatureStruct&gt;
+    &lt;FeatureType&gt;&lt;/FeatureType&gt;
+    &lt;PrereqTech&gt;&lt;/PrereqTech&gt;
+    &lt;iTime&gt;0&lt;/iTime&gt;
+    &lt;iProduction&gt;0&lt;/iProduction&gt;
+    &lt;bRemove&gt;0&lt;/bRemove&gt;
+  &lt;/FeatureStruct&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;BuildInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+&lt;/BuildInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;BuildInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Help&gt;&lt;/Help&gt;
+  &lt;PrereqTech&gt;&lt;/PrereqTech&gt;
+  &lt;ObsoleteTech&gt;&lt;/ObsoleteTech&gt;
+  &lt;iTime&gt;0&lt;/iTime&gt;
+  &lt;iCost&gt;0&lt;/iCost&gt;
+  &lt;bKill&gt;0&lt;/bKill&gt;
+  &lt;ImprovementType&gt;&lt;/ImprovementType&gt;
+  &lt;RouteType&gt;&lt;/RouteType&gt;
+  &lt;EntityEvent&gt;&lt;/EntityEvent&gt;
+  &lt;FeatureStructs&gt;
+    &lt;FeatureStruct&gt;
+      &lt;FeatureType&gt;&lt;/FeatureType&gt;
+      &lt;PrereqTech&gt;&lt;/PrereqTech&gt;
+      &lt;iTime&gt;0&lt;/iTime&gt;
+      &lt;iProduction&gt;0&lt;/iProduction&gt;
+      &lt;bRemove&gt;0&lt;/bRemove&gt;
+    &lt;/FeatureStruct&gt;
+  &lt;/FeatureStructs&gt;
+  &lt;HotKey&gt;&lt;/HotKey&gt;
+  &lt;bAltDown&gt;0&lt;/bAltDown&gt;
+  &lt;bShiftDown&gt;0&lt;/bShiftDown&gt;
+  &lt;bCtrlDown&gt;0&lt;/bCtrlDown&gt;
+  &lt;iHotKeyPriority&gt;0&lt;/iHotKeyPriority&gt;
+  &lt;Button&gt;&lt;/Button&gt;
+  &lt;iOrderPriority&gt;0&lt;/iOrderPriority&gt;
+&lt;/BuildInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

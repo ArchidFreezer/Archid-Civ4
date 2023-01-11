@@ -1,0 +1,124 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4GoodyInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4GoodyInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">BarbarianClass</span><td>NO_UNITCLASS<td>The UnitClass of barbarian units that will be created
+    <tr><td><span class="tagmandatory">Description</span><td><td>A reference to the text files, which contain an entry for this Goody
+    <tr><td><span class="tagmandatory">Sound</span><td><td>The sound played when the goody is popped
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal name of this Goody
+    <tr><td><span class="tagmandatory">UnitClass</span><td>NO_UNITCLASS<td>The UnitClass of the unit that is gifted to the player
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">iBarbarianUnitProb</span><td>0<td>The chance that barbarian units will be created if BarbarianClass defines a unit class
+    <tr><td><span class="tagmandatory">iDamagePrereq</span><td>0<td>The minimum amount of damage that a unit must have before the goody hut will consider healing them as an effect
+    <tr><td><span class="tagmandatory">iExperience</span><td>0<td>The experience gained by the unit popping the goody hut
+    <tr><td><span class="tagmandatory">iGold</span><td>0<td>Base gold received
+    <tr><td><span class="tagmandatory">iGoldRand1</span><td>0<td>An additional random amount of gold between 0 and this value is received
+    <tr><td><span class="tagmandatory">iGoldRand2</span><td>0<td>An additional random amount of gold between 0 and this value is received
+    <tr><td><span class="tagmandatory">iHealing</span><td>0<td>The percentage of a damaged unit health that is healed
+    <tr><td><span class="tagmandatory">iMapOffset</span><td>0<td>How far away from the goody hut the centre of the received map should be
+    <tr><td><span class="tagmandatory">iMapProb</span><td>0<td>Percentage chance per plot in the map range that it becomes visible
+    <tr><td><span class="tagmandatory">iMapRange</span><td>0<td>The radius of the map received
+    <tr><td><span class="tagmandatory">iMinBarbarians</span><td>0<td>If barbarians are spawned then there will be at least this number
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">bBad</span><td>0<td>If true, the effect is considered as bad and will not be received by certain units
+    <tr><td><span class="tagmandatory">bTech</span><td>0<td>If true, the player may learn a new tech
+  </table>	<p>
+	<p>
+	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;GoodyInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Sound&gt;&lt;/Sound&gt;
+  &lt;iGold&gt;0&lt;/iGold&gt;
+  &lt;iGoldRand1&gt;0&lt;/iGoldRand1&gt;
+  &lt;iGoldRand2&gt;0&lt;/iGoldRand2&gt;
+  &lt;iMapOffset&gt;0&lt;/iMapOffset&gt;
+  &lt;iMapRange&gt;0&lt;/iMapRange&gt;
+  &lt;iMapProb&gt;0&lt;/iMapProb&gt;
+  &lt;iExperience&gt;0&lt;/iExperience&gt;
+  &lt;iHealing&gt;0&lt;/iHealing&gt;
+  &lt;iDamagePrereq&gt;0&lt;/iDamagePrereq&gt;
+  &lt;bTech&gt;0&lt;/bTech&gt;
+  &lt;bBad&gt;0&lt;/bBad&gt;
+  &lt;UnitClass&gt;&lt;/UnitClass&gt;
+  &lt;BarbarianClass&gt;&lt;/BarbarianClass&gt;
+  &lt;iBarbarianUnitProb&gt;0&lt;/iBarbarianUnitProb&gt;
+  &lt;iMinBarbarians&gt;0&lt;/iMinBarbarians&gt;
+&lt;/GoodyInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;GoodyInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Sound&gt;&lt;/Sound&gt;
+  &lt;iGold&gt;0&lt;/iGold&gt;
+  &lt;iGoldRand1&gt;0&lt;/iGoldRand1&gt;
+  &lt;iGoldRand2&gt;0&lt;/iGoldRand2&gt;
+  &lt;iMapOffset&gt;0&lt;/iMapOffset&gt;
+  &lt;iMapRange&gt;0&lt;/iMapRange&gt;
+  &lt;iMapProb&gt;0&lt;/iMapProb&gt;
+  &lt;iExperience&gt;0&lt;/iExperience&gt;
+  &lt;iHealing&gt;0&lt;/iHealing&gt;
+  &lt;iDamagePrereq&gt;0&lt;/iDamagePrereq&gt;
+  &lt;bTech&gt;0&lt;/bTech&gt;
+  &lt;bBad&gt;0&lt;/bBad&gt;
+  &lt;UnitClass&gt;&lt;/UnitClass&gt;
+  &lt;BarbarianClass&gt;&lt;/BarbarianClass&gt;
+  &lt;iBarbarianUnitProb&gt;0&lt;/iBarbarianUnitProb&gt;
+  &lt;iMinBarbarians&gt;0&lt;/iMinBarbarians&gt;
+&lt;/GoodyInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

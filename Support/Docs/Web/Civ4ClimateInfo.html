@@ -1,0 +1,109 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4ClimateInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4ClimateInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">Description</span><td><td>Reference to the text that contains the name of the climate type. The text may be defined in any of the files in \Assets\XML\Text 
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal reference to this climate type
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">iDesertPercentChange</span><td>0<td>Change in the percentage of desert plots that are placed
+    <tr><td><span class="tagmandatory">iHillRange</span><td>0<td>Factor defining the number of hills in a range
+    <tr><td><span class="tagmandatory">iJungleLatitude</span><td>0<td>Maximum latitude for jungle to appear
+    <tr><td><span class="tagmandatory">iPeakPercent</span><td>0<td>Percentage of plots that are peaks
+  </table>	<p>
+	<p>
+
+  <h3 id="float">Float</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">fDesertBottomLatitudeChange</span><td>0.0<td>Change in the maximum latitude for desert to appear in the southern hemisphere
+    <tr><td><span class="tagmandatory">fDesertTopLatitudeChange</span><td>0.0<td>Change in the maximum latitude for desert to appear in the northern hemisphere
+    <tr><td><span class="tagmandatory">fGrassLatitudeChange</span><td>0.0<td>Change in the maximum latitude for grass to appear
+    <tr><td><span class="tagmandatory">fIceLatitude</span><td>0.0<td>Minumum latitude for ice
+    <tr><td><span class="tagmandatory">fRandIceLatitude</span><td>0.0<td>Random factor applied to the &lt;fIceLatitude&gt; value
+    <tr><td><span class="tagmandatory">fSnowLatitudeChange</span><td>0.0<td>Change in the minimum latitude for snow to appear
+    <tr><td><span class="tagmandatory">fTundraLatitudeChange</span><td>0.0<td>Change in the minimum latitude for tundra to appear
+  </table>	<p>
+	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;ClimateInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;iDesertPercentChange&gt;0&lt;/iDesertPercentChange&gt;
+  &lt;iJungleLatitude&gt;0&lt;/iJungleLatitude&gt;
+  &lt;iHillRange&gt;0&lt;/iHillRange&gt;
+  &lt;iPeakPercent&gt;0&lt;/iPeakPercent&gt;
+  &lt;fSnowLatitudeChange&gt;0.0&lt;/fSnowLatitudeChange&gt;
+  &lt;fTundraLatitudeChange&gt;0.0&lt;/fTundraLatitudeChange&gt;
+  &lt;fGrassLatitudeChange&gt;0.0&lt;/fGrassLatitudeChange&gt;
+  &lt;fDesertBottomLatitudeChange&gt;0.0&lt;/fDesertBottomLatitudeChange&gt;
+  &lt;fDesertTopLatitudeChange&gt;0.0&lt;/fDesertTopLatitudeChange&gt;
+  &lt;fIceLatitude&gt;0.0&lt;/fIceLatitude&gt;
+  &lt;fRandIceLatitude&gt;0.0&lt;/fRandIceLatitude&gt;
+&lt;/ClimateInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;ClimateInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;iDesertPercentChange&gt;0&lt;/iDesertPercentChange&gt;
+  &lt;iJungleLatitude&gt;0&lt;/iJungleLatitude&gt;
+  &lt;iHillRange&gt;0&lt;/iHillRange&gt;
+  &lt;iPeakPercent&gt;0&lt;/iPeakPercent&gt;
+  &lt;fSnowLatitudeChange&gt;0.0&lt;/fSnowLatitudeChange&gt;
+  &lt;fTundraLatitudeChange&gt;0.0&lt;/fTundraLatitudeChange&gt;
+  &lt;fGrassLatitudeChange&gt;0.0&lt;/fGrassLatitudeChange&gt;
+  &lt;fDesertBottomLatitudeChange&gt;0.0&lt;/fDesertBottomLatitudeChange&gt;
+  &lt;fDesertTopLatitudeChange&gt;0.0&lt;/fDesertTopLatitudeChange&gt;
+  &lt;fIceLatitude&gt;0.0&lt;/fIceLatitude&gt;
+  &lt;fRandIceLatitude&gt;0.0&lt;/fRandIceLatitude&gt;
+&lt;/ClimateInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

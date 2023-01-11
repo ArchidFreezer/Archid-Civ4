@@ -1,0 +1,95 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4SpecialUnitInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4SpecialUnitInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">Description</span><td><td>Reference to the text that is used when the unit is being carried, e.g. "Fighters" as in Carries Fighters
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal reference to this unit
+  </table>	<p>
+	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bCityLoad</span><td>0<td>If true, the unit cannot directly rebase to a valid carrier-unit; rather it must be loaded onto carrier-units when both units are in the same city.
+    <tr><td><span class="tagoptional">bValid</span><td>0<td>If false, the special unit cannot be trained globally until something unlocks it
+  </table>	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional"><b>CarrierUnitAIs</b></span><td>NONE<td>A set of UNITAI definitions that determines how a unit carrying this unit will behave when controlled by the AI.<br><pre class="code">
+  &lt;UnitAIType&gt;&lt;/UnitAIType&gt;</pre>
+    <tr><td><span class="tagoptional">ProductionTraits</span><td>NONE<td>Percentage change that the specified traius have on the production of these units<br><pre class="code">
+  &lt;ProductionTrait&gt;
+    &lt;ProductionTraitType&gt;&lt;/ProductionTraitType&gt;
+    &lt;iProductionTrait&gt;0&lt;/iProductionTrait&gt;
+  &lt;/ProductionTrait&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;SpecialUnitInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+&lt;/SpecialUnitInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;SpecialUnitInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;bValid&gt;0&lt;/bValid&gt;
+  &lt;bCityLoad&gt;0&lt;/bCityLoad&gt;
+  &lt;CarrierUnitAIs&gt;
+    &lt;UnitAIType&gt;&lt;/UnitAIType&gt;
+  &lt;/CarrierUnitAIs&gt;
+  &lt;ProductionTraits&gt;
+    &lt;ProductionTrait&gt;
+      &lt;ProductionTraitType&gt;&lt;/ProductionTraitType&gt;
+      &lt;iProductionTrait&gt;0&lt;/iProductionTrait&gt;
+    &lt;/ProductionTrait&gt;
+  &lt;/ProductionTraits&gt;
+&lt;/SpecialUnitInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>

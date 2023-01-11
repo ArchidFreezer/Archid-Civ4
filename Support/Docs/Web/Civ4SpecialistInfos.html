@@ -1,0 +1,137 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+	<title>Civ4SpecialistInfos</title>
+	<link rel="stylesheet" type="text/css" href="Archid.css" />
+</head>
+<body>
+	<h1>Civ4SpecialistInfos.xml</h1>
+	<table class="collapse">
+		<tr><td class="toc">Contents:
+		<a href="#show1" class="show" id="show1">show</a>
+		<a href="#hide1" class="hide" id="hide1">hide</a>
+		<div class="collapse-data">
+			<ol>
+				<li><a href="#tags">Tags</a>
+					<ol>
+						<li><a href="#text">Text</a>
+						<li><a href="#int">Integer</a>
+						<li><a href="#boolean">Boolean</a>
+						<li><a href="#comp">Compound</a>
+					</ol>
+				<li><a href="#example">Examples</a>
+					<ol>
+						<li><a href="#mandatory">Mandatory</a>
+						<li><a href="#full">Full</a>
+					</ol>
+			<ol>
+		</div>
+	</table>
+	<h2 id="tags">Tags</h2>
+<p>The tags are colour coded depending on whether they are <span class="tagmandatory">mandatory</span> and must be applied to all entries or whether they are <span class="tagoptional">optional</span> with a default value being used if they are not present. New tags are <b>bold</b>.
+  <h3 id="text">Text</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagmandatory">Button</span><td><td>Path to a .dds file that contains the image for the object
+    <tr><td><span class="tagoptional">Civilopedia</span><td><td>Text to display in the pedia
+    <tr><td><span class="tagoptional">Description</span><td><td>Reference to the text that contains the display name of this specialist. The text may be defined in any of the files in \Assets\XML\Text 
+    <tr><td><span class="tagoptional">GreatPeopleUnitClass</span><td>NO_UNITCLASS<td>If the specialist generates Great Person Points, this value specifies for what Great Person unit type it does so.
+    <tr><td><span class="tagoptional">Help</span><td><td>Additional help text that will be displayed in the Pedia
+    <tr><td><span class="tagoptional">HotKey</span><td><td>The key, that when pressed selects this object
+    <tr><td><span class="tagoptional">Strategy</span><td><td>This tag links to an entry in the text files which describes to the player how to use this specialist. 
+    <tr><td><span class="tagoptional">Texture</span><td><td>Gives the directory path to the texture file used for this specialist. The default images are located in \Assets\Art\Interface\MainScreen\CityScreen\. 
+    <tr><td><span class="tagmandatory">Type</span><td><td>The internal reference to this specialist
+  </table>	<p>
+
+  <h3 id="int">Integer</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">iExperience</span><td>0<td>Gives units built in this city an additional amount of experience points
+    <tr><td><span class="tagoptional">iGreatPeopleRateChange</span><td>0<td>If GreatPeopleUnitClass is not NO_UNITCLASS (that is, the specialist generates Great People Points), this sets the number of GPP per turn
+    <tr><td><span class="tagoptional">iHotKeyPriority</span><td>0<td>If two objects have similar HotKey combinations then the one with the highest priority will take precedence
+    <tr><td><span class="tagoptional">iOrderPriority</span><td>0<td>The priority of this specialist when determining the order in which actions are performed. A specialist with a high order priority will act first
+    <tr><td><span class="tagoptional"><b>iStarSignMitigateChangePercent</b></span><td>0<td>Percentile change in the chance to mitigate the eefcts of a negative star event
+    <tr><td><span class="tagoptional"><b>iStarSignScaleChangePercent</b></span><td>0<td>Percentile change to the effect that a ster event has on an impacted city
+  </table>	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">bAltDown</span><td>0<td>If true, the HotKey is only used if the Alt key is also pressed
+    <tr><td><span class="tagoptional">bCtrlDown</span><td>0<td>If true, the HotKey is only used if the Control key is also pressed
+    <tr><td><span class="tagoptional">bShiftDown</span><td>0<td>If true, the HotKey is only used if the Shift key is also pressed
+    <tr><td><span class="tagoptional"><b>bSlave</b></span><td>0<td>If true, the specialist is considered a slave unit
+    <tr><td><span class="tagoptional">bVisible</span><td>0<td>If true, the specialist is displayed where the default Priest, Engineer, etc. specialists are located in the game. If false, the specialist is located at the bottom right of the city screen, where the default settled Great People are situated. 
+  </table>	<p>
+	<p>
+
+  <h3 id="comp">Compound (Multi-line)</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional">Commerces</span><td>NONE<td>Change to a city commerce per specialist of this type<br><pre class="code">
+  &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
+    <tr><td><span class="tagoptional">Flavors</span><td>NONE<td>Intended to give weightings to certain specialists and influence the AI's decision-making. <br><pre class="code">
+  &lt;Flavor&gt;
+    &lt;FlavorType&gt;&lt;/FlavorType&gt;
+    &lt;iFlavor&gt;0&lt;/iFlavor&gt;
+  &lt;/Flavor&gt;</pre>
+    <tr><td><span class="tagoptional">Yields</span><td>NONE<td>Change to a cities yields per specialist of this type<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+  </table>	<p>
+
+	<table class="collapse" id="full">
+		<tr><td class="toc">Mandatory
+		<a href="#show2" class="show" id="show2">show</a>
+		<a href="#hide2" class="hide" id="hide2">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;SpecialistInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Button&gt;&lt;/Button&gt;
+&lt;/SpecialistInfo&gt;</pre>
+		</div>
+	</table>	<p>
+
+	<table class="collapse" id="mandatory">
+		<tr><td class="toc">Complete
+		<a href="#show3" class="show" id="show3">show</a>
+		<a href="#hide3" class="hide" id="hide3">hide</a>
+		<div class="collapse-data">
+			<pre class="code">&lt;SpecialistInfo&gt;
+  &lt;Type&gt;&lt;/Type&gt;
+  &lt;Description&gt;&lt;/Description&gt;
+  &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
+  &lt;Strategy&gt;&lt;/Strategy&gt;
+  &lt;Help&gt;&lt;/Help&gt;
+  &lt;Texture&gt;&lt;/Texture&gt;
+  &lt;bVisible&gt;0&lt;/bVisible&gt;
+  &lt;bSlave&gt;0&lt;/bSlave&gt;
+  &lt;GreatPeopleUnitClass&gt;&lt;/GreatPeopleUnitClass&gt;
+  &lt;iGreatPeopleRateChange&gt;0&lt;/iGreatPeopleRateChange&gt;
+  &lt;iStarSignMitigateChangePercent&gt;0&lt;/iStarSignMitigateChangePercent&gt;
+  &lt;iStarSignScaleChangePercent&gt;0&lt;/iStarSignScaleChangePercent&gt;
+  &lt;Yields&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/Yields&gt;
+  &lt;Commerces&gt;
+    &lt;iCommerce&gt;0&lt;/iCommerce&gt;
+  &lt;/Commerces&gt;
+  &lt;iExperience&gt;0&lt;/iExperience&gt;
+  &lt;Flavors&gt;
+    &lt;Flavor&gt;
+      &lt;FlavorType&gt;&lt;/FlavorType&gt;
+      &lt;iFlavor&gt;0&lt;/iFlavor&gt;
+    &lt;/Flavor&gt;
+  &lt;/Flavors&gt;
+  &lt;HotKey&gt;&lt;/HotKey&gt;
+  &lt;bAltDown&gt;0&lt;/bAltDown&gt;
+  &lt;bShiftDown&gt;0&lt;/bShiftDown&gt;
+  &lt;bCtrlDown&gt;0&lt;/bCtrlDown&gt;
+  &lt;iHotKeyPriority&gt;0&lt;/iHotKeyPriority&gt;
+  &lt;iOrderPriority&gt;0&lt;/iOrderPriority&gt;
+  &lt;Button&gt;&lt;/Button&gt;
+&lt;/SpecialistInfo&gt;</pre>
+		</div>
+	</table>
+</body>
+</html>
