@@ -113,6 +113,12 @@
 		</UnitCombatInfo>
 
 <!-- +++ Hidden Subcategories +++ -->
+		<UnitCombatInfo> <!-- Archer Arrow -->
+			<Type>UNITCOMBAT_ARCHER_ARROW</Type>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Archer Spear -->
+			<Type>UNITCOMBAT_ARCHER_SPEAR</Type>
+		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Siege Wooden -->
 			<Type>UNITCOMBAT_SIEGE_WOODEN</Type>
 		</UnitCombatInfo>

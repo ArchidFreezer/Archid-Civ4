@@ -1017,11 +1017,13 @@
 			<Type>UNIT_ARCHER</Type>
 			<Combat>UNITCOMBAT_ARCHER</Combat>
 			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER_ARROW</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
 			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_CITY_DEFENSE</DefaultUnitAI>
 			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
+			<iMaxAmmoTypeTier>2</iMaxAmmoTypeTier>
 			<Description>TXT_KEY_UNIT_ARCHER</Description>
 			<Civilopedia>TXT_KEY_UNIT_ARCHER_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ARCHER_STRATEGY</Strategy>
@@ -1073,11 +1075,13 @@
 			<Type>UNIT_BABYLON_BOWMAN</Type>
 			<Combat>UNITCOMBAT_ARCHER</Combat>
 			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER_ARROW</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
 			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_CITY_DEFENSE</DefaultUnitAI>
 			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
+			<iMaxAmmoTypeTier>2</iMaxAmmoTypeTier>
 			<Description>TXT_KEY_UNIT_BABYLON_BOWMAN</Description>
 			<Civilopedia>TXT_KEY_UNIT_BABYLON_BOWMAN_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_BABYLON_BOWMAN_STRATEGY</Strategy>
@@ -1135,11 +1139,13 @@
 			<Type>UNIT_MALI_SKIRMISHER</Type>
 			<Combat>UNITCOMBAT_ARCHER</Combat>
 			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER_SPEAR</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
 			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_CITY_DEFENSE</DefaultUnitAI>
-			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
+			<iMaxWeaponTypeTier>2</iMaxWeaponTypeTier>
+			<iMaxAmmoTypeTier>0</iMaxAmmoTypeTier>
 			<Description>TXT_KEY_UNIT_MALI_SKIRMISHER</Description>
 			<Civilopedia>TXT_KEY_UNIT_MALI_SKIRMISHER_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_MALI_SKIRMISHER_STRATEGY</Strategy>
@@ -1192,10 +1198,12 @@
 			<Type>UNIT_CROSSBOWMAN</Type>
 			<Combat>UNITCOMBAT_ARCHER</Combat>
 			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER_ARROW</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
 			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
+			<iMaxWeaponTypeTier>0</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_CROSSBOWMAN</Description>
 			<Civilopedia>TXT_KEY_UNIT_CROSSBOWMAN_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_CROSSBOWMAN_STRATEGY</Strategy>
@@ -1255,10 +1263,12 @@
 			<Type>UNIT_CHINA_CHOKONU</Type>
 			<Combat>UNITCOMBAT_ARCHER</Combat>
 			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER_ARROW</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
 			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
+			<iMaxWeaponTypeTier>0</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_CHINA_CHOKONU</Description>
 			<Civilopedia>TXT_KEY_UNIT_CHINA_CHOKONU_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_CHINA_CHOKONU_STRATEGY</Strategy>
@@ -1321,6 +1331,7 @@
 			<Type>UNIT_LONGBOWMAN</Type>
 			<Combat>UNITCOMBAT_ARCHER</Combat>
 			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER_ARROW</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
 			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>

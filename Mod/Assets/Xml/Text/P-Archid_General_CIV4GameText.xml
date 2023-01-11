@@ -2,6 +2,10 @@
 <!-- Game Text - New -->
 <Civ4GameText xmlns="http://www.firaxis.com">
 	<TEXT>
+		<Tag>TXT_KEY_UNIT_WEAPON_UPGRADE</Tag>
+		<English>[ICON_BULLET]Weapon upgrade:[SPACE]</English>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_ARCHID_DEFAULT</Tag>
 		<English>Default</English>
 		<Italian>Predefinito</Italian>

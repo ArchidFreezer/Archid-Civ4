@@ -1,24 +1,36 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- Game Text - New -->
 <Civ4GameText xmlns="http://www.firaxis.com">
-	<TEXT> <!-- Bronze -->
-		<Tag>TXT_KEY_WEAPON_BRONZE</Tag>
+	<TEXT> <!-- Arrow: Bronze -->
+		<Tag>TXT_KEY_ARROW_BRONZE</Tag>
+		<English>Bronze Arrows</English>
+	</TEXT>
+	<TEXT> <!-- Arrow: Iron -->
+		<Tag>TXT_KEY_ARROW_IRON</Tag>
+		<English>Iron Arrows</English>
+	</TEXT>
+	<TEXT> <!-- Arrow: Obsidian -->
+		<Tag>TXT_KEY_ARROW_OBSIDIAN</Tag>
+		<English>Obsidian Arrows</English>
+	</TEXT>
+	<TEXT> <!-- Bow: Yew -->
+		<Tag>TXT_KEY_WEAPON_BOW_YEW</Tag>
+		<English>Yew Bow</English>
+	</TEXT>
+	<TEXT> <!-- Hand: Bronze -->
+		<Tag>TXT_KEY_WEAPON_HAND_BRONZE</Tag>
 		<English>Bronze Weapon</English>
 	</TEXT>
-	<TEXT> <!-- Iron -->
-		<Tag>TXT_KEY_WEAPON_IRON</Tag>
+	<TEXT> <!-- Hand: Iron -->
+		<Tag>TXT_KEY_WEAPON_HAND_IRON</Tag>
 		<English>Iron Weapon</English>
 	</TEXT>
-	<TEXT> <!-- Oak -->
-		<Tag>TXT_KEY_WEAPON_OAK</Tag>
-		<English>Oak Construction</English>
-	</TEXT>
-	<TEXT> <!-- Obsidian -->
-		<Tag>TXT_KEY_WEAPON_OBSIDIAN</Tag>
+	<TEXT> <!-- Hand: Obsidian -->
+		<Tag>TXT_KEY_WEAPON_HAND_OBSIDIAN</Tag>
 		<English>Obsidian Weapon</English>
 	</TEXT>
-	<TEXT> <!-- Yew -->
-		<Tag>TXT_KEY_WEAPON_YEW</Tag>
-		<English>Yew Bow</English>
+	<TEXT> <!-- Siege: Oak -->
+		<Tag>TXT_KEY_WEAPON_SIEGE_OAK</Tag>
+		<English>Oak Construction</English>
 	</TEXT>
 </Civ4GameText>

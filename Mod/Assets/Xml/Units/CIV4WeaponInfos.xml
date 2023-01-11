@@ -6,65 +6,68 @@
 <!-- Special Unit Infos -->
 <Civ4WeaponInfos xmlns="x-schema:CIV4UnitSchema.xml">
 	<WeaponInfos>
-		<WeaponInfo>
-			<Type>WEAPON_BRONZE</Type>
-			<Description>TXT_KEY_WEAPON_BRONZE</Description>
-			<iStrength>1</iStrength>
-			<iTier>1</iTier>
-			<BonusTypes>
-				<BonusType>BONUS_COPPER</BonusType>
-			</BonusTypes>
-			<UnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
-			</UnitCombatTypes>
-			<Button>Art/Interface/Buttons/Weapons/weapon_bronze.dds</Button>
-		</WeaponInfo>
-		<WeaponInfo>
-			<Type>WEAPON_IRON</Type>
-			<Description>TXT_KEY_WEAPON_IRON</Description>
-			<iStrength>2</iStrength>
-			<iTier>2</iTier>
-			<BonusTypes>
-				<BonusType>BONUS_IRON</BonusType>
-			</BonusTypes>
-			<UnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
-			</UnitCombatTypes>
-			<Button>Art/Interface/Buttons/Weapons/weapon_iron.dds</Button>
-		</WeaponInfo>
-		<WeaponInfo>
-			<Type>WEAPON_OBSIDIAN</Type>
-			<Description>TXT_KEY_WEAPON_OBSIDIAN</Description>
-			<iStrength>1</iStrength>
-			<iTier>1</iTier>
-			<BonusTypes>
-				<BonusType>BONUS_OBSIDIAN</BonusType>
-			</BonusTypes>
-			<UnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
-			</UnitCombatTypes>
-			<Button>Art/Interface/Buttons/Weapons/weapon_obsidian.dds</Button>
-		</WeaponInfo>
-		<WeaponInfo>
-			<Type>WEAPON_YEW</Type>
-			<Description>TXT_KEY_WEAPON_YEW</Description>
+		<!-- Weapon Material -->
+		<WeaponInfo> <!-- Bow: Yew -->
+			<Type>WEAPON_BOW_YEW</Type>
+			<Description>TXT_KEY_WEAPON_BOW_YEW</Description>
 			<iStrength>2</iStrength>
 			<iTier>2</iTier>
 			<BonusTypes>
 				<BonusType>BONUS_TIMBER</BonusType>
 			</BonusTypes>
 			<UnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER_ARROW</UnitCombatType>
 			</UnitCombatTypes>
-			<Button>Art/Interface/Buttons/Weapons/weapon_yew.dds</Button>
+			<Button>Art/Interface/Buttons/Weapons/bow_yew.dds</Button>
 		</WeaponInfo>
-		<WeaponInfo>
-			<Type>WEAPON_OAK</Type>
-			<Description>TXT_KEY_WEAPON_OAK</Description>
+		<WeaponInfo> <!-- Hand: Bronze -->
+			<Type>WEAPON_MELEE_BRONZE</Type>
+			<Description>TXT_KEY_WEAPON_HAND_BRONZE</Description>
+			<iStrength>1</iStrength>
+			<iTier>1</iTier>
+			<BonusTypes>
+				<BonusType>BONUS_COPPER</BonusType>
+			</BonusTypes>
+			<UnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER_SPEAR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+			</UnitCombatTypes>
+			<Button>Art/Interface/Buttons/Weapons/weapon_bronze.dds</Button>
+		</WeaponInfo>
+		<WeaponInfo> <!-- Hand: Iron -->
+			<Type>WEAPON_MELEE_IRON</Type>
+			<Description>TXT_KEY_WEAPON_HAND_IRON</Description>
+			<iStrength>2</iStrength>
+			<iTier>2</iTier>
+			<BonusTypes>
+				<BonusType>BONUS_IRON</BonusType>
+			</BonusTypes>
+			<UnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER_SPEAR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+			</UnitCombatTypes>
+			<Button>Art/Interface/Buttons/Weapons/weapon_iron.dds</Button>
+		</WeaponInfo>
+		<WeaponInfo> <!-- Hand: Obsidian -->
+			<Type>WEAPON_MELEE_OBSIDIAN</Type>
+			<Description>TXT_KEY_WEAPON_HAND_OBSIDIAN</Description>
+			<iStrength>1</iStrength>
+			<iTier>1</iTier>
+			<BonusTypes>
+				<BonusType>BONUS_OBSIDIAN</BonusType>
+			</BonusTypes>
+			<UnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER_SPEAR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+			</UnitCombatTypes>
+			<Button>Art/Interface/Buttons/Weapons/weapon_obsidian.dds</Button>
+		</WeaponInfo>
+		<WeaponInfo> <!-- Siege: Oak -->
+			<Type>WEAPON_SIEGE_OAK</Type>
+			<Description>TXT_KEY_WEAPON_SIEGE_OAK</Description>
 			<iStrength>1</iStrength>
 			<iTier>1</iTier>
 			<BonusTypes>
@@ -74,6 +77,50 @@
 				<UnitCombatType>UNITCOMBAT_SIEGE_WOODEN</UnitCombatType>
 			</UnitCombatTypes>
 			<Button>Art/Interface/Buttons/Weapons/weapon_oak.dds</Button>
+		</WeaponInfo>
+		
+		<!-- Projectile Material -->
+		<WeaponInfo> <!-- Arrow: Bronze -->
+			<Type>ARROW_BRONZE</Type>
+			<Description>TXT_KEY_ARROW_BRONZE</Description>
+			<bAmmunition>1</bAmmunition>
+			<iStrength>1</iStrength>
+			<iTier>1</iTier>
+			<BonusTypes>
+				<BonusType>BONUS_COPPER</BonusType>
+			</BonusTypes>
+			<UnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+			</UnitCombatTypes>
+			<Button>Art/Interface/Buttons/Weapons/arrow_bronze.dds</Button>
+		</WeaponInfo>
+		<WeaponInfo> <!-- Arrow: Iron -->
+			<Type>ARROW_IRON</Type>
+			<Description>TXT_KEY_ARROW_IRON</Description>
+			<bAmmunition>1</bAmmunition>
+			<iStrength>2</iStrength>
+			<iTier>2</iTier>
+			<BonusTypes>
+				<BonusType>BONUS_IRON</BonusType>
+			</BonusTypes>
+			<UnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+			</UnitCombatTypes>
+			<Button>Art/Interface/Buttons/Weapons/arrow_iron.dds</Button>
+		</WeaponInfo>
+		<WeaponInfo> <!-- Arrow: Obsidian -->
+			<Type>ARROW_OBSIDIAN</Type>
+			<Description>TXT_KEY_ARROW_OBSIDIAN</Description>
+			<bAmmunition>1</bAmmunition>
+			<iStrength>1</iStrength>
+			<iTier>1</iTier>
+			<BonusTypes>
+				<BonusType>BONUS_OBSIDIAN</BonusType>
+			</BonusTypes>
+			<UnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+			</UnitCombatTypes>
+			<Button>Art/Interface/Buttons/Weapons/arrow_obsidian.dds</Button>
 		</WeaponInfo>
 	</WeaponInfos>
 </Civ4WeaponInfos>
