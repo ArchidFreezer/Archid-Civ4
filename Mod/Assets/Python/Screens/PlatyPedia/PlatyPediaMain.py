@@ -1583,7 +1583,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		lItems = []
 		for iItem in xrange(gc.getNumUnitCombatInfos()):
 			ItemInfo = gc.getUnitCombatInfo(iItem)
-			if ItemInfo.isGraphicalOnly() and not CyGame().isDebugMode(): continue
+			if (ItemInfo.isGraphicalOnly() or ItemInfo.getButton() is None) and not CyGame().isDebugMode(): continue
 			lItems.append([ItemInfo.getDescription(), iItem, ItemInfo.getButton()])
 		if not lItems: return lSorted
 		lItems.sort()
