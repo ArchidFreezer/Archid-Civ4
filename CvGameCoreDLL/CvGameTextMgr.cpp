@@ -7434,6 +7434,26 @@ void CvGameTextMgr::setBasicUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit,
 	}
 
 	bFirst = true;
+	for (WeaponTypes eWeapon = (WeaponTypes)0; eWeapon < GC.getNumWeaponInfos(); eWeapon = (WeaponTypes)(eWeapon + 1)) {
+		const CvWeaponInfo& kWeapon = GC.getWeaponInfo(eWeapon);
+		for (int i = 0; i < kWeapon.getNumUnitCombatTypes(); i++) {
+			UnitCombatTypes eCombatType = (UnitCombatTypes)kWeapon.getUnitCombatType(i);
+			if (kUnit.isCombatType(eCombatType)) {
+				int iMaxAmmoTier = kUnit.getMaxAmmunitionTypeTier();
+				int iMaxWeaponTier = kUnit.getMaxWeaponTypeTier();
+				if ((!kWeapon.isAmmunition() && iMaxWeaponTier != 0 && (iMaxWeaponTier >= kWeapon.getTier() || iMaxWeaponTier == -1)) ||
+					(kWeapon.isAmmunition() && iMaxAmmoTier != 0 && (iMaxAmmoTier >= kWeapon.getTier() || iMaxAmmoTier == -1))) {
+					szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_UNIT_WEAPON_UPGRADE").c_str());
+					CvWString szCorporation;
+					szCorporation.Format(L"%s", kWeapon.getDescription());
+					setListHelp(szBuffer, szTempBuffer, szCorporation, L", ", bFirst);
+					bFirst = false;
+				}
+			}
+		}
+	}
+
+	bFirst = true;
 	for (CorporationTypes eCorporation = (CorporationTypes)0; eCorporation < GC.getNumCorporationInfos(); eCorporation = (CorporationTypes)(eCorporation + 1)) {
 		if (kUnit.getCorporationSpreads(eCorporation) > 0) {
 			szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_UNIT_CAN_EXPAND").c_str());
