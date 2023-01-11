@@ -295,6 +295,25 @@
 			<DefaultUnit>UNIT_AT_INFANTRY</DefaultUnit>
 		</UnitClassInfo>
 
+<!-- ************    -->
+<!-- Law Enforcement -->
+<!-- ************    -->
+		<UnitClassInfo> <!-- Early Militia -->
+			<Type>UNITCLASS_EARLY_MILITIA</Type>
+			<Description>TXT_KEY_UNIT_EARLY_MILITIA</Description>
+			<DefaultUnit>UNIT_EARLY_MILITIA</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Minuteman -->
+			<Type>UNITCLASS_MINUTEMAN</Type>
+			<Description>TXT_KEY_UNIT_MINUTEMAN</Description>
+			<DefaultUnit>UNIT_MINUTEMAN</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Police -->
+			<Type>UNITCLASS_POLICE</Type>
+			<Description>TXT_KEY_UNIT_POLICE</Description>
+			<DefaultUnit>UNIT_POLICE</DefaultUnit>
+		</UnitClassInfo>
+
 <!-- ************ -->
 <!-- Melee        -->
 <!-- ************ -->

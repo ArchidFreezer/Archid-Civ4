@@ -98,6 +98,11 @@
 			<Description>TXT_KEY_UNITCOMBAT_ANIMAL</Description>
 			<Button>Art/Interface/Buttons/Combat/combat_animal.dds</Button>
 		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Law Enforcement -->
+			<Type>UNITCOMBAT_LAW_ENFORCEMENT</Type>
+			<Description>TXT_KEY_UNITCOMBAT_LAW_ENFORCEMENT</Description>
+			<Button>,Art/Interface/Buttons/Combat/combat_law_enforcement.dds</Button>
+		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Worker -->
 			<Type>UNITCOMBAT_WORKER</Type>
 			<Description>TXT_KEY_UNITCOMBAT_WORKER</Description>

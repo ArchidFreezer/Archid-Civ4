@@ -54,6 +54,10 @@
 		</French>
 		<German>Bautrupp-Einheiten</German>
 	</TEXT>
+	<TEXT> <!-- Law Enforcement -->
+		<Tag>TXT_KEY_UNITCOMBAT_LAW_ENFORCEMENT</Tag>
+		<English>Law Enforcement Units</English>
+	</TEXT>
 
 <!-- ******************** -->
 <!-- Units                -->
@@ -73,7 +77,7 @@
 		<Spanish>Construye [COLOR_UNIT_TEXT]Canoas[COLOR_REVERT] para explorar. Tambi&#233;n puedes llevar una unidad en ellas.</Spanish>
 	</TEXT>
 
-	<TEXT> <!-- Portugese Caravela -->
+	<TEXT> <!-- Caravela: Portugese Caravel -->
 		<Tag>TXT_KEY_UNIT_PORTUGAL_CARRACK</Tag>
 		<English>Caravela</English>
 	</TEXT>
@@ -111,6 +115,19 @@
 		<German>Hirsch</German>
 		<Italian>Deer</Italian>
 		<Spanish>Deer</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Early Militia -->
+		<Tag>TXT_KEY_UNIT_EARLY_MILITIA</Tag>
+		<English>Early Militia</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_EARLY_MILITIA_PEDIA</Tag>
+		<English>Early militia are workers and tradesmen, with little in the form of military training who band together to defend the city.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_EARLY_MILITIA_STRATEGY</Tag>
+		<English>The militia provide basic city defenses.</English>
 	</TEXT>
 
 	<TEXT> <!-- Elephant -->
@@ -233,15 +250,36 @@
 		<English>Pride of Lions</English>
 	</TEXT>
 
-	<TEXT> <!-- People Trafficker -->
-		<Tag>TXT_KEY_UNIT_PEOPLE_TRAFFICKER</Tag>
-		<English>People Trafficker</English>
+	<TEXT> <!-- Minutemen -->
+		<Tag>TXT_KEY_UNIT_MINUTEMAN</Tag>
+		<English>Minuteman</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MINUTEMAN_PEDIA</Tag>
+		<English>Minutemen were members of teams of select militia men, who vowed to be ready for battle within two minutes of receiving notice.  The increased range and accuracy of the rifle, along with a lifetime of hunting to develop marksmanship, earned minutemen sharpshooters a deadly reputation.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MINUTEMAN_STRATEGY</Tag>
+		<English>The minuteman provides city defense and they have a first strike advantage.</English>
 	</TEXT>
 
 	<TEXT> <!-- Polar Bear -->
 		<Tag>TXT_KEY_UNIT_POLAR_BEAR</Tag>
 		<English>Polar Bear</English>
 	</TEXT>
+
+	<TEXT> <!-- Police -->
+		<Tag>TXT_KEY_UNIT_POLICE</Tag>
+		<English>Police</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_POLICE_PEDIA</Tag>
+		<English>The mission of the Police is to safeguard the lives and property of the people in which they serve, to reduce the incidence and fear of crime, and to enhance public safety.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_POLICE_STRATEGY</Tag>
+		<English>Police provide city protection and they decrease city unrest</English>
+	</TEXT>	
 
 	<TEXT> <!-- Sabretooth Tiger -->
 		<Tag>TXT_KEY_UNIT_SABRETOOTH_TIGER</Tag>
@@ -261,11 +299,6 @@
 		<English>In the age of sail, a gunboat was usually a small undecked vessel carrying a single smoothbore cannon in the bow, or just two or three such cannons. A gunboat could carry one or two masts or be oar-powered only, but the single-masted version of about 15 m (49 ft) length was most typical.[when?] Some types of gunboat carried two cannons, or else mounted a number of swivel guns on the railings.
 		
 		All navies of the sailing era kept a number of gunboats on hand. Gunboats saw extensive use in the Baltic Sea during the late 18th century as they were well-suited for the extensive coastal skerries and archipelagoes of Sweden, Finland and Russia.</English>
-	</TEXT>
-
-	<TEXT> <!-- Slave Catcher -->
-		<Tag>TXT_KEY_UNIT_SLAVE_CATCHER</Tag>
-		<English>Slave Catcher</English>
 	</TEXT>
 
 	<TEXT> <!-- Siege Quinquereme -->
@@ -355,7 +388,6 @@
 		<English>Build [COLOR_UNIT_TEXT]Slingers[COLOR_REVERT] to protect your cities on the Paleolithic era.</English>
 		<Spanish>Construye [COLOR_UNIT_TEXT]Honderos[COLOR_REVERT] para proteger tus ciudades en la era Paleol&#237;tica.</Spanish>
 	</TEXT>
-
 
 	<TEXT> <!-- Sloop of War -->
 		<Tag>TXT_KEY_UNIT_SLOOP_OF_WAR</Tag>
