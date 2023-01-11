@@ -101,10 +101,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_FISHING</TechType>
-				<TechType>TECH_AGRICULTURE</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -192,10 +188,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_THE_WHEEL</TechType>
-				<TechType>TECH_MYSTICISM</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -281,10 +273,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_MYSTICISM</TechType>
-				<TechType>TECH_HUNTING</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -374,10 +362,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_AGRICULTURE</TechType>
-				<TechType>TECH_THE_WHEEL</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -471,10 +455,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_THE_WHEEL</TechType>
-				<TechType>TECH_MYSTICISM</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -565,10 +545,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_FISHING</TechType>
-				<TechType>TECH_MINING</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -663,10 +639,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_HUNTING</TechType>
-				<TechType>TECH_MYSTICISM</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -761,10 +733,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_AGRICULTURE</TechType>
-				<TechType>TECH_MINING</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -871,10 +839,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_THE_WHEEL</TechType>
-				<TechType>TECH_AGRICULTURE</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -963,10 +927,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_FISHING</TechType>
-				<TechType>TECH_MINING</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -1056,10 +1016,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_HUNTING</TechType>
-				<TechType>TECH_MINING</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -1149,10 +1105,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_THE_WHEEL</TechType>
-				<TechType>TECH_AGRICULTURE</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -1257,10 +1209,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_HUNTING</TechType>
-				<TechType>TECH_MINING</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -1356,10 +1304,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_FISHING</TechType>
-				<TechType>TECH_HUNTING</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -1456,10 +1400,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_MYSTICISM</TechType>
-				<TechType>TECH_HUNTING</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -1543,10 +1483,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_AGRICULTURE</TechType>
-				<TechType>TECH_MYSTICISM</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -1581,7 +1517,7 @@
 				<City>TXT_KEY_CITY_NAME_VARANASI</City>
 				<City>TXT_KEY_CITY_NAME_AGRA</City>
 				<City>TXT_KEY_CITY_NAME_CALCUTTA</City>
-				<City>TXT_KEY_CITY_NAME_LAHORE</City>				
+				<City>TXT_KEY_CITY_NAME_LAHORE</City>
 				<City>TXT_KEY_CITY_NAME_MADRAS</City>
 				<City>TXT_KEY_CITY_NAME_BANGALORE</City>
 				<City>TXT_KEY_CITY_NAME_HYDERABAD</City>
@@ -1693,10 +1629,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_MYSTICISM</TechType>
-				<TechType>TECH_MINING</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -1782,10 +1714,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_FISHING</TechType>
-				<TechType>TECH_THE_WHEEL</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -1876,10 +1804,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_HUNTING</TechType>
-				<TechType>TECH_MINING</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -1959,10 +1883,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_MINING</TechType>
-				<TechType>TECH_MYSTICISM</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -2042,10 +1962,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_THE_WHEEL</TechType>
-				<TechType>TECH_MINING</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -2139,10 +2055,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_MINING</TechType>
-				<TechType>TECH_MYSTICISM</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -2225,10 +2137,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_THE_WHEEL</TechType>
-				<TechType>TECH_HUNTING</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -2329,10 +2237,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_AGRICULTURE</TechType>
-				<TechType>TECH_FISHING</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -2427,10 +2331,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_AGRICULTURE</TechType>
-				<TechType>TECH_FISHING</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -2516,10 +2416,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_THE_WHEEL</TechType>
-				<TechType>TECH_AGRICULTURE</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -2635,10 +2531,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_AGRICULTURE</TechType>
-				<TechType>TECH_HUNTING</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -2734,10 +2626,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_FISHING</TechType>
-				<TechType>TECH_MINING</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -2842,10 +2730,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_FISHING</TechType>
-				<TechType>TECH_MINING</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -2934,10 +2818,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_HUNTING</TechType>
-				<TechType>TECH_MINING</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -3030,10 +2910,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_FISHING</TechType>
-				<TechType>TECH_MYSTICISM</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -3120,10 +2996,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_AGRICULTURE</TechType>
-				<TechType>TECH_THE_WHEEL</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -3212,10 +3084,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_FISHING</TechType>
-				<TechType>TECH_HUNTING</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -3301,10 +3169,6 @@
 			<FreeBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
-			<FreeTechs>
-				<TechType>TECH_AGRICULTURE</TechType>
-				<TechType>TECH_HUNTING</TechType>
-			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
@@ -3410,11 +3274,10 @@
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<TechType>TECH_MINING</TechType>
-				<TechType>TECH_MYSTICISM</TechType>
-				<TechType>TECH_FISHING</TechType>
-				<TechType>TECH_THE_WHEEL</TechType>
-				<TechType>TECH_AGRICULTURE</TechType>
+				<TechType>TECH_GRAIN_GATHERING</TechType>
+				<TechType>TECH_STONE_TOOLS</TechType>
+				<TechType>TECH_THE_FIRE</TechType>
+				<TechType>TECH_ORAL_TRADITION</TechType>
 				<TechType>TECH_HUNTING</TechType>
 			</FreeTechs>
 			<InitialCivics>
@@ -4125,9 +3988,9 @@
 					<UnitType>NONE</UnitType>
 				</Unit>
 			</Units>
-			<FreeUnitClasses/>
-			<FreeBuildingClasses/>
-			<FreeTechs/>
+			<FreeTechs>
+				<TechType>TECH_EARLY_FISHING</TechType>
+			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>

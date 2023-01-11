@@ -1944,7 +1944,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_INTELLIGENCE_AGENCY</ArtDefineTag>
 			<PrereqAndTechs>
-				<TechType>TECH_UTOPIA</TechType>
+				<TechType>TECH_COMMUNISM</TechType>
 			</PrereqAndTechs>
 			<iCost>180</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
@@ -3182,7 +3182,7 @@
 			<Strategy>TXT_KEY_BUILDING_STABLE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_STABLE</ArtDefineTag>
-			<ObsoleteTech>TECH_ADVANCED_FLIGHT</ObsoleteTech>
+			<ObsoleteTech>TECH_AERODYNAMICS</ObsoleteTech>
 			<PrereqAndTechs>
 				<TechType>TECH_HORSEBACK_RIDING</TechType>
 			</PrereqAndTechs>
@@ -3218,7 +3218,7 @@
 			<Strategy>TXT_KEY_BUILDING_MONGOL_GER_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_MONGOL_GER</ArtDefineTag>
-			<ObsoleteTech>TECH_ADVANCED_FLIGHT</ObsoleteTech>
+			<ObsoleteTech>TECH_AERODYNAMICS</ObsoleteTech>
 			<PrereqAndTechs>
 				<TechType>TECH_HORSEBACK_RIDING</TechType>
 			</PrereqAndTechs>
@@ -6332,7 +6332,7 @@
 			<MovieDefineTag>ART_DEF_MOVIE_KREMLIN</MovieDefineTag>
 			<ObsoleteTech>TECH_FIBER_OPTICS</ObsoleteTech>
 			<PrereqAndTechs>
-				<TechType>TECH_UTOPIA</TechType>
+				<TechType>TECH_COMMUNISM</TechType>
 			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_GREAT_SPY</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>

@@ -1430,9 +1430,8 @@
 		<Spanish>Mesol&#237;tico</Spanish>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_ERA_NEOLITHIC</Tag>
-		<English>Neolithic</English>
-		<Spanish>Neol&#237;tico</Spanish>
+		<Tag>TXT_KEY_ERA_TRANSHUMAN</Tag>
+		<English>Transhuman</English>
 	</TEXT>
 <!-- Game Speed -->
 	<TEXT>

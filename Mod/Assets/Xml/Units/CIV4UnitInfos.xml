@@ -210,7 +210,7 @@
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 			</UnitAIs>
 			<PrereqTechs>
-				<TechType>TECH_ADVANCED_FLIGHT</TechType>
+				<TechType>TECH_AERODYNAMICS</TechType>
 			</PrereqTechs>
 			<BonusType>BONUS_OIL</BonusType>
 			<iCost>160</iCost>
@@ -269,7 +269,7 @@
 				<UnitAIType>UNITAI_CARRIER_AIR</UnitAIType>
 			</UnitAIs>
 			<PrereqTechs>
-				<TechType>TECH_ADVANCED_FLIGHT</TechType>
+				<TechType>TECH_AERODYNAMICS</TechType>
 			</PrereqTechs>
 			<BonusType>BONUS_OIL</BonusType>
 			<PrereqOrBonuses>
