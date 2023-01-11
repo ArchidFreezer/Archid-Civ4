@@ -4242,19 +4242,23 @@ void CvPlayer::disband(CvCity* pCity) {
 
 
 bool CvPlayer::canReceiveGoody(CvPlot* pPlot, GoodyTypes eGoody, CvUnit* pUnit) const {
-	if (GC.getGoodyInfo(eGoody).getExperience() > 0) {
+	if (eGoody == NO_GOODY)
+		return false;
+
+	CvGoodyInfo& kGoody = GC.getGoodyInfo(eGoody);
+	if (kGoody.getExperience() > 0) {
 		if ((pUnit == NULL) || !(pUnit->canAcquirePromotionAny()) || (GC.getGameINLINE().getElapsedGameTurns() < 10)) {
 			return false;
 		}
 	}
 
-	if (GC.getGoodyInfo(eGoody).getDamagePrereq() > 0) {
-		if ((pUnit == NULL) || (pUnit->getDamage() < ((pUnit->maxHitPoints() * GC.getGoodyInfo(eGoody).getDamagePrereq()) / 100))) {
+	if (kGoody.getDamagePrereq() > 0) {
+		if ((pUnit == NULL) || (pUnit->getDamage() < ((pUnit->maxHitPoints() * kGoody.getDamagePrereq()) / 100))) {
 			return false;
 		}
 	}
 
-	if (GC.getGoodyInfo(eGoody).isTech()) {
+	if (kGoody.isTech()) {
 		bool bTechFound = false;
 
 		for (int iI = 0; iI < GC.getNumTechInfos(); iI++) {
@@ -4272,33 +4276,34 @@ bool CvPlayer::canReceiveGoody(CvPlot* pPlot, GoodyTypes eGoody, CvUnit* pUnit) 
 		}
 	}
 
-	if (GC.getGoodyInfo(eGoody).isBad()) {
+	if (kGoody.isBad()) {
 		if ((pUnit == NULL) || pUnit->isNoBadGoodies()) {
 			return false;
 		}
 	}
 
-	if (GC.getGoodyInfo(eGoody).getUnitClassType() != NO_UNITCLASS) {
-		UnitTypes eUnit = ((UnitTypes)(GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(GC.getGoodyInfo(eGoody).getUnitClassType())));
+	if (kGoody.getUnitClassType() != NO_UNITCLASS) {
+		UnitTypes eUnit = ((UnitTypes)(GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(kGoody.getUnitClassType())));
 
 		if (eUnit == NO_UNIT) {
 			return false;
 		}
 
-		if ((GC.getUnitInfo(eUnit).getCombat() > 0) && !(GC.getUnitInfo(eUnit).isOnlyDefensive())) {
+		const CvUnitInfo& kUnit = GC.getUnitInfo(eUnit);
+		if (kUnit.getCombat() > 0 && !kUnit.isOnlyDefensive()) {
 			if (GC.getGameINLINE().isGameMultiPlayer() || (GC.getGameINLINE().getElapsedGameTurns() < 20)) {
 				return false;
 			}
 		}
 
-		if (GC.getGameINLINE().isOption(GAMEOPTION_ONE_CITY_CHALLENGE) && isHuman()) {
+		if ((GC.getGameINLINE().isOption(GAMEOPTION_ONE_CITY_CHALLENGE) && isHuman()) || getNumCities() >= GC.getEraInfo(getCurrentEra()).getMaxCities()) {
 			if (GC.getUnitInfo(eUnit).isFound()) {
 				return false;
 			}
 		}
 	}
 
-	if (GC.getGoodyInfo(eGoody).getBarbarianUnitClass() != NO_UNITCLASS) {
+	if (kGoody.getBarbarianUnitClass() != NO_UNITCLASS) {
 		if (GC.getGameINLINE().isOption(GAMEOPTION_NO_BARBARIANS)) {
 			return false;
 		}
