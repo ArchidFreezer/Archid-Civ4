@@ -48,7 +48,7 @@
 			<Description>TXT_KEY_UNIT_BEAR</Description>
 			<DefaultUnit>UNIT_BEAR</DefaultUnit>
 		</UnitClassInfo>
-		<UnitClassInfo> <!-- Lion -->
+		<UnitClassInfo> <!-- Cavebear -->
 			<Type>UNITCLASS_CAVEBEAR</Type>
 			<Description>TXT_KEY_UNIT_CAVEBEAR</Description>
 			<DefaultUnit>UNIT_CAVEBEAR</DefaultUnit>
@@ -112,6 +112,21 @@
 <!-- ************ -->
 <!-- Archer       -->
 <!-- ************ -->
+		<UnitClassInfo> <!-- Slinger -->
+			<Type>UNITCLASS_BOLA_THROWER</Type>
+			<Description>TXT_KEY_UNIT_BOLA_THROWER</Description>
+			<DefaultUnit>UNIT_BOLA_THROWER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Javelineer -->
+			<Type>UNITCLASS_JAVELINEER</Type>
+			<Description>TXT_KEY_UNIT_JAVELINEER</Description>
+			<DefaultUnit>UNIT_JAVELINEER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Fletcher -->
+			<Type>UNITCLASS_FLETCHER</Type>
+			<Description>TXT_KEY_UNIT_FLETCHER</Description>
+			<DefaultUnit>UNIT_FLETCHER</DefaultUnit>
+		</UnitClassInfo>
 		<UnitClassInfo> <!-- Archer -->
 			<Type>UNITCLASS_ARCHER</Type>
 			<Description>TXT_KEY_UNIT_ARCHER</Description>

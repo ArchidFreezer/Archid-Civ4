@@ -73,9 +73,10 @@ class CvPediaUnit:
 		iCombatType = gc.getUnitInfo(self.iUnit).getUnitCombatType()
 		if iCombatType > -1:
 			screen.setImageButton(self.top.getNextWidgetName(), gc.getUnitCombatInfo(iCombatType).getButton(), self.X_STATS_PANE + 5, self.Y_STATS_PANE - 34, self.PROMOTION_ICON_SIZE, self.PROMOTION_ICON_SIZE, WidgetTypes.WIDGET_PEDIA_JUMP_TO_UNIT_COMBAT, iCombatType, 1)
+			# Show sub combat types
 			iSubCombatTypeIndex = 0
 			for iSubCombatType in xrange(gc.getNumUnitCombatInfos()):
-				if gc.getUnitInfo(self.iUnit).isSubCombatType(iSubCombatType):
+				if gc.getUnitInfo(self.iUnit).isSubCombatType(iSubCombatType) and not gc.getUnitCombatInfo(iSubCombatType).getButton() == None:
 					iSubCombatTypeIndex += 1
 					screen.setImageButton(self.top.getNextWidgetName(), gc.getUnitCombatInfo(iSubCombatType).getButton(), self.X_STATS_PANE + 5 + iSubCombatTypeIndex * 34, self.Y_STATS_PANE - 34, self.PROMOTION_ICON_SIZE, self.PROMOTION_ICON_SIZE, WidgetTypes.WIDGET_PEDIA_JUMP_TO_UNIT_COMBAT, iSubCombatType, 1)
 

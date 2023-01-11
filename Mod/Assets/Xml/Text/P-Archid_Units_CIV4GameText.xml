@@ -81,6 +81,21 @@
 		<Spanish>Elephant</Spanish>
 	</TEXT>
 
+	<TEXT> <!-- Fletcher -->
+		<Tag>TXT_KEY_UNIT_FLETCHER</Tag>
+		<English>Fletcher</English>
+		<Spanish>Flechero</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FLETCHER_PEDIA</Tag>
+		<English>[TAB]The English-language surname [COLOR_UNIT_TEXT]"Fletcher"[COLOR_REVERT] derives from this term, meaning "one who fletches." It is sometimes generally used for an arrow-maker, not only for someone restricted to this step of the process.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FLETCHER_STRATEGY</Tag>
+		<English>Build [COLOR_UNIT_TEXT]Fletchers[COLOR_REVERT] as early city defenders.</English>
+		<Spanish>Construye [COLOR_UNIT_TEXT]Flecheros[COLOR_REVERT] como defensores de ciudades iniciales.</Spanish>
+	</TEXT>
+	
 	<TEXT> <!-- Great Merchant -->
 		<Tag>TXT_KEY_UNIT_GREAT_TYCOON</Tag>
 		<English>Great Merchant</English>
@@ -118,6 +133,12 @@
 		<German>Hauspferd</German>
 		<Italian>Horse</Italian>
 		<Spanish>Horse</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Javelineer -->
+		<Tag>TXT_KEY_UNIT_JAVELINEER</Tag>
+		<English>Javelineer</English>
+		<Spanish>Lanza-Jabalina</Spanish>
 	</TEXT>
 
 	<TEXT> <!-- Lion Pride -->
@@ -201,6 +222,21 @@
 		<German>[COLOR_WARNING_TEXT]Zerstört nach Durchführung der Arbeiten[COLOR_REVERT]</German>
 		<Italian>[COLOR_WARNING_TEXT]Distrutto a fine dei lavori[COLOR_REVERT]</Italian>
 		<Spanish>[COLOR_WARNING_TEXT]Destruido sobre la terminación de obras[COLOR_REVERT]</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Slinger -->
+		<Tag>TXT_KEY_UNIT_BOLA_THROWER</Tag>
+		<English>Slinger</English>
+		<Spanish>Hondero</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_BOLA_THROWER_PEDIA</Tag>
+		<English>[TAB][BOLD]Slinger[\BOLD] is a term that refers to a person who uses a Sling.[NEWLINE][PARAGRAPH:1]A sling is a projectile weapon typically used to throw a blunt projectile such as a stone. It is also known as the shepherd's sling. A sling has a small cradle or pouch in the middle of two lengths of cord. The sling stone is placed in the pouch. Both cords are held in the hand, then the sling is swung and one of the two cords is released. This frees the projectile to fly on a tangent to the circle made by the pouch's rotation. The sling derives its effectiveness by essentially extending the length of a human arm, thus allowing stones to be thrown several times farther than they could be by hand.[NEWLINE][PARAGRAPH:1]The sling is very inexpensive, and easy to construct . It has historically been used for hunting game and in combat. Today it still interests sportsmen as a survival tool and as an improvised weapon.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_BOLA_THROWER_STRATEGY</Tag>
+		<English>Build [COLOR_UNIT_TEXT]Slingers[COLOR_REVERT] to protect your cities on the Paleolithic era.</English>
+		<Spanish>Construye [COLOR_UNIT_TEXT]Honderos[COLOR_REVERT] para proteger tus ciudades en la era Paleol&#237;tica.</Spanish>
 	</TEXT>
 
 	<TEXT> <!-- Tiger -->
