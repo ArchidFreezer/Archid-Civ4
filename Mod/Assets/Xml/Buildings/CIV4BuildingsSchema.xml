@@ -68,20 +68,18 @@
 	<ElementType name="PrereqOrBonuses" content="eltOnly">
 		<element type="BonusType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
-	<ElementType name="ProductionTraitType" content="textOnly"/>
-	<ElementType name="iProductionTrait" content="textOnly" dt:type="int"/>
+	<ElementType name="TraitType" content="textOnly"/>
+	<ElementType name="iProduction" content="textOnly" dt:type="int"/>
 	<ElementType name="ProductionTrait" content="eltOnly">
-		<element type="ProductionTraitType"/>
-		<element type="iProductionTrait"/>
+		<element type="TraitType"/>
+		<element type="iProduction"/>
 	</ElementType>
 	<ElementType name="ProductionTraits" content="eltOnly">
 		<element type="ProductionTrait" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
-	<ElementType name="HappinessTraitType" content="textOnly"/>
-	<ElementType name="iHappinessTrait" content="textOnly" dt:type="int"/>
 	<ElementType name="HappinessTrait" content="eltOnly">
-		<element type="HappinessTraitType"/>
-		<element type="iHappinessTrait"/>
+		<element type="TraitType"/>
+		<element type="iHappiness"/>
 	</ElementType>
 	<ElementType name="HappinessTraits" content="eltOnly">
 		<element type="HappinessTrait" minOccurs="0" maxOccurs="*"/>

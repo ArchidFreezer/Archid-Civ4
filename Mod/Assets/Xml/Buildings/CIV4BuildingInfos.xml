@@ -267,8 +267,8 @@
 			<ArtDefineTag>ART_DEF_BUILDING_BARRACKS</ArtDefineTag>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_AGGRESSIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_AGGRESSIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>50</iCost>
@@ -305,8 +305,8 @@
 			<ArtDefineTag>ART_DEF_BUILDING_ZULU_IKHANDA</ArtDefineTag>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_AGGRESSIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_AGGRESSIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>60</iCost>
@@ -382,8 +382,8 @@
 			</PrereqAndTechs>
 			<HappinessTraits>
 				<HappinessTrait>
-					<HappinessTraitType>TRAIT_CHARISMATIC</HappinessTraitType>
-					<iHappinessTrait>1</iHappinessTrait>
+					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<iHappiness>1</iHappiness>
 				</HappinessTrait>
 			</HappinessTraits>
 			<iCost>175</iCost>
@@ -478,8 +478,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_PROTECTIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_PROTECTIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bCenterInCity>1</bCenterInCity>
@@ -551,8 +551,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_PROTECTIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_PROTECTIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bCenterInCity>1</bCenterInCity>
@@ -700,8 +700,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_CREATIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>100</iCost>
@@ -740,8 +740,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_CREATIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>100</iCost>
@@ -781,8 +781,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_CREATIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>100</iCost>
@@ -842,8 +842,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_CREATIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>100</iCost>
@@ -883,8 +883,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>120</iCost>
@@ -936,8 +936,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iHurryAngerModifier>-50</iHurryAngerModifier>
@@ -990,8 +990,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>120</iCost>
@@ -1043,8 +1043,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>90</iCost>
@@ -1170,8 +1170,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_AGGRESSIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_AGGRESSIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bWater>1</bWater>
@@ -1222,8 +1222,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>250</iCost>
@@ -1286,8 +1286,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>250</iCost>
@@ -1360,8 +1360,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_INDUSTRIOUS</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>120</iCost>
@@ -1423,8 +1423,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_INDUSTRIOUS</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>120</iCost>
@@ -1493,8 +1493,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_EXPANSIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_EXPANSIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>60</iCost>
@@ -1544,8 +1544,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_EXPANSIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_EXPANSIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>60</iCost>
@@ -1720,8 +1720,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_EXPANSIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_EXPANSIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bWater>1</bWater>
@@ -1773,8 +1773,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_EXPANSIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_EXPANSIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bWater>1</bWater>
@@ -1996,8 +1996,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_AGGRESSIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_AGGRESSIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>120</iCost>
@@ -2054,8 +2054,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_AGGRESSIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_AGGRESSIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>120</iCost>
@@ -2282,8 +2282,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_CREATIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -2338,8 +2338,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_CREATIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -2398,8 +2398,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bWater>1</bWater>
@@ -2439,8 +2439,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<FreePromotion>PROMOTION_NAVIGATION1</FreePromotion>
@@ -2636,8 +2636,8 @@
 			</PrereqAndTechs>
 			<HappinessTraits>
 				<HappinessTrait>
-					<HappinessTraitType>TRAIT_CHARISMATIC</HappinessTraitType>
-					<iHappinessTrait>1</iHappinessTrait>
+					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<iHappiness>1</iHappiness>
 				</HappinessTrait>
 			</HappinessTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -2683,8 +2683,8 @@
 			</PrereqAndTechs>
 			<HappinessTraits>
 				<HappinessTrait>
-					<HappinessTraitType>TRAIT_CHARISMATIC</HappinessTraitType>
-					<iHappinessTrait>1</iHappinessTrait>
+					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<iHappiness>1</iHappiness>
 				</HappinessTrait>
 			</HappinessTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -2736,8 +2736,8 @@
 			</PrereqAndTechs>
 			<HappinessTraits>
 				<HappinessTrait>
-					<HappinessTraitType>TRAIT_CHARISMATIC</HappinessTraitType>
-					<iHappinessTrait>1</iHappinessTrait>
+					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<iHappiness>1</iHappiness>
 				</HappinessTrait>
 			</HappinessTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -2788,8 +2788,8 @@
 			</PrereqAndTechs>
 			<HappinessTraits>
 				<HappinessTrait>
-					<HappinessTraitType>TRAIT_CHARISMATIC</HappinessTraitType>
-					<iHappinessTrait>1</iHappinessTrait>
+					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<iHappiness>1</iHappiness>
 				</HappinessTrait>
 			</HappinessTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -3086,8 +3086,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_PROTECTIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_PROTECTIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>220</iCost>
@@ -3139,12 +3139,12 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_INDUSTRIOUS</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bNukeImmune>1</bNukeImmune>
@@ -3382,8 +3382,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_CREATIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -3444,8 +3444,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_CREATIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -3507,8 +3507,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_CREATIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -3574,8 +3574,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_PHILOSOPHICAL</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -3626,8 +3626,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_PHILOSOPHICAL</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -3679,8 +3679,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_PROTECTIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_PROTECTIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bCenterInCity>1</bCenterInCity>
@@ -3724,8 +3724,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_PROTECTIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_PROTECTIVE</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<FreePromotion>PROMOTION_GUERILLA1</FreePromotion>
@@ -5482,8 +5482,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_SPIRITUAL</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_SPIRITUAL</TraitType>
+					<iProduction>100</iProduction>
 				</ProductionTrait>
 			</ProductionTraits>
 			<GreatPeopleUnitClass>UNITCLASS_ENGINEER</GreatPeopleUnitClass>
