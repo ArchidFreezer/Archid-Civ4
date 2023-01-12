@@ -39,6 +39,7 @@
     <tr><td><span class="tagmandatory">Description</span><td><td>A reference to the text files, which contain an entry for this Technology
     <tr><td><span class="tagmandatory">Era</span><td>NO_ERA<td>The pre-defined era of technologies that this technology belongs to
     <tr><td><span class="tagoptional">FirstFreeUnitClass</span><td>NO_UNITCLASS<td>Provides the first player to research this technology a unit of the specified unit class
+    <tr><td><span class="tagoptional"><b>FreeCapitalBuildingClass</b></span><td>NO_BUILDINGCLASS<td>Provides a player who researches this tech a building in their capital of the specified building class
     <tr><td><span class="tagoptional">FreeUnitClass</span><td>NO_UNITCLASS<td>Provides a player who researches this tech a unit of the specified unit class
     <tr><td><span class="tagoptional">Help</span><td><td>Additional help text that will be displayed in the Platypedia
     <tr><td><span class="tagoptional">Quote</span><td><td>The quote displayed in the civilopedia for this tech
@@ -67,7 +68,7 @@
     <tr><td><span class="tagoptional">iPower</span><td>0<td>Change to the overall power of the player as seen by the AI
     <tr><td><span class="tagoptional">iTradeRoutes</span><td>0<td>Change to the number of trade routes a city can maintain
     <tr><td><span class="tagoptional"><b>iUnitRangeChange</b></span><td>0<td>Absolute change in range for a range bound unit
-    <tr><td><span class="tagoptional"><b>iUnitRangePercentChange</b></span><td>0<td>Percentile change in range for a range bound unit
+    <tr><td><span class="tagoptional"><b>iUnitRangeModifier</b></span><td>0<td>Percentile change in range for a range bound unit
     <tr><td><span class="tagoptional">iWorkerSpeedModifier</span><td>0<td>Percentage change to the rate at which units work
   </table>	<p>
 
@@ -113,6 +114,8 @@
   &lt;PrereqTech&gt;&lt;/PrereqTech&gt;</pre>
     <tr><td><span class="tagoptional">CommerceFlexible</span><td>NONE<td>Allows for the adjustment of the specified commerce slider<br><pre class="code">
   &lt;bFlexible&gt;0&lt;/bFlexible&gt;</pre>
+    <tr><td><span class="tagoptional">CommerceModifiers</span><td>NONE<td>A percentage modifier applied to commerces<br><pre class="code">
+  &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
     <tr><td><span class="tagoptional">DomainExtraMoves</span><td>NONE<td>Change to the number of moves of units from the specified domain<br><pre class="code">
   &lt;DomainExtraMove&gt;
     &lt;DomainType&gt;&lt;/DomainType&gt;
@@ -133,6 +136,8 @@
   &lt;iYield&gt;0&lt;/iYield&gt;</pre>
     <tr><td><span class="tagoptional">SeaPlotYieldChanges</span><td>NONE<td>The yield change for plots that contain sea or ocean tiles<br><pre class="code">
   &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional">SpecialistExtraCommerces</span><td>NONE<td>The additional commerce that each specialist provides<br><pre class="code">
+  &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
     <tr><td><span class="tagoptional"><b>TerrainTrades</b></span><td>NONE<td>Allows trade across the specified terrain types. E.g., Sailing allows trade on coastal tiles<br><pre class="code">
   &lt;TerrainType&gt;&lt;/TerrainType&gt;</pre>
     <tr><td><span class="tagoptional"><b>WorldViewRevoltTurnChanges</b></span><td>NONE<td>The change in the revolt counter per turn for a world view<br><pre class="code">
@@ -182,6 +187,7 @@
   &lt;iAdvancedStartCost&gt;0&lt;/iAdvancedStartCost&gt;
   &lt;iAdvancedStartCostIncrease&gt;0&lt;/iAdvancedStartCostIncrease&gt;
   &lt;Era&gt;&lt;/Era&gt;
+  &lt;FreeCapitalBuildingClass&gt;&lt;/FreeCapitalBuildingClass&gt;
   &lt;FirstFreeUnitClass&gt;&lt;/FirstFreeUnitClass&gt;
   &lt;FreeUnitClass&gt;&lt;/FreeUnitClass&gt;
   &lt;iFeatureProductionModifier&gt;0&lt;/iFeatureProductionModifier&gt;
@@ -225,6 +231,12 @@
       &lt;iExtraMoves&gt;0&lt;/iExtraMoves&gt;
     &lt;/DomainExtraMove&gt;
   &lt;/DomainExtraMoves&gt;
+  &lt;CommerceModifiers&gt;
+    &lt;iCommerce&gt;0&lt;/iCommerce&gt;
+  &lt;/CommerceModifiers&gt;
+  &lt;SpecialistExtraCommerces&gt;
+    &lt;iCommerce&gt;0&lt;/iCommerce&gt;
+  &lt;/SpecialistExtraCommerces&gt;
   &lt;CommerceFlexible&gt;
     &lt;bFlexible&gt;0&lt;/bFlexible&gt;
   &lt;/CommerceFlexible&gt;
@@ -236,7 +248,7 @@
   &lt;bUnitRangeUnbound&gt;0&lt;/bUnitRangeUnbound&gt;
   &lt;bUnitTerritoryUnbound&gt;0&lt;/bUnitTerritoryUnbound&gt;
   &lt;iUnitRangeChange&gt;0&lt;/iUnitRangeChange&gt;
-  &lt;iUnitRangePercentChange&gt;0&lt;/iUnitRangePercentChange&gt;
+  &lt;iUnitRangeModifier&gt;0&lt;/iUnitRangeModifier&gt;
   &lt;iCultureDefenceModifier&gt;0&lt;/iCultureDefenceModifier&gt;
   &lt;ForestPlotYieldChanges&gt;
     &lt;iYield&gt;0&lt;/iYield&gt;

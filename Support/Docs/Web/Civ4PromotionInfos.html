@@ -74,7 +74,7 @@
     <tr><td><span class="tagoptional">iNeutralHealChange</span><td>0<td>Change to the unit's damage healing capabilities in neutral territory by the given percentage
     <tr><td><span class="tagoptional">iOrderPriority</span><td>0<td>Unknown for promotions; typically 0
     <tr><td><span class="tagoptional">iPillageChange</span><td>0<td>Percentage change in the amount of gold received when pillaging
-    <tr><td><span class="tagoptional"><b>iPromotionGroup</b></span><td>0<td>An identifier that allows promotions ot be grouped. A unit can only have one promotion from each promotion group at any time
+    <tr><td><span class="tagoptional"><b>iPromotionGroup</b></span><td>0<td>An identifier that allows promotions to be grouped. A unit can only have one promotion from each promotion group at any time
     <tr><td><span class="tagoptional">iRevoltProtection</span><td>0<td>Percentage decrease in base city revolt chance when unit is in the city
     <tr><td><span class="tagoptional">iSameTileHealChange</span><td>0<td>Change to the unit's ability to heal other units on the same tile by the given percentage
     <tr><td><span class="tagoptional"><b>iSpyBuyTechChange</b></span><td>0<td>The change in cost for spies to buy technologies
@@ -85,7 +85,7 @@
     <tr><td><span class="tagoptional"><b>iSpyDestroyProductionChange</b></span><td>0<td>The change in cost for spies to reduce a cities current production
     <tr><td><span class="tagoptional"><b>iSpyDestroyProjectChange</b></span><td>0<td>The change in cost for spies to reduce a cities current project production
     <tr><td><span class="tagoptional"><b>iSpyDiploPenaltyChange</b></span><td>0<td>The change in cost for spies to create a diplomatic penalty
-    <tr><td><span class="tagoptional"><b>iSpyDisablePowerChange</b></span><td>0<td>The change in cost for spies to disable the power ina city
+    <tr><td><span class="tagoptional"><b>iSpyDisablePowerChange</b></span><td>0<td>The change in cost for spies to disable the power in a city
     <tr><td><span class="tagoptional"><b>iSpyEscapeChange</b></span><td>0<td>The percentage change for a spy to escape if they are captured
     <tr><td><span class="tagoptional"><b>iSpyEvasionChange</b></span><td>0<td>The percentage change for a spy to evade capture if intercepted
     <tr><td><span class="tagoptional"><b>iSpyInterceptChange</b></span><td>0<td>The percentage change for a spy to prevent interception
@@ -101,11 +101,11 @@
     <tr><td><span class="tagoptional"><b>iSpyUnhappyChange</b></span><td>0<td>The percentage change to the number of turns a spy can make a city unhappy
     <tr><td><span class="tagoptional"><b>iSpyWarWearinessChange</b></span><td>0<td>The percentage change taht a spy can change the war weariness of a player
     <tr><td><span class="tagoptional"><b>iUnitRangeChange</b></span><td>0<td>Absolute change in range for a range bound unit
-    <tr><td><span class="tagoptional"><b>iUnitRangePercentChange</b></span><td>0<td>Percentile change in range for a range bound unit
+    <tr><td><span class="tagoptional"><b>iUnitRangeModifier</b></span><td>0<td>Percentile change in range for a range bound unit
     <tr><td><span class="tagoptional">iUpgradeDiscount</span><td>0<td>Percentage change to the cost of upgrading a unit
     <tr><td><span class="tagoptional">iVisibilityChange</span><td>0<td>The number of tiles that the unit's Line of Sight is changed by
     <tr><td><span class="tagoptional">iWithdrawalChange</span><td>0<td>Change to the percentage chance a unit has of withdrawing from battle if it is losing
-    <tr><td><span class="tagoptional"><b>iWorkRateModify</b></span><td>0<td>Change to the work rate of units impacting the speed at which they can build improvements
+    <tr><td><span class="tagoptional"><b>iWorkRateModifier</b></span><td>0<td>Percentage change to the rate that workers can perform build actions
   </table>	<p>
 
   <h3 id="boolean">Boolean</h3>
@@ -126,7 +126,7 @@
     <tr><td><span class="tagoptional">bRiver</span><td>0<td>If true, the recipient can attack across a river without penalty
     <tr><td><span class="tagoptional">bShiftDown</span><td>0<td>If true, the HotKey is only used if the Shift key is also pressed
     <tr><td><span class="tagoptional"><b>bSpyRadiation</b></span><td>0<td>If true, spies will be able to use nuclear devices in missions
-    <tr><td><span class="tagoptional"><b>bUnitRangeUnbound</b></span><td>0<td>If true, the unit has not range cap
+    <tr><td><span class="tagoptional"><b>bUnitRangeUnbound</b></span><td>0<td>If true, the unit has no range cap
     <tr><td><span class="tagoptional"><b>bUnitTerritoryUnbound</b></span><td>0<td>If true, the unit can move out the the players territory
   </table>	<p>
 	<p>
@@ -279,11 +279,11 @@
   &lt;iPillageChange&gt;0&lt;/iPillageChange&gt;
   &lt;iUpgradeDiscount&gt;0&lt;/iUpgradeDiscount&gt;
   &lt;iExperiencePercent&gt;0&lt;/iExperiencePercent&gt;
-  &lt;iWorkRateModify&gt;0&lt;/iWorkRateModify&gt;
+  &lt;iWorkRateModifier&gt;0&lt;/iWorkRateModifier&gt;
   &lt;bUnitRangeUnbound&gt;0&lt;/bUnitRangeUnbound&gt;
   &lt;bUnitTerritoryUnbound&gt;0&lt;/bUnitTerritoryUnbound&gt;
   &lt;iUnitRangeChange&gt;0&lt;/iUnitRangeChange&gt;
-  &lt;iUnitRangePercentChange&gt;0&lt;/iUnitRangePercentChange&gt;
+  &lt;iUnitRangeModifier&gt;0&lt;/iUnitRangeModifier&gt;
   &lt;TerrainAttacks&gt;
     &lt;TerrainAttack&gt;
       &lt;TerrainType&gt;&lt;/TerrainType&gt;

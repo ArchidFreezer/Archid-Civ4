@@ -192,12 +192,12 @@
     <tr><td><span class="tagoptional">BonusHappinessChanges</span><td>NONE<td>Changes to the city happiness that a bonus provides<br><pre class="code">
   &lt;BonusHappinessChange&gt;
     &lt;BonusType&gt;&lt;/BonusType&gt;
-    &lt;iHappinessChange&gt;0&lt;/iHappinessChange&gt;
+    &lt;iChange&gt;0&lt;/iChange&gt;
   &lt;/BonusHappinessChange&gt;</pre>
     <tr><td><span class="tagoptional">BonusHealthChanges</span><td>NONE<td>Changes to the city health that a bonus provides<br><pre class="code">
   &lt;BonusHealthChange&gt;
     &lt;BonusType&gt;&lt;/BonusType&gt;
-    &lt;iHealthChange&gt;0&lt;/iHealthChange&gt;
+    &lt;iChange&gt;0&lt;/iChange&gt;
   &lt;/BonusHealthChange&gt;</pre>
     <tr><td><span class="tagoptional">BonusProductionModifiers</span><td>NONE<td>Percentage change in production of the building that possession of the bonus in the city provides<br><pre class="code">
   &lt;BonusProductionModifier&gt;
@@ -236,7 +236,7 @@
     <tr><td><span class="tagoptional">DomainProductionModifiers</span><td>NONE<td>Percentage change to the production of units of the given domains trained in the city<br><pre class="code">
   &lt;DomainProductionModifier&gt;
     &lt;DomainType&gt;&lt;/DomainType&gt;
-    &lt;iProductionModifier&gt;0&lt;/iProductionModifier&gt;
+    &lt;iModifier&gt;0&lt;/iModifier&gt;
   &lt;/DomainProductionModifier&gt;</pre>
     <tr><td><span class="tagoptional">Flavors</span><td>NONE<td>Value of the building to specific flavours, used to determine the value of the building to the AI when trying to achieve specific goals<br><pre class="code">
   &lt;Flavor&gt;
@@ -256,13 +256,13 @@
   &lt;iYield&gt;0&lt;/iYield&gt;</pre>
     <tr><td><span class="tagoptional">HappinessTraits</span><td>NONE<td>Set of traits and the change to the city happiness that they provide<br><pre class="code">
   &lt;HappinessTrait&gt;
-    &lt;HappinessTraitType&gt;&lt;/HappinessTraitType&gt;
-    &lt;iHappinessTrait&gt;0&lt;/iHappinessTrait&gt;
+    &lt;TraitType&gt;&lt;/TraitType&gt;
+    &lt;iChange&gt;0&lt;/iChange&gt;
   &lt;/HappinessTrait&gt;</pre>
     <tr><td><span class="tagoptional">ImprovementFreeSpecialists</span><td>NONE<td>Change to the number of free specialists that an improvement provides<br><pre class="code">
   &lt;ImprovementFreeSpecialist&gt;
     &lt;ImprovementType&gt;&lt;/ImprovementType&gt;
-    &lt;iFreeSpecialistCount&gt;0&lt;/iFreeSpecialistCount&gt;
+    &lt;iCount&gt;0&lt;/iCount&gt;
   &lt;/ImprovementFreeSpecialist&gt;</pre>
     <tr><td><span class="tagoptional">ObsoleteSafeCommerceChanges</span><td>NONE<td>Changes to the commerces received by the city that are not impacted by whether a building is made obsolete<br><pre class="code">
   &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
@@ -281,7 +281,7 @@
     <tr><td><span class="tagoptional"><b>PrereqNumOfBuildingClasses</b></span><td>NONE<td>List of definitions of the number of a building class that are required in the civ before this building can be constructed<br><pre class="code">
   &lt;PrereqNumOfBuildingClass&gt;
     &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
-    &lt;iNumBuildingNeeded&gt;0&lt;/iNumBuildingNeeded&gt;
+    &lt;iNeeded&gt;0&lt;/iNeeded&gt;
   &lt;/PrereqNumOfBuildingClass&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqOrBonuses</b></span><td>NO_BONUS<td>List of bonuses, one of which must be present in the city for the building to be constructed. If subsequently the city no longer has access to any of the bonuses the building will be disabled.<br><pre class="code">
   &lt;BonusType&gt;&lt;/BonusType&gt;</pre>
@@ -303,13 +303,13 @@
   &lt;WorldViewType&gt;&lt;/WorldViewType&gt;</pre>
     <tr><td><span class="tagoptional">ProductionTraits</span><td>NONE<td>Set of traits and the percentage production bonus to this building that they provide.<br><pre class="code">
   &lt;ProductionTrait&gt;
-    &lt;ProductionTraitType&gt;&lt;/ProductionTraitType&gt;
-    &lt;iProductionTrait&gt;0&lt;/iProductionTrait&gt;
+    &lt;TraitType&gt;&lt;/TraitType&gt;
+    &lt;iChange&gt;0&lt;/iChange&gt;
   &lt;/ProductionTrait&gt;</pre>
     <tr><td><span class="tagoptional">ReligionChanges</span><td>NONE<td>Change in religious influence the city has, which is used when determining religion spread<br><pre class="code">
   &lt;ReligionChange&gt;
     &lt;ReligionType&gt;&lt;/ReligionType&gt;
-    &lt;iReligionChange&gt;0&lt;/iReligionChange&gt;
+    &lt;iChange&gt;0&lt;/iChange&gt;
   &lt;/ReligionChange&gt;</pre>
     <tr><td><span class="tagoptional"><b>ReplacedByBuildingClasses</b></span><td>NO_BUILDINGCLASS<td>List of building classes that if constructed in the city replace this building making it obsolete.<br><pre class="code">
   &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;</pre>
@@ -320,7 +320,7 @@
     <tr><td><span class="tagoptional">SpecialistCounts</span><td>NONE<td>Changes to the number of each specialist type that the city can maintain<br><pre class="code">
   &lt;SpecialistCount&gt;
     &lt;SpecialistType&gt;&lt;/SpecialistType&gt;
-    &lt;iSpecialistCount&gt;0&lt;/iSpecialistCount&gt;
+    &lt;iCount&gt;0&lt;/iCount&gt;
   &lt;/SpecialistCount&gt;</pre>
     <tr><td><span class="tagoptional">SpecialistExtraCommerces</span><td>NONE<td>Change to city commerces that every specialist provides<br><pre class="code">
   &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
@@ -430,14 +430,14 @@
   &lt;bPrereqPower&gt;0&lt;/bPrereqPower&gt;
   &lt;ProductionTraits&gt;
     &lt;ProductionTrait&gt;
-      &lt;ProductionTraitType&gt;&lt;/ProductionTraitType&gt;
-      &lt;iProductionTrait&gt;0&lt;/iProductionTrait&gt;
+      &lt;TraitType&gt;&lt;/TraitType&gt;
+      &lt;iChange&gt;0&lt;/iChange&gt;
     &lt;/ProductionTrait&gt;
   &lt;/ProductionTraits&gt;
   &lt;HappinessTraits&gt;
     &lt;HappinessTrait&gt;
-      &lt;HappinessTraitType&gt;&lt;/HappinessTraitType&gt;
-      &lt;iHappinessTrait&gt;0&lt;/iHappinessTrait&gt;
+      &lt;TraitType&gt;&lt;/TraitType&gt;
+      &lt;iChange&gt;0&lt;/iChange&gt;
     &lt;/HappinessTrait&gt;
   &lt;/HappinessTraits&gt;
   &lt;NoBonus&gt;&lt;/NoBonus&gt;
@@ -590,13 +590,13 @@
   &lt;ReligionChanges&gt;
     &lt;ReligionChange&gt;
       &lt;ReligionType&gt;&lt;/ReligionType&gt;
-      &lt;iReligionChange&gt;0&lt;/iReligionChange&gt;
+      &lt;iChange&gt;0&lt;/iChange&gt;
     &lt;/ReligionChange&gt;
   &lt;/ReligionChanges&gt;
   &lt;SpecialistCounts&gt;
     &lt;SpecialistCount&gt;
       &lt;SpecialistType&gt;&lt;/SpecialistType&gt;
-      &lt;iSpecialistCount&gt;0&lt;/iSpecialistCount&gt;
+      &lt;iCount&gt;0&lt;/iCount&gt;
     &lt;/SpecialistCount&gt;
   &lt;/SpecialistCounts&gt;
   &lt;FreeSpecialistCounts&gt;
@@ -615,13 +615,13 @@
   &lt;BonusHealthChanges&gt;
     &lt;BonusHealthChange&gt;
       &lt;BonusType&gt;&lt;/BonusType&gt;
-      &lt;iHealthChange&gt;0&lt;/iHealthChange&gt;
+      &lt;iChange&gt;0&lt;/iChange&gt;
     &lt;/BonusHealthChange&gt;
   &lt;/BonusHealthChanges&gt;
   &lt;BonusHappinessChanges&gt;
     &lt;BonusHappinessChange&gt;
       &lt;BonusType&gt;&lt;/BonusType&gt;
-      &lt;iHappinessChange&gt;0&lt;/iHappinessChange&gt;
+      &lt;iChange&gt;0&lt;/iChange&gt;
     &lt;/BonusHappinessChange&gt;
   &lt;/BonusHappinessChanges&gt;
   &lt;BonusProductionModifiers&gt;
@@ -645,7 +645,7 @@
   &lt;DomainProductionModifiers&gt;
     &lt;DomainProductionModifier&gt;
       &lt;DomainType&gt;&lt;/DomainType&gt;
-      &lt;iProductionModifier&gt;0&lt;/iProductionModifier&gt;
+      &lt;iModifier&gt;0&lt;/iModifier&gt;
     &lt;/DomainProductionModifier&gt;
   &lt;/DomainProductionModifiers&gt;
   &lt;BuildingHappinessChanges&gt;
@@ -657,7 +657,7 @@
   &lt;PrereqNumOfBuildingClasses&gt;
     &lt;PrereqNumOfBuildingClass&gt;
       &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
-      &lt;iNumBuildingNeeded&gt;0&lt;/iNumBuildingNeeded&gt;
+      &lt;iNeeded&gt;0&lt;/iNeeded&gt;
     &lt;/PrereqNumOfBuildingClass&gt;
   &lt;/PrereqNumOfBuildingClasses&gt;
   &lt;PrereqAndBuildingClasses&gt;
@@ -691,7 +691,7 @@
   &lt;ImprovementFreeSpecialists&gt;
     &lt;ImprovementFreeSpecialist&gt;
       &lt;ImprovementType&gt;&lt;/ImprovementType&gt;
-      &lt;iFreeSpecialistCount&gt;0&lt;/iFreeSpecialistCount&gt;
+      &lt;iCount&gt;0&lt;/iCount&gt;
     &lt;/ImprovementFreeSpecialist&gt;
   &lt;/ImprovementFreeSpecialists&gt;
   &lt;Flavors&gt;

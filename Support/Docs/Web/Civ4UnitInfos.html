@@ -95,7 +95,6 @@
     <tr><td><span class="tagoptional">iCultureGarrison</span><td>0<td>The amount of cultural pressure having this unit in a city provides. This impacts the suppression rate of a conquered city and revolt resistance.
     <tr><td><span class="tagoptional">iDiscoverMultiplier</span><td>0<td>This value, multiplied by the teams population is added to the iBaseDiscover value to determine the total research a unit can provide
     <tr><td><span class="tagoptional">iDropRange</span><td>0<td>The range at which the unit can 'jump'/paradrop from a friendly city
-    <tr><td><span class="tagoptional"><b>iEnslaveCount</b></span><td>0<td>The number of slaves this unit may carry before it needs to return to a city to sell them
     <tr><td><span class="tagoptional">iEspionagePoints</span><td>0<td>The number of espionage points gained when infiltrating a rival player
     <tr><td><span class="tagoptional">iEvasionProbability</span><td>0<td>For air and parachute units; the odds of evading interception
     <tr><td><span class="tagoptional">iExtraCost</span><td>0<td>The additional upkeep in gold that this unit costs each turn over and above the standard cost
@@ -116,9 +115,6 @@
     <tr><td><span class="tagoptional">iNukeRange</span><td>-1<td>The range at which the 'nuke' can be launched - missiles only
     <tr><td><span class="tagoptional">iOrderPriority</span><td>0<td>The priority of this unit when determining the order in which actions are performed. A unit with a high order priority will act first
     <tr><td><span class="tagoptional">iPower</span><td>0<td>Affects the amount that the AI factors it into the equation when determining your military power
-    <tr><td><span class="tagoptional"><b>iSpyEscapeChance</b></span><td>0<td>For spies, the percentage chance the spy has to escape if captures
-    <tr><td><span class="tagoptional"><b>iSpyEvasionChance</b></span><td>0<td>For spies, the percentage chance the spy has to evade capture if intercepted
-    <tr><td><span class="tagoptional"><b>iSpyInterceptChance</b></span><td>0<td>For spies, the percentage chance the spy has to avoid interception
     <tr><td><span class="tagoptional">iTradeMultiplier</span><td>0<td>This value, multiplied by the capital cities trade profits is added to the iBaseTrade value to determine the total gold a unit can provide in a trade mission
     <tr><td><span class="tagoptional">iWithdrawalProb</span><td>0<td>The percent chance a unit has of withdrawing from a battle if it is losing. Maximum Value is in GlobalDefines.xml
     <tr><td><span class="tagoptional">iWorkRate</span><td>0<td>The rate at which the unit improves tiles
@@ -271,8 +267,8 @@
   &lt;WorldViewType&gt;&lt;/WorldViewType&gt;</pre>
     <tr><td><span class="tagoptional">ProductionTraits</span><td>NONE<td>The amount that a trait modifies the production on this unit<br><pre class="code">
   &lt;ProductionTrait&gt;
-    &lt;ProductionTraitType&gt;&lt;/ProductionTraitType&gt;
-    &lt;iProductionTrait&gt;0&lt;/iProductionTrait&gt;
+    &lt;TraitType&gt;&lt;/TraitType&gt;
+    &lt;iChange&gt;0&lt;/iChange&gt;
   &lt;/ProductionTrait&gt;</pre>
     <tr><td><span class="tagoptional">ReligionSpreads</span><td>NONE<td>The chance that the unit can spread a religion. This value is used as a modifier and the final spread chance is based on the city size, number of religions, etc.<br><pre class="code">
   &lt;ReligionSpread&gt;
@@ -556,8 +552,8 @@
   &lt;bPrereqPower&gt;0&lt;/bPrereqPower&gt;
   &lt;ProductionTraits&gt;
     &lt;ProductionTrait&gt;
-      &lt;ProductionTraitType&gt;&lt;/ProductionTraitType&gt;
-      &lt;iProductionTrait&gt;0&lt;/iProductionTrait&gt;
+      &lt;TraitType&gt;&lt;/TraitType&gt;
+      &lt;iChange&gt;0&lt;/iChange&gt;
     &lt;/ProductionTrait&gt;
   &lt;/ProductionTraits&gt;
   &lt;Flavors&gt;
@@ -568,7 +564,6 @@
   &lt;/Flavors&gt;
   &lt;iAIWeight&gt;0&lt;/iAIWeight&gt;
   &lt;iCost&gt;0&lt;/iCost&gt;
-  &lt;iEnslaveCount&gt;0&lt;/iEnslaveCount&gt;
   &lt;iHurryCostModifier&gt;0&lt;/iHurryCostModifier&gt;
   &lt;iAdvancedStartCost&gt;0&lt;/iAdvancedStartCost&gt;
   &lt;iAdvancedStartCostIncrease&gt;0&lt;/iAdvancedStartCostIncrease&gt;
@@ -589,9 +584,6 @@
   &lt;iTradeMultiplier&gt;0&lt;/iTradeMultiplier&gt;
   &lt;iGreatWorkCulture&gt;0&lt;/iGreatWorkCulture&gt;
   &lt;iEspionagePoints&gt;0&lt;/iEspionagePoints&gt;
-  &lt;iSpyEscapeChance&gt;0&lt;/iSpyEscapeChance&gt;
-  &lt;iSpyEvasionChance&gt;0&lt;/iSpyEvasionChance&gt;
-  &lt;iSpyInterceptChance&gt;0&lt;/iSpyInterceptChance&gt;
   &lt;TerrainImpassables&gt;
     &lt;TerrainType&gt;&lt;/TerrainType&gt;
   &lt;/TerrainImpassables&gt;
