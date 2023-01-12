@@ -499,4 +499,18 @@ A sloop-of-war was smaller than a sailing frigate and outside the rating system.
 		<English>War Galley is more combat efficient navy vessel than the Galley and make them better against other early oar based ships. They cannot enter ocean spaces.</English>
 	</TEXT>
 
+	<TEXT> <!-- Tribe -->
+		<Tag>TXT_KEY_UNIT_TRIBE</Tag>
+		<English>Tribe</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TRIBE_PEDIA</Tag>
+		<English>[TAB]A [BOLD]Tribe[\BOLD], viewed historically or developmentally, consists of a social group existing before the development of, or outside of, states.[NEWLINE][PARAGRAPH:1]Considerable debate takes place over how best to characterize tribes. Some of this debate stems from perceived differences between pre-state tribes and contemporary tribes; some of this debate reflects more general controversy over cultural evolution and colonialism. In the popular imagination, tribes reflect a way of life that predates, and is more " natural", than that in modern states. Tribes also privilege primordial social ties, are clearly bounded, homogeneous, parochial, and stable. Thus, many believed that tribes organize links between families (including clans and lineages), and provide them with a social and ideological basis for solidarity that is in some way more limited than that of an "ethnic group" or of a "nation". Anthropological and ethnohistorical research has challenged all of these notions.[NEWLINE][PARAGRAPH:1]Anthropologist Elman Service presented a system of classification for societies in all human cultures based on the evolution of social inequality and the role of the state. This system of classification contains four categories:[NEWLINE][ICON_BULLET]Hunter-gatherer bands, which are generally egalitarian.[NEWLINE][ICON_BULLET]Tribal societies in which there are some limited instances of social rank and prestige.[NEWLINE][ICON_BULLET]Stratified tribal societies led by chieftains.[NEWLINE][ICON_BULLET]Civilizations, with complex social hierarchies and organized, institutional governments.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TRIBE_STRATEGY</Tag>
+		<English>Build [COLOR_UNIT_TEXT]Tribes[COLOR_REVERT] to expand your empire.</English>
+		<Spanish>Construye [COLOR_UNIT_TEXT]Tribus[COLOR_REVERT] para expandir tu imperio.</Spanish>
+	</TEXT>
+
 </Civ4GameText>

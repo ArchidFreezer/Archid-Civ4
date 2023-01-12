@@ -94,7 +94,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -181,7 +181,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -266,7 +266,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -355,7 +355,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -448,7 +448,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -538,7 +538,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -632,7 +632,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -726,7 +726,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -832,7 +832,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -920,7 +920,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -1009,7 +1009,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -1098,7 +1098,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -1202,7 +1202,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -1297,7 +1297,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -1393,7 +1393,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -1476,7 +1476,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -1622,7 +1622,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -1707,7 +1707,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -1797,7 +1797,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -1876,7 +1876,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -1955,7 +1955,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -2048,7 +2048,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -2130,7 +2130,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -2230,7 +2230,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -2324,7 +2324,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -2409,7 +2409,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -2524,7 +2524,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -2619,7 +2619,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -2723,7 +2723,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -2811,7 +2811,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -2903,7 +2903,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -2989,7 +2989,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -3077,7 +3077,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -3162,7 +3162,7 @@
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -3266,7 +3266,7 @@
 			<Units/>
 			<FreeUnitClasses>
 				<FreeUnitClass>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<iFreeUnits>1</iFreeUnits>
 				</FreeUnitClass>
 			</FreeUnitClasses>
@@ -3716,7 +3716,7 @@
 			</Buildings>
 			<Units>
 				<Unit>
-					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
 					<UnitType>NONE</UnitType>
 				</Unit>
 				<Unit>

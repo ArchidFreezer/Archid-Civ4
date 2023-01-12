@@ -598,6 +598,13 @@
 <!-- ************ -->
 <!-- Settlers     -->
 <!-- ************ -->
+		<UnitClassInfo> <!-- Tribe -->
+			<Type>UNITCLASS_TRIBE</Type>
+			<Description>TXT_KEY_UNIT_TRIBE</Description>
+			<iMaxPlayerInstances>1</iMaxPlayerInstances>
+			<iInstanceCostModifier>50</iInstanceCostModifier>
+			<DefaultUnit>UNIT_TRIBE</DefaultUnit>
+		</UnitClassInfo>
 		<UnitClassInfo> <!-- Settler -->
 			<Type>UNITCLASS_SETTLER</Type>
 			<Description>TXT_KEY_UNIT_SETTLER</Description>

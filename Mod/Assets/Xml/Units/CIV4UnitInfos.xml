@@ -8481,6 +8481,53 @@
 <!-- ************ -->
 <!-- Settlers     -->
 <!-- ************ -->
+		<UnitInfo> <!-- Tribe -->
+			<Class>UNITCLASS_TRIBE</Class>
+			<Type>UNIT_TRIBE</Type>
+			<Capture>UNITCLASS_GATHERER</Capture>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_SETTLE</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_TRIBE</Description>
+			<Civilopedia>TXT_KEY_UNIT_TRIBE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_TRIBE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<bFood>1</bFood>
+			<bFound>1</bFound>
+			<UnitClassUpgrades>
+				<UnitClassUpgradeType>UNITCLASS_SETTLER</UnitClassUpgradeType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITAI_SETTLE</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_TRIBALISM</TechType>
+			</PrereqTechs>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iAsset>1</iAsset>
+			<UnitMeshGroups>
+				<iGroupSize>4</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>4</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_TRIBE_MALE</EarlyArtDefineTag>
+				</UnitMeshGroup>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_TRIBE_FEMALE</EarlyArtDefineTag>
+				</UnitMeshGroup>
+				<UnitMeshGroup>
+					<iRequired>2</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_TRIBE_CHILD</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+			<HotKey/>
+		</UnitInfo>
 		<UnitInfo> <!-- Settler -->
 			<Class>UNITCLASS_SETTLER</Class>
 			<Type>UNIT_SETTLER</Type>
@@ -8496,6 +8543,9 @@
 			<UnitAIs>
 				<UnitAIType>UNITAI_SETTLE</UnitAIType>
 			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_SEDENTARY_LIFESTYLE</TechType>
+			</PrereqTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_IMPERIALIST</ProductionTraitType>
