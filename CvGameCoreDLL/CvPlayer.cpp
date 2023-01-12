@@ -2006,6 +2006,7 @@ void CvPlayer::disbandUnit(bool bAnnounce) {
 							iValue *= 10;
 							break;
 
+						case UNITAI_GATHERER:
 						case UNITAI_SLAVE:
 							iValue *= 5;
 							break;

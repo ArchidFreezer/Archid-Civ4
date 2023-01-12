@@ -116,6 +116,7 @@ protected:
 	void AI_cityDefence();
 	void AI_borderPatrol();
 	void AI_autoAirStrike();
+	void AI_gathererMove();
 
 	int AI_promotionValue(PromotionTypes ePromotion);
 

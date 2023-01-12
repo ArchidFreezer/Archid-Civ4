@@ -1359,6 +1359,7 @@ DomainTypes CvPlayerAI::AI_unitAIDomainType(UnitAITypes eUnitAI) const {
 	case UNITAI_GREAT_SPY: // K-Mod
 	case UNITAI_SPY:
 	case UNITAI_ATTACK_CITY_LEMMING:
+	case UNITAI_GATHERER:
 		return DOMAIN_LAND;
 		break;
 
@@ -5077,6 +5078,7 @@ int CvPlayerAI::AI_techUnitValue(TechTypes eTech, int iPathLength, bool& bEnable
 					iUtilityValue = std::max(iUtilityValue, 8 * iWeight);
 					break;
 
+				case UNITAI_GATHERER:
 				case UNITAI_SLAVE:
 					iUtilityValue = std::max(iUtilityValue, 4 * iWeight);
 					break;
@@ -8416,10 +8418,11 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			}
 			break;
 
+		case UNITAI_GATHERER:
 		case UNITAI_SLAVE:
 		case UNITAI_WORKER:
-			for (int iI = 0; iI < GC.getNumBuildInfos(); iI++) {
-				if (kUnit.getBuilds(iI)) {
+			for (BuildTypes eBuild = (BuildTypes)0; eBuild < GC.getNumBuildInfos(); eBuild = (BuildTypes)(eBuild + 1)) {
+				if (kUnit.getBuilds(eBuild)) {
 					bValid = true;
 					break;
 				}
@@ -8761,6 +8764,7 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 		iValue += (kUnit.getMoves() * 100);
 		break;
 
+	case UNITAI_GATHERER:
 	case UNITAI_WORKER:
 		for (BuildTypes eLoopBuild = (BuildTypes)0; eLoopBuild < GC.getNumBuildInfos(); eLoopBuild = (BuildTypes)(eLoopBuild + 1)) {
 			if (kUnit.getBuilds(eLoopBuild)) {
@@ -18272,18 +18276,15 @@ int CvPlayerAI::AI_disbandValue(const CvUnit* pUnit, bool bMilitaryOnly) const {
 		iValue *= 16;
 		break;
 
+	case UNITAI_GATHERER:
 	case UNITAI_WORKER:
-		if (GC.getGame().getGameTurn() - pUnit->getGameTurnCreated() <= 10 ||
-			!pUnit->plot()->isCity() ||
-			pUnit->plot()->getPlotCity()->AI_getWorkersNeeded() > 0) {
+		if (GC.getGame().getGameTurn() - pUnit->getGameTurnCreated() <= 10 || !pUnit->plot()->isCity() || pUnit->plot()->getPlotCity()->AI_getWorkersNeeded() > 0) {
 			iValue *= 10;
 		}
 		break;
 
 	case UNITAI_SLAVE:
-		if (GC.getGame().getGameTurn() - pUnit->getGameTurnCreated() <= 10 ||
-			!pUnit->plot()->isCity() ||
-			pUnit->plot()->getPlotCity()->AI_getWorkersNeeded() > 0) {
+		if (GC.getGame().getGameTurn() - pUnit->getGameTurnCreated() <= 10 || !pUnit->plot()->isCity() || pUnit->plot()->getPlotCity()->AI_getWorkersNeeded() > 0) {
 			// Low value as slaves are used up on use so don't drain the treasury for long
 			iValue *= 2;
 		}

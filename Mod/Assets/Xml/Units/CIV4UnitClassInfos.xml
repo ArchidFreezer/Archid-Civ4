@@ -669,6 +669,11 @@
 <!-- ************ -->
 <!-- Workers      -->
 <!-- ************ -->
+		<UnitClassInfo> <!-- Gatherer -->
+			<Type>UNITCLASS_GATHERER</Type>
+			<Description>TXT_KEY_UNIT_GATHERER</Description>
+			<DefaultUnit>UNIT_GATHERER</DefaultUnit>
+		</UnitClassInfo>
 		<UnitClassInfo> <!-- Slave -->
 			<Type>UNITCLASS_SLAVE</Type>
 			<Description>TXT_KEY_UNIT_SLAVE</Description>

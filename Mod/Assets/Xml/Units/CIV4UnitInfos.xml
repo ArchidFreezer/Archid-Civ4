@@ -8838,6 +8838,49 @@
 <!-- ************ -->
 <!-- Workers      -->
 <!-- ************ -->
+		<UnitInfo> <!-- Gatherer -->
+			<Class>UNITCLASS_GATHERER</Class>
+			<Type>UNIT_GATHERER</Type>
+			<Capture>UNITCLASS_GATHERER</Capture>
+			<Combat>UNITCOMBAT_WORKER</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_GATHERER</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_GATHERER</Description>
+			<Civilopedia>TXT_KEY_UNIT_GATHERER_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_GATHERER_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<bFood>1</bFood>
+			<UnitAIs>
+				<UnitAIType>UNITAI_GATHERER</UnitAIType>
+			</UnitAIs>
+			<Builds>
+				<BuildType>BUILD_SEED_CAMP</BuildType>
+				<BuildType>BUILD_TIMBER_HARVEST_CAMP</BuildType>
+				<BuildType>BUILD_STONE_TOOLS_CAMP</BuildType>
+				<BuildType>BUILD_OBSIDIAN_CAMP</BuildType>
+			</Builds>
+			<ObsoleteTech>TECH_SEDENTARY_LIFESTYLE</ObsoleteTech>
+			<iCost>20</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<UnitRangeType>UNITRANGE_HOME</UnitRangeType>
+			<iWorkRate>100</iWorkRate>
+			<iAsset>1</iAsset>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_GATHERER</EarlyArtDefineTag>
+					<LateArtDefineTag/>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+			<HotKey/>
+		</UnitInfo>
 		<UnitInfo> <!-- Slave -->
 			<Class>UNITCLASS_SLAVE</Class>
 			<Type>UNIT_SLAVE</Type>
@@ -8926,6 +8969,9 @@
 			<UnitAIs>
 				<UnitAIType>UNITAI_WORKER</UnitAIType>
 			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_SEDENTARY_LIFESTYLE</TechType>
+			</PrereqTechs>
 			<Builds>
 				<BuildType>BUILD_ROAD</BuildType>
 				<BuildType>BUILD_RAILROAD</BuildType>
@@ -8998,6 +9044,9 @@
 			<UnitAIs>
 				<UnitAIType>UNITAI_WORKER</UnitAIType>
 			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_SEDENTARY_LIFESTYLE</TechType>
+			</PrereqTechs>
 			<Builds>
 				<BuildType>BUILD_ROAD</BuildType>
 				<BuildType>BUILD_RAILROAD</BuildType>

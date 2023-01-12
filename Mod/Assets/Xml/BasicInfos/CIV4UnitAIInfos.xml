@@ -184,5 +184,9 @@
 			<Type>UNITAI_SLAVER</Type>
 			<Description>UNITAI_SLAVER</Description>
 		</UnitAIInfo>
+		<UnitAIInfo>
+			<Type>UNITAI_GATHERER</Type>
+			<Description>UNITAI_GATHERER</Description>
+		</UnitAIInfo>
 	</UnitAIInfos>
 </Civ4UnitAIInfos>

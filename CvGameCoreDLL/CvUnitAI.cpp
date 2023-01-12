@@ -121,6 +121,8 @@ bool CvUnitAI::AI_update() {
 				AI_workerSeaMove();
 			} else if (AI_getUnitAIType() == UNITAI_SLAVE) {
 				AI_slaveMove();
+			} else if (AI_getUnitAIType() == UNITAI_GATHERER) {
+				AI_gathererMove();
 			} else {
 				FAssert(false);
 			}
@@ -263,6 +265,10 @@ bool CvUnitAI::AI_update() {
 
 		case UNITAI_SLAVE:
 			AI_slaveMove();
+			break;
+
+		case UNITAI_GATHERER:
+			AI_gathererMove();
 			break;
 
 		case UNITAI_SLAVER:
@@ -593,6 +599,7 @@ int CvUnitAI::AI_groupFirstVal() {
 		return 21;
 		break;
 
+	case UNITAI_GATHERER:
 	case UNITAI_WORKER:
 		return 20;
 		break;
@@ -7255,7 +7262,7 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 
 	int iValue = 0;
 	// Worker promotions
-	if (AI_getUnitAIType() == UNITAI_WORKER) {
+	if (AI_getUnitAIType() == UNITAI_WORKER || AI_getUnitAIType() == UNITAI_GATHERER) {
 		if (kPromotion.getWorkRateModifier() > 0) {
 			iValue += kPromotion.getWorkRateModifier() * 5;
 		}
@@ -18890,4 +18897,189 @@ bool CvUnitAI::AI_slaverExplore(int iRange) {
 	}
 
 	return false;
+}
+
+void CvUnitAI::AI_gathererMove() {
+	PROFILE_FUNC();
+
+	bool bCanRoute = canBuildRoute();
+	bool bNextCity = false;
+
+	const CvPlayerAI& kOwner = GET_PLAYER(getOwnerINLINE());
+
+	// XXX could be trouble...
+	if (plot()->getOwnerINLINE() != getOwnerINLINE()) {
+		if (AI_retreatToCity()) {
+			return;
+		}
+	}
+
+	if (!isHuman()) {
+		if (plot()->getOwnerINLINE() == getOwnerINLINE()) {
+			if (AI_load(UNITAI_SETTLER_SEA, MISSIONAI_LOAD_SETTLER, UNITAI_SETTLE, 2, -1, -1, 0, MOVE_SAFE_TERRITORY)) {
+				return;
+			}
+		}
+	}
+
+	if (!(getGroup()->canDefend())) {
+		if (kOwner.AI_isPlotThreatened(plot(), 2)) {
+			if (AI_retreatToCity()) // XXX maybe not do this??? could be working productively somewhere else...
+			{
+				return;
+			}
+		}
+	}
+
+	if (AI_improveBonus()) // K-Mod
+	{
+		return;
+	}
+
+	if (bCanRoute && !isBarbarian()) {
+		if (AI_connectCity()) {
+			return;
+		}
+	}
+
+	if (bCanRoute) {
+		if (plot()->getOwnerINLINE() == getOwnerINLINE()) // XXX team???
+		{
+			BonusTypes eNonObsoleteBonus = plot()->getNonObsoleteBonusType(getTeam());
+			if (NO_BONUS != eNonObsoleteBonus) {
+				if (!(plot()->isConnectedToCapital())) {
+					ImprovementTypes eImprovement = plot()->getImprovementType();
+					if (kOwner.doesImprovementConnectBonus(eImprovement, eNonObsoleteBonus)) {
+						if (AI_connectPlot(plot())) {
+							return;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	CvCity* pCity = NULL;
+	if (plot()->getOwnerINLINE() == getOwnerINLINE()) {
+		pCity = plot()->getPlotCity();
+		if (pCity == NULL) {
+			pCity = plot()->getWorkingCity();
+		}
+	}
+
+	if (pCity != NULL) {
+		// K-Mod. Note: this worker is currently at pCity, and so we're probably counted in AI_getWorkersHave.
+		if (pCity->AI_getWorkersNeeded() > 0 && (plot()->isCity() || pCity->AI_getWorkersHave() - 1 <= (1 + pCity->AI_getWorkersNeeded() * 2) / 3)) {
+			if (AI_improveCity(pCity)) {
+				return;
+			}
+		}
+	}
+
+	if (bCanRoute && isBarbarian()) {
+		if (AI_connectCity()) {
+			return;
+		}
+	}
+
+	if (getRangeType() > UNITRANGE_HOME) {
+		if ((pCity == NULL) || (pCity->AI_getWorkersNeeded() == 0) || ((pCity->AI_getWorkersHave() > (pCity->AI_getWorkersNeeded() + 1)))) {
+			if (AI_nextCityToImprove(pCity)) {
+				return;
+			}
+
+			bNextCity = true;
+		}
+	}
+
+	if (pCity != NULL) {
+		if (AI_improveCity(pCity)) {
+			return;
+		}
+	}
+	// K-Mod. (moved from higher up)
+	if (AI_improveLocalPlot(2, pCity))
+		return;
+	//
+
+	if (getRangeType() > UNITRANGE_HOME) {
+		if (!bNextCity) {
+			if (AI_nextCityToImprove(pCity)) {
+				return;
+			}
+		}
+	}
+
+	if (bCanRoute) {
+		if (AI_routeTerritory(true)) {
+			return;
+		}
+
+		if (AI_connectBonus(false)) {
+			return;
+		}
+
+		if (AI_routeCity()) {
+			return;
+		}
+	}
+
+	if (AI_irrigateTerritory()) {
+		return;
+	}
+
+	if (bCanRoute) {
+		if (AI_routeTerritory()) {
+			return;
+		}
+	}
+
+	if (!isHuman() || (isAutomated() && GET_TEAM(getTeam()).getAtWarCount(true) == 0)) {
+		if (!isHuman() || (getGameTurnCreated() < GC.getGame().getGameTurn())) {
+			if (AI_nextCityToImproveAirlift()) {
+				return;
+			}
+		}
+		if (!isHuman()) {
+			// Fill up boats which already have workers
+			if (AI_load(UNITAI_SETTLER_SEA, MISSIONAI_LOAD_SETTLER, UNITAI_WORKER, -1, -1, -1, -1, MOVE_SAFE_TERRITORY)) {
+				return;
+			}
+
+			// Avoid filling a galley which has just a settler in it, reduce chances for other ships
+			if (AI_load(UNITAI_SETTLER_SEA, MISSIONAI_LOAD_SETTLER, NO_UNITAI, -1, 2, -1, -1, MOVE_SAFE_TERRITORY)) {
+				return;
+			}
+		}
+	}
+
+	if (AI_improveLocalPlot(3, NULL)) {
+		return;
+	}
+
+	if (!(isHuman()) && (AI_getUnitAIType() == UNITAI_WORKER)) {
+		if (GC.getGameINLINE().getElapsedGameTurns() > GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getResearchPercent() / 6) {
+			if (kOwner.AI_totalUnitAIs(UNITAI_WORKER) > std::max(GC.getWorldInfo(GC.getMapINLINE().getWorldSize()).getTargetNumCities(), kOwner.getNumCities() * 3 / 2) &&
+				area()->getNumAIUnits(getOwnerINLINE(), UNITAI_WORKER) > kOwner.AI_neededWorkers(area()) * 3 / 2) {
+				if (kOwner.calculateUnitCost() > 0) {
+					scrap();
+					return;
+				}
+			}
+		}
+	}
+
+	if (AI_retreatToCity(false, true)) {
+		return;
+	}
+
+	if (AI_handleStranded())
+		return;
+
+	if (AI_safety()) {
+		return;
+	}
+
+	getGroup()->pushMission(MISSION_SKIP);
+	return;
 }
