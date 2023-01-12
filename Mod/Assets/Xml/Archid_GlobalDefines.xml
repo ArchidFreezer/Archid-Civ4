@@ -634,5 +634,10 @@
 		<DefineName>SLAVER_LATE_UNIT_ART_DEF</DefineName>
 		<DefineTextVal>ART_DEF_UNIT_SLAVER</DefineTextVal>
 	</Define>
+<!-- Change the default starting era to match the expanded tech tree -->
+	<Define>
+		<DefineName>STANDARD_ERA</DefineName>
+		<DefineTextVal>ERA_EPIPALAEOLITHIC</DefineTextVal>
+	</Define>
 
 </Civ4Defines>
