@@ -276,6 +276,19 @@ bool isPromotionValid(PromotionTypes ePromotion, UnitTypes eUnit, bool bLeader, 
 		return false;
 	}
 
+	if (kPromotion.getNumBuildLeaveFeatures() > 0) {
+		bool bFoundBuild = false;
+		for (int i = 0; i < kPromotion.getNumBuildLeaveFeatures(); i++) {
+			if (kUnit.getBuilds((BuildTypes)kPromotion.getBuildLeaveFeature(i).first)) {
+				bFoundBuild = true;
+				break;
+			}
+		}
+		if (!bFoundBuild) {
+			return false;
+		}
+	}
+
 	if (kUnit.isOnlyDefensive()) {
 		if ((kPromotion.getCityAttackPercent() != 0) ||
 			(kPromotion.getWithdrawalChange() != 0) ||
