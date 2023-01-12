@@ -1032,8 +1032,8 @@
 			<bMilitaryProduction>1</bMilitaryProduction>
 			<bPillage>1</bPillage>
 			<UnitClassUpgrades>
-				<UnitClassUpgradeType>UNITCLASS_JAVELINEER</UnitClassUpgradeType>
-				<UnitClassUpgradeType>UNITCLASS_FLETCHER</UnitClassUpgradeType>
+				<UnitClassType>UNITCLASS_JAVELINEER</UnitClassType>
+				<UnitClassType>UNITCLASS_FLETCHER</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
@@ -1089,7 +1089,7 @@
 			<bMilitaryProduction>1</bMilitaryProduction>
 			<bPillage>1</bPillage>
 			<UnitClassUpgrades>
-				<UnitClassUpgradeType>UNITCLASS_ARCHER</UnitClassUpgradeType>
+				<UnitClassType>UNITCLASS_ARCHER</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
@@ -1147,7 +1147,7 @@
 			<bMilitaryProduction>1</bMilitaryProduction>
 			<bPillage>1</bPillage>
 			<UnitClassUpgrades>
-				<UnitClassUpgradeType>UNITCLASS_ARCHER</UnitClassUpgradeType>
+				<UnitClassType>UNITCLASS_ARCHER</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
@@ -3651,7 +3651,7 @@
 			<bMilitaryProduction>1</bMilitaryProduction>
 			<bPillage>1</bPillage>
 			<UnitClassUpgrades>
-				<UnitClassUpgradeType>UNITCLASS_SPEARMAN</UnitClassUpgradeType>
+				<UnitClassType>UNITCLASS_SPEARMAN</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_RESERVE</UnitAIType>
@@ -3702,7 +3702,7 @@
 			<bMilitaryProduction>1</bMilitaryProduction>
 			<bPillage>1</bPillage>
 			<UnitClassUpgrades>
-				<UnitClassUpgradeType>UNITCLASS_AXEMAN</UnitClassUpgradeType>
+				<UnitClassType>UNITCLASS_AXEMAN</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
@@ -6559,13 +6559,13 @@
 		</UnitInfo>
 		<UnitInfo> <!-- Caravel: Portugese Caravela -->
 			<Class>UNITCLASS_CARAVEL</Class>
-			<Type>UNIT_PORTUGAL_CARRACK</Type>
+			<Type>UNIT_PORTUGAL_CARAVELA</Type>
 			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_EXPLORE_SEA</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_PORTUGAL_CARRACK</Description>
-			<Civilopedia>TXT_KEY_UNIT_PORTUGAL_CARRACK_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_PORTUGAL_CARRACK_STRATEGY</Strategy>
+			<Description>TXT_KEY_UNIT_PORTUGAL_CARAVELA</Description>
+			<Civilopedia>TXT_KEY_UNIT_PORTUGAL_CARAVELA_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_PORTUGAL_CARAVELA_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<bRivalTerritory>1</bRivalTerritory>
 			<bMilitarySupport>1</bMilitarySupport>
@@ -8494,7 +8494,7 @@
 			<bFood>1</bFood>
 			<bFound>1</bFound>
 			<UnitClassUpgrades>
-				<UnitClassUpgradeType>UNITCLASS_SETTLER</UnitClassUpgradeType>
+				<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_SETTLE</UnitAIType>
@@ -8935,6 +8935,7 @@
 			<Class>UNITCLASS_SLAVE</Class>
 			<Type>UNIT_SLAVE</Type>
 			<Capture>UNITCLASS_SLAVE</Capture>
+			<Combat>UNITCOMBAT_WORKER</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_SLAVE</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_SLAVE</Description>

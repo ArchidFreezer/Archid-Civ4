@@ -93,15 +93,15 @@
 	</TEXT>
 
 	<TEXT> <!-- Caravela: Portugese Caravel -->
-		<Tag>TXT_KEY_UNIT_PORTUGAL_CARRACK</Tag>
+		<Tag>TXT_KEY_UNIT_PORTUGAL_CARAVELA</Tag>
 		<English>Caravela</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_UNIT_PORTUGAL_CARRACK_STRATEGY</Tag>
+		<Tag>TXT_KEY_UNIT_PORTUGAL_CARAVELA_STRATEGY</Tag>
 		<English>This early naval unit (the Portuguese replacement for the [COLOR_UNIT_TEXT]Caravel[COLOR_REVERT]) can transport both military and peaceful units, as well as explore enemy territory without penalty.</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_UNIT_PORTUGAL_CARRACK_PEDIA</Tag>
+		<Tag>TXT_KEY_UNIT_PORTUGAL_CARAVELA_PEDIA</Tag>
 		<English>[TAB]These four-masted sailing ships were the first European ships able to reliably navigate the open ocean. Although small by modern standards, the Caravela afforded enough space for crew, cargo and small cannons. Its economy, speed, agility, and power made it esteemed as the best sailing vessel of its time.</English>
 	</TEXT>
 

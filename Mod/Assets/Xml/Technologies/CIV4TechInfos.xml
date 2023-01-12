@@ -5657,6 +5657,7 @@
 			<iCost>18</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<Era>ERA_EPIPALAEOLITHIC</Era>
+			<FirstFreeUnitClass>UNITCLASS_ATLATL</FirstFreeUnitClass>
 			<iAsset>2</iAsset>
 			<iPower>1</iPower>
 			<bTrade>1</bTrade>

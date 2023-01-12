@@ -1800,7 +1800,7 @@
 			<Type>PROMOTION_SLAVER_HUNTER</Type>
 			<Description>TXT_KEY_PROMOTION_SLAVER_HUNTER</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<TechPrereq>TECH_BRONZE_WORKING</TechPrereq>
+			<TechPrereq>TECH_SLAVERY</TechPrereq>
 			<SeeInvisibles>
 				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
 			</SeeInvisibles>

@@ -110,7 +110,7 @@
 			<iCulturePercent>100</iCulturePercent>
 			<iAnarchyPercent>50</iAnarchyPercent>
 			<iEventChancePerTurn>2</iEventChancePerTurn>
-			<iUnitRangeChange>2</iUnitRangeChange>
+			<iUnitRangeChange>4</iUnitRangeChange>
 			<iUnitRangeModifier>50</iUnitRangeModifier>
 			<bFirstSoundtrackFirst>1</bFirstSoundtrackFirst>
 			<EraInfoSoundtracks>
