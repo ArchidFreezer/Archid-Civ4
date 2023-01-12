@@ -8969,9 +8969,6 @@
 			<UnitAIs>
 				<UnitAIType>UNITAI_WORKER</UnitAIType>
 			</UnitAIs>
-			<PrereqTechs>
-				<TechType>TECH_SEDENTARY_LIFESTYLE</TechType>
-			</PrereqTechs>
 			<Builds>
 				<BuildType>BUILD_ROAD</BuildType>
 				<BuildType>BUILD_RAILROAD</BuildType>
@@ -9001,6 +8998,9 @@
 				<BuildType>BUILD_SCRUB_FALLOUT</BuildType>
 				<BuildType>BUILD_FOREST_PRESERVE</BuildType>
 			</Builds>
+			<PrereqTechs>
+				<TechType>TECH_SEDENTARY_LIFESTYLE</TechType>
+			</PrereqTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_EXPANSIVE</ProductionTraitType>
@@ -9044,9 +9044,6 @@
 			<UnitAIs>
 				<UnitAIType>UNITAI_WORKER</UnitAIType>
 			</UnitAIs>
-			<PrereqTechs>
-				<TechType>TECH_SEDENTARY_LIFESTYLE</TechType>
-			</PrereqTechs>
 			<Builds>
 				<BuildType>BUILD_ROAD</BuildType>
 				<BuildType>BUILD_RAILROAD</BuildType>
@@ -9076,6 +9073,9 @@
 				<BuildType>BUILD_SCRUB_FALLOUT</BuildType>
 				<BuildType>BUILD_FOREST_PRESERVE</BuildType>
 			</Builds>
+			<PrereqTechs>
+				<TechType>TECH_SEDENTARY_LIFESTYLE</TechType>
+			</PrereqTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_EXPANSIVE</ProductionTraitType>
