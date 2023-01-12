@@ -25,8 +25,8 @@
 			<bValid>1</bValid>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_SPIRITUAL</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_SPIRITUAL</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<Button>Art/Interface/Buttons/Buildings/Temple.dds</Button>

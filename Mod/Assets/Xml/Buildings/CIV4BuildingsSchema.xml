@@ -69,17 +69,16 @@
 		<element type="BonusType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="TraitType" content="textOnly"/>
-	<ElementType name="iProduction" content="textOnly" dt:type="int"/>
 	<ElementType name="ProductionTrait" content="eltOnly">
 		<element type="TraitType"/>
-		<element type="iProduction"/>
+		<element type="iChange"/>
 	</ElementType>
 	<ElementType name="ProductionTraits" content="eltOnly">
 		<element type="ProductionTrait" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="HappinessTrait" content="eltOnly">
 		<element type="TraitType"/>
-		<element type="iHappiness"/>
+		<element type="iChange"/>
 	</ElementType>
 	<ElementType name="HappinessTraits" content="eltOnly">
 		<element type="HappinessTrait" minOccurs="0" maxOccurs="*"/>
@@ -225,30 +224,25 @@
 	<ElementType name="CommerceHappinesses" content="eltOnly">
 		<element type="iCommerce" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
-	<ElementType name="iReligionChange" content="textOnly" dt:type="int"/>
+	<ElementType name="iChange" content="textOnly" dt:type="int"/>
 	<ElementType name="ReligionChange" content="eltOnly">
 		<element type="ReligionType"/>
-		<element type="iReligionChange"/>
+		<element type="iChange"/>
 	</ElementType>
 	<ElementType name="ReligionChanges" content="eltOnly">
 		<element type="ReligionChange" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="SpecialistType" content="textOnly"/>
-	<ElementType name="iSpecialistCount" content="textOnly" dt:type="int"/>
+	<ElementType name="iCount" content="textOnly" dt:type="int"/>
 	<ElementType name="SpecialistCount" content="eltOnly">
 		<element type="SpecialistType"/>
-		<element type="iSpecialistCount"/>
+		<element type="iCount"/>
 	</ElementType>
 	<ElementType name="SpecialistCounts" content="eltOnly">
 		<element type="SpecialistCount" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
-	<ElementType name="iFreeSpecialistCount" content="textOnly" dt:type="int"/>
-	<ElementType name="FreeSpecialistCount" content="eltOnly">
-		<element type="SpecialistType"/>
-		<element type="iFreeSpecialistCount"/>
-	</ElementType>
 	<ElementType name="FreeSpecialistCounts" content="eltOnly">
-		<element type="FreeSpecialistCount" minOccurs="0" maxOccurs="*"/>
+		<element type="SpecialistCount" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="bCommerce" content="textOnly" dt:type="boolean"/>
 	<ElementType name="CommerceFlexibles" content="eltOnly">
@@ -260,26 +254,24 @@
 	</ElementType>
 	<ElementType name="ConstructSound" content="textOnly"/>
 	<ElementType name="BonusType" content="textOnly"/>
-	<ElementType name="iHealthChange" content="textOnly" dt:type="int"/>
 	<ElementType name="BonusHealthChange" content="eltOnly">
 		<element type="BonusType"/>
-		<element type="iHealthChange"/>
+		<element type="iChange"/>
 	</ElementType>
 	<ElementType name="BonusHealthChanges" content="eltOnly">
 		<element type="BonusHealthChange" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
-	<ElementType name="iHappinessChange" content="textOnly" dt:type="int"/>
 	<ElementType name="BonusHappinessChange" content="eltOnly">
 		<element type="BonusType"/>
-		<element type="iHappinessChange"/>
+		<element type="iChange"/>
 	</ElementType>
 	<ElementType name="BonusHappinessChanges" content="eltOnly">
 		<element type="BonusHappinessChange" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
-	<ElementType name="iProductonModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="iModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="BonusProductionModifier" content="eltOnly">
 		<element type="BonusType"/>
-		<element type="iProductonModifier"/>
+		<element type="iModifier"/>
 	</ElementType>
 	<ElementType name="BonusProductionModifiers" content="eltOnly">
 		<element type="BonusProductionModifier" minOccurs="0" maxOccurs="*"/>
@@ -300,10 +292,9 @@
 	<ElementType name="DomainFreeExperiences" content="eltOnly">
 		<element type="DomainFreeExperience" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
-	<ElementType name="iProductionModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="DomainProductionModifier" content="eltOnly">
 		<element type="DomainType"/>
-		<element type="iProductionModifier"/>
+		<element type="iModifier"/>
 	</ElementType>
 	<ElementType name="DomainProductionModifiers" content="eltOnly">
 		<element type="DomainProductionModifier" minOccurs="0" maxOccurs="*"/>
@@ -311,16 +302,16 @@
 	<ElementType name="BuildingType" content="textOnly"/>
 	<ElementType name="BuildingHappinessChange" content="eltOnly">
 		<element type="BuildingType"/>
-		<element type="iHappinessChange"/>
+		<element type="iChange"/>
 	</ElementType>
 	<ElementType name="BuildingHappinessChanges" content="eltOnly">
 		<element type="BuildingHappinessChange" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="BuildingClassType" content="textOnly"/>
-	<ElementType name="iNumBuildingNeeded" content="textOnly" dt:type="int"/>
+	<ElementType name="iNeeded" content="textOnly" dt:type="int"/>
 	<ElementType name="PrereqNumOfBuildingClass" content="eltOnly">
 		<element type="BuildingClassType"/>
-		<element type="iNumBuildingNeeded"/>
+		<element type="iNeeded"/>
 	</ElementType>
 	<ElementType name="PrereqNumOfBuildingClasses" content="eltOnly">
 		<element type="PrereqNumOfBuildingClass" minOccurs="0" maxOccurs="*"/>
@@ -341,7 +332,7 @@
 	</ElementType>
 	<ElementType name="ImprovementFreeSpecialist" content="eltOnly">
 		<element type="ImprovementType"/>
-		<element type="iFreeSpecialistCount"/>
+		<element type="iCount"/>
 	</ElementType>
 	<ElementType name="ImprovementFreeSpecialists" content="eltOnly">
 		<element type="ImprovementFreeSpecialist" minOccurs="0" maxOccurs="*"/>
