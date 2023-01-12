@@ -63,12 +63,6 @@
 	<ElementType name="TerrainTrades" content="eltOnly">
 		<element type="TerrainType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
-	<ElementType name="SpecialBuildingType" content="textOnly"/>
-	<ElementType name="bSpecialBuilding" content="textOnly" dt:type="boolean"/>
-	<ElementType name="SpecialBuilding" content="eltOnly">
-		<element type="SpecialBuildingType"/>
-		<element type="bSpecialBuilding"/>
-	</ElementType>
 	<ElementType name="FlavorType" content="textOnly"/>
 	<ElementType name="iFlavor" content="textOnly" dt:type="int"/>
 	<ElementType name="Flavor" content="eltOnly">

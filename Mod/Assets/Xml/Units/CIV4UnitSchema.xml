@@ -144,7 +144,6 @@
 	<ElementType name="bLineOfSight" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bHiddenNationality" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bAlwaysHostile" content="textOnly" dt:type="boolean"/>
-	<ElementType name="UnitClassUpgradeType" content="textOnly"/>
 	<ElementType name="UnitClassUpgrades" content="eltOnly">
 		<element type="UnitClassType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
