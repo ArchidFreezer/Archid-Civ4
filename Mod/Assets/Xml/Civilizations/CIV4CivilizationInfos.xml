@@ -2614,7 +2614,7 @@
 			<Units>
 				<Unit>
 					<UnitClassType>UNITCLASS_CARAVEL</UnitClassType>
-					<UnitType>UNIT_PORTUGAL_CARRACK</UnitType>
+					<UnitType>UNIT_PORTUGAL_CARAVELA</UnitType>
 				</Unit>
 			</Units>
 			<FreeUnitClasses>
