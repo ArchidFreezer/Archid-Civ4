@@ -17,6 +17,11 @@
 			<bNoLimit>1</bNoLimit>
 			<DefaultBuilding>BUILDING_PALACE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Capital Seat -->
+			<Type>BUILDINGCLASS_CAPITAL_SEAT</Type>
+			<Description>TXT_KEY_BUILDING_CAPITAL_SEAT</Description>
+			<DefaultBuilding>BUILDING_CAPITAL_SEAT</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Walls -->
 			<Type>BUILDINGCLASS_WALLS</Type>
 			<Description>TXT_KEY_BUILDING_WALLS</Description>

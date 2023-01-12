@@ -4992,6 +4992,17 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 				}
 			}
 
+			BuildingClassTypes eFreeBuildingClass = (BuildingClassTypes)kTech.getFreeCapitalBuildingClass();
+			if (eFreeBuildingClass != NO_BUILDINGCLASS) {
+				BuildingTypes eFreeBuilding = (BuildingTypes)GC.getCivilizationInfo(kPlayer.getCivilizationType()).getCivilizationBuildings(eFreeBuildingClass);
+				CvCity* pCapitalCity = kPlayer.getCapitalCity();
+				if (pCapitalCity != NULL && eFreeBuilding != NO_BUILDING) {
+					if (pCapitalCity->getNumBuildingClass(eFreeBuildingClass) == 0) {
+						pCapitalCity->setNumFreeBuilding(eFreeBuilding, 1);
+					}
+				}
+			}
+
 			for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
 				kPlayer.changeCommerceRateModifier(eCommerce, kTech.getCommerceModifier(eCommerce)* iChange);
 				kPlayer.changeSpecialistExtraCommerce(eCommerce, kTech.getSpecialistExtraCommerce(eCommerce) * iChange);

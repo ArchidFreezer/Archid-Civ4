@@ -11234,6 +11234,7 @@
 			<iCost>28</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
+			<FreeCapitalBuildingClass>BUILDINGCLASS_PALACE</FreeCapitalBuildingClass>
 			<iFirstFreeTechs>1</iFirstFreeTechs>
 			<iAsset>4</iAsset>
 			<bGoodyTech>1</bGoodyTech>

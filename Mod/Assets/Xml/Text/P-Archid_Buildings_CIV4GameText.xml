@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- Game Text - New -->
 <Civ4GameText xmlns="http://www.firaxis.com">
-<!-- Library -->
+	<TEXT> <!-- Capital Seat -->
+		<Tag>TXT_KEY_BUILDING_CAPITAL_SEAT</Tag>
+		<English>Capital Seat</English>
+	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CAPITAL_SEAT_PEDIA</Tag>
+		<English>[TAB]The capital seat is the location where the leader of the civ parks his behind and defines the capital of the civilisation before the advent of more permanent structures such as palaces.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CAPITAL_SEAT_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Capital Seat[COLOR_REVERT] defines the capital and administrative centre of a civilzation and also provides a small production bonus.</English>
+	</TEXT>
+	<TEXT> <!-- Library -->
 		<Tag>TXT_KEY_BUILDING_LIBRARY_STRATEGY</Tag>
 		<English>[COLOR_BUILDING_TEXT]Libraries[COLOR_REVERT] boost your cities' research and provide culture. They are required to build [COLOR_BUILDING_TEXT]Universities[COLOR_REVERT], the [COLOR_BUILDING_TEXT]Great Library[COLOR_REVERT] wonder, and the [COLOR_BUILDING_TEXT]National Epic[COLOR_REVERT] national wonder.</English>
 		<French>Les [COLOR_BUILDING_TEXT]biblioth&#232;ques[COLOR_REVERT] am&#233;liorent la recherche et produisent de la culture. Elles sont n&#233;cessaires pour construire des [COLOR_BUILDING_TEXT]universit&#233;s[COLOR_REVERT], la [COLOR_BUILDING_TEXT]Grande biblioth&#232;que[COLOR_REVERT], et l'[COLOR_BUILDING_TEXT]Epop&#233;e nationale[COLOR_REVERT].</French>

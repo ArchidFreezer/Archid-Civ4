@@ -126,6 +126,7 @@
 	<ElementType name="CommerceModifiers" content="eltOnly">
 		<element type="iCommerce" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="FreeCapitalBuildingClass" content="textOnly"/>
 	<ElementType name="TechInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -139,6 +140,7 @@
 		<element type="iAdvancedStartCost"/>
 		<element type="iAdvancedStartCostIncrease" minOccurs="0"/>
 		<element type="Era"/>
+		<element type="FreeCapitalBuildingClass" minOccurs="0"/>
 		<element type="FirstFreeUnitClass" minOccurs="0"/>
 		<element type="FreeUnitClass" minOccurs="0"/>
 		<element type="iFeatureProductionModifier" minOccurs="0"/>

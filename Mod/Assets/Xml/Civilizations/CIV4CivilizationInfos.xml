@@ -99,7 +99,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -186,7 +186,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -271,7 +271,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -360,7 +360,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -453,7 +453,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -543,7 +543,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -637,7 +637,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -731,7 +731,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -837,7 +837,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -925,7 +925,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -1014,7 +1014,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -1103,7 +1103,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -1207,7 +1207,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -1302,7 +1302,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -1398,7 +1398,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -1481,7 +1481,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -1627,7 +1627,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -1712,7 +1712,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -1802,7 +1802,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -1881,7 +1881,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -1960,7 +1960,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -2053,7 +2053,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -2135,7 +2135,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -2235,7 +2235,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -2329,7 +2329,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -2414,7 +2414,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -2529,7 +2529,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -2624,7 +2624,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -2728,7 +2728,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -2816,7 +2816,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -2908,7 +2908,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -2994,7 +2994,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -3082,7 +3082,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -3167,7 +3167,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -3271,7 +3271,7 @@
 				</FreeUnitClass>
 			</FreeUnitClasses>
 			<FreeBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
 				<TechType>TECH_GRAIN_GATHERING</TechType>
@@ -3374,7 +3374,7 @@
 			</Cities>
 			<Buildings>
 				<Building>
-					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 					<BuildingType>NONE</BuildingType>
 				</Building>
 				<Building>
@@ -3717,6 +3717,10 @@
 			<Units>
 				<Unit>
 					<UnitClassType>UNITCLASS_TRIBE</UnitClassType>
+					<UnitType>NONE</UnitType>
+				</Unit>
+				<Unit>
+					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
 					<UnitType>NONE</UnitType>
 				</Unit>
 				<Unit>

@@ -464,6 +464,28 @@
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>0</iHotKeyPriority>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Capital Seat -->
+			<BuildingClass>BUILDINGCLASS_CAPITAL_SEAT</BuildingClass>
+			<Type>BUILDING_CAPITAL_SEAT</Type>
+			<Description>TXT_KEY_BUILDING_CAPITAL_SEAT</Description>
+			<Civilopedia>TXT_KEY_BUILDING_CAPITAL_SEAT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_CAPITAL_SEAT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_CAPITAL_SEAT</ArtDefineTag>
+			<bCapital>1</bCapital>
+			<bGovernmentCenter>1</bGovernmentCenter>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>-1</iCost>
+			<iHappiness>1</iHappiness>
+			<fVisibilityPriority>10000.0</fVisibilityPriority>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</YieldChanges>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+			</ReplacedByBuildingClasses>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Castle -->
 			<BuildingClass>BUILDINGCLASS_CASTLE</BuildingClass>
 			<Type>BUILDING_CASTLE</Type>

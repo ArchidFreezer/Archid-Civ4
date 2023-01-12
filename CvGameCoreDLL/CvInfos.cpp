@@ -848,6 +848,7 @@ CvTechInfo::CvTechInfo() :
 	m_iUnitRangeChange(0),
 	m_iUnitRangeModifier(0),
 	m_iCultureDefenceModifier(0),
+	m_iFreeCapitalBuildingClass(NO_BUILDINGCLASS),
 	m_bRepeat(false),
 	m_bTrade(false),
 	m_bDisable(false),
@@ -907,6 +908,10 @@ CvTechInfo::~CvTechInfo() {
 	SAFE_DELETE_ARRAY(m_piCommerceModifier);
 	SAFE_DELETE_ARRAY(m_pbCommerceFlexible);
 	SAFE_DELETE_ARRAY(m_pbTerrainTrade);
+}
+
+int CvTechInfo::getFreeCapitalBuildingClass() const {
+	return m_iFreeCapitalBuildingClass;
 }
 
 int CvTechInfo::getCultureDefenceModifier() const {
@@ -1311,6 +1316,7 @@ void CvTechInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iUnitRangeChange);
 	stream->Read(&m_iUnitRangeModifier);
 	stream->Read(&m_iCultureDefenceModifier);
+	stream->Read(&m_iFreeCapitalBuildingClass);
 	stream->Read(&m_bRepeat);
 	stream->Read(&m_bTrade);
 	stream->Read(&m_bDisable);
@@ -1437,6 +1443,7 @@ void CvTechInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iUnitRangeChange);
 	stream->Write(m_iUnitRangeModifier);
 	stream->Write(m_iCultureDefenceModifier);
+	stream->Write(m_iFreeCapitalBuildingClass);
 	stream->Write(m_bRepeat);
 	stream->Write(m_bTrade);
 	stream->Write(m_bDisable);
@@ -1518,6 +1525,8 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "Era");
 	m_iEra = pXML->FindInInfoClass(szTextVal);
 
+	pXML->GetChildXmlValByName(szTextVal, "FreeCapitalBuildingClass");
+	m_iFreeCapitalBuildingClass = pXML->FindInInfoClass(szTextVal);
 	pXML->GetChildXmlValByName(szTextVal, "FirstFreeUnitClass");
 	m_iFirstFreeUnitClass = pXML->FindInInfoClass(szTextVal);
 	pXML->GetChildXmlValByName(szTextVal, "FreeUnitClass");

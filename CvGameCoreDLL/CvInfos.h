@@ -323,6 +323,7 @@ public:
 	int getNumPrereqOrTechs() const;
 	int getNumEnabledWorldViews() const;
 	int getCultureDefenceModifier() const;
+	int getFreeCapitalBuildingClass() const;
 
 	int getGridX() const;									// Exposed to Python
 	int getGridY() const;									// Exposed to Python
@@ -425,6 +426,7 @@ protected:
 	int m_iGridX;
 	int m_iGridY;
 	int m_iCultureDefenceModifier;
+	int m_iFreeCapitalBuildingClass;
 
 	bool m_bRepeat;
 	bool m_bTrade;
