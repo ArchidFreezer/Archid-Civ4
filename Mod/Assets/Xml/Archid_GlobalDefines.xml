@@ -639,5 +639,9 @@
 		<DefineName>STANDARD_ERA</DefineName>
 		<DefineTextVal>ERA_EPIPALAEOLITHIC</DefineTextVal>
 	</Define>
-
+<!-- Minimum city population for conscription when running a civic with tribal conscription -->
+	<Define>
+		<DefineName>TRIBAL_CONSCRIPT_MIN_CITY_POPULATION</DefineName>
+		<iDefineIntVal>3</iDefineIntVal>
+	</Define>
 </Civ4Defines>

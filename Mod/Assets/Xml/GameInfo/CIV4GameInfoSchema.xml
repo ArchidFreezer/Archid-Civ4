@@ -719,7 +719,7 @@
 	<ElementType name="iStarSignMitigateChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iCultureDefenceChange" content="textOnly" dt:type="int"/>
-	<ElementType name="bHappyConscription" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bTribalConscription" content="textOnly" dt:type="boolean"/>
 	<ElementType name="CivicInfo" content="eltOnly">
 		<element type="CivicOptionType"/>
 		<element type="Type"/>
@@ -756,7 +756,7 @@
 		<element type="iGoldPerMilitaryUnit" minOccurs="0"/>
 		<element type="iHappyPerMilitaryUnit" minOccurs="0"/>
 		<element type="bMilitaryFoodProduction" minOccurs="0"/>
-		<element type="bHappyConscription" minOccurs="0"/>
+		<element type="bTribalConscription" minOccurs="0"/>
 		<element type="iMaxConscript" minOccurs="0"/>
 		<element type="iUnhealthyPopulationModifier" minOccurs="0"/>
 		<element type="iExpInBorderModifier" minOccurs="0"/>

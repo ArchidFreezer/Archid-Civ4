@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Game Text - New -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT> <!-- Ancestor Worship -->
+		<Tag>TXT_KEY_CIVIC_ANCESTOR_WORSHIP</Tag>
+		<English>Ancestor Worship</English>
+		<Spanish>Adoraci&#243;n de Ancestros</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_ANCESTOR_WORSHIP_PEDIA</Tag>
+		<English>[TAB][COLOR_HIGHLIGHT_TEXT]Ancestor Worship[COLOR_REVERT] is a practice based on the belief that deceased family members have a continued existence, take an interest in the affairs of the world, and/or possess the ability to influence the fortune of the living. All cultures attach ritual significance to the passing of loved ones, but this is not equivalent to ancestor veneration. The goal of ancestor veneration is to ensure the ancestors' continued well-being and positive disposition towards the living and sometimes to ask for special favours or assistance. The social or non-religious function of ancestor veneration is to cultivate kinship values like filial piety, family loyalty, and continuity of the family lineage. While far from universal, ancestor veneration occurs in societies with every degree of social, political, and technological complexity, and it remains an important component of various religious practices in modern times.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_ANCESTOR_WORSHIP_STRATEGY</Tag>
+		<English>Increases [COLOR_UNIT_TEXT]Great General's[COLOR_REVERT] birth by [COLOR_POSITIVE_TEXT]+35%[COLOR_REVERT] when fighting inside your borders.</English>
+		<Spanish>Incrementa el nacimiento de un [COLOR_UNIT_TEXT]Gran General[COLOR_REVERT] por [COLOR_POSITIVE_TEXT]+35%[COLOR_REVERT] en batallas dentro de tus fronteras.</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Barbarism -->
+		<Tag>TXT_KEY_CIVIC_BARBARISM_STRATEGY</Tag>
+		<English>The most primitive Legal civic. Increases maintenance costs from distance to palace.</English>
+		<Spanish>El principio legal m&#225;s primitivo. Incrementa los costos de manutenci&#243;n por distancia al palacio.</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Barter -->
+		<Tag>TXT_KEY_CIVIC_BARTER</Tag>
+		<English>Barter</English>
+		<Spanish>Trueque</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_BARTER_STRATEGY</Tag>
+		<English>You may assign [COLOR_BUILDING_TEXT]unlimited merchants[COLOR_REVERT]. Increases maintenance costs from Corporations.</English>
+		<Spanish>Se pueden asignar [COLOR_BUILDING_TEXT]sin l&#237;mite mercantes[COLOR_REVERT] a las ciudades. Incrementa el costo de manutenci&#243;n por Corporaciones.</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Decentralisation -->
+		<Tag>TXT_KEY_CIVIC_DECENTRALIZATION_STRATEGY</Tag>
+		<English>The most primitive Economy civic. Reduces city maintenance. No foreign trade routes.</English>
+		<Spanish>El principio econ&#243;mico m&#225;s primitivo. Reduce el mantenimiento de ciudades. No hay rutas de comercio internacional.</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Despotism -->
+		<Tag>TXT_KEY_CIVIC_DESPOTISM_STRATEGY</Tag>
+		<English>The most primitive Legal civic. [COLOR_UNIT_TEXT]Gatherers[COLOR_REVERT] and [COLOR_UNIT_TEXT]Workers[COLOR_REVERT] [COLOR_HIGHLIGHT_TEXT]build improvements[COLOR_REVERT] slower. [COLOR_HIGHLIGHT_TEXT]Cottages, Hamlets and Villages[COLOR_REVERT] take more time to upgrade.</English>
+		<Spanish>El principio de gobierno m&#225;s primitivo. [COLOR_UNIT_TEXT]Recolectores[COLOR_REVERT] y [COLOR_UNIT_TEXT]Trabajadores[COLOR_REVERT] demoran m&#225;s en [COLOR_HIGHLIGHT_TEXT]contruir mejoras[COLOR_REVERT]. Aumenta el tiempo de actualizaci&#243;n de las [COLOR_HIGHLIGHT_TEXT]casas[COLOR_REVERT].</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Mythology -->
+		<Tag>TXT_KEY_CIVIC_MYTHOLOGY</Tag>
+		<English>Mythology</English>
+		<Spanish>Mitolog&#237;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_MYTHOLOGY_PEDIA</Tag>
+		<English>[TAB]The word mythology refers to a body of folklore/myths/legends that a particular culture believes to be true and that often use the supernatural to interpret natural events and to explain the nature of the universe and humanity. Mythology also refers to the branch of knowledge dealing with the collection, study and interpretation of myths, also known as mythography. The study of myths from multiple cultures is called comparative mythology.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_MYTHOLOGY_STRATEGY</Tag>
+		<English>Extra culture from specialists.</English>
+		<Spanish>Cultura extra por especialistas.</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Nomadism -->
+		<Tag>TXT_KEY_CIVIC_NOMADISM</Tag>
+		<English>Nomadism</English>
+		<Spanish>Nomadismo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_NOMADISM_PEDIA</Tag>
+		<English>[TAB]Nomadic people, also known as nomads, are communities of people that move with herd animals from one place to another, rather than settling down in one location. There are an estimated 30-40 million nomads in the world. Many cultures have been traditionally nomadic, but traditional nomadic behavior is increasingly rare in industrialized countries. There are three kinds of nomads, hunter-gatherers moving between hunting grounds, pastoral nomads moving between pastures, and "peripatetic nomads" moving between customers.[NEWLINE][PARAGRAPH:1]Nomadic hunter-gatherers have by far the longest-lived subsistence method in human history, following seasonally available wild plants and game. Pastoralists raise herds and move with them so as not to deplete pasture beyond recovery in any one area. Peripatetic nomads are more common in industrialized nations, traveling from one territory to another and offering a trade wherever they go.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_NOMADISM_STRATEGY</Tag>
+		<English>The most primitive Labor civic. Increases maintenance costs from number of cities and reduces global culture rate.</English>
+		<Spanish>El principio laboral m&#225;s primitivo. Incrementa los costos de manutenci&#243;n por n&#250;mero de ciudades y reduce el ratio global de cultura.</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Paganism -->
+		<Tag>TXT_KEY_CIVIC_PAGANISM_STRATEGY</Tag>
+		<English>The most primitive Religion civic. Reduces Birth rate in all cities. No state religion.</English>
+		<Spanish>El principio religioso m&#225;s antiguo. Reduce la tasa de natalidad de grandes personajes en todas las ciudades. No hay religi&#243;n oficial.</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Tribal Law -->
+		<Tag>TXT_KEY_CIVIC_TRIBAL_LAW</Tag>
+		<English>Tribal Law</English>
+		<Spanish>Ley Tribal</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_TRIBAL_LAW_STRATEGY</Tag>
+		<English>Free units for your empire.</English>
+		<Spanish>Unidades gratis para tu imperio.</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Tribalism -->
+		<Tag>TXT_KEY_CIVIC_TRIBALISM_STRATEGY</Tag>
+		<English>[COLOR_UNIT_TEXT]Gatherers[COLOR_REVERT] work faster.</English>
+		<Spanish>[COLOR_UNIT_TEXT]Recolectores[COLOR_REVERT] trabajan con mayor rapidez.</Spanish>
+	</TEXT>
+
+</Civ4GameText>

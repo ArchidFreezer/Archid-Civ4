@@ -14,6 +14,20 @@
 			<Strategy>TXT_KEY_CIVIC_DESPOTISM_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Despotism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,5,1</Button>
 			<Upkeep>UPKEEP_LOW</Upkeep>
+			<iWorkerSpeedModifier>-25</iWorkerSpeedModifier>
+			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_DESPOT</WeLoveTheKing>
+		</CivicInfo>
+		<CivicInfo> <!-- Government - Ancestor Worship -->
+			<CivicOptionType>CIVICOPTION_GOVERNMENT</CivicOptionType>
+			<Type>CIVIC_ANCESTOR_WORSHIP</Type>
+			<Description>TXT_KEY_CIVIC_ANCESTOR_WORSHIP</Description>
+			<Civilopedia>TXT_KEY_CIVIC_ANCESTOR_WORSHIP_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_ANCESTOR_WORSHIP_STRATEGY</Strategy>
+			<Button>Art/Interface/Buttons/Civics/ancestor_worship.dds</Button>
+			<TechPrereq>TECH_CHIEFDOM</TechPrereq>
+			<iAnarchyLength>1</iAnarchyLength>
+			<Upkeep>UPKEEP_HIGH</Upkeep>
+			<iCultureDefenceChange>10</iCultureDefenceChange>
 			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_DESPOT</WeLoveTheKing>
 		</CivicInfo>
 		<CivicInfo> <!-- Government - Hereditary Rule -->
@@ -90,7 +104,22 @@
 			<Strategy>TXT_KEY_CIVIC_BARBARISM_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Barbarism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,1,1</Button>
 			<Upkeep>UPKEEP_LOW</Upkeep>
+			<iDistanceMaintenanceModifier>25</iDistanceMaintenanceModifier>
 			<WeLoveTheKing/>
+		</CivicInfo>
+		<CivicInfo> <!-- Legal - Tribal Law -->
+			<CivicOptionType>CIVICOPTION_LEGAL</CivicOptionType>
+			<Type>CIVIC_TRIBAL_LAW</Type>
+			<Description>TXT_KEY_CIVIC_TRIBAL_LAW</Description>
+			<Civilopedia>TXT_KEY_TECH_TRIBALISM_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_TRIBAL_LAW_STRATEGY</Strategy>
+			<Button>Art/Interface/Buttons/Civics/tribal_law.dds</Button>
+			<TechPrereq>TECH_CHIEFDOM</TechPrereq>
+			<iAnarchyLength>1</iAnarchyLength>
+			<Upkeep>UPKEEP_LOW</Upkeep>
+			<iMaxConscript>2</iMaxConscript>
+			<bTribalConscription>1</bTribalConscription>
+			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_DESPOT</WeLoveTheKing>
 		</CivicInfo>
 		<CivicInfo> <!-- Legal - Vassalage -->
 			<CivicOptionType>CIVICOPTION_LEGAL</CivicOptionType>
@@ -173,14 +202,46 @@
 			</ImprovementYieldChanges>
 			<WeLoveTheKing/>
 		</CivicInfo>
+		<CivicInfo> <!-- Labour - Nomadism -->
+			<CivicOptionType>CIVICOPTION_LABOR</CivicOptionType>
+			<Type>CIVIC_NOMADISM</Type>
+			<Description>TXT_KEY_CIVIC_NOMADISM</Description>
+			<Civilopedia>TXT_KEY_CIVIC_NOMADISM_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_NOMADISM_STRATEGY</Strategy>
+			<Button>,Art/Interface/Buttons/Civics/Tribalism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,7,3</Button>
+			<Upkeep>UPKEEP_LOW</Upkeep>
+			<iNumCitiesMaintenanceModifier>25</iNumCitiesMaintenanceModifier>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>-75</iCommerce>
+			</CommerceModifiers>
+			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_DESPOT</WeLoveTheKing>
+		</CivicInfo>
 		<CivicInfo> <!-- Labour - Tribalism -->
 			<CivicOptionType>CIVICOPTION_LABOR</CivicOptionType>
 			<Type>CIVIC_TRIBALISM</Type>
 			<Description>TXT_KEY_CIVIC_TRIBALISM</Description>
 			<Civilopedia>TXT_KEY_CIVIC_TRIBALISM_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_CIVIC_TRIBALISM_STRATEGY</Strategy>
-			<Button>,Art/Interface/Buttons/Civics/Tribalism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,7,3</Button>
+			<Button>Art/Interface/Buttons/Civics/tribalism.dds</Button>
+			<TechPrereq>TECH_TRIBALISM</TechPrereq>
 			<Upkeep>UPKEEP_LOW</Upkeep>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>-25</iCommerce>
+			</CommerceModifiers>
+			<ImprovementYieldChanges>
+				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_SEED_CAMP</ImprovementType>
+					<ImprovementYields>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
+			</ImprovementYieldChanges>
 			<WeLoveTheKing/>
 		</CivicInfo>
 		<CivicInfo> <!-- Labour - Slavery -->
@@ -282,7 +343,22 @@
 			<Strategy>TXT_KEY_CIVIC_DECENTRALIZATION_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Decentralization.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,4,1</Button>
 			<Upkeep>UPKEEP_LOW</Upkeep>
+			<bNoCorporations>1</bNoCorporations>
 			<WeLoveTheKing/>
+		</CivicInfo>
+		<CivicInfo> <!-- Economy - Barter -->
+			<CivicOptionType>CIVICOPTION_ECONOMY</CivicOptionType>
+			<Type>CIVIC_BARTER</Type>
+			<Description>TXT_KEY_CIVIC_BARTER</Description>
+			<Civilopedia>TXT_KEY_TECH_BARTER_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_BARTER_STRATEGY</Strategy>
+			<Button>,Art/Interface/Buttons/TechTree/Buttons_Barter.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,5,12</Button>
+			<TechPrereq>TECH_TRADE</TechPrereq>
+			<iAnarchyLength>1</iAnarchyLength>
+			<Upkeep>UPKEEP_MEDIUM</Upkeep>
+			<iDistanceMaintenanceModifier>-25</iDistanceMaintenanceModifier>
+			<iCorporationMaintenanceModifier>100</iCorporationMaintenanceModifier>
+			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_DESPOT</WeLoveTheKing>
 		</CivicInfo>
 		<CivicInfo> <!-- Economy - Mercantilism -->
 			<CivicOptionType>CIVICOPTION_ECONOMY</CivicOptionType>
@@ -393,8 +469,29 @@
 			<bEnableStarSigns>1</bEnableStarSigns>
 			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
 			<Upkeep>UPKEEP_LOW</Upkeep>
+			<iGreatPeopleRateModifier>-50</iGreatPeopleRateModifier>
 			<bStateReligion>1</bStateReligion>
 			<WeLoveTheKing/>
+		</CivicInfo>
+		<CivicInfo> <!-- Religion - Mythology -->
+			<CivicOptionType>CIVICOPTION_RELIGION</CivicOptionType>
+			<Type>CIVIC_MYTHOLOGY</Type>
+			<Description>TXT_KEY_CIVIC_MYTHOLOGY</Description>
+			<Civilopedia>TXT_KEY_CIVIC_MYTHOLOGY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_MYTHOLOGY_STRATEGY</Strategy>
+			<Button>Art/Interface/Buttons/Civics/mythology.dds</Button>
+			<TechPrereq>TECH_MYSTICISM</TechPrereq>
+			<bEnableStarSigns>1</bEnableStarSigns>
+			<iStarSignScaleChangePercent>40</iStarSignScaleChangePercent>
+			<iAnarchyLength>1</iAnarchyLength>
+			<Upkeep>UPKEEP_MEDIUM</Upkeep>
+			<bStateReligion>1</bStateReligion>
+			<SpecialistExtraCommerces>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</SpecialistExtraCommerces>
+			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_DESPOT</WeLoveTheKing>
 		</CivicInfo>
 		<CivicInfo> <!-- Religion - Organised Religion -->
 			<CivicOptionType>CIVICOPTION_RELIGION</CivicOptionType>
@@ -423,6 +520,7 @@
 			<Strategy>TXT_KEY_CIVIC_THEOCRACY_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Theocracy.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,6,3</Button>
 			<TechPrereq>TECH_THEOLOGY</TechPrereq>
+			<bEnableStarSigns>1</bEnableStarSigns>
 			<Upkeep>UPKEEP_MEDIUM</Upkeep>
 			<bStateReligion>1</bStateReligion>
 			<bNoNonStateReligionSpread>1</bNoNonStateReligionSpread>
@@ -437,7 +535,6 @@
 			<Strategy>TXT_KEY_CIVIC_PACIFISM_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Pacifism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,3,2</Button>
 			<TechPrereq>TECH_PHILOSOPHY</TechPrereq>
-			<bEnableStarSigns>1</bEnableStarSigns>
 			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
 			<Upkeep>NONE</Upkeep>
 			<iStateReligionGreatPeopleRateModifier>100</iStateReligionGreatPeopleRateModifier>
