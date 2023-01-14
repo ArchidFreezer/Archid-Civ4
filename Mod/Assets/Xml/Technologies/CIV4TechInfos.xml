@@ -6361,6 +6361,12 @@
 			<bTrade>1</bTrade>
 			<iGridX>30</iGridX>
 			<iGridY>13</iGridY>
+			<WorldViewRevoltTurnChanges>
+				<WorldViewRevoltTurnChange>
+					<WorldViewType>WORLD_VIEW_SLAVERY</WorldViewType>
+					<iChange>1</iChange>
+				</WorldViewRevoltTurnChange>
+			</WorldViewRevoltTurnChanges>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -11577,6 +11583,9 @@
 				<PrereqTech>TECH_PRIESTHOOD</PrereqTech>
 				<PrereqTech>TECH_METAL_CASTING</PrereqTech>
 			</OrPreReqs>
+			<EnabledWorldViews>
+				<WorldViewType>WORLD_VIEW_SLAVERY</WorldViewType>
+			</EnabledWorldViews>
 			<Quote>TXT_KEY_TECH_SLAVERY_QUOTE</Quote>
 			<Sound>AS2D_TECH_GENERIC</Sound>
 			<Button>Art/Interface/Buttons/TechTree/slavery.dds</Button>
