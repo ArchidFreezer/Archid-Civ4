@@ -524,6 +524,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iNumSlaves = 0;
 	m_iCultureDefenceChange = 0;
 	m_iCultureDefenceModifier = 0;
+	m_iTribalConscriptionCount = 0;
 
 	m_uiStartTime = 0;
 
@@ -13859,6 +13860,7 @@ void CvPlayer::processCivics(CivicTypes eCivic, int iChange) {
 	changeStarSignMitigatePercent(kCivic.getStarSignMitigateChangePercent() * iChange);
 	changeStarSignScalePercent(kCivic.getStarSignScaleChangePercent() * iChange);
 	changeCultureDefenceChange(kCivic.getCultureDefenceChange() * iChange);
+	changeTribalConscriptionCount(kCivic.isTribalConscription() ? iChange : 0);
 
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 		changeYieldRateModifier(eYield, kCivic.getYieldModifier(eYield) * iChange);
@@ -20114,4 +20116,13 @@ int CvPlayer::getCultureDefenceModifier() const {
 
 void CvPlayer::changeCultureDefenceModifier(int iChange) {
 	m_iCultureDefenceModifier += iChange;
+}
+
+bool CvPlayer::isTribalConscription() const {
+	return m_iTribalConscriptionCount> 0;
+}
+
+void CvPlayer::changeTribalConscriptionCount(int iChange) {
+	m_iTribalConscriptionCount += iChange;
+	FAssert(m_iTribalConscriptionCount >= 0);
 }

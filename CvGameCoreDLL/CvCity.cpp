@@ -2976,7 +2976,7 @@ bool CvCity::canConscript() const {
 		return false;
 	}
 
-	if (getPopulation() < conscriptMinCityPopulation()) {
+	if (getPopulation() < (GET_PLAYER(getOwnerINLINE()).isTribalConscription() ? GC.getTRIBAL_CONSCRIPT_MIN_POP() :  conscriptMinCityPopulation())) {
 		return false;
 	}
 
@@ -3031,10 +3031,18 @@ void CvCity::conscript() {
 		return;
 	}
 
-	int iPopChange = -(getConscriptPopulation());
-	int iAngerLength = flatConscriptAngerLength();
+	CvPlayer& kPlayer = GET_PLAYER(getOwnerINLINE());
+
+	int iPopChange = kPlayer.isTribalConscription() ? -1 : -(getConscriptPopulation());
+	int iAngerLength = kPlayer.isTribalConscription() ? 0 : flatConscriptAngerLength();
 	changePopulation(iPopChange);
-	changeConscriptAngerTimer(iAngerLength);
+
+	if (kPlayer.isTribalConscription()) {
+		setFood(0);
+		setProduction(getProduction() / 2);
+	} else {
+		changeConscriptAngerTimer(iAngerLength);
+	}
 
 	setDrafted(true);
 
@@ -5909,7 +5917,7 @@ int CvCity::getConscriptAngerTimer() const {
 
 void CvCity::changeConscriptAngerTimer(int iChange) {
 	if (iChange != 0) {
-		m_iConscriptAngerTimer = (m_iConscriptAngerTimer + iChange);
+		m_iConscriptAngerTimer += iChange;
 		FAssert(getConscriptAngerTimer() >= 0);
 
 		AI_setAssignWorkDirty(true);

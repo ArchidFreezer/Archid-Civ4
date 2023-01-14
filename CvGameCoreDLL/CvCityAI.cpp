@@ -5600,6 +5600,7 @@ void CvCityAI::AI_doDraft(bool bForce) {
 		}
 		bool bLandWar = kOwner.AI_isLandWar(area()); // K-Mod
 		bool bDanger = (!AI_isDefended() && AI_isDanger());
+		bool bTribal = kOwner.isTribalConscription();
 		int iUnitCostPerMil = kOwner.AI_unitCostPerMil(); // K-Mod
 
 		// Don't go broke from drafting
@@ -5611,7 +5612,7 @@ void CvCityAI::AI_doDraft(bool bForce) {
 		// K-Mod. See if our drafted unit is particularly good value.
 		// (cf. my calculation in CvPlayerAI::AI_civicValue)
 		UnitTypes eConscriptUnit = getConscriptUnit();
-		int iConscriptPop = std::max(1, GC.getUnitInfo(eConscriptUnit).getProductionCost() / GC.getDefineINT("CONSCRIPT_POPULATION_PER_COST"));
+		int iConscriptPop = bTribal ? 1 : getConscriptPopulation();
 
 		// call it "good value" if we get at least 1.4 times the normal hammers-per-conscript-pop.
 		// (with standard settings, this only happens for riflemen)
@@ -5629,7 +5630,7 @@ void CvCityAI::AI_doDraft(bool bForce) {
 		}
 
 		// Large cities want a little spare happiness
-		int iHappyDiff = GC.getDefineINT("CONSCRIPT_POP_ANGER") - iConscriptPop + (bGoodValue ? 0 : getPopulation() / 10);
+		int iHappyDiff = bTribal ? 2 : GC.getDefineINT("CONSCRIPT_POP_ANGER") - iConscriptPop + (bGoodValue ? 0 : getPopulation() / 10);
 
 		if ((bGoodValue || bLandWar) && angryPopulation(iHappyDiff) == 0) {
 			bool bWait = true;
@@ -5637,7 +5638,7 @@ void CvCityAI::AI_doDraft(bool bForce) {
 			if (bWait && kOwner.AI_isDoStrategy(AI_STRATEGY_TURTLE)) {
 				// K-Mod: full out defensive indeed. We've already checked for happiness, and we're desperate for units.
 				// Just beware of happiness sources that might expire - such as military happiness.
-				if (getConscriptAngerTimer() == 0 || AI_countWorkedPoorPlots() > 0)
+				if ((bTribal ? getHurryAngerTimer() == 0 : getConscriptAngerTimer() == 0) || AI_countWorkedPoorPlots() > 0)
 					bWait = false;
 			}
 
@@ -5651,8 +5652,7 @@ void CvCityAI::AI_doDraft(bool bForce) {
 
 			if (bWait) {
 				// Non-critical, only burn population if population is not worth much
-				if ((getConscriptAngerTimer() == 0 || isNoUnhappiness()) // K-Mod
-					&& (bGoodValue || AI_countWorkedPoorPlots() > 0 || foodDifference(false, true) + getFood() < 0 || (foodDifference(false, true) < 0 && healthRate() <= -4))) {
+				if (((bTribal ? getHurryAngerTimer() == 0 : getConscriptAngerTimer() == 0) || isNoUnhappiness()) && (bGoodValue || AI_countWorkedPoorPlots() > 0 || foodDifference(false, true) + getFood() < 0 || (foodDifference(false, true) < 0 && healthRate() <= -4))) {
 					// We're working poor tiles. What more do you want?
 					bWait = false;
 				}

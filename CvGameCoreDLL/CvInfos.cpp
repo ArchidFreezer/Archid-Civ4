@@ -5667,6 +5667,7 @@ CvCivicInfo::CvCivicInfo() :
 	m_bUnitRangeUnbound(false),
 	m_bUnitTerritoryUnbound(false),
 	m_bEnableStarSigns(false),
+	m_bTribalConscription(false),
 	m_piYieldModifier(NULL),
 	m_piCapitalYieldModifier(NULL),
 	m_piTradeYieldModifier(NULL),
@@ -5710,6 +5711,10 @@ CvCivicInfo::~CvCivicInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppiImprovementYieldChanges);
 	}
+}
+
+bool CvCivicInfo::isTribalConscription() const {
+	return m_bTribalConscription;
 }
 
 int CvCivicInfo::getCultureDefenceChange() const {
@@ -6099,6 +6104,7 @@ void CvCivicInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bUnitRangeUnbound);
 	stream->Read(&m_bUnitTerritoryUnbound);
 	stream->Read(&m_bEnableStarSigns);
+	stream->Read(&m_bTribalConscription);
 
 	// Arrays
 
@@ -6225,6 +6231,7 @@ void CvCivicInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bUnitRangeUnbound);
 	stream->Write(m_bUnitTerritoryUnbound);
 	stream->Write(m_bEnableStarSigns);
+	stream->Write(m_bTribalConscription);
 
 	// Arrays
 
@@ -6292,6 +6299,7 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iGoldPerMilitaryUnit, "iGoldPerMilitaryUnit");
 	pXML->GetChildXmlValByName(&m_iHappyPerMilitaryUnit, "iHappyPerMilitaryUnit");
 	pXML->GetChildXmlValByName(&m_bMilitaryFoodProduction, "bMilitaryFoodProduction");
+	pXML->GetChildXmlValByName(&m_bTribalConscription, "bTribalConscription");
 	pXML->GetChildXmlValByName(&m_iMaxConscript, "iMaxConscript");
 	pXML->GetChildXmlValByName(&m_iUnhealthyPopulationModifier, "iUnhealthyPopulationModifier"); // K-Mod
 	pXML->GetChildXmlValByName(&m_bBuildingOnlyHealthy, "bBuildingOnlyHealthy");

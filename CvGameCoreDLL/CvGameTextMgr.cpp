@@ -6463,9 +6463,16 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer& szHelpText, CivicTypes eCivi
 	}
 
 	//	Conscription
-	if (getWorldSizeMaxConscript(eCivic) != 0) {
-		szHelpText.append(NEWLINE);
-		szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_CONSCRIPTION", getWorldSizeMaxConscript(eCivic)));
+	if (kCivic.isTribalConscription()) {
+		if (kCivic.getMaxConscript() > 0) {
+			szHelpText.append(NEWLINE);
+			szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_TRIBAL_CONSCRIPTION", kCivic.getMaxConscript()));
+		}
+	} else {
+		if (getWorldSizeMaxConscript(eCivic) != 0) {
+			szHelpText.append(NEWLINE);
+			szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_CONSCRIPTION", getWorldSizeMaxConscript(eCivic)));
+		}
 	}
 
 	//	Population Unhealthiness

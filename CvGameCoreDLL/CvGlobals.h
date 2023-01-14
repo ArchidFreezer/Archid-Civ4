@@ -835,6 +835,7 @@ public:
 	inline int getIDW_INFLUENCE_RADIUS() { return m_iIDW_INFLUENCE_RADIUS; }
 	inline int getIDW_EMERGENCY_DRAFT_MIN_POPULATION() { return m_iIDW_EMERGENCY_DRAFT_MIN_POPULATION; }
 	inline int getTILES_PER_SPAWN() { return m_iTILES_PER_SPAWN; }
+	inline int getTRIBAL_CONSCRIPT_MIN_POP() { return m_iTRIBAL_CONSCRIPT_MIN_POP; }
 
 	inline bool getBBAI_AIR_COMBAT() { return m_bBBAI_AIR_COMBAT; }
 	inline bool getBBAI_HUMAN_AS_VASSAL_OPTION() { return m_bBBAI_HUMAN_AS_VASSAL_OPTION; }
@@ -1385,6 +1386,7 @@ protected:
 	int m_iIDW_INFLUENCE_RADIUS;
 	int m_iIDW_EMERGENCY_DRAFT_MIN_POPULATION;
 	int m_iTILES_PER_SPAWN;
+	int m_iTRIBAL_CONSCRIPT_MIN_POP;
 
 	bool m_bBBAI_AIR_COMBAT;
 	bool m_bBBAI_HUMAN_VASSAL_WAR_BUILD;

@@ -1731,11 +1731,23 @@ void CvDLLWidgetData::parseConscriptHelp(CvWidgetDataStruct& widgetDataStruct, C
 				szBuffer.append(gDLL->getText("TXT_KEY_MISC_HURRY_POP", iConscriptPopulation));
 			}
 
-			int iConscriptAngerLength = pHeadSelectedCity->flatConscriptAngerLength();
-			if (iConscriptAngerLength > 0) {
+			bool bTribal = GET_PLAYER(pHeadSelectedCity->getOwnerINLINE()).isTribalConscription();
+			if (bTribal) {
+				if (!pHeadSelectedCity->isCapital()) {
+					szBuffer.append(NEWLINE);
+					szBuffer.append(gDLL->getText("TXT_KEY_MISC_CAPITAL_CONSCRIPT"));
+				}
+
 				szBuffer.append(NEWLINE);
-				szBuffer.append(gDLL->getText("TXT_KEY_MISC_ANGER_TURNS", GC.getDefineINT("CONSCRIPT_POP_ANGER"), (iConscriptAngerLength + pHeadSelectedCity->getConscriptAngerTimer())));
+				szBuffer.append(gDLL->getText("TXT_KEY_MISC_TRIBAL_CONSCRIPT"));
+			} else {
+				int iConscriptAngerLength = pHeadSelectedCity->flatConscriptAngerLength();
+				if (iConscriptAngerLength > 0) {
+					szBuffer.append(NEWLINE);
+					szBuffer.append(gDLL->getText("TXT_KEY_MISC_ANGER_TURNS", GC.getDefineINT("CONSCRIPT_POP_ANGER"), (iConscriptAngerLength + pHeadSelectedCity->getConscriptAngerTimer())));
+				}
 			}
+
 
 			int iMinCityPopulation = pHeadSelectedCity->conscriptMinCityPopulation();
 			if (pHeadSelectedCity->getPopulation() < iMinCityPopulation) {

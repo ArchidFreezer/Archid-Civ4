@@ -10382,9 +10382,9 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 
 	int iValue = (iCities * 6);
 
-	iValue += (GC.getCivicInfo(eCivic).getAIWeight() * iCities);
+	iValue += (kCivic.getAIWeight() * iCities);
 
-	iValue += -(GC.getCivicInfo(eCivic).getAnarchyLength() * iCities);
+	iValue += -(kCivic.getAnarchyLength() * iCities);
 
 	iValue -= getSingleCivicUpkeep(eCivic, true) * iMaintenanceFactor / 100; // K-Mod. (note. upkeep modifiers are included in getSingleCivicUpkeep.)
 
@@ -10521,7 +10521,7 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 				}
 				// K-Mod. (What's with all the "losing means we need drafting" mentality in the BBAI code? It's... not the right way to look at it.)
 				// (NOTE: "conscript_population_per_cost" is actually "production_per_conscript_population". The developers didn't know what "per" means.)
-				int iConscriptPop = std::max(1, GC.getUnitInfo(eConscript).getProductionCost() / GC.getDefineINT("CONSCRIPT_POPULATION_PER_COST"));
+				int iConscriptPop = kCivic.isTribalConscription() ? 1 : std::max(1, GC.getUnitInfo(eConscript).getProductionCost() / GC.getDefineINT("CONSCRIPT_POPULATION_PER_COST"));
 				int iProductionFactor = 100 * GC.getUnitInfo(eConscript).getProductionCost();
 				iProductionFactor /= iConscriptPop * GC.getDefineINT("CONSCRIPT_POPULATION_PER_COST");
 				iTempValue *= iProductionFactor;

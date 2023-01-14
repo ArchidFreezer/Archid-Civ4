@@ -1556,6 +1556,7 @@ public:
 	bool isUnitRangeUnbound() const;
 	bool isUnitTerritoryUnbound() const;
 	bool isEnableStarSigns() const;
+	bool isTribalConscription() const;
 
 	std::wstring pyGetWeLoveTheKing() { return getWeLoveTheKing(); }			// Exposed to Python
 	const wchar* getWeLoveTheKing();
@@ -1647,6 +1648,7 @@ protected:
 	bool m_bUnitRangeUnbound;
 	bool m_bUnitTerritoryUnbound;
 	bool m_bEnableStarSigns;
+	bool m_bTribalConscription;
 
 	CvWString m_szWeLoveTheKingKey;
 

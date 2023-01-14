@@ -1477,5 +1477,22 @@
 		<French>Eclair</French>
 		<Polish>B&#244;yskawiczna</Polish>
 	</TEXT>
+<!-- Tribal Conscription -->
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_TRIBAL_CONSCRIPTION</Tag>
+		<English>[ICON_BULLET]Can [LINK=CONCEPT_DRAFT]Draft[\LINK] %d1_Num [NUM1:Unit:Units] per Turn in your Capital</English>
+		<Spanish>[ICON_BULLET]Puede [LINK=CONCEPT_DRAFT]reclutar[\LINK] %d1_Num [NUM1:unidad:unidades] por turno en tu Capital</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_CAPITAL_CONSCRIPT</Tag>
+		<English>[COLOR_NEGATIVE_TEXT]Must be the Capital city[COLOR_REVERT]</English>
+		<Spanish>[COLOR_NEGATIVE_TEXT]Debe ser la ciudad Capital[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_TRIBAL_CONSCRIPT</Tag>
+		<English>[COLOR_WARNING_TEXT]Will reduce [ICON_FOOD] and [ICON_PRODUCTION] in the city[COLOR_REVERT]</English>
+		<Spanish>[COLOR_WARNING_TEXT]Reducir&#225; [ICON_FOOD] y [ICON_PRODUCTION] en la ciudad[COLOR_REVERT]</Spanish>
+	</TEXT>
+
 
 </Civ4GameText>
