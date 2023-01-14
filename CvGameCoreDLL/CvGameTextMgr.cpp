@@ -7101,6 +7101,9 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	// Worldview revolt chance...
 	buildWorldViewRevoltTurnChangeString(szBuffer, eTech, true, bPlayerContext);
 
+	// Culture Defense
+	buildCultureDefenceString(szBuffer, eTech, true, bPlayerContext);
+
 	//	Build farm, irrigation, etc...
 	for (BuildTypes eBuild = (BuildTypes)0; eBuild < GC.getNumBuildInfos(); eBuild = (BuildTypes)(eBuild + 1)) {
 		buildImprovementString(szBuffer, eTech, eBuild, true, bPlayerContext);
@@ -16786,6 +16789,15 @@ void CvGameTextMgr::buildWorldViewRevoltTurnChangeString(CvWStringBuffer& szBuff
 			}
 			szBuffer.append(gDLL->getText("TXT_KEY_MISC_WV_REVOLT_TURN_CHANGE", GC.getWorldViewInfo(eWorldView).getDescription(), kTech.getWorldViewRevoltTurnChange(eWorldView)));
 		}
+	}
+}
+
+void CvGameTextMgr::buildCultureDefenceString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
+	if (GC.getTechInfo(eTech).getCultureDefenceModifier() != 0) {
+		if (bList) {
+			szBuffer.append(NEWLINE);
+		}
+		szBuffer.append(gDLL->getText("TXT_KEY_TECH_CULTURE_DEFENSE_HELP", GC.getTechInfo(eTech).getCultureDefenceModifier()));
 	}
 }
 
