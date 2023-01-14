@@ -11241,6 +11241,7 @@
 			<iCost>28</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
+			<bApplyLeaderheadTraits>1</bApplyLeaderheadTraits>
 			<FreeCapitalBuildingClass>BUILDINGCLASS_PALACE</FreeCapitalBuildingClass>
 			<iFirstFreeTechs>1</iFirstFreeTechs>
 			<iAsset>4</iAsset>

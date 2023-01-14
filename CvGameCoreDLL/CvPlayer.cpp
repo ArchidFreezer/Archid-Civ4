@@ -250,13 +250,7 @@ void CvPlayer::init(PlayerTypes eID, bool bInGame) {
 			setCommercePercent(eCommerce, GC.getCommerceInfo(eCommerce).getInitialPercent(), true);
 		}
 
-		FAssertMsg((GC.getNumTraitInfos() > 0), "GC.getNumTraitInfos() is less than or equal to zero but is expected to be larger than zero in CvPlayer::init");
-		for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
-			if (GC.getLeaderHeadInfo(getLeaderType()).hasTrait(eTrait)) {
-				setHasTrait(eTrait, true);
-			}
-		}
-
+		updateLeaderheadTraits(true);
 		updateMaxAnarchyTurns();
 
 		for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
@@ -873,20 +867,12 @@ void CvPlayer::changeLeader(LeaderHeadTypes eNewLeader) {
 		return;
 
 	// Clear old leaderhead traits
-	for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
-		if (GC.getLeaderHeadInfo(getLeaderType()).hasTrait(eTrait)) {
-			setHasTrait(eTrait, false);
-		}
-	}
+	updateLeaderheadTraits(false);
 
 	GC.getInitCore().setLeader(getID(), eNewLeader);
 
 	// Add new leaderhead traits
-	for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
-		if (GC.getLeaderHeadInfo(getLeaderType()).hasTrait(eTrait)) {
-			setHasTrait(eTrait, true);
-		}
-	}
+	updateLeaderheadTraits(true);
 
 	updateMaxAnarchyTurns();
 
@@ -19187,6 +19173,17 @@ void CvPlayer::changeObsoleteBuildingCount(BuildingTypes eIndex, int iChange) {
 					pLoopCity->processBuilding(eIndex, (isObsoleteBuilding(eIndex) ? -pLoopCity->getNumBuilding(eIndex) : pLoopCity->getNumBuilding(eIndex)), true);
 				}
 			}
+		}
+	}
+}
+
+void CvPlayer::updateLeaderheadTraits(bool bWantToAdd) {
+	// Only apply the trait if we are both want to and are allowed to
+	bool bNewValue = GET_TEAM(getTeam()).isApplyLeaderheadTraits() && bWantToAdd;
+	FAssertMsg((GC.getNumTraitInfos() > 0), "GC.getNumTraitInfos() is less than or equal to zero but is expected to be larger than zero in CvPlayer::init");
+	for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
+		if (GC.getLeaderHeadInfo(getLeaderType()).hasTrait(eTrait)) {
+			setHasTrait(eTrait, bNewValue);
 		}
 	}
 }

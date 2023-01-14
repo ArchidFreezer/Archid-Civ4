@@ -3786,6 +3786,11 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bFreeTech, b
 		iValue += iTemp;
 	}
 
+	// This is a huge advantage for any civ and should be prioritised
+	if (kTechInfo.isApplyLeaderheadTraits()) {
+		iValue += 500;
+	}
+
 	// Expand trading options
 	if (kTechInfo.isMapTrading() && !kTeam.isMapTrading()) // K-Mod
 	{

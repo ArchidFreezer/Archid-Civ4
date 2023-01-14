@@ -6998,6 +6998,9 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 		}
 	}
 
+	// Apply leaderhead traits
+	buildApplyLeaderheadTraitsString(szBuffer, eTech, true, bPlayerContext);
+
 	//	Route movement change...
 	buildMoveString(szBuffer, eTech, true, bPlayerContext);
 
@@ -16806,3 +16809,13 @@ void CvGameTextMgr::setWeaponHelp(CvWStringBuffer& szBuffer, WeaponTypes eWeapon
 	szBuffer.append(gDLL->getText("TXT_KEY_UNIT_HELP_WEAPON", kWeapon.getTextKeyWide(), kWeapon.getStrength()));
 
 }
+
+void CvGameTextMgr::buildApplyLeaderheadTraitsString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
+	if (GC.getTechInfo(eTech).isApplyLeaderheadTraits() && (!bPlayerContext || !(GET_TEAM(GC.getGameINLINE().getActiveTeam()).isApplyLeaderheadTraits()))) {
+		if (bList) {
+			szBuffer.append(NEWLINE);
+		}
+		szBuffer.append(gDLL->getText("TXT_KEY_TECH_APPLY_LEADERHEAD_TRAITS_HELP"));
+	}
+}
+

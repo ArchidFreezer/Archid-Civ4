@@ -86,6 +86,7 @@ public:
 	void changeLeader(LeaderHeadTypes eNewLeader);
 	void changeCiv(CivilizationTypes eNewCiv);
 	void setIsHuman(bool bNewValue);
+	void updateLeaderheadTraits(bool bWantToAdd);
 
 	int getStarMaxChange(int iValue, int iMultiplier) const;
 	int getStarMultiplierPercent(int iEventScale, CvCity* pCity, bool bGoodEffect) const;

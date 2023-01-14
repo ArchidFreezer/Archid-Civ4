@@ -196,6 +196,7 @@ void CvTeam::reset(TeamTypes eID, bool bConstructorCall) {
 
 	m_bMapCentering = false;
 	m_bCapitulated = false;
+	m_bApplyLeaderheadTraits = false;
 
 	m_eID = eID;
 
@@ -4860,6 +4861,12 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 		}
 	}
 
+	if (kTech.isApplyLeaderheadTraits()) {
+		if (iChange > 0) {
+			setApplyLeaderheadTraits(true);
+		}
+	}
+
 	if (kTech.isMapTrading()) {
 		changeMapTradingCount(iChange);
 	}
@@ -4980,6 +4987,8 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 			kPlayer.changePower(kTech.getPowerValue() * iChange);
 			kPlayer.changeTechScore(getTechScore(eTech) * iChange);
 			kPlayer.changeCultureDefenceModifier(kTech.getCultureDefenceModifier() * iChange);
+			if (kTech.isApplyLeaderheadTraits())
+				kPlayer.updateLeaderheadTraits(true);
 
 			UnitTypes eFreeUnit = kPlayer.getTechFreeUnit(eTech, false);
 			if (eFreeUnit != NO_UNIT) {
@@ -5147,6 +5156,7 @@ void CvTeam::read(FDataStreamBase* pStream) {
 
 	pStream->Read(&m_bMapCentering);
 	pStream->Read(&m_bCapitulated);
+	pStream->Read(&m_bApplyLeaderheadTraits);
 
 	pStream->Read((int*)&m_eID);
 
@@ -5256,6 +5266,7 @@ void CvTeam::write(FDataStreamBase* pStream) {
 
 	pStream->Write(m_bMapCentering);
 	pStream->Write(m_bCapitulated);
+	pStream->Write(m_bApplyLeaderheadTraits);
 
 	pStream->Write(m_eID);
 
@@ -5700,6 +5711,24 @@ void CvTeam::doStarSignChange() {
 		if (kPlayer.isAlive() && kPlayer.isCanProcessStarSign()) {
 			if (kPlayer.getTeam() == getID()) {
 				kPlayer.doStarSignChange();
+			}
+		}
+	}
+}
+
+bool CvTeam::isApplyLeaderheadTraits() const {
+	return m_bApplyLeaderheadTraits;
+}
+
+void CvTeam::setApplyLeaderheadTraits(bool bNewValue) {
+	if (m_bApplyLeaderheadTraits != bNewValue) {
+		m_bApplyLeaderheadTraits = bNewValue;
+		if (isApplyLeaderheadTraits()) {
+			for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+				CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+				if (kPlayer.isAlive() && kPlayer.getTeam() == getID()) {
+					kPlayer.updateLeaderheadTraits(true);
+				}
 			}
 		}
 	}

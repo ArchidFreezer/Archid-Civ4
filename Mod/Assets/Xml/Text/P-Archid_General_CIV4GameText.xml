@@ -76,6 +76,10 @@
     <English>[ICON_BULLET]Can Capture Cities</English>
     <Spanish>[ICON_BULLET]Puede Capturar Ciudades</Spanish>
   </TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_CULTURE_DEFENSE_HELP</Tag>
+		<English>[ICON_BULLET]%d1_Perc% [COLOR_HIGHLIGHT_TEXT]cultural defense[COLOR_REVERT] in all cities</English>
+	</TEXT>
 
 <!-- Unofficial Patch -->
 	<TEXT>
@@ -1494,5 +1498,8 @@
 		<Spanish>[COLOR_WARNING_TEXT]Reducir&#225; [ICON_FOOD] y [ICON_PRODUCTION] en la ciudad[COLOR_REVERT]</Spanish>
 	</TEXT>
 
-
+	<TEXT>
+		<Tag>TXT_KEY_TECH_APPLY_LEADERHEAD_TRAITS_HELP</Tag>
+		<English>[ICON_BULLET]Civs gain their leaderhead traits</English>
+	</TEXT>
 </Civ4GameText>
