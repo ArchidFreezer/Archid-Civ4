@@ -373,6 +373,9 @@
 			<Combat>UNITCOMBAT_ANIMAL</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
+			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_BEAR</Description>
 			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
@@ -403,6 +406,14 @@
 					<iFeatureDefense>20</iFeatureDefense>
 				</FeatureDefense>
 			</FeatureDefenses>
+			<YieldsFromKill>
+				<iYield>2</iYield>
+				<iYield>1</iYield>
+			</YieldsFromKill>
+			<CommercesFromKill>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommercesFromKill>
 			<iAsset>1</iAsset>
 			<iPower>1</iPower>
 			<UnitMeshGroups>
@@ -425,6 +436,9 @@
 			<Combat>UNITCOMBAT_ANIMAL</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
+			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_CAVEBEAR</Description>
 			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
@@ -448,6 +462,14 @@
 				<TerrainType>TERRAIN_GRASS</TerrainType>
 				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</TerrainNatives>
+			<YieldsFromKill>
+				<iYield>2</iYield>
+				<iYield>2</iYield>
+			</YieldsFromKill>
+			<CommercesFromKill>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommercesFromKill>
 			<UnitMeshGroups>
 				<iGroupSize>1</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
@@ -468,6 +490,9 @@
 			<Combat>UNITCOMBAT_ANIMAL</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
+			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_DEER</Description>
 			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
@@ -493,6 +518,14 @@
 			<FeatureNatives>
 				<FeatureType>FEATURE_FOREST</FeatureType>
 			</FeatureNatives>
+			<YieldsFromKill>
+				<iYield>2</iYield>
+				<iYield>1</iYield>
+			</YieldsFromKill>
+			<CommercesFromKill>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</CommercesFromKill>
 			<iAsset>1</iAsset>
 			<iPower>1</iPower>
 			<UnitMeshGroups>
@@ -514,6 +547,9 @@
 			<Combat>UNITCOMBAT_ANIMAL</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
+			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_ELEPHANT</Description>
 			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
@@ -547,6 +583,14 @@
 					<iUnitCombatMod>25</iUnitCombatMod>
 				</UnitCombatMod>
 			</UnitCombatMods>
+			<YieldsFromKill>
+				<iYield>4</iYield>
+				<iYield>2</iYield>
+			</YieldsFromKill>
+			<CommercesFromKill>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</CommercesFromKill>
 			<iAsset>1</iAsset>
 			<iPower>1</iPower>
 			<UnitMeshGroups>
@@ -568,6 +612,9 @@
 			<Combat>UNITCOMBAT_ANIMAL</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
+			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_GORILLA</Description>
 			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
@@ -601,6 +648,14 @@
 					<iFeatureDefense>25</iFeatureDefense>
 				</FeatureDefense>
 			</FeatureDefenses>
+			<YieldsFromKill>
+				<iYield>3</iYield>
+				<iYield>2</iYield>
+			</YieldsFromKill>
+			<CommercesFromKill>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommercesFromKill>
 			<UnitMeshGroups>
 				<iGroupSize>1</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
@@ -621,6 +676,9 @@
 			<Combat>UNITCOMBAT_ANIMAL</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
+			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_HORSE</Description>
 			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
@@ -641,6 +699,14 @@
 				<TerrainType>TERRAIN_GRASS</TerrainType>
 				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</TerrainNatives>
+			<YieldsFromKill>
+				<iYield>2</iYield>
+				<iYield>1</iYield>
+			</YieldsFromKill>
+			<CommercesFromKill>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommercesFromKill>
 			<iAsset>1</iAsset>
 			<iPower>1</iPower>
 			<UnitMeshGroups>
@@ -662,6 +728,9 @@
 			<Combat>UNITCOMBAT_ANIMAL</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
+			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_LION</Description>
 			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
@@ -682,6 +751,14 @@
 				<TerrainType>TERRAIN_PLAINS</TerrainType>
 				<TerrainType>TERRAIN_DESERT</TerrainType>
 			</TerrainNatives>
+			<YieldsFromKill>
+				<iYield>2</iYield>
+				<iYield>1</iYield>
+			</YieldsFromKill>
+			<CommercesFromKill>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommercesFromKill>
 			<iAsset>1</iAsset>
 			<iPower>1</iPower>
 			<UnitMeshGroups>
@@ -704,6 +781,9 @@
 			<Combat>UNITCOMBAT_ANIMAL</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
+			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_PRIDE_OF_LIONS</Description>
 			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
@@ -726,7 +806,14 @@
 				<TerrainType>TERRAIN_PLAINS</TerrainType>
 				<TerrainType>TERRAIN_DESERT</TerrainType>
 			</TerrainNatives>
-			<FeatureNatives/>
+			<YieldsFromKill>
+				<iYield>2</iYield>
+				<iYield>2</iYield>
+			</YieldsFromKill>
+			<CommercesFromKill>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommercesFromKill>
 			<UnitMeshGroups>
 				<iGroupSize>3</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
@@ -751,6 +838,9 @@
 			<Combat>UNITCOMBAT_ANIMAL</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
+			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_PANTHER</Description>
 			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
@@ -783,6 +873,14 @@
 					<iFeatureDefense>35</iFeatureDefense>
 				</FeatureDefense>
 			</FeatureDefenses>
+			<YieldsFromKill>
+				<iYield>2</iYield>
+				<iYield>1</iYield>
+			</YieldsFromKill>
+			<CommercesFromKill>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommercesFromKill>
 			<iAsset>1</iAsset>
 			<iPower>1</iPower>
 			<UnitMeshGroups>
@@ -805,6 +903,9 @@
 			<Combat>UNITCOMBAT_ANIMAL</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
+			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_POLAR_BEAR</Description>
 			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
@@ -847,6 +948,14 @@
 					<iTerrainDefense>10</iTerrainDefense>
 				</TerrainDefense>
 			</TerrainDefenses>
+			<YieldsFromKill>
+				<iYield>2</iYield>
+				<iYield>2</iYield>
+			</YieldsFromKill>
+			<CommercesFromKill>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommercesFromKill>
 			<UnitMeshGroups>
 				<iGroupSize>1</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
@@ -867,6 +976,9 @@
 			<Combat>UNITCOMBAT_ANIMAL</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
+			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_SABRETOOTH_TIGER</Description>
 			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
@@ -890,6 +1002,14 @@
 			<FeatureNatives>
 				<FeatureType>FEATURE_FOREST</FeatureType>
 			</FeatureNatives>
+			<YieldsFromKill>
+				<iYield>3</iYield>
+				<iYield>2</iYield>
+			</YieldsFromKill>
+			<CommercesFromKill>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</CommercesFromKill>
 			<UnitMeshGroups>
 				<iGroupSize>1</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
@@ -910,6 +1030,9 @@
 			<Combat>UNITCOMBAT_ANIMAL</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
+			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_TIGER</Description>
 			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
@@ -949,6 +1072,14 @@
 					<iFeatureDefense>35</iFeatureDefense>
 				</FeatureDefense>
 			</FeatureDefenses>
+			<YieldsFromKill>
+				<iYield>2</iYield>
+				<iYield>1</iYield>
+			</YieldsFromKill>
+			<CommercesFromKill>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommercesFromKill>
 			<UnitMeshGroups>
 				<iGroupSize>1</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
@@ -985,6 +1116,7 @@
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
 			<TerrainNatives>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
 				<TerrainType>TERRAIN_GRASS</TerrainType>
 				<TerrainType>TERRAIN_TUNDRA</TerrainType>
 				<TerrainType>TERRAIN_SNOW</TerrainType>
@@ -992,6 +1124,14 @@
 			<FeatureNatives>
 				<FeatureType>FEATURE_FOREST</FeatureType>
 			</FeatureNatives>
+			<YieldsFromKill>
+				<iYield>1</iYield>
+				<iYield>1</iYield>
+			</YieldsFromKill>
+			<CommercesFromKill>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommercesFromKill>
 			<iAsset>1</iAsset>
 			<iPower>1</iPower>
 			<UnitMeshGroups>
