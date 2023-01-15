@@ -16811,7 +16811,7 @@ void CvGameTextMgr::setWeaponHelp(CvWStringBuffer& szBuffer, WeaponTypes eWeapon
 }
 
 void CvGameTextMgr::buildApplyLeaderheadTraitsString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
-	if (GC.getTechInfo(eTech).isApplyLeaderheadTraits() && (!bPlayerContext || !(GET_TEAM(GC.getGameINLINE().getActiveTeam()).isApplyLeaderheadTraits()))) {
+	if (GC.getTechInfo(eTech).isCivSettled() && (!bPlayerContext || !GET_TEAM(GC.getGameINLINE().getActiveTeam()).isCivSettled())) {
 		if (bList) {
 			szBuffer.append(NEWLINE);
 		}

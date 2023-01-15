@@ -3787,7 +3787,7 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bFreeTech, b
 	}
 
 	// This is a huge advantage for any civ and should be prioritised
-	if (kTechInfo.isApplyLeaderheadTraits()) {
+	if (kTechInfo.isCivSettled()) {
 		iValue += 500;
 	}
 

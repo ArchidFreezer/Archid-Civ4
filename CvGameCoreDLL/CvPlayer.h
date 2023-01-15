@@ -36,6 +36,7 @@ public:
 	CvPlayerAI* AI() { return (CvPlayerAI*)(this); }
 	const CvPlayerAI* AI() const { return (const CvPlayerAI*)(this); }
 
+	bool isCivSettled() const;
 	bool isTribalConscription() const;
 	void changeTribalConscriptionCount(int iChange);
 

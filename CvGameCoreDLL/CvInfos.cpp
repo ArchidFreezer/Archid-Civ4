@@ -878,7 +878,7 @@ CvTechInfo::CvTechInfo() :
 	m_bLimitedBordersTrading(false),
 	m_bFreeTradeAgreementTrading(false),
 	m_bNonAggressionTrading(false),
-	m_bApplyLeaderheadTraits(false),
+	m_bCivSettled(false),
 	m_piDomainExtraMoves(NULL),
 	m_piFlavorValue(NULL),
 	m_piForestPlotYieldChange(NULL),
@@ -911,8 +911,8 @@ CvTechInfo::~CvTechInfo() {
 	SAFE_DELETE_ARRAY(m_pbTerrainTrade);
 }
 
-bool CvTechInfo::isApplyLeaderheadTraits() const {
-	return m_bApplyLeaderheadTraits;
+bool CvTechInfo::isCivSettled() const {
+	return m_bCivSettled;
 }
 
 int CvTechInfo::getFreeCapitalBuildingClass() const {
@@ -1351,7 +1351,7 @@ void CvTechInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bLimitedBordersTrading);
 	stream->Read(&m_bFreeTradeAgreementTrading);
 	stream->Read(&m_bNonAggressionTrading);
-	stream->Read(&m_bApplyLeaderheadTraits);
+	stream->Read(&m_bCivSettled);
 	stream->Read(&m_iGridX);
 	stream->Read(&m_iGridY);
 
@@ -1479,7 +1479,7 @@ void CvTechInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bLimitedBordersTrading);
 	stream->Write(m_bFreeTradeAgreementTrading);
 	stream->Write(m_bNonAggressionTrading);
-	stream->Write(m_bApplyLeaderheadTraits);
+	stream->Write(m_bCivSettled);
 	stream->Write(m_iGridX);
 	stream->Write(m_iGridY);
 
@@ -1531,7 +1531,7 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(szTextVal, "Era");
 	m_iEra = pXML->FindInInfoClass(szTextVal);
-	pXML->GetChildXmlValByName(&m_bApplyLeaderheadTraits, "bApplyLeaderheadTraits");
+	pXML->GetChildXmlValByName(&m_bCivSettled, "bCivSettled");
 
 	pXML->GetChildXmlValByName(szTextVal, "FreeCapitalBuildingClass");
 	m_iFreeCapitalBuildingClass = pXML->FindInInfoClass(szTextVal);

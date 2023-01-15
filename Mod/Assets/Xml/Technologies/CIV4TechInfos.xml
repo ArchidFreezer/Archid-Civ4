@@ -10994,6 +10994,7 @@
 			<iCost>10</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<Era>ERA_EPIPALAEOLITHIC</Era>
+			<bCivSettled>1</bCivSettled>
 			<FreeUnitClass>UNITCLASS_ATLATL</FreeUnitClass>
 			<iAsset>2</iAsset>
 			<bTrade>1</bTrade>
@@ -11241,7 +11242,7 @@
 			<iCost>28</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
-			<bApplyLeaderheadTraits>1</bApplyLeaderheadTraits>
+			<bCivSettled>1</bCivSettled>
 			<FreeCapitalBuildingClass>BUILDINGCLASS_PALACE</FreeCapitalBuildingClass>
 			<iFirstFreeTechs>1</iFirstFreeTechs>
 			<iAsset>4</iAsset>

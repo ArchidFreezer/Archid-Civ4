@@ -30,8 +30,8 @@ public:
 	void shareCounters(TeamTypes eTeam);
 	void processBuilding(BuildingTypes eBuilding, int iChange);
 
-	bool isApplyLeaderheadTraits() const;
-	void setApplyLeaderheadTraits(bool bNewValue);
+	bool isCivSettled() const;
+	void setCivSettled();
 
 	bool isStarSignImpacted() const;
 	void doStarSignChange();
@@ -470,7 +470,7 @@ protected:
 
 	bool m_bMapCentering;
 	bool m_bCapitulated;
-	bool m_bApplyLeaderheadTraits;
+	bool m_bCivSettled;
 
 	TeamTypes m_eID;
 

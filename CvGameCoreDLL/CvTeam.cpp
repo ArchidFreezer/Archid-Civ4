@@ -196,7 +196,7 @@ void CvTeam::reset(TeamTypes eID, bool bConstructorCall) {
 
 	m_bMapCentering = false;
 	m_bCapitulated = false;
-	m_bApplyLeaderheadTraits = false;
+	m_bCivSettled = false;
 
 	m_eID = eID;
 
@@ -4861,9 +4861,9 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 		}
 	}
 
-	if (kTech.isApplyLeaderheadTraits()) {
+	if (kTech.isCivSettled()) {
 		if (iChange > 0) {
-			setApplyLeaderheadTraits(true);
+			setCivSettled();
 		}
 	}
 
@@ -4987,8 +4987,6 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 			kPlayer.changePower(kTech.getPowerValue() * iChange);
 			kPlayer.changeTechScore(getTechScore(eTech) * iChange);
 			kPlayer.changeCultureDefenceModifier(kTech.getCultureDefenceModifier() * iChange);
-			if (kTech.isApplyLeaderheadTraits())
-				kPlayer.updateLeaderheadTraits(true);
 
 			UnitTypes eFreeUnit = kPlayer.getTechFreeUnit(eTech, false);
 			if (eFreeUnit != NO_UNIT) {
@@ -5156,7 +5154,7 @@ void CvTeam::read(FDataStreamBase* pStream) {
 
 	pStream->Read(&m_bMapCentering);
 	pStream->Read(&m_bCapitulated);
-	pStream->Read(&m_bApplyLeaderheadTraits);
+	pStream->Read(&m_bCivSettled);
 
 	pStream->Read((int*)&m_eID);
 
@@ -5266,7 +5264,7 @@ void CvTeam::write(FDataStreamBase* pStream) {
 
 	pStream->Write(m_bMapCentering);
 	pStream->Write(m_bCapitulated);
-	pStream->Write(m_bApplyLeaderheadTraits);
+	pStream->Write(m_bCivSettled);
 
 	pStream->Write(m_eID);
 
@@ -5716,20 +5714,16 @@ void CvTeam::doStarSignChange() {
 	}
 }
 
-bool CvTeam::isApplyLeaderheadTraits() const {
-	return m_bApplyLeaderheadTraits;
+bool CvTeam::isCivSettled() const {
+	return m_bCivSettled;
 }
 
-void CvTeam::setApplyLeaderheadTraits(bool bNewValue) {
-	if (m_bApplyLeaderheadTraits != bNewValue) {
-		m_bApplyLeaderheadTraits = bNewValue;
-		if (isApplyLeaderheadTraits()) {
-			for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
-				CvPlayer& kPlayer = GET_PLAYER(ePlayer);
-				if (kPlayer.isAlive() && kPlayer.getTeam() == getID()) {
-					kPlayer.updateLeaderheadTraits(true);
-				}
-			}
+void CvTeam::setCivSettled() {
+	m_bCivSettled = true;
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+		if (kPlayer.isAlive() && kPlayer.getTeam() == getID()) {
+			kPlayer.updateLeaderheadTraits(true);
 		}
 	}
 }

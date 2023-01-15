@@ -357,7 +357,7 @@ public:
 	bool isLimitedBordersTrading() const;
 	bool isFreeTradeAgreementTrading() const;
 	bool isNonAggressionTrading() const;
-	bool isApplyLeaderheadTraits() const;
+	bool isCivSettled() const;
 
 	bool hasAnyForestPlotYieldChange() const;
 	bool hasAnyRiverPlotYieldChange() const;
@@ -458,7 +458,7 @@ protected:
 	bool m_bLimitedBordersTrading;
 	bool m_bFreeTradeAgreementTrading;
 	bool m_bNonAggressionTrading;
-	bool m_bApplyLeaderheadTraits;
+	bool m_bCivSettled;
 
 	CvString m_szQuoteKey;
 	CvString m_szSound;

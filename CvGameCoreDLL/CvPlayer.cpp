@@ -19179,7 +19179,7 @@ void CvPlayer::changeObsoleteBuildingCount(BuildingTypes eIndex, int iChange) {
 
 void CvPlayer::updateLeaderheadTraits(bool bWantToAdd) {
 	// Only apply the trait if we are both want to and are allowed to
-	bool bNewValue = GET_TEAM(getTeam()).isApplyLeaderheadTraits() && bWantToAdd;
+	bool bNewValue = isCivSettled() && bWantToAdd;
 	FAssertMsg((GC.getNumTraitInfos() > 0), "GC.getNumTraitInfos() is less than or equal to zero but is expected to be larger than zero in CvPlayer::init");
 	for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
 		if (GC.getLeaderHeadInfo(getLeaderType()).hasTrait(eTrait)) {
@@ -20122,4 +20122,8 @@ bool CvPlayer::isTribalConscription() const {
 void CvPlayer::changeTribalConscriptionCount(int iChange) {
 	m_iTribalConscriptionCount += iChange;
 	FAssert(m_iTribalConscriptionCount >= 0);
+}
+
+bool CvPlayer::isCivSettled() const {
+	return GET_TEAM(getTeam()).isCivSettled();
 }
