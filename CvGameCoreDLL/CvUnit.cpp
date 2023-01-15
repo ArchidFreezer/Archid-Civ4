@@ -11780,10 +11780,12 @@ void CvUnit::salvage(CvUnit* pDeadUnit) {
 		bool bValid = true;
 		if (kDeadUnit.getCommerceFromKill(eCommerce) > 0 || kOwner.getBaseCommerceFromUnit(eCommerce)) {
 			if (eCommerce == COMMERCE_RESEARCH) {
-				// We can always gain research towards our current goal
-				TechTypes eCurrentResearch = GET_PLAYER(getOwnerINLINE()).getCurrentResearch();
-				if (eCurrentResearch != NO_TECH) {
-					vAvailableTechs.push_back(eCurrentResearch);
+				// We can always gain research towards our current goal if we are not settled yet
+				if (!kOwner.isCivSettled()) {
+					TechTypes eCurrentResearch = GET_PLAYER(getOwnerINLINE()).getCurrentResearch();
+					if (eCurrentResearch != NO_TECH) {
+						vAvailableTechs.push_back(eCurrentResearch);
+					}
 				}
 
 				for (iJ = 0; iJ < kDeadUnit.getNumPrereqAndTechs(); iJ++) {
