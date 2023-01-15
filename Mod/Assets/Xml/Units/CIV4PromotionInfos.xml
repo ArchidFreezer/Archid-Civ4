@@ -33,7 +33,7 @@
 			<Type>PROMOTION_ALCHEMIST1</Type>
 			<Description>TXT_KEY_PROMOTION_ALCHEMIST1</Description>
 			<Sound>AS2D_PING</Sound>
-			<PromotionPrereq>PROMOTION_DECEPTION1</PromotionPrereq>
+			<PromotionPrereq>PROMOTION_EVASION1</PromotionPrereq>
 			<iSpyPoisonModifier>50</iSpyPoisonModifier>
 			<iSpyDestroyImprovementChange>50</iSpyDestroyImprovementChange>			
 			<OrUnitCombatTypes>
@@ -1233,7 +1233,7 @@
 			<Type>PROMOTION_INSTIGATOR1</Type>
 			<Description>TXT_KEY_PROMOTION_INSTIGATOR1</Description>
 			<Sound>AS2D_PING</Sound>
-			<PromotionPrereq>PROMOTION_DECEPTION1</PromotionPrereq>
+			<PromotionPrereq>PROMOTION_EVASION1</PromotionPrereq>
 			<iSpyUnhappyChange>50</iSpyUnhappyChange>
 			<iSpyWarWearinessChange>20</iSpyWarWearinessChange>			
 			<iSpyReligionRemovalChange>20</iSpyReligionRemovalChange>

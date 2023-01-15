@@ -3276,7 +3276,7 @@
 			<FreeTechs>
 				<TechType>TECH_GRAIN_GATHERING</TechType>
 				<TechType>TECH_STONE_TOOLS</TechType>
-				<TechType>TECH_THE_FIRE</TechType>
+				<TechType>TECH_FIRE</TechType>
 				<TechType>TECH_ORAL_TRADITION</TechType>
 				<TechType>TECH_HUNTING</TechType>
 			</FreeTechs>

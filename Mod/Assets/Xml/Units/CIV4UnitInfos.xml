@@ -9046,7 +9046,7 @@
 			</UnitAIs>
 			<Builds>
 				<BuildType>BUILD_SEED_CAMP</BuildType>
-				<BuildType>BUILD_TIMBER_HARVEST_CAMP</BuildType>
+				<BuildType>BUILD_TIMBER_CAMP</BuildType>
 				<BuildType>BUILD_STONE_TOOLS_CAMP</BuildType>
 				<BuildType>BUILD_OBSIDIAN_CAMP</BuildType>
 			</Builds>

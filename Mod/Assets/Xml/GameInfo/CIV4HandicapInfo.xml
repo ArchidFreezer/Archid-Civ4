@@ -606,7 +606,7 @@
 			<AIFreeTechs>
 				<TechType>TECH_GRAIN_GATHERING</TechType>
 				<TechType>TECH_STONE_TOOLS</TechType>
-				<TechType>TECH_THE_FIRE</TechType>
+				<TechType>TECH_FIRE</TechType>
 			</AIFreeTechs>
 		</HandicapInfo>
 		<HandicapInfo>
@@ -689,7 +689,7 @@
 			<AIFreeTechs>
 				<TechType>TECH_GRAIN_GATHERING</TechType>
 				<TechType>TECH_STONE_TOOLS</TechType>
-				<TechType>TECH_THE_FIRE</TechType>
+				<TechType>TECH_FIRE</TechType>
 			</AIFreeTechs>
 		</HandicapInfo>
 	</HandicapInfos>
