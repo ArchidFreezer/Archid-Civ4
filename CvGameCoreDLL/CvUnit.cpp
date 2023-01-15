@@ -11747,8 +11747,8 @@ void CvUnit::salvage(CvUnit* pDeadUnit) {
 	const CvPlayer& kDeadOwner = GET_PLAYER(pDeadUnit->getOwnerINLINE());
 	const CvUnitInfo& kDeadUnit = GC.getUnitInfo(pDeadUnit->getUnitType());
 
-	CvCity* pNearestCity = kOwner.findCity(getX_INLINE(), getY_INLINE());
-	if (pNearestCity != NULL) {
+	CvCity* pSalvageCity = getHomeCity() != NULL ? getHomeCity() : kOwner.findCity(getX_INLINE(), getY_INLINE());
+	if (pSalvageCity != NULL) {
 		for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 			if (kDeadUnit.getYieldFromKill(eYield) > 0 || kOwner.getBaseYieldFromUnit(eYield) > 0) {
 				int iYield = std::max(kDeadUnit.getYieldFromKill(eYield), kOwner.getBaseYieldFromUnit(eYield));
@@ -11757,49 +11757,56 @@ void CvUnit::salvage(CvUnit* pDeadUnit) {
 
 				switch (eYield) {
 				case YIELD_FOOD:
-					pNearestCity->changeFood(iYield);
+					pSalvageCity->changeFood(iYield);
 					break;
 
 				case YIELD_PRODUCTION:
-					pNearestCity->changeProduction(iYield);
+					pSalvageCity->changeProduction(iYield);
+					break;
+				default:
 					break;
 				}
-				CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_YIELD_FROM_UNIT", getNameKey(), iYield, GC.getYieldInfo(eYield).getChar(), pNearestCity->getNameKey());
-				gDLL->getInterfaceIFace()->addMessage(pNearestCity->getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, ARTFILEMGR.getInterfaceArtInfo("WORLDBUILDER_CITY_EDIT")->getPath(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), pDeadUnit->getX_INLINE(), pDeadUnit->getY_INLINE(), true, true);
+				CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_YIELD_FROM_UNIT", getNameKey(), iYield, GC.getYieldInfo(eYield).getChar(), pSalvageCity->getNameKey());
+				gDLL->getInterfaceIFace()->addHumanMessage(pSalvageCity->getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, ARTFILEMGR.getInterfaceArtInfo("WORLDBUILDER_CITY_EDIT")->getPath(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), pDeadUnit->getX_INLINE(), pDeadUnit->getY_INLINE(), true, true);
 			}
 		}
 	}
 
-	std::vector<TechTypes> aeAvailableTechs;
-	std::vector<CommerceTypes> aeValidCommerces;
+	std::vector<TechTypes> vAvailableTechs;
+	std::vector<CommerceTypes> vValidCommerces;
 
 	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
 		int iJ;
 		bool bValid = true;
 		if (kDeadUnit.getCommerceFromKill(eCommerce) > 0 || kOwner.getBaseCommerceFromUnit(eCommerce)) {
 			if (eCommerce == COMMERCE_RESEARCH) {
-				TechTypes eTempTech;
+				// We can always gain research towards our current goal
+				TechTypes eCurrentResearch = GET_PLAYER(getOwnerINLINE()).getCurrentResearch();
+				if (eCurrentResearch != NO_TECH) {
+					vAvailableTechs.push_back(eCurrentResearch);
+				}
+
 				for (iJ = 0; iJ < kDeadUnit.getNumPrereqAndTechs(); iJ++) {
-					eTempTech = (TechTypes)kDeadUnit.getPrereqAndTech(iJ);
+					TechTypes eTempTech = (TechTypes)kDeadUnit.getPrereqAndTech(iJ);
 					if (eTempTech != NO_TECH) {
 						if (kOwner.canResearch(eTempTech, true) && GET_TEAM(kDeadOwner.getTeam()).isHasTech(eTempTech)) {
-							aeAvailableTechs.push_back(eTempTech);
+							vAvailableTechs.push_back(eTempTech);
 						}
 					}
 				}
 
 				for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumPromotionInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
 					if (pDeadUnit->isHasPromotion(ePromotion)) {
-						eTempTech = (TechTypes)GC.getPromotionInfo(ePromotion).getTechPrereq();
+						TechTypes eTempTech = (TechTypes)GC.getPromotionInfo(ePromotion).getTechPrereq();
 						if (eTempTech != NO_TECH) {
 							if (kOwner.canResearch(eTempTech, true) && GET_TEAM(kDeadOwner.getTeam()).isHasTech(eTempTech)) {
-								aeAvailableTechs.push_back(eTempTech);
+								vAvailableTechs.push_back(eTempTech);
 							}
 						}
 					}
 				}
 
-				bValid = (aeAvailableTechs.size() > 0);
+				bValid = (vAvailableTechs.size() > 0);
 			}
 
 			if (eCommerce == COMMERCE_ESPIONAGE && pDeadUnit->isBarbarian()) {
@@ -11807,15 +11814,15 @@ void CvUnit::salvage(CvUnit* pDeadUnit) {
 			}
 
 			if (bValid) {
-				aeValidCommerces.push_back(eCommerce);
+				vValidCommerces.push_back(eCommerce);
 			}
 		}
 	}
 
-	if (aeValidCommerces.size() > 0) {
-		int iRoll = (CommerceTypes)GC.getGameINLINE().getSorenRandNum(aeValidCommerces.size(), "Pillage");
+	if (vValidCommerces.size() > 0) {
+		int iRoll = (CommerceTypes)GC.getGameINLINE().getSorenRandNum(vValidCommerces.size(), "Pillage");
 
-		CommerceTypes eCommerce = aeValidCommerces[iRoll];
+		CommerceTypes eCommerce = vValidCommerces[iRoll];
 
 		int iCommerce = std::max(kDeadUnit.getCommerceFromKill(eCommerce), kOwner.getBaseCommerceFromUnit(eCommerce));
 		iCommerce *= std::max(0, kOwner.getCommerceFromUnitModifier(eCommerce) + 100);
@@ -11832,18 +11839,18 @@ void CvUnit::salvage(CvUnit* pDeadUnit) {
 			case COMMERCE_GOLD:
 				kOwner.changeGold(iTotalCommerce);
 				szBuffer = gDLL->getText("TXT_KEY_MISC_GOLD_FROM_UNIT", iTotalCommerce, GC.getCommerceInfo(eCommerce).getChar(), kDeadOwner.getCivilizationAdjectiveKey(), pDeadUnit->getNameKey());
-				gDLL->getInterfaceIFace()->addMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_PILLAGE", MESSAGE_TYPE_INFO, m_pUnitInfo->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), getX_INLINE(), getY_INLINE());
+				gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_PILLAGE", MESSAGE_TYPE_INFO, m_pUnitInfo->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE());
 				break;
 			case COMMERCE_CULTURE:
-				if (pNearestCity != NULL) {
-					pNearestCity->changeCulture(getOwnerINLINE(), iTotalCommerce, true, true);
-					szBuffer = gDLL->getText("TXT_KEY_MISC_CULTURE_FROM_UNIT", iTotalCommerce, GC.getCommerceInfo(eCommerce).getChar(), kDeadOwner.getCivilizationAdjectiveKey(), pDeadUnit->getNameKey(), pNearestCity->getNameKey());
-					gDLL->getInterfaceIFace()->addMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_PILLAGE", MESSAGE_TYPE_INFO, m_pUnitInfo->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), getX_INLINE(), getY_INLINE());
+				if (pSalvageCity != NULL) {
+					pSalvageCity->changeCulture(getOwnerINLINE(), iTotalCommerce, true, true);
+					szBuffer = gDLL->getText("TXT_KEY_MISC_CULTURE_FROM_UNIT", iTotalCommerce, GC.getCommerceInfo(eCommerce).getChar(), kDeadOwner.getCivilizationAdjectiveKey(), pDeadUnit->getNameKey(), pSalvageCity->getNameKey());
+					gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_PILLAGE", MESSAGE_TYPE_INFO, m_pUnitInfo->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE());
 				}
 				break;
 			case COMMERCE_RESEARCH:
 				{
-					TechTypes eRewardTech = aeAvailableTechs[GC.getGameINLINE().getSorenRandNum(aeAvailableTechs.size(), "Choose Tech")];
+					TechTypes eRewardTech = vAvailableTechs[GC.getGameINLINE().getSorenRandNum(vAvailableTechs.size(), "Choose Tech")];
 					if (eRewardTech != NO_TECH) {
 						if (kOwner.getCurrentResearch() == eRewardTech) {
 							iTotalCommerce *= GC.getDefineINT("UNIT_SALVAGE_CURRENT_TECH_PERCENT");
@@ -11852,7 +11859,7 @@ void CvUnit::salvage(CvUnit* pDeadUnit) {
 
 						GET_TEAM(getTeam()).changeResearchProgress(eRewardTech, iTotalCommerce, getOwnerINLINE());
 						szBuffer = gDLL->getText("TXT_KEY_MISC_ACQUIRE_RESEARCH_FROM_UNIT", iTotalCommerce, GC.getCommerceInfo(eCommerce).getChar(), kDeadOwner.getCivilizationAdjectiveKey(), pDeadUnit->getNameKey(), GC.getTechInfo(eRewardTech).getTextKeyWide());
-						gDLL->getInterfaceIFace()->addMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_PILLAGE", MESSAGE_TYPE_INFO, m_pUnitInfo->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), getX_INLINE(), getY_INLINE());
+						gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_PILLAGE", MESSAGE_TYPE_INFO, m_pUnitInfo->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE());
 					}
 				}
 				break;
@@ -11860,8 +11867,10 @@ void CvUnit::salvage(CvUnit* pDeadUnit) {
 				if (!pDeadUnit->isBarbarian()) {
 					GET_TEAM(getTeam()).changeEspionagePointsAgainstTeam(kDeadOwner.getTeam(), iTotalCommerce);
 					szBuffer = gDLL->getText("TXT_KEY_MISC_GATHERED_INTELLIGENCE_FROM_UNIT", iTotalCommerce, GC.getCommerceInfo(eCommerce).getChar(), kDeadOwner.getCivilizationAdjectiveKey(), pDeadUnit->getNameKey(), kDeadOwner.getNameKey());
-					gDLL->getInterfaceIFace()->addMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_PILLAGE", MESSAGE_TYPE_INFO, m_pUnitInfo->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), getX_INLINE(), getY_INLINE());
+					gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_PILLAGE", MESSAGE_TYPE_INFO, m_pUnitInfo->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE());
 				}
+				break;
+			default:
 				break;
 			}
 		}
