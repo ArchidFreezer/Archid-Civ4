@@ -58,6 +58,11 @@
 		<Tag>TXT_KEY_UNITCOMBAT_LAW_ENFORCEMENT</Tag>
 		<English>Law Enforcement Units</English>
 	</TEXT>
+	<TEXT> <!-- Hunter -->
+		<Tag>TXT_KEY_UNITCOMBAT_HUNTER</Tag>
+		<English>Hunting Units</English>
+		<Spanish>Unidad de Cacer&#237;a</Spanish>
+	</TEXT>
 
 <!-- ******************** -->
 <!-- Units                -->

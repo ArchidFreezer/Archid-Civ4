@@ -3559,6 +3559,77 @@
 			</FreePromotions>
 		</UnitInfo>
 
+<!-- ************ -->
+<!-- Hunter        -->
+<!-- ************ -->
+		<UnitInfo> <!-- Atlatl -->
+			<Class>UNITCLASS_ATLATL</Class>
+			<Type>UNIT_ATLATL</Type>
+			<Combat>UNITCOMBAT_HUNTER</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_EXPLORE</DefaultUnitAI>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
+			</SeeInvisibles>
+			<Description>TXT_KEY_UNIT_ATLATL</Description>
+			<Civilopedia>TXT_KEY_UNIT_ATLATL_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ATLATL_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bNoBadGoodies>1</bNoBadGoodies>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_SCOUT</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ATTACK</UnitAIType>
+				<UnitAIType>UNITAI_EXPLORE</UnitAIType>
+			</UnitAIs>
+			<NotUnitAIs>
+				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
+			</NotUnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_HUNTING</TechType>
+			</PrereqTechs>
+			<ObsoleteTech>TECH_POULTRY_FARMING</ObsoleteTech>
+			<iCost>15</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>2</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<iChanceFirstStrikes>1</iChanceFirstStrikes>
+			<iWithdrawalProb>25</iWithdrawalProb>
+			<iAnimalCombat>100</iAnimalCombat>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+					<iUnitCombatMod>-50</iUnitCombatMod>
+				</UnitCombatMod>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+					<iUnitCombatMod>-50</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<iCultureGarrison>4</iCultureGarrison>
+			<iAsset>1</iAsset>
+			<iPower>1</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>3</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>3</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>3</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_ATLATL</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_RANGED</FormationType>
+			<HotKey/>
+		</UnitInfo>
+
 <!-- ************    -->
 <!-- Law Enforcement -->
 <!-- ************    -->
@@ -7957,72 +8028,6 @@
 <!-- ************ -->
 <!-- Recon        -->
 <!-- ************ -->
-		<UnitInfo> <!-- Atlatl -->
-			<Class>UNITCLASS_ATLATL</Class>
-			<Type>UNIT_ATLATL</Type>
-			<Combat>UNITCOMBAT_RECON</Combat>
-			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_EXPLORE</DefaultUnitAI>
-			<SeeInvisibles>
-				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
-			</SeeInvisibles>
-			<Description>TXT_KEY_UNIT_ATLATL</Description>
-			<Civilopedia>TXT_KEY_UNIT_ATLATL_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_ATLATL_STRATEGY</Strategy>
-			<Advisor>ADVISOR_MILITARY</Advisor>
-			<bNoBadGoodies>1</bNoBadGoodies>
-			<bMilitaryProduction>1</bMilitaryProduction>
-			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_SCOUT</UnitClassType>
-			</UnitClassUpgrades>
-			<UnitAIs>
-				<UnitAIType>UNITAI_EXPLORE</UnitAIType>
-			</UnitAIs>
-			<NotUnitAIs>
-				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
-			</NotUnitAIs>
-			<PrereqTechs>
-				<TechType>TECH_HUNTING</TechType>
-			</PrereqTechs>
-			<ObsoleteTech>TECH_POULTRY_FARMING</ObsoleteTech>
-			<iCost>15</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMoves>1</iMoves>
-			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
-			<iCombat>2</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<iChanceFirstStrikes>1</iChanceFirstStrikes>
-			<iWithdrawalProb>25</iWithdrawalProb>
-			<iAnimalCombat>100</iAnimalCombat>
-			<UnitCombatMods>
-				<UnitCombatMod>
-					<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
-					<iUnitCombatMod>-50</iUnitCombatMod>
-				</UnitCombatMod>
-				<UnitCombatMod>
-					<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
-					<iUnitCombatMod>-50</iUnitCombatMod>
-				</UnitCombatMod>
-			</UnitCombatMods>
-			<iCultureGarrison>4</iCultureGarrison>
-			<iAsset>1</iAsset>
-			<iPower>1</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>3</iGroupSize>
-				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1</fPadTime>
-				<iMeleeWaveSize>3</iMeleeWaveSize>
-				<iRangedWaveSize>3</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>3</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_ATLATL</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_RANGED</FormationType>
-			<HotKey/>
-		</UnitInfo>
 		<UnitInfo> <!-- Scout -->
 			<Class>UNITCLASS_SCOUT</Class>
 			<Type>UNIT_SCOUT</Type>

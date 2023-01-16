@@ -146,6 +146,20 @@
 		<English>Evasion III</English>
 	</TEXT>
 
+<!-- +++ Hunter +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_HUNTER1</Tag>
+		<English>Hunter I</English>
+	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_HUNTER2</Tag>
+		<English>Hunter II</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_HUNTER3</Tag>
+		<English>Hunter III</English>
+	</TEXT>
+
 <!-- +++ Improviser +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_IMPROVISE1</Tag>
@@ -286,6 +300,16 @@
 		<Spanish>Lealtad</Spanish>
 	</TEXT>	
 
+<!-- +++ Recon +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_RECON1</Tag>
+		<English>Recon I</English>
+	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_RECON2</Tag>
+		<English>Recon II</English>
+	</TEXT>
+
 <!-- +++ Safecracker +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_SAFECRACKER1</Tag>
@@ -298,6 +322,16 @@
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_SAFECRACKER3</Tag>
 		<English>Safecracker III</English>
+	</TEXT>
+
+<!-- +++ Sidestep +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SIDESTEP1</Tag>
+		<English>Sidestep I</English>
+	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SIDESTEP2</Tag>
+		<English>Sidestep II</English>
 	</TEXT>
 
 <!-- +++ Slaver +++ -->

@@ -34,6 +34,11 @@
 			<Description>TXT_KEY_UNITCOMBAT_GUN</Description>
 			<Button>Art/Interface/Buttons/Combat/combat_gun.dds</Button>
 		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Hunter -->
+			<Type>UNITCOMBAT_HUNTER</Type>
+			<Description>TXT_KEY_UNITCOMBAT_HUNTER</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_hunter.dds</Button>
+		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Melee -->
 			<Type>UNITCOMBAT_MELEE</Type>
 			<Description>TXT_KEY_UNITCOMBAT_MELEE</Description>

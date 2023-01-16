@@ -1086,6 +1086,7 @@
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<iHillsDefense>20</iHillsDefense>
 			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
@@ -1105,6 +1106,7 @@
 			<bHillsDoubleMove>1</bHillsDoubleMove>
 			<iHillsDefense>30</iHillsDefense>
 			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
@@ -1131,6 +1133,59 @@
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Guerilla2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,7,5</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Hunter 1 -->
+			<Type>PROMOTION_HUNTER1</Type>
+			<Description>TXT_KEY_PROMOTION_HUNTER1</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<iFirstStrikesChange>1</iFirstStrikesChange>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_ANIMAL</UnitCombatType>
+					<iUnitCombatMod>25</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/hunter1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Hunter 2 -->
+			<Type>PROMOTION_HUNTER2</Type>
+			<Description>TXT_KEY_PROMOTION_HUNTER2</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PromotionPrereq>PROMOTION_HUNTER1</PromotionPrereq>
+			<iFirstStrikesChange>1</iFirstStrikesChange>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_ANIMAL</UnitCombatType>
+					<iUnitCombatMod>25</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/hunter2.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Hunter 3 -->
+			<Type>PROMOTION_HUNTER3</Type>
+			<Description>TXT_KEY_PROMOTION_HUNTER3</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PromotionPrereq>PROMOTION_HUNTER2</PromotionPrereq>
+			<iFirstStrikesChange>1</iFirstStrikesChange>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_ANIMAL</UnitCombatType>
+					<iUnitCombatMod>30</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/hunter3.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Improvise 1 -->
 			<Type>PROMOTION_IMPROVISE1</Type>
@@ -1664,6 +1719,36 @@
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,2,15</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Recon 1 -->
+			<Type>PROMOTION_RECON1</Type>
+			<Description>TXT_KEY_PROMOTION_RECON1</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_HUNTER1</PromotionType>
+				<PromotionType>PROMOTION_COMBAT1</PromotionType>
+			</PrereqOrPromotions>
+			<iVisibilityChange>1</iVisibilityChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/recon1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Recon 2 -->
+			<Type>PROMOTION_RECON2</Type>
+			<Description>TXT_KEY_PROMOTION_RECON2</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_RECON1</PromotionType>
+			</PrereqOrPromotions>
+			<iVisibilityChange>1</iVisibilityChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/recon2.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Safecracker I -->
 			<Type>PROMOTION_SAFECRACKER1</Type>
 			<Description>TXT_KEY_PROMOTION_SAFECRACKER1</Description>
@@ -1748,6 +1833,35 @@
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Shock.dds,Art/Interface/Buttons/Promotions_Atlas.dds,4,5</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Sidestep 1 -->
+			<Type>PROMOTION_SIDESTEP1</Type>
+			<Description>TXT_KEY_PROMOTION_SIDESTEP1</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_HUNTER2</PromotionType>
+			</PrereqOrPromotions>
+			<iWithdrawalChange>15</iWithdrawalChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/sidestep1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Sidestep 2 -->
+			<Type>PROMOTION_SIDESTEP2</Type>
+			<Description>TXT_KEY_PROMOTION_SIDESTEP2</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_SIDESTEP1</PromotionType>
+			</PrereqOrPromotions>
+			<iMovesChange>1</iMovesChange>
+			<iWithdrawalChange>20</iWithdrawalChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/sidestep2.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Slaver I -->
 			<Type>PROMOTION_SLAVER1</Type>
@@ -1896,6 +2010,7 @@
 				</FeatureDefense>
 			</FeatureDefenses>
 			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
@@ -1926,6 +2041,7 @@
 				<FeatureType>FEATURE_FOREST</FeatureType>
 			</FeatureDoubleMoves>
 			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
