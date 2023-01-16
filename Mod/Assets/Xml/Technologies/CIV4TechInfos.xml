@@ -10994,7 +10994,6 @@
 			<iCost>10</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<Era>ERA_EPIPALAEOLITHIC</Era>
-			<bCivSettled>1</bCivSettled>
 			<FreeUnitClass>UNITCLASS_ATLATL</FreeUnitClass>
 			<iAsset>2</iAsset>
 			<bTrade>1</bTrade>
