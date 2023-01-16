@@ -7719,6 +7719,16 @@ bool CvGame::getAnimalSpawnImprovementsDone() const {
 	return m_bAnimalSpawnImprovementsDone;
 }
 
+bool CvGame::isAnyCivSettled() const {
+	for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_CIV_TEAMS; eTeam = (TeamTypes)(eTeam + 1)) {
+		CvTeam& kTeam = GET_TEAM(eTeam);
+		if (kTeam.isAlive() && kTeam.isCivSettled()) {
+			return true;
+		}
+	}
+	return false;
+}
+
 void CvGame::setAnimalSpawnImprovementsDone(bool bValue) {
 	m_bAnimalSpawnImprovementsDone = bValue;
 }

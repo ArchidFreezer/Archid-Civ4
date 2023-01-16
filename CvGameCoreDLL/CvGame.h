@@ -32,6 +32,8 @@ protected:
 
 public:
 
+	bool isAnyCivSettled() const;
+
 	void setAnimalSpawnImprovementsDone(bool bValue);
 	bool getAnimalSpawnImprovementsDone() const;
 	void setBarbSpawnImprovementsDone(bool bValue);

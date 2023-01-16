@@ -7626,11 +7626,11 @@ int CvUnit::maxXPValue() const {
 	iMaxValue = MAX_INT;
 
 	if (isAnimal()) {
-		iMaxValue = std::min(iMaxValue, GC.getDefineINT("ANIMAL_MAX_XP_VALUE"));
+		iMaxValue = GC.getGameINLINE().isAnyCivSettled() ? std::min(iMaxValue, GC.getDefineINT("ANIMAL_MAX_XP_VALUE")) : std::min(iMaxValue, GC.getDefineINT("ANIMAL_MAX_XP_VALUE_PRE_SETTLE"));
 	}
 
 	if (isBarbarian()) {
-		iMaxValue = std::min(iMaxValue, GC.getDefineINT("BARBARIAN_MAX_XP_VALUE"));
+		iMaxValue = GC.getGameINLINE().isAnyCivSettled() ? std::min(iMaxValue, GC.getDefineINT("BARBARIAN_MAX_XP_VALUE")) : std::min(iMaxValue, GC.getDefineINT("BARBARIAN_MAX_XP_VALUE_PRE_SETTLE"));
 	}
 
 	return iMaxValue;

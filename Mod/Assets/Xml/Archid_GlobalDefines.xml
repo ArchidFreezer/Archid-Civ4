@@ -644,4 +644,12 @@
 		<DefineName>TRIBAL_CONSCRIPT_MIN_CITY_POPULATION</DefineName>
 		<iDefineIntVal>3</iDefineIntVal>
 	</Define>
+	<Define>
+		<DefineName>ANIMAL_MAX_XP_VALUE_PRE_SETTLE</DefineName>
+		<iDefineIntVal>50</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>BARBARIAN_MAX_XP_VALUE_PRE_SETTLE</DefineName>
+		<iDefineIntVal>50</iDefineIntVal>
+	</Define>
 </Civ4Defines>
