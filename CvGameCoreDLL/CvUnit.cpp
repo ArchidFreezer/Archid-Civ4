@@ -338,6 +338,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iWorkRateModifier = 0;
 	m_iWeaponStrength = 0;
 	m_iAmmunitionStrength = 0;
+	m_iSalvageModifier = 0;
 
 	m_bMadeAttack = false;
 	m_bMadeInterception = false;
@@ -9985,6 +9986,7 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 		changeSpyBuyTechChange(kPromotion.getSpyBuyTechChange() * iChange);
 		changeSpyStealTreasuryChange(kPromotion.getSpyStealTreasuryChange() * iChange);
 		changeWorkRateModifier(kPromotion.getWorkRateModifier() * iChange);
+		changeSalvageModifier(kPromotion.getSalvageModifier() * iChange);
 
 		for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
 			changeExtraTerrainAttackPercent(eTerrain, kPromotion.getTerrainAttackPercent(eTerrain) * iChange);
@@ -10147,6 +10149,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iSlaveControlCount);
 	pStream->Read(&m_iLoyaltyCount);
 	pStream->Read(&m_iWorkRateModifier);
+	pStream->Read(&m_iSalvageModifier);
 
 	pStream->Read(&m_bMadeAttack);
 	pStream->Read(&m_bMadeInterception);
@@ -10306,6 +10309,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iSlaveControlCount);
 	pStream->Write(m_iLoyaltyCount);
 	pStream->Write(m_iWorkRateModifier);
+	pStream->Write(m_iSalvageModifier);
 
 	pStream->Write(m_bMadeAttack);
 	pStream->Write(m_bMadeInterception);
@@ -11747,13 +11751,20 @@ void CvUnit::salvage(CvUnit* pDeadUnit) {
 	const CvPlayer& kDeadOwner = GET_PLAYER(pDeadUnit->getOwnerINLINE());
 	const CvUnitInfo& kDeadUnit = GC.getUnitInfo(pDeadUnit->getUnitType());
 
+	// Only get salvage from animals in the pre-settled stage
+	if (kDeadUnit.isAnimal() && kOwner.isCivSettled())
+		return;
+
 	CvCity* pSalvageCity = getHomeCity() != NULL ? getHomeCity() : kOwner.findCity(getX_INLINE(), getY_INLINE());
 	if (pSalvageCity != NULL) {
 		for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 			if (kDeadUnit.getYieldFromKill(eYield) > 0 || kOwner.getBaseYieldFromUnit(eYield) > 0) {
 				int iYield = std::max(kDeadUnit.getYieldFromKill(eYield), kOwner.getBaseYieldFromUnit(eYield));
-				iYield *= std::max(0, kOwner.getYieldFromUnitModifier(eYield) + 100);
-				iYield /= 100;
+				// We do some jiggery-pokery here so that pre-settled we get the rounded up value with the salvage modifier applied
+				// This is because many of the animals give small results so the modifier would provide no benefit using standard integer division
+				// once we are settled then go back to the usual interpretation
+				iYield *= std::max(0, kOwner.getYieldFromUnitModifier(eYield) + getSalvageModifier() + 100);
+				iYield = !kOwner.isCivSettled() ? iYield / 100 + (iYield % 100 != 0) : iYield / 100;
 
 				switch (eYield) {
 				case YIELD_FOOD:
@@ -11827,8 +11838,9 @@ void CvUnit::salvage(CvUnit* pDeadUnit) {
 		CommerceTypes eCommerce = vValidCommerces[iRoll];
 
 		int iCommerce = std::max(kDeadUnit.getCommerceFromKill(eCommerce), kOwner.getBaseCommerceFromUnit(eCommerce));
-		iCommerce *= std::max(0, kOwner.getCommerceFromUnitModifier(eCommerce) + 100);
-		iCommerce /= 100;
+		// Same jiggery-pokery as the yield calculation above
+		iCommerce *= std::max(0, kOwner.getCommerceFromUnitModifier(eCommerce) + getSalvageModifier() + 100);
+		iCommerce = !kOwner.isCivSettled() ? iCommerce / 100 + (iCommerce % 100 != 0) : iCommerce / 100;
 
 		int iCommerceVariable = (GC.getGameINLINE().getSorenRandNum(iCommerce, "Commerce Variable") * GC.getDefineINT("UNIT_SALVAGE_COMM_VARIABLE_PERCENT"));
 		iCommerceVariable /= 100;
@@ -13319,4 +13331,12 @@ int CvUnit::getAmmunitionStrength() const {
 
 WeaponTypes CvUnit::getAmmunitionType() const {
 	return m_eAmmunitionType;
+}
+
+void CvUnit::changeSalvageModifier(int iChange) {
+	m_iSalvageModifier += iChange;
+}
+
+int CvUnit::getSalvageModifier() const {
+	return m_iSalvageModifier;
 }

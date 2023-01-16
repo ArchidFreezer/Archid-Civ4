@@ -564,6 +564,7 @@ public:
 	int getWorkRateModifier() const;
 	int getNumBuildLeaveFeatures() const;
 	int getNumSeeInvisibleTypes() const;
+	int getSalvageModifier() const;
 
 	bool isLeader() const;				// Exposed to Python
 	bool isBlitz() const;				// Exposed to Python
@@ -676,6 +677,7 @@ protected:
 	int m_iSpyBuyTechChange;
 	int m_iSpyStealTreasuryChange;
 	int m_iWorkRateModifier;
+	int m_iSalvageModifier;
 
 	bool m_bLeader;
 	bool m_bBlitz;

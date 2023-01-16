@@ -88,6 +88,8 @@ public:
 	void reset(int iID = 0, UnitTypes eUnit = NO_UNIT, PlayerTypes eOwner = NO_PLAYER, bool bConstructorCall = false);
 	void setupGraphical();
 
+	int getSalvageModifier() const;
+	void changeSalvageModifier(int iChange);
 	void convert(CvUnit* pUnit);																																	// Exposed to Python
 	void kill(bool bDelay, PlayerTypes ePlayer = NO_PLAYER);														// Exposed to Python
 	void salvage(CvUnit* pDeadUnit);
@@ -1034,6 +1036,7 @@ protected:
 	int m_iWorkRateModifier;
 	int m_iWeaponStrength; // Cached for speed
 	int m_iAmmunitionStrength; // Cached for speed
+	int m_iSalvageModifier;
 
 	bool m_bMadeAttack;
 	bool m_bMadeInterception;

@@ -1682,6 +1682,7 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_iSpyBuyTechChange(0),
 	m_iSpyStealTreasuryChange(0),
 	m_iWorkRateModifier(0),
+	m_iSalvageModifier(0),
 	m_bLeader(false),
 	m_bBlitz(false),
 	m_bAmphib(false),
@@ -1723,6 +1724,10 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_piDomainModifierPercent);
 	SAFE_DELETE_ARRAY(m_pbTerrainDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
+}
+
+int CvPromotionInfo::getSalvageModifier() const {
+	return m_iSalvageModifier;
 }
 
 int CvPromotionInfo::getSeeInvisibleType(int i) const {
@@ -2208,6 +2213,7 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iSpyBuyTechChange);
 	stream->Read(&m_iSpyStealTreasuryChange);
 	stream->Read(&m_iWorkRateModifier);
+	stream->Read(&m_iSalvageModifier);
 
 	stream->Read(&m_bLeader);
 	stream->Read(&m_bBlitz);
@@ -2367,6 +2373,7 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iSpyBuyTechChange);
 	stream->Write(m_iSpyStealTreasuryChange);
 	stream->Write(m_iWorkRateModifier);
+	stream->Write(m_iSalvageModifier);
 
 	stream->Write(m_bLeader);
 	stream->Write(m_bBlitz);
@@ -2488,6 +2495,7 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iRevoltProtection, "iRevoltProtection");
 	pXML->GetChildXmlValByName(&m_iCollateralDamageProtection, "iCollateralDamageProtection");
 	pXML->GetChildXmlValByName(&m_iPillageChange, "iPillageChange");
+	pXML->GetChildXmlValByName(&m_iSalvageModifier, "iSalvageModifier");
 	pXML->GetChildXmlValByName(&m_iUpgradeDiscount, "iUpgradeDiscount");
 	pXML->GetChildXmlValByName(&m_iExperiencePercent, "iExperiencePercent");
 	pXML->GetChildXmlValByName(&m_iKamikazePercent, "iKamikazePercent");

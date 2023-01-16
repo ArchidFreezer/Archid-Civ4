@@ -324,6 +324,16 @@
 		<English>Safecracker III</English>
 	</TEXT>
 
+<!-- +++ Scavenger +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SCAVENGER1</Tag>
+		<English>Scavenger I</English>
+	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SCAVENGER2</Tag>
+		<English>Scavenger II</English>
+	</TEXT>
+
 <!-- +++ Sidestep +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_SIDESTEP1</Tag>
@@ -602,5 +612,9 @@
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_BUILD_LEAVE_FEATURE_TEXT</Tag>
 		<English>[ICON_BULLET]%s1_build in %s2_feature</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SALVAGE_MODIFIER_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_percent%% modifier to salvage gains</English>
 	</TEXT>
 </Civ4GameText>

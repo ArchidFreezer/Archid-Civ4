@@ -1788,6 +1788,34 @@
 			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/safecracker3.dds</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Scavenger 1 -->
+			<Type>PROMOTION_SCAVENGER1</Type>
+			<Description>TXT_KEY_PROMOTION_SCAVENGER1</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_HUNTER1</PromotionType>
+			</PrereqOrPromotions>
+			<iSalvageModifier>30</iSalvageModifier>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/scavenger1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Scavenger 2 -->
+			<Type>PROMOTION_SCAVENGER2</Type>
+			<Description>TXT_KEY_PROMOTION_SCAVENGER2</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_SCAVENGER1</PromotionType>
+			</PrereqOrPromotions>
+			<iSalvageModifier>30</iSalvageModifier>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/scavenger2.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Sentry -->
 			<Type>PROMOTION_SENTRY</Type>
 			<Description>TXT_KEY_PROMOTION_SENTRY</Description>

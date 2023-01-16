@@ -868,6 +868,7 @@
 		<element type="BuildType" minOccurs="0" maxOccurs="*"/>
 		<element type="FeatureType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="iSalvageModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="PromotionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -942,6 +943,7 @@
 		<element type="iRevoltProtection" minOccurs="0"/>
 		<element type="iCollateralDamageProtection" minOccurs="0"/>
 		<element type="iPillageChange" minOccurs="0"/>
+		<element type="iSalvageModifier" minOccurs="0"/>
 		<element type="iUpgradeDiscount" minOccurs="0"/>
 		<element type="iExperiencePercent" minOccurs="0"/>
 		<element type="iWorkRateModifier" minOccurs="0"/>

@@ -7300,6 +7300,15 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		return iValue;
 	}
 
+	// These promotions only really have value in the pre-settled stage when they shine
+	if (kPromotion.getSalvageModifier() != 0) {
+		if (!GET_PLAYER(getOwnerINLINE()).isCivSettled()) {
+			iValue += 40;
+		} else {
+			iValue++;
+		}
+	}
+
 	if (kPromotion.isBlitz()) {
 		if ((AI_getUnitAIType() == UNITAI_RESERVE && baseMoves() > 1) ||
 			AI_getUnitAIType() == UNITAI_PARADROP) {

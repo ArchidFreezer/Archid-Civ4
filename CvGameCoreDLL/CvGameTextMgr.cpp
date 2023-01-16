@@ -511,6 +511,11 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 		szString.append(szTempBuffer);
 	}
 
+	// show salvage modifiers
+	if (pUnit->getSalvageModifier() > 0) {
+		szString.append(gDLL->getText("TXT_KEY_PROMOTION_SALVAGE_MODIFIER_TEXT", pUnit->getSalvageModifier()));
+	}
+
 	for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumPromotionInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
 		if (pUnit->isHasPromotion(ePromotion)) {
 			szTempBuffer.Format(L"<img=%S size=16 />", GC.getPromotionInfo(ePromotion).getButton());
@@ -6148,6 +6153,11 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 	if (kPromotion.getPillageChange() != 0) {
 		szBuffer.append(pcNewline);
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_PILLAGE_CHANGE_TEXT", kPromotion.getPillageChange()));
+	}
+
+	if (kPromotion.getSalvageModifier() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SALVAGE_MODIFIER_TEXT", kPromotion.getSalvageModifier()));
 	}
 
 	if (kPromotion.getUpgradeDiscount() != 0) {
