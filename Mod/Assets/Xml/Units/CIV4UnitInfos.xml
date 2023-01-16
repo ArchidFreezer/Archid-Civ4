@@ -3582,6 +3582,9 @@
 				<UnitAIType>UNITAI_RESERVE</UnitAIType>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_SEDENTARY_LIFESTYLE</TechType>
+			</PrereqTechs>
 			<iCost>10</iCost>
 			<iAdvancedStartCost>10</iAdvancedStartCost>
 			<iMoves>1</iMoves>
