@@ -1138,6 +1138,7 @@
 			<Type>PROMOTION_HUNTER1</Type>
 			<Description>TXT_KEY_PROMOTION_HUNTER1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
+			<TechPrereq>TECH_SCAVENGING</TechPrereq>
 			<iFirstStrikesChange>1</iFirstStrikesChange>
 			<UnitCombatMods>
 				<UnitCombatMod>
@@ -1156,6 +1157,7 @@
 			<Description>TXT_KEY_PROMOTION_HUNTER2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<PromotionPrereq>PROMOTION_HUNTER1</PromotionPrereq>
+			<TechPrereq>TECH_STONE_TOOLS</TechPrereq>
 			<iFirstStrikesChange>1</iFirstStrikesChange>
 			<UnitCombatMods>
 				<UnitCombatMod>
@@ -1174,6 +1176,7 @@
 			<Description>TXT_KEY_PROMOTION_HUNTER3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<PromotionPrereq>PROMOTION_HUNTER2</PromotionPrereq>
+			<TechPrereq>TECH_FINE_EDGED_TOOLS</TechPrereq>
 			<iFirstStrikesChange>1</iFirstStrikesChange>
 			<UnitCombatMods>
 				<UnitCombatMod>
@@ -1727,6 +1730,7 @@
 				<PromotionType>PROMOTION_HUNTER1</PromotionType>
 				<PromotionType>PROMOTION_COMBAT1</PromotionType>
 			</PrereqOrPromotions>
+			<TechPrereq>TECH_EXPLORATION</TechPrereq>
 			<iVisibilityChange>1</iVisibilityChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
@@ -1742,6 +1746,7 @@
 			<PrereqOrPromotions>
 				<PromotionType>PROMOTION_RECON1</PromotionType>
 			</PrereqOrPromotions>
+			<TechPrereq>TECH_TRIBALISM</TechPrereq>
 			<iVisibilityChange>1</iVisibilityChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
@@ -1809,6 +1814,7 @@
 			<PrereqOrPromotions>
 				<PromotionType>PROMOTION_SCAVENGER1</PromotionType>
 			</PrereqOrPromotions>
+			<TechPrereq>TECH_FIRE</TechPrereq>
 			<iSalvageModifier>30</iSalvageModifier>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
@@ -1869,6 +1875,7 @@
 			<PrereqOrPromotions>
 				<PromotionType>PROMOTION_HUNTER2</PromotionType>
 			</PrereqOrPromotions>
+			<TechPrereq>TECH_EXPLORATION</TechPrereq>
 			<iWithdrawalChange>15</iWithdrawalChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
@@ -1883,6 +1890,7 @@
 			<PrereqOrPromotions>
 				<PromotionType>PROMOTION_SIDESTEP1</PromotionType>
 			</PrereqOrPromotions>
+			<TechPrereq>TECH_HUNTING</TechPrereq>
 			<iMovesChange>1</iMovesChange>
 			<iWithdrawalChange>20</iWithdrawalChange>
 			<OrUnitCombatTypes>
