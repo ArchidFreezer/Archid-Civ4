@@ -2795,6 +2795,9 @@ bool CvPlot::isVisibleEnemyDefender(const CvUnit* pUnit) const {
 	return (plotCheck(PUF_canDefendEnemy, pUnit->getOwnerINLINE(), pUnit->isAlwaysHostile(this), NO_PLAYER, NO_TEAM, PUF_isVisible, pUnit->getOwnerINLINE()) != NULL);
 }
 
+bool CvPlot::isVisibleAnimalEnemy(const CvUnit* pUnit) const {
+	return (plotCheck(PUF_isAnimalEnemy, pUnit->getOwnerINLINE(), pUnit->isAlwaysHostile(this), NO_PLAYER, NO_TEAM, PUF_isVisible, pUnit->getOwnerINLINE()) != NULL);
+}
 
 CvUnit* CvPlot::getVisibleEnemyDefender(PlayerTypes ePlayer) const {
 	return plotCheck(PUF_canDefendEnemy, ePlayer, false, NO_PLAYER, NO_TEAM, PUF_isVisible, ePlayer);

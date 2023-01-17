@@ -3567,7 +3567,8 @@
 			<Type>UNIT_ATLATL</Type>
 			<Combat>UNITCOMBAT_HUNTER</Combat>
 			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_EXPLORE</DefaultUnitAI>
+			<DefaultUnitAI>UNITAI_HUNTER</DefaultUnitAI>
+			<bFixedAI>1</bFixedAI>
 			<SeeInvisibles>
 				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
 			</SeeInvisibles>
@@ -3581,12 +3582,8 @@
 				<UnitClassType>UNITCLASS_SCOUT</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
-				<UnitAIType>UNITAI_ATTACK</UnitAIType>
-				<UnitAIType>UNITAI_EXPLORE</UnitAIType>
+				<UnitAIType>UNITAI_HUNTER</UnitAIType>
 			</UnitAIs>
-			<NotUnitAIs>
-				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
-			</NotUnitAIs>
 			<PrereqTechs>
 				<TechType>TECH_HUNTING</TechType>
 			</PrereqTechs>

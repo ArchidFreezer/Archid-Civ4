@@ -4581,6 +4581,10 @@ int CvTeamAI::AI_getTechMonopolyValue(TechTypes eTech, TeamTypes eTeam) const {
 						iValue += bWarPlan ? 40 : 15;
 						break;
 
+					// Hunters are better in peace than war due to their ineffective non-animal combat
+					case UNITAI_HUNTER:
+						iValue += bWarPlan ? 20 : 25;
+						break;
 
 					case UNITAI_EXPLORE:
 					case UNITAI_MISSIONARY:

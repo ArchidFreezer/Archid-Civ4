@@ -193,6 +193,7 @@ public:
 	bool isUnit() const;																																							// Exposed to Python
 	bool isInvestigate(TeamTypes eTeam) const;																												// Exposed to Python
 	bool isVisibleEnemyDefender(const CvUnit* pUnit) const;																						// Exposed to Python
+	bool isVisibleAnimalEnemy(const CvUnit* pUnit) const;
 	CvUnit* getVisibleEnemyDefender(PlayerTypes ePlayer) const;
 	int getNumDefenders(PlayerTypes ePlayer) const;																										// Exposed to Python
 	bool hasDefender(bool bCheckCanAttack, PlayerTypes eOwner, PlayerTypes eAttackingPlayer = NO_PLAYER, const CvUnit* pAttacker = NULL, bool bTestAtWar = false, bool bTestPotentialEnemy = false, bool bTestCanMove = false) const;

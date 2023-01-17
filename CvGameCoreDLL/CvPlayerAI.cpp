@@ -1360,6 +1360,7 @@ DomainTypes CvPlayerAI::AI_unitAIDomainType(UnitAITypes eUnitAI) const {
 	case UNITAI_SPY:
 	case UNITAI_ATTACK_CITY_LEMMING:
 	case UNITAI_GATHERER:
+	case UNITAI_HUNTER:
 		return DOMAIN_LAND;
 		break;
 
@@ -5088,6 +5089,10 @@ int CvPlayerAI::AI_techUnitValue(TechTypes eTech, int iPathLength, bool& bEnable
 					iUtilityValue = std::max(iUtilityValue, 4 * iWeight);
 					break;
 
+				case UNITAI_HUNTER:
+					iUtilityValue = std::max(iUtilityValue, (isCivSettled() ? 1 : 8) * iWeight);
+					break;
+
 					// Slavers have value in both peace and war
 				case UNITAI_SLAVER:
 					iOffenceValue = std::max(iOffenceValue, (bWarPlan ? 7 : 4) * iWeight + (AI_isDoStrategy(AI_STRATEGY_DAGGER) ? 5 * iWeight : 0));
@@ -8434,6 +8439,14 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			}
 			break;
 
+		case UNITAI_HUNTER:
+			if (kUnit.getCombat() > 0) {
+				if (!(kUnit.isOnlyDefensive())) {
+					bValid = true;
+				}
+			}
+			break;
+
 		case UNITAI_ATTACK:
 			if (kUnit.getCombat() > 0) {
 				if (!(kUnit.isOnlyDefensive())) {
@@ -8788,6 +8801,10 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 		iValue += (kUnit.getMoves() * 100);
 		break;
 
+	case UNITAI_HUNTER:
+		iValue += iCombatValue;
+		iValue += (kUnit.getMoves() * 100);
+		break;
 	case UNITAI_ATTACK:
 
 		iValue += iCombatValue;
@@ -18296,6 +18313,7 @@ int CvPlayerAI::AI_disbandValue(const CvUnit* pUnit, bool bMilitaryOnly) const {
 		break;
 
 	case UNITAI_SLAVER:
+	case UNITAI_HUNTER:
 		iValue *= 3;
 		break;
 

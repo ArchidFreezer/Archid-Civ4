@@ -1077,6 +1077,12 @@ bool PUF_isAnimal(const CvUnit* pUnit, int iData1, int iData2) {
 	return pUnit->isAnimal();
 }
 
+bool PUF_isAnimalEnemy(const CvUnit* pUnit, int iData1, int iData2) {
+	FAssertMsg(iData1 != -1, "Invalid data argument, should be >= 0");
+	FAssertMsg(iData2 != -1, "Invalid data argument, should be >= 0");
+	return (PUF_isEnemy(pUnit, iData1, iData2) && PUF_isAnimal(pUnit, iData1, iData2));
+}
+
 bool PUF_isMilitaryHappiness(const CvUnit* pUnit, int iData1, int iData2) {
 	return pUnit->isMilitaryHappiness();
 }
@@ -2240,6 +2246,7 @@ void getUnitAIString(CvWString& szString, UnitAITypes eUnitAI) {
 	case UNITAI_SLAVE: szString = L"slave"; break;
 	case UNITAI_SLAVER: szString = L"slaver"; break;
 	case UNITAI_GATHERER: szString = L"gatherer"; break;
+	case UNITAI_HUNTER: szString = L"hunter"; break;
 
 	default: szString = CvWString::format(L"unknown(%d)", eUnitAI); break;
 	}

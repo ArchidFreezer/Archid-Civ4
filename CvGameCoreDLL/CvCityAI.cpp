@@ -819,6 +819,25 @@ void CvCityAI::AI_chooseProduction() {
 		}
 	}
 
+	// Early game gatherer
+	// Given that the gatherers salvage resources for their home city then we need to check how many this city has
+	// We are looking to have at least 1 or 2 per city
+	if (!kPlayer.isCivSettled()) {
+		int iCityHunters = 0;
+		int iLoop;
+		for (CvUnit* pLoopUnit = kPlayer.firstUnit(&iLoop); pLoopUnit != NULL; pLoopUnit = kPlayer.nextUnit(&iLoop)) {
+			if (pLoopUnit->AI_getUnitAIType() == UNITAI_HUNTER) {
+				iCityHunters += (pLoopUnit->getHomeCity() == this);
+			}
+		}
+		if (iCityHunters == 0 || (getPopulation() > 3 && iCityHunters <= 2)) {
+			if (AI_chooseUnit(UNITAI_HUNTER)) {
+				if (gCityLogLevel >= 2) logBBAI("      City %S uses danger minimal attack", getName().GetCString());
+				return;
+			}
+		}
+	}
+
 	if (bMaybeWaterArea) {
 		if (!(bLandWar && iWarSuccessRating < -30) && !bDanger && !bFinancialTrouble) {
 			if (kPlayer.AI_getNumTrainAIUnits(UNITAI_ATTACK_SEA) + kPlayer.AI_getNumTrainAIUnits(UNITAI_PIRATE_SEA) + kPlayer.AI_getNumTrainAIUnits(UNITAI_RESERVE_SEA) < std::min(3, kPlayer.getNumCities())) {

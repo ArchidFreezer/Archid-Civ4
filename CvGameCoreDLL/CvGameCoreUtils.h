@@ -293,6 +293,7 @@ bool PUF_canAirAttack(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
 bool PUF_canAirDefend(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
 bool PUF_isFighting(const CvUnit* pUnit, int iData1, int iData2 = -1);
 bool PUF_isAnimal(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
+bool PUF_isAnimalEnemy(const CvUnit* pUnit, int iData1, int iData2 = -1);
 bool PUF_isMilitaryHappiness(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
 bool PUF_isInvestigate(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
 bool PUF_isCounterSpy(const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);

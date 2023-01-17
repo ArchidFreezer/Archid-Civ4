@@ -188,5 +188,9 @@
 			<Type>UNITAI_GATHERER</Type>
 			<Description>UNITAI_GATHERER</Description>
 		</UnitAIInfo>
+		<UnitAIInfo>
+			<Type>UNITAI_HUNTER</Type>
+			<Description>UNITAI_HUNTER</Description>
+		</UnitAIInfo>
 	</UnitAIInfos>
 </Civ4UnitAIInfos>

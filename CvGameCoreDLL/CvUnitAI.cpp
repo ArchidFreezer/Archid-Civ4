@@ -275,6 +275,10 @@ bool CvUnitAI::AI_update() {
 			AI_slaverMove();
 			break;
 
+		case UNITAI_HUNTER:
+			AI_hunterMove();
+			break;
+
 		case UNITAI_ATTACK:
 			if (isBarbarian()) {
 				AI_barbAttackMove();
@@ -629,6 +633,10 @@ int CvUnitAI::AI_groupFirstVal() {
 	// We want to go after the general attacking units incase we fill our slave slots through their actions
 	case UNITAI_SLAVER:
 		return 12;
+		break;
+
+	case UNITAI_HUNTER:
+		return 8;
 		break;
 
 	case UNITAI_COLLATERAL:
@@ -7503,6 +7511,7 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 
 	if (kPromotion.isAlwaysHeal()) {
 		if ((AI_getUnitAIType() == UNITAI_ATTACK) ||
+			(AI_getUnitAIType() == UNITAI_HUNTER) ||
 			(AI_getUnitAIType() == UNITAI_ATTACK_CITY) ||
 			(AI_getUnitAIType() == UNITAI_PILLAGE) ||
 			(AI_getUnitAIType() == UNITAI_COUNTER) ||
@@ -7517,7 +7526,8 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 	}
 
 	if (kPromotion.isHillsDoubleMove()) {
-		if (AI_getUnitAIType() == UNITAI_EXPLORE) {
+		if ((AI_getUnitAIType() == UNITAI_EXPLORE) ||
+			(AI_getUnitAIType() == UNITAI_HUNTER)) {
 			iValue += 20;
 		} else {
 			iValue += 10;
@@ -7535,7 +7545,8 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 	}
 
 	if (kPromotion.isUnitTerritoryUnbound() && getRangeType() == UNITRANGE_TERRITORY) {
-		if (AI_getUnitAIType() == UNITAI_EXPLORE) {
+		if ((AI_getUnitAIType() == UNITAI_EXPLORE) ||
+			(AI_getUnitAIType() == UNITAI_HUNTER)) {
 			iValue += 20;
 		} else {
 			iValue += 10;
@@ -7543,7 +7554,8 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 	}
 
 	if (kPromotion.isUnitRangeUnbound() && getRangeType() == UNITRANGE_RANGE) {
-		if (AI_getUnitAIType() == UNITAI_EXPLORE) {
+		if ((AI_getUnitAIType() == UNITAI_EXPLORE) ||
+			(AI_getUnitAIType() == UNITAI_HUNTER)) {
 			iValue += 20;
 		} else {
 			iValue += 10;
@@ -7592,7 +7604,8 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 
 	iTemp = kPromotion.getVisibilityChange();
 	if ((AI_getUnitAIType() == UNITAI_EXPLORE_SEA) ||
-		(AI_getUnitAIType() == UNITAI_EXPLORE)) {
+		(AI_getUnitAIType() == UNITAI_EXPLORE) ||
+		(AI_getUnitAIType() == UNITAI_HUNTER)) {
 		iValue += (iTemp * 40);
 	} else if (AI_getUnitAIType() == UNITAI_PIRATE_SEA) {
 		iValue += (iTemp * 20);
@@ -7608,6 +7621,7 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		(AI_getUnitAIType() == UNITAI_EXPLORE_SEA) ||
 		(AI_getUnitAIType() == UNITAI_ASSAULT_SEA) ||
 		(AI_getUnitAIType() == UNITAI_SETTLER_SEA) ||
+		(AI_getUnitAIType() == UNITAI_HUNTER) ||
 		(AI_getUnitAIType() == UNITAI_PILLAGE) ||
 		(AI_getUnitAIType() == UNITAI_ATTACK) ||
 		(AI_getUnitAIType() == UNITAI_PARADROP)) {
@@ -7670,6 +7684,7 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		(AI_getUnitAIType() == UNITAI_CITY_COUNTER) ||
 		(AI_getUnitAIType() == UNITAI_CITY_SPECIAL) ||
 		(AI_getUnitAIType() == UNITAI_SLAVER) ||
+		(AI_getUnitAIType() == UNITAI_HUNTER) ||
 		(AI_getUnitAIType() == UNITAI_ATTACK)) {
 		iTemp *= 8;
 		int iExtra = getExtraChanceFirstStrikes() + getExtraFirstStrikes() * 2;
@@ -7690,6 +7705,7 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 			iValue += (iTemp * 4) / 3;
 		} else if ((AI_getUnitAIType() == UNITAI_COLLATERAL) ||
 			(AI_getUnitAIType() == UNITAI_RESERVE) ||
+			(AI_getUnitAIType() == UNITAI_HUNTER) ||
 			(AI_getUnitAIType() == UNITAI_RESERVE_SEA) ||
 			getLeaderUnitType() != NO_UNIT) {
 			iValue += iTemp * 1;
@@ -7791,6 +7807,7 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 	iTemp = kPromotion.getCombatPercent();
 	if ((AI_getUnitAIType() == UNITAI_ATTACK) ||
 		(AI_getUnitAIType() == UNITAI_SLAVER) ||
+		(AI_getUnitAIType() == UNITAI_HUNTER) ||
 		(AI_getUnitAIType() == UNITAI_COUNTER) ||
 		(AI_getUnitAIType() == UNITAI_CITY_COUNTER) ||
 		(AI_getUnitAIType() == UNITAI_ATTACK_SEA) ||
@@ -19084,6 +19101,117 @@ void CvUnitAI::AI_gathererMove() {
 
 	if (AI_handleStranded())
 		return;
+
+	if (AI_safety()) {
+		return;
+	}
+
+	getGroup()->pushMission(MISSION_SKIP);
+	return;
+}
+
+bool CvUnitAI::AI_salvageAnimalRange(int iRange, int iOddsThreshold) {
+	PROFILE_FUNC();
+
+	iRange = AI_searchRange(iRange);
+
+	int iBestValue = 0;
+	CvPlot* pBestPlot = NULL;
+	for (int iDX = -iRange; iDX <= iRange; iDX++) {
+		for (int iDY = -iRange; iDY <= iRange; iDY++) {
+			bool bFoundTarget = false;
+			CvPlot* pLoopPlot = plotXY(getX_INLINE(), getY_INLINE(), iDX, iDY);
+
+			if (pLoopPlot == NULL || pLoopPlot == plot() || !AI_plotValid(pLoopPlot) || pLoopPlot->isCity())
+				continue;
+
+			int iPathTurns;
+			if (!generatePath(pLoopPlot, 0, true, &iPathTurns) || (iPathTurns > iRange))
+				continue;
+
+			// Use weighting to pick the easiest target
+			int iValueWeighting = 100;
+			if (pLoopPlot->isVisibleAnimalEnemy(this)) {
+				int iWeightedOdds = AI_getWeightedOdds(pLoopPlot, true);
+				if (iWeightedOdds < iOddsThreshold)
+					continue;
+
+				iValueWeighting += iWeightedOdds - iOddsThreshold;
+				bFoundTarget = true;
+			}
+
+			// We always want to pop goodies!
+			if (pLoopPlot->isRevealedGoody()) {
+				iValueWeighting += 100000;
+				bFoundTarget = true;
+			}
+
+			if (!bFoundTarget)
+				continue;
+
+			int iValue = (1 + GC.getGameINLINE().getSorenRandNum(10000, "AI Salvage"));
+			iValue *= iValueWeighting;
+			iValue /= 100;
+
+			if (iValue > iBestValue) {
+				iBestValue = iValue;
+				pBestPlot = getPathEndTurnPlot();
+			}
+		}
+	}
+
+	if (pBestPlot != NULL) {
+		FAssert(!atPlot(pBestPlot));
+		getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE());
+		return true;
+	}
+
+	return false;
+
+}
+
+// The primary goal of a hunter is to find and kill animal units, avoiding barbarians and enemy players
+void CvUnitAI::AI_hunterMove() {
+	PROFILE_FUNC();
+
+	const CvPlayerAI& kOwner = GET_PLAYER(getOwnerINLINE());
+	bool bAnyDanger = kOwner.AI_getAnyPlotDanger(plot(), 3);
+
+	if (AI_heal(50, 1)) {
+		return;
+	}
+
+	if (AI_salvageAnimalRange(3, 90)) {
+		return;
+	}
+
+	// Take a stim pack
+	if (!bAnyDanger) {
+		if (AI_heal(30, 1)) {
+			return;
+		}
+	}
+
+	if (AI_salvageAnimalRange(3, 80)) {
+		return;
+	}
+
+	if (AI_salvageAnimalRange(3, 70)) {
+		return;
+	}
+
+	if (AI_travelToUpgradeCity()) {
+		return;
+	}
+
+	// Nothing really to do so lets wander around and hope to stumble on something
+	if (AI_exploreRange(3)) {
+		return;
+	}
+
+	if (AI_retreatToCity()) {
+		return;
+	}
 
 	if (AI_safety()) {
 		return;

@@ -973,6 +973,7 @@ void CyEnumsPythonInterface() {
 		.value("UNITAI_SLAVE", UNITAI_SLAVE)
 		.value("UNITAI_SLAVER", UNITAI_SLAVER)
 		.value("UNITAI_GATHERER", UNITAI_GATHERER)
+		.value("UNITAI_HUNTER", UNITAI_HUNTER)
 		.value("NUM_UNITAI_TYPES", NUM_UNITAI_TYPES)
 		;
 

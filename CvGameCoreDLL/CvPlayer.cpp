@@ -2008,6 +2008,7 @@ void CvPlayer::disbandUnit(bool bAnnounce) {
 						case UNITAI_PILLAGE:
 						case UNITAI_RESERVE:
 						case UNITAI_COUNTER:
+						case UNITAI_HUNTER:
 							iValue *= 2;
 							break;
 
