@@ -19174,7 +19174,7 @@ void CvUnitAI::AI_hunterMove() {
 	const CvPlayerAI& kOwner = GET_PLAYER(getOwnerINLINE());
 	bool bAnyDanger = kOwner.AI_getAnyPlotDanger(plot(), 3);
 
-	if (AI_heal(50, 1)) {
+	if (AI_heal(50)) {
 		return;
 	}
 
@@ -19184,7 +19184,7 @@ void CvUnitAI::AI_hunterMove() {
 
 	// Take a stim pack
 	if (!bAnyDanger) {
-		if (AI_heal(30, 1)) {
+		if (AI_heal(30, 3)) {
 			return;
 		}
 	}
