@@ -9158,15 +9158,13 @@ bool CvUnitAI::AI_heal(int iDamagePercent, int iMaxPath) {
 
 	CvSelectionGroup* pGroup = getGroup();
 
+	// If we can heal in 1 turn then do it, irrespective of the daamge we have taken
 	if (getGroup()->getNumUnits() == 1) {
 		// We don't want to hang around whilst being attacked from a fort if we are on our own
 		if (plot()->isSubjectToFortAttack())
 			return false;
 
-		// I don't know why the original code ignored the damage percent value for ungrouped units
-		// but I am using it
-		int iDamageThreshold = (maxHitPoints() * iDamagePercent) / 100;
-		if (getDamage() > iDamageThreshold) {
+		if (getDamage() > 0) {
 			if (plot()->isCity() || (healTurns(plot()) == 1)) {
 				if (!(isAlwaysHeal())) {
 					getGroup()->pushMission(MISSION_HEAL, -1, -1, 0, false, false, MISSIONAI_HEAL);
@@ -9174,7 +9172,6 @@ bool CvUnitAI::AI_heal(int iDamagePercent, int iMaxPath) {
 				}
 			}
 		}
-		return false;
 	}
 
 	iMaxPath = std::min(iMaxPath, 2);
@@ -9185,7 +9182,7 @@ bool CvUnitAI::AI_heal(int iDamagePercent, int iMaxPath) {
 	std::vector<CvUnit*> aeDamagedUnits;
 
 	// If we are grouped and this routine is called set a minimum threshold
-	iDamagePercent = std::min(10, iDamagePercent);
+	iDamagePercent = std::max(10, iDamagePercent);
 	CLLNode<IDInfo>* pEntityNode = getGroup()->headUnitNode();
 	while (pEntityNode != NULL) {
 		CvUnit* pLoopUnit = ::getUnit(pEntityNode->m_data);
