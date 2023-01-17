@@ -11982,6 +11982,10 @@ void CvUnit::doFieldPromotions(CombatData* data, CvUnit* pDefender, CvPlot* pPlo
 			else if (kPromotion.isBlitz() && data->bAttackerUninjured) {
 				aAttackerAvailablePromotions.push_back(ePromotion);
 			}
+			//* salvage
+			else if (kPromotion.getSalvageModifier() > 0) {
+				aAttackerAvailablePromotions.push_back(ePromotion);
+			}
 		}	//if defender is dead
 
 		// Defender withdrawn
@@ -11998,8 +12002,10 @@ void CvUnit::doFieldPromotions(CombatData* data, CvUnit* pDefender, CvPlot* pPlo
 			if (kPromotion.getWithdrawalChange() > 0 && canAcquirePromotion(ePromotion)) {
 				aAttackerAvailablePromotions.push_back(ePromotion);
 			}
-		} else	//attacker is dead
-		{
+		} 
+		
+		// Attacker dead
+		else {
 			if (!pDefender->canAcquirePromotion(ePromotion))
 				continue;
 
@@ -12036,39 +12042,41 @@ void CvUnit::doFieldPromotions(CombatData* data, CvUnit* pDefender, CvPlot* pPlo
 			else if (kPromotion.getDomainModifierPercent(getDomainType())) {
 				aDefenderAvailablePromotions.push_back(ePromotion);
 			}
+			//* salvage
+			else if (kPromotion.getSalvageModifier() > 0) {
+				aDefenderAvailablePromotions.push_back(ePromotion);
+			}
 		}	//if attacker dead
 	}	//end promotion types cycle
 
 	//promote attacker:
 	if (!isDead() && aAttackerAvailablePromotions.size() > 0) {
-		int iHealthPercent = (maxHitPoints() - getDamage()) * 100 / (maxHitPoints() - data->iAttackerInitialDamage);
-		int iPromotionChanceModifier = iHealthPercent * iHealthPercent / maxHitPoints();
-		int iPromotionChance = (GC.getDefineINT("COMBAT_DIE_SIDES") - data->iWinningOdds) * (100 + iPromotionChanceModifier) / 100;
+		int iHealthLostPerc = (getDamage() - data->iAttackerInitialDamage) * 100 / (maxHitPoints() - data->iAttackerInitialDamage);
+		int iPromotionChance = (GC.getDefineINT("COMBAT_DIE_SIDES") - data->iWinningOdds) * (100 + iHealthLostPerc) / GC.getDefineINT("COMBAT_DIE_SIDES");
 
 		if (GC.getGameINLINE().getSorenRandNum(GC.getDefineINT("COMBAT_DIE_SIDES"), "Occasional Promotion") < iPromotionChance) {
 			//select random promotion from available
-			PromotionTypes ptPromotion = aAttackerAvailablePromotions[GC.getGameINLINE().getSorenRandNum(aAttackerAvailablePromotions.size(), "Select Promotion Type")];
+			PromotionTypes ePromotion = aAttackerAvailablePromotions[GC.getGameINLINE().getSorenRandNum(aAttackerAvailablePromotions.size(), "Select Promotion Type")];
 			//promote
-			setHasPromotion(ptPromotion, true);
+			setHasPromotion(ePromotion, true);
 			//show message
-			CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_YOUR_UNIT_PROMOTED_IN_BATTLE", getNameKey(), GC.getPromotionInfo(ptPromotion).getText());
-			gDLL->getInterfaceIFace()->addMessage(getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getPromotionInfo(ptPromotion).getSound(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), this->plot()->getX_INLINE(), this->plot()->getY_INLINE());
+			CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_YOUR_UNIT_PROMOTED_IN_BATTLE", getNameKey(), GC.getPromotionInfo(ePromotion).getText());
+			gDLL->getInterfaceIFace()->addMessage(getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getPromotionInfo(ePromotion).getSound(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), this->plot()->getX_INLINE(), this->plot()->getY_INLINE());
 		}
 	}
 	//promote defender:
 	if (!pDefender->isDead() && aDefenderAvailablePromotions.size() > 0) {
-		int iHealthPercent = (maxHitPoints() - pDefender->getDamage()) * 100 / (maxHitPoints() - data->iDefenderInitialDamage);
-		int iPromotionChanceModifier = iHealthPercent * iHealthPercent / maxHitPoints();
-		int iPromotionChance = data->iWinningOdds * (100 + iPromotionChanceModifier) / 100;
+		int iHealthLostPerc = (getDamage() - data->iDefenderInitialDamage) * 100 / (maxHitPoints() - data->iDefenderInitialDamage);
+		int iPromotionChance = data->iWinningOdds * (100 + iHealthLostPerc) / GC.getDefineINT("COMBAT_DIE_SIDES");
 
 		if (GC.getGameINLINE().getSorenRandNum(GC.getDefineINT("COMBAT_DIE_SIDES"), "Occasional Promotion") < iPromotionChance) {
 			//select random promotion from available
-			PromotionTypes ptPromotion = aDefenderAvailablePromotions[GC.getGameINLINE().getSorenRandNum(aDefenderAvailablePromotions.size(), "Select Promotion Type")];
+			PromotionTypes ePromotion = aDefenderAvailablePromotions[GC.getGameINLINE().getSorenRandNum(aDefenderAvailablePromotions.size(), "Select Promotion Type")];
 			//promote
-			pDefender->setHasPromotion(ptPromotion, true);
+			pDefender->setHasPromotion(ePromotion, true);
 			//show message
-			CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_YOUR_UNIT_PROMOTED_IN_BATTLE", pDefender->getNameKey(), GC.getPromotionInfo(ptPromotion).getText());
-			gDLL->getInterfaceIFace()->addMessage(pDefender->getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getPromotionInfo(ptPromotion).getSound(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), pPlot->getX_INLINE(), pPlot->getY_INLINE());
+			CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_YOUR_UNIT_PROMOTED_IN_BATTLE", pDefender->getNameKey(), GC.getPromotionInfo(ePromotion).getText());
+			gDLL->getInterfaceIFace()->addMessage(pDefender->getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getPromotionInfo(ePromotion).getSound(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), pPlot->getX_INLINE(), pPlot->getY_INLINE());
 		}
 	}
 
