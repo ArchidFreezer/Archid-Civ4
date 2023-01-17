@@ -3585,7 +3585,7 @@
 				<UnitAIType>UNITAI_HUNTER</UnitAIType>
 			</UnitAIs>
 			<PrereqTechs>
-				<TechType>TECH_HUNTING</TechType>
+				<TechType>TECH_SCAVENGING</TechType>
 			</PrereqTechs>
 			<ObsoleteTech>TECH_POULTRY_FARMING</ObsoleteTech>
 			<iCost>15</iCost>
