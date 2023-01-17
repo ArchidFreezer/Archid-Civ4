@@ -8030,8 +8030,11 @@
 			<Type>UNIT_SCOUT</Type>
 			<Special>SPECIALUNIT_PEOPLE</Special>
 			<Combat>UNITCOMBAT_RECON</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_EXPLORE</DefaultUnitAI>
+			<DefaultUnitAI>UNITAI_HUNTER</DefaultUnitAI>
 			<SeeInvisibles>
 				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
 			</SeeInvisibles>
@@ -8048,6 +8051,7 @@
 			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_EXPLORE</UnitAIType>
+				<UnitAIType>UNITAI_HUNTER</UnitAIType>
 			</UnitAIs>
 			<PrereqTechs>
 				<TechType>TECH_ADVANCED_TOOLS</TechType>
