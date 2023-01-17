@@ -516,7 +516,7 @@ void CvCityAI::AI_chooseProduction() {
 	int iBuildUnitProb = AI_buildUnitProb();
 	iBuildUnitProb /= kPlayer.AI_isDoStrategy(AI_STRATEGY_ECONOMY_FOCUS) ? 2 : 1; // K-Mod
 
-	int iExistingWorkers = kPlayer.AI_totalAreaUnitAIs(pArea, UNITAI_WORKER) + kPlayer.AI_totalAreaUnitAIs(pArea, UNITAI_SLAVE);
+	int iExistingWorkers = kPlayer.AI_totalAreaUnitAIs(pArea, UNITAI_WORKER) + kPlayer.AI_totalAreaUnitAIs(pArea, UNITAI_SLAVE) + kPlayer.AI_totalAreaUnitAIs(pArea, UNITAI_GATHERER);
 	int iNeededWorkers = kPlayer.AI_neededWorkers(pArea);
 	// Sea worker need independent of whether water area is militarily relevant
 	int iNeededSeaWorkers = (bMaybeWaterArea) ? AI_neededSeaWorkers() : 0;
@@ -754,7 +754,7 @@ void CvCityAI::AI_chooseProduction() {
 			}
 
 			if (iExistingWorkers == 0 && AI_totalBestBuildValue(area()) + 50 * iLandBonuses > 100) {
-				if (!bChooseWorker && AI_chooseUnit(UNITAI_WORKER)) {
+				if (!bChooseWorker && (AI_chooseUnit(UNITAI_WORKER) || AI_chooseUnit(UNITAI_GATHERER))) {
 					if (gCityLogLevel >= 2) logBBAI("      City %S uses choose worker 1a", getName().GetCString());
 					return;
 				}
@@ -769,7 +769,7 @@ void CvCityAI::AI_chooseProduction() {
 		if ((iExistingWorkers == 0)) {
 			// K-Mod - I've taken iLandBonuses from here and moved it higher for use elsewhere.
 			if ((iLandBonuses > 1) || (getPopulation() > 3 && iNeededWorkers > 0)) {
-				if (!bChooseWorker && AI_chooseUnit(UNITAI_WORKER)) {
+				if (!bChooseWorker && (AI_chooseUnit(UNITAI_WORKER) || AI_chooseUnit(UNITAI_GATHERER))) {
 					if (gCityLogLevel >= 2) logBBAI("      City %S uses choose worker 1", getName().GetCString());
 					return;
 				}
@@ -784,7 +784,7 @@ void CvCityAI::AI_chooseProduction() {
 			}
 
 			if (iLandBonuses >= 1 && getPopulation() > 1) {
-				if (!bChooseWorker && AI_chooseUnit(UNITAI_WORKER)) {
+				if (!bChooseWorker && (AI_chooseUnit(UNITAI_WORKER) || AI_chooseUnit(UNITAI_GATHERER))) {
 					if (gCityLogLevel >= 2) logBBAI("      City %S uses choose worker 2", getName().GetCString());
 					return;
 				}
@@ -931,7 +931,7 @@ void CvCityAI::AI_chooseProduction() {
 		// Changed Rank < (cities + 1)/2 to Rank <= ...  So that it can catch the case where we only have 1 city.
 		if (!bDanger && iExistingWorkers < (iNeededWorkers + 1) / 2) {
 			if (getPopulation() >= 3 || (iProductionRank <= (kPlayer.getNumCities() + 1) / 2)) {
-				if (!bChooseWorker && AI_chooseUnit(UNITAI_WORKER)) {
+				if (!bChooseWorker && (AI_chooseUnit(UNITAI_WORKER) || AI_chooseUnit(UNITAI_GATHERER))) {
 					if (gCityLogLevel >= 2) logBBAI("      City %S uses choose worker 4", getName().GetCString());
 					return;
 				}
@@ -945,7 +945,7 @@ void CvCityAI::AI_chooseProduction() {
 		if (!(bDefenseWar && iWarSuccessRating < -30) && !(kPlayer.AI_isDoStrategy(AI_STRATEGY_TURTLE))) {
 			if ((AI_countNumBonuses(NO_BONUS, /*bIncludeOurs*/ true, /*bIncludeNeutral*/ true, -1, /*bLand*/ true, /*bWater*/ false) > 0) ||
 				(isCapital() && (getPopulation() > 3) && iNumCitiesInArea > 1)) {
-				if (!bChooseWorker && AI_chooseUnit(UNITAI_WORKER)) {
+				if (!bChooseWorker && (AI_chooseUnit(UNITAI_WORKER) || AI_chooseUnit(UNITAI_GATHERER))) {
 					if (gCityLogLevel >= 2) logBBAI("      City %S uses choose worker 5", getName().GetCString());
 					return;
 				}
@@ -1267,7 +1267,7 @@ void CvCityAI::AI_chooseProduction() {
 		if (iExistingWorkers < iNeededWorkers) {
 			if (3 * AI_getWorkersHave() / 2 < AI_getWorkersNeeded() // local
 				|| GC.getGame().getSorenRandNum(80, "choose worker 6") > iBestBuildingValue + (iBuildUnitProb + 50) / 2) {
-				if (!bChooseWorker && AI_chooseUnit(UNITAI_WORKER)) {
+				if (!bChooseWorker && (AI_chooseUnit(UNITAI_WORKER) || AI_chooseUnit(UNITAI_GATHERER))) {
 					if (gCityLogLevel >= 2) logBBAI("      City %S uses choose worker 6", getName().GetCString());
 					return;
 				}
@@ -1959,6 +1959,7 @@ UnitTypes CvCityAI::AI_bestUnit(bool bAsync, AdvisorTypes eIgnoreAdvisor, UnitAI
 	}
 
 	aiUnitAIVal[UNITAI_WORKER] += kOwner.AI_neededWorkers(area());
+	aiUnitAIVal[UNITAI_GATHERER] += kOwner.AI_neededWorkers(area());
 
 	bool bAssault = (area()->getAreaAIType(getTeam()) == AREAAI_ASSAULT);
 	bool bLandWar = kOwner.AI_isLandWar(area()); // K-Mod
@@ -2069,6 +2070,7 @@ UnitTypes CvCityAI::AI_bestUnit(bool bAsync, AdvisorTypes eIgnoreAdvisor, UnitAI
 	if (isHuman()) {
 		aiUnitAIVal[UNITAI_SETTLE] = 0;
 		aiUnitAIVal[UNITAI_WORKER] = 0;
+		aiUnitAIVal[UNITAI_GATHERER] = 0;
 		aiUnitAIVal[UNITAI_WORKER_SEA] = 0;
 		aiUnitAIVal[UNITAI_EXPLORE] = 0;
 		aiUnitAIVal[UNITAI_EXPLORE_SEA] = 0;
@@ -2092,6 +2094,7 @@ UnitTypes CvCityAI::AI_bestUnit(bool bAsync, AdvisorTypes eIgnoreAdvisor, UnitAI
 	bool bDanger = AI_isDanger();
 	aiUnitAIVal[UNITAI_SETTLE] *= ((bDanger) ? 8 : 12); // was ? 8 : 20
 	aiUnitAIVal[UNITAI_WORKER] *= ((bDanger) ? 2 : 7);
+	aiUnitAIVal[UNITAI_GATHERER] *= ((bDanger) ? 2 : 7);
 	aiUnitAIVal[UNITAI_ATTACK] *= 3;
 	aiUnitAIVal[UNITAI_ATTACK_CITY] *= 5; // K-Mod, up from *4
 	aiUnitAIVal[UNITAI_COLLATERAL] *= 5;
@@ -2178,7 +2181,7 @@ UnitTypes CvCityAI::AI_bestUnitAI(UnitAITypes eUnitAI, bool bAsync, AdvisorTypes
 		// BBAI NOTE: This is where small city worker and settler production is blocked
 		if (GET_PLAYER(getOwnerINLINE()).getNumCities() <= 2) {
 			// K-Mod. We need to allow the starting city to build a worker at size 1.
-			bGrowMore = (eUnitAI != UNITAI_WORKER || GET_PLAYER(getOwner()).AI_totalAreaUnitAIs(area(), UNITAI_WORKER) > 0)
+			bGrowMore = ((eUnitAI != UNITAI_WORKER && eUnitAI != UNITAI_GATHERER) || (GET_PLAYER(getOwner()).AI_totalAreaUnitAIs(area(), UNITAI_WORKER) > 0 && GET_PLAYER(getOwner()).AI_totalAreaUnitAIs(area(), UNITAI_GATHERER)))
 				&& getPopulation() < 3 && AI_countGoodTiles(true, false, 100) >= getPopulation();
 		} else {
 			bGrowMore = ((getPopulation() < 3) || (AI_countGoodTiles(true, false, 100) >= getPopulation()));
@@ -5459,7 +5462,7 @@ void CvCityAI::AI_updateBestBuild() {
 						int iLoop;
 						for (CvSelectionGroup* pLoopSelectionGroup = kOwner.firstSelectionGroup(&iLoop); pLoopSelectionGroup; pLoopSelectionGroup = kOwner.nextSelectionGroup(&iLoop)) {
 							if (pLoopSelectionGroup->AI_getMissionAIPlot() == pLoopPlot && pLoopSelectionGroup->AI_getMissionAIType() == MISSIONAI_BUILD) {
-								FAssert(pLoopSelectionGroup->getHeadUnitAI() == UNITAI_WORKER || pLoopSelectionGroup->getHeadUnitAI() == UNITAI_WORKER_SEA || pLoopSelectionGroup->getHeadUnitAI() == UNITAI_SLAVE);
+								FAssert(pLoopSelectionGroup->getHeadUnitAI() == UNITAI_WORKER || pLoopSelectionGroup->getHeadUnitAI() == UNITAI_WORKER_SEA || pLoopSelectionGroup->getHeadUnitAI() == UNITAI_SLAVE || pLoopSelectionGroup->getHeadUnitAI() == UNITAI_GATHERER);
 								pLoopSelectionGroup->clearMissionQueue();
 							}
 						}
@@ -5785,6 +5788,7 @@ void CvCityAI::AI_doHurry(bool bForce) {
 				iValue = productionLeft();
 				switch (eProductionUnitAI) {
 				case UNITAI_WORKER:
+				case UNITAI_GATHERER:
 				case UNITAI_SETTLE:
 				case UNITAI_WORKER_SEA:
 					iValue *= kUnitInfo.isFoodProduction() ? 5 : 4;
@@ -7977,7 +7981,7 @@ void CvCityAI::AI_buildGovernorChooseProduction() {
 	{
 		//worker
 		if (!bDanger) {
-			int iExistingWorkers = kOwner.AI_totalAreaUnitAIs(area(), UNITAI_WORKER);
+			int iExistingWorkers = kOwner.AI_totalAreaUnitAIs(area(), UNITAI_WORKER) + kOwner.AI_totalAreaUnitAIs(area(), UNITAI_GATHERER);
 			int iNeededWorkers = kOwner.AI_neededWorkers(area());
 
 			if (iExistingWorkers < (iNeededWorkers + 2) / 3) // I don't want to build more workers than the player actually wants.
@@ -7988,7 +7992,7 @@ void CvCityAI::AI_buildGovernorChooseProduction() {
 				iOdds *= 50 + iBestBuildingValue;
 				iOdds /= 50 + 5 * iBestBuildingValue;
 
-				if (AI_chooseUnit(UNITAI_WORKER, iOdds)) {
+				if (AI_chooseUnit(UNITAI_WORKER, iOdds) || AI_chooseUnit(UNITAI_GATHERER, iOdds)) {
 					return;
 				}
 			}
@@ -8127,7 +8131,7 @@ void CvCityAI::AI_barbChooseProduction() {
 
 	int iBuildUnitProb = AI_buildUnitProb();
 
-	int iExistingWorkers = kPlayer.AI_totalAreaUnitAIs(pArea, UNITAI_WORKER);
+	int iExistingWorkers = kPlayer.AI_totalAreaUnitAIs(pArea, UNITAI_WORKER) + kPlayer.AI_totalAreaUnitAIs(pArea, UNITAI_GATHERER);
 	int iNeededWorkers = kPlayer.AI_neededWorkers(pArea);
 	// Sea worker need independent of whether water area is militarily relevant
 	int iNeededSeaWorkers = (bMaybeWaterArea) ? AI_neededSeaWorkers() : 0;
@@ -8151,7 +8155,7 @@ void CvCityAI::AI_barbChooseProduction() {
 
 	if (!bDanger && (2 * iExistingWorkers < iNeededWorkers) && (AI_getWorkersNeeded() > 0) && (AI_getWorkersHave() == 0)) {
 		if (getPopulation() > 1 || (GC.getGameINLINE().getGameTurn() - getGameTurnAcquired() > (15 * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getTrainPercent()) / 100)) {
-			if (AI_chooseUnit(UNITAI_WORKER)) {
+			if (AI_chooseUnit(UNITAI_WORKER) || AI_chooseUnit(UNITAI_GATHERER)) {
 				if (gCityLogLevel >= 2) logBBAI("      City %S uses barb choose worker 1", getName().GetCString());
 				return;
 			}
@@ -8234,7 +8238,7 @@ void CvCityAI::AI_barbChooseProduction() {
 	if (GC.getGameINLINE().getSorenRandNum(2, "Barb worker") == 0) {
 		if (!bDanger && (iExistingWorkers < iNeededWorkers) && (AI_getWorkersNeeded() > 0) && (AI_getWorkersHave() == 0)) {
 			if (getPopulation() > 1) {
-				if (AI_chooseUnit(UNITAI_WORKER)) {
+				if (AI_chooseUnit(UNITAI_WORKER) || AI_chooseUnit(UNITAI_GATHERER)) {
 					if (gCityLogLevel >= 2) logBBAI("      City %S uses barb choose worker 2", getName().GetCString());
 					return;
 				}
@@ -8991,7 +8995,7 @@ void CvCityAI::AI_updateWorkersNeededHere() {
 	int iGrowthValue = AI_growthValuePerFood(); // K-Mod
 
 	if (getProductionUnit() != NO_UNIT) {
-		if (getProductionUnitAI() == UNITAI_WORKER) {
+		if (getProductionUnitAI() == UNITAI_WORKER || getProductionUnitAI() == UNITAI_GATHERER) {
 			if (getProductionTurnsLeft() <= 2) {
 				iWorkersHave++;
 			}
@@ -9008,6 +9012,7 @@ void CvCityAI::AI_updateWorkersNeededHere() {
 			iWorkersHave += (kOwner.AI_plotTargetMissionAIs(pLoopPlot, MISSIONAI_BUILD));
 
 			iWorkersHave += pLoopPlot->plotCount(PUF_isUnitAIType, UNITAI_WORKER, -1, getOwner(), getTeam(), PUF_isNoMission, -1, -1);
+			iWorkersHave += pLoopPlot->plotCount(PUF_isUnitAIType, UNITAI_GATHERER, -1, getOwner(), getTeam(), PUF_isNoMission, -1, -1);
 			if (iLoopPlot != CITY_HOME_PLOT) {
 				if (pLoopPlot->getImprovementType() == NO_IMPROVEMENT) {
 					if (pLoopPlot->isBeingWorked()) {
