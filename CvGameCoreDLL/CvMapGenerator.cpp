@@ -527,6 +527,9 @@ void CvMapGenerator::addFeatures() {
 		CvPlot* pPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
 		FAssert(pPlot != NULL);
 
+		if (pPlot->getFeatureType() != NO_FEATURE)
+			continue;
+
 		for (FeatureTypes eFeature = (FeatureTypes)0; eFeature < GC.getNumFeatureInfos(); eFeature = (FeatureTypes)(eFeature + 1)) {
 			const CvFeatureInfo& kFeature = GC.getFeatureInfo(eFeature);
 
