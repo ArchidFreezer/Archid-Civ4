@@ -240,6 +240,11 @@
 			<Description>TXT_KEY_BUILDING_NATIONAL_SECURITY</Description>
 			<DefaultBuilding>BUILDING_NATIONAL_SECURITY</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo>
+			<Type>BUILDINGCLASS_PALISADE</Type>
+			<Description>TXT_KEY_BUILDING_PALISADE</Description>
+			<DefaultBuilding>BUILDING_PALISADE</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Scotland Yard -->
 			<Type>BUILDINGCLASS_SCOTLAND_YARD</Type>
 			<Description>TXT_KEY_BUILDING_SCOTLAND_YARD</Description>

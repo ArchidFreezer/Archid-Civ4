@@ -79,7 +79,20 @@
 		<Tag>TXT_KEY_NATIONAL_SLAVE_AUCTION_PYTHON</Tag>
 		<English>[COLOR_SELECTED_TEXT]The [COLOR_BUILDING_TEXT]National Slave Auction[COLOR_SELECTED_TEXT] increases slavery infrastrucre nationwide[COLOR_REVERT]!</English>
 	</TEXT>
-
+	<TEXT> <!-- Palisade -->
+		<Tag>TXT_KEY_BUILDING_PALISADE</Tag>
+		<English>Palisade</English>
+		<Spanish>Empalizada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_PALISADE_PEDIA</Tag>
+		<English>A [COLOR_BUILDING_TEXT]Palisade[COLOR_REVERT] is a wooden fence or wall of variable height, used as a defensive structure.[NEWLINE][PARAGRAPH:1]Palisades were an excellent option for small forts or other hastily constructed fortifications. Since they were wood, they could be quickly and easily built from materials readily available. They proved to be effective protection for short-term conflicts, and were an effective deterrent against small forces. However, due to their wooden construction, they were also very vulnerable to fire and siege weapons.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_PALISADE_STRATEGY</Tag>
+		<English>Build a [COLOR_BUILDING_TEXT]Palisade[COLOR_REVERT] to increase a cities defence.</English>
+		<Spanish>Construye una [COLOR_BUILDING_TEXT]Empalizada[COLOR_REVERT] para incrementar el bono de defensa en tus ciudades.</Spanish>
+	</TEXT>
 	<TEXT> <!-- Slave Market -->
 		<Tag>TXT_KEY_BUILDING_SLAVE_MARKET</Tag>
 		<English>Slave Market</English>

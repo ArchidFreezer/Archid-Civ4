@@ -416,6 +416,7 @@
 	<ElementType name="iStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iGlobalStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="bSlaveMarket" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iObsoleteDefence" content="textOnly" dt:type="int"/>
 	<ElementType name="BuildingInfo" content="eltOnly">
 		<element type="BuildingClass"/>
 		<element type="Type"/>
@@ -551,6 +552,7 @@
 		<element type="iGlobalPopulationChange" minOccurs="0"/>
 		<element type="iFreeTechs" minOccurs="0"/>
 		<element type="iDefense" minOccurs="0"/>
+		<element type="iObsoleteDefence" minOccurs="0"/>
 		<element type="iBombardDefense" minOccurs="0"/>
 		<element type="iAllCityDefense" minOccurs="0"/>
 		<element type="iEspionageDefense" minOccurs="0"/>

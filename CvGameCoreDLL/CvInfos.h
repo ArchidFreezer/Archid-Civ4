@@ -1876,6 +1876,7 @@ public:
 	int getStarSignMitigateChangePercent() const;
 	int getGlobalStarSignMitigateChangePercent() const;
 	int getNumPrereqWorldViews() const;
+	int getObsoleteDefenceModifier() const;
 
 	float getVisibilityPriority() const;
 
@@ -2110,6 +2111,7 @@ protected:
 	int m_iGlobalStarSignScaleChangePercent;
 	int m_iStarSignMitigateChangePercent;
 	int m_iGlobalStarSignMitigateChangePercent;
+	int m_iObsoleteDefenceModifier;
 
 	float m_fVisibilityPriority;
 

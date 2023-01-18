@@ -9210,9 +9210,9 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 		}
 	}
 
-	if (kBuilding.getDefenseModifier() != 0) {
+	if (kBuilding.getDefenseModifier() != 0 || kBuilding.getObsoleteDefenceModifier() != 0) {
 		szBuffer.append(NEWLINE);
-		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_DEFENSE_MOD", kBuilding.getDefenseModifier()));
+		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_DEFENSE_MOD", kBuilding.getDefenseModifier() + kBuilding.getObsoleteDefenceModifier()));
 	}
 
 	if (kBuilding.getBombardDefenseModifier() != 0) {

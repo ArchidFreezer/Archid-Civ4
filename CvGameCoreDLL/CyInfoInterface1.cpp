@@ -600,6 +600,7 @@ void CyInfoPythonInterface1() {
 		.def("getGlobalPopulationChange", &CvBuildingInfo::getGlobalPopulationChange, "int ()")
 		.def("getFreeTechs", &CvBuildingInfo::getFreeTechs, "int ()")
 		.def("getDefenseModifier", &CvBuildingInfo::getDefenseModifier, "int ()")
+		.def("getObsoleteDefenceModifier", &CvBuildingInfo::getObsoleteDefenceModifier, "int ()")
 		.def("getBombardDefenseModifier", &CvBuildingInfo::getBombardDefenseModifier, "int ()")
 		.def("getAllCityDefenseModifier", &CvBuildingInfo::getAllCityDefenseModifier, "int ()")
 		.def("getEspionageDefenseModifier", &CvBuildingInfo::getEspionageDefenseModifier, "int ()")

@@ -6690,6 +6690,7 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_iGlobalStarSignMitigateChangePercent(0),
 	m_iStarSignScaleChangePercent(0),
 	m_iGlobalStarSignScaleChangePercent(0),
+	m_iObsoleteDefenceModifier(0),
 	m_fVisibilityPriority(0.0f),
 	m_bTeamShare(false),
 	m_bWater(false),
@@ -6813,6 +6814,10 @@ CvBuildingInfo::~CvBuildingInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppaiBonusYieldModifier);
 	}
+}
+
+int CvBuildingInfo::getObsoleteDefenceModifier() const {
+	return m_iObsoleteDefenceModifier;
 }
 
 int CvBuildingInfo::getPrereqWorldView(int i) const {
@@ -7921,6 +7926,7 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iGlobalStarSignMitigateChangePercent);
 	stream->Read(&m_iStarSignScaleChangePercent);
 	stream->Read(&m_iGlobalStarSignScaleChangePercent);
+	stream->Read(&m_iObsoleteDefenceModifier);
 
 	int iVal;
 	stream->Read(&iVal);
@@ -8346,6 +8352,7 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iGlobalStarSignMitigateChangePercent);
 	stream->Write(m_iStarSignScaleChangePercent);
 	stream->Write(m_iGlobalStarSignScaleChangePercent);
+	stream->Write(m_iObsoleteDefenceModifier);
 
 	stream->Write(m_eMinCultureLevel);
 
@@ -8696,6 +8703,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iGlobalPopulationChange, "iGlobalPopulationChange");
 	pXML->GetChildXmlValByName(&m_iFreeTechs, "iFreeTechs");
 	pXML->GetChildXmlValByName(&m_iDefenseModifier, "iDefense");
+	pXML->GetChildXmlValByName(&m_iObsoleteDefenceModifier, "iObsoleteDefence");
 	pXML->GetChildXmlValByName(&m_iBombardDefenseModifier, "iBombardDefense");
 	pXML->GetChildXmlValByName(&m_iAllCityDefenseModifier, "iAllCityDefense");
 	pXML->GetChildXmlValByName(&m_iEspionageDefenseModifier, "iEspionageDefense");

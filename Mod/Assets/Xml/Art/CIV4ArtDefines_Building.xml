@@ -1897,5 +1897,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/hunting_lodge.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- Palisade -->
+			<Type>ART_DEF_BUILDING_PALISADE</Type>
+			<LSystem>LSYSTEM_PALISADE</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/palisade/Walls.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/palisade.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
