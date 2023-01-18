@@ -210,10 +210,15 @@
 			<Description>TXT_KEY_BUILDING_COURTHOUSE</Description>
 			<DefaultBuilding>BUILDING_COURTHOUSE</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo>
+		<BuildingClassInfo> <!-- Hunting Instruction -->
 			<Type>BUILDINGCLASS_HUNTING_INSTRUCTION</Type>
 			<Description>TXT_KEY_BUILDING_HUNTING_INSTRUCTION</Description>
 			<DefaultBuilding>BUILDING_HUNTING_INSTRUCTION</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Hunting Lodge -->
+			<Type>BUILDINGCLASS_HUNTING_LODGE</Type>
+			<Description>TXT_KEY_BUILDING_HUNTING_LODGE</Description>
+			<DefaultBuilding>BUILDING_HUNTING_LODGE</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Jail -->
 			<Type>BUILDINGCLASS_JAIL</Type>

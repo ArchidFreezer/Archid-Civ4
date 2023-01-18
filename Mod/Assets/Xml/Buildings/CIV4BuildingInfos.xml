@@ -1890,6 +1890,35 @@
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>0</iHotKeyPriority>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Hunting Lodge -->
+			<BuildingClass>BUILDINGCLASS_HUNTING_LODGE</BuildingClass>
+			<Type>BUILDING_HUNTING_LODGE</Type>
+			<Description>TXT_KEY_BUILDING_HUNTING_LODGE</Description>
+			<Civilopedia>TXT_KEY_BUILDING_HUNTING_LODGE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_HUNTING_LODGE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_HUNTING_LODGE</ArtDefineTag>
+			<ObsoleteTech>TECH_POTTERY</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_HUT_BUILDING</TechType>
+				<TechType>TECH_HUNTING</TechType>
+			</PrereqAndTechs>
+			<bNeverCapture>1</bNeverCapture>
+			<iAIWeight>200</iAIWeight>
+			<iCost>45</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iFoodKept>25</iFoodKept>
+			<iAsset>1</iAsset>
+			<YieldChanges>
+				<iYield>1</iYield>
+			</YieldChanges>
+			<ConstructSound>AS2D_BUILD_GRANARY</ConstructSound>
+			<HotKey/>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Hydro Plant -->
 			<BuildingClass>BUILDINGCLASS_HYDRO_PLANT</BuildingClass>
 			<Type>BUILDING_HYDRO_PLANT</Type>

@@ -26,6 +26,20 @@
 		<Tag>TXT_KEY_BUILDING_HUNTING_INSTRUCTION_STRATEGY</Tag>
 		<English>Build a [COLOR_BUILDING_TEXT]Hunting Instruction[COLOR_REVERT] to increase the abilities of your [COLOR_UNIT_TEXT]Hunter[COLOR_REVERT] units.</English>
 	</TEXT>
+	<TEXT> <!-- Hunting Lodge -->
+		<Tag>TXT_KEY_BUILDING_HUNTING_LODGE</Tag>
+		<English>Hunting Lodge</English>
+		<Spanish>Caba&#241;a del Cazador</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HUNTING_LODGE_PEDIA</Tag>
+		<English>[COLOR_BUILDING_TEXT]Hunting[COLOR_REVERT] has an extremely long history and may well pre-date the rise of species Homo sapiens. While our earliest Hominid ancestors were probably frugivore or omnivore, there is evidence that early Homo, and possibly already Australopithecine species have used larger animals for subsistence, and that hunting may have been one of the multiple environmental factors leading to replacement of holocene megafauna by smaller herbivores.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HUNTING_LODGE_STRATEGY</Tag>
+		<English>Build a [COLOR_BUILDING_TEXT]Hunting Lodge[COLOR_REVERT] to increase the growth of your cities.</English>
+		<Spanish>Construye una [COLOR_BUILDING_TEXT]Caba&#241;a del Cazador[COLOR_REVERT] para incrementar el crecimiento de tus ciudades.</Spanish>
+	</TEXT>
 	<!-- Knowledge Inheritance -->
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_KNOWLEDGE_INHERITANCE</Tag>
