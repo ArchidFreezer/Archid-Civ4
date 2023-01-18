@@ -13,6 +13,21 @@
 		<Tag>TXT_KEY_BUILDING_CAPITAL_SEAT_STRATEGY</Tag>
 		<English>The [COLOR_BUILDING_TEXT]Capital Seat[COLOR_REVERT] defines the capital and administrative centre of a civilzation and also provides a small production bonus.</English>
 	</TEXT>
+	<!-- Cave Painting -->
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CAVE_PAINTING</Tag>
+		<English>Cave Painting</English>
+		<Spanish>Pintura Rupestre</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CAVE_PAINTING_PEDIA</Tag>
+		<English>[COLOR_BUILDING_TEXT]Cave Paintings[COLOR_REVERT] are paintings on cave walls and ceilings, and the term is used especially for those dating to prehistoric times. The earliest known European cave paintings date to 32,000 years ago. The purpose of the cave paintings is not known. The evidence suggests that they were not merely decorations of living areas, since the caves in which they have been found do not have signs of ongoing habitation. Also, they are often in areas of caves that are not easily accessed. Some theories hold that they may have been a way of transmitting information, while other theories ascribe them a religious or ceremonial purpose.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CAVE_PAINTING_STRATEGY</Tag>
+		<English>Build a [COLOR_BUILDING_TEXT]Cave Painting[COLOR_REVERT] to increase your culture output in your cities.</English>
+		<Spanish>Construye una [COLOR_BUILDING_TEXT]Pintura Rupestre[COLOR_REVERT] para incrementar la cultura en tus ciudades.</Spanish>
+	</TEXT>
 	<!-- Hunting Instruction -->
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_HUNTING_INSTRUCTION</Tag>

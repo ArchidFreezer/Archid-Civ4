@@ -265,6 +265,11 @@
 			<Description>TXT_KEY_BUILDING_KNOWLEDGE_INHERITANCE</Description>
 			<DefaultBuilding>BUILDING_KNOWLEDGE_INHERITANCE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo>
+			<Type>BUILDINGCLASS_CAVE_PAINTING</Type>
+			<Description>TXT_KEY_BUILDING_CAVE_PAINTING</Description>
+			<DefaultBuilding>BUILDING_CAVE_PAINTING</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<!-- **************** -->
 		<!-- Religious        -->

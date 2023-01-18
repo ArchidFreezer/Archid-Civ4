@@ -1917,5 +1917,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/palisade.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- Cave Painting -->
+			<Type>ART_DEF_BUILDING_CAVE_PAINTING</Type>
+			<LSystem/>
+			<bAnimated>0</bAnimated>
+			<fScale/>
+			<fInterfaceScale/>
+			<NIF/>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/cave_painting.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
