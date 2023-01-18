@@ -2035,6 +2035,7 @@
 			<Type>PROMOTION_WOODSMAN1</Type>
 			<Description>TXT_KEY_PROMOTION_WOODSMAN1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
+			<TechPrereq>TECH_EARLY_WOODWORKING</TechPrereq>
 			<FeatureDefenses>
 				<FeatureDefense>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
