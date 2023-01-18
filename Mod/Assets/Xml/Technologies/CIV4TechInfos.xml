@@ -7438,6 +7438,7 @@
 			<iCost>20</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<Era>ERA_MESOLITHIC</Era>
+			<iWorkerSpeedModifier>25</iWorkerSpeedModifier>
 			<iAsset>4</iAsset>
 			<iPower>2</iPower>
 			<bTrade>1</bTrade>
