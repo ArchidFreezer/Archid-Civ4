@@ -1294,7 +1294,7 @@
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
 			<PrereqTechs>
-				<TechType>TECH_ARCHERY</TechType>
+				<TechType>TECH_EARLY_BOWS</TechType>
 			</PrereqTechs>
 			<iCost>30</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
