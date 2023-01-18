@@ -1857,6 +1857,7 @@
 				<PromotionType>PROMOTION_COMBAT1</PromotionType>
 				<PromotionType>PROMOTION_DRILL1</PromotionType>
 			</PrereqOrPromotions>
+			<TechPrereq>TECH_ADVANCED_TOOLS</TechPrereq>
 			<UnitCombatMods>
 				<UnitCombatMod>
 					<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
