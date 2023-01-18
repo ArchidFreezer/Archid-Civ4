@@ -3839,10 +3839,10 @@
 			<Button>Art/Interface/Buttons/TechTree/early_metalworking.dds</Button>
 		</TechInfo>
 		<TechInfo> <!-- Early Wood Working -->
-			<Type>TECH_EARLY_WOOD_WORKING</Type>
-			<Description>TXT_KEY_TECH_EARLY_WOOD_WORKING</Description>
-			<Civilopedia>TXT_KEY_TECH_EARLY_WOOD_WORKING_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_TECH_EARLY_WOOD_WORKING_STRATEGY</Strategy>
+			<Type>TECH_EARLY_WOODWORKING</Type>
+			<Description>TXT_KEY_TECH_EARLY_WOODWORKING</Description>
+			<Civilopedia>TXT_KEY_TECH_EARLY_WOODWORKING_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_TECH_EARLY_WOODWORKING_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<iCost>15</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -3866,7 +3866,7 @@
 			<OrPreReqs>
 				<PrereqTech>TECH_STONE_TOOLS</PrereqTech>
 			</OrPreReqs>
-			<Quote>TXT_KEY_TECH_EARLY_WOOD_WORKING_QUOTE</Quote>
+			<Quote>TXT_KEY_TECH_EARLY_WOODWORKING_QUOTE</Quote>
 			<Sound>AS2D_TECH_SimpleWoodWorking</Sound>
 			<SoundMP>AS2D_TECH_SimpleWoodWorking</SoundMP>
 			<Button>Art/Interface/Buttons/TechTree/early_wood_working.dds</Button>
@@ -5719,7 +5719,7 @@
 				</Flavor>
 			</Flavors>
 			<OrPreReqs>
-				<PrereqTech>TECH_EARLY_WOOD_WORKING</PrereqTech>
+				<PrereqTech>TECH_EARLY_WOODWORKING</PrereqTech>
 			</OrPreReqs>
 			<AndPreReqs>
 				<PrereqTech>TECH_FINE_EDGED_TOOLS</PrereqTech>
@@ -13384,7 +13384,7 @@
 				<PrereqTech>TECH_EARLY_METAL_WORKING</PrereqTech>
 			</OrPreReqs>
 			<AndPreReqs>
-				<PrereqTech>TECH_EARLY_WOOD_WORKING</PrereqTech>
+				<PrereqTech>TECH_EARLY_WOODWORKING</PrereqTech>
 			</AndPreReqs>
 			<Quote>TXT_KEY_TECH_WOODWORKING_QUOTE</Quote>
 			<Sound>AS2D_TECH_GENERIC</Sound>

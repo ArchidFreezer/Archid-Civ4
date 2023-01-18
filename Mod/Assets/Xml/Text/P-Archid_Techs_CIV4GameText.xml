@@ -1874,21 +1874,21 @@
 	</TEXT>
 
 	<TEXT> <!-- Early Wood Working -->
-		<Tag>TXT_KEY_TECH_EARLY_WOOD_WORKING</Tag>
+		<Tag>TXT_KEY_TECH_EARLY_WOODWORKING</Tag>
 		<English>Early Wood Working</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_TECH_EARLY_WOOD_WORKING_PEDIA</Tag>
+		<Tag>TXT_KEY_TECH_EARLY_WOODWORKING_PEDIA</Tag>
 		<English>[BOLD]Early Wood Working[\BOLD], archeologists cannot seem to agree on whether to call them adzes, gouges, distally bevelled tools, or just plain tools, but these distinctive chipped-stone artifacts represent a long-lived tradition of making woodworking tools in the South Texas Plains and they are found almost everywhere in the region. Not only are they geographically widespread, but various forms of these artifacts were used throughout most of the prehistoric era, from before 10,000 years ago onward. We prefer to call them ?adzes? and ?gouges,? as both are functional terms that echo how we believe these tools were used.</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_TECH_EARLY_WOOD_WORKING_QUOTE</Tag>
+		<Tag>TXT_KEY_TECH_EARLY_WOODWORKING_QUOTE</Tag>
 		<English>"We prefer synthetic rather than natural materials. Natural products are almost too valuable. Wood is much harder to produce than metal. And metal is recyclable, while wood isn't." - Helmut Jahn</English>
 		<French>"Nous préférons le synthétique plutôt que les matériaux naturels. Les produits naturels sont presque trop précieux. Le bois est beaucoup plus difficile à produire que le métal. Et le métal est recyclable, tandis que le bois ne l'est pas." - Helmut Jahn</French>
 		<Polish>"Wybieramy sztuczne przed naturalnym. Naturalne produkty sa prawie zbyt cenne. Drewno jest ciezej wyprodukowac niz metal. I metal moza poddac recyklingowi, drewno - nie." - Helmut Jahn</Polish>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_TECH_EARLY_WOOD_WORKING_STRATEGY</Tag>
+		<Tag>TXT_KEY_TECH_EARLY_WOODWORKING_STRATEGY</Tag>
 		<English>.</English>
 	</TEXT>
 

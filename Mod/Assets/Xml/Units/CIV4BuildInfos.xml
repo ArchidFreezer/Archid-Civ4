@@ -497,7 +497,7 @@
 		<BuildInfo> <!-- Timber Camp -->
 			<Type>BUILD_TIMBER_CAMP</Type>
 			<Description>TXT_KEY_BUILD_TIMBER_CAMP</Description>
-			<PrereqTech>TECH_WOODWORKING</PrereqTech>
+			<PrereqTech>TECH_EARLY_WOODWORKING</PrereqTech>
 			<iTime>200</iTime>
 			<iCost>0</iCost>
 			<bKill>1</bKill>
