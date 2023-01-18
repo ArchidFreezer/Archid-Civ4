@@ -13,6 +13,19 @@
 		<Tag>TXT_KEY_BUILDING_CAPITAL_SEAT_STRATEGY</Tag>
 		<English>The [COLOR_BUILDING_TEXT]Capital Seat[COLOR_REVERT] defines the capital and administrative centre of a civilzation and also provides a small production bonus.</English>
 	</TEXT>
+	<!-- Hunting Instruction -->
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HUNTING_INSTRUCTION</Tag>
+		<English>Hunting Instruction</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HUNTING_INSTRUCTION_PEDIA</Tag>
+		<English>[COLOR_BUILDING_TEXT]Hunting[COLOR_REVERT] has an extremely long history and may well pre-date the rise of species Homo sapiens. While our earliest Hominid ancestors were probably frugivore or omnivore, there is evidence that early Homo, and possibly already Australopithecine species have used larger animals for subsistence, and that hunting may have been one of the multiple environmental factors leading to replacement of holocene megafauna by smaller herbivores.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HUNTING_INSTRUCTION_STRATEGY</Tag>
+		<English>Build a [COLOR_BUILDING_TEXT]Hunting Instruction[COLOR_REVERT] to increase the abilities of your [COLOR_UNIT_TEXT]Hunter[COLOR_REVERT] units.</English>
+	</TEXT>
 	<!-- Knowledge Inheritance -->
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_KNOWLEDGE_INHERITANCE</Tag>

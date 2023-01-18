@@ -1877,5 +1877,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/knowledge_inheritance.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- Hunting Instruction -->
+			<Type>ART_DEF_BUILDING_HUNTING_INSTRUCTION</Type>
+			<LSystem/>
+			<bAnimated>0</bAnimated>
+			<fScale/>
+			<fInterfaceScale/>
+			<NIF/>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/hunting_instruction.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
