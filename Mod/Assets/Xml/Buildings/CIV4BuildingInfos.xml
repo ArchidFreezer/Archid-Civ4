@@ -2738,6 +2738,41 @@
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>0</iHotKeyPriority>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Microlith Workshop -->
+			<BuildingClass>BUILDINGCLASS_MICROLITH_WORKSHOP</BuildingClass>
+			<Type>BUILDING_MICROLITH_WORKSHOP</Type>
+			<Description>TXT_KEY_BUILDING_MICROLITH_WORKSHOP</Description>
+			<Civilopedia>TXT_KEY_BUILDING_MICROLITH_WORKSHOP_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_MICROLITH_WORKSHOP_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_MICROLITH_WORKSHOP</ArtDefineTag>
+			<ObsoleteTech>TECH_IRON_WORKING</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ADVANCED_TOOLS</TechType>
+			</PrereqAndTechs>
+			<bNeverCapture>1</bNeverCapture>
+			<iCost>52</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMilitaryProductionModifier>25</iMilitaryProductionModifier>
+			<iAsset>2</iAsset>
+			<iPower>6</iPower>
+			<ConstructSound>AS2D_BUILD_BARRACKS</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>20</iFlavor>
+				</Flavor>
+			</Flavors>
+			<HotKey/>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Military Academy -->
 			<BuildingClass>BUILDINGCLASS_MILITARY_ACADEMY</BuildingClass>
 			<Type>BUILDING_MILITARY_ACADEMY</Type>

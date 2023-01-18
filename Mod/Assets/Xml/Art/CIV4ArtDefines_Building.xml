@@ -1937,5 +1937,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/skara_brae.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- Microlith Workshop -->
+			<Type>ART_DEF_BUILDING_MICROLITH_WORKSHOP</Type>
+			<LSystem/>
+			<bAnimated>0</bAnimated>
+			<fScale/>
+			<fInterfaceScale/>
+			<NIF/>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/microlith_workshop.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

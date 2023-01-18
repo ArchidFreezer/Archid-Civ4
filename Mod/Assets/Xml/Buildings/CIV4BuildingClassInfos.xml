@@ -270,6 +270,11 @@
 			<Description>TXT_KEY_BUILDING_CAVE_PAINTING</Description>
 			<DefaultBuilding>BUILDING_CAVE_PAINTING</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo>
+			<Type>BUILDINGCLASS_MICROLITH_WORKSHOP</Type>
+			<Description>TXT_KEY_BUILDING_MICROLITH_WORKSHOP</Description>
+			<DefaultBuilding>BUILDING_MICROLITH_WORKSHOP</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<!-- **************** -->
 		<!-- Religious        -->
