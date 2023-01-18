@@ -200,12 +200,17 @@
 			<iCost>25</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<Era>ERA_MESOLITHIC</Era>
+			<iWorkerSpeedModifier>25</iWorkerSpeedModifier>
 			<iAsset>4</iAsset>
 			<iPower>2</iPower>
 			<bTrade>1</bTrade>
 			<bGoodyTech>1</bGoodyTech>
 			<iGridX>6</iGridX>
 			<iGridY>10</iGridY>
+			<ForestPlotYieldChanges>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</ForestPlotYieldChanges>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
