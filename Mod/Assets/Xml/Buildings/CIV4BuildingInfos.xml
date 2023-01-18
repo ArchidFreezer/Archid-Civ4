@@ -638,7 +638,7 @@
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>0</iHotKeyPriority>
 		</BuildingInfo>
-		<BuildingInfo>	<!-- Cave Painting -->
+		<BuildingInfo> <!-- Cave Painting -->
 			<BuildingClass>BUILDINGCLASS_CAVE_PAINTING</BuildingClass>
 			<Type>BUILDING_CAVE_PAINTING</Type>
 			<Description>TXT_KEY_BUILDING_CAVE_PAINTING</Description>
