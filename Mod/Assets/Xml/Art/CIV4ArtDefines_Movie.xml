@@ -299,5 +299,9 @@
 			<Type>ART_DEF_MOVIE_SHARK_BAY</Type>
 			<Path>Art/Movies/NaturalWonders/SharkBay.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_LASCAUX_PAINTINGS</Type>
+			<Path>Art/Movies/Wonders/LascauxPaintings.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>
