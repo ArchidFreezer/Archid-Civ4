@@ -2121,6 +2121,51 @@
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>0</iHotKeyPriority>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Knowledge Inheritance -->
+			<BuildingClass>BUILDINGCLASS_KNOWLEDGE_INHERITANCE</BuildingClass>
+			<Type>BUILDING_KNOWLEDGE_INHERITANCE</Type>
+			<Description>TXT_KEY_BUILDING_KNOWLEDGE_INHERITANCE</Description>
+			<Civilopedia>TXT_KEY_BUILDING_KNOWLEDGE_INHERITANCE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_KNOWLEDGE_INHERITANCE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_KNOWLEDGE_INHERITANCE</ArtDefineTag>
+			<ObsoleteTech>TECH_MYSTICISM</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ORAL_TRADITION</TechType>
+			</PrereqAndTechs>
+			<bNeverCapture>1</bNeverCapture>
+			<iAIWeight>25000</iAIWeight>
+			<iCost>36</iCost>
+			<iAsset>1</iAsset>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+		  </CommerceChanges>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>25</iCommerce>
+		  </CommerceModifiers>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>20</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+			<HotKey/>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Laboratory -->
 			<BuildingClass>BUILDINGCLASS_LABORATORY</BuildingClass>
 			<Type>BUILDING_LABORATORY</Type>
