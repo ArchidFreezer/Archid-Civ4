@@ -619,6 +619,12 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_SHWEDAGON_PAYA</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo>
+			<Type>BUILDINGCLASS_SKARA_BRAE</Type>
+			<Description>TXT_KEY_BUILDING_SKARA_BRAE</Description>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_SKARA_BRAE</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Sistine Chapel -->
 			<Type>BUILDINGCLASS_SISTINE_CHAPEL</Type>
 			<Description>TXT_KEY_BUILDING_SISTINE_CHAPEL</Description>

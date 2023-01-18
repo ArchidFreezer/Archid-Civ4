@@ -303,5 +303,9 @@
 			<Type>ART_DEF_MOVIE_LASCAUX_PAINTINGS</Type>
 			<Path>Art/Movies/Wonders/LascauxPaintings.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_SKARA_BRAE</Type>
+			<Path>Art/Movies/Wonders/SkaraBrae.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

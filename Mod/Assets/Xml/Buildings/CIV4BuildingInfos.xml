@@ -7023,6 +7023,65 @@
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>0</iHotKeyPriority>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Skara Brae -->
+			<BuildingClass>BUILDINGCLASS_SKARA_BRAE</BuildingClass>
+			<Type>BUILDING_SKARA_BRAE</Type>
+			<Description>TXT_KEY_BUILDING_SKARA_BRAE</Description>
+			<Civilopedia>TXT_KEY_BUILDING_SKARA_BRAE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_SKARA_BRAE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_SKARA_BRAE</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_SKARA_BRAE</MovieDefineTag>
+			<MaxStartEra>ERA_ANCIENT</MaxStartEra>
+			<PrereqAndTechs>
+				<TechType>TECH_STONE_BUILDING</TechType>
+			</PrereqAndTechs>
+			<GreatPeopleUnitClass>UNITCLASS_GREAT_SPY</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>110</iCost>
+			<iHurryCostModifier>100</iHurryCostModifier>
+			<iConquestProb>100</iConquestProb>
+			<iGoldenAgeModifier>50</iGoldenAgeModifier>
+			<iAsset>10</iAsset>
+			<iPower>3</iPower>
+			<fVisibilityPriority>100.0</fVisibilityPriority>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>3</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<CommerceChangeOriginalOwners>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
+			</CommerceChangeOriginalOwners>
+			<ConstructSound>AS2D_BUILD_PYRAMID</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>15</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>15</iFlavor>
+				</Flavor>
+			</Flavors>
+			<HotKey/>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Shwedagon Paya -->
 			<BuildingClass>BUILDINGCLASS_SHWEDAGON_PAYA</BuildingClass>
 			<Type>BUILDING_SHWEDAGON_PAYA</Type>
@@ -8009,7 +8068,7 @@
 			<ArtDefineTag>ART_DEF_BUILDING_MOAI_STATUES</ArtDefineTag>
 			<MaxStartEra>ERA_ANCIENT</MaxStartEra>
 			<PrereqAndTechs>
-				<TechType>TECH_SAILING</TechType>
+				<TechType>TECH_STONE_BUILDING</TechType>
 			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>

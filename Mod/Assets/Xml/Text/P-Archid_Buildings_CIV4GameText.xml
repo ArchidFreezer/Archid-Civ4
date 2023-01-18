@@ -122,6 +122,18 @@
 		<English>Build a [COLOR_BUILDING_TEXT]Palisade[COLOR_REVERT] to increase a cities defence.</English>
 		<Spanish>Construye una [COLOR_BUILDING_TEXT]Empalizada[COLOR_REVERT] para incrementar el bono de defensa en tus ciudades.</Spanish>
 	</TEXT>
+	<TEXT> <!-- Skara Brae -->
+		<Tag>TXT_KEY_BUILDING_SKARA_BRAE</Tag>
+		<English>Skara Brae</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SKARA_BRAE_PEDIA</Tag>
+		<English>[COLOR_PROJECT_TEXT]Skara Brae[COLOR_REVERT] is a large stone-built Neolithic settlement, located on the Bay of Skaill on the west coast of mainland Orkney, Scotland. It consists of ten clustered houses, and was occupied from roughly 3100-2500BC. It is Europe's most complete Neolithic village and the level of preservation is such that it has gained UNESCO World Heritage Site status.[NEWLINE][PARAGRAPH:1]The outline of several stone buildings was revealed and initial excavations were undertaken by William Watt, the laird of Skaill. It was fully excavated between 1928 and 1930 by Vere Gordon Childe following another storm in 1926. These stone buildings were built out of flagstones that were naturaly eroded by the ocean. Archeologists believe that these structures were once covered by timber roofs that have since eroded. the supply of timber in the area was limited but there was a large supply of the flagstones from the nearby ocean already cut to size by the tides.[NEWLINE][PARAGRAPH:1]Skara Brae's inhabitants were apparently makers and users of grooved ware. The houses used earth sheltering but, being sunk into the ground, they were built into mounds of pre-existing domestic waste (rubbish) known as "middens". Although the midden provided the houses with a small degree of stability, its most important purpose was to act as a layer of insulation against Orkney's harsh winter climate. On average, the houses measure 40 square metres in size with a large square room containing a large hearth which would have been used for heating and cooking. As few trees grow on the island, the people of Skara Brae used driftwood and whalebone, with turf thatch, to roof their dwellings.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SKARA_BRAE_STRATEGY</Tag>
+		<English>Build the [COLOR_PROJECT_TEXT]Skara Brae[COLOR_REVERT] to increase the time of [COLOR_HIGHLIGHT_TEXT]Golden Ages[COLOR_REVERT] for your civilization.</English>
+	</TEXT>
 	<TEXT> <!-- Slave Market -->
 		<Tag>TXT_KEY_BUILDING_SLAVE_MARKET</Tag>
 		<English>Slave Market</English>

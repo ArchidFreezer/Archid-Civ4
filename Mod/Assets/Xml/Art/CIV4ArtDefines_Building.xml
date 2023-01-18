@@ -1927,5 +1927,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/cave_painting.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- Skara Brae -->
+			<Type>ART_DEF_BUILDING_SKARA_BRAE</Type>
+			<LSystem/>
+			<bAnimated>0</bAnimated>
+			<fScale/>
+			<fInterfaceScale/>
+			<NIF/>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/skara_brae.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
