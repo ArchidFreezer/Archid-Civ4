@@ -3342,6 +3342,55 @@
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>0</iHotKeyPriority>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Shaman Temple -->
+			<BuildingClass>BUILDINGCLASS_SHAMAN_TEMPLE</BuildingClass>
+			<Type>BUILDING_SHAMAN_TEMPLE</Type>
+			<Description>TXT_KEY_BUILDING_SHAMAN_TEMPLE</Description>
+			<Civilopedia>TXT_KEY_BUILDING_SHAMAN_TEMPLE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_SHAMAN_TEMPLE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_SHAMAN_TEMPLE</ArtDefineTag>
+			<ObsoleteTech>TECH_BIOLOGY</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MYSTICAL_BELIEFS</TechType>
+			</PrereqAndTechs>
+			<iCost>65</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>33</iConquestProb>
+			<iHealRateChange>5</iHealRateChange>
+			<iAsset>2</iAsset>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>10</iCommerce>
+			</CommerceModifiers>
+			<BonusHealthChanges>
+				<BonusHealthChange>
+					<BonusType>BONUS_INCENSE</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+			</BonusHealthChanges>
+			<BonusHappinessChanges>
+				<BonusHappinessChange>
+					<BonusType>BONUS_TOBACCO</BonusType>
+					<iChange>1</iChange>
+				</BonusHappinessChange>
+			</BonusHappinessChanges>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+			<HotKey/>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Slave Market -->
 			<BuildingClass>BUILDINGCLASS_SLAVE_MARKET</BuildingClass>
 			<Type>BUILDING_SLAVE_MARKET</Type>

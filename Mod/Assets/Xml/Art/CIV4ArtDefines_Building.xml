@@ -1947,5 +1947,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/microlith_workshop.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- Shaman Temple -->
+			<Type>ART_DEF_BUILDING_SHAMAN_TEMPLE</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/shaman_temple/TelShrine.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/shaman_temple.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

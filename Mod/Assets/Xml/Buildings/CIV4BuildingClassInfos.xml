@@ -275,6 +275,11 @@
 			<Description>TXT_KEY_BUILDING_MICROLITH_WORKSHOP</Description>
 			<DefaultBuilding>BUILDING_MICROLITH_WORKSHOP</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo>
+			<Type>BUILDINGCLASS_SHAMAN_TEMPLE</Type>
+			<Description>TXT_KEY_BUILDING_SHAMAN_TEMPLE</Description>
+			<DefaultBuilding>BUILDING_SHAMAN_TEMPLE</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<!-- **************** -->
 		<!-- Religious        -->
