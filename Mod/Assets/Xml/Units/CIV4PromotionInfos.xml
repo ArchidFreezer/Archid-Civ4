@@ -458,6 +458,7 @@
 			<Type>PROMOTION_CITY_GARRISON1</Type>
 			<Description>TXT_KEY_PROMOTION_GARRISON1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
+			<TechPrereq>TECH_HUT_BUILDING</TechPrereq>
 			<iCityDefense>20</iCityDefense>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
