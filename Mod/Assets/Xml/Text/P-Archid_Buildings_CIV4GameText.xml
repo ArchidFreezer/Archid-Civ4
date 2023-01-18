@@ -50,4 +50,17 @@
 		<Tag>TXT_KEY_BUILDING_SLAVE_MARKET_STRATEGY</Tag>
 		<English>The [COLOR_BUILDING_TEXT]Slave Market[COLOR_REVERT] provides a 25% production bonus and a +1 happiness bonus in any city it is built in. Allows for the purchase of slaves. Doubles Production for leaders with Organized or Industrius traits.</English>
 	</TEXT>
+
+	<TEXT> <!-- Stone Weapons Workshop -->
+		<Tag>TXT_KEY_BUILDING_STONE_WEAPONS_WORKSHOP</Tag>
+		<English>Stone Weapons Workshop</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_STONE_WEAPONS_WORKSHOP_PEDIA</Tag>
+		<English>The use of stone weapons is not limited to man, but was one of the first stages in mans progression to more advanced tool use that enabled him to survive in hostile climates and live alongside and defeat creatures that are stronger, faster or both than himself.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_STONE_WEAPONS_WORKSHOP_STRATEGY</Tag>
+		<English>Build a [COLOR_BUILDING_TEXT]Stone Weapons Workshop[COLOR_REVERT] to increase the abilities of your Stone Age Military Units.</English>
+	</TEXT>
 </Civ4GameText>

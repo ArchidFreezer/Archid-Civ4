@@ -1857,5 +1857,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/capital_seat.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- Stone Weapons Workshop -->
+		  <Type>ART_DEF_BUILDING_STONE_WEAPONS_WORKSHOP</Type>
+		  <LSystem/>
+		  <bAnimated>0</bAnimated>
+		  <fScale/>
+		  <fInterfaceScale/>
+		  <NIF/>
+		  <KFM/>
+		  <Button>Art/Interface/Buttons/Buildings/stone_weapons_workshop.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

@@ -3268,6 +3268,55 @@
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>0</iHotKeyPriority>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Stone Weapons Workshop -->
+			<BuildingClass>BUILDINGCLASS_STONE_WEAPONS_WORKSHOP</BuildingClass>
+			<Type>BUILDING_STONE_WEAPONS_WORKSHOP</Type>
+			<Description>TXT_KEY_BUILDING_STONE_WEAPONS_WORKSHOP</Description>
+			<Civilopedia>TXT_KEY_BUILDING_STONE_WEAPONS_WORKSHOP_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_STONE_WEAPONS_WORKSHOP_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_STONE_WEAPONS_WORKSHOP</ArtDefineTag>
+			<ObsoleteTech>TECH_WARFARE</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_FINE_EDGED_TOOLS</TechType>
+			</PrereqAndTechs>
+			<bNeverCapture>1</bNeverCapture>
+			<iAIWeight>100</iAIWeight>
+			<iCost>30</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iAsset>2</iAsset>
+			<iPower>3</iPower>
+			<ConstructSound>AS2D_BUILD_BARRACKS</ConstructSound>
+			<UnitCombatFreeExperiences>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+					<iExperience>2</iExperience>
+				</UnitCombatFreeExperience>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+					<iExperience>2</iExperience>
+				</UnitCombatFreeExperience>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+					<iExperience>2</iExperience>
+				</UnitCombatFreeExperience>
+			</UnitCombatFreeExperiences>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+			<HotKey/>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Supermarket -->
 			<BuildingClass>BUILDINGCLASS_SUPERMARKET</BuildingClass>
 			<Type>BUILDING_SUPERMARKET</Type>

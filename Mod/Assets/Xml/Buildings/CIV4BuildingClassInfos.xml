@@ -240,6 +240,11 @@
 			<Description>TXT_KEY_BUILDING_MILITARY_ACADEMY</Description>
 			<DefaultBuilding>BUILDING_MILITARY_ACADEMY</DefaultBuilding>
 		</BuildingClassInfo>
+	    <BuildingClassInfo>
+	      <Type>BUILDINGCLASS_STONE_WEAPONS_WORKSHOP</Type>
+	      <Description>TXT_KEY_STONE_WEAPONS_WORKSHOP</Description>
+	      <DefaultBuilding>BUILDING_STONE_WEAPONS_WORKSHOP</DefaultBuilding>
+	    </BuildingClassInfo>
 
 		<!-- **************** -->
 		<!-- Religious        -->
