@@ -1897,6 +1897,16 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/hunting_lodge.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- Lascaux Paint -->
+			<Type>ART_DEF_BUILDING_LASCAUX_PAINTS</Type>
+			<LSystem/>
+			<bAnimated>0</bAnimated>
+			<fScale/>
+			<fInterfaceScale/>
+			<NIF/>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/lascaux_paints.dds</Button>
+		</BuildingArtInfo>
 		<BuildingArtInfo>	<!-- Palisade -->
 			<Type>ART_DEF_BUILDING_PALISADE</Type>
 			<LSystem>LSYSTEM_PALISADE</LSystem>

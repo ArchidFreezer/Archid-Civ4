@@ -560,6 +560,12 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_KREMLIN</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Lascaux Paints -->
+			<Type>BUILDINGCLASS_LASCAUX_PAINTS</Type>
+			<Description>TXT_KEY_BUILDING_LASCAUX_PAINTS</Description>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_LASCAUX_PAINTS</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Mausoleum of Maussollos -->
 			<Type>BUILDINGCLASS_MAUSOLEUM_OF_MAUSSOLLOS</Type>
 			<Description>TXT_KEY_BUILDING_MAUSOLEUM_OF_MAUSSOLLOS</Description>
