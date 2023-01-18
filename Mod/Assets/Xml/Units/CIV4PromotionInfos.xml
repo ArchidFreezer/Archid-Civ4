@@ -507,6 +507,7 @@
 			<Type>PROMOTION_CITY_RAIDER1</Type>
 			<Description>TXT_KEY_PROMOTION_CITYRAIDER1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
+			<TechPrereq>TECH_CHIEFDOM</TechPrereq>
 			<iCityAttack>20</iCityAttack>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
