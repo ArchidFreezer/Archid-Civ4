@@ -8055,6 +8055,7 @@
 			</UnitAIs>
 			<PrereqTechs>
 				<TechType>TECH_ADVANCED_TOOLS</TechType>
+				<TechType>TECH_STONE_BUILDING</TechType>
 			</PrereqTechs>
 			<iCost>15</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
