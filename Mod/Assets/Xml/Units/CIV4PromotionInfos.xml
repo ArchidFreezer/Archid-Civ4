@@ -1503,6 +1503,7 @@
 				<PromotionType>PROMOTION_COMBAT3</PromotionType>
 				<PromotionType>PROMOTION_DRILL3</PromotionType>
 			</PrereqOrPromotions>
+			<TechPrereq>TECH_HERBALISM</TechPrereq>
 			<bAlwaysHeal>1</bAlwaysHeal>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
@@ -1524,6 +1525,7 @@
 				<PromotionType>PROMOTION_COMBAT1</PromotionType>
 				<PromotionType>PROMOTION_DRILL1</PromotionType>
 			</PrereqOrPromotions>
+			<TechPrereq>TECH_HERBALISM</TechPrereq>
 			<iSameTileHealChange>10</iSameTileHealChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
