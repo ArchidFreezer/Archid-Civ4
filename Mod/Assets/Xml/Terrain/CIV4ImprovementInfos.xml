@@ -246,94 +246,6 @@
 				<TerrainType>TERRAIN_SNOW</TerrainType>
 			</TerrainMakesValids>
 		</ImprovementInfo>
-		<ImprovementInfo> <!-- Lumberjack -->
-			<Type>IMPROVEMENT_LUMBERJACK</Type>
-			<Description>TXT_KEY_IMPROVEMENT_LUMBERJACK</Description>
-			<Civilopedia>TXT_KEY_IMPROVEMENT_LUMBERJACK_PEDIA</Civilopedia>
-			<ArtDefineTag>ART_DEF_IMPROVEMENT_LUMBERJACK</ArtDefineTag>
-			<YieldChanges>
-				<iYieldChange>0</iYieldChange>
-				<iYieldChange>1</iYieldChange>
-			</YieldChanges>
-			<bRequiresFeature>1</bRequiresFeature>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iUpgradeTime>14</iUpgradeTime>
-			<FeatureMakesValids>
-				<FeatureType>FEATURE_FOREST</FeatureType>
-				<FeatureType>FEATURE_JUNGLE</FeatureType>
-			</FeatureMakesValids>
-			<BonusTypeStructs>
-				<BonusTypeStruct>
-					<BonusType>BONUS_TIMBER</BonusType>
-					<bBonusMakesValid>1</bBonusMakesValid>
-					<bBonusTrade>1</bBonusTrade>
-					<iDiscoverRand>10000</iDiscoverRand>
-					<YieldChanges>
-						<iYieldChange>0</iYieldChange>
-						<iYieldChange>0</iYieldChange>
-						<iYieldChange>1</iYieldChange>
-					</YieldChanges>
-				</BonusTypeStruct>
-			</BonusTypeStructs>
-			<ImprovementUpgrade>IMPROVEMENT_LUMBERMILL</ImprovementUpgrade>
-			<RouteYieldChanges>
-				<RouteYieldChange>
-					<RouteType>ROUTE_RAILROAD</RouteType>
-					<RouteYields>
-						<iYield>0</iYield>
-						<iYield>1</iYield>
-						<iYield>1</iYield>
-					</RouteYields>
-				</RouteYieldChange>
-			</RouteYieldChanges>
-		</ImprovementInfo>
-		<ImprovementInfo> <!-- Lumbermill -->
-			<Type>IMPROVEMENT_LUMBERMILL</Type>
-			<Description>TXT_KEY_IMPROVEMENT_LUMBERMILL</Description>
-			<Civilopedia>TXT_KEY_IMPROVEMENT_LUMBERMILL_PEDIA</Civilopedia>
-			<ArtDefineTag>ART_DEF_IMPROVEMENT_LUMBERMILL</ArtDefineTag>
-			<YieldChanges>
-				<iYieldChange>0</iYieldChange>
-				<iYieldChange>1</iYieldChange>
-			</YieldChanges>
-			<RiverSideYieldChange>
-				<iYield>0</iYield>
-				<iYield>0</iYield>
-				<iYield>1</iYield>
-			</RiverSideYieldChange>
-			<bRequiresFeature>1</bRequiresFeature>
-			<iAdvancedStartCost>48</iAdvancedStartCost>
-			<iAirBombDefense>5</iAirBombDefense>
-			<iPillageGold>5</iPillageGold>
-			<FeatureMakesValids>
-				<FeatureType>FEATURE_FOREST</FeatureType>
-				<FeatureType>FEATURE_JUNGLE</FeatureType>
-			</FeatureMakesValids>
-			<BonusTypeStructs>
-				<BonusTypeStruct>
-					<BonusType>BONUS_TIMBER</BonusType>
-					<bBonusMakesValid>1</bBonusMakesValid>
-					<bBonusTrade>1</bBonusTrade>
-					<iDiscoverRand>10000</iDiscoverRand>
-					<YieldChanges>
-						<iYieldChange>0</iYieldChange>
-						<iYieldChange>1</iYieldChange>
-						<iYieldChange>1</iYieldChange>
-					</YieldChanges>
-				</BonusTypeStruct>
-			</BonusTypeStructs>
-			<ImprovementPillage>IMPROVEMENT_LUMBERJACK</ImprovementPillage>
-			<RouteYieldChanges>
-				<RouteYieldChange>
-					<RouteType>ROUTE_RAILROAD</RouteType>
-					<RouteYields>
-						<iYield>0</iYield>
-						<iYield>1</iYield>
-						<iYield>0</iYield>
-					</RouteYields>
-				</RouteYieldChange>
-			</RouteYieldChanges>
-		</ImprovementInfo>
 		<ImprovementInfo> <!-- Stone Tools Camp -->
 			<Type>IMPROVEMENT_STONE_TOOLS_CAMP</Type>
 			<Description>TXT_KEY_IMPROVEMENT_STONE_TOOLS_CAMP</Description>
@@ -341,7 +253,6 @@
 			<ArtDefineTag>ART_DEF_IMPROVEMENT_STONE_TOOLS_CAMP</ArtDefineTag>
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
-				<iYieldChange>1</iYieldChange>
 				<iYieldChange>1</iYieldChange>
 			</YieldChanges>
 			<bHillsMakesValid>1</bHillsMakesValid>
@@ -352,12 +263,7 @@
 					<BonusType>BONUS_STONE</BonusType>
 					<bBonusMakesValid>1</bBonusMakesValid>
 					<bBonusTrade>0</bBonusTrade>
-					<iDiscoverRand>0</iDiscoverRand>
-					<YieldChanges>
-						<iYieldChange>0</iYieldChange>
-						<iYieldChange>0</iYieldChange>
-						<iYieldChange>1</iYieldChange>
-					</YieldChanges>
+					<iDiscoverRand>25000</iDiscoverRand>
 				</BonusTypeStruct>
 			</BonusTypeStructs>
 		</ImprovementInfo>
@@ -378,6 +284,31 @@
 				<TerrainType>TERRAIN_GRASS</TerrainType>
 				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</TerrainMakesValids>
+		</ImprovementInfo>
+		<ImprovementInfo> <!-- Timber Camp -->
+			<Type>IMPROVEMENT_TIMBER_CAMP</Type>
+			<Description>TXT_KEY_IMPROVEMENT_TIMBER_CAMP</Description>
+			<Civilopedia>TXT_KEY_IMPROVEMENT_TIMBER_CAMP_PEDIA</Civilopedia>
+			<ArtDefineTag>ART_DEF_IMPROVEMENT_TIMBER_CAMP</ArtDefineTag>
+			<YieldChanges>
+				<iYieldChange>0</iYieldChange>
+				<iYieldChange>1</iYieldChange>
+			</YieldChanges>
+			<bRequiresFeature>1</bRequiresFeature>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iPillageGold>8</iPillageGold>
+			<FeatureMakesValids>
+				<FeatureType>FEATURE_FOREST</FeatureType>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
+			</FeatureMakesValids>
+			<BonusTypeStructs>
+				<BonusTypeStruct>
+					<BonusType>BONUS_TIMBER</BonusType>
+					<bBonusMakesValid>1</bBonusMakesValid>
+					<bBonusTrade>0</bBonusTrade>
+					<iDiscoverRand>10000</iDiscoverRand>
+				</BonusTypeStruct>
+			</BonusTypeStructs>
 		</ImprovementInfo>
 		<ImprovementInfo> <!-- Watermill -->
 			<Type>IMPROVEMENT_WATERMILL</Type>
@@ -600,7 +531,7 @@
 					<BonusType>BONUS_RICE</BonusType>
 					<bBonusMakesValid>1</bBonusMakesValid>
 					<bBonusTrade>1</bBonusTrade>
-					<iDiscoverRand>0</iDiscoverRand>
+					<iDiscoverRand>10000</iDiscoverRand>
 					<YieldChanges>
 						<iYieldChange>1</iYieldChange>
 					</YieldChanges>
@@ -629,7 +560,7 @@
 					<bBonusTrade>1</bBonusTrade>
 					<iDiscoverRand>10000</iDiscoverRand>
 					<YieldChanges>
-						<iYieldChange>3</iYieldChange>
+						<iYieldChange>2</iYieldChange>
 					</YieldChanges>
 				</BonusTypeStruct>
 			</BonusTypeStructs>
@@ -710,6 +641,94 @@
 					</YieldChanges>
 				</BonusTypeStruct>
 			</BonusTypeStructs>
+		</ImprovementInfo>
+		<ImprovementInfo> <!-- Lumberjack -->
+			<Type>IMPROVEMENT_LUMBERJACK</Type>
+			<Description>TXT_KEY_IMPROVEMENT_LUMBERJACK</Description>
+			<Civilopedia>TXT_KEY_IMPROVEMENT_LUMBERJACK_PEDIA</Civilopedia>
+			<ArtDefineTag>ART_DEF_IMPROVEMENT_LUMBERJACK</ArtDefineTag>
+			<YieldChanges>
+				<iYieldChange>0</iYieldChange>
+				<iYieldChange>1</iYieldChange>
+			</YieldChanges>
+			<bRequiresFeature>1</bRequiresFeature>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iUpgradeTime>14</iUpgradeTime>
+			<FeatureMakesValids>
+				<FeatureType>FEATURE_FOREST</FeatureType>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
+			</FeatureMakesValids>
+			<BonusTypeStructs>
+				<BonusTypeStruct>
+					<BonusType>BONUS_TIMBER</BonusType>
+					<bBonusMakesValid>1</bBonusMakesValid>
+					<bBonusTrade>1</bBonusTrade>
+					<iDiscoverRand>10000</iDiscoverRand>
+					<YieldChanges>
+						<iYieldChange>0</iYieldChange>
+						<iYieldChange>0</iYieldChange>
+						<iYieldChange>1</iYieldChange>
+					</YieldChanges>
+				</BonusTypeStruct>
+			</BonusTypeStructs>
+			<ImprovementUpgrade>IMPROVEMENT_LUMBERMILL</ImprovementUpgrade>
+			<RouteYieldChanges>
+				<RouteYieldChange>
+					<RouteType>ROUTE_RAILROAD</RouteType>
+					<RouteYields>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+						<iYield>1</iYield>
+					</RouteYields>
+				</RouteYieldChange>
+			</RouteYieldChanges>
+		</ImprovementInfo>
+		<ImprovementInfo> <!-- Lumbermill -->
+			<Type>IMPROVEMENT_LUMBERMILL</Type>
+			<Description>TXT_KEY_IMPROVEMENT_LUMBERMILL</Description>
+			<Civilopedia>TXT_KEY_IMPROVEMENT_LUMBERMILL_PEDIA</Civilopedia>
+			<ArtDefineTag>ART_DEF_IMPROVEMENT_LUMBERMILL</ArtDefineTag>
+			<YieldChanges>
+				<iYieldChange>0</iYieldChange>
+				<iYieldChange>1</iYieldChange>
+			</YieldChanges>
+			<RiverSideYieldChange>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</RiverSideYieldChange>
+			<bRequiresFeature>1</bRequiresFeature>
+			<iAdvancedStartCost>48</iAdvancedStartCost>
+			<iAirBombDefense>5</iAirBombDefense>
+			<iPillageGold>5</iPillageGold>
+			<FeatureMakesValids>
+				<FeatureType>FEATURE_FOREST</FeatureType>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
+			</FeatureMakesValids>
+			<BonusTypeStructs>
+				<BonusTypeStruct>
+					<BonusType>BONUS_TIMBER</BonusType>
+					<bBonusMakesValid>1</bBonusMakesValid>
+					<bBonusTrade>1</bBonusTrade>
+					<iDiscoverRand>10000</iDiscoverRand>
+					<YieldChanges>
+						<iYieldChange>0</iYieldChange>
+						<iYieldChange>1</iYieldChange>
+						<iYieldChange>1</iYieldChange>
+					</YieldChanges>
+				</BonusTypeStruct>
+			</BonusTypeStructs>
+			<ImprovementPillage>IMPROVEMENT_LUMBERJACK</ImprovementPillage>
+			<RouteYieldChanges>
+				<RouteYieldChange>
+					<RouteType>ROUTE_RAILROAD</RouteType>
+					<RouteYields>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+						<iYield>0</iYield>
+					</RouteYields>
+				</RouteYieldChange>
+			</RouteYieldChanges>
 		</ImprovementInfo>
 		<ImprovementInfo> <!-- Mine -->
 			<Type>IMPROVEMENT_MINE</Type>
@@ -1218,36 +1237,6 @@
 						<iYieldChange>0</iYieldChange>
 						<iYieldChange>0</iYieldChange>
 						<iYieldChange>3</iYieldChange>
-					</YieldChanges>
-				</BonusTypeStruct>
-			</BonusTypeStructs>
-		</ImprovementInfo>
-		<ImprovementInfo> <!-- Timber Camp -->
-			<Type>IMPROVEMENT_TIMBER_CAMP</Type>
-			<Description>TXT_KEY_IMPROVEMENT_TIMBER_CAMP</Description>
-			<Civilopedia>TXT_KEY_IMPROVEMENT_TIMBER_CAMP_PEDIA</Civilopedia>
-			<ArtDefineTag>ART_DEF_IMPROVEMENT_TIMBER_CAMP</ArtDefineTag>
-			<YieldChanges>
-				<iYieldChange>0</iYieldChange>
-				<iYieldChange>1</iYieldChange>
-			</YieldChanges>
-			<bRequiresFeature>1</bRequiresFeature>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iPillageGold>8</iPillageGold>
-			<FeatureMakesValids>
-				<FeatureType>FEATURE_FOREST</FeatureType>
-				<FeatureType>FEATURE_JUNGLE</FeatureType>
-			</FeatureMakesValids>
-			<BonusTypeStructs>
-				<BonusTypeStruct>
-					<BonusType>BONUS_TIMBER</BonusType>
-					<bBonusMakesValid>1</bBonusMakesValid>
-					<bBonusTrade>1</bBonusTrade>
-					<iDiscoverRand>10000</iDiscoverRand>
-					<YieldChanges>
-						<iYieldChange>0</iYieldChange>
-						<iYieldChange>0</iYieldChange>
-						<iYieldChange>1</iYieldChange>
 					</YieldChanges>
 				</BonusTypeStruct>
 			</BonusTypeStructs>
