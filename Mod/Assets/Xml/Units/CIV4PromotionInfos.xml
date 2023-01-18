@@ -474,6 +474,7 @@
 			<PrereqOrPromotions>
 				<PromotionType>PROMOTION_CITY_GARRISON1</PromotionType>
 			</PrereqOrPromotions>
+			<TechPrereq>TECH_EARLY_BOWS</TechPrereq>
 			<iCityDefense>25</iCityDefense>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
@@ -783,6 +784,7 @@
 				<PromotionType>PROMOTION_COMBAT1</PromotionType>
 				<PromotionType>PROMOTION_DRILL1</PromotionType>
 			</PrereqOrPromotions>
+			<TechPrereq>TECH_EARLY_BOWS</TechPrereq>
 			<UnitCombatMods>
 				<UnitCombatMod>
 					<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
