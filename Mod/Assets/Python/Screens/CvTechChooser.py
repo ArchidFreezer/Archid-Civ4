@@ -3,7 +3,9 @@ import CvUtil
 import ScreenInput
 import CvScreenEnums
 import CvScreensInterface
-import PlatyOptions
+import BugCore
+import BugOptions
+import ArchidUtils
 gc = CyGlobalContext()
 
 ## Adjustable Values ##
@@ -60,7 +62,7 @@ class CvTechChooser:
 		pPlayer = gc.getPlayer(self.iCivSelected)
 		pTeam = gc.getTeam(pPlayer.getTeam())
 ## Unique Background ##
-		screen.addDDSGFC("ScreenBackground", PlatyOptions.getBackGround(), 0, 0, screen.getXResolution(), screen.getYResolution(), WidgetTypes.WIDGET_GENERAL, -1, -1 )
+		screen.addDDSGFC("ScreenBackground", ArchidUtils.getBackground(), 0, 0, screen.getXResolution(), screen.getYResolution(), WidgetTypes.WIDGET_GENERAL, -1, -1 )
 ## Unique Background ##
 		screen.moveToBack("ScreenBackground")
 		screen.hide("AddTechButton")

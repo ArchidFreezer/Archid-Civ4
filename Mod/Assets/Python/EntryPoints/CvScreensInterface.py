@@ -75,9 +75,7 @@ import TimeKeeper
 import MirrorImage
 import OrderList
 import WorldTracker
-import PlatyOptions
 import ArtDefChecker
-
 import ArchidOptionsScreen
 
 def showWorldTracker(argsList):
@@ -699,7 +697,6 @@ HandleInputMap = {  MAIN_INTERFACE : mainInterface,
 					MIRRORIMAGE : MirrorImage.MirrorImage(),
 					ORDER_LIST : OrderList.OrderList(),
 					WORLD_TRACKER : WorldTracker.WorldTracker(),
-					PLATY_OPTIONS : PlatyOptions.PlatyOptions(),
 					ARTDEFCHECKER: ArtDefChecker.ArtDefChecker(),
 ## World Builder ##
 					WB_PLOT : WBPlotScreen.WBPlotScreen(),

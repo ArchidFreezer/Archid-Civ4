@@ -4,8 +4,11 @@ import ScreenInput
 import CvScreenEnums
 import string
 import CvScreensInterface
-import PlatyOptions
+import BugCore
+import BugOptions
+import ArchidUtils
 gc = CyGlobalContext()
+PlatyUIOpts = BugCore.game.PlatyUI
 
 class CvCivicsScreen:
 	def __init__(self):
@@ -45,7 +48,7 @@ class CvCivicsScreen:
 		self.OriginalCivic_X = self.ChangesTable_X + self.CivicTable_WIDTH + 20
 		self.Comparison_WIDTH = (screen.getXResolution() - self.OriginalCivic_X - 30) / 2
 ## Unique Background ##
-		screen.addDDSGFC("ScreenBackground", PlatyOptions.getBackGround(), 0, 0, screen.getXResolution(), screen.getYResolution(), WidgetTypes.WIDGET_GENERAL, -1, -1 )
+		screen.addDDSGFC("ScreenBackground", ArchidUtils.getBackground(), 0, 0, screen.getXResolution(), screen.getYResolution(), WidgetTypes.WIDGET_GENERAL, -1, -1 )
 ## Unique Background ##
 		screen.addPanel( "CivicTopPanel", u"", u"", True, False, 0, 0, screen.getXResolution(), 55, PanelStyles.PANEL_STYLE_TOPBAR )
 		screen.addPanel( "CivicBottomPanel", u"", u"", True, False, 0, screen.getYResolution() - 55, screen.getXResolution(), 55, PanelStyles.PANEL_STYLE_BOTTOMBAR )
@@ -134,7 +137,7 @@ class CvCivicsScreen:
 		self.NewCivic_X = self.OriginalCivic_X + self.Comparison_WIDTH + 10
 ## Transparent Panels ##
 		PanelStyle = PanelStyles.PANEL_STYLE_MAIN
-		if PlatyOptions.bTransparent:
+		if PlatyUIOpts.Panels:
 			PanelStyle = PanelStyles.PANEL_STYLE_IN
 		screen.addPanel("CivicsBottomLine", "", "", True, True, self.CivicTable_X, self.BOTTOM_LINE_TOP, self.BOTTOM_LINE_WIDTH, self.BOTTOM_LINE_HEIGHT, PanelStyle)
 		screen.addPanel("CivicPanel", "", "", True, True, self.CivicTable_X, self.CivicTable_Y, self.CivicTable_WIDTH * 2 + 20, self.CivicTable_HEIGHT + 20, PanelStyle)

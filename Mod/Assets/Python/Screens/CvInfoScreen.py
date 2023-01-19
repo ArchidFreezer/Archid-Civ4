@@ -4,9 +4,12 @@ import CvUtil
 import ScreenInput
 import string
 import time
-import PlatyOptions
+import BugCore
+import BugOptions
+import ArchidUtils
 gc = CyGlobalContext()
 ArtFileMgr = CyArtFileMgr()
+PlatyUIOpts = BugCore.game.PlatyUI
 
 class CvInfoScreen:
 	def __init__(self, screenId):
@@ -141,7 +144,7 @@ class CvInfoScreen:
 		self.reset()
 		self.deleteAllWidgets()
 ## Unique Background ##
-		screen.addDDSGFC("ScreenBackground", PlatyOptions.getBackGround(), 0, 0, screen.getXResolution(), screen.getYResolution(), WidgetTypes.WIDGET_GENERAL, -1, -1 )
+		screen.addDDSGFC("ScreenBackground", ArchidUtils.getBackground(), 0, 0, screen.getXResolution(), screen.getYResolution(), WidgetTypes.WIDGET_GENERAL, -1, -1 )
 ## Unique Background ##
 		screen.addPanel( "TechTopPanel", u"", u"", True, False, 0, 0, screen.getXResolution(), 55, PanelStyles.PANEL_STYLE_TOPBAR )
 		screen.addPanel( "TechBottomPanel", u"", u"", True, False, 0, screen.getYResolution() - 55, screen.getXResolution(), 55, PanelStyles.PANEL_STYLE_BOTTOMBAR )
@@ -869,7 +872,7 @@ class CvInfoScreen:
 		self.Y_CITIES_WONDER_BUFFER = 57
 ## Transparent Panels ##
 		PanelStyle = PanelStyles.PANEL_STYLE_MAIN
-		if PlatyOptions.bTransparent:
+		if PlatyUIOpts.Panels:
 			PanelStyle = PanelStyles.PANEL_STYLE_IN
 		screen.addPanel( self.szLeftPaneWidget, "", "", true, true, self.X_LEFT_PANE, self.Y_LEFT_PANE, self.W_LEFT_PANE, self.H_LEFT_PANE, PanelStyle)
 ## Transparent Panels ##
@@ -888,7 +891,7 @@ class CvInfoScreen:
 ## Transparent Panels ##
 			PanelStyle = PanelStyles.PANEL_STYLE_DAWNTOP
 			iX = 8
-			if PlatyOptions.bTransparent:
+			if PlatyUIOpts.Panels:
 				PanelStyle = PanelStyles.PANEL_STYLE_IN
 				iX = 14
 			screen.addPanel(self.getNextWidgetName(), "", "", false, true, self.X_CITIES_DESC, self.Y_ROWS_CITIES[i] + self.Y_CITIES_DESC_BUFFER, self.W_CITIES_DESC, self.H_CITIES_DESC, PanelStyle)
@@ -926,7 +929,7 @@ class CvInfoScreen:
 			szIconPanel = self.getNextWidgetName()
 ## Transparent Panels ##
 			PanelStyle = PanelStyles.PANEL_STYLE_DAWNTOP
-			if PlatyOptions.bTransparent:
+			if PlatyUIOpts.Panels:
 				PanelStyle = PanelStyles.PANEL_STYLE_IN
 			screen.addPanel( szIconPanel, "", "", false, true, self.X_CITIES_DESC, self.Y_ROWS_CITIES[i] + self.Y_CITIES_WONDER_BUFFER + self.Y_CITIES_DESC_BUFFER, self.W_CITIES_DESC, self.H_CITIES_DESC, PanelStyle)
 ## Transparent Panels ##
@@ -965,7 +968,7 @@ class CvInfoScreen:
 		self.szRightPaneWidget = self.getNextWidgetName()
 ## Transparent Panels ##
 		self.PanelStyle = PanelStyles.PANEL_STYLE_MAIN
-		if PlatyOptions.bTransparent:
+		if PlatyUIOpts.Panels:
 			self.PanelStyle = PanelStyles.PANEL_STYLE_IN
 		screen.addPanel( self.szRightPaneWidget, "", "", true, true, self.X_RIGHT_PANE, self.Y_RIGHT_PANE, self.W_RIGHT_PANE, self.H_RIGHT_PANE, self.PanelStyle)
 ## Transparent Panels ##

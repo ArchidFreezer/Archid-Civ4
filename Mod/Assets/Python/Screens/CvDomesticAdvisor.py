@@ -2,7 +2,11 @@ from CvPythonExtensions import *
 import CvUtil
 import ScreenInput
 import CvScreenEnums
+import BugCore
+import BugOptions
+import ArchidUtils
 gc = CyGlobalContext()
+PlatyUIOpts = BugCore.game.PlatyUI
 
 bWonder = False
 iDomesticPage = 0
@@ -53,8 +57,12 @@ class CvDomesticAdvisor:
 		screen.setRenderInterfaceOnly(True)
 		screen.setDimensions(0, 60, self.nScreenWidth, self.nScreenHeight)
 		screen.showScreen(PopupStates.POPUPSTATE_IMMEDIATE, False)
+		screen.addDDSGFC("ScreenBackground", ArchidUtils.getBackground(), 0, 0, screen.getXResolution(), screen.getYResolution(), WidgetTypes.WIDGET_GENERAL, -1, -1 )
 
-		screen.addPanel("DomesticAdvisorBG", u"", u"", True, False, 0, 0, self.nScreenWidth, self.nScreenHeight, PanelStyles.PANEL_STYLE_MAIN)
+		PanelStyle = PanelStyles.PANEL_STYLE_MAIN
+		if PlatyUIOpts.Panels:
+			PanelStyle = PanelStyles.PANEL_STYLE_IN
+		screen.addPanel("DomesticAdvisorBG", u"", u"", True, False, 0, 0, self.nScreenWidth, self.nScreenHeight, PanelStyle)
 		screen.setText("DomesticExit", "Background", "<font=4>" + CyTranslator().getText("TXT_KEY_PEDIA_SCREEN_EXIT", ()).upper() + "</font>", CvUtil.FONT_RIGHT_JUSTIFY, self.nScreenWidth - 30, self.nScreenHeight - 42, -0.1, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_CLOSE_SCREEN, -1, -1 )
 		screen.setText("DomesticHeader", "Background", u"<font=4b>" + CyTranslator().getText("TXT_KEY_DOMESTIC_ADVISOR_TITLE", ()).upper() + "</font>", CvUtil.FONT_CENTER_JUSTIFY, self.nScreenWidth/2, 20, -0.1, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
 		

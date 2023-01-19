@@ -5,8 +5,11 @@ import CvScreenEnums
 import math
 import IconGrid
 import re
-import PlatyOptions
+import BugCore
+import BugOptions
+import ArchidUtils
 gc = CyGlobalContext()
+PlatyUIOpts = BugCore.game.PlatyUI
 
 class CvExoticForeignAdvisor:
 	def __init__(self):
@@ -193,11 +196,11 @@ class CvExoticForeignAdvisor:
 		# Set the background and exit button, and show the screen
 		screen.setDimensions(0, 0, screen.getXResolution(), screen.getYResolution())
 ## Unique Background ##
-		screen.addDrawControl("ForeignAdvisorBackground", PlatyOptions.getBackGround(), 0, 0, screen.getXResolution(), screen.getYResolution(), WidgetTypes.WIDGET_GENERAL, -1, -1 )
+		screen.addDrawControl("ForeignAdvisorBackground", ArchidUtils.getBackground(), 0, 0, screen.getXResolution(), screen.getYResolution(), WidgetTypes.WIDGET_GENERAL, -1, -1 )
 ## Unique Background ##
 ## Transparent Panels ##
 		self.PanelStyle = PanelStyles.PANEL_STYLE_MAIN
-		if PlatyOptions.bTransparent:
+		if PlatyUIOpts.Panels:
 			self.PanelStyle = PanelStyles.PANEL_STYLE_IN
 ## Transparent Panels ##
 		screen.addPanel( "TopPanel", u"", u"", True, False, 0, 0, screen.getXResolution(), 55, PanelStyles.PANEL_STYLE_TOPBAR )
@@ -600,7 +603,7 @@ class CvExoticForeignAdvisor:
 				
 				iX = 8
 				iY = 8
-				if PlatyOptions.bTransparent:
+				if PlatyUIOpts.Panels:
 					iX -= 5
 					iY -= 5
 				iCivilization = pLoopPlayer.getCivilizationType()
@@ -878,7 +881,7 @@ class CvExoticForeignAdvisor:
 		self.mainAvailablePanel = self.getNextWidgetName()
 	## Transparent Panels ##
 		self.PanelStyle = PanelStyles.PANEL_STYLE_MAIN
-		if PlatyOptions.bTransparent:
+		if PlatyUIOpts.Panels:
 			self.PanelStyle = PanelStyles.PANEL_STYLE_IN
 		screen.addPanel( self.mainAvailablePanel, CyTranslator().getText("TXT_KEY_FOREIGN_ADVISOR_SURPLUS_RESOURCES", ()), "", False, False, self.RES_LEFT_RIGHT_SPACE, self.RES_TOP_BOTTOM_SPACE, self.SURPLUS_WIDTH, self.RES_SURPLUS_HEIGHT, self.PanelStyle)
 	## Transparent Panels ##

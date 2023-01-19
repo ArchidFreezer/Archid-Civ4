@@ -4,16 +4,18 @@ import ScreenInput
 import CvScreenEnums
 import CvEventInterface
 import time
+import BugCore
+import BugOptions
 
 ## Ultrapack ##
 import WorldTracker
 import OrderList
-import PlatyOptions
 
 # globals
 gc = CyGlobalContext()
 ArtFileMgr = CyArtFileMgr()
 localText = CyTranslator()
+PlatyUIOpts = BugCore.game.PlatyUI
 
 # END OF TURN BUTTON POSITIONS
 ######################
@@ -183,9 +185,6 @@ class CvMainInterface:
 		iX += iBtnX
 		screen.setImageButton("WorldTrackerButton", ArtFileMgr.getInterfaceArtInfo("INTERFACE_WORLD_TRACKER").getPath(), iX, iBtnX, iBtnWidth, iBtnWidth, WidgetTypes.WIDGET_PYTHON, 7100, -1)
 		screen.hide("WorldTrackerButton")
-		iX += iBtnX
-		screen.setImageButton("PlatyOptionsButton", ArtFileMgr.getInterfaceArtInfo("INTERFACE_PLATY_OPTIONS").getPath(), iX, iBtnX, iBtnWidth, iBtnWidth, WidgetTypes.WIDGET_PYTHON, 7101, -1)
-		screen.hide("PlatyOptionsButton")
 ## Trackers ##
 		iX = xResolution - iBtnX - 2
 		if not CyGame().isOption(GameOptionTypes.GAMEOPTION_NO_ESPIONAGE):
@@ -469,7 +468,7 @@ class CvMainInterface:
 		if (CyInterface().getShowInterface() != InterfaceVisibility.INTERFACE_HIDE_ALL and CyInterface().getShowInterface() != InterfaceVisibility.INTERFACE_ADVANCED_START):
 			self.updateTimeText()
 			sColor = u"<color=255,255,255,0>"
-			if PlatyOptions.bCivColors:
+			if PlatyUIOpts.Colours:
 				ePlayer = gc.getGame().getActivePlayer()
 				sColor = u"<color=%d,%d,%d,%d>" %(gc.getPlayer(ePlayer).getPlayerTextColorR(), gc.getPlayer(ePlayer).getPlayerTextColorG(), gc.getPlayer(ePlayer).getPlayerTextColorB(), gc.getPlayer(ePlayer).getPlayerTextColorA())
 			screen.setLabel( "TimeText", "Background", sColor + g_szTimeText + u"</color>", CvUtil.FONT_RIGHT_JUSTIFY, xResolution - 56, 6, -0.3, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1 )
@@ -605,7 +604,6 @@ class CvMainInterface:
 		screen.hide( "InfoAdvisorButton" )
 ## Trackers Start ##
 		screen.hide( "WorldTrackerButton" )
-		screen.hide( "PlatyOptionsButton" )
 
 		if ( CyInterface().shouldDisplayFlag() and CyInterface().getShowInterface() == InterfaceVisibility.INTERFACE_SHOW ):
 			screen.show( "CivilizationFlag" )
@@ -635,7 +633,6 @@ class CvMainInterface:
 			screen.show( "VictoryAdvisorButton" )
 			screen.show( "InfoAdvisorButton" )
 			screen.show( "WorldTrackerButton" )
-			screen.show( "PlatyOptionsButton" )
 		elif (CyInterface().getShowInterface() == InterfaceVisibility.INTERFACE_ADVANCED_START):
 			screen.show( "MiniMapPanel" )
 		elif ( CyEngine().isGlobeviewUp() ):
@@ -657,7 +654,6 @@ class CvMainInterface:
 			screen.show( "VictoryAdvisorButton" )
 			screen.show( "InfoAdvisorButton" )
 			screen.show( "WorldTrackerButton" )
-			screen.show( "PlatyOptionsButton" )
 		else:
 			screen.show( "InterfaceLeftBackgroundWidget" )
 			screen.show( "InterfaceCenterBackgroundWidget" )
@@ -679,7 +675,6 @@ class CvMainInterface:
 			screen.show( "VictoryAdvisorButton" )
 			screen.show( "InfoAdvisorButton" )
 			screen.show( "WorldTrackerButton" )
-			screen.show( "PlatyOptionsButton" )
 ## Trackers End ##
 		screen.updateMinimapVisibility()
 		return 0
@@ -1047,7 +1042,7 @@ class CvMainInterface:
 
 				iCount = 0
 				iRow = 0
-				if PlatyOptions.bBuildList:
+				if PlatyUIOpts.Build:
 					screen.appendMultiListButton("BottomButtonContainer", CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUILD_UNIT").getPath(), iRow, WidgetTypes.WIDGET_GENERAL, -1, -1, False)
 					screen.disableMultiListButton("BottomButtonContainer", iRow, iCount, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUILD_UNIT").getPath())
 					iCount += 1
@@ -1066,7 +1061,7 @@ class CvMainInterface:
 						if not pHeadSelectedCity.canTrain(eLoopUnit, False, False):
 							screen.disableMultiListButton( "BottomButtonContainer", iRow, iCount, szButton)
 						iCount += 1
-				if PlatyOptions.bBuildList:
+				if PlatyUIOpts.Build:
 					screen.appendMultiListButton("BottomButtonContainer", CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUILD_BUILDING").getPath(), iRow, WidgetTypes.WIDGET_GENERAL, -1, -1, False)
 					screen.disableMultiListButton("BottomButtonContainer", iRow, iCount, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUILD_BUILDING").getPath())
 					iCount += 1
@@ -1091,7 +1086,7 @@ class CvMainInterface:
 							if not pHeadSelectedCity.canConstruct(eLoopBuilding, False, False, False):
 								screen.disableMultiListButton( "BottomButtonContainer", iRow, iCount, Info.getButton() )
 							iCount += 1
-				if PlatyOptions.bBuildList:
+				if PlatyUIOpts.Build:
 					screen.appendMultiListButton("BottomButtonContainer", CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUILD_WONDER").getPath(), iRow, WidgetTypes.WIDGET_GENERAL, -1, -1, False)
 					screen.disableMultiListButton("BottomButtonContainer", iRow, iCount, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUILD_WONDER").getPath())
 					iCount += 1
@@ -1116,7 +1111,7 @@ class CvMainInterface:
 							if not pHeadSelectedCity.canConstruct(eLoopBuilding, False, False, False):
 								screen.disableMultiListButton( "BottomButtonContainer", iRow, iCount, Info.getButton() )
 							iCount += 1
-				if PlatyOptions.bBuildList:
+				if PlatyUIOpts.Build:
 					screen.appendMultiListButton("BottomButtonContainer", CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUILD_PROJECT").getPath(), iRow, WidgetTypes.WIDGET_GENERAL, -1, -1, False)
 					screen.disableMultiListButton("BottomButtonContainer", iRow, iCount, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUILD_PROJECT").getPath())
 					iCount += 1
@@ -1133,7 +1128,7 @@ class CvMainInterface:
 						if not pHeadSelectedCity.canCreate(i, False, False):
 							screen.disableMultiListButton( "BottomButtonContainer", iRow, iCount, gc.getProjectInfo(i).getButton() )
 						iCount += 1
-				if PlatyOptions.bBuildList:
+				if PlatyUIOpts.Build:
 					screen.appendMultiListButton("BottomButtonContainer", CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUILD_PROCESS").getPath(), iRow, WidgetTypes.WIDGET_GENERAL, -1, -1, False)
 					screen.disableMultiListButton("BottomButtonContainer", iRow, iCount, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUILD_PROCESS").getPath())
 					iCount += 1
@@ -1215,7 +1210,7 @@ class CvMainInterface:
 				iPlayer = pHeadSelectedCity.getOwner()
 				pPlayer = gc.getPlayer(iPlayer)
 				sColor = u"<color=255,255,255,0>"
-				if PlatyOptions.bCivColors:
+				if PlatyUIOpts.Colours:
 					sColor = u"<color=%d,%d,%d,%d>" %(pPlayer.getPlayerTextColorR(), pPlayer.getPlayerTextColorG(), pPlayer.getPlayerTextColorB(), pPlayer.getPlayerTextColorA())
 				lFreeSpecialist = []
 				lVisibleSpecialist = []
@@ -1319,7 +1314,7 @@ class CvMainInterface:
 ## Platy Color Text Main ##
 		pPlayer = gc.getPlayer(ePlayer)
 		sColor = u"<color=255,255,255,0>"
-		if PlatyOptions.bCivColors:
+		if PlatyUIOpts.Colours:
 			sColor = u"<color=%d,%d,%d,%d>" %(pPlayer.getPlayerTextColorR(), pPlayer.getPlayerTextColorG(), pPlayer.getPlayerTextColorB(), pPlayer.getPlayerTextColorA())
 		if ( CyInterface().getShowInterface() != InterfaceVisibility.INTERFACE_HIDE_ALL and CyInterface().getShowInterface() != InterfaceVisibility.INTERFACE_MINIMAP_ONLY  and CyInterface().getShowInterface() != InterfaceVisibility.INTERFACE_ADVANCED_START):
 
@@ -1387,7 +1382,7 @@ class CvMainInterface:
 					screen.addDDSGFC("FOVText", ArtFileMgr.getInterfaceArtInfo("INTERFACE_TECH_LOS").getPath(), xResolution - 38, 59, 18, 18, WidgetTypes.WIDGET_GENERAL, -1, -1)
 					screen.setButtonGFC("DecreaseFOV", u"", "", xResolution - 20, 58, 20, 20, WidgetTypes.WIDGET_PYTHON, 7000, -1, ButtonStyles.BUTTON_STYLE_CITY_PLUS)
 ## Great People Bar ##
-					if PlatyOptions.bGreatPeopleBar:
+					if PlatyUIOpts.GPBar:
 						iMinTurns = 99999
 						iCityID = -1
 						(loopCity, iter) = pPlayer.firstCity(False)
@@ -1498,7 +1493,7 @@ class CvMainInterface:
 		if CyInterface().isCityScreenUp():
 			if pHeadSelectedCity:
 				sColor = u"<color=255,255,255,0>"
-				if PlatyOptions.bCivColors:
+				if PlatyUIOpts.Colours:
 					sColor = u"<color=%d,%d,%d,%d>" %(gc.getPlayer(pHeadSelectedCity.getOwner()).getPlayerTextColorR(), gc.getPlayer(pHeadSelectedCity.getOwner()).getPlayerTextColorG(), gc.getPlayer(pHeadSelectedCity.getOwner()).getPlayerTextColorB(), gc.getPlayer(pHeadSelectedCity.getOwner()).getPlayerTextColorA())
 				screen.show( "CityScreenCenterTopWidget" )
 				screen.show( "InterfaceCenterLeftBackgroundWidget" )
@@ -1959,7 +1954,7 @@ class CvMainInterface:
 			screen.show("SelectedUnitPanel")
 			iOrders = CyInterface().getNumOrdersQueued()
 			sColor = u"<color=255,255,255,0>"
-			if PlatyOptions.bCivColors:
+			if PlatyUIOpts.Colours:
 				sColor = u"<color=%d,%d,%d,%d>" %(gc.getPlayer(pHeadSelectedCity.getOwner()).getPlayerTextColorR(), gc.getPlayer(pHeadSelectedCity.getOwner()).getPlayerTextColorG(), gc.getPlayer(pHeadSelectedCity.getOwner()).getPlayerTextColorB(), gc.getPlayer(pHeadSelectedCity.getOwner()).getPlayerTextColorA())
 			for i in xrange( iOrders ):
 				szLeftBuffer = u""
@@ -2001,7 +1996,7 @@ class CvMainInterface:
 				screen.show("UnitListScrollMinus")
 ## Unit List Scroll ##
 			sColor = u"<color=255,255,255,0>"
-			if PlatyOptions.bCivColors:
+			if PlatyUIOpts.Colours:
 				sColor = u"<color=%d,%d,%d,%d>" %(pPlayer.getPlayerTextColorR(), pPlayer.getPlayerTextColorG(), pPlayer.getPlayerTextColorB(), pPlayer.getPlayerTextColorA())
 			pSelectedGroup = 0
 			if CyInterface().mirrorsSelectionGroup():
@@ -2577,9 +2572,6 @@ class CvMainInterface:
 ## Trackers ##
 			elif inputClass.getFunctionName() == "WorldTrackerButton":
 				WorldTracker.WorldTracker().interfaceScreen()
-## Platy Options ##
-			elif inputClass.getFunctionName() == "PlatyOptionsButton":
-				PlatyOptions.PlatyOptions().interfaceScreen()
 ## Unit List Scroll ##
 			elif inputClass.getFunctionName().find("UnitListScroll") > -1:
 				bReverse = inputClass.getData2()

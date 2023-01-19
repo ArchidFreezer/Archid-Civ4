@@ -12,6 +12,7 @@ import ArchidACOOptionsTab
 import ArchidCityDisplayOptionsTab
 import ArchidGeneralOptionsTab
 import ArchidMapOptionsTab
+import ArchidPlatyUIOptionsTab
 
 # globals
 gc = CyGlobalContext()
@@ -59,6 +60,7 @@ class ArchidOptionsScreen:
 			self.addTab(ArchidCityDisplayOptionsTab.ArchidCityDisplayOptionsTab(self))
 			self.addTab(ArchidMapOptionsTab.ArchidMapOptionsTab(self))
 			self.addTab(ArchidACOOptionsTab.ArchidACOOptionsTab(self))
+			self.addTab(ArchidPlatyUIOptionsTab.ArchidPlatyUIOptionsTab(self))
 		else:
 			self.addTab(ArchidErrorOptionsTab.ArchidErrorOptionsTab(self))
 

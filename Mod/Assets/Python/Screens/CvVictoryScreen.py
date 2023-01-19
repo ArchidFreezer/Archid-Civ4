@@ -2,7 +2,9 @@ from CvPythonExtensions import *
 import CvUtil
 import ScreenInput
 import time
-import PlatyOptions
+import BugCore
+import BugOptions
+import ArchidUtils
 gc = CyGlobalContext()
 ArtFileMgr = CyArtFileMgr()
 
@@ -54,7 +56,7 @@ class CvVictoryScreen:
 		if self.iScreen == -1:
 			self.iScreen = VICTORY_CONDITION_SCREEN
 ## Unique Background ##
-		screen.addDDSGFC("ScreenBackground", PlatyOptions.getBackGround(), 0, 0, screen.getXResolution(), screen.getYResolution(), WidgetTypes.WIDGET_GENERAL, -1, -1 )
+		screen.addDDSGFC("ScreenBackground", ArchidUtils.getBackground(), 0, 0, screen.getXResolution(), screen.getYResolution(), WidgetTypes.WIDGET_GENERAL, -1, -1 )
 ## Unique Background ##
 		screen.addPanel( "TechTopPanel", u"", u"", True, False, 0, 0, screen.getXResolution(), 55, PanelStyles.PANEL_STYLE_TOPBAR )
 		screen.addPanel( "TechBottomPanel", u"", u"", True, False, 0, screen.getYResolution() - 55, screen.getXResolution(), 55, PanelStyles.PANEL_STYLE_BOTTOMBAR )

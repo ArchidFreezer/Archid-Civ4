@@ -3,8 +3,11 @@ import PyHelpers
 import CvUtil
 import ScreenInput
 import CvScreenEnums
-import PlatyOptions
+import BugCore
+import BugOptions
+import ArchidUtils
 gc = CyGlobalContext()
+PlatyUIOpts = BugCore.game.PlatyUI
 
 class CvFinanceAdvisor:
 
@@ -32,7 +35,7 @@ class CvFinanceAdvisor:
 		screen.setRenderInterfaceOnly(True);
 		screen.showScreen( PopupStates.POPUPSTATE_IMMEDIATE, False)
 ## Unique Background ##
-		screen.addDDSGFC("ScreenBackground", PlatyOptions.getBackGround(), 0, 0, screen.getXResolution(), screen.getYResolution(), WidgetTypes.WIDGET_GENERAL, -1, -1 )
+		screen.addDDSGFC("ScreenBackground", ArchidUtils.getBackground(), 0, 0, screen.getXResolution(), screen.getYResolution(), WidgetTypes.WIDGET_GENERAL, -1, -1 )
 ## Unique Background ##
 		screen.addPanel( "TechTopPanel", u"", u"", True, False, 0, 0, screen.getXResolution(), 55, PanelStyles.PANEL_STYLE_TOPBAR )
 		screen.addPanel( "TechBottomPanel", u"", u"", True, False, 0, screen.getYResolution() - 55, screen.getXResolution(), 55, PanelStyles.PANEL_STYLE_BOTTOMBAR )
@@ -75,7 +78,7 @@ class CvFinanceAdvisor:
 
 ## Transparent Panels ##
 		self.PanelStyle = PanelStyles.PANEL_STYLE_MAIN
-		if PlatyOptions.bTransparent:
+		if PlatyUIOpts.Panels:
 			self.PanelStyle = PanelStyles.PANEL_STYLE_IN
 		screen.addPanel(self.getNextWidgetName(), u"", "", True, True, self.X_INCOME, self.Y_TRADE, self.X_EXPENSES + self.PANE_WIDTH - self.X_INCOME, self.H_TREASURY, self.PanelStyle)
 		screen.addPanel(self.getNextWidgetName(), u"", "", True, True, self.X_TRADE, self.Y_TRADE, self.W_TRADE, self.H_TRADE, self.PanelStyle)

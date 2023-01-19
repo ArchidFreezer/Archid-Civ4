@@ -5,8 +5,12 @@
 ## that I use to reduce the number of files in this mod.
 
 from CvPythonExtensions import *
+import CvUtil
+import BugCore
+import BugOptions
 
 gc = CyGlobalContext()
+PlatyUIOpts = BugCore.game.PlatyUI
 
 ## Players - Getting IDs and Cy objects 
 def getActivePlayerID():
@@ -32,3 +36,19 @@ def players(alive=None, human=None, barbarian=None, minor=None, active=None):
 		if not player.isNone() and player.isEverAlive():
 			if matchPlayerOrTeam(player, alive, human, barbarian, minor, active):
 				yield player
+
+## Get the background image for use in the PlatyUI using the index from the dropdown on the option screen
+def getBackground():
+	sBackGround = CyArtFileMgr().getInterfaceArtInfo("MAINMENU_SLIDESHOW_LOAD").getPath()
+	pPlayer = gc.getPlayer(getActivePlayerID())
+	sType = ""
+	iBackground = PlatyUIOpts.Background.getValue()
+	if iBackground == 1:
+		sType = gc.getCivilizationInfo(pPlayer.getCivilizationType()).getType()
+	elif iBackground == 2:
+		sType = gc.getEraInfo(pPlayer.getCurrentEra()).getType()
+	sNewArt = CyArtFileMgr().getInterfaceArtInfo("ART_DEF_BACKGROUND_" + sType)
+	if sNewArt:
+		sBackGround = sNewArt.getPath()
+	return sBackGround
+		

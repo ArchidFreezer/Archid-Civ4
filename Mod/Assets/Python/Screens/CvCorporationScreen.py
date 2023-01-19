@@ -2,8 +2,11 @@ from CvPythonExtensions import *
 import CvUtil
 import ScreenInput
 import CvScreenEnums
-import PlatyOptions
+import BugCore
+import BugOptions
+import ArchidUtils
 gc = CyGlobalContext()
+PlatyUIOpts = BugCore.game.PlatyUI
 
 class CvCorporationScreen:
 	def __init__(self):
@@ -38,11 +41,11 @@ class CvCorporationScreen:
 		screen.setRenderInterfaceOnly(True);
 		screen.showScreen( PopupStates.POPUPSTATE_IMMEDIATE, False)
 ## Unique Background ##
-		screen.addDDSGFC("ScreenBackground", PlatyOptions.getBackGround(), 0, 0, screen.getXResolution(), screen.getYResolution(), WidgetTypes.WIDGET_GENERAL, -1, -1 )
+		screen.addDDSGFC("ScreenBackground", ArchidUtils.getBackground(), 0, 0, screen.getXResolution(), screen.getYResolution(), WidgetTypes.WIDGET_GENERAL, -1, -1 )
 ## Unique Background ##
 ## Transparent Panels ##
 		self.PanelStyle = PanelStyles.PANEL_STYLE_MAIN
-		if PlatyOptions.bTransparent:
+		if PlatyUIOpts.Panels:
 			self.PanelStyle = PanelStyles.PANEL_STYLE_IN
 ## Transparent Panels ##
 		screen.addPanel( "TechTopPanel", u"", u"", True, False, 0, 0, screen.getXResolution(), 55, PanelStyles.PANEL_STYLE_TOPBAR )

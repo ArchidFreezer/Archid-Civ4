@@ -3,8 +3,11 @@ import CvUtil
 import ScreenInput
 import time
 import re
-import PlatyOptions
+import BugCore
+import BugOptions
+import ArchidUtils
 gc = CyGlobalContext()
+PlatyUIOpts = BugCore.game.PlatyUI
 
 class CvMilitaryAdvisor:
 	def __init__(self, screenId):
@@ -36,7 +39,7 @@ class CvMilitaryAdvisor:
 		screen.setRenderInterfaceOnly(True);
 		screen.showScreen(PopupStates.POPUPSTATE_IMMEDIATE, False)
 ## Unique Background ##
-		screen.addDDSGFC("ScreenBackground", PlatyOptions.getBackGround(), 0, 0, screen.getXResolution(), screen.getYResolution(), WidgetTypes.WIDGET_GENERAL, -1, -1 )
+		screen.addDDSGFC("ScreenBackground", ArchidUtils.getBackground(), 0, 0, screen.getXResolution(), screen.getYResolution(), WidgetTypes.WIDGET_GENERAL, -1, -1 )
 ## Unique Background ##
 		screen.addPanel( "TechTopPanel", u"", u"", True, False, 0, 0, screen.getXResolution(), 55, PanelStyles.PANEL_STYLE_TOPBAR )
 		screen.addPanel( "TechBottomPanel", u"", u"", True, False, 0, screen.getYResolution() - 55, screen.getXResolution(), 55, PanelStyles.PANEL_STYLE_BOTTOMBAR )
@@ -68,7 +71,7 @@ class CvMilitaryAdvisor:
 		self.Y_MAP = screen.getYResolution() - 80 - self.H_MAP
 ## Transparent Panels ##
 		self.PanelStyle = PanelStyles.PANEL_STYLE_MAIN
-		if PlatyOptions.bTransparent:
+		if PlatyUIOpts.Panels:
 			self.PanelStyle = PanelStyles.PANEL_STYLE_IN
 		screen.addPanel("", u"", "", False, False, self.X_MAP, self.Y_MAP, self.W_MAP, self.H_MAP, self.PanelStyle)
 ## Transparent Panels ##
@@ -356,7 +359,7 @@ class CvMilitaryAdvisor:
 		self.H_LEADERS = min(iNumRows * 25 + 40, self.Y_MAP - 10 - self.Y_TEXT)
 ## Transparent Panels ##
 		self.PanelStyle = PanelStyles.PANEL_STYLE_MAIN
-		if PlatyOptions.bTransparent:
+		if PlatyUIOpts.Panels:
 			self.PanelStyle = PanelStyles.PANEL_STYLE_IN
 		screen.addPanel(self.UNIT_PANEL_ID, "", "", True, True, self.X_TEXT, self.Y_TEXT, self.W_TEXT, self.H_TEXT, self.PanelStyle)			
 		screen.addPanel(self.LEADER_PANEL_ID, "", "", False, True, self.X_MAP, self.Y_TEXT, self.W_LEADERS, self.H_LEADERS, self.PanelStyle)

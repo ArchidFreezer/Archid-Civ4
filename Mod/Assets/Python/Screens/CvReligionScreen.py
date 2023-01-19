@@ -2,8 +2,12 @@ from CvPythonExtensions import *
 import CvUtil
 import ScreenInput
 import CvScreenEnums
-import PlatyOptions
+import BugCore
+import BugOptions
+import ArchidUtils
 gc = CyGlobalContext()
+
+PlatyUIOpts = BugCore.game.PlatyUI
 
 class CvReligionScreen:
 	def __init__(self):
@@ -41,7 +45,7 @@ class CvReligionScreen:
 		screen.setRenderInterfaceOnly(True);
 		screen.showScreen( PopupStates.POPUPSTATE_IMMEDIATE, False)
 ## Unique Background ##
-		screen.addDDSGFC("ScreenBackground", PlatyOptions.getBackGround(), 0, 0, screen.getXResolution(), screen.getYResolution(), WidgetTypes.WIDGET_GENERAL, -1, -1 )
+		screen.addDDSGFC("ScreenBackground", ArchidUtils.getBackground(), 0, 0, screen.getXResolution(), screen.getYResolution(), WidgetTypes.WIDGET_GENERAL, -1, -1 )
 ## Unique Background ##
 		screen.addPanel( "TechTopPanel", u"", u"", True, False, 0, 0, screen.getXResolution(), 55, PanelStyles.PANEL_STYLE_TOPBAR )
 		screen.addPanel( "TechBottomPanel", u"", u"", True, False, 0, screen.getYResolution() - 55, screen.getXResolution(), 55, PanelStyles.PANEL_STYLE_BOTTOMBAR )
@@ -155,7 +159,7 @@ class CvReligionScreen:
 		self.H_CITY_AREA = screen.getYResolution() - 160
 ## Transparent Panels ##
 		PanelStyle = PanelStyles.PANEL_STYLE_MAIN
-		if PlatyOptions.bTransparent:
+		if PlatyUIOpts.Panels:
 			PanelStyle = PanelStyles.PANEL_STYLE_IN
 ## Transparent Panels ##
 		screen.addPanel("ReligionAreaWidget", "", "", True, True, self.X_CITY_AREA, self.Y_RELIGION_AREA, self.W_RELIGION_AREA , self.H_CITY_AREA, PanelStyle)

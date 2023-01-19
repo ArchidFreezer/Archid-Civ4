@@ -1340,5 +1340,57 @@
 		<Tag>TXT_KEY_ARCHID_OPT_AUTOMATIONS__AIRCANDEFEND_HOVER</Tag>
 		<English>Automated Strike Craft will be allowed to intercept potiental enemy aircraft</English>
 	</TEXT>
+	<TEXT> <!-- PlatyUI__Background -->
+		<Tag>TXT_KEY_ARCHID_OPT_PLATYUI__BACKGROUND_TEXT</Tag>
+		<English>Background Choice</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_PLATYUI__BACKGROUND_HOVER</Tag>
+		<English>Select the type of background you would like to use.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_PLATYUI__BACKGROUND_LIST</Tag>
+		<English>None|Civ Specific|Era Specific</English>
+	</TEXT>
+	<TEXT> <!-- PlatyUI__Build -->
+		<Tag>TXT_KEY_ARCHID_OPT_PLATYUI__BUILD_TEXT</Tag>
+		<English>Vincent's Build List</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_PLATYUI__BUILD_HOVER</Tag>
+		<English>Use Vincent's build list in the city screen</English>
+	</TEXT>
+	<TEXT> <!-- PlatyUI__Colours -->
+		<Tag>TXT_KEY_ARCHID_OPT_PLATYUI__COLOURS_TEXT</Tag>
+		<English>Civ Specific Coloured Text</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_PLATYUI__COLOURS_HOVER</Tag>
+		<English>Use a civs colour in text related to that civ</English>
+	</TEXT>
+	<TEXT> <!-- PlatyUI__GPBar -->
+		<Tag>TXT_KEY_ARCHID_OPT_PLATYUI__GPBAR_TEXT</Tag>
+		<English>Great People Bar</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_PLATYUI__GPBAR_HOVER</Tag>
+		<English>Display a bar showing the GP most likely to be created next and their progress</English>
+	</TEXT>
+	<TEXT> <!-- PlatyUI__Movie -->
+		<Tag>TXT_KEY_ARCHID_OPT_PLATYUI__MOVIE_TEXT</Tag>
+		<English>Full Screen Movies</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_PLATYUI__MOVIE_HOVER</Tag>
+		<English>Display movies, such as Word Wonders, in full screen mode</English>
+	</TEXT>
+	<TEXT> <!-- PlatyUI__Panels -->
+		<Tag>TXT_KEY_ARCHID_OPT_PLATYUI__PANELS_TEXT</Tag>
+		<English>Transparent Panels</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_PLATYUI__PANELS_HOVER</Tag>
+		<English>Panels displayed have a semi-transparent background</English>
+	</TEXT>
 
 </Civ4GameText>

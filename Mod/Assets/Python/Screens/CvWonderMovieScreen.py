@@ -2,8 +2,11 @@ from CvPythonExtensions import *
 import CvUtil
 import ScreenInput
 import CvScreenEnums
-import PlatyOptions
+import BugCore
+import BugOptions
 gc = CyGlobalContext()
+
+PlatyUIOpts = BugCore.game.PlatyUI
 
 MOVIE_SCREEN_WONDER = 0
 MOVIE_SCREEN_RELIGION = 1
@@ -80,7 +83,7 @@ class CvWonderMovieScreen:
 		if self.H_MOVIE > screen.getYResolution():
 			self.H_MOVIE = screen.getYResolution()
 			self.W_MOVIE = self.H_MOVIE * 3 / 2
-		if not PlatyOptions.bFullScreenMovie:
+		if not PlatyUIOpts.Movie:
 			self.H_MOVIE = self.H_MOVIE * 3/4
 			self.W_MOVIE = self.W_MOVIE * 3/4
 		self.X_MOVIE = (screen.getXResolution() - self.W_MOVIE) / 2
