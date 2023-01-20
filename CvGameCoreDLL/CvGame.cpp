@@ -1021,9 +1021,9 @@ CvPlot* CvGame::normalizeFindLakePlot(PlayerTypes ePlayer) {
 
 
 void CvGame::normalizeRemoveBadFeatures() {
-	for (int iI = 0; iI < MAX_CIV_PLAYERS; iI++) {
-		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
-			CvPlot* pStartingPlot = GET_PLAYER((PlayerTypes)iI).getStartingPlot();
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		if (GET_PLAYER(ePlayer).isAlive()) {
+			CvPlot* pStartingPlot = GET_PLAYER(ePlayer).getStartingPlot();
 
 			if (pStartingPlot != NULL) {
 				for (int iJ = 0; iJ < NUM_CITY_PLOTS; iJ++) {
@@ -1031,8 +1031,8 @@ void CvGame::normalizeRemoveBadFeatures() {
 
 					if (pLoopPlot != NULL) {
 						if (pLoopPlot->getFeatureType() != NO_FEATURE) {
-							if ((GC.getFeatureInfo(pLoopPlot->getFeatureType()).getYieldChange(YIELD_FOOD) <= 0) &&
-								(GC.getFeatureInfo(pLoopPlot->getFeatureType()).getYieldChange(YIELD_PRODUCTION) <= 0)) {
+							const CvFeatureInfo& kFeature = GC.getFeatureInfo(pLoopPlot->getFeatureType());
+							if (!kFeature.isUnique() && kFeature.getYieldChange(YIELD_FOOD) <= 0 && kFeature.getYieldChange(YIELD_PRODUCTION) <= 0) {
 								pLoopPlot->setFeatureType(NO_FEATURE);
 							}
 						}
@@ -1050,8 +1050,8 @@ void CvGame::normalizeRemoveBadFeatures() {
 							int iDistance = plotDistance(pStartingPlot->getX_INLINE(), pStartingPlot->getY_INLINE(), pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE());
 							if (iDistance <= iMaxRange) {
 								if (pLoopPlot->getFeatureType() != NO_FEATURE) {
-									if ((GC.getFeatureInfo(pLoopPlot->getFeatureType()).getYieldChange(YIELD_FOOD) <= 0) &&
-										(GC.getFeatureInfo(pLoopPlot->getFeatureType()).getYieldChange(YIELD_PRODUCTION) <= 0)) {
+									const CvFeatureInfo& kFeature = GC.getFeatureInfo(pLoopPlot->getFeatureType());
+									if (!kFeature.isUnique() && kFeature.getYieldChange(YIELD_FOOD) <= 0 && kFeature.getYieldChange(YIELD_PRODUCTION) <= 0) {
 										if (pLoopPlot->isWater()) {
 											if (pLoopPlot->isAdjacentToLand() || (!(iDistance == iMaxRange) && (getSorenRandNum(2, "Remove Bad Feature") == 0))) {
 												pLoopPlot->setFeatureType(NO_FEATURE);
