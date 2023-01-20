@@ -17118,12 +17118,21 @@ CvEraInfo::CvEraInfo() :
 	m_bUnitRangeUnbound(false),
 	m_bUnitTerritoryUnbound(false),
 	m_paiCitySoundscapeSciptIds(NULL),
+	m_piNaturalYieldLimit(NULL),
 	m_paiSoundtracks(NULL) {
 }
 
 CvEraInfo::~CvEraInfo() {
 	SAFE_DELETE_ARRAY(m_paiCitySoundscapeSciptIds);
 	SAFE_DELETE_ARRAY(m_paiSoundtracks);
+	SAFE_DELETE_ARRAY(m_piNaturalYieldLimit);
+}
+
+int CvEraInfo::getNaturalYieldLimit(int i) const {
+	FAssertMsg(i < NUM_YIELD_TYPES, "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	int iLimit = m_piNaturalYieldLimit ? m_piNaturalYieldLimit[i] : -1;
+	return iLimit < 0 ? MAX_INT : iLimit;
 }
 
 int CvEraInfo::getUnitRangeChange() const {
@@ -17309,6 +17318,7 @@ bool CvEraInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bFirstSoundtrackFirst, "bFirstSoundtrackFirst");
 	pXML->GetChildXmlValByName(m_szAudioUnitVictoryScript, "AudioUnitVictoryScript");
 	pXML->GetChildXmlValByName(m_szAudioUnitDefeatScript, "AudioUnitDefeatScript");
+	pXML->SetList(&m_piNaturalYieldLimit, "NaturalYieldLimit", NUM_YIELD_TYPES);
 
 	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "EraInfoSoundtracks")) {
 		CvString* pszSoundTrackNames = NULL;

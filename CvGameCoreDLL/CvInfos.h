@@ -5481,6 +5481,7 @@ public:
 
 	int getSoundtracks(int i) const;
 	int getCitySoundscapeSciptId(int i) const;
+	int getNaturalYieldLimit(int i) const;
 
 	bool read(CvXMLLoadUtility* pXML);
 
@@ -5525,6 +5526,7 @@ protected:
 
 	int* m_paiSoundtracks;
 	int* m_paiCitySoundscapeSciptIds;
+	int* m_piNaturalYieldLimit;
 
 };
 

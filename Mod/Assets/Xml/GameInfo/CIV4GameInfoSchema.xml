@@ -1039,6 +1039,9 @@
 	<ElementType name="AudioUnitDefeatScript" content="textOnly"/>
 	<ElementType name="iAdvancedStartPoints" content="textOnly" dt:type="int"/>
 	<ElementType name="iMaxCities" content="textOnly" dt:type="int"/>
+	<ElementType name="NaturalYieldLimit" content="eltOnly">
+		<element type="iYield" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="EraInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -1074,6 +1077,7 @@
 		<element type="iUnitRangeModifier" minOccurs="0"/>
 		<element type="iSoundtrackSpace" minOccurs="0"/>
 		<element type="bFirstSoundtrackFirst" minOccurs="0"/>
+		<element type="NaturalYieldLimit" minOccurs="0"/>
 		<element type="EraInfoSoundtracks" minOccurs="0"/>
 		<element type="CitySoundscapes" minOccurs="0"/>
 		<element type="AudioUnitVictoryScript" minOccurs="0"/>

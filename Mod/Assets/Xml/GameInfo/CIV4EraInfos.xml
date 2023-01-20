@@ -22,6 +22,11 @@
 			<iAnarchyPercent>50</iAnarchyPercent>
 			<iEventChancePerTurn>1</iEventChancePerTurn>
 			<bFirstSoundtrackFirst>1</bFirstSoundtrackFirst>
+			<NaturalYieldLimit>
+				<iYield>2</iYield>
+				<iYield>-1</iYield>
+				<iYield>1</iYield>
+			</NaturalYieldLimit>
 			<EraInfoSoundtracks>
 				<EraInfoSoundtrack>AS2D_ANCIENT_SOUNDTRACK_1</EraInfoSoundtrack>
 				<EraInfoSoundtrack>AS2D_ANCIENT_SOUNDTRACK_2</EraInfoSoundtrack>
@@ -67,6 +72,11 @@
 			<iEventChancePerTurn>1</iEventChancePerTurn>
 			<iUnitRangeChange>2</iUnitRangeChange>
 			<bFirstSoundtrackFirst>1</bFirstSoundtrackFirst>
+			<NaturalYieldLimit>
+				<iYield>2</iYield>
+				<iYield>-1</iYield>
+				<iYield>2</iYield>
+			</NaturalYieldLimit>
 			<EraInfoSoundtracks>
 				<EraInfoSoundtrack>AS2D_SONG_BARBARIAN</EraInfoSoundtrack>
 				<EraInfoSoundtrack>AS2D_SONG_CIV_III_MID_EUROPE</EraInfoSoundtrack>

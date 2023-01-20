@@ -4781,7 +4781,8 @@ int CvPlot::calculateNatureYield(YieldTypes eYield, TeamTypes eTeam, bool bIgnor
 		}
 	}
 
-	return std::max(0, iYield);
+	int iMaxYield = GC.getEraInfo(GC.getGameINLINE().getCurrentEra()).getNaturalYieldLimit(eYield);
+	return std::max(0, std::min(iYield, iMaxYield));
 }
 
 
@@ -4889,7 +4890,17 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay) const {
 		eRoute = getRouteType();
 	}
 
+	// Extra yields are treated as nature yields for the purpose of Era limits so we deal with them together
 	int iYield = calculateNatureYield(eYield, ((ePlayer != NO_PLAYER) ? GET_PLAYER(ePlayer).getTeam() : NO_TEAM));
+	iYield += GC.getGameINLINE().getPlotExtraYield(m_iX, m_iY, eYield);
+	int iEraMax = MAX_INT;
+	if (ePlayer != NO_PLAYER) {
+		iEraMax = GC.getEraInfo(GET_PLAYER(ePlayer).getCurrentEra()).getNaturalYieldLimit(eYield);
+	} else {
+		iEraMax = GC.getEraInfo(GC.getGameINLINE().getCurrentEra()).getNaturalYieldLimit(eYield);
+	}
+	iYield = std::min(iYield, iEraMax);
+
 
 	if (eImprovement != NO_IMPROVEMENT) {
 		iYield += calculateImprovementYieldChange(eImprovement, eYield, ePlayer);
@@ -4917,7 +4928,7 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay) const {
 		CvCity* pWorkingCity = getWorkingCity();
 		if (pWorkingCity != NULL) {
 			if (isWater()) {
-				if (!isImpassable(GET_PLAYER(ePlayer).getTeam())) {
+				if (!isImpassable(kPlayer.getTeam())) {
 					iYield += kPlayer.getSeaPlotYield(eYield);
 					if (!bDisplay || pWorkingCity->isRevealed(GC.getGameINLINE().getActiveTeam(), false)) {
 						iYield += pWorkingCity->getSeaPlotYield(eYield);
@@ -4926,7 +4937,7 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay) const {
 			}
 
 			if (isRiver()) {
-				if (!isImpassable(GET_PLAYER(ePlayer).getTeam())) {
+				if (!isImpassable(kPlayer.getTeam())) {
 					iYield += kPlayer.getRiverPlotYield(eYield);
 					if (!bDisplay || pWorkingCity->isRevealed(GC.getGameINLINE().getActiveTeam(), false)) {
 						iYield += pWorkingCity->getRiverPlotYield(eYield);
@@ -4935,7 +4946,7 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay) const {
 			}
 
 			if (getFeatureType() == (FeatureTypes)GC.getInfoTypeForString("FEATURE_FOREST")) {
-				if (!isImpassable(GET_PLAYER(ePlayer).getTeam())) {
+				if (!isImpassable(kPlayer.getTeam())) {
 					iYield += kPlayer.getForestPlotYield(eYield);
 				}
 			}
@@ -4945,8 +4956,6 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay) const {
 	if (bCity) {
 		iYield = std::max(iYield, kYield.getMinCity());
 	}
-
-	iYield += GC.getGameINLINE().getPlotExtraYield(m_iX, m_iY, eYield);
 
 	if (ePlayer != NO_PLAYER) {
 		const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
