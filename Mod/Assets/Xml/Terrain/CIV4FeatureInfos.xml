@@ -552,6 +552,7 @@
 			<Description>TXT_KEY_FEATURE_AURORA</Description>
 			<Civilopedia>TXT_KEY_FEATURE_AURORA_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_AURORA</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_AURORA</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iMinLatitude>70</iMinLatitude>
 			<iMovement>1</iMovement>
@@ -570,6 +571,7 @@
 			<Description>TXT_KEY_FEATURE_AUYANTEPUI</Description>
 			<Civilopedia>TXT_KEY_FEATURE_AUYANTEPUI_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_AUYANTEPUI</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_AUYANTEPUI</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iMovement>2</iMovement>
 			<bNoCoast>1</bNoCoast>
@@ -609,6 +611,7 @@
 			<Description>TXT_KEY_FEATURE_BASALT_ORGAN</Description>
 			<Civilopedia>TXT_KEY_FEATURE_BASALT_ORGAN_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_BASALT_ORGAN</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_BASALT_ORGAN</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iMovement>2</iMovement>
 			<iSeeThrough>1</iSeeThrough>
@@ -628,6 +631,7 @@
 			<Description>TXT_KEY_FEATURE_DEAD_SEA</Description>
 			<Civilopedia>TXT_KEY_FEATURE_DEAD_SEA_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_DEAD_SEA</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_DEAD_SEA</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iMovement>2</iMovement>
 			<iSeeThrough>1</iSeeThrough>
@@ -648,6 +652,7 @@
 			<Description>TXT_KEY_FEATURE_DEVILS_TABLE</Description>
 			<Civilopedia>TXT_KEY_FEATURE_DEVILS_TABLE_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_DEVILS_TABLE</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_DEVILS_TABLE</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iMovement>2</iMovement>
 			<iSeeThrough>1</iSeeThrough>
@@ -666,6 +671,7 @@
 			<Description>TXT_KEY_FEATURE_GREAT_BARRIER</Description>
 			<Civilopedia>TXT_KEY_FEATURE_GREAT_BARRIER_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_GREAT_BARRIER</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_GREAT_BARRIER</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iUniqueSize>3</iUniqueSize>
 			<iMovement>1</iMovement>
@@ -684,6 +690,7 @@
 			<Description>TXT_KEY_FEATURE_SOPKA</Description>
 			<Civilopedia>TXT_KEY_FEATURE_SOPKA_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_SOPKA</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_SOPKA</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iMovement>2</iMovement>
 			<iSeeThrough>1</iSeeThrough>
@@ -704,6 +711,7 @@
 			<Description>TXT_KEY_FEATURE_KRAKATOA</Description>
 			<Civilopedia>TXT_KEY_FEATURE_KRAKATOA_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_KRAKATOA</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_KRAKATOA</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iMovement>2</iMovement>
 			<iSeeThrough>1</iSeeThrough>
@@ -722,6 +730,7 @@
 			<Description>TXT_KEY_FEATURE_BAIKAL</Description>
 			<Civilopedia>TXT_KEY_FEATURE_BAIKAL_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_BAIKAL</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_BAIKAL</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iMovement>2</iMovement>
 			<iSeeThrough>1</iSeeThrough>
@@ -744,6 +753,7 @@
 			<Description>TXT_KEY_FEATURE_EVEREST</Description>
 			<Civilopedia>TXT_KEY_FEATURE_EVEREST_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_EVEREST</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_EVEREST</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iMovement>2</iMovement>
 			<iSeeThrough>1</iSeeThrough>
@@ -763,6 +773,7 @@
 			<Description>TXT_KEY_FEATURE_FUJI</Description>
 			<Civilopedia>TXT_KEY_FEATURE_FUJI_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_FUJI</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_FUJI</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iMovement>2</iMovement>
 			<iSeeThrough>1</iSeeThrough>
@@ -782,6 +793,7 @@
 			<Description>TXT_KEY_FEATURE_KILIMANJARO</Description>
 			<Civilopedia>TXT_KEY_FEATURE_KILIMANJARO_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_KILIMANJARO</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_KILIMANJARO</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iMovement>2</iMovement>
 			<iSeeThrough>1</iSeeThrough>
@@ -801,6 +813,7 @@
 			<Description>TXT_KEY_FEATURE_SINAI</Description>
 			<Civilopedia>TXT_KEY_FEATURE_SINAI_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_SINAI</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_SINAI</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iMovement>2</iMovement>
 			<iSeeThrough>1</iSeeThrough>
@@ -820,6 +833,7 @@
 			<Description>TXT_KEY_FEATURE_NGORONGORO_CRATER</Description>
 			<Civilopedia>TXT_KEY_FEATURE_NGORONGORO_CRATER_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_NGORONGORO_CRATER</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_NGORONGORO_CRATER</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iMovement>2</iMovement>
 			<iSeeThrough>1</iSeeThrough>
@@ -839,6 +853,7 @@
 			<Description>TXT_KEY_FEATURE_NUKUORO</Description>
 			<Civilopedia>TXT_KEY_FEATURE_NUKUORO_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_NUKUORO</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_NUKUORO</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iMovement>2</iMovement>
 			<iSeeThrough>1</iSeeThrough>
@@ -856,6 +871,7 @@
 			<Description>TXT_KEY_FEATURE_PAMUKKALE</Description>
 			<Civilopedia>TXT_KEY_FEATURE_PAMUKKALE_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_PAMUKKALE</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_PAMUKKALE</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iMovement>2</iMovement>
 			<iSeeThrough>1</iSeeThrough>
@@ -876,6 +892,7 @@
 			<Description>TXT_KEY_FEATURE_PRAVCICKA_BRANA</Description>
 			<Civilopedia>TXT_KEY_FEATURE_PRAVCICKA_BRANA_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_PRAVCICKA_BRANA</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_PRAVCICKA_BRANA</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iMovement>2</iMovement>
 			<iSeeThrough>1</iSeeThrough>
@@ -895,6 +912,7 @@
 			<Description>TXT_KEY_FEATURE_SHARK_BAY</Description>
 			<Civilopedia>TXT_KEY_FEATURE_SHARK_BAY_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_SHARK_BAY</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_SHARK_BAY</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iMovement>2</iMovement>
 			<iSeeThrough>1</iSeeThrough>
@@ -913,6 +931,7 @@
 			<Description>TXT_KEY_FEATURE_SUGARLOAF</Description>
 			<Civilopedia>TXT_KEY_FEATURE_SUGARLOAF_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_SUGARLOAF</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_SUGARLOAF</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iMovement>1</iMovement>
 			<iSeeThrough>1</iSeeThrough>
@@ -932,6 +951,7 @@
 			<Description>TXT_KEY_FEATURE_ULURU</Description>
 			<Civilopedia>TXT_KEY_FEATURE_ULURU_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_ULURU</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_ULURU</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iMovement>2</iMovement>
 			<iSeeThrough>1</iSeeThrough>
@@ -951,6 +971,7 @@
 			<Description>TXT_KEY_FEATURE_VICTORIA_FALLS</Description>
 			<Civilopedia>TXT_KEY_FEATURE_VICTORIA_FALLS_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_VICTORIA_FALLS</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_VICTORIA_FALLS</MovieDefineTag>
 			<bUnique>1</bUnique>
 			<iMovement>2</iMovement>
 			<iSeeThrough>1</iSeeThrough>

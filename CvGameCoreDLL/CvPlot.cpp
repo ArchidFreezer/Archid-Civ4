@@ -5863,22 +5863,44 @@ void CvPlot::setRevealed(TeamTypes eTeam, bool bNewValue, bool bTerrainOnly, Tea
 	}
 
 	if (getFeatureType() != NO_FEATURE) {
-		const CvFeatureInfo& kFeature = GC.getFeatureInfo(getFeatureType());
+		FeatureTypes eFeatureType = getFeatureType();
+		const CvFeatureInfo& kFeature = GC.getFeatureInfo(eFeatureType);
 		if (bFirstReveal && kFeature.isUnique()) {
 			for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
 				CvPlayer& kPlayer = GET_PLAYER(ePlayer);
 				if (kPlayer.getTeam() == eTeam && kPlayer.isHuman()) {
-					CvWString szBuffer = gDLL->getText("TXT_KEY_WONDERDISCOVERED_YOU", kFeature.getDescription());
-					gDLL->getInterfaceIFace()->addHumanMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_WONDER_BUILDING_BUILD", MESSAGE_TYPE_INFO, kFeature.getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE(), true, true);
 
-					if (!CvString(kFeature.getMovieArtDef()).empty()) {
-						// show movie
-						CvPopupInfo* pInfo = new CvPopupInfo(BUTTONPOPUP_PYTHON_SCREEN);
-						if (NULL != pInfo) {
-							pInfo->setText(L"showWonderMovie");
-							pInfo->setData1((int)getFeatureType());
-							pInfo->setData3(6);
-							kPlayer.addPopup(pInfo);
+					// Check if this is a multi-plot wonder as the player may have had the movie/notification before
+					bool bPreviousFound = false;
+					int iWonderSize = kFeature.getUniqueSize();
+					if (iWonderSize > 1) {
+						// Loop through the possible other plots and if we have revealed one that also has the feature skip the notification
+						for (int iX = getX_INLINE() - iWonderSize + 1; iX <= getX_INLINE() + iWonderSize - 1 && !bPreviousFound; iX++) {
+							for (int iY = getY_INLINE() - iWonderSize + 1; iY <= getY_INLINE() + iWonderSize - 1 && !bPreviousFound; iY++) {
+								CvPlot* pLoopPlot = GC.getMapINLINE().plot(iX, iY);
+								if (pLoopPlot == this)
+									continue;
+
+								if (pLoopPlot->isRevealed(eTeam, false) && pLoopPlot->getFeatureType() == eFeatureType) {
+									bPreviousFound = true;
+								}
+							}
+						}
+					}
+
+					if (!bPreviousFound) {
+						CvWString szBuffer = gDLL->getText("TXT_KEY_WONDERDISCOVERED_YOU", kFeature.getDescription());
+						gDLL->getInterfaceIFace()->addHumanMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_WONDER_BUILDING_BUILD", MESSAGE_TYPE_INFO, kFeature.getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE(), true, true);
+
+						if (!CvString(kFeature.getMovieArtDef()).empty()) {
+							// show movie
+							CvPopupInfo* pInfo = new CvPopupInfo(BUTTONPOPUP_PYTHON_SCREEN);
+							if (NULL != pInfo) {
+								pInfo->setText(L"showWonderMovie");
+								pInfo->setData1((int)getFeatureType());
+								pInfo->setData3(6);
+								kPlayer.addPopup(pInfo);
+							}
 						}
 					}
 				}

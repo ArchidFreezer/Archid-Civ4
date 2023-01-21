@@ -57,7 +57,7 @@ class CvWonderMovieScreen:
 				if szArtDef:
 					szMovieFile = szArtDef.getPath()
 			szHeader = ""
-		if iMovieType == MOVIE_SCREEN_FEATURE:
+		elif iMovieType == MOVIE_SCREEN_FEATURE:
 			szArtDef = gc.getFeatureInfo(iMovieItem).getMovieArtDef()
 			if len(szArtDef):
 				szMovieFile = CyArtFileMgr().getMovieArtInfo(szArtDef).getPath()
