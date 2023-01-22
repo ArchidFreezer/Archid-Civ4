@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Game Text - New -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_ACTION_FREE_UNIT_SUPPORT</Tag>
+		<English>[ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Free Support for [COLOR_REVERT][COLOR_POSITIVE_TEXT]%d1_Num[COLOR_REVERT][COLOR_HIGHLIGHT_TEXT] units.[COLOR_REVERT]</English>
+	</TEXT>
+</Civ4GameText>

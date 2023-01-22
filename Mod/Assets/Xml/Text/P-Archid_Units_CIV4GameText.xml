@@ -82,6 +82,12 @@
 		<Spanish>Construye [COLOR_UNIT_TEXT]Atlatls[COLOR_REVERT] como cazadores iniciales. Ellos te ayudar&#225;n a llevar comida a la ciudad m&#225;s cercana.</Spanish>
 	</TEXT>
 	
+	<TEXT> <!-- Barbarian Leader -->
+		<Tag>TXT_KEY_UNIT_BARBARIAN_LEADER</Tag>
+		<English>Barbarian Leader</English>
+		<Spanish>L&#247;der B&#225;rbaro</Spanish>
+	</TEXT>
+
 	<TEXT> <!-- Canoe -->
 		<Tag>TXT_KEY_UNIT_CANOE</Tag>
 		<English>Canoe</English>

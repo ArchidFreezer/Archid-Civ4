@@ -13677,3 +13677,7 @@ void CvCity::doUnitWeaponUpgrade(std::vector<WeaponTypes> vWeapons, CvUnit* pUni
 		pUnit->setAmmunitionType(eBestAmmo);
 
 }
+
+void CvCity::createBarbarianLeader(UnitTypes eBarbarianLeaderUnit, bool bIncrementBarbarianExperience) {
+	GET_PLAYER(getOwnerINLINE()).createBarbarianLeader(eBarbarianLeaderUnit, bIncrementBarbarianExperience, getX_INLINE(), getY_INLINE());
+}

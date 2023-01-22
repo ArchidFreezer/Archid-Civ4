@@ -1117,6 +1117,10 @@ void CvUnit::resolveCombat(CvUnit* pDefender, CvPlot* pPlot, bool bVisible) {
 
 	collateralCombat(pPlot, pDefender);
 
+	// Gain Barbarian Leader points rather than Great General if the winner is not a barbarian civ, but using a barbarian type unit
+	bool bAttBarbXp = !isBarbarian() && getUnitInfo().isHiddenNationality() && getUnitInfo().isAlwaysHostile();
+	bool bDefBarbXp = !pDefender->isBarbarian() && pDefender->isHiddenNationality() && pDefender->isAlwaysHostile();
+
 	while (true) {
 		if (GC.getGameINLINE().getSorenRandNum(GC.getCOMBAT_DIE_SIDES(), "Combat") < iDefenderOdds) {
 			// Defender won a round
@@ -1125,8 +1129,7 @@ void CvUnit::resolveCombat(CvUnit* pDefender, CvPlot* pPlot, bool bVisible) {
 				if (getDamage() + iAttackerDamage >= maxHitPoints() && GC.getGameINLINE().getSorenRandNum(100, "Withdrawal") < withdrawalProbability()) {
 					combatData.bAttackerWithdrawn = true;
 					flankingStrikeCombat(pPlot, iAttackerStrength, iAttackerFirepower, iAttackerKillOdds, iDefenderDamage, pDefender);
-
-					changeExperience(GC.getDefineINT("EXPERIENCE_FROM_WITHDRAWL"), pDefender->maxXPValue(), true, pPlot->getOwnerINLINE() == getOwnerINLINE(), !pDefender->isBarbarian());
+					changeExperience(GC.getDefineINT("EXPERIENCE_FROM_WITHDRAWL"), pDefender->maxXPValue(), true, pPlot->getOwnerINLINE() == getOwnerINLINE(), !pDefender->isBarbarian(), bDefBarbXp);
 					combat_log.push_back(0); // K-Mod
 					break;
 				}
@@ -1158,7 +1161,7 @@ void CvUnit::resolveCombat(CvUnit* pDefender, CvPlot* pPlot, bool bVisible) {
 			if (pDefender->getCombatFirstStrikes() == 0) {
 				// Combat limit
 				if (std::min(GC.getMAX_HIT_POINTS(), pDefender->getDamage() + iDefenderDamage) > combatLimit()) {
-					changeExperience(GC.getDefineINT("EXPERIENCE_FROM_WITHDRAWL"), pDefender->maxXPValue(), true, pPlot->getOwnerINLINE() == getOwnerINLINE(), !pDefender->isBarbarian());
+					changeExperience(GC.getDefineINT("EXPERIENCE_FROM_WITHDRAWL"), pDefender->maxXPValue(), true, pPlot->getOwnerINLINE() == getOwnerINLINE(), !pDefender->isBarbarian(), bAttBarbXp);
 					combat_log.push_back(combatLimit() - pDefender->getDamage()); // K-Mod
 					pDefender->setDamage(combatLimit(), getOwnerINLINE());
 					break;
@@ -1197,14 +1200,14 @@ void CvUnit::resolveCombat(CvUnit* pDefender, CvPlot* pPlot, bool bVisible) {
 				int iExperience = defenseXPValue();
 				iExperience = ((iExperience * iAttackerStrength) / iDefenderStrength);
 				iExperience = range(iExperience, GC.getDefineINT("MIN_EXPERIENCE_PER_COMBAT"), GC.getDefineINT("MAX_EXPERIENCE_PER_COMBAT"));
-				pDefender->changeExperience(iExperience, maxXPValue(), true, pPlot->getOwnerINLINE() == pDefender->getOwnerINLINE(), !isBarbarian());
+				pDefender->changeExperience(iExperience, maxXPValue(), true, pPlot->getOwnerINLINE() == pDefender->getOwnerINLINE(), !isBarbarian(), bDefBarbXp);
 			} else { //defender died
 				flankingStrikeCombat(pPlot, iAttackerStrength, iAttackerFirepower, iAttackerKillOdds, iDefenderDamage, pDefender);
 
 				int iExperience = pDefender->attackXPValue();
 				iExperience = ((iExperience * iDefenderStrength) / iAttackerStrength);
 				iExperience = range(iExperience, GC.getDefineINT("MIN_EXPERIENCE_PER_COMBAT"), GC.getDefineINT("MAX_EXPERIENCE_PER_COMBAT"));
-				changeExperience(iExperience, pDefender->maxXPValue(), true, pPlot->getOwnerINLINE() == getOwnerINLINE(), !pDefender->isBarbarian());
+				changeExperience(iExperience, pDefender->maxXPValue(), true, pPlot->getOwnerINLINE() == getOwnerINLINE(), !pDefender->isBarbarian(), bAttBarbXp);
 			}
 
 			break;
@@ -8662,22 +8665,26 @@ void CvUnit::setExperience100(int iNewValue, int iMax) {
 	}
 }
 
-void CvUnit::changeExperience100(int iChange, int iMax, bool bFromCombat, bool bInBorders, bool bUpdateGlobal) {
+void CvUnit::changeExperience100(int iChange, int iMax, bool bFromCombat, bool bInBorders, bool bUpdateGlobal, bool bExpFromBarb) {
 	int iUnitExperience = iChange;
 
 	if (bFromCombat) {
 		CvPlayer& kPlayer = GET_PLAYER(getOwnerINLINE());
 
-		int iCombatExperienceMod = kPlayer.getGreatGeneralRateModifier();
+		int iCombatExperienceMod = bExpFromBarb ? kPlayer.getBarbarianLeaderRateModifier() : kPlayer.getGreatGeneralRateModifier();
 
-		if (bInBorders) {
+		if (bInBorders && !bExpFromBarb) {
 			iCombatExperienceMod += kPlayer.getDomesticGreatGeneralRateModifier() + kPlayer.getExpInBorderModifier();
 			iUnitExperience += (iChange * kPlayer.getExpInBorderModifier()) / 100;
 		}
 
 		if (bUpdateGlobal) {
 			int iChangeTotal = iChange + ((iChange * iCombatExperienceMod) / 100);
-			kPlayer.changeFractionalCombatExperience(iChangeTotal);
+			if (bExpFromBarb) {
+				kPlayer.changeBarbarianFractionalExperience(iChangeTotal);
+			} else {
+				kPlayer.changeFractionalCombatExperience(iChangeTotal);
+			}
 		}
 
 		if (getExperiencePercent() != 0) {
@@ -8697,8 +8704,8 @@ void CvUnit::setExperience(int iNewValue, int iMax) {
 	setExperience100(iNewValue * 100, iMax > 0 && iMax != MAX_INT ? iMax * 100 : -1);
 }
 
-void CvUnit::changeExperience(int iChange, int iMax, bool bFromCombat, bool bInBorders, bool bUpdateGlobal) {
-	changeExperience100(iChange * 100, iMax > 0 && iMax != MAX_INT ? iMax * 100 : -1, bFromCombat, bInBorders, bUpdateGlobal);
+void CvUnit::changeExperience(int iChange, int iMax, bool bFromCombat, bool bInBorders, bool bUpdateGlobal, bool bExpFromBarb) {
+	changeExperience100(iChange * 100, iMax > 0 && iMax != MAX_INT ? iMax * 100 : -1, bFromCombat, bInBorders, bUpdateGlobal, bExpFromBarb);
 }
 
 int CvUnit::getLevel() const {
@@ -13347,4 +13354,157 @@ void CvUnit::changeSalvageModifier(int iChange) {
 
 int CvUnit::getSalvageModifier() const {
 	return m_iSalvageModifier;
+}
+
+// Description: Barbarian Leader's free unit support mission ...
+bool CvUnit::canIncreaseBarbarianUnitSupport(const CvPlot* pPlot, bool bTestVisible) const {
+
+	CvCity* pCity = pPlot->getPlotCity();
+	if (!(m_pUnitInfo->isBarbarianLeader())) {
+		return false;
+	}
+
+	if (pCity == NULL) {
+		return false;
+	}
+
+	if (pCity->getOwnerINLINE() != getOwnerINLINE()) {
+		return false;
+	}
+
+	return true;
+}
+
+bool CvUnit::increaseBarbarianUnitSupport(int iFreeUnitsSupport) {
+
+	CvCity* pCity = plot()->getPlotCity();
+	FAssertMsg(pCity != NULL, "City is not assigned a valid value");
+
+	if (!canIncreaseBarbarianUnitSupport(plot())) {
+		return false;
+	}
+
+	GET_PLAYER(getOwnerINLINE()).changeBaseFreeUnits(GC.getDefineINT("MISSION_REINFORCE_MILITARY_FREE_SUPPORT"));
+
+	CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_FREE_UNIT_SUPPORT", getNameKey());
+	gDLL->getInterfaceIFace()->addMessage(getOwnerINLINE(), false, GC.getDefineINT("EVENT_MESSAGE_TIME"), szBuffer, "AS2D_UNITGIFTED", MESSAGE_TYPE_INFO, GC.getUnitInfo(getUnitType()).getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), pCity->getX_INLINE(), pCity->getY_INLINE());
+
+	if (plot()->isActiveVisible(false)) {
+		NotifyEntity(MISSION_FREE_UNIT_SUPPORT);
+	}
+
+	kill(true);
+
+	return true;
+}
+
+// Description: Barbarian Leader's free unit support mission ...
+bool CvUnit::canPlunderCity(const CvPlot* pPlot) const {
+
+	CvCity* pCity = pPlot->getPlotCity();
+	if (!m_pUnitInfo->isBarbarianLeader()) {
+		return false;
+	}
+
+	if (pCity == NULL) {
+		return false;
+	}
+
+	if (pCity->getOwnerINLINE() == getOwnerINLINE()) {
+		return false;
+	}
+
+	return true;
+}
+
+bool CvUnit::plunderCity() {
+	CvCity* pCity = plot()->getPlotCity();
+	FAssertMsg(pCity != NULL, "City is not assigned a valid value");
+
+	if (!canPlunderCity(plot())) {
+		return false;
+	}
+
+	// First: Reduce city's population ...
+	int killedPeople;
+	if (pCity->getPopulation() < 2) {
+		killedPeople = 0;
+	} else if (pCity->getPopulation() < 5) {
+		killedPeople = 1;
+	} else {
+		killedPeople = 2;
+	}
+
+	if (pCity->getPopulation() > killedPeople && killedPeople > 0) {
+		pCity->changePopulation(-killedPeople);
+	}
+
+	// Second: Steal food and destroy production ...
+	pCity->setFood(0);
+	pCity->setProduction(0);
+
+	CvPlayer& kOwner = GET_PLAYER(getOwnerINLINE());
+	CvPlayer& kCityOwner = GET_PLAYER(pCity->getOwnerINLINE());
+	// Third: Steal gold ...
+	int iMaxGoldStolen = GC.getDefineINT("MAX_GOLD_STOLEN_BARBARIAN_LEADER");
+	if (kCityOwner.getGold() > iMaxGoldStolen) {
+		kOwner.changeGold(iMaxGoldStolen);
+		kCityOwner.changeGold(-iMaxGoldStolen);
+	} else {
+		kOwner.changeGold(kCityOwner.getGold());
+		kCityOwner.setGold(0);
+	}
+
+	// Fourth: Start city revolt ...
+	pCity->changeCultureUpdateTimer(GC.getDefineINT("BASE_REVOLT_OCCUPATION_TURNS") + 1);
+	pCity->changeOccupationTimer(GC.getDefineINT("BASE_REVOLT_OCCUPATION_TURNS") + 2);
+
+	// Fifth: Reduce culture in city ...
+	int iReducedCulture = (pCity->getCulture(pCity->getOwnerINLINE())) / 4;
+	pCity->changeCulture(pCity->getOwnerINLINE(), -iReducedCulture, true, true);
+
+	// Sixth: Capture citizens ...
+	if (killedPeople > 0) {
+		UnitTypes eGatherer = (UnitTypes)GC.getInfoTypeForString("UNIT_GATHERER");
+		if (isHuman()) {
+			if (kOwner.isCivSettled()) {
+				kOwner.createNumUnits(getSlaveUnit(), killedPeople, kOwner.getCapitalCity()->getX(), kOwner.getCapitalCity()->getY());
+			} else {
+				kOwner.createNumUnits(eGatherer, killedPeople, kOwner.getCapitalCity()->getX(), kOwner.getCapitalCity()->getY());
+			}
+		} else {
+			kOwner.createNumUnits(getSlaveUnit(), killedPeople, kOwner.getCapitalCity()->getX(), kOwner.getCapitalCity()->getY());
+		}
+	}
+
+	CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_PLUNDER_CITY_01", getNameKey(), pCity->getNameKey());
+	gDLL->getInterfaceIFace()->addMessage(getOwnerINLINE(), false, GC.getDefineINT("EVENT_MESSAGE_TIME"), szBuffer, "AS2D_PLUNDER_CITY", MESSAGE_TYPE_INFO, ARTFILEMGR.getInterfaceArtInfo("INTERFACE_PLUNDER_SHOW")->getPath(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), pCity->getX(), pCity->getY(), true, true);
+
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+		if (kPlayer.isAlive()) {
+			if (ePlayer != getOwnerINLINE() && ePlayer != pCity->getOwnerINLINE()) {
+				if (GET_TEAM(kPlayer.getTeam()).isHasMet(pCity->getTeam())) {
+					if (pCity->isRevealed(kPlayer.getTeam(), false)) {
+						szBuffer = gDLL->getText("TXT_KEY_MISC_NEIGHBOR_CITY_PLUNDERED", kCityOwner.getCivilizationAdjective(), pCity->getNameKey());
+						gDLL->getInterfaceIFace()->addMessage(ePlayer, false, GC.getDefineINT("EVENT_MESSAGE_TIME"), szBuffer, "AS2D_PLUNDER_CITY", MESSAGE_TYPE_INFO, ARTFILEMGR.getInterfaceArtInfo("INTERFACE_PLUNDER_SHOW")->getPath(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), pCity->getX(), pCity->getY(), true, true);
+					} else {
+						szBuffer = gDLL->getText("TXT_KEY_MISC_NEIGHBOR_CITY_PLUNDERED", kCityOwner.getCivilizationAdjective(), pCity->getNameKey());
+						gDLL->getInterfaceIFace()->addMessage(ePlayer, false, GC.getDefineINT("EVENT_MESSAGE_TIME"), szBuffer, "AS2D_PLUNDER_CITY", MESSAGE_TYPE_INFO, ARTFILEMGR.getInterfaceArtInfo("INTERFACE_PLUNDER_SHOW")->getPath(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), NULL, NULL);
+					}
+				}
+			}
+		}
+	}
+
+	szBuffer = gDLL->getText("TXT_KEY_MISC_PLUNDER_CITY_PLUNDERED", pCity->getNameKey());
+	gDLL->getInterfaceIFace()->addMessage(pCity->getOwnerINLINE(), false, GC.getDefineINT("EVENT_MESSAGE_TIME"), szBuffer, "AS2D_PLUNDER_CITY", MESSAGE_TYPE_INFO, ARTFILEMGR.getInterfaceArtInfo("INTERFACE_PLUNDER_SHOW")->getPath(), (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), pCity->getX(), pCity->getY(), true, true);
+
+	if (plot()->isActiveVisible(false)) {
+		NotifyEntity(MISSION_PLUNDER_CITY);
+	}
+
+	kill(true);
+
+	return true;
 }

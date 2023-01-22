@@ -2142,6 +2142,45 @@
 <!-- ************ -->
 <!-- Great People -->
 <!-- ************ -->
+		<UnitInfo>	<!-- Barbarian Leader -->
+			<Class>UNITCLASS_BARBARIAN_LEADER</Class>
+			<Type>UNIT_BARBARIAN_LEADER</Type>
+			<Special>SPECIALUNIT_PEOPLE</Special>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_BARBARIAN_LEADER</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_BARBARIAN_LEADER</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_BARBARIANS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CONCEPTS_BARBARIAN_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bInvisible>1</bInvisible>
+			<bBarbarianLeader>1</bBarbarianLeader>
+			<UnitAIs/>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+			</Flavors>
+			<iCost>-1</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<UnitRangeType>UNITRANGE_UNLIMITED</UnitRangeType>
+			<iAsset>2</iAsset>
+			<iPower>8</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>1</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_BARBARIAN_LEADER</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+			<HotKey/>
+		</UnitInfo>
 		<UnitInfo> <!-- Great Artist -->
 			<Class>UNITCLASS_ARTIST</Class>
 			<Type>UNIT_ARTIST</Type>

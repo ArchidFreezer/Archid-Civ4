@@ -279,6 +279,10 @@ bool CvUnitAI::AI_update() {
 			AI_hunterMove();
 			break;
 
+		case UNITAI_BARBARIAN_LEADER:
+			AI_barbarianLeaderMove();
+			break;
+
 		case UNITAI_ATTACK:
 			if (isBarbarian()) {
 				AI_barbAttackMove();
@@ -679,6 +683,7 @@ int CvUnitAI::AI_groupFirstVal() {
 		return 10;
 		break;
 
+	case UNITAI_BARBARIAN_LEADER:
 	case UNITAI_PROPHET:
 	case UNITAI_ARTIST:
 	case UNITAI_SCIENTIST:
@@ -19217,3 +19222,149 @@ void CvUnitAI::AI_hunterMove() {
 	getGroup()->pushMission(MISSION_SKIP);
 	return;
 }
+
+void CvUnitAI::AI_barbarianLeaderMove() {
+	PROFILE_FUNC();
+
+	if (AI_reinforceMilitary()) {
+		return;
+	}
+
+	if (AI_plunderCity()) {
+		return;
+	}
+
+	if (AI_retreatToCity()) {
+		return;
+	}
+
+	if (AI_safety()) {
+		return;
+	}
+
+	getGroup()->pushMission(MISSION_SKIP);
+	return;
+}
+
+bool CvUnitAI::AI_reinforceMilitary() {
+	PROFILE_FUNC();
+
+	// TODO: Really need to have some calculation based on gold reserves and unit costs rather than a random 50/50 toss up
+	CvCity* pCity = plot()->getPlotCity();
+	int iDecision = 1 + GC.getGameINLINE().getSorenRandNum(100, "Barbarian Leader Mission");
+	if (iDecision > 50) {
+		if (pCity != NULL && pCity->getOwnerINLINE() == getOwnerINLINE()) {
+			getGroup()->pushMission(MISSION_FREE_UNIT_SUPPORT);
+			return true;
+		}
+	}
+
+	bool bCanPlunder = false;
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+		if (kPlayer.isAlive()) {
+			if (kPlayer.getTeam() != getTeam()) {
+				if (GET_TEAM(getTeam()).isHasMet(kPlayer.getTeam())) {
+					if (AI_plotValid(kPlayer.getCapitalCity()->plot())) {
+						bCanPlunder = true;
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	if (!bCanPlunder) {
+		getGroup()->pushMission(MISSION_FREE_UNIT_SUPPORT);
+		return true;
+	}
+
+	return false;
+}
+
+bool CvUnitAI::AI_plunderCity() {
+	PROFILE_FUNC();
+
+	int iBestValue = 0;
+	CvPlot* pBestPlot = NULL;
+	CvCity* pBestCity = NULL;
+
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+		if (kPlayer.isAlive() && kPlayer.getTeam() != getTeam()) {
+			if (kPlayer.AI_getAttitude(ePlayer) <= ATTITUDE_ANNOYED) {
+				int iLoop;
+				for (CvCity* pLoopCity = kPlayer.firstCity(&iLoop); pLoopCity != NULL; pLoopCity = kPlayer.nextCity(&iLoop)) {
+					if (AI_plotValid(pLoopCity->plot())) {
+						if (generatePath(pLoopCity->plot(), 0, true)) {
+
+							int iValue = (pLoopCity->getPopulation() * 2);
+							iValue += pLoopCity->getYieldRate(YIELD_PRODUCTION);
+
+							if (atPlot(pLoopCity->plot())) {
+								iValue *= 4;
+								iValue /= 3;
+							}
+
+							// AI prefers to Plunder human tribes ...
+							if (kPlayer.isHuman()) {
+								iValue *= 3;
+								iValue /= 2;
+							}
+
+							// AI preferes to Plunder tribes which it is at war with ...
+							if (GET_TEAM(getTeam()).isAtWar(kPlayer.getTeam())) {
+								iValue *= 3;
+								iValue /= 2;
+							}
+
+							if (iValue > iBestValue) {
+								iBestValue = iValue;
+								pBestPlot = getPathEndTurnPlot();
+								pBestCity = pLoopCity;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	if ((pBestPlot != NULL) && (pBestCity != NULL)) {
+		if (atPlot(pBestCity->plot())) {
+			if (canPlunderCity(pBestCity->plot())) {
+				if (pBestCity->getPopulation() > 4) {
+					getGroup()->pushMission(MISSION_PLUNDER_CITY);
+					return true;
+				}
+				if (pBestCity->getProduction() > ((pBestCity->getProductionNeeded() * 3) / 5)) {
+					if (pBestCity->isProductionUnit()) {
+						if (isLimitedUnitClass((UnitClassTypes)(GC.getUnitInfo(pBestCity->getProductionUnit()).getUnitClassType()))) {
+							getGroup()->pushMission(MISSION_PLUNDER_CITY);
+							return true;
+						}
+					} else if (pBestCity->isProductionBuilding()) {
+						if (isLimitedWonderClass((BuildingClassTypes)(GC.getBuildingInfo(pBestCity->getProductionBuilding()).getBuildingClassType()))) {
+							getGroup()->pushMission(MISSION_PLUNDER_CITY);
+							return true;
+						}
+					} else if (pBestCity->isProductionProject()) {
+						if (isLimitedProject(pBestCity->getProductionProject())) {
+							getGroup()->pushMission(MISSION_PLUNDER_CITY);
+							return true;
+						}
+					}
+				}
+			}
+
+			return true;
+		} else {
+			FAssert(!atPlot(pBestPlot));
+			getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), 0, false, false, MISSIONAI_ATTACK_SPY, pBestCity->plot());
+			return true;
+		}
+	}
+
+	return false;
+}
+

@@ -154,4 +154,22 @@
 		<Tag>TXT_KEY_CHOOSE_TECH_TO_WAIT_FOR</Tag>
 		<English>Choose Your Desired Discovery :</English>
 	</TEXT>
+<!-- Free Unit Support -->
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_FREE_UNIT_SUPPORT</Tag>
+		<English>Reinforce Military Support</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_INCREASE_UNIT_SUPPORT_HELP</Tag>
+		<English>The [COLOR_UNIT_TEXT]Barbarian Leader[COLOR_REVERT] will increase your unit support limit.</English>
+	</TEXT>
+<!-- Plunder City -->
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_PLUNDER_CITY</Tag>
+		<English>Plunder the City</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_PLUNDER_CITY_HELP</Tag>
+		<English>This will order the [COLOR_UNIT_TEXT]Barbarian Leader[COLOR_REVERT] to plunder the city. Barbarians will sabotage [ICON_FOOD], [ICON_PRODUCTION] and steal [ICON_GOLD] for you. Citizens may be [COLOR_HIGHLIGHT_TEXT]enslaved[COLOR_REVERT] and the city's [ICON_CULTURE] will decrease.</English>
+	</TEXT>
 </Civ4GameText>

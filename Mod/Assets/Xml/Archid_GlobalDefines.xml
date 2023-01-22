@@ -652,4 +652,20 @@
 		<DefineName>BARBARIAN_MAX_XP_VALUE_PRE_SETTLE</DefineName>
 		<iDefineIntVal>50</iDefineIntVal>
 	</Define>
+	<Define>
+		<DefineName>BARBARIAN_EXPERIENCE_THRESHOLD</DefineName>
+		<iDefineIntVal>8</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>BARBARIAN_EXPERIENCE_THRESHOLD_INCREASE</DefineName>
+		<iDefineIntVal>40</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>MAX_GOLD_STOLEN_BARBARIAN_LEADER</DefineName>
+		<iDefineIntVal>250</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>MISSION_REINFORCE_MILITARY_FREE_SUPPORT</DefineName>
+		<iDefineIntVal>2</iDefineIntVal>
+	</Define>
 </Civ4Defines>

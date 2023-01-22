@@ -1361,6 +1361,7 @@ DomainTypes CvPlayerAI::AI_unitAIDomainType(UnitAITypes eUnitAI) const {
 	case UNITAI_ATTACK_CITY_LEMMING:
 	case UNITAI_GATHERER:
 	case UNITAI_HUNTER:
+	case UNITAI_BARBARIAN_LEADER:
 		return DOMAIN_LAND;
 		break;
 
@@ -5165,6 +5166,7 @@ int CvPlayerAI::AI_techUnitValue(TechTypes eTech, int iPathLength, bool& bEnable
 				}
 				break;
 
+				case UNITAI_BARBARIAN_LEADER:
 				case UNITAI_PROPHET:
 				case UNITAI_ARTIST:
 				case UNITAI_SCIENTIST:
@@ -8632,6 +8634,7 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			}
 			break;
 
+		case UNITAI_BARBARIAN_LEADER:
 		case UNITAI_PROPHET:
 		case UNITAI_ARTIST:
 		case UNITAI_SCIENTIST:
@@ -18350,6 +18353,7 @@ int CvPlayerAI::AI_disbandValue(const CvUnit* pUnit, bool bMilitaryOnly) const {
 		}
 		break;
 
+	case UNITAI_BARBARIAN_LEADER:
 	case UNITAI_PROPHET:
 	case UNITAI_ARTIST:
 	case UNITAI_SCIENTIST:

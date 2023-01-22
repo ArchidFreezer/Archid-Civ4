@@ -4590,6 +4590,7 @@ int CvTeamAI::AI_getTechMonopolyValue(TechTypes eTech, TeamTypes eTeam) const {
 					case UNITAI_MISSIONARY:
 						break;
 
+					case UNITAI_BARBARIAN_LEADER:
 					case UNITAI_PROPHET:
 					case UNITAI_ARTIST:
 					case UNITAI_SCIENTIST:

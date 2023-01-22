@@ -493,6 +493,7 @@
 	<ElementType name="bFixedAI" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iMaxWeaponTypeTier" content="textOnly" dt:type="int"/>		
 	<ElementType name="iMaxAmmoTypeTier" content="textOnly" dt:type="int"/>		
+	<ElementType name="bBarbarianLeader" content="textOnly" dt:type="boolean"/>
 	<ElementType name="UnitInfo" content="eltOnly">
 		<element type="Class"/>
 		<element type="Type"/>
@@ -554,6 +555,7 @@
 		<element type="bAlwaysHostile" minOccurs="0"/>
 		<element type="bWorkerTrade" minOccurs="0"/>
 		<element type="bMilitaryTrade" minOccurs="0"/>
+		<element type="bBarbarianLeader" minOccurs="0"/>
 		<element type="UnitClassUpgrades" minOccurs="0"/>
 		<element type="UnitClassTargets" minOccurs="0"/>
 		<element type="UnitCombatTargets" minOccurs="0"/>

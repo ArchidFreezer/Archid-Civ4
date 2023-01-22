@@ -519,6 +519,12 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iCultureDefenceChange = 0;
 	m_iCultureDefenceModifier = 0;
 	m_iTribalConscriptionCount = 0;
+	m_iBarbarianExperience = 0;
+	m_iBarbarianFractionalExperience = 0;
+	m_iBarbarianExperienceThresholdModifier = 0;
+	m_iBarbarianLeadersCreated = 0;
+	m_iBarbarianLeaderRateModifier = 0;
+	m_iBarbarianFreeUnits = 0;
 
 	m_uiStartTime = 0;
 
@@ -1983,6 +1989,7 @@ void CvPlayer::disbandUnit(bool bAnnounce) {
 						switch (pLoopUnit->AI_getUnitAIType()) {
 						case UNITAI_UNKNOWN:
 						case UNITAI_ANIMAL:
+						case UNITAI_BARBARIAN_LEADER:
 							break;
 
 						case UNITAI_SETTLE:
@@ -5644,7 +5651,7 @@ int CvPlayer::calculateUnitCost(int& iFreeUnits, int& iFreeMilitaryUnits, int& i
 	iFreeUnits += getBaseFreeUnits();
 	iFreeUnits += ((getTotalPopulation() * getFreeUnitsPopulationPercent()) / 100);
 
-	iFreeMilitaryUnits = getBaseFreeMilitaryUnits();
+	iFreeMilitaryUnits = getBaseFreeMilitaryUnits() + getBarbarianFreeUnits();
 	iFreeMilitaryUnits += ((getTotalPopulation() * getFreeMilitaryUnitsPopulationPercent()) / 100);
 
 	iPaidUnits = std::max(0, getNumUnits() - iFreeUnits);
@@ -14038,6 +14045,12 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iNumSlaves);
 	pStream->Read(&m_iCultureDefenceChange);
 	pStream->Read(&m_iCultureDefenceModifier);
+	pStream->Read(&m_iBarbarianExperience);
+	pStream->Read(&m_iBarbarianFractionalExperience);
+	pStream->Read(&m_iBarbarianExperienceThresholdModifier);
+	pStream->Read(&m_iBarbarianLeadersCreated);
+	pStream->Read(&m_iBarbarianLeaderRateModifier);
+	pStream->Read(&m_iBarbarianFreeUnits);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14531,6 +14544,12 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iNumSlaves);
 	pStream->Write(m_iCultureDefenceChange);
 	pStream->Write(m_iCultureDefenceModifier);
+	pStream->Write(m_iBarbarianExperience);
+	pStream->Write(m_iBarbarianFractionalExperience);
+	pStream->Write(m_iBarbarianExperienceThresholdModifier);
+	pStream->Write(m_iBarbarianLeadersCreated);
+	pStream->Write(m_iBarbarianLeaderRateModifier);
+	pStream->Write(m_iBarbarianFreeUnits);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -20127,4 +20146,183 @@ void CvPlayer::changeTribalConscriptionCount(int iChange) {
 
 bool CvPlayer::isCivSettled() const {
 	return GET_TEAM(getTeam()).isCivSettled();
+}
+
+int CvPlayer::getBarbrianFractionalExperience() const {
+	return m_iBarbarianFractionalExperience;
+}
+
+void CvPlayer::changeBarbarianFractionalExperience(int iChange) {
+	m_iBarbarianFractionalExperience += iChange;
+	int iNewXP = std::max(1, m_iBarbarianFractionalExperience / 100);
+	changeBarbarianExperience(iNewXP);
+	m_iBarbarianFractionalExperience -= iNewXP * 100;
+}
+
+int CvPlayer::getBarbarianExperience() const {
+	return m_iBarbarianExperience;
+}
+
+void CvPlayer::setBarbarianExperience(int iExperience) {
+	FAssert(iExperience >= 0);
+
+	if (iExperience != getBarbarianExperience()) {
+		m_iBarbarianExperience = iExperience;
+	}
+
+	if (!isBarbarian()) {
+		int iExperienceThreshold = barbarianExperienceThreshold(true);
+		if (m_iBarbarianExperience >= iExperienceThreshold && iExperienceThreshold > 0) {
+			// create great person
+			CvCity* pBestCity = NULL;
+			int iBestValue = MAX_INT;
+			int iLoop;
+			for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop)) {
+				int iValue = 4 * GC.getGameINLINE().getSorenRandNum(getNumCities(), "Barbarian Threshold City Selection");
+
+				for (int i = 0; i < NUM_YIELD_TYPES; i++) {
+					iValue += pLoopCity->findYieldRateRank((YieldTypes)i);
+				}
+				iValue += pLoopCity->findPopulationRank();
+
+				if (iValue < iBestValue) {
+					pBestCity = pLoopCity;
+					iBestValue = iValue;
+				}
+			}
+
+			if (pBestCity) {
+				int iRandOffset = GC.getGameINLINE().getSorenRandNum(GC.getNumUnitInfos(), "Barbarian Unit Generation");
+				for (int iI = 0; iI < GC.getNumUnitInfos(); iI++) {
+					UnitTypes eLoopUnit = (UnitTypes)((iI + iRandOffset) % GC.getNumUnitInfos());
+					if (GC.getUnitInfo(eLoopUnit).isBarbarianLeader()) {
+						pBestCity->createBarbarianLeader(eLoopUnit, true);
+						setBarbarianExperience(getBarbarianExperience() - iExperienceThreshold);
+						break;
+					}
+				}
+			}
+		}
+	}
+}
+
+void CvPlayer::changeBarbarianExperience(int iChange) {
+	setBarbarianExperience(getBarbarianExperience() + iChange + isHuman() ? 0 : 1);
+}
+
+int CvPlayer::barbarianExperienceThreshold(bool bMilitary) const {
+	int iThreshold;
+
+	if (bMilitary) {
+		iThreshold = ((GC.getDefineINT("BARBARIAN_EXPERIENCE_THRESHOLD") * std::max(0, (getBarbarianExperienceThresholdModifier() + 100))) / 100);
+	}
+
+	iThreshold *= GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getGreatPeoplePercent();
+
+	if (bMilitary) {
+		iThreshold /= std::max(1, GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getTrainPercent());
+	} else {
+		iThreshold /= 100;
+	}
+
+	iThreshold *= GC.getEraInfo(GC.getGameINLINE().getStartEra()).getGreatPeoplePercent();
+	iThreshold /= 100;
+
+	return std::max(1, iThreshold);
+}
+
+int CvPlayer::getBarbarianExperienceThresholdModifier() const {
+	return m_iBarbarianExperienceThresholdModifier;
+}
+
+int CvPlayer::getBarbarianFreeUnits() const {
+	return m_iBarbarianFreeUnits;
+}
+
+void CvPlayer::changeBarbarianFreeUnits(int iChange) {
+	m_iBarbarianFreeUnits += iChange;
+}
+
+void CvPlayer::changeBarbarianExperienceThresholdModifier(int iChange) {
+	m_iBarbarianExperienceThresholdModifier += iChange;
+}
+
+int CvPlayer::getBarbarianLeadersCreated() const {
+	return m_iBarbarianLeadersCreated;
+}
+
+void CvPlayer::changeBarbarianLeadersCreated(int iChange) {
+	m_iBarbarianLeadersCreated += iChange;
+}
+
+int CvPlayer::getBarbarianLeaderRateModifier() const {
+	return m_iBarbarianLeaderRateModifier;
+}
+
+void CvPlayer::changeBarbarianLeaderRateModifier(int iChange) {
+	m_iBarbarianLeaderRateModifier += iChange;
+}
+
+void CvPlayer::createBarbarianLeader(UnitTypes eBarbarianLeaderUnit, bool bIncrementBarbarianExperience, int iX, int iY) {
+	CvUnit* pBarbarianLeaderUnit = initUnit(eBarbarianLeaderUnit, iX, iY);
+	if (NULL == pBarbarianLeaderUnit) {
+		FAssert(false);
+		return;
+	}
+
+	if (bIncrementBarbarianExperience) {
+		changeBarbarianLeadersCreated(1);
+
+		changeBarbarianExperienceThresholdModifier(GC.getDefineINT("BARBARIAN_EXPERIENCE_THRESHOLD_INCREASE") * ((getBarbarianLeadersCreated() / 10) + 1));
+
+		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+			CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+			if (kPlayer.getTeam() == getTeam()) {
+				kPlayer.changeBarbarianExperienceThresholdModifier(GC.getDefineINT("BARBARIAN_EXPERIENCE_THRESHOLD_INCREASE") * ((getBarbarianLeadersCreated() / 10) + 1));
+			}
+		}
+	}
+
+
+	CvPlot* pPlot = GC.getMapINLINE().plot(iX, iY);
+	CvCity* pCity = pPlot->getPlotCity();
+	CvWString szReplayMessage;
+	if (pPlot) {
+		if (pCity) {
+			CvWString szCity;
+			szCity.Format(L"%s (%s)", pCity->getName().GetCString(), GET_PLAYER(pCity->getOwnerINLINE()).getName());
+			szReplayMessage = gDLL->getText("TXT_KEY_MISC_GP_BORN", pBarbarianLeaderUnit->getName().GetCString(), szCity.GetCString());
+		} else {
+			szReplayMessage = gDLL->getText("TXT_KEY_MISC_GP_BORN_FIELD", pBarbarianLeaderUnit->getName().GetCString());
+		}
+		GC.getGameINLINE().addReplayMessage(REPLAY_MESSAGE_MAJOR_EVENT, getID(), szReplayMessage, iX, iY, (ColorTypes)GC.getInfoTypeForString("COLOR_UNIT_TEXT"));
+	}
+
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+		if (kPlayer.isAlive()) {
+			if (pPlot->isRevealed(kPlayer.getTeam(), false)) {
+				gDLL->getInterfaceIFace()->addMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szReplayMessage, "AS2D_UNIT_GREATPEOPLE", MESSAGE_TYPE_MAJOR_EVENT, pBarbarianLeaderUnit->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_UNIT_TEXT"), iX, iY, true, true);
+			} else {
+				CvWString szMessage = gDLL->getText("TXT_KEY_MISC_GP_BORN_SOMEWHERE", pBarbarianLeaderUnit->getName().GetCString());
+				gDLL->getInterfaceIFace()->addMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szMessage, "AS2D_UNIT_GREATPEOPLE", MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_UNIT_TEXT"));
+			}
+		}
+	}
+
+	// Python Event
+	if (pCity) {
+		CvEventReporter::getInstance().greatPersonBorn(pBarbarianLeaderUnit, getID(), pCity);
+	}
+}
+
+void CvPlayer::createNumUnits(UnitTypes eUnit, int iNumUnits, int iX, int iY) {
+	UnitAITypes eUnitAI = (UnitAITypes)GC.getUnitInfo(eUnit).getDefaultUnitAIType();
+	for (int i = 0; i < iNumUnits; i++) {
+		CvUnit* pFreeUnit = initUnit(eUnit, iX, iY, eUnitAI);
+		if (NULL == pFreeUnit) {
+			FAssert(false);
+			return;
+		}
+	}
 }

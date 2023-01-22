@@ -1502,4 +1502,32 @@
 		<Tag>TXT_KEY_TECH_APPLY_LEADERHEAD_TRAITS_HELP</Tag>
 		<English>[ICON_BULLET]Civs gain their leaderhead traits</English>
 	</TEXT>
+<!-- Barbarian Leader -->
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_REINFORCE_MILITARY</Tag>
+		<English>[ICON_BULLET]Free Unit Support.</English>
+		<Spanish>[ICON_BULLET]Soporte Gratis para Unidades.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_PLUNDER_CITIES</Tag>
+		<English>[ICON_BULLET]Can plunder cities</English>
+	</TEXT>
+<!-- Plunder City -->
+	<TEXT>
+		<Tag>TXT_KEY_MISC_PLUNDER_CITY_01</Tag>
+		<English>Our [COLOR_UNIT_TEXT]%s1_UnitName[COLOR_REVERT] has plundered the city of [COLOR_UNIT_TEXT]%s2_CityName[COLOR_REVERT]!</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_PLUNDER_CITY_PLUNDERED</Tag>
+		<English>Our city of %s1_city has been plundered by a marauding Barbarian Tribe!!</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_NEIGHBOR_CITY_PLUNDERED</Tag>
+		<English>We have heard reports that the %s1_civ_adjective city of %s2_city has been plundered by a marauding Barbarian Tribe!</English>
+	</TEXT>
+<!-- Free Unit Support -->	
+	<TEXT>
+		<Tag>TXT_KEY_MISC_FREE_UNIT_SUPPORT</Tag>
+		<English>Your %s1_UnitName has increased your unit's support limit!!</English>
+	</TEXT> 
 </Civ4GameText>

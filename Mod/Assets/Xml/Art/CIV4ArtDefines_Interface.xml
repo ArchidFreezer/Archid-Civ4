@@ -1645,5 +1645,9 @@
 			<Type>INTERFACE_TECH_NON_AGGRESSION</Type>
 			<Path>Art/Interface/Screens/TechTree/NonAggression.dds</Path>
 		</InterfaceArtInfo>
+		<InterfaceArtInfo>
+			<Type>INTERFACE_PLUNDER_SHOW</Type>
+			<Path>Art/Interface/Buttons/Actions/plunder_city_show.dds</Path>
+		</InterfaceArtInfo>
 	</InterfaceArtInfos>
 </Civ4ArtDefines>

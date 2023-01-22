@@ -215,6 +215,11 @@
 <!-- ************ -->
 <!-- Great People -->
 <!-- ************ -->
+		<UnitClassInfo>	<!-- Barbarian Leader -->
+			<Type>UNITCLASS_BARBARIAN_LEADER</Type>
+			<Description>TXT_KEY_UNIT_BARBARIAN_LEADER</Description>
+			<DefaultUnit>UNIT_BARBARIAN_LEADER</DefaultUnit>
+		</UnitClassInfo>
 		<UnitClassInfo> <!-- Great Artist -->
 			<Type>UNITCLASS_ARTIST</Type>
 			<Description>TXT_KEY_UNIT_GREAT_ARTIST</Description>

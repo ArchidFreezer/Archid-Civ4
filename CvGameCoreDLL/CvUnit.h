@@ -88,6 +88,12 @@ public:
 	void reset(int iID = 0, UnitTypes eUnit = NO_UNIT, PlayerTypes eOwner = NO_PLAYER, bool bConstructorCall = false);
 	void setupGraphical();
 
+	// Barbarians
+	bool canIncreaseBarbarianUnitSupport(const CvPlot* pPlot, bool bTestVisible = false) const;
+	bool increaseBarbarianUnitSupport(int iFreeUnitsSupport);
+	bool canPlunderCity(const CvPlot* pPlot) const;
+	bool plunderCity();
+
 	int getSalvageModifier() const;
 	void changeSalvageModifier(int iChange);
 	void convert(CvUnit* pUnit);																																	// Exposed to Python
@@ -252,7 +258,7 @@ public:
 
 	int getExperience100() const;
 	void setExperience100(int iNewValue, int iMax = -1);
-	void changeExperience100(int iChange, int iMax = -1, bool bFromCombat = false, bool bInBorders = false, bool bUpdateGlobal = false);
+	void changeExperience100(int iChange, int iMax = -1, bool bFromCombat = false, bool bInBorders = false, bool bUpdateGlobal = false, bool ExpFromBarb = false);
 
 	void setHomeCity(const CvCity* pCity);
 	CvCity* getHomeCity() const;
@@ -663,7 +669,7 @@ public:
 
 	int getExperience() const;																											// Exposed to Python
 	void setExperience(int iNewValue, int iMax = -1);																// Exposed to Python
-	void changeExperience(int iChange, int iMax = -1, bool bFromCombat = false, bool bInBorders = false, bool bUpdateGlobal = false);																				// Exposed to Python
+	void changeExperience(int iChange, int iMax = -1, bool bFromCombat = false, bool bInBorders = false, bool bUpdateGlobal = false, bool bExpFromBarb = false);																				// Exposed to Python
 
 	int getLevel() const;																														// Exposed to Python					
 	void setLevel(int iNewValue);

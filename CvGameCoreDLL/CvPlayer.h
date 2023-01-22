@@ -45,6 +45,23 @@ public:
 	int getCultureDefenceModifier() const;
 	void changeCultureDefenceModifier(int iChange);
 
+	int barbarianExperienceThreshold(bool bMilitary = false) const;
+	int getBarbarianExperience() const;
+	int getBarbrianFractionalExperience() const;
+	int getBarbarianExperienceThresholdModifier() const;
+	int getBarbarianFreeUnits() const;
+	int getBarbarianLeadersCreated() const;
+	int getBarbarianLeaderRateModifier() const;
+	void changeBarbarianExperience(int iChange);
+	void changeBarbarianFractionalExperience(int iChange);
+	void changeBarbarianExperienceThresholdModifier(int iChange);
+	void changeBarbarianFreeUnits(int iChange);
+	void changeBarbarianLeadersCreated(int iChange);
+	void changeBarbarianLeaderRateModifier(int iChange);
+	void createBarbarianLeader(UnitTypes eBarbarianLeaderUnit, bool bIncrementBarbarianExperience, int iX, int iY);
+	void createNumUnits(UnitTypes eUnit, int iNumUnits, int iX, int iY);
+	void setBarbarianExperience(int iExperience);
+
 	void turnSpy(CvUnit* pSpy);
 
 	int getNumSlaves() const;
@@ -1313,6 +1330,12 @@ protected:
 	int m_iCultureDefenceChange;
 	int m_iCultureDefenceModifier;
 	int m_iTribalConscriptionCount;
+	int m_iBarbarianExperience;
+	int m_iBarbarianFractionalExperience;
+	int m_iBarbarianExperienceThresholdModifier;
+	int m_iBarbarianLeadersCreated;
+	int m_iBarbarianLeaderRateModifier;
+	int m_iBarbarianFreeUnits;
 
 	uint m_uiStartTime;  // XXX save these?
 

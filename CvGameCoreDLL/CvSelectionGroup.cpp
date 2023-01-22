@@ -556,6 +556,8 @@ CvPlot* CvSelectionGroup::lastMissionPlot() {
 		case MISSION_SHADOW:
 		case MISSION_WAIT_FOR_TECH:
 		case MISSION_BECOME_SLAVER:
+		case MISSION_FREE_UNIT_SUPPORT:
+		case MISSION_PLUNDER_CITY:
 			break;
 
 		default:
@@ -726,6 +728,8 @@ void CvSelectionGroup::startMission() {
 		case MISSION_DIE_ANIMATION:
 		case MISSION_SHADOW:
 		case MISSION_BECOME_SLAVER:
+		case MISSION_FREE_UNIT_SUPPORT:
+		case MISSION_PLUNDER_CITY:
 			break;
 
 		case MISSION_WAIT_FOR_TECH:
@@ -988,7 +992,6 @@ void CvSelectionGroup::startMission() {
 					break;
 
 				case MISSION_GOLDEN_AGE:
-					//just play animation, not golden age - JW
 					if (headMissionQueueNode()->m_data.iData1 != -1) {
 						CvMissionDefinition kMission;
 						kMission.setMissionTime(GC.getMissionInfo(MISSION_GOLDEN_AGE).getTime() * gDLL->getSecsPerTurn());
@@ -1033,6 +1036,26 @@ void CvSelectionGroup::startMission() {
 					if (pLoopUnit->setShadowUnit(GC.getMapINLINE().plotINLINE(headMissionQueueNode()->m_data.iData1, headMissionQueueNode()->m_data.iData2), headMissionQueueNode()->m_data.iFlags)) {
 						setAutomateType(AUTOMATE_SHADOW);
 						bAction = true;
+					}
+					break;
+
+				case MISSION_FREE_UNIT_SUPPORT:
+					if (headMissionQueueNode()->m_data.iData1 != -1) { //just play animation
+						bAction = true;
+					} else {
+						if (pLoopUnit->increaseBarbarianUnitSupport(GET_PLAYER(getOwnerINLINE()).getBarbarianLeadersCreated())) {
+							bAction = true;
+						}
+					}
+					break;
+
+				case MISSION_PLUNDER_CITY:
+					if (headMissionQueueNode()->m_data.iData1 != -1) { //just play animation
+						bAction = true;
+					} else {
+						if (pLoopUnit->plunderCity()) {
+							bAction = true;
+						}
 					}
 					break;
 
@@ -1271,6 +1294,8 @@ bool CvSelectionGroup::continueMission_bulk(int iSteps) {
 				case MISSION_SHADOW:
 				case MISSION_WAIT_FOR_TECH:
 				case MISSION_BECOME_SLAVER:
+				case MISSION_FREE_UNIT_SUPPORT:
+				case MISSION_PLUNDER_CITY:
 					break;
 
 				case MISSION_BUILD:
@@ -1358,6 +1383,8 @@ bool CvSelectionGroup::continueMission_bulk(int iSteps) {
 			case MISSION_SHADOW:
 			case MISSION_WAIT_FOR_TECH:
 			case MISSION_BECOME_SLAVER:
+			case MISSION_FREE_UNIT_SUPPORT:
+			case MISSION_PLUNDER_CITY:
 				bDone = true;
 				break;
 
@@ -3316,6 +3343,24 @@ bool CvSelectionGroup::canDoMission(int iMission, int iData1, int iData2, CvPlot
 
 		case MISSION_DIE_ANIMATION:
 			return false;
+			break;
+
+		case MISSION_FREE_UNIT_SUPPORT:
+			//this means to play the animation only			
+			if (iData1 != -1)
+				return true;
+
+			if (pLoopUnit->canIncreaseBarbarianUnitSupport(pPlot, bTestVisible))
+				return true;
+			break;
+
+		case MISSION_PLUNDER_CITY:
+			//this means to play the animation only			
+			if (iData1 != -1)
+				return true;
+
+			if (pLoopUnit->canPlunderCity(pPlot))
+				return true;
 			break;
 
 		case MISSION_BEGIN_COMBAT:

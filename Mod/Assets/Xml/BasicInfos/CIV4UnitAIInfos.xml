@@ -192,5 +192,9 @@
 			<Type>UNITAI_HUNTER</Type>
 			<Description>UNITAI_HUNTER</Description>
 		</UnitAIInfo>
+		<UnitAIInfo>
+			<Type>UNITAI_BARBARIAN_LEADER</Type>
+			<Description>UNITAI_BARBARIAN_LEADER</Description>
+		</UnitAIInfo>
 	</UnitAIInfos>
 </Civ4UnitAIInfos>

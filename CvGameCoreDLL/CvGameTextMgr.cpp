@@ -7383,6 +7383,13 @@ void CvGameTextMgr::setBasicUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit,
 		}
 	}
 
+	if (kUnit.isBarbarianLeader()) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_UNIT_REINFORCE_MILITARY"));
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_UNIT_PLUNDER_CITIES"));
+	}
+
 	if (kUnit.isGoldenAge()) {
 		szBuffer.append(NEWLINE);
 		szBuffer.append(gDLL->getText("TXT_KEY_UNIT_GOLDEN_AGE"));

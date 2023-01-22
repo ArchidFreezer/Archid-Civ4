@@ -3295,6 +3295,7 @@ CvUnitInfo::CvUnitInfo() :
 	m_bMilitaryTrade(false),
 	m_bSlave(false),
 	m_bFixedAI(false),
+	m_bBarbarianLeader(false),
 	m_fUnitMaxSpeed(0.0f),
 	m_fUnitPadTime(0.0f),
 	m_pbUpgradeUnitClass(NULL),
@@ -3388,6 +3389,10 @@ CvUnitInfo::~CvUnitInfo() {
 	SAFE_DELETE_ARRAY(m_paszLateArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszMiddleArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszUnitNames);
+}
+
+bool CvUnitInfo::isBarbarianLeader() const {
+	return m_bBarbarianLeader;
 }
 
 int CvUnitInfo::getMaxAmmunitionTypeTier() const {
@@ -4567,6 +4572,7 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bMilitaryTrade);
 	stream->Read(&m_bSlave);
 	stream->Read(&m_bFixedAI);
+	stream->Read(&m_bBarbarianLeader);
 
 	stream->Read(&m_fUnitMaxSpeed);
 	stream->Read(&m_fUnitPadTime);
@@ -4974,6 +4980,7 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bMilitaryTrade);
 	stream->Write(m_bSlave);
 	stream->Write(m_bFixedAI);
+	stream->Write(m_bBarbarianLeader);
 
 	stream->Write(m_fUnitMaxSpeed);
 	stream->Write(m_fUnitPadTime);
@@ -5181,6 +5188,7 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bAlwaysHostile, "bAlwaysHostile", false);
 	pXML->GetChildXmlValByName(&m_bWorkerTrade, "bWorkerTrade", false);
 	pXML->GetChildXmlValByName(&m_bMilitaryTrade, "bMilitaryTrade", false);
+	pXML->GetChildXmlValByName(&m_bBarbarianLeader, "bBarbarianLeader", false);
 	pXML->GetChildXmlValByName(&m_bNoRevealMap, "bNoRevealMap", false);
 	pXML->GetChildXmlEnumValByName(&m_eRangeType, "UnitRangeType", UNITRANGE_UNLIMITED);
 

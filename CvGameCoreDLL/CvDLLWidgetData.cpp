@@ -2168,6 +2168,10 @@ void CvDLLWidgetData::parseActionHelp(CvWidgetDataStruct& widgetDataStruct, CvWS
 				szBuffer.append(gDLL->getText("TXT_KEY_ACTION_ESPIONAGE_MISSION"));
 
 				GAMETEXT.setEspionageMissionHelp(szBuffer, pHeadSelectedUnit);
+			} else if (GC.getActionInfo(widgetDataStruct.m_iData1).getMissionType() == MISSION_FREE_UNIT_SUPPORT) {
+				int iFreeUnitSupport = GC.getDefineINT("MISSION_REINFORCE_MILITARY_FREE_SUPPORT");
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_ACTION_FREE_UNIT_SUPPORT", iFreeUnitSupport));
 			} else if (GC.getActionInfo(widgetDataStruct.m_iData1).getMissionType() == MISSION_BUILD) {
 				BuildTypes eBuild = ((BuildTypes)(GC.getActionInfo(widgetDataStruct.m_iData1).getMissionData()));
 				FAssert(eBuild != NO_BUILD);

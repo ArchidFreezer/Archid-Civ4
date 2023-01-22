@@ -34,6 +34,8 @@ public:
 
 	void kill(bool bUpdatePlotGroups);																								// Exposed to Python
 
+	void createBarbarianLeader(UnitTypes eBarbarianLeaderUnit, bool bIncrementBarbarianExperience);
+
 	void doAutoBuild();
 	void doUpgradeWeapons();
 	void doUnitWeaponUpgrade(std::vector<WeaponTypes> vWeapons, CvUnit* pUnit);
