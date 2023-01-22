@@ -19176,7 +19176,7 @@ bool CvEventTriggerInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iNumBuildingsGlobal, "iNumBuildingsGlobal");
 
 	pXML->GetChildXmlValByName(&m_iNumPlotsRequired, "iNumPlotsRequired");
-	pXML->GetChildXmlValByName(&m_iPlotType, "iPlotType");
+	pXML->GetChildXmlValByName(&m_iPlotType, "iPlotType", -1);
 
 	pXML->GetChildXmlValByName(&m_iNumReligions, "iNumReligions");
 	pXML->GetChildXmlValByName(&m_iNumCorporations, "iNumCorporations");
@@ -19188,7 +19188,7 @@ bool CvEventTriggerInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(&m_iMinMapLandmass, "iMinMapLandmass");
 	pXML->GetChildXmlValByName(&m_iMinOurLandmass, "iMinOurLandmass");
-	pXML->GetChildXmlValByName(&m_iMaxOurLandmass, "iMaxOurLandmass");
+	pXML->GetChildXmlValByName(&m_iMaxOurLandmass, "iMaxOurLandmass", -1);
 	pXML->GetChildXmlValByName(szTextVal, "MinDifficulty");
 	m_iMinDifficulty = pXML->FindInInfoClass(szTextVal);
 	pXML->GetChildXmlValByName(&m_iAngry, "iAngry");
@@ -20081,7 +20081,7 @@ bool CvEventInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(&m_iConvertOwnCities, "iConvertOwnCities");
 	pXML->GetChildXmlValByName(&m_iConvertOtherCities, "iConvertOtherCities");
-	pXML->GetChildXmlValByName(&m_iMaxNumReligions, "iMaxNumReligions");
+	pXML->GetChildXmlValByName(&m_iMaxNumReligions, "iMaxNumReligions", -1);
 	pXML->GetChildXmlValByName(&m_iOurAttitudeModifier, "iOurAttitudeModifier");
 	pXML->GetChildXmlValByName(&m_iAttitudeModifier, "iAttitudeModifier");
 	pXML->GetChildXmlValByName(&m_iTheirEnemyAttitudeModifier, "iTheirEnemyAttitudeModifier");
