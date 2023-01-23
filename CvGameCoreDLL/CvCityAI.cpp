@@ -1188,14 +1188,6 @@ void CvCityAI::AI_chooseProduction() {
 			}
 		}
 
-		if (!bFinancialTrouble) {
-			if (kPlayer.AI_totalAreaUnitAIs(pArea, UNITAI_SLAVER) < (kPlayer.AI_neededSlavers(pArea, (bLandWar || bAssault)))) {
-				if (AI_chooseUnit(UNITAI_SLAVER)) {
-					return;
-				}
-			}
-		}
-
 		if (!bLandWar && !bDanger && !bFinancialTrouble) {
 			if (kPlayer.AI_totalAreaUnitAIs(pArea, UNITAI_EXPLORE) < (kPlayer.AI_neededExplorers(pArea))) {
 				if (AI_chooseUnit(UNITAI_EXPLORE)) {
