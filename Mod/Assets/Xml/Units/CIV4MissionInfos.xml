@@ -994,5 +994,17 @@
 			<bVisible>1</bVisible>
 			<Button>Art/Interface/Buttons/Actions/plunder_city.dds</Button>
 		</MissionInfo>
+		<MissionInfo>
+			<Type>MISSION_BECOME_BARBARIAN</Type>
+			<Description>TXT_KEY_MISSION_BECOME_BARBARIAN</Description>
+			<Help>TXT_KEY_MISSION_BECOME_BARBARIAN_HELP</Help>
+			<Waypoint>NONE</Waypoint>
+			<iTime>0</iTime>
+			<bTarget>0</bTarget>
+			<bBuild>0</bBuild>
+			<bSound>1</bSound>
+			<bVisible>1</bVisible>
+			<Button>Art/Interface/Buttons/Actions/become_barbarian.dds</Button>
+		</MissionInfo>
 	</MissionInfos>
 </Civ4MissionInfos>

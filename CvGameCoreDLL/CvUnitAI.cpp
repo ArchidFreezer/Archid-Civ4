@@ -279,6 +279,10 @@ bool CvUnitAI::AI_update() {
 			AI_hunterMove();
 			break;
 
+		case UNITAI_BARBARIAN:
+			AI_barbarianMove();
+			break;
+
 		case UNITAI_BARBARIAN_LEADER:
 			AI_barbarianLeaderMove();
 			break;
@@ -613,6 +617,7 @@ int CvUnitAI::AI_groupFirstVal() {
 		break;
 
 	case UNITAI_ATTACK:
+	case UNITAI_BARBARIAN:
 		if (collateralDamage() > 0) {
 			return 15; // was 17
 		} else if (withdrawalProbability() > 0) {
@@ -2128,6 +2133,10 @@ void CvUnitAI::AI_attackMove() {
 
 	//Check if we need any slavers
 	if (AI_becomeSlaver())
+		return;
+
+	// Do we want to go barbarian
+	if (AI_becomeBarbarian())
 		return;
 
 	{
@@ -19366,5 +19375,349 @@ bool CvUnitAI::AI_plunderCity() {
 	}
 
 	return false;
+}
+
+void CvUnitAI::AI_barbarianMove() {
+	PROFILE_FUNC();
+	const CvPlayerAI& kOwner = GET_PLAYER(getOwnerINLINE()); // K-Mod
+
+	bool bDanger = (kOwner.AI_getAnyPlotDanger(plot(), 3));
+	bool bLandWar = kOwner.AI_isLandWar(area()); // K-Mod
+
+	// K-Mod note. We'll split the group up later if we need to. (bbai group splitting code deleted.)
+	FAssert(getGroup()->countNumUnitAIType(UNITAI_ATTACK_CITY) == 0); // K-Mod. (I'm pretty sure this can't happen.)
+
+	// Attack choking units
+	// K-Mod (bbai code deleted)
+	if (plot()->getTeam() == getTeam() && (bDanger || area()->getAreaAIType(getTeam()) != AREAAI_NEUTRAL)) {
+		if (bDanger && plot()->isCity()) {
+			if (AI_leaveAttack(2, 55, 105))
+				return;
+		} else {
+			if (AI_defendTeritory(70, 0, 2, true))
+				return;
+		}
+	}
+
+	// If we are on a spawning improvement pillage it
+	if (plot()->getImprovementType() != NO_IMPROVEMENT) {
+		CvImprovementInfo& kImprovement = GC.getImprovementInfo(plot()->getImprovementType());
+		if (kImprovement.getAnimalSpawnRatePercentage() > 0 || kImprovement.getBarbarianSpawnRatePercentage() > 0) {
+			getGroup()->pushMission(MISSION_PILLAGE, -1, -1, 0, false, false, MISSIONAI_PILLAGE, plot());
+			return;
+		}
+	}
+
+	{
+		PROFILE("CvUnitAI::AI_attackMove() 1");
+
+		// Guard a city we're in if it needs it
+		if (AI_guardCity(true)) {
+			return;
+		}
+
+		if (AI_heal(30, 1)) {
+			return;
+		}
+
+		//join any city attacks in progress
+		if (isEnemy(plot()->getTeam())) {
+			if (AI_omniGroup(UNITAI_ATTACK_CITY, -1, -1, true, 0, 2, true, false)) {
+				return;
+			}
+		}
+
+		AreaAITypes eAreaAIType = area()->getAreaAIType(getTeam());
+		if (plot()->isCity()) {
+			if (plot()->getOwnerINLINE() == getOwnerINLINE()) {
+				if ((eAreaAIType == AREAAI_ASSAULT) || (eAreaAIType == AREAAI_ASSAULT_ASSIST)) {
+					if (AI_offensiveAirlift()) {
+						return;
+					}
+				}
+			}
+		}
+
+		if (bDanger) {
+			if (getGroup()->getNumUnits() > 1 && AI_stackVsStack(3, 110, 65, 0))
+				return;
+
+			if (collateralDamage() > 0) {
+				if (AI_anyAttack(1, 45, 0, 3)) {
+					return;
+				}
+			}
+		}
+		// K-Mod (moved from below, and replacing the disabled stuff above)
+		if (AI_anyAttack(1, 70)) {
+			return;
+		}
+
+		if (!noDefensiveBonus()) {
+			if (AI_guardCity(false, false)) {
+				return;
+			}
+		}
+
+		if (!bDanger) {
+			if (plot()->getOwnerINLINE() == getOwnerINLINE()) {
+				bool bAssault = ((eAreaAIType == AREAAI_ASSAULT) || (eAreaAIType == AREAAI_ASSAULT_MASSING) || (eAreaAIType == AREAAI_ASSAULT_ASSIST));
+				if (bAssault) {
+					if (AI_load(UNITAI_ASSAULT_SEA, MISSIONAI_LOAD_ASSAULT, UNITAI_ATTACK_CITY, -1, -1, -1, -1, MOVE_SAFE_TERRITORY, 4)) {
+						return;
+					}
+				}
+
+				if (AI_load(UNITAI_SETTLER_SEA, MISSIONAI_LOAD_SETTLER, UNITAI_SETTLE, -1, -1, -1, 1, MOVE_SAFE_TERRITORY, 3)) {
+					return;
+				}
+
+				if (!bLandWar) {
+					// Fill transports before starting new one, but not just full of our unit ai
+					if (AI_load(UNITAI_ASSAULT_SEA, MISSIONAI_LOAD_ASSAULT, NO_UNITAI, 1, -1, -1, 1, MOVE_SAFE_TERRITORY, 4)) {
+						return;
+					}
+
+					// Pick new transport which has space for other unit ai types to join
+					if (AI_load(UNITAI_ASSAULT_SEA, MISSIONAI_LOAD_ASSAULT, NO_UNITAI, -1, 2, -1, -1, MOVE_SAFE_TERRITORY, 4)) {
+						return;
+					}
+				}
+
+				if (kOwner.AI_unitTargetMissionAIs(this, MISSIONAI_GROUP) > 0) {
+					getGroup()->pushMission(MISSION_SKIP);
+					return;
+				}
+			}
+		}
+
+		// Allow larger groups if outside territory
+		if (getGroup()->getNumUnits() < 3) {
+			if (plot()->isOwned() && GET_TEAM(getTeam()).isAtWar(plot()->getTeam())) {
+				if (AI_omniGroup(UNITAI_ATTACK, 3, -1, false, 0, 1, true, false, true, false, false)) {
+					return;
+				}
+			}
+		}
+
+		if (AI_goody(3)) {
+			return;
+		}
+	}
+
+	{
+		PROFILE("CvUnitAI::AI_attackMove() 2");
+
+		if (bDanger) {
+			// K-Mod. This block has been rewriten. (original code deleted)
+
+			// slightly more reckless than last time
+			if (getGroup()->getNumUnits() > 1 && AI_stackVsStack(3, 90, 40, 0))
+				return;
+
+			bool bAggressive = area()->getAreaAIType(getTeam()) != AREAAI_DEFENSIVE || getGroup()->getNumUnits() > 1 || plot()->getTeam() != getTeam();
+
+			if (bAggressive && AI_pillageRange(1, 10))
+				return;
+
+			if (plot()->getTeam() == getTeam()) {
+				if (AI_defendTeritory(55, 0, 2, true)) {
+					return;
+				}
+			} else if (AI_anyAttack(1, 45)) {
+				return;
+			}
+
+			if (bAggressive && AI_pillageRange(3, 10)) {
+				return;
+			}
+
+			if (getGroup()->getNumUnits() < 4 && isEnemy(plot()->getTeam())) {
+				if (AI_choke(1)) {
+					return;
+				}
+			}
+
+			if (bAggressive && AI_anyAttack(3, 40))
+				return;
+		}
+
+		if (!isEnemy(plot()->getTeam())) {
+			if (AI_heal()) {
+				return;
+			}
+		}
+
+		if (!plot()->isCity() || plot()->plotCount(PUF_isUnitAIType, UNITAI_CITY_DEFENSE, -1, getOwnerINLINE()) > 0) // K-Mod
+		{
+			// BBAI TODO: If we're fast, maybe shadow an attack city stack and pillage off of it
+
+			bool bIgnoreFaster = false;
+			if (kOwner.AI_isDoStrategy(AI_STRATEGY_LAND_BLITZ)) {
+				if (area()->getAreaAIType(getTeam()) != AREAAI_ASSAULT) {
+					bIgnoreFaster = true;
+				}
+			}
+
+			bool bAttackCity = bLandWar && (area()->getAreaAIType(getTeam()) == AREAAI_OFFENSIVE || (AI_getBirthmark() + GC.getGameINLINE().getGameTurn() / 8) % 5 <= 1);
+			if (bAttackCity) {
+				// strong merge strategy
+				if (AI_omniGroup(UNITAI_ATTACK_CITY, -1, -1, true, 0, 5, true, getGroup()->getNumUnits() < 2, bIgnoreFaster, false, false))
+					return;
+			} else {
+				// weak merge strategy
+				if (AI_omniGroup(UNITAI_ATTACK_CITY, -1, 2, true, 0, 5, true, false, bIgnoreFaster, false, false))
+					return;
+			}
+
+			if (AI_omniGroup(UNITAI_ATTACK, 2, -1, false, 0, 4, true, true, true, true, false)) {
+				return;
+			}
+
+			if (AI_omniGroup(UNITAI_ATTACK, 1, 1, false, 0, 1, true, true, false, false, false)) {
+				return;
+			}
+
+			// K-Mod. If we're feeling aggressive, then try to get closer to the enemy.
+			if (bAttackCity && getGroup()->getNumUnits() > 1) {
+				if (AI_goToTargetCity(0, 12))
+					return;
+			}
+		}
+
+		if (AI_guardCity(false, true, 3)) {
+			return;
+		}
+
+		if ((kOwner.getNumCities() > 1) && (getGroup()->getNumUnits() == 1)) {
+			if (area()->getAreaAIType(getTeam()) != AREAAI_DEFENSIVE) {
+				if (area()->getNumUnrevealedTiles(getTeam()) > 0) {
+					if (kOwner.AI_areaMissionAIs(area(), MISSIONAI_EXPLORE, getGroup()) < (kOwner.AI_neededExplorers(area()) + 1)) {
+						if (AI_exploreRange(3)) {
+							return;
+						}
+
+						if (AI_explore()) {
+							return;
+						}
+					}
+				}
+			}
+		}
+
+		if (AI_defendTeritory(45, 0, 7)) // K-Mod
+		{
+			return;
+		}
+
+		if (AI_offensiveAirlift()) {
+			return;
+		}
+
+		if (!bDanger && (area()->getAreaAIType(getTeam()) != AREAAI_DEFENSIVE)) {
+			if (plot()->getOwnerINLINE() == getOwnerINLINE()) {
+				if (AI_load(UNITAI_ASSAULT_SEA, MISSIONAI_LOAD_ASSAULT, NO_UNITAI, 1, -1, -1, 1, MOVE_SAFE_TERRITORY, 4)) {
+					return;
+				}
+
+				if ((GET_TEAM(getTeam()).getAtWarCount(true) > 0) && !(getGroup()->isHasPathToAreaEnemyCity())) {
+					if (AI_load(UNITAI_ASSAULT_SEA, MISSIONAI_LOAD_ASSAULT, NO_UNITAI, -1, -1, -1, -1, MOVE_SAFE_TERRITORY, 4)) {
+						return;
+					}
+				}
+			}
+		}
+
+		if (getGroup()->getNumUnits() >= 4 && plot()->getTeam() == getTeam()) {
+			CvSelectionGroup* pSplitGroup, * pRemainderGroup = NULL;
+			pSplitGroup = getGroup()->splitGroup(2, 0, &pRemainderGroup);
+			if (pSplitGroup)
+				pSplitGroup->pushMission(MISSION_SKIP);
+			if (pRemainderGroup) {
+				if (pRemainderGroup->AI_isForceSeparate())
+					pRemainderGroup->AI_separate();
+				else
+					pRemainderGroup->pushMission(MISSION_SKIP);
+			}
+			return;
+		}
+
+		if (AI_defend()) {
+			return;
+		}
+
+		if (AI_travelToUpgradeCity()) {
+			return;
+		}
+
+		if (AI_handleStranded())
+			return;
+
+		if (AI_patrol()) {
+			return;
+		}
+
+		if (AI_retreatToCity()) {
+			return;
+		}
+
+		if (AI_safety()) {
+			return;
+		}
+	}
+
+	getGroup()->pushMission(MISSION_SKIP);
+	return;
+}
+
+bool CvUnitAI::AI_becomeBarbarian() {
+	
+	CvPlayerAI& kPlayer = GET_PLAYER(getOwnerINLINE());
+
+	// Ifd we can't create barbarians bail early
+	if (!kPlayer.isCreateBarbarians())
+		return false;
+
+	// If there are no other player civs in the area we don't want barbarians as they cost more than standard units
+	CvArea* pArea = area();
+	if (pArea->getNumCities() <= pArea->getCitiesPerPlayer(getOwnerINLINE()) + pArea->getCitiesPerPlayer(BARBARIAN_PLAYER))
+		return false;
+
+	// If we don't have ready gold then don't convert
+	int iSpareFreeBarbUnits = kPlayer.getBarbarianFreeUnits() - kPlayer.AI_getNumAIUnits(UNITAI_BARBARIAN);
+	if (kPlayer.AI_isFinancialTrouble() && iSpareFreeBarbUnits <= 0)
+		return false;
+
+	int iAreaEnemies = 0;
+	int iAreaNeutrals = 0;
+	for (PlayerTypes eLoopPlayer = (PlayerTypes)0; eLoopPlayer < MAX_CIV_PLAYERS; eLoopPlayer = (PlayerTypes)(eLoopPlayer + 1)) {
+		const CvPlayer& kLoopPlayer = GET_PLAYER(eLoopPlayer);
+		if (kLoopPlayer.isAlive()) {
+			TeamTypes eLoopTeam = kLoopPlayer.getTeam();
+			if (eLoopTeam != getTeam() && (pArea->getCitiesPerPlayer(eLoopPlayer) > 0) && GET_TEAM(getTeam()).isHasMet(eLoopTeam)) {
+				atWar(eLoopTeam, getTeam()) ? iAreaEnemies++ : iAreaNeutrals++;
+			}
+		}
+	}
+
+	// If we have some spare barb slots and civs to target then convert to grab some barb leaders.
+	if (iSpareFreeBarbUnits > 0 && iAreaEnemies + iAreaNeutrals > 0) {
+		getGroup()->pushMission(MISSION_BECOME_BARBARIAN);
+		return true;
+	}
+
+	// If we don't have any free slots then base the number of barbs on our city count, with more value to neutrals
+	// Remember that at this point iSpareFreeBarbUnits should be negative so we are effectively allowing 2 
+	int iBarbCityDiff = pArea->getCitiesPerPlayer(getOwnerINLINE()) + iSpareFreeBarbUnits;
+	if (iAreaNeutrals && iBarbCityDiff <= 3) {
+		getGroup()->pushMission(MISSION_BECOME_BARBARIAN);
+		return true;
+	} else if (iAreaEnemies && iBarbCityDiff <= 1) {
+		getGroup()->pushMission(MISSION_BECOME_BARBARIAN);
+		return true;
+	}
+
+	return false;
+
 }
 

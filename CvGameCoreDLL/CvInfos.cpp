@@ -5692,6 +5692,7 @@ CvCivicInfo::CvCivicInfo() :
 	m_bUnitTerritoryUnbound(false),
 	m_bEnableStarSigns(false),
 	m_bTribalConscription(false),
+	m_bCreateBarbarians(false),
 	m_piYieldModifier(NULL),
 	m_piCapitalYieldModifier(NULL),
 	m_piTradeYieldModifier(NULL),
@@ -5735,6 +5736,10 @@ CvCivicInfo::~CvCivicInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppiImprovementYieldChanges);
 	}
+}
+
+bool CvCivicInfo::isCreateBarbarians() const {
+	return m_bCreateBarbarians;
 }
 
 bool CvCivicInfo::isTribalConscription() const {
@@ -6129,6 +6134,7 @@ void CvCivicInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bUnitTerritoryUnbound);
 	stream->Read(&m_bEnableStarSigns);
 	stream->Read(&m_bTribalConscription);
+	stream->Read(&m_bCreateBarbarians);
 
 	// Arrays
 
@@ -6256,6 +6262,7 @@ void CvCivicInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bUnitTerritoryUnbound);
 	stream->Write(m_bEnableStarSigns);
 	stream->Write(m_bTribalConscription);
+	stream->Write(m_bCreateBarbarians);
 
 	// Arrays
 
@@ -6293,6 +6300,7 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "TechPrereq");
 	m_iTechPrereq = pXML->FindInInfoClass(szTextVal);
 
+	pXML->GetChildXmlValByName(&m_bCreateBarbarians, "bCreateBarbarians");
 	pXML->GetChildXmlValByName(&m_bEnableStarSigns, "bEnableStarSigns");
 	pXML->GetChildXmlValByName(&m_iStarSignMitigateChangePercent, "iStarSignMitigateChangePercent");
 	pXML->GetChildXmlValByName(&m_iStarSignScaleChangePercent, "iStarSignScaleChangePercent");

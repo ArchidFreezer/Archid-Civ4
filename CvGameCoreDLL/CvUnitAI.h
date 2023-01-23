@@ -119,6 +119,7 @@ protected:
 	void AI_gathererMove();
 	void AI_hunterMove();
 	void AI_barbarianLeaderMove();
+	void AI_barbarianMove();
 
 	int AI_promotionValue(PromotionTypes ePromotion);
 
@@ -255,6 +256,7 @@ protected:
 	bool AI_salvageAnimalRange(int iRange, int iOddsThreshold);
 	bool AI_reinforceMilitary();
 	bool AI_plunderCity();
+	bool AI_becomeBarbarian();
 
 	bool AI_defendPlot(CvPlot* pPlot);
 	int AI_pillageValue(CvPlot* pPlot, int iBonusValueThreshold = 0);

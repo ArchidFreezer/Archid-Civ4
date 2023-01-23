@@ -238,6 +238,7 @@ void CvPlayer::init(PlayerTypes eID, bool bInGame) {
 		changeFreeUnitsPopulationPercent(GC.getDefineINT("INITIAL_FREE_UNITS_POPULATION_PERCENT"));
 		changeFreeMilitaryUnitsPopulationPercent(GC.getDefineINT("INITIAL_FREE_MILITARY_UNITS_POPULATION_PERCENT"));
 		changeGoldPerUnit(GC.getDefineINT("INITIAL_GOLD_PER_UNIT"));
+		changeExtraGoldPerBarbarianUnit(GC.getDefineINT("INITIAL_EXTRA_GOLD_PER_BARBARIAN_UNIT"));
 		changeTradeRoutes(GC.getDefineINT("INITIAL_TRADE_ROUTES"));
 		changeStateReligionHappiness(GC.getDefineINT("INITIAL_STATE_RELIGION_HAPPINESS"));
 		changeNonStateReligionHappiness(GC.getDefineINT("INITIAL_NON_STATE_RELIGION_HAPPINESS"));
@@ -525,6 +526,9 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iBarbarianLeadersCreated = 0;
 	m_iBarbarianLeaderRateModifier = 0;
 	m_iBarbarianFreeUnits = 0;
+	m_iCreateBarbariansCount = 0;
+	m_iBarbarianConvertionCostModifier = 0;
+	m_iExtraGoldPerBarbarianUnit = 0;
 
 	m_uiStartTime = 0;
 
@@ -2007,6 +2011,10 @@ void CvPlayer::disbandUnit(bool bAnnounce) {
 
 						case UNITAI_SLAVER:
 							iValue *= 8;
+							break;
+
+						case UNITAI_BARBARIAN:
+							iValue *= AI()->AI_getNumAIUnits(UNITAI_BARBARIAN) <= getBarbarianFreeUnits() ? 100 : 2;
 							break;
 
 						case UNITAI_ATTACK:
@@ -5651,20 +5659,24 @@ int CvPlayer::calculateUnitCost(int& iFreeUnits, int& iFreeMilitaryUnits, int& i
 	iFreeUnits += getBaseFreeUnits();
 	iFreeUnits += ((getTotalPopulation() * getFreeUnitsPopulationPercent()) / 100);
 
-	iFreeMilitaryUnits = getBaseFreeMilitaryUnits() + getBarbarianFreeUnits();
+	iFreeMilitaryUnits = getBaseFreeMilitaryUnits();
 	iFreeMilitaryUnits += ((getTotalPopulation() * getFreeMilitaryUnitsPopulationPercent()) / 100);
+
+	int iFreeBarbarianUnits = getBarbarianFreeUnits();
 
 	iPaidUnits = std::max(0, getNumUnits() - iFreeUnits);
 	iPaidMilitaryUnits = std::max(0, getNumMilitaryUnits() - iFreeMilitaryUnits);
+	int iPaidBarbarianUnits = std::max(0, AI()->AI_getNumAIUnits(UNITAI_BARBARIAN) - iFreeBarbarianUnits);
 
 	// K-Mod. GoldPerUnit, etc, are now done as percentages.
 	// Also, "UnitCostPercent" handicap modifiers now apply directly to unit cost only, not military or extra cost.
 	// (iBaseUnitCost is no longer fed back to the caller. Only the modified cost is.)
 	iUnitCost = iPaidUnits * getGoldPerUnit() * getUnitCostMultiplier() / 10000;
 	iMilitaryCost = iPaidMilitaryUnits * getGoldPerMilitaryUnit() / 100;
+	int iBarbarianCost = iPaidBarbarianUnits * getExtraGoldPerBarbarianUnit();
 	iExtraCost = getExtraUnitCost() / 100;
 
-	int iSupport = iUnitCost + iMilitaryCost + iExtraCost;
+	int iSupport = iUnitCost + iMilitaryCost + iBarbarianCost + iExtraCost;
 
 	FAssert(iSupport >= 0);
 
@@ -13855,6 +13867,7 @@ void CvPlayer::processCivics(CivicTypes eCivic, int iChange) {
 	changeStarSignScalePercent(kCivic.getStarSignScaleChangePercent() * iChange);
 	changeCultureDefenceChange(kCivic.getCultureDefenceChange() * iChange);
 	changeTribalConscriptionCount(kCivic.isTribalConscription() ? iChange : 0);
+	changeCreateBarbariansCount(kCivic.isCreateBarbarians() ? iChange : 0);
 
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 		changeYieldRateModifier(eYield, kCivic.getYieldModifier(eYield) * iChange);
@@ -14051,6 +14064,9 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iBarbarianLeadersCreated);
 	pStream->Read(&m_iBarbarianLeaderRateModifier);
 	pStream->Read(&m_iBarbarianFreeUnits);
+	pStream->Read(&m_iCreateBarbariansCount);
+	pStream->Read(&m_iBarbarianConvertionCostModifier);
+	pStream->Read(&m_iExtraGoldPerBarbarianUnit);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14550,6 +14566,9 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iBarbarianLeadersCreated);
 	pStream->Write(m_iBarbarianLeaderRateModifier);
 	pStream->Write(m_iBarbarianFreeUnits);
+	pStream->Write(m_iCreateBarbariansCount);
+	pStream->Write(m_iBarbarianConvertionCostModifier);
+	pStream->Write(m_iExtraGoldPerBarbarianUnit);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -20326,3 +20345,36 @@ void CvPlayer::createNumUnits(UnitTypes eUnit, int iNumUnits, int iX, int iY) {
 		}
 	}
 }
+
+bool CvPlayer::isCreateBarbarians() const {
+	return m_iCreateBarbariansCount > 0;
+}
+
+void CvPlayer::changeCreateBarbariansCount(int iCount) {
+	m_iCreateBarbariansCount += iCount;
+	FAssert(m_iCreateBarbariansCount >= 0);
+}
+
+int CvPlayer::getBarbarianConvertionCostModifier() const {
+	return m_iBarbarianConvertionCostModifier;
+}
+
+void CvPlayer::changeBarbarianConvertionCostModifier(int iChange) {
+	m_iBarbarianConvertionCostModifier += iChange;
+}
+
+int CvPlayer::getExtraGoldPerBarbarianUnit() const {
+	return m_iExtraGoldPerBarbarianUnit;
+}
+
+
+void CvPlayer::changeExtraGoldPerBarbarianUnit(int iChange) {
+	if (iChange != 0) {
+		m_iExtraGoldPerBarbarianUnit = (m_iExtraGoldPerBarbarianUnit + iChange);
+
+		if (getID() == GC.getGameINLINE().getActivePlayer()) {
+			gDLL->getInterfaceIFace()->setDirty(GameData_DIRTY_BIT, true);
+		}
+	}
+}
+

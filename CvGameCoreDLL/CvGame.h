@@ -43,6 +43,10 @@ public:
 	void addSlaverUnitMeshGroup(UnitTypes eBaseUnit);
 	CvUnitMeshGroups* getSlaverUnitMeshGroup(UnitTypes eBaseUnit) const;
 
+	bool isBarbarianUnitMeshGroupExists(UnitTypes eBaseUnit) const;
+	void addBarbarianUnitMeshGroup(UnitTypes eBaseUnit);
+	CvUnitMeshGroups* getBarbarianUnitMeshGroup(UnitTypes eBaseUnit) const;
+
 	DllExport void setInitialItems();
 	DllExport void regenerateMap();
 
@@ -672,6 +676,7 @@ protected:
 	stdext::hash_map<VoteSourceTypes, ReligionTypes> m_mapVoteSourceReligions;
 	std::vector<EventTriggerTypes> m_aeInactiveTriggers;
 	std::map<UnitTypes, CvUnitMeshGroups*> m_mSlaverMeshes;
+	std::map<UnitTypes, CvUnitMeshGroups*> m_mBarbarianMeshes;
 
 	// CACHE: cache frequently used values
 	int		m_iShrineBuildingCount;

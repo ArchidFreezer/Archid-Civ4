@@ -891,6 +891,9 @@ public:
 	inline const CvString& getSLAVER_EARLY_UNIT_ART_DEF() { return m_szSLAVER_EARLY_UNIT_ART_DEF; }
 	inline const CvString& getSLAVER_MIDDLE_UNIT_ART_DEF() { return m_szSLAVER_MIDDLE_UNIT_ART_DEF; }
 	inline const CvString& getSLAVER_LATE_UNIT_ART_DEF() { return m_szSLAVER_LATE_UNIT_ART_DEF; }
+	inline const CvString& getBARBARIAN_EARLY_UNIT_ART_DEF() { return m_szBARBARIAN_EARLY_UNIT_ART_DEF; }
+	inline const CvString& getBARBARIAN_MIDDLE_UNIT_ART_DEF() { return m_szBARBARIAN_MIDDLE_UNIT_ART_DEF; }
+	inline const CvString& getBARBARIAN_LATE_UNIT_ART_DEF() { return m_szBARBARIAN_LATE_UNIT_ART_DEF; }
 
 	// more reliable versions of the 'gDLL->xxxKey' functions:
 	inline bool altKey() { return (GetKeyState(VK_MENU) & 0x8000); }
@@ -1442,6 +1445,9 @@ protected:
 	CvString m_szSLAVER_EARLY_UNIT_ART_DEF;
 	CvString m_szSLAVER_MIDDLE_UNIT_ART_DEF;
 	CvString m_szSLAVER_LATE_UNIT_ART_DEF;
+	CvString m_szBARBARIAN_EARLY_UNIT_ART_DEF;
+	CvString m_szBARBARIAN_MIDDLE_UNIT_ART_DEF;
+	CvString m_szBARBARIAN_LATE_UNIT_ART_DEF;
 
 	stdext::hash_map<std::string, bool> m_aIniOptsBool;
 	stdext::hash_map<std::string, int> m_aIniOptsInt;

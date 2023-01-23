@@ -29,6 +29,11 @@
 			<Description>TXT_KEY_UNITCOMBAT_ARMOR</Description>
 			<Button>Art/Interface/Buttons/Combat/combat_armour.dds</Button>
 		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Barbarian -->
+			<Type>UNITCOMBAT_BARBARIAN</Type>
+			<Description>TXT_KEY_UNITCOMBAT_BARBARIAN</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_barbarian.dds</Button>
+		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Gun -->
 			<Type>UNITCOMBAT_GUN</Type>
 			<Description>TXT_KEY_UNITCOMBAT_GUN</Description>

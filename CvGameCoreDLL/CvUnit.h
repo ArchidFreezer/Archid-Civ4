@@ -88,11 +88,18 @@ public:
 	void reset(int iID = 0, UnitTypes eUnit = NO_UNIT, PlayerTypes eOwner = NO_PLAYER, bool bConstructorCall = false);
 	void setupGraphical();
 
+	bool isSpecialistUnit() const;
+
 	// Barbarians
+	bool canBecomeBarbarian() const;
 	bool canIncreaseBarbarianUnitSupport(const CvPlot* pPlot, bool bTestVisible = false) const;
 	bool increaseBarbarianUnitSupport(int iFreeUnitsSupport);
+	bool isBarbarianConvert() const;
 	bool canPlunderCity(const CvPlot* pPlot) const;
 	bool plunderCity();
+	int becomeBarbarianCost() const;
+	void becomeBarbarian();
+	void setBarbarianGraphics();
 
 	int getSalvageModifier() const;
 	void changeSalvageModifier(int iChange);

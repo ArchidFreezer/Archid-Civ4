@@ -634,6 +634,19 @@
 		<DefineName>SLAVER_LATE_UNIT_ART_DEF</DefineName>
 		<DefineTextVal>ART_DEF_UNIT_SLAVER</DefineTextVal>
 	</Define>
+<!-- Barbarian unit art definition -->
+	<Define>
+		<DefineName>BARBARIAN_EARLY_UNIT_ART_DEF</DefineName>
+		<DefineTextVal>ART_DEF_UNIT_BARBARIAN_LEADER</DefineTextVal>
+	</Define>
+	<Define>
+		<DefineName>BARBARIAN_MIDDLE_UNIT_ART_DEF</DefineName>
+		<DefineTextVal>ART_DEF_UNIT_BARBARIAN_LEADER</DefineTextVal>
+	</Define>
+	<Define>
+		<DefineName>BARBARIAN_LATE_UNIT_ART_DEF</DefineName>
+		<DefineTextVal>ART_DEF_UNIT_BARBARIAN_LEADER</DefineTextVal>
+	</Define>
 <!-- Change the default starting era to match the expanded tech tree -->
 	<Define>
 		<DefineName>STANDARD_ERA</DefineName>
@@ -667,5 +680,13 @@
 	<Define>
 		<DefineName>MISSION_REINFORCE_MILITARY_FREE_SUPPORT</DefineName>
 		<iDefineIntVal>2</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>BASE_BARBARIAN_CONVERTION_COST</DefineName>
+		<iDefineIntVal>4</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>INITIAL_EXTRA_GOLD_PER_BARBARIAN_UNIT</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
 	</Define>
 </Civ4Defines>

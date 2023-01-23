@@ -103,6 +103,7 @@
 			<Civilopedia>TXT_KEY_CIVIC_BARBARISM_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_CIVIC_BARBARISM_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Barbarism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,1,1</Button>
+			<bCreateBarbarians>1</bCreateBarbarians>
 			<Upkeep>UPKEEP_LOW</Upkeep>
 			<iDistanceMaintenanceModifier>25</iDistanceMaintenanceModifier>
 			<WeLoveTheKing/>

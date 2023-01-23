@@ -172,4 +172,14 @@
 		<Tag>TXT_KEY_MISSION_PLUNDER_CITY_HELP</Tag>
 		<English>This will order the [COLOR_UNIT_TEXT]Barbarian Leader[COLOR_REVERT] to plunder the city. Barbarians will sabotage [ICON_FOOD], [ICON_PRODUCTION] and steal [ICON_GOLD] for you. Citizens may be [COLOR_HIGHLIGHT_TEXT]enslaved[COLOR_REVERT] and the city's [ICON_CULTURE] will decrease.</English>
 	</TEXT>
+<!-- Become Barbarian -->
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_BECOME_BARBARIAN</Tag>
+		<English>Become Barbarian</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_BECOME_BARBARIAN_HELP</Tag>
+		<English>Order the selected unit to convert to a barbarian unit. This changes the default AI and cannot be reversed.</English>
+	</TEXT>
+
 </Civ4GameText>

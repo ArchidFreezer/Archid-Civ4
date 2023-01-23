@@ -38,6 +38,8 @@ public:
 
 	bool isCivSettled() const;
 	bool isTribalConscription() const;
+	bool isCreateBarbarians() const;
+	void changeCreateBarbariansCount(int iCount);
 	void changeTribalConscriptionCount(int iChange);
 
 	int getCultureDefenceChange() const;
@@ -46,12 +48,15 @@ public:
 	void changeCultureDefenceModifier(int iChange);
 
 	int barbarianExperienceThreshold(bool bMilitary = false) const;
+	int getBarbarianConvertionCostModifier() const;
 	int getBarbarianExperience() const;
 	int getBarbrianFractionalExperience() const;
 	int getBarbarianExperienceThresholdModifier() const;
 	int getBarbarianFreeUnits() const;
 	int getBarbarianLeadersCreated() const;
 	int getBarbarianLeaderRateModifier() const;
+	int getExtraGoldPerBarbarianUnit() const;
+	void changeBarbarianConvertionCostModifier(int iChange);
 	void changeBarbarianExperience(int iChange);
 	void changeBarbarianFractionalExperience(int iChange);
 	void changeBarbarianExperienceThresholdModifier(int iChange);
@@ -59,6 +64,7 @@ public:
 	void changeBarbarianLeadersCreated(int iChange);
 	void changeBarbarianLeaderRateModifier(int iChange);
 	void createBarbarianLeader(UnitTypes eBarbarianLeaderUnit, bool bIncrementBarbarianExperience, int iX, int iY);
+	void changeExtraGoldPerBarbarianUnit(int iChange);
 	void createNumUnits(UnitTypes eUnit, int iNumUnits, int iX, int iY);
 	void setBarbarianExperience(int iExperience);
 
@@ -1336,6 +1342,9 @@ protected:
 	int m_iBarbarianLeadersCreated;
 	int m_iBarbarianLeaderRateModifier;
 	int m_iBarbarianFreeUnits;
+	int m_iCreateBarbariansCount;
+	int m_iBarbarianConvertionCostModifier;
+	int m_iExtraGoldPerBarbarianUnit;
 
 	uint m_uiStartTime;  // XXX save these?
 

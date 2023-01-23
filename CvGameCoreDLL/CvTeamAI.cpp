@@ -4575,6 +4575,7 @@ int CvTeamAI::AI_getTechMonopolyValue(TechTypes eTech, TeamTypes eTeam) const {
 					case UNITAI_COUNTER:
 					case UNITAI_PARADROP:
 					case UNITAI_SLAVER:
+					case UNITAI_BARBARIAN:
 					case UNITAI_CITY_DEFENSE:
 					case UNITAI_CITY_COUNTER:
 					case UNITAI_CITY_SPECIAL:

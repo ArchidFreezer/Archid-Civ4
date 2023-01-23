@@ -359,6 +359,7 @@ void CvGame::uninit() {
 	m_mapVoteSourceReligions.clear();
 	m_aeInactiveTriggers.clear();
 	m_mSlaverMeshes.clear();
+	m_mBarbarianMeshes.clear();
 }
 
 
@@ -6570,6 +6571,19 @@ void CvGame::read(FDataStreamBase* pStream) {
 		}
 	}
 
+	{
+		int iSize;
+		m_mBarbarianMeshes.clear();
+		pStream->Read(&iSize);
+		for (int i = 0; i < iSize; ++i) {
+			UnitTypes eUnitType;
+			pStream->Read((int*)&eUnitType);
+			CvUnitMeshGroups* kUnitMeshGroup = new CvUnitMeshGroups;
+			kUnitMeshGroup->read(pStream);
+			m_mBarbarianMeshes.insert(std::make_pair(eUnitType, kUnitMeshGroup));
+		}
+	}
+
 	// Get the active player information from the initialization structure
 	if (!isGameMultiPlayer()) {
 		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
@@ -6734,6 +6748,12 @@ void CvGame::write(FDataStreamBase* pStream) {
 
 	pStream->Write(m_mSlaverMeshes.size());
 	for (std::map<UnitTypes, CvUnitMeshGroups*>::iterator it = m_mSlaverMeshes.begin(); it != m_mSlaverMeshes.end(); ++it) {
+		pStream->Write(it->first);
+		((*it).second)->write(pStream);
+	}
+
+	pStream->Write(m_mBarbarianMeshes.size());
+	for (std::map<UnitTypes, CvUnitMeshGroups*>::iterator it = m_mBarbarianMeshes.begin(); it != m_mBarbarianMeshes.end(); ++it) {
 		pStream->Write(it->first);
 		((*it).second)->write(pStream);
 	}
@@ -7759,6 +7779,29 @@ void CvGame::addSlaverUnitMeshGroup(UnitTypes eBaseUnit) {
 CvUnitMeshGroups* CvGame::getSlaverUnitMeshGroup(UnitTypes eBaseUnit) const {
 	std::map<UnitTypes, CvUnitMeshGroups*>::const_iterator it = m_mSlaverMeshes.find(eBaseUnit);
 	if (it != m_mSlaverMeshes.end())
+		return it->second;
+	else
+		return NULL;
+}
+
+bool CvGame::isBarbarianUnitMeshGroupExists(UnitTypes eBaseUnit) const {
+	std::map<UnitTypes, CvUnitMeshGroups*>::const_iterator it = m_mBarbarianMeshes.find(eBaseUnit);
+	return it != m_mBarbarianMeshes.end();
+}
+
+void CvGame::addBarbarianUnitMeshGroup(UnitTypes eBaseUnit) {
+	if (isBarbarianUnitMeshGroupExists(eBaseUnit))
+		return;
+
+	CvUnitMeshGroups* pUnitMesh = new CvUnitMeshGroups;
+	pUnitMesh->init(eBaseUnit);
+	pUnitMesh->addGroup(0, 1, GC.getBARBARIAN_EARLY_UNIT_ART_DEF(), GC.getBARBARIAN_MIDDLE_UNIT_ART_DEF(), GC.getBARBARIAN_LATE_UNIT_ART_DEF());
+	m_mBarbarianMeshes.insert(std::make_pair(eBaseUnit, pUnitMesh));
+}
+
+CvUnitMeshGroups* CvGame::getBarbarianUnitMeshGroup(UnitTypes eBaseUnit) const {
+	std::map<UnitTypes, CvUnitMeshGroups*>::const_iterator it = m_mBarbarianMeshes.find(eBaseUnit);
+	if (it != m_mBarbarianMeshes.end())
 		return it->second;
 	else
 		return NULL;

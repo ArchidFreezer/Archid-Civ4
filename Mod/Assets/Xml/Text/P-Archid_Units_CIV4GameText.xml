@@ -8,6 +8,10 @@
 		<Tag>TXT_KEY_UNITCOMBAT_ANIMAL</Tag>
 		<English>Animal Units</English>
 	</TEXT>
+	<TEXT> <!-- Barbarian Units -->
+		<Tag>TXT_KEY_UNITCOMBAT_BARBARIAN</Tag>
+		<English>Barbarian Units</English>
+	</TEXT>
 	<TEXT> <!-- Espionage Units -->
 		<Tag>TXT_KEY_UNITCOMBAT_SPY</Tag>
 		<English>Espionage Units</English>

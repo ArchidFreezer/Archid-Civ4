@@ -457,7 +457,6 @@ void CvUnit::setupGraphical() {
 	}
 }
 
-
 // We are a new unit ready to convert ourselves from pUnit
 void CvUnit::convert(CvUnit* pUnit) {
 	CvPlot* pPlot = plot();
@@ -1117,10 +1116,6 @@ void CvUnit::resolveCombat(CvUnit* pDefender, CvPlot* pPlot, bool bVisible) {
 
 	collateralCombat(pPlot, pDefender);
 
-	// Gain Barbarian Leader points rather than Great General if the winner is not a barbarian civ, but using a barbarian type unit
-	bool bAttBarbXp = !isBarbarian() && getUnitInfo().isHiddenNationality() && getUnitInfo().isAlwaysHostile();
-	bool bDefBarbXp = !pDefender->isBarbarian() && pDefender->isHiddenNationality() && pDefender->isAlwaysHostile();
-
 	while (true) {
 		if (GC.getGameINLINE().getSorenRandNum(GC.getCOMBAT_DIE_SIDES(), "Combat") < iDefenderOdds) {
 			// Defender won a round
@@ -1129,7 +1124,7 @@ void CvUnit::resolveCombat(CvUnit* pDefender, CvPlot* pPlot, bool bVisible) {
 				if (getDamage() + iAttackerDamage >= maxHitPoints() && GC.getGameINLINE().getSorenRandNum(100, "Withdrawal") < withdrawalProbability()) {
 					combatData.bAttackerWithdrawn = true;
 					flankingStrikeCombat(pPlot, iAttackerStrength, iAttackerFirepower, iAttackerKillOdds, iDefenderDamage, pDefender);
-					changeExperience(GC.getDefineINT("EXPERIENCE_FROM_WITHDRAWL"), pDefender->maxXPValue(), true, pPlot->getOwnerINLINE() == getOwnerINLINE(), !pDefender->isBarbarian(), bDefBarbXp);
+					changeExperience(GC.getDefineINT("EXPERIENCE_FROM_WITHDRAWL"), pDefender->maxXPValue(), true, pPlot->getOwnerINLINE() == getOwnerINLINE(), !pDefender->isBarbarian(), pDefender->isBarbarianConvert());
 					combat_log.push_back(0); // K-Mod
 					break;
 				}
@@ -1161,7 +1156,7 @@ void CvUnit::resolveCombat(CvUnit* pDefender, CvPlot* pPlot, bool bVisible) {
 			if (pDefender->getCombatFirstStrikes() == 0) {
 				// Combat limit
 				if (std::min(GC.getMAX_HIT_POINTS(), pDefender->getDamage() + iDefenderDamage) > combatLimit()) {
-					changeExperience(GC.getDefineINT("EXPERIENCE_FROM_WITHDRAWL"), pDefender->maxXPValue(), true, pPlot->getOwnerINLINE() == getOwnerINLINE(), !pDefender->isBarbarian(), bAttBarbXp);
+					changeExperience(GC.getDefineINT("EXPERIENCE_FROM_WITHDRAWL"), pDefender->maxXPValue(), true, pPlot->getOwnerINLINE() == getOwnerINLINE(), !pDefender->isBarbarian(), isBarbarianConvert());
 					combat_log.push_back(combatLimit() - pDefender->getDamage()); // K-Mod
 					pDefender->setDamage(combatLimit(), getOwnerINLINE());
 					break;
@@ -1200,14 +1195,14 @@ void CvUnit::resolveCombat(CvUnit* pDefender, CvPlot* pPlot, bool bVisible) {
 				int iExperience = defenseXPValue();
 				iExperience = ((iExperience * iAttackerStrength) / iDefenderStrength);
 				iExperience = range(iExperience, GC.getDefineINT("MIN_EXPERIENCE_PER_COMBAT"), GC.getDefineINT("MAX_EXPERIENCE_PER_COMBAT"));
-				pDefender->changeExperience(iExperience, maxXPValue(), true, pPlot->getOwnerINLINE() == pDefender->getOwnerINLINE(), !isBarbarian(), bDefBarbXp);
+				pDefender->changeExperience(iExperience, maxXPValue(), true, pPlot->getOwnerINLINE() == pDefender->getOwnerINLINE(), !isBarbarian(), pDefender->isBarbarianConvert());
 			} else { //defender died
 				flankingStrikeCombat(pPlot, iAttackerStrength, iAttackerFirepower, iAttackerKillOdds, iDefenderDamage, pDefender);
 
 				int iExperience = pDefender->attackXPValue();
 				iExperience = ((iExperience * iDefenderStrength) / iAttackerStrength);
 				iExperience = range(iExperience, GC.getDefineINT("MIN_EXPERIENCE_PER_COMBAT"), GC.getDefineINT("MAX_EXPERIENCE_PER_COMBAT"));
-				changeExperience(iExperience, pDefender->maxXPValue(), true, pPlot->getOwnerINLINE() == getOwnerINLINE(), !pDefender->isBarbarian(), bAttBarbXp);
+				changeExperience(iExperience, pDefender->maxXPValue(), true, pPlot->getOwnerINLINE() == getOwnerINLINE(), !pDefender->isBarbarian(), isBarbarianConvert());
 			}
 
 			break;
@@ -6709,6 +6704,7 @@ BuildTypes CvUnit::getBuildType() const {
 		case MISSION_SHADOW:
 		case MISSION_WAIT_FOR_TECH:
 		case MISSION_BECOME_SLAVER:
+		case MISSION_BECOME_BARBARIAN:
 			break;
 
 		case MISSION_BUILD:
@@ -13249,6 +13245,10 @@ void CvUnit::becomeSlaver() {
 }
 
 bool CvUnit::canBecomeSlaver() const {
+
+	if (isSpecialistUnit())
+		return false;
+
 	if (!GET_PLAYER(getOwnerINLINE()).isWorldViewActivated(WORLD_VIEW_SLAVERY))
 		return false;
 
@@ -13508,3 +13508,60 @@ bool CvUnit::plunderCity() {
 
 	return true;
 }
+
+int CvUnit::becomeBarbarianCost() const {
+	int iCost = GC.getDefineINT("BASE_BARBARIAN_CONVERTION_COST") * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getTrainPercent() / 100;
+
+	iCost *= GET_PLAYER(getOwnerINLINE()).getBarbarianConvertionCostModifier() + 100;
+	iCost /= 100;
+
+	return iCost;
+}
+
+bool CvUnit::canBecomeBarbarian() const {
+
+	if (isSpecialistUnit())
+		return false;
+
+	const CvPlayer& kOwner = GET_PLAYER(getOwnerINLINE());
+	if (!kOwner.isCreateBarbarians())
+		return false;
+
+	if (kOwner.getGold() < becomeBarbarianCost())
+		return false;
+
+	return true;
+}
+
+void CvUnit::becomeBarbarian() {
+
+	if (!canBecomeBarbarian())
+		return;
+
+	setName(gDLL->getText("TXT_KEY_BARBARIAN_RENAME", getName().GetCString()));
+	setUnitCombatType((UnitCombatTypes)GC.getInfoTypeForString("UNITCOMBAT_BARBARIAN", true));
+	AI_setUnitAIType(UNITAI_BARBARIAN);
+	setFixedAI(true);
+	setHiddenNationality(true);
+	setAlwaysHostile(true);
+	setBarbarianGraphics();
+	reloadEntity();
+
+	GET_PLAYER(getOwnerINLINE()).changeGold(-becomeBarbarianCost());
+}
+
+void CvUnit::setBarbarianGraphics() {
+	if (!GC.getGameINLINE().isBarbarianUnitMeshGroupExists(getUnitType())) {
+		GC.getGameINLINE().addBarbarianUnitMeshGroup(getUnitType());
+	}
+	m_pCustomUnitMeshGroup = GC.getGameINLINE().getBarbarianUnitMeshGroup(getUnitType());
+}
+
+bool CvUnit::isBarbarianConvert() const {
+	return isUnitCombatType((UnitCombatTypes)GC.getInfoTypeForString("UNITCOMBAT_BARBARIAN", true));
+}
+
+bool CvUnit::isSpecialistUnit() const {
+	return isSpy() || isSlaver() || isBarbarianConvert();
+}
+

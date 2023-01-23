@@ -1362,6 +1362,7 @@ DomainTypes CvPlayerAI::AI_unitAIDomainType(UnitAITypes eUnitAI) const {
 	case UNITAI_GATHERER:
 	case UNITAI_HUNTER:
 	case UNITAI_BARBARIAN_LEADER:
+	case UNITAI_BARBARIAN:
 		return DOMAIN_LAND;
 		break;
 
@@ -5101,6 +5102,13 @@ int CvPlayerAI::AI_techUnitValue(TechTypes eTech, int iPathLength, bool& bEnable
 					iTotalUnitValue += 1 * iWeight;
 					break;
 
+				case UNITAI_BARBARIAN:
+					// Barbarians have utility in peace
+					iOffenceValue = std::max(iOffenceValue, (bWarPlan ? 7 : 4) * iWeight + (AI_isDoStrategy(AI_STRATEGY_DAGGER) ? 5 * iWeight : 0));
+					iUtilityValue = std::max(iUtilityValue, (bCapitalAlone ? 0 : 4) * iWeight);
+					iTotalUnitValue += 1 * iWeight;
+					break;
+
 				case UNITAI_ATTACK:
 					iOffenceValue = std::max(iOffenceValue, (bWarPlan ? 7 : 4) * iWeight + (AI_isDoStrategy(AI_STRATEGY_DAGGER) ? 5 * iWeight : 0));
 					iMilitaryValue += (bWarPlan ? 3 : 1) * iWeight;
@@ -8756,7 +8764,8 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			break;
 
 		case UNITAI_ATTACK_CITY_LEMMING:
-		case UNITAI_SLAVER:
+		case UNITAI_SLAVER: // we can't build these directly so no value here
+		case UNITAI_BARBARIAN:
 			bValid = false;
 			break;
 
@@ -18321,6 +18330,7 @@ int CvPlayerAI::AI_disbandValue(const CvUnit* pUnit, bool bMilitaryOnly) const {
 		break;
 
 	case UNITAI_ATTACK:
+	case UNITAI_BARBARIAN:
 	case UNITAI_COUNTER:
 		iValue *= 4;
 		break;

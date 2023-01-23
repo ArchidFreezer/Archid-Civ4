@@ -558,6 +558,7 @@ CvPlot* CvSelectionGroup::lastMissionPlot() {
 		case MISSION_BECOME_SLAVER:
 		case MISSION_FREE_UNIT_SUPPORT:
 		case MISSION_PLUNDER_CITY:
+		case MISSION_BECOME_BARBARIAN:
 			break;
 
 		default:
@@ -730,6 +731,7 @@ void CvSelectionGroup::startMission() {
 		case MISSION_BECOME_SLAVER:
 		case MISSION_FREE_UNIT_SUPPORT:
 		case MISSION_PLUNDER_CITY:
+		case MISSION_BECOME_BARBARIAN:
 			break;
 
 		case MISSION_WAIT_FOR_TECH:
@@ -1059,6 +1061,10 @@ void CvSelectionGroup::startMission() {
 					}
 					break;
 
+				case MISSION_BECOME_BARBARIAN:
+					pLoopUnit->becomeBarbarian();
+					break;
+
 				case MISSION_DIE_ANIMATION:
 					bAction = true;
 					break;
@@ -1296,6 +1302,7 @@ bool CvSelectionGroup::continueMission_bulk(int iSteps) {
 				case MISSION_BECOME_SLAVER:
 				case MISSION_FREE_UNIT_SUPPORT:
 				case MISSION_PLUNDER_CITY:
+				case MISSION_BECOME_BARBARIAN:
 					break;
 
 				case MISSION_BUILD:
@@ -1385,6 +1392,7 @@ bool CvSelectionGroup::continueMission_bulk(int iSteps) {
 			case MISSION_BECOME_SLAVER:
 			case MISSION_FREE_UNIT_SUPPORT:
 			case MISSION_PLUNDER_CITY:
+			case MISSION_BECOME_BARBARIAN:
 				bDone = true;
 				break;
 
@@ -3360,6 +3368,11 @@ bool CvSelectionGroup::canDoMission(int iMission, int iData1, int iData2, CvPlot
 				return true;
 
 			if (pLoopUnit->canPlunderCity(pPlot))
+				return true;
+			break;
+
+		case MISSION_BECOME_BARBARIAN:
+			if (pLoopUnit->canBecomeBarbarian())
 				return true;
 			break;
 
