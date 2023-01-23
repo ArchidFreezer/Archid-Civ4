@@ -11643,7 +11643,7 @@ int CvUnit::getRange() const {
 		break;
 	case UNITRANGE_RANGE:
 		// Get the base range of the unit scaled to the world size
-		iRange = (GC.getINITIAL_UNIT_RANGE() + kOwner.getExtraRange() + getExtraRange()) * (GC.getMapINLINE().getWorldSize() + 1);
+		iRange = GC.getINITIAL_UNIT_RANGE() + kOwner.getExtraRange() + getExtraRange() + (GC.getMapINLINE().getWorldSize() * 2);
 		// Apply any percentage modifiers
 		iRange *= (100 + kOwner.getExtraRangeModifier() + getExtraRangeModifier());
 		iRange /= 100;

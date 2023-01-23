@@ -311,7 +311,7 @@
 <!-- Limited unit range -->
 	<Define>
 		<DefineName>INITIAL_UNIT_RANGE</DefineName>
-		<iDefineIntVal>2</iDefineIntVal>
+		<iDefineIntVal>4</iDefineIntVal>
 	</Define>
 <!-- Animals keep spawning -->
 	<Define>
