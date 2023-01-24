@@ -17350,7 +17350,7 @@ bool CvEraInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bFirstSoundtrackFirst, "bFirstSoundtrackFirst");
 	pXML->GetChildXmlValByName(m_szAudioUnitVictoryScript, "AudioUnitVictoryScript");
 	pXML->GetChildXmlValByName(m_szAudioUnitDefeatScript, "AudioUnitDefeatScript");
-	pXML->SetList(&m_piNaturalYieldLimit, "NaturalYieldLimit", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piNaturalYieldLimit, "NaturalYieldLimit", NUM_YIELD_TYPES, -1);
 
 	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "EraInfoSoundtracks")) {
 		CvString* pszSoundTrackNames = NULL;
