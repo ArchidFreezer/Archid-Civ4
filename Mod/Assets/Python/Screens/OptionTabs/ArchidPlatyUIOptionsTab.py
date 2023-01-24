@@ -18,12 +18,21 @@ class ArchidPlatyUIOptionsTab(BugOptionsTab.BugOptionsTab):
 		tab = self.createTab(screen)
 		panel = self.createMainPanel(screen)
 		column = self.addOneColumnLayout(screen, panel)
-
-		self.addCheckbox(screen, column, "PlatyUI__GPBar")
-		self.addCheckbox(screen, column, "PlatyUI__Colours")
-		self.addCheckbox(screen, column, "PlatyUI__Panels")
-		self.addCheckbox(screen, column, "PlatyUI__Build")
-		self.addCheckbox(screen, column, "PlatyUI__Movie")
+		
+		self.createTopPanel(screen, column)
 		self.addSpacer(screen, column, "PlatyUI_Tab1")
-		leftL, leftR =  self.addTwoColumnLayout(screen, column, "PlatyUI")
-		self.addTextDropdown(screen, leftL, leftR, "PlatyUI__Background")
+		self.createFooterPanel(screen, column)
+
+	def createTopPanel(self, screen, panel):
+		left, right = self.addTwoColumnLayout(screen, panel, "Header", True)
+		self.addCheckbox(screen, left, "PlatyUI__Colours")
+		self.addCheckbox(screen, left, "PlatyUI__Panels")
+		self.addCheckbox(screen, left, "PlatyUI__Build")
+		self.addCheckbox(screen, left, "PlatyUI__Movie")
+		self.addTextEdit(screen, right, right, "PlatyUI__GPBar")
+		self.addTextEdit(screen, right, right, "PlatyUI__GGBar")
+		self.addTextEdit(screen, right, right, "PlatyUI__BLBar")
+		
+	def createFooterPanel(self, screen, panel):
+		footerL, footerR =  self.addTwoColumnLayout(screen, panel, "PlatyUI")
+		self.addTextDropdown(screen, footerL, footerR, "PlatyUI__Background")

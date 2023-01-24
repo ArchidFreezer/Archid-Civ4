@@ -37,6 +37,12 @@
 	<symbol id="ss thruster"/>
 	<symbol id="citizen" from="POWER" offset="1"/>
 	<symbol id="greatgeneral" name="GREAT_GENERAL"/>
+	<symbol id="airport" name="AIRPORT"/>
+	<symbol id="rangebound" name="RANGE_BOUND"/>
+	<symbol id="territorybound" name="TERRITORY_BOUND"/>
+	<symbol id="homebound" name="HOME_BOUND"/>
+	<symbol id="immobile" name="IMMOBILE"/>
+	<symbol id="barbarianleader" name="BARBARIAN_LEADER"/>
 
 	<init module="ColorUtil">
 		<!--

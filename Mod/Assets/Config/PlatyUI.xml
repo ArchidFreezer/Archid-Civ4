@@ -14,7 +14,9 @@
 
 	<options id="PlatyUI" file="PlatyUI.ini">
 		<section id="Platy UI">
-			<option id="GPBar" type="boolean" default="True"/>
+			<option id="GPBar" type="int" default="60"/>
+			<option id="GGBar" type="int" default="20"/>
+			<option id="BLBar" type="int" default="20"/>
 			<option id="Colours" type="boolean" default="False"/>
 			<option id="Panels" type="boolean" default="False"/>
 			<option id="Build" type="boolean" default="False"/>

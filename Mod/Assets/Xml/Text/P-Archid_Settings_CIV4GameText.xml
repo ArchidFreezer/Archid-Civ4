@@ -1374,7 +1374,23 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_ARCHID_OPT_PLATYUI__GPBAR_HOVER</Tag>
-		<English>Display a bar showing the GP most likely to be created next and their progress</English>
+		<English>Relative width of bar showing the GP most likely to be created next and their progress; 0 for hide</English>
+	</TEXT>
+	<TEXT> <!-- PlatyUI__GGBar -->
+		<Tag>TXT_KEY_ARCHID_OPT_PLATYUI__GGBAR_TEXT</Tag>
+		<English>Great General Bar</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_PLATYUI__GGBAR_HOVER</Tag>
+		<English>Relative width of bar showing the Great General point progress; 0 for hide</English>
+	</TEXT>
+	<TEXT> <!-- PlatyUI__BLBar -->
+		<Tag>TXT_KEY_ARCHID_OPT_PLATYUI__BLBAR_TEXT</Tag>
+		<English>Barbarian Leader Bar</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARCHID_OPT_PLATYUI__BLBAR_HOVER</Tag>
+		<English>Relative width of bar showing the Barbarian Leader point progress; 0 for hide</English>
 	</TEXT>
 	<TEXT> <!-- PlatyUI__Movie -->
 		<Tag>TXT_KEY_ARCHID_OPT_PLATYUI__MOVIE_TEXT</Tag>

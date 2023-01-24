@@ -1883,3 +1883,12 @@ bool CyPlayer::canCaptureCities() {
 bool CyPlayer::isDoNotBotherStatus(int /*PlayerTypes*/ playerID) {
 	return m_pPlayer ? m_pPlayer->isDoNotBotherStatus((PlayerTypes)playerID) : false;
 }
+
+int CyPlayer::getBarbarianExperience() {
+	return m_pPlayer ? m_pPlayer->getBarbarianExperience() : 0;
+}
+
+int CyPlayer::getBarbarianExperienceThreshold() {
+	return m_pPlayer ? m_pPlayer->getBarbarianExperienceThreshold() : 0;
+}
+

@@ -32,6 +32,9 @@ void CyPlayerPythonInterface1(python::class_<CyPlayer>& x) {
 		.def("acquireCity", &CyPlayer::acquireCity, "void (CyCity* pCity, bool bConquest, bool bTrade)")
 		.def("killCities", &CyPlayer::killCities, "void ()")
 
+		.def("getBarbarianExperience", &CyPlayer::getBarbarianExperience, "int ()")
+		.def("getBarbarianExperienceThreshold", &CyPlayer::getBarbarianExperienceThreshold, "int ()")
+
 		.def("getNewCityName", &CyPlayer::getNewCityName, "wstring ()")
 
 		.def("initUnit", &CyPlayer::initUnit, python::return_value_policy<python::manage_new_object>(), "CyUnit* initUnit(UnitTypes iIndex, plotX, plotY, UnitAITypes iIndex)  - place Unit at X,Y   NOTE: Always use UnitAITypes.NO_UNITAI")

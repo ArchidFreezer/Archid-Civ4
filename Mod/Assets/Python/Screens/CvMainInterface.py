@@ -6,6 +6,7 @@ import CvEventInterface
 import time
 import BugCore
 import BugOptions
+import FontUtil
 
 ## Ultrapack ##
 import WorldTracker
@@ -1381,31 +1382,49 @@ class CvMainInterface:
 					screen.setButtonGFC("IncreaseFOV", u"", "", xResolution - 58, 58, 20, 20, WidgetTypes.WIDGET_PYTHON, 7000, 1, ButtonStyles.BUTTON_STYLE_CITY_MINUS)
 					screen.addDDSGFC("FOVText", ArtFileMgr.getInterfaceArtInfo("INTERFACE_TECH_LOS").getPath(), xResolution - 38, 59, 18, 18, WidgetTypes.WIDGET_GENERAL, -1, -1)
 					screen.setButtonGFC("DecreaseFOV", u"", "", xResolution - 20, 58, 20, 20, WidgetTypes.WIDGET_PYTHON, 7000, -1, ButtonStyles.BUTTON_STYLE_CITY_PLUS)
-## Great People Bar ##
-					if PlatyUIOpts.GPBar:
-						iMinTurns = 99999
-						iCityID = -1
-						(loopCity, iter) = pPlayer.firstCity(False)
-						while(loopCity):
-							iRate = loopCity.getGreatPeopleRate()
-							if iRate > 0:
-								iTurns = (pPlayer.greatPeopleThreshold(false) - loopCity.getGreatPeopleProgress() + iRate - 1) / iRate
-								if iTurns < iMinTurns:
-									iMinTurns = iTurns
-									iCityID = loopCity.getID()
-							(loopCity, iter) = pPlayer.nextCity(iter, False)
+## Great People Bars ##
+					if (PlatyUIOpts.GPBar.getValue() > 0 or PlatyUIOpts.GGBar.getValue() > 0 or PlatyUIOpts.BLBar.getValue() > 0):
+						# We need to work out which bars will be shown to determine the length of each of them
+						iNumBars = 0
+						iMaxRelWidth = 0
+						iCityID = -1 # Used to determine if we have any GP points
+						if PlatyUIOpts.GPBar.getValue() > 0:
+							iMinTurns = 99999
+							(loopCity, iter) = pPlayer.firstCity(False)
+							while(loopCity):
+								iRate = loopCity.getGreatPeopleRate()
+								if iRate > 0:
+									iTurns = (pPlayer.greatPeopleThreshold(false) - loopCity.getGreatPeopleProgress() + iRate - 1) / iRate
+									if iTurns < iMinTurns:
+										iMinTurns = iTurns
+										iCityID = loopCity.getID()
+								(loopCity, iter) = pPlayer.nextCity(iter, False)
+							if iCityID > -1:
+								iMaxRelWidth += PlatyUIOpts.GPBar.getValue()
+								iNumBars += 1
+						if (PlatyUIOpts.GGBar.getValue() > 0 and pPlayer.getCombatExperience() > 0):
+							iMaxRelWidth += PlatyUIOpts.GGBar.getValue()
+							iNumBars += 1
+						if (PlatyUIOpts.BLBar.getValue() > 0 and pPlayer.getBarbarianExperience() > 0):
+							iMaxRelWidth += PlatyUIOpts.BLBar.getValue()
+							iNumBars += 1
+						iConcatBarWidth = iBarWidth - (4*(iNumBars-1)) # Combined width of all the bars
+						iStartX = xResolution /2 - iBarWidth /2
+						
+						# Great Person Bar
 						if iCityID > -1:
+							iGPWidth = iConcatBarWidth * PlatyUIOpts.GPBar.getValue() // iMaxRelWidth
 							pCity = pPlayer.getCity(iCityID)
-							screen.addStackedBarGFC( "MainGPBar", xResolution /2 - iBarWidth /2 + 32, 3 + 24, iBarWidth - 36, iStackBarHeight, InfoBarTypes.NUM_INFOBAR_TYPES, WidgetTypes.WIDGET_PYTHON, 7200 + ePlayer, iCityID)
+							screen.addStackedBarGFC( "MainGPBar", iStartX + 32, 3 + 24, iGPWidth - 32, iStackBarHeight, InfoBarTypes.NUM_INFOBAR_TYPES, WidgetTypes.WIDGET_PYTHON, 7200 + ePlayer, iCityID)
 							screen.setStackedBarColors( "MainGPBar", InfoBarTypes.INFOBAR_STORED, gc.getInfoTypeForString("COLOR_GREAT_PEOPLE_STORED") )
 							screen.setStackedBarColors( "MainGPBar", InfoBarTypes.INFOBAR_RATE, gc.getInfoTypeForString("COLOR_GREAT_PEOPLE_RATE") )
 							screen.setStackedBarColors( "MainGPBar", InfoBarTypes.INFOBAR_RATE_EXTRA, gc.getInfoTypeForString("COLOR_EMPTY") )
 							screen.setStackedBarColors( "MainGPBar", InfoBarTypes.INFOBAR_EMPTY, gc.getInfoTypeForString("COLOR_EMPTY") )
 
-							fGreatProgress = float(pCity.getGreatPeopleProgress()) / pPlayer.greatPeopleThreshold(false)
-							screen.setBarPercentage( "MainGPBar", InfoBarTypes.INFOBAR_STORED, fGreatProgress)
+							fGPProgress = float(pCity.getGreatPeopleProgress()) / pPlayer.greatPeopleThreshold(false)
+							screen.setBarPercentage( "MainGPBar", InfoBarTypes.INFOBAR_STORED, fGPProgress)
 							screen.setBarPercentage( "MainGPBar", InfoBarTypes.INFOBAR_RATE, 0.0)
-							if fGreatProgress < 1:
+							if fGPProgress < 1:
 								screen.setBarPercentage( "MainGPBar", InfoBarTypes.INFOBAR_RATE, ( float(pCity.getGreatPeopleRate()) / (pPlayer.greatPeopleThreshold(false) - pCity.getGreatPeopleProgress())))
 
 							iGreatUnit = -1
@@ -1418,17 +1437,59 @@ class CvMainInterface:
 								if iProgress > iMaxProgress:
 									iMaxProgress = iProgress
 									iGreatUnit = iUnit
-							screen.addTableControlGFC( "MainGPText", 1, xResolution /2 - iBarWidth /2, 4 + 24, iBarWidth, iStackBarHeight, False, False, 28, 28, TableStyles.TABLE_STYLE_EMPTY )
-							screen.setTableColumnHeader( "MainGPText", 0, u"", iBarWidth)
+							screen.addTableControlGFC( "MainGPText", 1, iStartX, 4 + 24, iGPWidth - 32, iStackBarHeight, False, False, 28, 28, TableStyles.TABLE_STYLE_EMPTY )
+							screen.setTableColumnHeader( "MainGPText", 0, u"", iGPWidth)
 							screen.appendTableRow( "MainGPText" )
 							sUnit = ""
 							sButton = ""
 							if iGreatUnit > -1:
 								sUnit = gc.getUnitInfo(iGreatUnit).getDescription()
 								sButton = gc.getUnitInfo(iGreatUnit).getButton()
-							sText = u"<font=3>%s: %s (%d)</font>" %(pCity.getName(), sUnit, iMinTurns)
+							sText = u"<font=2>%s: %s (%d)</font>" %(pCity.getName(), sUnit, iMinTurns)
 							screen.setTableText( "MainGPText", 0, 0, sText, sButton, WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_CENTER_JUSTIFY)
 							screen.setHitTest( "MainGPText", HitTestTypes.HITTEST_NOHIT )
+							iStartX += iGPWidth + 4
+							
+						# Barbarian Leader Bar
+						if (PlatyUIOpts.BLBar.getValue() > 0 and pPlayer.getBarbarianExperience() > 0):
+							iBLWidth = iConcatBarWidth * PlatyUIOpts.BLBar.getValue() // iMaxRelWidth
+							screen.addStackedBarGFC( "MainBLBar", iStartX, 3 + 24, iBLWidth, iStackBarHeight, InfoBarTypes.NUM_INFOBAR_TYPES, WidgetTypes.WIDGET_PYTHON, -1, -1)
+							screen.setStackedBarColors( "MainBLBar", InfoBarTypes.INFOBAR_STORED, gc.getInfoTypeForString("COLOR_NEGATIVE_RATE") )
+							screen.setStackedBarColors( "MainBLBar", InfoBarTypes.INFOBAR_RATE, gc.getInfoTypeForString("COLOR_EMPTY") )
+							screen.setStackedBarColors( "MainBLBar", InfoBarTypes.INFOBAR_RATE_EXTRA, gc.getInfoTypeForString("COLOR_EMPTY") )
+							screen.setStackedBarColors( "MainBLBar", InfoBarTypes.INFOBAR_EMPTY, gc.getInfoTypeForString("COLOR_EMPTY") )
+							iExp = pPlayer.getBarbarianExperience()
+							iExpThreshold = pPlayer.getBarbarianExperienceThreshold()
+							fBLProgress = float(iExp) / iExpThreshold
+							screen.setBarPercentage( "MainBLBar", InfoBarTypes.INFOBAR_STORED, fBLProgress)
+
+							screen.addTableControlGFC( "MainBLText", 1, iStartX, 4 + 24, iBLWidth, iStackBarHeight, False, False, 28, 28, TableStyles.TABLE_STYLE_EMPTY )
+							screen.setTableColumnHeader( "MainBLText", 0, u"", iBLWidth)
+							screen.appendTableRow( "MainBLText" )
+							sText = u"<font=2>%s %d/%d</font>" %(FontUtil.getChar(FontSymbols.BARBARIAN_LEADER_CHAR), iExp, iExpThreshold)
+							screen.setTableText( "MainBLText", 0, 0, sText, "", WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_CENTER_JUSTIFY)
+
+							iStartX += iBLWidth + 4
+						
+						# Great General Bar
+						if (PlatyUIOpts.GGBar.getValue() > 0 and pPlayer.getCombatExperience() > 0):
+							iGGWidth = iConcatBarWidth * PlatyUIOpts.GGBar.getValue() // iMaxRelWidth
+							screen.addStackedBarGFC( "MainGGBar", iStartX, 3 + 24, iGGWidth, iStackBarHeight, InfoBarTypes.NUM_INFOBAR_TYPES, WidgetTypes.WIDGET_PYTHON, -1, -1)
+							screen.setStackedBarColors( "MainGGBar", InfoBarTypes.INFOBAR_STORED, gc.getInfoTypeForString("COLOR_NEGATIVE_RATE") )
+							screen.setStackedBarColors( "MainGGBar", InfoBarTypes.INFOBAR_RATE, gc.getInfoTypeForString("COLOR_EMPTY") )
+							screen.setStackedBarColors( "MainGGBar", InfoBarTypes.INFOBAR_RATE_EXTRA, gc.getInfoTypeForString("COLOR_EMPTY") )
+							screen.setStackedBarColors( "MainGGBar", InfoBarTypes.INFOBAR_EMPTY, gc.getInfoTypeForString("COLOR_EMPTY") )
+							iExp = pPlayer.getCombatExperience()
+							iExpThreshold = pPlayer.greatPeopleThreshold(True)
+							fGGProgress = float(iExp) / iExpThreshold
+							screen.setBarPercentage( "MainGGBar", InfoBarTypes.INFOBAR_STORED, fGGProgress)
+
+							screen.addTableControlGFC( "MainGGText", 1, iStartX, 4 + 24, iGGWidth, iStackBarHeight, False, False, 28, 28, TableStyles.TABLE_STYLE_EMPTY )
+							screen.setTableColumnHeader( "MainGGText", 0, u"", iGGWidth)
+							screen.appendTableRow( "MainGGText" )
+							sText = u"<font=2>%s %d/%d</font>" %(FontUtil.getChar(FontSymbols.GREAT_GENERAL_CHAR), iExp, iExpThreshold)
+							screen.setTableText( "MainGGText", 0, 0, sText, "", WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_CENTER_JUSTIFY)
+
 ## Great People Bar ##
 		return 0
 

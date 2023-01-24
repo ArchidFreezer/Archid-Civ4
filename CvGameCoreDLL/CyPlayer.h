@@ -23,6 +23,9 @@ public:
 
 	bool isDoNotBotherStatus(int /*PlayerTypes*/ playerID);
 
+	int getBarbarianExperience();
+	int getBarbarianExperienceThreshold();
+
 	bool canCaptureCities();
 	void setHasTrait(int /*TraitTypes*/ iIndex, bool bNewValue);
 
