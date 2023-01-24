@@ -5673,7 +5673,7 @@ int CvPlayer::calculateUnitCost(int& iFreeUnits, int& iFreeMilitaryUnits, int& i
 	// (iBaseUnitCost is no longer fed back to the caller. Only the modified cost is.)
 	iUnitCost = iPaidUnits * getGoldPerUnit() * getUnitCostMultiplier() / 10000;
 	iMilitaryCost = iPaidMilitaryUnits * getGoldPerMilitaryUnit() / 100;
-	int iBarbarianCost = iPaidBarbarianUnits * getExtraGoldPerBarbarianUnit();
+	int iBarbarianCost = std::max(0, iPaidBarbarianUnits * getExtraGoldPerBarbarianUnit());
 	iExtraCost = getExtraUnitCost() / 100;
 
 	int iSupport = iUnitCost + iMilitaryCost + iBarbarianCost + iExtraCost;
