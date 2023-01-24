@@ -3387,6 +3387,7 @@
 			</OrPreReqs>
 			<AndPreReqs>
 				<PrereqTech>TECH_PREHISTORIC_MUSIC</PrereqTech>
+				<PrereqTech>TECH_COOKED_FOOD</PrereqTech>
 			</AndPreReqs>
 			<Quote>TXT_KEY_TECH_CULTURAL_IDENTITY_QUOTE</Quote>
 			<Sound>AS2D_TECH_CulturalIdentity</Sound>
