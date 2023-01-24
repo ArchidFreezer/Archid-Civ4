@@ -417,6 +417,8 @@
 	<ElementType name="iGlobalStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="bSlaveMarket" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iObsoleteDefence" content="textOnly" dt:type="int"/>
+	<ElementType name="iExtraBarbarianCostChange" content="textOnly" dt:type="int"/>
+	<ElementType name="iBarbarianConversionCostModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="BuildingInfo" content="eltOnly">
 		<element type="BuildingClass"/>
 		<element type="Type"/>
@@ -502,6 +504,8 @@
 		<element type="iHurryCostModifier" minOccurs="0"/>
 		<element type="iAdvancedStartCost" minOccurs="0"/> <!-- Default: -1 -->
 		<element type="iAdvancedStartCostIncrease" minOccurs="0"/>
+		<element type="iExtraBarbarianCostChange" minOccurs="0"/>
+		<element type="iBarbarianConversionCostModifier" minOccurs="0"/>
 		<element type="iMinAreaSize" minOccurs="0"/> <!-- Default: -1 -->
 		<element type="iConquestProb" minOccurs="0"/>
 		<element type="iCitiesPrereq" minOccurs="0"/>

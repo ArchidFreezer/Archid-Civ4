@@ -1881,6 +1881,8 @@ public:
 	int getGlobalStarSignMitigateChangePercent() const;
 	int getNumPrereqWorldViews() const;
 	int getObsoleteDefenceModifier() const;
+	int getExtraBarbarianCostChange() const;
+	int getBarbarianConversionCostModifier() const;
 
 	float getVisibilityPriority() const;
 
@@ -2116,6 +2118,8 @@ protected:
 	int m_iStarSignMitigateChangePercent;
 	int m_iGlobalStarSignMitigateChangePercent;
 	int m_iObsoleteDefenceModifier;
+	int m_iExtraBarbarianCostChange;
+	int m_iBarbarianConversionCostModifier;
 
 	float m_fVisibilityPriority;
 

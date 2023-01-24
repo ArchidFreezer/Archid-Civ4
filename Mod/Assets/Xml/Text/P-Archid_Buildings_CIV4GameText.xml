@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- Game Text - New -->
 <Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT> <!-- Barbarian Lodge -->
+		<Tag>TXT_KEY_BUILDING_BARBARIAN_LODGE</Tag>
+		<English>Barbarian Lodge</English>
+		<Spanish>Caba&#241;a del B&#225;rbaro</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BARBARIAN_LODGE_PEDIA</Tag>
+		<English>A [COLOR_BUILDING_TEXT]Barbarian Lodge[COLOR_REVERT] reduces the cost of converting and maintaining barbarian units.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BARBARIAN_LODGE_STRATEGY</Tag>
+		<English>Build a [COLOR_BUILDING_TEXT]Barbarian Lodge[COLOR_REVERT] to allow you to have more barbarian units to harrass your neighbours with.</English>
+	</TEXT>
 	<TEXT> <!-- Capital Seat -->
 		<Tag>TXT_KEY_BUILDING_CAPITAL_SEAT</Tag>
 		<English>Capital Seat</English>
@@ -13,8 +26,7 @@
 		<Tag>TXT_KEY_BUILDING_CAPITAL_SEAT_STRATEGY</Tag>
 		<English>The [COLOR_BUILDING_TEXT]Capital Seat[COLOR_REVERT] defines the capital and administrative centre of a civilzation and also provides a small production bonus.</English>
 	</TEXT>
-	<!-- Cave Painting -->
-	<TEXT>
+	<TEXT> <!-- Cave Painting -->
 		<Tag>TXT_KEY_BUILDING_CAVE_PAINTING</Tag>
 		<English>Cave Painting</English>
 		<Spanish>Pintura Rupestre</Spanish>
@@ -28,8 +40,7 @@
 		<English>Build a [COLOR_BUILDING_TEXT]Cave Painting[COLOR_REVERT] to increase your culture output in your cities.</English>
 		<Spanish>Construye una [COLOR_BUILDING_TEXT]Pintura Rupestre[COLOR_REVERT] para incrementar la cultura en tus ciudades.</Spanish>
 	</TEXT>
-	<!-- Hunting Instruction -->
-	<TEXT>
+	<TEXT> <!-- Hunting Instruction -->
 		<Tag>TXT_KEY_BUILDING_HUNTING_INSTRUCTION</Tag>
 		<English>Hunting Instruction</English>
 	</TEXT>
@@ -55,8 +66,7 @@
 		<English>Build a [COLOR_BUILDING_TEXT]Hunting Lodge[COLOR_REVERT] to increase the growth of your cities.</English>
 		<Spanish>Construye una [COLOR_BUILDING_TEXT]Caba&#241;a del Cazador[COLOR_REVERT] para incrementar el crecimiento de tus ciudades.</Spanish>
 	</TEXT>
-	<!-- Knowledge Inheritance -->
-	<TEXT>
+	<TEXT> <!-- Knowledge Inheritance -->
 		<Tag>TXT_KEY_BUILDING_KNOWLEDGE_INHERITANCE</Tag>
 		<English>Knowledge Inheritance</English>
 		<Spanish>Herencia de Conocimiento</Spanish>
@@ -173,7 +183,6 @@
 		<Tag>TXT_KEY_BUILDING_SLAVE_MARKET_STRATEGY</Tag>
 		<English>The [COLOR_BUILDING_TEXT]Slave Market[COLOR_REVERT] provides a 25% production bonus and a +1 happiness bonus in any city it is built in. Allows for the purchase of slaves. Doubles Production for leaders with Organized or Industrius traits.</English>
 	</TEXT>
-
 	<TEXT> <!-- Stone Weapons Workshop -->
 		<Tag>TXT_KEY_BUILDING_STONE_WEAPONS_WORKSHOP</Tag>
 		<English>Stone Weapons Workshop</English>

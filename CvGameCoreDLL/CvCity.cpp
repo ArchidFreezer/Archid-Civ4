@@ -3163,6 +3163,7 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 		return;
 
 	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+	CvPlayer& kOwner = GET_PLAYER(getOwnerINLINE());
 
 	if (!isObsoleteBuilding(eBuilding) || bObsolete) {
 		if (iChange > 0) {
@@ -3290,10 +3291,12 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 		updateExtraBuildingHappiness();
 		updateExtraBuildingHealth();
 
-		GET_PLAYER(getOwnerINLINE()).changeAssets(kBuilding.getAssetValue() * iChange);
+		kOwner.changeAssets(kBuilding.getAssetValue() * iChange);
 
 		area()->changePower(getOwnerINLINE(), (kBuilding.getPowerValue() * iChange));
-		GET_PLAYER(getOwnerINLINE()).changePower(kBuilding.getPowerValue() * iChange);
+		kOwner.changePower(kBuilding.getPowerValue() * iChange);
+		kOwner.changeExtraGoldPerBarbarianUnit(kBuilding.getExtraBarbarianCostChange() * iChange);
+		kOwner.changeBarbarianConvertionCostModifier(kBuilding.getBarbarianConversionCostModifier() * iChange);
 
 		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1))	{
 			if (GET_PLAYER(ePlayer).getTeam() == getTeam()) {
@@ -3311,7 +3314,7 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 		for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
 			BuildingTypes eLoopBuilding = NO_BUILDING;
 			if (getOwnerINLINE() != NO_PLAYER) {
-				eLoopBuilding = (BuildingTypes)GC.getCivilizationInfo(GET_PLAYER(getOwnerINLINE()).getCivilizationType()).getCivilizationBuildings(eBuildingClass);
+				eLoopBuilding = (BuildingTypes)GC.getCivilizationInfo(kOwner.getCivilizationType()).getCivilizationBuildings(eBuildingClass);
 			} else {
 				eLoopBuilding = (BuildingTypes)GC.getBuildingClassInfo(eBuildingClass).getDefaultBuildingIndex();
 			}
@@ -3340,13 +3343,13 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 			}
 		}
 
-		GET_PLAYER(getOwnerINLINE()).changeWondersScore(getWonderScore((BuildingClassTypes)(kBuilding.getBuildingClassType()))* iChange);
+		kOwner.changeWondersScore(getWonderScore((BuildingClassTypes)(kBuilding.getBuildingClassType()))* iChange);
 	}
 
 	// We don't update the building class counts if the building still exists, even if it is non functional
 	if (!(bObsolete || bDisable)) {
 		GET_TEAM(getTeam()).changeBuildingClassCount((BuildingClassTypes)kBuilding.getBuildingClassType(), iChange);
-		GET_PLAYER(getOwnerINLINE()).changeBuildingClassCount((BuildingClassTypes)kBuilding.getBuildingClassType(), iChange);
+		kOwner.changeBuildingClassCount((BuildingClassTypes)kBuilding.getBuildingClassType(), iChange);
 	}
 
 	updateBuildingCommerce();

@@ -6707,6 +6707,8 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_iStarSignScaleChangePercent(0),
 	m_iGlobalStarSignScaleChangePercent(0),
 	m_iObsoleteDefenceModifier(0),
+	m_iExtraBarbarianCostChange(0),
+	m_iBarbarianConversionCostModifier(0),
 	m_fVisibilityPriority(0.0f),
 	m_bTeamShare(false),
 	m_bWater(false),
@@ -6832,6 +6834,13 @@ CvBuildingInfo::~CvBuildingInfo() {
 	}
 }
 
+int CvBuildingInfo::getExtraBarbarianCostChange() const {
+	return m_iExtraBarbarianCostChange;
+}
+
+int CvBuildingInfo::getBarbarianConversionCostModifier() const {
+	return m_iBarbarianConversionCostModifier;
+}
 int CvBuildingInfo::getObsoleteDefenceModifier() const {
 	return m_iObsoleteDefenceModifier;
 }
@@ -7943,6 +7952,8 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iStarSignScaleChangePercent);
 	stream->Read(&m_iGlobalStarSignScaleChangePercent);
 	stream->Read(&m_iObsoleteDefenceModifier);
+	stream->Read(&m_iExtraBarbarianCostChange);
+	stream->Read(&m_iBarbarianConversionCostModifier);
 
 	int iVal;
 	stream->Read(&iVal);
@@ -8369,6 +8380,8 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iStarSignScaleChangePercent);
 	stream->Write(m_iGlobalStarSignScaleChangePercent);
 	stream->Write(m_iObsoleteDefenceModifier);
+	stream->Write(m_iExtraBarbarianCostChange);
+	stream->Write(m_iBarbarianConversionCostModifier);
 
 	stream->Write(m_eMinCultureLevel);
 
@@ -8667,8 +8680,11 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iProductionCost, "iCost");
 	pXML->GetChildXmlValByName(&m_iHurryCostModifier, "iHurryCostModifier");
 	pXML->GetChildXmlValByName(&m_iHurryAngerModifier, "iHurryAngerModifier");
+	pXML->GetChildXmlValByName(&m_iHurryAngerModifier, "iHurryAngerModifier");
 	pXML->GetChildXmlValByName(&m_iAdvancedStartCost, "iAdvancedStartCost", -1);
 	pXML->GetChildXmlValByName(&m_iAdvancedStartCostIncrease, "iAdvancedStartCostIncrease");
+	pXML->GetChildXmlValByName(&m_iExtraBarbarianCostChange, "iExtraBarbarianCostChange");
+	pXML->GetChildXmlValByName(&m_iBarbarianConversionCostModifier, "iBarbarianConversionCostModifier");
 	pXML->GetChildXmlValByName(&m_iMinAreaSize, "iMinAreaSize", -1);
 	pXML->GetChildXmlValByName(&m_iConquestProbability, "iConquestProb");
 	pXML->GetChildXmlValByName(&m_iNumCitiesPrereq, "iCitiesPrereq");

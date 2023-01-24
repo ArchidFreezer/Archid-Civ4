@@ -9021,6 +9021,16 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_BIRTH_RATE_MOD_ALL_CITIES", kBuilding.getGlobalGreatPeopleRateModifier()));
 	}
 
+	if (kBuilding.getBarbarianConversionCostModifier() != 0) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_BARBARIAN_CONVERTION_COST_MOD", kBuilding.getBarbarianConversionCostModifier()));
+	}
+
+	if (kBuilding.getExtraBarbarianCostChange() != 0) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_BARBARIAN_EXTRA_COST_CHANGE", kBuilding.getExtraBarbarianCostChange()));
+	}
+
 	if (kBuilding.getAnarchyModifier() != 0) {
 		if (-100 == kBuilding.getAnarchyModifier()) {
 			szBuffer.append(NEWLINE);

@@ -1957,5 +1957,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/shaman_temple.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- Barbarian Lodge -->
+			<Type>ART_DEF_BUILDING_BARBARIAN_LODGE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.6</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/ZuluIkhanda/Ikhanda.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/barbarian_lodge.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

@@ -1534,4 +1534,13 @@
 		<Tag>TXT_KEY_MISC_FREE_UNIT_SUPPORT</Tag>
 		<English>Your %s1_UnitName has increased your unit's support limit!!</English>
 	</TEXT> 
+<!-- Barbarian cost changes -->
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BARBARIAN_CONVERTION_COST_MOD</Tag>
+		<English>[ICON_BULLET]Changes Barbarian convertion cost by %d1_mod</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BARBARIAN_EXTRA_COST_CHANGE</Tag>
+		<English>[ICON_BULLET]Changes extra cost of barbarian units by %d1_change%</English>
+	</TEXT>
 </Civ4GameText>

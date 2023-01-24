@@ -711,6 +711,12 @@
 		<!-- **************** -->
 		<!-- National Wonder  -->
 		<!-- **************** -->
+		<BuildingClassInfo> <!-- Barbarian Lodge -->
+			<Type>BUILDINGCLASS_BARBARIAN_LODGE</Type>
+			<Description>TXT_KEY_BARBARIAN_LODGE</Description>
+			<iMaxPlayerInstances>1</iMaxPlayerInstances>
+			<DefaultBuilding>BUILDING_BARBARIAN_LODGE</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Forbidden Palace -->
 			<Type>BUILDINGCLASS_GREAT_PALACE</Type>
 			<Description>TXT_KEY_BUILDING_GREAT_PALACE</Description>
