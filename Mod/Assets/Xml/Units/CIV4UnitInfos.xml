@@ -2142,7 +2142,7 @@
 <!-- ************ -->
 <!-- Great People -->
 <!-- ************ -->
-		<UnitInfo>	<!-- Barbarian Leader -->
+		<UnitInfo> <!-- Barbarian Leader -->
 			<Class>UNITCLASS_BARBARIAN_LEADER</Class>
 			<Type>UNIT_BARBARIAN_LEADER</Type>
 			<Special>SPECIALUNIT_PEOPLE</Special>
