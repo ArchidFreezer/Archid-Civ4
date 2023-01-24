@@ -10238,6 +10238,9 @@ void CvUnit::read(FDataStreamBase* pStream) {
 
 	if (isSlaver())
 		setSlaverGraphics();
+
+	if (isBarbarianConvert())
+		setBarbarianGraphics();
 }
 
 
