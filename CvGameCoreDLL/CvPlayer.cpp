@@ -20167,7 +20167,7 @@ bool CvPlayer::isCivSettled() const {
 	return GET_TEAM(getTeam()).isCivSettled();
 }
 
-int CvPlayer::getBarbrianFractionalExperience() const {
+int CvPlayer::getBarbarianFractionalExperience() const {
 	return m_iBarbarianFractionalExperience;
 }
 
@@ -20190,7 +20190,7 @@ void CvPlayer::setBarbarianExperience(int iExperience) {
 	}
 
 	if (!isBarbarian()) {
-		int iExperienceThreshold = barbarianExperienceThreshold(true);
+		int iExperienceThreshold = getBarbarianExperienceThreshold();
 		if (m_iBarbarianExperience >= iExperienceThreshold && iExperienceThreshold > 0) {
 			// create great person
 			CvCity* pBestCity = NULL;
@@ -20226,24 +20226,14 @@ void CvPlayer::setBarbarianExperience(int iExperience) {
 }
 
 void CvPlayer::changeBarbarianExperience(int iChange) {
-	setBarbarianExperience(getBarbarianExperience() + iChange + isHuman() ? 0 : 1);
+	setBarbarianExperience(getBarbarianExperience() + iChange + (isHuman() ? 0 : 1));
 }
 
-int CvPlayer::barbarianExperienceThreshold(bool bMilitary) const {
-	int iThreshold;
+int CvPlayer::getBarbarianExperienceThreshold() const {
 
-	if (bMilitary) {
-		iThreshold = ((GC.getDefineINT("BARBARIAN_EXPERIENCE_THRESHOLD") * std::max(0, (getBarbarianExperienceThresholdModifier() + 100))) / 100);
-	}
-
+	int iThreshold = ((GC.getDefineINT("BARBARIAN_EXPERIENCE_THRESHOLD") * std::max(0, (getBarbarianExperienceThresholdModifier() + 100))) / 100);
 	iThreshold *= GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getGreatPeoplePercent();
-
-	if (bMilitary) {
-		iThreshold /= std::max(1, GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getTrainPercent());
-	} else {
-		iThreshold /= 100;
-	}
-
+	iThreshold /= std::max(1, GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getTrainPercent());
 	iThreshold *= GC.getEraInfo(GC.getGameINLINE().getStartEra()).getGreatPeoplePercent();
 	iThreshold /= 100;
 

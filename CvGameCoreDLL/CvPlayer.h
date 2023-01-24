@@ -47,10 +47,10 @@ public:
 	int getCultureDefenceModifier() const;
 	void changeCultureDefenceModifier(int iChange);
 
-	int barbarianExperienceThreshold(bool bMilitary = false) const;
 	int getBarbarianConvertionCostModifier() const;
 	int getBarbarianExperience() const;
-	int getBarbrianFractionalExperience() const;
+	int getBarbarianFractionalExperience() const;
+	int getBarbarianExperienceThreshold() const;
 	int getBarbarianExperienceThresholdModifier() const;
 	int getBarbarianFreeUnits() const;
 	int getBarbarianLeadersCreated() const;
