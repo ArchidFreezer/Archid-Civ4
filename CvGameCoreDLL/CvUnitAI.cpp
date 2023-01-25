@@ -9188,7 +9188,7 @@ bool CvUnitAI::AI_heal(int iDamagePercent, int iMaxPath) {
 		}
 	}
 
-	iMaxPath = std::min(iMaxPath, 2);
+	iMaxPath = std::max(iMaxPath, 2);
 
 	int iTotalDamage = 0;
 	int iTotalHitpoints = 0;
@@ -19215,7 +19215,8 @@ void CvUnitAI::AI_hunterMove() {
 		return;
 	}
 
-	if (AI_heal(30, 3)) {
+	// Lets heal up before we start looking for higher risk targets
+	if (AI_heal(30)) {
 		return;
 	}
 
