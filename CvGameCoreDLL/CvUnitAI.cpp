@@ -19215,8 +19215,21 @@ void CvUnitAI::AI_hunterMove() {
 		return;
 	}
 
-	// Nothing really to do so lets wander around and hope to stumble on something
-	if (AI_exploreRange(3)) {
+	if (AI_heal(30, 3)) {
+		return;
+	}
+
+	if (AI_salvageAnimalRange(3, 50)) {
+		return;
+	}
+
+	if (AI_salvageAnimalRange(3, 40)) {
+		return;
+	}
+
+	// Lets just go wandering
+	// It will be rare when this routine does not find a valid plot
+	if (AI_hunterExplore(3)) {
 		return;
 	}
 
@@ -19719,5 +19732,116 @@ bool CvUnitAI::AI_becomeBarbarian() {
 
 	return false;
 
+}
+
+// This routine id very unlikely not to find a target plot if the range is of sufficient size
+bool CvUnitAI::AI_hunterExplore(int iRange) {
+	PROFILE_FUNC();
+
+	int iSearchRange = AI_searchRange(iRange);
+
+	int iBestValue = 0;
+	CvPlot* pBestPlot = NULL;
+	CvPlot* pBestExplorePlot = NULL;
+	std::vector<CvPlot*> vValidPlots;
+
+	for (int iDX = -(iSearchRange); iDX <= iSearchRange; iDX++) {
+		for (int iDY = -(iSearchRange); iDY <= iSearchRange; iDY++) {
+			PROFILE("AI_wander 1");
+
+			CvPlot* pLoopPlot = plotXY(getX_INLINE(), getY_INLINE(), iDX, iDY);
+
+			if (pLoopPlot != NULL) {
+				if (AI_plotValid(pLoopPlot)) {
+					int iValue = 0;
+
+					// We are not interested in plots in our own borders
+					if (pLoopPlot->getTeam() == getTeam())
+						continue;
+
+					vValidPlots.push_back(pLoopPlot);
+
+					if (pLoopPlot->isRevealedGoody(getTeam())) {
+						iValue += 100;
+					}
+
+					// Look for unexplored plots
+					for (DirectionTypes eDirection = (DirectionTypes)0; eDirection < NUM_DIRECTION_TYPES; eDirection = (DirectionTypes)(eDirection + 1)) {
+						PROFILE("AI_hunterExplore 2");
+
+						CvPlot* pAdjacentPlot = plotDirection(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE(), eDirection);
+
+						if (pAdjacentPlot != NULL) {
+							if (!pAdjacentPlot->isRevealed(getTeam(), false)) {
+								iValue += 10;
+							}
+
+							if (pAdjacentPlot->isVisibleAnimalEnemy(this)) {
+								iValue += 8;
+							}
+						}
+					}
+
+					if (iValue > 0) {
+						if (!pLoopPlot->isVisibleNonAnimalEnemy(this)) {
+							PROFILE("AI_hunterExplore 3");
+
+							int iPathTurns;
+							if (!atPlot(pLoopPlot) && generatePath(pLoopPlot, MOVE_NO_ENEMY_TERRITORY, true, &iPathTurns, iRange)) {
+								if (iPathTurns <= iRange) {
+									iValue += GC.getGameINLINE().getSorenRandNum(10000, "AI Explore");
+
+									if (pLoopPlot->isAdjacentToLand()) {
+										iValue += 10;
+									}
+
+									// We don't want ot go hunting in rival territory as we are not a military unit
+									if (pLoopPlot->isOwned()) {
+										iValue -= 5;
+									}
+
+									if (iValue > iBestValue) {
+										iBestValue = iValue;
+										if (getDomainType() == DOMAIN_LAND) {
+											pBestPlot = getPathEndTurnPlot();
+										} else {
+											pBestPlot = pLoopPlot;
+										}
+										pBestExplorePlot = pLoopPlot;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// If we didn't find anything useful then pick a plot at random if we have any
+	if (pBestPlot == NULL || pBestExplorePlot == NULL) {
+		PROFILE("AI_hunterExplore 5");
+
+		// The first two checks should not fire, but lets put them in for completeness
+		if (pBestPlot != NULL) {
+			pBestExplorePlot = pBestPlot;
+		} else if (pBestExplorePlot!= NULL) {
+			pBestPlot = pBestExplorePlot;
+		} else if (vValidPlots.size() > 0) {
+			std::random_shuffle(vValidPlots.begin(), vValidPlots.end());
+			pBestPlot = vValidPlots[0];
+			pBestExplorePlot = vValidPlots[0];
+		}
+	}
+
+	if ((pBestPlot != NULL) && (pBestExplorePlot != NULL)) {
+		PROFILE("AI_hunterExplore 5");
+
+		FAssert(!atPlot(pBestPlot));
+		getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), MOVE_NO_ENEMY_TERRITORY, false, false, MISSIONAI_EXPLORE, pBestExplorePlot);
+		return true;
+	}
+
+	return false;
 }
 

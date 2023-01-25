@@ -257,6 +257,7 @@ protected:
 	bool AI_reinforceMilitary();
 	bool AI_plunderCity();
 	bool AI_becomeBarbarian();
+	bool AI_hunterExplore(int iRange);
 
 	bool AI_defendPlot(CvPlot* pPlot);
 	int AI_pillageValue(CvPlot* pPlot, int iBonusValueThreshold = 0);

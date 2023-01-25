@@ -1083,6 +1083,12 @@ bool PUF_isAnimalEnemy(const CvUnit* pUnit, int iData1, int iData2) {
 	return (PUF_isEnemy(pUnit, iData1, iData2) && PUF_isAnimal(pUnit, iData1, iData2));
 }
 
+bool PUF_isNonAnimalEnemy(const CvUnit* pUnit, int iData1, int iData2) {
+	FAssertMsg(iData1 != -1, "Invalid data argument, should be >= 0");
+	FAssertMsg(iData2 != -1, "Invalid data argument, should be >= 0");
+	return (PUF_isEnemy(pUnit, iData1, iData2) && !PUF_isAnimal(pUnit, iData1, iData2));
+}
+
 bool PUF_isMilitaryHappiness(const CvUnit* pUnit, int iData1, int iData2) {
 	return pUnit->isMilitaryHappiness();
 }
