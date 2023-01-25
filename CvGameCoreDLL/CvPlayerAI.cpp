@@ -8452,10 +8452,8 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			break;
 
 		case UNITAI_HUNTER:
-			if (kUnit.getCombat() > 0) {
-				if (!(kUnit.isOnlyDefensive())) {
-					bValid = true;
-				}
+			if (kUnit.getCombat() > 0 && !kUnit.isOnlyDefensive() && kUnit.getRangeType() > UNITRANGE_TERRITORY) {
+				bValid = true;
 			}
 			break;
 
