@@ -2919,7 +2919,7 @@ bool CvPlayerAI::isSafeRangeCacheValid() const {
 	return false; // Cache disabled. See comments above.
 }
 
-bool CvPlayerAI::AI_getAnyPlotDanger(CvPlot* pPlot, int iRange, bool bTestMoves, bool bCheckBorder) const {
+bool CvPlayerAI::AI_getAnyPlotDanger(CvPlot* pPlot, int iRange, bool bTestMoves, bool bCheckBorder, bool bIgnoreAnimals) const {
 	PROFILE_FUNC();
 
 	if (iRange == -1) {
@@ -2991,6 +2991,8 @@ bool CvPlayerAI::AI_getAnyPlotDanger(CvPlot* pPlot, int iRange, bool bTestMoves,
 								break;
 							}
 						}
+						if (pLoopUnit->isAnimal() && bIgnoreAnimals)
+							continue;
 
 						if (pLoopUnit->isEnemy(eTeam)) {
 							if (pLoopUnit->canAttack()) {

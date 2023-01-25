@@ -395,7 +395,7 @@ int CvCityAI::AI_permanentSpecialistValue(SpecialistTypes eSpecialist) const {
 void CvCityAI::AI_chooseProduction() {
 	PROFILE_FUNC();
 
-	bool bDanger = AI_isDanger();
+	bool bDanger = AI_isNonAnimalDanger();
 
 	const CvPlayerAI& kPlayer = GET_PLAYER(getOwnerINLINE());
 
@@ -813,7 +813,7 @@ void CvCityAI::AI_chooseProduction() {
 
 		if (kPlayer.AI_totalAreaUnitAIs(pArea, UNITAI_ATTACK) < iAttackNeeded) {
 			if (AI_chooseUnit(UNITAI_ATTACK)) {
-				if (gCityLogLevel >= 2) logBBAI("      City %S uses danger minimal attack", getName().GetCString());
+				if (gCityLogLevel >= 2) logBBAI("      City %S uses non animal danger minimal attack", getName().GetCString());
 				return;
 			}
 		}
@@ -830,9 +830,9 @@ void CvCityAI::AI_chooseProduction() {
 				iCityHunters += (pLoopUnit->getHomeCity() == this);
 			}
 		}
-		if (iCityHunters == 0 || (getPopulation() > 3 && iCityHunters <= 2)) {
+		if (iCityHunters < getPopulation() + 1 && iCityHunters < 4) {
 			if (AI_chooseUnit(UNITAI_HUNTER)) {
-				if (gCityLogLevel >= 2) logBBAI("      City %S uses danger minimal attack", getName().GetCString());
+				if (gCityLogLevel >= 2) logBBAI("      City %S uses hunter needed", getName().GetCString());
 				return;
 			}
 		}
@@ -4431,7 +4431,7 @@ int CvCityAI::AI_neededDefenders() {
 			}
 		}
 
-		if (AI_isDanger()) {
+		if (AI_isNonAnimalDanger()) {
 			iDefenders++;
 		}
 		if (bDefenseWar) {
@@ -4554,6 +4554,9 @@ bool CvCityAI::AI_isDanger() {
 	return GET_PLAYER(getOwnerINLINE()).AI_getAnyPlotDanger(plot(), 2, false);
 }
 
+bool CvCityAI::AI_isNonAnimalDanger() {
+	return GET_PLAYER(getOwnerINLINE()).AI_getAnyPlotDanger(plot(), 2, false, true, true);
+}
 
 int CvCityAI::AI_getEmphasizeAvoidGrowthCount() const {
 	return m_iEmphasizeAvoidGrowthCount;

@@ -109,7 +109,7 @@ public:
 
 	bool AI_isCommercePlot(CvPlot* pPlot) const;
 	bool isSafeRangeCacheValid() const; // K-Mod
-	bool AI_getAnyPlotDanger(CvPlot* pPlot, int iRange = -1, bool bTestMoves = true, bool bCheckBorder = true) const; // K-Mod added bCheckBorder
+	bool AI_getAnyPlotDanger(CvPlot* pPlot, int iRange = -1, bool bTestMoves = true, bool bCheckBorder = true, bool bIgnoreAnimals = false) const; // K-Mod added bCheckBorder
 	int AI_getPlotDanger(CvPlot* pPlot, int iRange = -1, bool bTestMoves = true) const;
 	int AI_getWaterDanger(CvPlot* pPlot, int iRange, bool bTestMoves = true) const;
 

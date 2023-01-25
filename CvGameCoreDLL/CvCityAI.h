@@ -52,6 +52,7 @@ public:
 	bool AI_isDefended(int iExtra = 0);
 	bool AI_isAirDefended(bool bCountLand = false, int iExtra = 0);
 	bool AI_isDanger();
+	bool AI_isNonAnimalDanger();
 
 	int AI_neededDefenders();
 	int AI_neededAirDefenders();
