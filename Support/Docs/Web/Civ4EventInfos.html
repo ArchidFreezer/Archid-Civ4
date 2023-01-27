@@ -60,14 +60,13 @@
   <h3 id="int">Integer</h3>
   <table>
     <tr><th>Tag<th>Default<th>Purpose
-    <tr><td><span class="tagoptional">bTeam</span><td>0<td>If treu, the event will apply to all players on the same team
     <tr><td><span class="tagoptional">iAIValue</span><td>0<td>Reflects the AI trigger value for this event. 
     <tr><td><span class="tagoptional">iAttitudeModifier</span><td>0<td>Attitude modifier of the other player towards the affected player. 
     <tr><td><span class="tagoptional">iBonusChange</span><td>0<td>If used, should only take the values of 1 or -1. Setting to 1 would add the bonus described in &lt;BonusType&gt; to the affected plot, setting to -1 would remove the bonus. 
     <tr><td><span class="tagoptional">iBuildingChange</span><td>0<td>Specifies how many buildings of the class specified in &lt;BuildingClass&gt; to add. Since a city can only contain 1 of a building, the only useful values are 1 to add a building and -1 to remove it.
     <tr><td><span class="tagoptional">iConvertOtherCities</span><td>0<td>Specifies the number of foreign cities that will be converted to the trigger religion. The religion is determined in event triggers. 
     <tr><td><span class="tagoptional">iConvertOwnCities</span><td>0<td>Specifies the number of the player's cities that will be converted to the trigger religion, the religion being added to the city if not already present. The religion is determined in event triggers.
-    <tr><td><span class="tagoptional">iCulture</span><td>0<td>Specifies the change in culture to be applied to a city â only useful for events targeting a city. 
+    <tr><td><span class="tagoptional">iCulture</span><td>0<td>Specifies the change in culture to be applied to a city �?? only useful for events targeting a city. 
     <tr><td><span class="tagoptional">iEspionagePoints</span><td>0<td>Specifies the amount of espionage points that the affected player will gain towards the other player. 
     <tr><td><span class="tagoptional">iFeatureChange</span><td>0<td>If used, should only take the values of 1 or -1. Setting to 1 would add the feature described in &lt;FeatureType&gt; to the affected plot, setting to -1 would remove the feature. 
     <tr><td><span class="tagoptional">iFood</span><td>0<td>Specifies the amount of stored food to be added in a city. If &lt;bPickCity&gt; is 0, the change will apply to the entire civ. If &lt;bPickCity&gt; is 1, only the affected city's food stores will be modified. 
@@ -109,6 +108,7 @@
     <tr><td><span class="tagoptional">bPickCity</span><td>0<td>If true, then the event affects a city of the player for whom the event was triggered. 
     <tr><td><span class="tagoptional">bPickOtherPlayerCity</span><td>0<td>If true, the event affects a foreign city. For example, you can be given the choice of spending some espionage points to worsen the effects this event deals to the foreign city. Used in conjunction with &lt;bPickCity&gt;, creates an event that affects the player's city and a foreign city.
     <tr><td><span class="tagoptional">bQuest</span><td>0<td>If true, the event is a quest
+    <tr><td><span class="tagoptional">bTeam</span><td>0<td>If treu, the event will apply to all players on the same team
   </table>	<p>
 	<p>
 
@@ -120,7 +120,7 @@
     &lt;Event&gt;&lt;/Event&gt;
     &lt;iEventChance&gt;0&lt;/iEventChance&gt;
   &lt;/EventChance&gt;</pre>
-    <tr><td><span class="tagoptional">BuildingExtraCommerces</span><td>NONE<td>Modifies commerce outputs given by a building. Note that this is not for pure commerce (to change that, use BuildingExtraYields and YIELD_COMMERCE as per the above example), but rather for commerce types â research, culture, gold or espionage. If &lt;bPickCity&gt; is 0, the change will apply to all buildings of the class in your civ. If &lt;bPickCity&gt; is 1, only the building in the affected city will be modified. <br><pre class="code">
+    <tr><td><span class="tagoptional">BuildingExtraCommerces</span><td>NONE<td>Modifies commerce outputs given by a building. Note that this is not for pure commerce (to change that, use BuildingExtraYields and YIELD_COMMERCE as per the above example), but rather for commerce types �?? research, culture, gold or espionage. If &lt;bPickCity&gt; is 0, the change will apply to all buildings of the class in your civ. If &lt;bPickCity&gt; is 1, only the building in the affected city will be modified. <br><pre class="code">
   &lt;BuildingExtraCommerce&gt;
     &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
     &lt;CommerceType&gt;&lt;/CommerceType&gt;
