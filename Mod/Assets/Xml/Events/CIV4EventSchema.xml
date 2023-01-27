@@ -84,7 +84,7 @@
 	<ElementType name="FreeSpecialistCounts" content="eltOnly">
 		<element type="FreeSpecialistCount" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
-	<ElementType name="bTeam" content="textOnly" dt:type="int"/>
+	<ElementType name="bTeam" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bRecurring" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bGlobal" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bPickPlayer" content="textOnly" dt:type="boolean"/>
