@@ -1,1 +1,0 @@
-java -cp civ4utils.jar org.archid.civ4.schema.SchemaProcessor -a -f -r "E:\Projects\Civ4\external\bts-core\Assets\XML" -i "..\..\..\Assets\Xml" -o "..\..\Docs\Web"
