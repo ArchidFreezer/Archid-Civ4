@@ -1,16 +1,11 @@
 <?xml version="1.0"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Alex Mantzaris (Firaxis Games) -->
-<!-- edited with XMLSpy v2005 rel. 3 U (http://www.altova.com) by Soren Johnson (Firaxis Games) -->
-<!-- Sid Meier's Civilization 4 -->
-<!-- Copyright Firaxis Games 2005 -->
-<!-- -->
-<!-- Bonus Infos -->
-<!-- WARNING: It is not recommended that you remove Bonuses due to complications with the LSystem -->
 <Civ4BonusInfos xmlns="x-schema:CIV4TerrainSchema.xml">
 	<BonusInfos>
-		<!-- ****************** -->
-		<!-- Fuel               -->
-		<!-- ****************** -->
+
+
+<!-- ************	-->
+<!-- Fuel -->
+<!-- ************	-->
 		<BonusInfo> <!-- Coal -->
 			<Type>BONUS_COAL</Type>
 			<Description>TXT_KEY_BONUS_COAL</Description>
@@ -138,13 +133,10 @@
 			</FeatureTerrainBooleans>
 		</BonusInfo>
 
-		<!-- ****************** -->
-		<!-- Future             -->
-		<!-- ****************** -->
 
-		<!-- ****************** -->
-		<!-- General            -->
-		<!-- ****************** -->
+<!-- ************	-->
+<!-- General -->
+<!-- ************	-->
 		<BonusInfo> <!-- Apple -->
 			<Type>BONUS_APPLE</Type>
 			<Description>TXT_KEY_BONUS_APPLE</Description>
@@ -215,6 +207,46 @@
 			</FeatureBooleans>
 			<FeatureTerrainBooleans>
 				<TerrainType>TERRAIN_GRASS</TerrainType>
+			</FeatureTerrainBooleans>
+		</BonusInfo>
+		<BonusInfo> <!-- Cannabis -->
+			<Type>BONUS_CANNABIS</Type>
+			<Description>TXT_KEY_BONUS_CANNABIS</Description>
+			<Civilopedia>TXT_KEY_BONUS_CANNABIS_PEDIA</Civilopedia>
+			<BonusClassType>BONUSCLASS_GENERAL</BonusClassType>
+			<ArtDefineTag>ART_DEF_BONUS_CANNABIS</ArtDefineTag>
+			<TechReveal>TECH_HERBALISM</TechReveal>
+			<TechCityTrade>TECH_CALENDAR</TechCityTrade>
+			<YieldChanges>
+				<iYieldChange>0</iYieldChange>
+				<iYieldChange>0</iYieldChange>
+				<iYieldChange>1</iYieldChange>
+			</YieldChanges>
+			<iAITradeModifier>3</iAITradeModifier>
+			<iHappiness>1</iHappiness>
+			<iPlacementOrder>6</iPlacementOrder>
+			<iConstAppearance>40</iConstAppearance>
+			<iMinAreaSize>3</iMinAreaSize>
+			<iMaxLatitude>80</iMaxLatitude>
+			<Rands>
+				<iRandApp1>25</iRandApp1>
+				<iRandApp2>25</iRandApp2>
+				<iRandApp3>0</iRandApp3>
+				<iRandApp4>0</iRandApp4>
+			</Rands>
+			<iPlayer>50</iPlayer>
+			<iUnique>2</iUnique>
+			<iGroupRange>1</iGroupRange>
+			<iGroupRand>50</iGroupRand>
+			<bArea>1</bArea>
+			<bFlatlands>1</bFlatlands>
+			<bNormalize>1</bNormalize>
+			<FeatureBooleans>
+				<FeatureType>FEATURE_FOREST</FeatureType>
+			</FeatureBooleans>
+			<FeatureTerrainBooleans>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</FeatureTerrainBooleans>
 		</BonusInfo>
 		<BonusInfo> <!-- Cotton -->
@@ -332,46 +364,6 @@
 			</FeatureBooleans>
 			<FeatureTerrainBooleans>
 				<TerrainType>TERRAIN_GRASS</TerrainType>
-			</FeatureTerrainBooleans>
-		</BonusInfo>
-		<BonusInfo> <!-- Hemp -->
-			<Type>BONUS_CANNABIS</Type>
-			<Description>TXT_KEY_BONUS_CANNABIS</Description>
-			<Civilopedia>TXT_KEY_BONUS_CANNABIS_PEDIA</Civilopedia>
-			<BonusClassType>BONUSCLASS_GENERAL</BonusClassType>
-			<ArtDefineTag>ART_DEF_BONUS_CANNABIS</ArtDefineTag>
-			<TechReveal>TECH_HERBALISM</TechReveal>
-			<TechCityTrade>TECH_CALENDAR</TechCityTrade>
-			<YieldChanges>
-				<iYieldChange>0</iYieldChange>
-				<iYieldChange>0</iYieldChange>
-				<iYieldChange>1</iYieldChange>
-			</YieldChanges>
-			<iAITradeModifier>3</iAITradeModifier>
-			<iHappiness>1</iHappiness>
-			<iPlacementOrder>6</iPlacementOrder>
-			<iConstAppearance>40</iConstAppearance>
-			<iMinAreaSize>3</iMinAreaSize>
-			<iMaxLatitude>80</iMaxLatitude>
-			<Rands>
-				<iRandApp1>25</iRandApp1>
-				<iRandApp2>25</iRandApp2>
-				<iRandApp3>0</iRandApp3>
-				<iRandApp4>0</iRandApp4>
-			</Rands>
-			<iPlayer>50</iPlayer>
-			<iUnique>2</iUnique>
-			<iGroupRange>1</iGroupRange>
-			<iGroupRand>50</iGroupRand>
-			<bArea>1</bArea>
-			<bFlatlands>1</bFlatlands>
-			<bNormalize>1</bNormalize>
-			<FeatureBooleans>
-				<FeatureType>FEATURE_FOREST</FeatureType>
-			</FeatureBooleans>
-			<FeatureTerrainBooleans>
-				<TerrainType>TERRAIN_GRASS</TerrainType>
-				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</FeatureTerrainBooleans>
 		</BonusInfo>
 		<BonusInfo> <!-- Incense -->
@@ -647,9 +639,10 @@
 			<bUseLSystem>1</bUseLSystem>
 		</BonusInfo>
 
-		<!-- ****************** -->
-		<!-- Grain              -->
-		<!-- ****************** -->
+
+<!-- ************	-->
+<!-- Grain -->
+<!-- ************	-->
 		<BonusInfo> <!-- Barley -->
 			<Type>BONUS_BARLEY</Type>
 			<Description>TXT_KEY_BONUS_BARLEY</Description>
@@ -821,16 +814,12 @@
 				<TerrainType>TERRAIN_PLAINS</TerrainType>
 				<TerrainType>TERRAIN_GRASS</TerrainType>
 			</TerrainBooleans>
-			<bUseLSystem>0</bUseLSystem>
 		</BonusInfo>
 
-		<!-- ****************** -->
-		<!-- Hidden             -->
-		<!-- ****************** -->
 
-		<!-- ****************** -->
-		<!-- Livestock          -->
-		<!-- ****************** -->
+<!-- ************	-->
+<!-- Livestock -->
+<!-- ************	-->
 		<BonusInfo> <!-- Bison -->
 			<Type>BONUS_BISON</Type>
 			<Description>TXT_KEY_BONUS_BISON</Description>
@@ -972,9 +961,10 @@
 			</TerrainBooleans>
 		</BonusInfo>
 
-		<!-- ****************** -->
-		<!-- Luxury             -->
-		<!-- ****************** -->
+
+<!-- ************	-->
+<!-- Luxury -->
+<!-- ************	-->
 		<BonusInfo> <!-- Coffee -->
 			<Type>BONUS_COFFEE</Type>
 			<Description>TXT_KEY_BONUS_COFFEE</Description>
@@ -992,7 +982,7 @@
 			<iHappiness>1</iHappiness>
 			<iPlacementOrder>2</iPlacementOrder>
 			<iConstAppearance>80</iConstAppearance>
-			<iMinAreaSize>3</iMinAreaSize>			<iMinLatitude>0</iMinLatitude>
+			<iMinAreaSize>3</iMinAreaSize>
 			<iMaxLatitude>60</iMaxLatitude>
 			<Rands>
 				<iRandApp1>25</iRandApp1>
@@ -1007,7 +997,6 @@
 			<bArea>1</bArea>
 			<bHills>1</bHills>
 			<bFlatlands>1</bFlatlands>
-			<bNoRiverSide>0</bNoRiverSide>
 			<bNormalize>1</bNormalize>
 			<TerrainBooleans>
 				<TerrainType>TERRAIN_GRASS</TerrainType>
@@ -1019,6 +1008,16 @@
 			<FeatureTerrainBooleans>
 				<TerrainType>TERRAIN_GRASS</TerrainType>
 			</FeatureTerrainBooleans>
+		</BonusInfo>
+		<BonusInfo> <!-- Drama -->
+			<Type>BONUS_DRAMA</Type>
+			<Description>TXT_KEY_BONUS_DRAMA</Description>
+			<Civilopedia>TXT_KEY_BONUS_DRAMA_PEDIA</Civilopedia>
+			<BonusClassType>BONUSCLASS_LUXURY</BonusClassType>
+			<ArtDefineTag>ART_DEF_BONUS_DRAMA</ArtDefineTag>
+			<iHappiness>1</iHappiness>
+			<iPlacementOrder>-1</iPlacementOrder>
+			<iMinAreaSize>-1</iMinAreaSize>
 		</BonusInfo>
 		<BonusInfo> <!-- Fur -->
 			<Type>BONUS_FUR</Type>
@@ -1149,36 +1148,6 @@
 				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</FeatureTerrainBooleans>
 		</BonusInfo>
-		<BonusInfo> <!-- Hit Movies -->
-			<Type>BONUS_MOVIES</Type>
-			<Description>TXT_KEY_BONUS_MOVIES</Description>
-			<Civilopedia>TXT_KEY_BONUS_MOVIES_PEDIA</Civilopedia>
-			<BonusClassType>BONUSCLASS_LUXURY</BonusClassType>
-			<ArtDefineTag>ART_DEF_BONUS_MOVIES</ArtDefineTag>
-			<iHappiness>1</iHappiness>
-			<iPlacementOrder>-1</iPlacementOrder>
-			<iMinAreaSize>-1</iMinAreaSize>
-		</BonusInfo>
-		<BonusInfo> <!-- Hit Musicals -->
-			<Type>BONUS_DRAMA</Type>
-			<Description>TXT_KEY_BONUS_DRAMA</Description>
-			<Civilopedia>TXT_KEY_BONUS_DRAMA_PEDIA</Civilopedia>
-			<BonusClassType>BONUSCLASS_LUXURY</BonusClassType>
-			<ArtDefineTag>ART_DEF_BONUS_DRAMA</ArtDefineTag>
-			<iHappiness>1</iHappiness>
-			<iPlacementOrder>-1</iPlacementOrder>
-			<iMinAreaSize>-1</iMinAreaSize>
-		</BonusInfo>
-		<BonusInfo> <!-- Hit Singles -->
-			<Type>BONUS_MUSIC</Type>
-			<Description>TXT_KEY_BONUS_MUSIC</Description>
-			<Civilopedia>TXT_KEY_BONUS_MUSIC_PEDIA</Civilopedia>
-			<BonusClassType>BONUSCLASS_LUXURY</BonusClassType>
-			<ArtDefineTag>ART_DEF_BONUS_MUSIC</ArtDefineTag>
-			<iHappiness>1</iHappiness>
-			<iPlacementOrder>-1</iPlacementOrder>
-			<iMinAreaSize>-1</iMinAreaSize>
-		</BonusInfo>
 		<BonusInfo> <!-- Ivory -->
 			<Type>BONUS_IVORY</Type>
 			<Description>TXT_KEY_BONUS_IVORY</Description>
@@ -1220,6 +1189,26 @@
 			<FeatureTerrainBooleans>
 				<TerrainType>TERRAIN_GRASS</TerrainType>
 			</FeatureTerrainBooleans>
+		</BonusInfo>
+		<BonusInfo> <!-- Movies -->
+			<Type>BONUS_MOVIES</Type>
+			<Description>TXT_KEY_BONUS_MOVIES</Description>
+			<Civilopedia>TXT_KEY_BONUS_MOVIES_PEDIA</Civilopedia>
+			<BonusClassType>BONUSCLASS_LUXURY</BonusClassType>
+			<ArtDefineTag>ART_DEF_BONUS_MOVIES</ArtDefineTag>
+			<iHappiness>1</iHappiness>
+			<iPlacementOrder>-1</iPlacementOrder>
+			<iMinAreaSize>-1</iMinAreaSize>
+		</BonusInfo>
+		<BonusInfo> <!-- Music -->
+			<Type>BONUS_MUSIC</Type>
+			<Description>TXT_KEY_BONUS_MUSIC</Description>
+			<Civilopedia>TXT_KEY_BONUS_MUSIC_PEDIA</Civilopedia>
+			<BonusClassType>BONUSCLASS_LUXURY</BonusClassType>
+			<ArtDefineTag>ART_DEF_BONUS_MUSIC</ArtDefineTag>
+			<iHappiness>1</iHappiness>
+			<iPlacementOrder>-1</iPlacementOrder>
+			<iMinAreaSize>-1</iMinAreaSize>
 		</BonusInfo>
 		<BonusInfo> <!-- Pearls -->
 			<Type>BONUS_PEARLS</Type>
@@ -1463,14 +1452,11 @@
 			</FeatureTerrainBooleans>
 		</BonusInfo>
 
-		<!-- ****************** -->
-		<!-- Manufactured       -->
-		<!-- ****************** -->
 
-		<!-- ****************** -->
-		<!-- Modern             -->
-		<!-- ****************** -->
-		<BonusInfo> <!-- Aluminium -->
+<!-- ************	-->
+<!-- Manufactured -->
+<!-- ************	-->
+		<BonusInfo> <!-- Aluminum -->
 			<Type>BONUS_ALUMINUM</Type>
 			<Description>TXT_KEY_BONUS_ALUMINUM</Description>
 			<Civilopedia>TXT_KEY_BONUS_ALUMINUM_PEDIA</Civilopedia>
@@ -1512,9 +1498,10 @@
 			</FeatureTerrainBooleans>
 		</BonusInfo>
 
-		<!-- ****************** -->
-		<!-- Rush               -->
-		<!-- ****************** -->
+
+<!-- ************	-->
+<!-- Rush -->
+<!-- ************	-->
 		<BonusInfo> <!-- Copper -->
 			<Type>BONUS_COPPER</Type>
 			<Description>TXT_KEY_BONUS_COPPER</Description>
@@ -1624,7 +1611,6 @@
 			<bPeaks>1</bPeaks>
 			<bFlatlands>1</bFlatlands>
 			<bNoRiverSide>1</bNoRiverSide>
-			<bNormalize>0</bNormalize>
 			<TerrainBooleans>
 				<TerrainType>TERRAIN_GRASS</TerrainType>
 				<TerrainType>TERRAIN_PLAINS</TerrainType>
@@ -1678,7 +1664,7 @@
 				<TerrainType>TERRAIN_TUNDRA</TerrainType>
 			</TerrainBooleans>
 		</BonusInfo>
-		<BonusInfo> <!-- Prime Timber -->
+		<BonusInfo> <!-- Timber -->
 			<Type>BONUS_TIMBER</Type>
 			<Description>TXT_KEY_BONUS_TIMBER</Description>
 			<Civilopedia>TXT_KEY_BONUS_TIMBER_PEDIA</Civilopedia>
@@ -1716,9 +1702,10 @@
 			</FeatureTerrainBooleans>
 		</BonusInfo>
 
-		<!-- ****************** -->
-		<!-- Seafood            -->
-		<!-- ****************** -->
+
+<!-- ************	-->
+<!-- Seafood -->
+<!-- ************	-->
 		<BonusInfo> <!-- Clam -->
 			<Type>BONUS_CLAM</Type>
 			<Description>TXT_KEY_BONUS_CLAM</Description>
@@ -1865,9 +1852,10 @@
 			</TerrainBooleans>
 		</BonusInfo>
 
-		<!-- ****************** -->
-		<!-- Wonder             -->
-		<!-- ****************** -->
+
+<!-- ************	-->
+<!-- Wonder -->
+<!-- ************	-->
 		<BonusInfo> <!-- Marble -->
 			<Type>BONUS_MARBLE</Type>
 			<Description>TXT_KEY_BONUS_MARBLE</Description>
@@ -1926,7 +1914,6 @@
 				<iRandApp4>0</iRandApp4>
 			</Rands>
 			<iPlayer>100</iPlayer>
-			<bArea>0</bArea>
 			<bHills>1</bHills>
 			<bPeaks>1</bPeaks>
 			<bFlatlands>1</bFlatlands>
@@ -1939,6 +1926,5 @@
 				<TerrainType>TERRAIN_SNOW</TerrainType>
 			</TerrainBooleans>
 		</BonusInfo>
-
 	</BonusInfos>
 </Civ4BonusInfos>
