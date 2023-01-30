@@ -562,7 +562,7 @@
 		<element type="UnitClassDefenders" minOccurs="0"/>
 		<element type="UnitCombatDefenders" minOccurs="0"/>
 		<element type="FlankingStrikes" minOccurs="0"/>
-		<element type="UnitAIs"/>
+		<element type="UnitAIs" minOccurs="0"/>
 		<element type="NotUnitAIs" minOccurs="0"/>
 		<element type="Builds" minOccurs="0"/>
 		<element type="ReligionSpreads" minOccurs="0"/>

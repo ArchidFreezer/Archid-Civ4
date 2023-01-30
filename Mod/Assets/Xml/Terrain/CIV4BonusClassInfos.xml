@@ -7,9 +7,11 @@
 		</BonusClassInfo>
 		<BonusClassInfo> <!-- Future -->
 			<Type>BONUSCLASS_FUTURE</Type>
+			<iUnique>0</iUnique>
 		</BonusClassInfo>
 		<BonusClassInfo> <!-- General -->
 			<Type>BONUSCLASS_GENERAL</Type>
+			<iUnique>0</iUnique>
 		</BonusClassInfo>
 		<BonusClassInfo> <!-- Grain -->
 			<Type>BONUSCLASS_GRAIN</Type>
@@ -29,6 +31,7 @@
 		</BonusClassInfo>
 		<BonusClassInfo> <!-- Manufactured -->
 			<Type>BONUSCLASS_MANUFACTURED</Type>
+			<iUnique>0</iUnique>
 		</BonusClassInfo>
 		<BonusClassInfo> <!-- Modern -->
 			<Type>BONUSCLASS_MODERN</Type>

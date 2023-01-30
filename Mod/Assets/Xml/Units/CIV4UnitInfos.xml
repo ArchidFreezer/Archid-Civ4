@@ -331,6 +331,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_DEER</EarlyArtDefineTag>
@@ -382,6 +383,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>4</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>4</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_HORSE</EarlyArtDefineTag>
@@ -434,6 +436,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_WOLF</EarlyArtDefineTag>
@@ -485,6 +488,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_LION</EarlyArtDefineTag>
@@ -547,6 +551,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_GORILLA</EarlyArtDefineTag>
@@ -610,6 +615,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>2</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>2</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_PANTHER</EarlyArtDefineTag>
@@ -661,6 +667,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_LION</EarlyArtDefineTag>
@@ -733,6 +740,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>2</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_TIGER</EarlyArtDefineTag>
@@ -794,6 +802,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_BEAR</EarlyArtDefineTag>
@@ -865,6 +874,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_POLAR_BEAR</EarlyArtDefineTag>
@@ -917,6 +927,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_SABRETOOTH_TIGER</EarlyArtDefineTag>
@@ -969,6 +980,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_CAVEBEAR</EarlyArtDefineTag>
@@ -1033,6 +1045,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_ELEPHANT</EarlyArtDefineTag>
@@ -1834,6 +1847,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_ANCIENT_SPY</EarlyArtDefineTag>
@@ -2446,6 +2460,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_ANCIENT_GREAT_SPY</EarlyArtDefineTag>
@@ -2771,6 +2786,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_GRENADIER</EarlyArtDefineTag>
@@ -2823,6 +2839,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_MUSKETMAN</EarlyArtDefineTag>
@@ -2877,6 +2894,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_ETHIOPIAN_OROMO_WARRIOR_ORANGE</EarlyArtDefineTag>
@@ -2943,6 +2961,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_FRENCH_MUSKETEER</EarlyArtDefineTag>
@@ -3009,6 +3028,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_OTTOMAN_JANISSARY</EarlyArtDefineTag>
@@ -3069,6 +3089,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_RIFLEMAN</EarlyArtDefineTag>
@@ -3133,6 +3154,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_ENGLISH_REDCOAT</EarlyArtDefineTag>
@@ -3191,6 +3213,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_INFANTRY</EarlyArtDefineTag>
@@ -3249,6 +3272,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_MARINE</EarlyArtDefineTag>
@@ -3312,6 +3336,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_AMERICAN_NAVY_SEAL</EarlyArtDefineTag>
@@ -3364,6 +3389,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_PARATROOPER</EarlyArtDefineTag>
@@ -3420,6 +3446,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_AT_INFANTRY</EarlyArtDefineTag>
@@ -3480,6 +3507,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_SAM_INFANTRY</EarlyArtDefineTag>
@@ -3529,6 +3557,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_MECHANIZED_INFANTRY</EarlyArtDefineTag>
@@ -3587,6 +3616,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_MOBILE_SAM</EarlyArtDefineTag>
@@ -3786,6 +3816,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_EARLY_MILITIA</EarlyArtDefineTag>
@@ -3835,6 +3866,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_MINUTEMAN</EarlyArtDefineTag>
@@ -3882,6 +3914,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>2</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_POLICE</EarlyArtDefineTag>
@@ -3930,6 +3963,9 @@
 			<NotUnitAIs>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</NotUnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_STONE_TOOLS</TechType>
+			</PrereqTechs>
 			<iCost>15</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
@@ -3948,6 +3984,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>8</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_WARRIOR</EarlyArtDefineTag>
@@ -3999,6 +4036,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_STONE_AXEMAN</EarlyArtDefineTag>
@@ -4048,6 +4086,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_STONE_SPEARMAN</EarlyArtDefineTag>
@@ -4108,6 +4147,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_AXEMAN</EarlyArtDefineTag>
@@ -4174,6 +4214,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_GREEK_PHALANX</EarlyArtDefineTag>
@@ -4240,6 +4281,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_INCAN_QUECHUA</EarlyArtDefineTag>
@@ -4299,6 +4341,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_NATIVE_AMERICA_DOG_SOLDIER</EarlyArtDefineTag>
@@ -4359,6 +4402,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_SUMERIAN_VULTURE</EarlyArtDefineTag>
@@ -4418,6 +4462,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_SPEARMAN</EarlyArtDefineTag>
@@ -4474,6 +4519,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_MAYA_HOLKAN</EarlyArtDefineTag>
@@ -4535,6 +4581,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_ZULU_SPEARMAN</EarlyArtDefineTag>
@@ -4595,6 +4642,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_PIKEMAN</EarlyArtDefineTag>
@@ -4657,6 +4705,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_HOLY_ROMAN_LANDSKNECHT</EarlyArtDefineTag>
@@ -4720,6 +4769,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_MACEMAN</EarlyArtDefineTag>
@@ -4849,6 +4899,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_VIKING_BESERKER</EarlyArtDefineTag>
@@ -4903,6 +4954,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_SWORDSMAN</EarlyArtDefineTag>
@@ -4954,6 +5006,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_AZTEC_JAGUAR</EarlyArtDefineTag>
@@ -5011,6 +5064,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_CELTIC_BARBARIAN</EarlyArtDefineTag>
@@ -5065,6 +5119,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_ROME_PRAETORIAN</EarlyArtDefineTag>
@@ -5243,6 +5298,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_BUDDHIST_MISSIONARY</EarlyArtDefineTag>
@@ -5278,6 +5334,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_CHRISTIAN_MISSIONARY</EarlyArtDefineTag>
@@ -5313,6 +5370,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_CONFUCIAN_MISSIONARY</EarlyArtDefineTag>
@@ -5348,6 +5406,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_HINDU_MISSIONARY</EarlyArtDefineTag>
@@ -5383,6 +5442,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_ISLAMIC_MISSIONARY</EarlyArtDefineTag>
@@ -5418,6 +5478,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_JEWISH_MISSIONARY</EarlyArtDefineTag>
@@ -5453,6 +5514,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_TAOIST_MISSIONARY</EarlyArtDefineTag>
@@ -5515,6 +5577,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>2</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_CHARIOT</EarlyArtDefineTag>
@@ -5573,6 +5636,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>2</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_EGYPT_WARCHARIOT</EarlyArtDefineTag>
@@ -5638,6 +5702,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_PERSIA_IMMORTAL</EarlyArtDefineTag>
@@ -8215,6 +8280,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>2</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>2</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_SCOUT</EarlyArtDefineTag>
@@ -8262,6 +8328,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>2</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>2</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_EXPLORER</EarlyArtDefineTag>
@@ -8311,6 +8378,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>4</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_SETTLER_MALE</EarlyArtDefineTag>
@@ -8356,6 +8424,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>4</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_TRIBE_MALE</EarlyArtDefineTag>
@@ -8897,6 +8966,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_GATHERER</EarlyArtDefineTag>
@@ -8968,6 +9038,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>2</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>2</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_SLAVE</EarlyArtDefineTag>
@@ -9094,6 +9165,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>2</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>2</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_WORKER</EarlyArtDefineTag>
@@ -9167,6 +9239,7 @@
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>2</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>2</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_INDIAN_FAST_WORKER</EarlyArtDefineTag>

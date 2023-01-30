@@ -184,7 +184,7 @@
 	</ElementType>
 	<ElementType name="BonusClassInfo" content="eltOnly">
 		<element type="Type"/>
-		<element type="iUnique"/>
+		<element type="iUnique" minOccurs="0"/>
 	</ElementType>
 	<ElementType name="BonusClassInfos" content="eltOnly">
 		<element type="BonusClassInfo" maxOccurs="*"/>
