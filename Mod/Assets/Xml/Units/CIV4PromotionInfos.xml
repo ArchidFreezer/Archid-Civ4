@@ -1084,6 +1084,27 @@
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Formation.dds,Art/Interface/Buttons/Promotions_Atlas.dds,1,2</Button>
 		</PromotionInfo>
+		<PromotionInfo>	<!-- Great Hunter -->
+			<Type>PROMOTION_GREAT_HUNTER</Type>
+			<Description>TXT_KEY_PROMOTION_GREAT_HUNTER</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_HUNTER2</PromotionType>
+				<PromotionType>PROMOTION_SIDESTEP2</PromotionType>
+			</PrereqOrPromotions>
+			<iFirstStrikesChange>1</iFirstStrikesChange>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_ANIMAL</UnitCombatType>
+					<iUnitCombatMod>50</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/great_hunter.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Guerilla 1 -->
 			<Type>PROMOTION_GUERILLA1</Type>
 			<Description>TXT_KEY_PROMOTION_GUERILLA1</Description>

@@ -146,6 +146,12 @@
 		<English>Evasion III</English>
 	</TEXT>
 
+	<TEXT>	<!-- Great Hunter -->
+		<Tag>TXT_KEY_PROMOTION_GREAT_HUNTER</Tag>
+		<English>Great Hunter</English>
+		<Spanish>Gran Cazador</Spanish>
+	</TEXT>
+
 <!-- +++ Hunter +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_HUNTER1</Tag>
