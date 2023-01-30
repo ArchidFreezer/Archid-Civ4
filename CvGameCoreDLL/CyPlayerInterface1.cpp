@@ -34,6 +34,7 @@ void CyPlayerPythonInterface1(python::class_<CyPlayer>& x) {
 
 		.def("getBarbarianExperience", &CyPlayer::getBarbarianExperience, "int ()")
 		.def("getBarbarianExperienceThreshold", &CyPlayer::getBarbarianExperienceThreshold, "int ()")
+		.def("getNumBarbarians", &CyPlayer::getNumBarbarians, "int()")
 
 		.def("getNewCityName", &CyPlayer::getNewCityName, "wstring ()")
 

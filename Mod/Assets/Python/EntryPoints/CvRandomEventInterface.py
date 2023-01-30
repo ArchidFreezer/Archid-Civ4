@@ -4235,6 +4235,16 @@ def getHelpBestHunters(argsList):
 
 ################ BARBARIAN ATTITUDE ################
 
+def canTriggerBarbarianAttitude(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	
+	# Only if player is Human he MUST have Barbarism Civic.
+	if (player.isHuman() and not player.isCivic(CvUtil.findInfoTypeNum(gc.getCivicInfo,gc.getNumCivicInfos(),'CIVIC_BARBARISM'))):
+		return false
+	
+	return (player.getNumBarbarians() > 0)	
+
 def applyBarbarianAttitude1(argsList):
 	iEvent = argsList[0]
 	kTriggeredData = argsList[1]

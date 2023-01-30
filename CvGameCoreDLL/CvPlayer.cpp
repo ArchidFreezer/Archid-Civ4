@@ -20368,3 +20368,6 @@ void CvPlayer::changeExtraGoldPerBarbarianUnit(int iChange) {
 	}
 }
 
+int CvPlayer::getNumBarbarians() const {
+	return AI()->AI_totalUnitAIs(UNITAI_BARBARIAN);
+}

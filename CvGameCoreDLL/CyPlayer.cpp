@@ -1892,3 +1892,6 @@ int CyPlayer::getBarbarianExperienceThreshold() {
 	return m_pPlayer ? m_pPlayer->getBarbarianExperienceThreshold() : 0;
 }
 
+int CyPlayer::getNumBarbarians() {
+	return m_pPlayer ? m_pPlayer->getNumBarbarians() : 0;
+}
