@@ -35,6 +35,7 @@ There are several additional screens available with the mod that are accessed vi
 - [Ctrl-Shift-X] - Open a dialog for user to select number of turns for AI to play their civ 
 - [Ctrl-Shift-Z] - Reload BUG options
 - [Space]        - Halt autoplay
+- [@]            - Console key on UK keyboards
 
 ## Core Mods included
 There are many mods components that I have drawn either code or inspiration from, but the main components that underpin this are:
