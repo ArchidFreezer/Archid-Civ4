@@ -3,6 +3,7 @@
 	 
 	<events class="TesterEventHandler" />
 
+	<shortcut key="Ctrl Shift E" function="fireEventTrigger"/>
 	<shortcut key="Ctrl Shift K" function="killPlayerStuffPopup"/>
 	<shortcut key="Ctrl Shift S" function="showStrandedPopup"/>
 	<shortcut key="Ctrl Shift Z" function="reloadOptions"/>

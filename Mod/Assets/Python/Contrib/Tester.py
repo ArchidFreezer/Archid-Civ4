@@ -12,6 +12,7 @@ from PyHelpers import PyPlayer, PyInfo
 import BugOptions
 import ColorUtil
 
+FIRE_EVENTTRIGGER = CvUtil.getNewEventID("Tester.fireEventTrigger")
 KILL_PLAYER_STUFF = CvUtil.getNewEventID("Tester.killPlayerStuff")
 STRANDED_EVENT_ID = CvUtil.getNewEventID("Tester.showStranded")
 
@@ -24,10 +25,11 @@ class TesterEventHandler:
 
 		self.customEM = customEM
 
+		self.customEM.setPopupHandler( FIRE_EVENTTRIGGER, ["fireEventTrigger", fireEventTriggerHandler, self.blankHandler] )
 		self.customEM.setPopupHandler( KILL_PLAYER_STUFF, ["killPlayerStuffPopup", killPlayerStuffHandler, self.blankHandler] )
 
 		# Keep game from showing messages about handling these popups
-		CvUtil.SilentEvents.extend([KILL_PLAYER_STUFF])
+		CvUtil.SilentEvents.extend([KILL_PLAYER_STUFF, FIRE_EVENTTRIGGER])
 
 	def blankHandler( self, playerID, netUserData, popupReturn ) :
 		# Dummy handler to take the second event for popup
@@ -107,3 +109,45 @@ def killPlayerStuffHandler( playerID, netUserData, popupReturn ) :
 		player.killDeals()
 	elif killType == 2:
 		player.killUnits()
+
+def fireEventTrigger( self ) :
+	'Chooser window for firing an event'
+	popup = PyPopup.PyPopup(FIRE_EVENTTRIGGER,contextType = EventContextTypes.EVENTCONTEXT_ALL)
+	popup.setHeaderString( 'Fire an event' )
+	popup.setBodyString( 'Which civ, and which stuff?' )
+	popup.addSeparator()
+
+	popup.createPythonPullDown(CyTranslator().getText("TXT_KEY_POPUP_SELECT_EVENT",()), 1)
+	for i in range(gc.getNumEventTriggerInfos()):
+		trigger = gc.getEventTriggerInfo(i)
+		popup.addPullDownString( str(trigger.getType()), i, 1 )
+	popup.popup.setSelectedPulldownID( 200, 1 )
+
+	popup.addSeparator()
+	popup.addButton('Cancel')
+	popup.launch()
+
+def fireEventTriggerHandler( playerID, netUserData, popupReturn ):
+	
+	if( popupReturn.getButtonClicked() == 0 ):  # if you pressed cancel
+		return
+
+	eventTriggerName = None
+	eventTriggerNumber = -1
+	iButtonId	= popupReturn.getSelectedPullDownValue( 1 )
+
+	if iButtonId < gc.getNumEventTriggerInfos():
+		eventTriggerName = gc.getEventTriggerInfo(iButtonId).getType()
+		eventTriggerNumber = iButtonId
+	if eventTriggerName == None:
+		return
+	if eventTriggerNumber == -1:
+		return
+	message = 'Event: %s[%d]' % (eventTriggerName, eventTriggerNumber)
+	CyInterface().addImmediateMessage(message, "")
+	message = 'pyPrint: You selected Event: %s[%d] for player %d' % (eventTriggerName, eventTriggerNumber, playerID)
+	CvUtil.pyPrint(message)
+	#message = 'print: You selected Event: %s[%d]' % (eventTriggerName, eventTriggerNumber)
+	#print message
+	pPlayer = gc.getPlayer(playerID)
+	pPlayer.trigger(eventTriggerNumber)
