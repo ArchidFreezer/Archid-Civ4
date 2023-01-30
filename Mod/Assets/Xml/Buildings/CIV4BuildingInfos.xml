@@ -3122,7 +3122,7 @@
 			<ArtDefineTag>ART_DEF_BUILDING_HUNTING_INSTRUCTION</ArtDefineTag>
 			<ObsoleteTech>TECH_ANIMAL_HUSBANDRY</ObsoleteTech>
 			<PrereqAndTechs>
-				<TechType>TECH_HUNTING</TechType>
+				<TechType>TECH_SCAVENGING</TechType>
 			</PrereqAndTechs>
 			<FreePromotion>PROMOTION_HUNTER1</FreePromotion>
 			<bNeverCapture>1</bNeverCapture>
