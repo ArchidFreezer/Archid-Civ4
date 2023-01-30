@@ -91,14 +91,14 @@ public:
 	bool isSpecialistUnit() const;
 
 	// Barbarians
-	bool canBecomeBarbarian() const;
+	bool canBecomeBarbarian(bool bIgnoreCost = false) const;
 	bool canIncreaseBarbarianUnitSupport(const CvPlot* pPlot, bool bTestVisible = false) const;
 	bool increaseBarbarianUnitSupport(int iFreeUnitsSupport);
 	bool isBarbarianConvert() const;
 	bool canPlunderCity(const CvPlot* pPlot) const;
 	bool plunderCity();
 	int becomeBarbarianCost() const;
-	void becomeBarbarian();
+	void becomeBarbarian(bool bIgnoreCost = false);
 	void setBarbarianGraphics();
 
 	int getSalvageModifier() const;

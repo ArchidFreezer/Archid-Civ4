@@ -23,6 +23,11 @@ CyUnit::CyUnit(CvUnit* pUnit) : m_pUnit(pUnit) {
 
 }
 
+void CyUnit::becomeBarbarian(bool bIgnoreCost) {
+	if (m_pUnit)
+		m_pUnit->becomeBarbarian(bIgnoreCost);
+}
+
 void CyUnit::convert(CyUnit* pUnit) {
 	if (m_pUnit)
 		m_pUnit->convert(pUnit->getUnit());

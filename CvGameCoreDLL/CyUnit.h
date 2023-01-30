@@ -24,6 +24,8 @@ public:
 	void convert(CyUnit* pUnit);
 	void kill(bool bDelay, int /*PlayerTypes*/ ePlayer);
 
+	void becomeBarbarian(bool bIgnoreCost);
+
 	WeaponTypes getWeaponType() const;
 	WeaponTypes getAmmunitionType() const;
 

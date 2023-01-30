@@ -13521,7 +13521,7 @@ int CvUnit::becomeBarbarianCost() const {
 	return iCost;
 }
 
-bool CvUnit::canBecomeBarbarian() const {
+bool CvUnit::canBecomeBarbarian(bool bIgnoreCost) const {
 
 	if (isSpecialistUnit())
 		return false;
@@ -13530,15 +13530,15 @@ bool CvUnit::canBecomeBarbarian() const {
 	if (!kOwner.isCreateBarbarians())
 		return false;
 
-	if (kOwner.getGold() < becomeBarbarianCost())
+	if (!bIgnoreCost && kOwner.getGold() < becomeBarbarianCost())
 		return false;
 
 	return true;
 }
 
-void CvUnit::becomeBarbarian() {
+void CvUnit::becomeBarbarian(bool bIgnoreCost) {
 
-	if (!canBecomeBarbarian())
+	if (!canBecomeBarbarian(bIgnoreCost))
 		return;
 
 	setName(gDLL->getText("TXT_KEY_BARBARIAN_RENAME", getName().GetCString()));
@@ -13550,7 +13550,8 @@ void CvUnit::becomeBarbarian() {
 	setBarbarianGraphics();
 	reloadEntity();
 
-	GET_PLAYER(getOwnerINLINE()).changeGold(-becomeBarbarianCost());
+	if (!bIgnoreCost)
+		GET_PLAYER(getOwnerINLINE()).changeGold(-becomeBarbarianCost());
 }
 
 void CvUnit::setBarbarianGraphics() {

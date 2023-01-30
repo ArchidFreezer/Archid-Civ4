@@ -18,6 +18,7 @@ void CyUnitPythonInterface1(python::class_<CyUnit>& x) {
 	OutputDebugString("Python Extension Module - CyUnitPythonInterface1\n");
 
 	x
+		.def("becomeBarbarian", &CyUnit::becomeBarbarian, "void (boolean bIgnoreCost)")
 		.def("getWeaponType", &CyUnit::getWeaponType, "WeaponTypes ()")
 		.def("getAmmunitionType", &CyUnit::getAmmunitionType, "WeaponTypes ()")
 		.def("isNone", &CyUnit::isNone, "bool () - Is this a valid unit instance?")
