@@ -6729,5 +6729,179 @@
    		<Italian>Tutte le informazioni sui giochi antichi sono state perse per sempre.</Italian>
    		<Spanish>Toda la informaci&#243;n sobre los juegos antiguos se ha perdido por siempre.</Spanish>
 	</TEXT>
+	<!-- Cooked Food -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_COOKED_FOOD</Tag>
+		<English>In their attempt to find a way to conserve food, %s1_civ_adjective tribe has accidentally learned the benefits of Cooked Food.</English>
+		<Spanish>En su intento por descubrir un modo de conservar la comida, la tribu %s1:2_civ_adjective ha descubierto los beneficios de la Comida Cocida.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_COOKED_FOOD</Tag>
+		<English>One of our tribe members has accidentally found a way to get more digestible food by putting it over fire for a short period of time.</English>
+		<Spanish>Uno de nuestros miembros de la tribu han encontrado accidentalmente un modo para conseguir comida m&#225;s digerible coloc&#225;ndole sobre el fuego por un periodo breve de tiempo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_COOKED_FOOD_1</Tag>
+		<English>Interesting. Let's share this knowledge with the rest of our tribe.</English>
+		<Spanish>Interesante. Compartamos este conocimiento con el resto de la tribu.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_COOKED_FOOD_2</Tag>
+		<English>Cooked food is easier to eat than raw food.</English>
+		<Spanish>La comida cocida es m&#225;s f&#225;cil de comer que la comida cruda.</Spanish>
+	</TEXT>
+	<!-- Best Hunters -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_BEST_HUNTERS</Tag>
+		<English>One of our best hunters says he has developed a better way to hunt our prey! What should we do?</English>
+		<Spanish>Uno de nuestros mejores cazadores afirma haber desarrollado una mejor manera de cazar a nuestras presas! Qu&#233; debemos hacer?</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_NEWS_EVENT_BEST_HUNTERS_1</Tag>
+		<English>A member of the %s1_civ_adjective tribe has stood out among their hunters. He has taught the rest of the tribe how to become a [COLOR_UNIT_TEXT]Good Hunter[COLOR_REVERT].</English>
+		<Spanish>Un miembro de la tribu %s1:2_civ_adjective ha destacado entre sus cazadores. Ha ense&#241;ado al resto de la tribu sobre como ser un [COLOR_UNIT_TEXT]Buen Cazador[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_NEWS_EVENT_BEST_HUNTERS_2</Tag>
+		<English>A member of the %s1_civ_adjective tribe has stood out among their hunters. He has taught the rest of the tribe how to become a [COLOR_UNIT_TEXT]Good Scavenger[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_NEWS_EVENT_BEST_HUNTERS_3</Tag>
+		<English>A member of the %s1_civ_adjective tribe has stood out among their hunters. He has taught the rest of the tribe how to become a [COLOR_UNIT_TEXT]Great Hunter[COLOR_REVERT].</English>
+		<Spanish>Un miembro de la tribu %s1:2_civ_adjective ha destacado entre sus cazadores. Ha ense&#241;ado al resto de la tribu sobre como ser un [COLOR_UNIT_TEXT]Gran Cazador[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BEST_HUNTERS_1</Tag>
+		<English>He might have been bragging about his skills. Let him show us some of his abilities.</English>
+		<Spanish>El Debe de estar fanfarroneando sobre su destreza. Dejemos que nos muestre sus habilidades.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BEST_HUNTERS_2</Tag>
+		<English>A good hunter you say? Let's give him the chance to teach our hunters some tips on getting the most from our kills.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BEST_HUNTERS_3</Tag>
+		<English>This is good news! Let's get our hunters together so he can teach them some hunting lessons.</English>
+		<Spanish>Estas son buenas noticias! Reunamos a los dem&#225;s cazadores para que as&#237; &#233;l pueda darles algunas lecciones de cacer&#233;a.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GREAT_HUNTER_HELP_CANNOT</Tag>
+		<English>[COLOR_NEGATIVE_TEXT]Requires Hunting Instruction[COLOR_REVERT]</English>
+		<Spanish>[COLOR_NEGATIVE_TEXT]Requiere Instrucci&#243;n de Caza[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GREAT_HUNTER_HELP_OK</Tag>
+		<English>[COLOR_BUILDING_TEXT]You already have Hunting Instruction[COLOR_REVERT]</English>
+		<Spanish>[COLOR_BUILDING_TEXT]Ya cuentas con Instrucci&#243;n de Caza[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<!-- Messed Painting -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_MESSED_PAINTING</Tag>
+		<English>Natives from the %s1_civ_adjective tribe have found their cave paintings messed up. This outrageous event has made their leader angry.</English>
+		<Spanish>Nativos de la tribu %s1_civ_adjective han encontrado sus pinturas rupestres estropeadas. Este indignante acontecimiento ha hecho enojar a su lider.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_MESSED_PAINTING_1</Tag>
+		<English>Some children from our tribe were caught messing up our Cave Paintings. This source of inspiration is now lost.</English>
+		<Spanish>Algunos ni&#241;os de nuestra tribu han sido atrapados causando desastres en nuestras pinturas rupestres. Estas fuentes de inspiraci&#243;n ahora est&#225;n perdidas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_MESSED_PAINTING_2</Tag>
+		<English>A young hunter of our tribe has accidentally messed up our Cave Paintings while trying to depict his hunting adventures on them. These sources of inspiration are now lost.</English>
+		<Spanish>Un joven cazador de nuestra tribu accidentalmente ha hecho desastres en nuestras pinturas rupestres al tratar de representar sus aventuras como cazador en ellas. Estas fuentes de inspiraci&#243;n ahora est&#225;n perdidas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MESSED_PAINTING_1</Tag>
+		<English>What the heck? This disastrous event cannot go unpunished. Let's whip the offenders to teach them a lesson!</English>
+		<Spanish>Qu&#233; rayos? Este desastroso acontecimiento no puede quedar impune. Azotemos a los culpables para ense&#241;arles una lecci&#243;n!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MESSED_PAINTING_2</Tag>
+		<English>This is a deplorable event. From now we should be more careful if we don't want to have more surprises.</English>
+		<Spanish>Este acontecimiento es lamentable. A partir de ahora debemos ser m&#225;s cuidadosos si no queremos tener m&#225;s sorpresas.</Spanish>
+	</TEXT>
+	<!-- Best Stone Edges -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_BEST_STONE_EDGES</Tag>
+		<English>%s1_civ_adjective tribespeople in %s2_civ_adjective have developed great skills that let them build Stone items faster.</English>
+		<Spanish>Los tribales %s1_civ_adjective en %s2_civ_adjective han desarrollado grandes habilidades las cuales les permiten construir r&#225;pidamente art&#237;culos de piedra.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_BEST_STONE_EDGES_1</Tag>
+		<English>Some of our tribespeople in %s2_civ_adjective say they have improved their abilities to build Stone items.</English>
+		<Spanish>Algunos tribales in %s2_civ_adjective dicen haber mejorado sus habilidades para construir art&#237;culos de piedra.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BEST_STONE_EDGES_1</Tag>
+		<English>Excellent. We are in need of top quality craftspeople. Let's make them show us their skills.</English>
+		<Spanish>Excelente. Estamos necesitando trabajadores manuales de alta calidad. Hagamos que nos muestren sus habilidades.</Spanish>
+	</TEXT>
+	<!-- Barbarian Attitude -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_BARBARIAN_ATTITUDE_1</Tag>
+		<English>A %s1_civ_adjective tribesman has accused us of being involved in Barbaric Activity. His leader has demanded that we stop this behavior. What are we supposed to do now?</English>
+		<Spanish>Un tribal %s1_civ_adjective nos ha acusado de hacer estar envueltos en Activiades Barb&#225;ricas. Su lider nos ha demandado detener este comportamiento. Qu&#233; se supone debemos hacer?</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_ATTITUDE_1</Tag>
+		<English>We should not have a bad relationship with them. Let's apologize to them and let them know we will change our attitude.</English>
+		<Spanish>No nos conviene mantener malas relaciones con ellos. Pid&#225;mosle disculpas y hag&#225;mosle saber que cambiaremos nuestra actitud.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WORLD_NEWS_EVENT_BARBARIAN_ATTITUDE_1</Tag>
+		<English>%s1_civ_adjective has apologized to the %s3_civ_adjective tribe for being involved in Barbarian Activity. They have also promised they will change their attitude from now. But, will they really do it?</English>
+		<Spanish>La tribu %s1_civ_adjective se ha disculpado con la tribu %s3_civ_adjective por estar envueltos en Actividad Barb&#225;rica. Tambi&#233;n prometieron que cambiar&#237;an de actitud. Pero, realmente lo har&#225;n?</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_ATTITUDE_2</Tag>
+		<English>You say they are demanding that we change our attitude? Go on with it. We won't change anything just because they don't like it.</English>
+		<Spanish>Dices que nos est&#225;n forzando a cambiar de actitud? Que se vayan con eso. Nosotros no cambiaremos nada s&#243;lo porque a ellos no les gusta.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WORLD_NEWS_EVENT_BARBARIAN_ATTITUDE_2</Tag>
+		<English>%s1_civ_adjective tribe has ignored %s3_civ_adjective demands to stop their supposed Barbarian Activity. This particular event has spoiled their relationship.</English>
+		<Spanish>La tribu %s1_civ_adjective ha ignorado las demandas %s3_civ_adjective que los forzaban a detener sus supuestas actividades Barb&#225;ricas. Este evento en particular ha estropeado sus relaciones.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_ATTITUDE_3</Tag>
+		<English>Have they gone mad? Who the hell do they think they are to tell us what we must do? Let's send some Barbarian units to pillage their land. That will teach them a good lesson!</English>
+		<Spanish>Se han vuelto locos? Quienes diablos creen que son para decirnos lo que tenemos que hacer? Mandemos algunas unidades B&#225;rbaras para saquear sus tierras. Eso les dar&#225; un buen escarmiento!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_NEWS_EVENT_BARBARIAN_ATTITUDE_3</Tag>
+		<English>The %s2_civ_adjective tribe has accused us of being involved in Barbarian activity. This intolerable event has completely spoiled our relationship. We are at war now!</English>
+		<Spanish>La %s2_civ_adjective Maya nos ha acusado de estar envueltos en actividades Barb&#225;ricas. Este intrigante acontecimiento ha estropeado por completo nuestras relaciones. Estamos en guerra ahora!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WORLD_NEWS_EVENT_BARBARIAN_ATTITUDE_3</Tag>
+		<English>The %s3_civ_adjective has accused %s1_civ_adjective tribe of being involved in Barbarian activity. This intriguing event has completely spoiled their relationship.</English>
+		<Spanish>Los %s3_civ_adjective han acusado a la tribu %s1_civ_adjective de estar envueltos en actividades Barb&#225;ricas. Este intrigante acontecimiento ha estropeado por completo sus relaciones.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_ATTITUDE_3_HELP</Tag>
+		<English>[ICON_BULLET]Suffer [COLOR_NEGATIVE_TEXT]-1[COLOR_REVERT] relation hit with [COLOR_HIGHLIGHT_TEXT]all known leaders[COLOR_REVERT].[NEWLINE][ICON_BULLET]Will destroy some %[s1_civ_adjective] buildings.[NEWLINE][ICON_BULLET]Will trigger War!</English>
+		<Spanish>[ICON_BULLET]Sufre [COLOR_NEGATIVE_TEXT]-1[COLOR_REVERT] punto en relaci&#243;n con [COLOR_HIGHLIGHT_TEXT]todos los l&#237;deres conocidos[COLOR_REVERT].[NEWLINE][ICON_BULLET]Destruir&#225; algunos edificios %[s1_civ_adjective].[NEWLINE][ICON_BULLET]Provocar&#225; la Guerra!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_NO_BUILDINGS_DESTROYED</Tag>
+		<English>No %s1_civ_adjective building could be destroyed. Nevertheless, they declared war on us.</English>
+		<Spanish>Ninguna edificaci&#243;n %s1_civ_adjective pudo ser destruida. Sin embargo, nos han declarado la guerra.</Spanish>
+	</TEXT>
+	<!-- Barbarian Help -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_BARBARIAN_HELP_1</Tag>
+		<English>The Barbarians have sent us some reinforcements! They seem to be pleased with our attitude.</English>
+		<Spanish>Los B&#225;rbaros nos han enviado algunos refuerzos! Ellos parecen estar satisfechos con nuestra actitud.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_OK</Tag>
+		<English>Excellent. Let's send them to the battlefield!</English>
+		<Spanish>Excelente. Mand&#233;moslos al campo de batalla!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_DENY</Tag>
+		<English>No thank you. We have no need of their assistance at this moment.</English>
+		<Spanish>No gracias. No necesitamos de su ayuda por ahora.</Spanish>
+	</TEXT>
 
 </Civ4GameText>
