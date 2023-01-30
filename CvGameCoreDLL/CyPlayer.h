@@ -25,7 +25,6 @@ public:
 
 	int getBarbarianExperience();
 	int getBarbarianExperienceThreshold();
-	int getNumBarbarians();
 
 	bool canCaptureCities();
 	void setHasTrait(int /*TraitTypes*/ iIndex, bool bNewValue);

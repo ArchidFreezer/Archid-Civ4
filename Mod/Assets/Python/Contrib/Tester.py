@@ -145,8 +145,8 @@ def fireEventTriggerHandler( playerID, netUserData, popupReturn ):
 		return
 	message = 'Event: %s[%d]' % (eventTriggerName, eventTriggerNumber)
 	CyInterface().addImmediateMessage(message, "")
-	#message = 'pyPrint: You selected Event: %s[%d] for player %d' % (eventTriggerName, eventTriggerNumber, playerID)
-	#CvUtil.pyPrint(message)
+	message = 'pyPrint: You selected Event: %s[%d] for player %d' % (eventTriggerName, eventTriggerNumber, playerID)
+	CvUtil.pyPrint(message)
 	#message = 'print: You selected Event: %s[%d]' % (eventTriggerName, eventTriggerNumber)
 	#print message
 	pPlayer = gc.getPlayer(playerID)

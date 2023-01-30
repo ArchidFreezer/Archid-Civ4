@@ -56,7 +56,6 @@ public:
 	int getBarbarianLeadersCreated() const;
 	int getBarbarianLeaderRateModifier() const;
 	int getExtraGoldPerBarbarianUnit() const;
-	int getNumBarbarians() const;
 	void changeBarbarianConvertionCostModifier(int iChange);
 	void changeBarbarianExperience(int iChange);
 	void changeBarbarianFractionalExperience(int iChange);

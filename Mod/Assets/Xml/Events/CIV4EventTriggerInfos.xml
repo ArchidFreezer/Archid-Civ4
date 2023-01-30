@@ -6018,7 +6018,17 @@
 				</TriggerText>
 			</TriggerTexts>
 			<iPercentGamesActive>90</iPercentGamesActive>
-			<iWeight>200</iWeight>
+			<iWeight>150</iWeight>
+			<bProbabilityUnitMultiply>1</bProbabilityUnitMultiply>
+			<UnitsRequired>
+				<UnitClass>UNITCLASS_BARBARIAN_CLUBMAN</UnitClass>
+				<UnitClass>UNITCLASS_BARBARIAN_STONE_SPEARMAN</UnitClass>
+				<UnitClass>UNITCLASS_BARBARIAN_FLETCHER</UnitClass>
+				<UnitClass>UNITCLASS_BARBARIAN_JAVELINEER</UnitClass>
+				<UnitClass>UNITCLASS_BARBARIAN_STONE_AXEMAN</UnitClass>
+				<UnitClass>UNITCLASS_BARBARIAN_HORSEMAN</UnitClass>
+			</UnitsRequired>
+			<iNumUnits>1</iNumUnits>
 			<Events>
 				<Event>EVENT_BARBARIAN_ATTITUDE_1</Event>
 				<Event>EVENT_BARBARIAN_ATTITUDE_2</Event>
@@ -6033,7 +6043,6 @@
 			<bOtherPlayerAI>1</bOtherPlayerAI>
 			<bPickOtherPlayerCity>1</bPickOtherPlayerCity>
 			<bShowPlot>1</bShowPlot>
-			<PythonCanDo>canTriggerBarbarianAttitude</PythonCanDo>
 		</EventTriggerInfo>
 		<EventTriggerInfo> <!-- Barbarian Clubman Help 1 -->
 			<Type>EVENTTRIGGER_BARBARIAN_CLUBMAN_HELP_1</Type>
