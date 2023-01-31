@@ -6853,6 +6853,11 @@
 		<Spanish>La tribu %s1_civ_adjective se ha disculpado con la tribu %s3_civ_adjective por estar envueltos en Actividad Barb&#225;rica. Tambi&#233;n prometieron que cambiar&#237;an de actitud. Pero, realmente lo har&#225;n?</Spanish>
 	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_ATTITUDE_1_HELP</Tag>
+		<English>[ICON_BULLET]Recieve [COLOR_POSITIVE_TEXT]+1[COLOR_REVERT] relation hit with [COLOR_HIGHLIGHT_TEXT]all known leaders[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]The Barbarian unit will return[COLOR_REVERT]</English>
+		<Spanish>[ICON_BULLET]Recibir [COLOR_POSITIVE_TEXT]+1[COLOR_REVERT] punto de relaci&#243;n con [COLOR_HIGHLIGHT_TEXT]todos los l&#237;deres conocidos[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]La unidad B&#225;rbara volver&#225;[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_EVENT_BARBARIAN_ATTITUDE_2</Tag>
 		<English>You say they are demanding that we change our attitude? Go on with it. We won't change anything just because they don't like it.</English>
 		<Spanish>Dices que nos est&#225;n forzando a cambiar de actitud? Que se vayan con eso. Nosotros no cambiaremos nada s&#243;lo porque a ellos no les gusta.</Spanish>
@@ -6902,6 +6907,83 @@
 		<Tag>TXT_KEY_EVENT_BARBARIAN_DENY</Tag>
 		<English>No thank you. We have no need of their assistance at this moment.</English>
 		<Spanish>No gracias. No necesitamos de su ayuda por ahora.</Spanish>
+	</TEXT>
+	<!-- Barbarian Uprising -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIANS_UPRISING</Tag>
+		<English>WARNING!! Barbarian units have risen up near our borders. They are now approaching our cities!</English>
+		<Spanish>ADVERTENCIA!! Unidades B&#225;rbaras se han levantado cerca a nuestras fronteras. Ahora se est&#225;n dirigiendo hacia nuestras ciudades!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_POPUP_RESIGN</Tag>
+		<English>DAMN BARBARIANS</English>
+		<Spanish>MALDITOS BARBAROS</Spanish>
+	</TEXT>
+	<!-- Barbarian Assault Discovered-->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIANS_ASSAULT_DISCOVERED</Tag>
+		<English>An unknown nomad is requesting an audience with us. He says he has seen %s1_civ_adjective emmisaries sending assistance to the Barbarians. This means they are behind this invasion!</English>
+		<Spanish>Un n&#243;mada desconocido est&#225; solicitando una audiencia con nosotros. Afirma haber visto emisarios %s1_civ_adjective asistiendo a los B&#225;rbaros. Esto quiere decir que ellos est&#225;n detr&#225;s de esta invasi&#243;n!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_POPUP_RESIGN_DISCOVERED</Tag>
+		<English>DAMN %s1_civ_adjective</English>
+		<Spanish>MALDITOS %s1_civ_adjective</Spanish>
+	</TEXT>
+	<!-- Help Barbarian Assault -->
+	<TEXT>	<!-- Trigger -->
+		<Tag>TXT_KEY_EVENT_TRIGGER_BARBARIAN_ASSAULT</Tag>
+		<English>The Barbarians are planning an attack on the %s1_civ_adjective tribe. They are requesting our assistance. Will we help them?</English>
+		<Spanish>Los B&#225;rbaros est&#225;n planeando un ataque contra la tribu %s1_civ_adjective. Ellos est&#225;n solicitando nuestra ayuda. Los asistiremos?</Spanish>
+	</TEXT>
+	<TEXT>	<!-- Choices -->
+		<Tag>TXT_KEY_EVENT_BARBARIAN_ASSAULT_1</Tag>
+		<English>Not now. We don't want to get involved in Barbarian activity.</English>
+		<Spanish>No ahora. Nosotros no deseamos vernos envueltos en actividad B&#225;rbara.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_ASSAULT_2</Tag>
+		<English>Sounds like a great chance. Let's send them some assistance.</English>
+		<Spanish>Suena como una gran oportunidad. Envi&#233;mosles algo de asistencia.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_ASSAULT_3</Tag>
+		<English>Great idea! I've been itching for a fight.</English>
+		<Spanish>Gran idea! Ya estaba esperando algo m&#225;s de acci&#243;n.</Spanish>
+	</TEXT>
+	<TEXT>	<!-- Help -->
+		<Tag>TXT_KEY_EVENT_BARBARIAN_ASSAULT_HELP_1</Tag>
+		<English>[ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Barbarians might get upset with us.[COLOR_REVERT]</English>
+		<Spanish>[ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Los B&#225;rbaros podr&#237;an resentirse con nosotros.[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_ASSAULT_HELP_2</Tag>
+		<English>[ICON_BULLET]If we are discovered, our reputation with the [COLOR_HIGHLIGHT_TEXT]%s1_civ_adjective tribe[COLOR_REVERT] will be damaged.[NEWLINE][ICON_BULLET][COLOR_POSITIVE_TEXT]+3[COLOR_REVERT] [COLOR_UNIT_TEXT]%s2_unit[COLOR_REVERT] near %s3_civ_adjective borders.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_ASSAULT_HELP_3</Tag>
+		<English>[ICON_BULLET]If we are discovered, our reputation with [COLOR_HIGHLIGHT_TEXT]all known tribes[COLOR_REVERT] will be damaged.[NEWLINE][ICON_BULLET][COLOR_POSITIVE_TEXT]+4[COLOR_REVERT] [COLOR_UNIT_TEXT]%s1_unit[COLOR_REVERT] near %s2_civ_adjective borders.[NEWLINE][NEWLINE][ICON_BULLET]In addition, 20% chance for:[NEWLINE][ICON_BULLET]Suffer a [COLOR_NEGATIVE_TEXT]-1[COLOR_REVERT] relations hit with all known leaders.</English>
+	</TEXT>
+	<TEXT>	<!-- Outcomes -->
+		<Tag>TXT_KEY_EVENT_BARBARIAN_VENGEANCE</Tag>
+		<English>[COLOR_NEGATIVE_TEXT]An unexpected tragedy has occured in our city of %s2_city. All of our food stores have been burned or stolen. Some other improvements might also have been destroyed.[COLOR_REVERT]</English>
+		<Spanish>[COLOR_NEGATIVE_TEXT]Una tragedia inesperada ha tomado lugar en nuestra ciudad de %s2_city. Toda la comida almacenada se ha perdido. Algunas otras mejores podr&#237;an tambi&#233;n haberse perdido.[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_ACTIVITY_DISCOVERED</Tag>
+		<English>[COLOR_NEGATIVE_TEXT]We have been discovered! An unknown nomad saw our emissaries sending assistance to the Barbarians. We will have to work hard from now on to repair our reputation.[COLOR_REVERT]</English>
+		<Spanish>[COLOR_NEGATIVE_TEXT]Hemos sido descubiertos! Un n&#243;mada desconocido ha visto a nuestros emisarios enviar asistencia a los B&#225;rbaros. Tendremos que trabajar duro para reparar nuestra reputaci&#243;n.[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WORLD_NEWS_EVENT_BARBARIAN_ACTIVITY_DISCOVERED</Tag>
+		<English>The %s1_adjective tribe has been caught giving assistance to the Barbarians. This deplorable event has damaged their reputation.</English>
+		<Spanish>La tribu %s1_adjective ha sido descubierta dando asistencia a los B&#225;rbaros. Este indignante acontecimiento ha da&#241;ado su reputaci&#243;n..</Spanish>
+	</TEXT>
+	<!-- Barbarian Retires -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BETRAYAL_ASSAULT</Tag>
+		<English>The Barbarian unit has returned with his friends to %s1_city. He said he will take revenge for our insolence!</English>
+		<Spanish>La unidad B&#225;rbara ha retornado con sus amigos a %s1_city. Dice que tomar&#225; venganza de nuestra insolencia.</Spanish>
 	</TEXT>
 
 </Civ4GameText>

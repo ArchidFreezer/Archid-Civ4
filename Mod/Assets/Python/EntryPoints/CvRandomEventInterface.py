@@ -4294,7 +4294,7 @@ def applyBarbarianAttitude1(argsList):
 			iPlot = gc.getGame().getSorenRandNum(len(listPlots), "Barbarian Attitude event placement")
 			barbPlayer.initUnit(iUnitType, listPlots[iPlot].getX(), listPlots[iPlot].getY(), UnitAITypes.UNITAI_BARBARIAN_ATTACK_CITY, DirectionTypes.DIRECTION_SOUTH)
 	
-	szBuffer = localText.getText("TXT_KEY_EVENT_BETRAYAL_ASSAULT", (city.getNameKey(), ))
+	szBuffer = localText.getText("TXT_KEY_EVENT_BETRAYAL_ASSAULT", (capital.getNameKey(), ))
 	CyInterface().addMessage(kTriggeredData.ePlayer, false, gc.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_BETRAYAL", InterfaceMessageTypes.MESSAGE_TYPE_INFO, None, gc.getInfoTypeForString("COLOR_RED"), -1, -1, true, true)
 				
 def getHelpBarbarianAttitude1(argsList):
@@ -4419,3 +4419,343 @@ def doBarbarianFletcherHelp(argsList):
 	unit = player.initUnit(iUnitType, city.getX(), city.getY(), UnitAITypes.UNITAI_BARBARIAN, DirectionTypes.DIRECTION_SOUTH)
 	unit.becomeBarbarian(True)
 	
+################ BARBARIAN <UNITTYPE> ASSAULT ################
+	
+def canTriggerBarbarianAssault(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	otherPlayerCity = otherPlayer.getCity(kTriggeredData.iOtherPlayerCityId)
+	
+	# Only if player is Human he MUST have Barbarism Civic. This is because AI will always prefer other Civic than  Barbarism and we wan't AI to make use of this event  =P
+	if (not player.isCivic(CvUtil.findInfoTypeNum(gc.getCivicInfo,gc.getNumCivicInfos(),'CIVIC_BARBARISM'))):
+		return false
+		
+	# Look for a possible plot
+	for i in range(-2, 3):
+		for j in range(-2, 3):
+			loopPlot = gc.getMap().plot(otherPlayerCity.getX() + i, otherPlayerCity.getY() + j)
+			if None != loopPlot and not loopPlot.isNone() and (i == 2 or i == -2 or j == 2 or j == -2):
+				if (i != j and j != -i):
+					if not (loopPlot.isWater() or loopPlot.isImpassable()):
+						return true
+
+	return false
+	
+def applyBarbarianAssault(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	
+	# Increase relation hit by +1
+	otherPlayer.AI_changeAttitudeExtra(kTriggeredData.ePlayer, 1)
+			
+def getHelpBarbarianAssault(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	otherPlayerCity = otherPlayer.getCity(kTriggeredData.iOtherPlayerCityId)
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_BARBARIAN_ASSAULT_HELP_1", (otherPlayer.getCivilizationAdjectiveKey(), ))	
+
+	return szHelp
+
+def applyBarbarianActivityDiscovered1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	
+	# If affected player was a human, show MessageBox
+	if (otherPlayer.isHuman()):
+		popupInfo = CyPopupInfo()
+		popupInfo.setButtonPopupType(ButtonPopupTypes.BUTTONPOPUP_PYTHON)
+		popupInfo.setText(localText.getText("TXT_KEY_EVENT_BARBARIANS_ASSAULT_DISCOVERED", (player.getCivilizationAdjectiveKey(), )))
+		popupInfo.setPythonModule("CvRandomEventInterface")
+		popupInfo.addPythonButton(localText.getText("TXT_KEY_POPUP_RESIGN_DISCOVERED", (player.getCivilizationAdjectiveKey(), )), "")
+		popupInfo.addPopup(kTriggeredData.eOtherPlayer)
+		
+	# Play sound ...
+	szBuffer = localText.getText("TXT_KEY_EVENT_BARBARIAN_ACTIVITY_DISCOVERED", ())
+	CyInterface().addMessage(kTriggeredData.ePlayer, false, gc.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_BETRAYAL", InterfaceMessageTypes.MESSAGE_TYPE_INFO, None, gc.getInfoTypeForString("COLOR_RED"), -1, -1, true, true)
+	
+	return 1
+
+def applyBarbarianActivityDiscovered2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	
+	# If affected player was a human, show MessageBox
+	if (otherPlayer.isHuman()):
+		popupInfo = CyPopupInfo()
+		popupInfo.setButtonPopupType(ButtonPopupTypes.BUTTONPOPUP_PYTHON)
+		popupInfo.setText(localText.getText("TXT_KEY_EVENT_BARBARIANS_ASSAULT_DISCOVERED", (player.getCivilizationAdjectiveKey(), )))
+		popupInfo.setPythonModule("CvRandomEventInterface")
+		popupInfo.addPythonButton(localText.getText("TXT_KEY_POPUP_RESIGN_DISCOVERED", (player.getCivilizationAdjectiveKey(), )), "")
+		popupInfo.addPopup(kTriggeredData.eOtherPlayer)
+	
+	# Reduce 1 relation hit on all KNOWN leaders
+	for iLoopPlayer in range(gc.getMAX_CIV_PLAYERS()):
+		loopPlayer = gc.getPlayer(iLoopPlayer)
+		loopPlayerTeam = gc.getTeam(loopPlayer.getTeam())
+		if loopPlayer.isAlive() and iLoopPlayer != kTriggeredData.ePlayer and player.getTeam() != loopPlayer.getTeam():
+			if loopPlayerTeam.isHasMet(player.getTeam()):
+				loopPlayer.AI_changeAttitudeExtra(kTriggeredData.ePlayer, -1)
+				
+	# Play sound ...
+	szBuffer = localText.getText("TXT_KEY_EVENT_BARBARIAN_ACTIVITY_DISCOVERED_1", ())
+	CyInterface().addMessage(kTriggeredData.ePlayer, false, gc.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_BETRAYAL", InterfaceMessageTypes.MESSAGE_TYPE_INFO, None, gc.getInfoTypeForString("COLOR_RED"), -1, -1, true, true)
+	
+	return 1
+
+def doBarbarianAssault(ePlayer, eOtherPlayer, iOtherPlayerCity, iNumUnits, iUnitType):
+	player = gc.getPlayer(ePlayer)
+	otherPlayer = gc.getPlayer(eOtherPlayer)
+	otherPlayerCity = otherPlayer.getCity(iOtherPlayerCity)
+	
+	# Increase Barbarian Experience for AI
+	if not (player.isHuman()):
+		player.changeBarbarianExperience(1)
+	
+	# List with possible plots where barbarians can appear (range = 2)
+	listPlots = []
+	for i in range(-2, 3):
+		for j in range(-2, 3):
+			loopPlot = gc.getMap().plot(otherPlayerCity.getX() + i, otherPlayerCity.getY() + j)
+			if None != loopPlot and not loopPlot.isNone() and (i == 2 or i == -2 or j == 2 or j == -2):
+				if (i != j and j != -i):
+					if not (loopPlot.isWater() or loopPlot.isImpassable()):
+						listPlots.append(loopPlot)
+	
+	# Select one Plot
+	iPlot = gc.getGame().getSorenRandNum(len(listPlots), "Barbarian Assault event location")
+	
+	# Putting Barbarian units on the selected plots
+	barbPlayer = gc.getPlayer(gc.getBARBARIAN_PLAYER())
+	
+	if len(listPlots) > 0:
+		for i in range(iNumUnits):
+			barbPlayer.initUnit(iUnitType, listPlots[iPlot].getX(), listPlots[iPlot].getY(), UnitAITypes.UNITAI_BARBARIAN_ATTACK_CITY, DirectionTypes.DIRECTION_SOUTH)
+	
+	# If affected player is a human, show a MessageBox
+	if (otherPlayer.isHuman()):
+		popupInfo = CyPopupInfo()
+		popupInfo.setButtonPopupType(ButtonPopupTypes.BUTTONPOPUP_PYTHON)
+		popupInfo.setText(localText.getText("TXT_KEY_EVENT_BARBARIANS_UPRISING", ()))
+		popupInfo.setPythonModule("CvRandomEventInterface")
+		popupInfo.addPythonButton(localText.getText("TXT_KEY_POPUP_RESIGN", ()), "")
+		popupInfo.addPopup(kTriggeredData.eOtherPlayer)
+
+def applyBarbarianClubmanAssault2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	otherPlayerCity = otherPlayer.getCity(kTriggeredData.iOtherPlayerCityId)
+	iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_WARRIOR')
+	
+	doBarbarianAssault(kTriggeredData.ePlayer, kTriggeredData.eOtherPlayer, kTriggeredData.iOtherPlayerCityId, 3, iUnitType)
+		
+	return 1
+
+def applyBarbarianClubmanAssault3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	otherPlayerCity = otherPlayer.getCity(kTriggeredData.iOtherPlayerCityId)
+	iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_WARRIOR')
+	
+	doBarbarianAssault(kTriggeredData.ePlayer, kTriggeredData.eOtherPlayer, kTriggeredData.iOtherPlayerCityId, 4, iUnitType)
+		
+	return 1
+
+def getHelpBarbarianClubmanAssault2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_BARBARIAN_ASSAULT_HELP_2", (otherPlayer.getCivilizationAdjectiveKey(), "Barbarian Warrior Units", otherPlayer.getCivilizationAdjectiveKey()))	
+
+	return szHelp
+
+def getHelpBarbarianClubmanAssault3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_BARBARIAN_ASSAULT_HELP_3", ("Barbarian Warrior Units", otherPlayer.getCivilizationAdjectiveKey(), ))
+
+	return szHelp
+
+def applyBarbarianStoneAxemanAssault2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	otherPlayerCity = otherPlayer.getCity(kTriggeredData.iOtherPlayerCityId)
+	iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_STONE_AXEMAN')
+	
+	doBarbarianAssault(kTriggeredData.ePlayer, kTriggeredData.eOtherPlayer, kTriggeredData.iOtherPlayerCityId, 3, iUnitType)
+		
+	return 1
+
+def applyBarbarianStoneAxemanAssault3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	otherPlayerCity = otherPlayer.getCity(kTriggeredData.iOtherPlayerCityId)
+	iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_STONE_AXEMAN')
+	
+	doBarbarianAssault(kTriggeredData.ePlayer, kTriggeredData.eOtherPlayer, kTriggeredData.iOtherPlayerCityId, 4, iUnitType)
+		
+	return 1
+
+def getHelpBarbarianStoneAxemanAssault2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_BARBARIAN_ASSAULT_HELP_2", (otherPlayer.getCivilizationAdjectiveKey(), "Barbarian Stone Axeman Units", otherPlayer.getCivilizationAdjectiveKey()))	
+
+	return szHelp
+
+def getHelpBarbarianStoneAxemanAssault3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_BARBARIAN_ASSAULT_HELP_3", ("Barbarian Stone Axeman Units", otherPlayer.getCivilizationAdjectiveKey(), ))
+
+	return szHelp
+
+def applyBarbarianStoneSpearmanAssault2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	otherPlayerCity = otherPlayer.getCity(kTriggeredData.iOtherPlayerCityId)
+	iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_STONE_SPEARMAN')
+	
+	doBarbarianAssault(kTriggeredData.ePlayer, kTriggeredData.eOtherPlayer, kTriggeredData.iOtherPlayerCityId, 3, iUnitType)
+		
+	return 1
+
+def applyBarbarianStoneSpearmanAssault3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	otherPlayerCity = otherPlayer.getCity(kTriggeredData.iOtherPlayerCityId)
+	iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_STONE_SPEARMAN')
+	
+	doBarbarianAssault(kTriggeredData.ePlayer, kTriggeredData.eOtherPlayer, kTriggeredData.iOtherPlayerCityId, 4, iUnitType)
+		
+	return 1
+
+def getHelpBarbarianStoneSpearmanAssault2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_BARBARIAN_ASSAULT_HELP_2", (otherPlayer.getCivilizationAdjectiveKey(), "Barbarian Stone Spearman Units", otherPlayer.getCivilizationAdjectiveKey()))	
+
+	return szHelp
+
+def getHelpBarbarianStoneSpearmanAssault3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_BARBARIAN_ASSAULT_HELP_3", ("Barbarian Stone Spearman Units", otherPlayer.getCivilizationAdjectiveKey(), ))
+
+	return szHelp
+
+def applyBarbarianFletcherAssault2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	otherPlayerCity = otherPlayer.getCity(kTriggeredData.iOtherPlayerCityId)
+	iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_FLETCHER')
+	
+	doBarbarianAssault(kTriggeredData.ePlayer, kTriggeredData.eOtherPlayer, kTriggeredData.iOtherPlayerCityId, 3, iUnitType)
+		
+	return 1
+
+def applyBarbarianFletcherAssault3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	otherPlayerCity = otherPlayer.getCity(kTriggeredData.iOtherPlayerCityId)
+	iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_FLETCHER')
+	
+	doBarbarianAssault(kTriggeredData.ePlayer, kTriggeredData.eOtherPlayer, kTriggeredData.iOtherPlayerCityId, 4, iUnitType)
+		
+	return 1
+
+def getHelpBarbarianFletcherAssault2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_BARBARIAN_ASSAULT_HELP_2", (otherPlayer.getCivilizationAdjectiveKey(), "Barbarian Fletcher Units", otherPlayer.getCivilizationAdjectiveKey()))	
+
+	return szHelp
+
+def getHelpBarbarianFletcherAssault3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_BARBARIAN_ASSAULT_HELP_3", ("Barbarian Fletcher Units", otherPlayer.getCivilizationAdjectiveKey(), ))
+
+	return szHelp
+
+def applyBarbarianJavelineerAssault2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	otherPlayerCity = otherPlayer.getCity(kTriggeredData.iOtherPlayerCityId)
+	iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_JAVELINEER')
+	
+	doBarbarianAssault(kTriggeredData.ePlayer, kTriggeredData.eOtherPlayer, kTriggeredData.iOtherPlayerCityId, 3, iUnitType)
+		
+	return 1
+
+def applyBarbarianJavelineerAssault3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	otherPlayerCity = otherPlayer.getCity(kTriggeredData.iOtherPlayerCityId)
+	iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_JAVELINEER')
+	
+	doBarbarianAssault(kTriggeredData.ePlayer, kTriggeredData.eOtherPlayer, kTriggeredData.iOtherPlayerCityId, 4, iUnitType)
+		
+	return 1
+
+def getHelpBarbarianJavelineerAssault2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_BARBARIAN_ASSAULT_HELP_2", (otherPlayer.getCivilizationAdjectiveKey(), "Barbarian Javelineer Units", otherPlayer.getCivilizationAdjectiveKey()))	
+
+	return szHelp
+
+def getHelpBarbarianJavelineerAssault3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_BARBARIAN_ASSAULT_HELP_3", ("Barbarian Javelineer Units", otherPlayer.getCivilizationAdjectiveKey(), ))
+
+	return szHelp
+
