@@ -20211,11 +20211,9 @@ void CvPlayer::setBarbarianExperience(int iExperience) {
 			}
 
 			if (pBestCity) {
-				int iRandOffset = GC.getGameINLINE().getSorenRandNum(GC.getNumUnitInfos(), "Barbarian Unit Generation");
-				for (int iI = 0; iI < GC.getNumUnitInfos(); iI++) {
-					UnitTypes eLoopUnit = (UnitTypes)((iI + iRandOffset) % GC.getNumUnitInfos());
-					if (GC.getUnitInfo(eLoopUnit).isBarbarianLeader()) {
-						pBestCity->createBarbarianLeader(eLoopUnit, true);
+				for (UnitTypes eUnit = (UnitTypes)0; eUnit < GC.getNumUnitInfos(); eUnit = (UnitTypes)(eUnit + 1)) {
+					if (GC.getUnitInfo(eUnit).isBarbarianLeader()) {
+						pBestCity->createBarbarianLeader(eUnit, true);
 						setBarbarianExperience(getBarbarianExperience() - iExperienceThreshold);
 						break;
 					}
