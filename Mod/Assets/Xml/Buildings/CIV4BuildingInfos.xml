@@ -6805,6 +6805,7 @@
 					</YieldChanges>
 				</SpecialistYieldChange>
 			</SpecialistYieldChanges>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Auyantepui -->
 			<BuildingClass>BUILDINGCLASS_AUYANTEPUI</BuildingClass>
@@ -6830,6 +6831,7 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>4</iCommerce>
 			</ObsoleteSafeCommerceChanges>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Baikal -->
 			<BuildingClass>BUILDINGCLASS_BAIKAL</BuildingClass>
@@ -6855,6 +6857,7 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>4</iCommerce>
 			</ObsoleteSafeCommerceChanges>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Barringer Crater -->
 			<BuildingClass>BUILDINGCLASS_BARRINGER_CRATER</BuildingClass>
@@ -6894,6 +6897,7 @@
 					</YieldModifiers>
 				</BonusYieldModifier>
 			</BonusYieldModifiers>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Basalt Organ -->
 			<BuildingClass>BUILDINGCLASS_BASALT_ORGAN</BuildingClass>
@@ -6920,6 +6924,7 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>4</iCommerce>
 			</ObsoleteSafeCommerceChanges>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Dead Sea -->
 			<BuildingClass>BUILDINGCLASS_DEAD_SEA</BuildingClass>
@@ -6947,6 +6952,7 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>4</iCommerce>
 			</ObsoleteSafeCommerceChanges>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Devils Table -->
 			<BuildingClass>BUILDINGCLASS_DEVILS_TABLE</BuildingClass>
@@ -6974,6 +6980,7 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>4</iCommerce>
 			</ObsoleteSafeCommerceChanges>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Everest -->
 			<BuildingClass>BUILDINGCLASS_EVEREST</BuildingClass>
@@ -7001,6 +7008,7 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>4</iCommerce>
 			</ObsoleteSafeCommerceChanges>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Fuji -->
 			<BuildingClass>BUILDINGCLASS_FUJI</BuildingClass>
@@ -7027,6 +7035,7 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>8</iCommerce>
 			</ObsoleteSafeCommerceChanges>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Great Barrier -->
 			<BuildingClass>BUILDINGCLASS_GREAT_BARRIER</BuildingClass>
@@ -7054,6 +7063,7 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>4</iCommerce>
 			</ObsoleteSafeCommerceChanges>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Kilimanjaro -->
 			<BuildingClass>BUILDINGCLASS_KILIMANJARO</BuildingClass>
@@ -7081,6 +7091,7 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>4</iCommerce>
 			</ObsoleteSafeCommerceChanges>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Krakatoa -->
 			<BuildingClass>BUILDINGCLASS_KRAKATOA</BuildingClass>
@@ -7109,6 +7120,7 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>4</iCommerce>
 			</ObsoleteSafeCommerceChanges>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Ngorongoro Crater -->
 			<BuildingClass>BUILDINGCLASS_NGORONGORO_CRATER</BuildingClass>
@@ -7144,6 +7156,7 @@
 					<iCount>1</iCount>
 				</ImprovementFreeSpecialist>
 			</ImprovementFreeSpecialists>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Nukuoro -->
 			<BuildingClass>BUILDINGCLASS_NUKUORO</BuildingClass>
@@ -7170,6 +7183,7 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>4</iCommerce>
 			</ObsoleteSafeCommerceChanges>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Pamukkale -->
 			<BuildingClass>BUILDINGCLASS_PAMUKKALE</BuildingClass>
@@ -7196,6 +7210,7 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>4</iCommerce>
 			</ObsoleteSafeCommerceChanges>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Pravcicka Brana -->
 			<BuildingClass>BUILDINGCLASS_PRAVCICKA_BRANA</BuildingClass>
@@ -7231,6 +7246,7 @@
 					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Shark Bay -->
 			<BuildingClass>BUILDINGCLASS_SHARK_BAY</BuildingClass>
@@ -7265,6 +7281,7 @@
 					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Sinai -->
 			<BuildingClass>BUILDINGCLASS_SINAI</BuildingClass>
@@ -7302,6 +7319,7 @@
 					<iCount>1</iCount>
 				</SpecialistCount>
 			</FreeSpecialistCounts>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Sopka -->
 			<BuildingClass>BUILDINGCLASS_SOPKA</BuildingClass>
@@ -7327,6 +7345,7 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>4</iCommerce>
 			</ObsoleteSafeCommerceChanges>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Sugarloaf -->
 			<BuildingClass>BUILDINGCLASS_SUGARLOAF</BuildingClass>
@@ -7358,6 +7377,7 @@
 					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Uluru -->
 			<BuildingClass>BUILDINGCLASS_ULURU</BuildingClass>
@@ -7388,6 +7408,7 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>2</iCommerce>
 			</StateReligionCommerces>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Victoria Falls -->
 			<BuildingClass>BUILDINGCLASS_VICTORIA_FALLS</BuildingClass>
@@ -7414,6 +7435,7 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>4</iCommerce>
 			</ObsoleteSafeCommerceChanges>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
 
 
