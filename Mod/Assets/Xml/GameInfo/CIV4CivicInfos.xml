@@ -4,20 +4,6 @@
 <!-- ************	-->
 <!-- Economy -->
 <!-- ************	-->
-		<CivicInfo> <!-- Barter -->
-			<CivicOptionType>CIVICOPTION_ECONOMY</CivicOptionType>
-			<Type>CIVIC_BARTER</Type>
-			<Description>TXT_KEY_CIVIC_BARTER</Description>
-			<Civilopedia>TXT_KEY_TECH_BARTER_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_CIVIC_BARTER_STRATEGY</Strategy>
-			<Button>,Art/Interface/Buttons/TechTree/Buttons_Barter.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,5,12</Button>
-			<TechPrereq>TECH_TRADE</TechPrereq>
-			<iAnarchyLength>1</iAnarchyLength>
-			<Upkeep>UPKEEP_MEDIUM</Upkeep>
-			<iDistanceMaintenanceModifier>-25</iDistanceMaintenanceModifier>
-			<iCorporationMaintenanceModifier>100</iCorporationMaintenanceModifier>
-			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_DESPOT</WeLoveTheKing>
-		</CivicInfo>
 		<CivicInfo> <!-- Decentralization -->
 			<CivicOptionType>CIVICOPTION_ECONOMY</CivicOptionType>
 			<Type>CIVIC_DECENTRALIZATION</Type>
@@ -25,37 +11,24 @@
 			<Civilopedia>TXT_KEY_CIVIC_DECENTRALIZATION_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_CIVIC_DECENTRALIZATION_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Decentralization.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,4,1</Button>
+			<iIndex>0</iIndex>
 			<Upkeep>UPKEEP_LOW</Upkeep>
 			<bNoCorporations>1</bNoCorporations>
 		</CivicInfo>
-		<CivicInfo> <!-- Environmentalism -->
+		<CivicInfo> <!-- Barter -->
 			<CivicOptionType>CIVICOPTION_ECONOMY</CivicOptionType>
-			<Type>CIVIC_ENVIRONMENTALISM</Type>
-			<Description>TXT_KEY_CIVIC_ENVIRONMENTALISM</Description>
-			<Civilopedia>TXT_KEY_CIVIC_ENVIRONMENTALISM_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_CIVIC_ENVIRONMENTALISM_STRATEGY</Strategy>
-			<Button>,Art/Interface/Buttons/Civics/Environmentalism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,7,1</Button>
-			<TechPrereq>TECH_MEDICINE</TechPrereq>
-			<Upkeep>UPKEEP_HIGH</Upkeep>
-			<iUnhealthyPopulationModifier>-30</iUnhealthyPopulationModifier>
-			<BuildingHappinessChanges>
-				<BuildingHappinessChange>
-					<BuildingType>BUILDINGCLASS_PUBLIC_TRANSPORTATION</BuildingType>
-					<iHappinessChange>1</iHappinessChange>
-				</BuildingHappinessChange>
-			</BuildingHappinessChanges>
-		</CivicInfo>
-		<CivicInfo> <!-- Free Market -->
-			<CivicOptionType>CIVICOPTION_ECONOMY</CivicOptionType>
-			<Type>CIVIC_FREE_MARKET</Type>
-			<Description>TXT_KEY_CIVIC_FREE_MARKET</Description>
-			<Civilopedia>TXT_KEY_CIVIC_FREE_MARKET_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_CIVIC_FREE_MARKET_STRATEGY</Strategy>
-			<Button>,Art/Interface/Buttons/Civics/Free_Market.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,8,1</Button>
-			<TechPrereq>TECH_ECONOMICS</TechPrereq>
+			<Type>CIVIC_BARTER</Type>
+			<Description>TXT_KEY_CIVIC_BARTER</Description>
+			<Civilopedia>TXT_KEY_TECH_BARTER_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_BARTER_STRATEGY</Strategy>
+			<Button>,Art/Interface/Buttons/TechTree/Buttons_Barter.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,5,12</Button>
+			<iIndex>1</iIndex>
+			<TechPrereq>TECH_TRADE</TechPrereq>
+			<iAnarchyLength>1</iAnarchyLength>
 			<Upkeep>UPKEEP_MEDIUM</Upkeep>
-			<iCorporationMaintenanceModifier>-25</iCorporationMaintenanceModifier>
-			<iTradeRoutes>1</iTradeRoutes>
+			<iDistanceMaintenanceModifier>-25</iDistanceMaintenanceModifier>
+			<iCorporationMaintenanceModifier>100</iCorporationMaintenanceModifier>
+			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_DESPOT</WeLoveTheKing>
 		</CivicInfo>
 		<CivicInfo> <!-- Mercantilism -->
 			<CivicOptionType>CIVICOPTION_ECONOMY</CivicOptionType>
@@ -64,11 +37,25 @@
 			<Civilopedia>TXT_KEY_CIVIC_MERCANTILISM_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_CIVIC_MERCANTILISM_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Mercantilism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,4,3</Button>
+			<iIndex>2</iIndex>
 			<TechPrereq>TECH_BANKING</TechPrereq>
 			<Upkeep>UPKEEP_LOW</Upkeep>
 			<iFreeSpecialist>1</iFreeSpecialist>
 			<bNoForeignTrade>1</bNoForeignTrade>
 			<bNoForeignCorporations>1</bNoForeignCorporations>
+		</CivicInfo>
+		<CivicInfo> <!-- Free Market -->
+			<CivicOptionType>CIVICOPTION_ECONOMY</CivicOptionType>
+			<Type>CIVIC_FREE_MARKET</Type>
+			<Description>TXT_KEY_CIVIC_FREE_MARKET</Description>
+			<Civilopedia>TXT_KEY_CIVIC_FREE_MARKET_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_FREE_MARKET_STRATEGY</Strategy>
+			<Button>,Art/Interface/Buttons/Civics/Free_Market.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,8,1</Button>
+			<iIndex>3</iIndex>
+			<TechPrereq>TECH_ECONOMICS</TechPrereq>
+			<Upkeep>UPKEEP_MEDIUM</Upkeep>
+			<iCorporationMaintenanceModifier>-25</iCorporationMaintenanceModifier>
+			<iTradeRoutes>1</iTradeRoutes>
 		</CivicInfo>
 		<CivicInfo> <!-- State Property -->
 			<CivicOptionType>CIVICOPTION_ECONOMY</CivicOptionType>
@@ -77,6 +64,7 @@
 			<Civilopedia>TXT_KEY_CIVIC_STATE_PROPERTY_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_CIVIC_STATE_PROPERTY_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/State_Property.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,5,3</Button>
+			<iIndex>4</iIndex>
 			<TechPrereq>TECH_COMMUNISM</TechPrereq>
 			<Upkeep>UPKEEP_LOW</Upkeep>
 			<iDistanceMaintenanceModifier>-100</iDistanceMaintenanceModifier>
@@ -87,22 +75,27 @@
 				<iYield>0</iYield>
 			</YieldModifiers>
 		</CivicInfo>
+		<CivicInfo> <!-- Environmentalism -->
+			<CivicOptionType>CIVICOPTION_ECONOMY</CivicOptionType>
+			<Type>CIVIC_ENVIRONMENTALISM</Type>
+			<Description>TXT_KEY_CIVIC_ENVIRONMENTALISM</Description>
+			<Civilopedia>TXT_KEY_CIVIC_ENVIRONMENTALISM_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_ENVIRONMENTALISM_STRATEGY</Strategy>
+			<Button>,Art/Interface/Buttons/Civics/Environmentalism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,7,1</Button>
+			<iIndex>5</iIndex>
+			<TechPrereq>TECH_MEDICINE</TechPrereq>
+			<Upkeep>UPKEEP_HIGH</Upkeep>
+			<iUnhealthyPopulationModifier>-30</iUnhealthyPopulationModifier>
+			<BuildingHappinessChanges>
+				<BuildingHappinessChange>
+					<BuildingType>BUILDINGCLASS_PUBLIC_TRANSPORTATION</BuildingType>
+					<iHappinessChange>1</iHappinessChange>
+				</BuildingHappinessChange>
+			</BuildingHappinessChanges>
+		</CivicInfo>
 <!-- ************	-->
 <!-- Government -->
 <!-- ************	-->
-		<CivicInfo> <!-- Ancestor Worship -->
-			<CivicOptionType>CIVICOPTION_GOVERNMENT</CivicOptionType>
-			<Type>CIVIC_ANCESTOR_WORSHIP</Type>
-			<Description>TXT_KEY_CIVIC_ANCESTOR_WORSHIP</Description>
-			<Civilopedia>TXT_KEY_CIVIC_ANCESTOR_WORSHIP_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_CIVIC_ANCESTOR_WORSHIP_STRATEGY</Strategy>
-			<Button>Art/Interface/Buttons/Civics/ancestor_worship.dds</Button>
-			<TechPrereq>TECH_CHIEFDOM</TechPrereq>
-			<iAnarchyLength>1</iAnarchyLength>
-			<Upkeep>UPKEEP_HIGH</Upkeep>
-			<iCultureDefenceChange>10</iCultureDefenceChange>
-			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_DESPOT</WeLoveTheKing>
-		</CivicInfo>
 		<CivicInfo> <!-- Despotism -->
 			<CivicOptionType>CIVICOPTION_GOVERNMENT</CivicOptionType>
 			<Type>CIVIC_DESPOTISM</Type>
@@ -110,8 +103,23 @@
 			<Civilopedia>TXT_KEY_CIVIC_DESPOTISM_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_CIVIC_DESPOTISM_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Despotism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,5,1</Button>
+			<iIndex>0</iIndex>
 			<Upkeep>UPKEEP_LOW</Upkeep>
 			<iWorkerSpeedModifier>-25</iWorkerSpeedModifier>
+			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_DESPOT</WeLoveTheKing>
+		</CivicInfo>
+		<CivicInfo> <!-- Ancestor Worship -->
+			<CivicOptionType>CIVICOPTION_GOVERNMENT</CivicOptionType>
+			<Type>CIVIC_ANCESTOR_WORSHIP</Type>
+			<Description>TXT_KEY_CIVIC_ANCESTOR_WORSHIP</Description>
+			<Civilopedia>TXT_KEY_CIVIC_ANCESTOR_WORSHIP_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_ANCESTOR_WORSHIP_STRATEGY</Strategy>
+			<Button>Art/Interface/Buttons/Civics/ancestor_worship.dds</Button>
+			<iIndex>1</iIndex>
+			<TechPrereq>TECH_CHIEFDOM</TechPrereq>
+			<iAnarchyLength>1</iAnarchyLength>
+			<Upkeep>UPKEEP_HIGH</Upkeep>
+			<iCultureDefenceChange>10</iCultureDefenceChange>
 			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_DESPOT</WeLoveTheKing>
 		</CivicInfo>
 		<CivicInfo> <!-- Hereditary Rule -->
@@ -121,23 +129,11 @@
 			<Civilopedia>TXT_KEY_CIVIC_HEREDITARY_RULE_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_CIVIC_HEREDITARY_RULE_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Hereditary_Rule.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,3,3</Button>
+			<iIndex>2</iIndex>
 			<TechPrereq>TECH_MONARCHY</TechPrereq>
 			<Upkeep>UPKEEP_LOW</Upkeep>
 			<iHappyPerMilitaryUnit>1</iHappyPerMilitaryUnit>
 			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_MONARCH</WeLoveTheKing>
-		</CivicInfo>
-		<CivicInfo> <!-- Police State -->
-			<CivicOptionType>CIVICOPTION_GOVERNMENT</CivicOptionType>
-			<Type>CIVIC_POLICE_STATE</Type>
-			<Description>TXT_KEY_CIVIC_POLICE_STATE</Description>
-			<Civilopedia>TXT_KEY_CIVIC_POLICE_STATE_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_CIVIC_POLICE_STATE_STRATEGY</Strategy>
-			<Button>,Art/Interface/Buttons/Civics/Police_State.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,5,2</Button>
-			<TechPrereq>TECH_FASCISM</TechPrereq>
-			<Upkeep>UPKEEP_HIGH</Upkeep>
-			<iMilitaryProductionModifier>25</iMilitaryProductionModifier>
-			<iWarWearinessModifier>-50</iWarWearinessModifier>
-			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_DICTATOR</WeLoveTheKing>
 		</CivicInfo>
 		<CivicInfo> <!-- Representation -->
 			<CivicOptionType>CIVICOPTION_GOVERNMENT</CivicOptionType>
@@ -146,6 +142,7 @@
 			<Civilopedia>TXT_KEY_CIVIC_REPRESENTATION_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_CIVIC_REPRESENTATION_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Representation.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,6,2</Button>
+			<iIndex>3</iIndex>
 			<TechPrereq>TECH_CONSTITUTION</TechPrereq>
 			<Upkeep>UPKEEP_HIGH</Upkeep>
 			<iLargestCityHappiness>3</iLargestCityHappiness>
@@ -156,6 +153,20 @@
 			</SpecialistExtraCommerces>
 			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_PRIME_MINISTER</WeLoveTheKing>
 		</CivicInfo>
+		<CivicInfo> <!-- Police State -->
+			<CivicOptionType>CIVICOPTION_GOVERNMENT</CivicOptionType>
+			<Type>CIVIC_POLICE_STATE</Type>
+			<Description>TXT_KEY_CIVIC_POLICE_STATE</Description>
+			<Civilopedia>TXT_KEY_CIVIC_POLICE_STATE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_POLICE_STATE_STRATEGY</Strategy>
+			<Button>,Art/Interface/Buttons/Civics/Police_State.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,5,2</Button>
+			<iIndex>4</iIndex>
+			<TechPrereq>TECH_FASCISM</TechPrereq>
+			<Upkeep>UPKEEP_HIGH</Upkeep>
+			<iMilitaryProductionModifier>25</iMilitaryProductionModifier>
+			<iWarWearinessModifier>-50</iWarWearinessModifier>
+			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_DICTATOR</WeLoveTheKing>
+		</CivicInfo>
 		<CivicInfo> <!-- Universal Suffrage -->
 			<CivicOptionType>CIVICOPTION_GOVERNMENT</CivicOptionType>
 			<Type>CIVIC_UNIVERSAL_SUFFRAGE</Type>
@@ -163,6 +174,7 @@
 			<Civilopedia>TXT_KEY_CIVIC_UNIVERSAL_SUFFRAGE_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_CIVIC_UNIVERSAL_SUFFRAGE_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Universal_Sufferage.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,8,3</Button>
+			<iIndex>5</iIndex>
 			<TechPrereq>TECH_DEMOCRACY</TechPrereq>
 			<Upkeep>UPKEEP_MEDIUM</Upkeep>
 			<Hurrys>
@@ -173,6 +185,65 @@
 <!-- ************	-->
 <!-- Labor -->
 <!-- ************	-->
+		<CivicInfo> <!-- Nomadism -->
+			<CivicOptionType>CIVICOPTION_LABOR</CivicOptionType>
+			<Type>CIVIC_NOMADISM</Type>
+			<Description>TXT_KEY_CIVIC_NOMADISM</Description>
+			<Civilopedia>TXT_KEY_CIVIC_NOMADISM_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_NOMADISM_STRATEGY</Strategy>
+			<Button>,Art/Interface/Buttons/Civics/Tribalism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,7,3</Button>
+			<iIndex>0</iIndex>
+			<Upkeep>UPKEEP_LOW</Upkeep>
+			<iNumCitiesMaintenanceModifier>25</iNumCitiesMaintenanceModifier>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>-75</iCommerce>
+			</CommerceModifiers>
+			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_DESPOT</WeLoveTheKing>
+		</CivicInfo>
+		<CivicInfo> <!-- Tribalism -->
+			<CivicOptionType>CIVICOPTION_LABOR</CivicOptionType>
+			<Type>CIVIC_TRIBALISM</Type>
+			<Description>TXT_KEY_CIVIC_TRIBALISM</Description>
+			<Civilopedia>TXT_KEY_CIVIC_TRIBALISM_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_TRIBALISM_STRATEGY</Strategy>
+			<Button>Art/Interface/Buttons/Civics/tribalism.dds</Button>
+			<iIndex>1</iIndex>
+			<TechPrereq>TECH_TRIBALISM</TechPrereq>
+			<Upkeep>UPKEEP_LOW</Upkeep>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>-25</iCommerce>
+			</CommerceModifiers>
+		</CivicInfo>
+		<CivicInfo> <!-- Slavery -->
+			<CivicOptionType>CIVICOPTION_LABOR</CivicOptionType>
+			<Type>CIVIC_SLAVERY</Type>
+			<Description>TXT_KEY_CIVIC_SLAVERY</Description>
+			<Civilopedia>TXT_KEY_CIVIC_SLAVERY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_SLAVERY_STRATEGY</Strategy>
+			<Button>,Art/Interface/Buttons/Civics/Slavery.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,8,2</Button>
+			<iIndex>2</iIndex>
+			<TechPrereq>TECH_BRONZE_WORKING</TechPrereq>
+			<Upkeep>UPKEEP_MEDIUM</Upkeep>
+			<Hurrys>
+				<HurryType>HURRY_POPULATION</HurryType>
+			</Hurrys>
+		</CivicInfo>
+		<CivicInfo> <!-- Serfdom -->
+			<CivicOptionType>CIVICOPTION_LABOR</CivicOptionType>
+			<Type>CIVIC_SERFDOM</Type>
+			<Description>TXT_KEY_CIVIC_SERFDOM</Description>
+			<Civilopedia>TXT_KEY_CIVIC_SERFDOM_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_SERFDOM_STRATEGY</Strategy>
+			<Button>,Art/Interface/Buttons/Civics/Serfdom.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,7,2</Button>
+			<iIndex>3</iIndex>
+			<TechPrereq>TECH_FEUDALISM</TechPrereq>
+			<Upkeep>UPKEEP_LOW</Upkeep>
+			<iWorkerSpeedModifier>50</iWorkerSpeedModifier>
+		</CivicInfo>
 		<CivicInfo> <!-- Caste System -->
 			<CivicOptionType>CIVICOPTION_LABOR</CivicOptionType>
 			<Type>CIVIC_CASTE_SYSTEM</Type>
@@ -180,6 +251,7 @@
 			<Civilopedia>TXT_KEY_CIVIC_CASTE_SYSTEM_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_CIVIC_CASTE_SYSTEM_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Caste_System.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,3,1</Button>
+			<iIndex>4</iIndex>
 			<TechPrereq>TECH_CODE_OF_LAWS</TechPrereq>
 			<Upkeep>UPKEEP_MEDIUM</Upkeep>
 			<SpecialistValids>
@@ -195,65 +267,11 @@
 			<Civilopedia>TXT_KEY_CIVIC_EMANCIPATION_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_CIVIC_EMANCIPATION_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Emancipation.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,6,1</Button>
+			<iIndex>5</iIndex>
 			<TechPrereq>TECH_DEMOCRACY</TechPrereq>
 			<Upkeep>UPKEEP_LOW</Upkeep>
 			<iImprovementUpgradeRateModifier>100</iImprovementUpgradeRateModifier>
 			<iCivicPercentAnger>400</iCivicPercentAnger>
-		</CivicInfo>
-		<CivicInfo> <!-- Nomadism -->
-			<CivicOptionType>CIVICOPTION_LABOR</CivicOptionType>
-			<Type>CIVIC_NOMADISM</Type>
-			<Description>TXT_KEY_CIVIC_NOMADISM</Description>
-			<Civilopedia>TXT_KEY_CIVIC_NOMADISM_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_CIVIC_NOMADISM_STRATEGY</Strategy>
-			<Button>,Art/Interface/Buttons/Civics/Tribalism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,7,3</Button>
-			<Upkeep>UPKEEP_LOW</Upkeep>
-			<iNumCitiesMaintenanceModifier>25</iNumCitiesMaintenanceModifier>
-			<CommerceModifiers>
-				<iCommerce>0</iCommerce>
-				<iCommerce>0</iCommerce>
-				<iCommerce>-75</iCommerce>
-			</CommerceModifiers>
-			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_DESPOT</WeLoveTheKing>
-		</CivicInfo>
-		<CivicInfo> <!-- Serfdom -->
-			<CivicOptionType>CIVICOPTION_LABOR</CivicOptionType>
-			<Type>CIVIC_SERFDOM</Type>
-			<Description>TXT_KEY_CIVIC_SERFDOM</Description>
-			<Civilopedia>TXT_KEY_CIVIC_SERFDOM_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_CIVIC_SERFDOM_STRATEGY</Strategy>
-			<Button>,Art/Interface/Buttons/Civics/Serfdom.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,7,2</Button>
-			<TechPrereq>TECH_FEUDALISM</TechPrereq>
-			<Upkeep>UPKEEP_LOW</Upkeep>
-			<iWorkerSpeedModifier>50</iWorkerSpeedModifier>
-		</CivicInfo>
-		<CivicInfo> <!-- Slavery -->
-			<CivicOptionType>CIVICOPTION_LABOR</CivicOptionType>
-			<Type>CIVIC_SLAVERY</Type>
-			<Description>TXT_KEY_CIVIC_SLAVERY</Description>
-			<Civilopedia>TXT_KEY_CIVIC_SLAVERY_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_CIVIC_SLAVERY_STRATEGY</Strategy>
-			<Button>,Art/Interface/Buttons/Civics/Slavery.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,8,2</Button>
-			<TechPrereq>TECH_BRONZE_WORKING</TechPrereq>
-			<Upkeep>UPKEEP_MEDIUM</Upkeep>
-			<Hurrys>
-				<HurryType>HURRY_POPULATION</HurryType>
-			</Hurrys>
-		</CivicInfo>
-		<CivicInfo> <!-- Tribalism -->
-			<CivicOptionType>CIVICOPTION_LABOR</CivicOptionType>
-			<Type>CIVIC_TRIBALISM</Type>
-			<Description>TXT_KEY_CIVIC_TRIBALISM</Description>
-			<Civilopedia>TXT_KEY_CIVIC_TRIBALISM_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_CIVIC_TRIBALISM_STRATEGY</Strategy>
-			<Button>Art/Interface/Buttons/Civics/tribalism.dds</Button>
-			<TechPrereq>TECH_TRIBALISM</TechPrereq>
-			<Upkeep>UPKEEP_LOW</Upkeep>
-			<CommerceModifiers>
-				<iCommerce>0</iCommerce>
-				<iCommerce>0</iCommerce>
-				<iCommerce>-25</iCommerce>
-			</CommerceModifiers>
 		</CivicInfo>
 <!-- ************	-->
 <!-- Legal -->
@@ -265,9 +283,40 @@
 			<Civilopedia>TXT_KEY_CIVIC_BARBARISM_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_CIVIC_BARBARISM_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Barbarism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,1,1</Button>
+			<iIndex>0</iIndex>
 			<bCreateBarbarians>1</bCreateBarbarians>
 			<Upkeep>UPKEEP_LOW</Upkeep>
 			<iDistanceMaintenanceModifier>25</iDistanceMaintenanceModifier>
+		</CivicInfo>
+		<CivicInfo> <!-- Tribal Law -->
+			<CivicOptionType>CIVICOPTION_LEGAL</CivicOptionType>
+			<Type>CIVIC_TRIBAL_LAW</Type>
+			<Description>TXT_KEY_CIVIC_TRIBAL_LAW</Description>
+			<Civilopedia>TXT_KEY_TECH_TRIBALISM_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_TRIBAL_LAW_STRATEGY</Strategy>
+			<Button>Art/Interface/Buttons/Civics/tribal_law.dds</Button>
+			<iIndex>1</iIndex>
+			<TechPrereq>TECH_CHIEFDOM</TechPrereq>
+			<iAnarchyLength>1</iAnarchyLength>
+			<Upkeep>UPKEEP_LOW</Upkeep>
+			<bTribalConscription>1</bTribalConscription>
+			<iMaxConscript>2</iMaxConscript>
+			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_DESPOT</WeLoveTheKing>
+		</CivicInfo>
+		<CivicInfo> <!-- Vassalage -->
+			<CivicOptionType>CIVICOPTION_LEGAL</CivicOptionType>
+			<Type>CIVIC_VASSALAGE</Type>
+			<Description>TXT_KEY_CIVIC_VASSALAGE</Description>
+			<Civilopedia>TXT_KEY_CIVIC_VASSALAGE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_VASSALAGE_STRATEGY</Strategy>
+			<Button>,Art/Interface/Buttons/Civics/Vassalage.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,1,4</Button>
+			<iIndex>2</iIndex>
+			<TechPrereq>TECH_FEUDALISM</TechPrereq>
+			<Upkeep>UPKEEP_HIGH</Upkeep>
+			<iNumCitiesMaintenanceModifier>-25</iNumCitiesMaintenanceModifier>
+			<iFreeExperience>2</iFreeExperience>
+			<iBaseFreeUnits>5</iBaseFreeUnits>
+			<iFreeUnitsPopulationPercent>10</iFreeUnitsPopulationPercent>
 		</CivicInfo>
 		<CivicInfo> <!-- Bureaucracy -->
 			<CivicOptionType>CIVICOPTION_LEGAL</CivicOptionType>
@@ -276,6 +325,7 @@
 			<Civilopedia>TXT_KEY_CIVIC_BUREAUCRACY_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_CIVIC_BUREAUCRACY_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Bureaucracy.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,2,1</Button>
+			<iIndex>3</iIndex>
 			<TechPrereq>TECH_CIVIL_SERVICE</TechPrereq>
 			<Upkeep>UPKEEP_HIGH</Upkeep>
 			<CapitalYieldModifiers>
@@ -284,21 +334,6 @@
 				<iYield>50</iYield>
 			</CapitalYieldModifiers>
 		</CivicInfo>
-		<CivicInfo> <!-- Free Speech -->
-			<CivicOptionType>CIVICOPTION_LEGAL</CivicOptionType>
-			<Type>CIVIC_FREE_SPEECH</Type>
-			<Description>TXT_KEY_CIVIC_FREE_SPEECH</Description>
-			<Civilopedia>TXT_KEY_CIVIC_FREE_SPEECH_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_CIVIC_FREE_SPEECH_STRATEGY</Strategy>
-			<Button>,Art/Interface/Buttons/Civics/Free_Speech.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,2,3</Button>
-			<TechPrereq>TECH_LIBERALISM</TechPrereq>
-			<Upkeep>UPKEEP_LOW</Upkeep>
-			<CommerceModifiers>
-				<iCommerce>0</iCommerce>
-				<iCommerce>0</iCommerce>
-				<iCommerce>50</iCommerce>
-			</CommerceModifiers>
-		</CivicInfo>
 		<CivicInfo> <!-- Nationhood -->
 			<CivicOptionType>CIVICOPTION_LEGAL</CivicOptionType>
 			<Type>CIVIC_NATIONHOOD</Type>
@@ -306,6 +341,7 @@
 			<Civilopedia>TXT_KEY_CIVIC_NATIONHOOD_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_CIVIC_NATIONHOOD_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Nationhood.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,1,2</Button>
+			<iIndex>4</iIndex>
 			<TechPrereq>TECH_NATIONALISM</TechPrereq>
 			<Upkeep>NONE</Upkeep>
 			<iMaxConscript>3</iMaxConscript>
@@ -322,52 +358,39 @@
 				</BuildingHappinessChange>
 			</BuildingHappinessChanges>
 		</CivicInfo>
-		<CivicInfo> <!-- Tribal Law -->
+		<CivicInfo> <!-- Free Speech -->
 			<CivicOptionType>CIVICOPTION_LEGAL</CivicOptionType>
-			<Type>CIVIC_TRIBAL_LAW</Type>
-			<Description>TXT_KEY_CIVIC_TRIBAL_LAW</Description>
-			<Civilopedia>TXT_KEY_TECH_TRIBALISM_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_CIVIC_TRIBAL_LAW_STRATEGY</Strategy>
-			<Button>Art/Interface/Buttons/Civics/tribal_law.dds</Button>
-			<TechPrereq>TECH_CHIEFDOM</TechPrereq>
-			<iAnarchyLength>1</iAnarchyLength>
+			<Type>CIVIC_FREE_SPEECH</Type>
+			<Description>TXT_KEY_CIVIC_FREE_SPEECH</Description>
+			<Civilopedia>TXT_KEY_CIVIC_FREE_SPEECH_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_FREE_SPEECH_STRATEGY</Strategy>
+			<Button>,Art/Interface/Buttons/Civics/Free_Speech.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,2,3</Button>
+			<iIndex>5</iIndex>
+			<TechPrereq>TECH_LIBERALISM</TechPrereq>
 			<Upkeep>UPKEEP_LOW</Upkeep>
-			<bTribalConscription>1</bTribalConscription>
-			<iMaxConscript>2</iMaxConscript>
-			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_DESPOT</WeLoveTheKing>
-		</CivicInfo>
-		<CivicInfo> <!-- Vassalage -->
-			<CivicOptionType>CIVICOPTION_LEGAL</CivicOptionType>
-			<Type>CIVIC_VASSALAGE</Type>
-			<Description>TXT_KEY_CIVIC_VASSALAGE</Description>
-			<Civilopedia>TXT_KEY_CIVIC_VASSALAGE_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_CIVIC_VASSALAGE_STRATEGY</Strategy>
-			<Button>,Art/Interface/Buttons/Civics/Vassalage.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,1,4</Button>
-			<TechPrereq>TECH_FEUDALISM</TechPrereq>
-			<Upkeep>UPKEEP_HIGH</Upkeep>
-			<iNumCitiesMaintenanceModifier>-25</iNumCitiesMaintenanceModifier>
-			<iFreeExperience>2</iFreeExperience>
-			<iBaseFreeUnits>5</iBaseFreeUnits>
-			<iFreeUnitsPopulationPercent>10</iFreeUnitsPopulationPercent>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>50</iCommerce>
+			</CommerceModifiers>
 		</CivicInfo>
 <!-- ************	-->
 <!-- Religion -->
 <!-- ************	-->
-		<CivicInfo> <!-- Free Religion -->
+		<CivicInfo> <!-- Pacifism -->
 			<CivicOptionType>CIVICOPTION_RELIGION</CivicOptionType>
-			<Type>CIVIC_FREE_RELIGION</Type>
-			<Description>TXT_KEY_CIVIC_FREE_RELIGION</Description>
-			<Civilopedia>TXT_KEY_CIVIC_FREE_RELIGION_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_CIVIC_FREE_RELIGION_STRATEGY</Strategy>
-			<Button>,Art/Interface/Buttons/Civics/Free_Religion.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,1,3</Button>
-			<TechPrereq>TECH_LIBERALISM</TechPrereq>
-			<Upkeep>UPKEEP_LOW</Upkeep>
-			<iNonStateReligionHappiness>1</iNonStateReligionHappiness>
-			<CommerceModifiers>
-				<iCommerce>0</iCommerce>
-				<iCommerce>10</iCommerce>
-				<iCommerce>0</iCommerce>
-			</CommerceModifiers>
+			<Type>CIVIC_PACIFISM</Type>
+			<Description>TXT_KEY_CIVIC_PACIFISM</Description>
+			<Civilopedia>TXT_KEY_CIVIC_PACIFISM_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_PACIFISM_STRATEGY</Strategy>
+			<Button>,Art/Interface/Buttons/Civics/Pacifism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,3,2</Button>
+			<iIndex>0</iIndex>
+			<TechPrereq>TECH_PHILOSOPHY</TechPrereq>
+			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
+			<Upkeep>NONE</Upkeep>
+			<iStateReligionGreatPeopleRateModifier>100</iStateReligionGreatPeopleRateModifier>
+			<iGoldPerMilitaryUnit>50</iGoldPerMilitaryUnit>
+			<bStateReligion>1</bStateReligion>
 		</CivicInfo>
 		<CivicInfo> <!-- Mythology -->
 			<CivicOptionType>CIVICOPTION_RELIGION</CivicOptionType>
@@ -376,6 +399,7 @@
 			<Civilopedia>TXT_KEY_CIVIC_MYTHOLOGY_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_CIVIC_MYTHOLOGY_STRATEGY</Strategy>
 			<Button>Art/Interface/Buttons/Civics/mythology.dds</Button>
+			<iIndex>1</iIndex>
 			<TechPrereq>TECH_MYSTICISM</TechPrereq>
 			<bEnableStarSigns>1</bEnableStarSigns>
 			<iStarSignScaleChangePercent>40</iStarSignScaleChangePercent>
@@ -396,6 +420,7 @@
 			<Civilopedia>TXT_KEY_CIVIC_ORGANIZED_RELIGION_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_CIVIC_ORGANIZED_RELIGION_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Organized_Religion.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,2,2</Button>
+			<iIndex>2</iIndex>
 			<TechPrereq>TECH_MONOTHEISM</TechPrereq>
 			<bEnableStarSigns>1</bEnableStarSigns>
 			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
@@ -407,19 +432,20 @@
 				<SpecialBuildingType>SPECIALBUILDING_MONASTERY</SpecialBuildingType>
 			</SpecialBuildingNotRequireds>
 		</CivicInfo>
-		<CivicInfo> <!-- Pacifism -->
+		<CivicInfo> <!-- Theocracy -->
 			<CivicOptionType>CIVICOPTION_RELIGION</CivicOptionType>
-			<Type>CIVIC_PACIFISM</Type>
-			<Description>TXT_KEY_CIVIC_PACIFISM</Description>
-			<Civilopedia>TXT_KEY_CIVIC_PACIFISM_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_CIVIC_PACIFISM_STRATEGY</Strategy>
-			<Button>,Art/Interface/Buttons/Civics/Pacifism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,3,2</Button>
-			<TechPrereq>TECH_PHILOSOPHY</TechPrereq>
-			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
-			<Upkeep>NONE</Upkeep>
-			<iStateReligionGreatPeopleRateModifier>100</iStateReligionGreatPeopleRateModifier>
-			<iGoldPerMilitaryUnit>50</iGoldPerMilitaryUnit>
+			<Type>CIVIC_THEOCRACY</Type>
+			<Description>TXT_KEY_CIVIC_THEOCRACY</Description>
+			<Civilopedia>TXT_KEY_CIVIC_THEOCRACY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_THEOCRACY_STRATEGY</Strategy>
+			<Button>,Art/Interface/Buttons/Civics/Theocracy.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,6,3</Button>
+			<iIndex>3</iIndex>
+			<TechPrereq>TECH_THEOLOGY</TechPrereq>
+			<bEnableStarSigns>1</bEnableStarSigns>
+			<Upkeep>UPKEEP_MEDIUM</Upkeep>
 			<bStateReligion>1</bStateReligion>
+			<bNoNonStateReligionSpread>1</bNoNonStateReligionSpread>
+			<iStateReligionFreeExperience>2</iStateReligionFreeExperience>
 		</CivicInfo>
 		<CivicInfo> <!-- Paganism -->
 			<CivicOptionType>CIVICOPTION_RELIGION</CivicOptionType>
@@ -428,25 +454,29 @@
 			<Civilopedia>TXT_KEY_CIVIC_PAGANISM_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_CIVIC_PAGANISM_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Paganism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,4,2</Button>
+			<iIndex>4</iIndex>
 			<bEnableStarSigns>1</bEnableStarSigns>
 			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
 			<Upkeep>UPKEEP_LOW</Upkeep>
 			<iGreatPeopleRateModifier>-50</iGreatPeopleRateModifier>
 			<bStateReligion>1</bStateReligion>
 		</CivicInfo>
-		<CivicInfo> <!-- Theocracy -->
+		<CivicInfo> <!-- Free Religion -->
 			<CivicOptionType>CIVICOPTION_RELIGION</CivicOptionType>
-			<Type>CIVIC_THEOCRACY</Type>
-			<Description>TXT_KEY_CIVIC_THEOCRACY</Description>
-			<Civilopedia>TXT_KEY_CIVIC_THEOCRACY_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_CIVIC_THEOCRACY_STRATEGY</Strategy>
-			<Button>,Art/Interface/Buttons/Civics/Theocracy.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,6,3</Button>
-			<TechPrereq>TECH_THEOLOGY</TechPrereq>
-			<bEnableStarSigns>1</bEnableStarSigns>
-			<Upkeep>UPKEEP_MEDIUM</Upkeep>
-			<bStateReligion>1</bStateReligion>
-			<bNoNonStateReligionSpread>1</bNoNonStateReligionSpread>
-			<iStateReligionFreeExperience>2</iStateReligionFreeExperience>
+			<Type>CIVIC_FREE_RELIGION</Type>
+			<Description>TXT_KEY_CIVIC_FREE_RELIGION</Description>
+			<Civilopedia>TXT_KEY_CIVIC_FREE_RELIGION_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_FREE_RELIGION_STRATEGY</Strategy>
+			<Button>,Art/Interface/Buttons/Civics/Free_Religion.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,1,3</Button>
+			<iIndex>5</iIndex>
+			<TechPrereq>TECH_LIBERALISM</TechPrereq>
+			<Upkeep>UPKEEP_LOW</Upkeep>
+			<iNonStateReligionHappiness>1</iNonStateReligionHappiness>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>10</iCommerce>
+				<iCommerce>0</iCommerce>
+			</CommerceModifiers>
 		</CivicInfo>
 	</CivicInfos>
 </Civ4CivicInfos>
