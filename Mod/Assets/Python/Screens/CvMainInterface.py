@@ -1289,6 +1289,10 @@ class CvMainInterface:
 ## Great People Bar ##
 		screen.hide( "MainGPText" )
 		screen.hide( "MainGPBar" )
+		screen.hide( "MainGGText" )
+		screen.hide( "MainGGBar" )
+		screen.hide( "MainBLText" )
+		screen.hide( "MainBLBar" )
 ## Field of View ##
 		screen.hide("IncreaseFOV")
 		screen.hide("DecreaseFOV")
