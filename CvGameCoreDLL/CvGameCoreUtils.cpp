@@ -2257,6 +2257,7 @@ void getUnitAIString(CvWString& szString, UnitAITypes eUnitAI) {
 	case UNITAI_HUNTER: szString = L"hunter"; break;
 	case UNITAI_BARBARIAN_LEADER: szString = L"barbarian leader"; break;
 	case UNITAI_BARBARIAN: szString = L"barbarian"; break;
+	case UNITAI_BARBARIAN_ATTACK_CITY: szString = L"barbarian attack city"; break;
 
 	default: szString = CvWString::format(L"unknown(%d)", eUnitAI); break;
 	}

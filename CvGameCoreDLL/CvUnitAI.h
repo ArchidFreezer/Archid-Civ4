@@ -120,6 +120,7 @@ protected:
 	void AI_hunterMove();
 	void AI_barbarianLeaderMove();
 	void AI_barbarianMove();
+	void AI_barbarianAttackCityMove();
 
 	int AI_promotionValue(PromotionTypes ePromotion);
 
@@ -258,6 +259,7 @@ protected:
 	bool AI_plunderCity();
 	bool AI_becomeBarbarian();
 	bool AI_hunterExplore(int iRange);
+	bool AI_targetCity(int iFlags = 0);
 
 	bool AI_defendPlot(CvPlot* pPlot);
 	int AI_pillageValue(CvPlot* pPlot, int iBonusValueThreshold = 0);

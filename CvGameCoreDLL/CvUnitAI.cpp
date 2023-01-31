@@ -283,6 +283,10 @@ bool CvUnitAI::AI_update() {
 			AI_barbarianMove();
 			break;
 
+		case UNITAI_BARBARIAN_ATTACK_CITY:
+			AI_barbarianAttackCityMove();
+			break;
+
 		case UNITAI_BARBARIAN_LEADER:
 			AI_barbarianLeaderMove();
 			break;
@@ -627,6 +631,7 @@ int CvUnitAI::AI_groupFirstVal() {
 		}
 		break;
 
+	case UNITAI_BARBARIAN_ATTACK_CITY:
 	case UNITAI_ATTACK_CITY:
 		if (bombardRate() > 0) {
 			return 19;
@@ -19698,7 +19703,7 @@ bool CvUnitAI::AI_becomeBarbarian() {
 		return false;
 
 	// If we don't have ready gold then don't convert
-	int iSpareFreeBarbUnits = kPlayer.getBarbarianFreeUnits() - kPlayer.AI_getNumAIUnits(UNITAI_BARBARIAN);
+	int iSpareFreeBarbUnits = kPlayer.getBarbarianFreeUnits() - (kPlayer.AI_getNumAIUnits(UNITAI_BARBARIAN) + kPlayer.AI_getNumAIUnits(UNITAI_BARBARIAN_ATTACK_CITY));
 	if (kPlayer.AI_isFinancialTrouble() && iSpareFreeBarbUnits <= 0)
 		return false;
 
@@ -19845,4 +19850,137 @@ bool CvUnitAI::AI_hunterExplore(int iRange) {
 
 	return false;
 }
+
+void CvUnitAI::AI_barbarianAttackCityMove() {
+	// We don't mind a suicidal attack on a city
+	if (AI_cityAttack(3, 20)) {
+		return;
+	}
+
+	if (AI_targetCity(MOVE_THROUGH_ENEMY)) {
+		return;
+	}
+
+	if (AI_anyAttack(2, 10)) {
+		return;
+	}
+
+	getGroup()->pushMission(MISSION_SKIP);
+}
+
+bool CvUnitAI::AI_targetCity(int iFlags) {
+	PROFILE_FUNC();
+
+	CvCity* pBestCity = NULL;
+	CvCity* pTargetCity = area()->getTargetCity(getOwnerINLINE());
+	if (pTargetCity != NULL) {
+		if (AI_potentialEnemy(pTargetCity->getTeam(), pTargetCity->plot())) {
+			if (!atPlot(pTargetCity->plot()) && generatePath(pTargetCity->plot(), iFlags, true)) {
+				pBestCity = pTargetCity;
+			}
+		}
+	}
+
+	int iBestValue = 0;
+	if (pBestCity == NULL) {
+		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_CIV_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+			const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+			if (kPlayer.isAlive()) {
+				int iLoop;
+				for (CvCity* pLoopCity = kPlayer.firstCity(&iLoop); pLoopCity != NULL; pLoopCity = kPlayer.nextCity(&iLoop)) {
+					if (AI_plotValid(pLoopCity->plot()) && AI_potentialEnemy(kPlayer.getTeam(), pLoopCity->plot())) {
+						int iPathTurns;
+						if (!atPlot(pLoopCity->plot()) && generatePath(pLoopCity->plot(), iFlags, true, &iPathTurns)) {
+							int iValue = 0;
+							if (AI_getUnitAIType() == UNITAI_ATTACK_CITY || AI_getUnitAIType() == UNITAI_BARBARIAN_ATTACK_CITY) {
+								iValue = GET_PLAYER(getOwnerINLINE()).AI_targetCityValue(pLoopCity, false, false);
+							} else {
+								iValue = GET_PLAYER(getOwnerINLINE()).AI_targetCityValue(pLoopCity, true, true);
+							}
+
+							iValue *= 1000;
+
+							if ((area()->getAreaAIType(getTeam()) == AREAAI_DEFENSIVE)) {
+								if (pLoopCity->calculateCulturePercent(getOwnerINLINE()) < 75) {
+									iValue /= 2;
+								}
+							}
+
+							 // If city is minor civ, less interesting
+							if (GET_PLAYER(pLoopCity->getOwnerINLINE()).isMinorCiv()) {
+								iValue /= 2;
+							}
+
+							// If stack has poor bombard, direct towards lower defense cities
+							iPathTurns += std::min(16, getGroup()->getBombardTurns(pLoopCity)) / 2;
+							iValue /= (4 + iPathTurns * iPathTurns);
+
+							if (iValue > iBestValue) {
+								iBestValue = iValue;
+								pBestCity = pLoopCity;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	if (pBestCity != NULL) {
+		iBestValue = 0;
+		CvPlot* pBestPlot = NULL;
+
+		if (0 == (iFlags & MOVE_THROUGH_ENEMY)) {
+			for (DirectionTypes eDirection = (DirectionTypes)0; eDirection < NUM_DIRECTION_TYPES; eDirection = (DirectionTypes)(eDirection + 1)) {
+				CvPlot* pAdjacentPlot = plotDirection(pBestCity->getX_INLINE(), pBestCity->getY_INLINE(), eDirection);
+
+				if (pAdjacentPlot != NULL) {
+					if (AI_plotValid(pAdjacentPlot)) {
+						if (!pAdjacentPlot->isVisibleEnemyUnit(this)) {
+							int iPathTurns;
+							if (generatePath(pAdjacentPlot, iFlags, true, &iPathTurns)) {
+								int iValue = std::max(0, (pAdjacentPlot->defenseModifier(getTeam(), false) + 100));
+
+								if (!(pAdjacentPlot->isRiverCrossing(directionXY(pAdjacentPlot, pBestCity->plot())))) {
+									iValue += (12 * -(GC.getRIVER_ATTACK_MODIFIER()));
+								}
+
+								if (!isEnemy(pAdjacentPlot->getTeam(), pAdjacentPlot)) {
+									iValue += 100;
+								}
+
+								iValue = std::max(1, iValue);
+
+								iValue *= 1000;
+
+								iValue /= (iPathTurns + 1);
+
+								if (iValue > iBestValue) {
+									iBestValue = iValue;
+									pBestPlot = getPathEndTurnPlot();
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+
+		else {
+			pBestPlot = pBestCity->plot();
+		}
+
+		if (pBestPlot != NULL) {
+			FAssert(!pBestCity->at(pBestPlot) || 0 != (iFlags & MOVE_THROUGH_ENEMY)); // no suicide missions...
+			if (!atPlot(pBestPlot)) {
+				getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), iFlags);
+				return true;
+			}
+		}
+	}
+
+	return false;
+}
+
 

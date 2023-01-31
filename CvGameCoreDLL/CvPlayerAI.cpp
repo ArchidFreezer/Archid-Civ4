@@ -1363,6 +1363,7 @@ DomainTypes CvPlayerAI::AI_unitAIDomainType(UnitAITypes eUnitAI) const {
 	case UNITAI_HUNTER:
 	case UNITAI_BARBARIAN_LEADER:
 	case UNITAI_BARBARIAN:
+	case UNITAI_BARBARIAN_ATTACK_CITY:
 		return DOMAIN_LAND;
 		break;
 
@@ -5111,6 +5112,12 @@ int CvPlayerAI::AI_techUnitValue(TechTypes eTech, int iPathLength, bool& bEnable
 					iTotalUnitValue += 1 * iWeight;
 					break;
 
+				case UNITAI_BARBARIAN_ATTACK_CITY:
+					// Barbarian city attack is very blunt so no utility value
+					iOffenceValue = std::max(iOffenceValue, (bWarPlan ? 7 : 4) * iWeight + (AI_isDoStrategy(AI_STRATEGY_DAGGER) ? 5 * iWeight : 0));
+					iTotalUnitValue += 1 * iWeight;
+					break;
+
 				case UNITAI_ATTACK:
 					iOffenceValue = std::max(iOffenceValue, (bWarPlan ? 7 : 4) * iWeight + (AI_isDoStrategy(AI_STRATEGY_DAGGER) ? 5 * iWeight : 0));
 					iMilitaryValue += (bWarPlan ? 3 : 1) * iWeight;
@@ -8465,6 +8472,7 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			}
 			break;
 
+		case UNITAI_BARBARIAN_ATTACK_CITY:
 		case UNITAI_ATTACK_CITY:
 			if (kUnit.getCombat() > 0) {
 				if (!(kUnit.isOnlyDefensive())) {
@@ -18331,6 +18339,7 @@ int CvPlayerAI::AI_disbandValue(const CvUnit* pUnit, bool bMilitaryOnly) const {
 
 	case UNITAI_ATTACK:
 	case UNITAI_BARBARIAN:
+	case UNITAI_BARBARIAN_ATTACK_CITY:
 	case UNITAI_COUNTER:
 		iValue *= 4;
 		break;

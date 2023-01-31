@@ -2014,7 +2014,8 @@ void CvPlayer::disbandUnit(bool bAnnounce) {
 							break;
 
 						case UNITAI_BARBARIAN:
-							iValue *= AI()->AI_getNumAIUnits(UNITAI_BARBARIAN) <= getBarbarianFreeUnits() ? 100 : 2;
+						case UNITAI_BARBARIAN_ATTACK_CITY:
+							iValue *= (AI()->AI_getNumAIUnits(UNITAI_BARBARIAN) + AI()->AI_getNumAIUnits(UNITAI_BARBARIAN_ATTACK_CITY)) <= getBarbarianFreeUnits() ? 100 : 2;
 							break;
 
 						case UNITAI_ATTACK:
@@ -5666,7 +5667,7 @@ int CvPlayer::calculateUnitCost(int& iFreeUnits, int& iFreeMilitaryUnits, int& i
 
 	iPaidUnits = std::max(0, getNumUnits() - iFreeUnits);
 	iPaidMilitaryUnits = std::max(0, getNumMilitaryUnits() - iFreeMilitaryUnits);
-	int iPaidBarbarianUnits = std::max(0, AI()->AI_getNumAIUnits(UNITAI_BARBARIAN) - iFreeBarbarianUnits);
+	int iPaidBarbarianUnits = std::max(0, AI()->AI_getNumAIUnits(UNITAI_BARBARIAN) + AI()->AI_getNumAIUnits(UNITAI_BARBARIAN_ATTACK_CITY) - iFreeBarbarianUnits);
 
 	// K-Mod. GoldPerUnit, etc, are now done as percentages.
 	// Also, "UnitCostPercent" handicap modifiers now apply directly to unit cost only, not military or extra cost.
@@ -20367,5 +20368,5 @@ void CvPlayer::changeExtraGoldPerBarbarianUnit(int iChange) {
 }
 
 int CvPlayer::getNumBarbarians() const {
-	return AI()->AI_totalUnitAIs(UNITAI_BARBARIAN);
+	return AI()->AI_totalUnitAIs(UNITAI_BARBARIAN) + AI()->AI_totalUnitAIs(UNITAI_BARBARIAN_ATTACK_CITY);
 }
