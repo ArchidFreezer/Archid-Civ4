@@ -4579,7 +4579,7 @@
 			</AdditionalEvents>
 			<EventTimes>
 				<EventTime>
-					<Event>EVENT_IMMIGRANT_BETRAYER</Event>
+					<Event>EVENT_IMMIGRANTS_BETRAYER</Event>
 					<iEventTime>1</iEventTime>
 				</EventTime>
 			</EventTimes>
@@ -4641,7 +4641,7 @@
 		<EventInfo> <!-- Pine Discovered -->
 			<Type>EVENT_PINE_DISCOVERED</Type>
 			<Description>TXT_KEY_EVENT_PINE_DISCOVERED</Description>
-			<BonusType>BONUS_CEDAR</BonusType>
+			<BonusType>BONUS_TIMBER</BonusType>
 			<iBonusChange>1</iBonusChange>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
@@ -4857,11 +4857,11 @@
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>5000</iAIValue>
 		</EventInfo>
-		<EventInfo> <!-- Barbarian Assault -->
-			<Type>EVENT_BARBARIAN_ASSAULT</Type>
+		<EventInfo> <!-- Barbarian Civic Request Assault -->
+			<Type>EVENT_BARBARIAN_CIVIC_REQUEST_ASSAULT</Type>
 			<bPickCity>1</bPickCity>
-			<PythonCallback>applyBarbarianAssault1</PythonCallback>
-			<PythonHelp>getHelpBarbarianAssault1</PythonHelp>
+			<PythonCallback>applyBarbarianCivicRequestAssault</PythonCallback>
+			<PythonHelp>getHelpBarbarianCivicRequestAssault</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -4887,6 +4887,292 @@
 			<bPickCity>1</bPickCity>
 			<PythonCallback>applyBarbarianAttempt3</PythonCallback>
 			<PythonHelp>getHelpBarbarianAttempt3</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Ranch Disaster -->
+			<Type>EVENT_RANCH_DISASTER</Type>
+			<Description>TXT_KEY_EVENT_RANCH_DISASTER</Description>
+			<bPickCity>1</bPickCity>
+			<BuildingClass>BUILDINGCLASS_RANCH</BuildingClass>
+			<iBuildingChange>-1</iBuildingChange>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Poultry Farm Disaster -->
+			<Type>EVENT_POULTRY_FARM_DISASTER</Type>
+			<Description>TXT_KEY_EVENT_POULTRY_FARM_DISASTER</Description>
+			<bPickCity>1</bPickCity>
+			<BuildingClass>BUILDINGCLASS_POULTRY_FARM</BuildingClass>
+			<iBuildingChange>-1</iBuildingChange>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Mammoth -->
+			<Type>EVENT_MAMMOTH</Type>
+			<Description>TXT_KEY_EVENT_MAMMOTH</Description>
+			<BonusType>BONUS_IVORY</BonusType>
+			<iBonusChange>1</iBonusChange>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Seed Camp Lost -->
+			<Type>EVENT_SEED_CAMP_LOST</Type>
+			<Description>TXT_KEY_EVENT_SEED_CAMP_LOST</Description>
+			<iImprovementChange>-1</iImprovementChange>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Stone Tools Camp Lost -->
+			<Type>EVENT_STONE_TOOLS_CAMP_LOST</Type>
+			<Description>TXT_KEY_EVENT_STONE_TOOLS_CAMP_LOST</Description>
+			<iImprovementChange>-1</iImprovementChange>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Microlith Building Lost -->
+			<Type>EVENT_MICROLITH_BUILDING_LOST</Type>
+			<Description>TXT_KEY_EVENT_MICROLITH_BUILDING_LOST</Description>
+			<bPickCity>1</bPickCity>
+			<BuildingClass>BUILDINGCLASS_MICROLITH_WORKSHOP</BuildingClass>
+			<iBuildingChange>-1</iBuildingChange>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Hunting Instruction -->
+			<Type>EVENT_HUNTING_INSTRUCTION</Type>
+			<Description>TXT_KEY_EVENT_HUNTING_INSTRUCTION</Description>
+			<bPickCity>1</bPickCity>
+			<BuildingExtraYields>
+				<BuildingExtraYield>
+					<BuildingClass>BUILDINGCLASS_HUNTING_INSTRUCTION</BuildingClass>
+					<YieldType>YIELD_FOOD</YieldType>
+					<iExtraYield>1</iExtraYield>
+				</BuildingExtraYield>
+			</BuildingExtraYields>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Potato Revealed 1 -->
+			<Type>EVENT_POTATO_REVEALED_1</Type>
+			<Description>TXT_KEY_EVENT_POTATO_REVEALED_1</Description>
+			<iFood>10</iFood>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Potato Revealed 2 -->
+			<Type>EVENT_POTATO_REVEALED_2</Type>
+			<Description>TXT_KEY_EVENT_POTATO_REVEALED_2</Description>
+			<iGold>-30</iGold>
+			<BonusRevealed>BONUS_POTATO</BonusRevealed>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Wounded Barbarian 1 -->
+			<Type>EVENT_WOUNDED_BARBARIAN_1</Type>
+			<Description>TXT_KEY_EVENT_WOUNDED_BARBARIAN_1</Description>
+			<bPickCity>1</bPickCity>
+			<iOurAttitudeModifier>1</iOurAttitudeModifier>
+			<iAttitudeModifier>1</iAttitudeModifier>
+			<AdditionalEvents>
+				<EventChance>
+					<Event>EVENT_BARBARIAN_ANGER</Event>
+					<iEventChance>35</iEventChance>
+				</EventChance>
+			</AdditionalEvents>
+			<EventTimes>
+				<EventTime>
+					<Event>EVENT_BARBARIAN_ANGER</Event>
+					<iEventTime>1</iEventTime>
+				</EventTime>
+			</EventTimes>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Wounded Barbarian 2 -->
+			<Type>EVENT_WOUNDED_BARBARIAN_2</Type>
+			<Description>TXT_KEY_EVENT_WOUNDED_BARBARIAN_2</Description>
+			<bPickCity>1</bPickCity>
+			<iOurAttitudeModifier>2</iOurAttitudeModifier>
+			<iAttitudeModifier>2</iAttitudeModifier>
+			<AdditionalEvents>
+				<EventChance>
+					<Event>EVENT_BARBARIAN_ANGER</Event>
+					<iEventChance>75</iEventChance>
+				</EventChance>
+			</AdditionalEvents>
+			<EventTimes>
+				<EventTime>
+					<Event>EVENT_BARBARIAN_ANGER</Event>
+					<iEventTime>1</iEventTime>
+				</EventTime>
+			</EventTimes>
+			<PythonCallback>applyWoundedBarbarian2</PythonCallback>
+			<PythonCanDo>canApplyWoundedBarbarian2</PythonCanDo>
+			<PythonHelp>getHelpWoundedBarbarian2</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Wounded Barbarian 3 -->
+			<Type>EVENT_WOUNDED_BARBARIAN_3</Type>
+			<Description>TXT_KEY_EVENT_WOUNDED_BARBARIAN_3</Description>
+			<bPickCity>1</bPickCity>
+			<iGold>30</iGold>
+			<iRandomGold>50</iRandomGold>
+			<iEspionagePoints>200</iEspionagePoints>
+			<iOurAttitudeModifier>-1</iOurAttitudeModifier>
+			<iAttitudeModifier>-1</iAttitudeModifier>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Wounded Barbarian 4 -->
+			<Type>EVENT_WOUNDED_BARBARIAN_4</Type>
+			<Description>TXT_KEY_EVENT_WOUNDED_BARBARIAN_4</Description>
+			<bPickCity>1</bPickCity>
+			<iEspionagePoints>150</iEspionagePoints>
+			<UnitClass>UNITCLASS_STONE_SPEARMAN</UnitClass>
+			<iNumFreeUnits>2</iNumFreeUnits>
+			<iOurAttitudeModifier>-1</iOurAttitudeModifier>
+			<iAttitudeModifier>-1</iAttitudeModifier>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Wounded Barbarian 5 -->
+			<Type>EVENT_WOUNDED_BARBARIAN_5</Type>
+			<Description>TXT_KEY_EVENT_WOUNDED_BARBARIAN_5</Description>
+			<bPickOtherPlayerCity>1</bPickOtherPlayerCity>
+			<iEspionagePoints>300</iEspionagePoints>
+			<iFreeUnitSupport>1</iFreeUnitSupport>
+			<iMaxPillage>3</iMaxPillage>
+			<iFoodPercent>-100</iFoodPercent>
+			<iOurAttitudeModifier>-1</iOurAttitudeModifier>
+			<iAttitudeModifier>-1</iAttitudeModifier>
+			<PythonCallback>applyWoundedBarbarian5</PythonCallback>
+			<PythonCanDo>canApplyWoundedBarbarian5</PythonCanDo>
+			<PythonHelp>getHelpWoundedBarbarian5</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Barbarian Upgrade 1 -->
+			<Type>EVENT_BARBARIAN_UPGRADE_1</Type>
+			<Description>TXT_KEY_EVENT_CLUBMAN_UPGRADE_1</Description>
+			<iUnitExperience>5</iUnitExperience>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Barbarian Upgrade 2 -->
+			<Type>EVENT_BARBARIAN_UPGRADE_2</Type>
+			<Description>TXT_KEY_EVENT_CLUBMAN_UPGRADE_2</Description>
+			<iGold>-20</iGold>
+			<UnitClassPromotions>
+				<UnitClassPromotion>
+					<UnitClass>UNITCLASS_WARRIOR</UnitClass>
+					<UnitPromotion>PROMOTION_COMBAT1</UnitPromotion>
+				</UnitClassPromotion>
+				<UnitClassPromotion>
+					<UnitClass>UNITCLASS_STONE_SPEARMAN</UnitClass>
+					<UnitPromotion>PROMOTION_COMBAT1</UnitPromotion>
+				</UnitClassPromotion>
+				<UnitClassPromotion>
+					<UnitClass>UNITCLASS_FLETCHER</UnitClass>
+					<UnitPromotion>PROMOTION_COMBAT1</UnitPromotion>
+				</UnitClassPromotion>
+				<UnitClassPromotion>
+					<UnitClass>UNITCLASS_JAVELINEER</UnitClass>
+					<UnitPromotion>PROMOTION_COMBAT1</UnitPromotion>
+				</UnitClassPromotion>
+				<UnitClassPromotion>
+					<UnitClass>UNITCLASS_STONE_AXEMAN</UnitClass>
+					<UnitPromotion>PROMOTION_COMBAT1</UnitPromotion>
+				</UnitClassPromotion>
+				<UnitClassPromotion>
+					<UnitClass>UNITCLASS_HORSEMAN</UnitClass>
+					<UnitPromotion>PROMOTION_COMBAT1</UnitPromotion>
+				</UnitClassPromotion>
+			</UnitClassPromotions>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>2000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Barbarian Upgrade 3 -->
+			<Type>EVENT_BARBARIAN_UPGRADE_3</Type>
+			<Description>TXT_KEY_EVENT_CLUBMAN_UPGRADE_3</Description>
+			<iGold>-40</iGold>
+			<UnitClassPromotions>
+				<UnitClassPromotion>
+					<UnitClass>UNITCLASS_WARRIOR</UnitClass>
+					<UnitPromotion>PROMOTION_TACTICS</UnitPromotion>
+				</UnitClassPromotion>
+				<UnitClassPromotion>
+					<UnitClass>UNITCLASS_STONE_SPEARMAN</UnitClass>
+					<UnitPromotion>PROMOTION_TACTICS</UnitPromotion>
+				</UnitClassPromotion>
+				<UnitClassPromotion>
+					<UnitClass>UNITCLASS_FLETCHER</UnitClass>
+					<UnitPromotion>PROMOTION_TACTICS</UnitPromotion>
+				</UnitClassPromotion>
+				<UnitClassPromotion>
+					<UnitClass>UNITCLASS_JAVELINEER</UnitClass>
+					<UnitPromotion>PROMOTION_TACTICS</UnitPromotion>
+				</UnitClassPromotion>
+				<UnitClassPromotion>
+					<UnitClass>UNITCLASS_STONE_AXEMAN</UnitClass>
+					<UnitPromotion>PROMOTION_TACTICS</UnitPromotion>
+				</UnitClassPromotion>
+				<UnitClassPromotion>
+					<UnitClass>UNITCLASS_HORSEMAN</UnitClass>
+					<UnitPromotion>PROMOTION_TACTICS</UnitPromotion>
+				</UnitClassPromotion>
+			</UnitClassPromotions>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>3000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Barbarian Upgrade 4 -->
+			<Type>EVENT_BARBARIAN_UPGRADE_4</Type>
+			<Description>TXT_KEY_EVENT_CLUBMAN_UPGRADE_4</Description>
+			<iGold>-60</iGold>
+			<UnitClassPromotions>
+				<UnitClassPromotion>
+					<UnitClass>UNITCLASS_WARRIOR</UnitClass>
+					<UnitPromotion>PROMOTION_MORALE</UnitPromotion>
+				</UnitClassPromotion>
+				<UnitClassPromotion>
+					<UnitClass>UNITCLASS_STONE_SPEARMAN</UnitClass>
+					<UnitPromotion>PROMOTION_MORALE</UnitPromotion>
+				</UnitClassPromotion>
+				<UnitClassPromotion>
+					<UnitClass>UNITCLASS_FLETCHER</UnitClass>
+					<UnitPromotion>PROMOTION_MORALE</UnitPromotion>
+				</UnitClassPromotion>
+				<UnitClassPromotion>
+					<UnitClass>UNITCLASS_JAVELINEER</UnitClass>
+					<UnitPromotion>PROMOTION_MORALE</UnitPromotion>
+				</UnitClassPromotion>
+				<UnitClassPromotion>
+					<UnitClass>UNITCLASS_STONE_AXEMAN</UnitClass>
+					<UnitPromotion>PROMOTION_MORALE</UnitPromotion>
+				</UnitClassPromotion>
+				<UnitClassPromotion>
+					<UnitClass>UNITCLASS_HORSEMAN</UnitClass>
+					<UnitPromotion>PROMOTION_MORALE</UnitPromotion>
+				</UnitClassPromotion>
+			</UnitClassPromotions>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>4000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Lost Ship -->
+			<Type>EVENT_LOST_SHIP</Type>
+			<Description>TXT_KEY_EVENT_LOST_SHIP</Description>
+			<bDisbandUnit>1</bDisbandUnit>
+			<PythonCallback>applyLostShip</PythonCallback>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Free Barbarian Leader 1 -->
+			<Type>EVENT_FREE_BARBARIAN_LEADER</Type>
+			<Description>TXT_KEY_EVENT_FREE_BARBARIAN_LEADER</Description>
+			<bPickCity>1</bPickCity>
+			<UnitClass>UNITCLASS_BARBARIAN_LEADER</UnitClass>
+			<iNumFreeUnits>1</iNumFreeUnits>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>

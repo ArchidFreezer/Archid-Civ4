@@ -5746,7 +5746,7 @@ def getHelpBarbarianCivicRequest1(argsList):
 	
 	return szHelp
 	
-def applyBarbarianAssault1(argsList):
+def applyBarbarianCivicRequestAssault(argsList):
 	iEvent = argsList[0]
 	kTriggeredData = argsList[1]
 	player = gc.getPlayer(kTriggeredData.ePlayer)
@@ -5815,7 +5815,7 @@ def applyBarbarianAssault1(argsList):
 		popupInfo.addPythonButton(localText.getText("TXT_KEY_POPUP_BUTTON1_BARBARIAN_ASSAULT", ()), "")
 		popupInfo.addPopup(kTriggeredData.ePlayer)
 		
-def getHelpBarbarianAssault1(argsList):
+def getHelpBarbarianCivicRequestAssault(argsList):
 	iEvent = argsList[0]
 	kTriggeredData = argsList[1]
 	player = gc.getPlayer(kTriggeredData.ePlayer)
@@ -5907,3 +5907,183 @@ def getHelpBarbarianAttempt3(argsList):
 	
 	return szHelp
 	
+################ MAMMOTH ################
+	
+def canTriggerMammoth(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	city = player.getCity(kTriggeredData.iCityId)
+	plot = gc.getMap().plot(kTriggeredData.iPlotX, kTriggeredData.iPlotY)
+	
+	cityPlotX = city.getX()
+	cityPlotY = city.getY()
+	
+	iIvory = CvUtil.findInfoTypeNum(gc.getBonusInfo,gc.getNumBonusInfos(),'BONUS_IVORY')
+	iBison = CvUtil.findInfoTypeNum(gc.getBonusInfo,gc.getNumBonusInfos(),'BONUS_BISON')
+	
+	# Searching within city borders (range = 2) if City already has an Ivory or Bison resource, trigger won't apply
+	for i in range(-2, 3):
+		for j in range (-2, 3):
+			loopPlot =  gc.getMap().plot(cityPlotX + i, cityPlotY + j)
+			# Don't consider plots from the corner (Because city can't work them)
+			if ((i == -2 and j == 2) or (i == -2 and j == -2) or (i == 2 and j == 2) or (i ==2 and j == -2)):
+				continue
+			# if Plot exists  ...
+			else:
+				if (not loopPlot.isNone()):
+					# if an Ivory resource is found within max city borders (2 range) ... trigger won't apply
+					if (loopPlot.getBonusType(player.getTeam()) == iIvory or loopPlot.getBonusType(player.getTeam()) == iBison):
+						return false
+
+	# If plot can't have Ivory resource, then trigger won't apply.
+	if not plot.canHaveBonus(iIvory, false):
+		return false
+			
+	return true
+	
+######################## HUNTING INSTRUCTION ########################
+	
+def	canTriggerHuntingInstruction(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	city = player.getCity(kTriggeredData.iCityId)
+	
+	if (city.isCapital()):
+		return false
+		
+	return true
+	
+######################## WOUNDED BARBARIAN ########################
+
+def getHelpWoundedBarbarian1(argsList):
+	iEvent = argsList[0]
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_WOUNDED_BARBARIAN_1_HELP", ())
+	
+	return szHelp
+
+def canApplyWoundedBarbarian2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	
+	# Player can't select this Event if it isn't under the Tribal Law Civic
+	if not player.isCivic(CvUtil.findInfoTypeNum(gc.getCivicInfo,gc.getNumCivicInfos(),'CIVIC_TRIBAL_LAW')):
+		return false
+
+def applyWoundedBarbarian2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	
+	# Increase 1 relation hit on all KNOWN leaders
+	for iLoopPlayer in range(gc.getMAX_CIV_PLAYERS()):
+		loopPlayer = gc.getPlayer(iLoopPlayer)
+		loopPlayerTeam = gc.getTeam(loopPlayer.getTeam())
+		if loopPlayer.isAlive() and iLoopPlayer != kTriggeredData.ePlayer and player.getTeam() != loopPlayer.getTeam():
+			if loopPlayerTeam.isHasMet(player.getTeam()):
+				player.AI_changeAttitudeExtra(kTriggeredData.eOtherPlayer, +1)
+				loopPlayer.AI_changeAttitudeExtra(kTriggeredData.ePlayer, +1)
+				
+def getHelpWoundedBarbarian2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	
+	if not player.isCivic(CvUtil.findInfoTypeNum(gc.getCivicInfo,gc.getNumCivicInfos(),'CIVIC_TRIBAL_LAW')):
+		szHelp = localText.getText("TXT_KEY_EVENT_WOUNDED_BARBARIAN_2_CANNOT_HELP", ())
+	else:
+		szHelp = localText.getText("TXT_KEY_EVENT_WOUNDED_BARBARIAN_2_HELP", ())
+	
+	return szHelp
+	
+def canApplyWoundedBarbarian5(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	
+	# Player can't select this Event if it isn't under the Barbarism Civic
+	if not player.isCivic(CvUtil.findInfoTypeNum(gc.getCivicInfo,gc.getNumCivicInfos(),'CIVIC_BARBARISM')):
+		return false
+		
+def applyWoundedBarbarian5(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	otherPlayerTeam = gc.getTeam(otherPlayer.getTeam())
+	otherPlayerCity = otherPlayer.getCity(kTriggeredData.iOtherPlayerCityId)
+	
+	# Reduce 1 relation hit on all KNOWN leaders
+	for iLoopPlayer in range(gc.getMAX_CIV_PLAYERS()):
+		loopPlayer = gc.getPlayer(iLoopPlayer)
+		loopPlayerTeam = gc.getTeam(loopPlayer.getTeam())
+		if loopPlayer.isAlive() and iLoopPlayer != kTriggeredData.ePlayer and player.getTeam() != loopPlayer.getTeam():
+			if loopPlayerTeam.isHasMet(player.getTeam()):
+				loopPlayer.AI_changeAttitudeExtra(kTriggeredData.ePlayer, -1)
+
+	iEarlyBows = CvUtil.findInfoTypeNum(gc.getTechInfo,gc.getNumTechInfos(),'TECH_EARLY_BOWS')
+	iTribalism = CvUtil.findInfoTypeNum(gc.getTechInfo,gc.getNumTechInfos(),'TECH_TRIBALISM')
+	iFineEdgedTools = CvUtil.findInfoTypeNum(gc.getTechInfo,gc.getNumTechInfos(),'TECH_FINE_EDGED_TOOLS')
+	
+	# Choose AI units ...
+	if otherPlayerTeam.isHasTech(iEarlyBows):
+		iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_FLETCHER')
+	elif otherPlayerTeam.isHasTech(iTribalism):
+		iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_JAVELINEER')
+	elif otherPlayerTeam.isHasTech(iFineEdgedTools):
+		iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_STONE_SPEARMAN')
+	else:
+		iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_BOLA_THROWER')
+				
+	# Gift 3 units to AI
+	if (not otherPlayer.isHuman()):
+		for i in range(3):
+			otherPlayer.initUnit(iUnitType, otherPlayerCity.getX(), otherPlayerCity.getY(), UnitAITypes.UNITAI_ATTACK, DirectionTypes.DIRECTION_SOUTH)
+	
+	# AI must declare war if player is Human
+	if (player.isHuman()):
+		if gc.getTeam(otherPlayer.getTeam()).canDeclareWar(player.getTeam()):
+			gc.getTeam(otherPlayer.getTeam()).declareWar(player.getTeam(), false, WarPlanTypes.WARPLAN_LIMITED)
+			
+def getHelpWoundedBarbarian5(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	
+	if not player.isCivic(CvUtil.findInfoTypeNum(gc.getCivicInfo,gc.getNumCivicInfos(),'CIVIC_BARBARISM')):
+		szHelp = localText.getText("TXT_KEY_EVENT_WOUNDED_BARBARIAN_5_CANNOT_HELP", ())
+	else:
+		szHelp = localText.getText("TXT_KEY_EVENT_WOUNDED_BARBARIAN_5_HELP", ())
+	
+	return szHelp
+	
+######################## LOST SHIP ########################
+
+def canTriggerLostShip(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	
+	plot = gc.getMap().plot(kTriggeredData.iPlotX, kTriggeredData.iPlotY)
+	
+	if (plot.getOwner() == kTriggeredData.ePlayer):
+		return false
+		
+	iRandomNumber = gc.getGame().getSorenRandNum(5, "Lost Ship event random number")
+	return iRandomNumber == 0 # 1 in 5 chance
+	
+def applyLostShip(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	
+	szBuffer = localText.getText("TXT_KEY_EVENT_LOST_SHIP_MESSAGE", ())
+	CyInterface().addMessage(kTriggeredData.ePlayer, false, gc.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_SUNK", InterfaceMessageTypes.MESSAGE_TYPE_INFO, None, gc.getInfoTypeForString("COLOR_RED"), -1, -1, true, true)
+
+######################## FREE BARBARIAN LEADER ########################
+
+def canTriggerFreeBarbarianLeader(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	
+	return (player.getNumBarbarians() > 0 or player.getBarbaraianExperience() > 0)
+

@@ -7575,5 +7575,222 @@
 		<English>Our production in %s1_city has been sabotaged!</English>
 		<Spanish>Nuestra producci&#243;n en %s1_city ha sido saboteada!</Spanish>
 	</TEXT>
+	<!-- Ranch Disaster -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_RANCH_DISASTER</Tag>
+		<English>Something terrible has happened. A careless child opened the Ranch gates and let the cattle run away. We have lost almost all of our animals.</English>
+		<Spanish>Algo terrible ha sucedido. Un ni&#241;o travieso abri&#243; las puertas del rancho y ha dejado escapar al ganado. Hemos perdido a casi todos nuestros animales.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_RANCH_DISASTER</Tag>
+		<English>Was nobody watching that child?</English>
+		<Spanish>Oh vamos! No estaba alguien de guardia?</Spanish>
+	</TEXT>
+	<!-- Poultry Farm Disaster -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_POULTRY_FARM_DISASTER</Tag>
+		<English>Something strange has happened. Our poultry farmers have found their animals dead in the morning. It seems a wild animal entered the Poultry Farms and ate our fowls.</English>
+		<Spanish>Algo extra&#241;o ha sucedido. Nuestros avicultores han encontrado a sus animales muertos esta ma&#241;ana. Parece ser que un animal salvaje entr&#243; a las granjas av&#237;colas y se comi&#243; a nuestras aves.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_POULTRY_FARM_DISASTER</Tag>
+		<English>Damn wild animal! We must be more careful from now.</English>
+		<Spanish>Maldito animal salvaje! Debemos ser m&#225;s cuidadosos a partir de ahora.</Spanish>
+	</TEXT>
+	<!-- Found Mammoth -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_MAMMOTH</Tag>
+		<English>Our hunters have found a herd of Mammoths within our borders.</English>
+		<Spanish>Nuestros cazadores han encontrado una manada de Mamuts en nuestras fronteras.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_NEWS_MAMMOTH</Tag>
+		<English>%s1_civ_adjective hunters have found a herd of Mammoths within their borders.</English>
+		<Spanish>Cazadores %s1_civ_adjective han encontrado una manada de Mamuts en sus fronteras.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MAMMOTH</Tag>
+		<English>Excellent! That will help us feed our tribe.</English>
+		<Spanish>Excelente! Eso nos ayudar&#225; a alimentar a nuestra tribu.</Spanish>
+	</TEXT>
+	<!-- Seed Camp Lost -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_SEED_CAMP_LOST_1</Tag>
+		<English>One of our grain gatherers has left our tribe. He took with him all his harvest.</English>
+		<Spanish>Uno de nuestros recolectores de granos ha dejado nuestra tribu. Ha llevado consigo todas las semillas que recoltect&#243;.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_SEED_CAMP_LOST_2</Tag>
+		<English>While playing around one of our seed camps, a child has accidentally dropped a flaming stick and burned the seed camp. We have lost all our harvest.</English>
+		<Spanish>Mientras jugaba alrededor de uno de nuestros campos de smillas, un ni&#241;o accidentalmente dej&#243; caer un palo encendido y quem&#243; nuestro campo de semillas. Hemos perdido toda nuestra colecta.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SEED_CAMP_LOST</Tag>
+		<English>We will have to send more gatherers.</English>
+		<Spanish>Tendremos que mandar m&#225;s recolectores.</Spanish>
+	</TEXT>
+	<!-- Stone Tools Camp Lost -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_STONE_TOOLS_CAMP_LOST</Tag>
+		<English>One of our craftspeople has left our tribe. He took with him all the stuff at his workshop.</English>
+		<Spanish>Uno de nuestros trabajadores manuales ha dejado nuestra tribu. Ha llevado consigo todo el material que ten&#237;a en su taller.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_STONE_TOOLS_CAMP_LOST</Tag>
+		<English>We will have to build another Stone Tools Workshop there.</English>
+		<Spanish>Tendremos que construir otro taller de herramientas de piedra ahi.</Spanish>
+	</TEXT>
+	<!-- Microlith Workshop Lost -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_MICROLITH_BUILDING_DESTROYED</Tag>
+		<English>One of our Best Craftspeople has left our city of %s2_city. He has taken with him all our Microlith Tools.</English>
+		<Spanish>Uno de nuestros mejores Trabajadores Manuales ha dejado la ciudad de %s2_city. Ha llevado consigo todas nuestras herramientas finas de piedra.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MICROLITH_BUILDING_LOST_1</Tag>
+		<English>Why are people leaving these lands?</English>
+		<Spanish>Oh Dios. ¿Por qu&#233; la gente est&#225; dejando estas tierras?</Spanish>
+	</TEXT>
+	<!-- Hunting Instruction -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_HUNTING_INSTRUCTION</Tag>
+		<English>Many of our tribespeople are joining our Hunting Lodge. It seems hunting has become not only a way to obtain food but also an entertainment activity.</English>
+		<Spanish>Muchos de nuestros tribales est&#225;n uni&#233;ndose a nuestra Caba&#241;a del Cazador. Parece ser que la caza no s&#243;lo se ha vuelto un modo de obtener comida, sino tambi&#233;n una actividad de entretenimiento.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_HUNTING_INSTRUCTION</Tag>
+		<English>Good. We didn't build it in vain.</English>
+		<Spanish>Bien. No lo hemos construido en vano.</Spanish>
+	</TEXT>
+	<!-- Potato Revealed -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_POTATO_REVEALED</Tag>
+		<English>One of our tribesmen says he has found an strange but edible part of a plant that grows underground.</English>
+		<Spanish>Uno de nuestros tribales dice haber encontrado una extra&#241;a pero comestible parte de una planta que crece por debajo de la tierra.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_POTATO_REVEALED_1</Tag>
+		<English>An underground edible plant? That's crazy. Tell him he can do whatever he wants with it.</English>
+		<Spanish>Una planta enterrada comestible? Est&#225; loco. D&#247;ganle que puede hacer lo que sea que quiera con ella.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_POTATO_REVEALED_2</Tag>
+		<English>Does it taste good? If it does, let's search for more within our borders.</English>
+		<Spanish>Sabe bien? Si es as&#247;, busquemos si hay m&#225;s de ello en nuestras fronteras.</Spanish>
+	</TEXT>
+	<!-- Wounded Barbarian -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_WOUNDED_BARBARIAN</Tag>
+		<English>A wounded Barbarian Leader has arrived to out lands. He says he got injured when trying to attack the %s1_civ_adjective tribe. What are we supposed to do?</English>
+		<Spanish>Un L&#247;der B&#225;rbaro herido acabo de llegar a nuestras tierras. Dice haber salido lastimado al tratar de atacar a la tribu %s1_civ_adjective. ¿Qu&#233; se supone que haremos?</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WOUNDED_BARBARIAN_1</Tag>
+		<English>It's none of our business. Tell him we are not willing to help him.</English>
+		<Spanish>No es nuestro problema. Dile que no estamos dispuestos a ayudarlo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WOUNDED_BARBARIAN_2</Tag>
+		<English>Did he attack the other tribe? It could have been ours. We must get rid of that kind of Leaders. Kill him!!</English>
+		<Spanish>Atac&#243; a otr tribu? Pudo haber sido la nuestra. Debemos deshacernos de esa clase de L&#247;deres. M&#225;tenlo!!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WOUNDED_BARBARIAN_3</Tag>
+		<English>Let's help him until he is completely recovered in exchange of some information and gold. If the other tribes ask about him, refuse to talk.</English>
+		<Spanish>Ayud&#233;moslo hasta que se recupere por completo a cambio de informaci&#243;n y oro. Si la otra tribu pregunta por &#243;l, reh&#255;sense a hablar.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WOUNDED_BARBARIAN_4</Tag>
+		<English>Let's help him until he is completely recovered in exchange of some information and military help. If the other tribes ask about him, refuse to talk.</English>
+		<Spanish>Ayud&#233;moslo hasta que se recupere por completo a cambio de informaci&#243;n y ayuda militar. Si la otra tribu pregunta por &#243;l, reh&#255;sense a hablar.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WOUNDED_BARBARIAN_5</Tag>
+		<English>Damn %s4_civ_adjective! We won't allow anybody to injure our Barbarian friends. Let's teach them a lesson!!</English>
+		<Spanish>Malditos %s4_civ_adjective! No permitiremos que nadie hiera a nuestro amigos Los B&#225;rbaros. Vamos a ense&#241;arles una lecci&#243;n!!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WOUNDED_BARBARIAN_1_HELP</Tag>
+		<English>[ICON_BULLET][COLOR_NEGATIVE_TEXT]Barbarians won't be pleased[COLOR_REVERT]</English>
+		<Spanish>[ICON_BULLET][COLOR_NEGATIVE_TEXT]Los B&#225;rbaros no estar&#225;n contentos[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WOUNDED_BARBARIAN_2_HELP</Tag>
+		<English>[ICON_BULLET][COLOR_POSITIVE_TEXT]+1[COLOR_REVERT] relation hit with [COLOR_HIGHLIGHT_TEXT]all known leaders[COLOR_REVERT].</English>
+		<Spanish>[ICON_BULLET][COLOR_POSITIVE_TEXT]+1[COLOR_REVERT] punto de relaci&#243;n con [COLOR_HIGHLIGHT_TEXT]todos los l&#247;deres conocidos[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WOUNDED_BARBARIAN_2_CANNOT_HELP</Tag>
+		<English>[ICON_BULLET][COLOR_POSITIVE_TEXT]+1[COLOR_REVERT] relation hit with [COLOR_HIGHLIGHT_TEXT]all known leaders[COLOR_REVERT].[NEWLINE][COLOR_NEGATIVE_TEXT]Requires Tribal Law Civic[COLOR_REVERT]</English>
+		<Spanish>[ICON_BULLET][COLOR_POSITIVE_TEXT]+1[COLOR_REVERT] punto de relaci&#243;n con [COLOR_HIGHLIGHT_TEXT]todos los l&#247;deres conocidos[COLOR_REVERT].[NEWLINE][COLOR_NEGATIVE_TEXT]Require del Principio de Ley Tribal[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WOUNDED_BARBARIAN_5_HELP</Tag>
+		<English>[ICON_BULLET][COLOR_NEGATIVE_TEXT]-1[COLOR_REVERT] relation hit with [COLOR_HIGHLIGHT_TEXT]all known leaders[COLOR_REVERT].[NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]Will trigger war!![COLOR_REVERT]</English>
+		<Spanish>[ICON_BULLET][COLOR_NEGATIVE_TEXT]-1[COLOR_REVERT] punto de relaci&#243;n con [COLOR_HIGHLIGHT_TEXT]todos los l&#247;deres conocidos[COLOR_REVERT].[NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]Will trigger war!![COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WOUNDED_BARBARIAN_5_CANNOT_HELP</Tag>
+		<English>[ICON_BULLET][COLOR_NEGATIVE_TEXT]-1[COLOR_REVERT] relation hit with [COLOR_HIGHLIGHT_TEXT]all known leaders[COLOR_REVERT].[NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]Will trigger war!![COLOR_REVERT][NEWLINE][COLOR_NEGATIVE_TEXT]Requires Barbarism Civic[COLOR_REVERT]</English>
+		<Spanish>[ICON_BULLET][COLOR_NEGATIVE_TEXT]-1[COLOR_REVERT] punto de relaci&#243;n con [COLOR_HIGHLIGHT_TEXT]todos los l&#247;deres conocidos[COLOR_REVERT].[NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]Will trigger war!![COLOR_REVERT][NEWLINE][COLOR_NEGATIVE_TEXT]Requiere del Principio del Barbarismo[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<!-- Barbarian Upgrade -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_BARBARIAN_UPGRADE</Tag>
+		<English>The Barbarians are pleased with our attitude. They say they are willing to help us improve our Barbarian units abilities.</English>
+		<Spanish>Los B&#225;rbaros est&#225;n contentos con nuestra actitud. Dicen estar dispuestos a ayudarnos a mejorar las habilidades de nuestras unidades B&#225;rbaras.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_UPGRADE_1</Tag>
+		<English>We don't have time for that. Let them tell one of our units some fighting tips, but hurry up.</English>
+		<Spanish>No tenemos tiempo para eso. Dejemos que le ense&#241;en algunos trucos de pelea a una de nuestras unidades, pero r&#225;pido.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_UPGRADE_2</Tag>
+		<English>Good. Some skill training will help.</English>
+		<Spanish>Bien. Algo de entrenamiento en sus habilidades no caería mal.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_UPGRADE_3</Tag>
+		<English>Excellent. Maybe some tips for the surprise attack.</English>
+		<Spanish>Excellent. Tal vez algunos consejos para el ataque sorpresivo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_UPGRADE_4</Tag>
+		<English>Amazing. Let them teach our units how to track our enemies.</English>
+		<Spanish>Increible. Dejemos que ense&#241;en a nuestras unidades sobre como rastrear a nuestros enemigos.</Spanish>
+	</TEXT>
+	<!-- Lost Ship -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_LOST_SHIP</Tag>
+		<English>Our ship has been lost while sailng the ocean!</English>
+		<Spanish>Nuestro barco de ha perdido mientras cruzaba el oceano!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_LOST_SHIP</Tag>
+		<English>The ocean is still a mystery for our sailors.</English>
+		<Spanish>El oceano es todav&#247;a un misterio para nuestros marineros.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_LOST_SHIP_HELP</Tag>
+		<English>Our ship has been lost on the oceans</English>
+		<Spanish>Nuestro barco de ha perdido mientras cruzaba el oceano!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_LOST_SHIP_MESSAGE</Tag>
+		<English>Everybody is commenting about this tragedy. Nobody can explain why this happened!</English>
+		<Spanish>Todos est&#225;n comentando sobre esta tragedia. Nadie puede explicar por que sucedio esto!</Spanish>
+	</TEXT>
+	<!-- Free Barbarian Leader -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_FREE_BARBARIAN_LEADER</Tag>
+		<English>A Barbarian Leader has arrived at our tribe. He is asking to join us in exchange for the chance to raid.</English>
+		<Spanish>Un L&#247;der B&#225;rbaro ha llegado a nuestra tribu. Ha solicitado un&#247;rsenos a cambio de nada.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FREE_BARBARIAN_LEADER</Tag>
+		<English>Tell him he can join us.</English>
+		<Spanish>Dile que puede un&#247;rsenos.</Spanish>
+	</TEXT>
 
 </Civ4GameText>
