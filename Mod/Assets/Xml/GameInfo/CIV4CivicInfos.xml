@@ -377,19 +377,18 @@
 <!-- ************	-->
 <!-- Religion -->
 <!-- ************	-->
-		<CivicInfo> <!-- Pacifism -->
+		<CivicInfo> <!-- Paganism -->
 			<CivicOptionType>CIVICOPTION_RELIGION</CivicOptionType>
-			<Type>CIVIC_PACIFISM</Type>
-			<Description>TXT_KEY_CIVIC_PACIFISM</Description>
-			<Civilopedia>TXT_KEY_CIVIC_PACIFISM_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_CIVIC_PACIFISM_STRATEGY</Strategy>
-			<Button>,Art/Interface/Buttons/Civics/Pacifism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,3,2</Button>
-			<iIndex>4</iIndex>
-			<TechPrereq>TECH_PHILOSOPHY</TechPrereq>
-			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
-			<Upkeep>NONE</Upkeep>
-			<iStateReligionGreatPeopleRateModifier>100</iStateReligionGreatPeopleRateModifier>
-			<iGoldPerMilitaryUnit>50</iGoldPerMilitaryUnit>
+			<Type>CIVIC_PAGANISM</Type>
+			<Description>TXT_KEY_CIVIC_PAGANISM</Description>
+			<Civilopedia>TXT_KEY_CIVIC_PAGANISM_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_PAGANISM_STRATEGY</Strategy>
+			<Button>,Art/Interface/Buttons/Civics/Paganism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,4,2</Button>
+			<iIndex>0</iIndex>
+			<bEnableStarSigns>1</bEnableStarSigns>
+			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
+			<Upkeep>UPKEEP_LOW</Upkeep>
+			<iGreatPeopleRateModifier>-50</iGreatPeopleRateModifier>
 			<bStateReligion>1</bStateReligion>
 		</CivicInfo>
 		<CivicInfo> <!-- Mythology -->
@@ -447,18 +446,19 @@
 			<bNoNonStateReligionSpread>1</bNoNonStateReligionSpread>
 			<iStateReligionFreeExperience>2</iStateReligionFreeExperience>
 		</CivicInfo>
-		<CivicInfo> <!-- Paganism -->
+		<CivicInfo> <!-- Pacifism -->
 			<CivicOptionType>CIVICOPTION_RELIGION</CivicOptionType>
-			<Type>CIVIC_PAGANISM</Type>
-			<Description>TXT_KEY_CIVIC_PAGANISM</Description>
-			<Civilopedia>TXT_KEY_CIVIC_PAGANISM_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_CIVIC_PAGANISM_STRATEGY</Strategy>
-			<Button>,Art/Interface/Buttons/Civics/Paganism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,4,2</Button>
-			<iIndex>0</iIndex>
-			<bEnableStarSigns>1</bEnableStarSigns>
-			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
-			<Upkeep>UPKEEP_LOW</Upkeep>
-			<iGreatPeopleRateModifier>-50</iGreatPeopleRateModifier>
+			<Type>CIVIC_PACIFISM</Type>
+			<Description>TXT_KEY_CIVIC_PACIFISM</Description>
+			<Civilopedia>TXT_KEY_CIVIC_PACIFISM_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CIVIC_PACIFISM_STRATEGY</Strategy>
+			<Button>,Art/Interface/Buttons/Civics/Pacifism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,3,2</Button>
+			<iIndex>4</iIndex>
+			<TechPrereq>TECH_PHILOSOPHY</TechPrereq>
+			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
+			<Upkeep>NONE</Upkeep>
+			<iStateReligionGreatPeopleRateModifier>100</iStateReligionGreatPeopleRateModifier>
+			<iGoldPerMilitaryUnit>50</iGoldPerMilitaryUnit>
 			<bStateReligion>1</bStateReligion>
 		</CivicInfo>
 		<CivicInfo> <!-- Free Religion -->
