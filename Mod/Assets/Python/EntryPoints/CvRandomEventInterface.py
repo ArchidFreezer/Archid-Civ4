@@ -4235,7 +4235,7 @@ def getHelpBestHunters(argsList):
 
 ################ BARBARIAN ATTITUDE ################
 
-def canTriggerBarbarianAttitude(argsList):
+def hasActiveBarbarianUnits(argsList):
 	kTriggeredData = argsList[0]
 	player = gc.getPlayer(kTriggeredData.ePlayer)
 	
@@ -4759,3 +4759,328 @@ def getHelpBarbarianJavelineerAssault3(argsList):
 
 	return szHelp
 
+################ BARBARIAN <UNITTYPE> INVASION ################
+	
+def canTriggerBarbarianInvasion(ePlayer, iTech):
+	player = gc.getPlayer(ePlayer)
+	
+	#   If Barbarians are disabled in this game, this event will not occur.
+	if gc.getGame().isOption(GameOptionTypes.GAMEOPTION_NO_BARBARIANS):
+		return false
+
+	#   At least one civ on the board must know tech.
+	if iTech > -1:
+		bFoundValid = false
+		for iPlayer in range(gc.getMAX_CIV_PLAYERS()):			
+			loopPlayer = gc.getPlayer(iPlayer)
+			if loopPlayer.isAlive():
+				if gc.getTeam(loopPlayer.getTeam()).isHasTech(iTech):
+					bFoundValid = true
+					break
+					
+		if not bFoundValid:
+			return false
+
+	#	Find an eligible plot
+	map = gc.getMap()	
+	for i in range(map.numPlots()):
+		plot = map.plotByIndex(i)
+		if (plot.getOwner() == -1 and not plot.isWater() and not plot.isImpassable() and plot.area().getCitiesPerPlayer(ePlayer) > 0 and plot.isAdjacentPlayer(ePlayer, true)):
+			return true
+
+	return false
+	
+def doBarbarianInvasion(ePlayer, iNumUnits, unitTypes):
+	player = gc.getPlayer(ePlayer)
+
+	listPlots = []
+	map = gc.getMap()	
+	for i in range(map.numPlots()):
+		plot = map.plotByIndex(i)
+		if (plot.getOwner() == -1 and not plot.isWater() and not plot.isImpassable() and plot.area().getCitiesPerPlayer(ePlayer) > 0 and plot.isAdjacentPlayer(ePlayer, true)):
+			listPlots.append(i)
+	
+	if 0 == len(listPlots):
+		return
+			
+	plot = map.plotByIndex(listPlots[gc.getGame().getSorenRandNum(len(listPlots), "Barbarian invasion event location")])
+
+	barbPlayer = gc.getPlayer(gc.getBARBARIAN_PLAYER())
+	for i in range(iNumUnits):
+		iUnitType = unitTypes[gc.getGame().getSorenRandNum(len(unitTypes), "Barbarian invasion unit choice")]
+		barbPlayer.initUnit(iUnitType, plot.getX(), plot.getY(), UnitAITypes.UNITAI_BARBARIAN_ATTACK_CITY, DirectionTypes.DIRECTION_SOUTH)
+		
+	return 1
+	
+def canTriggerBarbarianWarriorInvasion(argsList):
+	kTriggeredData = argsList[0]
+	return canTriggerBarbarianInvasion(kTriggeredData.ePlayer, -1)
+	
+def getHelpBarbarianWarriorInvasion(argsList):
+	return localText.getText("TXT_KEY_EVENT_BARBARIAN_INVASION_HELP", ("Warrior", ))
+	
+def applyBarbarianWarriorInvasion(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iUnitCountCap = 4
+
+	# Get the number of units to spawn
+	iNumUnits  = 2
+	if( gc.getGame().isOption(GameOptionTypes.GAMEOPTION_RAGING_BARBARIANS) ) :
+		iNumUnits += 1
+	iNumUnits += gc.getGame().getSorenRandNum(gc.getMap().getWorldSize() // 2, "Barbarian invasion unit count") # Half the worldsize value rounded down
+	if iNumUnits > iUnitCountCap: iNumUnits = iUnitCountCap # Set a cap on the number of units
+	
+	# Set the list of unit types available to spawn
+	unitTypes = []
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_WARRIOR'))
+
+	return doBarbarianInvasion(kTriggeredData.ePlayer, iNumUnits, unitTypes)
+	
+def canTriggerBarbarianClubmanInvasion(argsList):
+	kTriggeredData = argsList[0]
+	iTech = CvUtil.findInfoTypeNum(gc.getTechInfo, gc.getNumTechInfos(), 'TECH_FINE_EDGED_TOOLS')
+	return canTriggerBarbarianInvasion(kTriggeredData.ePlayer, iTech)
+	
+def getHelpBarbarianClubmanInvasion(argsList):
+	szText = localText.getText("TXT_KEY_EVENT_BARBARIAN_INVASION_HELP", ("Warrior", ))
+	return szText
+	
+def applyBarbarianClubmanInvasion(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iUnitCountCap = 6
+
+	# Get the number of units to spawn
+	iNumUnits  = 3
+	if( gc.getGame().isOption(GameOptionTypes.GAMEOPTION_RAGING_BARBARIANS) ) :
+		iNumUnits += 1
+	iNumUnits += gc.getGame().getSorenRandNum(gc.getMap().getWorldSize() // 2, "Barbarian invasion unit count") # Half the worldsize value rounded down
+	if iNumUnits > iUnitCountCap: iNumUnits = iUnitCountCap # Set a cap on the number of units
+	
+	# Set the list of unit types available to spawn
+	unitTypes = []
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_WARRIOR'))
+
+	return doBarbarianInvasion(kTriggeredData.ePlayer, iNumUnits, unitTypes)
+	
+def canTriggerBarbarianStoneSpearmanInvasion(argsList):
+	kTriggeredData = argsList[0]
+	iTech = CvUtil.findInfoTypeNum(gc.getTechInfo, gc.getNumTechInfos(), 'TECH_TRIBALISM')
+	return canTriggerBarbarianInvasion(kTriggeredData.ePlayer, iTech)
+	
+def getHelpBarbarianStoneSpearmanInvasion(argsList):
+	szText = localText.getText("TXT_KEY_EVENT_BARBARIAN_INVASION_HELP", ("Stone Spearman", ))
+	return szText
+	
+def applyBarbarianStoneSpearmanInvasion(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iUnitCountCap = 6
+
+	# Get the number of units to spawn
+	iNumUnits  = 3
+	if( gc.getGame().isOption(GameOptionTypes.GAMEOPTION_RAGING_BARBARIANS) ) :
+		iNumUnits += 1
+	iNumUnits += gc.getGame().getSorenRandNum(gc.getMap().getWorldSize() // 2, "Barbarian invasion unit count") # Half the worldsize value rounded down
+	if iNumUnits > iUnitCountCap: iNumUnits = iUnitCountCap # Set a cap on the number of units
+	
+	# Set the list of unit types available to spawn
+	unitTypes = []
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_STONE_SPEARMAN'))
+
+	return doBarbarianInvasion(kTriggeredData.ePlayer, iNumUnits, unitTypes)
+
+def canTriggerBarbarianStoneAxemanInvasion(argsList):
+	kTriggeredData = argsList[0]
+	iTech = CvUtil.findInfoTypeNum(gc.getTechInfo, gc.getNumTechInfos(), 'TECH_ADVANCED_TOOLS')
+	return canTriggerBarbarianInvasion(kTriggeredData.ePlayer, iTech)
+	
+def getHelpBarbarianStoneAxemanInvasion(argsList):
+	szText = localText.getText("TXT_KEY_EVENT_BARBARIAN_INVASION_HELP", ("Stone Axeman", ))
+	return szText
+	
+def applyBarbarianStoneAxemanInvasion(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iUnitCountCap = 6
+
+	# Get the number of units to spawn
+	iNumUnits  = 3
+	if( gc.getGame().isOption(GameOptionTypes.GAMEOPTION_RAGING_BARBARIANS) ) :
+		iNumUnits += 1
+	iNumUnits += gc.getGame().getSorenRandNum(gc.getMap().getWorldSize() // 2, "Barbarian invasion unit count") # Half the worldsize value rounded down
+	if iNumUnits > iUnitCountCap: iNumUnits = iUnitCountCap # Set a cap on the number of units
+	
+	# Set the list of unit types available to spawn
+	unitTypes = []
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_STONE_AXEMAN'))
+
+	return doBarbarianInvasion(kTriggeredData.ePlayer, iNumUnits, unitTypes)
+	
+def canTriggerBarbarianFletcherInvasion(argsList):
+	kTriggeredData = argsList[0]
+	iTech = CvUtil.findInfoTypeNum(gc.getTechInfo, gc.getNumTechInfos(), 'TECH_EARLY_BOWS')
+	return canTriggerBarbarianInvasion(kTriggeredData.ePlayer, iTech)
+	
+def getHelpBarbarianFletcherInvasion(argsList):
+	szText = localText.getText("TXT_KEY_EVENT_BARBARIAN_INVASION_HELP", ("Fletcher", ))
+	return szText
+	
+def applyBarbarianFletcherInvasion(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iUnitCountCap = 6
+
+	# Get the number of units to spawn
+	iNumUnits  = 3
+	if( gc.getGame().isOption(GameOptionTypes.GAMEOPTION_RAGING_BARBARIANS) ) :
+		iNumUnits += 1
+	iNumUnits += gc.getGame().getSorenRandNum(gc.getMap().getWorldSize() // 2, "Barbarian invasion unit count") # Half the worldsize value rounded down
+	if iNumUnits > iUnitCountCap: iNumUnits = iUnitCountCap # Set a cap on the number of units
+	
+	# Set the list of unit types available to spawn
+	unitTypes = []
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_FLETCHER'))
+
+	return doBarbarianInvasion(kTriggeredData.ePlayer, iNumUnits, unitTypes)
+	
+def canTriggerBarbarianJavelineerInvasion(argsList):
+	kTriggeredData = argsList[0]
+	iTech = CvUtil.findInfoTypeNum(gc.getTechInfo, gc.getNumTechInfos(), 'TECH_TRIBALISM')
+	return canTriggerBarbarianInvasion(kTriggeredData.ePlayer, iTech)
+	
+def getHelpBarbarianJavelineerInvasion(argsList):
+	szText = localText.getText("TXT_KEY_EVENT_BARBARIAN_INVASION_HELP", ("Javelineer", ))
+	return szText
+	
+def applyBarbarianJavelineerInvasion(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iUnitCountCap = 6
+
+	# Get the number of units to spawn
+	iNumUnits  = 3
+	if( gc.getGame().isOption(GameOptionTypes.GAMEOPTION_RAGING_BARBARIANS) ) :
+		iNumUnits += 1
+	iNumUnits += gc.getGame().getSorenRandNum(gc.getMap().getWorldSize() // 2, "Barbarian invasion unit count") # Half the worldsize value rounded down
+	if iNumUnits > iUnitCountCap: iNumUnits = iUnitCountCap # Set a cap on the number of units
+	
+	# Set the list of unit types available to spawn
+	unitTypes = []
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_JAVELINEER'))
+
+	return doBarbarianInvasion(kTriggeredData.ePlayer, iNumUnits, unitTypes)
+	
+def canTriggerBarbarianHorsemanInvasion(argsList):
+	kTriggeredData = argsList[0]
+	iTech = CvUtil.findInfoTypeNum(gc.getTechInfo, gc.getNumTechInfos(), 'TECH_SEDENTARY_LIFESTYLE')
+	return canTriggerBarbarianInvasion(kTriggeredData.ePlayer, iTech)
+	
+def getHelpBarbarianHorsemanInvasion(argsList):
+	szText = localText.getText("TXT_KEY_EVENT_BARBARIAN_INVASION_HELP", ("Horseman", ))
+	return szText
+	
+def applyBarbarianHorsemanInvasion(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iUnitCountCap = 6
+
+	# Get the number of units to spawn
+	iNumUnits  = 3
+	if( gc.getGame().isOption(GameOptionTypes.GAMEOPTION_RAGING_BARBARIANS) ) :
+		iNumUnits += 1
+	iNumUnits += gc.getGame().getSorenRandNum(gc.getMap().getWorldSize() // 2, "Barbarian invasion unit count") # Half the worldsize value rounded down
+	if iNumUnits > iUnitCountCap: iNumUnits = iUnitCountCap # Set a cap on the number of units
+	
+	# Set the list of unit types available to spawn
+	unitTypes = []
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_HORSEMAN'))
+
+	return doBarbarianInvasion(kTriggeredData.ePlayer, iNumUnits, unitTypes)
+	
+def canTriggerBarbarianMixedInvasion(argsList):
+	kTriggeredData = argsList[0]
+	iTech = CvUtil.findInfoTypeNum(gc.getTechInfo, gc.getNumTechInfos(), 'TECH_SEDENTARY_LIFESTYLE')
+	return canTriggerBarbarianInvasion(kTriggeredData.ePlayer, iTech)
+	
+def getHelpBarbarianMixedInvasion(argsList):
+	szText = localText.getText("TXT_KEY_EVENT_BARBARIAN_INVASION_HELP", ("mixed", ))
+	return szText
+	
+def applyBarbarianMixedInvasion1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iUnitCountCap = 5
+
+	# Get the number of units to spawn
+	iNumUnits  = 3
+	if( gc.getGame().isOption(GameOptionTypes.GAMEOPTION_RAGING_BARBARIANS) ) :
+		iNumUnits += 1
+	iNumUnits += gc.getGame().getSorenRandNum(gc.getMap().getWorldSize() // 2, "Barbarian invasion unit count") # Half the worldsize value rounded down
+	if iNumUnits > iUnitCountCap: iNumUnits = iUnitCountCap # Set a cap on the number of units
+	
+	# Set the list of unit types available to spawn, the number gives some weighting to which will appear
+	unitTypes = []
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_FLETCHER'))
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_FLETCHER'))
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_STONE_SPEARMAN'))
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_STONE_SPEARMAN'))
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_JAVELINEER'))
+
+	return doBarbarianInvasion(kTriggeredData.ePlayer, iNumUnits, unitTypes)
+	
+def applyBarbarianMixedInvasion2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iUnitCountCap = 5
+
+	# Get the number of units to spawn
+	iNumUnits  = 3
+	if( gc.getGame().isOption(GameOptionTypes.GAMEOPTION_RAGING_BARBARIANS) ) :
+		iNumUnits += 1
+	iNumUnits += gc.getGame().getSorenRandNum(gc.getMap().getWorldSize() // 2, "Barbarian invasion unit count") # Half the worldsize value rounded down
+	if iNumUnits > iUnitCountCap: iNumUnits = iUnitCountCap # Set a cap on the number of units
+	
+	# Set the list of unit types available to spawn, the number gives some weighting to which will appear
+	unitTypes = []
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_FLETCHER'))
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_FLETCHER'))
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_JAVELINEER'))
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_JAVELINEER'))
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_STONE_AXEMAN'))
+
+	return doBarbarianInvasion(kTriggeredData.ePlayer, iNumUnits, unitTypes)
+	
+def applyBarbarianMixedInvasion3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iUnitCountCap = 5
+
+	# Get the number of units to spawn
+	iNumUnits  = 3
+	if( gc.getGame().isOption(GameOptionTypes.GAMEOPTION_RAGING_BARBARIANS) ) :
+		iNumUnits += 1
+	iNumUnits += gc.getGame().getSorenRandNum(gc.getMap().getWorldSize() // 2, "Barbarian invasion unit count") # Half the worldsize value rounded down
+	if iNumUnits > iUnitCountCap: iNumUnits = iUnitCountCap # Set a cap on the number of units
+	
+	# Set the list of unit types available to spawn, the number gives some weighting to which will appear
+	unitTypes = []
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_JAVELINEER'))
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_STONE_AXEMAN'))
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_STONE_AXEMAN'))
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_HORSEMAN'))
+	unitTypes.append(CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_HORSEMAN'))
+
+	return doBarbarianInvasion(kTriggeredData.ePlayer, iNumUnits, unitTypes)
+	

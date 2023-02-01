@@ -4313,5 +4313,93 @@
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>3000</iAIValue>
 		</EventInfo>
+		<EventInfo> <!-- Barbarian Gift 1 -->
+			<Type>EVENT_BARBARIAN_GIFT</Type>
+			<Description>TXT_KEY_EVENT_BARBARIAN_GIFT</Description>
+			<iGold>10</iGold>
+			<iRandomGold>40</iRandomGold>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Barbarian Warrior Invasion -->
+			<Type>EVENT_BARBARIAN_WARRIOR_INVASION</Type>
+			<Description>TXT_KEY_EVENT_BARBARIAN_UPRISING</Description>
+			<PythonCallback>applyBarbarianWarriorInvasion</PythonCallback>
+			<PythonHelp>getHelpBarbarianWarriorInvasion</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Barbarian Clubman Invasion -->
+			<Type>EVENT_BARBARIAN_CLUBMAN_INVASION</Type>
+			<Description>TXT_KEY_EVENT_BARBARIAN_UPRISING</Description>
+			<PythonCallback>applyBarbarianClubmanInvasion</PythonCallback>
+			<PythonHelp>getHelpBarbarianClubmanInvasion</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Barbarian Stone Spearman Invasion -->
+			<Type>EVENT_BARBARIAN_STONE_SPEARMAN_INVASION</Type>
+			<Description>TXT_KEY_EVENT_BARBARIAN_UPRISING</Description>
+			<PythonCallback>applyBarbarianStoneSpearmanInvasion</PythonCallback>
+			<PythonHelp>getHelpBarbarianStoneSpearmanInvasion</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Barbarian Stone Axeman Invasion -->
+			<Type>EVENT_BARBARIAN_STONE_AXEMAN_INVASION</Type>
+			<Description>TXT_KEY_EVENT_BARBARIAN_UPRISING</Description>
+			<PythonCallback>applyBarbarianStoneAxemanInvasion</PythonCallback>
+			<PythonHelp>getHelpBarbarianStoneAxemanInvasion</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Barbarian Fletcher Invasion -->
+			<Type>EVENT_BARBARIAN_FLETCHER_INVASION</Type>
+			<Description>TXT_KEY_EVENT_BARBARIAN_UPRISING</Description>
+			<PythonCallback>applyBarbarianFletcherInvasion</PythonCallback>
+			<PythonHelp>getHelpBarbarianFletcherInvasion</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Barbarian Javelineer Invasion -->
+			<Type>EVENT_BARBARIAN_JAVELINEER_INVASION</Type>
+			<Description>TXT_KEY_EVENT_BARBARIAN_UPRISING</Description>
+			<PythonCallback>applyBarbarianJavelineerInvasion</PythonCallback>
+			<PythonHelp>getHelpBarbarianJavelineerInvasion</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Barbarian Horseman Invasion -->
+			<Type>EVENT_BARBARIAN_HORSEMAN_INVASION</Type>
+			<Description>TXT_KEY_EVENT_BARBARIAN_UPRISING</Description>
+			<PythonCallback>applyBarbarianHorsemanInvasion</PythonCallback>
+			<PythonHelp>getHelpBarbarianHorsemanInvasion</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Barbarian Mixed Invasion 1 -->
+			<Type>EVENT_BARBARIAN_MIXED_INVASION_1</Type>
+			<Description>TXT_KEY_EVENT_BARBARIAN_UPRISING</Description>
+			<PythonCallback>applyBarbarianMixedInvasion1</PythonCallback>
+			<PythonHelp>getHelpBarbarianMixedInvasion</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Barbarian Mixed Invasion 2 -->
+			<Type>EVENT_BARBARIAN_MIXED_INVASION_2</Type>
+			<Description>TXT_KEY_EVENT_BARBARIAN_UPRISING</Description>
+			<PythonCallback>applyBarbarianMixedInvasion2</PythonCallback>
+			<PythonHelp>getHelpBarbarianMixedInvasion</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Barbarian Mixed Invasion 3 -->
+			<Type>EVENT_BARBARIAN_MIXED_INVASION_3</Type>
+			<Description>TXT_KEY_EVENT_BARBARIAN_UPRISING</Description>
+			<PythonCallback>applyBarbarianMixedInvasion3</PythonCallback>
+			<PythonHelp>getHelpBarbarianMixedInvasion</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
 	</EventInfos>
 </Civ4EventInfos>

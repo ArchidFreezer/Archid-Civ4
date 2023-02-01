@@ -6985,5 +6985,30 @@
 		<English>The Barbarian unit has returned with his friends to %s1_city. He said he will take revenge for our insolence!</English>
 		<Spanish>La unidad B&#225;rbara ha retornado con sus amigos a %s1_city. Dice que tomar&#225; venganza de nuestra insolencia.</Spanish>
 	</TEXT>
+	<!-- Barbarian Gift -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_BARBARIAN_GIFT_1</Tag>
+		<English>The Barbarians are pleased with us. They have offered us a present.</English>
+		<Spanish>Los B&#225;rbaros est&#225;n contentos con nosotros. Nos han ofrecido un regalo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_BARBARIAN_GIFT_2</Tag>
+		<English>The Barbarians have returned from a successful strike. They want to share their achievements with us.</English>
+		<Spanish>Los B&#225;rbaros han regresado de un asalto exitoso. Ellos quieren compartir sus logros con nosotros.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_GIFT</Tag>
+		<English>Wow! I never though they would be so kind.</English>
+		<Spanish>Wow! Nunca pens&#233; que fueran tan amables.</Spanish>
+	</TEXT>
+	<!-- Barbarian Invasion -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_BARBARIAN_INVASION</Tag>
+		<English>A massive barbarian uprising is occurring. A frightening Barbarian Tribe has gathered an army and seek to plunder other tribes.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_INVASION_HELP</Tag>
+		<English>[ICON_BULLET]A dangerous number of barbarian [COLOR_UNIT_TEXT]%s1_unit[COLOR_REVERT] units have spawned near our border.</English>
+	</TEXT>
 
 </Civ4GameText>
