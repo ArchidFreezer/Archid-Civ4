@@ -7350,5 +7350,230 @@
 		<English>Excellent. Perhaps, we could learn to prepare something good with it.</English>
 		<Spanish>Excelente. A prop&#243;sito, podr&#237;amos aprender a preparar algo bueno con eso.</Spanish>
 	</TEXT>
+	<!-- Pine Discovered -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_PINE_DISCOVERED</Tag>
+		<English>Our wood gatherers have found a new kind of tree within our borders.</English>
+		<Spanish>Nuestros recolectores de madera han encontrado una nueva especie de &#225;rbol en nuestras fronteras.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_NEWS_PINE_DISCOVERED</Tag>
+		<English>%s1_civ_adjective wood gatherers have found a new kind of tree within their borders.</English>
+		<Spanish>Recolectores de madera %s1_civ_adjective han encontrado una nueva especie de &#225;rbol en sus fronteras.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PINE_DISCOVERED</Tag>
+		<English>Just what we needed.</English>
+		<Spanish>Justo lo que necesit&#225;bamos.</Spanish>
+	</TEXT>
+	<!-- Barbarian Woman -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_BARBARIAN_WOMAN</Tag>
+		<English>We have found a Barbarian woman in the surrounding area. She says she has escaped from a Barbarian leader.</English>
+		<Spanish>Hemos encontrado una mujer B&#225;rbara en los alrededores. Ella dice haberse escapado de un l&#237;der B&#225;rbaro.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_NEWS_BARBARIAN_WOMAN</Tag>
+		<English>A Barbarian woman was found in %s1_civ_adjective lands. She says she has escaped from a Barbarian leader.</English>
+		<Spanish>Una mujer B&#225;rbara ha sido encontrada en tierras %s1_civ_adjective. Ella dice haberse escapado de un l&#237;der B&#225;rbaro.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_WOMAN_1</Tag>
+		<English>Let's take her back to the Barbarian leader. By the way ... have you heard of any reward?</English>
+		<Spanish>Llev&#233;mosla de regreso con su l&#237;der B&#225;rbaro. A prop&#243;sito ... has escuchado sobre alguna recompensa?</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_WOMAN_2</Tag>
+		<English>Perhaps she can give us some advice on melee weaknesses of the barbarians.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_WOMAN_3</Tag>
+		<English>Perhaps she can give us some advice on ranged weaknesses of the barbarians.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_WOMAN_4</Tag>
+		<English>She is so beautiful. I'll take her for myself.</English>
+		<Spanish>Ella es muy hermosa. La tomar&#233; para m&#237; mismo.</Spanish>
+	</TEXT>
+	<!-- Barbarian Anger -->
+	<TEXT>
+		<Tag>TXT_KEY_POPUP_EVENT_BARBARIAN_ANGER</Tag>
+		<English>The Barbarian Leader has arrived to our lands. He has gathered a frightful army and has offered an incredible reward for the one who brings him your head!</English>
+		<Spanish>El L&#237;der B&#225;rbaro ha arrivado a nuestras tierras. Ha conseguido un temeroso ej&#233;rcito y ha ofrecido una increible recompensa para aquel que le lleve tu cabeza!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_POPUP_BUTTON1_BARBARIAN_ANGER</Tag>
+		<English>Not good!</English>
+		<Spanish>OH DIOS MIO!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_ANGER_HELP</Tag>
+		<English>[ICON_BULLET]A great number of Barbarian units will surround our city.</English>
+		<Spanish>[ICON_BULLET]Un gran n&#250;mero de B&#225;rbaros rodear&#225; nuestra ciudad.</Spanish>
+	</TEXT>
+	<!-- Foreign Woman -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_FOREIGN_WOMAN</Tag>
+		<English>A %s1_civ_adjective tribeswoman has been found in our lands. She seems to be the leader's best friend. What should we do with her?</English>
+		<Spanish>Una mujer tribal %s4_civ_adjective ha sido encontrada en nuestras tierras. Parece ser la mejor amiga del l&#237;der. ¿Qu&#233; debemos hacer con ella?</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_NEWS_FOREIGN_WOMAN</Tag>
+		<English>A %s1_civ_adjective tribeswoman has been found in %s1_civ_adjective territory. She seems to be an important member of the tribe.</English>
+		<Spanish>Una mujer tribal %s4_civ_adjective ha sido encontrada en territorio %s1_civ_adjective. Parece ser que se trata de un miembro importante de la tribu.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FOREIGN_WOMAN_1</Tag>
+		<English>Let her go. It's none of our business.</English>
+		<Spanish>D&#233;jenla ir. No es nuestro asunto.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FOREIGN_WOMAN_2</Tag>
+		<English>Let's take her back to her tribe unharmed.</English>
+		<Spanish>Llev&#233;mosla de vuelta a su tribu. Y NO intenten nada con ella.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FOREIGN_WOMAN_3</Tag>
+		<English>Perhaps, we could learn some of her tribe's knowledge. Tie her up to tree. We won't let her go if she doesn't share her knowledge with us.</English>
+		<Spanish>Quiz&#225;s, podamos aprender algo de los conocimientos de su tribu. Atenla al &#225;rbol. No la dejaremos ir si no comparte con nosotros sus conocimientos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FOREIGN_WOMAN_4</Tag>
+		<English>I like her, but I dislike her tribe. I'll make her my wife. That will be proof of our supremacy.</English>
+		<Spanish>Ella me gusta, pero no me agrada su tribu. La har&#233; mi esposa a partir de ahora. Esa sera una demostraci&#243;n de nuestra supremac&#237;a.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_POPUP_EVENT_FOREIGN_WOMAN_2</Tag>
+		<English>The %s1_civ tribe has brought one of our women back. She has arrived in our lands without being injured.</English>
+		<Spanish>La tribu %s1_civ ha regresado a una de nuestras mujeres. Ella ha llegado a nuestras tierras sin haber sido herida.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_POPUP_EVENT_FOREIGN_WOMAN_3</Tag>
+		<English>One of our women has returned injured to our lands. She says she was mistreated by the %s1_civ tribe.</English>
+		<Spanish>Una de nuestras mujeres ha regresado herida a nuestras tierras. Ella afirma haber sido extorsionada por la tribu %s1_civ</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_POPUP_EVENT_FOREIGN_WOMAN_4</Tag>
+		<English>One of our women have been kept by the %s1_civ tribe leader without her consent. He says this is proof of their supremacy.</English>
+		<Spanish>Una de nuestras mujeres ha sido retenida sin su consentimiento por el l&#237;der de la tribu %s1_civ. El ha afirmado que esa es una prueba es su supremac&#237;a.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_POPUP_BUTTON1_FOREIGN_WOMAN</Tag>
+		<English>Ok</English>
+		<Spanish>OK</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FOREIGN_WOMAN_HELP</Tag>
+		<English>[ICON_BULLET][COLOR_NEGATIVE_TEXT]-1[COLOR_REVERT] relation hit with [COLOR_HIGHLIGHT_TEXT]all known leaders[COLOR_REVERT][NEWLINE][ICON_BULLET]Will trigger [COLOR_NEGATIVE_TEXT]War[COLOR_REVERT]</English>
+		<Spanish>[ICON_BULLET][COLOR_NEGATIVE_TEXT]-1[COLOR_REVERT] punto de relaci&#243;n con [COLOR_HIGHLIGHT_TEXT]todos los l&#237;deres conocidos[COLOR_REVERT][NEWLINE][ICON_BULLET]Provocar&#225; la [COLOR_NEGATIVE_TEXT]Guerra[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<!-- Civic Attitude - Cease Barbarism -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_CIVIC_ATTITUDE</Tag>
+		<English>The %s1_civ_adjective leader is unpleased with our attitude. He has requested that we cease our ways of Barbarism.</English>
+		<Spanish>El l&#237;der %s1_civ_adjective est&#225; descontento con nuestra actitud. Nos ha solicitado que dejemos el Principio del Barbarismo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CIVIC_ATTITUDE_1</Tag>
+		<English>Maybe he is right. Let's do what he thinks is better.</English>
+		<Spanish>Tal vez tenga raz&#243;n. Hagamos lo que &#233;l crea es mejor.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CIVIC_ATTITUDE_2</Tag>
+		<English>He must learn to respect our differences.</English>
+		<Spanish>El debe aprender a respetar nuestras diferencias.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CIVIC_ATTITUDE_3</Tag>
+		<English>Is he crazy? Nobody give us orders. Let's show him the strength of Barbarism!</English>
+		<Spanish>Est&#225; loco? Nadie nos d&#225; &#243;rdenes. Hag&#225;mosle conocer la verdadera fuerza del Barbarismo!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CIVIC_ATTITUDE_HELP_1</Tag>
+		<English>[ICON_BULLET]Will automatically change to [COLOR_BUILDING_TEXT]Tribal Law Civic[COLOR_REVERT][NEWLINE][ICON_BULLET]Barbarians won't be pleased with this</English>
+		<Spanish>[ICON_BULLET]Cambiar&#225;s autom&#225;ticamente al [COLOR_BUILDING_TEXT]Principio de Ley Tribal[COLOR_REVERT][NEWLINE][ICON_BULLET]Lo B&#225;rbaros no estar&#225;n muy contentos con esto</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CIVIC_ATTITUDE_HELP_3</Tag>
+		<English>[ICON_BULLET]Will destroy up to 2 buildings in the %s1_civ_adjective city of [COLOR_BUILDING_TEXT]%s2_city[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]-1[COLOR_REVERT] relation hit with [COLOR_BUILDING_TEXT]all known leaders[COLOR_REVERT][NEWLINE][ICON_BULLET]Will trigger [COLOR_NEGATIVE_TEXT]War[COLOR_REVERT]</English>
+		<Spanish>[ICON_BULLET]Destruir&#225;s hasta 2 edificaciones en la ciudad %s1_civ_adjective de [COLOR_BUILDING_TEXT]%s2_city[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]-1[COLOR_REVERT] punto de relaci&#243;n con los [COLOR_BUILDING_TEXT]l&#237;deres conocidos[COLOR_REVERT][NEWLINE][ICON_BULLET]Provocar&#225; la [COLOR_NEGATIVE_TEXT]Guerra[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<!-- Civic Attitude - Start Barbarism -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_BARBARIAN_CIVIC_REQUEST</Tag>
+		<English>Now that we left Barbarism behind, The Barbarians are unpleased with us. The are requesting us to change our Civic or we will regret it.</English>
+		<Spanish>Ahora que hemos dejado atr&#225;s el Barbarismo, los B&#225;rbaros est&#225;n descontentos con nosotros. Est&#225;n solicitando que cambiemos de Principios o lo lamentaremos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_CIVIC_REQUEST_1</Tag>
+		<English>Damn it. I don't think we could resist an attack. Let's do what they are asking for.</English>
+		<Spanish>Maldici&#243;n. No creo que podamos resistir un ataque. Hagamos lo que nos est&#225;n pidiendo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_CIVIC_REQUEST_2</Tag>
+		<English>Is it possible to stop their aggression by giving them something?</English>
+		<Spanish>Es posible detener su agresi&#243;n si les damos algo?</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_CIVIC_REQUEST_3</Tag>
+		<English>What? We can fight them! Tell them we won't give in to their requests!</English>
+		<Spanish>Qu&#233;? Podemos pelear con ellos! Diles que no cederemos ante sus peticiones!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_REQUEST_HELP</Tag>
+		<English>[ICON_BULLET]Will automatically change to [COLOR_BUILDING_TEXT]Barbarism Civic[COLOR_REVERT]</English>
+		<Spanish>[ICON_BULLET]Cambiar&#225;s autom&#225;ticamente al [COLOR_BUILDING_TEXT]Principio del Barbarismo[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_ASSAULT_HELP</Tag>
+		<English>[ICON_BULLET]A great number of Barbarian units will surround our city of [COLOR_BUILDING_TEXT]%s1_city[COLOR_REVERT]</English>
+		<Spanish>[ICON_BULLET]Un gran n&#250;mero de B&#225;rbaros rodear&#225; nuestra ciudad de [COLOR_BUILDING_TEXT]%s1_city[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_POPUP_EVENT_BARBARIAN_ASSAULT</Tag>
+		<English>The Barbarians have arrived at our city of %s1_city. We must defend it with courage.</English>
+		<Spanish>Los B&#225;rbaros han arrivado a nuestra ciudad de %s1_city. Tenemos que progerla con coraje.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_POPUP_BUTTON1_BARBARIAN_ASSAULT</Tag>
+		<English>Ok</English>
+		<Spanish>OK</Spanish>
+	</TEXT>
+	<!-- Barbarian Sabotage Threat -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_BARBARIAN_BARBARIAN_ATTEMPT</Tag>
+		<English>The Barbarians have threatened us! They say they will sabotage production in our city of %s1_city if we don't agree to their demands.</English>
+		<Spanish>Los B&#225;rbaros nos han amenazado! Ellos afirman que sabotear&#225;n nuestra producci&#243;n en la ciudad de %s1_city si no accedemos a sus demandas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_ATTEMPT_1</Tag>
+		<English>Damn. Let's do what they want.</English>
+		<Spanish>Maldici&#243;n. Hagamos lo que ellos quieren.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_ATTEMPT_2</Tag>
+		<English>Let's give them some gold from our treasury. That will calm them down.</English>
+		<Spanish>D&#233;mosle algo de oro de nuestras reservas. Eso los tranquilizar&#225;.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_ATTEMPT_3</Tag>
+		<English>Are they kidding? Tell them we won't give them anything.</English>
+		<Spanish>Est&#225;n bromeando? Diles que no les daremos nada.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_ATTEMPT_HELP_1</Tag>
+		<English>[ICON_BULLET]Will automatically change to [COLOR_BUILDING_TEXT]Barbarism Civic[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]-1[COLOR_REVERT] relation hit with [COLOR_BUILDING_TEXT]all known leaders[COLOR_REVERT]</English>
+		<Spanish>[ICON_BULLET]Cambiar&#225;s autom&#225;ticamente al [COLOR_BUILDING_TEXT]Principio del Barbarismo[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]-1[COLOR_REVERT] punto de relaci&#243;n con [COLOR_BUILDING_TEXT]todos los l&#237;deres conocidos[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARBARIAN_ATTEMPT_HELP_3</Tag>
+		<English>[ICON_BULLET]Will lose all production in [COLOR_HIGHLIGHT_TEXT]%s1_city[COLOR_REVERT]</English>
+		<Spanish>[ICON_BULLET]Perder&#225;s toda la producci&#243;n en [COLOR_HIGHLIGHT_TEXT]%s1_city[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PRODUCTION_SABOTAGED</Tag>
+		<English>Our production in %s1_city has been sabotaged!</English>
+		<Spanish>Nuestra producci&#243;n en %s1_city ha sido saboteada!</Spanish>
+	</TEXT>
 
 </Civ4GameText>

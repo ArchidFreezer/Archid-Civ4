@@ -5393,3 +5393,517 @@ def canTriggerGrainDiscovered(argsList):
 				
 	return true
 	
+################ PINE DISCOVERED ################
+	
+def canTriggerPineDiscovered(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	plot = gc.getMap().plot(kTriggeredData.iPlotX, kTriggeredData.iPlotY)
+	
+	# Player MUST have at least 3 cities
+	if (player.getNumCities() < 3):
+		return false
+	
+	iPine = CvUtil.findInfoTypeNum(gc.getBonusInfo,gc.getNumBonusInfos(),'BONUS_TIMBER')
+	
+	# Will search in every cities (from player) and search for a Pine resource. If he already has one trigger won't apply.
+	(loopCity, iter) = player.firstCity(false)
+
+	while(loopCity):
+		# City plot
+		cityPlotX = loopCity.getX()
+		cityPlotY = loopCity.getY()
+		
+		# Searching within max city borders (range = 2). if City already has a Pine resource, trigger won't apply
+		for i in range(-2, 3):
+			for j in range (-2, 3):
+				loopPlot =  gc.getMap().plot(cityPlotX + i, cityPlotY + j)
+				# Don't consider plots from the corner (Because city can't work them)
+				if ((i == -2 and j == 2) or (i == -2 and j == -2) or (i == 2 and j == 2) or (i ==2 and j == -2)):
+					continue
+				# if Plot exists  ...
+				else:
+					if (not loopPlot.isNone()):
+						# if a Pine resource is found within max city borders (2 range) ... trigger won't apply
+						if (loopPlot.getBonusType(player.getTeam()) == iPine):
+							return false
+				
+		(loopCity, iter) = player.nextCity(iter, false)
+	
+	if not plot.canHaveBonus(iPine, false):
+		return false
+				
+	return true
+	
+################ BARBARIAN WOMAN ################
+
+def canApplyBarbarianWomanNonAggressive(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	
+	iAggressive = CvUtil.findInfoTypeNum(gc.getTraitInfo,gc.getNumTraitInfos(),'TRAIT_AGGRESSIVE')
+	
+	if player.hasTrait(iAggressive):
+		return false
+		
+	return true
+	
+def canApplyBarbarianWomanNonProtective(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	
+	iProtective = CvUtil.findInfoTypeNum(gc.getTraitInfo,gc.getNumTraitInfos(),'TRAIT_PROTECTIVE')
+	
+	if player.hasTrait(iProtective):
+		return false
+		
+	return true
+	
+################ BARBARIAN ANGER ################
+
+def applyBarbarianAnger(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	playerTeam = gc.getTeam(player.getTeam())
+	city = player.getCity(kTriggeredData.iCityId)
+	
+	cityPlotX = city.getX()
+	cityPlotY = city.getY()
+	
+	# if Player is Human, show a MessageBox
+	if player.isHuman():
+		popupInfo = CyPopupInfo()
+		popupInfo.setButtonPopupType(ButtonPopupTypes.BUTTONPOPUP_PYTHON)
+		popupInfo.setText(localText.getText("TXT_KEY_POPUP_EVENT_BARBARIAN_ANGER", ()))
+		popupInfo.setPythonModule("CvRandomEventInterface")
+		popupInfo.addPythonButton(localText.getText("TXT_KEY_POPUP_BUTTON1_BARBARIAN_ANGER", ()), "")
+		popupInfo.addPopup(kTriggeredData.ePlayer)
+	
+	iAdvancedTools = CvUtil.findInfoTypeNum(gc.getTechInfo,gc.getNumTechInfos(),'TECH_ADVANCED_TOOLS')
+	
+	# If Player has Tribalism and Fine Edged Tools techs, attackers will be Stone Axemen. Otherwise, Stone Spearmen.
+	if playerTeam.isHasTech(iAdvancedTools):
+		iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_STONE_AXEMAN')
+	else:
+		iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_JAVELINEER')
+		
+	iNumUnits  = 3
+	# If handicap level is Prince or Lower, 4 barbarians will appear. Otherwise, you will get 5 of them.
+	if gc.getGame().getHandicapType() > CvUtil.findInfoTypeNum(gc.getHandicapInfo, gc.getNumHandicapInfos(), 'HANDICAP_EMPEROR'):
+		iNumUnits += 3
+	elif gc.getGame().getHandicapType() >= CvUtil.findInfoTypeNum(gc.getHandicapInfo, gc.getNumHandicapInfos(), 'HANDICAP_PRINCE'):
+		iNumUnits += 2
+	else:
+		iNumUnits += 1
+		
+	if( gc.getGame().isOption(GameOptionTypes.GAMEOPTION_RAGING_BARBARIANS) ) :
+		iNumUnits += 1
+	
+	# List with possible plots where barbarians can appear. Barbarians will appear on farther plots from max city range (range = 2)
+	listPlots = []
+	for i in range(-2, 3):
+		for j in range(-2, 3):
+			loopPlot = gc.getMap().plot(cityPlotX + i, cityPlotY + j)
+			if None != loopPlot and not loopPlot.isNone() and (i == 2 or i == -2 or j == 2 or j == -2):
+				if (i != j and j != -i):
+					if not (loopPlot.isWater() or loopPlot.isImpassable()):
+						listPlots.append(loopPlot)
+	
+	# Putting Barbarian units on the selected plots
+	barbPlayer = gc.getPlayer(gc.getBARBARIAN_PLAYER())
+	if len(listPlots) > 0:
+		for i in range(iNumUnits):
+			iPlot = gc.getGame().getSorenRandNum(len(listPlots), "Barbarian Anger event placement")
+			barbPlayer.initUnit(iUnitType, listPlots[iPlot].getX(), listPlots[iPlot].getY(), UnitAITypes.UNITAI_BARBARIAN_ATTACK_CITY, DirectionTypes.DIRECTION_SOUTH)
+	
+def getHelpBarbarianAnger(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	city = player.getCity(kTriggeredData.iCityId)
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_BARBARIAN_ANGER_HELP", (city.getNameKey(), ))
+	
+	return szHelp
+	
+################ FOREIGN WOMAN ################
+
+def applyForeignWoman2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+
+	# If otherPlayer is a Human, show a MessageBox to let him know the affected player's behavior
+	if otherPlayer.isHuman():
+		popupInfo = CyPopupInfo()
+		popupInfo.setButtonPopupType(ButtonPopupTypes.BUTTONPOPUP_PYTHON)
+		popupInfo.setText(localText.getText("TXT_KEY_POPUP_EVENT_FOREIGN_WOMAN_2", (player.getCivilizationShortDescriptionKey(), )))
+		popupInfo.setPythonModule("CvRandomEventInterface")
+		popupInfo.addPythonButton(localText.getText("TXT_KEY_POPUP_BUTTON1_FOREIGN_WOMAN", ()), "")
+		popupInfo.addPopup(kTriggeredData.eOtherPlayer)
+		
+def applyForeignWoman3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+
+	# If otherPlayer is a Human, show a MessageBox to let him know the affected player's behavior
+	if otherPlayer.isHuman():
+		popupInfo = CyPopupInfo()
+		popupInfo.setButtonPopupType(ButtonPopupTypes.BUTTONPOPUP_PYTHON)
+		popupInfo.setText(localText.getText("TXT_KEY_POPUP_EVENT_FOREIGN_WOMAN_3", (player.getCivilizationShortDescriptionKey(), )))
+		popupInfo.setPythonModule("CvRandomEventInterface")
+		popupInfo.addPythonButton(localText.getText("TXT_KEY_POPUP_BUTTON1_FOREIGN_WOMAN", ()), "")
+		popupInfo.addPopup(kTriggeredData.eOtherPlayer)
+	
+def applyForeignWoman4(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	otherPlayerCity = otherPlayer.getCity(kTriggeredData.iOtherPlayerCityId)
+	
+	# Reduce 1 relation hit on all KNOWN leaders
+	for iLoopPlayer in range(gc.getMAX_CIV_PLAYERS()):
+		loopPlayer = gc.getPlayer(iLoopPlayer)
+		loopPlayerTeam = gc.getTeam(loopPlayer.getTeam())
+		if loopPlayer.isAlive() and iLoopPlayer != kTriggeredData.ePlayer and player.getTeam() != loopPlayer.getTeam():
+			if loopPlayerTeam.isHasMet(player.getTeam()):
+				loopPlayer.AI_changeAttitudeExtra(kTriggeredData.ePlayer, -1)
+	
+	# If player is AI, it will receive 3 units for free
+	iUnitType1 = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_FLETCHER')
+	iUnitType2 = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_FLETCHER')
+	iUnitType3 = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_JAVELINEER')
+	
+	if (not otherPlayer.isHuman()):
+		otherPlayer.initUnit(iUnitType1, otherPlayerCity.getX(), otherPlayerCity.getY(), UnitAITypes.UNITAI_ATTACK, DirectionTypes.DIRECTION_SOUTH)
+		otherPlayer.initUnit(iUnitType2, otherPlayerCity.getX(), otherPlayerCity.getY(), UnitAITypes.UNITAI_ATTACK, DirectionTypes.DIRECTION_SOUTH)
+		otherPlayer.initUnit(iUnitType3, otherPlayerCity.getX(), otherPlayerCity.getY(), UnitAITypes.UNITAI_ATTACK, DirectionTypes.DIRECTION_SOUTH)
+		# Que la AI le declare la guerra SI ES HUMANO
+		if (player.isHuman()):
+			if gc.getTeam(otherPlayer.getTeam()).canDeclareWar(player.getTeam()):
+				gc.getTeam(otherPlayer.getTeam()).declareWar(player.getTeam(), false, WarPlanTypes.WARPLAN_LIMITED)
+		else:
+			# De lo contrario, únicamente que disminuya su actitud
+			otherPlayer.AI_changeAttitudeExtra(kTriggeredData.ePlayer, -1)
+		
+	# If otherPlayer is a Human, show a MessageBox to let him know the affected player's behavior
+	if otherPlayer.isHuman():
+		popupInfo = CyPopupInfo()
+		popupInfo.setButtonPopupType(ButtonPopupTypes.BUTTONPOPUP_PYTHON)
+		popupInfo.setText(localText.getText("TXT_KEY_POPUP_EVENT_FOREIGN_WOMAN_4", (player.getCivilizationShortDescriptionKey(), )))
+		popupInfo.setPythonModule("CvRandomEventInterface")
+		popupInfo.addPythonButton(localText.getText("TXT_KEY_POPUP_BUTTON1_FOREIGN_WOMAN", ()), "")
+		popupInfo.addPopup(kTriggeredData.eOtherPlayer)
+		
+def getHelpForeignWoman4(argsList):
+	iEvent = argsList[0]
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_FOREIGN_WOMAN_HELP", ())
+	
+	return szHelp
+
+################ CIVIC ATTITUDE ################
+
+def canTriggerCivicAttitude(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	otherPlayerCity = otherPlayer.getCity(kTriggeredData.iOtherPlayerCityId)
+	
+	# AI MUST have Other Civic than BARBARISM
+	iBarbarism = CvUtil.findInfoTypeNum(gc.getCivicInfo,gc.getNumCivicInfos(),'CIVIC_BARBARISM')
+	if (otherPlayer.isCivic(iBarbarism)):
+		return false
+	
+	# Player MUST be able to change Civic
+	iTribalLaw = CvUtil.findInfoTypeNum(gc.getCivicInfo,gc.getNumCivicInfos(),'CIVIC_TRIBAL_LAW')
+	if (not player.canDoCivics(iTribalLaw)):
+		return false
+	
+	# Obtener lista de edificios de la ciudad de la AI y destruir hasta 2 de ellos
+	for iBuilding in range(gc.getNumBuildingInfos()):
+		if (otherPlayerCity.getNumRealBuilding(iBuilding) > 0 and gc.getBuildingInfo(iBuilding).getProductionCost() <= 200 and gc.getBuildingInfo(iBuilding).getProductionCost() > 0  and not isLimitedWonderClass(gc.getBuildingInfo(iBuilding).getBuildingClassType())):
+			return true
+	
+	return false
+	
+def applyCivicAttitude1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	
+	iTribalLaw = CvUtil.findInfoTypeNum(gc.getCivicInfo,gc.getNumCivicInfos(),'CIVIC_TRIBAL_LAW')
+	iLegal = CvUtil.findInfoTypeNum(gc.getCivicOptionInfo,gc.getNumCivicOptionInfos(),'CIVICOPTION_LEGAL')
+	
+	player.setCivics(iLegal, iTribalLaw)
+	
+def applyCivicAttitude3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	otherPlayerTeam = gc.getTeam(otherPlayer.getTeam())
+	otherPlayerCity = otherPlayer.getCity(kTriggeredData.iOtherPlayerCityId)
+	
+	# Choose UnitType depending on AI tech
+	iTribalism = CvUtil.findInfoTypeNum(gc.getTechInfo,gc.getNumTechInfos(),'TECH_TRIBALISM')
+	iArchery = CvUtil.findInfoTypeNum(gc.getTechInfo,gc.getNumTechInfos(),'TECH_ARCHERY')
+	iFineEdgedTools = CvUtil.findInfoTypeNum(gc.getTechInfo,gc.getNumTechInfos(),'TECH_FINE_EDGED_TOOLS')
+	
+	if (otherPlayerTeam.isHasTech(iArchery)):
+		iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_FLETCHER')
+	elif otherPlayerTeam.isHasTech(iTribalism):
+		iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_JAVELINEER')
+	elif otherPlayerTeam.isHasTech(iFineEdgedTools):
+		iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_STONE_SPEARMAN')
+	else:
+		iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_BOLA_THROWER')
+	
+	# Gift 3 units to AI
+	if (not otherPlayer.isHuman()):
+		for i in range(3):
+			otherPlayer.initUnit(iUnitType, otherPlayerCity.getX(), otherPlayerCity.getY(), UnitAITypes.UNITAI_ATTACK, DirectionTypes.DIRECTION_SOUTH)
+	
+	# Reduce 1 relation hit on all KNOWN leaders
+	for iLoopPlayer in range(gc.getMAX_CIV_PLAYERS()):
+		loopPlayer = gc.getPlayer(iLoopPlayer)
+		loopPlayerTeam = gc.getTeam(loopPlayer.getTeam())
+		if loopPlayer.isAlive() and iLoopPlayer != kTriggeredData.ePlayer and player.getTeam() != loopPlayer.getTeam():
+			if loopPlayerTeam.isHasMet(player.getTeam()):
+				loopPlayer.AI_changeAttitudeExtra(kTriggeredData.ePlayer, -1)
+	
+	# Obtener lista de edificios de la ciudad de la AI y destruir hasta 2 de ellos
+	iNumBuildings = gc.getGame().getSorenRandNum(2, "Civic Attitude event number of buildings destroyed")
+	iNumBuildingsDestroyed = 0
+
+	listBuildings = []	
+	for iBuilding in range(gc.getNumBuildingInfos()):
+		if (otherPlayerCity.getNumRealBuilding(iBuilding) > 0 and gc.getBuildingInfo(iBuilding).getProductionCost() <= 150 and gc.getBuildingInfo(iBuilding).getProductionCost() > 0  and not isLimitedWonderClass(gc.getBuildingInfo(iBuilding).getBuildingClassType())):
+			listBuildings.append(iBuilding)
+	
+	for i in range(iNumBuildings+1):
+		if len(listBuildings) > 0:
+			iBuilding = listBuildings[gc.getGame().getSorenRandNum(len(listBuildings), "Civic Attitude event building destroyed")]
+			szBuffer = localText.getText("TXT_KEY_EVENT_CITY_IMPROVEMENT_DESTROYED", (gc.getBuildingInfo(iBuilding).getTextKey(), ))
+			CyInterface().addMessage(kTriggeredData.eOtherPlayer, false, gc.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_BOMBARDED", InterfaceMessageTypes.MESSAGE_TYPE_INFO, gc.getBuildingInfo(iBuilding).getButton(), gc.getInfoTypeForString("COLOR_RED"), otherPlayerCity.getX(), otherPlayerCity.getY(), true, true)
+			otherPlayerCity.setNumRealBuilding(iBuilding, 0)
+			iNumBuildingsDestroyed += 1
+			listBuildings.remove(iBuilding)
+				
+	if iNumBuildingsDestroyed > 0:
+		szBuffer = localText.getText("TXT_KEY_EVENT_NUM_BUILDINGS_DESTROYED", (iNumBuildingsDestroyed, gc.getPlayer(kTriggeredData.eOtherPlayer).getCivilizationAdjectiveKey(), otherPlayerCity.getNameKey()))
+		CyInterface().addMessage(kTriggeredData.ePlayer, false, gc.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_BOMBARDED", InterfaceMessageTypes.MESSAGE_TYPE_INFO, None, gc.getInfoTypeForString("COLOR_WHITE"), -1, -1, true, true)
+	else:
+		szBuffer = localText.getText("TXT_KEY_EVENT_NO_BUILDINGS_DESTROYED", (otherPlayer.getCivilizationAdjectiveKey(), ))
+		CyInterface().addMessage(kTriggeredData.ePlayer, false, gc.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_BOMBARDED", InterfaceMessageTypes.MESSAGE_TYPE_INFO, None, gc.getInfoTypeForString("COLOR_WHITE"), -1, -1, true, true)
+		
+	# AI must declare war if player is Human
+	if (player.isHuman()):
+		if gc.getTeam(otherPlayer.getTeam()).canDeclareWar(player.getTeam()):
+			gc.getTeam(otherPlayer.getTeam()).declareWar(player.getTeam(), false, WarPlanTypes.WARPLAN_LIMITED)
+	else:
+		# De lo contrario, únicamente que disminuya su actitud
+		otherPlayer.AI_changeAttitudeExtra(kTriggeredData.ePlayer, -1)
+		
+def getHelpCivicAttitude1(argsList):
+	iEvent = argsList[0]
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_CIVIC_ATTITUDE_HELP_1", ())
+	
+	return szHelp
+	
+def getHelpCivicAttitude3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	otherPlayerCity = otherPlayer.getCity(kTriggeredData.iOtherPlayerCityId)
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_CIVIC_ATTITUDE_HELP_3", (otherPlayer.getCivilizationAdjectiveKey(), otherPlayerCity.getNameKey()))
+	
+	return szHelp
+	
+################ BARBARIAN REQUEST ################
+
+def applyBarbarianCivicRequest1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	
+	iBarbarism = CvUtil.findInfoTypeNum(gc.getCivicInfo,gc.getNumCivicInfos(),'CIVIC_BARBARISM')
+	iLegal = CvUtil.findInfoTypeNum(gc.getCivicOptionInfo,gc.getNumCivicOptionInfos(),'CIVICOPTION_LEGAL')
+	
+	player.setCivics(iLegal, iBarbarism)
+	
+def getHelpBarbarianCivicRequest1(argsList):
+	iEvent = argsList[0]
+		
+	szHelp = localText.getText("TXT_KEY_EVENT_BARBARIAN_REQUEST_HELP", ())
+	
+	return szHelp
+	
+def applyBarbarianAssault1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	playerTeam = gc.getTeam(player.getTeam())
+	city = player.getCity(kTriggeredData.iCityId)
+	
+	# If player has no conscript unit, Barbarian attacker will be Stone Axemen, otherwise Player's conscript unit.
+	iBronzeWorking = CvUtil.findInfoTypeNum(gc.getTechInfo,gc.getNumTechInfos(),'TECH_BRONZE_WORKING')
+	
+	if playerTeam.isHasTech(iBronzeWorking):
+		iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_AXEMAN')
+	else:
+		iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_STONE_AXEMAN')
+
+	barbPlayer = gc.getPlayer(gc.getBARBARIAN_PLAYER())
+	
+	iHandicapDeity = CvUtil.findInfoTypeNum(gc.getHandicapInfo, gc.getNumHandicapInfos(), 'HANDICAP_DEITY')
+	iHandicapImmortal = CvUtil.findInfoTypeNum(gc.getHandicapInfo, gc.getNumHandicapInfos(), 'HANDICAP_IMMORTAL')
+	iHandicapEmperor = CvUtil.findInfoTypeNum(gc.getHandicapInfo, gc.getNumHandicapInfos(), 'HANDICAP_EMPEROR')
+	iHandicapMonarch = CvUtil.findInfoTypeNum(gc.getHandicapInfo, gc.getNumHandicapInfos(), 'HANDICAP_MONARCH')
+	
+	# If handicap level is Prince or Lower, only 3 barbarians will appear. Otherwise, you will get 4 of them.
+	if gc.getGame().getHandicapType() == iHandicapDeity:
+		iNumUnits = 7
+	elif gc.getGame().getHandicapType() == iHandicapImmortal:
+		iNumUnits = 7
+	elif gc.getGame().getHandicapType() == iHandicapEmperor:
+		iNumUnits = 6
+	elif gc.getGame().getHandicapType() == iHandicapMonarch:
+		iNumUnits = 6
+	else:
+		iNumUnits = 5
+		
+	if( gc.getGame().isOption(GameOptionTypes.GAMEOPTION_RAGING_BARBARIANS) ) :
+		iNumUnits = iNumUnits + 1
+		
+	# If player is AI, less units
+	if not player.isHuman():
+		iNumUnits  = 2
+	
+	# List with possible plots where barbarians can appear (range = 2)
+	listPlots = []
+	for i in range(-2, 3):
+		for j in range(-2, 3):
+			loopPlot = gc.getMap().plot(city.getX() + i, city.getY() + j)
+			if None != loopPlot and not loopPlot.isNone() and (i == 2 or i == -2 or j == 2 or j == -2):
+				if (i != j and j != -i):
+					if not (loopPlot.isWater() or loopPlot.isImpassable()):
+						listPlots.append(loopPlot)
+	
+	# Putting Barbarian units on the selected plots
+	if len(listPlots) > 0:
+		for i in range(iNumUnits):
+			iPlot = gc.getGame().getSorenRandNum(len(listPlots), "Barbarian Assault event placement")
+			if (gc.getGame().getGameTurn() % 2 == 0):
+				barbPlayer.initUnit(iUnitType, listPlots[iPlot].getX(), listPlots[iPlot].getY(), UnitAITypes.UNITAI_BARBARIAN_ATTACK_CITY, DirectionTypes.DIRECTION_SOUTH)
+			else:
+				barbPlayer.initUnit(iUnitType, listPlots[iPlot].getX(), listPlots[iPlot].getY(), UnitAITypes.UNITAI_PILLAGE, DirectionTypes.DIRECTION_SOUTH)
+	
+	# if Player is Human, show a MessageBox
+	if player.isHuman():
+		popupInfo = CyPopupInfo()
+		popupInfo.setButtonPopupType(ButtonPopupTypes.BUTTONPOPUP_PYTHON)
+		popupInfo.setText(localText.getText("TXT_KEY_POPUP_EVENT_BARBARIAN_ASSAULT", (city.getNameKey(), )))
+		popupInfo.setPythonModule("CvRandomEventInterface")
+		popupInfo.addPythonButton(localText.getText("TXT_KEY_POPUP_BUTTON1_BARBARIAN_ASSAULT", ()), "")
+		popupInfo.addPopup(kTriggeredData.ePlayer)
+		
+def getHelpBarbarianAssault1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	city = player.getCity(kTriggeredData.iCityId)
+		
+	szHelp = localText.getText("TXT_KEY_EVENT_BARBARIAN_ASSAULT_HELP", (city.getNameKey(), ))
+	
+	return szHelp
+	
+################ BARBARIAN ATTEMPT ################
+
+def canTriggerBarbarianAttempt(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	city = player.getCity(kTriggeredData.iCityId)
+	
+	iLascauxPaints = CvUtil.findInfoTypeNum(gc.getBuildingInfo, gc.getNumBuildingInfos(), 'BUILDING_LASCAUX_PAINTS')
+	iSkaraBrae = CvUtil.findInfoTypeNum(gc.getBuildingInfo, gc.getNumBuildingInfos(), 'BUILDING_LEPENSKI_VIR')
+	iLepenskiVir = CvUtil.findInfoTypeNum(gc.getBuildingInfo, gc.getNumBuildingInfos(), 'BUILDING_SKARA_BRAE')
+	iStonehenge = CvUtil.findInfoTypeNum(gc.getBuildingInfo, gc.getNumBuildingInfos(), 'BUILDING_STONEHENGE')
+	iOracle = CvUtil.findInfoTypeNum(gc.getBuildingInfo, gc.getNumBuildingInfos(), 'BUILDING_ORACLE')
+	iMoai = CvUtil.findInfoTypeNum(gc.getBuildingInfo, gc.getNumBuildingInfos(), 'BUILDING_MOAI_STATUES')
+	
+	bWonder = false
+	
+	# If Player is Building a Wonder (or Moai Statues) and Production is advanced
+	if (city.getProductionBuilding() == iLascauxPaints and city.getProduction() > 150):
+		bWonder = true
+	elif (city.getProductionBuilding() == iSkaraBrae and city.getProduction() > 180):
+		bWonder = true
+	elif (city.getProductionBuilding() == iLepenskiVir and city.getProduction() > 180):
+		bWonder = true
+	elif (city.getProductionBuilding() == iStonehenge and city.getProduction() > 180):
+		bWonder = true
+	elif (city.getProductionBuilding() == iOracle and city.getProduction() > 180):
+		bWonder = true
+	elif (city.getProductionBuilding() == iMoai and city.getProduction() > 180):
+		bWonder = true
+	
+	if (bWonder):
+		return true
+		
+	return false
+	
+def applyBarbarianAttempt1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	
+	# Reduce 1 relation hit on all KNOWN leaders
+	for iLoopPlayer in range(gc.getMAX_CIV_PLAYERS()):
+		loopPlayer = gc.getPlayer(iLoopPlayer)
+		loopPlayerTeam = gc.getTeam(loopPlayer.getTeam())
+		if loopPlayer.isAlive() and iLoopPlayer != kTriggeredData.ePlayer and player.getTeam() != loopPlayer.getTeam():
+			if loopPlayerTeam.isHasMet(player.getTeam()):
+				loopPlayer.AI_changeAttitudeExtra(kTriggeredData.ePlayer, -1)
+				
+	iBarbarism = CvUtil.findInfoTypeNum(gc.getCivicInfo,gc.getNumCivicInfos(),'CIVIC_BARBARISM')
+	iLegal = CvUtil.findInfoTypeNum(gc.getCivicOptionInfo,gc.getNumCivicOptionInfos(),'CIVICOPTION_LEGAL')
+	
+	# Change to Barbarism Civic
+	player.setCivics(iLegal, iBarbarism)
+	
+def applyBarbarianAttempt3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	city = player.getCity(kTriggeredData.iCityId)
+	
+	city.setProduction(0)
+	
+	szBuffer = localText.getText("TXT_KEY_EVENT_PRODUCTION_SABOTAGED", (city.getNameKey(), ))
+	CyInterface().addMessage(kTriggeredData.ePlayer, false, gc.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_BETRAYAL", InterfaceMessageTypes.MESSAGE_TYPE_INFO, None, gc.getInfoTypeForString("COLOR_WHITE"), -1, -1, true, true)
+	
+def getHelpBarbarianAttempt1(argsList):
+	iEvent = argsList[0]
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_BARBARIAN_ATTEMPT_HELP_1", ())
+	
+	return szHelp
+	
+def getHelpBarbarianAttempt3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	city = player.getCity(kTriggeredData.iCityId)
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_BARBARIAN_ATTEMPT_HELP_3", (city.getNameKey(), ))
+	
+	return szHelp
+	
