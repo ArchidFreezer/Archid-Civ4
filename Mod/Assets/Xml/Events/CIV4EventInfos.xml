@@ -4453,5 +4453,190 @@
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
+		<EventInfo> <!-- Earthquake Dream 1 -->
+			<Type>EVENT_EARTHQUAKE_DREAM_1</Type>
+			<Description>TXT_KEY_EVENT_EARTHQUAKE_DREAM_1</Description>
+			<AdditionalEvents>
+				<EventChance>
+					<Event>EVENT_EARTHQUAKE_DREAM_NEGLECTED</Event>
+					<iEventChance>50</iEventChance>
+				</EventChance>
+			</AdditionalEvents>
+			<EventTimes>
+				<EventTime>
+					<Event>EVENT_EARTHQUAKE_DREAM_NEGLECTED</Event>
+					<iEventTime>1</iEventTime>
+				</EventTime>
+			</EventTimes>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Earthquake Dream 2 -->
+			<Type>EVENT_EARTHQUAKE_DREAM_2</Type>
+			<Description>TXT_KEY_EVENT_EARTHQUAKE_DREAM_2</Description>
+			<iGold>-50</iGold>
+			<AdditionalEvents>
+				<EventChance>
+					<Event>EVENT_EARTHQUAKE_DREAM_PREVENTED</Event>
+					<iEventChance>50</iEventChance>
+				</EventChance>
+			</AdditionalEvents>
+			<EventTimes>
+				<EventTime>
+					<Event>EVENT_EARTHQUAKE_DREAM_PREVENTED</Event>
+					<iEventTime>1</iEventTime>
+				</EventTime>
+			</EventTimes>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1500</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Earthquake Dream Neglected -->
+			<Type>EVENT_EARTHQUAKE_DREAM_NEGLECTED</Type>
+			<Description>TXT_KEY_EVENT_EARTHQUAKE_DREAM_NEGLECTED_1</Description>
+			<WorldNewsTexts>
+				<Text>TXT_KEY_NEWS_EVENT_EARTHQUAKE</Text>
+			</WorldNewsTexts>
+			<bPickCity>1</bPickCity>
+			<PythonCallback>applyEathquakeDreamNeglected</PythonCallback>
+			<PythonHelp>getHelpEarthquakeDreamNeglected</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Earthquake Dream Prevented -->
+			<Type>EVENT_EARTHQUAKE_DREAM_PREVENTED</Type>
+			<Description>TXT_KEY_EVENT_EARTHQUAKE_DREAM_PREVENTED_1</Description>
+			<WorldNewsTexts>
+				<Text>TXT_KEY_NEWS_EVENT_EARTHQUAKE</Text>
+			</WorldNewsTexts>
+			<bPickCity>1</bPickCity>
+			<PythonCallback>applyEathquakeDreamPrevented</PythonCallback>
+			<PythonHelp>getHelpEarthquakeDreamPrevented</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Traitor 1 -->
+			<Type>EVENT_TRAITOR_1</Type>
+			<Description>TXT_KEY_EVENT_TRAITOR_1</Description>
+			<bPickCity>1</bPickCity>
+			<AdditionalEvents>
+				<EventChance>
+					<Event>EVENT_TRAITOR_REVENGE</Event>
+					<iEventChance>50</iEventChance>
+				</EventChance>
+			</AdditionalEvents>
+			<PythonHelp>getHelpTraitor1</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Traitor 2 -->
+			<Type>EVENT_TRAITOR_2</Type>
+			<Description>TXT_KEY_EVENT_TRAITOR_2</Description>
+			<bPickCity>1</bPickCity>
+			<iTechPercent>25</iTechPercent>
+			<iOurAttitudeModifier>-1</iOurAttitudeModifier>
+			<iAttitudeModifier>-1</iAttitudeModifier>
+			<PythonCallback>applyTraitor2</PythonCallback>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1500</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Traitor Revenge -->
+			<Type>EVENT_TRAITOR_REVENGE</Type>
+			<bPickCity>1</bPickCity>
+			<PythonCallback>applyTraitorRevenge</PythonCallback>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Migrants -->
+			<Type>EVENT_MIGRANTS</Type>
+			<Description>TXT_KEY_EVENT_MIGRANTS</Description>
+			<bPickCity>1</bPickCity>
+			<iPopulationChange>-1</iPopulationChange>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Immigrants Arrival 1 -->
+			<Type>EVENT_IMMIGRANTS_ARRIVAL_1</Type>
+			<Description>TXT_KEY_EVENT_IMMIGRANTS_ARRIVAL_1</Description>
+			<WorldNewsTexts>
+				<Text>TXT_KEY_NEWS_EVENT_IMMIGRANTS_ARRIVAL</Text>
+			</WorldNewsTexts>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Immigrants Arrival 2 -->
+			<Type>EVENT_IMMIGRANTS_ARRIVAL_2</Type>
+			<Description>TXT_KEY_EVENT_IMMIGRANTS_ARRIVAL_2</Description>
+			<WorldNewsTexts>
+				<Text>TXT_KEY_NEWS_EVENT_IMMIGRANTS_ARRIVAL</Text>
+			</WorldNewsTexts>
+			<bPickCity>1</bPickCity>
+			<iPopulationChange>1</iPopulationChange>
+			<AdditionalEvents>
+				<EventChance>
+					<Event>EVENT_IMMIGRANTS_BETRAYER</Event>
+					<iEventChance>20</iEventChance>
+				</EventChance>
+			</AdditionalEvents>
+			<EventTimes>
+				<EventTime>
+					<Event>EVENT_IMMIGRANT_BETRAYER</Event>
+					<iEventTime>1</iEventTime>
+				</EventTime>
+			</EventTimes>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1500</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Immigrants Betrayer -->
+			<Type>EVENT_IMMIGRANTS_BETRAYER</Type>
+			<WorldNewsTexts>
+				<Text>TXT_KEY_NEWS_EVENT_IMMIGRANT_BETRAYER</Text>
+			</WorldNewsTexts>
+			<bPickCity>1</bPickCity>
+			<iFoodPercent>-100</iFoodPercent>
+			<PythonCallback>applyImmigrantBetrayer</PythonCallback>
+			<PythonHelp>getHelpImmigrantBetrayer</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Bison Herd -->
+			<Type>EVENT_BISON_HERD</Type>
+			<Description>TXT_KEY_EVENT_BISON_HERD</Description>
+			<BonusType>BONUS_BISON</BonusType>
+			<iBonusChange>1</iBonusChange>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Corn Discovered -->
+			<Type>EVENT_CORN_DISCOVERED</Type>
+			<Description>TXT_KEY_EVENT_CORN_DISCOVERED</Description>
+			<BonusType>BONUS_CORN</BonusType>
+			<iBonusChange>1</iBonusChange>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Rice Discovered -->
+			<Type>EVENT_RICE_DISCOVERED</Type>
+			<Description>TXT_KEY_EVENT_RICE_DISCOVERED</Description>
+			<BonusType>BONUS_RICE</BonusType>
+			<iBonusChange>1</iBonusChange>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Wheat Discovered -->
+			<Type>EVENT_WHEAT_DISCOVERED</Type>
+			<Description>TXT_KEY_EVENT_WHEAT_DISCOVERED</Description>
+			<BonusType>BONUS_WHEAT</BonusType>
+			<iBonusChange>1</iBonusChange>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Barley Discovered -->
+			<Type>EVENT_BARLEY_DISCOVERED</Type>
+			<Description>TXT_KEY_EVENT_BARLEY_DISCOVERED</Description>
+			<BonusType>BONUS_BARLEY</BonusType>
+			<iBonusChange>1</iBonusChange>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
 	</EventInfos>
 </Civ4EventInfos>

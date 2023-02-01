@@ -7010,7 +7010,7 @@
 		<Tag>TXT_KEY_EVENT_BARBARIAN_INVASION_HELP</Tag>
 		<English>[ICON_BULLET]A dangerous number of barbarian [COLOR_UNIT_TEXT]%s1_unit[COLOR_REVERT] units have spawned near our border.</English>
 	</TEXT>
-	<!-- Shaman - Changing Reality -->
+	<!-- Shaman Changing Reality -->
 	<TEXT>
 		<Tag>TXT_KEY_EVENTTRIGGER_SHAMAN_CHANGING_REALITY</Tag>
 		<English>An old shaman from the %s1_civ_adjective tribe has reached an understanding of the changing reality. His new ideas will help their tribe to develop faster.</English>
@@ -7054,6 +7054,301 @@
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SHAMAN_TEMPLE_APPRENTICE_HELP_CANNOT</Tag>
 		<English>[ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Applies to all cities that already have a Shaman Temple.[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]Requires multiple cities[COLOR_REVERT]</English>
+	</TEXT>
+	<!-- Earthquake Dream -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_EARTHQUAKE_DREAM_1</Tag>
+		<English>An old wiseman of ours says he had a dream where the land was trembling and the tribe's improvements where destroyed. He has requested an audience with you.</English>
+		<Spanish>An old tribal of us says he had a dream where land was trembling and the tribe's improvements where destroyed. He has requested an audition with you.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_EARTHQUAKE_DREAM_2</Tag>
+		<English>One of our Shamans says he had a vision. He says we should fear Nature's fury.</English>
+		<Spanish>Un viejo Cham&#225;n dice haber tenido un presagio. As&#237;mismo dice que debemos temer a la Furia de la Naturaleza.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_EARTHQUAKE_DREAM_1</Tag>
+		<English>Bah, crazy old man. That doesn't mean anything. Tell him I have more important things to do.</English>
+		<Spanish>Bah, viejo loco. Eso no significa nada. D&#237;ganle que tengo cosas m&#225;s importantes que hacer.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_EARTHQUAKE_DREAM_2</Tag>
+		<English>Sounds dangerous. Maybe we should consider his words. Let's get the tribe prepared.</English>
+		<Spanish>Suena peligroso. Tal vez debamos considerar sus palabras. Tengamos a la tribu prevenida.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_EARTHQUAKE_DREAM_NEGLECTED_1</Tag>
+		<English>The old wiseman's words were true! The Earth has started to tremble and everything is coming down! We should have listened to him. It's too late now!</English>
+		<Spanish>Las palabras del viejo tribal fueron ciertas! La Tierra ha empezado a temblar y todo se est&#225; viniendo abajo! Debimos haberlo escuchado. Ya es muy tarde ahora!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_EARTHQUAKE_DREAM_PREVENTED_1</Tag>
+		<English>The old wiseman's words were true! The Earth has started to tremble and everything is coming down! Fortunately we had our tribe prepared.</English>
+		<Spanish>Las palabras del viejo tribal fueron ciertas! La Tierra ha empezado a temblar y todo se est&#225; viniendo abajo! Afortunadamente tuvimos a nuestra tribu prevenida.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_EARTHQUAKE_DREAM_PREVENTED_1</Tag>
+		<English>We are very lucky that old wiseman told us about his dream.</English>
+		<Spanish>Somos muy afortunados porque el viejo tribal nos cont&#243; sobre su sue&#241;o.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_NEWS_EVENT_EARTHQUAKE</Tag>
+		<English>Something terrible and strange has happened in the %s1_civ_adjective city of %s2_city. The ground has trembled as it destroyed everything on it.</English>
+		<Spanish>Algo terrible y extra&#241;o ha sucedido en la %s1_civ_adjective ciudad de %s2_city. La Tierra ha temblado y destruido todo lo que estaba encima de ella.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_EARTHQUAKE_DREAM_PREVENTED_HELP_1</Tag>
+		<English>[ICON_BULLET]Loses 1 [COLOR_BUILDING_TEXT]Building[COLOR_REVERT] in [COLOR_HIGHLIGHT_TEXT]%s1_city[COLOR_REVERT].</English>
+		<Spanish>[ICON_BULLET]Pierdes 1 [COLOR_BUILDING_TEXT]Edificaci&#243;n[COLOR_REVERT] en [COLOR_HIGHLIGHT_TEXT]%s1_city[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_EARTHQUAKE_DREAM_NEGLECTED_HELP_1</Tag>
+		<English>[ICON_BULLET]Loses 1 [COLOR_BUILDING_TEXT]Building[COLOR_REVERT] in [COLOR_HIGHLIGHT_TEXT]%s1_city[COLOR_REVERT].[NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]-1[COLOR_REVERT] population in [COLOR_HIGHLIGHT_TEXT]%s2_city[COLOR_REVERT].</English>
+		<Spanish>[ICON_BULLET]Pierdes 1 [COLOR_BUILDING_TEXT]Edificaci&#243;n[COLOR_REVERT] en [COLOR_HIGHLIGHT_TEXT]%s1_city[COLOR_REVERT].[NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]-1[COLOR_REVERT] poblaci&#243;n en [COLOR_HIGHLIGHT_TEXT]%s2_city[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_POPUP_EARTHQUAKE</Tag>
+		<English>OH MY GOD!!</English>
+		<Spanish>DIOS MIO!!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_EARTHQUAKE</Tag>
+		<English>An earthquake is taking place in %s1_city!</English>
+		<Spanish>Un terremoto est&#225; sacudiendo %s1_city!</Spanish>
+	</TEXT>
+	<!-- Earthquake Dream -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_EARTHQUAKE_DREAM_1</Tag>
+		<English>An old wiseman of ours says he had a dream where the land was trembling and the tribe's improvements where destroyed. He has requested an audience with you.</English>
+		<Spanish>An old tribal of us says he had a dream where land was trembling and the tribe's improvements where destroyed. He has requested an audition with you.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_EARTHQUAKE_DREAM_2</Tag>
+		<English>One of our Shamans says he had a vision. He says we should fear Nature's fury.</English>
+		<Spanish>Un viejo Cham&#225;n dice haber tenido un presagio. As&#237;mismo dice que debemos temer a la Furia de la Naturaleza.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_EARTHQUAKE_DREAM_1</Tag>
+		<English>Bah, crazy old man. That doesn't mean anything. Tell him I have more important things to do.</English>
+		<Spanish>Bah, viejo loco. Eso no significa nada. D&#237;ganle que tengo cosas m&#225;s importantes que hacer.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_EARTHQUAKE_DREAM_2</Tag>
+		<English>Sounds dangerous. Maybe we should consider his words. Let's get the tribe prepared.</English>
+		<Spanish>Suena peligroso. Tal vez debamos considerar sus palabras. Tengamos a la tribu prevenida.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_EARTHQUAKE_DREAM_HELP_1</Tag>
+		<English>[ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Who knows?[COLOR_REVERT]</English>
+		<Spanish>[ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Qui&#233;n sabe?[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_EARTHQUAKE_DREAM_NEGLECTED_1</Tag>
+		<English>The old wiseman's words were true! The Earth has started to tremble and everything is coming down! We should have listened to him. It's too late now!</English>
+		<Spanish>Las palabras del viejo tribal fueron ciertas! La Tierra ha empezado a temblar y todo se est&#225; viniendo abajo! Debimos haberlo escuchado. Ya es muy tarde ahora!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_EARTHQUAKE_DREAM_PREVENTED_1</Tag>
+		<English>The old wiseman's words were true! The Earth has started to tremble and everything is coming down! Fortunately we had our tribe prepared.</English>
+		<Spanish>Las palabras del viejo tribal fueron ciertas! La Tierra ha empezado a temblar y todo se est&#225; viniendo abajo! Afortunadamente tuvimos a nuestra tribu prevenida.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_EARTHQUAKE_DREAM_PREVENTED_1</Tag>
+		<English>We are very lucky that old wiseman told us about his dream.</English>
+		<Spanish>Somos muy afortunados porque el viejo tribal nos cont&#243; sobre su sue&#241;o.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_NEWS_EVENT_EARTHQUAKE_1</Tag>
+		<English>Something terrible and strange has happened in the %s1_civ_adjective city of %s2_city. The ground has trembled as it destroyed everything on it.</English>
+		<Spanish>Algo terrible y extra&#241;o ha sucedido en la %s1_civ_adjective ciudad de %s2_city. La Tierra ha temblado y destruido todo lo que estaba encima de ella.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_EARTHQUAKE_DREAM_PREVENTED_HELP_1</Tag>
+		<English>[ICON_BULLET]Loses 1 [COLOR_BUILDING_TEXT]Building[COLOR_REVERT] in [COLOR_HIGHLIGHT_TEXT]%s1_city[COLOR_REVERT].</English>
+		<Spanish>[ICON_BULLET]Pierdes 1 [COLOR_BUILDING_TEXT]Edificaci&#243;n[COLOR_REVERT] en [COLOR_HIGHLIGHT_TEXT]%s1_city[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_EARTHQUAKE_DREAM_NEGLECTED_HELP_1</Tag>
+		<English>[ICON_BULLET]Loses 1 [COLOR_BUILDING_TEXT]Building[COLOR_REVERT] in [COLOR_HIGHLIGHT_TEXT]%s1_city[COLOR_REVERT].[NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]-1[COLOR_REVERT] population in [COLOR_HIGHLIGHT_TEXT]%s2_city[COLOR_REVERT].</English>
+		<Spanish>[ICON_BULLET]Pierdes 1 [COLOR_BUILDING_TEXT]Edificaci&#243;n[COLOR_REVERT] en [COLOR_HIGHLIGHT_TEXT]%s1_city[COLOR_REVERT].[NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]-1[COLOR_REVERT] poblaci&#243;n en [COLOR_HIGHLIGHT_TEXT]%s2_city[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_POPUP_EARTHQUAKE</Tag>
+		<English>OH MY GOD!!</English>
+		<Spanish>DIOS MIO!!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_EARTHQUAKE</Tag>
+		<English>An earthquake is taking place in %s1_city!</English>
+		<Spanish>Un terremoto est&#225; sacudiendo %s1_city!</Spanish>
+	</TEXT>
+	<!-- Traitor -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_TRAITOR</Tag>
+		<English>A %s1_civ_adjective tribesman has arrived to our land. He has offered to teach us some of his tribe's knowledge in exchange of letting him and his friends join our tribe.</English>
+		<Spanish>Un tribal %s1_civ_adjective ha arribado a nuestras tierras. Ha ofrecido ense&#241;arnos algunos secretos de su tribu a cambio de que le permitamos, junto a sus amigos, unirse a nuestra tribu.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRAITOR_1</Tag>
+		<English>He doesn't care about betraying his tribe? He is not trustworthy. Tell him we don't accept.</English>
+		<Spanish>A &#233;l no le importa traicionar a su tribu. No es de fiar. D&#237;ganle que no aceptamos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRAITOR_2</Tag>
+		<English>Sounds like we have a new member. Let's introduce him to the rest of the tribe.</English>
+		<Spanish>Suena como que ya tenemos un nuevo miembro. Present&#233;moslo ante el resto de la tribu.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_POPUP_EVENT_TRAITOR_2</Tag>
+		<English>The %s1_civ_adjective tribe has adopted one of our tribe's members in exchange of some of our secrets.</English>
+		<Spanish>La tribu %s1_civ_adjective ha adoptado a un miembro de nuestra tribu a cambio de algunos de nuestros secretos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_POPUP_BUTTON1_TRAITOR_2</Tag>
+		<English>DAMN %s1_civ_adjective</English>
+		<Spanish>MALDITOS %s1_civ_adjective</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRAITOR_HELP_1</Tag>
+		<English>[ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Strangers may get upset with us.[COLOR_REVERT]</English>
+		<Spanish>[ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Los extra&#241;os podr&#237;an resentirse con nosotros.[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<!-- Migrants -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_MIGRANTS</Tag>
+		<English>Because of the poor conditions in %s1_city, some tribespeople have left our tribe looking for a better one.</English>
+		<Spanish>Debido a la mala situaci&#243;n en %s1_city, algunos tribales han dejado nuestra tribu en busca de otra mejor.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MIGRANTS</Tag>
+		<English>Stupid tribespeople. Who needs them anyway?</English>
+		<Spanish>Est&#250;pidos tribales. Qui&#233;n los necesita?</Spanish>
+	</TEXT>
+	<!-- Immigrants Arrive -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_IMMIGRANTS_ARRIVAL</Tag>
+		<English>A previously unknown nomadic tribe has arrived in our lands. They want to join us. Will we accept them?</English>
+		<Spanish>Una desconocida tribu n&#243;mada ha arrivado a nuestras tierras. Dicen querer un&#237;rsenos. Los aceptaremos?</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_IMMIGRANTS_ARRIVAL_1</Tag>
+		<English>I prefer not to trust strangers. Tell them we won't receive them.</English>
+		<Spanish>Prefiero no confiar en extra&#241;os. D&#237;ganles que no los recibiremos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_IMMIGRANTS_ARRIVAL_2</Tag>
+		<English>Good. We will welcome them into our midst.</English>
+		<Spanish>Bien. Siempre estamos dispuestos a dejar que otras tribus se nos unan.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_NEWS_EVENT_IMMIGRANTS_ARRIVAL</Tag>
+		<English>A nomad tribe has arrived to %s1_civ_adjective lands.</English>
+		<Spanish>Una tribu n&#243;mada ha arrivado a tierras %s1_civ_adjective.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_POPUP_EVENT_IMMIGRANT_BETRAYER</Tag>
+		<English>We have been betrayed!! The tribespeople who have recently joined us have stolen our gold and escaped. We should be more careful with strangers from now.</English>
+		<Spanish>HEMOS SIDO TRAICIONADOS!! Los tribales que se nos unieron recientemente han robado nuestro oro y escapado. Debemos ser m&#225;s cuidadosos con los extra&#241;os a partir de ahora.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_IMMIGRANT_BETRAYER_TAG</Tag>
+		<English>The tribespeople who have recently joined us have stolen our gold and escaped from our tribe!</English>
+		<Spanish>Los tribales que recientemente se nos unieron han robado nuestro oro y escapado de nuestra tribu!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_NEWS_EVENT_IMMIGRANT_BETRAYER</Tag>
+		<English>The %s1_civ_adjective tribe has been betrayed by a marauding tribe that was allowed to join them.</English>
+		<Spanish>La tribu %s1_civ_adjective ha sido traicionada por una tribu merodeante que se le permiti&#243; un&#237;rseles.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_POPUP_BUTTON1_IMMIGRANT_BETRAYER</Tag>
+		<English>Damn bandits!</English>
+		<Spanish>MALDITOS TRIBALES</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_IMMIGRANT_BETRAYER_HELP</Tag>
+		<English>[ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Strangers could be planning to steal our gold.[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Loses the population bonus received.[COLOR_REVERT]</English>
+		<Spanish>[ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Los extra&#241;os podr&#237;an estar planeando robar nuestro oro.[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Pierde bono de ploblaci&#243;n recibido.[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<!-- Bison Herd -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_BISON_HERD</Tag>
+		<English>Our hunters have found a herd of Bison within our borders.</English>
+		<Spanish>Nuestros cazadores han encontrado una manada de Bisontes en nuestras fronteras.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_NEWS_BISON_HERD</Tag>
+		<English>%s1_civ_adjective hunters have found a herd of Bison within their borders.</English>
+		<Spanish>Cazadores %s1_civ_adjective han encontrado una manada de Bisontes en sus fronteras.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BISON_HERD</Tag>
+		<English>Excellent! I really like Bison meat.</English>
+		<Spanish>Excelente! A mi me gusta mucho la carne de Bisonte.</Spanish>
+	</TEXT>
+	<!-- Corn Discovered -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_CORN_DISCOVERED_1</Tag>
+		<English>Our grain gatherers have found corn seeds within our borders.</English>
+		<Spanish>Nuestros recolectores de granos han encontrado maiz en nuestras fronteras.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_NEWS_CORN_DISCOVERED_1</Tag>
+		<English>%s1_civ_adjective grain gatherers have found corn seeds within their borders.</English>
+		<Spanish>Recolectores de granos %s1_civ_adjective han encontrado granos de maiz en sus fronteras.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CORN_DISCOVERED</Tag>
+		<English>Good. New sources of food are always good.</English>
+		<Spanish>Bien. Est&#225;bamos necesitando m&#225;s comida.</Spanish>
+	</TEXT>
+	<!-- Rice Discovered -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_RICE_DISCOVERED</Tag>
+		<English>Our grain gatherers have found rice within our borders.</English>
+		<Spanish>Nuestros recolectores de granos han encontrado arroz en nuestras fronteras.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_NEWS_RICE_DISCOVERED</Tag>
+		<English>%s1_civ_adjective grain gatherers have found rice within their borders.</English>
+		<Spanish>Recolectores de granos %s1_civ_adjective han encontrado arroz en sus fronteras.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_RICE_DISCOVERED</Tag>
+		<English>Good to hear it.</English>
+		<Spanish>Es bueno saberlo.</Spanish>
+	</TEXT>
+	<!-- Wheat Discovered -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_WHEAT_DISCOVERED</Tag>
+		<English>Our grain gatherers have found wheat within our borders.</English>
+		<Spanish>Nuestros recolectores de granos han encontrado trigo en nuestras fronteras.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_NEWS_WHEAT_DISCOVERED</Tag>
+		<English>%s1_civ_adjective grain gatherers have found wheat within their borders.</English>
+		<Spanish>Recolectores de granos %s1_civ_adjective han encontrado trigo en sus fronteras.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WHEAT_DISCOVERED</Tag>
+		<English>Well. If we only knew what bread was.</English>
+		<Spanish>Bueno. Si s&#243;lo supi&#233;ramos lo que es el pan.</Spanish>
+	</TEXT>
+	<!-- Barley Discovered -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_BARLEY_DISCOVERED</Tag>
+		<English>Our grain gatherers have found barley within our borders.</English>
+		<Spanish>Nuestros recolectores de granos han encontrado cebada en nuestras fronteras.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_NEWS_BARLEY_DISCOVERED</Tag>
+		<English>%s1_civ_adjective grain gatherers have found barley within their borders.</English>
+		<Spanish>Recolectores de granos %s1_civ_adjective han encontrado cebada en sus fronteras.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BARLEY_DISCOVERED</Tag>
+		<English>Excellent. Perhaps, we could learn to prepare something good with it.</English>
+		<Spanish>Excelente. A prop&#243;sito, podr&#237;amos aprender a preparar algo bueno con eso.</Spanish>
 	</TEXT>
 
 </Civ4GameText>

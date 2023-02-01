@@ -5106,4 +5106,290 @@ def getHelpShamanTempleApprentice2(argsList):
 	
 	return szHelp
 
+################ EARTHQUAKE DREAM ################
 
+def canTriggerEarthquakeDream(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	city = player.getCity(kTriggeredData.iCityId)
+	
+	# City must be level 3 at least
+	if city.getPopulation() >= 3:
+		# City must have 1 Building at least.
+		for iBuilding in range(gc.getNumBuildingInfos()):
+			if (city.getNumRealBuilding(iBuilding) > 0 and gc.getBuildingInfo(iBuilding).getProductionCost() <= 200 and gc.getBuildingInfo(iBuilding).getProductionCost() > 0  and not isLimitedWonderClass(gc.getBuildingInfo(iBuilding).getBuildingClassType())):
+				return true
+				
+	return false
+
+def getHelpEarthquakeDreamNeglected(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	city = player.getCity(kTriggeredData.iCityId)
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_EARTHQUAKE_DREAM_NEGLECTED_HELP_1", (city.getNameKey(), city.getNameKey()))
+	
+	return szHelp
+	
+def getHelpEarthquakeDreamPrevented(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	city = player.getCity(kTriggeredData.iCityId)
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_EARTHQUAKE_DREAM_PREVENTED_HELP_1", (city.getNameKey(), ))
+	
+	return szHelp
+	
+def doEathquakeDream(ePlayer, eOtherPlayer, iCityId, iPopChange):
+	player = gc.getPlayer(ePlayer)
+	city = player.getCity(kTriggeredData.iCityId)
+	
+	# Show MessageBox if affected player is Human.
+	if (player.isHuman()):
+		popupInfo = CyPopupInfo()
+		popupInfo.setButtonPopupType(ButtonPopupTypes.BUTTONPOPUP_PYTHON)
+		popupInfo.setText(localText.getText("TXT_KEY_EVENT_TRIGGER_EARTHQUAKE_DREAM_NEGLECTED_1", ()))
+		popupInfo.setPythonModule("CvRandomEventInterface")
+		popupInfo.addPythonButton(localText.getText("TXT_KEY_POPUP_EARTHQUAKE", ()), "")
+		popupInfo.addPopup(eOtherPlayer)
+	
+	# Reduce city population if applicable
+	if iPopChange != 0 : city.changePopulation(iPopChange)
+	
+	# Destroy 1 building in city
+	iNumBuildingsDestroyed = 0
+	listBuildings = []	
+	for iBuilding in range(gc.getNumBuildingInfos()):
+		if (city.getNumRealBuilding(iBuilding) > 0 and gc.getBuildingInfo(iBuilding).getProductionCost() <= 150 and gc.getBuildingInfo(iBuilding).getProductionCost() > 0  and not isLimitedWonderClass(gc.getBuildingInfo(iBuilding).getBuildingClassType())):
+			listBuildings.append(iBuilding)
+	
+	for i in range(1):
+		if len(listBuildings) > 0:
+			iBuilding = listBuildings[gc.getGame().getSorenRandNum(len(listBuildings), "Earthquake Dream event building destroyed")]
+			szBuffer = localText.getText("TXT_KEY_EVENT_CITY_IMPROVEMENT_DESTROYED", (gc.getBuildingInfo(iBuilding).getTextKey(), ))
+			CyInterface().addMessage(eOtherPlayer, false, gc.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_BOMBARDED", InterfaceMessageTypes.MESSAGE_TYPE_INFO, gc.getBuildingInfo(iBuilding).getButton(), gc.getInfoTypeForString("COLOR_RED"), city.getX(), city.getY(), true, true)
+			city.setNumRealBuilding(iBuilding, 0)
+			iNumBuildingsDestroyed += 1
+			listBuildings.remove(iBuilding)
+	
+	# Earthquake sound ...
+	szBuffer = localText.getText("TXT_KEY_EVENT_EARTHQUAKE", (city.getNameKey(), ))
+	CyInterface().addMessage(ePlayer, false, gc.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_EARTHQUAKE", InterfaceMessageTypes.MESSAGE_TYPE_INFO, None, gc.getInfoTypeForString("COLOR_RED"), -1, -1, true, true)
+	
+	if iNumBuildingsDestroyed > 0:
+		szBuffer = localText.getText("TXT_KEY_EVENT_NUM_BUILDINGS_DESTROYED", (iNumBuildingsDestroyed, player.getCivilizationAdjectiveKey(), city.getNameKey()))
+		CyInterface().addMessage(ePlayer, false, gc.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_BOMBARDED", InterfaceMessageTypes.MESSAGE_TYPE_INFO, None, gc.getInfoTypeForString("COLOR_WHITE"), -1, -1, true, true)
+	else:
+		szBuffer = localText.getText("TXT_KEY_EVENT_NO_BUILDINGS_DESTROYED", (player.getCivilizationAdjectiveKey(), ))
+		CyInterface().addMessage(ePlayer, false, gc.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_BOMBARDED", InterfaceMessageTypes.MESSAGE_TYPE_INFO, None, gc.getInfoTypeForString("COLOR_WHITE"), -1, -1, true, true)	
+		
+def applyEathquakeDreamNeglected(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	doEathquakeDream(kTriggeredData.ePlayer, kTriggeredData.eOtherPlayer, kTriggeredData.iCityId, -1)
+		
+def applyEathquakeDreamPrevented(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	doEathquakeDream(kTriggeredData.ePlayer, kTriggeredData.eOtherPlayer, kTriggeredData.iCityId, 0)
+
+################ TRAITOR ################
+
+def canTriggerTraitor(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	city = player.getCity(kTriggeredData.iCityId)
+	
+	# No angry citizens nor Unhealthy ones.
+	if ((city.happyLevel() - city.unhappyLevel(0) >= 0) and (city.goodHealth() - city.badHealth(true) >= 0)):
+		return true
+		
+	return false
+	
+def getHelpTraitor1(argsList):
+	iEvent = argsList[0]
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_TRAITOR_HELP_1", ())
+	
+	return szHelp
+	
+def applyTraitor2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	
+	# If otherPlayer is Human, show a Message Box so he can know who betrayed him.
+	if otherPlayer.isHuman():
+		popupInfo = CyPopupInfo()
+		popupInfo.setButtonPopupType(ButtonPopupTypes.BUTTONPOPUP_PYTHON)
+		popupInfo.setText(localText.getText("TXT_KEY_POPUP_EVENT_TRAITOR_2", (player.getCivilizationAdjectiveKey(), )))
+		popupInfo.setPythonModule("CvRandomEventInterface")
+		popupInfo.addPythonButton(localText.getText("TXT_KEY_POPUP_BUTTON1_TRAITOR_2", (player.getCivilizationAdjectiveKey(), )), "")
+		popupInfo.addPopup(kTriggeredData.eOtherPlayer)
+	
+def applyTraitorRevenge(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	otherPlayer = gc.getPlayer(kTriggeredData.eOtherPlayer)
+	otherTeam = gc.getTeam(otherPlayer.getTeam())
+	
+	iTribalism = CvUtil.findInfoTypeNum(gc.getTechInfo,gc.getNumTechInfos(),'TECH_TRIBALISM')
+	iFineEdgedTools = CvUtil.findInfoTypeNum(gc.getTechInfo,gc.getNumTechInfos(),'TECH_FINE_EDGED_TOOLS')
+	
+	# If otherPlayer has Tribalism and Fine Edged Tools techs, attackers will be Stone Axemen. Otherwise, Stone Spearmen.
+	if otherTeam.isHasTech(iTribalism) and otherTeam.isHasTech(iFineEdgedTools):
+		iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_JAVELINEER')
+	else:
+		iUnitType = CvUtil.findInfoTypeNum(gc.getUnitInfo, gc.getNumUnitInfos(), 'UNIT_STONE_SPEARMAN')
+		
+	barbPlayer = gc.getPlayer(gc.getBARBARIAN_PLAYER())
+	iNumUnits = 3
+	
+	if player.isHuman():
+		# If handicap level is higher than Monarch an extra barb appears.
+		if gc.getGame().getHandicapType() > CvUtil.findInfoTypeNum(gc.getHandicapInfo, gc.getNumHandicapInfos(), 'HANDICAP_MONARCH'):
+			iNumUnits += 1
+		
+	if( gc.getGame().isOption(GameOptionTypes.GAMEOPTION_RAGING_BARBARIANS) ) :
+		iNumUnits += 1
+		
+	# List with possible plots where barbarians can appear
+	listPlots = []
+	for i in range(3):
+		for j in range(3):
+			loopPlot = gc.getMap().plot(kTriggeredData.iPlotX + i - 1, kTriggeredData.iPlotY + j - 1)
+			if None != loopPlot and not loopPlot.isNone() and (i != 1 or j != 1):
+				if not (loopPlot.isWater() or loopPlot.isImpassable()):
+					listPlots.append(loopPlot)
+	
+	# Putting 3 barbarian units on the selected plots
+	if len(listPlots) > 0:
+		for i in range(iNumUnits):
+			iPlot = gc.getGame().getSorenRandNum(len(listPlots), "Traitor Revenge event placement")
+			barbPlayer.initUnit(iUnitType, listPlots[iPlot].getX(), listPlots[iPlot].getY(), UnitAITypes.UNITAI_BARBARIAN_ATTACK_CITY, DirectionTypes.DIRECTION_SOUTH)
+
+################ MIGRANTS ################
+	
+def canTriggerMigrants(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	city = player.getCity(kTriggeredData.iCityId)
+	
+	# If city is level 3 at least
+	if city.getPopulation() >= 2:
+		# If city is unhealthy or unhappy, citizens may leave
+		if ((city.happyLevel() - city.unhappyLevel(0) < 0) or (city.goodHealth() - city.badHealth(true) < 0)):
+			return true
+		
+	return false
+	
+################ IMMIGRANT BETRAYER ################
+
+def applyImmigrantBetrayer(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	city = player.getCity(kTriggeredData.iCityId)
+	
+	# If player has at least 30 gold, Betrayer will take it all, otherwise he will take only 30 gold
+	if player.getGold() <= 30:
+		player.setGold(0)
+	elif player.getGold() > 30:
+		player.changeGold(-30)
+		
+	# City won't receive the +1 population bonus from strangers arrival (because they escaped)
+	city.changePopulation(-1)
+		
+	# Show popup if affected player is Human
+	if player.isHuman():
+		popupInfo = CyPopupInfo()
+		popupInfo.setButtonPopupType(ButtonPopupTypes.BUTTONPOPUP_PYTHON)
+		popupInfo.setText(localText.getText("TXT_KEY_POPUP_EVENT_IMMIGRANT_BETRAYER", ()))
+		popupInfo.setPythonModule("CvRandomEventInterface")
+		popupInfo.addPythonButton(localText.getText("TXT_KEY_POPUP_BUTTON1_IMMIGRANT_BETRAYER", ()), "")
+		popupInfo.addPopup(kTriggeredData.ePlayer)
+		
+	# Play sound ...
+	szBuffer = localText.getText("TXT_KEY_EVENT_IMMIGRANT_BETRAYER_TAG", ())
+	CyInterface().addMessage(kTriggeredData.ePlayer, false, gc.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_BETRAYAL", InterfaceMessageTypes.MESSAGE_TYPE_INFO, None, gc.getInfoTypeForString("COLOR_RED"), -1, -1, true, true)
+		
+def getHelpImmigrantBetrayer(argsList):
+	iEvent = argsList[0]
+	
+	szHelp = localText.getText("TXT_KEY_EVENT_IMMIGRANT_BETRAYER_HELP", ())
+	
+	return szHelp
+	
+################ BISON HERD ################
+	
+def canTriggerBisonHerd(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	city = player.getCity(kTriggeredData.iCityId)
+	plot = gc.getMap().plot(kTriggeredData.iPlotX, kTriggeredData.iPlotY)
+	
+	cityPlotX = city.getX()
+	cityPlotY = city.getY()
+	
+	iBison = CvUtil.findInfoTypeNum(gc.getBonusInfo,gc.getNumBonusInfos(),'BONUS_BISON')
+	iIvory = CvUtil.findInfoTypeNum(gc.getBonusInfo,gc.getNumBonusInfos(),'BONUS_IVORY')
+	
+	# Searching within city borders (range = 2) if City already has a Bison resource, trigger won't apply
+	for i in range(-2, 3):
+		for j in range (-2, 3):
+			loopPlot =  gc.getMap().plot(cityPlotX + i, cityPlotY + j)
+			# Don't consider plots from the corner (Because city can't work them)
+			if ((i == -2 and j == 2) or (i == -2 and j == -2) or (i == 2 and j == 2) or (i ==2 and j == -2)):
+				continue
+			# if Plot exists  ...
+			else:
+				if (not loopPlot.isNone()):
+					# if a Bison or Ivory resource is found within standard city borders (2 range) ... trigger won't apply
+					if (loopPlot.getBonusType(player.getTeam()) == iBison or loopPlot.getBonusType(player.getTeam()) == iIvory):
+						return false
+
+	# If plot can't have Bison resource, then trigger won't apply.
+	if not plot.canHaveBonus(iBison, false):
+		return false
+				
+	return true
+
+################ <GRAIN TYPES> DISCOVERED ################
+	
+def canTriggerGrainDiscovered(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	city = player.getCity(kTriggeredData.iCityId)
+	plot = gc.getMap().plot(kTriggeredData.iPlotX, kTriggeredData.iPlotY)
+	
+	cityPlotX = city.getX()
+	cityPlotY = city.getY()
+	
+	iCorn = CvUtil.findInfoTypeNum(gc.getBonusInfo,gc.getNumBonusInfos(),'BONUS_CORN')
+	iRice = CvUtil.findInfoTypeNum(gc.getBonusInfo,gc.getNumBonusInfos(),'BONUS_RICE')
+	iWheat = CvUtil.findInfoTypeNum(gc.getBonusInfo,gc.getNumBonusInfos(),'BONUS_WHEAT')
+	iBarley = CvUtil.findInfoTypeNum(gc.getBonusInfo,gc.getNumBonusInfos(),'BONUS_BARLEY')
+	
+	# Searching within max city borders (range = 2). if City already has a Corn, Rice, Wheat or Barley resource, trigger won't apply
+	for i in range(-2, 3):
+		for j in range (-2, 3):
+			loopPlot =  gc.getMap().plot(cityPlotX + i, cityPlotY + j)
+			# Don't consider plots from the corner (Because city can't work them)
+			if ((i == -2 and j == 2) or (i == -2 and j == -2) or (i == 2 and j == 2) or (i ==2 and j == -2)):
+				continue
+			# if Plot exists  ...
+			else:
+				if (not loopPlot.isNone()):
+					# if a Corn, Rice, Wheat or Barley resource is found within max city borders (2 range) ... trigger won't apply
+					if (loopPlot.getBonusType(player.getTeam()) == iCorn or loopPlot.getBonusType(player.getTeam()) == iRice or loopPlot.getBonusType(player.getTeam()) == iWheat or loopPlot.getBonusType(player.getTeam()) == iBarley):
+						return false
+	
+	if not plot.canHaveBonus(iCorn, false):
+		return false
+				
+	return true
+	
