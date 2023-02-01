@@ -7010,5 +7010,50 @@
 		<Tag>TXT_KEY_EVENT_BARBARIAN_INVASION_HELP</Tag>
 		<English>[ICON_BULLET]A dangerous number of barbarian [COLOR_UNIT_TEXT]%s1_unit[COLOR_REVERT] units have spawned near our border.</English>
 	</TEXT>
+	<!-- Shaman - Changing Reality -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_SHAMAN_CHANGING_REALITY</Tag>
+		<English>An old shaman from the %s1_civ_adjective tribe has reached an understanding of the changing reality. His new ideas will help their tribe to develop faster.</English>
+		<Spanish>Un viejo cham&#225;n de la tribu %s1_civ_adjective ha alcanzado el entendimiento de la realidad cambiante. Sus nuevas ideas guiar&#225;n a la tribu a un mejor desarrollo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SHAMAN_CHANGING_REALITY</Tag>
+		<English>An old shaman from our tribe seems to have reached an understanding of the changing reality. He says he has new ideas that can help the tribe develop faster.</English>
+		<Spanish>Un viejo cham&#225;n de nuestra tribu parece haber alcanzado el entendimiento de la realidad cambiante. Asimismo dice tener nuevas ideas que ayudar&#225;n a la tribu desarrollarse m&#225;s rápido.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SHAMAN_CHANGING_REALITY_1</Tag>
+		<English>A thinker? Let's see what interesting ideas he has.</English>
+		<Spanish>Un pensador? Veamos qu&#233; ideas interesantes tiene.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SHAMAN_CHANGING_REALITY_2</Tag>
+		<English>Just what we needed. Let him tell the entire tribe his ideas and make sure they pass from generation to generation.</English>
+		<Spanish>Justo lo que necesit&#225;bamos. Dejemos que le cuenta a la tribu entera sus ideas y aseg&#250;rense de que pasen de generaci&#243;n en generaci&#243;n.</Spanish>
+	</TEXT>
+	<!-- Shaman Temple Apprentice -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_SHAMAN_TEMPLE_APPRENTICE</Tag>
+		<English>A young apprentice from the %s1_civ_adjective Shaman Temple has stood out among his partners. He seems to be an inspiration for young applicants.</English>
+		<Spanish>Un j&#243;ven aprendiz proveniente del Templo Cham&#225;n %s1_civ_adjective ha destacado entre sus compa&#241;eros. Parece ser una inspiraci&#243;n para los j&#243;venes aspirantes.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SHAMAN_TEMPLE_APPRENTICE_1</Tag>
+		<English>But ... he is still very young. Let him become the apprentice of our Best Shaman. That will improve his skills.</English>
+		<Spanish>Pero .. todav&#237;a es demasiado j&#243;ven. Hagamos que sea el aprendiz de nuestro mejor Cham&#225;n. Eso mejorar&#225; sus habilidades.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SHAMAN_TEMPLE_APPRENTICE_2</Tag>
+		<English>Awesome. He also has experience healing our warriors in combat. Let's promote him to Shaman so he can become a real inspiration for all our young tribespeople.</English>
+		<Spanish>Imponente. Tambi&#233;n tiene experiencia curando a nuestros guerreros en combate. Ascend&#225;moslo a Cham&#225;n para que as&#237; pueda volverse una verdadera inspiraci&#243;n para nuestros j&#243;venes tribales.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SHAMAN_TEMPLE_APPRENTICE_HELP_OK</Tag>
+		<English>[ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Applies to all cities that already have a Shaman Temple.[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_REVERT][COLOR_UNIT_TEXT]You have multiple cities[COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SHAMAN_TEMPLE_APPRENTICE_HELP_CANNOT</Tag>
+		<English>[ICON_BULLET][COLOR_HIGHLIGHT_TEXT]Applies to all cities that already have a Shaman Temple.[COLOR_REVERT][NEWLINE][ICON_BULLET][COLOR_NEGATIVE_TEXT]Requires multiple cities[COLOR_REVERT]</English>
+	</TEXT>
 
 </Civ4GameText>

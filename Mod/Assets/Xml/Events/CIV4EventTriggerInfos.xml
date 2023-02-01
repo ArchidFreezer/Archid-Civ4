@@ -6539,5 +6539,60 @@
 			<bShowPlot>1</bShowPlot>
 			<PythonCanDo>canTriggerBarbarianMixedInvasion</PythonCanDo>
 		</EventTriggerInfo>
+		<EventTriggerInfo> <!-- Shaman Changing Reality -->
+			<Type>EVENTTRIGGER_SHAMAN_CHANGING_REALITY</Type>
+			<WorldNewsTexts>
+				<Text>TXT_KEY_EVENTTRIGGER_SHAMAN_CHANGING_REALITY</Text>
+			</WorldNewsTexts>
+			<TriggerTexts>
+				<TriggerText>
+					<Text>TXT_KEY_EVENT_SHAMAN_CHANGING_REALITY</Text>
+					<Era>NONE</Era>
+				</TriggerText>
+			</TriggerTexts>
+			<iPercentGamesActive>80</iPercentGamesActive>
+			<iWeight>200</iWeight>
+			<Civic>CIVIC_ANCESTOR_WORSHIP</Civic>
+			<BuildingsRequired>
+				<BuildingClass>BUILDINGCLASS_KNOWLEDGE_INHERITANCE</BuildingClass>
+			</BuildingsRequired>
+			<iNumBuildings>1</iNumBuildings>
+			<bOwnPlot>1</bOwnPlot>
+			<Events>
+				<Event>EVENT_SHAMAN_CHANGING_REALITY_1</Event>
+				<Event>EVENT_SHAMAN_CHANGING_REALITY_2</Event>
+			</Events>
+			<ObsoleteTechs>
+				<ObsoleteTech>TECH_SEDENTARY_LIFESTYLE</ObsoleteTech>
+			</ObsoleteTechs>
+			<bPickCity>1</bPickCity>
+			<bShowPlot>1</bShowPlot>
+		</EventTriggerInfo>
+		<EventTriggerInfo> <!-- Shaman Temple Apprentice -->
+			<Type>EVENTTRIGGER_SHAMAN_TEMPLE_APPRENTICE</Type>
+			<TriggerTexts>
+				<TriggerText>
+					<Text>TXT_KEY_EVENT_TRIGGER_SHAMAN_TEMPLE_APPRENTICE</Text>
+					<Era>NONE</Era>
+				</TriggerText>
+			</TriggerTexts>
+			<iPercentGamesActive>40</iPercentGamesActive>
+			<iWeight>100</iWeight>
+			<Civic>CIVIC_ANCESTOR_WORSHIP</Civic>
+			<BuildingsRequired>
+				<BuildingClass>BUILDINGCLASS_SHAMAN_TEMPLE</BuildingClass>
+			</BuildingsRequired>
+			<iNumBuildings>1</iNumBuildings>
+			<bOwnPlot>1</bOwnPlot>
+			<Events>
+				<Event>EVENT_SHAMAN_TEMPLE_APPRENTICE_1</Event>
+				<Event>EVENT_SHAMAN_TEMPLE_APPRENTICE_2</Event>
+			</Events>
+			<OrPreReqs>
+				<PrereqTech>TECH_MYSTICISM</PrereqTech>
+			</OrPreReqs>
+			<bPickCity>1</bPickCity>
+			<bShowPlot>1</bShowPlot>
+		</EventTriggerInfo>
 	</EventTriggerInfos>
 </Civ4EventTriggerInfos>

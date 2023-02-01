@@ -4401,5 +4401,57 @@
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
+		<EventInfo> <!-- Shaman Changing Reality 1 -->
+			<Type>EVENT_SHAMAN_CHANGING_REALITY_1</Type>
+			<Description>TXT_KEY_EVENT_SHAMAN_CHANGING_REALITY_1</Description>
+			<bPickCity>1</bPickCity>
+			<iTechPercent>15</iTechPercent>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Shaman Changing Reality 2 -->
+			<Type>EVENT_SHAMAN_CHANGING_REALITY_2</Type>
+			<Description>TXT_KEY_EVENT_SHAMAN_CHANGING_REALITY_2</Description>
+			<bPickCity>1</bPickCity>
+			<PrereqTech>TECH_TRIBALISM</PrereqTech>
+			<BuildingExtraCommerces>
+				<BuildingExtraCommerce>
+					<BuildingClass>BUILDINGCLASS_KNOWLEDGE_INHERITANCE</BuildingClass>
+					<CommerceType>COMMERCE_RESEARCH</CommerceType>
+					<iExtraCommerce>1</iExtraCommerce>
+				</BuildingExtraCommerce>
+			</BuildingExtraCommerces>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Shaman Temple Apprentice 1 -->
+			<Type>EVENT_SHAMAN_TEMPLE_APPRENTICE_1</Type>
+			<Description>TXT_KEY_EVENT_SHAMAN_TEMPLE_APPRENTICE_1</Description>
+			<bPickCity>1</bPickCity>
+			<BuildingExtraCommerces>
+				<BuildingExtraCommerce>
+					<BuildingClass>BUILDINGCLASS_SHAMAN_TEMPLE</BuildingClass>
+					<CommerceType>COMMERCE_RESEARCH</CommerceType>
+					<iExtraCommerce>1</iExtraCommerce>
+				</BuildingExtraCommerce>
+			</BuildingExtraCommerces>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo> <!-- Shaman Temple Apprentice 2 -->
+			<Type>EVENT_SHAMAN_TEMPLE_APPRENTICE_2</Type>
+			<Description>TXT_KEY_EVENT_SHAMAN_TEMPLE_APPRENTICE_2</Description>
+			<BuildingExtraCommerces>
+				<BuildingExtraCommerce>
+					<BuildingClass>BUILDINGCLASS_SHAMAN_TEMPLE</BuildingClass>
+					<CommerceType>COMMERCE_RESEARCH</CommerceType>
+					<iExtraCommerce>1</iExtraCommerce>
+				</BuildingExtraCommerce>
+			</BuildingExtraCommerces>
+			<PythonCanDo>canApplyShamanTempleApprentice2</PythonCanDo>
+			<PythonHelp>getHelpShamanTempleApprentice2</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
 	</EventInfos>
 </Civ4EventInfos>

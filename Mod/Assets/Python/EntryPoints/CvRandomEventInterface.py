@@ -5084,3 +5084,26 @@ def applyBarbarianMixedInvasion3(argsList):
 
 	return doBarbarianInvasion(kTriggeredData.ePlayer, iNumUnits, unitTypes)
 	
+################ SHAMAN TEMPLE APPRENTICE ################
+
+def canApplyShamanTempleApprentice2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+
+	# We need multiple cities for this to apply
+	return player.getNumCities() > 1
+
+def getHelpShamanTempleApprentice2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	
+	if player.getNumCities() > 1:
+		szHelp = localText.getText("TXT_KEY_EVENT_SHAMAN_TEMPLE_APPRENTICE_HELP_OK", ())
+	else:
+		szHelp = localText.getText("TXT_KEY_EVENT_SHAMAN_TEMPLE_APPRENTICE_HELP_CANNOT", ())
+	
+	return szHelp
+
+
