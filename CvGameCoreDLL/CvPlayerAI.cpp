@@ -8431,6 +8431,11 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 	bool bValid = kUnit.getUnitAIType(eUnitAI);
 
 	if (!bValid) {
+		// For home bound units only allow the defined AIs
+		if (kUnit.getRangeType() == UNITRANGE_HOME) {
+			return 0;
+		}
+
 		switch (eUnitAI) {
 		case UNITAI_UNKNOWN:
 			break;
