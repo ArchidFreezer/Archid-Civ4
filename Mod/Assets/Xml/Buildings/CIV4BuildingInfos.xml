@@ -5133,6 +5133,47 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Poultry Farm -->
+			<BuildingClass>BUILDINGCLASS_POULTRY_FARM</BuildingClass>
+			<Type>BUILDING_POULTRY_FARM</Type>
+			<Description>TXT_KEY_BUILDING_POULTRY_FARM</Description>
+			<Civilopedia>TXT_KEY_TECH_POULTRY_FARM_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_POULTRY_FARM_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_POULTRY_FARM</ArtDefineTag>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<PrereqAndTechs>
+				<TechType>TECH_POULTRY_FARMING</TechType>
+			</PrereqAndTechs>
+			<iCost>70</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iConquestProb>66</iConquestProb>
+			<iMaxLatitude>90</iMaxLatitude>
+			<iFoodKept>10</iFoodKept>
+			<iAsset>3</iAsset>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<YieldChanges>
+				<iYield>2</iYield>
+			</YieldChanges>
+			<ConstructSound>AS2D_BUILD_GRANARY</ConstructSound>
+			<BonusProductionModifiers>
+				<BonusProductionModifier>
+					<BonusType>BONUS_CORN</BonusType>
+					<iModifier>10</iModifier>
+				</BonusProductionModifier>
+				<BonusProductionModifier>
+					<BonusType>BONUS_BARLEY</BonusType>
+					<iModifier>10</iModifier>
+				</BonusProductionModifier>
+			</BonusProductionModifiers>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Public Transportation -->
 			<BuildingClass>BUILDINGCLASS_PUBLIC_TRANSPORTATION</BuildingClass>
 			<Type>BUILDING_PUBLIC_TRANSPORTATION</Type>
@@ -5201,6 +5242,55 @@
 					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Ranch -->
+			<BuildingClass>BUILDINGCLASS_RANCH</BuildingClass>
+			<Type>BUILDING_RANCH</Type>
+			<Description>TXT_KEY_BUILDING_RANCH</Description>
+			<Civilopedia>TXT_KEY_BUILDING_RANCH_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_RANCH_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_RANCH</ArtDefineTag>
+			<FreeStartEra>ERA_MODERN</FreeStartEra>
+			<PrereqAndTechs>
+				<TechType>TECH_ANIMAL_HUSBANDRY</TechType>
+			</PrereqAndTechs>
+			<iCost>80</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iConquestProb>66</iConquestProb>
+			<iMaxLatitude>90</iMaxLatitude>
+			<iFoodKept>10</iFoodKept>
+			<iAsset>3</iAsset>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<YieldChanges>
+				<iYield>2</iYield>
+			</YieldChanges>
+			<ConstructSound>AS2D_BUILD_GRANARY</ConstructSound>
+			<BonusProductionModifiers>
+				<BonusProductionModifier>
+					<BonusType>BONUS_COW</BonusType>
+					<iModifier>10</iModifier>
+				</BonusProductionModifier>
+				<BonusProductionModifier>
+					<BonusType>BONUS_PIG</BonusType>
+					<iModifier>10</iModifier>
+				</BonusProductionModifier>
+				<BonusProductionModifier>
+					<BonusType>BONUS_SHEEP</BonusType>
+					<iModifier>10</iModifier>
+				</BonusProductionModifier>
+				<BonusProductionModifier>
+					<BonusType>BONUS_BISON</BonusType>
+					<iModifier>10</iModifier>
+				</BonusProductionModifier>
+			</BonusProductionModifiers>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>20</iFlavor>
+				</Flavor>
+			</Flavors>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Recycling Center -->
 			<BuildingClass>BUILDINGCLASS_RECYCLING_CENTER</BuildingClass>

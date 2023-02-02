@@ -1967,5 +1967,25 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/barbarian_lodge.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- Poultry Farm -->
+			<Type>ART_DEF_BUILDING_POULTRY_FARM</Type>
+			<LSystem/>
+			<bAnimated>0</bAnimated>
+			<fScale/>
+			<fInterfaceScale/>
+			<NIF/>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/poultry_farm.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- Ranch -->
+			<Type>ART_DEF_BUILDING_RANCH</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/ranch/stables.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/ranch.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

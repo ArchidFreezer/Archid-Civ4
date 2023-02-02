@@ -145,6 +145,34 @@
 		<English>Build a [COLOR_BUILDING_TEXT]Palisade[COLOR_REVERT] to increase a cities defence.</English>
 		<Spanish>Construye una [COLOR_BUILDING_TEXT]Empalizada[COLOR_REVERT] para incrementar el bono de defensa en tus ciudades.</Spanish>
 	</TEXT>
+	<TEXT> <!-- Poultry Farm -->
+		<Tag>TXT_KEY_BUILDING_POULTRY_FARM</Tag>
+		<English>Poultry Farm</English>
+		<Spanish>Granja Av&#237;cola</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_POULTRY_FARM_PEDIA</Tag>
+		<English>A [COLOR_BUILDING_TEXT]Poultry Farm[COLOR_REVERT] rears chickens and other poultry for the purpose of providing food.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_POULTRY_FARM_STRATEGY</Tag>
+		<English>Build a [COLOR_BUILDING_TEXT]Poultry Farm[COLOR_REVERT] to increase your cities' growth.</English>
+		<Spanish>Construye una [COLOR_BUILDING_TEXT]Granja Av&#237;cola[COLOR_REVERT] para incrementar el crecimiento de tus ciudades.</Spanish>
+	</TEXT>
+	<TEXT> <!-- Ranch -->
+		<Tag>TXT_KEY_BUILDING_RANCH</Tag>
+		<English>Ranch</English>
+		<Spanish>Rancho</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_RANCH_PEDIA</Tag>
+		<English>A [COLOR_BUILDING_TEXT]Ranch[COLOR_REVERT] is an area of landscape, including various structures, given primarily to the practice of ranching, the practice of raising grazing livestock such as cattle or sheep for meat or wool. The word most often applies to livestock-raising operations in the western United States and Canada, though there are ranches in other areas. People who own or operate a ranch are called stockgrowers or ranchers. Ranching is also a method used to raise less common livestock such as elk, American Bison or even ostrich and emu.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_RANCH_STRATEGY</Tag>
+		<English>Build a [COLOR_BUILDING_TEXT]Ranch[COLOR_REVERT] to increase your cities' growth.</English>
+		<Spanish>Construye un [COLOR_BUILDING_TEXT]Rancho[COLOR_REVERT] para incrementar el crecimiento de tus ciudades.</Spanish>
+	</TEXT>
 	<TEXT> <!-- Shaman Temple -->
 		<Tag>TXT_KEY_BUILDING_SHAMAN_TEMPLE</Tag>
 		<English>Shaman Temple</English>

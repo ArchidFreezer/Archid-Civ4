@@ -896,5 +896,15 @@
 			<iMaxPlayerInstances>1</iMaxPlayerInstances>
 			<DefaultBuilding>BUILDING_WEST_POINT</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Ranch -->
+			<Type>BUILDINGCLASS_RANCH</Type>
+			<Description>TXT_KEY_BUILDING_RANCH</Description>
+			<DefaultBuilding>BUILDING_RANCH</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Poulty Farm -->
+			<Type>BUILDINGCLASS_POULTRY_FARM</Type>
+			<Description>TXT_KEY_BUILDING_POULTRY_FARM</Description>
+			<DefaultBuilding>BUILDING_POULTRY_FARM</DefaultBuilding>
+		</BuildingClassInfo>
 	</BuildingClassInfos>
 </Civ4BuildingClassInfos>
