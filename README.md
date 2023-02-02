@@ -25,6 +25,7 @@ There are several additional screens available with the mod that are accessed vi
 - [Ctrl-A] - When in a city screen allows for buildings to be sold for cash or cities to be abandoned
 
 ### Testing
+- [Ctrl-Shift-E] - Open popup to trigger an event
 - [Ctrl-Shift-K] - Open popup to kill player units, cities and/or deals
 - [Ctrl-Shift-L] - Open popup to switch which player the human controls 
 - [Ctrl-Shift-M] - Turn control of your civ over to the AI for the rest of the round. 
