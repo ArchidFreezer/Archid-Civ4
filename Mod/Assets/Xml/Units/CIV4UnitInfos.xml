@@ -3752,6 +3752,7 @@
 			<Combat>UNITCOMBAT_HUNTER</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_HUNTER</DefaultUnitAI>
+			<bFixedAI>1</bFixedAI>
 			<SeeInvisibles>
 				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
 			</SeeInvisibles>
