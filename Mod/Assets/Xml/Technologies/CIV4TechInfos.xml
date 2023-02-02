@@ -2227,8 +2227,11 @@
 				</Flavor>
 			</Flavors>
 			<OrPreReqs>
-				<PrereqTech>TECH_THE_WHEEL</PrereqTech>
+				<PrereqTech>TECH_HORSEBACK_RIDING</PrereqTech>
 			</OrPreReqs>
+			<AndPreReqs>
+				<PrereqTech>TECH_THE_WHEEL</PrereqTech>
+			</AndPreReqs>
 			<Quote>TXT_KEY_TECH_CHARIOTRY_QUOTE</Quote>
 			<Sound>AS2D_TECH_GENERIC</Sound>
 			<Button>Art/Interface/Buttons/TechTree/chariotry.dds</Button>
@@ -4153,7 +4156,7 @@
 			<bTrade>1</bTrade>
 			<bGoodyTech>1</bGoodyTech>
 			<iGridX>11</iGridX>
-			<iGridY>17</iGridY>
+			<iGridY>16</iGridY>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
@@ -5529,15 +5532,15 @@
 			<Strategy>TXT_KEY_TECH_HORSEBACK_RIDING_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<iAITradeModifier>10</iAITradeModifier>
-			<iCost>180</iCost>
+			<iCost>145</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
 			<iAsset>8</iAsset>
 			<iPower>10</iPower>
 			<bTrade>1</bTrade>
 			<bGoodyTech>1</bGoodyTech>
-			<iGridX>13</iGridX>
-			<iGridY>17</iGridY>
+			<iGridX>11</iGridX>
+			<iGridY>18</iGridY>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
@@ -5561,8 +5564,11 @@
 				</Flavor>
 			</Flavors>
 			<OrPreReqs>
-				<PrereqTech>TECH_CHARIOTRY</PrereqTech>
+				<PrereqTech>TECH_ANIMAL_HUSBANDRY</PrereqTech>
 			</OrPreReqs>
+			<AndPreReqs>
+				<PrereqTech>TECH_METAL_CASTING</PrereqTech>
+			</AndPreReqs>
 			<Quote>TXT_KEY_TECH_HORSEBACK_RIDING_QUOTE</Quote>
 			<Sound>AS2D_TECH_HORSERIDING</Sound>
 			<SoundMP>AS2D_TECH_MP_HORSERIDING</SoundMP>
@@ -8094,6 +8100,46 @@
 			<Quote>TXT_KEY_TECH_MOUNTAINEERING_QUOTE</Quote>
 			<Sound>AS2D_TECH_GENERIC</Sound>
 			<Button>Art/Interface/Buttons/TechTree/mountianeering.dds</Button>
+		</TechInfo>
+		<TechInfo> <!-- Mounted Archery -->
+			<Type>TECH_MOUNTED_ARCHERY</Type>
+			<Description>TXT_KEY_TECH_MOUNTED_ARCHERY</Description>
+			<Civilopedia>TXT_KEY_TECH_MOUNTED_ARCHERY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_TECH_MOUNTED_ARCHERY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<iAITradeModifier>10</iAITradeModifier>
+			<iCost>425</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<Era>ERA_CLASSICAL</Era>
+			<iAsset>8</iAsset>
+			<iPower>10</iPower>
+			<bTrade>1</bTrade>
+			<bGoodyTech>1</bGoodyTech>
+			<iGridX>16</iGridX>
+			<iGridY>17</iGridY>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>8</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+			</Flavors>
+			<OrPreReqs>
+				<PrereqTech>TECH_HORSE_BREEDING</PrereqTech>
+			</OrPreReqs>
+			<AndPreReqs>
+				<PrereqTech>TECH_ARCHERY</PrereqTech>
+			</AndPreReqs>
+			<Quote>TXT_KEY_TECH_HORSE_BREEDING_QUOTE</Quote>
+			<Sound>AS2D_TECH_GENERIC</Sound>
+			<Button>Art/Interface/Buttons/TechTree/Mounted_archery.dds</Button>
 		</TechInfo>
 		<TechInfo> <!-- Music -->
 			<Type>TECH_MUSIC</Type>
@@ -12066,7 +12112,7 @@
 				</Flavor>
 			</Flavors>
 			<OrPreReqs>
-				<PrereqTech>TECH_HORSE_BREEDING</PrereqTech>
+				<PrereqTech>TECH_MOUNTED_ARCHERY</PrereqTech>
 			</OrPreReqs>
 			<AndPreReqs>
 				<PrereqTech>TECH_IRON_WORKING</PrereqTech>

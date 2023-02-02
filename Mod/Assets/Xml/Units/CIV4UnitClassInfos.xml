@@ -426,6 +426,11 @@
 			<Description>TXT_KEY_UNIT_CHARIOT</Description>
 			<DefaultUnit>UNIT_CHARIOT</DefaultUnit>
 		</UnitClassInfo>
+		<UnitClassInfo> <!-- Horseman -->
+			<Type>UNITCLASS_HORSEMAN</Type>
+			<Description>TXT_KEY_UNIT_HORSEMAN</Description>
+			<DefaultUnit>UNIT_HORSEMAN</DefaultUnit>
+		</UnitClassInfo>
 		<UnitClassInfo> <!-- Horse Archer -->
 			<Type>UNITCLASS_HORSE_ARCHER</Type>
 			<Description>TXT_KEY_UNIT_HORSE_ARCHER</Description>

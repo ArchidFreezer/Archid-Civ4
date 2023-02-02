@@ -3551,6 +3551,25 @@
 		<French>[COLOR_TECH_TEXT]Montagnard[COLOR_REVERT] permet aux unités de traverser à travers les montagnes et permet la construction du [COLOR_BUILDING_TEXT]Machu Picchu[COLOR_REVERT].</French>
 	</TEXT>
 
+	<TEXT> <!-- Mounted Archery -->
+		<Tag>TXT_KEY_TECH_MOUNTED_ARCHERY</Tag>
+		<English>Mounted Archery</English>
+		<French>Tir à l'arc monté</French>
+		<German>Berittene Bogensch&#252;tzen</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_MOUNTED_ARCHERY_QUOTE</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_MOUNTED_ARCHERY_PEDIA</Tag>
+		<English>[TAB]Mounted archery was a defining characteristic of Steppe warfare throughout Central Asia, and throughout the prairies of America after the adoption of the horse, used by peoples including the Scythians, Sarmatians, Parthians, Huns, Bulgars, Magyars, Mongols, Turks, Comanches, and others. It was also adopted by other peoples and armies, notably Chinese and Romans who both suffered serious conflict with peoples practicing horse archery. It developed separately among the peoples of the South American pampas and the North American prairies; the Comanches were especially skilled. Horse archery was also particularly honoured in the samurai tradition of Japan, where mounted archery is called Yabusame. In some places, such as in Germany and Portugal, the crossbow was favoured over composite bow. Horse archery was never widely used south of the Sahara in Africa, where the ecosystem was less suitable for domestic horses. This was presumably due to factors such as the tsetse fly and lack of suitable fodder. Though some African kingdoms south of the Sahara used horses, they were less useful and had a high mortality rate in these regions. [PARAGRAPH:2]The natives of large grassland areas developed mounted archery for hunting, and for war. The buffalo hunts of the North American prairies may have been the most spectacular and best-recorded examples of bowhunting by mounted archers. Since using a bow requires a horseman to let go of the reins with both hands, horse archers need superb equestrian skills if they are to shoot on the move. It is thought that the Ancient Greeks invented the mythical Centaurs as the perfect union of an archer and a fast moving horseman. [PARAGRAPH:2]In battle, horsed archers were typically skirmishers; lightly-armed missile troops capable of moving swiftly to avoid close combat or to deliver a rapid blow to the flanks or rear of the foe. In the tactic of the Parthian shot the horseman would retreat from the enemy while turning his upper body and shooting backwards. Due to the superior speed of mounted archers, troops under attack from horse archers were unable to respond to the threat if they did not have ranged weapons of their own. Constant harassment would result in casualties, morale drop and disruption of the formation. Any attempts to charge the archers would also slow the entire army down.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_MOUNTED_ARCHERY_STRATEGY</Tag>
+		<English>[COLOR_TECH_TEXT]Mounted Archery[COLOR_REVERT] allows you to train [COLOR_UNIT_TEXT]Horse Archers[COLOR_REVERT].</English>
+	</TEXT>
+
 	<TEXT> <!-- Mystical Beliefs -->
 		<Tag>TXT_KEY_TECH_MYSTICAL_BELIEFS</Tag>
 		<English>Mystical Beliefs</English>

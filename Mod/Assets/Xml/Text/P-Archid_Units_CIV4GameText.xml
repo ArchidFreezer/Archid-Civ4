@@ -280,8 +280,22 @@
 		<English>Horse</English>
 		<French>Cheval</French>
 		<German>Hauspferd</German>
-		<Italian>Horse</Italian>
-		<Spanish>Horse</Spanish>
+	</TEXT>
+
+<!-- Horseman -->
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HORSEMAN</Tag>
+		<English>Horseman</English>
+		<French>Cavalier</French>
+		<German>Reiter</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HORSEMAN_PEDIA</Tag>
+		<English>[TAB]Horseman is a cavalryman armed with a javelin while scouting and with a long spear while in a battle.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HORSEMAN_STRATEGY</Tag>
+		<English>Horseman is the first mounted unit capable of making flanking strikes against enemy siege units.</English>
 	</TEXT>
 
 	<TEXT> <!-- Javelineer -->
