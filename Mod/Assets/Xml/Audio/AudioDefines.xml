@@ -11009,7 +11009,15 @@
 			<LoadType>DYNAMIC_RES</LoadType>
 			<bIsCompressed>1</bIsCompressed>
 			<bInGeneric>1</bInGeneric>
-		</SoundData>	</SoundDatas>
+		</SoundData>
+		<SoundData>
+			<SoundID>SND_BUILD_EARLY_INSTRUMENT_MAKER</SoundID>
+			<Filename>Sounds/Buildings/EarlyInstrumentMaker</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+	</SoundDatas>
 	<ContextTypes>
 		<ContextType>Generic</ContextType>
 	</ContextTypes>

@@ -1987,5 +1987,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/ranch.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- Early Instrument Maker -->
+			<Type>ART_DEF_BUILDING_EARLY_INSTRUMENT_MAKER</Type>
+			<LSystem/>
+			<bAnimated>0</bAnimated>
+			<fScale/>
+			<fInterfaceScale/>
+			<NIF/>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/early_instrument_maker.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

@@ -40,6 +40,18 @@
 		<English>Build a [COLOR_BUILDING_TEXT]Cave Painting[COLOR_REVERT] to increase your culture output in your cities.</English>
 		<Spanish>Construye una [COLOR_BUILDING_TEXT]Pintura Rupestre[COLOR_REVERT] para incrementar la cultura en tus ciudades.</Spanish>
 	</TEXT>
+	<TEXT> <!-- Early Instrument Maker -->
+		<Tag>TXT_KEY_BUILDING_EARLY_INSTRUMENT_MAKER</Tag>
+		<English>Early Instrument Maker</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_EARLY_INSTRUMENT_MAKER_PEDIA</Tag>
+		<English>During the Paeleolithic era there are many examples of music making instruments from what appear to be percussive instruments such as hollowed logs or scratched materials to flutes. Bone flutes have been found from Mesoamerica to East ASfrica to Europe. An [COLOR_BUILDING_TEXT]Early Instrument Maker[COLOR_REVERT] would produce these for both use within the tribe and also for trade. For a while, archeologists thought that ancient humans were too primitive to create sophisticated music, but then these flutes started showing up in more archeological sites. One in Germany was found to be 36,000 years old, helping to prove that ancient humans were as intellectually astute as modern humans. After all, the task of creating, tuning, and systematically using instruments requires a high degree of mental acumen. Since then, other flutes have been found dating as far back as 45,000 BCE in Germany, France, Turkey, and India.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_EARLY_INSTRUMENT_MAKER_STRATEGY</Tag>
+		<English>Build a [COLOR_BUILDING_TEXT]Early Instrument Maker[COLOR_REVERT] to increase the commerce output in your cities.</English>
+	</TEXT>
 	<TEXT> <!-- Hunting Instruction -->
 		<Tag>TXT_KEY_BUILDING_HUNTING_INSTRUCTION</Tag>
 		<English>Hunting Instruction</English>

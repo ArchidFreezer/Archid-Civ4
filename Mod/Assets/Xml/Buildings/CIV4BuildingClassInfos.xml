@@ -906,5 +906,10 @@
 			<Description>TXT_KEY_BUILDING_POULTRY_FARM</Description>
 			<DefaultBuilding>BUILDING_POULTRY_FARM</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Early Instrument Maker -->
+			<Type>BUILDINGCLASS_EARLY_INSTRUMENT_MAKER</Type>
+			<Description>TXT_KEY_BUILDING_EARLY_INSTRUMENT_MAKER</Description>
+			<DefaultBuilding>BUILDING_EARLY_INSTRUMENT_MAKER</DefaultBuilding>
+		</BuildingClassInfo>
 	</BuildingClassInfos>
 </Civ4BuildingClassInfos>

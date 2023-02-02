@@ -1861,6 +1861,37 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Early Instrument Maker -->
+			<BuildingClass>BUILDINGCLASS_EARLY_INSTRUMENT_MAKER</BuildingClass>
+			<Type>BUILDING_EARLY_INSTRUMENT_MAKER</Type>
+			<Description>TXT_KEY_BUILDING_EARLY_INSTRUMENT_MAKER</Description>
+			<Civilopedia>TXT_KEY_BUILDING_EARLY_INSTRUMENT_MAKER_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_EARLY_INSTRUMENT_MAKER_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_EARLY_INSTRUMENT_MAKER</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_PREHISTORIC_MUSIC</TechType>
+			</PrereqAndTechs>
+			<iCost>70</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iConquestProb>66</iConquestProb>
+			<iMaxLatitude>90</iMaxLatitude>
+			<iAsset>3</iAsset>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</YieldChanges>
+			<ConstructSound>AS2D_BUILD_EARLY_INSTRUMENT_MAKER</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Eiffel Tower -->
 			<BuildingClass>BUILDINGCLASS_EIFFEL_TOWER</BuildingClass>
 			<Type>BUILDING_EIFFEL_TOWER</Type>
