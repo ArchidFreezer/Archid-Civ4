@@ -55,7 +55,8 @@
 			<iCategory>14</iCategory>
 			<DefaultBuilding>BUILDING_BUNKER</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Intelligence Agency -->
+
+		<BuildingClassInfo> <!-- Intelligence Agency -->             <!-- Security -->
 			<Type>BUILDINGCLASS_INTELLIGENCE_AGENCY</Type>
 			<Description>TXT_KEY_BUILDING_INTELLIGENCE_AGENCY</Description>
 			<iCategory>15</iCategory>
@@ -67,8 +68,7 @@
 			<iCategory>15</iCategory>
 			<DefaultBuilding>BUILDING_JAIL</DefaultBuilding>
 		</BuildingClassInfo>
-
-		<BuildingClassInfo> <!-- National Security -->               <!-- Security -->
+		<BuildingClassInfo> <!-- National Security -->
 			<Type>BUILDINGCLASS_NATIONAL_SECURITY</Type>
 			<Description>TXT_KEY_BUILDING_NATIONAL_SECURITY</Description>
 			<iCategory>15</iCategory>
@@ -81,11 +81,11 @@
 			<iCategory>16</iCategory>
 			<DefaultBuilding>BUILDING_GRANARY</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Ranch -->
-			<Type>BUILDINGCLASS_RANCH</Type>
-			<Description>TXT_KEY_BUILDING_RANCH</Description>
+		<BuildingClassInfo> <!-- Hunting Lodge -->
+			<Type>BUILDINGCLASS_HUNTING_LODGE</Type>
+			<Description>TXT_KEY_BUILDING_HUNTING_LODGE</Description>
 			<iCategory>16</iCategory>
-			<DefaultBuilding>BUILDING_RANCH</DefaultBuilding>
+			<DefaultBuilding>BUILDING_HUNTING_LODGE</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Poultry Farm -->
 			<Type>BUILDINGCLASS_POULTRY_FARM</Type>
@@ -93,13 +93,14 @@
 			<iCategory>16</iCategory>
 			<DefaultBuilding>BUILDING_POULTRY_FARM</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Hunting Lodge -->
-			<Type>BUILDINGCLASS_HUNTING_LODGE</Type>
-			<Description>TXT_KEY_BUILDING_HUNTING_LODGE</Description>
+		<BuildingClassInfo> <!-- Ranch -->
+			<Type>BUILDINGCLASS_RANCH</Type>
+			<Description>TXT_KEY_BUILDING_RANCH</Description>
 			<iCategory>16</iCategory>
-			<DefaultBuilding>BUILDING_HUNTING_LODGE</DefaultBuilding>
+			<DefaultBuilding>BUILDING_RANCH</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Barracks -->
+
+		<BuildingClassInfo> <!-- Barracks -->                        <!-- Military Training -->
 			<Type>BUILDINGCLASS_BARRACKS</Type>
 			<Description>TXT_KEY_BUILDING_BARRACKS</Description>
 			<iCategory>17</iCategory>
@@ -117,8 +118,7 @@
 			<iCategory>17</iCategory>
 			<DefaultBuilding>BUILDING_STABLE</DefaultBuilding>
 		</BuildingClassInfo>
-
-		<BuildingClassInfo> <!-- Stone Weapons Workshop -->          <!-- Military Training -->
+		<BuildingClassInfo> <!-- Stone Weapons Workshop -->
 			<Type>BUILDINGCLASS_STONE_WEAPONS_WORKSHOP</Type>
 			<Description>TXT_KEY_STONE_WEAPONS_WORKSHOP</Description>
 			<iCategory>17</iCategory>
@@ -131,14 +131,14 @@
 			<iCategory>18</iCategory>
 			<DefaultBuilding>BUILDING_DRYDOCK</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Harbor -->
+
+		<BuildingClassInfo> <!-- Harbor -->                          <!-- Water Trade -->
 			<Type>BUILDINGCLASS_HARBOR</Type>
 			<Description>TXT_KEY_BUILDING_HARBOR</Description>
 			<iCategory>20</iCategory>
 			<DefaultBuilding>BUILDING_HARBOR</DefaultBuilding>
 		</BuildingClassInfo>
-
-		<BuildingClassInfo> <!-- Lighthouse -->                      <!-- Water Trade -->
+		<BuildingClassInfo> <!-- Lighthouse -->
 			<Type>BUILDINGCLASS_LIGHTHOUSE</Type>
 			<Description>TXT_KEY_BUILDING_LIGHTHOUSE</Description>
 			<iCategory>20</iCategory>
@@ -210,7 +210,8 @@
 			<iCategory>28</iCategory>
 			<DefaultBuilding>BUILDING_SLAVE_MARKET</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Early Instrument Maker -->
+
+		<BuildingClassInfo> <!-- Early Instrument Maker -->          <!-- Commerce - Retail -->
 			<Type>BUILDINGCLASS_EARLY_INSTRUMENT_MAKER</Type>
 			<Description>TXT_KEY_BUILDING_EARLY_INSTRUMENT_MAKER</Description>
 			<iCategory>29</iCategory>
@@ -228,8 +229,7 @@
 			<iCategory>29</iCategory>
 			<DefaultBuilding>BUILDING_MARKET</DefaultBuilding>
 		</BuildingClassInfo>
-
-		<BuildingClassInfo> <!-- Supermarket -->                     <!-- Commerce - Retail -->
+		<BuildingClassInfo> <!-- Supermarket -->
 			<Type>BUILDINGCLASS_SUPERMARKET</Type>
 			<Description>TXT_KEY_BUILDING_SUPERMARKET</Description>
 			<iCategory>29</iCategory>
@@ -242,14 +242,14 @@
 			<iCategory>30</iCategory>
 			<DefaultBuilding>BUILDING_BANK</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Cave Painting -->
+
+		<BuildingClassInfo> <!-- Cave Painting -->                   <!-- Culture -->
 			<Type>BUILDINGCLASS_CAVE_PAINTING</Type>
 			<Description>TXT_KEY_BUILDING_CAVE_PAINTING</Description>
 			<iCategory>31</iCategory>
 			<DefaultBuilding>BUILDING_CAVE_PAINTING</DefaultBuilding>
 		</BuildingClassInfo>
-
-		<BuildingClassInfo> <!-- Colosseum -->                       <!-- Culture -->
+		<BuildingClassInfo> <!-- Colosseum -->
 			<Type>BUILDINGCLASS_COLOSSEUM</Type>
 			<Description>TXT_KEY_BUILDING_COLOSSEUM</Description>
 			<iCategory>31</iCategory>
@@ -326,14 +326,14 @@
 			<iCategory>36</iCategory>
 			<DefaultBuilding>BUILDING_HYDRO_PLANT</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Hospital -->
+
+		<BuildingClassInfo> <!-- Hospital -->                        <!-- Health -->
 			<Type>BUILDINGCLASS_HOSPITAL</Type>
 			<Description>TXT_KEY_BUILDING_HOSPITAL</Description>
 			<iCategory>37</iCategory>
 			<DefaultBuilding>BUILDING_HOSPITAL</DefaultBuilding>
 		</BuildingClassInfo>
-
-		<BuildingClassInfo> <!-- Public Transportation -->           <!-- Health -->
+		<BuildingClassInfo> <!-- Public Transportation -->
 			<Type>BUILDINGCLASS_PUBLIC_TRANSPORTATION</Type>
 			<Description>TXT_KEY_BUILDING_PUBLIC_TRANSPORTATION</Description>
 			<iCategory>37</iCategory>
