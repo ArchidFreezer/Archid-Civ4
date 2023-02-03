@@ -81,6 +81,18 @@
 			<iCategory>16</iCategory>
 			<DefaultBuilding>BUILDING_GRANARY</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Ranch -->
+			<Type>BUILDINGCLASS_RANCH</Type>
+			<Description>TXT_KEY_BUILDING_RANCH</Description>
+			<iCategory>16</iCategory>
+			<DefaultBuilding>BUILDING_RANCH</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Poultry Farm -->
+			<Type>BUILDINGCLASS_POULTRY_FARM</Type>
+			<Description>TXT_KEY_BUILDING_POULTRY_FARM</Description>
+			<iCategory>16</iCategory>
+			<DefaultBuilding>BUILDING_POULTRY_FARM</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Hunting Lodge -->
 			<Type>BUILDINGCLASS_HUNTING_LODGE</Type>
 			<Description>TXT_KEY_BUILDING_HUNTING_LODGE</Description>
@@ -197,6 +209,12 @@
 			<Description>TXT_KEY_BUILDING_SLAVE_MARKET</Description>
 			<iCategory>28</iCategory>
 			<DefaultBuilding>BUILDING_SLAVE_MARKET</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Early Instrument Maker -->
+			<Type>BUILDINGCLASS_EARLY_INSTRUMENT_MAKER</Type>
+			<Description>TXT_KEY_BUILDING_EARLY_INSTRUMENT_MAKER</Description>
+			<iCategory>29</iCategory>
+			<DefaultBuilding>BUILDING_EARLY_INSTRUMENT_MAKER</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Grocer -->
 			<Type>BUILDINGCLASS_GROCER</Type>

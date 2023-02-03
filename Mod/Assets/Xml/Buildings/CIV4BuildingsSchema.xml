@@ -28,7 +28,7 @@
 		<element type="Type"/>
 		<element type="Description"/>
 		<element type="iCategory" minOccurs="0"/> <!-- Not read by dll -->
-		<element type="bNoLimit" minOccurs="0"/>
+		<element type="iMaxGlobalInstances" minOccurs="0"/>
 		<element type="iMaxTeamInstances" minOccurs="0"/> <!-- Default: -1 -->
 		<element type="iMaxPlayerInstances" minOccurs="0"/> <!-- Default: -1 -->
 		<element type="iExtraPlayerInstances" minOccurs="0"/>
