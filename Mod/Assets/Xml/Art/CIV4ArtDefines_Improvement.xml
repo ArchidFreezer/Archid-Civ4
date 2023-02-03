@@ -50,7 +50,7 @@
 			<bExtraAnimations>0</bExtraAnimations>
 			<fScale>1.0</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
-			<NIF>Art/Structures/Improvements/land_worked/Teepee.nif</NIF>
+			<NIF>Art/Structures/Improvements/landworked/Teepee.nif</NIF>
 			<KFM/>
 			<Button>,Art/Interface/Buttons/Brown_empty.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,-1,-1</Button>
 		</ImprovementArtInfo>
@@ -117,8 +117,8 @@
 			<bExtraAnimations>0</bExtraAnimations>
 			<fScale>0.6</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
-			<NIF>Art/Structures/Improvements/lumberjack/Camp_fx.nif</NIF>
-			<KFM>Art/Structures/Improvements/lumberjack/Camp.kfm</KFM>
+			<NIF>Art/Structures/Improvements/lumberjack/lumberjack.nif</NIF>
+			<KFM>Art/Structures/Improvements/lumberjack/lumberjack.kfm</KFM>
 			<Button>Art/Interface/Buttons/Builds/lumberjack.dds</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Lumbermill -->
@@ -202,8 +202,8 @@
 			<bExtraAnimations>0</bExtraAnimations>
 			<fScale>0.6</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
-			<NIF>Art/Structures/Improvements/Gatherers/Camp.nif</NIF>
-			<KFM>Art/Structures/Improvements/Gatherers/Camp.kfm</KFM>
+			<NIF>Art/Structures/Improvements/RockGatherer/camp_fx.nif</NIF>
+			<KFM>Art/Structures/Improvements/RockGatherer/Camp.kfm</KFM>
 			<Button>Art/Interface/Buttons/Builds/obsidian_camp.dds</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Offshore Platform -->
@@ -256,8 +256,8 @@
 			<bExtraAnimations>0</bExtraAnimations>
 			<fScale>0.6</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
-			<NIF>Art/Structures/Improvements/Gatherers/Camp.nif</NIF>
-			<KFM>Art/Structures/Improvements/Gatherers/Camp.kfm</KFM>
+			<NIF>Art/Structures/Improvements/RockGatherer/camp_fx.nif</NIF>
+			<KFM>Art/Structures/Improvements/RockGatherer/Camp.kfm</KFM>
 			<Button>Art/Interface/Buttons/Builds/stone_tools_camp.dds</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Seed Camp -->
@@ -265,8 +265,8 @@
 			<bExtraAnimations>0</bExtraAnimations>
 			<fScale>0.6</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
-			<NIF>Art/Structures/Improvements/Gatherers/Camp.nif</NIF>
-			<KFM>Art/Structures/Improvements/Gatherers/Camp.kfm</KFM>
+			<NIF>Art/Structures/Improvements/SeedGatherer/camp_fx.nif</NIF>
+			<KFM>Art/Structures/Improvements/SeedGatherer/Camp.kfm</KFM>
 			<Button>Art/Interface/Buttons/Builds/seed_camp.dds</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Timber Camp -->
