@@ -23,10 +23,12 @@
 	<ElementType name="VictoryThresholds" content="eltOnly">
 		<element type="VictoryThreshold" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="iCategory" content="textOnly" dt:type="int"/>
 	<ElementType name="BuildingClassInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
-		<element type="iMaxGlobalInstances" minOccurs="0"/> <!-- Default: -1 -->
+		<element type="iCategory" minOccurs="0"/> <!-- Not read by dll -->
+		<element type="bNoLimit" minOccurs="0"/>
 		<element type="iMaxTeamInstances" minOccurs="0"/> <!-- Default: -1 -->
 		<element type="iMaxPlayerInstances" minOccurs="0"/> <!-- Default: -1 -->
 		<element type="iExtraPlayerInstances" minOccurs="0"/>
