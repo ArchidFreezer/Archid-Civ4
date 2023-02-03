@@ -8394,6 +8394,10 @@ void CvPlot::doImprovementSpawn() {
 		bool  bResident = false;
 		int iSpawnRatePercentage = 0;
 
+		// Always leave at least one plot free in smaller areas
+		if (area()->getNumTiles() < 10 && area()->getNumUnits() >= area()->getNumUnownedTiles())
+			return;
+
 		bool bSpawnAnimal = false;
 		bool bSpawnBarbarian = false;
 		if (kImprovement.getAnimalSpawnRatePercentage() > 0) {

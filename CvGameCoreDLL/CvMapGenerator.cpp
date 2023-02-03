@@ -1078,6 +1078,10 @@ void CvMapGenerator::addImprovements(bool bAddAnimalSpawning, bool bAddBarbSpawn
 		if ((bAddAnimalSpawning || bAddBarbSpawning) && pPlot->isOwned() && pPlot->getOwnerINLINE() != BARBARIAN_PLAYER) {
 			continue;
 		}
+		// Don't put spawning improvements on small islands
+		if ((bAddAnimalSpawning || bAddBarbSpawning) && pPlot->area()->getNumTiles() < 3) {
+			continue;
+		}
 
 		// bValid used as there is no way of continuing an outer loop in c++ when nesting without either a variable or a goto
 		bool bValid = true;
