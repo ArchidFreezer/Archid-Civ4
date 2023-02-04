@@ -184,11 +184,6 @@
 			<Description>TXT_KEY_FEATURE_FOREST</Description>
 			<Civilopedia>TXT_KEY_FEATURE_FOREST_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_FOREST</ArtDefineTag>
-			<YieldChanges>
-				<iYieldChange>0</iYieldChange>
-				<iYieldChange>1</iYieldChange>
-				<iYieldChange>0</iYieldChange>
-			</YieldChanges>
 			<iMovement>2</iMovement>
 			<iSeeThrough>1</iSeeThrough>
 			<iHealthPercent>50</iHealthPercent>

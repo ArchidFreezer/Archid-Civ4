@@ -117,9 +117,9 @@
 			<bExtraAnimations>0</bExtraAnimations>
 			<fScale>0.6</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
-			<NIF>Art/Structures/Improvements/lumberjack/lumberjack.nif</NIF>
-			<KFM>Art/Structures/Improvements/lumberjack/lumberjack.kfm</KFM>
-			<Button>Art/Interface/Buttons/Builds/lumberjack.dds</Button>
+		  <NIF>Art/Structures/Improvements/lumberjack/Camp_fx.nif</NIF>
+		  <KFM>Art/Structures/Improvements/lumberjack/Camp.kfm</KFM>
+			<Button>Art/Interface/Buttons/Builds/lumberjack_camp.dds</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Lumbermill -->
 			<Type>ART_DEF_IMPROVEMENT_LUMBERMILL</Type>

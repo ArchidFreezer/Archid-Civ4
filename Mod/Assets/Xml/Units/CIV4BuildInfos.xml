@@ -210,7 +210,7 @@
 			<iHotKeyPriority>0</iHotKeyPriority>
 			<Button>,Art/Interface/Buttons/Builds/BuildFort.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,7,9</Button>
 		</BuildInfo>
-		<BuildInfo> <!-- Lumbermill -->
+		<BuildInfo> <!-- Lumberjack Camp -->
 			<Type>BUILD_LUMBERJACK</Type>
 			<Description>TXT_KEY_BUILD_LUMBERJACK</Description>
 			<Help/>

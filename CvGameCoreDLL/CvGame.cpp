@@ -1033,7 +1033,10 @@ void CvGame::normalizeRemoveBadFeatures() {
 					if (pLoopPlot != NULL) {
 						if (pLoopPlot->getFeatureType() != NO_FEATURE) {
 							const CvFeatureInfo& kFeature = GC.getFeatureInfo(pLoopPlot->getFeatureType());
-							if (!kFeature.isUnique() && kFeature.getYieldChange(YIELD_FOOD) <= 0 && kFeature.getYieldChange(YIELD_PRODUCTION) <= 0) {
+							// This check will clear forests as they have no yields at the start of the game until Advanced Tools so we need to
+							// be a bit more precise. The only other terrain without negative yields is Ice and that is impassable so we
+							// add that as an additional check.
+							if (!kFeature.isUnique() && kFeature.getYieldChange(YIELD_FOOD) <= 0 && (kFeature.getYieldChange(YIELD_PRODUCTION) < 0 || kFeature.isImpassable())) {
 								pLoopPlot->setFeatureType(NO_FEATURE);
 							}
 						}
@@ -1052,7 +1055,7 @@ void CvGame::normalizeRemoveBadFeatures() {
 							if (iDistance <= iMaxRange) {
 								if (pLoopPlot->getFeatureType() != NO_FEATURE) {
 									const CvFeatureInfo& kFeature = GC.getFeatureInfo(pLoopPlot->getFeatureType());
-									if (!kFeature.isUnique() && kFeature.getYieldChange(YIELD_FOOD) <= 0 && kFeature.getYieldChange(YIELD_PRODUCTION) <= 0) {
+									if (!kFeature.isUnique() && kFeature.getYieldChange(YIELD_FOOD) <= 0 && (kFeature.getYieldChange(YIELD_PRODUCTION) < 0 || kFeature.isImpassable())) {
 										if (pLoopPlot->isWater()) {
 											if (pLoopPlot->isAdjacentToLand() || (!(iDistance == iMaxRange) && (getSorenRandNum(2, "Remove Bad Feature") == 0))) {
 												pLoopPlot->setFeatureType(NO_FEATURE);

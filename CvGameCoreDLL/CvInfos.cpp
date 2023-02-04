@@ -11134,6 +11134,7 @@ CvImprovementInfo::CvImprovementInfo() :
 	m_iImprovementPillage(NO_IMPROVEMENT),
 	m_iImprovementUpgrade(NO_IMPROVEMENT),
 	m_iUpgradeTech(NO_TECH),
+	m_iPrereqTech(NO_TECH),
 	m_bActsAsCity(true),
 	m_bHillsMakesValid(false),
 	m_bFreshWaterMakesValid(false),
@@ -11197,6 +11198,10 @@ CvImprovementInfo::~CvImprovementInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppiRouteYieldChanges);
 	}
+}
+
+int CvImprovementInfo::getPrereqTech() const {
+	return m_iPrereqTech;
 }
 
 int CvImprovementInfo::getAnimalSpawnRatePercentage() const {
@@ -11496,6 +11501,7 @@ void CvImprovementInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iAppearanceProbability);
 	stream->Read(&m_iAnimalSpawnRatePercentage);
 	stream->Read(&m_iBarbarianSpawnRatePercentage);
+	stream->Read(&m_iPrereqTech);
 
 	stream->Read(&m_bActsAsCity);
 	stream->Read(&m_bHillsMakesValid);
@@ -11603,6 +11609,7 @@ void CvImprovementInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iAppearanceProbability);
 	stream->Write(m_iAnimalSpawnRatePercentage);
 	stream->Write(m_iBarbarianSpawnRatePercentage);
+	stream->Write(m_iPrereqTech);
 
 	stream->Write(m_bActsAsCity);
 	stream->Write(m_bHillsMakesValid);
@@ -11660,6 +11667,9 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(szTextVal, "ImprovementUpgrade");
 	m_iImprovementUpgrade = GC.getInfoTypeForString(szTextVal);
+
+	pXML->GetChildXmlValByName(szTextVal, "PrereqTech");
+	m_iPrereqTech = pXML->FindInInfoClass(szTextVal);
 
 	pXML->SetList(&m_piPrereqNatureYield, "PrereqNatureYields", NUM_YIELD_TYPES);
 	pXML->SetList(&m_piYieldChange, "YieldChanges", NUM_YIELD_TYPES);

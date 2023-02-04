@@ -12924,13 +12924,18 @@ void CvPlayer::doAdvancedStartAction(AdvancedStartActionTypes eAction, int iX, i
 
 		// Add Improvement to the plot
 		if (bAdd) {
+			if (eImprovement != NO_IMPROVEMENT && GC.getImprovementInfo(eImprovement).getPrereqTech() != NO_TECH) {
+				if (!GET_TEAM(getTeam()).isHasTech((TechTypes)GC.getImprovementInfo(eImprovement).getPrereqTech())) {
+					return;
+				}
+			}
 			if (getAdvancedStartPoints() >= iCost) {
 				if (pPlot->getFeatureType() != NO_FEATURE) {
-					for (int iI = 0; iI < GC.getNumBuildInfos(); ++iI) {
-						ImprovementTypes eLoopImprovement = ((ImprovementTypes)(GC.getBuildInfo((BuildTypes)iI).getImprovement()));
+					for (BuildTypes eBuild = (BuildTypes)0; eBuild < GC.getNumBuildInfos(); (BuildTypes) (eBuild + 1)) {
+						ImprovementTypes eLoopImprovement = ((ImprovementTypes)(GC.getBuildInfo(eBuild).getImprovement()));
 
 						if (eImprovement == eLoopImprovement) {
-							if (GC.getBuildInfo((BuildTypes)iI).isFeatureRemove(pPlot->getFeatureType()) && canBuild(pPlot, (BuildTypes)iI)) {
+							if (GC.getBuildInfo(eBuild).isFeatureRemove(pPlot->getFeatureType()) && canBuild(pPlot, eBuild)) {
 								pPlot->setFeatureType(NO_FEATURE);
 								break;
 							}

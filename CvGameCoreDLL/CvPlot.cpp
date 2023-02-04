@@ -426,6 +426,14 @@ void CvPlot::doImprovementUpgrade() {
 			if (isBeingWorked() || GC.getImprovementInfo(eImprovementUpdrade).isOutsideBorders()) {
 				changeUpgradeProgress(GET_PLAYER(getOwnerINLINE()).getImprovementUpgradeRate());
 
+				TechTypes ePrereqTech = (TechTypes)kImprovement.getPrereqTech();
+				if (ePrereqTech != NO_TECH) {
+					TeamTypes eTeam = getTeam();
+					if (eTeam == NO_TEAM || !GET_TEAM(eTeam).isHasTech(ePrereqTech)) {
+						return;
+					}
+				}
+
 				if (getUpgradeProgress() >= GC.getGameINLINE().getImprovementUpgradeTime(getImprovementType())) {
 					setImprovementType(eImprovementUpdrade);
 				}

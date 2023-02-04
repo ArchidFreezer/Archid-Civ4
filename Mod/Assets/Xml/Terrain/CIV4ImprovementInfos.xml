@@ -296,6 +296,7 @@
 			</YieldChanges>
 			<bRequiresFeature>1</bRequiresFeature>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iUpgradeTime>10</iUpgradeTime>
 			<iPillageGold>8</iPillageGold>
 			<FeatureMakesValids>
 				<FeatureType>FEATURE_FOREST</FeatureType>
@@ -309,6 +310,7 @@
 					<iDiscoverRand>10000</iDiscoverRand>
 				</BonusTypeStruct>
 			</BonusTypeStructs>
+			<ImprovementUpgrade>IMPROVEMENT_LUMBERJACK</ImprovementUpgrade>
 		</ImprovementInfo>
 		<ImprovementInfo> <!-- Watermill -->
 			<Type>IMPROVEMENT_WATERMILL</Type>
@@ -647,10 +649,16 @@
 			<Description>TXT_KEY_IMPROVEMENT_LUMBERJACK</Description>
 			<Civilopedia>TXT_KEY_IMPROVEMENT_LUMBERJACK_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_IMPROVEMENT_LUMBERJACK</ArtDefineTag>
+			<PrereqTech>TECH_WOODWORKING</PrereqTech>
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>1</iYieldChange>
 			</YieldChanges>
+			<RiverSideYieldChange>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</RiverSideYieldChange>
 			<bRequiresFeature>1</bRequiresFeature>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iUpgradeTime>14</iUpgradeTime>
@@ -671,6 +679,7 @@
 					</YieldChanges>
 				</BonusTypeStruct>
 			</BonusTypeStructs>
+			<ImprovementPillage>IMPROVEMENT_TIMBER_CAMP</ImprovementPillage>
 			<ImprovementUpgrade>IMPROVEMENT_LUMBERMILL</ImprovementUpgrade>
 			<RouteYieldChanges>
 				<RouteYieldChange>
@@ -678,7 +687,7 @@
 					<RouteYields>
 						<iYield>0</iYield>
 						<iYield>1</iYield>
-						<iYield>1</iYield>
+						<iYield>0</iYield>
 					</RouteYields>
 				</RouteYieldChange>
 			</RouteYieldChanges>
@@ -688,15 +697,11 @@
 			<Description>TXT_KEY_IMPROVEMENT_LUMBERMILL</Description>
 			<Civilopedia>TXT_KEY_IMPROVEMENT_LUMBERMILL_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_IMPROVEMENT_LUMBERMILL</ArtDefineTag>
+			<PrereqTech>TECH_GUILDS</PrereqTech>
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>1</iYieldChange>
 			</YieldChanges>
-			<RiverSideYieldChange>
-				<iYield>0</iYield>
-				<iYield>0</iYield>
-				<iYield>1</iYield>
-			</RiverSideYieldChange>
 			<bRequiresFeature>1</bRequiresFeature>
 			<iAdvancedStartCost>48</iAdvancedStartCost>
 			<iAirBombDefense>5</iAirBombDefense>
@@ -725,7 +730,7 @@
 					<RouteYields>
 						<iYield>0</iYield>
 						<iYield>1</iYield>
-						<iYield>0</iYield>
+						<iYield>1</iYield>
 					</RouteYields>
 				</RouteYieldChange>
 			</RouteYieldChanges>
