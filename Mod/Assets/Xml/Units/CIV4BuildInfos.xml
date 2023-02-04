@@ -227,7 +227,7 @@
 			<bShiftDown>0</bShiftDown>
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>1</iHotKeyPriority>
-			<Button>Art/Interface/Buttons/Builds/lumberjack.dds</Button>
+			<Button>Art/Interface/Buttons/Builds/lumberjack_camp.dds</Button>
 		</BuildInfo>
 		<BuildInfo> <!-- Lumbermill -->
 			<Type>BUILD_LUMBERMILL</Type>
