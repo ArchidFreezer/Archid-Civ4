@@ -257,6 +257,7 @@
 			</YieldChanges>
 			<bHillsMakesValid>1</bHillsMakesValid>
 			<iAdvancedStartCost>24</iAdvancedStartCost>
+			<iUpgradeTime>10</iUpgradeTime>
 			<iPillageGold>7</iPillageGold>
 			<BonusTypeStructs>
 				<BonusTypeStruct>
@@ -266,6 +267,7 @@
 					<iDiscoverRand>25000</iDiscoverRand>
 				</BonusTypeStruct>
 			</BonusTypeStructs>
+			<ImprovementUpgrade>IMPROVEMENT_MINE</ImprovementUpgrade>
 		</ImprovementInfo>
 		<ImprovementInfo> <!-- Seed Camp -->
 			<Type>IMPROVEMENT_SEED_CAMP</Type>
@@ -274,16 +276,16 @@
 			<ArtDefineTag>ART_DEF_IMPROVEMENT_SEED_CAMP</ArtDefineTag>
 			<YieldChanges>
 				<iYieldChange>1</iYieldChange>
-				<iYieldChange>0</iYieldChange>
-				<iYieldChange>1</iYieldChange>
 			</YieldChanges>
 			<bRequiresFlatlands>1</bRequiresFlatlands>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iUpgradeTime>10</iUpgradeTime>
 			<iPillageGold>7</iPillageGold>
 			<TerrainMakesValids>
 				<TerrainType>TERRAIN_GRASS</TerrainType>
 				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</TerrainMakesValids>
+			<ImprovementUpgrade>IMPROVEMENT_FARM</ImprovementUpgrade>
 		</ImprovementInfo>
 		<ImprovementInfo> <!-- Timber Camp -->
 			<Type>IMPROVEMENT_TIMBER_CAMP</Type>
@@ -497,6 +499,7 @@
 			<Description>TXT_KEY_IMPROVEMENT_FARM</Description>
 			<Civilopedia>TXT_KEY_IMPROVEMENT_FARM_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_IMPROVEMENT_FARM</ArtDefineTag>
+			<PrereqTech>TECH_AGRICULTURE</PrereqTech>
 			<PrereqNatureYields>
 				<iYield>1</iYield>
 				<iYield>0</iYield>
@@ -566,6 +569,7 @@
 					</YieldChanges>
 				</BonusTypeStruct>
 			</BonusTypeStructs>
+			<ImprovementPillage>IMPROVEMENT_SEED_CAMP</ImprovementPillage>
 			<TechYieldChanges>
 				<TechYieldChange>
 					<TechType>TECH_BIOLOGY</TechType>
@@ -740,10 +744,10 @@
 			<Description>TXT_KEY_IMPROVEMENT_MINE</Description>
 			<Civilopedia>TXT_KEY_IMPROVEMENT_MINE_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_IMPROVEMENT_MINE</ArtDefineTag>
+			<PrereqTech>TECH_MINING</PrereqTech>
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>2</iYieldChange>
-				<iYieldChange>0</iYieldChange>
 			</YieldChanges>
 			<bHillsMakesValid>1</bHillsMakesValid>
 			<bPeakMakesValid>1</bPeakMakesValid>
@@ -847,6 +851,7 @@
 					</YieldChanges>
 				</BonusTypeStruct>
 			</BonusTypeStructs>
+			<ImprovementPillage>IMPROVEMENT_STONE_TOOLS_CAMP</ImprovementPillage>
 			<RouteYieldChanges>
 				<RouteYieldChange>
 					<RouteType>ROUTE_RAILROAD</RouteType>
