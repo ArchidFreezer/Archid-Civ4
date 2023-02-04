@@ -39,8 +39,9 @@
     <tr><td><span class="tagoptional">Help</span><td><td>Additional help text that will be displayed in the Platypedia
     <tr><td><span class="tagoptional">ImprovementPillage</span><td>NONE<td>If the improvement is pillaged, this lists what it is downgraded to. (Ex. A pillaged Cottage downgrades to a Hamlet.
     <tr><td><span class="tagoptional">ImprovementUpgrade</span><td>NONE<td>The improvement to which this one is upgraded after iUpgradeTime is passed
+    <tr><td><span class="tagoptional"><b>PrereqTech</b></span><td>NO_TECH<td>The tech that a players team must know in order to create this improvement. Counting towards the iUpgradeTime to upgrade can happen before this teach is researched. 
     <tr><td><span class="tagmandatory">Type</span><td><td>The internal name of this Improvement
-    <tr><td><span class="tagoptional"><b>UpgradeTech</b></span><td>NO_TECH<td>Refers to a tag in the CIV4TechInfos file to a tech that the players team must know in order to upgrade the improvement
+    <tr><td><span class="tagoptional"><b>UpgradeTech</b></span><td>NO_TECH<td>The tech that a players team must know in order to start counting towards the iUpgradeTime to upgrade the improvement
     <tr><td><span class="tagoptional">WorldSoundscapeAudioScript</span><td><td>Refers to the Audiodefines file for the ambient background music that is played when the tile is on screen
   </table>	<p>
 
@@ -50,9 +51,9 @@
     <tr><td><span class="tagoptional">iAdvancedStartCost</span><td>-1<td>Cost to build the improvement in Advanced Start mode
     <tr><td><span class="tagoptional">iAdvancedStartCostIncrease</span><td>0<td>Additional cost for each improvement built in Advanced Start mode
     <tr><td><span class="tagoptional">iAirBombDefense</span><td>-1<td>The defence of this improvement against attacks by air units. (it seems that if the strength of the air unit is equal to the airbombdefense, there is a 50-50 chance that it gets destroyed on attack.)
-    <tr><td><span class="tagoptional"><b>iAnimalSpawnRatePercentage</b></span><td>0<td>Percentile modifier in the rate that th eimprovement spawns animals
+    <tr><td><span class="tagoptional"><b>iAnimalSpawnRatePercentage</b></span><td>0<td>Percentile modifier in the rate that the improvement spawns animals
     <tr><td><span class="tagoptional"><b>iAppearanceProbability</b></span><td>0<td>Percentage chance that the improvement will placed on each valid tile during map generation
-    <tr><td><span class="tagoptional"><b>iBarbarianSpawnRatePercentage</b></span><td>0<td>Percentile modifier in the rate that th eimprovement spawns barbarian units
+    <tr><td><span class="tagoptional"><b>iBarbarianSpawnRatePercentage</b></span><td>0<td>Percentile modifier in the rate that the improvement spawns barbarian units
     <tr><td><span class="tagoptional">iDefenseModifier</span><td>0<td>The defence percentage added to all units on the tile of the improvement
     <tr><td><span class="tagoptional">iFeatureGrowth</span><td>0<td>Chance modifier for spreading local terrain feature (aka Forest) to adjacent plots
     <tr><td><span class="tagoptional">iGoodyRange</span><td>0<td>The minimum distance between goody huts
@@ -115,7 +116,7 @@
       &lt;iYield&gt;0&lt;/iYield&gt;
     &lt;/RouteYields&gt;
   &lt;/RouteYieldChange&gt;</pre>
-    <tr><td><span class="tagoptional">TechYieldChanges</span><td>NONE<td>Food, production, commerce changes for the improvement after the specified tech has been researched<br><pre class="code">
+    <tr><td><span class="tagoptional"><b>TechYieldChanges</b></span><td>NONE<td>Food, production, commerce changes for the improvement after the specified tech has been researched<br><pre class="code">
   &lt;TechYieldChange&gt;
     &lt;TechType&gt;&lt;/TechType&gt;
     &lt;TechYields&gt;
@@ -153,6 +154,7 @@
   &lt;Civilopedia&gt;&lt;/Civilopedia&gt;
   &lt;Help&gt;&lt;/Help&gt;
   &lt;ArtDefineTag&gt;&lt;/ArtDefineTag&gt;
+  &lt;PrereqTech&gt;&lt;/PrereqTech&gt;
   &lt;PrereqNatureYields&gt;
     &lt;iYield&gt;0&lt;/iYield&gt;
   &lt;/PrereqNatureYields&gt;

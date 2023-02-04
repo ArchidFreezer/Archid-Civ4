@@ -50,7 +50,7 @@
     <tr><td><span class="tagoptional">Invisible</span><td>NO_INVISIBLE<td>The type of invisibility that the unit possesses. If the unit has an invisibility type that unit can only be seen by other units (or buildings) that are specially configured to be able to see the invisibility type. Reference to Civ4InvisibleInfos.xml
     <tr><td><span class="tagoptional">LeaderPromotion</span><td>NO_PROMOTION<td>Promotion that the unit gives to another unit when attached as a warlord
     <tr><td><span class="tagoptional"><b>MinCultureLevel</b></span><td>NO_CULTURELEVEL<td>The minimum culture level that a city must have in order to train this unit
-    <tr><td><span class="tagoptional">ObsoleteTech</span><td>NO_TECH<td>A tech, which once researched by a player, prevents the training of this unit
+    <tr><td><span class="tagoptional"><b>ObsoleteTech</b></span><td>NO_TECH<td>A tech, which once researched by a player, prevents the training of this unit
     <tr><td><span class="tagoptional">PrereqBuilding</span><td>NO_BUILDING<td>This building must be present in the city to train the unit
     <tr><td><span class="tagoptional">PrereqCorporation</span><td>NO_CORPORATION<td>This corporation must be present in the city to train the unit
     <tr><td><span class="tagoptional">PrereqReligion</span><td>NO_RELIGION<td>This religion must be present in the city to train the unit
@@ -110,7 +110,7 @@
     <tr><td><span class="tagoptional"><b>iMaxAmmoTypeTier</b></span><td>-1<td>The maximum applicable ammunition type that this unit can upgrade to; -1 indicates no limit
     <tr><td><span class="tagoptional"><b>iMaxWeaponTypeTier</b></span><td>-1<td>The maximum applicable weapon type that this unit can upgrade to; -1 indicates no limit
     <tr><td><span class="tagoptional">iMinAreaSize</span><td>-1<td>The number of tiles in the area the city is on in order to train this unit
-    <tr><td><span class="tagoptional">iMinPopulation</span><td>0<td>The minimum population a city must have in order to train this unit
+    <tr><td><span class="tagoptional"><b>iMinPopulation</b></span><td>0<td>The minimum population a city must have in order to train this unit
     <tr><td><span class="tagoptional">iMoves</span><td>0<td>The number of moves the unit has at the start of each turn. Each tile has a movement cost that is reduced from this value whenever a unit moves onto it, the combination of these values determines how many tiles a unit can move in the turn
     <tr><td><span class="tagoptional">iNukeRange</span><td>-1<td>The range at which the 'nuke' can be launched - missiles only
     <tr><td><span class="tagoptional">iOrderPriority</span><td>0<td>The priority of this unit when determining the order in which actions are performed. A unit with a high order priority will act first
@@ -266,7 +266,7 @@
   &lt;BonusType&gt;&lt;/BonusType&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqWorldViews</b></span><td>NONE<td>List of world views, all of which must be enabled by the player in order to train the unit<br><pre class="code">
   &lt;WorldViewType&gt;&lt;/WorldViewType&gt;</pre>
-    <tr><td><span class="tagoptional">ProductionTraits</span><td>NONE<td>The amount that a trait modifies the production on this unit<br><pre class="code">
+    <tr><td><span class="tagoptional"><b>ProductionTraits</b></span><td>NONE<td>The amount that a trait modifies the production on this unit<br><pre class="code">
   &lt;ProductionTrait&gt;
     &lt;TraitType&gt;&lt;/TraitType&gt;
     &lt;iChange&gt;0&lt;/iChange&gt;

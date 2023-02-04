@@ -41,6 +41,7 @@
   <h3 id="int">Integer</h3>
   <table>
     <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional"><b>iCategory</b></span><td>NA<td>Used by the java tooling to order the infos. Not read by the dll.
     <tr><td><span class="tagoptional">iExtraPlayerInstances</span><td>0<td>Number of building class that can be constructed if the limit has already been reached (used to allow the Palace to be moved)
     <tr><td><span class="tagoptional">iMaxGlobalInstances</span><td>-1<td>Number of building class that can exist in the world; -1 means no limit
     <tr><td><span class="tagoptional">iMaxPlayerInstances</span><td>-1<td>Number of building class that can exist for a player; -1 means no limit 
@@ -86,6 +87,7 @@
 			<pre class="code">&lt;BuildingClassInfo&gt;
   &lt;Type&gt;&lt;/Type&gt;
   &lt;Description&gt;&lt;/Description&gt;
+  &lt;iCategory&gt;0&lt;/iCategory&gt;
   &lt;iMaxGlobalInstances&gt;-1&lt;/iMaxGlobalInstances&gt;
   &lt;iMaxTeamInstances&gt;-1&lt;/iMaxTeamInstances&gt;
   &lt;iMaxPlayerInstances&gt;-1&lt;/iMaxPlayerInstances&gt;

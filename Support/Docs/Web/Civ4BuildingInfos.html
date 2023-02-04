@@ -128,7 +128,7 @@
     <tr><td><span class="tagoptional">iMilitaryProductionModifier</span><td>0<td>Percentage change to the rate at which military units are trained
     <tr><td><span class="tagoptional">iMinAreaSize</span><td>-1<td>If bWater or bRiver are set then the city must be adjacent to a body of water that is <em>smaller</em> than this value in tiles so it is considered to be fresh water. If the water flags are not set then the landmass must be larger than the specified value.
     <tr><td><span class="tagoptional">iMinLatitude</span><td>0<td>The minimum latitude that the building can be constructed at
-    <tr><td><span class="tagoptional">iMinPopulation</span><td>0<td>Minimum city population to construct this building
+    <tr><td><span class="tagoptional"><b>iMinPopulation</b></span><td>0<td>Minimum city population to construct this building
     <tr><td><span class="tagoptional">iNukeExplosionRand</span><td>0<td>1 in value chance each turn of a nuclear meltdown in the city
     <tr><td><span class="tagoptional">iNukeModifier</span><td>0<td>The percentage change in the damage taken from nukes
     <tr><td><span class="tagoptional">iNumFreeBonuses</span><td>0<td>The number of free bonuses defined in FreeBonus that are available to the city on construction. If this value is -1 then the iNumFreeBuildingBonuses from the appropriate WorldInfo is used.
@@ -165,7 +165,7 @@
     <tr><td><span class="tagoptional">bForceTeamVoteEligible</span><td>0<td>If true, guarantees eligibility for diplomatic votes
     <tr><td><span class="tagoptional">bGoldenAge</span><td>0<td>If true, starts a Golden Age on construction
     <tr><td><span class="tagoptional">bGovernmentCenter</span><td>0<td>If true, the city becomes a government centre. Other cities treat a government centre as the capital when determining things such as distance maintenance modifiers.
-    <tr><td><span class="tagoptional">bGraphicalOnly</span><td>0<td>If true, the building will not be shown in either the PlatyPedia or in the city screen
+    <tr><td><span class="tagoptional"><b>bGraphicalOnly</b></span><td>0<td>If true, the building will not be shown in either the PlatyPedia or in the city screen
     <tr><td><span class="tagoptional">bMapCentering</span><td>0<td>If true, centres the world map in the MiniMap display on completion
     <tr><td><span class="tagoptional">bNeverCapture</span><td>0<td>If true, the building is always destroyed if the city is captured by another player
     <tr><td><span class="tagoptional">bNoUnhappiness</span><td>0<td>If true, the city suffers no unhappiness
@@ -193,12 +193,12 @@
     <tr><th>Tag<th>Default<th>Purpose
     <tr><td><span class="tagoptional">AreaYieldModifiers</span><td>NONE<td>Percentage change to the yields all player cities in the area<br><pre class="code">
   &lt;iYield&gt;0&lt;/iYield&gt;</pre>
-    <tr><td><span class="tagoptional">BonusHappinessChanges</span><td>NONE<td>Changes to the city happiness that a bonus provides<br><pre class="code">
+    <tr><td><span class="tagoptional"><b>BonusHappinessChanges</b></span><td>NONE<td>Changes to the city happiness that a bonus provides<br><pre class="code">
   &lt;BonusHappinessChange&gt;
     &lt;BonusType&gt;&lt;/BonusType&gt;
     &lt;iChange&gt;0&lt;/iChange&gt;
   &lt;/BonusHappinessChange&gt;</pre>
-    <tr><td><span class="tagoptional">BonusHealthChanges</span><td>NONE<td>Changes to the city health that a bonus provides<br><pre class="code">
+    <tr><td><span class="tagoptional"><b>BonusHealthChanges</b></span><td>NONE<td>Changes to the city health that a bonus provides<br><pre class="code">
   &lt;BonusHealthChange&gt;
     &lt;BonusType&gt;&lt;/BonusType&gt;
     &lt;iChange&gt;0&lt;/iChange&gt;
@@ -237,7 +237,7 @@
     &lt;DomainType&gt;&lt;/DomainType&gt;
     &lt;iExperience&gt;0&lt;/iExperience&gt;
   &lt;/DomainFreeExperience&gt;</pre>
-    <tr><td><span class="tagoptional">DomainProductionModifiers</span><td>NONE<td>Percentage change to the production of units of the given domains trained in the city<br><pre class="code">
+    <tr><td><span class="tagoptional"><b>DomainProductionModifiers</b></span><td>NONE<td>Percentage change to the production of units of the given domains trained in the city<br><pre class="code">
   &lt;DomainProductionModifier&gt;
     &lt;DomainType&gt;&lt;/DomainType&gt;
     &lt;iModifier&gt;0&lt;/iModifier&gt;
@@ -258,12 +258,12 @@
   &lt;iYield&gt;0&lt;/iYield&gt;</pre>
     <tr><td><span class="tagoptional">GlobalYieldModifiers</span><td>NONE<td>Percentage change to the yields all player cities<br><pre class="code">
   &lt;iYield&gt;0&lt;/iYield&gt;</pre>
-    <tr><td><span class="tagoptional">HappinessTraits</span><td>NONE<td>Set of traits and the change to the city happiness that they provide<br><pre class="code">
+    <tr><td><span class="tagoptional"><b>HappinessTraits</b></span><td>NONE<td>Set of traits and the change to the city happiness that they provide<br><pre class="code">
   &lt;HappinessTrait&gt;
     &lt;TraitType&gt;&lt;/TraitType&gt;
     &lt;iChange&gt;0&lt;/iChange&gt;
   &lt;/HappinessTrait&gt;</pre>
-    <tr><td><span class="tagoptional">ImprovementFreeSpecialists</span><td>NONE<td>Change to the number of free specialists that an improvement provides<br><pre class="code">
+    <tr><td><span class="tagoptional"><b>ImprovementFreeSpecialists</b></span><td>NONE<td>Change to the number of free specialists that an improvement provides<br><pre class="code">
   &lt;ImprovementFreeSpecialist&gt;
     &lt;ImprovementType&gt;&lt;/ImprovementType&gt;
     &lt;iCount&gt;0&lt;/iCount&gt;
@@ -305,12 +305,12 @@
   &lt;BonusType&gt;&lt;/BonusType&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqWorldViews</b></span><td>NO_WORLDVIEW<td>List of world views that the player must hold in order for the building to be constructed. If subsequently the player no longer holds any of the world view the building will be disabled.<br><pre class="code">
   &lt;WorldViewType&gt;&lt;/WorldViewType&gt;</pre>
-    <tr><td><span class="tagoptional">ProductionTraits</span><td>NONE<td>Set of traits and the percentage production bonus to this building that they provide.<br><pre class="code">
+    <tr><td><span class="tagoptional"><b>ProductionTraits</b></span><td>NONE<td>Set of traits and the percentage production bonus to this building that they provide.<br><pre class="code">
   &lt;ProductionTrait&gt;
     &lt;TraitType&gt;&lt;/TraitType&gt;
     &lt;iChange&gt;0&lt;/iChange&gt;
   &lt;/ProductionTrait&gt;</pre>
-    <tr><td><span class="tagoptional">ReligionChanges</span><td>NONE<td>Change in religious influence the city has, which is used when determining religion spread<br><pre class="code">
+    <tr><td><span class="tagoptional"><b>ReligionChanges</b></span><td>NONE<td>Change in religious influence the city has, which is used when determining religion spread<br><pre class="code">
   &lt;ReligionChange&gt;
     &lt;ReligionType&gt;&lt;/ReligionType&gt;
     &lt;iChange&gt;0&lt;/iChange&gt;
@@ -321,7 +321,7 @@
   &lt;iYield&gt;0&lt;/iYield&gt;</pre>
     <tr><td><span class="tagoptional">SeaPlotYieldChanges</span><td>NONE<td>Changes to the yield output of sea plots<br><pre class="code">
   &lt;iYield&gt;0&lt;/iYield&gt;</pre>
-    <tr><td><span class="tagoptional">SpecialistCounts</span><td>NONE<td>Changes to the number of each specialist type that the city can maintain<br><pre class="code">
+    <tr><td><span class="tagoptional"><b>SpecialistCounts</b></span><td>NONE<td>Changes to the number of each specialist type that the city can maintain<br><pre class="code">
   &lt;SpecialistCount&gt;
     &lt;SpecialistType&gt;&lt;/SpecialistType&gt;
     &lt;iCount&gt;0&lt;/iCount&gt;
