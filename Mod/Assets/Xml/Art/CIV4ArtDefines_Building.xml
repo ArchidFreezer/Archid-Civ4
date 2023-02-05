@@ -1997,5 +1997,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/early_instrument_maker.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- Lepinski Vir -->
+			<Type>ART_DEF_BUILDING_LEPENSKI_VIR</Type>
+			<LSystem/>
+			<bAnimated>0</bAnimated>
+			<fScale/>
+			<fInterfaceScale/>
+			<NIF/>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/lepenski_vir.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

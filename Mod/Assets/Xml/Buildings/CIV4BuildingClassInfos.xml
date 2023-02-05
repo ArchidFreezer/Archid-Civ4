@@ -533,6 +533,13 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_LASCAUX_PAINTS</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Lepenski Vir -->
+			<Type>BUILDINGCLASS_LEPENSKI_VIR</Type>
+			<Description>TXT_KEY_BUILDING_LEPENSKI_VIR</Description>
+			<iCategory>2</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_LEPENSKI_VIR</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Mausoleum Of Maussollos -->
 			<Type>BUILDINGCLASS_MAUSOLEUM_OF_MAUSSOLLOS</Type>
 			<Description>TXT_KEY_BUILDING_MAUSOLEUM_OF_MAUSSOLLOS</Description>

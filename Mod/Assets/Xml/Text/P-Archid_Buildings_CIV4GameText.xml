@@ -106,6 +106,18 @@
 		<English>Build the [COLOR_PROJECT_TEXT]Lascaux Paintings[COLOR_REVERT] to have one happy citizen in every city.</English>
 		<Spanish>Construye las [COLOR_PROJECT_TEXT]Pinturas de Lascaux[COLOR_REVERT] para tener un ciudadano alegre en cada ciudad.</Spanish>
 	</TEXT>
+	<TEXT> <!-- Lepinski Vir -->
+		<Tag>TXT_KEY_BUILDING_LEPENSKI_VIR</Tag>
+		<English>Lepenski Vir</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_LEPENSKI_VIR_PEDIA</Tag>
+		<English>[COLOR_PROJECT_TEXT]Lepenski Vir[COLOR_REVERT] is an important Mesolithic archaeological site located in Serbia in the central Balkan peninsula. It consists of one large settlement with around ten satellite villages. The evidence suggests the first human presence in the locality around 7000 BC with the culture reaching its peak between 5300 BC and 4800 BC. Numerous piscine sculptures and peculiar architecture are testimony to a rich social and religious life led by the inhabitants and the high cultural level of these early Europeans.[NEWLINE][PARAGRAPH:1]This is clearly evident in the layout of the Lepenski Vir Ia-e settlement. The village is well planned. All houses are built according to one complex geometric pattern. These remains of houses constitute the distinct Lepenski Vir architecture, one of the important achievements of this culture. The main layout of the village is clearly visible. The dead were buried outside the village in an elaborate cemetery. The only exceptions were apparently a few notable elders who were buried behind the fireplaces in houses, according to a religious ritual.[NEWLINE][PARAGRAPH:1]The complex social structure was dominated by a religious cult which probably served as a binding force for the community and a means of coordination of activity for its members. Numerous sacral objects that were discovered in this layer support this theory. The most remarkable examples are piscine sculptures, unique to the Lepenski Vir culture, which represent one of the first examples of monumental sacral art on European soil.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_LEPENSKI_VIR_STRATEGY</Tag>
+		<English>Build the [COLOR_PROJECT_TEXT]Lepenski Vir[COLOR_REVERT] to get a free [COLOR_HIGHLIGHT_TEXT]Sacrificial Altar[COLOR_REVERT] in every city.</English>
+	</TEXT>
 	<TEXT> <!-- Library -->
 		<Tag>TXT_KEY_BUILDING_LIBRARY_STRATEGY</Tag>
 		<English>[COLOR_BUILDING_TEXT]Libraries[COLOR_REVERT] boost your cities' research and provide culture. They are required to build [COLOR_BUILDING_TEXT]Universities[COLOR_REVERT], the [COLOR_BUILDING_TEXT]Great Library[COLOR_REVERT] wonder, and the [COLOR_BUILDING_TEXT]National Epic[COLOR_REVERT] national wonder.</English>

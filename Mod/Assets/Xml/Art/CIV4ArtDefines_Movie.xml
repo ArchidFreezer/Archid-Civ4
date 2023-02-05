@@ -307,5 +307,9 @@
 			<Type>ART_DEF_MOVIE_SKARA_BRAE</Type>
 			<Path>Art/Movies/Wonders/SkaraBrae.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_LEPENSKI_VIR</Type>
+			<Path>Art/Movies/Wonders/LepenskiVir.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>
