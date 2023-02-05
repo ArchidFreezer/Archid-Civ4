@@ -8347,8 +8347,8 @@
 				<UnitAIType>UNITAI_HUNTER</UnitAIType>
 			</UnitAIs>
 			<PrereqTechs>
-				<TechType>TECH_ADVANCED_TOOLS</TechType>
 				<TechType>TECH_STONE_BUILDING</TechType>
+				<TechType>TECH_ADVANCED_TOOLS</TechType>
 			</PrereqTechs>
 			<iCost>15</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -9030,6 +9030,9 @@
 			<Strategy>TXT_KEY_UNIT_GATHERER_STRATEGY</Strategy>
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<bFood>1</bFood>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_WORKER</UnitClassType>
+			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_GATHERER</UnitAIType>
 			</UnitAIs>
