@@ -215,7 +215,7 @@
 			<Civilopedia>TXT_KEY_BONUS_CANNABIS_PEDIA</Civilopedia>
 			<BonusClassType>BONUSCLASS_GENERAL</BonusClassType>
 			<ArtDefineTag>ART_DEF_BONUS_CANNABIS</ArtDefineTag>
-			<TechReveal>TECH_HERBALISM</TechReveal>
+			<TechReveal>TECH_MYSTICAL_BELIEFS</TechReveal>
 			<TechCityTrade>TECH_CALENDAR</TechCityTrade>
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
@@ -256,7 +256,7 @@
 			<BonusClassType>BONUSCLASS_GENERAL</BonusClassType>
 			<ArtDefineTag>ART_DEF_BONUS_COTTON</ArtDefineTag>
 			<TechReveal>TECH_AGRICULTURE</TechReveal>
-			<TechCityTrade>TECH_AGRICULTURE</TechCityTrade>
+			<TechCityTrade>TECH_WEAVING</TechCityTrade>
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>0</iYieldChange>
@@ -892,7 +892,7 @@
 			<Civilopedia>TXT_KEY_BONUS_PIG_PEDIA</Civilopedia>
 			<BonusClassType>BONUSCLASS_LIVESTOCK</BonusClassType>
 			<ArtDefineTag>ART_DEF_BONUS_PIG</ArtDefineTag>
-			<TechReveal>TECH_SEDENTARY_LIFESTYLE</TechReveal>
+			<TechReveal>TECH_HUNTING</TechReveal>
 			<TechCityTrade>TECH_ANIMAL_HUSBANDRY</TechCityTrade>
 			<YieldChanges>
 				<iYieldChange>1</iYieldChange>
@@ -932,7 +932,7 @@
 			<Civilopedia>TXT_KEY_BONUS_SHEEP_PEDIA</Civilopedia>
 			<BonusClassType>BONUSCLASS_LIVESTOCK</BonusClassType>
 			<ArtDefineTag>ART_DEF_BONUS_SHEEP</ArtDefineTag>
-			<TechReveal>TECH_HUNTING</TechReveal>
+			<TechReveal>TECH_WEAVING</TechReveal>
 			<TechCityTrade>TECH_ANIMAL_HUSBANDRY</TechCityTrade>
 			<YieldChanges>
 				<iYieldChange>1</iYieldChange>
@@ -1217,6 +1217,7 @@
 			<BonusClassType>BONUSCLASS_LUXURY</BonusClassType>
 			<ArtDefineTag>ART_DEF_BONUS_PEARLS</ArtDefineTag>
 			<TechReveal>TECH_FISHING</TechReveal>
+			<TechCityTrade>TECH_TRADE</TechCityTrade>
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>0</iYieldChange>
@@ -1283,7 +1284,7 @@
 			<Civilopedia>TXT_KEY_BONUS_SILK_PEDIA</Civilopedia>
 			<BonusClassType>BONUSCLASS_LUXURY</BonusClassType>
 			<ArtDefineTag>ART_DEF_BONUS_SILK</ArtDefineTag>
-			<TechReveal>TECH_EXPLORATION</TechReveal>
+			<TechReveal>TECH_WEAVING</TechReveal>
 			<TechCityTrade>TECH_CALENDAR</TechCityTrade>
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
@@ -1634,7 +1635,7 @@
 			<Civilopedia>TXT_KEY_BONUS_OBSIDIAN_PEDIA</Civilopedia>
 			<BonusClassType>BONUSCLASS_RUSH</BonusClassType>
 			<ArtDefineTag>ART_DEF_BONUS_OBSIDIAN</ArtDefineTag>
-			<TechReveal>TECH_MICROLITH</TechReveal>
+			<TechReveal>TECH_STONE_TOOLS</TechReveal>
 			<TechCityTrade>TECH_MICROLITH</TechCityTrade>
 			<TechObsolete>TECH_IRON_WORKING</TechObsolete>
 			<YieldChanges>
@@ -1828,7 +1829,7 @@
 			<BonusClassType>BONUSCLASS_SEAFOOD</BonusClassType>
 			<ArtDefineTag>ART_DEF_BONUS_WHALE</ArtDefineTag>
 			<TechReveal>TECH_FISHING</TechReveal>
-			<TechObsolete>TECH_COMBUSTION</TechObsolete>
+			<TechObsolete>TECH_SONAR</TechObsolete>
 			<YieldChanges>
 				<iYieldChange>1</iYieldChange>
 			</YieldChanges>
