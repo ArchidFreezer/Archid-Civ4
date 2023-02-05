@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Alex Mantzaris (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Game Text - Original game objects that are renamed -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT> <!-- Path -->
+		<Tag>TXT_KEY_BUILD_TRACK</Tag>
+		<English>Make a Path</English>
+		<French>Construire un Chemin</French>
+		<German>Weg bauen</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ROUTE_TRACK</Tag>
+		<English>Cart Path</English>
+		<French>Chemin Carrossable</French>
+		<German>Karrenweg</German>
+	</TEXT>
+	<TEXT> <!-- Paved Road -->
+		<Tag>TXT_KEY_BUILD_PAVED_ROAD</Tag>
+		<English>Build a Paved Road</English>
+		<French>Construire une Route Pavée</French>
+		<German>Gepflasterte Stra&#223;e bauen</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ROUTE_PAVED</Tag>
+		<English>Paved Road</English>
+		<French>Route pavée</French>
+		<German>Gepflasterte Stra&#223;e</German>
+	</TEXT>
+	<TEXT> <!-- Motorway -->
+		<Tag>TXT_KEY_ROUTE_MOTORWAY</Tag>
+		<English>Motorway</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_MOTORWAY</Tag>
+		<English>Build a Motorway</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ROUTE_RAILROAD_ELECTRIC</Tag>
+		<English>Electric Railroad</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_RAILROAD_ELECTRIC</Tag>
+		<English>Build an Electric Railroad</English>
+	</TEXT>
+	<TEXT> <!-- Gravtube -->
+		<Tag>TXT_KEY_ROUTE_GRAVTUBE</Tag>
+		<English>Gravtube</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_GRAVTUBE</Tag>
+		<English>Build a Gravtube</English>
+	</TEXT>
+	<TEXT> <!-- Jumplane -->
+		<Tag>TXT_KEY_ROUTE_JUMPLANE</Tag>
+		<English>Jumplane</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_JUMPLANE</Tag>
+		<English>Build a Jumplane</English>
+	</TEXT>
+
+</Civ4GameText>

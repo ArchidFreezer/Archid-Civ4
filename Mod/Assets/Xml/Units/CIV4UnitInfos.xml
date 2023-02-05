@@ -9037,6 +9037,7 @@
 				<UnitAIType>UNITAI_GATHERER</UnitAIType>
 			</UnitAIs>
 			<Builds>
+				<BuildType>BUILD_TRACK</BuildType>
 				<BuildType>BUILD_SEED_CAMP</BuildType>
 				<BuildType>BUILD_TIMBER_CAMP</BuildType>
 				<BuildType>BUILD_STONE_TOOLS_CAMP</BuildType>
@@ -9081,8 +9082,14 @@
 				<UnitAIType>UNITAI_SLAVE</UnitAIType>
 			</UnitAIs>
 			<Builds>
+				<BuildType>BUILD_TRACK</BuildType>
 				<BuildType>BUILD_ROAD</BuildType>
+				<BuildType>BUILD_PAVED_ROAD</BuildType>
+				<BuildType>BUILD_MODERN_ROAD</BuildType>
 				<BuildType>BUILD_RAILROAD</BuildType>
+				<BuildType>BUILD_RAILROAD_ELECTRIC</BuildType>
+				<BuildType>BUILD_GRAVTUBE</BuildType>
+				<BuildType>BUILD_JUMPLANE</BuildType>
 				<BuildType>BUILD_FARM</BuildType>
 				<BuildType>BUILD_MINE</BuildType>
 				<BuildType>BUILD_WORKSHOP</BuildType>
@@ -9205,8 +9212,14 @@
 				<UnitAIType>UNITAI_WORKER</UnitAIType>
 			</UnitAIs>
 			<Builds>
+				<BuildType>BUILD_TRACK</BuildType>
 				<BuildType>BUILD_ROAD</BuildType>
+				<BuildType>BUILD_PAVED_ROAD</BuildType>
+				<BuildType>BUILD_MODERN_ROAD</BuildType>
 				<BuildType>BUILD_RAILROAD</BuildType>
+				<BuildType>BUILD_RAILROAD_ELECTRIC</BuildType>
+				<BuildType>BUILD_GRAVTUBE</BuildType>
+				<BuildType>BUILD_JUMPLANE</BuildType>
 				<BuildType>BUILD_FARM</BuildType>
 				<BuildType>BUILD_MINE</BuildType>
 				<BuildType>BUILD_WORKSHOP</BuildType>
@@ -9279,8 +9292,14 @@
 				<UnitAIType>UNITAI_WORKER</UnitAIType>
 			</UnitAIs>
 			<Builds>
+				<BuildType>BUILD_TRACK</BuildType>
 				<BuildType>BUILD_ROAD</BuildType>
+				<BuildType>BUILD_PAVED_ROAD</BuildType>
+				<BuildType>BUILD_MODERN_ROAD</BuildType>
 				<BuildType>BUILD_RAILROAD</BuildType>
+				<BuildType>BUILD_RAILROAD_ELECTRIC</BuildType>
+				<BuildType>BUILD_GRAVTUBE</BuildType>
+				<BuildType>BUILD_JUMPLANE</BuildType>
 				<BuildType>BUILD_FARM</BuildType>
 				<BuildType>BUILD_MINE</BuildType>
 				<BuildType>BUILD_WORKSHOP</BuildType>

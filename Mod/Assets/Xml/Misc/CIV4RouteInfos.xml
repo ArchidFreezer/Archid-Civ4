@@ -6,35 +6,104 @@
 <!-- Route Infos -->
 <Civ4RouteInfos xmlns="x-schema:CIV4MiscSchema.xml">
 	<RouteInfos>
-		<RouteInfo>
+		<RouteInfo> <!-- Track -->
+			<Type>ROUTE_TRACK</Type>
+			<Description>TXT_KEY_ROUTE_TRACK</Description>
+			<iValue>1</iValue>
+			<iAdvancedStartCost>5</iAdvancedStartCost>
+			<iMovement>120</iMovement>
+			<iFlatMovement>120</iFlatMovement>
+			<Button>Art/Interface/Buttons/Builds/path.dds</Button>
+		</RouteInfo>
+		<RouteInfo> <!-- Road -->
 			<Type>ROUTE_ROAD</Type>
 			<Description>TXT_KEY_ROUTE_ROAD</Description>
-			<iValue>1</iValue>
+			<iValue>2</iValue>
 			<iAdvancedStartCost>12</iAdvancedStartCost>
-			<iMovement>30</iMovement>
-			<iFlatMovement>30</iFlatMovement>
-			<BonusType>NONE</BonusType>
+			<iMovement>60</iMovement>
+			<iFlatMovement>60</iFlatMovement>
+			<Yields/>
 			<TechMovementChanges>
 				<TechMovementChange>
 					<PrereqTech>TECH_ENGINEERING</PrereqTech>
 					<iMovementChange>-10</iMovementChange>
 				</TechMovementChange>
 			</TechMovementChanges>
-			<Button>Art/Interface/Buttons/Builds/BuildRoad.dds</Button>
+			<Button>Art/Interface/Buttons/Builds/road.dds</Button>
 		</RouteInfo>
-		<RouteInfo>
+		<RouteInfo> <!-- Paved -->
+			<Type>ROUTE_PAVED</Type>
+			<Description>TXT_KEY_ROUTE_PAVED</Description>
+			<iValue>3</iValue>
+			<iAdvancedStartCost>8</iAdvancedStartCost>
+			<iMovement>40</iMovement>
+			<iFlatMovement>40</iFlatMovement>
+			<Button>Art/Interface/Buttons/Builds/pavedroad.dds</Button>
+		</RouteInfo>
+		<RouteInfo> <!-- Motorway -->
+			<Type>ROUTE_MODERN_ROAD</Type>
+			<Description>TXT_KEY_ROUTE_MOTORWAY</Description>
+			<iValue>4</iValue>
+			<iAdvancedStartCost>12</iAdvancedStartCost>
+			<iMovement>30</iMovement>
+			<iFlatMovement>30</iFlatMovement>
+			<BonusType>BONUS_OIL</BonusType>
+			<Button>Art/Interface/Buttons/Builds/motorway.dds</Button>
+		</RouteInfo>
+		<RouteInfo> <!-- Railroad -->
 			<Type>ROUTE_RAILROAD</Type>
 			<Description>TXT_KEY_ROUTE_RAILROAD</Description>
-			<iValue>2</iValue>
+			<iValue>5</iValue>
 			<iAdvancedStartCost>18</iAdvancedStartCost>
-			<iMovement>20</iMovement>
-			<iFlatMovement>6</iFlatMovement>
+			<iMovement>30</iMovement>
+			<iFlatMovement>12</iFlatMovement>
 			<BonusType>NONE</BonusType>
 			<PrereqOrBonuses>
 				<BonusType>BONUS_COAL</BonusType>
 				<BonusType>BONUS_OIL</BonusType>
 			</PrereqOrBonuses>
-			<Button>Art/Interface/Buttons/Builds/BuildRailroad.dds</Button>
+			<Button>Art/Interface/Buttons/Builds/railroad.dds</Button>
+		</RouteInfo>
+		<RouteInfo> <!-- Electric Railroad -->
+			<Type>ROUTE_RAILROAD_ELECTRIC</Type>
+			<Description>TXT_KEY_ROUTE_RAILROAD_ELECTRIC</Description>
+			<iValue>6</iValue>
+			<iAdvancedStartCost>18</iAdvancedStartCost>
+			<iMovement>30</iMovement>
+			<iFlatMovement>10</iFlatMovement>
+			<BonusType>BONUS_COPPER</BonusType>
+			<Button>Art/Interface/Buttons/Builds/electricRailroad.dds</Button>
+		</RouteInfo>
+		<RouteInfo> <!-- Gravtube -->
+			<Type>ROUTE_GRAVTUBE</Type>
+			<Description>TXT_KEY_ROUTE_GRAVTUBE</Description>
+			<iValue>7</iValue>
+			<iAdvancedStartCost>24</iAdvancedStartCost>
+			<iMovement>20</iMovement>
+			<iFlatMovement>6</iFlatMovement>
+			<BonusType>BONUS_COPPER</BonusType>
+			<Yields>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</Yields>
+			<TechMovementChanges/>
+			<Button>Art/Interface/Buttons/Builds/gravtube.dds</Button>
+		</RouteInfo>
+		<RouteInfo> <!-- Jumplane -->
+			<Type>ROUTE_JUMPLANE</Type>
+			<Description>TXT_KEY_ROUTE_JUMPLANE</Description>
+			<iValue>8</iValue>
+			<iAdvancedStartCost>30</iAdvancedStartCost>
+			<iMovement>15</iMovement>
+			<iFlatMovement>3</iFlatMovement>
+			<Yields>
+				<iYield>1</iYield>
+				<iYield>1</iYield>
+				<iYield>1</iYield>
+			</Yields>
+			<TechMovementChanges/>
+			<Button>Art/Interface/Buttons/Builds/jumplane.dds</Button>
 		</RouteInfo>
 	</RouteInfos>
 </Civ4RouteInfos>
