@@ -17813,6 +17813,18 @@ bool CvUnitAI::AI_canGroupWithAIType(UnitAITypes eUnitAI) const {
 bool CvUnitAI::AI_allowGroup(const CvUnit* pUnit, UnitAITypes eUnitAI) const {
 	CvSelectionGroup* pGroup = pUnit->getGroup();
 	CvPlot* pPlot = pUnit->plot();
+	UnitRangeTypes eOurUnitRange = getRangeType();
+	UnitRangeTypes eTheirRange = pUnit->getRangeType();
+
+	// Never group if we are home bound
+	if (eOurUnitRange == UNITRANGE_HOME) {
+		return false;
+	}
+
+	// Don't group with units with better range
+	if (eOurUnitRange < eTheirRange) {
+		return false;
+	}
 
 	if (pUnit == this) {
 		return false;
@@ -17859,7 +17871,7 @@ bool CvUnitAI::AI_allowGroup(const CvUnit* pUnit, UnitAITypes eUnitAI) const {
 	}
 
 	if (eUnitAI == UNITAI_SETTLE) {
-		if (GET_PLAYER(getOwnerINLINE()).AI_getAnyPlotDanger(pPlot, 3)) {
+		if (eOurUnitRange < UNITRANGE_RANGE || GET_PLAYER(getOwnerINLINE()).AI_getAnyPlotDanger(pPlot, 3)) {
 			return false;
 		}
 	} else if (eUnitAI == UNITAI_ASSAULT_SEA) {
