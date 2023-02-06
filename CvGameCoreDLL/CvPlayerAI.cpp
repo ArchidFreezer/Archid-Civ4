@@ -8852,6 +8852,7 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 		break;
 
 	case UNITAI_ATTACK_CITY:
+	case UNITAI_BARBARIAN_ATTACK_CITY:
 	{
 		PROFILE("AI_unitValue, UNITAI_ATTACK_CITY evaluation");
 		// Effect army composition to have more collateral/bombard units
