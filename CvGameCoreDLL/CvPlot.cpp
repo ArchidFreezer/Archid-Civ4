@@ -415,7 +415,7 @@ void CvPlot::doImprovementUpgrade() {
 		const CvImprovementInfo& kImprovement = GC.getImprovementInfo(getImprovementType());
 		ImprovementTypes eImprovementUpdrade = (ImprovementTypes)kImprovement.getImprovementUpgrade();
 		if (eImprovementUpdrade != NO_IMPROVEMENT) {
-
+			const CvImprovementInfo& kImprovementUpgrade = GC.getImprovementInfo(eImprovementUpdrade);
 			TeamTypes eTeam = getTeam();
 			// Some potential improvement upgrades have more stringent requirements than their predecesor so
 			// check whether the upgrade is allowed.
@@ -433,7 +433,7 @@ void CvPlot::doImprovementUpgrade() {
 			if (isBeingWorked() || GC.getImprovementInfo(eImprovementUpdrade).isOutsideBorders()) {
 				changeUpgradeProgress(GET_PLAYER(getOwnerINLINE()).getImprovementUpgradeRate());
 
-				TechTypes ePrereqTech = (TechTypes)kImprovement.getPrereqTech();
+				TechTypes ePrereqTech = (TechTypes)kImprovementUpgrade.getPrereqTech();
 				if (ePrereqTech != NO_TECH) {
 					if (eTeam == NO_TEAM || !GET_TEAM(eTeam).isHasTech(ePrereqTech)) {
 						return;
