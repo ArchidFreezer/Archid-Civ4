@@ -1780,6 +1780,23 @@ bool CvPlot::canHaveImprovement(ImprovementTypes eImprovement, TeamTypes eTeam, 
 		}
 	}
 
+	if (kImprovement.getNumPrereqLandDirections() > 0) {
+		bValid = true;
+
+		for (int i = 0; i < kImprovement.getNumPrereqLandDirections(); i++) {
+			DirectionTypes eDirection = (DirectionTypes)kImprovement.getPrereqLandDirection(i);
+			CvPlot* pLoopPlot = plotDirection(getX_INLINE(), getY_INLINE(), eDirection);
+			if (!(pLoopPlot->getPlotType() == PLOT_LAND)) {
+				bValid = false;
+				break;
+			}
+		}
+
+		if (!bValid) {
+			return false;
+		}
+	}
+
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 		if (calculateNatureYield(eYield, eTeam) < kImprovement.getPrereqNatureYield(eYield)) {
 			return false;

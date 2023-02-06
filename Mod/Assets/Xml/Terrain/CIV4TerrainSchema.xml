@@ -408,6 +408,10 @@
 	<ElementType name="iBarbarianSpawnRatePercentage" content="textOnly" dt:type="int"/>
 	<ElementType name="PrereqTech" content="textOnly"/>
 	<ElementType name="bSeaBridge" content="textOnly" dt:type="boolean"/>
+	<ElementType name="DirectionType" content="textOnly"/>
+	<ElementType name="PrereqLandDirections" content="eltOnly">
+		<element type="DirectionType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="ImprovementInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -416,6 +420,7 @@
 		<element type="ArtDefineTag"/>
 		<element type="PrereqTech" minOccurs="0"/>
 		<element type="PrereqNatureYields" minOccurs="0"/>
+		<element type="PrereqLandDirections" minOccurs="0"/>
 		<element type="YieldChanges" minOccurs="0"/>
 		<element type="RiverSideYieldChange" minOccurs="0"/>
 		<element type="HillsYieldChange" minOccurs="0"/>

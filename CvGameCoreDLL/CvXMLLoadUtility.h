@@ -200,6 +200,7 @@ public:
 	void SetListPairInfoForAudioScripts(int** ppiList, const TCHAR* szRootTagName, int iInfoBaseLength, int iDefaultListVal = -1);
 	void SetListPairEnumForAudioScripts(int** ppiList, const TCHAR* szRootTagName, int iTagListLength, int iDefaultListVal = -1);
 
+	void SetVectorEnum(std::vector<int>& vList, const TCHAR* szRootTagName);
 	void SetVectorInfo(std::vector<int>& vList, const TCHAR* szRootTagName);
 	void SetVectorPairInfos(std::vector< std::pair< int, int > >& vpList, const TCHAR* szRootTagName);
 

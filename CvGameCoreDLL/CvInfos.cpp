@@ -11207,6 +11207,19 @@ CvImprovementInfo::~CvImprovementInfo() {
 	}
 }
 
+int CvImprovementInfo::getPrereqLandDirection(int i) const {
+	return getNumPrereqLandDirections() > i ? m_viPrereqLandDirections[i] : NO_DIRECTION;
+}
+
+int CvImprovementInfo::getNumPrereqLandDirections() const {
+	return (int)m_viPrereqLandDirections.size();
+}
+
+bool CvImprovementInfo::isPrereqLandDirection(DirectionTypes eDirection) const {
+	return (std::find(m_viPrereqLandDirections.begin(), m_viPrereqLandDirections.end(), eDirection) != m_viPrereqLandDirections.end());
+}
+
+
 bool CvImprovementInfo::isSeaBridge() const {
 	return m_bSeaBridge;
 }
@@ -11596,6 +11609,16 @@ void CvImprovementInfo::read(FDataStreamBase* stream) {
 		m_ppiRouteYieldChanges[i] = new int[NUM_YIELD_TYPES];
 		stream->Read(NUM_YIELD_TYPES, m_ppiRouteYieldChanges[i]);
 	}
+
+	int iNumElements;
+	int iElement;
+	stream->Read(&iNumElements);
+	m_viPrereqLandDirections.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqLandDirections.push_back(iElement);
+	}
+
 }
 
 void CvImprovementInfo::write(FDataStreamBase* stream) {
@@ -11665,7 +11688,14 @@ void CvImprovementInfo::write(FDataStreamBase* stream) {
 	for (int i = 0; i < GC.getNumRouteInfos(); i++) {
 		stream->Write(NUM_YIELD_TYPES, m_ppiRouteYieldChanges[i]);
 	}
+
+	stream->Write(m_viPrereqLandDirections.size());
+	for (std::vector<int>::iterator it = m_viPrereqLandDirections.begin(); it != m_viPrereqLandDirections.end(); ++it) {
+		stream->Write(*it);
+	}
+
 }
+
 bool CvImprovementInfo::read(CvXMLLoadUtility* pXML) {
 	CvString szTextVal;
 	if (!CvInfoBase::read(pXML)) {
@@ -11685,6 +11715,7 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML) {
 	m_iPrereqTech = pXML->FindInInfoClass(szTextVal);
 
 	pXML->SetList(&m_piPrereqNatureYield, "PrereqNatureYields", NUM_YIELD_TYPES);
+	pXML->SetVectorEnum(m_viPrereqLandDirections, "PrereqLandDirections");
 	pXML->SetList(&m_piYieldChange, "YieldChanges", NUM_YIELD_TYPES);
 	pXML->SetList(&m_piRiverSideYieldChange, "RiverSideYieldChange", NUM_YIELD_TYPES);
 	pXML->SetList(&m_piHillsYieldChange, "HillsYieldChange", NUM_YIELD_TYPES);

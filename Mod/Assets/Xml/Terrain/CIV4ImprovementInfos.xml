@@ -246,6 +246,100 @@
 				<TerrainType>TERRAIN_SNOW</TerrainType>
 			</TerrainMakesValids>
 		</ImprovementInfo>
+		<ImprovementInfo> <!-- Seabridge NS -->
+			<Type>IMPROVEMENT_SEA_BRIDGE_NS</Type>
+			<Description>TXT_KEY_IMPROVEMENT_SEA_BRIDGE</Description>
+			<Civilopedia>TXT_KEY_IMPROVEMENT_SEA_BRIDGE_PEDIA</Civilopedia>
+			<ArtDefineTag>ART_DEF_IMPROVEMENT_SEA_BRIDGE_NS</ArtDefineTag>
+			<PrereqLandDirections>
+				<DirectionType>DIRECTION_NORTH</DirectionType>
+				<DirectionType>DIRECTION_SOUTH</DirectionType>
+			</PrereqLandDirections>
+			<bSeaBridge>1</bSeaBridge>
+			<bWater>1</bWater>
+			<iAdvancedStartCost>30</iAdvancedStartCost>
+			<iAirBombDefense>5</iAirBombDefense>
+			<iPillageGold>15</iPillageGold>
+			<bOutsideBorders>1</bOutsideBorders>
+			<TerrainMakesValids>
+				<TerrainType>TERRAIN_COAST</TerrainType>
+			</TerrainMakesValids>
+		</ImprovementInfo>
+		<ImprovementInfo> <!-- Seabridge EW -->
+			<Type>IMPROVEMENT_SEA_BRIDGE_EW</Type>
+			<Description>TXT_KEY_IMPROVEMENT_SEA_BRIDGE</Description>
+			<Civilopedia>TXT_KEY_IMPROVEMENT_SEA_BRIDGE_PEDIA</Civilopedia>
+			<ArtDefineTag>ART_DEF_IMPROVEMENT_SEA_BRIDGE_EW</ArtDefineTag>
+			<PrereqLandDirections>
+				<DirectionType>DIRECTION_EAST</DirectionType>
+				<DirectionType>DIRECTION_WEST</DirectionType>
+			</PrereqLandDirections>
+			<bSeaBridge>1</bSeaBridge>
+			<bWater>1</bWater>
+			<iAdvancedStartCost>30</iAdvancedStartCost>
+			<iAirBombDefense>5</iAirBombDefense>
+			<iPillageGold>15</iPillageGold>
+			<bOutsideBorders>1</bOutsideBorders>
+			<TerrainMakesValids>
+				<TerrainType>TERRAIN_COAST</TerrainType>
+			</TerrainMakesValids>
+		</ImprovementInfo>
+		<ImprovementInfo> <!-- Seabridge NWSE -->
+			<Type>IMPROVEMENT_SEA_BRIDGE_NWSE</Type>
+			<Description>TXT_KEY_IMPROVEMENT_SEA_BRIDGE</Description>
+			<Civilopedia>TXT_KEY_IMPROVEMENT_SEA_BRIDGE_PEDIA</Civilopedia>
+			<ArtDefineTag>ART_DEF_IMPROVEMENT_SEA_BRIDGE_NWSE</ArtDefineTag>
+			<PrereqLandDirections>
+				<DirectionType>DIRECTION_NORTHWEST</DirectionType>
+				<DirectionType>DIRECTION_SOUTHEAST</DirectionType>
+			</PrereqLandDirections>
+			<bSeaBridge>1</bSeaBridge>
+			<bWater>1</bWater>
+			<iAdvancedStartCost>30</iAdvancedStartCost>
+			<iAirBombDefense>5</iAirBombDefense>
+			<iPillageGold>15</iPillageGold>
+			<bOutsideBorders>1</bOutsideBorders>
+			<TerrainMakesValids>
+				<TerrainType>TERRAIN_COAST</TerrainType>
+			</TerrainMakesValids>
+		</ImprovementInfo>
+		<ImprovementInfo> <!-- Seabridge NESW -->
+			<Type>IMPROVEMENT_SEA_BRIDGE_NESW</Type>
+			<Description>TXT_KEY_IMPROVEMENT_SEA_BRIDGE</Description>
+			<Civilopedia>TXT_KEY_IMPROVEMENT_SEA_BRIDGE_PEDIA</Civilopedia>
+			<ArtDefineTag>ART_DEF_IMPROVEMENT_SEA_BRIDGE_NESW</ArtDefineTag>
+			<PrereqLandDirections>
+				<DirectionType>DIRECTION_NORTHEAST</DirectionType>
+				<DirectionType>DIRECTION_SOUTHWEST</DirectionType>
+			</PrereqLandDirections>
+			<bSeaBridge>1</bSeaBridge>
+			<bWater>1</bWater>
+			<iAdvancedStartCost>30</iAdvancedStartCost>
+			<iAirBombDefense>5</iAirBombDefense>
+			<iPillageGold>15</iPillageGold>
+			<bOutsideBorders>1</bOutsideBorders>
+			<TerrainMakesValids>
+				<TerrainType>TERRAIN_COAST</TerrainType>
+			</TerrainMakesValids>
+		</ImprovementInfo>
+		<ImprovementInfo> <!-- Seed Camp -->
+			<Type>IMPROVEMENT_SEED_CAMP</Type>
+			<Description>TXT_KEY_IMPROVEMENT_SEED_CAMP</Description>
+			<Civilopedia>TXT_KEY_IMPROVEMENT_SEED_CAMP_PEDIA</Civilopedia>
+			<ArtDefineTag>ART_DEF_IMPROVEMENT_SEED_CAMP</ArtDefineTag>
+			<YieldChanges>
+				<iYieldChange>1</iYieldChange>
+			</YieldChanges>
+			<bRequiresFlatlands>1</bRequiresFlatlands>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iUpgradeTime>10</iUpgradeTime>
+			<iPillageGold>7</iPillageGold>
+			<TerrainMakesValids>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+			</TerrainMakesValids>
+			<ImprovementUpgrade>IMPROVEMENT_FARM</ImprovementUpgrade>
+		</ImprovementInfo>
 		<ImprovementInfo> <!-- Stone Tools Camp -->
 			<Type>IMPROVEMENT_STONE_TOOLS_CAMP</Type>
 			<Description>TXT_KEY_IMPROVEMENT_STONE_TOOLS_CAMP</Description>
@@ -268,24 +362,6 @@
 				</BonusTypeStruct>
 			</BonusTypeStructs>
 			<ImprovementUpgrade>IMPROVEMENT_MINE</ImprovementUpgrade>
-		</ImprovementInfo>
-		<ImprovementInfo> <!-- Seed Camp -->
-			<Type>IMPROVEMENT_SEED_CAMP</Type>
-			<Description>TXT_KEY_IMPROVEMENT_SEED_CAMP</Description>
-			<Civilopedia>TXT_KEY_IMPROVEMENT_SEED_CAMP_PEDIA</Civilopedia>
-			<ArtDefineTag>ART_DEF_IMPROVEMENT_SEED_CAMP</ArtDefineTag>
-			<YieldChanges>
-				<iYieldChange>1</iYieldChange>
-			</YieldChanges>
-			<bRequiresFlatlands>1</bRequiresFlatlands>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iUpgradeTime>10</iUpgradeTime>
-			<iPillageGold>7</iPillageGold>
-			<TerrainMakesValids>
-				<TerrainType>TERRAIN_GRASS</TerrainType>
-				<TerrainType>TERRAIN_PLAINS</TerrainType>
-			</TerrainMakesValids>
-			<ImprovementUpgrade>IMPROVEMENT_FARM</ImprovementUpgrade>
 		</ImprovementInfo>
 		<ImprovementInfo> <!-- Timber Camp -->
 			<Type>IMPROVEMENT_TIMBER_CAMP</Type>

@@ -450,6 +450,66 @@
 			<iHotKeyPriority>0</iHotKeyPriority>
 			<Button>,Art/Interface/Buttons/Builds/BuildQuarry.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,2,9</Button>
 		</BuildInfo>
+		<BuildInfo> <!-- SeaBridge NS -->
+			<Type>BUILD_SEA_BRIDGE_NS</Type>
+			<Description>TXT_KEY_BUILD_SEA_BRIDGE_NS</Description>
+			<Help>TXT_KEY_BUILD_SEA_BRIDGE_HELP</Help>
+			<PrereqTech>TECH_3D_MODELLING</PrereqTech>
+			<bKill>1</bKill>
+			<ImprovementType>IMPROVEMENT_SEA_BRIDGE_NS</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<HotKey>KB_F</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/seabridge_ns.dds</Button>
+		</BuildInfo>	
+		<BuildInfo> <!-- SeaBridge EW -->
+			<Type>BUILD_SEA_BRIDGE_EW</Type>
+			<Description>TXT_KEY_BUILD_SEA_BRIDGE_EW</Description>
+			<Help>TXT_KEY_BUILD_SEA_BRIDGE_HELP</Help>
+			<PrereqTech>TECH_3D_MODELLING</PrereqTech>
+			<bKill>1</bKill>
+			<ImprovementType>IMPROVEMENT_SEA_BRIDGE_EW</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<HotKey>KB_F</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/seabridge_ew.dds</Button>
+		</BuildInfo>	
+		<BuildInfo> <!-- SeaBridge NESW -->
+			<Type>BUILD_SEA_BRIDGE_NESW</Type>
+			<Description>TXT_KEY_BUILD_SEA_BRIDGE_NESW</Description>
+			<Help>TXT_KEY_BUILD_SEA_BRIDGE_HELP</Help>
+			<PrereqTech>TECH_3D_MODELLING</PrereqTech>
+			<bKill>1</bKill>
+			<ImprovementType>IMPROVEMENT_SEA_BRIDGE_NESW</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<HotKey>KB_F</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/seabridge_nesw.dds</Button>
+		</BuildInfo>	
+		<BuildInfo> <!-- SeaBridge NWSE -->
+			<Type>BUILD_SEA_BRIDGE_NWSE</Type>
+			<Description>TXT_KEY_BUILD_SEA_BRIDGE_NWSE</Description>
+			<Help>TXT_KEY_BUILD_SEA_BRIDGE_HELP</Help>
+			<PrereqTech>TECH_3D_MODELLING</PrereqTech>
+			<bKill>1</bKill>
+			<ImprovementType>IMPROVEMENT_SEA_BRIDGE_NWSE</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<HotKey>KB_F</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/seabridge_nwse.dds</Button>
+		</BuildInfo>	
 		<BuildInfo> <!-- Seed Camp -->
 			<Type>BUILD_SEED_CAMP</Type>
 			<Description>TXT_KEY_BUILD_SEED_CAMP</Description>

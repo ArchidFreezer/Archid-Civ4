@@ -9161,6 +9161,12 @@
 				<BuildType>BUILD_FISHING_BOATS</BuildType>
 				<BuildType>BUILD_WHALING_BOATS</BuildType>
 				<BuildType>BUILD_OFFSHORE_PLATFORM</BuildType>
+				<BuildType>BUILD_SEA_BRIDGE_NS</BuildType>
+				<BuildType>BUILD_SEA_BRIDGE_EW</BuildType>
+				<BuildType>BUILD_SEA_BRIDGE_NESW</BuildType>
+				<BuildType>BUILD_SEA_BRIDGE_NWSE</BuildType>
+				<BuildType>BUILD_GRAVTUBE</BuildType>
+				<BuildType>BUILD_JUMPLANE</BuildType>
 			</Builds>
 			<PrereqTechs>
 				<TechType>TECH_FISHING</TechType>

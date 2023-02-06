@@ -14532,7 +14532,7 @@ BuildTypes CvUnitAI::AI_betterPlotBuild(CvPlot* pPlot, BuildTypes eBuild) {
 
 
 		RouteTypes eRoute = (RouteTypes)kBuildInfo.getRoute();
-		if ((bBuildRoute && (eRoute != NO_ROUTE)) || (bClearFeature && kBuildInfo.isFeatureRemove(eFeature))) {
+		if ((bBuildRoute && eRoute != NO_ROUTE) || (bClearFeature && kBuildInfo.isFeatureRemove(eFeature))) {
 			if (canBuild(pPlot, eBuild)) {
 				int iValue = 10000;
 

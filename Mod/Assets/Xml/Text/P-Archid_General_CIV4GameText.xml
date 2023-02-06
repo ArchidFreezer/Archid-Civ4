@@ -1548,8 +1548,4 @@
 		<Tag>TXT_KEY_ROUTE_SEA_TUNNEL</Tag>
 		<English>Sea Tunnel</English>
 	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_IMPROVEMENT_SEA_BRIDGE</Tag>
-		<English>Sea Tunnel</English>
-	</TEXT>
 </Civ4GameText>

@@ -148,6 +148,36 @@
 		<English>[TAB]A quarry is a type of open-pit mine from which rock or minerals are extracted. Quarries are generally used for extracting building materials, such as dimension stone, construction aggregate, riprap, sand, and gravel. They are often colocated with concrete and asphalt plants due to the requirement for large amounts of aggregate in those materials. The word quarry can include underground quarrying for stone, such as Bath stone.</English>
 	</TEXT>
 	
+<!-- Sea Bridge -->
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_SEA_BRIDGE_NS</Tag>
+		<English>Build Sea Bridge NS</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_SEA_BRIDGE_EW</Tag>
+		<English>Build Sea Bridge EW</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_SEA_BRIDGE_NWSE</Tag>
+		<English>Build Sea Bridge NWSE</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_SEA_BRIDGE_NESW</Tag>
+		<English>Build Sea Bridge NESW</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_SEA_BRIDGE_HELP</Tag>
+		<English>Requires Coast</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_SEA_BRIDGE</Tag>
+		<English>Sea Bridge</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_SEA_BRIDGE_PEDIA</Tag>
+		<English>[TAB]Building a Sea Bridge provides land units the ability to cross coastal water plots to reach another land plot.  Construction of the Sea Bridge is performed by the Workboat.</English>
+	</TEXT>
+	
 <!-- Seed Camp -->
 	<TEXT>
 		<Tag>TXT_KEY_IMPROVEMENT_SEED_CAMP</Tag>

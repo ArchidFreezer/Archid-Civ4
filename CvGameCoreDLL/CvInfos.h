@@ -3126,6 +3126,7 @@ public:
 	int getAppearanceProbability() const;
 	int getBarbarianSpawnRatePercentage() const;
 	int getPrereqTech() const;
+	int getNumPrereqLandDirections() const;
 
 	bool isActsAsCity() const;				// Exposed to Python
 	bool isHillsMakesValid() const;				// Exposed to Python
@@ -3144,6 +3145,7 @@ public:
 	bool isPeakMakesValid() const;				// Exposed to Python
 	bool isAnySpawn() const;
 	bool isSeaBridge() const;
+	bool isPrereqLandDirection(DirectionTypes eDirection) const;
 
 	const TCHAR* getArtDefineTag() const;
 	void setArtDefineTag(const TCHAR* szVal);
@@ -3175,6 +3177,8 @@ public:
 	bool isImprovementBonusMakesValid(int i) const;				// Exposed to Python
 	bool isImprovementBonusTrade(int i) const;				// Exposed to Python
 	int getImprovementBonusDiscoverRand(int i) const;				// Exposed to Python
+
+	int getPrereqLandDirection(int index) const;
 
 	// Other
 
@@ -3246,6 +3250,7 @@ protected:
 	int** m_ppiRouteYieldChanges;
 
 	CvImprovementBonusInfo* m_paImprovementBonus;
+	std::vector<int> m_viPrereqLandDirections;
 
 };
 

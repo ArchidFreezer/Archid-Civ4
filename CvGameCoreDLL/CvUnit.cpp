@@ -6631,12 +6631,19 @@ int CvUnit::nukeRange() const {
 
 // XXX should this test for coal?
 bool CvUnit::canBuildRoute() const {
-	int iI;
-
-	for (iI = 0; iI < GC.getNumBuildInfos(); iI++) {
-		if (GC.getBuildInfo((BuildTypes)iI).getRoute() != NO_ROUTE) {
-			if (m_pUnitInfo->getBuilds(iI)) {
-				if (GET_TEAM(getTeam()).isHasTech((TechTypes)(GC.getBuildInfo((BuildTypes)iI).getTechPrereq()))) {
+	for (BuildTypes eBuild = (BuildTypes)0; eBuild < GC.getNumBuildInfos(); eBuild = (BuildTypes)(eBuild + 1)) {
+		const CvBuildInfo& kBuild = GC.getBuildInfo(eBuild);
+		if (kBuild.getRoute() != NO_ROUTE) {
+			if (m_pUnitInfo->getBuilds(eBuild)) {
+				if (GET_TEAM(getTeam()).isHasTech((TechTypes)kBuild.getTechPrereq())) {
+					return true;
+				}
+			}
+		}
+		if (kBuild.getImprovement() != NO_IMPROVEMENT) {
+			const CvImprovementInfo& kImprovement = GC.getImprovementInfo((ImprovementTypes)kBuild.getImprovement());
+			if (kImprovement.isSeaBridge() && m_pUnitInfo->getBuilds(eBuild)) {
+				if (GET_TEAM(getTeam()).isHasTech((TechTypes)kBuild.getTechPrereq())) {
 					return true;
 				}
 			}

@@ -130,6 +130,42 @@
 			<KFM>Art/Structures/Improvements/Lumbermill/Lumbermill.kfm</KFM>
 			<Button>,Art/Interface/Buttons/Builds/BuildLumberMill.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,5,7</Button>
 		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Seabridge NS -->
+			<Type>ART_DEF_IMPROVEMENT_SEA_BRIDGE_NS</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>1.8</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/Bridge/Bridge_NS.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Builds/seabridge_ns.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Seabridge EW -->
+			<Type>ART_DEF_IMPROVEMENT_SEA_BRIDGE_EW</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>1.8</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/Bridge/Bridge_EW.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Builds/seabridge_ew.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Seabridge NWSE -->
+			<Type>ART_DEF_IMPROVEMENT_SEA_BRIDGE_NWSE</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>2.6</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/Bridge/Bridge_NWSE.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Builds/seabridge_nwse.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Seabridge NESW -->
+			<Type>ART_DEF_IMPROVEMENT_SEA_BRIDGE_NESW</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>2.6</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/Bridge/Bridge_NESW.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Builds/seabridge_nesw.dds</Button>
+		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Watermill -->
 			<Type>ART_DEF_IMPROVEMENT_WATERMILL</Type>
 			<bExtraAnimations>0</bExtraAnimations>
