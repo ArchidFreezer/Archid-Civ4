@@ -37,7 +37,7 @@
     <tr><td><span class="tagoptional">BonusType</span><td>NO_BONUS<td>Bonus that the city must have to train this unit
     <tr><td><span class="tagoptional">Capture</span><td>NO_UNIT<td>Reference to another unit. If this unit is captured the capturing player will gain a unit of the referenced type instead of this unit
     <tr><td><span class="tagoptional">Civilopedia</span><td><td>A reference to the text files, which contain the Platypedia entry for this unit
-    <tr><td><span class="tagmandatory">Class</span><td><td>The class as defined in CIV4UnitClassInfos.xml. Class is the thing that holds, say, a Swordsman and a Praetorian together; each civilization can only have one of each class.
+    <tr><td><span class="tagmandatory">Class</span><td><td>The class as defined in CIV4UnitClassInfos.xml. Class is the thing that holds, say, a Swordsman and a Praetorian together&semi; each civilization can only have one of each class.
     <tr><td><span class="tagoptional">Combat</span><td>NO_UNITCOMBAT<td>The unit combat type of the unit. Reference to CIV4UnitCombatInfos.xml
     <tr><td><span class="tagmandatory">DefaultUnitAI</span><td><td>The default AI routine that the unit uses. Reference to Civ4UnitAIInfos.xml
     <tr><td><span class="tagoptional">Description</span><td><td>A reference to the text files, which contains the name displayed for this unit
@@ -96,7 +96,7 @@
     <tr><td><span class="tagoptional">iDiscoverMultiplier</span><td>0<td>This value, multiplied by the teams population is added to the iBaseDiscover value to determine the total research a unit can provide
     <tr><td><span class="tagoptional">iDropRange</span><td>0<td>The range at which the unit can 'jump'/paradrop from a friendly city
     <tr><td><span class="tagoptional">iEspionagePoints</span><td>0<td>The number of espionage points gained when infiltrating a rival player
-    <tr><td><span class="tagoptional">iEvasionProbability</span><td>0<td>For air and parachute units; the odds of evading interception
+    <tr><td><span class="tagoptional">iEvasionProbability</span><td>0<td>For air and parachute units&semi; the odds of evading interception
     <tr><td><span class="tagoptional">iExtraCost</span><td>0<td>The additional upkeep in gold that this unit costs each turn over and above the standard cost
     <tr><td><span class="tagoptional">iFirstStrikes</span><td>0<td>The number of automatic First Strikes that the unit has
     <tr><td><span class="tagoptional">iGreatWorkCulture</span><td>0<td>The culture this unit provides when creating a great work, the value is multiplied by the number of the Era the player is in and modified by the gamespeed
@@ -107,8 +107,8 @@
     <tr><td><span class="tagoptional">iHurryMultiplier</span><td>0<td>This value, multiplied by the city population is added to the iBaseHurry value to determine the total hammers a unit can provide
     <tr><td><span class="tagoptional">iInterceptionProbability</span><td>0<td>The percent chance a unit has of intercepting an enemy unit within range trying to carry out an air mission
     <tr><td><span class="tagoptional">iLeaderExperience</span><td>0<td>The amount of experience this unit gives to units in the same stack when leading as a warlord
-    <tr><td><span class="tagoptional"><b>iMaxAmmoTypeTier</b></span><td>-1<td>The maximum applicable ammunition type that this unit can upgrade to; -1 indicates no limit
-    <tr><td><span class="tagoptional"><b>iMaxWeaponTypeTier</b></span><td>-1<td>The maximum applicable weapon type that this unit can upgrade to; -1 indicates no limit
+    <tr><td><span class="tagoptional"><b>iMaxAmmoTypeTier</b></span><td>-1<td>The maximum applicable ammunition type that this unit can upgrade to&semi; -1 indicates no limit
+    <tr><td><span class="tagoptional"><b>iMaxWeaponTypeTier</b></span><td>-1<td>The maximum applicable weapon type that this unit can upgrade to&semi; -1 indicates no limit
     <tr><td><span class="tagoptional">iMinAreaSize</span><td>-1<td>The number of tiles in the area the city is on in order to train this unit
     <tr><td><span class="tagoptional"><b>iMinPopulation</b></span><td>0<td>The minimum population a city must have in order to train this unit
     <tr><td><span class="tagoptional">iMoves</span><td>0<td>The number of moves the unit has at the start of each turn. Each tile has a movement cost that is reduced from this value whenever a unit moves onto it, the combination of these values determines how many tiles a unit can move in the turn
@@ -137,7 +137,7 @@
     <tr><td><span class="tagoptional">bFirstStrikeImmune</span><td>0<td>If true, the unit is immune to first strikes
     <tr><td><span class="tagoptional"><b>bFixedAI</b></span><td>0<td>If true, the unit cannot change out of the default AI
     <tr><td><span class="tagoptional">bFlatMovementCost</span><td>0<td>If true, ignores movement modifiers such as routes
-    <tr><td><span class="tagoptional">bFood</span><td>0<td>If true, the unit is produced with food as well as hammers; a city does not generate food while building this unit
+    <tr><td><span class="tagoptional">bFood</span><td>0<td>If true, the unit is produced with food as well as hammers&semi; a city does not generate food while building this unit
     <tr><td><span class="tagoptional">bFound</span><td>0<td>If true, the unit can found a new city
     <tr><td><span class="tagoptional">bGoldenAge</span><td>0<td>If true, the unit counts as a Great Person to start a Golden Age
     <tr><td><span class="tagoptional">bHiddenNationality</span><td>0<td>If true, unit appears as a barbarian to other players so can cause havoc without starting a war
@@ -147,7 +147,7 @@
     <tr><td><span class="tagoptional">bInvisible</span><td>0<td>If true, the unit is always invisible to rivals
     <tr><td><span class="tagoptional">bLineOfSight</span><td>0<td>If true, unit can only reveal the content in the tiles in the direction they are facing
     <tr><td><span class="tagoptional">bMechanized</span><td>0<td>If true, the unit is considered to be a machine rather than organic
-    <tr><td><span class="tagoptional">bMilitaryHappiness</span><td>0<td>If true, counts as a Military Unit in the eyes of the rabble; contributes to the '+happy for each military unit in a city' civic modifier
+    <tr><td><span class="tagoptional">bMilitaryHappiness</span><td>0<td>If true, counts as a Military Unit in the eyes of the rabble&semi; contributes to the '+happy for each military unit in a city' civic modifier
     <tr><td><span class="tagoptional">bMilitaryProduction</span><td>0<td>If true, counts as a military unit for production bonuses/penalties
     <tr><td><span class="tagoptional">bMilitarySupport</span><td>0<td>If true, costs money to maintain as part of your military
     <tr><td><span class="tagoptional"><b>bMilitaryTrade</b></span><td>0<td>If true, the unit may be part of a military trade agreement
@@ -191,7 +191,7 @@
   &lt;/Building&gt;</pre>
     <tr><td><span class="tagoptional"><b>Builds</b></span><td>NONE<td>The list of improvements that the unit can build<br><pre class="code">
   &lt;BuildType&gt;&lt;/BuildType&gt;</pre>
-    <tr><td><span class="tagoptional"><b>CommercesFromKill</b></span><td>NONE<td>When a unit is killed the victor may gain thsi commerce from the kill<br><pre class="code">
+    <tr><td><span class="tagoptional"><b>CommercesFromKill</b></span><td>NONE<td>When a unit is killed the victor may gain this commerce from the kill<br><pre class="code">
   &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
     <tr><td><span class="tagoptional">CorporationSpreads</span><td>NONE<td>The chance that the unit can spread a corporation. This value is used as a modifier and the final spread chance is based on the city size, number of corporations, whether the city is a team member, etc.<br><pre class="code">
   &lt;CorporationSpread&gt;
