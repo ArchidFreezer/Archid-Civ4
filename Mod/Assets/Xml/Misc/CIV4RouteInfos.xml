@@ -81,6 +81,7 @@
 			<iAdvancedStartCost>24</iAdvancedStartCost>
 			<iMovement>20</iMovement>
 			<iFlatMovement>6</iFlatMovement>
+			<bSeaTunnel>1</bSeaTunnel>
 			<BonusType>BONUS_COPPER</BonusType>
 			<Yields>
 				<iYield>0</iYield>
@@ -97,6 +98,7 @@
 			<iAdvancedStartCost>30</iAdvancedStartCost>
 			<iMovement>15</iMovement>
 			<iFlatMovement>3</iFlatMovement>
+			<bSeaTunnel>1</bSeaTunnel>
 			<Yields>
 				<iYield>1</iYield>
 				<iYield>1</iYield>
