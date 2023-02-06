@@ -19715,7 +19715,7 @@ bool CvUnitAI::AI_becomeBarbarian() {
 		return false;
 
 	// If we don't have ready gold then don't convert
-	int iSpareFreeBarbUnits = kPlayer.getBarbarianFreeUnits() - (kPlayer.AI_getNumAIUnits(UNITAI_BARBARIAN) + kPlayer.AI_getNumAIUnits(UNITAI_BARBARIAN_ATTACK_CITY));
+	int iSpareFreeBarbUnits = kPlayer.getBarbarianFreeUnits() - kPlayer.getNumBarbarians();
 	if (kPlayer.AI_isFinancialTrouble() && iSpareFreeBarbUnits <= 0)
 		return false;
 
@@ -19737,13 +19737,12 @@ bool CvUnitAI::AI_becomeBarbarian() {
 		return true;
 	}
 
-	// If we don't have any free slots then base the number of barbs on our city count, with more value to neutrals
-	// Remember that at this point iSpareFreeBarbUnits should be negative so we are effectively allowing 2 
-	int iBarbCityDiff = pArea->getCitiesPerPlayer(getOwnerINLINE()) + iSpareFreeBarbUnits;
-	if (iAreaNeutrals && iBarbCityDiff <= 3) {
+	// For neutral only civs we allow 1 barbarian per city, if there are enemies allow for one extra.
+	// We don't want too many due to the additional cost which is a drain on our research
+	if (iAreaNeutrals && (kPlayer.getNumBarbarians() < pArea->getCitiesPerPlayer(getOwnerINLINE()))) {
 		getGroup()->pushMission(MISSION_BECOME_BARBARIAN);
 		return true;
-	} else if (iAreaEnemies && iBarbCityDiff <= 1) {
+	} else if (iAreaEnemies && (kPlayer.getNumBarbarians() <= pArea->getCitiesPerPlayer(getOwnerINLINE()))) {
 		getGroup()->pushMission(MISSION_BECOME_BARBARIAN);
 		return true;
 	}
