@@ -247,6 +247,7 @@ void CyInfoPythonInterface2() {
 		.def("getFlatMovementCost", &CvRouteInfo::getFlatMovementCost, "int ()")
 		.def("getPrereqBonus", &CvRouteInfo::getPrereqBonus, "int ()")
 		.def("getNumPrereqOrBonuses", &CvRouteInfo::getNumPrereqOrBonuses, "int ()")
+		.def("isSeaTunnel", &CvRouteInfo::isSeaTunnel, "bool ()")
 
 		// Arrays
 
@@ -284,6 +285,7 @@ void CyInfoPythonInterface2() {
 		.def("getAppearanceProbability", &CvImprovementInfo::getAppearanceProbability, "int ()")
 
 		.def("isActsAsCity", &CvImprovementInfo::isActsAsCity, "bool ()")
+		.def("isSeaBridge", &CvImprovementInfo::isSeaBridge, "bool ()")
 		.def("isHillsMakesValid", &CvImprovementInfo::isHillsMakesValid, "bool ()")
 		.def("isPeakMakesValid", &CvImprovementInfo::isPeakMakesValid, "bool ()")
 		.def("isFreshWaterMakesValid", &CvImprovementInfo::isFreshWaterMakesValid, "bool ()")

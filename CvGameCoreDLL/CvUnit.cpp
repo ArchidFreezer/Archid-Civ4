@@ -2219,7 +2219,7 @@ bool CvUnit::canMoveInto(const CvPlot* pPlot, bool bAttack, bool bDeclareWar, bo
 		break;
 
 	case DOMAIN_LAND:
-		if (pPlot->isWater() && !canMoveAllTerrain()) {
+		if (pPlot->isWater() && !(canMoveAllTerrain() || pPlot->isLandUnitWaterSafe())) {
 			if (!pPlot->isCity() || 0 == GC.getDefineINT("LAND_UNITS_CAN_ATTACK_WATER_CITIES")) {
 				if (bIgnoreLoad || plot()->isWater() || !canLoad(pPlot)) // K-Mod. (AI might want to load into a boat on the coast)
 				{

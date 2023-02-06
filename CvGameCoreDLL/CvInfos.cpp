@@ -10929,6 +10929,7 @@ bool CvGoodyInfo::read(CvXMLLoadUtility* pXML) {
 //
 //------------------------------------------------------------------------------------------------------
 CvRouteInfo::CvRouteInfo() :
+	m_bSeaTunnel(false),
 	m_iAdvancedStartCost(0),
 	m_iAdvancedStartCostIncrease(0),
 	m_iValue(0),
@@ -10950,6 +10951,10 @@ CvRouteInfo::CvRouteInfo() :
 CvRouteInfo::~CvRouteInfo() {
 	SAFE_DELETE_ARRAY(m_piYieldChange);
 	SAFE_DELETE_ARRAY(m_piTechMovementChange);
+}
+
+bool CvRouteInfo::isSeaTunnel() const {
+	return m_bSeaTunnel;
 }
 
 int CvRouteInfo::getNumPrereqOrBonuses() const {
@@ -11014,6 +11019,7 @@ bool CvRouteInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iValue, "iValue");
 	pXML->GetChildXmlValByName(&m_iMovementCost, "iMovement");
 	pXML->GetChildXmlValByName(&m_iFlatMovementCost, "iFlatMovement");
+	pXML->GetChildXmlValByName(&m_bSeaTunnel, "bSeaTunnel");
 
 	pXML->GetChildXmlValByName(szTextVal, "BonusType");
 	m_iPrereqBonus = pXML->FindInInfoClass(szTextVal);
@@ -11150,6 +11156,7 @@ CvImprovementInfo::CvImprovementInfo() :
 	m_bPermanent(false),
 	m_bOutsideBorders(false),
 	m_bPeakMakesValid(false),
+	m_bSeaBridge(false),
 	m_iWorldSoundscapeScriptId(0),
 	m_piPrereqNatureYield(NULL),
 	m_piYieldChange(NULL),
@@ -11198,6 +11205,10 @@ CvImprovementInfo::~CvImprovementInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppiRouteYieldChanges);
 	}
+}
+
+bool CvImprovementInfo::isSeaBridge() const {
+	return m_bSeaBridge;
 }
 
 int CvImprovementInfo::getPrereqTech() const {
@@ -11518,6 +11529,7 @@ void CvImprovementInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bPermanent);
 	stream->Read(&m_bOutsideBorders);
 	stream->Read(&m_bPeakMakesValid);
+	stream->Read(&m_bSeaBridge);
 
 	stream->ReadString(m_szArtDefineTag);
 
@@ -11626,6 +11638,7 @@ void CvImprovementInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bPermanent);
 	stream->Write(m_bOutsideBorders);
 	stream->Write(m_bPeakMakesValid);
+	stream->Write(m_bSeaBridge);
 
 	stream->WriteString(m_szArtDefineTag);
 
@@ -11679,6 +11692,7 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iAdvancedStartCost, "iAdvancedStartCost", -1);
 	pXML->GetChildXmlValByName(&m_iAdvancedStartCostIncrease, "iAdvancedStartCostIncrease");
 	pXML->GetChildXmlValByName(&m_bActsAsCity, "bActsAsCity");
+	pXML->GetChildXmlValByName(&m_bSeaBridge, "bSeaBridge");
 	pXML->GetChildXmlValByName(&m_bHillsMakesValid, "bHillsMakesValid");
 	pXML->GetChildXmlValByName(&m_bPeakMakesValid, "bPeakMakesValid");
 	pXML->GetChildXmlValByName(&m_bFreshWaterMakesValid, "bFreshWaterMakesValid");

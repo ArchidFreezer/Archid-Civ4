@@ -90,7 +90,7 @@ bool CvUnitAI::AI_update() {
 	}
 
 	if (getDomainType() == DOMAIN_LAND) {
-		if (plot()->isWater() && !canMoveAllTerrain()) {
+		if (plot()->isWater() && !(canMoveAllTerrain() || plot()->isLandUnitWaterSafe())) {
 			getGroup()->pushMission(MISSION_SKIP);
 			return false;
 		} else {
@@ -17324,7 +17324,7 @@ bool CvUnitAI::AI_plotValid(CvPlot* pPlot) {
 		break;
 
 	case DOMAIN_LAND:
-		if (pPlot->getArea() == getArea() || canMoveAllTerrain()) {
+		if (pPlot->getArea() == getArea() || canMoveAllTerrain() || pPlot->isLandUnitWaterSafe()) {
 			return true;
 		}
 		break;

@@ -138,10 +138,16 @@ class CvPediaRoute:
 		Info = gc.getRouteInfo(self.iRoute)
 		sText = u"%s: %.2f%s" % (CyTranslator().getText("TXT_KEY_PEDIA_FLAT_COST",()), float(Info.getFlatMovementCost()) / gc.getMOVE_DENOMINATOR(), CyTranslator().getText("[ICON_MOVES]", ()))
 		screen.setLabelAt(self.top.getNextWidgetName(), panelName, u"<font=3>" + sText + u"</font>", CvUtil.FONT_LEFT_JUSTIFY, self.iSize + 4, iY, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
+		iY += self.iSize/2
 		sText = u"%s: %.2f%s" % (CyTranslator().getText("TXT_KEY_PEDIA_MOVE_COST",()), float(Info.getMovementCost()) / gc.getMOVE_DENOMINATOR(), CyTranslator().getText("[ICON_MOVES]", ()))
-		screen.setLabelAt(self.top.getNextWidgetName(), panelName, u"<font=3>" + sText + u"</font>", CvUtil.FONT_LEFT_JUSTIFY, self.iSize + 4, iY + self.iSize/2, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
-		iY += (self.iSize + 4)
-
+		screen.setLabelAt(self.top.getNextWidgetName(), panelName, u"<font=3>" + sText + u"</font>", CvUtil.FONT_LEFT_JUSTIFY, self.iSize + 4, iY, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
+		iY += self.iSize/2
+		if Info.isSeaTunnel():
+			sText = u"%s" % (CyTranslator().getText("TXT_KEY_ROUTE_SEA_TUNNEL",()))
+			screen.setLabelAt(self.top.getNextWidgetName(), panelName, u"<font=3>" + sText + u"</font>", CvUtil.FONT_LEFT_JUSTIFY, self.iSize + 4, iY, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
+			iY += self.iSize/2
+		
+		iY += 4
 		for item in xrange(gc.getNumTechInfos()):
 			iRouteChange = Info.getTechMovementChange(item)
 			if iRouteChange != 0:

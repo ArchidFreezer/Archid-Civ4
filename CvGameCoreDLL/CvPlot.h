@@ -61,6 +61,10 @@ public:
 	UnitTypes getNativeBarbarianRand(UnitAITypes eAI = NO_UNITAI, bool bIncludeWater = true) const;
 	UnitTypes getNativeBarbarianBest(UnitAITypes eAI = NO_UNITAI, bool bIncludeWater = false, bool bIncludeDefensive = false) const;
 
+	bool isLandUnitWaterSafe() const;
+	bool isSeaTunnel() const;
+	bool isSeaBridge() const;
+
 	bool isCanFortAttack() const;
 	bool isSubjectToFortAttack() const;
 

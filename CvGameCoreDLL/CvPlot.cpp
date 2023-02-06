@@ -3107,6 +3107,9 @@ bool CvPlot::isValidDomainForAction(const CvUnit& unit) const {
 		break;
 
 	case DOMAIN_LAND:
+		return (!isWater() || unit.canMoveAllTerrain() || isLandUnitWaterSafe());
+		break;
+
 	case DOMAIN_IMMOBILE:
 		return (!isWater() || unit.canMoveAllTerrain());
 		break;
@@ -4492,6 +4495,20 @@ void CvPlot::setRouteType(RouteTypes eNewValue, bool bUpdatePlotGroups) {
 
 		if (getRouteType() != NO_ROUTE) {
 			CvEventReporter::getInstance().routeBuilt(getRouteType(), getX_INLINE(), getY_INLINE());
+		}
+
+		// If we are removing a route that allows land units to cross the water then drown any that are on the plot
+		if (eNewValue == NO_ROUTE && isLandUnitWaterSafe()) {
+			CLLNode<IDInfo>* pUnitNode = headUnitNode();
+
+			while (pUnitNode != NULL) {
+				CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+				pUnitNode = nextUnitNode(pUnitNode);
+
+				if (pLoopUnit->getDomainType() == DOMAIN_LAND && !pLoopUnit->canMoveAllTerrain()) {
+					pLoopUnit->kill(true);
+				}
+			}
 		}
 
 		// K-Mod. Fixing a bug in the border danger cache from BBAI.
@@ -8620,4 +8637,39 @@ UnitTypes CvPlot::getNativeBarbarianBest(UnitAITypes eAI, bool bIncludeWater, bo
 		}
 	}
 	return eBestUnit;
+}
+
+bool CvPlot::isLandUnitWaterSafe() const {
+	if (!isWater()) {
+		return false;
+	}
+
+	if (isSeaBridge() && isAdjacentToLand()) {
+		return true;
+	}
+
+	if (isSeaTunnel()) {
+		return true;
+	}
+
+	return false;
+}
+
+bool CvPlot::isSeaTunnel() const {
+	if (isRoute()) {
+		if (GC.getRouteInfo(getRouteType()).isSeaTunnel()) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+bool CvPlot::isSeaBridge() const {
+	if (getImprovementType() != NO_IMPROVEMENT) {
+		if (GC.getImprovementInfo(getImprovementType()).isSeaBridge()) {
+			return true;
+		}
+	}
+	return false;
 }
