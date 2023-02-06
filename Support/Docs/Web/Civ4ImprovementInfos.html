@@ -81,6 +81,7 @@
     <tr><td><span class="tagoptional">bRequiresIrrigation</span><td>0<td>if true, the improvement needs an irrigated tile next to it before it can be built
     <tr><td><span class="tagoptional">bRequiresRiverSide</span><td>0<td>If true, the improvement can only be built on a plot with a river flowing next to it
     <tr><td><span class="tagoptional">bRiverSideMakesValid</span><td>0<td>If true, the improvement always can be built next to a river
+    <tr><td><span class="tagoptional"><b>bSeaBridge</b></span><td>0<td>If true, this improvement can be constructed on water and connect two land tiles that are opposite each other, allowing land units to safely pass between.
     <tr><td><span class="tagoptional">bUseLSystem</span><td>0<td>Uses the L system,a art file,and is always 1. 
     <tr><td><span class="tagoptional">bWater</span><td>0<td>If true, the improvement needs to be built on water
   </table>	<p>
@@ -105,6 +106,8 @@
   &lt;iYield&gt;0&lt;/iYield&gt;</pre>
     <tr><td><span class="tagoptional">IrrigatedYieldChange</span><td>NONE<td>The food, production, commerce changes that occur if this improvement is irrigated<br><pre class="code">
   &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional"><b>PrereqLandDirections</b></span><td><td>A tile must have land plots on the directions specified in order for the improvement to be constructed.<br><pre class="code">
+  &lt;DirectionType&gt;&lt;/DirectionType&gt;</pre>
     <tr><td><span class="tagoptional">PrereqNatureYields</span><td>NONE<td>The amount of food, production, commerce that already has to be on the tile before the improvement can be built there. (note that a river adds one commerce and that a forest adds one production.)<br><pre class="code">
   &lt;iYield&gt;0&lt;/iYield&gt;</pre>
     <tr><td><span class="tagoptional">RiverSideYieldChange</span><td>NONE<td>The food, production, commerce changes that occur if this improvement has been built next to a river<br><pre class="code">
@@ -158,6 +161,9 @@
   &lt;PrereqNatureYields&gt;
     &lt;iYield&gt;0&lt;/iYield&gt;
   &lt;/PrereqNatureYields&gt;
+  &lt;PrereqLandDirections&gt;
+    &lt;DirectionType&gt;&lt;/DirectionType&gt;
+  &lt;/PrereqLandDirections&gt;
   &lt;YieldChanges&gt;
     &lt;iYield&gt;0&lt;/iYield&gt;
   &lt;/YieldChanges&gt;
@@ -171,6 +177,7 @@
     &lt;iYield&gt;0&lt;/iYield&gt;
   &lt;/IrrigatedYieldChange&gt;
   &lt;bActsAsCity&gt;0&lt;/bActsAsCity&gt;
+  &lt;bSeaBridge&gt;0&lt;/bSeaBridge&gt;
   &lt;bHillsMakesValid&gt;0&lt;/bHillsMakesValid&gt;
   &lt;bPeakMakesValid&gt;0&lt;/bPeakMakesValid&gt;
   &lt;bFreshWaterMakesValid&gt;0&lt;/bFreshWaterMakesValid&gt;

@@ -48,7 +48,12 @@
     <tr><td><span class="tagoptional">iMovement</span><td>0<td>The number of movement points used when moving along the route. Each movement point that a unit is shown as having provides 60 base units. This tag defines how many of those points moving along the route takes. E.g. a worker with movement 2 has 60 points, so a road with a value of 30 iMovement allows the worker to move 4 places (60 * 2) / 30.
     <tr><td><span class="tagoptional">iValue</span><td>0<td>The relative value of the route; a higher number is considered an upgrade of the route type
   </table>	<p>
-	<p>
+
+  <h3 id="boolean">Boolean</h3>
+  <table>
+    <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional"><b>bSeaTunnel</b></span><td>0<td>If true the route can allow land units on it to safely cross water.
+  </table>	<p>
 	<p>
 
   <h3 id="comp">Compound (Multi-line)</h3>
@@ -91,6 +96,7 @@
   &lt;iAdvancedStartCostIncrease&gt;0&lt;/iAdvancedStartCostIncrease&gt;
   &lt;iMovement&gt;0&lt;/iMovement&gt;
   &lt;iFlatMovement&gt;0&lt;/iFlatMovement&gt;
+  &lt;bSeaTunnel&gt;0&lt;/bSeaTunnel&gt;
   &lt;BonusType&gt;&lt;/BonusType&gt;
   &lt;PrereqOrBonuses&gt;
     &lt;BonusType&gt;&lt;/BonusType&gt;
