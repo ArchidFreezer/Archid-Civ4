@@ -19870,6 +19870,9 @@ bool CvPlayer::applyStarEvent(StarEventTypes eEvent, bool bPersist) {
 		if (targets.size() && bGoodEffect) {
 			for (std::vector<CvCity*>::iterator it = targets.begin(); it != targets.end(); ++it) {
 				UnitTypes eConscript = (*it)->getConscriptUnit();
+				if (eConscript == NO_UNIT)
+					continue;
+
 				for (int iNumUnits = 0; iNumUnits < kEvent.getConscript(); iNumUnits++) {
 					initUnit(eConscript, (*it)->getX_INLINE(), (*it)->getY_INLINE(), UNITAI_CITY_DEFENSE, NO_DIRECTION);
 				}
