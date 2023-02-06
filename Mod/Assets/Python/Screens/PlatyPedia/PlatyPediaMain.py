@@ -2112,15 +2112,33 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 			lSea = []
 			for item in lItems:
 				ItemInfo = gc.getImprovementInfo(item[1])
+				if ItemInfo.getImprovementPillage() > -1:
+					continue
 				if ItemInfo.isWater():
 					lSea.append(item)
 				else:
 					lLand.append(item)
+			lLand.sort()
+			lLandSorted = []
+			for item in lLand:
+				iImprovement = item[1]
+				lLandSorted.append(item)
+				while gc.getImprovementInfo(iImprovement).getImprovementUpgrade() > -1:
+					iImprovement = gc.getImprovementInfo(iImprovement).getImprovementUpgrade()
+					lLandSorted.append([CyTranslator().getText("[ICON_BULLET]", ()) + gc.getImprovementInfo(iImprovement).getDescription(), iImprovement, gc.getImprovementInfo(iImprovement).getButton()])
+			lSea.sort()
+			lSeaSorted = []
+			for item in lSea:
+				iImprovement = item[1]
+				lSeaSorted.append(item)
+				while gc.getImprovementInfo(iImprovement).getImprovementUpgrade() > -1:
+					iImprovement = gc.getImprovementInfo(iImprovement).getImprovementUpgrade()
+					lSeaSorted.append([CyTranslator().getText("[ICON_BULLET]", ()) + gc.getImprovementInfo(iImprovement).getDescription(), iImprovement, gc.getImprovementInfo(iImprovement).getButton()])
 			sInput = CyTranslator().getText("TXT_KEY_PEDIA_CATEGORY_IMPROVEMENT", ())
-			if lLand:
-				lSorted.append([CyTranslator().getText("TXT_PEDIA_LAND_STUFF", (sInput,)), "", lLand])
+			if lLandSorted:
+				lSorted.append([CyTranslator().getText("TXT_PEDIA_LAND_STUFF", (sInput,)), "", lLandSorted])
 			if lSea:
-				lSorted.append([CyTranslator().getText("TXT_PEDIA_SEA_STUFF", (sInput,)), "", lSea])
+				lSorted.append([CyTranslator().getText("TXT_PEDIA_SEA_STUFF", (sInput,)), "", lSeaSorted])
 		return lSorted
 
 	def sortRoutes(self, iType):
