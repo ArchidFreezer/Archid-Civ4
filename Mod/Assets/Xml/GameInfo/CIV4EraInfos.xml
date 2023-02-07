@@ -25,7 +25,7 @@
 			<NaturalYieldLimits>
 				<iYield>2</iYield>
 				<iYield>-1</iYield>
-				<iYield>1</iYield>
+				<iYield>2</iYield>
 			</NaturalYieldLimits>
 			<EraInfoSoundtracks>
 				<EraInfoSoundtrack>AS2D_ANCIENT_SOUNDTRACK_1</EraInfoSoundtrack>
@@ -75,7 +75,7 @@
 			<NaturalYieldLimits>
 				<iYield>2</iYield>
 				<iYield>-1</iYield>
-				<iYield>2</iYield>
+				<iYield>-1</iYield>
 			</NaturalYieldLimits>
 			<EraInfoSoundtracks>
 				<EraInfoSoundtrack>AS2D_SONG_BARBARIAN</EraInfoSoundtrack>
