@@ -4488,7 +4488,7 @@ void CvPlot::setRouteType(RouteTypes eNewValue, bool bUpdatePlotGroups) {
 		if (NO_ROUTE != getRouteType() && getWorkingCity() != NULL) getWorkingCity()->checkBuildingPlotPrereqs(this, false);
 		m_eRouteType = eNewValue;
 		updatePlotGroupBonus(true);
-		if (NO_ROUTE != getImprovementType() && getWorkingCity() != NULL) getWorkingCity()->checkBuildingPlotPrereqs(this, true);
+		if (NO_ROUTE != getRouteType() && getWorkingCity() != NULL) getWorkingCity()->checkBuildingPlotPrereqs(this, true);
 
 		for (TeamTypes eTeam = (TeamTypes)0; eTeam < MAX_TEAMS; eTeam = (TeamTypes)(eTeam + 1)) {
 			if (GET_TEAM(eTeam).isAlive()) {
