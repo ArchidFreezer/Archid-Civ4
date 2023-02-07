@@ -9164,6 +9164,8 @@ bool CvUnitAI::AI_chokeDefend() {
 
 
 // Returns true if a mission was pushed...
+// Heals the unit if it's damage is greater than the percent provided
+// The damage percent is the damage taken so AI_heal(30) will heal a unit if it is at 69/100 health
 bool CvUnitAI::AI_heal(int iDamagePercent, int iMaxPath) {
 	PROFILE_FUNC();
 
@@ -19418,6 +19420,11 @@ void CvUnitAI::AI_barbarianMove() {
 	// K-Mod note. We'll split the group up later if we need to. (bbai group splitting code deleted.)
 	FAssert(getGroup()->countNumUnitAIType(UNITAI_ATTACK_CITY) == 0); // K-Mod. (I'm pretty sure this can't happen.)
 
+	// If we are under 50% health take a stim pack
+	if (AI_heal(50)) {
+		return;
+	}
+
 	// Attack choking units
 	// K-Mod (bbai code deleted)
 	if (plot()->getTeam() == getTeam() && (bDanger || area()->getAreaAIType(getTeam()) != AREAAI_NEUTRAL)) {
@@ -19723,7 +19730,12 @@ bool CvUnitAI::AI_becomeBarbarian() {
 	int iAreaNeutrals = 0;
 	for (PlayerTypes eLoopPlayer = (PlayerTypes)0; eLoopPlayer < MAX_CIV_PLAYERS; eLoopPlayer = (PlayerTypes)(eLoopPlayer + 1)) {
 		const CvPlayer& kLoopPlayer = GET_PLAYER(eLoopPlayer);
-		if (kLoopPlayer.isAlive()) {
+		if (kLoopPlayer.isAlive() && (kLoopPlayer.getCapitalCity() != NULL)) {
+			// If we can't get to their capital ignore them
+			int iPathTurns;
+			if (!generatePath(kLoopPlayer.getCapitalCity()->plot(), MOVE_IGNORE_DANGER, false, &iPathTurns, getRange()))
+				continue;
+
 			TeamTypes eLoopTeam = kLoopPlayer.getTeam();
 			if (eLoopTeam != getTeam() && (pArea->getCitiesPerPlayer(eLoopPlayer) > 0) && GET_TEAM(getTeam()).isHasMet(eLoopTeam)) {
 				atWar(eLoopTeam, getTeam()) ? iAreaEnemies++ : iAreaNeutrals++;
@@ -19731,7 +19743,7 @@ bool CvUnitAI::AI_becomeBarbarian() {
 		}
 	}
 
-	// If we have some spare barb slots and civs to target then convert to grab some barb leaders.
+	// If we have some spare barb slots and civs to target then convert to grab barb leaders.
 	if (iSpareFreeBarbUnits > 0 && iAreaEnemies + iAreaNeutrals > 0) {
 		getGroup()->pushMission(MISSION_BECOME_BARBARIAN);
 		return true;
