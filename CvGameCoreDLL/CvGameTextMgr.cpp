@@ -7220,6 +7220,9 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 				}
 
 				if (eLoopBuilding != NO_BUILDING) {
+					if (GC.getBuildingInfo(eLoopBuilding).isGraphicalOnly()) {
+						continue;
+					}
 					if (!bPlayerContext || !(kActivePlayer.canConstruct(eLoopBuilding, false, true))) {
 						CvWString szFirstBuffer;
 						CvWString szTempBuffer;

@@ -163,7 +163,7 @@ class CvPediaTech(CvPediaScreen.CvPediaScreen):
 		panelName = self.top.getNextWidgetName()
 		screen.addPanel( panelName, CyTranslator().getText("TXT_KEY_PEDIA_BUILDINGS_ENABLED", ()), "", false, true, self.X_PREREQ, self.Y_UNIT_PANE, self.W_MAIN_PANE, self.H_PREREQ, PanelStyles.PANEL_STYLE_BLUE50 )
 		for eLoopBuilding in xrange(gc.getNumBuildingInfos()):
-			if isTechRequiredForBuilding(self.iTech, eLoopBuilding):
+			if isTechRequiredForBuilding(self.iTech, eLoopBuilding) and not gc.getBuildingInfo(eLoopBuilding).isGraphicalOnly():
         				screen.attachImageButton(panelName, "", gc.getBuildingInfo(eLoopBuilding).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BUILDING, eLoopBuilding, 1, False )
 
 		for eLoopProject in xrange(gc.getNumProjectInfos()):
