@@ -1541,7 +1541,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_BARBARIAN_EXTRA_COST_CHANGE</Tag>
-		<English>[ICON_BULLET]Changes extra cost of barbarian units by %d1_change%</English>
+		<English>[ICON_BULLET]Changes cost of barbarian units by %d1_change</English>
 	</TEXT>
 <!-- Sea Crossing -->
 	<TEXT>
