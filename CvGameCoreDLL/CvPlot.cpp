@@ -8520,7 +8520,9 @@ void CvPlot::doImprovementSpawn() {
 									if (!bResident) {
 										// Set the unit to stay put and defend the improvement
 										pUnit->setImmobile(true);
-										pUnit->setBaseCombatStr(pUnit->getUnitInfo().getCombat() * 2);
+										int iStrength = pUnit->getUnitInfo().getCombat() * 125;
+										iStrength /= 100;
+										pUnit->setBaseCombatStr(iStrength);
 										pUnit->changeFortifyTurns(5);
 										pUnit->changeAlwaysHealCount(1);
 									}
@@ -8528,6 +8530,10 @@ void CvPlot::doImprovementSpawn() {
 							}
 						}
 					}
+				}
+				// Remove the spawning improvement if it is in territory owned by a civ
+				if (isOwned() && !isBarbarian()) {
+					setImprovementType(NO_IMPROVEMENT);
 				}
 			}
 		}

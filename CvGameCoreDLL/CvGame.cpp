@@ -5514,6 +5514,14 @@ void CvGame::createAnimals() {
 
 						if (eBestUnit != NO_UNIT) {
 							GET_PLAYER(BARBARIAN_PLAYER).initUnit(eBestUnit, pPlot->getX_INLINE(), pPlot->getY_INLINE(), UNITAI_ANIMAL);
+							if (getSorenRandNum(100, "Animal Unit Selection") < 5) { // 5% chance a lair is also created
+								for (ImprovementTypes eImprovement = (ImprovementTypes)0; eImprovement < GC.getNumImprovementInfos(); eImprovement = (ImprovementTypes)(eImprovement + 1)) {
+									if (GC.getImprovementInfo(eImprovement).getAnimalSpawnRatePercentage() > 0) {
+										pPlot->setImprovementType(eImprovement);
+										break;
+									}
+								}
+							}
 						}
 					}
 				}
