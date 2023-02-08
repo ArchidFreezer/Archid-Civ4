@@ -425,13 +425,10 @@
 		<element type="BonusType"/>
 		<element type="YieldChanges"/>
 	</ElementType>
-	<ElementType name="BonusYieldChanges" content="eltOnly">
-		<element type="BonusYieldChange" minOccurs="0" maxOccurs="*"/>
-	</ElementType>
-	
 	<ElementType name="VicinityBonusYieldChanges" content="eltOnly">
 		<element type="BonusYieldChange" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="bRequirePrereqVicinityBonusConnected" content="textOnly" dt:type="boolean"/>
 	<ElementType name="BuildingInfo" content="eltOnly">
 		<element type="BuildingClass"/>
 		<element type="Type"/>
@@ -466,6 +463,7 @@
 		<element type="PrereqOrTerrains" minOccurs="0"/>
 		<element type="PrereqVicinityAndBonus" minOccurs="0"/>
 		<element type="PrereqVicinityOrBonus" minOccurs="0"/>
+		<element type="bRequirePrereqVicinityBonusConnected" minOccurs="0"/> <!-- Default: 1 -->
 		<element type="PrereqVicinityImprovements" minOccurs="0"/>
 		<element type="PrereqVicinityFeatures" minOccurs="0"/>
 		<element type="PrereqWorldViews" minOccurs="0"/>

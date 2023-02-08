@@ -1911,6 +1911,7 @@ public:
 	bool isForceDisableStarSigns() const;
 	bool isStarSignGoodOnly() const;
 	bool isSlaveMarket() const;
+	bool isRequirePrereqVicinityBonusWorked() const;
 
 	CultureLevelTypes getMinCultureLevel() const;
 
@@ -2151,6 +2152,7 @@ protected:
 	bool m_bForceDisableStarSigns;
 	bool m_bStarSignGoodOnly;
 	bool m_bSlaveMarket;
+	bool m_bRequirePrereqVicinityBonusConnected;
 
 	CultureLevelTypes m_eMinCultureLevel;
 

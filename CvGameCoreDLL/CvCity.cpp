@@ -11633,7 +11633,9 @@ bool CvCity::isValidBuildingLocation(BuildingTypes eBuilding) const {
 	// Check AND Bonus
 	// If any fail then the building location is not valid so we can return from the function
 	for (int iI = 0; iI < kBuilding.getNumPrereqVicinityAndBonus(); iI++) {
-		if (!hasVicinityBonus((BonusTypes)kBuilding.getPrereqVicinityAndBonus(iI))) return false;
+		if (!hasVicinityBonus((BonusTypes)kBuilding.getPrereqVicinityAndBonus(iI), NULL, kBuilding.isRequirePrereqVicinityBonusWorked())) {
+			return false;
+		}
 	}
 
 	// Check OR Bonus
@@ -11641,7 +11643,7 @@ bool CvCity::isValidBuildingLocation(BuildingTypes eBuilding) const {
 	bool bFoundOrBonus = false;
 	int iNumPrereqOrBonus = kBuilding.getNumPrereqVicinityOrBonus();
 	for (int iI = 0; iI < iNumPrereqOrBonus && !bFoundOrBonus; iI++) {
-		bFoundOrBonus = hasVicinityBonus((BonusTypes)kBuilding.getPrereqVicinityOrBonus(iI));
+		bFoundOrBonus = hasVicinityBonus((BonusTypes)kBuilding.getPrereqVicinityOrBonus(iI), NULL, kBuilding.isRequirePrereqVicinityBonusWorked());
 	}
 	if (!bFoundOrBonus && iNumPrereqOrBonus > 0) {
 		return false;
@@ -12919,11 +12921,11 @@ bool CvCity::hasVicinityFeature(FeatureTypes eFeature, CvPlot* pExcludePlot) con
 	return false;
 }
 
-bool CvCity::hasVicinityBonus(BonusTypes eBonus, CvPlot* pExcludePlot) const {
+bool CvCity::hasVicinityBonus(BonusTypes eBonus, CvPlot* pExcludePlot, bool bRequireBonusWorked) const {
 	PROFILE_FUNC();
 
 	//No sense in checking...
-	if (!hasBonus(eBonus)) {
+	if (bRequireBonusWorked && !hasBonus(eBonus)) {
 		return false;
 	}
 
@@ -12933,8 +12935,10 @@ bool CvCity::hasVicinityBonus(BonusTypes eBonus, CvPlot* pExcludePlot) const {
 	for (int iI = 0; iI < getNumCityPlots(); iI++) {
 		CvPlot* pLoopPlot = plotCity(getX_INLINE(), getY_INLINE(), iI);
 		if (pLoopPlot != NULL && pLoopPlot != pExcludePlot && pLoopPlot->getWorkingCity() == this) {
-			if (pLoopPlot->getBonusType() == eBonus && pLoopPlot->isTeamBonus(getTeam()) && pLoopPlot->isConnectedTo(this)) {
-				return true;
+			if (pLoopPlot->getBonusType() == eBonus) {
+				if (!bRequireBonusWorked || (pLoopPlot->isTeamBonus(getTeam()) && pLoopPlot->isConnectedTo(this))) {
+					return true;
+				}
 			}
 		}
 	}

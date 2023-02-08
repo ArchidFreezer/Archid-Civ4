@@ -76,7 +76,7 @@ public:
 	DllExport bool canBeSelected() const;
 	DllExport void updateSelectedCity(bool bTestProduction);
 
-	bool hasVicinityBonus(BonusTypes eIndex, CvPlot* pExcludePlot = NULL) const;
+	bool hasVicinityBonus(BonusTypes eIndex, CvPlot* pExcludePlot = NULL, bool bRequireBonusWorked = true) const;
 	bool hasVicinityFeature(FeatureTypes eIndex, CvPlot* pExcludePlot = NULL) const;
 	bool hasVicinityImprovement(ImprovementTypes eIndex, CvPlot* pExcludePlot = NULL) const;
 	bool hasVicinityTerrain(TerrainTypes eIndex, CvPlot* pExcludePlot = NULL) const;
