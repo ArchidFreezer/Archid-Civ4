@@ -2002,11 +2002,14 @@ public:
 	int getSpecialistYieldChange(int i, int j) const;			// Exposed to Python
 	int* getSpecialistYieldChangeArray(int i) const;
 
-	int getBonusYieldModifier(int i, int j) const;				// Exposed to Python
+	int getBonusYieldModifier(int i, int j) const;
 	int* getBonusYieldModifierArray(int i) const;
+	int getVicinityBonusYieldChange(int i, int j) const;
+	int* getVicinityBonusYieldChangeArray(int i) const;
 
 	bool isAnySpecialistYieldChange() const;
 	bool isAnyBonusYieldModifier() const;
+	bool isAnyVicinityBonusYieldChange() const;
 
 	// Other
 
@@ -2194,8 +2197,10 @@ protected:
 
 	int** m_ppaiSpecialistYieldChange;
 	int** m_ppaiBonusYieldModifier;
+	int** m_ppaiVicinityBonusYieldChange;
 	bool m_bAnySpecialistYieldChange;
 	bool m_bAnyBonusYieldModifier;
+	bool m_bAnyVicinityBonusYieldChange;
 
 	// Vectors
 	std::vector<int> m_viPrereqAndTechs;

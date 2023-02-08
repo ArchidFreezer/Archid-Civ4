@@ -9304,6 +9304,14 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 		}
 	}
 
+	if (kBuilding.isAnyVicinityBonusYieldChange()) {
+		for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
+			szFirstBuffer = gDLL->getText("TXT_KEY_BUILDING_WITH_BONUS", GC.getBonusInfo(eBonus).getTextKeyWide());
+			szFirstBuffer += gDLL->getText("TXT_KEY_IN_CITY_VICINITY");
+			setYieldChangeHelp(szBuffer, L"", L"", szFirstBuffer, kBuilding.getVicinityBonusYieldChangeArray(eBonus), false, true);
+		}
+	}
+
 	for (ReligionTypes eReligion = (ReligionTypes)0; eReligion < GC.getNumReligionInfos(); eReligion = (ReligionTypes)(eReligion + 1)) {
 		if (kBuilding.getReligionChange(eReligion) > 0) {
 			szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_BUILDING_SPREADS_RELIGION", GC.getReligionInfo(eReligion).getChar()).c_str());

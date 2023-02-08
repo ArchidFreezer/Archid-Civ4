@@ -421,6 +421,17 @@
 	<ElementType name="iObsoleteDefence" content="textOnly" dt:type="int"/>
 	<ElementType name="iExtraBarbarianCostChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iBarbarianConversionCostModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="BonusYieldChange" content="eltOnly">
+		<element type="BonusType"/>
+		<element type="YieldChanges"/>
+	</ElementType>
+	<ElementType name="BonusYieldChanges" content="eltOnly">
+		<element type="BonusYieldChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	
+	<ElementType name="VicinityBonusYieldChanges" content="eltOnly">
+		<element type="BonusYieldChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="BuildingInfo" content="eltOnly">
 		<element type="BuildingClass"/>
 		<element type="Type"/>
@@ -601,6 +612,7 @@
 		<element type="ReplacedByBuildingClasses" minOccurs="0"/>
 		<element type="SpecialistYieldChanges" minOccurs="0"/>
 		<element type="BonusYieldModifiers" minOccurs="0"/>
+		<element type="VicinityBonusYieldChanges" minOccurs="0"/>
 		<element type="ImprovementFreeSpecialists" minOccurs="0"/>
 		<element type="Flavors" minOccurs="0"/>
 		<element type="HotKey" minOccurs="0"/>
