@@ -3910,10 +3910,10 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_LEPENSKI_VIR</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_LEPENSKI_VIR</MovieDefineTag>
+			<MaxStartEra>ERA_ANCIENT</MaxStartEra>
 			<PrereqAndTechs>
 				<TechType>TECH_CEREMONIAL_BURIAL</TechType>
 			</PrereqAndTechs>
-			<MaxStartEra>ERA_ANCIENT</MaxStartEra>
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bNukeImmune>1</bNukeImmune>
@@ -6143,6 +6143,85 @@
 				<Flavor>
 					<FlavorType>FLAVOR_CULTURE</FlavorType>
 					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Stoneworkers Hut -->
+			<BuildingClass>BUILDINGCLASS_STONEWORKERS_HUT</BuildingClass>
+			<Type>BUILDING_STONEWORKERS_HUT</Type>
+			<Description>TXT_KEY_BUILDING_STONEWORKERS_HUT</Description>
+			<Civilopedia>TXT_KEY_BUILDING_STONEWORKERS_HUT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_STONEWORKERS_HUT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_STONEWORKERS_HUT</ArtDefineTag>
+			<ObsoleteTech>TECH_ARCHITECTURE</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_STONE_BUILDING</TechType>
+			</PrereqAndTechs>
+			<PrereqVicinityOrBonus>
+				<BonusType>BONUS_MARBLE</BonusType>
+				<BonusType>BONUS_OBSIDIAN</BonusType>
+				<BonusType>BONUS_STONE</BonusType>
+			</PrereqVicinityOrBonus>
+			<bRequirePrereqVicinityBonusConnected>0</bRequirePrereqVicinityBonusConnected>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<iCost>20</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>50</iConquestProb>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</YieldChanges>
+			<ConstructSound>AS2D_BUILD_FORGE</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_STONEHENGE</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<VicinityBonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_MARBLE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_OBSIDIAN</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_STONE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</VicinityBonusYieldChanges>
+<!--			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_STONEMASON_WORKSHOPS</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_MASON_GUILD</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_NANITE_POPULATION</BuildingClassType>
+			</ReplacedByBuildingClasses> -->
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>2</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>

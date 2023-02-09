@@ -247,4 +247,23 @@
 		<Tag>TXT_KEY_BUILDING_STONE_WEAPONS_WORKSHOP_STRATEGY</Tag>
 		<English>Build a [COLOR_BUILDING_TEXT]Stone Weapons Workshop[COLOR_REVERT] to increase the abilities of your Stone Age Military Units.</English>
 	</TEXT>
+	<TEXT> <!-- Stoneworker's Hut -->
+		<Tag>TXT_KEY_BUILDING_STONEWORKERS_HUT</Tag>
+		<English>Stoneworker's Hut</English>
+		<French>
+			<Text>Hutte du Tailleur de Pierres</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Steinmetzh&#252;tte</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_STONEWORKERS_HUT_PEDIA</Tag>
+		<English>A stoneworker engages in stonework, which is the art or process of working in stone, as in masonry or jewelry.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_STONEWORKERS_HUT_STRATEGY</Tag>
+		<English>Production bonus with Resources</English>
+		<French>Bonus de Production avec Ressources</French>
+	</TEXT>
 </Civ4GameText>

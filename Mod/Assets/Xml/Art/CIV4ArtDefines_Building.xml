@@ -2007,5 +2007,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/lepenski_vir.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Stoneworkers Hut -->
+			<Type>ART_DEF_BUILDING_STONEWORKERS_HUT</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>.8</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/City/hut/eldercouncil.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/stoneworkers_hut.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

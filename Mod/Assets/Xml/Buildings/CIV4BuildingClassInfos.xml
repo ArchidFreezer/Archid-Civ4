@@ -184,6 +184,12 @@
 			<iCategory>24</iCategory>
 			<DefaultBuilding>BUILDING_MICROLITH_WORKSHOP</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Stoneworkers Hut -->
+			<Type>BUILDINGCLASS_STONEWORKERS_HUT</Type>
+			<Description>TXT_KEY_BUILDING_STONEWORKERS_HUT</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_STONEWORKERS_HUT</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Coal Plant -->                      <!-- Production - Factory/Power -->
 			<Type>BUILDINGCLASS_COAL_PLANT</Type>
