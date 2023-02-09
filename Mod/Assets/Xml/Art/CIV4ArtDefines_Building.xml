@@ -2027,5 +2027,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/stonemasons_workshop.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Masons Guild -->
+			<Type>ART_DEF_BUILDING_MASONS_GUILD</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.6</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/masons_guild/guild_house.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/masons_guild.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

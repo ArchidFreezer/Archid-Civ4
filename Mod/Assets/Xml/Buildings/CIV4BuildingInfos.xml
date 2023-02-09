@@ -4296,6 +4296,98 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Masons Guild -->
+			<BuildingClass>BUILDINGCLASS_MASONS_GUILD</BuildingClass>
+			<Type>BUILDING_MASONS_GUILD</Type>
+			<Description>TXT_KEY_BUILDING_MASONS_GUILD</Description>
+			<Civilopedia>TXT_KEY_BUILDING_MASONS_GUILD_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_MASON_GUILDS_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_MASONS_GUILD</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_GUILDS</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<iCost>80</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iConquestProb>50</iConquestProb>
+			<YieldModifiers>
+				<iYield>0</iYield>
+				<iYield>15</iYield>
+			</YieldModifiers>
+			<ConstructSound>AS2D_BUILD_FORGE</ConstructSound>
+			<BonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_MARBLE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_STONE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</BonusYieldChanges>	
+			<BuildingClassProductionModifiers>
+<!--				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier> -->
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_JEWISH_CATHEDRAL</BuildingClassType>
+					<iModifier>20</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_CHRISTIAN_CATHEDRAL</BuildingClassType>
+					<iModifier>20</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ISLAMIC_CATHEDRAL</BuildingClassType>
+					<iModifier>20</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_HINDU_CATHEDRAL</BuildingClassType>
+					<iModifier>20</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_BUDDHIST_CATHEDRAL</BuildingClassType>
+					<iModifier>20</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_CONFUCIAN_CATHEDRAL</BuildingClassType>
+					<iModifier>20</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_TAOIST_CATHEDRAL</BuildingClassType>
+					<iModifier>20</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+<!--				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_NANITE_POPULATION</BuildingClassType> -->
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>	
 		<BuildingInfo> <!-- Mausoleum Of Maussollos -->
 			<BuildingClass>BUILDINGCLASS_MAUSOLEUM_OF_MAUSSOLLOS</BuildingClass>
 			<Type>BUILDING_MAUSOLEUM_OF_MAUSSOLLOS</Type>
@@ -6173,17 +6265,17 @@
 				<iYield>10</iYield>
 			</YieldModifiers>
 			<ConstructSound>AS2D_BUILD_FORGE</ConstructSound>
-<!--			<BuildingClassProductionModifiers>
+			<BuildingClassProductionModifiers>
 				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_MASON_GUILD</BuildingClassType>
-					<iProductionModifier>15</iProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_MASONS_GUILD</BuildingClassType>
+					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers> -->
-<!--			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_MASON_GUILD</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_NANITE_POPULATION</BuildingClassType>
-			</ReplacedByBuildingClasses>  -->
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_MASONS_GUILD</BuildingClassType>
+<!--				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_NANITE_POPULATION</BuildingClassType>  -->
+			</ReplacedByBuildingClasses>
 			<BonusYieldChanges>
 				<BonusYieldChange>
 					<BonusType>BONUS_MARBLE</BonusType>
@@ -6252,8 +6344,8 @@
 			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_STONEMASONS_WORKSHOP</BuildingClassType>
-<!--				<BuildingClassType>BUILDINGCLASS_MASON_GUILD</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_MASONS_GUILD</BuildingClassType>
+<!--				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
 				<BuildingClassType>BUILDINGCLASS_NANITE_POPULATION</BuildingClassType> -->
 			</ReplacedByBuildingClasses>
 			<VicinityBonusYieldChanges>

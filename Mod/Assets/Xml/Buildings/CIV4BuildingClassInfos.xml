@@ -178,6 +178,12 @@
 			<iCategory>24</iCategory>
 			<DefaultBuilding>BUILDING_FORGE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Masons Guild -->
+			<Type>BUILDINGCLASS_MASONS_GUILD</Type>
+			<Description>TXT_KEY_BUILDING_MASONS_GUILD</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_MASONS_GUILD</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Microlith Workshop -->
 			<Type>BUILDINGCLASS_MICROLITH_WORKSHOP</Type>
 			<Description>TXT_KEY_BUILDING_MICROLITH_WORKSHOP</Description>
