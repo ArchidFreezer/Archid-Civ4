@@ -279,7 +279,7 @@ class CvPediaBonus:
 
 		sHelp = Info.getHelp()
 		if len(sHelp) > 0:
-			screen.setImageButtonAt(self.top.getNextWidgetName(), panelName, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_GENERAL_QUESTIONMARK").getPath(), 0, iY, iSize, iSize, WidgetTypes.WIDGET_GENERAL, -1, -1)
+			screen.setImageButtonAt(self.top.getNextWidgetName(), panelName, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_GENERAL_QUESTIONMARK").getPath(), 0, iY, self.iSize, self.iSize, WidgetTypes.WIDGET_GENERAL, -1, -1)
 			screen.setTextAt(self.top.getNextWidgetName(), panelName, u"<font=3>" + sHelp + u"</font>", CvUtil.FONT_LEFT_JUSTIFY, self.iSize + 4, iY + self.iSize/2, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
 
 	def placeHistory(self):
