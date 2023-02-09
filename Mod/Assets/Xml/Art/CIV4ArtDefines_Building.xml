@@ -2047,5 +2047,25 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/treadmill_crane.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Construction Firm -->
+			<Type>ART_DEF_BUILDING_CONSTRUCTION_FIRM</Type>
+			<LSystem>LSYSTEM_INDUSTRIAL_PARK</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>.9</fScale>
+			<fInterfaceScale>.75</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/construction_firm/Industrial_Park_Ind.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/construction_firm.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Utility Fog -->
+			<Type>ART_DEF_BUILDING_UTILITY_FOG</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.0</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Terrain/Features/FinalFrontier/radiation/radiation.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/Promotions/Combat1.dds,Art/Interface/Buttons/Afterworld_Atlas.dds,5,14</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

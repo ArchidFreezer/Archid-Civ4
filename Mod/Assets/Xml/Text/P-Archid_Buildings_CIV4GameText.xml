@@ -40,6 +40,25 @@
 		<English>Build a [COLOR_BUILDING_TEXT]Cave Painting[COLOR_REVERT] to increase your culture output in your cities.</English>
 		<Spanish>Construye una [COLOR_BUILDING_TEXT]Pintura Rupestre[COLOR_REVERT] para incrementar la cultura en tus ciudades.</Spanish>
 	</TEXT>
+	<TEXT> <!-- Construction Firm -->
+		<Tag>TXT_KEY_BUILDING_CONSTRUCTION_FIRM</Tag>
+		<English>Construction Firm</English>
+		<French>
+			<Text>Entreprise de Construction</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Bauunternehmer</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CONSTRUCTION_FIRM_PEDIA</Tag>
+		<English>In the fields of architecture and civil engineering, construction is a process that consists of the building or assembling of infrastructure. Far from being a single activity, large scale construction is a feat of multitasking. Normally the job is managed by the project manager and supervised by the construction manager, design engineer, construction engineer or project architect.  For the successful execution of a project, effective planning is essential. Those involved with the design and execution of the infrastructure in question must consider the environmental impact of the job, the successful scheduling, budgeting, site safety, availability of materials, logistics, inconvenience to the public caused by construction delays, preparing tender documents, etc.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CONSTRUCTION_FIRM_STRATEGY</Tag>
+		<English>Increases Production for Buildings.</English>
+		<French>Augmente la vitesse de Construction des Bâtiments.</French>
+	</TEXT>
 	<TEXT> <!-- Early Instrument Maker -->
 		<Tag>TXT_KEY_BUILDING_EARLY_INSTRUMENT_MAKER</Tag>
 		<English>Early Instrument Maker</English>
@@ -305,5 +324,19 @@
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_TREADMILL_CRANE_STRATEGY</Tag>
 		<English>Increases production for Buildings.</English>
+	</TEXT>
+	<TEXT> <!-- Utility Fog -->
+		<Tag>TXT_KEY_BUILDING_UTILITY_FOG</Tag>
+		<English>Utility Fog</English>
+		<French>Brouillard Utile</French>
+		<German>Utility-Nebel</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_UTILITY_FOG_PEDIA</Tag>
+		<English>[TAB]Utility Fog is a collection of tiny robots together performing a certain function. The idea of nanobotic swarms was detailed as early as in 1964 by Stanislaw Lem in the novel The Invincible, and explored in some recent SciFi novels, such as Prey (2002), written by Michael Crichton. When self-replication is taken as an additional feature of such devices, the possibility of losing control of the swarm is the basis of post-apocalyptic scenarios such as the Grey goo.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_UTILITY_FOG_STRATEGY</Tag>
+		<English>[SPACE]Utility Fog increases city's production and defense.</English>
 	</TEXT>
 </Civ4GameText>

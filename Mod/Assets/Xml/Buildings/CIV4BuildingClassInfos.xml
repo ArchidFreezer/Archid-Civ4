@@ -172,7 +172,13 @@
 			<DefaultBuilding>BUILDING_COURTHOUSE</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Forge -->                           <!-- Production -->
+		<BuildingClassInfo> <!-- Construction Firm -->               <!-- Production -->
+			<Type>BUILDINGCLASS_CONSTRUCTION_FIRM</Type>
+			<Description>TXT_KEY_BUILDING_CONSTRUCTION_FIRM</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_CONSTRUCTION_FIRM</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Forge -->
 			<Type>BUILDINGCLASS_FORGE</Type>
 			<Description>TXT_KEY_BUILDING_FORGE</Description>
 			<iCategory>24</iCategory>
@@ -207,6 +213,18 @@
 			<Description>TXT_KEY_BUILDING_TREADMILL_CRANE</Description>
 			<iCategory>24</iCategory>
 			<DefaultBuilding>BUILDING_TREADMILL_CRANE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Utility Fog -->
+			<Type>BUILDINGCLASS_UTILITY_FOG</Type>
+			<Description>TXT_KEY_BUILDING_UTILITY_FOG</Description>
+			<iMaxGlobalInstances>-1</iMaxGlobalInstances>
+			<iMaxTeamInstances>-1</iMaxTeamInstances>
+			<iMaxPlayerInstances>-1</iMaxPlayerInstances>
+			<iExtraPlayerInstances>0</iExtraPlayerInstances>
+			<bNoLimit>0</bNoLimit>
+			<bMonument>0</bMonument>
+			<DefaultBuilding>BUILDING_UTILITY_FOG</DefaultBuilding>
+			<VictoryThresholds/>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Coal Plant -->                      <!-- Production - Factory/Power -->

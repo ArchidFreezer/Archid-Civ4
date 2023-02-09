@@ -1529,6 +1529,78 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Construction Firm -->
+			<BuildingClass>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClass>
+			<Type>BUILDING_CONSTRUCTION_FIRM</Type>
+			<Description>TXT_KEY_BUILDING_CONSTRUCTION_FIRM</Description>
+			<Civilopedia>TXT_KEY_BUILDING_CONSTRUCTION_FIRM_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_CONSTRUCTION_FIRM_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_CONSTRUCTION_FIRM</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_CIVIL_ENGINEERING</TechType>
+			</PrereqAndTechs>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>350</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iAdvancedStartCostIncrease>-1</iAdvancedStartCostIncrease>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iConquestProb>50</iConquestProb>
+			<YieldModifiers>
+				<iYield>0</iYield>
+				<iYield>30</iYield>
+			</YieldModifiers>
+			<PowerYieldModifiers>
+				<iYield>0</iYield>
+				<iYield>15</iYield>
+			</PowerYieldModifiers>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_ENGINEER</SpecialistType>
+					<iCount>3</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_WALLS</ConstructSound>
+			<BonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_MARBLE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+<!--				<BonusYieldChange>
+					<BonusType>BONUS_STEEL</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange> -->
+				<BonusYieldChange>
+					<BonusType>BONUS_STONE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</BonusYieldChanges>	
+<!--			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_SKYSCRAPER</BuildingClassType>
+					<iModifier>40</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers> -->
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_UTILITY_FOG</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>				
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Courthouse -->
 			<BuildingClass>BUILDINGCLASS_COURTHOUSE</BuildingClass>
 			<Type>BUILDING_COURTHOUSE</Type>
@@ -4340,10 +4412,10 @@
 				</BonusYieldChange>
 			</BonusYieldChanges>	
 			<BuildingClassProductionModifiers>
-<!--				<BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
 					<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
 					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier> -->
+				</BuildingClassProductionModifier>
 				<BuildingClassProductionModifier>
 					<BuildingClassType>BUILDINGCLASS_JEWISH_CATHEDRAL</BuildingClassType>
 					<iModifier>20</iModifier>
@@ -4374,8 +4446,8 @@
 				</BuildingClassProductionModifier>
 			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
-<!--				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_NANITE_POPULATION</BuildingClassType> -->
+				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_UTILITY_FOG</BuildingClassType>
 			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
@@ -6273,8 +6345,8 @@
 			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_MASONS_GUILD</BuildingClassType>
-<!--				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_NANITE_POPULATION</BuildingClassType>  -->
+				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_UTILITY_FOG</BuildingClassType> 
 			</ReplacedByBuildingClasses>
 			<BonusYieldChanges>
 				<BonusYieldChange>
@@ -6345,8 +6417,8 @@
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_STONEMASONS_WORKSHOP</BuildingClassType>
 				<BuildingClassType>BUILDINGCLASS_MASONS_GUILD</BuildingClassType>
-<!--				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_NANITE_POPULATION</BuildingClassType> -->
+				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_UTILITY_FOG</BuildingClassType>
 			</ReplacedByBuildingClasses>
 			<VicinityBonusYieldChanges>
 				<BonusYieldChange>
@@ -6879,8 +6951,8 @@
 				</BuildingClassProductionModifier>
 			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
-<!--				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_NANITE_POPULATION</BuildingClassType> -->
+				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_UTILITY_FOG</BuildingClassType>
 			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
@@ -7008,6 +7080,50 @@
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>
 					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Utility Fog -->
+			<BuildingClass>BUILDINGCLASS_UTILITY_FOG</BuildingClass>
+			<Type>BUILDING_UTILITY_FOG</Type>
+			<Description>TXT_KEY_BUILDING_UTILITY_FOG</Description>
+			<Civilopedia>TXT_KEY_BUILDING_UTILITY_FOG_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_UTILITY_FOG_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_UTILITY_FOG</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_NANOBOTICS</TechType>
+			</PrereqAndTechs>
+			<PrereqOrBonuses>
+<!--				<BonusType>BONUS_NANOBOTS</BonusType> -->
+			</PrereqOrBonuses>
+			<iCost>1500</iCost>
+			<iHurryCostModifier>50</iHurryCostModifier>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iConquestProb>100</iConquestProb>
+			<iNukeExplosionRand>1000</iNukeExplosionRand>
+			<iMilitaryProductionModifier>-50</iMilitaryProductionModifier>
+			<iDefense>25</iDefense>
+			<iAsset>12</iAsset>
+			<iPower>50</iPower>
+			<YieldModifiers>
+				<iYield>0</iYield>
+				<iYield>75</iYield>
+			</YieldModifiers>
+			<ConstructSound>AS2D_BUILD_NANOFACTORY</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>20</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>8</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>8</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
