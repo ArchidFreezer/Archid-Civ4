@@ -173,6 +173,7 @@
     <tr><td><span class="tagoptional">bPower</span><td>0<td>If true, provides power to the city
     <tr><td><span class="tagoptional"><b>bPrereqPower</b></span><td>0<td>If true, the city must have access to a power source in order to construct this building. If access to power is list the building becomes disabled.
     <tr><td><span class="tagoptional">bPrereqReligion</span><td>0<td>If true, a religion must be present in the city before it can be constructed
+    <tr><td><span class="tagoptional"><b>bRequirePrereqVicinityBonusConnected</b></span><td>1<td>If true, prereq vicinity bonuses must be connected to the city
     <tr><td><span class="tagoptional">bRiver</span><td>0<td>If true, requires an adjacent river before it can be constructed
     <tr><td><span class="tagoptional">bShiftDown</span><td>0<td>If true, the HotKey is only used if the Shift key is also pressed
     <tr><td><span class="tagoptional"><b>bSlaveMarket</b></span><td>0<td>If slavers can sell slaves in this city
@@ -215,6 +216,11 @@
       &lt;iYield&gt;0&lt;/iYield&gt;
     &lt;/YieldModifiers&gt;
   &lt;/BonusYieldModifier&gt;</pre>
+    <tr><td><span class="tagoptional"><b>BuildingClassProductionModifiers</b></span><td>NONE<td>List of building classes that have their production modified by the percentage specified. This modification is applied to the city hammers.<br><pre class="code">
+  &lt;BuildingClassProductionModifier&gt;
+    &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
+    &lt;iModifier&gt;0&lt;/iModifier&gt;
+  &lt;/BuildingClassProductionModifier&gt;</pre>
     <tr><td><span class="tagoptional">BuildingHappinessChanges</span><td>NONE<td>Changes to city happiness that other buildings provide<br><pre class="code">
   &lt;BuildingHappinessChange&gt;
     &lt;BuildingType&gt;&lt;/BuildingType&gt;
@@ -272,7 +278,7 @@
   &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
     <tr><td><span class="tagoptional">PowerYieldModifiers</span><td>NONE<td>Percentage change to the yields in the city if power is present<br><pre class="code">
   &lt;iYield&gt;0&lt;/iYield&gt;</pre>
-    <tr><td><span class="tagoptional"><b>PrereqAndBuildingClasses</b></span><td>NO_BUILDINGCLASS<td>List of building calsses that must be present in the city in order for the building to be constructed. If subsequently any of these building classes is not longer in the city then this building is disabled.<br><pre class="code">
+    <tr><td><span class="tagoptional"><b>PrereqAndBuildingClasses</b></span><td>NO_BUILDINGCLASS<td>List of building classes that must be present in the city in order for the building to be constructed. If subsequently any of these building classes is not longer in the city then this building is disabled.<br><pre class="code">
   &lt;BuildingClass&gt;&lt;/BuildingClass&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqAndCivics</b></span><td>NO_CIVIC<td>List of civics the player must be running to construct this building. Changing out of any of these civics will cause the building to become disabled.<br><pre class="code">
   &lt;CivicType&gt;&lt;/CivicType&gt;</pre>
@@ -295,13 +301,13 @@
   &lt;CivicType&gt;&lt;/CivicType&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqOrTerrains</b></span><td>NO_TERRAIN<td>List of terrains, one of which must be present in the city working area for the building to be constructed. If subsequently the city working radius changes and none of the terrains are present the building will be disabled.<br><pre class="code">
   &lt;TerrainType&gt;&lt;/TerrainType&gt;</pre>
-    <tr><td><span class="tagoptional"><b>PrereqVicinityAndBonus</b></span><td>NO_BONUS<td>List of bonuses, all of which must be present in the city working radius for the building to be constructed. If subsequently the city workable area changes and any of the bonuses are no longer present the building will be disabled.<br><pre class="code">
+    <tr><td><span class="tagoptional"><b>PrereqVicinityAndBonus</b></span><td>NO_BONUS<td>List of bonuses, all of which must be in the city working radius for the building to be constructed. If subsequently the city workable area changes and any of the bonuses are no longer present the building will be disabled.<br><pre class="code">
   &lt;BonusType&gt;&lt;/BonusType&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqVicinityFeatures</b></span><td>NO_FEATURE<td>List of features that one of which must be present in the city working area for the building to be constructed. If subsequently the city working radius changes and none of the features are present the building will be disabled.<br><pre class="code">
   &lt;FeatureType&gt;&lt;/FeatureType&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqVicinityImprovements</b></span><td>NO_IMPROVEMENT<td>List of improvements, one of which must be present in the city working radius for the building to be constructed. If subsequently the city workable area changes and none of the improvements are present the building will be disabled.<br><pre class="code">
   &lt;ImprovementType&gt;&lt;/ImprovementType&gt;</pre>
-    <tr><td><span class="tagoptional"><b>PrereqVicinityOrBonus</b></span><td>NO_BONUS<td>List of bonuses, one of which must be present in the city working radius for the building to be constructed. If subsequently the city workable area changes and none of the bonuses are present the building will be disabled.<br><pre class="code">
+    <tr><td><span class="tagoptional"><b>PrereqVicinityOrBonus</b></span><td>NO_BONUS<td>List of bonuses, one of which must be in the city for the building to be constructed. If subsequently the city workable area changes and none of the bonuses are present the building will be disabled.<br><pre class="code">
   &lt;BonusType&gt;&lt;/BonusType&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqWorldViews</b></span><td>NO_WORLDVIEW<td>List of world views that the player must hold in order for the building to be constructed. If subsequently the player no longer holds any of the world view the building will be disabled.<br><pre class="code">
   &lt;WorldViewType&gt;&lt;/WorldViewType&gt;</pre>
@@ -342,6 +348,13 @@
     &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;
     &lt;iExperience&gt;0&lt;/iExperience&gt;
   &lt;/UnitCombatFreeExperience&gt;</pre>
+    <tr><td><span class="tagoptional"><b>VicinityBonusYieldChanges</b></span><td><td>Change to yield if the bonus is being worked by and connected to the city <br><pre class="code">
+  &lt;BonusYieldChange&gt;
+    &lt;BonusType&gt;&lt;/BonusType&gt;
+    &lt;YieldChanges&gt;
+      &lt;iYield&gt;0&lt;/iYield&gt;
+    &lt;/YieldChanges&gt;
+  &lt;/BonusYieldChange&gt;</pre>
     <tr><td><span class="tagoptional">YieldChanges</span><td>NONE<td>Changes to the yield output of all city plots<br><pre class="code">
   &lt;iYield&gt;0&lt;/iYield&gt;</pre>
     <tr><td><span class="tagoptional">YieldModifiers</span><td>NONE<td>Percentage change to the yields in the city<br><pre class="code">
@@ -420,6 +433,7 @@
   &lt;PrereqVicinityOrBonus&gt;
     &lt;BonusType&gt;&lt;/BonusType&gt;
   &lt;/PrereqVicinityOrBonus&gt;
+  &lt;bRequirePrereqVicinityBonusConnected&gt;1&lt;/bRequirePrereqVicinityBonusConnected&gt;
   &lt;PrereqVicinityImprovements&gt;
     &lt;ImprovementType&gt;&lt;/ImprovementType&gt;
   &lt;/PrereqVicinityImprovements&gt;
@@ -655,6 +669,12 @@
       &lt;iModifier&gt;0&lt;/iModifier&gt;
     &lt;/DomainProductionModifier&gt;
   &lt;/DomainProductionModifiers&gt;
+  &lt;BuildingClassProductionModifiers&gt;
+    &lt;BuildingClassProductionModifier&gt;
+      &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
+      &lt;iModifier&gt;0&lt;/iModifier&gt;
+    &lt;/BuildingClassProductionModifier&gt;
+  &lt;/BuildingClassProductionModifiers&gt;
   &lt;BuildingHappinessChanges&gt;
     &lt;BuildingHappinessChange&gt;
       &lt;BuildingType&gt;&lt;/BuildingType&gt;
@@ -695,6 +715,14 @@
       &lt;/YieldModifiers&gt;
     &lt;/BonusYieldModifier&gt;
   &lt;/BonusYieldModifiers&gt;
+  &lt;VicinityBonusYieldChanges&gt;
+    &lt;BonusYieldChange&gt;
+      &lt;BonusType&gt;&lt;/BonusType&gt;
+      &lt;YieldChanges&gt;
+        &lt;iYield&gt;0&lt;/iYield&gt;
+      &lt;/YieldChanges&gt;
+    &lt;/BonusYieldChange&gt;
+  &lt;/VicinityBonusYieldChanges&gt;
   &lt;ImprovementFreeSpecialists&gt;
     &lt;ImprovementFreeSpecialist&gt;
       &lt;ImprovementType&gt;&lt;/ImprovementType&gt;
