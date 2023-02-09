@@ -2006,11 +2006,14 @@ public:
 
 	int getBonusYieldModifier(int i, int j) const;
 	int* getBonusYieldModifierArray(int i) const;
+	int getBonusYieldChange(int i, int j) const;
+	int* getBonusYieldChangeArray(int i) const;
 	int getVicinityBonusYieldChange(int i, int j) const;
 	int* getVicinityBonusYieldChangeArray(int i) const;
 
 	bool isAnySpecialistYieldChange() const;
 	bool isAnyBonusYieldModifier() const;
+	bool isAnyBonusYieldChange() const;
 	bool isAnyVicinityBonusYieldChange() const;
 
 	// Other
@@ -2200,9 +2203,11 @@ protected:
 
 	int** m_ppaiSpecialistYieldChange;
 	int** m_ppaiBonusYieldModifier;
+	int** m_ppaiBonusYieldChange;
 	int** m_ppaiVicinityBonusYieldChange;
 	bool m_bAnySpecialistYieldChange;
 	bool m_bAnyBonusYieldModifier;
+	bool m_bAnyBonusYieldChange;
 	bool m_bAnyVicinityBonusYieldChange;
 
 	// Vectors

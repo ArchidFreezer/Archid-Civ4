@@ -209,6 +209,13 @@
     &lt;BonusType&gt;&lt;/BonusType&gt;
     &lt;iProductonModifier&gt;0&lt;/iProductonModifier&gt;
   &lt;/BonusProductionModifier&gt;</pre>
+    <tr><td><span class="tagoptional"><b>BonusYieldChanges</b></span><td><td>Change to yield if the bonus is connected to the city <br><pre class="code">
+  &lt;BonusYieldChange&gt;
+    &lt;BonusType&gt;&lt;/BonusType&gt;
+    &lt;YieldChanges&gt;
+      &lt;iYield&gt;0&lt;/iYield&gt;
+    &lt;/YieldChanges&gt;
+  &lt;/BonusYieldChange&gt;</pre>
     <tr><td><span class="tagoptional">BonusYieldModifiers</span><td>NONE<td>Percentage change to the city yields for specific bonuses<br><pre class="code">
   &lt;BonusYieldModifier&gt;
     &lt;BonusType&gt;&lt;/BonusType&gt;
@@ -348,7 +355,7 @@
     &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;
     &lt;iExperience&gt;0&lt;/iExperience&gt;
   &lt;/UnitCombatFreeExperience&gt;</pre>
-    <tr><td><span class="tagoptional"><b>VicinityBonusYieldChanges</b></span><td><td>Change to yield if the bonus is being worked by and connected to the city <br><pre class="code">
+    <tr><td><span class="tagoptional"><b>VicinityBonusYieldChanges</b></span><td><td>Change to yield if the bonus is being worked by and connected to the city, see also bRequirePrereqVicinityBonusConnected<br><pre class="code">
   &lt;BonusYieldChange&gt;
     &lt;BonusType&gt;&lt;/BonusType&gt;
     &lt;YieldChanges&gt;
@@ -715,6 +722,14 @@
       &lt;/YieldModifiers&gt;
     &lt;/BonusYieldModifier&gt;
   &lt;/BonusYieldModifiers&gt;
+  &lt;BonusYieldChanges&gt;
+    &lt;BonusYieldChange&gt;
+      &lt;BonusType&gt;&lt;/BonusType&gt;
+      &lt;YieldChanges&gt;
+        &lt;iYield&gt;0&lt;/iYield&gt;
+      &lt;/YieldChanges&gt;
+    &lt;/BonusYieldChange&gt;
+  &lt;/BonusYieldChanges&gt;
   &lt;VicinityBonusYieldChanges&gt;
     &lt;BonusYieldChange&gt;
       &lt;BonusType&gt;&lt;/BonusType&gt;

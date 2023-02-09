@@ -6774,8 +6774,10 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_ppaiSpecialistYieldChange(NULL),
 	m_ppaiBonusYieldModifier(NULL),
 	m_ppaiVicinityBonusYieldChange(NULL),
+	m_ppaiBonusYieldChange(NULL),
 	m_bAnySpecialistYieldChange(false),
 	m_bAnyBonusYieldModifier(false),
+	m_bAnyBonusYieldChange(false),
 	m_bAnyVicinityBonusYieldChange(false)
 {
 }
@@ -6843,6 +6845,31 @@ CvBuildingInfo::~CvBuildingInfo() {
 		SAFE_DELETE_ARRAY(m_ppaiVicinityBonusYieldChange);
 	}
 
+	if (m_ppaiBonusYieldChange != NULL) {
+		for (int i = 0; i < GC.getNumBonusInfos(); i++) {
+			SAFE_DELETE_ARRAY(m_ppaiBonusYieldChange[i]);
+		}
+		SAFE_DELETE_ARRAY(m_ppaiBonusYieldChange);
+	}
+
+}
+
+int CvBuildingInfo::getBonusYieldChange(int i, int j) const {
+	FAssertMsg(i < GC.getNumBonusInfos(), "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	FAssertMsg(j < NUM_YIELD_TYPES, "Index out of bounds");
+	FAssertMsg(j > -1, "Index out of bounds");
+	return m_ppaiBonusYieldChange ? m_ppaiBonusYieldChange[i][j] : -1;
+}
+
+int* CvBuildingInfo::getBonusYieldChangeArray(int i) const {
+	FAssertMsg(i < GC.getNumBonusInfos(), "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	return m_ppaiBonusYieldChange[i];
+}
+
+bool CvBuildingInfo::isAnyBonusYieldChange() const {
+	return m_bAnyBonusYieldChange;
 }
 
 int CvBuildingInfo::getBuildingClassProductionModifier(BuildingClassTypes eBuildingClass) const {
@@ -8347,6 +8374,29 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 		}
 	}
 
+	if (m_ppaiBonusYieldChange != NULL) {
+		for (int i = 0; i < GC.getNumBonusInfos(); i++) {
+			SAFE_DELETE_ARRAY(m_ppaiBonusYieldChange[i]);
+		}
+		SAFE_DELETE_ARRAY(m_ppaiBonusYieldChange);
+	}
+
+	m_ppaiBonusYieldChange = new int* [GC.getNumBonusInfos()];
+	for (int i = 0; i < GC.getNumBonusInfos(); i++) {
+		m_ppaiBonusYieldChange[i] = new int[NUM_YIELD_TYPES];
+		stream->Read(NUM_YIELD_TYPES, m_ppaiBonusYieldChange[i]);
+	}
+
+	m_bAnyBonusYieldChange = false;
+	for (int i = 0; !m_bAnyBonusYieldChange && i < GC.getNumBonusInfos(); i++) {
+		for (int j = 0; j < NUM_YIELD_TYPES; j++) {
+			if (m_ppaiBonusYieldChange[i][j] != 0) {
+				m_bAnyBonusYieldChange = true;
+				break;
+			}
+		}
+	}
+
 }
 
 //
@@ -8618,6 +8668,10 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	for (int i = 0; i < GC.getNumBonusInfos(); i++) {
 		stream->Write(NUM_YIELD_TYPES, m_ppaiVicinityBonusYieldChange[i]);
 	}
+
+	for (int i = 0; i < GC.getNumBonusInfos(); i++) {
+		stream->Write(NUM_YIELD_TYPES, m_ppaiBonusYieldChange[i]);
+	}
 }
 
 //
@@ -8867,6 +8921,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 
 	m_bAnySpecialistYieldChange = pXML->SetListPairInfoArray(&m_ppaiSpecialistYieldChange, "SpecialistYieldChanges", GC.getNumSpecialistInfos(), NUM_YIELD_TYPES);
 	m_bAnyBonusYieldModifier = pXML->SetListPairInfoArray(&m_ppaiBonusYieldModifier, "BonusYieldModifiers", GC.getNumBonusInfos(), NUM_YIELD_TYPES);
+	m_bAnyBonusYieldChange = pXML->SetListPairInfoArray(&m_ppaiBonusYieldChange, "BonusYieldChanges", GC.getNumBonusInfos(), NUM_YIELD_TYPES);
 	m_bAnyVicinityBonusYieldChange = pXML->SetListPairInfoArray(&m_ppaiVicinityBonusYieldChange, "VicinityBonusYieldChanges", GC.getNumBonusInfos(), NUM_YIELD_TYPES);
 
 	pXML->SetListPairEnum(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());

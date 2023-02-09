@@ -428,6 +428,9 @@
 	<ElementType name="VicinityBonusYieldChanges" content="eltOnly">
 		<element type="BonusYieldChange" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="BonusYieldChanges" content="eltOnly">
+		<element type="BonusYieldChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="bRequirePrereqVicinityBonusConnected" content="textOnly" dt:type="boolean"/>
 	<ElementType name="BuildingClassProductionModifier" content="eltOnly">
 		<element type="BuildingClassType"/>
@@ -618,6 +621,7 @@
 		<element type="ReplacedByBuildingClasses" minOccurs="0"/>
 		<element type="SpecialistYieldChanges" minOccurs="0"/>
 		<element type="BonusYieldModifiers" minOccurs="0"/>
+		<element type="BonusYieldChanges" minOccurs="0"/>
 		<element type="VicinityBonusYieldChanges" minOccurs="0"/>
 		<element type="ImprovementFreeSpecialists" minOccurs="0"/>
 		<element type="Flavors" minOccurs="0"/>

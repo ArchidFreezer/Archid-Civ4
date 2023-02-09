@@ -3125,8 +3125,8 @@ void CvCity::processBonus(BonusTypes eBonus, int iChange) {
 	int iGoodValue = std::max(0, iValue);
 	int iBadValue = std::min(0, iValue);
 
-	for (int iI = 0; iI < GC.getNumBuildingInfos(); iI++) {
-		iValue = GC.getBuildingInfo((BuildingTypes)iI).getBonusHealthChanges(eBonus) * getNumActiveBuilding((BuildingTypes)iI);
+	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+		iValue = GC.getBuildingInfo(eBuilding).getBonusHealthChanges(eBonus) * getNumActiveBuilding(eBuilding);
 
 		if (iValue >= 0) {
 			iGoodValue += iValue;
@@ -3143,13 +3143,22 @@ void CvCity::processBonus(BonusTypes eBonus, int iChange) {
 	iGoodValue = std::max(0, iValue);
 	iBadValue = std::min(0, iValue);
 
-	for (int iI = 0; iI < GC.getNumBuildingInfos(); iI++) {
-		iValue = getNumActiveBuilding((BuildingTypes)iI) * GC.getBuildingInfo((BuildingTypes)iI).getBonusHappinessChanges(eBonus);
+	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+		iValue = getNumActiveBuilding(eBuilding) * GC.getBuildingInfo(eBuilding).getBonusHappinessChanges(eBonus);
 
 		if (iValue >= 0) {
 			iGoodValue += iValue;
 		} else {
 			iBadValue += iValue;
+		}
+	}
+
+	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+		const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+		if (kBuilding.isAnyBonusYieldChange()) {
+			for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+				changeBuildingYieldChange((BuildingClassTypes)kBuilding.getBuildingClassType(), eYield, kBuilding.getBonusYieldChange(eBonus, eYield) * iChange);
+			}
 		}
 	}
 
@@ -3159,8 +3168,8 @@ void CvCity::processBonus(BonusTypes eBonus, int iChange) {
 	changePowerCount((getBonusPower(eBonus, true) * iChange), true);
 	changePowerCount((getBonusPower(eBonus, false) * iChange), false);
 
-	for (int iI = 0; iI < NUM_YIELD_TYPES; iI++) {
-		changeBonusYieldRateModifier(((YieldTypes)iI), (getBonusYieldRateModifier(((YieldTypes)iI), eBonus) * iChange));
+	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+		changeBonusYieldRateModifier(eYield, (getBonusYieldRateModifier(eYield, eBonus) * iChange));
 	}
 }
 
@@ -3283,7 +3292,10 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 				for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 					changeBonusYieldRateModifier(eYield, (kBuilding.getBonusYieldModifier(eBonus, eYield) * iChange));
 					if (hasVicinityBonus(eBonus)) {
-						setBuildingYieldChange((BuildingClassTypes)kBuilding.getBuildingClassType(), eYield, kBuilding.getVicinityBonusYieldChange(eBonus, eYield) * iChange);
+						changeBuildingYieldChange((BuildingClassTypes)kBuilding.getBuildingClassType(), eYield, kBuilding.getVicinityBonusYieldChange(eBonus, eYield) * iChange);
+					}
+					if (hasBonus(eBonus)) {
+						changeBuildingYieldChange((BuildingClassTypes)kBuilding.getBuildingClassType(), eYield, kBuilding.getBonusYieldChange(eBonus, eYield) * iChange);
 					}
 				}
 			}
@@ -6965,6 +6977,9 @@ int CvCity::getAdditionalBaseYieldRateByBuilding(YieldTypes eIndex, BuildingType
 		for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
 			if (kBuilding.getVicinityBonusYieldChange(eBonus, eIndex) != 0 && hasVicinityBonus(eBonus)) {
 				iExtraRate += kBuilding.getVicinityBonusYieldChange(eBonus, eIndex);
+			}
+			if (kBuilding.getBonusYieldChange(eBonus, eIndex) != 0 && hasBonus(eBonus)) {
+				iExtraRate += kBuilding.getBonusYieldChange(eBonus, eIndex);
 			}
 		}
 

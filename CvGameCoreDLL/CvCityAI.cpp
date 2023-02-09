@@ -3490,6 +3490,17 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 					}
 				}
 
+				for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
+					if (kBuilding.getVicinityBonusYieldChange(eBonus, eYield)) {
+						if (hasVicinityBonus(eBonus, NULL, kBuilding.isRequirePrereqVicinityBonusWorked())) {
+							iRawYieldValue += (kBuilding.getVicinityBonusYieldChange(eBonus, eYield) * 4);
+						}
+					}
+					if (hasBonus(eBonus)) {
+						iRawYieldValue += (kBuilding.getBonusYieldChange(eBonus, eYield) * 4);
+					}
+				}
+
 				if (kBuilding.getSeaPlotYieldChange(eYield) > 0) {
 					iRawYieldValue += kBuilding.getSeaPlotYieldChange(eYield) * AI_buildingSeaYieldChangeWeight(eBuilding, iFoodDifference > 0 && iHappinessLevel > 0); // K-Mod
 				}
