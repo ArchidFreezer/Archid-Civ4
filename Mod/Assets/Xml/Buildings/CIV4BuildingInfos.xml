@@ -6146,6 +6146,72 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Stonemasons Workshop -->
+			<BuildingClass>BUILDINGCLASS_STONEMASONS_WORKSHOP</BuildingClass>
+			<Type>BUILDING_STONEMASONS_WORKSHOP</Type>
+			<Description>TXT_KEY_BUILDING_STONEMASONS_WORKSHOP</Description>
+			<Civilopedia>TXT_KEY_BUILDING_STONEMASONS_WORKSHOP_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_STONEMASONS_WORKSHOP_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_STONEMASONS_WORKSHOP</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_MASONRY</TechType>
+			</PrereqAndTechs>
+			<PrereqBonus>BONUS_STONE</PrereqBonus>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<iCost>50</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iConquestProb>50</iConquestProb>
+			<YieldModifiers>
+				<iYield>0</iYield>
+				<iYield>10</iYield>
+			</YieldModifiers>
+			<ConstructSound>AS2D_BUILD_FORGE</ConstructSound>
+<!--			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_MASON_GUILD</BuildingClassType>
+					<iProductionModifier>15</iProductionModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers> -->
+<!--			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_MASON_GUILD</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_NANITE_POPULATION</BuildingClassType>
+			</ReplacedByBuildingClasses>  -->
+			<BonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_MARBLE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_STONE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</BonusYieldChanges>	
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>	
 		<BuildingInfo> <!-- Stoneworkers Hut -->
 			<BuildingClass>BUILDINGCLASS_STONEWORKERS_HUT</BuildingClass>
 			<Type>BUILDING_STONEWORKERS_HUT</Type>
@@ -6180,10 +6246,16 @@
 			<ConstructSound>AS2D_BUILD_FORGE</ConstructSound>
 			<BuildingClassProductionModifiers>
 				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_STONEHENGE</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_STONEMASONS_WORKSHOP</BuildingClassType>
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
 			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_STONEMASONS_WORKSHOP</BuildingClassType>
+<!--				<BuildingClassType>BUILDINGCLASS_MASON_GUILD</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_NANITE_POPULATION</BuildingClassType> -->
+			</ReplacedByBuildingClasses>
 			<VicinityBonusYieldChanges>
 				<BonusYieldChange>
 					<BonusType>BONUS_MARBLE</BonusType>
@@ -6208,12 +6280,6 @@
 					</YieldChanges>
 				</BonusYieldChange>
 			</VicinityBonusYieldChanges>
-<!--			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_STONEMASON_WORKSHOPS</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_MASON_GUILD</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_NANITE_POPULATION</BuildingClassType>
-			</ReplacedByBuildingClasses> -->
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>

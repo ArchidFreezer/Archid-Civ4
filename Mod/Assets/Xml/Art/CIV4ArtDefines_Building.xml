@@ -2017,5 +2017,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/stoneworkers_hut.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Stonemasons Workshop -->
+			<Type>ART_DEF_BUILDING_STONEMASONS_WORKSHOP</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.4</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/stonemasons_workshop/Leonardo.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/stonemasons_workshop.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

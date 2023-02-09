@@ -247,6 +247,20 @@
 		<Tag>TXT_KEY_BUILDING_STONE_WEAPONS_WORKSHOP_STRATEGY</Tag>
 		<English>Build a [COLOR_BUILDING_TEXT]Stone Weapons Workshop[COLOR_REVERT] to increase the abilities of your Stone Age Military Units.</English>
 	</TEXT>
+	<TEXT> <!-- Stonemasons Workshop -->
+		<Tag>TXT_KEY_BUILDING_STONEMASONS_WORKSHOP</Tag>
+		<English>Stonemasons Workshop</English>
+		<French>Ateliers de Maçonnerie</French>
+		<German>Steimetz</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_STONEMASONS_WORKSHOP_STRATEGY</Tag>
+		<English>Build a [COLOR_BUILDING_TEXT]Stonemasons Workshop[COLOR_REVERT] to increase the production of your city.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_STONEMASONS_WORKSHOP_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
 	<TEXT> <!-- Stoneworker's Hut -->
 		<Tag>TXT_KEY_BUILDING_STONEWORKERS_HUT</Tag>
 		<English>Stoneworker's Hut</English>
