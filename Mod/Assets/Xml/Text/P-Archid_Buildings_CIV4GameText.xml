@@ -294,4 +294,16 @@
 		<English>Production bonus with Resources</English>
 		<French>Bonus de Production avec Ressources</French>
 	</TEXT>
+	<TEXT> <!-- Treadmill Crane -->
+		<Tag>TXT_KEY_BUILDING_TREADMILL_CRANE</Tag>
+		<English>Treadmill Crane</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TREADMILL_CRANE_PEDIA</Tag>
+		<English>A treadwheel crane (magna rola) is a wooden, human powered, hoisting and lowering device. It was primarily used during Roman times and the Middle Ages in the building of castles and cathedrals. The often heavy charge is lifted as the individual inside the treadwheel crane walks. The rope attached to a pulley is turned onto a spindle by the rotation of the wheel thus allowing the device to hoist or lower the affixed pallet.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TREADMILL_CRANE_STRATEGY</Tag>
+		<English>Increases production for Buildings.</English>
+	</TEXT>
 </Civ4GameText>

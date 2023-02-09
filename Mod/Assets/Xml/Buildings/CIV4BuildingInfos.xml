@@ -6844,6 +6844,51 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Treadmill Crane -->
+			<BuildingClass>BUILDINGCLASS_TREADMILL_CRANE</BuildingClass>
+			<Type>BUILDING_TREADMILL_CRANE</Type>
+			<Description>TXT_KEY_BUILDING_TREADMILL_CRANE</Description>
+			<Civilopedia>TXT_KEY_BUILDING_TREADMILL_CRANE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_TREADMILL_CRANE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_TREADMILL_CRANE</ArtDefineTag>
+			<ObsoleteTech>TECH_STEAM_POWER</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MACHINERY</TechType>
+			</PrereqAndTechs>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>100</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iAdvancedStartCostIncrease>-1</iAdvancedStartCostIncrease>
+			<iConquestProb>70</iConquestProb>
+			<YieldModifiers>
+				<iYield>0</iYield>
+				<iYield>15</iYield>
+			</YieldModifiers>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_ENGINEER</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_WALLS</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_CASTLE</BuildingClassType>
+					<iModifier>50</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+<!--				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_NANITE_POPULATION</BuildingClassType> -->
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>				
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- United Nations -->
 			<BuildingClass>BUILDINGCLASS_UNITED_NATIONS</BuildingClass>
 			<Type>BUILDING_UNITED_NATIONS</Type>

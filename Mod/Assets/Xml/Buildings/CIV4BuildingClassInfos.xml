@@ -202,6 +202,12 @@
 			<iCategory>24</iCategory>
 			<DefaultBuilding>BUILDING_STONEWORKERS_HUT</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Treadmill Crane -->
+			<Type>BUILDINGCLASS_TREADMILL_CRANE</Type>
+			<Description>TXT_KEY_BUILDING_TREADMILL_CRANE</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_TREADMILL_CRANE</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Coal Plant -->                      <!-- Production - Factory/Power -->
 			<Type>BUILDINGCLASS_COAL_PLANT</Type>
