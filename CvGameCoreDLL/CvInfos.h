@@ -1983,6 +1983,7 @@ public:
 	int getPrereqOrBuildingClass(int i) const;
 	int getPrereqNotBuildingClass(int i) const;
 	int getPrereqWorldView(int i) const;
+	int getBuildingClassProductionModifier(BuildingClassTypes eBuildingClass) const;
 
 	bool isCommerceFlexible(int i) const;				// Exposed to Python
 	bool isCommerceChangeOriginalOwner(int i) const;				// Exposed to Python
@@ -2220,6 +2221,10 @@ protected:
 	std::vector<int> m_viPrereqOrBuildingClasses;
 	std::vector<int> m_viPrereqNotBuildingClasses;
 	std::vector<int> m_viPrereqWorldViews;
+
+	// Maps
+	std::map<int, int> m_mBuildingClassProductionModifiers;
+
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

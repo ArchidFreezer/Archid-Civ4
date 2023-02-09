@@ -6845,6 +6845,11 @@ CvBuildingInfo::~CvBuildingInfo() {
 
 }
 
+int CvBuildingInfo::getBuildingClassProductionModifier(BuildingClassTypes eBuildingClass) const {
+	std::map<int, int>::const_iterator it = m_mBuildingClassProductionModifiers.find(eBuildingClass);
+	return (it != m_mBuildingClassProductionModifiers.end()) ? it->second : 0;
+}
+
 bool CvBuildingInfo::isRequirePrereqVicinityBonusWorked() const {
 	return m_bRequirePrereqVicinityBonusConnected;
 }
@@ -8028,6 +8033,7 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 
 	int iNumElements;
 	int iElement;
+	int iKey;
 	stream->Read(&iNumElements);
 	m_viPrereqAndTechs.clear();
 	for (int i = 0; i < iNumElements; ++i) {
@@ -8130,6 +8136,14 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	for (int i = 0; i < iNumElements; ++i) {
 		stream->Read(&iElement);
 		m_viPrereqWorldViews.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_mBuildingClassProductionModifiers.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iKey);
+		stream->Read(&iElement);
+		m_mBuildingClassProductionModifiers.insert(std::make_pair(iKey, iElement));
 	}
 
 	SAFE_DELETE_ARRAY(m_piProductionTraits);
@@ -8552,6 +8566,12 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 		stream->Write(*it);
 	}
 
+	stream->Write(m_mBuildingClassProductionModifiers.size());
+	for (std::map<int, int>::iterator it = m_mBuildingClassProductionModifiers.begin(); it != m_mBuildingClassProductionModifiers.end(); ++it) {
+		stream->Write(it->first);
+		stream->Write(it->second);
+	}
+
 	stream->Write(GC.getNumTraitInfos(), m_piProductionTraits);
 	stream->Write(GC.getNumTraitInfos(), m_piHappinessTraits);
 	stream->Write(NUM_YIELD_TYPES, m_piSeaPlotYieldChange);
@@ -8837,6 +8857,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetListPairInfo(&m_piUnitCombatFreeExperience, "UnitCombatFreeExperiences", GC.getNumUnitCombatInfos());
 	pXML->SetListPairInfo(&m_piDomainFreeExperience, "DomainFreeExperiences", NUM_DOMAIN_TYPES);
 	pXML->SetListPairInfo(&m_piDomainProductionModifier, "DomainProductionModifiers", NUM_DOMAIN_TYPES);
+	pXML->SetMapInfo(m_mBuildingClassProductionModifiers, "BuildingClassProductionModifiers");
 	pXML->SetListPairInfo(&m_piPrereqNumOfBuildingClass, "PrereqNumOfBuildingClasses", GC.getNumBuildingClassInfos());
 	pXML->SetVectorInfo(m_viPrereqAndBuildingClasses, "PrereqAndBuildingClasses");
 	pXML->SetVectorInfo(m_viPrereqOrBuildingClasses, "PrereqOrBuildingClasses");

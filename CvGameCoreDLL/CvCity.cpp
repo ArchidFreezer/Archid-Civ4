@@ -623,6 +623,8 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 		m_aBuildingCommerceChange.clear();
 		m_aBuildingHappyChange.clear();
 		m_aBuildingHealthChange.clear();
+
+		m_mBuildingClassProductionModifiers.clear();
 	}
 
 	if (!bConstructorCall) {
@@ -2700,12 +2702,17 @@ int CvCity::getProductionModifier(UnitTypes eUnit) const {
 
 int CvCity::getProductionModifier(BuildingTypes eBuilding) const {
 	int iMultiplier = GET_PLAYER(getOwnerINLINE()).getProductionModifier(eBuilding);
+	if (eBuilding != NO_BUILDING) {
+		const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+		iMultiplier += getBuildingClassProductionModifier((BuildingClassTypes)kBuilding.getBuildingClassType());
 
-	for (int iI = 0; iI < GC.getNumBonusInfos(); iI++) {
-		if (hasBonus((BonusTypes)iI)) {
-			iMultiplier += GC.getBuildingInfo(eBuilding).getBonusProductionModifier(iI);
+		for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
+			if (hasBonus(eBonus)) {
+				iMultiplier += kBuilding.getBonusProductionModifier(eBonus);
+			}
 		}
 	}
+
 
 	if (GET_PLAYER(getOwnerINLINE()).getStateReligion() != NO_RELIGION) {
 		if (isHasReligion(GET_PLAYER(getOwnerINLINE()).getStateReligion())) {
@@ -3280,6 +3287,10 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 					}
 				}
 			}
+		}
+
+		for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
+			changeBuildingClassProductionModifier(eBuildingClass, kBuilding.getBuildingClassProductionModifier(eBuildingClass) * iChange);
 		}
 
 		for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
@@ -11115,6 +11126,16 @@ void CvCity::read(FDataStreamBase* pStream) {
 		pStream->Read(&iChange);
 		m_aBuildingHealthChange.push_back(std::make_pair((BuildingClassTypes)iBuildingClass, iChange));
 	}
+
+	pStream->Read(&iNumElts);
+	m_mBuildingClassProductionModifiers.clear();
+	for (int i = 0; i < iNumElts; ++i) {
+		int iBuildingClass;
+		pStream->Read(&iBuildingClass);
+		int iModifier;
+		pStream->Read(&iModifier);
+		m_mBuildingClassProductionModifiers.insert(std::make_pair((BuildingClassTypes)iBuildingClass, iModifier));
+	}
 }
 
 void CvCity::write(FDataStreamBase* pStream) {
@@ -11336,6 +11357,12 @@ void CvCity::write(FDataStreamBase* pStream) {
 
 	pStream->Write(m_aBuildingHealthChange.size());
 	for (BuildingChangeArray::iterator it = m_aBuildingHealthChange.begin(); it != m_aBuildingHealthChange.end(); ++it) {
+		pStream->Write((*it).first);
+		pStream->Write((*it).second);
+	}
+
+	pStream->Write(m_mBuildingClassProductionModifiers.size());
+	for (std::map<BuildingClassTypes, int>::iterator it = m_mBuildingClassProductionModifiers.begin(); it != m_mBuildingClassProductionModifiers.end(); ++it) {
 		pStream->Write((*it).first);
 		pStream->Write((*it).second);
 	}
@@ -13713,4 +13740,37 @@ void CvCity::doUnitWeaponUpgrade(std::vector<WeaponTypes> vWeapons, CvUnit* pUni
 
 void CvCity::createBarbarianLeader(UnitTypes eBarbarianLeaderUnit, bool bIncrementBarbarianExperience) {
 	GET_PLAYER(getOwnerINLINE()).createBarbarianLeader(eBarbarianLeaderUnit, bIncrementBarbarianExperience, getX_INLINE(), getY_INLINE());
+}
+
+int CvCity::getBuildingClassProductionModifier(BuildingClassTypes eBuildingClass) const {
+	for (std::map<BuildingClassTypes, int>::const_iterator it = m_mBuildingClassProductionModifiers.begin(); it != m_mBuildingClassProductionModifiers.end(); ++it) {
+		if ((*it).first == eBuildingClass) {
+			return (*it).second;
+		}
+	}
+
+	return 0;
+}
+
+void CvCity::setBuildingClassProductionModifier(BuildingClassTypes eBuildingClass, int iChange) {
+	for (std::map<BuildingClassTypes, int>::iterator it = m_mBuildingClassProductionModifiers.begin(); it != m_mBuildingClassProductionModifiers.end(); ++it) {
+		if ((*it).first == eBuildingClass) {
+			if ((*it).second != iChange) {
+				if (iChange == 0) {
+					m_mBuildingClassProductionModifiers.erase(it);
+				} else {
+					(*it).second = iChange;
+				}
+			}
+			return;
+		}
+	}
+
+	if (0 != iChange) {
+		m_mBuildingClassProductionModifiers.insert(std::make_pair(eBuildingClass, iChange));
+	}
+}
+
+void CvCity::changeBuildingClassProductionModifier(BuildingClassTypes eBuildingClass, int iChange) {
+	setBuildingClassProductionModifier(eBuildingClass, getBuildingClassProductionModifier(eBuildingClass) + iChange);
 }

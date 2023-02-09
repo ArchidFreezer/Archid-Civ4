@@ -2333,3 +2333,35 @@ void CvXMLLoadUtility::SetVectorPairInfos(std::vector< std::pair< int, int > >& 
 
 }
 
+void CvXMLLoadUtility::SetMapInfo(std::map<int, int>& mList, const TCHAR* szRootTagName) {
+	mList.clear();
+	if (gDLL->getXMLIFace()->SetToChildByTagName(m_pFXml, szRootTagName)) {
+		if (SkipToNextVal()) {
+			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(m_pFXml);
+			if (0 < iNumSibs) {
+				if (gDLL->getXMLIFace()->SetToChild(m_pFXml)) {
+					CvString szTextVal;
+					for (int i = 0; i < iNumSibs; ++i) {
+						if (SkipToNextVal() && GetChildXmlVal(szTextVal)) // K-Mod. (without this, a comment in the xml could break this)
+						{
+							int iInfoVal = FindInInfoClass(szTextVal);
+							if (iInfoVal != -1) {
+								int iVal;
+								GetNextXmlVal(&iVal);
+								mList.insert(std::make_pair(iInfoVal, iVal));
+							}
+							gDLL->getXMLIFace()->SetToParent(m_pFXml);
+						}
+						if (!gDLL->getXMLIFace()->NextSibling(m_pFXml)) {
+							break;
+						}
+					}
+					gDLL->getXMLIFace()->SetToParent(m_pFXml);
+				}
+			}
+		}
+
+		gDLL->getXMLIFace()->SetToParent(m_pFXml);
+	}
+
+}

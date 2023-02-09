@@ -34,6 +34,10 @@ public:
 
 	void kill(bool bUpdatePlotGroups);																								// Exposed to Python
 
+	int getBuildingClassProductionModifier(BuildingClassTypes eBuildingClass) const;
+	void changeBuildingClassProductionModifier(BuildingClassTypes eIndex, int iChange);
+	void setBuildingClassProductionModifier(BuildingClassTypes eIndex, int iChange);
+
 	void createBarbarianLeader(UnitTypes eBarbarianLeaderUnit, bool bIncrementBarbarianExperience);
 
 	void doAutoBuild();
@@ -1239,6 +1243,8 @@ protected:
 	std::vector<BuildingCommerceChange> m_aBuildingCommerceChange;
 	BuildingChangeArray m_aBuildingHappyChange;
 	BuildingChangeArray m_aBuildingHealthChange;
+
+	std::map<BuildingClassTypes, int> m_mBuildingClassProductionModifiers;
 
 	// CACHE: cache frequently used values
 	mutable int	m_iPopulationRank;

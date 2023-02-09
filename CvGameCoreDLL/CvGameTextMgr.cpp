@@ -9415,6 +9415,26 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 		}
 	}
 
+	// Building Production modifiers
+	iLast = 0;
+	for (BuildingClassTypes eLoopBuildingClass = (BuildingClassTypes)0; eLoopBuildingClass < GC.getNumBuildingClassInfos(); eLoopBuildingClass = (BuildingClassTypes)(eLoopBuildingClass + 1)) {
+		if (kBuilding.getBuildingClassProductionModifier(eLoopBuildingClass) != 0) {
+			BuildingTypes eLoopBuilding = NO_BUILDING;
+			if (ePlayer != NO_PLAYER) {
+				eLoopBuilding = ((BuildingTypes)(GC.getCivilizationInfo(GET_PLAYER(ePlayer).getCivilizationType()).getCivilizationBuildings(eLoopBuildingClass)));
+			} else {
+				eLoopBuilding = (BuildingTypes)GC.getBuildingClassInfo(eLoopBuildingClass).getDefaultBuildingIndex();
+			}
+			CvWString szBuilding;
+			if (eLoopBuilding != NO_BUILDING) {
+				szFirstBuffer.Format(L"%s%c%d%s", NEWLINE, gDLL->getSymbolID(BULLET_CHAR), abs(kBuilding.getBuildingClassProductionModifier(eLoopBuildingClass)), (kBuilding.getBuildingClassProductionModifier(eLoopBuildingClass) > 0 ? gDLL->getText("TXT_KEY_BUILDING_CLASS_PRODUCTION_FAST") : gDLL->getText("TXT_KEY_BUILDING_CLASS_PRODUCTION_SLOW")).c_str());
+				szBuilding.Format(L"<link=literal>%s</link>", GC.getBuildingInfo(eLoopBuilding).getDescription());
+				setListHelp(szBuffer, szFirstBuffer, szBuilding, L", ", (kBuilding.getBuildingClassProductionModifier(eLoopBuildingClass) != iLast));
+				iLast = kBuilding.getBuildingClassProductionModifier(eLoopBuildingClass);
+			}
+		}
+	}
+
 	bool bFirst = true;
 	for (BuildingClassTypes eLoopBuildingClass = (BuildingClassTypes)0; eLoopBuildingClass < GC.getNumBuildingClassInfos(); eLoopBuildingClass = (BuildingClassTypes)(eLoopBuildingClass + 1)) {
 		BuildingTypes eLoopBuilding = NO_BUILDING;
