@@ -343,7 +343,7 @@ class CvPediaTechTree:
 				elif sType == "UnlockImprovement":
 					screen.addDDSGFCAt(sButton, szTechRecord, gc.getBuildInfo(iItem).getButton(), iX + fX, iY + Y_ROW, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_HELP_IMPROVEMENT, i, iItem, False)
 				elif sType == "ObsoleteBuild":
-					screen.addDDSGFCAt(sButton, szTechRecord, gc.getBuildInfo(iItem).getButton(), iX + fX, iY + Y_ROW, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_HELP_OBSOLETE_BUILD, i, iItem, False)
+					screen.addDDSGFCAt(sButton, szTechRecord, gc.getBuildInfo(iItem).getButton(), iX + fX, iY + Y_ROW, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_HELP_OBSOLETE_BUILD, iItem, -1, False)
 				elif sType == "DomainMoves":
 					screen.addDDSGFCAt(sButton, szTechRecord, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_TECH_WATERMOVES").getPath(), iX + fX, iY + Y_ROW, TEXTURE_SIZE, TEXTURE_SIZE, WidgetTypes.WIDGET_HELP_DOMAIN_EXTRA_MOVES, i, iItem, False)
 				elif sType == "SpecialistExtraCommerce":
