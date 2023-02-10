@@ -1564,6 +1564,9 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_WALLS</ConstructSound>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_UTILITY_FOG</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<BonusYieldChanges>
 				<BonusYieldChange>
 					<BonusType>BONUS_MARBLE</BonusType>
@@ -1587,21 +1590,18 @@
 						<iYield>2</iYield>
 					</YieldChanges>
 				</BonusYieldChange>
-			</BonusYieldChanges>	
+			</BonusYieldChanges>
 <!--			<BuildingClassProductionModifiers>
 				<BuildingClassProductionModifier>
 					<BuildingClassType>BUILDINGCLASS_SKYSCRAPER</BuildingClassType>
 					<iModifier>40</iModifier>
 				</BuildingClassProductionModifier>
 			</BuildingClassProductionModifiers> -->
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_UTILITY_FOG</BuildingClassType>
-			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
 					<iFlavor>10</iFlavor>
-				</Flavor>				
+				</Flavor>
 			</Flavors>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Courthouse -->
@@ -2274,15 +2274,15 @@
 			<Strategy>TXT_KEY_BUILDING_FURRIER_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_FURRIER</ArtDefineTag>
-			<PrereqVicinityOrBonus>
-				<BonusType>BONUS_FUR</BonusType>
-				<BonusType>BONUS_DEER</BonusType>
-			</PrereqVicinityOrBonus>
 			<ObsoleteTech>TECH_PLASTICS</ObsoleteTech>
 			<PrereqAndTechs>
 				<TechType>TECH_TRADE</TechType>
 				<TechType>TECH_HUNTING</TechType>
 			</PrereqAndTechs>
+			<PrereqVicinityOrBonus>
+				<BonusType>BONUS_FUR</BonusType>
+				<BonusType>BONUS_DEER</BonusType>
+			</PrereqVicinityOrBonus>
 			<bNukeImmune>1</bNukeImmune>
 			<iCost>30</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -2296,14 +2296,6 @@
 			<ConstructSound>AS2D_BUILD_TANNERY</ConstructSound>
 			<VicinityBonusYieldChanges>
 				<BonusYieldChange>
-					<BonusType>BONUS_FUR</BonusType>
-					<YieldChanges>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-						<iYield>3</iYield>
-					</YieldChanges>
-				</BonusYieldChange>
-				<BonusYieldChange>
 					<BonusType>BONUS_DEER</BonusType>
 					<YieldChanges>
 						<iYield>0</iYield>
@@ -2311,12 +2303,20 @@
 						<iYield>2</iYield>
 					</YieldChanges>
 				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_FUR</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>3</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
 			</VicinityBonusYieldChanges>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
 					<iFlavor>10</iFlavor>
-				</Flavor>				
+				</Flavor>
 			</Flavors>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Globe Theatre -->
@@ -4450,23 +4450,6 @@
 				<iYield>15</iYield>
 			</YieldModifiers>
 			<ConstructSound>AS2D_BUILD_FORGE</ConstructSound>
-			<BonusYieldChanges>
-				<BonusYieldChange>
-					<BonusType>BONUS_MARBLE</BonusType>
-					<YieldChanges>
-						<iYield>0</iYield>
-						<iYield>1</iYield>
-						<iYield>2</iYield>
-					</YieldChanges>
-				</BonusYieldChange>
-				<BonusYieldChange>
-					<BonusType>BONUS_STONE</BonusType>
-					<YieldChanges>
-						<iYield>0</iYield>
-						<iYield>2</iYield>
-					</YieldChanges>
-				</BonusYieldChange>
-			</BonusYieldChanges>	
 			<BuildingClassProductionModifiers>
 				<BuildingClassProductionModifier>
 					<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
@@ -4505,6 +4488,23 @@
 				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
 				<BuildingClassType>BUILDINGCLASS_UTILITY_FOG</BuildingClassType>
 			</ReplacedByBuildingClasses>
+			<BonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_MARBLE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_STONE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</BonusYieldChanges>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -4515,7 +4515,7 @@
 					<iFlavor>2</iFlavor>
 				</Flavor>
 			</Flavors>
-		</BuildingInfo>	
+		</BuildingInfo>
 		<BuildingInfo> <!-- Mausoleum Of Maussollos -->
 			<BuildingClass>BUILDINGCLASS_MAUSOLEUM_OF_MAUSSOLLOS</BuildingClass>
 			<Type>BUILDING_MAUSOLEUM_OF_MAUSSOLLOS</Type>
@@ -4640,6 +4640,188 @@
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
 					<iFlavor>8</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Monument -->
+			<BuildingClass>BUILDINGCLASS_MONUMENT</BuildingClass>
+			<Type>BUILDING_MONUMENT</Type>
+			<Description>TXT_KEY_BUILDING_MONUMENT</Description>
+			<Civilopedia>TXT_KEY_NEW_BUILDING_MONUMENT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_MONUMENT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_CULTURE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_MONUMENT</ArtDefineTag>
+			<ObsoleteTech>TECH_ASTRONOMY</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_RITUALISM</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<iChange>1</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bNeverCapture>1</bNeverCapture>
+			<bCenterInCity>1</bCenterInCity>
+			<iCost>30</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iAsset>2</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<ConstructSound>AS2D_BUILD_OBELISK</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Monument: Egyptian Obelisk -->
+			<BuildingClass>BUILDINGCLASS_MONUMENT</BuildingClass>
+			<Type>BUILDING_EGYPTIAN_OBELISK</Type>
+			<Description>TXT_KEY_BUILDING_OBELISK</Description>
+			<Civilopedia>TXT_KEY_BUILDING_EGYPTIAN_OBELISK_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_EGYPTIAN_OBELISK_STRATEGY</Strategy>
+			<Advisor>ADVISOR_CULTURE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_EGYPTIAN_OBELISK</ArtDefineTag>
+			<ObsoleteTech>TECH_ASTRONOMY</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_RITUALISM</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<iChange>1</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bNeverCapture>1</bNeverCapture>
+			<bCenterInCity>1</bCenterInCity>
+			<iCost>30</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iAsset>3</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
+					<iCount>2</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_OBELISK</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Monument: Ethiopian Stele -->
+			<BuildingClass>BUILDINGCLASS_MONUMENT</BuildingClass>
+			<Type>BUILDING_ETHIOPIAN_STELE</Type>
+			<Description>TXT_KEY_BUILDING_ETHIOPIAN_STELE</Description>
+			<Civilopedia>TXT_KEY_BUILDING_ETHIOPIAN_STELE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_ETHIOPIAN_STELE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_CULTURE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_ETHIOPIAN_STELE</ArtDefineTag>
+			<ObsoleteTech>TECH_ASTRONOMY</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_RITUALISM</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<iChange>1</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bNeverCapture>1</bNeverCapture>
+			<bCenterInCity>1</bCenterInCity>
+			<iCost>30</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iAsset>3</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>25</iCommerce>
+			</CommerceModifiers>
+			<ConstructSound>AS2D_BUILD_OBELISK</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Monument: Native America Totem -->
+			<BuildingClass>BUILDINGCLASS_MONUMENT</BuildingClass>
+			<Type>BUILDING_NATIVE_AMERICA_TOTEM</Type>
+			<Description>TXT_KEY_BUILDING_NATIVE_AMERICA_TOTEM</Description>
+			<Civilopedia>TXT_KEY_BUILDING_NATIVE_AMERICA_TOTEM_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_NATIVE_AMERICA_TOTEM_STRATEGY</Strategy>
+			<Advisor>ADVISOR_CULTURE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_NATIVE_AMERICA_TOTEM</ArtDefineTag>
+			<ObsoleteTech>TECH_ASTRONOMY</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_RITUALISM</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<iChange>1</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bNeverCapture>1</bNeverCapture>
+			<bCenterInCity>1</bCenterInCity>
+			<iCost>30</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iAsset>2</iAsset>
+			<iPower>1</iPower>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<ConstructSound>AS2D_BUILD_OBELISK</ConstructSound>
+			<UnitCombatFreeExperiences>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+					<iExperience>3</iExperience>
+				</UnitCombatFreeExperience>
+			</UnitCombatFreeExperiences>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
@@ -4932,188 +5114,6 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
-					<iFlavor>10</iFlavor>
-				</Flavor>
-			</Flavors>
-		</BuildingInfo>
-		<BuildingInfo> <!-- Monument -->
-			<BuildingClass>BUILDINGCLASS_MONUMENT</BuildingClass>
-			<Type>BUILDING_MONUMENT</Type>
-			<Description>TXT_KEY_BUILDING_MONUMENT</Description>
-			<Civilopedia>TXT_KEY_NEW_BUILDING_MONUMENT_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_BUILDING_MONUMENT_STRATEGY</Strategy>
-			<Advisor>ADVISOR_CULTURE</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_MONUMENT</ArtDefineTag>
-			<ObsoleteTech>TECH_ASTRONOMY</ObsoleteTech>
-			<PrereqAndTechs>
-				<TechType>TECH_RITUALISM</TechType>
-			</PrereqAndTechs>
-			<HappinessTraits>
-				<HappinessTrait>
-					<TraitType>TRAIT_CHARISMATIC</TraitType>
-					<iChange>1</iChange>
-				</HappinessTrait>
-			</HappinessTraits>
-			<bNeverCapture>1</bNeverCapture>
-			<bCenterInCity>1</bCenterInCity>
-			<iCost>30</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iAsset>2</iAsset>
-			<ObsoleteSafeCommerceChanges>
-				<iCommerce>0</iCommerce>
-				<iCommerce>0</iCommerce>
-				<iCommerce>1</iCommerce>
-			</ObsoleteSafeCommerceChanges>
-			<CommerceChangeDoubleTimes>
-				<iCommerce>0</iCommerce>
-				<iCommerce>0</iCommerce>
-				<iCommerce>1000</iCommerce>
-			</CommerceChangeDoubleTimes>
-			<ConstructSound>AS2D_BUILD_OBELISK</ConstructSound>
-			<Flavors>
-				<Flavor>
-					<FlavorType>FLAVOR_CULTURE</FlavorType>
-					<iFlavor>10</iFlavor>
-				</Flavor>
-			</Flavors>
-		</BuildingInfo>
-		<BuildingInfo> <!-- Obelisk: Egyptian Obelisk -->
-			<BuildingClass>BUILDINGCLASS_MONUMENT</BuildingClass>
-			<Type>BUILDING_EGYPTIAN_OBELISK</Type>
-			<Description>TXT_KEY_BUILDING_OBELISK</Description>
-			<Civilopedia>TXT_KEY_BUILDING_EGYPTIAN_OBELISK_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_BUILDING_EGYPTIAN_OBELISK_STRATEGY</Strategy>
-			<Advisor>ADVISOR_CULTURE</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_EGYPTIAN_OBELISK</ArtDefineTag>
-			<ObsoleteTech>TECH_ASTRONOMY</ObsoleteTech>
-			<PrereqAndTechs>
-				<TechType>TECH_RITUALISM</TechType>
-			</PrereqAndTechs>
-			<HappinessTraits>
-				<HappinessTrait>
-					<TraitType>TRAIT_CHARISMATIC</TraitType>
-					<iChange>1</iChange>
-				</HappinessTrait>
-			</HappinessTraits>
-			<bNeverCapture>1</bNeverCapture>
-			<bCenterInCity>1</bCenterInCity>
-			<iCost>30</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iAsset>3</iAsset>
-			<ObsoleteSafeCommerceChanges>
-				<iCommerce>0</iCommerce>
-				<iCommerce>0</iCommerce>
-				<iCommerce>1</iCommerce>
-			</ObsoleteSafeCommerceChanges>
-			<CommerceChangeDoubleTimes>
-				<iCommerce>0</iCommerce>
-				<iCommerce>0</iCommerce>
-				<iCommerce>1000</iCommerce>
-			</CommerceChangeDoubleTimes>
-			<SpecialistCounts>
-				<SpecialistCount>
-					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iCount>2</iCount>
-				</SpecialistCount>
-			</SpecialistCounts>
-			<ConstructSound>AS2D_BUILD_OBELISK</ConstructSound>
-			<Flavors>
-				<Flavor>
-					<FlavorType>FLAVOR_CULTURE</FlavorType>
-					<iFlavor>10</iFlavor>
-				</Flavor>
-			</Flavors>
-		</BuildingInfo>
-		<BuildingInfo> <!-- Obelisk: Ethiopian Stele -->
-			<BuildingClass>BUILDINGCLASS_MONUMENT</BuildingClass>
-			<Type>BUILDING_ETHIOPIAN_STELE</Type>
-			<Description>TXT_KEY_BUILDING_ETHIOPIAN_STELE</Description>
-			<Civilopedia>TXT_KEY_BUILDING_ETHIOPIAN_STELE_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_BUILDING_ETHIOPIAN_STELE_STRATEGY</Strategy>
-			<Advisor>ADVISOR_CULTURE</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_ETHIOPIAN_STELE</ArtDefineTag>
-			<ObsoleteTech>TECH_ASTRONOMY</ObsoleteTech>
-			<PrereqAndTechs>
-				<TechType>TECH_RITUALISM</TechType>
-			</PrereqAndTechs>
-			<HappinessTraits>
-				<HappinessTrait>
-					<TraitType>TRAIT_CHARISMATIC</TraitType>
-					<iChange>1</iChange>
-				</HappinessTrait>
-			</HappinessTraits>
-			<bNeverCapture>1</bNeverCapture>
-			<bCenterInCity>1</bCenterInCity>
-			<iCost>30</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iAsset>3</iAsset>
-			<ObsoleteSafeCommerceChanges>
-				<iCommerce>0</iCommerce>
-				<iCommerce>0</iCommerce>
-				<iCommerce>1</iCommerce>
-			</ObsoleteSafeCommerceChanges>
-			<CommerceChangeDoubleTimes>
-				<iCommerce>0</iCommerce>
-				<iCommerce>0</iCommerce>
-				<iCommerce>1000</iCommerce>
-			</CommerceChangeDoubleTimes>
-			<CommerceModifiers>
-				<iCommerce>0</iCommerce>
-				<iCommerce>0</iCommerce>
-				<iCommerce>25</iCommerce>
-			</CommerceModifiers>
-			<ConstructSound>AS2D_BUILD_OBELISK</ConstructSound>
-			<Flavors>
-				<Flavor>
-					<FlavorType>FLAVOR_CULTURE</FlavorType>
-					<iFlavor>10</iFlavor>
-				</Flavor>
-			</Flavors>
-		</BuildingInfo>
-		<BuildingInfo> <!-- Obelisk: Native America Totem -->
-			<BuildingClass>BUILDINGCLASS_MONUMENT</BuildingClass>
-			<Type>BUILDING_NATIVE_AMERICA_TOTEM</Type>
-			<Description>TXT_KEY_BUILDING_NATIVE_AMERICA_TOTEM</Description>
-			<Civilopedia>TXT_KEY_BUILDING_NATIVE_AMERICA_TOTEM_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_BUILDING_NATIVE_AMERICA_TOTEM_STRATEGY</Strategy>
-			<Advisor>ADVISOR_CULTURE</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_NATIVE_AMERICA_TOTEM</ArtDefineTag>
-			<ObsoleteTech>TECH_ASTRONOMY</ObsoleteTech>
-			<PrereqAndTechs>
-				<TechType>TECH_RITUALISM</TechType>
-			</PrereqAndTechs>
-			<HappinessTraits>
-				<HappinessTrait>
-					<TraitType>TRAIT_CHARISMATIC</TraitType>
-					<iChange>1</iChange>
-				</HappinessTrait>
-			</HappinessTraits>
-			<bNeverCapture>1</bNeverCapture>
-			<bCenterInCity>1</bCenterInCity>
-			<iCost>30</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iAsset>2</iAsset>
-			<iPower>1</iPower>
-			<ObsoleteSafeCommerceChanges>
-				<iCommerce>0</iCommerce>
-				<iCommerce>0</iCommerce>
-				<iCommerce>1</iCommerce>
-			</ObsoleteSafeCommerceChanges>
-			<CommerceChangeDoubleTimes>
-				<iCommerce>0</iCommerce>
-				<iCommerce>0</iCommerce>
-				<iCommerce>1000</iCommerce>
-			</CommerceChangeDoubleTimes>
-			<ConstructSound>AS2D_BUILD_OBELISK</ConstructSound>
-			<UnitCombatFreeExperiences>
-				<UnitCombatFreeExperience>
-					<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
-					<iExperience>3</iExperience>
-				</UnitCombatFreeExperience>
-			</UnitCombatFreeExperiences>
-			<Flavors>
-				<Flavor>
-					<FlavorType>FLAVOR_CULTURE</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -6402,7 +6402,7 @@
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_MASONS_GUILD</BuildingClassType>
 				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_UTILITY_FOG</BuildingClassType> 
+				<BuildingClassType>BUILDINGCLASS_UTILITY_FOG</BuildingClassType>
 			</ReplacedByBuildingClasses>
 			<BonusYieldChanges>
 				<BonusYieldChange>
@@ -6420,7 +6420,7 @@
 						<iYield>1</iYield>
 					</YieldChanges>
 				</BonusYieldChange>
-			</BonusYieldChanges>	
+			</BonusYieldChanges>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -6431,7 +6431,7 @@
 					<iFlavor>2</iFlavor>
 				</Flavor>
 			</Flavors>
-		</BuildingInfo>	
+		</BuildingInfo>
 		<BuildingInfo> <!-- Stoneworkers Hut -->
 			<BuildingClass>BUILDINGCLASS_STONEWORKERS_HUT</BuildingClass>
 			<Type>BUILDING_STONEWORKERS_HUT</Type>
@@ -6652,6 +6652,14 @@
 			</BonusHappinessChanges>
 			<BonusYieldModifiers>
 				<BonusYieldModifier>
+					<BonusType>BONUS_COTTON</BonusType>
+					<YieldModifiers>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>5</iYield>
+					</YieldModifiers>
+				</BonusYieldModifier>
+				<BonusYieldModifier>
 					<BonusType>BONUS_FUR</BonusType>
 					<YieldModifiers>
 						<iYield>0</iYield>
@@ -6669,14 +6677,6 @@
 				</BonusYieldModifier>
 				<BonusYieldModifier>
 					<BonusType>BONUS_SILK</BonusType>
-					<YieldModifiers>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-						<iYield>5</iYield>
-					</YieldModifiers>
-				</BonusYieldModifier>
-				<BonusYieldModifier>
-					<BonusType>BONUS_COTTON</BonusType>
 					<YieldModifiers>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
@@ -7101,7 +7101,7 @@
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
 					<iFlavor>10</iFlavor>
-				</Flavor>				
+				</Flavor>
 			</Flavors>
 		</BuildingInfo>
 		<BuildingInfo> <!-- United Nations -->
@@ -7469,9 +7469,20 @@
 				<iYield>0</iYield>
 				<iYield>1</iYield>
 			</YieldChanges>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_TAILOR_SHOP</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<BonusYieldChanges>
 				<BonusYieldChange>
 					<BonusType>BONUS_CANNABIS</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_COTTON</BonusType>
 					<YieldChanges>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
@@ -7494,18 +7505,7 @@
 						<iYield>1</iYield>
 					</YieldChanges>
 				</BonusYieldChange>
-				<BonusYieldChange>
-					<BonusType>BONUS_COTTON</BonusType>
-					<YieldChanges>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-						<iYield>1</iYield>
-					</YieldChanges>
-				</BonusYieldChange>
 			</BonusYieldChanges>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_TAILOR_SHOP</BuildingClassType>
-			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>

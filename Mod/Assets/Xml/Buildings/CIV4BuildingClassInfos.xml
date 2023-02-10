@@ -316,7 +316,7 @@
 			<iCategory>31</iCategory>
 			<DefaultBuilding>BUILDING_KNOWLEDGE_INHERITANCE</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Obelisk -->
+		<BuildingClassInfo> <!-- Monument -->
 			<Type>BUILDINGCLASS_MONUMENT</Type>
 			<Description>TXT_KEY_BUILDING_MONUMENT</Description>
 			<iCategory>31</iCategory>
