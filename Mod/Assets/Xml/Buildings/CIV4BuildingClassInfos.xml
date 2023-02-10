@@ -277,6 +277,12 @@
 			<iCategory>29</iCategory>
 			<DefaultBuilding>BUILDING_SUPERMARKET</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Tailor Shop -->
+			<Type>BUILDINGCLASS_TAILOR_SHOP</Type>
+			<Description>TXT_KEY_BUILDING_TAILOR_SHOP</Description>
+			<iCategory>29</iCategory>
+			<DefaultBuilding>BUILDING_TAILOR_SHOP</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Bank -->                            <!-- Commerce - Banking -->
 			<Type>BUILDINGCLASS_BANK</Type>

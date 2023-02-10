@@ -313,6 +313,21 @@
 		<English>Production bonus with Resources</English>
 		<French>Bonus de Production avec Ressources</French>
 	</TEXT>
+	<TEXT> <!-- Tailor Shop -->
+		<Tag>TXT_KEY_BUILDING_TAILOR_SHOP</Tag>
+		<English>Tailor Shop</English>
+		<French>Atelier du Tailleur</French>
+		<German>Schneidergesch&#228;ft</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TAILOR_SHOP_PEDIA</Tag>
+		<English>A tailor is a person who makes, repairs, or alters clothing professionally, especially suits and men's clothing.  Although the term dates to the thirteenth century, tailor took on its modern sense in the late eighteenth century, and now refers to makers of men's and women's suits, coats, trousers, and similar garments, usually of wool, linen, or silk.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TAILOR_SHOP_STRATEGY</Tag>
+		<English>Makes use of "clothing" resources, providing Commerce and Happiness</English>
+		<French>Procure une ressource 'Vêtement', fournissant commerce et bonheur</French>
+	</TEXT>
 	<TEXT> <!-- Treadmill Crane -->
 		<Tag>TXT_KEY_BUILDING_TREADMILL_CRANE</Tag>
 		<English>Treadmill Crane</English>
@@ -339,8 +354,7 @@
 		<Tag>TXT_KEY_BUILDING_UTILITY_FOG_STRATEGY</Tag>
 		<English>[SPACE]Utility Fog increases city's production and defense.</English>
 	</TEXT>
-<!-- Weavers Hut -->
-	<TEXT>
+	<TEXT> <!-- Weavers Hut -->
 		<Tag>TXT_KEY_BUILDING_WEAVERS_HUT</Tag>
 		<English>Weaver's Hut</English>
 		<French>
