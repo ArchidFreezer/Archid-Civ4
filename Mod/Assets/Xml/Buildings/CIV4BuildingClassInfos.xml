@@ -317,11 +317,11 @@
 			<DefaultBuilding>BUILDING_KNOWLEDGE_INHERITANCE</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Obelisk -->
-			<Type>BUILDINGCLASS_OBELISK</Type>
-			<Description>TXT_KEY_BUILDING_OBELISK</Description>
+			<Type>BUILDINGCLASS_MONUMENT</Type>
+			<Description>TXT_KEY_BUILDING_MONUMENT</Description>
 			<iCategory>31</iCategory>
 			<bMonument>1</bMonument>
-			<DefaultBuilding>BUILDING_OBELISK</DefaultBuilding>
+			<DefaultBuilding>BUILDING_MONUMENT</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Theatre -->
 			<Type>BUILDINGCLASS_THEATRE</Type>
