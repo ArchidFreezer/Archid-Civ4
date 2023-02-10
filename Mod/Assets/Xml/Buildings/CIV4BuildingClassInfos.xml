@@ -240,7 +240,13 @@
 			<DefaultBuilding>BUILDING_NUCLEAR_PLANT</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Slave Market -->                    <!-- Commerce -->
+		<BuildingClassInfo> <!-- Furrier -->                         <!-- Commerce -->
+			<Type>BUILDINGCLASS_FURRIER</Type>
+			<Description>TXT_KEY_BUILDING_FURRIER</Description>
+			<iCategory>28</iCategory>
+			<DefaultBuilding>BUILDING_FURRIER</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Slave Market -->
 			<Type>BUILDINGCLASS_SLAVE_MARKET</Type>
 			<Description>TXT_KEY_BUILDING_SLAVE_MARKET</Description>
 			<iCategory>28</iCategory>

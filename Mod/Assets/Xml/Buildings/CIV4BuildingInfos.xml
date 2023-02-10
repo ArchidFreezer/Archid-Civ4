@@ -2263,6 +2263,59 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Furrier -->
+			<BuildingClass>BUILDINGCLASS_FURRIER</BuildingClass>
+			<Type>BUILDING_FURRIER</Type>
+			<Description>TXT_KEY_BUILDING_FURRIER</Description>
+			<Civilopedia>TXT_KEY_BUILDING_FURRIER_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_FURRIER_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_FURRIER</ArtDefineTag>
+			<PrereqVicinityOrBonus>
+				<BonusType>BONUS_FUR</BonusType>
+				<BonusType>BONUS_DEER</BonusType>
+			</PrereqVicinityOrBonus>
+			<ObsoleteTech>TECH_PLASTICS</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_TRADE</TechType>
+				<TechType>TECH_HUNTING</TechType>
+			</PrereqAndTechs>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>30</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iAdvancedStartCostIncrease>-1</iAdvancedStartCostIncrease>
+			<iConquestProb>80</iConquestProb>
+			<iHappiness>1</iHappiness>
+			<iTradeRouteModifier>5</iTradeRouteModifier>
+			<CommerceChanges>
+				<iCommerce>4</iCommerce>
+			</CommerceChanges>
+			<ConstructSound>AS2D_BUILD_TANNERY</ConstructSound>
+			<VicinityBonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_FUR</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>3</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_DEER</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</VicinityBonusYieldChanges>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>				
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Globe Theatre -->
 			<BuildingClass>BUILDINGCLASS_GLOBE_THEATRE</BuildingClass>
 			<Type>BUILDING_GLOBE_THEATRE</Type>

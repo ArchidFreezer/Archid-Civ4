@@ -2087,5 +2087,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/tailor_shop.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Furrier -->
+			<Type>ART_DEF_BUILDING_FURRIER</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.35</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/City/camp/tradingpost.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/Furrier.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

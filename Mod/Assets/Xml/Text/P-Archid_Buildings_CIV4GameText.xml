@@ -71,6 +71,21 @@
 		<Tag>TXT_KEY_BUILDING_EARLY_INSTRUMENT_MAKER_STRATEGY</Tag>
 		<English>Build a [COLOR_BUILDING_TEXT]Early Instrument Maker[COLOR_REVERT] to increase the commerce output in your cities.</English>
 	</TEXT>
+	<TEXT> <!-- Furrier -->
+		<Tag>TXT_KEY_BUILDING_FURRIER</Tag>
+		<English>Furrier</English>
+		<French>Fourreur</French>
+		<German>K&#252;rschner</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FURRIER_PEDIA</Tag>
+		<English>Originally, Russia exported a majority in raw furs of the pelts of martens, beavers, wolves, foxes, squirrels and hares. Between the 16th and 18th centuries, Russians tamed Siberia, a region rich in many mammal species, such as Arctic fox, lynx, sable, sea otter and stoat (ermine). In the search for the prized sea otter (pelts first used in China), and, later the northern fur seal, the Russian Empire expanded into North America, notably Alaska. Between the 17th and second half of the 19th century, Russia was the largest supplier of fur in the world. The fur trade played a vital role in the development of Siberia, the Russian Far East and the Russian colonization of the Americas. To this day sable is a regional symbol of Ural Sverdlovsk oblast and Siberian Novosibirsk, Tyumen and Irkutsk oblasts of Russia.  The European discovery of North America, with its vast forests and wild-life, particularly the beaver, led to the continent's becoming a major supplier in the 17th century of fur pelts for the fur-felt hat and fur trimming and garment trades of Europe. Fur was a major source of warmth in clothing, critical prior to the organisation of coal distribution.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FURRIER_STRATEGY</Tag>
+		<English>Adds gold and commerce with Fur; Resource requirement.</English>
+		<French>Ajoute de l'Or et du commerce avec la ressource Fourrure (nécessaire)</French>
+	</TEXT>
 	<TEXT> <!-- Hunting Instruction -->
 		<Tag>TXT_KEY_BUILDING_HUNTING_INSTRUCTION</Tag>
 		<English>Hunting Instruction</English>
