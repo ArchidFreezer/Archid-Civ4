@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- Game Text - New -->
 <Civ4GameText xmlns="http://www.firaxis.com">
+<!-- Alcohol -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_ALCOHOL</Tag>
+		<English>Alcohol</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_ALCOHOL_PEDIA</Tag>
+		<English>[TAB]There are three main types of alcohol beverage: beers wines and spirits. Beer being the form consumed in the greatest quantities throughout the world, with it being the third most popular beverage after water and tea. In many countries the creation and consumption of alcoholic beverages is deeply embedded into the culture, being at the core of both social and in some cases religious ceremenies.</English>
+	</TEXT>
+<!-- Ammunition -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_AMMO</Tag>
+		<English>Ammunition</English>
+		<French>
+			<Text>Munitions</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Munition</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_AMMO_PEDIA</Tag>
+		<English>[TAB]Ammunition, often referred to as ammo, is a generic term meaning a projectile and its propellant. Different types of ammo: [PARAGRAPH:1]cartridges, like those used in rifles, handguns and machine guns [PARAGRAPH:1]Large caliber guns often fire explosive-filled projectiles known as shells, non-explosive projectiles may be used for practice [PARAGRAPH:1]Large numbers of small projectiles intended to be fired all at once in a single discharge are also called shot; hand-held guns designed for this type of ammunition are generally known as shotguns. [PARAGRAPH:2]The design of the ammunition is determined by its purpose; anti-personnel ammunition is often designed to break up or tumble inside the target, in order to maximize the damage done. Anti-personnel shells contain shrapnel and are designed to explode in mid-air, so its fragments will spread over a large area. Armor-piercing ammunition tends to be hard, sharp, and narrow, often with lubrication. Incendiary projectiles include a material such as white phosphorus which burns fiercely. Tracer ammunition emits light as it travels, allowing the gunner to see the path of bullets in flight while using a machine gun. [PARAGRAPH:2]Popular types of military rifle and machine-gun ammunition include the 5.45 mm, 5.56 mm, and 7.62 mm. Main battle tanks use KE-penetrators to combat other MBTs and armoured fighting vehicles, and HE-Frag (High Explosive-Fragmentation) for soft targets such as infantry. [PARAGRAPH:2]Naval ammunition is optimized for great velocity (to reach those great ranges, to hit aircraft flying at altitude and also with the benefit of reducing the lead that has to be applied to hit a distant moving target) and to disable said machines, rather than rending human flesh. Naval gun ammunition of WWII vintage came in two main varieties, armor piercing shells to attack hardened warships or high explosive incendiary shells.</English>
+	</TEXT>
+<!-- Ancient Relics -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_ANCIENTTEMPLE</Tag>
+		<English>Ancient Relics</English>
+		<French>
+			<Text>Reliques Anciennes</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Antike Ruinen</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_ANCIENTTEMPLE_PEDIA</Tag>
+		<English>[TAB] Treasure is a concentration of riches, often that which is considered lost or forgotten until being rediscovered. Some jurisdictions legally define what constitutes treasure (such as in the English Treasure Act 1996). Searching for hidden treasure is a common theme in legend and fiction but real-life treasure hunters exist, and seek lost wealth for a living. Spanish treasure lost from the Spanish fleet consisted of gold, silver, jewels (especially emeralds) and also cocoa, vanilla and brazilwood (Zarin, 2005). Archaeologists are sometimes described as treasure hunters, especially those from the 19th century, although they themselves rarely wish to be associated with the term. Treasure hunters are often accused by archaeologists of pillaging ancient sites in their quests, destroying valuable information in the process. Illegal sales of antiquities to foreign buyers are also attributed to illicit treasure hunting. - Wikipedia </English>
+		<German>[TAB] Nach deutschem Recht ist ein Schatz eine Sache, die so lange verborgen gelegen hat, dass ihr Eigent&#252;mer nicht mehr zu ermitteln ist (§ 984 BGB). Der Finder eines Schatzes erwirbt bereits mit der Entdeckung h&#228;lftiges Miteigentum, siehe Fund. Umgangssprachlich versteht man unter einem Schatz aber auch die Ansammlung gro&#223;er Verm&#246;genswerte in Form von Schmuck und M&#252;nzen, die nicht verborgen liegt, z.B. einen Kronschatz. - Wikipedia </German>
+	</TEXT>
 <!-- Apple -->
 	<TEXT>
 		<Tag>TXT_KEY_BONUS_APPLE</Tag>
@@ -24,6 +64,24 @@
 		<Tag>TXT_KEY_BONUS_BARLEY_PEDIA</Tag>
 		<English>[TAB]Barley is a cereal grain derived from the annual grass Hordeum vulgare. Barley has many uses. It serves as a major animal fodder, as a base malt for beer and certain distilled beverages, and as a component of various health foods. It is used in soups and stews, and in barley bread of various cultures, from Scotland to Africa. In a 2007 ranking of cereal crops in the world, barley was fourth both in terms of quantity produced (136 million tons) and in area of cultivation (566,000 km²).</English>
 	</TEXT>
+<!-- Bauxite -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_BAUXITE</Tag>
+		<English>Bauxite ore</English>
+		<French>Bauxite</French>
+		<German>Bauxit-Erz</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_BAUXITE_PEDIA</Tag>
+		<English>[TAB]Bauxite is the most important aluminium ore. It was named after the village Les Baux-de-Provence in southern France, where it was first discovered in 1821 by geologist Pierre Berthier. Bauxite is strip mined (surface mining) because it is found at the surface, with little or no overburden. Approximately 95% of the world's bauxite production is processed into aluminium. Bauxites are typically classified according to their intended commercial application: metallurgical, abrasive, cement, chemical and refractory.</English>
+	</TEXT>
+<!-- Biofuel -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_BIOFUEL</Tag>
+		<English>Biofuel</English>
+		<French>Biocarburant</French>
+		<German>Biotreibstoff</German>
+	</TEXT>
 <!-- Bison -->
 	<TEXT>
 		<Tag>TXT_KEY_BONUS_BISON</Tag>
@@ -36,6 +94,28 @@
 	<TEXT>
 		<Tag>TXT_KEY_BONUS_BISON_PEDIA</Tag>
 		<English>[TAB]Members of the genus Bison are large even-toed ungulates within the subfamily Bovinae. Two extant species and four extinct species are recognized. The surviving species are the American bison, Bison bison (with two subspecies, the plains bison, Bison bison bison, and the wood bison, Bison bison athabascae), found in North America, and the European bison, or wisent (Bison bonasus), found in Europe and the Caucasus. While these species are usually grouped into their own genus, they are sometimes included in the closely related genus Bos, together with cattle, gaur, kouprey and yaks, with which bison can interbreed.</English>
+	</TEXT>
+<!-- Cement -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_CEMENT</Tag>
+		<English>Cement</English>
+		<French>Ciment</French>
+		<German>Zement</German>
+	</TEXT>
+<!-- Chemicals -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_CHEMICALS</Tag>
+		<English>Chemicals</English>
+		<French>
+			<Text>Produits chimiques</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Chemikalien</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_CHEMICALS_PEDIA</Tag>
+		<English>.</English>
 	</TEXT>
 <!-- Coffee -->
 	<TEXT>
@@ -59,6 +139,35 @@
 		<Tag>TXT_KEY_BONUS_COTTON_PEDIA</Tag>
 		<English>[TAB] Cotton is a soft fiber that grows around the seeds of the Cotton plant (Gossypium spp.), a shrub native to the tropical and subtropical regions of both the Old World and the New World. The fibre is most often spun into thread and used to make a soft, breathable textile. Some authorities claim that it was likely that the Egyptians had cotton as early as 12,000 BC, and evidence has been found of cotton in Mexican caves (cotton cloth and fragments of bloody fibre interwoven with feathers and fur) which dated back to approximately 7,000 years ago. There is clear archaeological evidence that people in South America and India domesticated different species of cotton independently thousands of years ago. The earliest written reference to cotton is in India. Cotton has been grown in India for more than three thousand years, and it is referred to in the Rig-Veda, written in 1500 BC. In Peru, cotton was the backbone of the development of coastal cultures such as the Moche and Nazca. Cotton was grown upriver, made into nets and traded with fishing villages along the coast for large supplies of fish. During the late mediaeval period, cotton became known as an imported fibre in northern Europe. By the end of the 16th century AD, cotton was cultivated throughout the warmer regions in Africa, Eurasia and the Americas. The Indian cotton processing industry was eclipsed during the British Industrial Revolution, when the invention of the spinning jenny (1764) and Arkwright's spinning frame (1769) enabled cheap mass-production of cotton cloth in the UK. Production capacity was further improved by the invention of the cotton gin by Eli Whitney in 1793. In the United States, growing the three crops, cotton, indigo and tobacco historically were the leading occupations of slaves. - Wikipedia </English>
 		<German>[TAB] Die Baumwollpflanze oder Baumwolle ist eine Gattung aus der Familie der Malvengew&#228;chse (Malvaceae). Aus den Samenhaaren der Str&#228;ucher wird die Naturfaser Baumwolle gewonnen. Baumwolle wird seit Jahrtausenden zur Herstellung leichter Kleidung vor allem in tropischen Gebieten verwendet. Einige Quellen behaupten, dass schon die &#196;gypter ca. 12.000 v. Chr. mit Baumwolle gearbeitet h&#228;tten. In Babylon wurde Baumwolle als Wei&#223;es Gold bezeichnet. In mexikanischen H&#246;hlen wurden Baumwollkleider gefunden, die etwa 7.000 Jahre alt sind. Die &#228;lteste Aufzeichnung &#252;ber Baumwolle stammt aus Indien. Baumwolle wurde hier seit mehr als 3.000 Jahren angebaut und wird im Rigveda 1.500 v. Chr. erw&#228;hnt. Tausend Jahre sp&#228;ter schrieb der griechische Historiker Herodot &#252;ber indische Baumwolle: "Es gibt wildwachsende B&#228;ume, aus deren Frucht man eine Wolle gewinnen kann, die die Sch&#246;nheit und Qualit&#228;t der Schafwolle weit &#252;bertrifft. Mit der Ausweitung des Fernhandels in der fr&#252;hen Neuzeit begann die Baumwolle, Lein (Flachs) und Hanf auch in Nord- und Mitteleuropa f&#252;r die meisten Anwendungen zu verdr&#228;ngen. Die indische Baumwollindustrie hatte ihre Glanzzeit w&#228;hrend der britischen Industrierevolution, als 1764 die Erfindung der Jenny, einer fr&#252;hen Spinnmaschine mit mehreren Spindeln, und Arkwright's Waterframe 1769 die kosteng&#252;nstige Massenproduktion im Vereinigten K&#246;nigreich erm&#246;glichte. Die Baumwollproduktion in den S&#252;dstaaten der USA profitierte von der Erfindung der Egreniermaschine ("Cotton Gin") im Jahr 1793; Baumwolle blieb bis ins 20. Jahrhundert hinein das wichtigste Exportgut des amerikanischen S&#252;dens. - Wikipedia</German>
+	</TEXT>
+<!-- Fertilisers -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_FERTILIZERS</Tag>
+		<English>Fertilisers</English>
+		<French>Engrais</French>
+		<German>D&#252;ngemittel</German>
+	</TEXT>
+<!-- Geothermal Energy -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_THERMAL_VENT</Tag>
+		<English>Geothermal Energy</English>
+		<French>Energie G&#233;othermique</French>
+		<German>Geothermale Energie</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_THERMAL_VENT_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>	
+<!-- Glassware -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_GLASS</Tag>
+		<English>Glassware</English>
+		<French>Verrerie</French>
+		<German>Glaswaren</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_GLASS_PEDIA</Tag>
+		<English>[TAB]Glass in the common sense refers to a hard, brittle, transparent solid, such as used for windows, many bottles, or eyewear, including soda-lime glass, acrylic glass, sugar glass, isinglass (Muscovy-glass), or aluminium oxynitride. In the technical sense, glass is an inorganic product of fusion which has been cooled to a rigid condition without crystallizing. Many glasses contain silica as their main component and glass former.[PARAGRAPH:1]Ordinary glass is prevalent due to its transparency to visible light. This transparency is due to an absence of electronic transition states in the range of visible light. The homogeneity of the glass on length scales greater than the wavelength of visible light also contributes to its transparency as heterogeneities would cause light to be scattered, breaking up any coherent image transmission. Many household objects are made of glass. Drinking glasses, bowls and bottles are often made of glass, as are light bulbs, mirrors, aquaria, cathode ray tubes, computer flat panel displays, and windows.[PARAGRAPH:1]In research laboratories, flasks, test tubes, and other laboratory equipment are often made of borosilicate glass for its low coefficient of thermal expansion, giving greater resistance to thermal shock and greater accuracy in measurements. For high-temperature applications, quartz glass is used, although it is very difficult to work. Most laboratory glassware is mass-produced, but large laboratories also keep a glassblower on staff for preparing custom made glass equipment.[PARAGRAPH:1]Pure silica (SiO2) has a "glass melting point" of over 2300 Celsius (4200 Fahrenheit) degrees. While pure silica can be made into glass for special applications , other substances are added to common glass to simplify processing. One is sodium carbonate (Na2CO3), which lowers the melting point to about 1500 Celsius (2700 Fahrenheit) in soda-lime glass; "soda" refers to the original source of sodium carbonate in the soda ash obtained from certain plants. However, the soda makes the glass water soluble, which is usually undesirable, so lime (calcium oxide (CaO), generally obtained from limestone), some magnesium oxide (MgO) and aluminium oxide are added to provide for a better chemical durability. The resulting glass contains about 70 to 74 percent silica by weight and is called a soda-lime glass. Soda-lime glasses account for about 90 percent of manufactured glass.</English>
 	</TEXT>
 <!-- Hemp -->
 	<TEXT>
@@ -136,6 +245,41 @@
 		<Tag>TXT_KEY_BONUS_LEMON_PEDIA</Tag>
 		<English>[TAB] The lemon, Citrus × limon, is a citrus tree, a hybrid of cultivated origin. The fruit are cultivated primarily for their juice, though the pulp and rind (zest) are also used, primarily in cooking or mixing. Lemon juice is about 5% citric acid, which gives lemons a sour taste. This is a small tree, grows to 6 m (20 ft) but usually smaller. The branches are thorny, and form an open crown. The leaves are elliptical-acuminate. Flowers are violet and streaked in the interior and white on the outside. On a lemon tree, flowers and ripe fruits can be found at the same time. The first description of the lemon, which had been introduced from India two centuries earlier, is found in Arabic writings from the 12th century. The origin of the name lemon is through Persian (____ Limu), from the Sanskrit nimbuka. They were cultivated in Genoa in the mid-fifteenth century, and appeared in the Azores in 1494. More recent research has identified lemons in the ruins of Pompeii. Lemons were once used by the British Royal navy to combat scurvy, as they provided a large amount of vitamin C. - Wikipedia </English>
 	</TEXT>
+<!-- Methane -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_METHANE</Tag>
+		<English>Methane Ice</English>
+		<French>Méthane gelé</French>
+		<German>Methanhydrat</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_METHANE_PEDIA</Tag>
+		<English>[TAB]Methane clathrate, also called methane hydrate or methane ice, is a solid clathrate compound (more specifically, a clathrate hydrate) in which a large amount of methane is trapped within the crystal structure of water ice. Originally thought to occur only in the outer regions of the Solar System where temperatures are low and water ice is common, significant deposits of methane clathrate have been found under sediments on the ocean floors of Earth. [PARAGRAPH:2]Methane clathrates are common constituents of the shallow marine geosphere, and they occur both in deep sedimentary structures, and as outcrops on the ocean floor. Methane hydrates are believed to form by migration of gas from depth along geological faults, followed by precipitation, or crystallization, on contact of the rising gas stream with cold sea water. Methane clathrates are also present in deep Antarctic ice cores, and store a record of atmospheric methane concentrations, dating to 800,000 years ago. The ice-core methane clathrate record is a primary source of data for global warming research, along with oxygen and carbon dioxide.[PARAGRAPH:2]While it is stable at a temperature of up to around 0°C, at higher pressures methane clathrates remain stable up to 18 °C. The average methane clathrate hydrate composition is 1 mole of methane for every 5.75 moles of water, though this is dependent on how many methane molecules "fit" into the various cage structures of the water lattice. The observed density is around 0.9 g/cm³. One liter of methane clathrate solid would therefore contain, on average, 168 liters of methane gas (at STP). [PARAGRAPH:2]Methane forms a structure I hydrate with two dodecahedral (20 vertices, thus 20 water molecules) and six tetradecahedral (24 water molecules) water cages per unit cell. The hydration value of 20 can be determined experimentally by MAS NMR. A methane clathrate spectrum recorded at 275 K and 3.1 MPa shows a peak for each cage type and a separate peak for gas phase methane. Recently, a clay-methane hydrate intercalate was synthesized in which a methane hydrate complex was introduced at the interlayer of a sodium-rich montmorillonite clay. The upper temperature stability of this phase is similar to that of structure I hydrate. [PARAGRAPH:2]Methane clathrates are restricted to the shallow lithosphere (i.e. below 2000 m depth). Furthermore, necessary conditions are found only either in polar continental sedimentary rocks where surface temperatures are less than 0 °C; or in oceanic sediment at water depths greater than 300 m where the bottom water temperature is around 2 °C. In addition, deep lakes may host gas hydrates as well, e.g. the freshwater Lake Baikal, Siberia. Continental deposits have been located in Siberia and Alaska in sandstone and siltstone beds at less than 800 m depth. Oceanic deposits seem to be widespread in the continental shelf (see Fig.) and can occur within the sediments at depth or close to the sediment-water interface. They may cap even larger deposits of gaseous methane.[PARAGRAPH:2]There are two distinct types of oceanic deposit. The most common is dominated (over 99%) by methane contained in a structure I clathrate and generally found at depth in the sediment. Here, the methane is isotopically light which indicates that it is derived from the microbial reduction of CO2. [PARAGRAPH:2]These deposits are located within a mid-depth zone around 300-500 m thick in the sediments (the Gas Hydrate Stability Zone, or GHSZ) where they coexist with methane dissolved in the pore-waters. Above this zone methane is only present in its dissolved form at concentrations that decrease towards the sediment surface. Below it, methane is gaseous. At Blake Ridge on the Atlantic continental rise, the GHSZ started at 190 m depth and continued to 450 m, where it reached equilibrium with the gaseous phase. Measurements indicated that methane occupied 0-9%% by volume in the GHSZ, and about 12%% in the gaseous zone.[PARAGRAPH:2]In the less common second type found near the sediment surface some samples have a higher proportion of longer-chain hydrocarbons (less than 99% methane) contained in a structure II clathrate. Methane is isotopically heavier and is thought to have migrated upwards from deep sediments where methane was formed by thermal decomposition of organic matter. Examples of this type of deposit have been found in the Gulf of Mexico and the Caspian Sea.[PARAGRAPH:2]The sedimentary methane hydrate reservoir probably contains 2-10× the currently known reserves of conventional natural gas. This represents a potentially important future source of hydrocarbon fuel. However, in the majority of sites deposits are likely to be too dispersed for economic extraction. Other problems facing commercial exploitation are detection of viable reserves; and development of the technology for extracting methane gas from the hydrate deposits. To date, there has only been one field commercially produced where some of the gas is thought to have been from Methane clathrates, Messoyakha Gas Field. [PARAGRAPH:2]A research and development project in Japan is aiming for commercial-scale extraction by 2016. In August 2006, China announced plans to spend 800 million yuan (US$100 million) over the next 10 years to study natural gas hydrates. A potentially economic reserve in the Gulf of Mexico may contain about 1010 m3 of gas. Bjørn Kvamme and Arne Graue at the Institute for Physics and technology at the University of Bergen have developed a method for injecting CO2 into hydrates and reversing the process; thereby extracting CH4 by direct exchange.</English>
+	</TEXT>	
+<!-- Nanobots -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_NANOBOTS</Tag>
+		<English>Nanobots</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_NANOBOTS_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>	
+<!-- Nanotubes -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_NANOTUBES</Tag>
+		<English>Nanotubes</English>
+		<French>
+			<Text>Nano-tubes</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Nanor&#246;hrchen</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_NANOTUBES_PEDIA</Tag>
+		<English>[TAB]Carbon nanotubes (CNTs) are allotropes of carbon with a cylindrical nanostructure. Nanotubes have been constructed with length-to-diameter ratio of up to 28,000,000:1, which is significantly larger than any other material. These cylindrical carbon molecules have novel properties that make them potentially useful in many applications in nanotechnology, electronics, optics and other fields of materials science, as well as potential uses in architectural fields. They exhibit extraordinary strength and unique electrical properties, and are efficient conductors of heat. Their final usage, however, may be limited by their potential toxicity.[PARAGRAPH:2]Nanotubes are members of the fullerene structural family, which also includes the spherical buckyballs. The ends of a nanotube might be capped with a hemisphere of the buckyball structure. Their name is derived from their size, since the diameter of a nanotube is on the order of a few nanometers (approximately 1/50,000th of the width of a human hair), while they can be up to several millimeters in length (as of 2008). Nanotubes are categorized as single-walled nanotubes (SWNTs) and multi-walled nanotubes (MWNTs).[PARAGRAPH:2]Carbon nanotubes are the strongest and stiffest materials yet discovered in terms of tensile strength and elastic modulus respectively. In 2000, a multi-walled carbon nanotube was tested to have a tensile strength of 63 gigapascals (GPa). This, for illustration, translates into the ability to endure weight of 6300 kg on a cable with cross-section of 1 square millimeter.</English>
+	</TEXT>
 <!-- Obsidian -->
 	<TEXT>
 		<Tag>TXT_KEY_BONUS_OBSIDIAN</Tag>
@@ -154,6 +298,21 @@
 		<German>[TAB]Der Olivenbaum (Olea Europaea) ist ein kleiner, im &#246;stlichen Mittelmeerraum beheimateter Baum, der die so genannten Olivenfr&#252;chte tr&#228;gt. Die Olive ist eine bittere, aber essbare Frucht (normalerweise nach einem G&#228;rungsvorgang oder dem Marinieren/Einlegen z. B. in Wasser) und dient als Grundlage f&#252;r die Herstellung von Oliven&#246;l. Wann genau die Olivenb&#228;ume erstmals von den Menschen kultiviert wurden, ist nicht bekannt, aber sie werden seit mindestens 3000 vor Christus landwirtschaftlich genutzt. Urspr&#252;nglich in Griechenland und Pal&#228;stina heimisch, fand die Olive sp&#228;ter auch im westlichen Mittelmeerraum und schlie&#223;lich in der ganzen Welt Verbreitung. Heute wird sie sogar in Kalifornien und Australien angebaut. [PARAGRAPH:1]Oliven und Oliven&#246;l hatten f&#252;r die Griechen der Antike eine besondere religi&#246;se Bedeutung. &#220;berlieferungen zufolge soll der Olivenbaum von der G&#246;ttin Athene erschaffen worden sein, die damit einen Wettstreit gegen Poseidon gewinnen wollte, bei dem entschieden wurde, wer von den beiden eine neue Stadt nach sich benennen darf. Am Ende konnte sich Athene mit ihrer Olive durchsetzen und so wurde die Stadt Athen nach ihr benannt. F&#252;r die Griechen der Antike war die Olive eine heilige Frucht: Sie symbolisierte Frieden, Weisheit und den Triumph. Aus diesem Grund wurden siegreiche Olympioniken schon damals mit einem Olivenzweig geehrt. Das Oliven&#246;l wurde in religi&#246;sen hellenistischen Zeremonien verwendet und hat in der griechisch-orthodoxen Kirche nach wie vor besondere Bedeutung. Au&#223;erdem stellt die Olive bis heute auch einen wichtigen Wirtschaftsfaktor f&#252;r Griechenland dar, das jedes Jahr mehr als 400.000 Tonnen Oliven&#246;l in die ganze Welt exportiert.</German>
 		<Italian>[TAB]L'ulivo (olea europaea) &#232; un piccolo albero nativo del Mediterraneo orientale e produce le olive, frutti amari che possono essere mangiati (di solito dopo essere stati fatti fermentare o comunque dopo una qualche preparazione) o utilizzati per ricavarne olio d'oliva. Non si sa esattamente quando gli alberi d'ulivo cominciarono a essere coltivati, ma di certo gi&#224; lo erano nel 3000 a.C. L'ulivo &#232; originario della Grecia e della Palestina, ma pi&#249; tardi si diffuse nel Mediterraneo occidentale e poi in tutto il mondo: oggi lo si coltiva anche in Australia e California.[PARAGRAPH:1]Le olive o l'olio d'oliva avevano entrambi uno speciale significato religioso per gli antichi Greci. Secondo la leggenda, l'ulivo fu creato dalla dea Atena per vincere una disputa con il dio Poseidone su chi avrebbe dovuto dare il nome a una citt&#224; appena fondata: per aver ricevuto in dono l'ulivo, la citt&#224; scelse di chiamarsi Atene (nome che porta ancora oggi). I Greci consideravano l'ulivo sacro: era simbolo di pace, saggezza e trionfo. Corone d'ulivo venivano utilizzate per incoronare i campioni olimpici e l'olio d'oliva era usato in molte cerimonie religiose elleniche e ancora oggi ha una speciale importanza nella Chiesa Greco-Ortodossa. L'ulivo per la Grecia continua ad avere anche un rilevante ruolo economico, dato che il paese esporta pi&#249; di 400.000 tonnellate all'anno d'olio d'oliva in tutto il mondo.</Italian>
 		<Spanish>[TAB]El olivo (olea europaea) es un peque&#241;o &#225;rbol de la familia de las ole&#225;ceas originario del Mediterr&#225;neo oriental que, como su nombre indica, da de fruto las olivas. La oliva, o aceituna, es de gusto algo amargo, aunque se puede comer (normalmente despu&#233;s de fermentarse o curarse) o usarse para hacer aceite. No se sabe exactamente cu&#225;ndo se empez&#243; a cultivar el olivo, pero al menos se lleva haciendo desde el 3000 a. C. Es originario de Grecia y Palestina, pero primero se extendi&#243; por el Mediterr&#225;neo occidental y despu&#233;s por todo el mundo, ya que hoy en d&#237;a se cultiva hasta en California y Australia.[PARAGRAPH:1]Las olivas, los olivos y el aceite ten&#237;an un significado religioso para los antiguos griegos. Seg&#250;n la leyenda, la diosa Atenea cre&#243; el olivo y lo us&#243; para ganar una apuesta con el dios Poseid&#243;n para ver qui&#233;n dar&#237;a nombre a una ciudad reci&#233;n fundada. Gracias a su regalo del olivo, la ciudad de Atenas lleva su nombre hasta hoy en d&#237;a. Los antiguos griegos lo consideraban sagrado, pues era un s&#237;mbolo de paz, sabidur&#237;a y triunfo. Se usaban tocados de ramas y hojas olivo para coronar a los campeones ol&#237;mpicos. El aceite de oliva se usaba en las ceremonias religiosas hel&#233;nicas y, en la actualidad, tiene una gran importancia para la Iglesia Ortodoxa griega. El olivo sigue siendo de una gran importancia econ&#243;mica para Grecia, que exporta al a&#241;o m&#225;s de 400.000 toneladas a todo el mundo.</Spanish>
+	</TEXT>
+<!-- Oil Products -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_DIESEL</Tag>
+		<English>Oil Products</English>
+		<French>
+			<Text>Produits pétroliers</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>&#214;lprodukte</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_DIESEL_PEDIA</Tag>
+		<English>[TAB]Raw or unprocessed ("crude") oil is not useful in the form it comes in out of the ground. Although "light, sweet" (low viscosity, low sulphur) oil has been used directly as a burner fuel for steam vessel propulsion, the lighter elements form explosive vapors in the fuel tanks and so it is quite dangerous, especially so in warships. For this and many other uses, the oil needs to be separated into parts and refined before use in fuels and lubricants, and before some of the byproducts could be used in petrochemical processes to form materials such as plastics, detergents, solvents, elastomers, and fibers such as nylon and polyesters. Petroleum fossil fuels are used in ship, automobile and aircraft engines. [PARAGRAPH:2]Oil can be used in so many various ways because it contains hydrocarbons of varying molecular masses, forms and lengths such as paraffins, aromatics, naphthenes (or cycloalkanes), alkenes, dienes, and alkynes. Hydrocarbons are molecules of varying length and complexity made of only hydrogen and carbon atoms. Their various structures give them their differing properties and thereby uses. The trick in the oil refinement process is separating and purifying these. [PARAGRAPH:2]Once separated and purified of any contaminants and impurities, the fuel or lubricant can be sold without any further processing. Smaller molecules such as isobutane and propylene or butylenes can be recombined to meet specific octane requirements of fuels by processes such as alkylation or less commonly, dimerization. Octane grade of gasoline can also be improved by catalytic reforming, which strips hydrogen out of hydrocarbons to produce aromatics, which have much higher octane ratings. Intermediate products such as gasoils can even be reprocessed to break a heavy, long-chained oil into a lighter short-chained one, by various forms of cracking such as fluid catalytic cracking, thermal cracking, and hydrocracking. The final step in gasoline production is the blending of fuels with different octane ratings, vapor pressures, and other properties to meet product specifications.</English>
 	</TEXT>
 <!-- Pearls -->
 	<TEXT>
@@ -181,6 +340,21 @@
 		<Tag>TXT_KEY_BONUS_POTATO_PEDIA</Tag>
 		<English>[TAB]The potato is a starchy, tuberous crop from the perennial Solanum tuberosum of the Solanaceae family (also known as the nightshades). The word potato may refer to the plant itself as well as the edible tuber. In the region of the Andes, there are some other closely related cultivated potato species. Potatoes are the world's fourth-largest food crop, following rice, wheat, and maize. Long-term storage of potatoes requires specialised care in cold warehouses and such warehouses are among the oldest and largest storage facilities for perishable goods in the world. The annual diet of an average global citizen in the first decade of the twenty-first century included about 33 kg (or 73 lb) of potato. However, the local importance of potato is extremely variable and rapidly changing. It remains an essential crop in Europe (especially eastern and central Europe), where per capita production is still the highest in the world, but the most rapid expansion over the past few decades has occurred in southern and eastern Asia. China is now the world's largest potato-producing country, and nearly a third of the world's potatoes are harvested in China and India.[</English>
 	</TEXT>
+<!-- Pottery -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_POTTERY</Tag>
+		<English>Pottery</English>
+		<French>
+			<Text>Poterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Keramik</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_POTTERY_PEDIA</Tag>
+		<English>The invention of pottery was essential to the development of agricultural societies. To get the most out of seasonal crops and domesticated animals, a tribe needed sturdy, waterproof containers in which to store and protect surplus food. The discovery of the properties of clay, and the invention of the kiln and the potter's wheel made it possible to build such containers. The earliest examples of Western pottery date back to as early as 6500 BC. Most of the examples from this period were strictly utilitarian. Although use continued to be primarily practical, decorative pottery soon became a ritualistic and aesthetic art form in cultures all over the world. Some of the most impressive examples of artistic pottery comes from the pre-Columbian cultures of South America, and from the Ming dynasty in 14th century China.</English>
+	</TEXT>
 <!-- Prime Timber -->
 	<TEXT>
 		<Tag>TXT_KEY_BONUS_TIMBER</Tag>
@@ -189,6 +363,36 @@
 	<TEXT>
 		<Tag>TXT_KEY_BONUS_TIMBER_PEDIA</Tag>
 		<English>[TAB]Lumber or timber is wood that is used in any of its stages from felling through readiness for use as structural material for construction, or wood pulp for paper production. Lumber is supplied either rough or finished. Besides pulpwood, rough lumber is the raw material for furniture-making and other items requiring additional cutting and shaping. It is available in many species, usually hardwoods. Finished lumber is supplied in standard sizes, mostly for the construction industry, primarily softwood from coniferous species including pine, fir and spruce (collectively known as Spruce-pine-fir), cedar, hemlock, but also some hardwood, for high-grade flooring.</English>
+	</TEXT>	
+<!-- Replicators -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_PERSONAL_REPLICATORS</Tag>
+		<English>Replicators</English>
+		<French>Réplicateurs</French>
+		<German>Replikatoren</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_PERSONAL_REPLICATORS_HELP</Tag>
+		<English>Reduces the cost of unit upgrades by 50%</English>
+		<French>Réduit le coût des améliorations d'unités de 50%</French>
+		<German>Reduziert die Kosten von Einheitenmodernisierungen um 50%</German>
+	</TEXT>
+<!-- Rubber -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_RUBBER</Tag>
+		<English>Rubber</English>
+		<French>Caoutchouc</French>
+		<German>Kautschuk</German>
+		<Italian>Gomma</Italian>
+		<Spanish>Caucho</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_RUBBER_PEDIA</Tag>
+		<English>[TAB]In its native Central America and South America, rubber has been collected for a long time. The Mesoamerican civilizations used rubber mostly from Castilla elastica. The Ancient Mesoamericans had a ball game using rubber balls, and a few Pre-Columbian rubber balls have been found (always in sites that were flooded under fresh water), the earliest dating to about 1600 BC. According to Bernal DÃ­az del Castillo, the Spanish Conquistadores were so astounded by the vigorous bouncing of the rubber balls of the Aztecs that they wondered if the balls were enchanted by evil spirits. The Maya also made a type of temporary rubber shoe by dipping their feet into a latex mixture. Rubber was used in various other contexts, such as strips to hold stone and metal tools to wooden handles, and padding for the tool handles. While the ancient Mesoamericans did not have vulcanization, they developed organic methods of processing the rubber with similar results, mixing the raw latex with various saps and juices of other vines, particularly Ipomoea alba, a species of Morning glory. In Brazil the natives understood the use of rubber to make water-resistant cloth. A story says that the first European to return to Portugal from Brazil with samples of such water-repellent rubberized cloth so shocked people that he was brought to court on the charge of witchcraft.[PARAGRAPH:1]When samples of rubber first arrived in England, it was observed by Joseph Priestley, in 1770, that a piece of the material was extremely good for rubbing out pencil marks on paper.[PARAGRAPH:1]The para rubber tree initially grew in South America, where it was the main source of what limited amount of latex rubber was consumed during much of the 19th century. About 100 years ago, the Congo Free State in Africa was a significant source of natural rubber latex, mostly gathered by forced labor. The Congo Free State was forged and ruled as a personal colony by the Belgian King Leopold II where millions of Africans died as a result of lust for rubber and rubber profits. After repeated efforts rubber was successfully cultivated in Southeast Asia, where it is now widely grown.</English>
+		<French>[TAB]En Am&#233;rique Centrale et en Amérique du Sud, le caoutchouc a &#233;t&#233; rassembl&#233; pendant longtemps par les indigènes. TODO Les civilisations de Mesoamerican ont employ&#233; le caoutchouc la plupart du temps de l'elastica de la Castille. Le Mesoamericans antique a eu un jeu de boule en utilisant les boules en caoutchouc, et quelques boules en caoutchouc Pr&#233;-Colombiennes ont &#233;t&#233; trouv&#233;es (toujours dans les emplacements qui ont &#233;t&#233; inond&#233;s sous l'eau doux), le plus t&#244;t datant environ &#224; 1600 AVANT J&#201;SUS CHRIST. Selon Bernal D&#237;az del Castillo, le Conquistadores espagnol &#233;taient ainsi &#233;tonn&#233; par le rebondissement vigoureux des boules en caoutchouc de l'Aztecs qu'ils se sont demand&#233;s si les boules &#233;taient enchant&#233;es par des spiritueux mauvais. Le Maya a &#233;galement fait un type de la chaussure en caoutchouc provisoire en plongeant leurs pieds dans un m&#233;lange de latex. Le caoutchouc a &#233;t&#233; employ&#233; dans de divers autres contextes, tels que des bandes pour tenir des outils de pierre et en m&#233;tal sur les poign&#233;es en bois, et la remplissage pour les poign&#233;es d'outil. Tandis que le Mesoamericans antique n'avait pas la vulcanisation, elles ont d&#233;velopp&#233; des m&#233;thodes organiques de traiter le caoutchouc avec les r&#233;sultats semblables, m&#233;langeant le latex cru &#224; de divers s&#232;ves et jus d'autres vignes, en particulier Ipomoea alba, des esp&#232;ces de gloire de matin. Au Br&#233;sil les indig&#232;nes ont compris l'utilisation du caoutchouc de faire le tissu r&#233;sistant &#224; l'eau. Une histoire indique que le premier Europ&#233;en &#224; retourner au Portugal du Br&#233;sil avec des &#233;chantillons d'un tel tissu caoutchout&#233; hydrofuge a ainsi choqu&#233; les personnes qu'il a &#233;t&#233; apport&#233;es &#224; la cour sur la charge des &#233;chantillons de witchcraft.[PARAGRAPH:1]When du caoutchouc est arriv&#233; la premi&#232;re fois en Angleterre, il a &#233;t&#233; observ&#233; par Joseph Priestley, en 1770, qu'un morceau du mat&#233;riel &#233;tait extr&#234;mement bon pour frotter hors des marques de crayon sur l'arbre en caoutchouc de paper.[PARAGRAPH:1]The Para. s'est au commencement d&#233;velopp&#233; en Am&#233;rique Du sud, o&#249; c'&#233;tait la source principale de quelle quantit&#233; limit&#233;e du caoutchouc de latex a &#233;t&#233; consomm&#233; pendant le une grande partie du 19&#232;me si&#232;cle. Il y a environ 100 ans, l'&#233;tat libre du Congo en Afrique &#233;tait une source significative de latex normal, la plupart du temps recueillie par le travail obligatoire. L'&#233;tat libre du Congo a &#233;t&#233; forg&#233; et a r&#233;gn&#233; en tant que colonie personnelle par le Roi belge Leopold II o&#249; des millions d'Africains morts en raison de la convoitise pour le caoutchouc et des b&#233;n&#233;fices en caoutchouc. Apr&#232;s que r&#233;p&#233;t&#233; le caoutchouc d'efforts a &#233;t&#233; avec succ&#232;s cultiv&#233; en Asie du Sud-Est, o&#249; il est maintenant largement d&#233;velopp&#233;.</French>
+		<German>[TAB]In its native Central America and South America, rubber has been collected for a long time. The Mesoamerican civilizations used rubber mostly from Castilla elastica. The Ancient Mesoamericans had a ball game using rubber balls, and a few Pre-Columbian rubber balls have been found (always in sites that were flooded under fresh water), the earliest dating to about 1600 BC. According to Bernal DÃ­az del Castillo, the Spanish Conquistadores were so astounded by the vigorous bouncing of the rubber balls of the Aztecs that they wondered if the balls were enchanted by evil spirits. The Maya also made a type of temporary rubber shoe by dipping their feet into a latex mixture. Rubber was used in various other contexts, such as strips to hold stone and metal tools to wooden handles, and padding for the tool handles. While the ancient Mesoamericans did not have vulcanization, they developed organic methods of processing the rubber with similar results, mixing the raw latex with various saps and juices of other vines, particularly Ipomoea alba, a species of Morning glory. In Brazil the natives understood the use of rubber to make water-resistant cloth. A story says that the first European to return to Portugal from Brazil with samples of such water-repellent rubberized cloth so shocked people that he was brought to court on the charge of witchcraft.[PARAGRAPH:1]When samples of rubber first arrived in England, it was observed by Joseph Priestley, in 1770, that a piece of the material was extremely good for rubbing out pencil marks on paper.[PARAGRAPH:1]The para rubber tree initially grew in South America, where it was the main source of what limited amount of latex rubber was consumed during much of the 19th century. About 100 years ago, the Congo Free State in Africa was a significant source of natural rubber latex, mostly gathered by forced labor. The Congo Free State was forged and ruled as a personal colony by the Belgian King Leopold II where millions of Africans died as a result of lust for rubber and rubber profits. After repeated efforts rubber was successfully cultivated in Southeast Asia, where it is now widely grown.</German>
+		<Italian>[TAB]In relativi America Centrale e Sudamerica natali, la gomma &#232; stata raccolta a lungo. Le civilizzazioni di Mesoamerican hanno usato la gomma principalmente dal elastica della Castiglia. Il Mesoamericans antico ha avuto un gioco della sfera usando le sfere di gomma ed alcune sfere di gomma Pre-Colombiane sono state trovate (sempre in luoghi che sono stati sommersi sotto acqua dolce), il pi&#249; in anticipo che data BC a circa 1600. Secondo Bernal D&#237;az del Castillo, il Conquistadores spagnolo era in modo da sbalordito dal rimbalzo vigoroso delle sfere di gomma del Aztecs che si sono domandati se le sfere fossero incantate dagli alcoolici diabolici. Il maya inoltre ha fatto un tipo del pattino di gomma provvisorio tuffando i loro piedi in una miscela del lattice. La gomma &#232; stata usata nei vari contesti, quali le strisce per tenere gli attrezzi del metallo e della pietra alle maniglie di legno ed al riempimento per le maniglie dell'attrezzo. Mentre il Mesoamericans antico non ha avuto vulcanizzazione, hanno messo a punto i metodi organici di elaborazione della gomma con risultati simili, mescolanti il lattice grezzo con vario fiaccano e spremute di altre viti, specialmente Ipomoea alba, una specie di glory di mattina. Nel Brasile i nativi hanno capito l'uso di gomma fare il panno resistente all'acqua. Una storia dice che il primo europeo da rinviare nel Portogallo dal Brasile con i campioni di tale panno gommato idrorepellente cos&#236; ha scosso la gente che &#232; stato portato alla corte sulla carica dei campioni di witchcraft.[PARAGRAPH:1]When di gomma in primo luogo &#232; arrivato in Inghilterra, esso &#232; stato osservato da Joseph Priestley, in 1770, che una parte del materiale era estremamente buona per la lucidatura verso l'esterno i contrassegni della matita sull'albero della gomma di paper.[PARAGRAPH:1]The paragrafi inizialmente si &#232; sviluppata nel Sudamerica, in cui era la fonte principale di che quantit&#224; limitata di gomma del lattice &#232; stato consumato durante il gran parte del diciannovesimo secolo. Circa 100 anni fa, il Congo libero Dichiara in Africa era una fonte significativa di latice di gomma naturale, principalmente riunita dal lavoro forzato. Il Congo libero Dichiara &#232; stato forgiato e regolato come colonia personale dal re belga Leopold II dove milioni di Africani sono morto come conseguenza di lust per gomma ed i profitti della gomma. Dopo che ripetuto la gomma di sforzi si coltivi con successo in Asia sudorientale, in cui ora ampiamente si sviluppa.</Italian>
+		<Spanish>[TAB]En su America Central y Suram&#233;rica nativas, el caucho se ha recogido durante mucho tiempo. Las civilizaciones de Mesoamerican utilizaron el caucho sobre todo del elastica de Castilla. El Mesoamericans antiguo ten&#237;a un juego de la bola usando las bolas de goma, y se han encontrado algunas bolas de goma Pre-Colombinas (siempre en los sitios que fueron inundados debajo del agua dulce), el m&#225;s temprano que fechaba a cerca de 1600 A.C.. Seg&#250;n Bernal D&#237;az del Castillo, el Conquistadores espa&#241;ol estaba as&#237; que asombrado por despedir vigoroso de las bolas de goma del Aztecs que se preguntaban si las bolas fueron encantadas por alcoholes malvados. El maya tambi&#233;n hizo un tipo del zapato de goma temporal sumergiendo sus pies en una mezcla del l&#225;tex. El caucho fue utilizado en contextos otros, tales como tiras para sostener las herramientas de la piedra y del metal a las manijas de madera, y al acolchado para las manijas de la herramienta. Mientras que el Mesoamericans antiguo no ten&#237;a vulcanizaci&#243;n, desarrollaron los m&#233;todos org&#225;nicos de procesar el caucho con resultados similares, mezclando el l&#225;tex crudo con las varios savias y jugos de otras vides, particularmente Ipomoea alba, una especie de la gloria de ma&#241;ana. En el Brasil los naturales entend&#237;an el uso del caucho de hacer el pa&#241;o hidr&#243;fugo. Una historia dice que el primer europeo a volver a Portugal del Brasil con las muestras de tal pa&#241;o recubierto de goma impermeable dio una sacudida el&#233;ctrica tan a gente a que le trajeron a la corte en la carga de muestras de witchcraft.[PARAGRAPH:1]When del caucho primero lleg&#243; en Inglaterra, &#233;l fue observado por Jos&#233; Priestley, en 1770, que un pedazo del material era extremadamente bueno para frotar fuera de marcas del l&#225;piz en &#225;rbol del caucho de paper.[PARAGRAPH:1]The p&#225;rrafos creci&#243; inicialmente en Suram&#233;rica, donde estaba la fuente principal de qu&#233; cantidad limitada de caucho del l&#225;tex fue consumido durante mucho del diecinueveavo siglo. Hace aproximadamente 100 a&#241;os, el estado libre de Congo en &#193;frica era una fuente significativa del l&#225;tex de caucho natural, recolectada sobre todo por el trabajo forzado. El estado libre de Congo fue forjado y gobern&#243; como colonia personal del rey belga Leopold II donde millones de africanos murieron como resultado de la lujuria para el caucho y los beneficios del caucho. Despu&#233;s de que estuvo repetido el caucho de los esfuerzos fuera cultivado con &#233;xito en Asia suroriental, en donde ahora se crece extensamente.</Spanish>
 	</TEXT>	
 <!-- Salt -->
 	<TEXT>
@@ -203,6 +407,17 @@
 		<Tag>TXT_KEY_BONUS_SALT_PEDIA</Tag>
 		<English>[TAB]Salt is a mineral that is composed primarily of sodium chloride. It is essential for animal life in small quantities, but is harmful to animals and plants in excess. Salt flavor is one of the basic tastes, making salt one of the oldest, most ubiquitous food seasonings. Salting is an important method of food preservation. Refined salt, which is most widely used presently, is mainly sodium chloride. Food grade salt accounts for only a small part of salt production in industrialised countries (3% in Europe) although worldwide, food uses account for 17.5% of salt production. The majority is sold for industrial use. Salt has great commercial value because it is a necessary ingredient in the manufacturing of many things. A few common examples include: the production of pulp and paper, setting dyes in textiles and fabrics, and the making of soaps and detergents.</English>
 	</TEXT>
+<!-- Semiconductors -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_SEMICONDUCTORS</Tag>
+		<English>Semiconductors</English>
+		<French>Semi-conducteurs</French>
+		<German>Halbleiter</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_SEMICONDUCTORS_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
 <!-- Shrimp -->
 	<TEXT>
 		<Tag>TXT_KEY_BONUS_SHRIMP</Tag>
@@ -211,6 +426,35 @@
 	<TEXT>
 		<Tag>TXT_KEY_BONUS_SHRIMP_PEDIA</Tag>
 		<English>[TAB]Shrimp are swimming, decapod crustaceans classified in the infraorder Caridea, found widely around the world in both fresh and salt water. Adult shrimp are filter feeding benthic animals living close to the bottom. They can live in schools and can swim rapidly backwards. Shrimp are an important food source for larger animals from fish to whales. They have a high tolerance to toxins in polluted areas, and may contribute to high toxin levels in their predators. Together with prawns, shrimp are widely caught and farmed for human consumption.</English>
+	</TEXT>
+<!-- Smart Medicine -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_SMART_MEDICINE</Tag>
+		<English>Smart Medicine</English>
+		<French>
+			<Text>Médicine intelligente</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Intelligente Medizin</German>
+	</TEXT>
+<!-- Steel -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_STEEL</Tag>
+		<English>Steel</English>
+		<French>Acier</French>
+		<German>Stahl</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_STEEL_PEDIA</Tag>
+		<English>[TAB]Steel is an alloy consisting mostly of iron, with a carbon content between 0.2 and 1.7 or 2.04% by weight depending on grade. Carbon is the most cost-effective alloying material for iron, but various other alloying elements are used such as manganese, chromium, vanadium, and tungsten. Carbon and other elements act as a hardening agent, preventing dislocations in the iron atom crystal lattice from sliding past one another. Varying the amount of alloying elements and form of their presence in the steel (solute elements, precipitated phase) controls qualities such as the hardness, ductility and tensile strength of the resulting steel. Steel with increased carbon content can be made harder and stronger than iron, but is also more brittle. [PARAGRAPH:1]Though steel had been produced by various inefficient methods long before the Renaissance, its use became more common after more efficient production methods were devised in the 17th century. With the invention of the Bessemer process in the mid-19th century, steel became a relatively inexpensive mass-produced good. Further refinements in the process, such as basic oxygen steelmaking, further lowered the cost of production while increasing the quality of the metal. Today, steel is one of the most common materials in the world and is a major component in buildings, tools, automobiles, and appliances. Modern steel is generally identified by various grades of steel defined by various standards organizations.</English>
+	</TEXT>
+<!-- Synthetic Rubber -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_SYNTHETIC_RUBBER</Tag>
+		<English>Synthetic Rubber</English>
+		<French>Caoutchouc Synthétique</French>
+		<German>Kunstkautschuk</German>
 	</TEXT>
 <!-- Tea -->
 	<TEXT>
@@ -257,6 +501,13 @@
 	<TEXT>
 		<Tag>TXT_KEY_BONUS_TOBACCO_PEDIA</Tag>
 		<English>[TAB]Tobacco is an agricultural product processed from the leaves of plants in the genus Nicotiana. It can be consumed, used as an organic pesticide and, in the form of nicotine tartrate, it is used in some medicines. In consumption it most commonly appears in the forms of smoking, chewing, snuffing, or dipping tobacco, or snus. Tobacco has long been in use as an entheogen in the Americas. However, upon the arrival of Europeans in North America, it quickly became popularized as a trade item and as a recreational drug. This popularization led to the development of the southern economy of the United States until it gave way to cotton. Following the American Civil War, a change in demand and a change in labor force allowed for the development of the cigarette. This new product quickly led to the growth of tobacco companies, until the scientific controversy of the mid-1900s.</English>
+	</TEXT>
+<!-- Vulcanized Rubber -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_VULCANIZED_RUBBER</Tag>
+		<English>Vulcanized Rubber</English>
+		<French>Caoutchouc Vulcanisé</French>
+		<German>Vulkanisierter Kautschuk</German>
 	</TEXT>
 
 </Civ4GameText>

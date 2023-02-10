@@ -1570,13 +1570,13 @@
 						<iYield>2</iYield>
 					</YieldChanges>
 				</BonusYieldChange>
-<!--				<BonusYieldChange>
+				<BonusYieldChange>
 					<BonusType>BONUS_STEEL</BonusType>
 					<YieldChanges>
 						<iYield>0</iYield>
 						<iYield>2</iYield>
 					</YieldChanges>
-				</BonusYieldChange> -->
+				</BonusYieldChange>
 				<BonusYieldChange>
 					<BonusType>BONUS_STONE</BonusType>
 					<YieldChanges>
@@ -7095,7 +7095,7 @@
 				<TechType>TECH_NANOBOTICS</TechType>
 			</PrereqAndTechs>
 			<PrereqOrBonuses>
-<!--				<BonusType>BONUS_NANOBOTS</BonusType> -->
+				<BonusType>BONUS_NANOBOTS</BonusType>
 			</PrereqOrBonuses>
 			<iCost>1500</iCost>
 			<iHurryCostModifier>50</iHurryCostModifier>
