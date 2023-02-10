@@ -4952,13 +4952,20 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 	}
 
 	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
-		if (GC.getBuildingInfo(eBuilding).getObsoleteTech() == eTech) {
+		const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+		if (kBuilding.getObsoleteTech() == eTech) {
 			changeObsoleteBuildingCount(eBuilding, iChange);
 		}
 
-		if (GC.getBuildingInfo(eBuilding).getSpecialBuildingType() != NO_SPECIALBUILDING) {
-			if (GC.getSpecialBuildingInfo((SpecialBuildingTypes)GC.getBuildingInfo(eBuilding).getSpecialBuildingType()).getObsoleteTech() == eTech) {
+		if (kBuilding.getSpecialBuildingType() != NO_SPECIALBUILDING) {
+			if (GC.getSpecialBuildingInfo((SpecialBuildingTypes)kBuilding.getSpecialBuildingType()).getObsoleteTech() == eTech) {
 				changeObsoleteBuildingCount(eBuilding, iChange);
+			}
+		}
+
+		if (kBuilding.isAnyTechCommerceChange()) {
+			for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+				changeBuildingCommerceChange(eBuilding, eCommerce, (kBuilding.getTechCommerceChange(eTech, eCommerce)* iChange));
 			}
 		}
 	}
@@ -5727,3 +5734,22 @@ void CvTeam::setCivSettled() {
 		}
 	}
 }
+
+void CvTeam::changeBuildingCommerceChange(BuildingTypes eBuilding, CommerceTypes eCommerce, int iChange) {
+	FAssertMsg(eBuilding >= 0, "eIndex1 is expected to be non-negative (invalid Index)");
+	FAssertMsg(eBuilding < GC.getNumBuildingInfos(), "eIndex1 is expected to be within maximum bounds (invalid Index)");
+	FAssertMsg(eCommerce >= 0, "eIndex2 is expected to be non-negative (invalid Index)");
+	FAssertMsg(eCommerce < NUM_COMMERCE_TYPES, "eIndex2 is expected to be within maximum bounds (invalid Index)");
+
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+		if (kPlayer.isAlive() && kPlayer.getTeam() == getID()) {
+			int iLoop;
+			for (CvCity* pLoopCity = kPlayer.firstCity(&iLoop); pLoopCity != NULL; pLoopCity = kPlayer.nextCity(&iLoop)) {
+				pLoopCity->changeBuildingCommerceChange((BuildingClassTypes)GC.getBuildingInfo(eBuilding).getBuildingClassType(), eCommerce, iChange);
+			}
+			updateCommerce();
+		}
+	}
+}
+

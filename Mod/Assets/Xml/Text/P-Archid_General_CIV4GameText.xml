@@ -1561,5 +1561,18 @@
 		<French>%[SPACE]Construction Lente de[SPACE]</French>
 		<German>%[SPACE]Langsamere Konstruktion von[SPACE]</German>
 	</TEXT>
+<!-- Generic -->
+	<TEXT>
+		<Tag>TXT_KEY_ON</Tag>
+		<English>[SPACE]on[SPACE]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WITH</Tag>
+		<English>[SPACE]with[SPACE]</English>
+		<French>[SPACE]avec[SPACE]</French>
+		<German>[SPACE]mit[SPACE]</German>
+		<Italian>[SPACE]con[SPACE]</Italian>
+		<Spanish>[SPACE]con[SPACE]</Spanish>
+	</TEXT>
 
 </Civ4GameText>

@@ -2010,11 +2010,14 @@ public:
 	int* getBonusYieldChangeArray(int i) const;
 	int getVicinityBonusYieldChange(int i, int j) const;
 	int* getVicinityBonusYieldChangeArray(int i) const;
+	int getTechCommerceChange(int i, int j) const;
+	int* getTechCommerceChangeArray(int i) const;
 
 	bool isAnySpecialistYieldChange() const;
 	bool isAnyBonusYieldModifier() const;
 	bool isAnyBonusYieldChange() const;
 	bool isAnyVicinityBonusYieldChange() const;
+	bool isAnyTechCommerceChange() const;
 
 	// Other
 
@@ -2205,10 +2208,12 @@ protected:
 	int** m_ppaiBonusYieldModifier;
 	int** m_ppaiBonusYieldChange;
 	int** m_ppaiVicinityBonusYieldChange;
+	int** m_ppaiTechCommerceChange;
 	bool m_bAnySpecialistYieldChange;
 	bool m_bAnyBonusYieldModifier;
 	bool m_bAnyBonusYieldChange;
 	bool m_bAnyVicinityBonusYieldChange;
+	bool m_bAnyTechCommerceChange;
 
 	// Vectors
 	std::vector<int> m_viPrereqAndTechs;

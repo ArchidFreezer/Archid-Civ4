@@ -7150,6 +7150,16 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 		buildSpecialBuildingString(szBuffer, eTech, eSpecialBuilding, true, bPlayerContext);
 	}
 
+	// Building modifiers
+	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+		const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+
+		//	Building commerce changes
+		if (kBuilding.isAnyTechCommerceChange())
+			buildBuildingTechCommerceChangeString(szBuffer, eTech, eBuilding, true, bPlayerContext);
+
+	}
+
 	//	Build farm, mine, etc...
 	for (ImprovementTypes eImprovement = (ImprovementTypes)0; eImprovement < GC.getNumImprovementInfos(); eImprovement = (ImprovementTypes)(eImprovement + 1)) {
 		buildYieldChangeString(szBuffer, eTech, eImprovement, true, bPlayerContext);
@@ -9316,6 +9326,13 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 		for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
 			szFirstBuffer = gDLL->getText("TXT_KEY_BUILDING_WITH_BONUS", GC.getBonusInfo(eBonus).getTextKeyWide());
 			setYieldChangeHelp(szBuffer, L"", L"", szFirstBuffer, kBuilding.getBonusYieldChangeArray(eBonus), false, true);
+		}
+	}
+
+	if (kBuilding.isAnyTechCommerceChange()) {
+		for (TechTypes eTech = (TechTypes)0; eTech < GC.getNumTechInfos(); eTech = (TechTypes)(eTech + 1)) {
+			szTempBuffer.Format(L"%s<link=literal>%s</link>", gDLL->getText("TXT_KEY_WITH").GetCString(), GC.getTechInfo(eTech).getDescription());
+			setCommerceChangeHelp(szBuffer, L"", L"", szTempBuffer, kBuilding.getTechCommerceChangeArray(eTech), false, true);
 		}
 	}
 
@@ -16884,3 +16901,17 @@ void CvGameTextMgr::buildApplyLeaderheadTraitsString(CvWStringBuffer& szBuffer, 
 	}
 }
 
+void CvGameTextMgr::buildBuildingTechCommerceChangeString(CvWStringBuffer& szBuffer, TechTypes eTech, BuildingTypes eBuilding, bool bList, bool bPlayerContext) {
+	if (eBuilding == NO_BUILDING)
+		return;
+
+	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+	CvWString szTempBuffer;
+	if (bList) {
+		szTempBuffer.Format(L"<link=literal>%s</link>", kBuilding.getDescription());
+	} else {
+		szTempBuffer.Format(L"%c<link=literal>%s</link>", gDLL->getSymbolID(BULLET_CHAR), kBuilding.getDescription());
+	}
+
+	setCommerceChangeHelp(szBuffer, szTempBuffer, L": ", L"", kBuilding.getTechCommerceChangeArray(eTech), false, bList);
+}

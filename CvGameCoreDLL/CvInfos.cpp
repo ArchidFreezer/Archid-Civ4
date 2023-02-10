@@ -6775,9 +6775,11 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_ppaiBonusYieldModifier(NULL),
 	m_ppaiVicinityBonusYieldChange(NULL),
 	m_ppaiBonusYieldChange(NULL),
+	m_ppaiTechCommerceChange(NULL),
 	m_bAnySpecialistYieldChange(false),
 	m_bAnyBonusYieldModifier(false),
 	m_bAnyBonusYieldChange(false),
+	m_bAnyTechCommerceChange(false),
 	m_bAnyVicinityBonusYieldChange(false)
 {
 }
@@ -6852,6 +6854,31 @@ CvBuildingInfo::~CvBuildingInfo() {
 		SAFE_DELETE_ARRAY(m_ppaiBonusYieldChange);
 	}
 
+	if (m_ppaiTechCommerceChange != NULL) {
+		for (int i = 0; i < GC.getNumTechInfos(); i++) {
+			SAFE_DELETE_ARRAY(m_ppaiTechCommerceChange[i]);
+		}
+		SAFE_DELETE_ARRAY(m_ppaiTechCommerceChange);
+	}
+
+}
+
+int CvBuildingInfo::getTechCommerceChange(int i, int j) const {
+	FAssertMsg(i < GC.getNumTechInfos(), "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	FAssertMsg(j < NUM_COMMERCE_TYPES, "Index out of bounds");
+	FAssertMsg(j > -1, "Index out of bounds");
+	return m_ppaiTechCommerceChange ? m_ppaiTechCommerceChange[i][j] : -1;
+}
+
+int* CvBuildingInfo::getTechCommerceChangeArray(int i) const {
+	FAssertMsg(i < GC.getNumTechInfos(), "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	return m_ppaiTechCommerceChange[i];
+}
+
+bool CvBuildingInfo::isAnyTechCommerceChange() const {
+	return m_bAnyTechCommerceChange;
 }
 
 int CvBuildingInfo::getBonusYieldChange(int i, int j) const {
@@ -8397,6 +8424,29 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 		}
 	}
 
+	if (m_ppaiTechCommerceChange != NULL) {
+		for (int i = 0; i < GC.getNumTechInfos(); i++) {
+			SAFE_DELETE_ARRAY(m_ppaiTechCommerceChange[i]);
+		}
+		SAFE_DELETE_ARRAY(m_ppaiTechCommerceChange);
+	}
+
+	m_ppaiTechCommerceChange = new int* [GC.getNumTechInfos()];
+	for (int i = 0; i < GC.getNumTechInfos(); i++) {
+		m_ppaiTechCommerceChange[i] = new int[NUM_YIELD_TYPES];
+		stream->Read(NUM_YIELD_TYPES, m_ppaiTechCommerceChange[i]);
+	}
+
+	m_bAnyTechCommerceChange = false;
+	for (int i = 0; !m_bAnyTechCommerceChange && i < GC.getNumTechInfos(); i++) {
+		for (int j = 0; j < NUM_YIELD_TYPES; j++) {
+			if (m_ppaiTechCommerceChange[i][j] != 0) {
+				m_bAnyTechCommerceChange = true;
+				break;
+			}
+		}
+	}
+
 }
 
 //
@@ -8672,6 +8722,10 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	for (int i = 0; i < GC.getNumBonusInfos(); i++) {
 		stream->Write(NUM_YIELD_TYPES, m_ppaiBonusYieldChange[i]);
 	}
+
+	for (int i = 0; i < GC.getNumTechInfos(); i++) {
+		stream->Write(NUM_COMMERCE_TYPES, m_ppaiTechCommerceChange[i]);
+	}
 }
 
 //
@@ -8923,6 +8977,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	m_bAnyBonusYieldModifier = pXML->SetListPairInfoArray(&m_ppaiBonusYieldModifier, "BonusYieldModifiers", GC.getNumBonusInfos(), NUM_YIELD_TYPES);
 	m_bAnyBonusYieldChange = pXML->SetListPairInfoArray(&m_ppaiBonusYieldChange, "BonusYieldChanges", GC.getNumBonusInfos(), NUM_YIELD_TYPES);
 	m_bAnyVicinityBonusYieldChange = pXML->SetListPairInfoArray(&m_ppaiVicinityBonusYieldChange, "VicinityBonusYieldChanges", GC.getNumBonusInfos(), NUM_YIELD_TYPES);
+	m_bAnyTechCommerceChange = pXML->SetListPairInfoArray(&m_ppaiTechCommerceChange, "TechCommerceChanges", GC.getNumTechInfos(), NUM_COMMERCE_TYPES);
 
 	pXML->SetListPairEnum(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());
 	pXML->SetListPairInfo(&m_piImprovementFreeSpecialist, "ImprovementFreeSpecialists", GC.getNumImprovementInfos());

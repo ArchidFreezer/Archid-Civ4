@@ -3256,6 +3256,13 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 		for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
 			changeCommerceRateModifier(eCommerce, (kBuilding.getCommerceModifier(eCommerce) * iChange));
 			changeCommerceHappinessPer(eCommerce, (kBuilding.getCommerceHappiness(eCommerce) * iChange));
+			if (kBuilding.isAnyTechCommerceChange()) {
+				for (TechTypes eTech = (TechTypes)0; eTech < GC.getNumTechInfos(); eTech = (TechTypes)(eTech + 1)) {
+					if (GET_TEAM(kOwner.getTeam()).isHasTech(eTech)) {
+						changeCommerceRateModifier(eCommerce, (kBuilding.getTechCommerceChange(eTech, eCommerce) * iChange));
+					}
+				}
+			}
 		}
 
 		for (ReligionTypes eReligion = (ReligionTypes)0; eReligion < GC.getNumReligionInfos(); eReligion = (ReligionTypes)(eReligion + 1)) {
@@ -7609,6 +7616,7 @@ int CvCity::getAdditionalBaseCommerceRateByBuildingImpl(CommerceTypes eIndex, Bu
 	FAssertMsg(eBuilding < GC.getNumBuildingInfos(), "eBuilding expected to be < GC.getNumBuildingInfos()");
 
 	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+	const CvPlayer& kPlayer = GET_PLAYER(getOwnerINLINE());
 	int iExtraRate = 0;
 
 	iExtraRate += kBuilding.getObsoleteSafeCommerceChange(eIndex);
@@ -7616,8 +7624,8 @@ int CvCity::getAdditionalBaseCommerceRateByBuildingImpl(CommerceTypes eIndex, Bu
 		iExtraRate += kBuilding.getCommerceChange(eIndex);
 		iExtraRate += getBuildingCommerceChange((BuildingClassTypes)kBuilding.getBuildingClassType(), eIndex);
 		if (kBuilding.getReligionType() != NO_RELIGION) {
-			if (kBuilding.getReligionType() == GET_PLAYER(getOwnerINLINE()).getStateReligion()) {
-				iExtraRate += GET_PLAYER(getOwnerINLINE()).getStateReligionBuildingCommerce(eIndex);
+			if (kBuilding.getReligionType() == kPlayer.getStateReligion()) {
+				iExtraRate += kPlayer.getStateReligionBuildingCommerce(eIndex);
 			}
 		}
 		if (kBuilding.getGlobalReligionCommerce() != NO_RELIGION) {
@@ -7632,6 +7640,15 @@ int CvCity::getAdditionalBaseCommerceRateByBuildingImpl(CommerceTypes eIndex, Bu
 		for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
 			if (kBuilding.getFreeSpecialistCount(eSpecialist) != 0) {
 				iExtraRate += getAdditionalBaseCommerceRateBySpecialistImpl(eIndex, eSpecialist, kBuilding.getFreeSpecialistCount(eSpecialist));
+			}
+		}
+
+		// Techs
+		if (kBuilding.isAnyTechCommerceChange()) {
+			for (TechTypes eTech = (TechTypes)0; eTech < GC.getNumTechInfos(); eTech = (TechTypes)(eTech + 1)) {
+				if (GET_TEAM(kPlayer.getTeam()).isHasTech(eTech)) {
+					iExtraRate += (kBuilding.getTechCommerceChange(eTech, eIndex));
+				}
 			}
 		}
 	}

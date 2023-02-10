@@ -188,6 +188,7 @@ public:
 	void buildWorldViewRevoltTurnChangeString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList = false, bool bPlayerContext = false);
 	void buildCultureDefenceString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList = false, bool bPlayerContext = false);
 	void buildApplyLeaderheadTraitsString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList = false, bool bPlayerContext = false);
+	void buildBuildingTechCommerceChangeString(CvWStringBuffer& szBuffer, TechTypes eTech, BuildingTypes eBuilding, bool bList = false, bool bPlayerContext = false);
 
 	DllExport void buildCityBillboardIconString(CvWStringBuffer& szBuffer, CvCity* pCity);
 	DllExport void buildCityBillboardCityNameString(CvWStringBuffer& szBuffer, CvCity* pCity);

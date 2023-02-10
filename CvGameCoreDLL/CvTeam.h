@@ -66,6 +66,8 @@ public:
 	void changeNonAggressionTradingCount(int iChange);
 	void setHasNonAggression(TeamTypes eIndex, bool bNewValue);
 
+	void changeBuildingCommerceChange(BuildingTypes eBuilding, CommerceTypes eCommerce, int iChange);
+
 	void doTurn();
 
 	int getCanFoundOnPeaksCount() const;

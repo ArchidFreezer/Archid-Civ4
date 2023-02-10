@@ -439,6 +439,13 @@
 	<ElementType name="BuildingClassProductionModifiers" content="eltOnly">
 		<element type="BuildingClassProductionModifier" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="TechCommerceChange" content="eltOnly">
+		<element type="TechType"/>
+		<element type="CommerceChanges"/>
+	</ElementType>
+	<ElementType name="TechCommerceChanges" content="eltOnly">
+		<element type="TechCommerceChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="BuildingInfo" content="eltOnly">
 		<element type="BuildingClass"/>
 		<element type="Type"/>
@@ -623,6 +630,7 @@
 		<element type="BonusYieldModifiers" minOccurs="0"/>
 		<element type="BonusYieldChanges" minOccurs="0"/>
 		<element type="VicinityBonusYieldChanges" minOccurs="0"/>
+		<element type="TechCommerceChanges" minOccurs="0"/>
 		<element type="ImprovementFreeSpecialists" minOccurs="0"/>
 		<element type="Flavors" minOccurs="0"/>
 		<element type="HotKey" minOccurs="0"/>

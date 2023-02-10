@@ -3611,6 +3611,15 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 				iTempValue *= getTotalCommerceRateModifier(eCommerce) + kBuilding.getCommerceModifier(eCommerce); // K-Mod. Note that getTotalCommerceRateModifier() includes the +100.
 				iTempValue /= 100;
 
+				// Check for tech changes
+				if (kBuilding.isAnyTechCommerceChange()) {
+					for (TechTypes eTech = (TechTypes)0; eTech < GC.getNumTechInfos(); eTech = (TechTypes)(eTech + 1)) {
+						if (GET_TEAM(kOwner.getTeam()).isHasTech(eTech)) {
+							iTempValue += (kBuilding.getTechCommerceChange(eTech, eCommerce) * 4);
+						}
+					}
+				}
+
 				if (kBuilding.getCommerceChangeDoubleTime(eCommerce) > 0) {
 					if ((kBuilding.getCommerceChange(eCommerce) > 0) || (kBuilding.getObsoleteSafeCommerceChange(eCommerce) > 0)) {
 						iTempValue += iTempValue * 250 / kBuilding.getCommerceChangeDoubleTime(eCommerce); // K-Mod (still very rough...)
