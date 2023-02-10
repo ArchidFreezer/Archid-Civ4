@@ -2067,5 +2067,15 @@
 			<KFM/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat1.dds,Art/Interface/Buttons/Afterworld_Atlas.dds,5,14</Button>
 		</BuildingArtInfo>
+ 		<BuildingArtInfo> <!-- Weaver's Hut -->
+			<Type>ART_DEF_BUILDING_WEAVERS_HUT</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>.8</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/City/hut/eldercouncil.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/weavers_hut.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

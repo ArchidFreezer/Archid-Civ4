@@ -217,14 +217,8 @@
 		<BuildingClassInfo> <!-- Utility Fog -->
 			<Type>BUILDINGCLASS_UTILITY_FOG</Type>
 			<Description>TXT_KEY_BUILDING_UTILITY_FOG</Description>
-			<iMaxGlobalInstances>-1</iMaxGlobalInstances>
-			<iMaxTeamInstances>-1</iMaxTeamInstances>
-			<iMaxPlayerInstances>-1</iMaxPlayerInstances>
-			<iExtraPlayerInstances>0</iExtraPlayerInstances>
-			<bNoLimit>0</bNoLimit>
-			<bMonument>0</bMonument>
+			<iCategory>24</iCategory>
 			<DefaultBuilding>BUILDING_UTILITY_FOG</DefaultBuilding>
-			<VictoryThresholds/>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Coal Plant -->                      <!-- Production - Factory/Power -->
@@ -251,6 +245,12 @@
 			<Description>TXT_KEY_BUILDING_SLAVE_MARKET</Description>
 			<iCategory>28</iCategory>
 			<DefaultBuilding>BUILDING_SLAVE_MARKET</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Weavers Hut -->
+			<Type>BUILDINGCLASS_WEAVERS_HUT</Type>
+			<Description>TXT_KEY_BUILDING_WEAVERS_HUT</Description>
+			<iCategory>28</iCategory>
+			<DefaultBuilding>BUILDING_WEAVERS_HUT</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Early Instrument Maker -->          <!-- Commerce - Retail -->

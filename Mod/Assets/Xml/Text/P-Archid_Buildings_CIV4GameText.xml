@@ -339,4 +339,25 @@
 		<Tag>TXT_KEY_BUILDING_UTILITY_FOG_STRATEGY</Tag>
 		<English>[SPACE]Utility Fog increases city's production and defense.</English>
 	</TEXT>
+<!-- Weavers Hut -->
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WEAVERS_HUT</Tag>
+		<English>Weaver's Hut</English>
+		<French>
+			<Text>Hutte du Tisserand</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Weberh&#252;tte</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WEAVERS_HUT_PEDIA</Tag>
+		<English>Weaving, the art of forming a fabric by interlacing at right angles two or more sets of yarn or other material. It is one of the most ancient fundamental arts, as indicated by archaeological evidence. Discoveries in the early 1990s in the Czech Republic point to an origin in the Paleolithic period some 27,000 years ago. Moreover, the earliest literatures often mention the products of the loom. In primitive cultures weaving was practiced mainly by women.[PARAGRAPH:2]Although weaving sprang up independently in different parts of the world and was early known in Europe, its high development there in the Middle Ages was brought about by Eastern influences operating through Muslim and Byzantine channels of culture. Byzantium became a center of silk weaving in the 6th cent. In the 9th cent. Greece, Italy, and Spain became proficient. In Flanders a high degree of skill was attained by the 10th cent., especially in the weaving of wool. Flemish weavers brought to England by William the Conqueror and later by Queen Elizabeth I gave a great impetus to the craft there, and Lancashire became an important center. Tapestry weaving was brought to a high art in France. In colonial America weaving was a household industry allied with agriculture.[PARAGRAPH:2]The 18th-century weaving and spinning inventions marked the transition from the old era of domestic craftsmanship to the tremendous, organized industry of today. The factory system of machine weaving produces quantities of standardized material for mass consumption; the result is a loss of the distinctive elements of quality and design. Some of the finest silks, velvets, table linens, and carpets are still woven on handlooms.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WEAVERS_HUT_STRATEGY</Tag>
+		<English>Makes use of "clothing" resources, providing Commerce</English>
+		<French>Procure une ressource 'Vêtement', fournissant du commerce</French>
+		<German>Erzeugt die Ressource "Kleidung", erzeugt Handel</German>
+	</TEXT>
 </Civ4GameText>

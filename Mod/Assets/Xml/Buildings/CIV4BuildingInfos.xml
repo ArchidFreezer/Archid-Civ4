@@ -7300,6 +7300,80 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Weavers Hut -->
+			<BuildingClass>BUILDINGCLASS_WEAVERS_HUT</BuildingClass>
+			<Type>BUILDING_WEAVERS_HUT</Type>
+			<Description>TXT_KEY_BUILDING_WEAVERS_HUT</Description>
+			<Civilopedia>TXT_KEY_BUILDING_WEAVERS_HUT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_WEAVERS_HUT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_WEAVERS_HUT</ArtDefineTag>
+			<ObsoleteTech>TECH_MACHINERY</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_WEAVING</TechType>
+			</PrereqAndTechs>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_SHEEP</BonusType>
+				<BonusType>BONUS_SILK</BonusType>
+				<BonusType>BONUS_CANNABIS</BonusType>
+				<BonusType>BONUS_COTTON</BonusType>
+			</PrereqOrBonuses>
+			<iCost>20</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>70</iConquestProb>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</YieldChanges>
+			<BonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_CANNABIS</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SHEEP</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SILK</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_COTTON</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</BonusYieldChanges>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_TAILOR_SHOP</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- West Point -->
 			<BuildingClass>BUILDINGCLASS_WEST_POINT</BuildingClass>
 			<Type>BUILDING_WEST_POINT</Type>
