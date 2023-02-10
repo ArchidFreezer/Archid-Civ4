@@ -6685,7 +6685,7 @@
 				<TechCommerceChange>
 					<TechType>TECH_GUILDS</TechType>
 					<CommerceChanges>
-						<iChange>1</iChange>
+						<iCommerce>1</iCommerce>
 					</CommerceChanges>
 				</TechCommerceChange>
 			</TechCommerceChanges>
