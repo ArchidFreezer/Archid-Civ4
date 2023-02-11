@@ -6409,6 +6409,12 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer& szHelpText, CivicTypes eCivi
 		szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_NO_CAPITAL_ANGER"));
 	}
 
+	// Anger percentage based on 10% tax rate
+	if (kCivic.getTaxRateAngerModifier() > 0) {
+		szHelpText.append(NEWLINE);
+		szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_TAXATION_ANGER", kCivic.getTaxRateAngerModifier()));
+	}
+
 	//	Free Experience
 	if (kCivic.getFreeExperience() != 0) {
 		szHelpText.append(NEWLINE);
@@ -10857,6 +10863,17 @@ void CvGameTextMgr::setAngerHelp(CvWStringBuffer& szBuffer, CvCity& city) {
 		iAnger = ((iNewAnger - iOldAnger) + std::min(0, iOldAnger));
 		if (iAnger > 0) {
 			szBuffer.append(gDLL->getText("TXT_KEY_ANGER_GLOBAL_WARMING", iAnger));
+			szBuffer.append(NEWLINE);
+		}
+		iOldAngerPercent = iNewAngerPercent;
+		iOldAnger = iNewAnger;
+
+		int iGoldTenPercents = GET_PLAYER(city.getOwnerINLINE()).getCommercePercent(COMMERCE_GOLD) / 10;
+		iNewAngerPercent += std::max(0, GET_PLAYER(city.getOwnerINLINE()).getTaxRateAngerModifier() * 10 * iGoldTenPercents);
+		iNewAnger += (((iNewAngerPercent * city.getPopulation()) / GC.getPERCENT_ANGER_DIVISOR()) - ((iOldAngerPercent * city.getPopulation()) / GC.getPERCENT_ANGER_DIVISOR()));
+		iAnger = ((iNewAnger - iOldAnger) + std::min(0, iOldAnger));
+		if (iAnger > 0) {
+			szBuffer.append(gDLL->getText("TXT_KEY_ANGER_TAXATION", iAnger));
 			szBuffer.append(NEWLINE);
 		}
 		iOldAngerPercent = iNewAngerPercent;

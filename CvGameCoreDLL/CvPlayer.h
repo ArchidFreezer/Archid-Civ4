@@ -51,6 +51,10 @@ public:
 	void setPopulationGrowthRateModifier(int iNewValue);
 	void changePopulationGrowthRateModifier(int iChange);
 
+	int getTaxRateAngerModifier() const;
+	void setTaxRateAngerModifier(int iNewValue);
+	void changeTaxRateAngerModifier(int iChange);
+
 	int getCultureDefenceChange() const;
 	void changeCultureDefenceChange(int iChange);
 	int getCultureDefenceModifier() const;
@@ -1358,6 +1362,7 @@ protected:
 	int m_iForeignTradeRouteModifier;
 	int m_iNoCapitalUnhappinessCount;
 	int m_iPopulationGrowthRateModifier;
+	int m_iTaxRateAngerModifier;
 
 	uint m_uiStartTime;  // XXX save these?
 

@@ -10899,6 +10899,11 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 		iValue += kCivic.getCivicPercentAnger() * (iCities * iCities - iCities) / (5 * kGame.getNumCities()); // the 5* on the end is because "percent" is really per mil.
 	}
 
+	if (kCivic.getTaxRateAngerModifier() > 0) {
+		// Based on 5% increments of the COMMERCE_GOLD rate
+		iValue -= (iCities * 12 * iS * AI_getHappinessWeight(iS * (kCivic.getTaxRateAngerModifier() * getCommercePercent(COMMERCE_GOLD) / 10) * 100 / GC.getPERCENT_ANGER_DIVISOR(), 2, true)) / 100;
+	}
+
 	if (kCivic.getExtraHealth() != 0)
 		iValue += (iCities * 6 * iS * AI_getHealthWeight(iS * kCivic.getExtraHealth(), 1)) / 100;
 

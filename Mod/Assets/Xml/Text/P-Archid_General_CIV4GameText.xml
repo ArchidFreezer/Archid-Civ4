@@ -1587,5 +1587,13 @@
 		<French>[ICON_BULLET]Pas de [ICON_UNHAPPY] dans la Capitale</French>
 		<German>[ICON_BULLET]Keine [ICON_UNHAPPY] in der Hauptstadt</German>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_TAXATION_ANGER</Tag>
+		<English>[ICON_BULLET]%d1% [ICON_UNHAPPY] anger percent per 10% Tax Rate</English>
+  </TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ANGER_TAXATION</Tag>
+		<English>+%d1_Change[ICON_UNHAPPY]: "Stop trousering our taxes!"</English>
+	</TEXT>
 
 </Civ4GameText>

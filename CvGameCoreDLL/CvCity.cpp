@@ -3722,11 +3722,17 @@ int CvCity::unhappyLevel(int iExtra) const {
 		** Unfortunately, people who made the rest of the game used anger percent to mean part per 1000
 		** so I have to multiply my GwPercentAnger by 10 to make it fit in.
 		*/
-		iAngerPercent += std::max(0, GET_PLAYER(getOwnerINLINE()).getGwPercentAnger() * 10);
+		const CvPlayer& kPlayer = GET_PLAYER(getOwnerINLINE());
+		iAngerPercent += std::max(0, kPlayer.getGwPercentAnger() * 10);
 
 		for (int iI = 0; iI < GC.getNumCivicInfos(); iI++) {
-			iAngerPercent += GET_PLAYER(getOwnerINLINE()).getCivicPercentAnger((CivicTypes)iI);
+			iAngerPercent += kPlayer.getCivicPercentAnger((CivicTypes)iI);
 		}
+
+		// I know that we are dividing by 10 and then multiplying by it but we only want whole ten tax percents
+		int iTaxTenPercent = kPlayer.getCommercePercent(COMMERCE_GOLD) / 10;
+		// See GwPercentAnger comment above for why we are multiplying by 10
+		iAngerPercent += (kPlayer.getTaxRateAngerModifier() * iTaxTenPercent * 10);
 
 		iUnhappiness = ((iAngerPercent * (getPopulation() + iExtra)) / GC.getPERCENT_ANGER_DIVISOR());
 
@@ -3740,8 +3746,8 @@ int CvCity::unhappyLevel(int iExtra) const {
 		iUnhappiness -= std::min(0, getReligionBadHappiness());
 		iUnhappiness -= std::min(0, getCommerceHappiness());
 		iUnhappiness -= std::min(0, area()->getBuildingHappiness(getOwnerINLINE()));
-		iUnhappiness -= std::min(0, GET_PLAYER(getOwnerINLINE()).getBuildingHappiness());
-		iUnhappiness -= std::min(0, (getExtraHappiness() + GET_PLAYER(getOwnerINLINE()).getExtraHappiness()));
+		iUnhappiness -= std::min(0, kPlayer.getBuildingHappiness());
+		iUnhappiness -= std::min(0, (getExtraHappiness() + kPlayer.getExtraHappiness()));
 		iUnhappiness -= std::min(0, GC.getHandicapInfo(getHandicapType()).getHappyBonus());
 		iUnhappiness += std::max(0, getVassalUnhappiness());
 		iUnhappiness += std::max(0, getEspionageHappinessCounter());
