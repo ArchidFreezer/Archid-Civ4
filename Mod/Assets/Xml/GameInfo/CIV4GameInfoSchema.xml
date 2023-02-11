@@ -714,6 +714,7 @@
 	<ElementType name="bUnitRangeUnbound" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bUnitTerritoryUnbound" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iUnitRangeChange" content="textOnly" dt:type="int"/>
+	<ElementType name="bNoCapitalUnhappiness" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iUnitRangeModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iForeignTradeRouteModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="bEnableStarSigns" content="textOnly" dt:type="boolean"/>
@@ -768,6 +769,7 @@
 		<element type="iExpInBorderModifier" minOccurs="0"/>
 		<element type="bBuildingOnlyHealthy" minOccurs="0"/>
 		<element type="iLargestCityHappiness" minOccurs="0"/>
+		<element type="bNoCapitalUnhappiness" minOccurs="0"/>
 		<element type="iWarWearinessModifier" minOccurs="0"/>
 		<element type="iFreeSpecialist" minOccurs="0"/>
 		<element type="iTradeRoutes" minOccurs="0"/>

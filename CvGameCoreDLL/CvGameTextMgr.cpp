@@ -6403,6 +6403,12 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer& szHelpText, CivicTypes eCivi
 		// note: TXT_KEY_CIVIC_EXTRA_HEALTH just says "[blah] in all cities", so it's ok for happiness as well as for health.
 	}
 
+	// No capital unhappiness
+	if (kCivic.isNoCapitalUnhappiness()) {
+		szHelpText.append(NEWLINE);
+		szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_NO_CAPITAL_ANGER"));
+	}
+
 	//	Free Experience
 	if (kCivic.getFreeExperience() != 0) {
 		szHelpText.append(NEWLINE);

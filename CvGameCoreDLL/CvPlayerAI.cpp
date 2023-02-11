@@ -10898,6 +10898,9 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 	if (kCivic.getExtraHappiness() != 0) // New K-Mod effect
 		iValue += (iCities * 10 * iS * AI_getHappinessWeight(iS * kCivic.getExtraHappiness(), 0)) / 100; // (zero extra citizens... as a kind of kludge to get the value closer to where I want it)
 
+	if (kCivic.isNoCapitalUnhappiness()) // Capital is typically a high value city so lets give it a boost
+		iValue += (10 * iS * pCapital->unhappyLevel(true) * pCapital->getPopulation());
+
 	if (kCivic.getHappyPerMilitaryUnit() != 0)
 		iValue += (iCities * 9 * iS * AI_getHappinessWeight(iS * kCivic.getHappyPerMilitaryUnit() * 3, 1)) / 100;
 

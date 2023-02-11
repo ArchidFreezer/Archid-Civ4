@@ -530,6 +530,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iBarbarianConvertionCostModifier = 0;
 	m_iExtraGoldPerBarbarianUnit = 0;
 	m_iForeignTradeRouteModifier = 0;
+	m_iNoCapitalUnhappinessCount = 0;
 
 	m_uiStartTime = 0;
 
@@ -13876,6 +13877,7 @@ void CvPlayer::processCivics(CivicTypes eCivic, int iChange) {
 	changeTribalConscriptionCount(kCivic.isTribalConscription() ? iChange : 0);
 	changeCreateBarbariansCount(kCivic.isCreateBarbarians() ? iChange : 0);
 	changeForeignTradeRouteModifier(kCivic.getForeignTradeRouteModifier() * iChange);
+	changeNoCapitalUnhappinessCount(kCivic.isNoCapitalUnhappiness() ? iChange : 0);
 
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 		changeYieldRateModifier(eYield, kCivic.getYieldModifier(eYield) * iChange);
@@ -14076,6 +14078,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iBarbarianConvertionCostModifier);
 	pStream->Read(&m_iExtraGoldPerBarbarianUnit);
 	pStream->Read(&m_iForeignTradeRouteModifier);
+	pStream->Read(&m_iNoCapitalUnhappinessCount);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14579,6 +14582,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iBarbarianConvertionCostModifier);
 	pStream->Write(m_iExtraGoldPerBarbarianUnit);
 	pStream->Write(m_iForeignTradeRouteModifier);
+	pStream->Write(m_iNoCapitalUnhappinessCount);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -14590,6 +14594,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_bFoundedFirstCity);
 	pStream->Write(m_bStrike);
 	pStream->Write(m_bStarSignProcessed);
+
 	pStream->Write(m_iChoosingFreeTechCount); // K-Mod (bool for 2 <= uiFlag < 4. then int.)
 
 	pStream->Write(m_eID);
@@ -20390,3 +20395,12 @@ int CvPlayer::getForeignTradeRouteModifier() const {
 void CvPlayer::changeForeignTradeRouteModifier(int iChange) {
 	m_iForeignTradeRouteModifier += iChange;
 }
+
+bool CvPlayer::isNoCapitalUnhappiness() const {
+	return m_iNoCapitalUnhappinessCount > 0;
+}
+
+void CvPlayer::changeNoCapitalUnhappinessCount(int iChange) {
+	m_iNoCapitalUnhappinessCount += iChange;
+}
+

@@ -1581,5 +1581,11 @@
 		<French>[ICON_BULLET]%D1_Mod%% Les Routes commerciales étrangères sont réparties dans toutes les Villes</French>
 		<German>[ICON_BULLET]%D1_Mod%% Ertrag aus ausl&#228;ndischen Handelsrouten in allen St&#228;dten</German>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_NO_CAPITAL_ANGER</Tag>
+		<English>[ICON_BULLET]No [ICON_UNHAPPY] In the Capital City</English>
+		<French>[ICON_BULLET]Pas de [ICON_UNHAPPY] dans la Capitale</French>
+		<German>[ICON_BULLET]Keine [ICON_UNHAPPY] in der Hauptstadt</German>
+	</TEXT>
 
 </Civ4GameText>

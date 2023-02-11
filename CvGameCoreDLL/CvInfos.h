@@ -1565,6 +1565,7 @@ public:
 	bool isEnableStarSigns() const;
 	bool isTribalConscription() const;
 	bool isCreateBarbarians() const;
+	bool isNoCapitalUnhappiness() const;
 
 	std::wstring pyGetWeLoveTheKing() { return getWeLoveTheKing(); }			// Exposed to Python
 	const wchar* getWeLoveTheKing();
@@ -1659,6 +1660,7 @@ protected:
 	bool m_bEnableStarSigns;
 	bool m_bTribalConscription;
 	bool m_bCreateBarbarians;
+	bool m_bNoCapitalUnhappiness;
 
 	CvWString m_szWeLoveTheKingKey;
 

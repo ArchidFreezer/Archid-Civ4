@@ -44,6 +44,8 @@ public:
 
 	int getForeignTradeRouteModifier() const;
 	void changeForeignTradeRouteModifier(int iChange);
+	bool isNoCapitalUnhappiness() const;
+	void changeNoCapitalUnhappinessCount(int iChange);
 
 	int getCultureDefenceChange() const;
 	void changeCultureDefenceChange(int iChange);
@@ -1350,6 +1352,7 @@ protected:
 	int m_iBarbarianConvertionCostModifier;
 	int m_iExtraGoldPerBarbarianUnit;
 	int m_iForeignTradeRouteModifier;
+	int m_iNoCapitalUnhappinessCount;
 
 	uint m_uiStartTime;  // XXX save these?
 

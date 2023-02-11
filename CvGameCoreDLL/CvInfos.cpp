@@ -5694,6 +5694,7 @@ CvCivicInfo::CvCivicInfo() :
 	m_bEnableStarSigns(false),
 	m_bTribalConscription(false),
 	m_bCreateBarbarians(false),
+	m_bNoCapitalUnhappiness(false),
 	m_piYieldModifier(NULL),
 	m_piCapitalYieldModifier(NULL),
 	m_piTradeYieldModifier(NULL),
@@ -5737,6 +5738,10 @@ CvCivicInfo::~CvCivicInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppiImprovementYieldChanges);
 	}
+}
+
+bool CvCivicInfo::isNoCapitalUnhappiness() const {
+	return m_bNoCapitalUnhappiness;
 }
 
 int CvCivicInfo::getForeignTradeRouteModifier() const {
@@ -6141,6 +6146,7 @@ void CvCivicInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bEnableStarSigns);
 	stream->Read(&m_bTribalConscription);
 	stream->Read(&m_bCreateBarbarians);
+	stream->Read(&m_bNoCapitalUnhappiness);
 
 	// Arrays
 
@@ -6270,6 +6276,7 @@ void CvCivicInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bEnableStarSigns);
 	stream->Write(m_bTribalConscription);
 	stream->Write(m_bCreateBarbarians);
+	stream->Write(m_bNoCapitalUnhappiness);
 
 	// Arrays
 
@@ -6344,6 +6351,7 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iUnhealthyPopulationModifier, "iUnhealthyPopulationModifier"); // K-Mod
 	pXML->GetChildXmlValByName(&m_bBuildingOnlyHealthy, "bBuildingOnlyHealthy");
 	pXML->GetChildXmlValByName(&m_iLargestCityHappiness, "iLargestCityHappiness");
+	pXML->GetChildXmlValByName(&m_bNoCapitalUnhappiness, "bNoCapitalUnhappiness");
 	pXML->GetChildXmlValByName(&m_iWarWearinessModifier, "iWarWearinessModifier");
 	pXML->GetChildXmlValByName(&m_iFreeSpecialist, "iFreeSpecialist");
 	pXML->GetChildXmlValByName(&m_iTradeRoutes, "iTradeRoutes");
