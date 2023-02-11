@@ -6170,7 +6170,10 @@ void CvCity::changeExtraTradeRoutes(int iChange) {
 
 
 int CvCity::getTradeRouteModifier() const {
-	return m_iTradeRouteModifier;
+	int iModifier = m_iTradeRouteModifier;
+	iModifier += GET_PLAYER(getOwnerINLINE()).getForeignTradeRouteModifier();
+
+	return iModifier;
 }
 
 void CvCity::changeTradeRouteModifier(int iChange) {

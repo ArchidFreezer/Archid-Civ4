@@ -42,6 +42,9 @@ public:
 	void changeCreateBarbariansCount(int iCount);
 	void changeTribalConscriptionCount(int iChange);
 
+	int getForeignTradeRouteModifier() const;
+	void changeForeignTradeRouteModifier(int iChange);
+
 	int getCultureDefenceChange() const;
 	void changeCultureDefenceChange(int iChange);
 	int getCultureDefenceModifier() const;
@@ -1346,6 +1349,7 @@ protected:
 	int m_iCreateBarbariansCount;
 	int m_iBarbarianConvertionCostModifier;
 	int m_iExtraGoldPerBarbarianUnit;
+	int m_iForeignTradeRouteModifier;
 
 	uint m_uiStartTime;  // XXX save these?
 

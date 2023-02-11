@@ -1574,5 +1574,12 @@
 		<Italian>[SPACE]con[SPACE]</Italian>
 		<Spanish>[SPACE]con[SPACE]</Spanish>
 	</TEXT>
+	<!-- Civic - game text -->
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_FOREIGN_TRADE_ROUTE_MOD</Tag>
+		<English>[ICON_BULLET]%D1_Mod%% Foreign Trade Route Yield in All Cities</English>
+		<French>[ICON_BULLET]%D1_Mod%% Les Routes commerciales étrangères sont réparties dans toutes les Villes</French>
+		<German>[ICON_BULLET]%D1_Mod%% Ertrag aus ausl&#228;ndischen Handelsrouten in allen St&#228;dten</German>
+	</TEXT>
 
 </Civ4GameText>

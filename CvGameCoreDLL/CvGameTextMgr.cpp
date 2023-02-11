@@ -6533,6 +6533,12 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer& szHelpText, CivicTypes eCivi
 		szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_TRADE_ROUTES", kCivic.getTradeRoutes()));
 	}
 
+	// Foreign trade route modifier
+	if (kCivic.getForeignTradeRouteModifier() != 0) {
+		szHelpText.append(NEWLINE);
+		szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_FOREIGN_TRADE_ROUTE_MOD", kCivic.getForeignTradeRouteModifier()));
+	}
+
 	//	No Foreign Trade
 	if (kCivic.isNoForeignTrade()) {
 		szHelpText.append(NEWLINE);

@@ -5680,6 +5680,7 @@ CvCivicInfo::CvCivicInfo() :
 	m_iStarSignMitigateChangePercent(0),
 	m_iStarSignScaleChangePercent(0),
 	m_iCultureDefenceChange(0),
+	m_iForeignTradeRouteModifier(0),
 	m_bMilitaryFoodProduction(false),
 	m_iUnhealthyPopulationModifier(0), // K-Mod
 	m_bBuildingOnlyHealthy(false),
@@ -5736,6 +5737,10 @@ CvCivicInfo::~CvCivicInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppiImprovementYieldChanges);
 	}
+}
+
+int CvCivicInfo::getForeignTradeRouteModifier() const {
+	return m_iForeignTradeRouteModifier;
 }
 
 bool CvCivicInfo::isCreateBarbarians() const {
@@ -6121,6 +6126,7 @@ void CvCivicInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iStarSignMitigateChangePercent);
 	stream->Read(&m_iStarSignScaleChangePercent);
 	stream->Read(&m_iCultureDefenceChange);
+	stream->Read(&m_iForeignTradeRouteModifier);
 
 	stream->Read(&m_bMilitaryFoodProduction);
 	stream->Read(&m_iUnhealthyPopulationModifier); // K-Mod
@@ -6249,6 +6255,7 @@ void CvCivicInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iStarSignMitigateChangePercent);
 	stream->Write(m_iStarSignScaleChangePercent);
 	stream->Write(m_iCultureDefenceChange);
+	stream->Write(m_iForeignTradeRouteModifier);
 
 	stream->Write(m_bMilitaryFoodProduction);
 	stream->Write(m_iUnhealthyPopulationModifier); // K-Mod
@@ -6317,6 +6324,7 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iDistanceMaintenanceModifier, "iDistanceMaintenanceModifier");
 	pXML->GetChildXmlValByName(&m_iNumCitiesMaintenanceModifier, "iNumCitiesMaintenanceModifier");
 	pXML->GetChildXmlValByName(&m_iCorporationMaintenanceModifier, "iCorporationMaintenanceModifier");
+	pXML->GetChildXmlValByName(&m_iForeignTradeRouteModifier, "iForeignTradeRouteModifier");
 	pXML->GetChildXmlValByName(&m_iExtraHealth, "iExtraHealth");
 	pXML->GetChildXmlValByName(&m_iExtraHappiness, "iExtraHappiness"); // K-Mod
 	pXML->GetChildXmlValByName(&m_iFreeExperience, "iFreeExperience");

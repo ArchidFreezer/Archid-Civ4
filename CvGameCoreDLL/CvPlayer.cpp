@@ -529,6 +529,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iCreateBarbariansCount = 0;
 	m_iBarbarianConvertionCostModifier = 0;
 	m_iExtraGoldPerBarbarianUnit = 0;
+	m_iForeignTradeRouteModifier = 0;
 
 	m_uiStartTime = 0;
 
@@ -13874,6 +13875,7 @@ void CvPlayer::processCivics(CivicTypes eCivic, int iChange) {
 	changeCultureDefenceChange(kCivic.getCultureDefenceChange() * iChange);
 	changeTribalConscriptionCount(kCivic.isTribalConscription() ? iChange : 0);
 	changeCreateBarbariansCount(kCivic.isCreateBarbarians() ? iChange : 0);
+	changeForeignTradeRouteModifier(kCivic.getForeignTradeRouteModifier() * iChange);
 
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 		changeYieldRateModifier(eYield, kCivic.getYieldModifier(eYield) * iChange);
@@ -14073,6 +14075,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iCreateBarbariansCount);
 	pStream->Read(&m_iBarbarianConvertionCostModifier);
 	pStream->Read(&m_iExtraGoldPerBarbarianUnit);
+	pStream->Read(&m_iForeignTradeRouteModifier);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14575,6 +14578,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iCreateBarbariansCount);
 	pStream->Write(m_iBarbarianConvertionCostModifier);
 	pStream->Write(m_iExtraGoldPerBarbarianUnit);
+	pStream->Write(m_iForeignTradeRouteModifier);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -20377,4 +20381,12 @@ void CvPlayer::changeExtraGoldPerBarbarianUnit(int iChange) {
 
 int CvPlayer::getNumBarbarians() const {
 	return AI()->AI_totalUnitAIs(UNITAI_BARBARIAN) + AI()->AI_totalUnitAIs(UNITAI_BARBARIAN_ATTACK_CITY);
+}
+
+int CvPlayer::getForeignTradeRouteModifier() const {
+	return m_iForeignTradeRouteModifier;
+}
+
+void CvPlayer::changeForeignTradeRouteModifier(int iChange) {
+	m_iForeignTradeRouteModifier += iChange;
 }

@@ -10641,7 +10641,7 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 
 	// K-Mod - take a few more things into account for trade routes.
 	// NOTE: this calculation makes a bunch of assumptions about about the yield type and magnitude from trade routes.
-	if (kCivic.getTradeRoutes() != 0 || kCivic.isNoForeignTrade()) {
+	if (kCivic.getTradeRoutes() != 0 || kCivic.isNoForeignTrade() || kCivic.getForeignTradeRouteModifier() != 0) {
 		PROFILE("civicValue: trade routes");
 		// As a rough approximation, let each foreign trade route give base 3 commerce, and local trade routes give 1.
 		// Our civ can have 1 connection to each foreign city.
@@ -10684,6 +10684,10 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 			// add an estimate of our own overseas cities (even though they are not really "foreign".
 			iConnectedForeignCities += iCities - pCapital->area()->getCitiesPerPlayer(getID());
 		}
+
+		// Increase the value of all foreign trade
+		iTempValue += (100 + kCivic.getForeignTradeRouteModifier()) * iConnectedForeignCities * 2;
+		iTempValue /= 100;
 
 		iTempValue += kCivic.getTradeRoutes() * std::max(0, iConnectedForeignCities - iTotalTradeRoutes) * 2 + iCities * 1;
 

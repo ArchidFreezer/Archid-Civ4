@@ -715,6 +715,7 @@
 	<ElementType name="bUnitTerritoryUnbound" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iUnitRangeChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iUnitRangeModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="iForeignTradeRouteModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="bEnableStarSigns" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iStarSignMitigateChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
@@ -746,6 +747,7 @@
 		<element type="iDistanceMaintenanceModifier" minOccurs="0"/>
 		<element type="iNumCitiesMaintenanceModifier" minOccurs="0"/>
 		<element type="iCorporationMaintenanceModifier" minOccurs="0"/>
+		<element type="iForeignTradeRouteModifier" minOccurs="0"/>
 		<element type="iExtraHealth" minOccurs="0"/>
 		<element type="iExtraHappiness" minOccurs="0"/>
 		<element type="iFreeExperience" minOccurs="0"/>
