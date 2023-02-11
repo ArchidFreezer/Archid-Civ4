@@ -5683,6 +5683,7 @@ CvCivicInfo::CvCivicInfo() :
 	m_iForeignTradeRouteModifier(0),
 	m_bMilitaryFoodProduction(false),
 	m_iUnhealthyPopulationModifier(0), // K-Mod
+	m_iPopulationGrowthRateModifier(0),
 	m_bBuildingOnlyHealthy(false),
 	m_bNoForeignTrade(false),
 	m_bNoCorporations(false),
@@ -5738,6 +5739,10 @@ CvCivicInfo::~CvCivicInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppiImprovementYieldChanges);
 	}
+}
+
+int CvCivicInfo::getPopulationGrowthRateModifier() const {
+	return m_iPopulationGrowthRateModifier;
 }
 
 bool CvCivicInfo::isNoCapitalUnhappiness() const {
@@ -6132,6 +6137,7 @@ void CvCivicInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iStarSignScaleChangePercent);
 	stream->Read(&m_iCultureDefenceChange);
 	stream->Read(&m_iForeignTradeRouteModifier);
+	stream->Read(&m_iPopulationGrowthRateModifier);
 
 	stream->Read(&m_bMilitaryFoodProduction);
 	stream->Read(&m_iUnhealthyPopulationModifier); // K-Mod
@@ -6262,6 +6268,7 @@ void CvCivicInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iStarSignScaleChangePercent);
 	stream->Write(m_iCultureDefenceChange);
 	stream->Write(m_iForeignTradeRouteModifier);
+	stream->Write(m_iPopulationGrowthRateModifier);
 
 	stream->Write(m_bMilitaryFoodProduction);
 	stream->Write(m_iUnhealthyPopulationModifier); // K-Mod
@@ -6372,6 +6379,7 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
 	pXML->GetChildXmlValByName(&m_iUnitRangeModifier, "iUnitRangeModifier");
 	pXML->GetChildXmlValByName(&m_iCultureDefenceChange, "iCultureDefenceChange");
+	pXML->GetChildXmlValByName(&m_iPopulationGrowthRateModifier, "iPopulationGrowthRateModifier");
 
 	pXML->SetList(&m_piYieldModifier, "YieldModifiers", NUM_YIELD_TYPES);
 	pXML->SetList(&m_piCapitalYieldModifier, "CapitalYieldModifiers", NUM_YIELD_TYPES);

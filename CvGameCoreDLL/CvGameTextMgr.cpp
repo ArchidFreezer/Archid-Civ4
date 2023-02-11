@@ -6516,6 +6516,15 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer& szHelpText, CivicTypes eCivi
 		szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_EXPERIENCE_IN_BORDERS", kCivic.getExpInBorderModifier()));
 	}
 
+	// Population growth rate
+	if (kCivic.getPopulationGrowthRateModifier() > 0) {
+		szHelpText.append(NEWLINE);
+		szHelpText.append(gDLL->getText("TXT_KEY_BUILDING_CITY_FAST_GROWTH_SPEED", kCivic.getPopulationGrowthRateModifier()));
+	} else if (kCivic.getPopulationGrowthRateModifier() < 0) {
+		szHelpText.append(NEWLINE);
+		szHelpText.append(gDLL->getText("TXT_KEY_BUILDING_CITY_SLOW_GROWTH_SPEED", kCivic.getPopulationGrowthRateModifier()));
+	}
+
 	//	War Weariness
 	if (kCivic.getWarWearinessModifier() != 0) {
 		if (kCivic.getWarWearinessModifier() <= -100) {

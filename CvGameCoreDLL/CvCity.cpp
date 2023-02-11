@@ -3979,7 +3979,15 @@ int CvCity::foodDifference(bool bBottom, bool bIgnoreProduction) const {
 
 
 int CvCity::growthThreshold() const {
-	return (GET_PLAYER(getOwnerINLINE()).getGrowthThreshold(getPopulation()));
+	const CvPlayer& kPlayer = GET_PLAYER(getOwnerINLINE());
+	
+	int iThreshold = kPlayer.getGrowthThreshold(getPopulation());
+
+	// This acts as a reduction in the required threshold so we don't do the usual (x+100)/100 calc
+	iThreshold *= (100 - kPlayer.getPopulationGrowthRateModifier());
+	iThreshold /= 100;
+	
+	return std::max(1, iThreshold);
 }
 
 

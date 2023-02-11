@@ -10465,6 +10465,13 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 		iValue += kCivic.getCultureDefenceChange() * iCities;
 	}
 
+	// Pop growth is always a good thing so we will give it a boost
+	if (kCivic.getPopulationGrowthRateModifier() != 0) {
+		int iTemp = (100 + kCivic.getPopulationGrowthRateModifier()) * iCities * 3;
+		iTemp /= 100;
+		iValue += iTemp;
+	}
+
 	// K-Mod. After looking at a couple of examples, it's plain to see that the above maintenance estimates are far too big.
 	// Surprisingly, it actually doesn't take much time to calculate the precise magnitude of the maintenance change. So that's what I'll do!
 	if (kCivic.getNumCitiesMaintenanceModifier() != 0) {

@@ -47,6 +47,10 @@ public:
 	bool isNoCapitalUnhappiness() const;
 	void changeNoCapitalUnhappinessCount(int iChange);
 
+	int getPopulationGrowthRateModifier() const;
+	void setPopulationGrowthRateModifier(int iNewValue);
+	void changePopulationGrowthRateModifier(int iChange);
+
 	int getCultureDefenceChange() const;
 	void changeCultureDefenceChange(int iChange);
 	int getCultureDefenceModifier() const;
@@ -1353,6 +1357,7 @@ protected:
 	int m_iExtraGoldPerBarbarianUnit;
 	int m_iForeignTradeRouteModifier;
 	int m_iNoCapitalUnhappinessCount;
+	int m_iPopulationGrowthRateModifier;
 
 	uint m_uiStartTime;  // XXX save these?
 
