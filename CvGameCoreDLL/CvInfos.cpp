@@ -5698,6 +5698,7 @@ CvCivicInfo::CvCivicInfo() :
 	m_bTribalConscription(false),
 	m_bCreateBarbarians(false),
 	m_bNoCapitalUnhappiness(false),
+	m_bUpgradeAnywhere(false),
 	m_piYieldModifier(NULL),
 	m_piCapitalYieldModifier(NULL),
 	m_piTradeYieldModifier(NULL),
@@ -5741,6 +5742,10 @@ CvCivicInfo::~CvCivicInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppiImprovementYieldChanges);
 	}
+}
+
+bool CvCivicInfo::isUpgradeAnywhere() const {
+	return m_bUpgradeAnywhere;
 }
 
 int CvCivicInfo::getDistantUnitSupplyCostModifier() const {
@@ -6165,6 +6170,7 @@ void CvCivicInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bTribalConscription);
 	stream->Read(&m_bCreateBarbarians);
 	stream->Read(&m_bNoCapitalUnhappiness);
+	stream->Read(&m_bUpgradeAnywhere);
 
 	// Arrays
 
@@ -6298,6 +6304,7 @@ void CvCivicInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bTribalConscription);
 	stream->Write(m_bCreateBarbarians);
 	stream->Write(m_bNoCapitalUnhappiness);
+	stream->Write(m_bUpgradeAnywhere);
 
 	// Arrays
 
@@ -6414,6 +6421,7 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->SetListPairInfoArray(&m_ppiImprovementYieldChanges, "ImprovementYieldChanges", GC.getNumImprovementInfos(), NUM_YIELD_TYPES);
 
+	pXML->GetChildXmlValByName(&m_bUpgradeAnywhere, "bUpgradeAnywhere");
 	pXML->GetChildXmlValByName(szTextVal, "WeLoveTheKing");
 	setWeLoveTheKingKey(szTextVal);
 

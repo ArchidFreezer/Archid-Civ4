@@ -59,6 +59,11 @@ public:
 	void setDistantUnitSupplyCostModifier(int iNewValue);
 	void changeDistantUnitSupplyCostModifier(int iChange);
 
+	bool isUpgradeAnywhere() const;
+	int getUpgradeAnywhereCount() const;
+	void setUpgradeAnywhereCount(int iNewValue);
+	void changeUpgradeAnywhereCount(int iChange);
+
 	int getCultureDefenceChange() const;
 	void changeCultureDefenceChange(int iChange);
 	int getCultureDefenceModifier() const;
@@ -1368,6 +1373,7 @@ protected:
 	int m_iPopulationGrowthRateModifier;
 	int m_iTaxRateAngerModifier;
 	int m_iDistantUnitSupplyCostModifier;
+	int m_iUpgradeAnywhereCount;
 
 	uint m_uiStartTime;  // XXX save these?
 

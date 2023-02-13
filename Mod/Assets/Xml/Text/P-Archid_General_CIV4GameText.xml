@@ -1607,5 +1607,21 @@
 		<French>[ICON_BULLET]%d1%% Diminue le coût de Soutien des Unités distantes</French>
 		<German>[ICON_BULLET]%d1%% Reduzierte Versorgungskosten f&#252;r weit entfernte Einheiten</German>
    </Text>
+	<TEXT>
+		<Tag>TXT_KEY_CAN_UPGRADE_ANYWHERE</Tag>
+		<English>[ICON_BULLET]Can upgrade units outside of national borders</English>
+		<French>
+			<Text>[ICON_BULLET]Peut améliorer les unités en dehors des frontières nationales</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+			<Text>[ICON_BULLET]Kann Einheiten au&#223;erhalb von Staatsgrenzen modernisieren</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>[ICON_BULLET]E' possibile aggiornare le unit&#224; al di fuori dei confini nazionali.</Italian>
+		<Spanish>[ICON_BULLET]Puede actualizar unidades fuera de las fronteras nacionales.</Spanish>
+	</TEXT>
 
 </Civ4GameText>

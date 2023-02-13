@@ -6259,7 +6259,7 @@ bool CvUnit::isReadyForUpgrade() const {
 		return false;
 	}
 
-	if (plot()->getTeam() != getTeam()) {
+	if (plot()->getTeam() != getTeam() && !GET_PLAYER(getOwnerINLINE()).isUpgradeAnywhere()) {
 		return false;
 	}
 

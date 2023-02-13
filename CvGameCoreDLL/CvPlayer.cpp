@@ -534,6 +534,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iPopulationGrowthRateModifier = 0;
 	m_iTaxRateAngerModifier = 0;
 	m_iDistantUnitSupplyCostModifier = 0;
+	m_iUpgradeAnywhereCount = 0;
 
 	m_uiStartTime = 0;
 
@@ -13887,6 +13888,7 @@ void CvPlayer::processCivics(CivicTypes eCivic, int iChange) {
 	changePopulationGrowthRateModifier(kCivic.getPopulationGrowthRateModifier() * iChange);
 	changeTaxRateAngerModifier(kCivic.getTaxRateAngerModifier() * iChange);
 	changeDistantUnitSupplyCostModifier(kCivic.getDistantUnitSupplyCostModifier() * iChange);
+	changeUpgradeAnywhereCount(kCivic.isUpgradeAnywhere() ? iChange : 0);
 
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 		changeYieldRateModifier(eYield, kCivic.getYieldModifier(eYield) * iChange);
@@ -14091,6 +14093,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iPopulationGrowthRateModifier);
 	pStream->Read(&m_iTaxRateAngerModifier);
 	pStream->Read(&m_iDistantUnitSupplyCostModifier);
+	pStream->Read(&m_iUpgradeAnywhereCount);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14598,6 +14601,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iPopulationGrowthRateModifier);
 	pStream->Write(m_iTaxRateAngerModifier);
 	pStream->Write(m_iDistantUnitSupplyCostModifier);
+	pStream->Write(m_iUpgradeAnywhereCount);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -20453,4 +20457,20 @@ void CvPlayer::setDistantUnitSupplyCostModifier(int iNewValue) {
 
 void CvPlayer::changeDistantUnitSupplyCostModifier(int iChange) {
 	setDistantUnitSupplyCostModifier(getDistantUnitSupplyCostModifier() + iChange);
+}
+
+bool CvPlayer::isUpgradeAnywhere() const {
+	return m_iUpgradeAnywhereCount > 0;
+}
+
+void CvPlayer::setUpgradeAnywhereCount(int iNewValue) {
+	m_iUpgradeAnywhereCount = iNewValue;
+}
+
+void CvPlayer::changeUpgradeAnywhereCount(int iChange) {
+	setUpgradeAnywhereCount(getUpgradeAnywhereCount() + iChange);
+}
+
+int CvPlayer::getUpgradeAnywhereCount() const {
+	return m_iUpgradeAnywhereCount;
 }

@@ -6540,6 +6540,11 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer& szHelpText, CivicTypes eCivi
 		szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_DISTANT_UNIT_SUPPLY_COST_MOD_DECREASE", kCivic.getDistantUnitSupplyCostModifier()));
 	}
 
+	if (kCivic.isUpgradeAnywhere()) {
+		szHelpText.append(NEWLINE);
+		szHelpText.append(gDLL->getText("TXT_KEY_CAN_UPGRADE_ANYWHERE"));
+	}
+
 	//	War Weariness
 	if (kCivic.getWarWearinessModifier() != 0) {
 		if (kCivic.getWarWearinessModifier() <= -100) {

@@ -1569,6 +1569,7 @@ public:
 	bool isTribalConscription() const;
 	bool isCreateBarbarians() const;
 	bool isNoCapitalUnhappiness() const;
+	bool isUpgradeAnywhere() const;
 
 	std::wstring pyGetWeLoveTheKing() { return getWeLoveTheKing(); }			// Exposed to Python
 	const wchar* getWeLoveTheKing();
@@ -1667,6 +1668,7 @@ protected:
 	bool m_bTribalConscription;
 	bool m_bCreateBarbarians;
 	bool m_bNoCapitalUnhappiness;
+	bool m_bUpgradeAnywhere;
 
 	CvWString m_szWeLoveTheKingKey;
 

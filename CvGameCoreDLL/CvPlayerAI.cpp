@@ -10562,6 +10562,17 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 		iValue += iTempValue;
 	}
 
+	if (kCivic.isUpgradeAnywhere()) {
+		int iTempValue = getNumMilitaryUnits() * iWarmongerFactor / (bWarPlan ? 3 : 6);
+		//the current gold we have plus the gold we will have in 10 turns is a decent
+		//estimate of whether we are rich (if we can afford to upgrade units, anyway)
+		if (getGold() + (calculateGoldRate() * 10) > (50 + 100 * getCurrentEra())) {
+			iTempValue *= 2;
+		}
+		iTempValue /= bWarPlan ? 3 : 6;
+		iValue += iTempValue;
+	}
+
 	int iMaxConscript = getWorldSizeMaxConscript(eCivic);
 	if (iMaxConscript > 0 && (pCapital != NULL)) {
 		UnitTypes eConscript = pCapital->getConscriptUnit();
