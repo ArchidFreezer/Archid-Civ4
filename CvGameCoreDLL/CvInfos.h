@@ -1554,6 +1554,7 @@ public:
 	int getForeignTradeRouteModifier() const;
 	int getPopulationGrowthRateModifier() const;
 	int getTaxRateAngerModifier() const;
+	int getDistantUnitSupplyCostModifier() const;
 
 	bool isMilitaryFoodProduction() const;				// Exposed to Python
 	bool isBuildingOnlyHealthy() const;				// Exposed to Python
@@ -1650,6 +1651,7 @@ protected:
 	int m_iForeignTradeRouteModifier;
 	int m_iPopulationGrowthRateModifier;
 	int m_iTaxRateAngerModifier;
+	int m_iDistantUnitSupplyCostModifier;
 
 	bool m_bMilitaryFoodProduction;
 	int m_iUnhealthyPopulationModifier; // K-Mod

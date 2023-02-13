@@ -719,6 +719,7 @@
 	<ElementType name="iUnitRangeModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iTaxRateAngerModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iForeignTradeRouteModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="iDistantUnitSupplyCostModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="bEnableStarSigns" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iStarSignMitigateChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
@@ -773,6 +774,7 @@
 		<element type="iLargestCityHappiness" minOccurs="0"/>
 		<element type="bNoCapitalUnhappiness" minOccurs="0"/>
 		<element type="iTaxRateAngerModifier" minOccurs="0"/>
+		<element type="iDistantUnitSupplyCostModifier" minOccurs="0"/>
 		<element type="iWarWearinessModifier" minOccurs="0"/>
 		<element type="iFreeSpecialist" minOccurs="0"/>
 		<element type="iTradeRoutes" minOccurs="0"/>

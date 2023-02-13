@@ -6531,6 +6531,15 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer& szHelpText, CivicTypes eCivi
 		szHelpText.append(gDLL->getText("TXT_KEY_BUILDING_CITY_SLOW_GROWTH_SPEED", kCivic.getPopulationGrowthRateModifier()));
 	}
 
+	// Unit Maintenance
+	if (kCivic.getDistantUnitSupplyCostModifier() > 0) {
+		szHelpText.append(NEWLINE);
+		szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_DISTANT_UNIT_SUPPLY_COST_MOD_INCREASE", kCivic.getDistantUnitSupplyCostModifier()));
+	} else if (kCivic.getDistantUnitSupplyCostModifier() < 0) {
+		szHelpText.append(NEWLINE);
+		szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_DISTANT_UNIT_SUPPLY_COST_MOD_DECREASE", kCivic.getDistantUnitSupplyCostModifier()));
+	}
+
 	//	War Weariness
 	if (kCivic.getWarWearinessModifier() != 0) {
 		if (kCivic.getWarWearinessModifier() <= -100) {

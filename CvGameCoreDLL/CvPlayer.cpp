@@ -533,6 +533,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iNoCapitalUnhappinessCount = 0;
 	m_iPopulationGrowthRateModifier = 0;
 	m_iTaxRateAngerModifier = 0;
+	m_iDistantUnitSupplyCostModifier = 0;
 
 	m_uiStartTime = 0;
 
@@ -5720,6 +5721,9 @@ int CvPlayer::calculateUnitSupply(int& iPaidUnits, int& iBaseSupplyCost) const {
 	iPaidUnits = std::max(0, (getNumOutsideUnits() - GC.getDefineINT("INITIAL_FREE_OUTSIDE_UNITS")));
 
 	iBaseSupplyCost = iPaidUnits * GC.getDefineINT("INITIAL_OUTSIDE_UNIT_GOLD_PERCENT");
+	iBaseSupplyCost /= 100;
+
+	iBaseSupplyCost *= (100 + getDistantUnitSupplyCostModifier());
 	iBaseSupplyCost /= 100;
 
 	int iSupply = iBaseSupplyCost;
@@ -13882,6 +13886,7 @@ void CvPlayer::processCivics(CivicTypes eCivic, int iChange) {
 	changeNoCapitalUnhappinessCount(kCivic.isNoCapitalUnhappiness() ? iChange : 0);
 	changePopulationGrowthRateModifier(kCivic.getPopulationGrowthRateModifier() * iChange);
 	changeTaxRateAngerModifier(kCivic.getTaxRateAngerModifier() * iChange);
+	changeDistantUnitSupplyCostModifier(kCivic.getDistantUnitSupplyCostModifier() * iChange);
 
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 		changeYieldRateModifier(eYield, kCivic.getYieldModifier(eYield) * iChange);
@@ -14085,6 +14090,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iNoCapitalUnhappinessCount);
 	pStream->Read(&m_iPopulationGrowthRateModifier);
 	pStream->Read(&m_iTaxRateAngerModifier);
+	pStream->Read(&m_iDistantUnitSupplyCostModifier);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14591,6 +14597,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iNoCapitalUnhappinessCount);
 	pStream->Write(m_iPopulationGrowthRateModifier);
 	pStream->Write(m_iTaxRateAngerModifier);
+	pStream->Write(m_iDistantUnitSupplyCostModifier);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -20434,4 +20441,16 @@ void CvPlayer::setTaxRateAngerModifier(int iNewValue) {
 
 void CvPlayer::changeTaxRateAngerModifier(int iChange) {
 	setTaxRateAngerModifier(getTaxRateAngerModifier() + iChange);
+}
+
+int CvPlayer::getDistantUnitSupplyCostModifier() const {
+	return m_iDistantUnitSupplyCostModifier;
+}
+
+void CvPlayer::setDistantUnitSupplyCostModifier(int iNewValue) {
+	m_iDistantUnitSupplyCostModifier = iNewValue;
+}
+
+void CvPlayer::changeDistantUnitSupplyCostModifier(int iChange) {
+	setDistantUnitSupplyCostModifier(getDistantUnitSupplyCostModifier() + iChange);
 }
