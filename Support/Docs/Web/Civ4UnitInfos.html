@@ -184,11 +184,8 @@
     &lt;BonusType&gt;&lt;/BonusType&gt;
     &lt;iProductonModifier&gt;0&lt;/iProductonModifier&gt;
   &lt;/BonusProductionModifier&gt;</pre>
-    <tr><td><span class="tagoptional">Buildings</span><td>NONE<td>The buildings which the unit can construct in a friendly city<br><pre class="code">
-  &lt;Building&gt;
-    &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
-    &lt;BuildingType&gt;&lt;/BuildingType&gt;
-  &lt;/Building&gt;</pre>
+    <tr><td><span class="tagoptional"><b>Buildings</b></span><td>NONE<td>The buildings which the unit can construct in a friendly city<br><pre class="code">
+  &lt;BuildingType&gt;&lt;/BuildingType&gt;</pre>
     <tr><td><span class="tagoptional"><b>Builds</b></span><td>NONE<td>The list of improvements that the unit can build<br><pre class="code">
   &lt;BuildType&gt;&lt;/BuildType&gt;</pre>
     <tr><td><span class="tagoptional"><b>CommercesFromKill</b></span><td>NONE<td>When a unit is killed the victor may gain this commerce from the kill<br><pre class="code">
@@ -245,11 +242,11 @@
     <tr><td><span class="tagoptional"><b>PrereqAndTerrains</b></span><td>NONE<td>List of terrains, all of which must be in the cities workable area in order to train this unit<br><pre class="code">
   &lt;TerrainType&gt;&lt;/TerrainType&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqNotBuildingClasses</b></span><td>NONE<td>List building classes none which may be in the city to train this unit<br><pre class="code">
-  &lt;BuildingClass&gt;&lt;/BuildingClass&gt;</pre>
+  &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqOrBonuses</b></span><td>NONE<td>List of bonuses, one of which must be available in the city in order to train this unit<br><pre class="code">
   &lt;BonusType&gt;&lt;/BonusType&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqOrBuildingClasses</b></span><td>NONE<td>List of buildings classes, one of which must be in the city to train this unit<br><pre class="code">
-  &lt;BuildingClass&gt;&lt;/BuildingClass&gt;</pre>
+  &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqOrCivics</b></span><td>NONE<td>List of civics one of which the player must be running to train this unit<br><pre class="code">
   &lt;CivicType&gt;&lt;/CivicType&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqOrTerrains</b></span><td>NONE<td>List of terrains, one of which must be in the cities workable area in order to train this unit<br><pre class="code">
@@ -266,10 +263,10 @@
   &lt;BonusType&gt;&lt;/BonusType&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqWorldViews</b></span><td>NONE<td>List of world views, all of which must be enabled by the player in order to train the unit<br><pre class="code">
   &lt;WorldViewType&gt;&lt;/WorldViewType&gt;</pre>
-    <tr><td><span class="tagoptional"><b>ProductionTraits</b></span><td>NONE<td>The amount that a trait modifies the production on this unit<br><pre class="code">
+    <tr><td><span class="tagoptional">ProductionTraits</span><td>NONE<td>The amount that a trait modifies the production on this unit<br><pre class="code">
   &lt;ProductionTrait&gt;
-    &lt;TraitType&gt;&lt;/TraitType&gt;
-    &lt;iChange&gt;0&lt;/iChange&gt;
+    &lt;ProductionTraitType&gt;&lt;/ProductionTraitType&gt;
+    &lt;iProductionTrait&gt;0&lt;/iProductionTrait&gt;
   &lt;/ProductionTrait&gt;</pre>
     <tr><td><span class="tagoptional">ReligionSpreads</span><td>NONE<td>The chance that the unit can spread a religion. This value is used as a modifier and the final spread chance is based on the city size, number of religions, etc.<br><pre class="code">
   &lt;ReligionSpread&gt;
@@ -340,6 +337,7 @@
   &lt;iMeleeWaveSize&gt;0&lt;/iMeleeWaveSize&gt;
   &lt;iRangedWaveSize&gt;0&lt;/iRangedWaveSize&gt;
   &lt;UnitMeshGroup&gt;
+    &lt;iRequired&gt;0&lt;/iRequired&gt;
     &lt;EarlyArtDefineTag&gt;&lt;/EarlyArtDefineTag&gt;
     &lt;LateArtDefineTag&gt;&lt;/LateArtDefineTag&gt;
     &lt;MiddleArtDefineTag&gt;&lt;/MiddleArtDefineTag&gt;
@@ -365,6 +363,8 @@
     &lt;iMeleeWaveSize&gt;0&lt;/iMeleeWaveSize&gt;
     &lt;iRangedWaveSize&gt;0&lt;/iRangedWaveSize&gt;
     &lt;UnitMeshGroup&gt;
+      &lt;iRequired&gt;0&lt;/iRequired&gt;
+      &lt;EarlyArtDefineTag&gt;&lt;/EarlyArtDefineTag&gt;
     &lt;/UnitMeshGroup&gt;
   &lt;/UnitMeshGroups&gt;
   &lt;FormationType&gt;&lt;/FormationType&gt;
@@ -492,10 +492,7 @@
   &lt;/GreatPeoples&gt;
   &lt;SlaveSpecialistType&gt;&lt;/SlaveSpecialistType&gt;
   &lt;Buildings&gt;
-    &lt;Building&gt;
-      &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
-      &lt;BuildingType&gt;&lt;/BuildingType&gt;
-    &lt;/Building&gt;
+    &lt;BuildingType&gt;&lt;/BuildingType&gt;
   &lt;/Buildings&gt;
   &lt;ForceBuildings&gt;
     &lt;BuildingType&gt;&lt;/BuildingType&gt;
@@ -527,10 +524,10 @@
     &lt;TerrainType&gt;&lt;/TerrainType&gt;
   &lt;/PrereqOrTerrains&gt;
   &lt;PrereqOrBuildingClasses&gt;
-    &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+    &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
   &lt;/PrereqOrBuildingClasses&gt;
   &lt;PrereqNotBuildingClasses&gt;
-    &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+    &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
   &lt;/PrereqNotBuildingClasses&gt;
   &lt;PrereqVicinityAndBonus&gt;
     &lt;BonusType&gt;&lt;/BonusType&gt;
@@ -552,8 +549,8 @@
   &lt;bPrereqPower&gt;0&lt;/bPrereqPower&gt;
   &lt;ProductionTraits&gt;
     &lt;ProductionTrait&gt;
-      &lt;TraitType&gt;&lt;/TraitType&gt;
-      &lt;iChange&gt;0&lt;/iChange&gt;
+      &lt;ProductionTraitType&gt;&lt;/ProductionTraitType&gt;
+      &lt;iProductionTrait&gt;0&lt;/iProductionTrait&gt;
     &lt;/ProductionTrait&gt;
   &lt;/ProductionTraits&gt;
   &lt;Flavors&gt;
@@ -710,6 +707,7 @@
     &lt;iMeleeWaveSize&gt;0&lt;/iMeleeWaveSize&gt;
     &lt;iRangedWaveSize&gt;0&lt;/iRangedWaveSize&gt;
     &lt;UnitMeshGroup&gt;
+      &lt;iRequired&gt;0&lt;/iRequired&gt;
       &lt;EarlyArtDefineTag&gt;&lt;/EarlyArtDefineTag&gt;
       &lt;LateArtDefineTag&gt;&lt;/LateArtDefineTag&gt;
       &lt;MiddleArtDefineTag&gt;&lt;/MiddleArtDefineTag&gt;

@@ -75,11 +75,14 @@
     <tr><td><span class="tagoptional"><b>FreeTechs</b></span><td>NONE<td>Specifies which techs a civilization starts with<br><pre class="code">
   &lt;TechType&gt;&lt;/TechType&gt;</pre>
     <tr><td><span class="tagoptional">FreeUnitClasses</span><td>NONE<td>Specifies how many units a civilization starts with, and their types. It contains a list of unit classes, and a number for each of them<br><pre class="code">
-  &lt;FreeUnitClass&gt;&lt;/FreeUnitClass&gt;</pre>
+  &lt;FreeUnitClass&gt;
+    &lt;UnitClassType&gt;&lt;/UnitClassType&gt;
+    &lt;iFreeUnits&gt;0&lt;/iFreeUnits&gt;
+  &lt;/FreeUnitClass&gt;</pre>
     <tr><td><span class="tagmandatory">InitialCivics</span><td>NONE<td>Specifies the civics this civilization starts in. There should be a civic defined for each CivicOptionType<br><pre class="code">
   &lt;CivicType&gt;&lt;/CivicType&gt;</pre>
     <tr><td><span class="tagoptional"><b>Leaders</b></span><td>NONE<td>Lists the leaders for this civilization<br><pre class="code">
-  &lt;LeaderType&gt;&lt;/LeaderType&gt;</pre>
+  &lt;LeaderName&gt;&lt;/LeaderName&gt;</pre>
     <tr><td><span class="tagoptional">Units</span><td>NONE<td>Specifies if a civilization uses unique units. It contains a list of Unit Classes, and the corresponding Units enabled for that civilization<br><pre class="code">
   &lt;Unit&gt;
     &lt;UnitClassType&gt;&lt;/UnitClassType&gt;
@@ -148,7 +151,10 @@
     &lt;/Unit&gt;
   &lt;/Units&gt;
   &lt;FreeUnitClasses&gt;
-    &lt;FreeUnitClass&gt;&lt;/FreeUnitClass&gt;
+    &lt;FreeUnitClass&gt;
+      &lt;UnitClassType&gt;&lt;/UnitClassType&gt;
+      &lt;iFreeUnits&gt;0&lt;/iFreeUnits&gt;
+    &lt;/FreeUnitClass&gt;
   &lt;/FreeUnitClasses&gt;
   &lt;FreeBuildingClasses&gt;
     &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
@@ -166,7 +172,7 @@
     &lt;CivicType&gt;&lt;/CivicType&gt;
   &lt;/AnarchyCivics&gt;
   &lt;Leaders&gt;
-    &lt;LeaderType&gt;&lt;/LeaderType&gt;
+    &lt;LeaderName&gt;&lt;/LeaderName&gt;
   &lt;/Leaders&gt;
   &lt;DerivativeCiv&gt;&lt;/DerivativeCiv&gt;
   &lt;CivilizationSelectionSound&gt;&lt;/CivilizationSelectionSound&gt;

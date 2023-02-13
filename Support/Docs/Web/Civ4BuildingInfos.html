@@ -204,10 +204,10 @@
     &lt;BonusType&gt;&lt;/BonusType&gt;
     &lt;iChange&gt;0&lt;/iChange&gt;
   &lt;/BonusHealthChange&gt;</pre>
-    <tr><td><span class="tagoptional">BonusProductionModifiers</span><td>NONE<td>Percentage change in production of the building that possession of the bonus in the city provides<br><pre class="code">
+    <tr><td><span class="tagoptional"><b>BonusProductionModifiers</b></span><td>NONE<td>Percentage change in production of the building that possession of the bonus in the city provides<br><pre class="code">
   &lt;BonusProductionModifier&gt;
     &lt;BonusType&gt;&lt;/BonusType&gt;
-    &lt;iProductonModifier&gt;0&lt;/iProductonModifier&gt;
+    &lt;iModifier&gt;0&lt;/iModifier&gt;
   &lt;/BonusProductionModifier&gt;</pre>
     <tr><td><span class="tagoptional"><b>BonusYieldChanges</b></span><td><td>Change to yield if the bonus is connected to the city <br><pre class="code">
   &lt;BonusYieldChange&gt;
@@ -228,10 +228,10 @@
     &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
     &lt;iModifier&gt;0&lt;/iModifier&gt;
   &lt;/BuildingClassProductionModifier&gt;</pre>
-    <tr><td><span class="tagoptional">BuildingHappinessChanges</span><td>NONE<td>Changes to city happiness that other buildings provide<br><pre class="code">
+    <tr><td><span class="tagoptional"><b>BuildingHappinessChanges</b></span><td>NONE<td>Changes to city happiness that other buildings provide<br><pre class="code">
   &lt;BuildingHappinessChange&gt;
     &lt;BuildingType&gt;&lt;/BuildingType&gt;
-    &lt;iHappinessChange&gt;0&lt;/iHappinessChange&gt;
+    &lt;iChange&gt;0&lt;/iChange&gt;
   &lt;/BuildingHappinessChange&gt;</pre>
     <tr><td><span class="tagoptional">CommerceChangeDoubleTimes</span><td>NONE<td>Commerce changes provided by this building are doubled after this number of years have passed relative to the game speed<br><pre class="code">
   &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
@@ -260,11 +260,11 @@
     &lt;FlavorType&gt;&lt;/FlavorType&gt;
     &lt;iFlavor&gt;0&lt;/iFlavor&gt;
   &lt;/Flavor&gt;</pre>
-    <tr><td><span class="tagoptional">FreeSpecialistCounts</span><td>NONE<td>Change to the number of free specialists of each type that the city gains<br><pre class="code">
-  &lt;FreeSpecialistCount&gt;
+    <tr><td><span class="tagoptional"><b>FreeSpecialistCounts</b></span><td>NONE<td>Change to the number of free specialists of each type that the city gains<br><pre class="code">
+  &lt;SpecialistCount&gt;
     &lt;SpecialistType&gt;&lt;/SpecialistType&gt;
-    &lt;iFreeSpecialistCount&gt;0&lt;/iFreeSpecialistCount&gt;
-  &lt;/FreeSpecialistCount&gt;</pre>
+    &lt;iCount&gt;0&lt;/iCount&gt;
+  &lt;/SpecialistCount&gt;</pre>
     <tr><td><span class="tagoptional">GlobalCommerceModifiers</span><td>NONE<td>Percentage change to the commerce received by all the players cities<br><pre class="code">
   &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
     <tr><td><span class="tagoptional">GlobalSeaPlotYieldChanges</span><td>NONE<td>Changes to the yield output of sea plots in all player cities<br><pre class="code">
@@ -349,7 +349,7 @@
     &lt;/YieldChanges&gt;
   &lt;/SpecialistYieldChange&gt;</pre>
     <tr><td><span class="tagoptional">StateReligionCommerces</span><td>NONE<td>Change to the commerce bonus of all state religion buildings in the city<br><pre class="code">
-  &lt;iStateReligionCommerce&gt;0&lt;/iStateReligionCommerce&gt;</pre>
+  &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
     <tr><td><span class="tagoptional"><b>TechCommerceChanges</b></span><td><td>Change to city commerce that the building provides if the tech is known<br><pre class="code">
   &lt;TechCommerceChange&gt;
     &lt;TechType&gt;&lt;/TechType&gt;
@@ -617,7 +617,7 @@
     &lt;iCommerce&gt;0&lt;/iCommerce&gt;
   &lt;/SpecialistExtraCommerces&gt;
   &lt;StateReligionCommerces&gt;
-    &lt;iStateReligionCommerce&gt;0&lt;/iStateReligionCommerce&gt;
+    &lt;iCommerce&gt;0&lt;/iCommerce&gt;
   &lt;/StateReligionCommerces&gt;
   &lt;CommerceHappinesses&gt;
     &lt;iCommerce&gt;0&lt;/iCommerce&gt;
@@ -635,10 +635,10 @@
     &lt;/SpecialistCount&gt;
   &lt;/SpecialistCounts&gt;
   &lt;FreeSpecialistCounts&gt;
-    &lt;FreeSpecialistCount&gt;
+    &lt;SpecialistCount&gt;
       &lt;SpecialistType&gt;&lt;/SpecialistType&gt;
-      &lt;iFreeSpecialistCount&gt;0&lt;/iFreeSpecialistCount&gt;
-    &lt;/FreeSpecialistCount&gt;
+      &lt;iCount&gt;0&lt;/iCount&gt;
+    &lt;/SpecialistCount&gt;
   &lt;/FreeSpecialistCounts&gt;
   &lt;CommerceFlexibles&gt;
     &lt;bCommerce&gt;0&lt;/bCommerce&gt;
@@ -662,7 +662,7 @@
   &lt;BonusProductionModifiers&gt;
     &lt;BonusProductionModifier&gt;
       &lt;BonusType&gt;&lt;/BonusType&gt;
-      &lt;iProductonModifier&gt;0&lt;/iProductonModifier&gt;
+      &lt;iModifier&gt;0&lt;/iModifier&gt;
     &lt;/BonusProductionModifier&gt;
   &lt;/BonusProductionModifiers&gt;
   &lt;UnitCombatFreeExperiences&gt;
@@ -692,7 +692,7 @@
   &lt;BuildingHappinessChanges&gt;
     &lt;BuildingHappinessChange&gt;
       &lt;BuildingType&gt;&lt;/BuildingType&gt;
-      &lt;iHappinessChange&gt;0&lt;/iHappinessChange&gt;
+      &lt;iChange&gt;0&lt;/iChange&gt;
     &lt;/BuildingHappinessChange&gt;
   &lt;/BuildingHappinessChanges&gt;
   &lt;PrereqNumOfBuildingClasses&gt;
