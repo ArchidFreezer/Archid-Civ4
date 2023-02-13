@@ -5686,6 +5686,7 @@ CvCivicInfo::CvCivicInfo() :
 	m_iPopulationGrowthRateModifier(0),
 	m_iTaxRateAngerModifier(0),
 	m_iDistantUnitSupplyCostModifier(0),
+	m_iCityDefenceModifier(0),
 	m_bBuildingOnlyHealthy(false),
 	m_bNoForeignTrade(false),
 	m_bNoCorporations(false),
@@ -5742,6 +5743,10 @@ CvCivicInfo::~CvCivicInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppiImprovementYieldChanges);
 	}
+}
+
+int CvCivicInfo::getCityDefenceModifier() const {
+	return m_iCityDefenceModifier;
 }
 
 bool CvCivicInfo::isUpgradeAnywhere() const {
@@ -6155,6 +6160,7 @@ void CvCivicInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iPopulationGrowthRateModifier);
 	stream->Read(&m_iTaxRateAngerModifier);
 	stream->Read(&m_iDistantUnitSupplyCostModifier);
+	stream->Read(&m_iCityDefenceModifier);
 
 	stream->Read(&m_bMilitaryFoodProduction);
 	stream->Read(&m_iUnhealthyPopulationModifier); // K-Mod
@@ -6289,6 +6295,7 @@ void CvCivicInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iPopulationGrowthRateModifier);
 	stream->Write(m_iTaxRateAngerModifier);
 	stream->Write(m_iDistantUnitSupplyCostModifier);
+	stream->Write(m_iCityDefenceModifier);
 
 	stream->Write(m_bMilitaryFoodProduction);
 	stream->Write(m_iUnhealthyPopulationModifier); // K-Mod
@@ -6424,6 +6431,7 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bUpgradeAnywhere, "bUpgradeAnywhere");
 	pXML->GetChildXmlValByName(szTextVal, "WeLoveTheKing");
 	setWeLoveTheKingKey(szTextVal);
+	pXML->GetChildXmlValByName(&m_iCityDefenceModifier, "iCityDefenceModifier");
 
 	return true;
 }

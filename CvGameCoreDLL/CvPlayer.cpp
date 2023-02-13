@@ -13889,6 +13889,7 @@ void CvPlayer::processCivics(CivicTypes eCivic, int iChange) {
 	changeTaxRateAngerModifier(kCivic.getTaxRateAngerModifier() * iChange);
 	changeDistantUnitSupplyCostModifier(kCivic.getDistantUnitSupplyCostModifier() * iChange);
 	changeUpgradeAnywhereCount(kCivic.isUpgradeAnywhere() ? iChange : 0);
+	changeCityDefenseModifier(kCivic.getCityDefenceModifier() * iChange);
 
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 		changeYieldRateModifier(eYield, kCivic.getYieldModifier(eYield) * iChange);

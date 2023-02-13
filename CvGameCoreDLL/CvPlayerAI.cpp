@@ -10573,6 +10573,17 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 		iValue += iTempValue;
 	}
 
+	if (kCivic.getCityDefenceModifier()) {
+		// If we are losing a war then extra defence is more important
+		int iTempValue = iCities * (100 + kCivic.getCityDefenceModifier()) * iWarmongerFactor;
+		int iWarSuccessRating = kTeam.AI_getWarSuccessRating();
+		if (iWarSuccessRating < -25) {
+			iTempValue *= 75 + range(-iWarSuccessRating, 25, 100);
+			iTempValue /= 100;
+		}
+		iTempValue /= 100;
+	}
+
 	int iMaxConscript = getWorldSizeMaxConscript(eCivic);
 	if (iMaxConscript > 0 && (pCapital != NULL)) {
 		UnitTypes eConscript = pCapital->getConscriptUnit();

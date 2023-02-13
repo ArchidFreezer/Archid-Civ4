@@ -1623,5 +1623,11 @@
 		<Italian>[ICON_BULLET]E' possibile aggiornare le unit&#224; al di fuori dei confini nazionali.</Italian>
 		<Spanish>[ICON_BULLET]Puede actualizar unidades fuera de las fronteras nacionales.</Spanish>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_CITY_DEFENCE_MOD</Tag>
+		<English>[ICON_BULLET]%d1%% Defence in all Cities</English>
+		<French>[ICON_BULLET]%d1%% de Défense dans toutes les Villes</French>
+		<German>[ICON_BULLET]%d1%% Stadtverteidigung in allen St&#228;dten</German>
+	</TEXT>
 
 </Civ4GameText>

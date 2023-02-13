@@ -716,6 +716,7 @@
 	<ElementType name="iUnitRangeChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iPopulationGrowthRateModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="bUpgradeAnywhere" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iCityDefenceModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="bNoCapitalUnhappiness" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iUnitRangeModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iTaxRateAngerModifier" content="textOnly" dt:type="int"/>
@@ -811,6 +812,7 @@
 		<element type="ImprovementYieldChanges" minOccurs="0"/>
 		<element type="bUpgradeAnywhere" minOccurs="0"/>
 		<element type="WeLoveTheKing" minOccurs="0"/>
+		<element type="iCityDefenceModifier" minOccurs="0"/>
 	</ElementType>
 	<ElementType name="CivicInfos" content="eltOnly">
 		<element type="CivicInfo" maxOccurs="*"/>
