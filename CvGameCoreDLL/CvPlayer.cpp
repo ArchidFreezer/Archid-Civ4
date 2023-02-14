@@ -13925,6 +13925,12 @@ void CvPlayer::processCivics(CivicTypes eCivic, int iChange) {
 
 	for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
 		changeSpecialistValidCount(eSpecialist, kCivic.isSpecialistValid(eSpecialist) ? iChange : 0);
+		if (kCivic.getFreeSpecialistCount(eSpecialist) != 0) {
+			int iLoop;
+			for (CvCity* pLoopCity = firstCity(&iLoop); NULL != pLoopCity; pLoopCity = nextCity(&iLoop)) {
+				pLoopCity->changeFreeSpecialistCount(eSpecialist, kCivic.getFreeSpecialistCount(eSpecialist) * iChange);
+			}
+		}
 	}
 
 	for (ImprovementTypes eImprovement = (ImprovementTypes)0; eImprovement < GC.getNumImprovementInfos(); eImprovement = (ImprovementTypes)(eImprovement + 1)) {
@@ -14176,6 +14182,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(GC.getNumCorporationInfos(), m_paiHasCorporationCount);
 	pStream->Read(GC.getNumUpkeepInfos(), m_paiUpkeepCount);
 	pStream->Read(GC.getNumSpecialistInfos(), m_paiSpecialistValidCount);
+	pStream->Read(GC.getNumSpecialistInfos(), m_piFreeSpecialistCount);
 
 	FAssertMsg((0 < GC.getNumTechInfos()), "GC.getNumTechInfos() is not greater than zero but it is expected to be in CvPlayer::read");
 	pStream->Read(GC.getNumTechInfos(), m_pabResearchingTech);
@@ -14677,6 +14684,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(GC.getNumCorporationInfos(), m_paiHasCorporationCount);
 	pStream->Write(GC.getNumUpkeepInfos(), m_paiUpkeepCount);
 	pStream->Write(GC.getNumSpecialistInfos(), m_paiSpecialistValidCount);
+	pStream->Write(GC.getNumSpecialistInfos(), m_piFreeSpecialistCount);
 
 	FAssertMsg((0 < GC.getNumTechInfos()), "GC.getNumTechInfos() is not greater than zero but it is expected to be in CvPlayer::write");
 	pStream->Write(GC.getNumTechInfos(), m_pabResearchingTech);
@@ -20474,4 +20482,28 @@ void CvPlayer::changeUpgradeAnywhereCount(int iChange) {
 
 int CvPlayer::getUpgradeAnywhereCount() const {
 	return m_iUpgradeAnywhereCount;
+}
+
+int CvPlayer::getFreeSpecialistCount(SpecialistTypes eIndex) const {
+	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
+	FAssertMsg(eIndex < GC.getNumSpecialistInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
+	FAssertMsg(m_piFreeSpecialistCount != NULL, "m_piFreeSpecialistCount is not expected to be equal with NULL");
+	return m_piFreeSpecialistCount[eIndex];
+}
+
+void CvPlayer::changeFreeSpecialistCount(SpecialistTypes eIndex, int iChange) {
+	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
+	FAssertMsg(eIndex < GC.getNumSpecialistInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
+
+	if (iChange != 0) {
+		FAssertMsg(m_piFreeSpecialistCount != NULL, "m_piFreeSpecialistCount is not expected to be equal with NULL");
+		m_piFreeSpecialistCount[eIndex] = getFreeSpecialistCount(eIndex) + iChange;
+		FAssertMsg(getFreeSpecialistCount(eIndex) >= 0, "getSpecialistValidCount(eIndex) is expected to be non-negative (invalid Index)");
+
+		int iLoop;
+		for (CvCity* pLoopCity = firstCity(&iLoop); NULL != pLoopCity; pLoopCity = nextCity(&iLoop)) {
+			pLoopCity->changeFreeSpecialistCount(eIndex, iChange);
+		}
+		AI_makeAssignWorkDirty();
+	}
 }

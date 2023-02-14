@@ -6568,6 +6568,14 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer& szHelpText, CivicTypes eCivi
 		szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_FREE_SPECIALISTS", kCivic.getFreeSpecialist()));
 	}
 
+	for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
+		if (kCivic.getFreeSpecialistCount(eSpecialist) > 0) {
+			szHelpText.append(NEWLINE);
+			szHelpText.append(gDLL->getText("TXT_KEY_BUILDING_FREE_SPECIALIST", kCivic.getFreeSpecialistCount(eSpecialist), GC.getSpecialistInfo(eSpecialist).getTextKeyWide()));
+			szHelpText.append(gDLL->getText("TXT_KEY_BUILDING_GLOBAL"));
+		}
+	}
+
 	//	Trade routes
 	if (kCivic.getTradeRoutes() != 0) {
 		szHelpText.append(NEWLINE);

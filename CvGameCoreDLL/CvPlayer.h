@@ -59,6 +59,9 @@ public:
 	void setDistantUnitSupplyCostModifier(int iNewValue);
 	void changeDistantUnitSupplyCostModifier(int iChange);
 
+	int getFreeSpecialistCount(SpecialistTypes eIndex) const;
+	void changeFreeSpecialistCount(SpecialistTypes eIndex, int iChange);
+
 	bool isUpgradeAnywhere() const;
 	int getUpgradeAnywhereCount() const;
 	void setUpgradeAnywhereCount(int iNewValue);
@@ -1453,6 +1456,7 @@ protected:
 	int* m_paiUpkeepCount;
 	int* m_paiSpecialistValidCount;
 	int* m_paiObsoleteBuildingCount;
+	int* m_piFreeSpecialistCount;
 
 	bool* m_pabResearchingTech;
 	bool* m_pabLoyalMember;

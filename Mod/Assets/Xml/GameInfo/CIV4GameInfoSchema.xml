@@ -722,6 +722,14 @@
 	<ElementType name="iTaxRateAngerModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iForeignTradeRouteModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iDistantUnitSupplyCostModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="iCount" content="textOnly" dt:type="int"/>
+	<ElementType name="FreeSpecialistCount" content="eltOnly">
+		<element type="SpecialistType"/>
+		<element type="iCount"/>
+	</ElementType>
+	<ElementType name="FreeSpecialistCounts" content="eltOnly">
+		<element type="FreeSpecialistCount" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="bEnableStarSigns" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iStarSignMitigateChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
@@ -806,6 +814,7 @@
 		<element type="Hurrys" minOccurs="0"/>
 		<element type="SpecialBuildingNotRequireds" minOccurs="0"/>
 		<element type="SpecialistValids" minOccurs="0"/>
+		<element type="FreeSpecialistCounts" minOccurs="0"/>
 		<element type="BuildingHappinessChanges" minOccurs="0"/>
 		<element type="BuildingHealthChanges" minOccurs="0"/>
 		<element type="FeatureHappinessChanges" minOccurs="0"/>

@@ -1593,6 +1593,7 @@ public:
 	int getBuildingHappinessChanges(int i) const;				// Exposed to Python
 	int getBuildingHealthChanges(int i) const;				// Exposed to Python
 	int getFeatureHappinessChanges(int i) const;				// Exposed to Python
+	int getFreeSpecialistCount(int i) const;
 
 	bool isHurry(int i) const;													// Exposed to Python
 	bool isSpecialBuildingNotRequired(int i) const;			// Exposed to Python
@@ -1685,6 +1686,7 @@ protected:
 	int* m_paiBuildingHappinessChanges;
 	int* m_paiBuildingHealthChanges;
 	int* m_paiFeatureHappinessChanges;
+	int* m_piFreeSpecialistCount;
 
 	bool* m_pabHurry;
 	bool* m_pabSpecialBuildingNotRequired;

@@ -11198,6 +11198,16 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 			iTempValue += iCities * (AI_isDoVictoryStrategy(AI_VICTORY_CULTURE3) ? 10 : 1) + 6;
 		}
 		iValue += (iTempValue / 2);
+
+		// For free specialists we want a value per city
+		if (kCivic.getFreeSpecialistCount(eSpecialist) != 0) {
+			int iLoop;
+			for (CvCity* pLoopCity = firstCity(&iLoop); NULL != pLoopCity; pLoopCity = nextCity(&iLoop)) {
+				// The value here is in units of roughly 400 * commerce so we need to rescale it to our single commerce per turn
+				iValue += (pLoopCity->AI_permanentSpecialistValue(eSpecialist) / 400);
+			}
+		}
+
 	}
 
 	// K-Mod. When aiming for a diplomatic victory, consider the favourite civics of our friends!

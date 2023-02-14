@@ -236,6 +236,10 @@ void CvCity::init(int iID, PlayerTypes eOwner, int iX, int iY, bool bBumpUnits, 
 		}
 	}
 
+	for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
+		changeFreeSpecialistCount(eSpecialist, kOwner.getFreeSpecialistCount(eSpecialist));
+	}
+
 	area()->changeCitiesPerPlayer(getOwnerINLINE(), 1);
 
 	GET_TEAM(getTeam()).changeNumCities(1);
@@ -8942,13 +8946,17 @@ int CvCity::getFreeSpecialistCount(SpecialistTypes eIndex) const {
 	return m_paiFreeSpecialistCount[eIndex];
 }
 
+// Gets the number of specialists not added through buildings, religions and corporations in the city
+// This is used when a city changes hands as these are re-processed at that point so we need to know how many
+//  there would be without them to prevent double-counting.
+// Currently religions and corporations do not add free specialists at the city level
 int CvCity::getAddedFreeSpecialistCount(SpecialistTypes eIndex) const {
 	int iNumAddedSpecialists = getFreeSpecialistCount(eIndex);
 
-	for (int iJ = 0; iJ < GC.getNumBuildingInfos(); ++iJ) {
-		CvBuildingInfo& kBuilding = GC.getBuildingInfo((BuildingTypes)iJ);
+	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding +1)) {
+		CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
 		if (kBuilding.getFreeSpecialistCount(eIndex) > 0) {
-			iNumAddedSpecialists -= getNumActiveBuilding((BuildingTypes)iJ) * kBuilding.getFreeSpecialistCount(eIndex);
+			iNumAddedSpecialists -= getNumActiveBuilding(eBuilding) * kBuilding.getFreeSpecialistCount(eIndex);
 		}
 	}
 
