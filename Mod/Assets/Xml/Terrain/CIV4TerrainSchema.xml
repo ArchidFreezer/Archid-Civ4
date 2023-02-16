@@ -230,7 +230,7 @@
 		<element type="FeatureType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="FeatureTerrainBooleans" content="eltOnly">
-		<element type="FeatureType" minOccurs="0" maxOccurs="*"/>
+		<element type="TerrainType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="bUseLSystem" content="textOnly" dt:type="boolean"/>
 	<ElementType name="BonusInfo" content="eltOnly">
