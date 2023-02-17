@@ -425,11 +425,15 @@
 		<element type="BonusType"/>
 		<element type="YieldChanges"/>
 	</ElementType>
-	<ElementType name="VicinityBonusYieldChanges" content="eltOnly">
-		<element type="BonusYieldChange" minOccurs="0" maxOccurs="*"/>
-	</ElementType>
 	<ElementType name="BonusYieldChanges" content="eltOnly">
 		<element type="BonusYieldChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="VicinityBonusYieldChange" content="eltOnly">
+		<element type="BonusType"/>
+		<element type="YieldChanges"/>
+	</ElementType>
+	<ElementType name="VicinityBonusYieldChanges" content="eltOnly">
+		<element type="VicinityBonusYieldChange" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="bRequirePrereqVicinityBonusConnected" content="textOnly" dt:type="boolean"/>
 	<ElementType name="BuildingClassProductionModifier" content="eltOnly">
