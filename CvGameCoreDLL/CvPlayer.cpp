@@ -87,6 +87,7 @@ CvPlayer::CvPlayer() {
 	m_paiUpkeepCount = NULL;
 	m_paiSpecialistValidCount = NULL;
 	m_paiObsoleteBuildingCount = NULL;
+	m_piFreeSpecialistCount = NULL;
 
 	m_pabResearchingTech = NULL;
 	m_pabLoyalMember = NULL;
@@ -350,6 +351,7 @@ void CvPlayer::uninit() {
 	SAFE_DELETE_ARRAY(m_paiUpkeepCount);
 	SAFE_DELETE_ARRAY(m_paiSpecialistValidCount);
 	SAFE_DELETE_ARRAY(m_paiObsoleteBuildingCount);
+	SAFE_DELETE_ARRAY(m_piFreeSpecialistCount);
 
 	SAFE_DELETE_ARRAY(m_pabResearchingTech);
 	SAFE_DELETE_ARRAY(m_pabLoyalMember);
@@ -755,8 +757,11 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 		FAssertMsg(0 < GC.getNumSpecialistInfos(), "GC.getNumSpecialistInfos() is not greater than zero but it is used to allocate memory in CvPlayer::reset");
 		FAssertMsg(m_paiSpecialistValidCount == NULL, "about to leak memory, CvPlayer::m_paiSpecialistValidCount");
 		m_paiSpecialistValidCount = new int[GC.getNumSpecialistInfos()];
+		FAssertMsg(m_piFreeSpecialistCount == NULL, "about to leak memory, CvPlayer::m_paiSpecialistValidCount");
+		m_piFreeSpecialistCount = new int[GC.getNumSpecialistInfos()];
 		for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
 			m_paiSpecialistValidCount[eSpecialist] = 0;
+			m_piFreeSpecialistCount[eSpecialist] = 0;
 		}
 
 		FAssertMsg(0 < GC.getNumSpecialistInfos(), "GC.getNumSpecialistInfos() is not greater than zero but it is used to allocate memory in CvPlayer::reset");
