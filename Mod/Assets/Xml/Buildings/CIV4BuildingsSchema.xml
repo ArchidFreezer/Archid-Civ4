@@ -435,7 +435,7 @@
 	<ElementType name="VicinityBonusYieldChanges" content="eltOnly">
 		<element type="VicinityBonusYieldChange" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
-	<ElementType name="bRequirePrereqVicinityBonusConnected" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bPrereqVicinityBonusUnconnectedAllowed" content="textOnly" dt:type="boolean"/>
 	<ElementType name="BuildingClassProductionModifier" content="eltOnly">
 		<element type="BuildingClassType"/>
 		<element type="iModifier"/>
@@ -484,7 +484,7 @@
 		<element type="PrereqOrTerrains" minOccurs="0"/>
 		<element type="PrereqVicinityAndBonus" minOccurs="0"/>
 		<element type="PrereqVicinityOrBonus" minOccurs="0"/>
-		<element type="bRequirePrereqVicinityBonusConnected" minOccurs="0"/> <!-- Default: 1 -->
+		<element type="bPrereqVicinityBonusUnconnectedAllowed" minOccurs="0"/>
 		<element type="PrereqVicinityImprovements" minOccurs="0"/>
 		<element type="PrereqVicinityFeatures" minOccurs="0"/>
 		<element type="PrereqWorldViews" minOccurs="0"/>

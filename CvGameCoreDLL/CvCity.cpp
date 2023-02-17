@@ -11717,7 +11717,7 @@ bool CvCity::isValidBuildingLocation(BuildingTypes eBuilding) const {
 	// Check AND Bonus
 	// If any fail then the building location is not valid so we can return from the function
 	for (int iI = 0; iI < kBuilding.getNumPrereqVicinityAndBonus(); iI++) {
-		if (!hasVicinityBonus((BonusTypes)kBuilding.getPrereqVicinityAndBonus(iI), NULL, kBuilding.isRequirePrereqVicinityBonusWorked())) {
+		if (!hasVicinityBonus((BonusTypes)kBuilding.getPrereqVicinityAndBonus(iI), NULL, !kBuilding.isPrereqVicinityBonusUnconnectedAllowed())) {
 			return false;
 		}
 	}
@@ -11727,7 +11727,7 @@ bool CvCity::isValidBuildingLocation(BuildingTypes eBuilding) const {
 	bool bFoundOrBonus = false;
 	int iNumPrereqOrBonus = kBuilding.getNumPrereqVicinityOrBonus();
 	for (int iI = 0; iI < iNumPrereqOrBonus && !bFoundOrBonus; iI++) {
-		bFoundOrBonus = hasVicinityBonus((BonusTypes)kBuilding.getPrereqVicinityOrBonus(iI), NULL, kBuilding.isRequirePrereqVicinityBonusWorked());
+		bFoundOrBonus = hasVicinityBonus((BonusTypes)kBuilding.getPrereqVicinityOrBonus(iI), NULL, !kBuilding.isPrereqVicinityBonusUnconnectedAllowed());
 	}
 	if (!bFoundOrBonus && iNumPrereqOrBonus > 0) {
 		return false;

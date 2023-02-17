@@ -3492,7 +3492,7 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 
 				for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
 					if (kBuilding.getVicinityBonusYieldChange(eBonus, eYield)) {
-						if (hasVicinityBonus(eBonus, NULL, kBuilding.isRequirePrereqVicinityBonusWorked())) {
+						if (hasVicinityBonus(eBonus, NULL, !kBuilding.isPrereqVicinityBonusUnconnectedAllowed())) {
 							iRawYieldValue += (kBuilding.getVicinityBonusYieldChange(eBonus, eYield) * 4);
 						}
 					}

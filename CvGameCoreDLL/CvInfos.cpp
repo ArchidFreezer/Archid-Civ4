@@ -6806,7 +6806,7 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_bForceDisableStarSigns(false),
 	m_bStarSignGoodOnly(false),
 	m_bSlaveMarket(false),
-	m_bRequirePrereqVicinityBonusConnected(false),
+	m_bPrereqVicinityBonusUnconnectedAllowed(false),
 	m_eMinCultureLevel(NO_CULTURELEVEL),
 	m_piProductionTraits(NULL),
 	m_piHappinessTraits(NULL),
@@ -6974,8 +6974,8 @@ int CvBuildingInfo::getBuildingClassProductionModifier(BuildingClassTypes eBuild
 	return (it != m_mBuildingClassProductionModifiers.end()) ? it->second : 0;
 }
 
-bool CvBuildingInfo::isRequirePrereqVicinityBonusWorked() const {
-	return m_bRequirePrereqVicinityBonusConnected;
+bool CvBuildingInfo::isPrereqVicinityBonusUnconnectedAllowed() const {
+	return m_bPrereqVicinityBonusUnconnectedAllowed;
 }
 
 int CvBuildingInfo::getVicinityBonusYieldChange(int i, int j) const {
@@ -8149,7 +8149,7 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bForceDisableStarSigns);
 	stream->Read(&m_bStarSignGoodOnly);
 	stream->Read(&m_bSlaveMarket);
-	stream->Read(&m_bRequirePrereqVicinityBonusConnected);
+	stream->Read(&m_bPrereqVicinityBonusUnconnectedAllowed);
 
 	stream->ReadString(m_szConstructSound);
 	stream->ReadString(m_szArtDefineTag);
@@ -8655,7 +8655,7 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bForceDisableStarSigns);
 	stream->Write(m_bStarSignGoodOnly);
 	stream->Write(m_bSlaveMarket);
-	stream->Write(m_bRequirePrereqVicinityBonusConnected);
+	stream->Write(m_bPrereqVicinityBonusUnconnectedAllowed);
 
 	stream->WriteString(m_szConstructSound);
 	stream->WriteString(m_szArtDefineTag);
@@ -8847,7 +8847,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetVectorInfo(m_viPrereqOrTerrains, "PrereqOrTerrains");
 	pXML->SetVectorInfo(m_viPrereqVicinityAndBonus, "PrereqVicinityAndBonus");
 	pXML->SetVectorInfo(m_viPrereqVicinityOrBonus, "PrereqVicinityOrBonus");
-	pXML->GetChildXmlValByName(&m_bRequirePrereqVicinityBonusConnected, "bRequirePrereqVicinityBonusConnected", true);
+	pXML->GetChildXmlValByName(&m_bPrereqVicinityBonusUnconnectedAllowed, "bPrereqVicinityBonusUnconnectedAllowed");
 	pXML->SetVectorInfo(m_viPrereqVicinityImprovements, "PrereqVicinityImprovements");
 	pXML->SetVectorInfo(m_viPrereqVicinityFeatures, "PrereqVicinityFeatures");
 	pXML->GetChildXmlValByName(&m_iMinPopulation, "iMinPopulation");
