@@ -173,7 +173,7 @@
     <tr><td><span class="tagoptional">bPower</span><td>0<td>If true, provides power to the city
     <tr><td><span class="tagoptional"><b>bPrereqPower</b></span><td>0<td>If true, the city must have access to a power source in order to construct this building. If access to power is list the building becomes disabled.
     <tr><td><span class="tagoptional">bPrereqReligion</span><td>0<td>If true, a religion must be present in the city before it can be constructed
-    <tr><td><span class="tagoptional"><b>bRequirePrereqVicinityBonusConnected</b></span><td>1<td>If true, prereq vicinity bonuses must be connected to the city
+    <tr><td><span class="tagoptional"><b>bPrereqVicinityBonusUnconnectedAllowed</b></span><td>0<td>xxxDESCxxx
     <tr><td><span class="tagoptional">bRiver</span><td>0<td>If true, requires an adjacent river before it can be constructed
     <tr><td><span class="tagoptional">bShiftDown</span><td>0<td>If true, the HotKey is only used if the Shift key is also pressed
     <tr><td><span class="tagoptional"><b>bSlaveMarket</b></span><td>0<td>If slavers can sell slaves in this city
@@ -363,12 +363,12 @@
     &lt;iExperience&gt;0&lt;/iExperience&gt;
   &lt;/UnitCombatFreeExperience&gt;</pre>
     <tr><td><span class="tagoptional"><b>VicinityBonusYieldChanges</b></span><td><td>Change to yield if the bonus is being worked by and connected to the city, see also bRequirePrereqVicinityBonusConnected<br><pre class="code">
-  &lt;BonusYieldChange&gt;
+  &lt;VicinityBonusYieldChange&gt;
     &lt;BonusType&gt;&lt;/BonusType&gt;
     &lt;YieldChanges&gt;
       &lt;iYield&gt;0&lt;/iYield&gt;
     &lt;/YieldChanges&gt;
-  &lt;/BonusYieldChange&gt;</pre>
+  &lt;/VicinityBonusYieldChange&gt;</pre>
     <tr><td><span class="tagoptional">YieldChanges</span><td>NONE<td>Changes to the yield output of all city plots<br><pre class="code">
   &lt;iYield&gt;0&lt;/iYield&gt;</pre>
     <tr><td><span class="tagoptional">YieldModifiers</span><td>NONE<td>Percentage change to the yields in the city<br><pre class="code">
@@ -447,7 +447,7 @@
   &lt;PrereqVicinityOrBonus&gt;
     &lt;BonusType&gt;&lt;/BonusType&gt;
   &lt;/PrereqVicinityOrBonus&gt;
-  &lt;bRequirePrereqVicinityBonusConnected&gt;1&lt;/bRequirePrereqVicinityBonusConnected&gt;
+  &lt;bPrereqVicinityBonusUnconnectedAllowed&gt;0&lt;/bPrereqVicinityBonusUnconnectedAllowed&gt;
   &lt;PrereqVicinityImprovements&gt;
     &lt;ImprovementType&gt;&lt;/ImprovementType&gt;
   &lt;/PrereqVicinityImprovements&gt;
@@ -738,12 +738,12 @@
     &lt;/BonusYieldChange&gt;
   &lt;/BonusYieldChanges&gt;
   &lt;VicinityBonusYieldChanges&gt;
-    &lt;BonusYieldChange&gt;
+    &lt;VicinityBonusYieldChange&gt;
       &lt;BonusType&gt;&lt;/BonusType&gt;
       &lt;YieldChanges&gt;
         &lt;iYield&gt;0&lt;/iYield&gt;
       &lt;/YieldChanges&gt;
-    &lt;/BonusYieldChange&gt;
+    &lt;/VicinityBonusYieldChange&gt;
   &lt;/VicinityBonusYieldChanges&gt;
   &lt;TechCommerceChanges&gt;
     &lt;TechCommerceChange&gt;

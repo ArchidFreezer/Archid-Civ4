@@ -13905,7 +13905,7 @@ void CvPlayer::processCivics(CivicTypes eCivic, int iChange) {
 	for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
 		changeCommerceRateModifier(eCommerce, kCivic.getCommerceModifier(eCommerce) * iChange);
 		changeCapitalCommerceRateModifier(eCommerce, kCivic.getCapitalCommerceModifier(eCommerce) * iChange);
-		changeSpecialistExtraCommerce(eCommerce, kCivic.getSpecialistExtraCommerce(eCommerce) * iChange);
+		changeSpecialistExtraCommerce(eCommerce, kCivic.getSpecialistCommerceChange(eCommerce) * iChange);
 	}
 
 	for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {

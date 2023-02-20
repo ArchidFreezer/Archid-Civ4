@@ -10664,7 +10664,7 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 		int iSpecialistValue = 5 * 100; // rough base value
 		// additional bonuses
 		for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
-			int c = getSpecialistExtraCommerce(eCommerce) + kCivic.getSpecialistExtraCommerce(eCommerce);
+			int c = getSpecialistExtraCommerce(eCommerce) + kCivic.getSpecialistCommerceChange(eCommerce);
 			if (c)
 				iSpecialistValue += c * AI_commerceWeight(eCommerce);
 		}
@@ -11108,7 +11108,7 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 	// only take the time to count them if the civic has a bonus for specialists
 	bool bSpecialistCommerce = false;
 	for (CommerceTypes eCommerce = (CommerceTypes)0; !bSpecialistCommerce && eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
-		bSpecialistCommerce = kCivic.getSpecialistExtraCommerce(eCommerce) != 0;
+		bSpecialistCommerce = kCivic.getSpecialistCommerceChange(eCommerce) != 0;
 	}
 
 	if (bSpecialistCommerce) {
@@ -11135,7 +11135,7 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 
 		// Representation
 		if (bSpecialistCommerce)
-			iTempValue += AI_averageCommerceMultiplier(eCommerce) * (kCivic.getSpecialistExtraCommerce(eCommerce) * std::max((getTotalPopulation() + 10 * iTotalBonusSpecialists) / 10, iTotalCurrentSpecialists));
+			iTempValue += AI_averageCommerceMultiplier(eCommerce) * (kCivic.getSpecialistCommerceChange(eCommerce) * std::max((getTotalPopulation() + 10 * iTotalBonusSpecialists) / 10, iTotalCurrentSpecialists));
 
 		iTempValue /= 100; // (for the 3 things above)
 

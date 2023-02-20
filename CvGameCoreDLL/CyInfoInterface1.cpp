@@ -496,7 +496,7 @@ void CyInfoPythonInterface1() {
 		.def("getTradeYieldModifier", &CvCivicInfo::getTradeYieldModifier, "int (int i)")
 		.def("getCommerceModifier", &CvCivicInfo::getCommerceModifier, "int (int i)")
 		.def("getCapitalCommerceModifier", &CvCivicInfo::getCapitalCommerceModifier, "int (int i)")
-		.def("getSpecialistExtraCommerce", &CvCivicInfo::getSpecialistExtraCommerce, "int (int i)")
+		.def("getSpecialistCommerceChange", &CvCivicInfo::getSpecialistCommerceChange, "int (int i)")
 		.def("getBuildingHappinessChanges", &CvCivicInfo::getBuildingHappinessChanges, "int (int i)")
 		.def("getBuildingHealthChanges", &CvCivicInfo::getBuildingHealthChanges, "int (int i)")
 		.def("getFeatureHappinessChanges", &CvCivicInfo::getFeatureHappinessChanges, "int (int i)")

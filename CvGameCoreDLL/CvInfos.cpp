@@ -5705,7 +5705,7 @@ CvCivicInfo::CvCivicInfo() :
 	m_piTradeYieldModifier(NULL),
 	m_piCommerceModifier(NULL),
 	m_piCapitalCommerceModifier(NULL),
-	m_piSpecialistExtraCommerce(NULL),
+	m_piSpecialistCommerceChanges(NULL),
 	m_paiBuildingHappinessChanges(NULL),
 	m_paiBuildingHealthChanges(NULL),
 	m_paiFeatureHappinessChanges(NULL),
@@ -5731,7 +5731,7 @@ CvCivicInfo::~CvCivicInfo() {
 	SAFE_DELETE_ARRAY(m_piTradeYieldModifier);
 	SAFE_DELETE_ARRAY(m_piCommerceModifier);
 	SAFE_DELETE_ARRAY(m_piCapitalCommerceModifier);
-	SAFE_DELETE_ARRAY(m_piSpecialistExtraCommerce);
+	SAFE_DELETE_ARRAY(m_piSpecialistCommerceChanges);
 	SAFE_DELETE_ARRAY(m_paiBuildingHappinessChanges);
 	SAFE_DELETE_ARRAY(m_paiBuildingHealthChanges);
 	SAFE_DELETE_ARRAY(m_paiFeatureHappinessChanges);
@@ -6057,14 +6057,14 @@ int* CvCivicInfo::getCapitalCommerceModifierArray() const {
 	return m_piCapitalCommerceModifier;
 }
 
-int CvCivicInfo::getSpecialistExtraCommerce(int i) const {
+int CvCivicInfo::getSpecialistCommerceChange(int i) const {
 	FAssertMsg(i < NUM_COMMERCE_TYPES, "Index out of bounds");
 	FAssertMsg(i > -1, "Index out of bounds");
-	return m_piSpecialistExtraCommerce ? m_piSpecialistExtraCommerce[i] : -1;
+	return m_piSpecialistCommerceChanges ? m_piSpecialistCommerceChanges[i] : -1;
 }
 
-int* CvCivicInfo::getSpecialistExtraCommerceArray() const {
-	return m_piSpecialistExtraCommerce;
+int* CvCivicInfo::getSpecialistCommerceChangesArray() const {
+	return m_piSpecialistCommerceChanges;
 }
 
 int CvCivicInfo::getBuildingHappinessChanges(int i) const {
@@ -6208,9 +6208,9 @@ void CvCivicInfo::read(FDataStreamBase* stream) {
 	m_piCapitalCommerceModifier = new int[NUM_COMMERCE_TYPES];
 	stream->Read(NUM_COMMERCE_TYPES, m_piCapitalCommerceModifier);
 
-	SAFE_DELETE_ARRAY(m_piSpecialistExtraCommerce);
-	m_piSpecialistExtraCommerce = new int[NUM_COMMERCE_TYPES];
-	stream->Read(NUM_COMMERCE_TYPES, m_piSpecialistExtraCommerce);
+	SAFE_DELETE_ARRAY(m_piSpecialistCommerceChanges);
+	m_piSpecialistCommerceChanges = new int[NUM_COMMERCE_TYPES];
+	stream->Read(NUM_COMMERCE_TYPES, m_piSpecialistCommerceChanges);
 
 	SAFE_DELETE_ARRAY(m_paiBuildingHappinessChanges);
 	m_paiBuildingHappinessChanges = new int[GC.getNumBuildingClassInfos()];
@@ -6332,7 +6332,7 @@ void CvCivicInfo::write(FDataStreamBase* stream) {
 	stream->Write(NUM_YIELD_TYPES, m_piTradeYieldModifier);
 	stream->Write(NUM_COMMERCE_TYPES, m_piCommerceModifier);
 	stream->Write(NUM_COMMERCE_TYPES, m_piCapitalCommerceModifier);
-	stream->Write(NUM_COMMERCE_TYPES, m_piSpecialistExtraCommerce);
+	stream->Write(NUM_COMMERCE_TYPES, m_piSpecialistCommerceChanges);
 	stream->Write(GC.getNumBuildingClassInfos(), m_paiBuildingHappinessChanges);
 	stream->Write(GC.getNumBuildingClassInfos(), m_paiBuildingHealthChanges);
 	stream->Write(GC.getNumFeatureInfos(), m_paiFeatureHappinessChanges);
@@ -6429,7 +6429,7 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetList(&m_piTradeYieldModifier, "TradeYieldModifiers", NUM_YIELD_TYPES);
 	pXML->SetList(&m_piCommerceModifier, "CommerceModifiers", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_piCapitalCommerceModifier, "CapitalCommerceModifiers", NUM_COMMERCE_TYPES);
-	pXML->SetList(&m_piSpecialistExtraCommerce, "SpecialistExtraCommerces", NUM_COMMERCE_TYPES);
+	pXML->SetList(&m_piSpecialistCommerceChanges, "SpecialistCommerceChanges", NUM_COMMERCE_TYPES);
 
 	pXML->SetListInfoBool(&m_pabHurry, "Hurrys", GC.getNumHurryInfos());
 	pXML->SetListInfoBool(&m_pabSpecialBuildingNotRequired, "SpecialBuildingNotRequireds", GC.getNumSpecialBuildingInfos());
