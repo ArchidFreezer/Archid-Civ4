@@ -1329,6 +1329,16 @@
 		<Tag>TXT_KEY_SPECIALIST_FARMER_STRATEGY</Tag>
 		<English>Create a farmer specialist when your unimproved land does not produce enough food to sustain your population or you have a free specialist and want to boost your population.</English>
 	</TEXT>
+	<TEXT> <!-- Noble -->
+		<Tag>TXT_KEY_SPECIALIST_NOBLE</Tag>
+		<English>Noble</English>
+		<French>Noble</French>
+		<German>Feudalherr</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPECIALIST_NOBLE_STRATEGY</Tag>
+		<English>The noble is used to extract more gold from the ordinary citizens and increases culture slightly</English>
+	</TEXT>
 	<TEXT> <!-- Slave: Artist -->
 		<Tag>TXT_KEY_SPECIALIST_ARTIST_SLAVE</Tag>
 		<English>Enslaved Artist</English>
