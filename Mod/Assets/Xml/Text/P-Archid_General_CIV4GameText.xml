@@ -1321,6 +1321,14 @@
 	</TEXT>
 
 <!-- Specialists -->
+	<TEXT> <!-- Farmer -->
+		<Tag>TXT_KEY_SPECIALIST_FARMER</Tag>
+		<English>Farmer</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPECIALIST_FARMER_STRATEGY</Tag>
+		<English>Create a farmer specialist when your unimproved land does not produce enough food to sustain your population or you have a free specialist and want to boost your population.</English>
+	</TEXT>
 	<TEXT> <!-- Slave: Artist -->
 		<Tag>TXT_KEY_SPECIALIST_ARTIST_SLAVE</Tag>
 		<English>Enslaved Artist</English>

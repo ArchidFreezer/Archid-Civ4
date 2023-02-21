@@ -52,6 +52,19 @@
 			</Yields>
 			<Button>Art/Interface/MainScreen/CityScreen/engineer.dds</Button>
 		</SpecialistInfo>
+		<SpecialistInfo> <!-- Farmer -->
+			<Type>SPECIALIST_FARMER</Type>
+			<Description>TXT_KEY_SPECIALIST_FARMER</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_SPECIALISTS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_SPECIALIST_FARMER_STRATEGY</Strategy>
+			<Texture>Art/Interface/MainScreen/CityScreen/farmer.dds</Texture>
+			<bVisible>1</bVisible>
+			<Yields>
+				<iYield>3</iYield>
+				<iYield>-1</iYield>
+			</Yields>
+			<Button>Art/Interface/MainScreen/CityScreen/farmer.dds</Button>
+		</SpecialistInfo>
 		<SpecialistInfo> <!-- Merchant -->
 			<Type>SPECIALIST_MERCHANT</Type>
 			<Description>TXT_KEY_SPECIALIST_MERCHANT</Description>
