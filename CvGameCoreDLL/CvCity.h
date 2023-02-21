@@ -34,6 +34,11 @@ public:
 
 	void kill(bool bUpdatePlotGroups);																								// Exposed to Python
 
+	int getSpecialistHappiness() const;
+	int getSpecialistGoodHappiness() const;
+	int getSpecialistBadHappiness() const;
+	void changeSpecialistHappiness(int iChange);
+
 	int getBuildingClassProductionModifier(BuildingClassTypes eBuildingClass) const;
 	void changeBuildingClassProductionModifier(BuildingClassTypes eIndex, int iChange);
 	void setBuildingClassProductionModifier(BuildingClassTypes eIndex, int iChange);
@@ -1152,6 +1157,7 @@ protected:
 	int m_iDisabledPowerTimer;
 	int m_iWarWearinessTimer;
 	int m_iEventAnger;
+	int m_iSpecialistHappiness;
 
 	bool m_bNeverLost;
 	bool m_bBombarded;

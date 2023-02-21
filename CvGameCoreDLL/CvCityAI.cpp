@@ -7376,6 +7376,27 @@ int CvCityAI::AI_jobChangeValue(std::pair<bool, int> new_job, std::pair<bool, in
 
 				iTotalValue += iExperienceValue;
 			}
+
+			// Evaluate happiness changes from specialists
+			int iOldHappiness = happyLevel() - unhappyLevel() + getEspionageHappinessCounter() / 2 - getMilitaryHappiness() / 2;
+			int iNewHappinessChange = 0;
+			int iOldHappinessChange = 0;
+			if (new_job.second >= 0 && new_job.first)
+				iNewHappinessChange += GC.getSpecialistInfo((SpecialistTypes)new_job.second).getHappinessChange();
+			if (old_job.second >= 0 && old_job.first)
+				iOldHappinessChange += GC.getSpecialistInfo((SpecialistTypes)old_job.second).getHappinessChange();
+			int iHappinessChange = iNewHappinessChange - iOldHappinessChange;
+			if (iHappinessChange != 0) {
+				int iNewHappiness = iOldHappiness + iHappinessChange;
+				// We only really care about happiness as a ratio of the total population so lets calculate this
+				int iOldHappinessRatio = (iOldHappiness * 100) / getPopulation();
+				int iNewHappinessRatio = (iNewHappiness * 100) / getPopulation();
+				if ((iNewHappinessRatio < -10 && iNewHappinessRatio < iOldHappinessRatio) ||    // We would be below the theshold and are making things worse
+					(iOldHappinessRatio <= -10 && iNewHappinessRatio > iOldHappinessRatio)) {   // We were below the theshold and are making things better
+					// The specialist value is based on the difference in the ratios and how important the city is
+					iTotalValue += (AI_cityValue() * (iNewHappinessRatio - iOldHappinessRatio)) / 100;
+				}
+			}
 		}
 
 	}

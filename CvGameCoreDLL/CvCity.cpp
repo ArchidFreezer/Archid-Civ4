@@ -433,6 +433,7 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 	m_iDisabledPowerTimer = 0;
 	m_iWarWearinessTimer = 0;
 	m_iEventAnger = 0;
+	m_iSpecialistHappiness = 0;
 
 	m_bNeverLost = true;
 	m_bBombarded = false;
@@ -3431,6 +3432,7 @@ void CvCity::processSpecialist(SpecialistTypes eSpecialist, int iChange) {
 	updateExtraSpecialistYield();
 
 	changeSpecialistFreeExperience(kSpecialist.getExperience() * iChange);
+	changeSpecialistHappiness(kSpecialist.getHappinessChange() * iChange);
 }
 
 
@@ -3755,6 +3757,7 @@ int CvCity::unhappyLevel(int iExtra) const {
 		iUnhappiness -= std::min(0, GC.getHandicapInfo(getHandicapType()).getHappyBonus());
 		iUnhappiness += std::max(0, getVassalUnhappiness());
 		iUnhappiness += std::max(0, getEspionageHappinessCounter());
+		iUnhappiness += std::max(0, getSpecialistBadHappiness());
 		if (isStarSignAnger()) {
 			iUnhappiness += 1;
 		}
@@ -3781,6 +3784,7 @@ int CvCity::happyLevel() const {
 	iHappiness += std::max(0, (getExtraHappiness() + GET_PLAYER(getOwnerINLINE()).getExtraHappiness()));
 	iHappiness += std::max(0, GC.getHandicapInfo(getHandicapType()).getHappyBonus());
 	iHappiness += std::max(0, getVassalHappiness());
+	iHappiness += std::max(0, getSpecialistGoodHappiness());
 
 	if (getHappinessTimer() > 0) {
 		iHappiness += GC.getDefineINT("TEMP_HAPPY");
@@ -11043,6 +11047,7 @@ void CvCity::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iDisabledPowerTimer);
 	pStream->Read(&m_iWarWearinessTimer);
 	pStream->Read(&m_iEventAnger);
+	pStream->Read(&m_iSpecialistHappiness);
 
 	pStream->Read(&m_bNeverLost);
 	pStream->Read(&m_bBombarded);
@@ -11295,6 +11300,7 @@ void CvCity::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iDisabledPowerTimer);
 	pStream->Write(m_iWarWearinessTimer);
 	pStream->Write(m_iEventAnger);
+	pStream->Write(m_iSpecialistHappiness);
 
 	pStream->Write(m_bNeverLost);
 	pStream->Write(m_bBombarded);
@@ -13830,4 +13836,20 @@ void CvCity::setBuildingClassProductionModifier(BuildingClassTypes eBuildingClas
 
 void CvCity::changeBuildingClassProductionModifier(BuildingClassTypes eBuildingClass, int iChange) {
 	setBuildingClassProductionModifier(eBuildingClass, getBuildingClassProductionModifier(eBuildingClass) + iChange);
+}
+
+int CvCity::getSpecialistHappiness() const {
+	return m_iSpecialistHappiness;
+}
+
+int CvCity::getSpecialistGoodHappiness() const {
+	return m_iSpecialistHappiness > 0 ? m_iSpecialistHappiness : 0;
+}
+
+int CvCity::getSpecialistBadHappiness() const {
+	return m_iSpecialistHappiness < 0 ? m_iSpecialistHappiness : 0;
+}
+
+void CvCity::changeSpecialistHappiness(int iChange) {
+	m_iSpecialistHappiness += iChange;
 }

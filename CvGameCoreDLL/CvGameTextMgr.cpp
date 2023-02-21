@@ -5706,6 +5706,12 @@ void CvGameTextMgr::parseSpecialistHelpActual(CvWStringBuffer& szHelpString, Spe
 			szHelpString.append(gDLL->getText("TXT_KEY_SPECIALIST_EXPERIENCE", kSpecialist.getExperience()));
 		}
 
+		if (kSpecialist.getHappinessChange() != 0) {
+			int iHappiness = kSpecialist.getHappinessChange();
+			szHelpString.append(NEWLINE);
+			szHelpString.append(CvWString::format(L"%c+%d%c", gDLL->getSymbolID(BULLET_CHAR), abs(iHappiness), iHappiness > 0 ? gDLL->getSymbolID(HAPPY_CHAR) : gDLL->getSymbolID(UNHAPPY_CHAR)));
+		}
+
 		if (kSpecialist.getGreatPeopleRateChange() != 0) {
 			szHelpString.append(NEWLINE);
 			szHelpString.append(gDLL->getText("TXT_KEY_SPECIALIST_BIRTH_RATE", kSpecialist.getGreatPeopleRateChange()));
@@ -10907,6 +10913,14 @@ void CvGameTextMgr::setAngerHelp(CvWStringBuffer& szBuffer, CvCity& city) {
 		iOldAngerPercent = iNewAngerPercent;
 		iOldAnger = iNewAnger;
 
+		iNewAnger += std::max(0, city.getSpecialistBadHappiness());
+		iAnger = ((iNewAnger - iOldAnger) + std::min(0, iOldAnger));
+		if (iAnger > 0) {
+			szBuffer.append(gDLL->getText("TXT_KEY_UNHAPPY_SPECIALISTS", iAnger));
+			szBuffer.append(NEWLINE);
+		}
+		iOldAnger = iNewAnger;
+
 		iNewAnger += std::max(0, city.getVassalUnhappiness());
 		iAnger = ((iNewAnger - iOldAnger) + std::min(0, iOldAnger));
 		if (iAnger > 0) {
@@ -11073,6 +11087,13 @@ void CvGameTextMgr::setHappyHelp(CvWStringBuffer& szBuffer, CvCity& city) {
 		if (iHappy > 0) {
 			iTotalHappy += iHappy;
 			szBuffer.append(gDLL->getText("TXT_KEY_HAPPY_VASSAL", iHappy));
+			szBuffer.append(NEWLINE);
+		}
+
+		iHappy = city.getSpecialistGoodHappiness();
+		if (iHappy > 0) {
+			iTotalHappy += iHappy;
+			szBuffer.append(gDLL->getText("TXT_KEY_HAPPY_SPECIALISTS", iHappy));
 			szBuffer.append(NEWLINE);
 		}
 

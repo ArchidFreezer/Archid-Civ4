@@ -53,6 +53,14 @@
 		<Spanish>Ir a ciudad</Spanish>
 		<Polish>Id&#159; do Miasta</Polish>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_HAPPY_SPECIALISTS</Tag>
+		<English>+%d1_Change[ICON_HAPPY]: "Some specialists are making us happy!"</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNHAPPY_SPECIALISTS</Tag>
+		<English>+%d1_Change[ICON_UNHAPPY]: "Some specialists are making us unhappy!"</English>
+	</TEXT>
 	<!-- Tech Feature Yields -->
 	<TEXT>
 		<Tag>TXT_KEY_TECH_CHANGE_FOREST_YIELD</Tag>
@@ -1328,6 +1336,14 @@
 	<TEXT>
 		<Tag>TXT_KEY_SPECIALIST_FARMER_STRATEGY</Tag>
 		<English>Create a farmer specialist when your unimproved land does not produce enough food to sustain your population or you have a free specialist and want to boost your population.</English>
+	</TEXT>
+	<TEXT> <!-- Jester -->
+		<Tag>TXT_KEY_SPECIALIST_JESTER</Tag>
+		<English>Jester</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPECIALIST_JESTER_STRATEGY</Tag>
+		<English>Create a jester to improve the happiness of a city. As the population are distracted by the jester their own productivity is impacted causing a reduction in the food yield in the city.</English>
 	</TEXT>
 	<TEXT> <!-- Noble -->
 		<Tag>TXT_KEY_SPECIALIST_NOBLE</Tag>

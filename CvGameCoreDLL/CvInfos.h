@@ -243,6 +243,7 @@ public:
 	int getExperience() const;				// Exposed to Python
 	int getStarSignScaleChange() const;
 	int getStarSignMitigateChange() const;
+	int getHappinessChange() const;
 
 	bool isVisible() const;				// Exposed to Python
 	bool isSlave() const;
@@ -269,6 +270,7 @@ protected:
 	int m_iGreatPeopleRateChange;		// Exposed to Python
 	int m_iMissionType;
 	int m_iExperience;
+	int m_iHappinessChange;
 
 	bool m_bVisible;				// Exposed to Python
 	bool m_bSlave;

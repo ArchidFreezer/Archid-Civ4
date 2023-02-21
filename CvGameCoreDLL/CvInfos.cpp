@@ -700,6 +700,7 @@ CvSpecialistInfo::CvSpecialistInfo() :
 	m_piYieldChange(NULL),
 	m_piCommerceChange(NULL),
 	m_piFlavorValue(NULL),
+	m_iHappinessChange(0),
 	m_iExperience(0) {
 }
 
@@ -750,6 +751,10 @@ bool CvSpecialistInfo::isVisible() const {
 
 int CvSpecialistInfo::getExperience() const {
 	return m_iExperience;
+}
+
+int CvSpecialistInfo::getHappinessChange() const {
+	return m_iHappinessChange;
 }
 
 // Arrays
@@ -808,6 +813,7 @@ bool CvSpecialistInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetList(&m_piYieldChange, "Yields", NUM_YIELD_TYPES);
 	pXML->SetList(&m_piCommerceChange, "Commerces", NUM_COMMERCE_TYPES);
 	pXML->GetChildXmlValByName(&m_iExperience, "iExperience");
+	pXML->GetChildXmlValByName(&m_iHappinessChange, "iHappinessChange");
 
 	pXML->SetListPairEnum(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());
 

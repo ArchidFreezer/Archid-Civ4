@@ -65,6 +65,29 @@
 			</Yields>
 			<Button>Art/Interface/MainScreen/CityScreen/farmer.dds</Button>
 		</SpecialistInfo>
+		<SpecialistInfo> <!-- Jester -->
+			<Type>SPECIALIST_JESTER</Type>
+			<Description>TXT_KEY_SPECIALIST_JESTER</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_SPECIALISTS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_SPECIALIST_JESTER_STRATEGY</Strategy>
+			<Help/>
+			<Texture>Art/Interface/MainScreen/CityScreen/jester.dds</Texture>
+			<bVisible>1</bVisible>
+			<GreatPeopleUnitClass>UNITCLASS_GREAT_JESTER</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<Yields>
+				<iYield>-1</iYield>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+			</Yields>
+			<Commerces>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</Commerces>
+			<iHappinessChange>1</iHappinessChange>
+			<Button>Art/Interface/MainScreen/CityScreen/jester.dds</Button>
+		</SpecialistInfo>
 		<SpecialistInfo> <!-- Merchant -->
 			<Type>SPECIALIST_MERCHANT</Type>
 			<Description>TXT_KEY_SPECIALIST_MERCHANT</Description>

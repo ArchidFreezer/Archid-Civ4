@@ -984,6 +984,7 @@
 		<element type="iStarSignScaleChangePercent" minOccurs="0"/>
 		<element type="Yields" minOccurs="0"/>
 		<element type="Commerces" minOccurs="0"/>
+		<element type="iHappinessChange" minOccurs="0"/>
 		<element type="iExperience" minOccurs="0"/>
 		<element type="Flavors" minOccurs="0"/>
 		<element type="HotKey" minOccurs="0"/>
