@@ -57,6 +57,17 @@
 				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</FeatureTerrainBooleans>
 		</BonusInfo>
+		<BonusInfo> <!-- Diesel -->
+			<Type>BONUS_DIESEL</Type>
+			<Description>TXT_KEY_BONUS_DIESEL</Description>
+			<Civilopedia>TXT_KEY_BONUS_DIESEL_PEDIA</Civilopedia>
+			<BonusClassType>BONUSCLASS_FUEL</BonusClassType>
+			<ArtDefineTag>ART_DEF_BONUS_DIESEL</ArtDefineTag>
+			<TechCityTrade>TECH_COMBUSTION</TechCityTrade>
+			<iAITradeModifier>10</iAITradeModifier>
+			<iPlacementOrder>-1</iPlacementOrder>
+			<iMinAreaSize>-1</iMinAreaSize>
+		</BonusInfo>
 		<BonusInfo> <!-- Methane -->
 			<Type>BONUS_METHANE</Type>
 			<Description>TXT_KEY_BONUS_METHANE</Description>
@@ -134,17 +145,6 @@
 				<TerrainType>TERRAIN_GRASS</TerrainType>
 			</FeatureTerrainBooleans>
 		</BonusInfo>
-		<BonusInfo> <!-- Oil Products -->
-			<Type>BONUS_DIESEL</Type>
-			<Description>TXT_KEY_BONUS_DIESEL</Description>
-			<Civilopedia>TXT_KEY_BONUS_DIESEL_PEDIA</Civilopedia>
-			<BonusClassType>BONUSCLASS_FUEL</BonusClassType>
-			<ArtDefineTag>ART_DEF_BONUS_DIESEL</ArtDefineTag>
-			<TechCityTrade>TECH_COMBUSTION</TechCityTrade>
-			<iAITradeModifier>10</iAITradeModifier>
-			<iPlacementOrder>-1</iPlacementOrder>
-			<iMinAreaSize>-1</iMinAreaSize>
-		</BonusInfo>
 		<BonusInfo> <!-- Uranium -->
 			<Type>BONUS_URANIUM</Type>
 			<Description>TXT_KEY_BONUS_URANIUM</Description>
@@ -191,9 +191,10 @@
 			</FeatureTerrainBooleans>
 		</BonusInfo>
 
-		<!-- ****************** -->
-		<!-- Future							-->
-		<!-- ****************** -->
+
+<!-- ************	-->
+<!-- Future -->
+<!-- ************	-->
 		<BonusInfo> <!-- Nanobots -->
 			<Type>BONUS_NANOBOTS</Type>
 			<Description>TXT_KEY_BONUS_NANOBOTS</Description>
@@ -220,7 +221,7 @@
 			<iPlacementOrder>-1</iPlacementOrder>
 			<iMinAreaSize>-1</iMinAreaSize>
 		</BonusInfo>
-		<BonusInfo> <!-- Replicators -->
+		<BonusInfo> <!-- Personal Replicators -->
 			<Type>BONUS_PERSONAL_REPLICATORS</Type>
 			<Description>TXT_KEY_BONUS_PERSONAL_REPLICATORS</Description>
 			<Civilopedia>TXT_KEY_BONUS_PERSONAL_REPLICATORS_PEDIA</Civilopedia>
@@ -250,6 +251,7 @@
 			<iMinAreaSize>-1</iMinAreaSize>
 		</BonusInfo>
 
+
 <!-- ************	-->
 <!-- General -->
 <!-- ************	-->
@@ -263,7 +265,7 @@
 			<iPlacementOrder>-1</iPlacementOrder>
 			<iMinAreaSize>-1</iMinAreaSize>
 		</BonusInfo>
-		<BonusInfo> <!-- Ancient Relics -->
+		<BonusInfo> <!-- Ancienttemple -->
 			<Type>BONUS_ANCIENTTEMPLE</Type>
 			<Description>TXT_KEY_BONUS_ANCIENTTEMPLE</Description>
 			<Civilopedia>TXT_KEY_BONUS_ANCIENTTEMPLE_PEDIA</Civilopedia>
@@ -1658,7 +1660,7 @@
 				<TerrainType>TERRAIN_PLAINS</TerrainType>
 			</FeatureTerrainBooleans>
 		</BonusInfo>
-		<BonusInfo> <!-- Ammunition -->
+		<BonusInfo> <!-- Ammo -->
 			<Type>BONUS_AMMO</Type>
 			<Description>TXT_KEY_BONUS_AMMO</Description>
 			<Civilopedia>TXT_KEY_BONUS_AMMO_PEDIA</Civilopedia>
@@ -1682,7 +1684,7 @@
 			<iPlacementOrder>-1</iPlacementOrder>
 			<iMinAreaSize>-1</iMinAreaSize>
 		</BonusInfo>
-		<BonusInfo> <!-- Fertilisers -->
+		<BonusInfo> <!-- Fertilizers -->
 			<Type>BONUS_FERTILIZERS</Type>
 			<Description>TXT_KEY_BONUS_FERTILIZERS</Description>
 			<Civilopedia>TXT_KEY_BONUS_FERTILIZERS_PEDIA</Civilopedia>
@@ -1755,7 +1757,7 @@
 			<iPlacementOrder>-1</iPlacementOrder>
 			<iMinAreaSize>-1</iMinAreaSize>
 		</BonusInfo>
-		<BonusInfo> <!-- Vulcanmised Rubber -->
+		<BonusInfo> <!-- Vulcanized Rubber -->
 			<Type>BONUS_VULCANIZED_RUBBER</Type>
 			<Description>TXT_KEY_BONUS_VULCANIZED_RUBBER</Description>
 			<Civilopedia>TXT_KEY_BONUS_RUBBER_PEDIA</Civilopedia>
@@ -1767,9 +1769,10 @@
 			<iMinAreaSize>-1</iMinAreaSize>
 		</BonusInfo>
 
-		<!-- ****************** -->
-		<!-- Modern							-->
-		<!-- ****************** -->
+
+<!-- ************	-->
+<!-- Modern -->
+<!-- ************	-->
 		<BonusInfo> <!-- Bauxite -->
 			<Type>BONUS_BAUXITE</Type>
 			<Description>TXT_KEY_BONUS_BAUXITE</Description>
@@ -1820,7 +1823,44 @@
 			<iPlacementOrder>-1</iPlacementOrder>
 			<iMinAreaSize>-1</iMinAreaSize>
 		</BonusInfo>
-		<BonusInfo> <!-- Geothermal Energy -->
+		<BonusInfo> <!-- Rubber -->
+			<Type>BONUS_RUBBER</Type>
+			<Description>TXT_KEY_BONUS_RUBBER</Description>
+			<Civilopedia>TXT_KEY_BONUS_RUBBER_PEDIA</Civilopedia>
+			<BonusClassType>BONUSCLASS_MODERN</BonusClassType>
+			<ArtDefineTag>ART_DEF_BONUS_RUBBER</ArtDefineTag>
+			<TechReveal>TECH_ALCHEMY</TechReveal>
+			<TechCityTrade>TECH_CHEMISTRY</TechCityTrade>
+			<YieldChanges>
+				<iYieldChange>0</iYieldChange>
+				<iYieldChange>0</iYieldChange>
+				<iYieldChange>1</iYieldChange>
+			</YieldChanges>
+			<iAITradeModifier>15</iAITradeModifier>
+			<iHappiness>1</iHappiness>
+			<iPlacementOrder>2</iPlacementOrder>
+			<iConstAppearance>125</iConstAppearance>
+			<iMinAreaSize>3</iMinAreaSize>
+			<iMaxLatitude>80</iMaxLatitude>
+			<Rands>
+				<iRandApp1>25</iRandApp1>
+				<iRandApp2>25</iRandApp2>
+				<iRandApp3>0</iRandApp3>
+				<iRandApp4>0</iRandApp4>
+			</Rands>
+			<iPlayer>100</iPlayer>
+			<iUnique>6</iUnique>
+			<bHills>1</bHills>
+			<bFlatlands>1</bFlatlands>
+			<TerrainBooleans>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+			</TerrainBooleans>
+			<FeatureBooleans>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
+			</FeatureBooleans>
+		</BonusInfo>
+		<BonusInfo> <!-- Thermal Vent -->
 			<Type>BONUS_THERMAL_VENT</Type>
 			<Description>TXT_KEY_BONUS_THERMAL_VENT</Description>
 			<Civilopedia>TXT_KEY_BONUS_THERMAL_VENT_PEDIA</Civilopedia>
@@ -1865,43 +1905,7 @@
 				<TerrainType>TERRAIN_TUNDRA</TerrainType>
 			</FeatureTerrainBooleans>
 		</BonusInfo>
-		<BonusInfo> <!-- Rubber -->
-			<Type>BONUS_RUBBER</Type>
-			<Description>TXT_KEY_BONUS_RUBBER</Description>
-			<Civilopedia>TXT_KEY_BONUS_RUBBER_PEDIA</Civilopedia>
-			<BonusClassType>BONUSCLASS_MODERN</BonusClassType>
-			<ArtDefineTag>ART_DEF_BONUS_RUBBER</ArtDefineTag>
-			<TechReveal>TECH_ALCHEMY</TechReveal>
-			<TechCityTrade>TECH_CHEMISTRY</TechCityTrade>
-			<YieldChanges>
-				<iYieldChange>0</iYieldChange>
-				<iYieldChange>0</iYieldChange>
-				<iYieldChange>1</iYieldChange>
-			</YieldChanges>
-			<iAITradeModifier>15</iAITradeModifier>
-			<iHappiness>1</iHappiness>
-			<iPlacementOrder>2</iPlacementOrder>
-			<iConstAppearance>125</iConstAppearance>
-			<iMinAreaSize>3</iMinAreaSize>
-			<iMaxLatitude>80</iMaxLatitude>
-			<Rands>
-				<iRandApp1>25</iRandApp1>
-				<iRandApp2>25</iRandApp2>
-				<iRandApp3>0</iRandApp3>
-				<iRandApp4>0</iRandApp4>
-			</Rands>
-			<iPlayer>100</iPlayer>
-			<iUnique>6</iUnique>
-			<bHills>1</bHills>
-			<bFlatlands>1</bFlatlands>
-			<TerrainBooleans>
-				<TerrainType>TERRAIN_PLAINS</TerrainType>
-				<TerrainType>TERRAIN_GRASS</TerrainType>
-			</TerrainBooleans>
-			<FeatureBooleans>
-				<FeatureType>FEATURE_JUNGLE</FeatureType>
-			</FeatureBooleans>
-		</BonusInfo>
+
 
 <!-- ************	-->
 <!-- Rush -->
