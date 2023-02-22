@@ -743,7 +743,7 @@
 			<Civilopedia>TXT_KEY_BUILDING_CAPITAL_ADMINISTRATION_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_BUILDING_CITYBUILDINGS_STRATEGY</Strategy>
 			<Advisor>ADVISOR_SCIENCE</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_HOLY_ROMAN_RATHAUS</ArtDefineTag>
+			<ArtDefineTag>ART_DEF_BUILDING_CAPITAL_ADMINISTRATION</ArtDefineTag>
 			<PrereqAndTechs>
 				<TechType>TECH_CITY_PLANNING</TechType>
 			</PrereqAndTechs>
