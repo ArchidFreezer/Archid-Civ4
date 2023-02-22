@@ -20015,17 +20015,12 @@ bool CvUnitAI::AI_targetCity(int iFlags) {
 void CvUnitAI::AI_jesterMove() {
 	PROFILE_FUNC();
 
-	if (AI_construct()) {
-		return;
-	}
-
-	// If there is a tech that can be researched in one turn that nobody else has then go for it
-	if (AI_discover(true, true)) {
-		return;
-	}
-
 	// We look to pacify cities before the great jest as it is a non-destructive activity
 	if (AI_jesterPacify()) {
+		return;
+	}
+
+	if (AI_greatPersonMove()) {
 		return;
 	}
 
@@ -20033,40 +20028,12 @@ void CvUnitAI::AI_jesterMove() {
 		return;
 	}
 
-	int iGoldenAgeValue = (GET_PLAYER(getOwnerINLINE()).AI_calculateGoldenAgeValue() / (GET_PLAYER(getOwnerINLINE()).unitsRequiredForGoldenAge()));
-	int iDiscoverValue = std::max(1, getDiscoverResearch(NO_TECH));
-
-	if (((iGoldenAgeValue * 100) / iDiscoverValue) > 60) {
-		if (AI_goldenAge()) {
-			return;
-		}
-
-		if (iDiscoverValue > iGoldenAgeValue) {
-			if (AI_discover()) {
-				return;
-			}
-		}
-	} else {
-		if (AI_discover()) {
-			return;
-		}
-	}
-
-	if ((GET_PLAYER(getOwnerINLINE()).AI_getAnyPlotDanger(plot(), 2)) ||
-		(getGameTurnCreated() < (GC.getGameINLINE().getGameTurn() - 25))) {
-		if (AI_discover()) {
-			return;
-		}
-	}
-
 	if (AI_retreatToCity()) {
 		return;
 	}
 
-	if (getGroup()->isStranded()) {
-		if (AI_load(UNITAI_ASSAULT_SEA, MISSIONAI_LOAD_ASSAULT, NO_UNITAI, -1, -1, -1, -1, MOVE_NO_ENEMY_TERRITORY, 1)) {
-			return;
-		}
+	if (AI_handleStranded()) {
+		return;
 	}
 
 	if (AI_safety()) {
