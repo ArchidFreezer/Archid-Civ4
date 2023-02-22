@@ -11,6 +11,7 @@
 			<iCategory>10</iCategory>
 			<iMaxPlayerInstances>1</iMaxPlayerInstances>
 			<iExtraPlayerInstances>1</iExtraPlayerInstances>
+			<bNoLimit>1</bNoLimit>
 			<DefaultBuilding>BUILDING_CAPITAL_SEAT</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Palace -->
