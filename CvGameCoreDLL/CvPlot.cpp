@@ -8473,8 +8473,19 @@ void CvPlot::doImprovementSpawn() {
 			// If we have no resident then look to create another
 
 			if (bSpawnAnimal) {
-				if (!bResident)
-					eSpawn = getNativeAnimalRand();
+				if (!bResident) {
+					// If we have an existing animal on the plot use that type as the resident otherwise pick a new type
+					CLLNode<IDInfo>* pUnitNode = headUnitNode();
+					if (pUnitNode) {
+						CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+						if (pLoopUnit->isAnimal()) {
+							eSpawn = pLoopUnit->getUnitType();
+						}
+					}
+					if (eSpawn == NO_UNIT) {
+						eSpawn = getNativeAnimalRand();
+					}
+				}
 			} else if (bSpawnBarbarian) {
 				UnitTypes eBestUnit = getNativeBarbarianBest(NO_UNITAI, true, true);
 				if (eSpawn != eBestUnit && eBestUnit != NO_UNIT) {
