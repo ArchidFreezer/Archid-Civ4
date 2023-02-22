@@ -235,6 +235,11 @@
 			<Description>TXT_KEY_UNIT_GREAT_GENERAL</Description>
 			<DefaultUnit>UNIT_GREAT_GENERAL</DefaultUnit>
 		</UnitClassInfo>
+		<UnitClassInfo> <!-- Great Jester -->
+			<Type>UNITCLASS_GREAT_JESTER</Type>
+			<Description>TXT_KEY_UNIT_GREAT_JESTER</Description>
+			<DefaultUnit>UNIT_GREAT_JESTER</DefaultUnit>
+		</UnitClassInfo>
 		<UnitClassInfo> <!-- Great Merchant -->
 			<Type>UNITCLASS_MERCHANT</Type>
 			<Description>TXT_KEY_UNIT_GREAT_TYCOON</Description>

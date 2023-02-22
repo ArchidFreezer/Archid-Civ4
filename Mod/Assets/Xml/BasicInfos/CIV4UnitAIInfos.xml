@@ -204,5 +204,9 @@
 			<Type>UNITAI_BARBARIAN_ATTACK_CITY</Type>
 			<Description>UNITAI_BARBARIAN_ATTACK_CITY</Description>
 		</UnitAIInfo>
+		<UnitAIInfo>
+			<Type>UNITAI_JESTER</Type>
+			<Description>UNITAI_JESTER</Description>
+		</UnitAIInfo>
 	</UnitAIInfos>
 </Civ4UnitAIInfos>

@@ -7457,6 +7457,17 @@ void CvGameTextMgr::setBasicUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit,
 		}
 	}
 
+	if (kUnit.isCityPacifier()) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_UNIT_CITY_PACIFIER"));
+	}
+
+	if (kUnit.getGreatJestHappiness() > 0) {
+		int iDuration = std::max(1, kUnit.getGreatJestDuration());
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_UNIT_GREAT_JEST", kUnit.getGreatJestHappiness(), iDuration));
+	}
+
 	if (kUnit.isBarbarianLeader()) {
 		szBuffer.append(NEWLINE);
 		szBuffer.append(gDLL->getText("TXT_KEY_UNIT_REINFORCE_MILITARY"));
@@ -11111,6 +11122,13 @@ void CvGameTextMgr::setHappyHelp(CvWStringBuffer& szBuffer, CvCity& city) {
 			szBuffer.append(NEWLINE);
 		}
 
+		iHappy = city.getGreatJestHappiness();
+		if (iHappy > 0) {
+			iTotalHappy += iHappy;
+			szBuffer.append(gDLL->getText("TXT_KEY_HAPPY_GREAT_JEST", iHappy));
+			szBuffer.append(NEWLINE);
+		}
+
 		iHappy = city.getFeatureGoodHappiness();
 		if (iHappy > 0) {
 			iTotalHappy += iHappy;
@@ -14449,7 +14467,8 @@ void CvGameTextMgr::buildCityBillboardIconString(CvWStringBuffer& szBuffer, CvCi
 
 	// XXX out this in bottom bar???
 	if (pCity->isOccupation()) {
-		szBuffer.append(CvWString::format(L" (%c:%d)", gDLL->getSymbolID(OCCUPATION_CHAR), pCity->getOccupationTimer()));
+		int occupationTime = pCity->hasGreatJester() ? (pCity->getOccupationTimer() + 1) / 2 : pCity->getOccupationTimer();
+		szBuffer.append(CvWString::format(L" (%c:%d)", gDLL->getSymbolID(OCCUPATION_CHAR), occupationTime));
 	}
 
 	// defense icon and text

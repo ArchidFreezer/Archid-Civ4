@@ -2150,6 +2150,7 @@ void getMissionTypeString(CvWString& szString, MissionTypes eMissionType) {
 	case MISSION_FREE_UNIT_SUPPORT: szString = L"MISSION_FREE_UNIT_SUPPORT"; break;
 	case MISSION_PLUNDER_CITY: szString = L"MISSION_PLUNDER_CITY"; break;
 	case MISSION_BECOME_BARBARIAN: szString = L"MISSION_BECOME_BARBARIAN"; break;
+	case MISSION_GREAT_JEST: szString = L"MISSION_GREAT_JEST"; break;
 
 	default: szString = CvWString::format(L"UNKOWN_MISSION(%d)", eMissionType); break;
 	}
@@ -2258,6 +2259,7 @@ void getUnitAIString(CvWString& szString, UnitAITypes eUnitAI) {
 	case UNITAI_BARBARIAN_LEADER: szString = L"barbarian leader"; break;
 	case UNITAI_BARBARIAN: szString = L"barbarian"; break;
 	case UNITAI_BARBARIAN_ATTACK_CITY: szString = L"barbarian attack city"; break;
+	case UNITAI_JESTER: szString = L"jester"; break;
 
 	default: szString = CvWString::format(L"unknown(%d)", eUnitAI); break;
 	}

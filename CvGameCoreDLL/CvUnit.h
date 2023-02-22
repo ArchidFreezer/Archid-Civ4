@@ -90,6 +90,11 @@ public:
 
 	bool isSpecialistUnit() const;
 
+	bool canPerformGreatJest(CvPlot* pPlot) const;
+	bool performGreatJest();
+	int getGreatJestHappiness() const;
+	int getGreatJestDuration() const;
+
 	// Barbarians
 	bool canBecomeBarbarian(bool bIgnoreCost = false) const;
 	bool canIncreaseBarbarianUnitSupport(const CvPlot* pPlot, bool bTestVisible = false) const;

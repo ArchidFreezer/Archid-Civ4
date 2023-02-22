@@ -2413,6 +2413,51 @@
 			<LeaderPromotion>PROMOTION_LEADER</LeaderPromotion>
 			<iLeaderExperience>20</iLeaderExperience>
 		</UnitInfo>
+		<UnitInfo> <!-- Great Jester -->
+			<Class>UNITCLASS_GREAT_JESTER</Class>
+			<Type>UNIT_GREAT_JESTER</Type>
+			<Special>SPECIALUNIT_PEOPLE</Special>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_JESTER</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_GREAT_JESTER</Description>
+			<Civilopedia>TXT_KEY_UNIT_GREAT_JESTER_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_GREAT_JESTER_STRATEGY</Strategy>
+			<Advisor>ADVISOR_CULTURE</Advisor>
+			<bCityPacifier>1</bCityPacifier>
+			<UnitAIs>
+				<UnitAIType>UNITAI_JESTER</UnitAIType>
+			</UnitAIs>
+			<GreatPeoples>
+				<GreatPeopleType>SPECIALIST_GREAT_JESTER</GreatPeopleType>
+			</GreatPeoples>
+			<Buildings>
+				<BuildingType>BUILDING_CORPORATION_7</BuildingType>
+			</Buildings>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+			</Flavors>
+			<iCost>-1</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMoves>2</iMoves>
+			<iGreatJestHappiness>5</iGreatJestHappiness>
+			<iGreatJestDuration>10</iGreatJestDuration>
+			<iAsset>5</iAsset>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_GREAT_JESTER</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+		</UnitInfo>
 		<UnitInfo> <!-- Great Spy -->
 			<Class>UNITCLASS_GREAT_SPY</Class>
 			<Type>UNIT_GREAT_SPY</Type>

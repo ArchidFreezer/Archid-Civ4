@@ -485,8 +485,11 @@
 	<ElementType name="bSlave" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bFixedAI" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iMaxWeaponTypeTier" content="textOnly" dt:type="int"/>		
-	<ElementType name="iMaxAmmoTypeTier" content="textOnly" dt:type="int"/>		
+	<ElementType name="iMaxAmmoTypeTier" content="textOnly" dt:type="int"/>
+	<ElementType name="iGreatJestDuration" content="textOnly" dt:type="int"/>
+	<ElementType name="iGreatJestHappiness" content="textOnly" dt:type="int"/>
 	<ElementType name="bBarbarianLeader" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bCityPacifier" content="textOnly" dt:type="boolean"/>
 	<ElementType name="UnitInfo" content="eltOnly">
 		<element type="Class"/>
 		<element type="Type"/>
@@ -549,6 +552,7 @@
 		<element type="bWorkerTrade" minOccurs="0"/>
 		<element type="bMilitaryTrade" minOccurs="0"/>
 		<element type="bBarbarianLeader" minOccurs="0"/>
+		<element type="bCityPacifier" minOccurs="0"/>
 		<element type="UnitClassUpgrades" minOccurs="0"/>
 		<element type="UnitClassTargets" minOccurs="0"/>
 		<element type="UnitCombatTargets" minOccurs="0"/>
@@ -612,6 +616,8 @@
 		<element type="iTradeMultiplier" minOccurs="0"/>
 		<element type="iGreatWorkCulture" minOccurs="0"/>
 		<element type="iEspionagePoints" minOccurs="0"/>
+		<element type="iGreatJestHappiness" minOccurs="0"/>
+		<element type="iGreatJestDuration" minOccurs="0"/>
 		<element type="TerrainImpassables" minOccurs="0"/>
 		<element type="FeatureImpassables" minOccurs="0"/>
 		<element type="TerrainPassableTechs" minOccurs="0"/>

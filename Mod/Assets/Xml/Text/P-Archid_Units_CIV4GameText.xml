@@ -199,6 +199,19 @@
 		<Spanish>Construye [COLOR_UNIT_TEXT]Recolectores[COLOR_REVERT] para mejorar tu tierra en las eras Paleol&#237;tica y Mesol&#237;tica.</Spanish>
 	</TEXT>
 
+	<TEXT> <!-- Great Jester -->
+		<Tag>TXT_KEY_UNIT_GREAT_JESTER</Tag>
+		<English>Great Jester</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GREAT_JESTER_PEDIA</Tag>
+		<English>[TAB]The jester is someone whose role is to entertain, often though mocking persons of high office through pointed comments. They wore distinctive brightly coloured clothing and typically a floppy three pointed hat representing a donkeys ears and tail.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GREAT_JESTER_STRATEGY</Tag>
+		<English>[COLOR_UNIT_TEXT]Great Jesters[COLOR_REVERT] can perform a [COLOR_HIGHLIGHT_TEXT]Great Jest[COLOR_REVERT] which provides a temporary happiness boost to all your cities.</English>
+	</TEXT>
+
 	<TEXT> <!-- Great Merchant -->
 		<Tag>TXT_KEY_UNIT_GREAT_TYCOON</Tag>
 		<English>Great Merchant</English>

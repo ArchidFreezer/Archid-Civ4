@@ -61,6 +61,10 @@
 		<Tag>TXT_KEY_UNHAPPY_SPECIALISTS</Tag>
 		<English>+%d1_Change[ICON_UNHAPPY]: "Some specialists are making us unhappy!"</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_CITY_PACIFIER</Tag>
+		<English>[ICON_BULLET]Removes unhappiness from local cities</English>
+	</TEXT>
 	<!-- Tech Feature Yields -->
 	<TEXT>
 		<Tag>TXT_KEY_TECH_CHANGE_FOREST_YIELD</Tag>
@@ -1336,6 +1340,14 @@
 	<TEXT>
 		<Tag>TXT_KEY_SPECIALIST_FARMER_STRATEGY</Tag>
 		<English>Create a farmer specialist when your unimproved land does not produce enough food to sustain your population or you have a free specialist and want to boost your population.</English>
+	</TEXT>
+	<TEXT> <!-- Great Jester -->
+		<Tag>TXT_KEY_SPECIALIST_GREAT_JESTER</Tag>
+		<English>Great Jester</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPECIALIST_GREAT_JESTER_STRATEGY</Tag>
+		<English>Use Great Jesters to manage the happiness in all cities on a continent or in cities newly occupied in a war.</English>
 	</TEXT>
 	<TEXT> <!-- Jester -->
 		<Tag>TXT_KEY_SPECIALIST_JESTER</Tag>

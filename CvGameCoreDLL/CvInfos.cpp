@@ -3255,6 +3255,8 @@ CvUnitInfo::CvUnitInfo() :
 	m_iSlaveSpecialistType(NO_SPECIALIST),
 	m_iMaxWeaponTypeTier(0),
 	m_iMaxAmmunitionTypeTier(0),
+	m_iGreatJestDuration(0),
+	m_iGreatJestHappiness(0),
 	m_eRangeType(UNITRANGE_RANGE),
 	m_eMinCultureLevel(NO_CULTURELEVEL),
 	m_bAnimal(false),
@@ -3302,6 +3304,7 @@ CvUnitInfo::CvUnitInfo() :
 	m_bSlave(false),
 	m_bFixedAI(false),
 	m_bBarbarianLeader(false),
+	m_bCityPacifier(false),
 	m_fUnitMaxSpeed(0.0f),
 	m_fUnitPadTime(0.0f),
 	m_pbUpgradeUnitClass(NULL),
@@ -3395,6 +3398,18 @@ CvUnitInfo::~CvUnitInfo() {
 	SAFE_DELETE_ARRAY(m_paszLateArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszMiddleArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszUnitNames);
+}
+
+bool CvUnitInfo::isCityPacifier() const {
+	return m_bCityPacifier;
+}
+
+int CvUnitInfo::getGreatJestDuration() const {
+	return m_iGreatJestDuration;
+}
+
+int CvUnitInfo::getGreatJestHappiness() const {
+	return m_iGreatJestHappiness;
 }
 
 bool CvUnitInfo::isBarbarianLeader() const {
@@ -4527,6 +4542,8 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iSlaveSpecialistType);
 	stream->Read(&m_iMaxWeaponTypeTier);
 	stream->Read(&m_iMaxAmmunitionTypeTier);
+	stream->Read(&m_iGreatJestDuration);
+	stream->Read(&m_iGreatJestHappiness);
 
 	int iTemp;
 	stream->Read(&iTemp);
@@ -4579,6 +4596,7 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bSlave);
 	stream->Read(&m_bFixedAI);
 	stream->Read(&m_bBarbarianLeader);
+	stream->Read(&m_bCityPacifier);
 
 	stream->Read(&m_fUnitMaxSpeed);
 	stream->Read(&m_fUnitPadTime);
@@ -4938,6 +4956,8 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iSlaveSpecialistType);
 	stream->Write(m_iMaxWeaponTypeTier);
 	stream->Write(m_iMaxAmmunitionTypeTier);
+	stream->Write(m_iGreatJestDuration);
+	stream->Write(m_iGreatJestHappiness);
 
 	stream->Write(m_eRangeType);
 	stream->Write(m_eMinCultureLevel);
@@ -4987,6 +5007,7 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bSlave);
 	stream->Write(m_bFixedAI);
 	stream->Write(m_bBarbarianLeader);
+	stream->Write(m_bCityPacifier);
 
 	stream->Write(m_fUnitMaxSpeed);
 	stream->Write(m_fUnitPadTime);
@@ -5196,6 +5217,7 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bMilitaryTrade, "bMilitaryTrade", false);
 	pXML->GetChildXmlValByName(&m_bBarbarianLeader, "bBarbarianLeader", false);
 	pXML->GetChildXmlValByName(&m_bNoRevealMap, "bNoRevealMap", false);
+	pXML->GetChildXmlValByName(&m_bCityPacifier, "bCityPacifier", false);
 	pXML->GetChildXmlEnumValByName(&m_eRangeType, "UnitRangeType", UNITRANGE_UNLIMITED);
 
 	pXML->SetListInfoBool(&m_pbUpgradeUnitClass, "UnitClassUpgrades", GC.getNumUnitClassInfos());
@@ -5290,6 +5312,8 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iTradeMultiplier, "iTradeMultiplier");
 	pXML->GetChildXmlValByName(&m_iGreatWorkCulture, "iGreatWorkCulture");
 	pXML->GetChildXmlValByName(&m_iEspionagePoints, "iEspionagePoints");
+	pXML->GetChildXmlValByName(&m_iGreatJestDuration, "iGreatJestDuration");
+	pXML->GetChildXmlValByName(&m_iGreatJestHappiness, "iGreatJestHappiness");
 
 	pXML->SetListInfoBool(&m_pbTerrainImpassable, "TerrainImpassables", GC.getNumTerrainInfos());
 	pXML->SetListInfoBool(&m_pbFeatureImpassable, "FeatureImpassables", GC.getNumFeatureInfos());

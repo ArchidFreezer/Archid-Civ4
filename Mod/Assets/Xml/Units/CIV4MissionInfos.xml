@@ -1006,5 +1006,17 @@
 			<bVisible>1</bVisible>
 			<Button>Art/Interface/Buttons/Actions/become_barbarian.dds</Button>
 		</MissionInfo>
+		<MissionInfo> <!-- Great Jest -->
+			<Type>MISSION_GREAT_JEST</Type>
+			<Description>TXT_KEY_MISSION_GREAT_JEST</Description>
+			<Help>TXT_KEY_MISSION_GREAT_JEST_HELP</Help>
+			<Waypoint>NONE</Waypoint>
+			<iTime>0</iTime>
+			<bTarget>0</bTarget>
+			<bBuild>0</bBuild>
+			<bSound>1</bSound>
+			<bVisible>1</bVisible>
+			<Button>Art/Interface/Buttons/Actions/perform_great_jest.dds</Button>
+		</MissionInfo>
 	</MissionInfos>
 </Civ4MissionInfos>

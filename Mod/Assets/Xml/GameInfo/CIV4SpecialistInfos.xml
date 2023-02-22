@@ -70,15 +70,12 @@
 			<Description>TXT_KEY_SPECIALIST_JESTER</Description>
 			<Civilopedia>TXT_KEY_CONCEPT_SPECIALISTS_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_SPECIALIST_JESTER_STRATEGY</Strategy>
-			<Help/>
 			<Texture>Art/Interface/MainScreen/CityScreen/jester.dds</Texture>
 			<bVisible>1</bVisible>
 			<GreatPeopleUnitClass>UNITCLASS_GREAT_JESTER</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
 			<Yields>
 				<iYield>-1</iYield>
-				<iYield>0</iYield>
-				<iYield>0</iYield>
 			</Yields>
 			<Commerces>
 				<iCommerce>0</iCommerce>
@@ -227,6 +224,20 @@
 			</Commerces>
 			<iExperience>2</iExperience>
 			<Button>,Art/Interface/MainScreen/CityScreen/Great_Engineer.dds,Art/Interface/Buttons/Warlords_Atlas_2.dds,2,6</Button>
+		</SpecialistInfo>
+		<SpecialistInfo> <!-- Great Jester -->
+			<Type>SPECIALIST_GREAT_JESTER</Type>
+			<Description>TXT_KEY_SPECIALIST_GREAT_JESTER</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_GREAT_PEOPLE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_SPECIALIST_GREAT_JESTER_STRATEGY</Strategy>
+			<Texture>Art/Interface/MainScreen/CityScreen/great_jester.dds</Texture>
+			<Commerces>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>4</iCommerce>
+			</Commerces>
+			<iHappinessChange>3</iHappinessChange>
+			<Button>Art/Interface/MainScreen/CityScreen/great_jester.dds</Button>
 		</SpecialistInfo>
 		<SpecialistInfo> <!-- Great Merchant -->
 			<Type>SPECIALIST_GREAT_MERCHANT</Type>

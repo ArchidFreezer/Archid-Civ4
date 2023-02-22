@@ -181,5 +181,22 @@
 		<Tag>TXT_KEY_MISSION_BECOME_BARBARIAN_HELP</Tag>
 		<English>Order the selected unit to convert to a barbarian unit. This changes the default AI and cannot be reversed.</English>
 	</TEXT>
+<!-- Great Jest -->
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_GREAT_JEST</Tag>
+		<English>Perform Great Jest</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_GREAT_JEST_HELP</Tag>
+		<English>Perform a great jest to improve the happines of all cities on the continent.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GREAT_JEST</Tag>
+		<English>[ICON_BULLET]Can perform Great Jest (%d1_Change[ICON_HAPPY] for %d2_Num rounds in all cities)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_HAPPY_GREAT_JEST</Tag>
+		<English>+%d1_Change[ICON_HAPPY]: "That great jest was FUNNY!"</English>
+	</TEXT>
 
 </Civ4GameText>

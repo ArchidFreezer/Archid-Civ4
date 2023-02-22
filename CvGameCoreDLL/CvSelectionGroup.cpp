@@ -559,6 +559,7 @@ CvPlot* CvSelectionGroup::lastMissionPlot() {
 		case MISSION_FREE_UNIT_SUPPORT:
 		case MISSION_PLUNDER_CITY:
 		case MISSION_BECOME_BARBARIAN:
+		case MISSION_GREAT_JEST:
 			break;
 
 		default:
@@ -732,6 +733,7 @@ void CvSelectionGroup::startMission() {
 		case MISSION_FREE_UNIT_SUPPORT:
 		case MISSION_PLUNDER_CITY:
 		case MISSION_BECOME_BARBARIAN:
+		case MISSION_GREAT_JEST:
 			break;
 
 		case MISSION_WAIT_FOR_TECH:
@@ -1073,6 +1075,12 @@ void CvSelectionGroup::startMission() {
 					pLoopUnit->waitForTech(headMissionQueueNode()->m_data.iFlags, headMissionQueueNode()->m_data.iData1);
 					break;
 
+				case MISSION_GREAT_JEST:
+					if (pLoopUnit->performGreatJest()) {
+						bAction = true;
+					}
+					break;
+
 				default:
 					FAssert(false);
 					break;
@@ -1303,6 +1311,7 @@ bool CvSelectionGroup::continueMission_bulk(int iSteps) {
 				case MISSION_FREE_UNIT_SUPPORT:
 				case MISSION_PLUNDER_CITY:
 				case MISSION_BECOME_BARBARIAN:
+				case MISSION_GREAT_JEST:
 					break;
 
 				case MISSION_BUILD:
@@ -1393,6 +1402,7 @@ bool CvSelectionGroup::continueMission_bulk(int iSteps) {
 			case MISSION_FREE_UNIT_SUPPORT:
 			case MISSION_PLUNDER_CITY:
 			case MISSION_BECOME_BARBARIAN:
+			case MISSION_GREAT_JEST:
 				bDone = true;
 				break;
 
@@ -3373,6 +3383,11 @@ bool CvSelectionGroup::canDoMission(int iMission, int iData1, int iData2, CvPlot
 
 		case MISSION_BECOME_BARBARIAN:
 			if (pLoopUnit->canBecomeBarbarian())
+				return true;
+			break;
+
+		case MISSION_GREAT_JEST:
+			if (pLoopUnit->canPerformGreatJest(pPlot))
 				return true;
 			break;
 
