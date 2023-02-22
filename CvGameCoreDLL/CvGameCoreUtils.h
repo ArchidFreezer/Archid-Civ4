@@ -222,6 +222,8 @@ bool isPromotionValid(PromotionTypes ePromotion, UnitTypes eUnit, bool bLeader, 
 bool isPromotionValid(PromotionTypes ePromotion, const CvUnit* pUnit, bool bLeader);	// Exposed to Python
 bool isPromotionValid(PromotionTypes ePromotion, UnitCombatTypes eUnitCombat);
 
+bool isReplacedByBuildingClass(BuildingTypes eBuilding, BuildingClassTypes eBuildingClassType, PlayerTypes ePlayer = NO_PLAYER);
+
 int getPopulationAsset(int iPopulation);								// Exposed to Python
 int getLandPlotsAsset(int iLandPlots);									// Exposed to Python
 int getPopulationPower(int iPopulation);								// Exposed to Python

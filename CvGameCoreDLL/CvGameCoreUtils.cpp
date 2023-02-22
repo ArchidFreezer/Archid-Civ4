@@ -378,6 +378,62 @@ bool isPromotionValid(PromotionTypes ePromotion, UnitCombatTypes eUnitCombat) {
 	return true;
 }
 
+bool isReplacedByBuildingClass(BuildingTypes eBuilding, BuildingClassTypes eTargetBuildingClass, PlayerTypes ePlayer) {
+	if (eBuilding == NO_BUILDING || eTargetBuildingClass == NO_BUILDINGCLASS)
+		return false;
+
+	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+
+	// We are going to perform a search of the graph for which we need 2 sets
+	// - The set of nodes we have checked
+	// - The set of nodes to check
+	std::set<BuildingClassTypes> visited;
+	std::set<BuildingClassTypes> queued;
+
+	bool bFound = false;
+	// Now we are going to initialise the sets with the initial replacement building classes
+	visited.insert((BuildingClassTypes)kBuilding.getBuildingClassType());
+	for (BuildingClassTypes eLoopBuildingClass = (BuildingClassTypes)0; eLoopBuildingClass < GC.getNumBuildingClassInfos() && !bFound; eLoopBuildingClass = (BuildingClassTypes)(eLoopBuildingClass + 1)) {
+		if (kBuilding.isReplacedByBuildingClass(eLoopBuildingClass)) {
+			bFound = (eLoopBuildingClass == eTargetBuildingClass);
+			queued.insert(eLoopBuildingClass);
+		}
+	}
+
+	while (!queued.empty() && !bFound) {
+		BuildingClassTypes eCheckBuildingClass = *(queued.begin()); // Get the first element in the queue
+		bFound = (eCheckBuildingClass == eTargetBuildingClass);
+		if (!bFound) {
+			// Mark this building class as checked
+			queued.erase(eCheckBuildingClass);
+			visited.insert(eCheckBuildingClass);
+
+			// Now get any further nodes off this one
+			// First we need to get the correct building to check
+			BuildingTypes eCheckBuilding = NO_BUILDING;
+			if (ePlayer != NO_PLAYER) {
+				eCheckBuilding = (BuildingTypes)GC.getCivilizationInfo(GET_PLAYER(ePlayer).getCivilizationType()).getCivilizationBuildings(eCheckBuildingClass);
+			} else {
+				eCheckBuilding = (BuildingTypes)GC.getBuildingClassInfo(eCheckBuildingClass).getDefaultBuildingIndex();
+			}
+
+			if (eCheckBuilding != NO_BUILDING) {
+				for (BuildingClassTypes eLoopBuildingClass = (BuildingClassTypes)0; eLoopBuildingClass < GC.getNumBuildingClassInfos() && !bFound; eLoopBuildingClass = (BuildingClassTypes)(eLoopBuildingClass + 1)) {
+					if (GC.getBuildingInfo(eCheckBuilding).isReplacedByBuildingClass(eLoopBuildingClass)) {
+						bFound = (eLoopBuildingClass == eTargetBuildingClass);
+						// If we haven't visited this node yet add it to the queue
+						if (visited.find(eLoopBuildingClass) == visited.end()) {
+							queued.insert(eLoopBuildingClass);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return bFound;
+}
+
 int getPopulationAsset(int iPopulation) {
 	return (iPopulation * 2);
 }

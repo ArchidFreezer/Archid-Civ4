@@ -1624,7 +1624,7 @@ bool CvCity::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestVis
 	}
 
 	for (BuildingClassTypes eLoopBuildingClass = (BuildingClassTypes)0; eLoopBuildingClass < GC.getNumBuildingClassInfos(); eLoopBuildingClass = (BuildingClassTypes)(eLoopBuildingClass + 1)) {
-		if (kBuilding.isReplacedByBuildingClass(eLoopBuildingClass)) {
+		if (isReplacedByBuildingClass(eBuilding, eLoopBuildingClass, getOwnerINLINE())) {
 			BuildingTypes eLoopBuilding = (BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(eLoopBuildingClass);
 			if (eLoopBuilding != NO_BUILDING) {
 				if (getNumActiveBuilding(eLoopBuilding) > 0) {
@@ -3361,7 +3361,7 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 			}
 
 			if (eLoopBuilding != NO_BUILDING) {
-				if (GC.getBuildingInfo(eLoopBuilding).isReplacedByBuildingClass(kBuilding.getBuildingClassType())) {
+				if (isReplacedByBuildingClass(eLoopBuilding, (BuildingClassTypes)kBuilding.getBuildingClassType(), getOwnerINLINE())) {
 					if (getNumRealBuilding(eLoopBuilding) > 0) {
 						setNumRealBuilding(eLoopBuilding, 0);
 					}

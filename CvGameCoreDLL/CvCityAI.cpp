@@ -2642,7 +2642,7 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 	// Don't construct a building if it is replaced by another building we can construct
 	for (BuildingClassTypes eLoopBuildingClass = (BuildingClassTypes)0; eLoopBuildingClass < GC.getNumBuildingClassInfos(); eLoopBuildingClass = (BuildingClassTypes)(eLoopBuildingClass + 1)) {
 		BuildingTypes eLoopBuilding = (BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(eLoopBuildingClass);
-		if (kBuilding.isReplacedByBuildingClass(eLoopBuildingClass)) {
+		if (isReplacedByBuildingClass(eBuilding, eLoopBuildingClass, getOwnerINLINE())) {
 			if (eLoopBuilding != NO_BUILDING) {
 				if (canConstruct(eLoopBuilding)) {
 					return 0;

@@ -9542,7 +9542,7 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 
 		if (eLoopBuilding != NO_BUILDING) {
 			CvBuildingInfo& kLoopBuilding = GC.getBuildingInfo(eLoopBuilding);
-			if (kBuilding.isReplacedByBuildingClass(kLoopBuilding.getBuildingClassType())) {
+			if (isReplacedByBuildingClass(eBuilding, (BuildingClassTypes)kLoopBuilding.getBuildingClassType(), ePlayer)) {
 				if ((pCity == NULL) || (pCity->getNumBuilding(eLoopBuilding) == 0)) {
 					szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_BUILDING_REPLACED_BY_BUILDING").c_str());
 					szTempBuffer.Format(SETCOLR L"<link=literal>%s</link>" ENDCOLR, TEXT_COLOR("COLOR_BUILDING_TEXT"), kLoopBuilding.getDescription());
@@ -9564,7 +9564,7 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 
 		if (eLoopBuilding != NO_BUILDING) {
 			CvBuildingInfo& kLoopBuilding = GC.getBuildingInfo(eLoopBuilding);
-			if (kLoopBuilding.isReplacedByBuildingClass(kBuilding.getBuildingClassType())) {
+			if (isReplacedByBuildingClass(eLoopBuilding, (BuildingClassTypes)kBuilding.getBuildingClassType(), ePlayer)) {
 				if ((pCity == NULL) || (pCity->getNumBuilding(eBuilding) == 0)) {
 					szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_BUILDING_REPLACES_BUILDING").c_str());
 					szTempBuffer.Format(SETCOLR L"<link=literal>%s</link>" ENDCOLR, TEXT_COLOR("COLOR_BUILDING_TEXT"), kLoopBuilding.getDescription());

@@ -4615,7 +4615,6 @@
 			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_UTILITY_FOG</BuildingClassType>
 			</ReplacedByBuildingClasses>
 			<BonusYieldChanges>
 				<BonusYieldChange>
@@ -6594,8 +6593,6 @@
 			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_MASONS_GUILD</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_UTILITY_FOG</BuildingClassType>
 			</ReplacedByBuildingClasses>
 			<BonusYieldChanges>
 				<BonusYieldChange>
@@ -6665,9 +6662,6 @@
 			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_STONEMASONS_WORKSHOP</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_MASONS_GUILD</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_UTILITY_FOG</BuildingClassType>
 			</ReplacedByBuildingClasses>
 			<VicinityBonusYieldChanges>
 				<VicinityBonusYieldChange>
@@ -7302,7 +7296,6 @@
 			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_CITY_COUNCIL</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_METROPOLITAN_ADMINISTRATION</BuildingClassType>
 			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
@@ -7351,7 +7344,6 @@
 			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_CONSTRUCTION_FIRM</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_UTILITY_FOG</BuildingClassType>
 			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
@@ -7623,8 +7615,6 @@
 			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_TOWN_HALL</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_CITY_COUNCIL</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_METROPOLITAN_ADMINISTRATION</BuildingClassType>
 			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
