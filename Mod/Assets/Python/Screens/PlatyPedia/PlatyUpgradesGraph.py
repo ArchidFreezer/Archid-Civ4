@@ -116,10 +116,10 @@ class UnitUpgradesGraph:
 			elif self.pediaScreen.iSortTree == 3:
 				Info = gc.getBuildingInfo(item)
 				for i in xrange(gc.getNumBuildingClassInfos()):
-					if Info.isPrereqAndBuildingClass(i) or Info.getPrereqNumOfBuildingClass(i) > 0:
-						iPrereq = self.getUnitNumber(i)
-						if iPrereq > -1:
-							self.addUpgradePath(graph, iPrereq, item)
+					if Info.isReplacedByBuildingClass(i):
+						iReplacement = self.getUnitNumber(i)
+						if iReplacement > -1:
+							self.addUpgradePath(graph, item, iReplacement)
 			elif self.pediaScreen.iSortTree == 4:
 				Info = gc.getProjectInfo(item)
 				iPrereq = Info.getAnyoneProjectPrereq()
