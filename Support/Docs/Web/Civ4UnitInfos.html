@@ -99,6 +99,8 @@
     <tr><td><span class="tagoptional">iEvasionProbability</span><td>0<td>For air and parachute units&semi; the odds of evading interception
     <tr><td><span class="tagoptional">iExtraCost</span><td>0<td>The additional upkeep in gold that this unit costs each turn over and above the standard cost
     <tr><td><span class="tagoptional">iFirstStrikes</span><td>0<td>The number of automatic First Strikes that the unit has
+    <tr><td><span class="tagoptional"><b>iGreatJestDuration</b></span><td>0<td>The duration of any great jest that the unit performs. The unit requires a value in the <b>iGreatJestHappiness</b> tag for this to have an effect.
+    <tr><td><span class="tagoptional"><b>iGreatJestHappiness</b></span><td>0<td>The increase in happiness that a city receives as a result of any great jest this unit performs
     <tr><td><span class="tagoptional">iGreatWorkCulture</span><td>0<td>The culture this unit provides when creating a great work, the value is multiplied by the number of the Era the player is in and modified by the gamespeed
     <tr><td><span class="tagoptional">iHillsAttack</span><td>0<td>The percent bonus that the unit gets when attacking hills
     <tr><td><span class="tagoptional">iHillsDefense</span><td>0<td>The percent bonus that the unit gets when defending hills
@@ -131,6 +133,7 @@
     <tr><td><span class="tagoptional"><b>bBarbarianLeader</b></span><td>0<td>This unit is considered to be a barbarian leader
     <tr><td><span class="tagoptional">bCanMoveAllTerrain</span><td>0<td>If true, can move through terrain marked as impassible
     <tr><td><span class="tagoptional">bCanMoveImpassable</span><td>0<td>If true, can move through plots flagged as impassible, typically used for air units
+    <tr><td><span class="tagoptional"><b>bCityPacifier</b></span><td>0<td>If true, the unit will quell all unhappiness in a city whose plot it is on and the occupation timer will reduce faster. 
     <tr><td><span class="tagoptional">bCounterSpy</span><td>0<td>If true, this unit will help detect any rival spying activities on the plot and may be able to prevent them succeeding
     <tr><td><span class="tagoptional">bCtrlDown</span><td>0<td>If true, the HotKey is only used if the Control key is also pressed
     <tr><td><span class="tagoptional">bDestroy</span><td>0<td>If true, can half a cities production, used by spies
@@ -445,6 +448,7 @@
   &lt;bWorkerTrade&gt;0&lt;/bWorkerTrade&gt;
   &lt;bMilitaryTrade&gt;0&lt;/bMilitaryTrade&gt;
   &lt;bBarbarianLeader&gt;0&lt;/bBarbarianLeader&gt;
+  &lt;bCityPacifier&gt;0&lt;/bCityPacifier&gt;
   &lt;UnitClassUpgrades&gt;
     &lt;UnitClassType&gt;&lt;/UnitClassType&gt;
   &lt;/UnitClassUpgrades&gt;
@@ -581,6 +585,8 @@
   &lt;iTradeMultiplier&gt;0&lt;/iTradeMultiplier&gt;
   &lt;iGreatWorkCulture&gt;0&lt;/iGreatWorkCulture&gt;
   &lt;iEspionagePoints&gt;0&lt;/iEspionagePoints&gt;
+  &lt;iGreatJestHappiness&gt;0&lt;/iGreatJestHappiness&gt;
+  &lt;iGreatJestDuration&gt;0&lt;/iGreatJestDuration&gt;
   &lt;TerrainImpassables&gt;
     &lt;TerrainType&gt;&lt;/TerrainType&gt;
   &lt;/TerrainImpassables&gt;
