@@ -24,6 +24,31 @@
 			<DefaultBuilding>BUILDING_PALACE</DefaultBuilding>
 		</BuildingClassInfo>
 
+		<BuildingClassInfo> <!-- City Council -->                    <!-- City Managemnt -->
+			<Type>BUILDINGCLASS_CITY_COUNCIL</Type>
+			<Description>TXT_KEY_BUILDING_CITY_COUNCIL</Description>
+			<iCategory>11</iCategory>
+			<DefaultBuilding>BUILDING_CITY_COUNCIL</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Metropolitan Administration -->
+			<Type>BUILDINGCLASS_METROPOLITAN_ADMINISTRATION</Type>
+			<Description>TXT_KEY_BUILDING_METROPOLITAN_ADMINISTRATION</Description>
+			<iCategory>11</iCategory>
+			<DefaultBuilding>BUILDING_METROPOLITAN_ADMINISTRATION</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Town Hall -->
+			<Type>BUILDINGCLASS_TOWN_HALL</Type>
+			<Description>TXT_KEY_BUILDING_TOWN_HALL</Description>
+			<iCategory>11</iCategory>
+			<DefaultBuilding>BUILDING_TOWN_HALL</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Village Hall -->
+			<Type>BUILDINGCLASS_VILLAGE_HALL</Type>
+			<Description>TXT_KEY_BUILDING_VILLAGE_HALL</Description>
+			<iCategory>11</iCategory>
+			<DefaultBuilding>BUILDING_VILLAGE_HALL</DefaultBuilding>
+		</BuildingClassInfo>
+
 		<BuildingClassInfo> <!-- Palisade -->                        <!-- City Walls -->
 			<Type>BUILDINGCLASS_PALISADE</Type>
 			<Description>TXT_KEY_BUILDING_PALISADE</Description>
@@ -746,6 +771,13 @@
 			<iCategory>3</iCategory>
 			<iMaxPlayerInstances>1</iMaxPlayerInstances>
 			<DefaultBuilding>BUILDING_BARBARIAN_LODGE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Capital Administration -->
+			<Type>BUILDINGCLASS_CAPITAL_ADMINISTRATION</Type>
+			<Description>TXT_KEY_BUILDING_CAPITAL_ADMINISTRATION</Description>
+			<iCategory>3</iCategory>
+			<iMaxPlayerInstances>1</iMaxPlayerInstances>
+			<DefaultBuilding>BUILDING_CAPITAL_ADMINISTRATION</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Globe Theatre -->
 			<Type>BUILDINGCLASS_GLOBE_THEATRE</Type>

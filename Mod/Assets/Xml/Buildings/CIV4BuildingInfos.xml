@@ -736,6 +736,73 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Capital Administration -->
+			<BuildingClass>BUILDINGCLASS_CAPITAL_ADMINISTRATION</BuildingClass>
+			<Type>BUILDING_CAPITAL_ADMINISTRATION</Type>
+			<Description>TXT_KEY_BUILDING_CAPITAL_ADMINISTRATION</Description>
+			<Civilopedia>TXT_KEY_BUILDING_CAPITAL_ADMINISTRATION_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_CITYBUILDINGS_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_HOLY_ROMAN_RATHAUS</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_CITY_PLANNING</TechType>
+			</PrereqAndTechs>
+			<iMinPopulation>18</iMinPopulation>
+			<MinCultureLevel>CULTURELEVEL_INFLUENTIAL</MinCultureLevel>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iChange>50</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bNeverCapture>1</bNeverCapture>
+			<bCenterInCity>1</bCenterInCity>
+			<iCost>620</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iWorkableRadius>3</iWorkableRadius>
+			<iFreeSpecialist>6</iFreeSpecialist>
+			<iMaintenanceModifier>25</iMaintenanceModifier>
+			<iAsset>4</iAsset>
+			<iPower>5</iPower>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>6</iCommerce>
+			</CommerceChanges>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_FARMER</SpecialistType>
+					<iCount>5</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_COURTHOUSE</ConstructSound>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+					<iNeeded>1</iNeeded>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Castle -->
 			<BuildingClass>BUILDINGCLASS_CASTLE</BuildingClass>
 			<Type>BUILDING_CASTLE</Type>
@@ -1129,6 +1196,68 @@
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
 					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- City Council -->
+			<BuildingClass>BUILDINGCLASS_CITY_COUNCIL</BuildingClass>
+			<Type>BUILDING_CITY_COUNCIL</Type>
+			<Description>TXT_KEY_BUILDING_CITY_COUNCIL</Description>
+			<Civilopedia>TXT_KEY_BUILDING_CITY_COUNCIL_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_CITYBUILDINGS_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_CITY_COUNCIL</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_CITY_PLANNING</TechType>
+			</PrereqAndTechs>
+			<iMinPopulation>13</iMinPopulation>
+			<MinCultureLevel>CULTURELEVEL_REFINED</MinCultureLevel>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iChange>50</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bCenterInCity>1</bCenterInCity>
+			<iCost>220</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iConquestProb>85</iConquestProb>
+			<iMaxLatitude>90</iMaxLatitude>
+			<iFreeSpecialist>3</iFreeSpecialist>
+			<iMaintenanceModifier>20</iMaintenanceModifier>
+			<iAsset>4</iAsset>
+			<iPower>5</iPower>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>3</iCommerce>
+			</CommerceChanges>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_FARMER</SpecialistType>
+					<iCount>4</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_COURTHOUSE</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_METROPOLITAN_ADMINISTRATION</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_METROPOLITAN_ADMINISTRATION</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>4</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
@@ -4560,6 +4689,70 @@
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Metropolitan Administration -->
+			<BuildingClass>BUILDINGCLASS_METROPOLITAN_ADMINISTRATION</BuildingClass>
+			<Type>BUILDING_METROPOLITAN_ADMINISTRATION</Type>
+			<Description>TXT_KEY_BUILDING_METROPOLITAN_ADMINISTRATION</Description>
+			<Civilopedia>TXT_KEY_BUILDING_METROPOLITAN_ADMINISTRATION_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_CITYBUILDINGS_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_METROPOLITAN_ADMINISTRATION</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_SOCIAL_CONTRACT</TechType>
+			</PrereqAndTechs>
+			<iMinPopulation>25</iMinPopulation>
+			<MinCultureLevel>CULTURELEVEL_INFLUENTIAL</MinCultureLevel>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iChange>50</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bCenterInCity>1</bCenterInCity>
+			<iCost>820</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iConquestProb>100</iConquestProb>
+			<iWorkableRadius>3</iWorkableRadius>
+			<iFreeSpecialist>4</iFreeSpecialist>
+			<iMaintenanceModifier>25</iMaintenanceModifier>
+			<iAsset>4</iAsset>
+			<iPower>5</iPower>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>4</iCommerce>
+			</CommerceChanges>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_FARMER</SpecialistType>
+					<iCount>5</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_COURTHOUSE</ConstructSound>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_CAPITAL_ADMINISTRATION</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Microlith Workshop -->
 			<BuildingClass>BUILDINGCLASS_MICROLITH_WORKSHOP</BuildingClass>
 			<Type>BUILDING_MICROLITH_WORKSHOP</Type>
@@ -7059,6 +7252,69 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Town Hall -->
+			<BuildingClass>BUILDINGCLASS_TOWN_HALL</BuildingClass>
+			<Type>BUILDING_TOWN_HALL</Type>
+			<Description>TXT_KEY_BUILDING_TOWN_HALL</Description>
+			<Civilopedia>TXT_KEY_BUILDING_TOWN_HALL_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_CITYBUILDINGS_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_TOWN_HALL</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_BRONZE_WORKING</TechType>
+			</PrereqAndTechs>
+			<iMinPopulation>6</iMinPopulation>
+			<MinCultureLevel>CULTURELEVEL_DEVELOPING</MinCultureLevel>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iChange>50</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bCenterInCity>1</bCenterInCity>
+			<iCost>120</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iConquestProb>85</iConquestProb>
+			<iMaxLatitude>90</iMaxLatitude>
+			<iFreeSpecialist>2</iFreeSpecialist>
+			<iMaintenanceModifier>15</iMaintenanceModifier>
+			<iAsset>4</iAsset>
+			<iPower>5</iPower>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</CommerceChanges>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_FARMER</SpecialistType>
+					<iCount>3</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_COURTHOUSE</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_CITY_COUNCIL</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_CITY_COUNCIL</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_METROPOLITAN_ADMINISTRATION</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>4</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Treadmill Crane -->
 			<BuildingClass>BUILDINGCLASS_TREADMILL_CRANE</BuildingClass>
 			<Type>BUILDING_TREADMILL_CRANE</Type>
@@ -7317,6 +7573,67 @@
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
 					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Village Hall -->
+			<BuildingClass>BUILDINGCLASS_VILLAGE_HALL</BuildingClass>
+			<Type>BUILDING_VILLAGE_HALL</Type>
+			<Description>TXT_KEY_BUILDING_VILLAGE_HALL</Description>
+			<Civilopedia>TXT_KEY_BUILDING_VILLAGE_HALL_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_CITYBUILDINGS_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_VILLAGE_HALL</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_WOODWORKING</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iChange>50</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bCenterInCity>1</bCenterInCity>
+			<iCost>60</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iConquestProb>85</iConquestProb>
+			<iFreeSpecialist>1</iFreeSpecialist>
+			<iMaintenanceModifier>10</iMaintenanceModifier>
+			<iAsset>4</iAsset>
+			<iPower>5</iPower>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommerceChanges>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_FARMER</SpecialistType>
+					<iCount>2</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_COURTHOUSE</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_TOWN_HALL</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_TOWN_HALL</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CITY_COUNCIL</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_METROPOLITAN_ADMINISTRATION</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>4</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>

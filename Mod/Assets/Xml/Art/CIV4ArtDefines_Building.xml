@@ -2097,5 +2097,45 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/Furrier.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Village Hall -->
+			<Type>ART_DEF_BUILDING_VILLAGE_HALL</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.4</fScale>
+			<fInterfaceScale>0.9</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/Longhouse/pow_camp.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/village_hall.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Town Hall -->
+			<Type>ART_DEF_BUILDING_TOWN_HALL</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.0</fScale>
+			<fInterfaceScale>0.35</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/HRE_RathHouse/HRE_RathHouse.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/town_hall.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- City Council -->
+			<Type>ART_DEF_BUILDING_CITY_COUNCIL</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.0</fScale>
+			<fInterfaceScale>0.35</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/HRE_RathHouse/HRE_RathHouse.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/city_council.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Metropolitan Administration -->
+			<Type>ART_DEF_BUILDING_METROPOLITAN_ADMINISTRATION</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.0</fScale>
+			<fInterfaceScale>0.35</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/HRE_RathHouse/HRE_RathHouse.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/metropolitan_administration.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
