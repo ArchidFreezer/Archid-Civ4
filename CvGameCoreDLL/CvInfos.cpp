@@ -7961,8 +7961,8 @@ int CvBuildingInfo::getNumPrereqAndBuildingClasses() const {
 	return (int)m_viPrereqAndBuildingClasses.size();
 }
 
-bool CvBuildingInfo::isPrereqAndBuildingClass(BuildingClassTypes eBuildingClass) const {
-	return (std::find(m_viPrereqAndBuildingClasses.begin(), m_viPrereqAndBuildingClasses.end(), eBuildingClass) != m_viPrereqAndBuildingClasses.end());
+bool CvBuildingInfo::isPrereqAndBuildingClass(int iBuildingClass) const {
+	return (std::find(m_viPrereqAndBuildingClasses.begin(), m_viPrereqAndBuildingClasses.end(), (BuildingClassTypes)iBuildingClass) != m_viPrereqAndBuildingClasses.end());
 }
 
 int CvBuildingInfo::getPrereqOrBuildingClass(int i) const {
@@ -7973,8 +7973,8 @@ int CvBuildingInfo::getNumPrereqOrBuildingClasses() const {
 	return (int)m_viPrereqOrBuildingClasses.size();
 }
 
-bool CvBuildingInfo::isPrereqOrBuildingClass(BuildingClassTypes eBuildingClass) const {
-	return (std::find(m_viPrereqOrBuildingClasses.begin(), m_viPrereqOrBuildingClasses.end(), eBuildingClass) != m_viPrereqOrBuildingClasses.end());
+bool CvBuildingInfo::isPrereqOrBuildingClass(int iBuildingClass) const {
+	return (std::find(m_viPrereqOrBuildingClasses.begin(), m_viPrereqOrBuildingClasses.end(), (BuildingClassTypes)iBuildingClass) != m_viPrereqOrBuildingClasses.end());
 }
 
 int CvBuildingInfo::getPrereqNotBuildingClass(int i) const {

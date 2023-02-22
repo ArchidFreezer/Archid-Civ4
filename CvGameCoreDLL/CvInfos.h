@@ -2020,8 +2020,8 @@ public:
 	bool isPrereqVicinityFeature(FeatureTypes eImprovement) const;
 	bool isPrereqVicinityAndBonus(BonusTypes eTerrain) const;
 	bool isPrereqVicinityOrBonus(BonusTypes eTerrain) const;
-	bool isPrereqAndBuildingClass(BuildingClassTypes eBuildingClass) const;
-	bool isPrereqOrBuildingClass(BuildingClassTypes eBuildingClass) const;
+	bool isPrereqAndBuildingClass(int iBuildingClass) const;
+	bool isPrereqOrBuildingClass(int iBuildingClass) const;
 	bool isPrereqNotBuildingClass(BuildingClassTypes eBuildingClass) const;
 	bool isPrereqWorldView(int i) const;
 

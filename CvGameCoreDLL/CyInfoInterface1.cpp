@@ -705,8 +705,8 @@ void CyInfoPythonInterface1() {
 		.def("isPrereqVicinityOrBonus", &CvBuildingInfo::isPrereqVicinityOrBonus, "bool (int i)")
 		.def("isPrereqVicinityImprovement", &CvBuildingInfo::isPrereqVicinityImprovement, "bool (int i)")
 		.def("isPrereqVicinityFeature", &CvBuildingInfo::isPrereqVicinityFeature, "bool (int i)")
-		.def("isPrereqAndBuildingClass", &CvBuildingInfo::isPrereqAndBuildingClass, "bool (BuildingClassTypes eBuildingClass)")
-		.def("isPrereqOrBuildingClass", &CvBuildingInfo::isPrereqOrBuildingClass, "bool (BuildingClassTypes eBuildingClass)")
+		.def("isPrereqAndBuildingClass", &CvBuildingInfo::isPrereqAndBuildingClass, "bool (int i)")
+		.def("isPrereqOrBuildingClass", &CvBuildingInfo::isPrereqOrBuildingClass, "bool (int i)")
 		.def("isPrereqWorldView", &CvBuildingInfo::isPrereqWorldView, "bool (int i)")
 
 		.def("getSpecialistYieldChange", &CvBuildingInfo::getSpecialistYieldChange, "int (int i, int j)")
