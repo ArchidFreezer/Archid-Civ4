@@ -482,6 +482,69 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Brightsmiths Hut -->
+			<BuildingClass>BUILDINGCLASS_BRIGHTSMITHS_HUT</BuildingClass>
+			<Type>BUILDING_BRIGHTSMITHS_HUT</Type>
+			<Description>TXT_KEY_BUILDING_BRIGHTSMITHS_HUT</Description>
+			<Civilopedia>TXT_KEY_BUILDING_BRIGHTSMITHS_HUT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_BRIGHTSMITHS_HUT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_BRIGHTSMITHS_HUT</ArtDefineTag>
+			<ObsoleteTech>TECH_GUILDS</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_EARLY_METAL_WORKING</TechType>
+			</PrereqAndTechs>
+			<PrereqVicinityOrBonus>
+				<BonusType>BONUS_GOLD</BonusType>
+				<BonusType>BONUS_LEAD</BonusType>
+				<BonusType>BONUS_SILVER</BonusType>
+			</PrereqVicinityOrBonus>
+			<bPrereqVicinityBonusUnconnectedAllowed>1</bPrereqVicinityBonusUnconnectedAllowed>
+			<iCost>20</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>70</iConquestProb>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</YieldChanges>
+			<BonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_GOLD</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_LEAD</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SILVER</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</BonusYieldChanges>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Broadcast Tower -->
 			<BuildingClass>BUILDINGCLASS_BROADCAST_TOWER</BuildingClass>
 			<Type>BUILDING_BROADCAST_TOWER</Type>

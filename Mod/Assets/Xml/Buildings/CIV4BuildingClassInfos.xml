@@ -278,6 +278,12 @@
 			<iCategory>28</iCategory>
 			<DefaultBuilding>BUILDING_SLAVE_MARKET</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Brightsmiths Hut -->
+			<Type>BUILDINGCLASS_BRIGHTSMITHS_HUT</Type>
+			<Description>TXT_KEY_BUILDING_BRIGHTSMITHS_HUT</Description>
+			<iCategory>28</iCategory>
+			<DefaultBuilding>BUILDING_BRIGHTSMITHS_HUT</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Weavers Hut -->
 			<Type>BUILDINGCLASS_WEAVERS_HUT</Type>
 			<Description>TXT_KEY_BUILDING_WEAVERS_HUT</Description>

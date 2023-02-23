@@ -2147,5 +2147,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/capital_administration.dds</Button>
 		</BuildingArtInfo>
+ 		<BuildingArtInfo> <!-- Brightsmiths Hut -->
+			<Type>ART_DEF_BUILDING_BRIGHTSMITHS_HUT</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>.8</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/City/hut/eldercouncil.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/brightsmiths_hut.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

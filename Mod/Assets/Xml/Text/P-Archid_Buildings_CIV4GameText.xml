@@ -14,6 +14,18 @@
 		<Tag>TXT_KEY_BUILDING_BARBARIAN_LODGE_STRATEGY</Tag>
 		<English>Build a [COLOR_BUILDING_TEXT]Barbarian Lodge[COLOR_REVERT] to allow you to have more barbarian units to harrass your neighbours with.</English>
 	</TEXT>
+	<TEXT> <!-- Brightsmiths Hut -->
+		<Tag>TXT_KEY_BUILDING_BRIGHTSMITHS_HUT</Tag>
+		<English>Brightsmith's Hut</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BRIGHTSMITHS_HUT_PEDIA</Tag>
+		<English>The brightsmith is a metalworker that works with the lighter metals such as gold and silver.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BRIGHTSMITHS_HUT_STRATEGY</Tag>
+		<English>Makes use of unrefined metals resources, providing Commerce</English>
+	</TEXT>
 	<TEXT> <!-- Capital Administration -->
 		<Tag>TXT_KEY_BUILDING_CAPITAL_ADMINISTRATION</Tag>
 		<English>Capital Administration</English>
