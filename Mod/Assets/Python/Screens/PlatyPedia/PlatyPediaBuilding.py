@@ -159,6 +159,37 @@ class CvPediaBuilding:
 		if len(szCatDelim):
 			screen.attachLabel(panelName, "", szCatDelim)
 
+		# Terrains
+		szCatDelim = ""
+		bFirst = True
+		if Info.getNumPrereqAndTerrains() > 0:
+			screen.attachLabel(panelName, "", "[")
+			szCatDelim = "]"
+		for j in xrange(Info.getNumPrereqAndTerrains()):
+			bFirst = False
+			eTerrain = Info.getPrereqAndTerrain(j)
+			screen.attachImageButton( panelName, "", gc.getTerrainInfo(eTerrain).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_TERRAIN, eTerrain, -1, False )
+		szOrDelim = ""
+		if not bFirst:
+			if Info.getNumPrereqOrTerrains() > 1:
+				if len(szCatDelim) == 0:
+					screen.attachLabel(panelName, "", "[")
+					szCatDelim = "]"
+				screen.attachLabel(panelName, "", "( ")
+				szOrDelim = " ) "
+		bFirst = True
+		for j in xrange(Info.getNumPrereqOrTerrains()):
+			eTerrain = Info.getPrereqOrTerrain(j)
+			if not bFirst:
+				screen.attachLabel(panelName, "", CyTranslator().getText("TXT_KEY_OR", ()))
+			else:
+				bFirst = False
+			screen.attachImageButton( panelName, "", gc.getTerrainInfo(eTerrain).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_TERRAIN, eTerrain, -1, False )
+		if len(szOrDelim):
+			screen.attachLabel(panelName, "", szOrDelim)
+		if len(szCatDelim):
+			screen.attachLabel(panelName, "", szCatDelim)
+
 		# Bonus
 		szCatDelim = ""
 		szOrDelim = ""
