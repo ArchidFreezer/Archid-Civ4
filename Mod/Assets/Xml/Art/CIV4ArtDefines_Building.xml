@@ -2207,5 +2207,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/jumplane_portal.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Fish Market -->
+			<Type>ART_DEF_BUILDING_FISH_MARKET</Type>
+			<LSystem>LSYSTEM_MARKET</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.05</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Market/Market.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/Builds/BuildFishingBoats.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,7,7</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

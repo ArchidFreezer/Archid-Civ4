@@ -170,6 +170,12 @@
 			<iCategory>19</iCategory>
 			<DefaultBuilding>BUILDING_FISHERMANS_HUT</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Fish Market -->
+			<Type>BUILDINGCLASS_FISH_MARKET</Type>
+			<Description>TXT_KEY_BUILDING_FISH_MARKET</Description>
+			<iCategory>19</iCategory>
+			<DefaultBuilding>BUILDING_FISH_MARKET</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Harbor -->                          <!-- Water Trade -->
 			<Type>BUILDINGCLASS_HARBOUR</Type>
 			<Description>TXT_KEY_BUILDING_HARBOUR</Description>

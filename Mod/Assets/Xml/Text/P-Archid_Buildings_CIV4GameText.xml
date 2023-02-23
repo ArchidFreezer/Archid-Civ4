@@ -135,6 +135,20 @@
 		<Tag>TXT_KEY_BUILDING_EARLY_INSTRUMENT_MAKER_STRATEGY</Tag>
 		<English>Build a [COLOR_BUILDING_TEXT]Early Instrument Maker[COLOR_REVERT] to increase the commerce output in your cities.</English>
 	</TEXT>
+	<TEXT> <!-- Fish Market -->
+		<Tag>TXT_KEY_BUILDING_FISH_MARKET</Tag>
+		<English>Fish Market</English>
+		<French>Marché aux poissons</French>
+		<German>Fischmarkt</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FISH_MARKET_STRATEGY</Tag>
+		<English>Fish Markets grant a health bonus and allow faster growth. they also increase the commerce gain.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FISH_MARKET_PEDIA</Tag>
+		<English>[TAB]A [COLOR_BUILDING_TEXT]Fish Market[COLOR_REVERT] is a marketplace used for marketing fish products. It can be dedicated to wholesale trade between fishermen and fish merchants, or to the sale of seafood to individual consumers, or to both. Retail fish markets, a type of wet market, often sell street food as well.[PARAGRAPH:1]Because seafood is quick to spoil, fish markets are historically most often found in seaside towns. Once ice or other simple cooling  methods became available, some were also established in large inland cities that had good trade routes to the coast.[PARAGRAPH:1]Since refrigeration and rapid transport became available in the 19th and 20th century, fish markets can technically be established at any place. However, because modern trade logistics in general has shifted away from marketplaces and towards retail outlets, such as supermarkets, most seafood worldwide is now sold to consumers through these venues, like most other foodstuffs.[PARAGRAPH:1]Consequently, most major fish markets now mainly deal with wholesale trade, and the existing major fish retail markets continue to operate as much for traditional reasons as for commercial ones. Both types of fish markets are often tourist attractions as well.</English>
+	</TEXT>	
 	<TEXT> <!-- Fish Traps -->
 		<Tag>TXT_KEY_BUILDING_FISHTRAPS</Tag>
 		<English>Fish Traps</English>
