@@ -1614,6 +1614,64 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Commercial Port -->
+			<BuildingClass>BUILDINGCLASS_COMMERCIAL_PORT</BuildingClass>
+			<Type>BUILDING_COMMERCIAL_PORT</Type>
+			<Description>TXT_KEY_BUILDING_COMMERCIAL_PORT</Description>
+			<Civilopedia>TXT_KEY_BUILDING_COMMERCIAL_PORT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_COMMERCIAL_PORT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_COMMERCIAL_PORT</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_COMPASS</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_FINANCIAL</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bWater>1</bWater>
+			<iCost>390</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>10</iMinAreaSize>
+			<iConquestProb>100</iConquestProb>
+			<iMaxLatitude>90</iMaxLatitude>
+			<iHealth>-2</iHealth>
+			<iTradeRoutes>2</iTradeRoutes>
+			<iTradeRouteModifier>50</iTradeRouteModifier>
+			<iForeignTradeRouteModifier>25</iForeignTradeRouteModifier>
+			<iAsset>4</iAsset>
+			<SeaPlotYieldChanges>
+				<iYield>1</iYield>
+			</SeaPlotYieldChanges>
+			<CommerceChanges>
+				<iCommerce>6</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</CommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<ConstructSound>AS2D_BUILD_COMMERCIAL_PORT</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_CONTAINER_PORT</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_CONTAINER_PORT</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Confucian Cathedral -->
 			<BuildingClass>BUILDINGCLASS_CONFUCIAN_CATHEDRAL</BuildingClass>
 			<Type>BUILDING_CONFUCIAN_CATHEDRAL</Type>
@@ -1814,6 +1872,57 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Container Port -->
+			<BuildingClass>BUILDINGCLASS_CONTAINER_PORT</BuildingClass>
+			<Type>BUILDING_CONTAINER_PORT</Type>
+			<Description>TXT_KEY_BUILDING_CONTAINER_PORT</Description>
+			<Civilopedia>TXT_KEY_BUILDING_CONTAINER_PORT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_CONTAINER_PORT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_CONTAINER_PORT</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_MACHINE_TOOLS</TechType>
+			</PrereqAndTechs>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_OIL</BonusType>
+			</PrereqOrBonuses>
+			<bWater>1</bWater>
+			<iCost>880</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>10</iMinAreaSize>
+			<iConquestProb>100</iConquestProb>
+			<iHealth>-2</iHealth>
+			<iTradeRoutes>3</iTradeRoutes>
+			<iTradeRouteModifier>50</iTradeRouteModifier>
+			<iForeignTradeRouteModifier>100</iForeignTradeRouteModifier>
+			<iAsset>4</iAsset>
+			<iPower>0</iPower>
+			<bPrereqPower>1</bPrereqPower>
+			<SeaPlotYieldChanges>
+				<iYield>1</iYield>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</SeaPlotYieldChanges>
+			<CommerceChanges>
+				<iCommerce>10</iCommerce>
+			</CommerceChanges>
+			<ConstructSound>AS2D_BUILD_CONTAINER_PORT</ConstructSound>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_COMMERCIAL_PORT</BuildingClassType>
+					<iNeeded>2</iNeeded>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_JUMPLANE_PORTAL</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -2356,6 +2465,113 @@
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
 					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Fish Traps -->
+			<BuildingClass>BUILDINGCLASS_FISHTRAPS</BuildingClass>
+			<Type>BUILDING_FISHTRAPS</Type>
+			<Description>TXT_KEY_BUILDING_FISHTRAPS</Description>
+			<Civilopedia>TXT_KEY_BUILDING_FISHTRAPS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_FISHTRAPS_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_FISHTRAPS</ArtDefineTag>
+			<ObsoleteTech>TECH_BIOLOGY</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_FISHING</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_SEAFARING</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bWater>1</bWater>
+			<bRiver>1</bRiver>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>35</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>95</iConquestProb>
+			<YieldChanges>
+				<iYield>1</iYield>
+			</YieldChanges>
+			<ConstructSound>AS2D_BUILD_ARTESIAN_WELL</ConstructSound>
+			<VicinityBonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_FISH</BonusType>
+					<YieldChanges>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_CRAB</BonusType>
+					<YieldChanges>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SHRIMP</BonusType>
+					<YieldChanges>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</VicinityBonusYieldChanges>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>			
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Fisherman's Hut -->
+			<BuildingClass>BUILDINGCLASS_FISHERMANS_HUT</BuildingClass>
+			<Type>BUILDING_FISHERMANS_HUT</Type>
+			<Description>TXT_KEY_BUILDING_FISHERMANS_HUT</Description>
+			<Civilopedia>TXT_KEY_BUILDING_FISHERMANS_HUT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_FISHERMANS_HUT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_FISHERMANS_HUT</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_FISHING</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_SEAFARING</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bWater>1</bWater>
+			<iAIWeight>100</iAIWeight>
+			<iCost>40</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>10</iMinAreaSize>
+			<iConquestProb>75</iConquestProb>
+			<iAsset>5</iAsset>
+			<SeaPlotYieldChanges>
+				<iYield>1</iYield>
+			</SeaPlotYieldChanges>
+			<ConstructSound>AS2D_BUILD_FISHERMANS_HUT</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_HARBOUR</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_HARBOUR</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>15</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
@@ -3120,17 +3336,17 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Harbor -->
-			<BuildingClass>BUILDINGCLASS_HARBOR</BuildingClass>
-			<Type>BUILDING_HARBOR</Type>
-			<Description>TXT_KEY_BUILDING_HARBOR</Description>
-			<Civilopedia>TXT_KEY_BUILDING_HARBOR_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_BUILDING_HARBOR_STRATEGY</Strategy>
+		<BuildingInfo> <!-- Harbour -->
+			<BuildingClass>BUILDINGCLASS_HARBOUR</BuildingClass>
+			<Type>BUILDING_HARBOUR</Type>
+			<Description>TXT_KEY_BUILDING_HARBOUR</Description>
+			<Civilopedia>TXT_KEY_BUILDING_HARBOUR_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_HARBOUR_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_HARBOR</ArtDefineTag>
+			<ArtDefineTag>ART_DEF_BUILDING_HARBOUR</ArtDefineTag>
 			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
 			<PrereqAndTechs>
-				<TechType>TECH_COMPASS</TechType>
+				<TechType>TECH_SEAFARING</TechType>
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
@@ -3142,33 +3358,44 @@
 			<iCost>80</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>10</iMinAreaSize>
-			<iConquestProb>66</iConquestProb>
-			<iTradeRouteModifier>50</iTradeRouteModifier>
+			<iConquestProb>100</iConquestProb>
+			<iTradeRouteModifier>30</iTradeRouteModifier>
 			<iAsset>4</iAsset>
-			<ConstructSound>AS2D_BUILD_DRYDOCK</ConstructSound>
-			<BonusHealthChanges>
-				<BonusHealthChange>
-					<BonusType>BONUS_CLAM</BonusType>
-					<iChange>1</iChange>
-				</BonusHealthChange>
-				<BonusHealthChange>
-					<BonusType>BONUS_CRAB</BonusType>
-					<iChange>1</iChange>
-				</BonusHealthChange>
-				<BonusHealthChange>
-					<BonusType>BONUS_FISH</BonusType>
-					<iChange>1</iChange>
-				</BonusHealthChange>
-			</BonusHealthChanges>
+			<SeaPlotYieldChanges>
+				<iYield>1</iYield>
+			</SeaPlotYieldChanges>
+			<CommerceChanges>
+				<iCommerce>2</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommerceChanges>
+			<ConstructSound>AS2D_BUILD_HARBOR</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_PORT</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_PORT</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
-					<iFlavor>10</iFlavor>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>8</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Harbor: Carthage Cothon -->
-			<BuildingClass>BUILDINGCLASS_HARBOR</BuildingClass>
+		<BuildingInfo> <!-- Harbour: Carthage Cothon -->
+			<BuildingClass>BUILDINGCLASS_HARBOUR</BuildingClass>
 			<Type>BUILDING_CARTHAGE_COTHON</Type>
 			<Description>TXT_KEY_BUILDING_CARTHAGE_COTHON</Description>
 			<Civilopedia>TXT_KEY_BUILDING_CARTHAGE_COTHON_PEDIA</Civilopedia>
@@ -3177,7 +3404,7 @@
 			<ArtDefineTag>ART_DEF_BUILDING_CARTHAGE_COTHON</ArtDefineTag>
 			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
 			<PrereqAndTechs>
-				<TechType>TECH_COMPASS</TechType>
+				<TechType>TECH_SEAFARING</TechType>
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
@@ -3189,29 +3416,42 @@
 			<iCost>100</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>10</iMinAreaSize>
-			<iConquestProb>66</iConquestProb>
+			<iConquestProb>75</iConquestProb>
 			<iTradeRoutes>1</iTradeRoutes>
-			<iTradeRouteModifier>50</iTradeRouteModifier>
+			<iTradeRouteModifier>30</iTradeRouteModifier>
 			<iAsset>6</iAsset>
-			<ConstructSound>AS2D_BUILD_DRYDOCK</ConstructSound>
-			<BonusHealthChanges>
-				<BonusHealthChange>
-					<BonusType>BONUS_CLAM</BonusType>
-					<iChange>1</iChange>
-				</BonusHealthChange>
-				<BonusHealthChange>
-					<BonusType>BONUS_CRAB</BonusType>
-					<iChange>1</iChange>
-				</BonusHealthChange>
-				<BonusHealthChange>
-					<BonusType>BONUS_FISH</BonusType>
-					<iChange>1</iChange>
-				</BonusHealthChange>
-			</BonusHealthChanges>
+			<SeaPlotYieldChanges>
+				<iYield>1</iYield>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</SeaPlotYieldChanges>
+			<CommerceChanges>
+				<iCommerce>2</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</CommerceChanges>
+			<ConstructSound>AS2D_BUILD_HARBOR</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_PORT</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_PORT</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
-					<iFlavor>10</iFlavor>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>8</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
@@ -4067,6 +4307,49 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Jumplane Portal -->
+			<BuildingClass>BUILDINGCLASS_JUMPLANE_PORTAL</BuildingClass>
+			<Type>BUILDING_JUMPLANE_PORTAL</Type>
+			<Description>TXT_KEY_BUILDING_JUMPLANE_PORTAL</Description>
+			<Civilopedia>TXT_KEY_BUILDING_JUMPLANE_PORTAL_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_JUMPLANE_PORTAL_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_JUMPLANE_PORTAL</ArtDefineTag>			
+			<PrereqAndTechs>
+				<TechType>TECH_TELEPORTATION</TechType>
+			</PrereqAndTechs>
+			<iCost>980</iCost>			
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iAirlift>3</iAirlift>
+			<iAirUnitCapacity>6</iAirUnitCapacity>
+			<iHealth>-2</iHealth>
+			<iTradeRoutes>5</iTradeRoutes>
+			<iTradeRouteModifier>125</iTradeRouteModifier>
+			<iForeignTradeRouteModifier>75</iForeignTradeRouteModifier>
+			<iAsset>4</iAsset>
+			<bPrereqPower>1</bPrereqPower>
+			<fVisibilityPriority>1.0</fVisibilityPriority>	
+			<SeaPlotYieldChanges>
+				<iYield>1</iYield>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</SeaPlotYieldChanges>
+			<PowerYieldModifiers>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>20</iYield>
+			</PowerYieldModifiers>
+			<CommerceChanges>
+				<iCommerce>16</iCommerce>
+			</CommerceChanges>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>	
 		<BuildingInfo> <!-- Knowledge Inheritance -->
 			<BuildingClass>BUILDINGCLASS_KNOWLEDGE_INHERITANCE</BuildingClass>
 			<Type>BUILDING_KNOWLEDGE_INHERITANCE</Type>
@@ -5714,6 +5997,68 @@
 				<Flavor>
 					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
 					<iFlavor>2</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Port -->
+			<BuildingClass>BUILDINGCLASS_PORT</BuildingClass>
+			<Type>BUILDING_PORT</Type>
+			<Description>TXT_KEY_BUILDING_PORT</Description>
+			<Civilopedia>TXT_KEY_BUILDING_PORT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_PORT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_VIKING_TRADING_POST</ArtDefineTag>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<PrereqAndTechs>
+				<TechType>TECH_CITY_PLANNING</TechType>
+				<TechType>TECH_SEAFARING</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_EXPANSIVE</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bWater>1</bWater>
+			<iCost>150</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>10</iMinAreaSize>
+			<iConquestProb>100</iConquestProb>
+			<iHealth>-1</iHealth>
+			<iTradeRoutes>1</iTradeRoutes>
+			<iTradeRouteModifier>30</iTradeRouteModifier>
+			<iForeignTradeRouteModifier>30</iForeignTradeRouteModifier>
+			<iAsset>4</iAsset>
+			<SeaPlotYieldChanges>
+				<iYield>1</iYield>
+			</SeaPlotYieldChanges>
+			<CommerceChanges>
+				<iCommerce>3</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>3</iCommerce>
+			</CommerceChanges>
+			<ConstructSound>AS2D_BUILD_PORT</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_COMMERCIAL_PORT</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_COMMERCIAL_PORT</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>8</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>4</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>

@@ -76,6 +76,20 @@
 		<Tag>TXT_KEY_BUILDING_CITY_COUNCIL_PEDIA</Tag>
 		<English>.</English>
 	</TEXT>	
+	<TEXT> <!-- Commercial Port -->
+		<Tag>TXT_KEY_BUILDING_COMMERCIAL_PORT</Tag>
+		<English>Commercial Port</English>
+		<French>Port Commercial</French>
+		<German>Handelshafen</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_COMMERCIAL_PORT_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_COMMERCIAL_PORT_STRATEGY</Tag>
+		<English>Commercial Ports increase coastal cities' trade routes and commerce and happiness. They are required to build International Ports.</English>
+	</TEXT>
 	<TEXT> <!-- Construction Firm -->
 		<Tag>TXT_KEY_BUILDING_CONSTRUCTION_FIRM</Tag>
 		<English>Construction Firm</English>
@@ -95,6 +109,20 @@
 		<English>Increases Production for Buildings.</English>
 		<French>Augmente la vitesse de Construction des Bâtiments.</French>
 	</TEXT>
+	<TEXT> <!-- Container Port -->
+		<Tag>TXT_KEY_BUILDING_CONTAINER_PORT</Tag>
+		<English>Container Port</English>
+		<French>Grand Port de Container</French>
+		<German>Containerhafen</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CONTAINER_PORT_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CONTAINER_PORT_STRATEGY</Tag>
+		<English>Container ports significantly increase coastal cities' commerce but at the cost of increased polution.</English>
+	</TEXT>
 	<TEXT> <!-- Early Instrument Maker -->
 		<Tag>TXT_KEY_BUILDING_EARLY_INSTRUMENT_MAKER</Tag>
 		<English>Early Instrument Maker</English>
@@ -106,6 +134,49 @@
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_EARLY_INSTRUMENT_MAKER_STRATEGY</Tag>
 		<English>Build a [COLOR_BUILDING_TEXT]Early Instrument Maker[COLOR_REVERT] to increase the commerce output in your cities.</English>
+	</TEXT>
+	<TEXT> <!-- Fish Traps -->
+		<Tag>TXT_KEY_BUILDING_FISHTRAPS</Tag>
+		<English>Fish Traps</English>
+		<French>
+			<Text>Pièges à Poissons</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Fischreusen</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FISHTRAPS_PEDIA</Tag>
+		<English>Fish are an important part of diets for many cultures, since fish can be easily salted and dried and are rich in protein.  Fish traps allow fish migrating in rivers or coastal areas to be easily caught.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FISHTRAPS_STRATEGY</Tag>
+		<English>The ability to catch fish in rivers and the coastline increases Food</English>
+		<French>La possibilité de piéger des poissons augmente la Nourriture</French>
+	</TEXT>
+	<TEXT> <!-- Fisherman's Hut -->
+		<Tag>TXT_KEY_BUILDING_FISHERMANS_HUT</Tag>
+		<English>Fisherman's Hut</English>
+		<French>
+			<Text>Cabane du Pêcheur</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Fischerh&#252;tte</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FISHERMANS_HUT_PEDIA</Tag>
+		<English>[TAB] A fishmonger (fishwife for women practitioners - "wife" in this case used in its archaic meaning of "woman") is someone who sells fish and seafood. In some countries modern supermarkets are replacing fishmongers who operate in shops or markets.  Fishmongers are trained at selecting and purchasing, handling, gutting, boning, filleting, displaying, merchandising and selling their product. In many places fishmongers, like butchers, are a dying breed. With the advent of many modern ways of distributing and packaging food, supermarkets often opt for less expensive alternatives to these trained, highly skilled professionals.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FISHERMAN_HUTS_HELP</Tag>
+		<English>[ICON_BULLET]Can be built only in coastal city</English>
+		<French>[ICON_BULLET]Peut être construit uniquement dans une Ville côtière</French>
+		<German>[ICON_BULLET]Kann nur in K&#252;stenst&#228;dten gebaut werden</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FISHERMAN_HUTS_STRATEGY</Tag>
+		<English>Fisherman's Hut increases city's food production if city has access to Fish, Crab and Whale resources.</English>
 	</TEXT>
 	<TEXT> <!-- Furrier -->
 		<Tag>TXT_KEY_BUILDING_FURRIER</Tag>
@@ -121,6 +192,46 @@
 		<Tag>TXT_KEY_BUILDING_FURRIER_STRATEGY</Tag>
 		<English>Adds gold and commerce with Fur; Resource requirement.</English>
 		<French>Ajoute de l'Or et du commerce avec la ressource Fourrure (nécessaire)</French>
+	</TEXT>
+	<TEXT> <!-- Harbour -->
+		<Tag>TXT_KEY_BUILDING_HARBOUR</Tag>
+		<English>Harbour</English>
+		<French>
+			<Text>Port</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Hafen</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Porto:Porti</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Puerto:Puertos</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HARBOUR_PEDIA</Tag>
+		<English>[TAB]Just because a city is built in a coastal region doesn't guarantee that the city is readily accessible by ship. In order for a port city to establish a steady trade, fishing, or other shipping industry, the city must have a harbour. A harbour is a protected body of water that opens into an ocean or lake that shelters ships from waves and high winds. Although some coastal cities are established in areas where a natural harbour exists, most seaports are forced either to improve the existing natural harbour, or to build a man-made harbour to shelter ships and provide channels deep enough to accommodate large vessels.</English>
+		<French>[TAB]Le fait de construire une ville dans une r&#233;gion c&#244;ti&#232;re ne lui garantit pas d'&#234;tre facilement accessible par bateau. Pour qu'une cit&#233; portuaire puisse &#233;tablir des industries de commerce, de p&#234;che et de transport maritime de fa&#231;on durable, elle doit avoir un port. Un port est une structure emprisonnant de l'eau mais ouvert sur l'oc&#233;an ou sur un lac et qui abrite les bateaux des vagues et des vents violents. Certaines villes portuaires sont construites dans des ports naturels mais la majorit&#233; des ports maritimes ne le sont pas. Dans ce cas, ces infrastructures permettent d'am&#233;liorer un port naturel existant ou de cr&#233;er un port artificiel pour abriter les navires et offrir des chenaux suffisamment profonds pour accueillir de grands bateaux.</French>
+		<German>[TAB]Nur weil eine Stadt an der K&#252;ste liegt, bedeutet das nicht, dass sie f&#252;r Schiffe leicht zug&#228;nglich ist. Vielmehr muss eine solche K&#252;stenstadt einen Hafen unterhalten, damit sie sich aktiv am Seehandel, der Fischereiindustrie und anderen maritimen Unternehmungen beteiligen kann. Ein Hafen ist eine gesch&#252;tzte Wasserfl&#228;che, die sich zum Meer oder einem anderen offenen Gew&#228;sser hin &#246;ffnet und die vor Anker liegenden Schiffe vor Wellen und starken Windb&#246;en sch&#252;tzt. Auch wenn einige K&#252;stenst&#228;dte einen nat&#252;rlichen Hafen besitzen, so sind sie meist doch gezwungen, diesen entweder auszubauen oder zus&#228;tzlich einen k&#252;nstlichen Hafen anzulegen, um die einlaufenden Schiffe beherbergen und auch gro&#223;en Schiffen mit mehr Tiefgang Zugang gew&#228;hren zu k&#246;nnen.</German>
+		<Italian>[TAB]Solo perch&#233; una citt&#224; sorge sulla costa, non &#232; detto che sia facilmente accessibile alle navi e alle imbarcazioni. Affinch&#233; una citt&#224; di mare possa intraprendere solide attivit&#224; di commercio, pesca, o altre industrie navali, essa deve avere una baia. Questo &#232; uno specchio d'acqua che d&#224; sul mare o su un lago, protetta in modo da offrire ai natanti un riparo dalle onde e dai venti forti. Anche se molte citt&#224; sono sorte in luoghi gi&#224; dotati di una baia naturale, la maggior parte delle comunit&#224; portuali sono costrette o a migliorare quella esistente o a realizzarne una artificiale per assicurare una sufficiente navigabilit&#224; e accessibilit&#224; anche alle navi di maggiori dimensioni.</Italian>
+		<Spanish>[TAB]El hecho de que una ciudad est&#233; construida en una regi&#243;n costera no garantiza que se pueda acceder a ella por barco. Para que una ciudad portuaria pueda establecer una ruta de comercio estable, pescar o establecer cualquier tipo de industria naval, debe tener un puerto. Un puerto es una masa de agua protegida que se abre hacia el oc&#233;ano o un lago y protege a las naves del oleaje y los vientos. Aunque algunas ciudades costeras se encuentran en zonas en las que existe un puerto natural, la mayor&#237;a de los puertos marinos se ven obligados, bien a mejorar el puerto natural ya existente, bien a construir un puerto artificial para proteger a los barcos y proporcionar canales suficientemente profundos para albergar a buques de gran calado.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HARBOUR_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Harbour[COLOR_REVERT] increases that city's income from trade routes. It increases a city's health from access to [COLOR_HIGHLIGHT_TEXT]Clam[COLOR_REVERT], [COLOR_HIGHLIGHT_TEXT]Crab[COLOR_REVERT], and [COLOR_HIGHLIGHT_TEXT]Fish[COLOR_REVERT] resources.</English>
+		<French>Les [COLOR_BUILDING_TEXT]ports[COLOR_REVERT] augmentent les revenus g&#233;n&#233;r&#233;s par les routes commerciales des villes. Ils am&#233;liorent la sant&#233; des citoyens dans les villes qui peuvent p&#234;cher des [COLOR_HIGHLIGHT_TEXT]coquillages[COLOR_REVERT], du [COLOR_HIGHLIGHT_TEXT]crabe[COLOR_REVERT] et du [COLOR_HIGHLIGHT_TEXT]poisson[COLOR_REVERT].</French>
+		<German>Ein [COLOR_BUILDING_TEXT]Hafen[COLOR_REVERT] erh&#246;ht das Handelseinkommen einer Stadt und erschlie&#223;t die Ressourcen [COLOR_HIGHLIGHT_TEXT]Muscheln[COLOR_REVERT], [COLOR_HIGHLIGHT_TEXT]Krabben[COLOR_REVERT] und [COLOR_HIGHLIGHT_TEXT]Fisch[COLOR_REVERT]. Diese wirken sich wiederum positiv auf die Gesundheit Ihrer Bev&#246;lkerung aus.</German>
+		<Italian>Il [COLOR_BUILDING_TEXT]porto[COLOR_REVERT] aumenta il guadagno della citt&#224; da parte delle rotte commerciali. Inoltre, con l'accesso a [COLOR_HIGHLIGHT_TEXT]Molluschi[COLOR_REVERT], [COLOR_HIGHLIGHT_TEXT]Crostacei[COLOR_REVERT] e [COLOR_HIGHLIGHT_TEXT]Pesci[COLOR_REVERT], aumenta la salute della citt&#224;.</Italian>
+		<Spanish>El [COLOR_BUILDING_TEXT]Puerto[COLOR_REVERT] aumenta los ingresos por rutas comerciales de la ciudad. Tambi&#233;n incrementa su salud por acceder a los recursos de las [COLOR_HIGHLIGHT_TEXT]Almejas[COLOR_REVERT], los [COLOR_HIGHLIGHT_TEXT]Cangrejos[COLOR_REVERT] y el [COLOR_HIGHLIGHT_TEXT]Pescado[COLOR_REVERT].</Spanish>
 	</TEXT>
 	<TEXT> <!-- Hunting Instruction -->
 		<Tag>TXT_KEY_BUILDING_HUNTING_INSTRUCTION</Tag>
@@ -148,6 +259,20 @@
 		<English>Build a [COLOR_BUILDING_TEXT]Hunting Lodge[COLOR_REVERT] to increase the growth of your cities.</English>
 		<Spanish>Construye una [COLOR_BUILDING_TEXT]Caba&#241;a del Cazador[COLOR_REVERT] para incrementar el crecimiento de tus ciudades.</Spanish>
 	</TEXT>
+	<TEXT> <!-- Jumplane Portal -->
+		<Tag>TXT_KEY_BUILDING_JUMPLANE_PORTAL</Tag>
+		<English>Jumplane Portal</English>
+		<French>Portail de Saut</French>
+		<German>Jumplaneportal</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_JUMPLANE_PORTAL_STRATEGY</Tag>
+		<English>Jumplane Portals boost your commerce income - especially from trade routes.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_JUMPLANE_PORTAL_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>	
 	<TEXT> <!-- Knowledge Inheritance -->
 		<Tag>TXT_KEY_BUILDING_KNOWLEDGE_INHERITANCE</Tag>
 		<English>Knowledge Inheritance</English>
@@ -266,6 +391,24 @@
 		<Tag>TXT_KEY_BUILDING_PALISADE_STRATEGY</Tag>
 		<English>Build a [COLOR_BUILDING_TEXT]Palisade[COLOR_REVERT] to increase a cities defence.</English>
 		<Spanish>Construye una [COLOR_BUILDING_TEXT]Empalizada[COLOR_REVERT] para incrementar el bono de defensa en tus ciudades.</Spanish>
+	</TEXT>
+	<TEXT> <!-- Port -->
+		<Tag>TXT_KEY_BUILDING_PORT</Tag>
+		<English>Port</English>
+		<French>Grand Port</French>
+		<German>Seehafen</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_PORT_PEDIA</Tag>
+		<English>[TAB]Just because a city is built in a coastal region doesn't guarantee that the city is readily accessible by ship. In order for a port city to establish a steady trade, fishing, or other shipping industry, the city must have a harbor. A harbor is a protected body of water that opens into an ocean or lake that shelters ships from waves and high winds. Although some coastal cities are established in areas where a natural harbor exists, most seaports are forced either to improve the existing natural harbor, or to build a man-made harbor to shelter ships and provide channels deep enough to accommodate large vessels.</English>
+		<French>[TAB]Le fait de construire une ville dans une r&#233;gion c&#244;ti&#232;re ne lui garantit pas d'&#234;tre facilement accessible par bateau. Pour qu'une cit&#233; portuaire puisse &#233;tablir des industries de commerce, de p&#234;che et de transport maritime de fa&#231;on durable, elle doit avoir un port. Un port est une structure emprisonnant de l'eau mais ouvert sur l'oc&#233;an ou sur un lac et qui abrite les bateaux des vagues et des vents violents. Certaines villes portuaires sont construites dans des ports naturels mais la majorit&#233; des ports maritimes ne le sont pas. Dans ce cas, ces infrastructures permettent d'am&#233;liorer un port naturel existant ou de cr&#233;er un port artificiel pour abriter les navires et offrir des chenaux suffisamment profonds pour accueillir de grands bateaux.</French>
+		<German>[TAB]Nur weil eine Stadt an der K&#252;ste liegt, bedeutet das nicht, dass sie f&#252;r Schiffe leicht zug&#228;nglich ist. Vielmehr muss eine solche K&#252;stenstadt einen Hafen unterhalten, damit sie sich aktiv am Seehandel, der Fischereiindustrie und anderen maritimen Unternehmungen beteiligen kann. Ein Hafen ist eine gesch&#252;tzte Wasserfl&#228;che, die sich zum Meer oder einem anderen offenen Gew&#228;sser hin &#246;ffnet und die vor Anker liegenden Schiffe vor Wellen und starken Windb&#246;en sch&#252;tzt. Auch wenn einige K&#252;stenst&#228;dte einen nat&#252;rlichen Hafen besitzen, so sind sie meist doch gezwungen, diesen entweder auszubauen oder zus&#228;tzlich einen k&#252;nstlichen Hafen anzulegen, um die einlaufenden Schiffe beherbergen und auch gro&#223;en Schiffen mit mehr Tiefgang Zugang gew&#228;hren zu k&#246;nnen.</German>
+		<Italian>[TAB]Solo perch&#233; una citt&#224; sorge sulla costa, non &#232; detto che sia facilmente accessibile alle navi e alle imbarcazioni. Affinch&#233; una citt&#224; di mare possa intraprendere solide attivit&#224; di commercio, pesca, o altre industrie navali, essa deve avere una baia. Questo &#232; uno specchio d'acqua che d&#224; sul mare o su un lago, protetta in modo da offrire ai natanti un riparo dalle onde e dai venti forti. Anche se molte citt&#224; sono sorte in luoghi gi&#224; dotati di una baia naturale, la maggior parte delle comunit&#224; portuali sono costrette o a migliorare quella esistente o a realizzarne una artificiale per assicurare una sufficiente navigabilit&#224; e accessibilit&#224; anche alle navi di maggiori dimensioni.</Italian>
+		<Spanish>[TAB]El hecho de que una ciudad est&#233; construida en una regi&#243;n costera no garantiza que se pueda acceder a ella por barco. Para que una ciudad portuaria pueda establecer una ruta de comercio estable, pescar o establecer cualquier tipo de industria naval, debe tener un puerto. Un puerto es una masa de agua protegida que se abre hacia el oc&#233;ano o un lago y protege a las naves del oleaje y los vientos. Aunque algunas ciudades costeras se encuentran en zonas en las que existe un puerto natural, la mayor&#237;a de los puertos marinos se ven obligados, bien a mejorar el puerto natural ya existente, bien a construir un puerto artificial para proteger a los barcos y proporcionar canales suficientemente profundos para albergar a buques de gran calado.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_PORT_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Port[COLOR_REVERT] increases that city's income from trade routes. It increases a city's health from access to [COLOR_HIGHLIGHT_TEXT]Clam[COLOR_REVERT], and [COLOR_HIGHLIGHT_TEXT]Crab[COLOR_REVERT] resources.</English>
 	</TEXT>
 	<TEXT> <!-- Poultry Farm -->
 		<Tag>TXT_KEY_BUILDING_POULTRY_FARM</Tag>

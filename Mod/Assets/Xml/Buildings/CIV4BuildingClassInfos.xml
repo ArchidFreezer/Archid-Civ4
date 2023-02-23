@@ -158,17 +158,47 @@
 			<DefaultBuilding>BUILDING_DRYDOCK</DefaultBuilding>
 		</BuildingClassInfo>
 
+		<BuildingClassInfo> <!-- Fish Traps -->									<!-- Seafood -->
+			<Type>BUILDINGCLASS_FISHTRAPS</Type>
+			<Description>TXT_KEY_BUILDING_FISHTRAPS</Description>
+			<iCategory>19</iCategory>
+			<DefaultBuilding>BUILDING_FISHTRAPS</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Fishermans Hut -->
+			<Type>BUILDINGCLASS_FISHERMANS_HUT</Type>
+			<Description>TXT_KEY_BUILDING_FISHERMANS_HUT</Description>
+			<iCategory>19</iCategory>
+			<DefaultBuilding>BUILDING_FISHERMANS_HUT</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Harbor -->                          <!-- Water Trade -->
-			<Type>BUILDINGCLASS_HARBOR</Type>
-			<Description>TXT_KEY_BUILDING_HARBOR</Description>
+			<Type>BUILDINGCLASS_HARBOUR</Type>
+			<Description>TXT_KEY_BUILDING_HARBOUR</Description>
 			<iCategory>20</iCategory>
-			<DefaultBuilding>BUILDING_HARBOR</DefaultBuilding>
+			<DefaultBuilding>BUILDING_HARBOUR</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Lighthouse -->
 			<Type>BUILDINGCLASS_LIGHTHOUSE</Type>
 			<Description>TXT_KEY_BUILDING_LIGHTHOUSE</Description>
 			<iCategory>20</iCategory>
 			<DefaultBuilding>BUILDING_LIGHTHOUSE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Port -->
+			<Type>BUILDINGCLASS_PORT</Type>
+			<Description>TXT_KEY_BUILDING_PORT</Description>
+			<iCategory>20</iCategory>
+			<DefaultBuilding>BUILDING_PORT</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Commercial Port -->
+			<Type>BUILDINGCLASS_COMMERCIAL_PORT</Type>
+			<Description>TXT_KEY_BUILDING_COMMERCIAL_PORT</Description>
+			<iCategory>20</iCategory>
+			<DefaultBuilding>BUILDING_COMMERCIAL_PORT</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Container Port -->
+			<Type>BUILDINGCLASS_CONTAINER_PORT</Type>
+			<Description>TXT_KEY_BUILDING_CONTAINER_PORT</Description>
+			<iCategory>20</iCategory>
+			<DefaultBuilding>BUILDING_CONTAINER_PORT</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Custom House -->                    <!-- Taxes -->
@@ -445,6 +475,12 @@
 			<Description>TXT_KEY_BUILDING_AIRPORT</Description>
 			<iCategory>40</iCategory>
 			<DefaultBuilding>BUILDING_AIRPORT</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Jumplane Portal -->
+			<Type>BUILDINGCLASS_JUMPLANE_PORTAL</Type>
+			<Description>TXT_KEY_BUILDING_JUMPLANE_PORTAL</Description>
+			<iCategory>40</iCategory>
+			<DefaultBuilding>BUILDING_JUMPLANE_PORTAL</DefaultBuilding>
 		</BuildingClassInfo>
 
 

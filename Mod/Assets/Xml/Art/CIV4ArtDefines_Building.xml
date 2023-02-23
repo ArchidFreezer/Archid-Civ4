@@ -228,7 +228,7 @@
 			<Button>,Art/Interface/Buttons/Buildings/Lighthouse.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,3,4</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
-			<Type>ART_DEF_BUILDING_HARBOR</Type>
+			<Type>ART_DEF_BUILDING_HARBOUR</Type>
 			<LSystem>LSYSTEM_HARBOR</LSystem>
 			<bAnimated>0</bAnimated>
 			<fScale>1.0</fScale>
@@ -2156,6 +2156,56 @@
 			<NIF>Art/Structures/Buildings/City/hut/eldercouncil.nif</NIF>
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/brightsmiths_hut.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Fish Traps -->
+			<Type>ART_DEF_BUILDING_FISHTRAPS</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.01</fScale>
+			<fInterfaceScale>0.01</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Monument/Monument.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/fishtraps.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Fishermans Hut -->
+			<Type>ART_DEF_BUILDING_FISHERMANS_HUT</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.33</fScale>
+			<fInterfaceScale>0.83</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Viking Trading Post/Viking_Post.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/TechTree/Fishing.dds,Art/Interface/Buttons/TechTree_Atlas.dds,2,10</Button>
+		</BuildingArtInfo>
+			<BuildingArtInfo> <!-- Commercial Port -->
+			<Type>ART_DEF_BUILDING_COMMERCIAL_PORT</Type>
+			<LSystem>LSYSTEM_HARBOR</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.5</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Harbor/Harbor.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/commercial_port.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Container Port -->
+			<Type>ART_DEF_BUILDING_CONTAINER_PORT</Type>
+			<LSystem>LSYSTEM_HARBOR</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.5</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Harbor/Harbor.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/container_port.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Jumnplane Portal -->
+			<Type>ART_DEF_BUILDING_JUMPLANE_PORTAL</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>5.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/jumplane_portal/psigate.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/jumplane_portal.dds</Button>
 		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

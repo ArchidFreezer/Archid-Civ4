@@ -2755,7 +2755,7 @@
 			<bGlobal>1</bGlobal>
 			<BuildingExtraCommerces>
 				<BuildingExtraCommerce>
-					<BuildingClass>BUILDINGCLASS_HARBOR</BuildingClass>
+					<BuildingClass>BUILDINGCLASS_HARBOUR</BuildingClass>
 					<CommerceType>COMMERCE_GOLD</CommerceType>
 					<iExtraCommerce>1</iExtraCommerce>
 				</BuildingExtraCommerce>
@@ -4007,7 +4007,7 @@
 			<bGlobal>1</bGlobal>
 			<BuildingExtraYields>
 				<BuildingExtraYield>
-					<BuildingClass>BUILDINGCLASS_HARBOR</BuildingClass>
+					<BuildingClass>BUILDINGCLASS_HARBOUR</BuildingClass>
 					<YieldType>YIELD_COMMERCE</YieldType>
 					<iExtraYield>5</iExtraYield>
 				</BuildingExtraYield>
@@ -4937,7 +4937,7 @@
 			<bGlobal>1</bGlobal>
 			<BuildingExtraYields>
 				<BuildingExtraYield>
-					<BuildingClass>BUILDINGCLASS_HARBOR</BuildingClass>
+					<BuildingClass>BUILDINGCLASS_HARBOUR</BuildingClass>
 					<YieldType>YIELD_COMMERCE</YieldType>
 					<iExtraYield>2</iExtraYield>
 				</BuildingExtraYield>

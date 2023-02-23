@@ -526,7 +526,7 @@
 			</Cities>
 			<Buildings>
 				<Building>
-					<BuildingClassType>BUILDINGCLASS_HARBOR</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_HARBOUR</BuildingClassType>
 					<BuildingType>BUILDING_CARTHAGE_COTHON</BuildingType>
 				</Building>
 			</Buildings>

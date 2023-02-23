@@ -3484,7 +3484,7 @@
 			<iPercentGamesActive>100</iPercentGamesActive>
 			<iWeight>-1</iWeight>
 			<BuildingsRequired>
-				<BuildingClass>BUILDINGCLASS_HARBOR</BuildingClass>
+				<BuildingClass>BUILDINGCLASS_HARBOUR</BuildingClass>
 			</BuildingsRequired>
 			<iNumBuildings>1</iNumBuildings>
 			<Events>
@@ -6588,7 +6588,7 @@
 			<iPercentGamesActive>90</iPercentGamesActive>
 			<iWeight>100</iWeight>
 			<BuildingsRequired>
-				<BuildingClass>BUILDINGCLASS_HARBOR</BuildingClass>
+				<BuildingClass>BUILDINGCLASS_HARBOUR</BuildingClass>
 			</BuildingsRequired>
 			<iNumBuildings>1</iNumBuildings>
 			<Events>

@@ -7,6 +7,27 @@
 <AudioDefines xmlns="x-schema:AudioDefinesSchema.xml">
 	<SoundDatas>
 		<SoundData>
+			<SoundID>SND_BUILD_FISHING_HUT</SoundID>
+			<Filename>Sounds/Buildings/FishermansHut</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
+			<SoundID>SND_BUILD_COMMERCIAL_PORT</SoundID>
+			<Filename>Sounds/Buildings/CommercialPort</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
+			<SoundID>SND_BUILD_CONTAINER_PORT</SoundID>
+			<Filename>Sounds/Buildings/ContainerPort</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
 			<SoundID>SND_BUILD_NANOFACTORY</SoundID>
 			<Filename>Sounds/Buildings/Nanofactory</Filename>
 			<LoadType>DYNAMIC_RES</LoadType>
