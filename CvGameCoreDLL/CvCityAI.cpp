@@ -3539,6 +3539,10 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 
 				iValue += kBuilding.getFoodKept();
 
+				if (kBuilding.getYieldChange(YIELD_FOOD) > 0) {
+					iValue = kBuilding.getYieldChange(YIELD_FOOD) * 4 / std::max(1, iFoodDifference);
+				}
+
 				if (kBuilding.getSeaPlotYieldChange(YIELD_FOOD) > 0) {
 					int iTempValue = kBuilding.getSeaPlotYieldChange(YIELD_FOOD) * AI_buildingSeaYieldChangeWeight(eBuilding, iFoodDifference > 0 && iHappinessLevel > 0); // K-Mod
 					if ((iTempValue < 8) && (getPopulation() > 3)) {
