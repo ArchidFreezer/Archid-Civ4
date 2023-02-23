@@ -305,11 +305,11 @@ class WBCityEditScreen:
 			bEligible = False
 			if pCity.canConstruct(i, True, False, False):
 				bEligible = True
-			if not bEligible:
-				for j in xrange(pCity.getOrderQueueLength()):
-					iOrderData = pCity.getOrderFromQueue(j)
-					if iOrderData.eOrderType == OrderTypes.ORDER_CONSTRUCT and iOrderData.iData1 == i:
-						bEligible = True
+#			if not bEligible:
+#				for j in xrange(pCity.getOrderQueueLength()):
+#					iOrderData = pCity.getOrderFromQueue(j)
+#					if iOrderData.eOrderType == OrderTypes.ORDER_CONSTRUCT and iOrderData.iData1 == i:
+#						bEligible = True
 			if bEligible:
 				if iRow > iMaxRow:
 					screen.appendTableRow("WBCityProduction")
@@ -329,11 +329,11 @@ class WBCityEditScreen:
 			bEligible = False
 			if pCity.canCreate(i, True, False):
 				bEligible = True
-			if not bEligible:
-				for j in xrange(pCity.getOrderQueueLength()):
-					iOrderData = pCity.getOrderFromQueue(j)
-					if iOrderData.eOrderType == OrderTypes.ORDER_CREATE and iOrderData.iData1 == i:
-						bEligible = True
+#			if not bEligible:
+#				for j in xrange(pCity.getOrderQueueLength()):
+#					iOrderData = pCity.getOrderFromQueue(j)
+#					if iOrderData.eOrderType == OrderTypes.ORDER_CREATE and iOrderData.iData1 == i:
+#						bEligible = True
 			if bEligible:
 				if iRow > iMaxRow:
 					screen.appendTableRow("WBCityProduction")
