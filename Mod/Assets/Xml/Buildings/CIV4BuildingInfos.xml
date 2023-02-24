@@ -457,6 +457,56 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Boatyard -->
+			<BuildingClass>BUILDINGCLASS_BOATYARD</BuildingClass>
+			<Type>BUILDING_BOATYARD</Type>
+			<Description>TXT_KEY_BUILDING_BOATYARD</Description>
+			<Civilopedia>TXT_KEY_BUILDING_BOATYARD_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_BOATYARD_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_BOATYARD</ArtDefineTag>
+			<PrereqVicinityImprovements>
+				<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
+			</PrereqVicinityImprovements>
+			<ObsoleteTech>TECH_STEEL</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_FISHING</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_SEAFARING</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bWater>1</bWater>
+			<iCost>70</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>20</iMinAreaSize>
+			<iConquestProb>25</iConquestProb>
+			<iHealth>-1</iHealth>
+			<ConstructSound>AS2D_BUILD_PORT</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_MARINA</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_MARINA</BuildingClassType>
+			</ReplacedByBuildingClasses>				
+			<ImprovementFreeSpecialists>
+				<ImprovementFreeSpecialist>
+					<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
+					<iCount>1</iCount>
+				</ImprovementFreeSpecialist>
+			</ImprovementFreeSpecialists>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Bomb Shelter -->
 			<BuildingClass>BUILDINGCLASS_BOMB_SHELTER</BuildingClass>
 			<Type>BUILDING_BOMB_SHELTER</Type>
@@ -5008,6 +5058,62 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Marina -->
+			<BuildingClass>BUILDINGCLASS_MARINA</BuildingClass>
+			<Type>BUILDING_MARINA</Type>
+			<Description>TXT_KEY_BUILDING_MARINA</Description>
+			<Civilopedia>TXT_KEY_BUILDING_MARINA_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_MARINA_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_MARINA</ArtDefineTag>
+			<PrereqVicinityImprovements>
+				<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
+				<ImprovementType>IMPROVEMENT_WHALING_BOATS</ImprovementType>
+			</PrereqVicinityImprovements>
+			<PrereqAndTechs>
+				<TechType>TECH_NAVIGATION</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_SEAFARING</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bWater>1</bWater>
+			<iCost>180</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>20</iMinAreaSize>
+			<iConquestProb>75</iConquestProb>
+			<iFreeSpecialist>1</iFreeSpecialist>
+			<iHealth>-1</iHealth>
+			<ConstructSound>AS2D_BUILD_PORT</ConstructSound>
+			<ImprovementFreeSpecialists>
+				<ImprovementFreeSpecialist>
+					<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
+					<iCount>1</iCount>
+				</ImprovementFreeSpecialist>
+				<ImprovementFreeSpecialist>
+					<ImprovementType>IMPROVEMENT_WHALING_BOATS</ImprovementType>
+					<iCount>1</iCount>
+				</ImprovementFreeSpecialist>
+			</ImprovementFreeSpecialists>
+			<TechYieldChanges>
+				<TechYieldChange>
+					<TechType>TECH_TOURISM</TechType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</TechYieldChange>
+			</TechYieldChanges>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>

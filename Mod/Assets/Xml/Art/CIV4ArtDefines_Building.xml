@@ -2217,5 +2217,25 @@
 			<KFM/>
 			<Button>,Art/Interface/Buttons/Builds/BuildFishingBoats.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,7,7</Button>
 		</BuildingArtInfo>
+    <BuildingArtInfo> <!-- Boatyard -->
+			<Type>ART_DEF_BUILDING_BOATYARD</Type>
+			<LSystem>LSYSTEM_COAST</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.4</fScale>
+			<fInterfaceScale>2.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Shipwright/Shipwright.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/boatyard.dds</Button>
+		</BuildingArtInfo>
+ 		<BuildingArtInfo> <!-- Marina -->
+			<Type>ART_DEF_BUILDING_MARINA</Type>
+			<LSystem>LSYSTEM_COAST</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.4</fScale>
+			<fInterfaceScale>2.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Shipwright/Shipwright.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/marina.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

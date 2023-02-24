@@ -226,6 +226,18 @@
 			<iCategory>22</iCategory>
 			<DefaultBuilding>BUILDING_LEVEE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Boatyard -->
+			<Type>BUILDINGCLASS_BOATYARD</Type>
+			<Description>TXT_KEY_BUILDING_BOATYARD</Description>
+			<iCategory>22</iCategory>
+			<DefaultBuilding>BUILDING_BOATYARD</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Marina -->
+			<Type>BUILDINGCLASS_MARINA</Type>
+			<Description>TXT_KEY_BUILDING_MARINA</Description>
+			<iCategory>22</iCategory>
+			<DefaultBuilding>BUILDING_MARINA</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Courthouse -->                      <!-- City Maintenance -->
 			<Type>BUILDINGCLASS_COURTHOUSE</Type>
