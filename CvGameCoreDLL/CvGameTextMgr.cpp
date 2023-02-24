@@ -7215,6 +7215,10 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
 		const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
 
+		//	Building tech changes
+		if (kBuilding.isAnyTechYieldChange())
+			buildBuildingTechYieldChangeString(szBuffer, eTech, eBuilding, true, bPlayerContext);
+
 		//	Building commerce changes
 		if (kBuilding.isAnyTechCommerceChange())
 			buildBuildingTechCommerceChangeString(szBuffer, eTech, eBuilding, true, bPlayerContext);
@@ -9398,6 +9402,13 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 		for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
 			szFirstBuffer = gDLL->getText("TXT_KEY_BUILDING_WITH_BONUS", GC.getBonusInfo(eBonus).getTextKeyWide());
 			setYieldChangeHelp(szBuffer, L"", L"", szFirstBuffer, kBuilding.getBonusYieldChangeArray(eBonus), false, true);
+		}
+	}
+
+	if (kBuilding.isAnyTechYieldChange()) {
+		for (TechTypes eTech = (TechTypes)0; eTech < GC.getNumTechInfos(); eTech = (TechTypes)(eTech + 1)) {
+			szTempBuffer.Format(L"%s<link=literal>%s</link>", gDLL->getText("TXT_KEY_WITH").GetCString(), GC.getTechInfo(eTech).getDescription());
+			setYieldChangeHelp(szBuffer, L"", L"", szTempBuffer, kBuilding.getTechYieldChangeArray(eTech), false, true);
 		}
 	}
 
@@ -17025,4 +17036,19 @@ void CvGameTextMgr::buildBuildingTechCommerceChangeString(CvWStringBuffer& szBuf
 	}
 
 	setCommerceChangeHelp(szBuffer, szTempBuffer, L": ", L"", kBuilding.getTechCommerceChangeArray(eTech), false, bList);
+}
+
+void CvGameTextMgr::buildBuildingTechYieldChangeString(CvWStringBuffer& szBuffer, TechTypes eTech, BuildingTypes eBuilding, bool bList, bool bPlayerContext) {
+	if (eBuilding == NO_BUILDING)
+		return;
+
+	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+	CvWString szTempBuffer;
+	if (bList) {
+		szTempBuffer.Format(L"<link=literal>%s</link>", kBuilding.getDescription());
+	} else {
+		szTempBuffer.Format(L"%c<link=literal>%s</link>", gDLL->getSymbolID(BULLET_CHAR), kBuilding.getDescription());
+	}
+
+	setYieldChangeHelp(szBuffer, szTempBuffer, L": ", L"", kBuilding.getTechYieldChangeArray(eTech), false, bList);
 }

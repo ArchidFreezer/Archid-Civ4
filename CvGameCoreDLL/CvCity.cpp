@@ -3259,6 +3259,13 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 			changeBaseYieldRate(eYield, ((kBuilding.getYieldChange(eYield) + getBuildingYieldChange((BuildingClassTypes)kBuilding.getBuildingClassType(), eYield)) * iChange));
 			changeYieldRateModifier(eYield, (kBuilding.getYieldModifier(eYield) * iChange));
 			changePowerYieldRateModifier(eYield, (kBuilding.getPowerYieldModifier(eYield) * iChange));
+			if (kBuilding.isAnyTechYieldChange()) {
+				for (TechTypes eTech = (TechTypes)0; eTech < GC.getNumTechInfos(); eTech = (TechTypes)(eTech + 1)) {
+					if (GET_TEAM(kOwner.getTeam()).isHasTech(eTech)) {
+						changeBuildingYieldChange((BuildingClassTypes)kBuilding.getBuildingClassType(), eYield, (kBuilding.getTechYieldChange(eTech, eYield) * iChange));
+					}
+				}
+			}
 		}
 
 		for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
@@ -7028,6 +7035,14 @@ int CvCity::getAdditionalBaseYieldRateByBuilding(YieldTypes eIndex, BuildingType
 			}
 		}
 
+		// Techs
+		if (kBuilding.isAnyTechYieldChange()) {
+			for (TechTypes eTech = (TechTypes)0; eTech < GC.getNumTechInfos(); eTech = (TechTypes)(eTech + 1)) {
+				if (GET_TEAM(GET_PLAYER(getOwnerINLINE()).getTeam()).isHasTech(eTech)) {
+					iExtraRate += (kBuilding.getTechYieldChange(eTech, eIndex));
+				}
+			}
+		}
 	}
 
 	return iExtraRate;

@@ -3501,6 +3501,14 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 					}
 				}
 
+				if (kBuilding.isAnyTechYieldChange()) {
+					for (TechTypes eTech = (TechTypes)0; eTech < GC.getNumTechInfos(); eTech = (TechTypes)(eTech + 1)) {
+						if (GET_TEAM(kOwner.getTeam()).isHasTech(eTech)) {
+							iTempValue += (kBuilding.getTechYieldChange(eTech, eYield) * 4);
+						}
+					}
+				}
+
 				if (kBuilding.getSeaPlotYieldChange(eYield) > 0) {
 					iRawYieldValue += kBuilding.getSeaPlotYieldChange(eYield) * AI_buildingSeaYieldChangeWeight(eBuilding, iFoodDifference > 0 && iHappinessLevel > 0); // K-Mod
 				}

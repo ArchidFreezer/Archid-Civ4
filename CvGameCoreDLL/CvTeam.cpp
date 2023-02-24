@@ -4968,6 +4968,12 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 				changeBuildingCommerceChange(eBuilding, eCommerce, (kBuilding.getTechCommerceChange(eTech, eCommerce)* iChange));
 			}
 		}
+
+		if (kBuilding.isAnyTechYieldChange()) {
+			for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+				changeBuildingYieldChange(eBuilding, eYield, (kBuilding.getTechYieldChange(eTech, eYield) * iChange));
+			}
+		}
 	}
 
 	for (ImprovementTypes eImprovement = (ImprovementTypes)0; eImprovement < GC.getNumImprovementInfos(); eImprovement = (ImprovementTypes)(eImprovement + 1)) {
@@ -5749,6 +5755,24 @@ void CvTeam::changeBuildingCommerceChange(BuildingTypes eBuilding, CommerceTypes
 				pLoopCity->changeBuildingCommerceChange((BuildingClassTypes)GC.getBuildingInfo(eBuilding).getBuildingClassType(), eCommerce, iChange);
 			}
 			updateCommerce();
+		}
+	}
+}
+
+void CvTeam::changeBuildingYieldChange(BuildingTypes eBuilding, YieldTypes eYield, int iChange) {
+	FAssertMsg(eBuilding >= 0, "eIndex1 is expected to be non-negative (invalid Index)");
+	FAssertMsg(eBuilding < GC.getNumBuildingInfos(), "eIndex1 is expected to be within maximum bounds (invalid Index)");
+	FAssertMsg(eYield >= 0, "eIndex2 is expected to be non-negative (invalid Index)");
+	FAssertMsg(eYield < NUM_YIELD_TYPES, "eIndex2 is expected to be within maximum bounds (invalid Index)");
+
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+		if (kPlayer.isAlive() && kPlayer.getTeam() == getID()) {
+			int iLoop;
+			for (CvCity* pLoopCity = kPlayer.firstCity(&iLoop); pLoopCity != NULL; pLoopCity = kPlayer.nextCity(&iLoop)) {
+				pLoopCity->changeBuildingYieldChange((BuildingClassTypes)GC.getBuildingInfo(eBuilding).getBuildingClassType(), eYield, iChange);
+			}
+			updateYield();
 		}
 	}
 }
