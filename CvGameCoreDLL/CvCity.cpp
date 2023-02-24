@@ -3274,7 +3274,7 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 			if (kBuilding.isAnyTechCommerceChange()) {
 				for (TechTypes eTech = (TechTypes)0; eTech < GC.getNumTechInfos(); eTech = (TechTypes)(eTech + 1)) {
 					if (GET_TEAM(kOwner.getTeam()).isHasTech(eTech)) {
-						changeCommerceRateModifier(eCommerce, (kBuilding.getTechCommerceChange(eTech, eCommerce) * iChange));
+						changeBuildingCommerceChange((BuildingClassTypes)kBuilding.getBuildingClassType(), eCommerce, (kBuilding.getTechCommerceChange(eTech, eCommerce) * iChange));
 					}
 				}
 			}
