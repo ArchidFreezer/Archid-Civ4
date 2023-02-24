@@ -311,5 +311,9 @@
 			<Type>ART_DEF_MOVIE_LEPENSKI_VIR</Type>
 			<Path>Art/Movies/Wonders/LepenskiVir.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_SUPERCOLLIDER</Type>
+			<Path>Art/Movies/NWonders/ParticleAccelerator.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

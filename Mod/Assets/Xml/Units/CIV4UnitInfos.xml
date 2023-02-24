@@ -2781,7 +2781,7 @@
 			<Buildings>
 				<BuildingType>BUILDING_CORPORATION_3</BuildingType>
 				<BuildingType>BUILDING_CORPORATION_6</BuildingType>
-				<BuildingType>BUILDING_ACADEMY</BuildingType>
+				<BuildingType>BUILDING_GREAT_ACADEMY</BuildingType>
 			</Buildings>
 			<Flavors>
 				<Flavor>

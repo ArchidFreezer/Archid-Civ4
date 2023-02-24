@@ -44,12 +44,22 @@
 		<SpecialBuildingInfo>
 			<Type>SPECIALBUILDING_MONASTERY</Type>
 			<Description>TXT_KEY_SPECIALBUILDING_MONASTERY</Description>
-			<ObsoleteTech>TECH_SCIENTIFIC_METHOD</ObsoleteTech>
+			<ObsoleteTech>TECH_GLOBALIZATION</ObsoleteTech>
 			<TechPrereq>TECH_MEDITATION</TechPrereq>
 			<TechPrereqAnyone>NONE</TechPrereqAnyone>
 			<bValid>1</bValid>
 			<ProductionTraits/>
 			<Button>Art/Interface/Buttons/Buildings/Monastery_Hindu.dds</Button>
+		</SpecialBuildingInfo>
+		<SpecialBuildingInfo>
+			<Type>SPECIALBUILDING_CLONING_LABORATORY</Type>
+			<Description>TXT_KEY_SPECIALBUILDING_CLONING_LABORATORY</Description>
+			<ObsoleteTech>NONE</ObsoleteTech>
+			<TechPrereq>NONE</TechPrereq>
+			<TechPrereqAnyone>NONE</TechPrereqAnyone>
+			<bValid>0</bValid>
+			<ProductionTraits/>
+			<Button>Art/Interface/Buttons/Buildings/Laboratory.dds</Button>
 		</SpecialBuildingInfo>
 	</SpecialBuildingInfos>
 </Civ4SpecialBuildingInfos>

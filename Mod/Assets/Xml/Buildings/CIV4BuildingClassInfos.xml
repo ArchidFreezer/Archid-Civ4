@@ -221,6 +221,12 @@
 			<iCategory>22</iCategory>
 			<DefaultBuilding>BUILDING_BOATYARD</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Cloning Laboratory -->
+			<Type>BUILDINGCLASS_CLONING_LABORATORY</Type>
+			<Description>TXT_KEY_BUILDING_CLONING_LABORATORY</Description>
+			<iCategory>22</iCategory>
+			<DefaultBuilding>BUILDING_CLONING_LABORATORY</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Industrial Park -->
 			<Type>BUILDINGCLASS_INDUSTRIAL_PARK</Type>
 			<Description>TXT_KEY_BUILDING_INDUSTRIAL_PARK</Description>
@@ -424,6 +430,36 @@
 			<iCategory>33</iCategory>
 			<DefaultBuilding>BUILDING_ACADEMY</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Accelerator -->
+			<Type>BUILDINGCLASS_ACCELERATOR</Type>
+			<Description>TXT_KEY_BUILDING_ACCELERATOR</Description>
+			<iCategory>33</iCategory>
+			<DefaultBuilding>BUILDING_ACCELERATOR</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Alchemists Lab -->
+			<Type>BUILDINGCLASS_ALCHEMISTS_LAB</Type>
+			<Description>TXT_KEY_BUILDING_ALCHEMISTS_LAB</Description>
+			<iCategory>33</iCategory>
+			<DefaultBuilding>BUILDING_ALCHEMISTS_LAB</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Biological Warfare Lab -->
+			<Type>BUILDINGCLASS_BIOLOGICAL_WARFARE_LAB</Type>
+			<Description>TXT_KEY_BUILDING_BIOLOGICAL_WARFARE_LAB</Description>
+			<iCategory>33</iCategory>
+			<DefaultBuilding>BUILDING_BIOLOGICAL_WARFARE_LAB</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Elder Council -->
+			<Type>BUILDINGCLASS_ELDER_COUNCIL</Type>
+			<Description>TXT_KEY_BUILDING_ELDER_COUNCIL</Description>
+			<iCategory>33</iCategory>
+			<DefaultBuilding>BUILDING_ELDER_COUNCIL</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Great Academy -->
+			<Type>BUILDINGCLASS_GREAT_ACADEMY</Type>
+			<Description>TXT_KEY_BUILDING_GREAT_ACADEMY</Description>
+			<iCategory>33</iCategory>
+			<DefaultBuilding>BUILDING_GREAT_ACADEMY</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Laboratory -->
 			<Type>BUILDINGCLASS_LABORATORY</Type>
 			<Description>TXT_KEY_BUILDING_LABORATORY</Description>
@@ -442,11 +478,35 @@
 			<iCategory>33</iCategory>
 			<DefaultBuilding>BUILDING_OBSERVATORY</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Quantum Lab -->
+			<Type>BUILDINGCLASS_QUANTUM_LAB</Type>
+			<Description>TXT_KEY_BUILDING_QUANTUM_LAB</Description>
+			<iCategory>33</iCategory>
+			<DefaultBuilding>BUILDING_QUANTUM_LAB</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Research Institute -->
+			<Type>BUILDINGCLASS_RESEARCH_INSTITUTE</Type>
+			<Description>TXT_KEY_BUILDING_RESEARCH_INSTITUTE</Description>
+			<iCategory>33</iCategory>
+			<DefaultBuilding>BUILDING_RESEARCH_INSTITUTE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- School Of Scribes -->
+			<Type>BUILDINGCLASS_SCHOOL_OF_SCRIBES</Type>
+			<Description>TXT_KEY_BUILDING_SCHOOL_OF_SCRIBES</Description>
+			<iCategory>33</iCategory>
+			<DefaultBuilding>BUILDING_SCHOOL_OF_SCRIBES</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Shaman Temple -->
 			<Type>BUILDINGCLASS_SHAMAN_TEMPLE</Type>
 			<Description>TXT_KEY_BUILDING_SHAMAN_TEMPLE</Description>
 			<iCategory>33</iCategory>
 			<DefaultBuilding>BUILDING_SHAMAN_TEMPLE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- State School -->
+			<Type>BUILDINGCLASS_STATE_SCHOOL</Type>
+			<Description>TXT_KEY_BUILDING_STATE_SCHOOL</Description>
+			<iCategory>33</iCategory>
+			<DefaultBuilding>BUILDING_STATE_SCHOOL</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- University -->
 			<Type>BUILDINGCLASS_UNIVERSITY</Type>
@@ -925,6 +985,13 @@
 			<iCategory>3</iCategory>
 			<iMaxPlayerInstances>1</iMaxPlayerInstances>
 			<DefaultBuilding>BUILDING_RED_CROSS</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Supercollider -->
+			<Type>BUILDINGCLASS_SUPERCOLLIDER</Type>
+			<Description>TXT_KEY_BUILDING_SUPERCOLLIDER</Description>
+			<iCategory>3</iCategory>
+			<iMaxPlayerInstances>1</iMaxPlayerInstances>
+			<DefaultBuilding>BUILDING_SUPERCOLLIDER</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Wall Street -->
 			<Type>BUILDINGCLASS_WALL_STREET</Type>

@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- Game Text - New -->
 <Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT> <!-- Accelerator Research Complex -->
+		<Tag>TXT_KEY_BUILDING_ACCELERATOR</Tag>
+		<English>Accelerator Research Complex</English>
+		<French>Accélérateur</French>
+		<German>Teilchenbeschleuniger</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ACCELERATOR_PEDIA</Tag>
+		<English>[TAB]A particle accelerator is a device that uses electric fields to propel electrically-charged particles to high speeds and to contain them. An ordinary CRT television set is a simple form of accelerator. There are two basic types: linear accelerators and circular accelerators. [PARAGRAPH:2]In a linear accelerator (linac), particles are accelerated in a straight line with a target of interest at one end. Linacs are very widely used - every cathode ray tube contains one. They are also used to provide an initial low-energy kick to particles before they are injected into circular accelerators. The longest linac in the world is the Stanford Linear Accelerator, SLAC, which is 3 km (2 miles) long. SLAC is an electron-positron collider. [PARAGRAPH:2]Linear accelerators are also widely used in medicine, for radiotherapy and radiosurgery. Medical grade LINACs accelerate electrons using a klystron and a complex bending magnet arrangement which produces a beam of 6-30 million electron-volt (MeV) energy. The electrons can be used directly or they can be collided with a target to produce a beam of X-rays. The reliability, flexibility and accuracy of the radiation beam produced has largely supplanted the older use of Cobalt-60 therapy as a treatment tool.[PARAGRAPH:2]In the circular accelerator, particles move in a circle until they reach sufficient energy. The particle track is typically bent into a circle using electromagnets. The advantage of circular accelerators over linear accelerators (linacs) is that the ring topology allows continuous acceleration, as the particle can transit indefinitely. Another advantage is that a circular accelerator is relatively smaller than a linear accelerator of comparable power (i.e. a linac would have to be extremely long to have the equivalent power of a circular accelerator).[PARAGRAPH:2]The earliest circular accelerators were cyclotrons, invented in 1929 by Ernest O. Lawrence at the University of California, Berkeley. Cyclotrons have a single pair of hollow 'D'-shaped plates to accelerate the particles and a single large dipole magnet to bend their path into a circular orbit. It is a characteristic property of charged particles in a uniform and constant magnetic field B that they orbit with a constant period, at a frequency called the cyclotron frequency, so long as their speed is small compared to the speed of light c. This means that the accelerating D's of a cyclotron can be driven at a constant frequency by a radio frequency (RF) accelerating power source, as the beam spirals outwards continuously. The particles are injected in the centre of the magnet and are extracted at the outer edge at their maximum energy.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ACCELERATOR_STRATEGY</Tag>
+		<English>Increases science, commerce and spaceship production.</English>
+	</TEXT>
+	<TEXT> <!-- Alchemists Lab -->
+		<Tag>TXT_KEY_BUILDING_ALCHEMISTS_LAB</Tag>
+		<English>Alchemist's Lab</English>
+		<French>Atelier d'Alchimiste</French>
+		<German>Alchemistenlabor</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ALCHEMISTS_LAB_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ALCHEMISTS_LAB_STRATEGY</Tag>
+		<English>An early research facility, grants a science bonus to your city.</English>
+	</TEXT>
 	<TEXT> <!-- Barbarian Lodge -->
 		<Tag>TXT_KEY_BUILDING_BARBARIAN_LODGE</Tag>
 		<English>Barbarian Lodge</English>
@@ -13,6 +41,42 @@
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_BARBARIAN_LODGE_STRATEGY</Tag>
 		<English>Build a [COLOR_BUILDING_TEXT]Barbarian Lodge[COLOR_REVERT] to allow you to have more barbarian units to harrass your neighbours with.</English>
+	</TEXT>
+	<TEXT> <!-- Biological Warfare Lab -->
+		<Tag>TXT_KEY_BUILDING_BIOLOGICAL_WARFARE_LAB</Tag>
+		<English>Biological Warfare Lab</English>
+		<French>
+			<Text>Laboratoire de guerre biologique</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Labor f&#252;r Biologische Kriegsf&#252;hrung</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Laboratorio per la guerra biologica:Laboratori per la guerra biologica</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Laboratorio de guerra biológica:Laboratorios de guerra biológica</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BIOLOGICAL_WARFARE_LAB_PEDIA</Tag>
+		<English>[TAB]Bio-war labs are designed to create and mass-produce bio-weapons. In addition, they also work to create antidotes to the enemy's bio-weapons (as well as to their own). Thus these buildings are considered to be integral to a city's defenses. Despite this, and even though these Bio-war labs are equipped with sophisticated and layered defenses against containment breaches, such facilities are often quite unpopular with their neighbors. </English>
+		<French>[TAB]Les laboratoires de guerre biologique sont con&#231;us pour cr&#233;er et produire des armes biologiques. En outre, ils travaillent aussi &#224; la mise au point d'antidotes, afin de lutter contre les effets des agents biologiques ennemis (ou alli&#233;s). Ces b&#226;timents font donc partie int&#233;grante du dispositif de d&#233;fense d'une ville. Toutefois, malgr&#233; la fiabilit&#233; de leur syst&#232;me de protection, ces installations restent tr&#232;s impopulaires aupr&#232;s des populations riveraines.</French>
+		<German>[TAB]Labors f&#252;r biologische Kriegsf&#252;hrung dienen der Entwicklung und Massenproduktion von biologischen Waffen. Au&#223;erdem werden hier auch Gegenmittel f&#252;r feindliche (und eigene) biologische Waffen hergestellt. Dementsprechend sind diese Geb&#228;ude integraler Bestandteil der st&#228;dtischen Verteidigung. Obwohl die Labors durch hoch entwickelte Abschirmsysteme gleich mehrfach gesch&#252;tzt sind, zeigen sich benachbarte Nationen in aller Regel nicht allzu begeistert von ihrer Existenz. </German>
+		<Italian>[TAB]I laboratori per la guerra biologica sono progettati per creare e produrre in massa armi biologiche. Inoltre lavorano per creare antidoti per le armi biologiche del nemico (oltre che per le proprie). Per questo gli edifici vengono considerati parte integrante delle difese di una citt&#224;. Nonostante ci&#242;, e anche se sono equipaggiati con misure di sicurezza per impedire contaminazioni, questi impianti non sono mai molto ben visti nel vicinato.</Italian>
+		<Spanish>[TAB]Los laboratorios de guerra biol&#243;gica se han pensado para crear armas biol&#243;gicas a gran escala. Adem&#225;s, tambi&#233;n trabajan en la creaci&#243;n de ant&#237;dotos contra las bioarmas enemigas (as&#237; como contra las propias). Por ello, dichos edificios se consideran esenciales para la defensa de una ciudad. A pesar de eso y, aunque dichos laboratorios biob&#233;licos est&#233;n equipados con sofisticadas capas protectoras contra filtraciones, los vecinos no acostumbran a recibir bien a estas instalaciones.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BIOLOGICAL_WARFARE_LAB_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Biological Warfare Labs[COLOR_REVERT] allow construction of [COLOR_UNIT_TEXT]Biological Warfare Missiles[COLOR_REVERT]. They allow you to turn 1 [COLOR_HIGHLIGHT_TEXT]Citizen[COLOR_REVERT] into a [COLOR_HIGHLIGHT_TEXT]Scientist[COLOR_REVERT]. Bio-Labs decrease [COLOR_HIGHLIGHT_TEXT]Happiness[COLOR_REVERT] and [COLOR_HIGHLIGHT_TEXT]Healthiness[COLOR_REVERT] by 1 each.</English>
 	</TEXT>
 	<TEXT> <!-- Boatyard -->
 		<Tag>TXT_KEY_BUILDING_BOATYARD</Tag>
@@ -92,6 +156,20 @@
 		<Tag>TXT_KEY_BUILDING_CITY_COUNCIL_PEDIA</Tag>
 		<English>.</English>
 	</TEXT>	
+	<TEXT> <!-- Cloning Laboratory -->
+		<Tag>TXT_KEY_BUILDING_CLONING_LABORATORY</Tag>
+		<English>Cloning Laboratory</English>
+		<French>Laboratoire de Clonage</French>
+		<German>Klonlabor</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CLONING_LABORATORY_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CLONING_LABORATORY_STRATEGY</Tag>
+		<English>Cloning Laboratory increases science output in the city and permits training of Automatons and Clones. Causes unhappiness in the city.</English>
+	</TEXT>
 	<TEXT> <!-- Commercial Port -->
 		<Tag>TXT_KEY_BUILDING_COMMERCIAL_PORT</Tag>
 		<English>Commercial Port</English>
@@ -150,6 +228,21 @@
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_EARLY_INSTRUMENT_MAKER_STRATEGY</Tag>
 		<English>Build a [COLOR_BUILDING_TEXT]Early Instrument Maker[COLOR_REVERT] to increase the commerce output in your cities.</English>
+	</TEXT>
+	<TEXT> <!-- Elder Council -->
+		<Tag>TXT_KEY_BUILDING_ELDER_COUNCIL</Tag>
+		<English>Elder Council</English>
+		<French>Conseil des Anciens</French>
+		<German>&#196;ltestenrat</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ELDER_COUNCIL_PEDIA</Tag>
+		<English>Oral tradition, oral culture and oral lore are messages or testimony transmitted orally from one generation to another.  The messages or testimony are verbally transmitted in speech or song and may take the form, for example, of folktales, sayings, ballads, songs, or chants. In this way, it is possible for a society to transmit oral history, oral literature, oral law and other knowledges across generations without a writing system.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ELDER_COUNCIL_STRATEGY</Tag>
+		<English>Early science building.</English>
+		<French>Bâtiment Primitif de Science</French>
 	</TEXT>
 	<TEXT> <!-- Fish Market -->
 		<Tag>TXT_KEY_BUILDING_FISH_MARKET</Tag>
@@ -222,6 +315,12 @@
 		<Tag>TXT_KEY_BUILDING_FURRIER_STRATEGY</Tag>
 		<English>Adds gold and commerce with Fur; Resource requirement.</English>
 		<French>Ajoute de l'Or et du commerce avec la ressource Fourrure (nécessaire)</French>
+	</TEXT>
+	<TEXT> <!-- Great Academy -->
+		<Tag>TXT_KEY_BUILDING_GREAT_ACADEMY</Tag>
+		<English>Great Academy</English>
+		<French>Grande Académie</French>
+		<German>Große Akademie</German>
 	</TEXT>
 	<TEXT> <!-- Harbour -->
 		<Tag>TXT_KEY_BUILDING_HARBOUR</Tag>
@@ -472,6 +571,20 @@
 		<English>Build a [COLOR_BUILDING_TEXT]Poultry Farm[COLOR_REVERT] to increase your cities' growth.</English>
 		<Spanish>Construye una [COLOR_BUILDING_TEXT]Granja Av&#237;cola[COLOR_REVERT] para incrementar el crecimiento de tus ciudades.</Spanish>
 	</TEXT>
+	<TEXT> <!-- Quantum Lab -->
+		<Tag>TXT_KEY_BUILDING_QUANTUM_LAB</Tag>
+		<English>Quantum Lab</English>
+		<French>Laboratoire Quantique</French>
+		<German>Quantenlabor</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_QUANTUM_LAB_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_QUANTUM_LAB_STRATEGY</Tag>
+		<English>[SPACE]Quantum Lab gives +2 free scientists to city where it's built and the city is more likely to generate Great Scientists.</English>
+	</TEXT>
 	<TEXT> <!-- Ranch -->
 		<Tag>TXT_KEY_BUILDING_RANCH</Tag>
 		<English>Ranch</English>
@@ -485,6 +598,48 @@
 		<Tag>TXT_KEY_BUILDING_RANCH_STRATEGY</Tag>
 		<English>Build a [COLOR_BUILDING_TEXT]Ranch[COLOR_REVERT] to increase your cities' growth.</English>
 		<Spanish>Construye un [COLOR_BUILDING_TEXT]Rancho[COLOR_REVERT] para incrementar el crecimiento de tus ciudades.</Spanish>
+	</TEXT>
+	<TEXT> <!-- Research Institute -->
+		<Tag>TXT_KEY_BUILDING_RESEARCH_INSTITUTE</Tag>
+		<English>Research Institute </English>
+		<French>Institut de Recherche</French>
+		<German>Forschungsinstitut </German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_RESEARCH_INSTITUTE_STRATEGY</Tag>
+		<English>Research Institutes increse research and space ship construction at the cost of the cities productivity. They are prerequiste for more specialised research facilities.</English>
+		<French>Research Institutes increse research and space ship construction at the cost of the cities productivity. They are prerequiste for more specialised research facilities.</French>
+		<German>Forschungsinstitute verbessern die Forschung und Raumschiffkonstruktion einer Stadt auf Kosten ihrer Produktivität. Es sind Voraussetzung für den Bau spezialisierter Forschungseinrichtungen.</German>
+	</TEXT>	
+	<TEXT> <!-- Research Institute: Russian Nautschno-Issledowatelski Institute -->
+		<Tag>TXT_KEY_BUILDING_RUSSIAN_NII</Tag>
+		<English>Nautschno-Issledowatelski Institute</English>
+		<French>Institut Nautschno-issledowatelski</French>
+		<German>Nautschno-Issledowatelski Institut</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_RUSSIAN_NII_STRATEGY</Tag>
+		<English>Russian version of the Research Institute strongly increse research and space ship constructionat the cost of the cities productivity. They are prerequiste for more specialised research facilities.</English>
+		<French>Russian version of the Research Institute strongly increse research and space ship constructionat the cost of the cities productivity. They are prerequiste for more specialised research facilities.</French>
+		<German>Die Russische Variante des Forschungsinstitute verbessert die Forschung und Raumschiffkonstruktion wesentlicher stärker. Es sind Voraussetzung für den Bau spezialisierter Forschungseinrichtungen.</German>
+	</TEXT>	
+	<TEXT> <!-- School of Scribes -->
+		<Tag>TXT_KEY_BUILDING_SCHOOL_OF_SCRIBES</Tag>
+		<English>School of Scribes</English>
+		<French>
+			<Text>Ecole des Scribes</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Schreiberschule</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SCHOOL_OF_SCRIBES_PEDIA</Tag>
+		<English>[TAB]The School of Scribes is a place where people learn to read and write hieroglyphic and hieratic scripts.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SCHOOL_OF_SCRIBES_STRATEGY</Tag>
+		<English>Increases city's science output and generates some culture as well. Required before you can build Plato's Academy.</English>
 	</TEXT>
 	<TEXT> <!-- Shaman Temple -->
 		<Tag>TXT_KEY_BUILDING_SHAMAN_TEMPLE</Tag>
@@ -524,6 +679,24 @@
 		<Tag>TXT_KEY_BUILDING_SLAVE_MARKET_STRATEGY</Tag>
 		<English>The [COLOR_BUILDING_TEXT]Slave Market[COLOR_REVERT] provides a 25% production bonus and a +1 happiness bonus in any city it is built in. Allows for the purchase of slaves. Doubles Production for leaders with Organized or Industrius traits.</English>
 	</TEXT>
+	<TEXT> <!-- State School -->
+		<Tag>TXT_KEY_BUILDING_STATE_SCHOOL</Tag>
+		<English>State School</English>
+		<French>
+			<Text>Ecole publique</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Schule</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_STATE_SCHOOL_PEDIA</Tag>
+		<English>[TAB]In most of the world, excluding England and Wales and some Commonwealth countries, a public school is an educational institution that is funded with tax revenue and most commonly administered by a local government or government agency. In England and Wales, the equivalent term would be state school.[PARAGRAPH:2]In most of the United Kingdom and in some Commonwealth countries, a public school is a traditional privately operated secondary school that is funded by the payment of tuition fees. These schools, wherever located, often follow a British educational tradition. Originally, many were single-sex boarding schools, but many are now co-educational with both boarders and day-pupils. This usage is synonymous with preparatory school in the USA, although in British English preparatory school has a different meaning. Whether a particular independent school is or is not a public school is not clearly defined, although there are some which indisputably are, and others which clearly are not. While this usage of the term public school is common in most of the United Kingdom, it can be ambiguous in Scotland, where it often refers to a publicly funded school.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_STATE_SCHOOL_STRATEGY</Tag>
+		<English>Increases city's science and culture output in city. Extra happiness from science and culture every 20%</English>
+		</TEXT>
 	<TEXT> <!-- Stone Weapons Workshop -->
 		<Tag>TXT_KEY_BUILDING_STONE_WEAPONS_WORKSHOP</Tag>
 		<English>Stone Weapons Workshop</English>
@@ -568,6 +741,20 @@
 		<Tag>TXT_KEY_BUILDING_STONEWORKERS_HUT_STRATEGY</Tag>
 		<English>Production bonus with Resources</English>
 		<French>Bonus de Production avec Ressources</French>
+	</TEXT>
+	<TEXT> <!-- Supercollider -->
+		<Tag>TXT_KEY_BUILDING_SUPERCOLLIDER</Tag>
+		<English>Supercollider</English>
+		<French>Supercollider</French>
+		<German>Superbeschleuniger</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SUPERCOLLIDER_PEDIA</Tag>
+		<English>[TAB]The Large Hadron Collider (LHC) is the world's largest and highest-energy particle accelerator, intended to collide opposing particle beams, of either protons at an energy of 7 TeV per particle, or lead nuclei at an energy of 574 TeV per nucleus. The Large Hadron Collider was built by the European Organization for Nuclear Research (CERN) with the intention of testing various predictions of high-energy physics, including the existence of the hypothesized Higgs boson and of the large family of new particles predicted by supersymmetry. It lies in a tunnel 27 kilometres (17 mi) in circumference, as much as 175 metres (570 ft) beneath the Franco-Swiss border near Geneva, Switzerland. It is funded by and built in collaboration with over 10,000 scientists and engineers from over 100 countries as well as hundreds of universities and laboratories.[PARAGRAPH:2]On 10 September 2008, the proton beams were successfully circulated in the main ring of the LHC for the first time. On 19 September 2008, the operations were halted due to a serious fault between two superconducting bending magnets. Due to the time required to repair the resulting damage and to add additional safety features, the LHC is scheduled to be operational in mid-November 2009.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SUPERCOLLIDER_STRATEGY</Tag>
+		<English>Supercollider is a very powerful accelerator which allows scientists to study quarks. Gives boost to city's science and spaceship production.</English>
 	</TEXT>
 	<TEXT> <!-- Tailor Shop -->
 		<Tag>TXT_KEY_BUILDING_TAILOR_SHOP</Tag>
@@ -659,4 +846,13 @@
 		<French>Procure une ressource 'Vêtement', fournissant du commerce</French>
 		<German>Erzeugt die Ressource "Kleidung", erzeugt Handel</German>
 	</TEXT>
+
+<!-- +++ Special Building Strings +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_SPECIALBUILDING_CLONING_LABORATORY</Tag>
+		<English>Cloning Laboratory</English>
+		<French>Laboratoire de Clonage</French>
+		<German>Klonlabor</German>
+	</TEXT>
+
 </Civ4GameText>

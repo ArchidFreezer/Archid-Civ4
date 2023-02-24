@@ -7,6 +7,48 @@
 <AudioDefines xmlns="x-schema:AudioDefinesSchema.xml">
 	<SoundDatas>
 		<SoundData>
+			<SoundID>SND_BUILD_ALCHEMIST_LAB</SoundID>
+			<Filename>Sounds/Buildings/AlchemistLab</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
+			<SoundID>SND_BUILD_CLONING_FACTORY</SoundID>
+			<Filename>Sounds/Buildings/CloningFactory</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
+			<SoundID>SND_BUILD_ACCELERATOR</SoundID>
+			<Filename>Sounds/Buildings/Accelerator</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
+			<SoundID>SND_BUILD_HARBOR</SoundID>
+			<Filename>Sounds/Buildings/Harbor</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
+			<SoundID>SND_BUILD_PORT</SoundID>
+			<Filename>Sounds/Buildings/Port</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
+			<SoundID>SND_BUILD_SCHOOL</SoundID>
+			<Filename>Sounds/Buildings/School</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
 			<SoundID>SND_BUILD_FISHING_HUT</SoundID>
 			<Filename>Sounds/Buildings/FishermansHut</Filename>
 			<LoadType>DYNAMIC_RES</LoadType>

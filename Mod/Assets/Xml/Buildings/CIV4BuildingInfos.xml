@@ -4,6 +4,159 @@
 <!-- ************	-->
 <!-- Standard -->
 <!-- ************	-->
+		<BuildingInfo> <!-- Academy -->
+			<BuildingClass>BUILDINGCLASS_ACADEMY</BuildingClass>
+			<Type>BUILDING_ACADEMY</Type>
+			<Description>TXT_KEY_BUILDING_ACADEMY</Description>
+			<Civilopedia>TXT_KEY_BUILDING_ACADEMY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_ACADEMY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_ACADEMY</ArtDefineTag>
+			<ObsoleteTech>TECH_PHYSICS</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_PHILOSOPHY</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bNeverCapture>1</bNeverCapture>
+			<iCost>90</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>4</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>20</iCommerce>
+			</CommerceModifiers>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+					<iCount>3</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_LIBRARY</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_BUDDHIST_MONASTERY</BuildingClassType>
+					<iModifier>-25</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_CHRISTIAN_MONASTERY</BuildingClassType>
+					<iModifier>-25</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_CONFUCIAN_MONASTERY</BuildingClassType>
+					<iModifier>-25</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_HINDU_MONASTERY</BuildingClassType>
+					<iModifier>-25</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ISLAMIC_MONASTERY</BuildingClassType>
+					<iModifier>-25</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_JEWISH_MONASTERY</BuildingClassType>
+					<iModifier>-25</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_TAOIST_MONASTERY</BuildingClassType>
+					<iModifier>-25</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType>
+					<iNeeded>2</iNeeded>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
+			<PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType>
+			</PrereqAndBuildingClasses>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_GREAT_ACADEMY</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>15</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Accelerator -->
+			<BuildingClass>BUILDINGCLASS_ACCELERATOR</BuildingClass>
+			<Type>BUILDING_ACCELERATOR</Type>
+			<Description>TXT_KEY_BUILDING_ACCELERATOR</Description>
+			<Civilopedia>TXT_KEY_BUILDING_ACCELERATOR_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_ACCELERATOR_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_ACCELERATOR</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_LASER</TechType>
+				<TechType>TECH_PHOTOGRAPHY</TechType>
+				<TechType>TECH_QUANTUM_PHYSICS</TechType>
+			</PrereqAndTechs>
+			<bPrereqPower>1</bPrereqPower>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_SCIENTIFIC</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<iCost>700</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iConquestProb>75</iConquestProb>
+			<iMaintenanceModifier>15</iMaintenanceModifier>
+			<iSpaceProductionModifier>25</iSpaceProductionModifier>
+			<iAsset>6</iAsset>
+			<PowerYieldModifiers>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>10</iYield>
+			</PowerYieldModifiers>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>20</iCommerce>
+			</CommerceChanges>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_ACCELERATOR</ConstructSound>
+			<PrereqNotBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_BIOLOGICAL_WARFARE_LAB</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CLONING_LABORATORY</BuildingClassType>
+			</PrereqNotBuildingClasses>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_SUPERCOLLIDER</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Airport -->
 			<BuildingClass>BUILDINGCLASS_AIRPORT</BuildingClass>
 			<Type>BUILDING_AIRPORT</Type>
@@ -32,6 +185,62 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Alchemists Lab -->
+			<BuildingClass>BUILDINGCLASS_ALCHEMISTS_LAB</BuildingClass>
+			<Type>BUILDING_ALCHEMISTS_LAB</Type>
+			<Description>TXT_KEY_BUILDING_ALCHEMISTS_LAB</Description>
+			<Civilopedia>TXT_KEY_BUILDING_ALCHEMISTS_LAB_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_ALCHEMISTS_LAB_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_ALCHEMISTS_LAB</ArtDefineTag>
+			<ObsoleteTech>TECH_SCIENTIFIC_METHOD</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ALCHEMY</TechType>
+			</PrereqAndTechs>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_GLASS</BonusType>
+			</PrereqOrBonuses>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_SCIENTIFIC</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bNeverCapture>1</bNeverCapture>
+			<iCost>110</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iAsset>4</iAsset>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>-1</iYield>
+			</YieldChanges>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>4</iCommerce>
+			</CommerceChanges>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_ALCHEMIST_LAB</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_LABORATORY</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_LABORATORY</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -457,6 +666,50 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Biological Warfare Lab -->
+			<BuildingClass>BUILDINGCLASS_BIOLOGICAL_WARFARE_LAB</BuildingClass>
+			<Type>BUILDING_BIOLOGICAL_WARFARE_LAB</Type>
+			<Description>TXT_KEY_BUILDING_BIOLOGICAL_WARFARE_LAB</Description>
+			<Civilopedia>TXT_KEY_BUILDING_BIOLOGICAL_WARFARE_LAB_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_BIOLOGICAL_WARFARE_LAB_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_BIOLOGICAL_WARFARE_LAB</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_BIOLOGICAL_WARFARE</TechType>
+				<TechType>TECH_CLONING</TechType>
+			</PrereqAndTechs>
+			<iCost>980</iCost>
+			<iAdvancedStartCost>450</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iConquestProb>75</iConquestProb>
+			<iHealth>-1</iHealth>
+			<iHappiness>-1</iHappiness>
+			<iAsset>6</iAsset>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_LABORATORY</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_CLONING_LABORATORY</BuildingClassType>
+					<iModifier>-20</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<PrereqNotBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_QUANTUM_LAB</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_ACCELERATOR</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_SUPERCOLLIDER</BuildingClassType>
+			</PrereqNotBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>8</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Boatyard -->
 			<BuildingClass>BUILDINGCLASS_BOATYARD</BuildingClass>
 			<Type>BUILDING_BOATYARD</Type>
@@ -760,26 +1013,50 @@
 			<PrereqReligion>RELIGION_BUDDHISM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
-			<iCost>60</iCost>
+			<iCost>140</iCost>
 			<iAsset>3</iAsset>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>3</iYield>
+			</YieldChanges>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>1</iCommerce>
+				<iCommerce>2</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<CommerceChangeDoubleTimes>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>1000</iCommerce>
 			</CommerceChangeDoubleTimes>
-			<CommerceModifiers>
-				<iCommerce>0</iCommerce>
-				<iCommerce>10</iCommerce>
-			</CommerceModifiers>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_BUDDHISM</ReligionType>
+					<iChange>1</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<ConstructSound>AS2D_BUILD_BUDDHIST</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ACADEMY</BuildingClassType>
+					<iModifier>-25</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_STATE_SCHOOL</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -1221,26 +1498,50 @@
 			<PrereqReligion>RELIGION_CHRISTIANITY</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
-			<iCost>60</iCost>
+			<iCost>140</iCost>
 			<iAsset>3</iAsset>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>3</iYield>
+			</YieldChanges>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>1</iCommerce>
+				<iCommerce>2</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<CommerceChangeDoubleTimes>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>1000</iCommerce>
 			</CommerceChangeDoubleTimes>
-			<CommerceModifiers>
-				<iCommerce>0</iCommerce>
-				<iCommerce>10</iCommerce>
-			</CommerceModifiers>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_CHRISTIANITY</ReligionType>
+					<iChange>1</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<ConstructSound>AS2D_BUILD_CHRISTIAN</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ACADEMY</BuildingClassType>
+					<iModifier>-25</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_STATE_SCHOOL</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -1345,6 +1646,56 @@
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>
 					<iFlavor>4</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Cloning Laboratory -->
+			<BuildingClass>BUILDINGCLASS_CLONING_LABORATORY</BuildingClass>
+			<Type>BUILDING_CLONING_LABORATORY</Type>
+			<SpecialBuildingType>SPECIALBUILDING_CLONING_LABORATORY</SpecialBuildingType>
+			<Description>TXT_KEY_BUILDING_CLONING_LABORATORY</Description>
+			<Civilopedia>TXT_KEY_BUILDING_CLONING_LABORATORY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_CLONING_LABORATORY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_BIOLOGICAL_WARFARE_LAB</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_CLONING</TechType>
+			</PrereqAndTechs>
+			<bPrereqPower>1</bPrereqPower>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<iCost>900</iCost>
+			<iAdvancedStartCost>150</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iConquestProb>75</iConquestProb>
+			<iHappiness>-2</iHappiness>
+			<iAsset>6</iAsset>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_CLONING_FACTORY</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_BIOLOGICAL_WARFARE_LAB</BuildingClassType>
+					<iModifier>-20</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<PrereqNotBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_QUANTUM_LAB</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_ACCELERATOR</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_SUPERCOLLIDER</BuildingClassType>
+			</PrereqNotBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>8</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
@@ -1741,26 +2092,50 @@
 			<PrereqReligion>RELIGION_CONFUCIANISM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
-			<iCost>60</iCost>
+			<iCost>140</iCost>
 			<iAsset>3</iAsset>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>3</iYield>
+			</YieldChanges>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>1</iCommerce>
+				<iCommerce>2</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<CommerceChangeDoubleTimes>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>1000</iCommerce>
 			</CommerceChangeDoubleTimes>
-			<CommerceModifiers>
-				<iCommerce>0</iCommerce>
-				<iCommerce>10</iCommerce>
-			</CommerceModifiers>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_CONFUCIANISM</ReligionType>
+					<iChange>1</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<ConstructSound>AS2D_BUILD_CONFUCIAN</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ACADEMY</BuildingClassType>
+					<iModifier>-25</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_STATE_SCHOOL</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -2339,6 +2714,65 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Elder Council -->
+			<BuildingClass>BUILDINGCLASS_ELDER_COUNCIL</BuildingClass>
+			<Type>BUILDING_ELDER_COUNCIL</Type>
+			<Description>TXT_KEY_BUILDING_ELDER_COUNCIL</Description>
+			<Civilopedia>TXT_KEY_BUILDING_ELDER_COUNCIL_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_ELDER_COUNCIL_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_ELDER_COUNCIL</ArtDefineTag>
+			<ObsoleteTech>TECH_SCIENTIFIC_METHOD</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_RITUALISM</TechType>
+			</PrereqAndTechs>
+			<iCost>18</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>60</iConquestProb>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</YieldChanges>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommerceChanges>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_SCHOOL_OF_SCRIBES</BuildingClassType>
+					<iModifier>30</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ALCHEMISTS_LAB</BuildingClassType>
+					<iModifier>30</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType>
+					<iModifier>30</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_SCHOOL_OF_SCRIBES</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_ALCHEMISTS_LAB</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<TechCommerceChanges>
+				<TechCommerceChange>
+					<TechType>TECH_PRIESTHOOD</TechType>
+					<CommerceChanges>
+						<iCommerce>0</iCommerce>
+						<iCommerce>1</iCommerce>
+					</CommerceChanges>
+				</TechCommerceChange>
+			</TechCommerceChanges>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -3691,26 +4125,50 @@
 			<PrereqReligion>RELIGION_HINDUISM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
-			<iCost>60</iCost>
+			<iCost>140</iCost>
 			<iAsset>3</iAsset>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>3</iYield>
+			</YieldChanges>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>1</iCommerce>
+				<iCommerce>2</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<CommerceChangeDoubleTimes>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>1000</iCommerce>
 			</CommerceChangeDoubleTimes>
-			<CommerceModifiers>
-				<iCommerce>0</iCommerce>
-				<iCommerce>10</iCommerce>
-			</CommerceModifiers>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_HINDUISM</ReligionType>
+					<iChange>1</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<ConstructSound>AS2D_BUILD_HINDU</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ACADEMY</BuildingClassType>
+					<iModifier>-25</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_STATE_SCHOOL</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -4097,26 +4555,50 @@
 			<PrereqReligion>RELIGION_ISLAM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
-			<iCost>60</iCost>
+			<iCost>140</iCost>
 			<iAsset>3</iAsset>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>3</iYield>
+			</YieldChanges>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>1</iCommerce>
+				<iCommerce>2</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<CommerceChangeDoubleTimes>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>1000</iCommerce>
 			</CommerceChangeDoubleTimes>
-			<CommerceModifiers>
-				<iCommerce>0</iCommerce>
-				<iCommerce>10</iCommerce>
-			</CommerceModifiers>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_ISLAM</ReligionType>
+					<iChange>1</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<ConstructSound>AS2D_BUILD_ISLAMIC</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ACADEMY</BuildingClassType>
+					<iModifier>-25</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_STATE_SCHOOL</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -4334,26 +4816,50 @@
 			<PrereqReligion>RELIGION_JUDAISM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
-			<iCost>60</iCost>
+			<iCost>140</iCost>
 			<iAsset>3</iAsset>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>3</iYield>
+			</YieldChanges>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>1</iCommerce>
+				<iCommerce>2</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<CommerceChangeDoubleTimes>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>1000</iCommerce>
 			</CommerceChangeDoubleTimes>
-			<CommerceModifiers>
-				<iCommerce>0</iCommerce>
-				<iCommerce>10</iCommerce>
-			</CommerceModifiers>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_JUDAISM</ReligionType>
+					<iChange>1</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<ConstructSound>AS2D_BUILD_JEWISH</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ACADEMY</BuildingClassType>
+					<iModifier>-25</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_STATE_SCHOOL</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -4550,19 +5056,29 @@
 			<Strategy>TXT_KEY_BUILDING_LABORATORY_STRATEGY</Strategy>
 			<Advisor>ADVISOR_SCIENCE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_LABORATORY</ArtDefineTag>
+			<ObsoleteTech>TECH_SUPERCONDUCTORS</ObsoleteTech>
 			<PrereqAndTechs>
-				<TechType>TECH_SUPERCONDUCTORS</TechType>
+				<TechType>TECH_CHEMISTRY</TechType>
 			</PrereqAndTechs>
-			<iCost>250</iCost>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_SCIENTIFIC</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<iCost>190</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
-			<iHealth>-1</iHealth>
+			<iConquestProb>75</iConquestProb>
 			<iSpaceProductionModifier>50</iSpaceProductionModifier>
-			<iAsset>6</iAsset>
-			<CommerceModifiers>
+			<iAsset>4</iAsset>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>-3</iYield>
+			</YieldChanges>
+			<CommerceChanges>
 				<iCommerce>0</iCommerce>
-				<iCommerce>25</iCommerce>
-			</CommerceModifiers>
+				<iCommerce>8</iCommerce>
+			</CommerceChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
@@ -4570,47 +5086,15 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_LABORATORY</ConstructSound>
-			<Flavors>
-				<Flavor>
-					<FlavorType>FLAVOR_SCIENCE</FlavorType>
-					<iFlavor>10</iFlavor>
-				</Flavor>
-			</Flavors>
-		</BuildingInfo>
-		<BuildingInfo> <!-- Laboratory: Russian Research Institute -->
-			<BuildingClass>BUILDINGCLASS_LABORATORY</BuildingClass>
-			<Type>BUILDING_RUSSIAN_RESEARCH_INSTITUTE</Type>
-			<Description>TXT_KEY_BUILDING_RUSSIAN_RESEARCH_INSTITUTE</Description>
-			<Civilopedia>TXT_KEY_BUILDING_RUSSIAN_RESEARCH_INSTITUTE_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_BUILDING_RUSSIAN_RESEARCH_INSTITUTE_STRATEGY</Strategy>
-			<Advisor>ADVISOR_SCIENCE</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_RUSSIAN_RESEARCH_INSTITUTE</ArtDefineTag>
-			<PrereqAndTechs>
-				<TechType>TECH_SUPERCONDUCTORS</TechType>
-			</PrereqAndTechs>
-			<iCost>250</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
-			<iHealth>-1</iHealth>
-			<iSpaceProductionModifier>50</iSpaceProductionModifier>
-			<iAsset>8</iAsset>
-			<CommerceModifiers>
-				<iCommerce>0</iCommerce>
-				<iCommerce>25</iCommerce>
-			</CommerceModifiers>
-			<SpecialistCounts>
-				<SpecialistCount>
-					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
-					<iCount>1</iCount>
-				</SpecialistCount>
-			</SpecialistCounts>
-			<FreeSpecialistCounts>
-				<SpecialistCount>
-					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
-					<iCount>2</iCount>
-				</SpecialistCount>
-			</FreeSpecialistCounts>
-			<ConstructSound>AS2D_BUILD_LABORATORY</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_RESEARCH_INSTITUTE</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_RESEARCH_INSTITUTE</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>
@@ -4792,7 +5276,7 @@
 			<ArtDefineTag>ART_DEF_BUILDING_LIBRARY</ArtDefineTag>
 			<FreeStartEra>ERA_MODERN</FreeStartEra>
 			<PrereqAndTechs>
-				<TechType>TECH_WRITING</TechType>
+				<TechType>TECH_LITERATURE</TechType>
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
@@ -4803,7 +5287,17 @@
 			<bNeverCapture>1</bNeverCapture>
 			<iCost>90</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMaintenanceModifier>10</iMaintenanceModifier>
 			<iAsset>3</iAsset>
+			<YieldModifiers>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>5</iYield>
+			</YieldModifiers>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>5</iCommerce>
+			</CommerceChanges>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -4814,10 +5308,6 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>1000</iCommerce>
 			</CommerceChangeDoubleTimes>
-			<CommerceModifiers>
-				<iCommerce>0</iCommerce>
-				<iCommerce>25</iCommerce>
-			</CommerceModifiers>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
@@ -4828,7 +5318,7 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>
-					<iFlavor>10</iFlavor>
+					<iFlavor>15</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
@@ -4853,21 +5343,27 @@
 			<bNeverCapture>1</bNeverCapture>
 			<iCost>90</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iAsset>5</iAsset>
+			<iMaintenanceModifier>10</iMaintenanceModifier>
+			<iAsset>3</iAsset>
+			<YieldModifiers>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>5</iYield>
+			</YieldModifiers>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>5</iCommerce>
+			</CommerceChanges>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>3</iCommerce>
+				<iCommerce>2</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<CommerceChangeDoubleTimes>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>1000</iCommerce>
 			</CommerceChangeDoubleTimes>
-			<CommerceModifiers>
-				<iCommerce>0</iCommerce>
-				<iCommerce>25</iCommerce>
-			</CommerceModifiers>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
@@ -4882,7 +5378,7 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>
-					<iFlavor>10</iFlavor>
+					<iFlavor>15</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
@@ -6368,6 +6864,52 @@
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Quantum Lab -->
+			<BuildingClass>BUILDINGCLASS_QUANTUM_LAB</BuildingClass>
+			<Type>BUILDING_QUANTUM_LAB</Type>
+			<Description>TXT_KEY_BUILDING_QUANTUM_LAB</Description>
+			<Civilopedia>TXT_KEY_BUILDING_QUANTUM_LAB_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_QUANTUM_LAB_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_QUANTUM_LAB</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_QUANTUM_TELEPORTATION</TechType>
+			</PrereqAndTechs>
+			<GreatPeopleUnitClass>UNITCLASS_SCIENTIST</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>6</iGreatPeopleRateChange>
+			<iCost>750</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iConquestProb>75</iConquestProb>
+			<iMaintenanceModifier>40</iMaintenanceModifier>
+			<iSpaceProductionModifier>50</iSpaceProductionModifier>
+			<iAsset>6</iAsset>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>12</iCommerce>
+			</CommerceChanges>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+					<iCount>2</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_LABORATORY</ConstructSound>
+			<PrereqNotBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_BIOLOGICAL_WARFARE_LAB</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CLONING_LABORATORY</BuildingClassType>
+			</PrereqNotBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>7</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Ranch -->
 			<BuildingClass>BUILDINGCLASS_RANCH</BuildingClass>
 			<Type>BUILDING_RANCH</Type>
@@ -6476,6 +7018,156 @@
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Research Institute -->
+			<BuildingClass>BUILDINGCLASS_RESEARCH_INSTITUTE</BuildingClass>
+			<Type>BUILDING_RESEARCH_INSTITUTE</Type>
+			<Description>TXT_KEY_BUILDING_RESEARCH_INSTITUTE</Description>
+			<Civilopedia>TXT_KEY_BUILDING_LABORATORY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_RESEARCH_INSTITUTE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_RESEARCH_INSTITUTE</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_MODERN_PHYSICS</TechType>
+			</PrereqAndTechs>
+			<bPrereqPower>1</bPrereqPower>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_SCIENTIFIC</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<iCost>325</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iConquestProb>75</iConquestProb>
+			<iMaxLatitude>90</iMaxLatitude>
+			<iMaintenanceModifier>10</iMaintenanceModifier>
+			<iSpaceProductionModifier>25</iSpaceProductionModifier>
+			<iAsset>6</iAsset>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>-5</iYield>
+			</YieldChanges>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>12</iCommerce>
+			</CommerceChanges>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_LABORATORY</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_QUANTUM_LAB</BuildingClassType>
+					<iModifier>30</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_CLONING_LABORATORY</BuildingClassType>
+					<iModifier>30</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_BIOLOGICAL_WARFARE_LAB</BuildingClassType>
+					<iModifier>30</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ACCELERATOR</BuildingClassType>
+					<iModifier>30</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_ACCELERATOR</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_QUANTUM_LAB</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CLONING_LABORATORY</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_BIOLOGICAL_WARFARE_LAB</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Research Institute: Russian Research Institute -->
+			<BuildingClass>BUILDINGCLASS_RESEARCH_INSTITUTE</BuildingClass>
+			<Type>BUILDING_RUSSIAN_RESEARCH_INSTITUTE</Type>
+			<Description>TXT_KEY_BUILDING_RUSSIAN_NII</Description>
+			<Civilopedia>TXT_KEY_BUILDING_RUSSIAN_RESEARCH_INSTITUTE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_RUSSIAN_NII_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_RUSSIAN_RESEARCH_INSTITUTE</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_MODERN_PHYSICS</TechType>
+			</PrereqAndTechs>
+			<bPrereqPower>1</bPrereqPower>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_SCIENTIFIC</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<iCost>325</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iConquestProb>75</iConquestProb>
+			<iMaxLatitude>90</iMaxLatitude>
+			<iMaintenanceModifier>10</iMaintenanceModifier>
+			<iSpaceProductionModifier>25</iSpaceProductionModifier>
+			<iAsset>6</iAsset>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>-5</iYield>
+			</YieldChanges>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>12</iCommerce>
+			</CommerceChanges>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<FreeSpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+					<iCount>2</iCount>
+				</SpecialistCount>
+			</FreeSpecialistCounts>
+			<ConstructSound>AS2D_BUILD_LABORATORY</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_QUANTUM_LAB</BuildingClassType>
+					<iModifier>30</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_CLONING_LABORATORY</BuildingClassType>
+					<iModifier>30</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_BIOLOGICAL_WARFARE_LAB</BuildingClassType>
+					<iModifier>30</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ACCELERATOR</BuildingClassType>
+					<iModifier>30</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_ACCELERATOR</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_QUANTUM_LAB</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CLONING_LABORATORY</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_BIOLOGICAL_WARFARE_LAB</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Rocknroll -->
 			<BuildingClass>BUILDINGCLASS_ROCKNROLL</BuildingClass>
 			<Type>BUILDING_ROCKNROLL</Type>
@@ -6566,6 +7258,98 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- School Of Scribes -->
+			<BuildingClass>BUILDINGCLASS_SCHOOL_OF_SCRIBES</BuildingClass>
+			<Type>BUILDING_SCHOOL_OF_SCRIBES</Type>
+			<Description>TXT_KEY_BUILDING_SCHOOL_OF_SCRIBES</Description>
+			<Civilopedia>TXT_KEY_BUILDING_SCHOOL_OF_SCRIBES_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_SCHOOL_OF_SCRIBES_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_SCHOOL_OF_SCRIBES</ArtDefineTag>
+			<ObsoleteTech>TECH_PRINTING_PRESS</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_WRITING</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_SCIENTIFIC</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bNeverCapture>1</bNeverCapture>
+			<iCost>60</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMaintenanceModifier>5</iMaintenanceModifier>
+			<iAsset>3</iAsset>
+			<YieldModifiers>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>10</iYield>
+			</YieldModifiers>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_LIBRARY</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_BUDDHIST_MONASTERY</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_CHRISTIAN_MONASTERY</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_CONFUCIAN_MONASTERY</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_HINDU_MONASTERY</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ISLAMIC_MONASTERY</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_JEWISH_MONASTERY</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_TAOIST_MONASTERY</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_ACADEMY</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_BUDDHIST_MONASTERY</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CHRISTIAN_MONASTERY</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CONFUCIAN_MONASTERY</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_HINDU_MONASTERY</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_ISLAMIC_MONASTERY</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_JEWISH_MONASTERY</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_TAOIST_MONASTERY</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -6981,6 +7765,73 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- State School -->
+			<BuildingClass>BUILDINGCLASS_STATE_SCHOOL</BuildingClass>
+			<Type>BUILDING_STATE_SCHOOL</Type>
+			<Description>TXT_KEY_BUILDING_STATE_SCHOOL</Description>
+			<Civilopedia>TXT_KEY_BUILDING_STATE_SCHOOL_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_PUBLIC_STATE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_STATE_SCHOOL</ArtDefineTag>
+			<FreeStartEra>ERA_MODERN</FreeStartEra>
+			<PrereqAndTechs>
+				<TechType>TECH_PUBLIC_SCHOOLING</TechType>
+			</PrereqAndTechs>
+			<iCost>180</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iConquestProb>33</iConquestProb>
+			<iExperience>1</iExperience>
+			<iMaintenanceModifier>20</iMaintenanceModifier>
+			<iAsset>3</iAsset>
+			<YieldModifiers>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>40</iYield>
+			</YieldModifiers>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>100</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>10</iCommerce>
+			</CommerceModifiers>
+			<CommerceHappinesses>
+				<iCommerce>0</iCommerce>
+				<iCommerce>3</iCommerce>
+			</CommerceHappinesses>
+			<ConstructSound>AS2D_BUILD_SCHOOL</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>8</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Statue Of Liberty -->
 			<BuildingClass>BUILDINGCLASS_STATUE_OF_LIBERTY</BuildingClass>
 			<Type>BUILDING_STATUE_OF_LIBERTY</Type>
@@ -7324,6 +8175,65 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Supercollider -->
+			<BuildingClass>BUILDINGCLASS_SUPERCOLLIDER</BuildingClass>
+			<Type>BUILDING_SUPERCOLLIDER</Type>
+			<Description>TXT_KEY_BUILDING_SUPERCOLLIDER</Description>
+			<Civilopedia>TXT_KEY_BUILDING_SUPERCOLLIDER_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_SUPERCOLLIDER_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_SUPERCOLLIDER</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_SUPERCOLLIDER</MovieDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_SUPERCONDUCTORS</TechType>
+			</PrereqAndTechs>
+			<bPrereqPower>1</bPrereqPower>
+			<GreatPeopleUnitClass>UNITCLASS_SCIENTIST</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
+			<bNeverCapture>1</bNeverCapture>
+			<bForceDisableStarSigns>1</bForceDisableStarSigns>
+			<iCost>1820</iCost>
+			<iHurryCostModifier>100</iHurryCostModifier>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iMaintenanceModifier>15</iMaintenanceModifier>
+			<iSpaceProductionModifier>30</iSpaceProductionModifier>
+			<iAsset>6</iAsset>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>14</iCommerce>
+			</CommerceChanges>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>50</iCommerce>
+			</CommerceModifiers>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_OBSERVATORY</ConstructSound>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_ACCELERATOR</BuildingClassType>
+					<iNeeded>3</iNeeded>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
+			<PrereqOrBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_ACCELERATOR</BuildingClassType>
+			</PrereqOrBuildingClasses>
+			<PrereqNotBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_BIOLOGICAL_WARFARE_LAB</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CLONING_LABORATORY</BuildingClassType>
+			</PrereqNotBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Supermarket -->
 			<BuildingClass>BUILDINGCLASS_SUPERMARKET</BuildingClass>
 			<Type>BUILDING_SUPERMARKET</Type>
@@ -7633,26 +8543,50 @@
 			<PrereqReligion>RELIGION_TAOISM</PrereqReligion>
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
-			<iCost>60</iCost>
+			<iCost>140</iCost>
 			<iAsset>3</iAsset>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>3</iYield>
+			</YieldChanges>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>1</iCommerce>
+				<iCommerce>2</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<CommerceChangeDoubleTimes>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>1000</iCommerce>
 			</CommerceChangeDoubleTimes>
-			<CommerceModifiers>
-				<iCommerce>0</iCommerce>
-				<iCommerce>10</iCommerce>
-			</CommerceModifiers>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_TAOISM</ReligionType>
+					<iChange>1</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<ConstructSound>AS2D_BUILD_TAOIST</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ACADEMY</BuildingClassType>
+					<iModifier>-25</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_STATE_SCHOOL</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -8032,13 +8966,13 @@
 				</ProductionTrait>
 			</ProductionTraits>
 			<bNeverCapture>1</bNeverCapture>
-			<iCost>200</iCost>
+			<iCost>240</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iAsset>4</iAsset>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>3</iCommerce>
+				<iCommerce>4</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<CommerceChangeDoubleTimes>
 				<iCommerce>0</iCommerce>
@@ -8047,9 +8981,20 @@
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
-				<iCommerce>25</iCommerce>
+				<iCommerce>35</iCommerce>
 			</CommerceModifiers>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+					<iCount>4</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_UNIVERSITY</ConstructSound>
+			<PrereqOrBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_ACADEMY</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_GREAT_ACADEMY</BuildingClassType>
+			</PrereqOrBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>
@@ -8075,13 +9020,13 @@
 				</ProductionTrait>
 			</ProductionTraits>
 			<bNeverCapture>1</bNeverCapture>
-			<iCost>200</iCost>
+			<iCost>240</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iAsset>6</iAsset>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>3</iCommerce>
+				<iCommerce>4</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<CommerceChangeDoubleTimes>
 				<iCommerce>0</iCommerce>
@@ -8090,9 +9035,20 @@
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
-				<iCommerce>35</iCommerce>
+				<iCommerce>45</iCommerce>
 			</CommerceModifiers>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+					<iCount>4</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_UNIVERSITY</ConstructSound>
+			<PrereqOrBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_ACADEMY</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_GREAT_ACADEMY</BuildingClassType>
+			</PrereqOrBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>
@@ -9234,39 +10190,6 @@
 <!-- ************	-->
 <!-- No Construct -->
 <!-- ************	-->
-		<BuildingInfo> <!-- Academy -->
-			<BuildingClass>BUILDINGCLASS_ACADEMY</BuildingClass>
-			<Type>BUILDING_ACADEMY</Type>
-			<Description>TXT_KEY_BUILDING_ACADEMY</Description>
-			<Civilopedia>TXT_KEY_BUILDING_ACADEMY_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_BUILDING_ACADEMY_STRATEGY</Strategy>
-			<Advisor>ADVISOR_SCIENCE</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_ACADEMY</ArtDefineTag>
-			<iCost>-1</iCost>
-			<iConquestProb>100</iConquestProb>
-			<iAsset>6</iAsset>
-			<ObsoleteSafeCommerceChanges>
-				<iCommerce>0</iCommerce>
-				<iCommerce>0</iCommerce>
-				<iCommerce>2</iCommerce>
-			</ObsoleteSafeCommerceChanges>
-			<CommerceModifiers>
-				<iCommerce>0</iCommerce>
-				<iCommerce>50</iCommerce>
-			</CommerceModifiers>
-			<CommerceChangeOriginalOwners>
-				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
-				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
-				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
-			</CommerceChangeOriginalOwners>
-			<ConstructSound>AS2D_BUILD_LIBRARY</ConstructSound>
-			<Flavors>
-				<Flavor>
-					<FlavorType>FLAVOR_SCIENCE</FlavorType>
-					<iFlavor>10</iFlavor>
-				</Flavor>
-			</Flavors>
-		</BuildingInfo>
 		<BuildingInfo> <!-- Buddhist Shrine -->
 			<BuildingClass>BUILDINGCLASS_BUDDHIST_SHRINE</BuildingClass>
 			<Type>BUILDING_BUDDHIST_SHRINE</Type>
@@ -9728,6 +10651,51 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Great Academy -->
+			<BuildingClass>BUILDINGCLASS_GREAT_ACADEMY</BuildingClass>
+			<Type>BUILDING_GREAT_ACADEMY</Type>
+			<Description>TXT_KEY_BUILDING_GREAT_ACADEMY</Description>
+			<Civilopedia>TXT_KEY_BUILDING_ACADEMY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_ACADEMY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_ACADEMY</ArtDefineTag>
+			<iCost>-1</iCost>
+			<iConquestProb>100</iConquestProb>
+			<iAsset>6</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>4</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>50</iCommerce>
+			</CommerceModifiers>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+					<iCount>3</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<CommerceChangeOriginalOwners>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
+			</CommerceChangeOriginalOwners>
+			<ConstructSound>AS2D_BUILD_LIBRARY</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
