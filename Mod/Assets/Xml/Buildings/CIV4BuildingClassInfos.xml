@@ -158,17 +158,17 @@
 			<DefaultBuilding>BUILDING_DRYDOCK</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Fish Traps -->									<!-- Seafood -->
-			<Type>BUILDINGCLASS_FISHTRAPS</Type>
-			<Description>TXT_KEY_BUILDING_FISHTRAPS</Description>
-			<iCategory>19</iCategory>
-			<DefaultBuilding>BUILDING_FISHTRAPS</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Fishermans Hut -->
+		<BuildingClassInfo> <!-- Fishermans Hut -->                  <!-- Seafood -->
 			<Type>BUILDINGCLASS_FISHERMANS_HUT</Type>
 			<Description>TXT_KEY_BUILDING_FISHERMANS_HUT</Description>
 			<iCategory>19</iCategory>
 			<DefaultBuilding>BUILDING_FISHERMANS_HUT</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Fishtraps -->
+			<Type>BUILDINGCLASS_FISHTRAPS</Type>
+			<Description>TXT_KEY_BUILDING_FISHTRAPS</Description>
+			<iCategory>19</iCategory>
+			<DefaultBuilding>BUILDING_FISHTRAPS</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Fish Market -->
 			<Type>BUILDINGCLASS_FISH_MARKET</Type>
@@ -176,7 +176,20 @@
 			<iCategory>19</iCategory>
 			<DefaultBuilding>BUILDING_FISH_MARKET</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Harbor -->                          <!-- Water Trade -->
+
+		<BuildingClassInfo> <!-- Commercial Port -->                 <!-- Water Trade -->
+			<Type>BUILDINGCLASS_COMMERCIAL_PORT</Type>
+			<Description>TXT_KEY_BUILDING_COMMERCIAL_PORT</Description>
+			<iCategory>20</iCategory>
+			<DefaultBuilding>BUILDING_COMMERCIAL_PORT</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Container Port -->
+			<Type>BUILDINGCLASS_CONTAINER_PORT</Type>
+			<Description>TXT_KEY_BUILDING_CONTAINER_PORT</Description>
+			<iCategory>20</iCategory>
+			<DefaultBuilding>BUILDING_CONTAINER_PORT</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Harbour -->
 			<Type>BUILDINGCLASS_HARBOUR</Type>
 			<Description>TXT_KEY_BUILDING_HARBOUR</Description>
 			<iCategory>20</iCategory>
@@ -194,18 +207,6 @@
 			<iCategory>20</iCategory>
 			<DefaultBuilding>BUILDING_PORT</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Commercial Port -->
-			<Type>BUILDINGCLASS_COMMERCIAL_PORT</Type>
-			<Description>TXT_KEY_BUILDING_COMMERCIAL_PORT</Description>
-			<iCategory>20</iCategory>
-			<DefaultBuilding>BUILDING_COMMERCIAL_PORT</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Container Port -->
-			<Type>BUILDINGCLASS_CONTAINER_PORT</Type>
-			<Description>TXT_KEY_BUILDING_CONTAINER_PORT</Description>
-			<iCategory>20</iCategory>
-			<DefaultBuilding>BUILDING_CONTAINER_PORT</DefaultBuilding>
-		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Custom House -->                    <!-- Taxes -->
 			<Type>BUILDINGCLASS_CUSTOM_HOUSE</Type>
@@ -214,7 +215,13 @@
 			<DefaultBuilding>BUILDING_CUSTOM_HOUSE</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Industrial Park -->                 <!-- City Boost -->
+		<BuildingClassInfo> <!-- Boatyard -->                        <!-- City Boost -->
+			<Type>BUILDINGCLASS_BOATYARD</Type>
+			<Description>TXT_KEY_BUILDING_BOATYARD</Description>
+			<iCategory>22</iCategory>
+			<DefaultBuilding>BUILDING_BOATYARD</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Industrial Park -->
 			<Type>BUILDINGCLASS_INDUSTRIAL_PARK</Type>
 			<Description>TXT_KEY_BUILDING_INDUSTRIAL_PARK</Description>
 			<iCategory>22</iCategory>
@@ -225,12 +232,6 @@
 			<Description>TXT_KEY_BUILDING_LEVEE</Description>
 			<iCategory>22</iCategory>
 			<DefaultBuilding>BUILDING_LEVEE</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Boatyard -->
-			<Type>BUILDINGCLASS_BOATYARD</Type>
-			<Description>TXT_KEY_BUILDING_BOATYARD</Description>
-			<iCategory>22</iCategory>
-			<DefaultBuilding>BUILDING_BOATYARD</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Marina -->
 			<Type>BUILDINGCLASS_MARINA</Type>
@@ -314,7 +315,13 @@
 			<DefaultBuilding>BUILDING_NUCLEAR_PLANT</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Furrier -->                         <!-- Commerce -->
+		<BuildingClassInfo> <!-- Brightsmiths Hut -->                <!-- Commerce -->
+			<Type>BUILDINGCLASS_BRIGHTSMITHS_HUT</Type>
+			<Description>TXT_KEY_BUILDING_BRIGHTSMITHS_HUT</Description>
+			<iCategory>28</iCategory>
+			<DefaultBuilding>BUILDING_BRIGHTSMITHS_HUT</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Furrier -->
 			<Type>BUILDINGCLASS_FURRIER</Type>
 			<Description>TXT_KEY_BUILDING_FURRIER</Description>
 			<iCategory>28</iCategory>
@@ -325,12 +332,6 @@
 			<Description>TXT_KEY_BUILDING_SLAVE_MARKET</Description>
 			<iCategory>28</iCategory>
 			<DefaultBuilding>BUILDING_SLAVE_MARKET</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Brightsmiths Hut -->
-			<Type>BUILDINGCLASS_BRIGHTSMITHS_HUT</Type>
-			<Description>TXT_KEY_BUILDING_BRIGHTSMITHS_HUT</Description>
-			<iCategory>28</iCategory>
-			<DefaultBuilding>BUILDING_BRIGHTSMITHS_HUT</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Weavers Hut -->
 			<Type>BUILDINGCLASS_WEAVERS_HUT</Type>
