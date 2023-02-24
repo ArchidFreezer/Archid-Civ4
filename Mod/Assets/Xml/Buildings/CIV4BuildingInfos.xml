@@ -465,13 +465,13 @@
 			<Strategy>TXT_KEY_BUILDING_BOATYARD_STRATEGY</Strategy>
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_BOATYARD</ArtDefineTag>
-			<PrereqVicinityImprovements>
-				<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
-			</PrereqVicinityImprovements>
 			<ObsoleteTech>TECH_STEEL</ObsoleteTech>
 			<PrereqAndTechs>
 				<TechType>TECH_FISHING</TechType>
 			</PrereqAndTechs>
+			<PrereqVicinityImprovements>
+				<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
+			</PrereqVicinityImprovements>
 			<ProductionTraits>
 				<ProductionTrait>
 					<TraitType>TRAIT_SEAFARING</TraitType>
@@ -493,7 +493,7 @@
 			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_MARINA</BuildingClassType>
-			</ReplacedByBuildingClasses>				
+			</ReplacedByBuildingClasses>
 			<ImprovementFreeSpecialists>
 				<ImprovementFreeSpecialist>
 					<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
@@ -1099,54 +1099,6 @@
 				<Flavor>
 					<FlavorType>FLAVOR_CULTURE</FlavorType>
 					<iFlavor>10</iFlavor>
-				</Flavor>
-			</Flavors>
-		</BuildingInfo>
-		<BuildingInfo> <!-- Cave Painting: Lascaux Paints -->
-			<BuildingClass>BUILDINGCLASS_LASCAUX_PAINTS</BuildingClass>
-			<Type>BUILDING_LASCAUX_PAINTS</Type>
-			<Description>TXT_KEY_BUILDING_LASCAUX_PAINTS</Description>
-			<Civilopedia>TXT_KEY_BUILDING_LASCAUX_PAINTS_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_BUILDING_LASCAUX_PAINTS_STRATEGY</Strategy>
-			<Advisor>ADVISOR_CULTURE</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_LASCAUX_PAINTS</ArtDefineTag>
-			<MovieDefineTag>ART_DEF_MOVIE_LASCAUX_PAINTINGS</MovieDefineTag>
-			<MaxStartEra>ERA_ANCIENT</MaxStartEra>
-			<PrereqAndTechs>
-				<TechType>TECH_CULTURAL_IDENTITY</TechType>
-			</PrereqAndTechs>
-			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
-			<bTeamShare>1</bTeamShare>
-			<bNukeImmune>1</bNukeImmune>
-			<iCost>90</iCost>
-			<iHurryCostModifier>100</iHurryCostModifier>
-			<iConquestProb>100</iConquestProb>
-			<iGlobalHappiness>1</iGlobalHappiness>
-			<iAsset>10</iAsset>
-			<ObsoleteSafeCommerceChanges>
-				<iCommerce>0</iCommerce>
-				<iCommerce>0</iCommerce>
-				<iCommerce>3</iCommerce>
-			</ObsoleteSafeCommerceChanges>
-			<CommerceChangeDoubleTimes>
-				<iCommerce>0</iCommerce>
-				<iCommerce>0</iCommerce>
-				<iCommerce>1000</iCommerce>
-			</CommerceChangeDoubleTimes>
-			<CommerceChangeOriginalOwners>
-				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
-				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
-				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
-			</CommerceChangeOriginalOwners>
-			<ConstructSound>AS2D_BUILD_STONEHENGE</ConstructSound>
-			<PrereqOrBuildingClasses>
-				<BuildingClass>BUILDINGCLASS_CAVE_PAINTING</BuildingClass>
-			</PrereqOrBuildingClasses>
-			<Flavors>
-				<Flavor>
-					<FlavorType>FLAVOR_CULTURE</FlavorType>
-					<iFlavor>15</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
@@ -1940,6 +1892,7 @@
 			<PrereqOrBonuses>
 				<BonusType>BONUS_OIL</BonusType>
 			</PrereqOrBonuses>
+			<bPrereqPower>1</bPrereqPower>
 			<bWater>1</bWater>
 			<iCost>880</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -1950,8 +1903,6 @@
 			<iTradeRouteModifier>50</iTradeRouteModifier>
 			<iForeignTradeRouteModifier>100</iForeignTradeRouteModifier>
 			<iAsset>4</iAsset>
-			<iPower>0</iPower>
-			<bPrereqPower>1</bPrereqPower>
 			<SeaPlotYieldChanges>
 				<iYield>1</iYield>
 				<iYield>0</iYield>
@@ -2526,6 +2477,9 @@
 			<Strategy>TXT_KEY_BUILDING_FISH_MARKET_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_FISH_MARKET</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_FISHING</TechType>
+			</PrereqAndTechs>
 			<PrereqVicinityOrBonus>
 				<BonusType>BONUS_CLAM</BonusType>
 				<BonusType>BONUS_CRAB</BonusType>
@@ -2533,17 +2487,6 @@
 				<BonusType>BONUS_SHRIMP</BonusType>
 				<BonusType>BONUS_WHALE</BonusType>
 			</PrereqVicinityOrBonus>
-			<PrereqOrBuildingClasses>
-				<BuildingClass>BUILDINGCLASS_FISHERMANS_HUT</BuildingClass>
-				<BuildingClass>BUILDINGCLASS_HARBOUR</BuildingClass>
-				<BuildingClass>BUILDINGCLASS_PORT</BuildingClass>
-				<BuildingClass>BUILDINGCLASS_COMMERCIAL_PORT</BuildingClass>
-				<BuildingClass>BUILDINGCLASS_CONTAINER_PORT</BuildingClass>
-				<BuildingClass>BUILDINGCLASS_JUMPLANE_PORTAL</BuildingClass>
-			</PrereqOrBuildingClasses>
-			<PrereqAndTechs>
-				<TechType>TECH_FISHING</TechType>
-			</PrereqAndTechs>
 			<iCost>90</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>-1</iMinAreaSize>
@@ -2560,6 +2503,14 @@
 					<iChange>1</iChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
+			<PrereqOrBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_FISHERMANS_HUT</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_HARBOUR</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_PORT</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_COMMERCIAL_PORT</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CONTAINER_PORT</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_JUMPLANE_PORTAL</BuildingClassType>
+			</PrereqOrBuildingClasses>
 			<VicinityBonusYieldChanges>
 				<VicinityBonusYieldChange>
 					<BonusType>BONUS_CLAM</BonusType>
@@ -2609,62 +2560,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Fish Traps -->
-			<BuildingClass>BUILDINGCLASS_FISHTRAPS</BuildingClass>
-			<Type>BUILDING_FISHTRAPS</Type>
-			<Description>TXT_KEY_BUILDING_FISHTRAPS</Description>
-			<Civilopedia>TXT_KEY_BUILDING_FISHTRAPS_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_BUILDING_FISHTRAPS_STRATEGY</Strategy>
-			<Advisor>ADVISOR_ECONOMY</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_FISHTRAPS</ArtDefineTag>
-			<ObsoleteTech>TECH_BIOLOGY</ObsoleteTech>
-			<PrereqAndTechs>
-				<TechType>TECH_FISHING</TechType>
-			</PrereqAndTechs>
-			<ProductionTraits>
-				<ProductionTrait>
-					<TraitType>TRAIT_SEAFARING</TraitType>
-					<iChange>100</iChange>
-				</ProductionTrait>
-			</ProductionTraits>
-			<bWater>1</bWater>
-			<bRiver>1</bRiver>
-			<bNukeImmune>1</bNukeImmune>
-			<iCost>35</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>95</iConquestProb>
-			<YieldChanges>
-				<iYield>1</iYield>
-			</YieldChanges>
-			<ConstructSound>AS2D_BUILD_ARTESIAN_WELL</ConstructSound>
-			<VicinityBonusYieldChanges>
-				<BonusYieldChange>
-					<BonusType>BONUS_FISH</BonusType>
-					<YieldChanges>
-						<iYield>1</iYield>
-					</YieldChanges>
-				</BonusYieldChange>
-				<BonusYieldChange>
-					<BonusType>BONUS_CRAB</BonusType>
-					<YieldChanges>
-						<iYield>1</iYield>
-					</YieldChanges>
-				</BonusYieldChange>
-				<BonusYieldChange>
-					<BonusType>BONUS_SHRIMP</BonusType>
-					<YieldChanges>
-						<iYield>1</iYield>
-					</YieldChanges>
-				</BonusYieldChange>
-			</VicinityBonusYieldChanges>
-			<Flavors>
-				<Flavor>
-					<FlavorType>FLAVOR_GROWTH</FlavorType>
-					<iFlavor>10</iFlavor>
-				</Flavor>			
-			</Flavors>
-		</BuildingInfo>
-		<BuildingInfo> <!-- Fisherman's Hut -->
+		<BuildingInfo> <!-- Fishermans Hut -->
 			<BuildingClass>BUILDINGCLASS_FISHERMANS_HUT</BuildingClass>
 			<Type>BUILDING_FISHERMANS_HUT</Type>
 			<Description>TXT_KEY_BUILDING_FISHERMANS_HUT</Description>
@@ -2713,6 +2609,61 @@
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
 					<iFlavor>15</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Fishtraps -->
+			<BuildingClass>BUILDINGCLASS_FISHTRAPS</BuildingClass>
+			<Type>BUILDING_FISHTRAPS</Type>
+			<Description>TXT_KEY_BUILDING_FISHTRAPS</Description>
+			<Civilopedia>TXT_KEY_BUILDING_FISHTRAPS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_FISHTRAPS_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_FISHTRAPS</ArtDefineTag>
+			<ObsoleteTech>TECH_BIOLOGY</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_FISHING</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_SEAFARING</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bWater>1</bWater>
+			<bRiver>1</bRiver>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>35</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>95</iConquestProb>
+			<YieldChanges>
+				<iYield>1</iYield>
+			</YieldChanges>
+			<ConstructSound>AS2D_BUILD_ARTESIAN_WELL</ConstructSound>
+			<VicinityBonusYieldChanges>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_FISH</BonusType>
+					<YieldChanges>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_CRAB</BonusType>
+					<YieldChanges>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_SHRIMP</BonusType>
+					<YieldChanges>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+			</VicinityBonusYieldChanges>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
@@ -4455,11 +4406,12 @@
 			<Civilopedia>TXT_KEY_BUILDING_JUMPLANE_PORTAL_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_BUILDING_JUMPLANE_PORTAL_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_JUMPLANE_PORTAL</ArtDefineTag>			
+			<ArtDefineTag>ART_DEF_BUILDING_JUMPLANE_PORTAL</ArtDefineTag>
 			<PrereqAndTechs>
 				<TechType>TECH_TELEPORTATION</TechType>
 			</PrereqAndTechs>
-			<iCost>980</iCost>			
+			<bPrereqPower>1</bPrereqPower>
+			<iCost>980</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>-1</iMinAreaSize>
 			<iAirlift>3</iAirlift>
@@ -4469,8 +4421,7 @@
 			<iTradeRouteModifier>125</iTradeRouteModifier>
 			<iForeignTradeRouteModifier>75</iForeignTradeRouteModifier>
 			<iAsset>4</iAsset>
-			<bPrereqPower>1</bPrereqPower>
-			<fVisibilityPriority>1.0</fVisibilityPriority>	
+			<fVisibilityPriority>1.0</fVisibilityPriority>
 			<SeaPlotYieldChanges>
 				<iYield>1</iYield>
 				<iYield>0</iYield>
@@ -4490,7 +4441,7 @@
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
-		</BuildingInfo>	
+		</BuildingInfo>
 		<BuildingInfo> <!-- Knowledge Inheritance -->
 			<BuildingClass>BUILDINGCLASS_KNOWLEDGE_INHERITANCE</BuildingClass>
 			<Type>BUILDING_KNOWLEDGE_INHERITANCE</Type>
@@ -4664,6 +4615,54 @@
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>
 					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Lascaux Paints -->
+			<BuildingClass>BUILDINGCLASS_LASCAUX_PAINTS</BuildingClass>
+			<Type>BUILDING_LASCAUX_PAINTS</Type>
+			<Description>TXT_KEY_BUILDING_LASCAUX_PAINTS</Description>
+			<Civilopedia>TXT_KEY_BUILDING_LASCAUX_PAINTS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_LASCAUX_PAINTS_STRATEGY</Strategy>
+			<Advisor>ADVISOR_CULTURE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_LASCAUX_PAINTS</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_LASCAUX_PAINTINGS</MovieDefineTag>
+			<MaxStartEra>ERA_ANCIENT</MaxStartEra>
+			<PrereqAndTechs>
+				<TechType>TECH_CULTURAL_IDENTITY</TechType>
+			</PrereqAndTechs>
+			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
+			<bTeamShare>1</bTeamShare>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>90</iCost>
+			<iHurryCostModifier>100</iHurryCostModifier>
+			<iConquestProb>100</iConquestProb>
+			<iGlobalHappiness>1</iGlobalHappiness>
+			<iAsset>10</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>3</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<CommerceChangeOriginalOwners>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
+			</CommerceChangeOriginalOwners>
+			<ConstructSound>AS2D_BUILD_STONEHENGE</ConstructSound>
+			<PrereqOrBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_CAVE_PAINTING</BuildingClassType>
+			</PrereqOrBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>15</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
@@ -4959,6 +4958,62 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Marina -->
+			<BuildingClass>BUILDINGCLASS_MARINA</BuildingClass>
+			<Type>BUILDING_MARINA</Type>
+			<Description>TXT_KEY_BUILDING_MARINA</Description>
+			<Civilopedia>TXT_KEY_BUILDING_MARINA_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_MARINA_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_MARINA</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_NAVIGATION</TechType>
+			</PrereqAndTechs>
+			<PrereqVicinityImprovements>
+				<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
+				<ImprovementType>IMPROVEMENT_WHALING_BOATS</ImprovementType>
+			</PrereqVicinityImprovements>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_SEAFARING</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bWater>1</bWater>
+			<iCost>180</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>20</iMinAreaSize>
+			<iConquestProb>75</iConquestProb>
+			<iFreeSpecialist>1</iFreeSpecialist>
+			<iHealth>-1</iHealth>
+			<ConstructSound>AS2D_BUILD_PORT</ConstructSound>
+			<TechYieldChanges>
+				<TechYieldChange>
+					<TechType>TECH_TOURISM</TechType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</TechYieldChange>
+			</TechYieldChanges>
+			<ImprovementFreeSpecialists>
+				<ImprovementFreeSpecialist>
+					<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
+					<iCount>1</iCount>
+				</ImprovementFreeSpecialist>
+				<ImprovementFreeSpecialist>
+					<ImprovementType>IMPROVEMENT_WHALING_BOATS</ImprovementType>
+					<iCount>1</iCount>
+				</ImprovementFreeSpecialist>
+			</ImprovementFreeSpecialists>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Market -->
 			<BuildingClass>BUILDINGCLASS_MARKET</BuildingClass>
 			<Type>BUILDING_MARKET</Type>
@@ -5058,62 +5113,6 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
-					<iFlavor>10</iFlavor>
-				</Flavor>
-			</Flavors>
-		</BuildingInfo>
-		<BuildingInfo> <!-- Marina -->
-			<BuildingClass>BUILDINGCLASS_MARINA</BuildingClass>
-			<Type>BUILDING_MARINA</Type>
-			<Description>TXT_KEY_BUILDING_MARINA</Description>
-			<Civilopedia>TXT_KEY_BUILDING_MARINA_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_BUILDING_MARINA_STRATEGY</Strategy>
-			<Advisor>ADVISOR_GROWTH</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_MARINA</ArtDefineTag>
-			<PrereqVicinityImprovements>
-				<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
-				<ImprovementType>IMPROVEMENT_WHALING_BOATS</ImprovementType>
-			</PrereqVicinityImprovements>
-			<PrereqAndTechs>
-				<TechType>TECH_NAVIGATION</TechType>
-			</PrereqAndTechs>
-			<ProductionTraits>
-				<ProductionTrait>
-					<TraitType>TRAIT_SEAFARING</TraitType>
-					<iChange>100</iChange>
-				</ProductionTrait>
-			</ProductionTraits>
-			<bWater>1</bWater>
-			<iCost>180</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>20</iMinAreaSize>
-			<iConquestProb>75</iConquestProb>
-			<iFreeSpecialist>1</iFreeSpecialist>
-			<iHealth>-1</iHealth>
-			<ConstructSound>AS2D_BUILD_PORT</ConstructSound>
-			<ImprovementFreeSpecialists>
-				<ImprovementFreeSpecialist>
-					<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
-					<iCount>1</iCount>
-				</ImprovementFreeSpecialist>
-				<ImprovementFreeSpecialist>
-					<ImprovementType>IMPROVEMENT_WHALING_BOATS</ImprovementType>
-					<iCount>1</iCount>
-				</ImprovementFreeSpecialist>
-			</ImprovementFreeSpecialists>
-			<TechYieldChanges>
-				<TechYieldChange>
-					<TechType>TECH_TOURISM</TechType>
-					<YieldChanges>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-						<iYield>1</iYield>
-					</YieldChanges>
-				</TechYieldChange>
-			</TechYieldChanges>
-			<Flavors>
-				<Flavor>
-					<FlavorType>FLAVOR_GROWTH</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>

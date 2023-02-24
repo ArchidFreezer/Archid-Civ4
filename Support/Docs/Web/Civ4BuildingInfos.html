@@ -173,7 +173,7 @@
     <tr><td><span class="tagoptional">bPower</span><td>0<td>If true, provides power to the city
     <tr><td><span class="tagoptional"><b>bPrereqPower</b></span><td>0<td>If true, the city must have access to a power source in order to construct this building. If access to power is list the building becomes disabled.
     <tr><td><span class="tagoptional">bPrereqReligion</span><td>0<td>If true, a religion must be present in the city before it can be constructed
-    <tr><td><span class="tagoptional"><b>bPrereqVicinityBonusUnconnectedAllowed</b></span><td>0<td>xxxDESCxxx
+    <tr><td><span class="tagoptional"><b>bPrereqVicinityBonusUnconnectedAllowed</b></span><td>0<td>If true, prereq vicinity bonuses need not be connected to the city via the trade network
     <tr><td><span class="tagoptional">bRiver</span><td>0<td>If true, requires an adjacent river before it can be constructed
     <tr><td><span class="tagoptional">bShiftDown</span><td>0<td>If true, the HotKey is only used if the Shift key is also pressed
     <tr><td><span class="tagoptional"><b>bSlaveMarket</b></span><td>0<td>If slavers can sell slaves in this city
@@ -286,7 +286,7 @@
     <tr><td><span class="tagoptional">PowerYieldModifiers</span><td>NONE<td>Percentage change to the yields in the city if power is present<br><pre class="code">
   &lt;iYield&gt;0&lt;/iYield&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqAndBuildingClasses</b></span><td>NO_BUILDINGCLASS<td>List of building classes that must be present in the city in order for the building to be constructed. If subsequently any of these building classes is not longer in the city then this building is disabled.<br><pre class="code">
-  &lt;BuildingClass&gt;&lt;/BuildingClass&gt;</pre>
+  &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqAndCivics</b></span><td>NO_CIVIC<td>List of civics the player must be running to construct this building. Changing out of any of these civics will cause the building to become disabled.<br><pre class="code">
   &lt;CivicType&gt;&lt;/CivicType&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqAndTechs</b></span><td>NO_TECH<td>List of techs that the player must know in order to construct the building<br><pre class="code">
@@ -294,7 +294,7 @@
     <tr><td><span class="tagoptional"><b>PrereqAndTerrains</b></span><td>NO_TERRAIN<td>List of terrains that must all be present in the city working area for the building to be constructed. If subsequently the city working radius changes and any of the terrains are no longer present the building will be disabled.<br><pre class="code">
   &lt;TerrainType&gt;&lt;/TerrainType&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqNotBuildingClasses</b></span><td>NO_BUILDINGCLASS<td>List of building classes that, if present in the coity, prevent the construction of the building.<br><pre class="code">
-  &lt;BuildingClass&gt;&lt;/BuildingClass&gt;</pre>
+  &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqNumOfBuildingClasses</b></span><td>NONE<td>List of definitions of the number of a building class that are required in the civ before this building can be constructed<br><pre class="code">
   &lt;PrereqNumOfBuildingClass&gt;
     &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
@@ -303,7 +303,7 @@
     <tr><td><span class="tagoptional"><b>PrereqOrBonuses</b></span><td>NO_BONUS<td>List of bonuses, one of which must be present in the city for the building to be constructed. If subsequently the city no longer has access to any of the bonuses the building will be disabled.<br><pre class="code">
   &lt;BonusType&gt;&lt;/BonusType&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqOrBuildingClasses</b></span><td>NO_BUILDINGCLASS<td>List of building classes, one of which must be present in the city before the building can be constructed. If subsequently none of these building classes exist in the city the building will be disabled.<br><pre class="code">
-  &lt;BuildingClass&gt;&lt;/BuildingClass&gt;</pre>
+  &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqOrCivics</b></span><td>NO_CIVIC<td>List of civics one of which the player must be running to construct this building. Changing out of all of these civics will cause the building to become disabled.<br><pre class="code">
   &lt;CivicType&gt;&lt;/CivicType&gt;</pre>
     <tr><td><span class="tagoptional"><b>PrereqOrTerrains</b></span><td>NO_TERRAIN<td>List of terrains, one of which must be present in the city working area for the building to be constructed. If subsequently the city working radius changes and none of the terrains are present the building will be disabled.<br><pre class="code">
@@ -357,6 +357,13 @@
       &lt;iCommerce&gt;0&lt;/iCommerce&gt;
     &lt;/CommerceChanges&gt;
   &lt;/TechCommerceChange&gt;</pre>
+    <tr><td><span class="tagoptional"><b>TechYieldChanges</b></span><td><td>Change to city yield that the building provides if the tech is known<br><pre class="code">
+  &lt;TechYieldChange&gt;
+    &lt;TechType&gt;&lt;/TechType&gt;
+    &lt;YieldChanges&gt;
+      &lt;iYield&gt;0&lt;/iYield&gt;
+    &lt;/YieldChanges&gt;
+  &lt;/TechYieldChange&gt;</pre>
     <tr><td><span class="tagoptional">UnitCombatFreeExperiences</span><td>NONE<td>Free experience provided to all units of the given UnitCombat types trained in the city<br><pre class="code">
   &lt;UnitCombatFreeExperience&gt;
     &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;
@@ -702,13 +709,13 @@
     &lt;/PrereqNumOfBuildingClass&gt;
   &lt;/PrereqNumOfBuildingClasses&gt;
   &lt;PrereqAndBuildingClasses&gt;
-    &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+    &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
   &lt;/PrereqAndBuildingClasses&gt;
   &lt;PrereqOrBuildingClasses&gt;
-    &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+    &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
   &lt;/PrereqOrBuildingClasses&gt;
   &lt;PrereqNotBuildingClasses&gt;
-    &lt;BuildingClass&gt;&lt;/BuildingClass&gt;
+    &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
   &lt;/PrereqNotBuildingClasses&gt;
   &lt;ReplacedByBuildingClasses&gt;
     &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
@@ -745,6 +752,14 @@
       &lt;/YieldChanges&gt;
     &lt;/VicinityBonusYieldChange&gt;
   &lt;/VicinityBonusYieldChanges&gt;
+  &lt;TechYieldChanges&gt;
+    &lt;TechYieldChange&gt;
+      &lt;TechType&gt;&lt;/TechType&gt;
+      &lt;YieldChanges&gt;
+        &lt;iYield&gt;0&lt;/iYield&gt;
+      &lt;/YieldChanges&gt;
+    &lt;/TechYieldChange&gt;
+  &lt;/TechYieldChanges&gt;
   &lt;TechCommerceChanges&gt;
     &lt;TechCommerceChange&gt;
       &lt;TechType&gt;&lt;/TechType&gt;

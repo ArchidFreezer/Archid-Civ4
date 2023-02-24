@@ -394,13 +394,13 @@
 		<element type="BonusType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="PrereqAndBuildingClasses" content="eltOnly">
-		<element type="BuildingClass" minOccurs="0" maxOccurs="*"/>
+		<element type="BuildingClassType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="PrereqOrBuildingClasses" content="eltOnly">
-		<element type="BuildingClass" minOccurs="0" maxOccurs="*"/>
+		<element type="BuildingClassType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="PrereqNotBuildingClasses" content="eltOnly">
-		<element type="BuildingClass" minOccurs="0" maxOccurs="*"/>
+		<element type="BuildingClassType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="WorldViewType" content="textOnly"/>
 	<ElementType name="PrereqWorldViews" content="eltOnly">
