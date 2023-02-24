@@ -8533,13 +8533,13 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 
 	m_ppaiTechCommerceChange = new int* [GC.getNumTechInfos()];
 	for (int i = 0; i < GC.getNumTechInfos(); i++) {
-		m_ppaiTechCommerceChange[i] = new int[NUM_YIELD_TYPES];
-		stream->Read(NUM_YIELD_TYPES, m_ppaiTechCommerceChange[i]);
+		m_ppaiTechCommerceChange[i] = new int[NUM_COMMERCE_TYPES];
+		stream->Read(NUM_COMMERCE_TYPES, m_ppaiTechCommerceChange[i]);
 	}
 
 	m_bAnyTechCommerceChange = false;
 	for (int i = 0; !m_bAnyTechCommerceChange && i < GC.getNumTechInfos(); i++) {
-		for (int j = 0; j < NUM_YIELD_TYPES; j++) {
+		for (int j = 0; j < NUM_COMMERCE_TYPES; j++) {
 			if (m_ppaiTechCommerceChange[i][j] != 0) {
 				m_bAnyTechCommerceChange = true;
 				break;
