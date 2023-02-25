@@ -19308,8 +19308,8 @@ void CvPlayer::setHasTrait(TraitTypes eTrait, bool bNewValue) {
 	changeUnitTerritoryUnboundCount(kTrait.isUnitTerritoryUnbound() ? iChange : 0);
 	changeExtraRange(kTrait.getUnitRangeChange() * iChange);
 	changeExtraRangeModifier(kTrait.getUnitRangeModifier() * iChange);
-	changeStarSignMitigatePercent(kTrait.getStarSignMitigateChangePercent());
-	changeStarSignScalePercent(kTrait.getStarSignScaleChangePercent());
+	changeStarSignMitigatePercent(kTrait.getStarSignMitigateChangePercent() * iChange);
+	changeStarSignScalePercent(kTrait.getStarSignScaleChangePercent() * iChange);
 	changeAttitudeChange(kTrait.getAttitudeChange() * iChange);
 
 	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
