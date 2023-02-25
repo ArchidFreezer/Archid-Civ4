@@ -5116,6 +5116,11 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer& szHelpString, TraitTypes eTrait
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_DOMESTIC_GREAT_GENERAL_MODIFIER", kTrait.getDomesticGreatGeneralRateModifier()));
 		}
 
+		// iAttitudeChange
+		if (kTrait.getAttitudeChange() != 0) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_ATTITUDE_CHANGE", kTrait.getAttitudeChange()));
+		}
+
 		// Wonder Production Effects
 		if ((kTrait.getMaxGlobalBuildingProductionModifier() != 0)
 			|| (kTrait.getMaxTeamBuildingProductionModifier() != 0)
@@ -12909,6 +12914,13 @@ void CvGameTextMgr::getAttitudeString(CvWStringBuffer& szBuffer, PlayerTypes ePl
 		iAttitudeChange = kPlayer.AI_getAttitudeExtra(eTargetPlayer);
 		if ((iPass == 0) ? (iAttitudeChange > 0) : (iAttitudeChange < 0)) {
 			szTempBuffer.Format(SETCOLR L"%s" ENDCOLR, TEXT_COLOR((iAttitudeChange > 0) ? "COLOR_POSITIVE_TEXT" : "COLOR_NEGATIVE_TEXT"), gDLL->getText(((iAttitudeChange > 0) ? "TXT_KEY_MISC_ATTITUDE_EXTRA_GOOD" : "TXT_KEY_MISC_ATTITUDE_EXTRA_BAD"), iAttitudeChange).GetCString());
+			szBuffer.append(NEWLINE);
+			szBuffer.append(szTempBuffer);
+		}
+
+		iAttitudeChange = kPlayer.getAttitudeChange();
+		if ((iPass == 0) ? (iAttitudeChange > 0) : (iAttitudeChange < 0)) {
+			szTempBuffer.Format(SETCOLR L"%s" ENDCOLR, TEXT_COLOR((iAttitudeChange > 0) ? "COLOR_POSITIVE_TEXT" : "COLOR_NEGATIVE_TEXT"), gDLL->getText(((iAttitudeChange > 0) ? "TXT_KEY_TRAIT_ATTITUDE_BONUS_GOOD" : "TXT_KEY_TRAIT_ATTITUDE_BONUS_BAD"), iAttitudeChange).GetCString());
 			szBuffer.append(NEWLINE);
 			szBuffer.append(szTempBuffer);
 		}

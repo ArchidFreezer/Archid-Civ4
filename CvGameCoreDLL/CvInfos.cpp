@@ -15552,6 +15552,7 @@ CvTraitInfo::CvTraitInfo() :
 	m_iUnitRangeModifier(0),
 	m_iStarSignMitigateChangePercent(0),
 	m_iStarSignScaleChangePercent(0),
+	m_iAttitudeChange(0),
 	m_bUnitRangeUnbound(false),
 	m_bUnitTerritoryUnbound(false),
 	m_paiExtraYieldThreshold(NULL),
@@ -15584,6 +15585,10 @@ CvTraitInfo::~CvTraitInfo() {
 	SAFE_DELETE_ARRAY(m_paiCommerceFromUnitModifier);
 	SAFE_DELETE_ARRAY(m_pabFreePromotionUnitCombat);
 	SAFE_DELETE_ARRAY(m_pabFreePromotion);
+}
+
+int CvTraitInfo::getAttitudeChange() const {
+	return m_iAttitudeChange;
 }
 
 int CvTraitInfo::getStarSignMitigateChangePercent() const {
@@ -15730,6 +15735,7 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
 	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
 	pXML->GetChildXmlValByName(&m_iUnitRangeModifier, "iUnitRangeModifier");
+	pXML->GetChildXmlValByName(&m_iAttitudeChange, "iAttitudeChange");
 	pXML->SetList(&m_paiExtraYieldThreshold, "ExtraYieldThresholds", NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiTradeYieldModifier, "TradeYieldModifiers", NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiBaseYieldFromUnit, "BaseYieldFromUnits", NUM_YIELD_TYPES);

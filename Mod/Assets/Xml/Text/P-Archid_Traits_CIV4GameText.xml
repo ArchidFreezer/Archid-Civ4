@@ -109,4 +109,8 @@
 		<Tag>TXT_KEY_TRAIT_UNIT_RANGE_MODIFY</Tag>
 		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]%D1_Change% Unit Range modification</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_ATTITUDE_CHANGE</Tag>
+		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]%d1_change attitude for other civs</English>
+	</TEXT>
 </Civ4GameText>

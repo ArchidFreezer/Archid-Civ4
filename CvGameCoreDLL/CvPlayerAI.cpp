@@ -5930,6 +5930,7 @@ void CvPlayerAI::AI_updateAttitudeCache(PlayerTypes ePlayer) {
 
 	iAttitude += AI_getColonyAttitude(ePlayer);
 	iAttitude += AI_getAttitudeExtra(ePlayer);
+	iAttitude += GET_PLAYER(ePlayer).getAttitudeChange();
 
 	m_aiAttitudeCache[ePlayer] = range(iAttitude, -100, 100);
 }

@@ -859,12 +859,12 @@
 			<PrereqAndTechs>
 				<TechType>TECH_MASS_MEDIA</TechType>
 			</PrereqAndTechs>
-			<ProductionTraits>
-				<ProductionTrait>
+			<HappinessTraits>
+				<HappinessTrait>
 					<TraitType>TRAIT_CHARISMATIC</TraitType>
 					<iChange>1</iChange>
-				</ProductionTrait>
-			</ProductionTraits>
+				</HappinessTrait>
+			</HappinessTraits>
 			<iCost>175</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>66</iConquestProb>
@@ -5907,12 +5907,12 @@
 			<PrereqAndTechs>
 				<TechType>TECH_RITUALISM</TechType>
 			</PrereqAndTechs>
-			<ProductionTraits>
-				<ProductionTrait>
+			<HappinessTraits>
+				<HappinessTrait>
 					<TraitType>TRAIT_CHARISMATIC</TraitType>
 					<iChange>1</iChange>
-				</ProductionTrait>
-			</ProductionTraits>
+				</HappinessTrait>
+			</HappinessTraits>
 			<bNeverCapture>1</bNeverCapture>
 			<bCenterInCity>1</bCenterInCity>
 			<iCost>30</iCost>
@@ -5948,12 +5948,12 @@
 			<PrereqAndTechs>
 				<TechType>TECH_RITUALISM</TechType>
 			</PrereqAndTechs>
-			<ProductionTraits>
-				<ProductionTrait>
+			<HappinessTraits>
+				<HappinessTrait>
 					<TraitType>TRAIT_CHARISMATIC</TraitType>
 					<iChange>1</iChange>
-				</ProductionTrait>
-			</ProductionTraits>
+				</HappinessTrait>
+			</HappinessTraits>
 			<bNeverCapture>1</bNeverCapture>
 			<bCenterInCity>1</bCenterInCity>
 			<iCost>30</iCost>
@@ -5995,12 +5995,12 @@
 			<PrereqAndTechs>
 				<TechType>TECH_RITUALISM</TechType>
 			</PrereqAndTechs>
-			<ProductionTraits>
-				<ProductionTrait>
+			<HappinessTraits>
+				<HappinessTrait>
 					<TraitType>TRAIT_CHARISMATIC</TraitType>
 					<iChange>1</iChange>
-				</ProductionTrait>
-			</ProductionTraits>
+				</HappinessTrait>
+			</HappinessTraits>
 			<bNeverCapture>1</bNeverCapture>
 			<bCenterInCity>1</bCenterInCity>
 			<iCost>30</iCost>
@@ -6041,12 +6041,12 @@
 			<PrereqAndTechs>
 				<TechType>TECH_RITUALISM</TechType>
 			</PrereqAndTechs>
-			<ProductionTraits>
-				<ProductionTrait>
+			<HappinessTraits>
+				<HappinessTrait>
 					<TraitType>TRAIT_CHARISMATIC</TraitType>
 					<iChange>1</iChange>
-				</ProductionTrait>
-			</ProductionTraits>
+				</HappinessTrait>
+			</HappinessTraits>
 			<bNeverCapture>1</bNeverCapture>
 			<bCenterInCity>1</bCenterInCity>
 			<iCost>30</iCost>

@@ -24,6 +24,7 @@
 			<ShortDescription>TXT_KEY_TRAIT_CHARISMATIC_SHORT</ShortDescription>
 			<iHappiness>1</iHappiness>
 			<iLevelExperienceModifier>-25</iLevelExperienceModifier>
+			<iAttitudeChange>5</iAttitudeChange>
 		</TraitInfo>
 		<TraitInfo> <!-- Creative -->
 			<Type>TRAIT_CREATIVE</Type>
