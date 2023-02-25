@@ -4,13 +4,282 @@
 <!-- ******************** -->
 <!-- Unit Types           -->
 <!-- ******************** -->
-	<TEXT> <!-- Animal Units -->
+	<TEXT> <!-- Bomber -->
+		<Tag>TXT_KEY_UNITCOMBAT_BOMBERS</Tag>
+		<English>Bomber Units</English>
+		<French>Unités Bombardiers</French>
+		<German>Bomber-Einheiten</German>
+	</TEXT>
+	<TEXT> <!-- Early Bomber -->
+		<Tag>TXT_KEY_UNITCOMBAT_EARLY_BOMBERS</Tag>
+		<English>Early Bomber Units</English>
+		<French>Unités Bomb. basiques</French>
+		<German>Fr&#252;he Bomber-Einheiten</German>
+	</TEXT>
+	<TEXT> <!-- Early Fighter -->
+		<Tag>TXT_KEY_UNITCOMBAT_EARLY_FIGHTERS</Tag>
+		<English>Early Fighter Units</English>
+		<French>Avions de Chasse basiques</French>
+		<German>Fr&#252;he J&#228;gereinheiten</German>
+	</TEXT>
+	<TEXT> <!-- Jet Fighter -->
+		<Tag>TXT_KEY_UNITCOMBAT_JET_FIGHTERS</Tag>
+		<English>Jet Fighter Units</English>
+		<French>Chasseurs à Réaction</French>
+		<German>D&#252;senj&#228;ger-Einheiten</German>
+	</TEXT>
+	<TEXT> <!-- Stealth -->
+		<Tag>TXT_KEY_UNITCOMBAT_STEALTH</Tag>
+		<English>Stealth Units</English>
+		<French>
+			<Text>Unités Furtives</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Stealth-Einheiten</German>
+	</TEXT>
+	<TEXT> <!-- Supersonic -->
+		<Tag>TXT_KEY_UNITCOMBAT_SUPERSONIC_PLANES</Tag>
+		<English>Supersonic Plane Units</English>
+		<French>
+			<Text>Unités Supersoniques</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>&#220;berschall-Einheiten</German>
+	</TEXT>
+	<TEXT> <!-- Assault Mech -->
+		<Tag>TXT_KEY_UNITCOMBAT_ASSAULT_MECH</Tag>
+		<English>Assault Mech Units</English>
+		<French>
+			<Text>Robots de combat</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>
+			<Text>Angriffsrobotereinheiten</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Unità di mech d'assalto:Unità di mech d'assalto</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Unidad de mech de asalto:Unidades de mechs de asalto</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT> <!-- Dreadnought -->
+		<Tag>TXT_KEY_UNITCOMBAT_DREADNOUGHT</Tag>
+		<English>Dreadnought Units</English>
+		<French>
+			<Text>Dreadnoughts</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>
+			<Text>Dreadnought-Einheiten</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Unità di Dreadnought:Unità di Dreadnought</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Unidad de dreadnought:Unidades de dreadnought</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT> <!-- Hunter -->
+		<Tag>TXT_KEY_UNITCOMBAT_HUNTER</Tag>
+		<English>Hunting Units</English>
+		<Spanish>Unidad de Cacer&#237;a</Spanish>
+	</TEXT>
+	<TEXT> <!-- Slaver -->
+		<Tag>TXT_KEY_UNITCOMBAT_SLAVER</Tag>
+		<English>Slaver Units</English>
+	</TEXT>
+	<TEXT> <!-- Tracked -->
+		<Tag>TXT_KEY_UNITCOMBAT_TRACKED</Tag>
+		<English>Tracked Units</English>
+		<French>
+			<Text>Unités à Chenilles</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Kettenfahrzeuge</German>
+	</TEXT>
+	<TEXT> <!-- Wheeled -->
+		<Tag>TXT_KEY_UNITCOMBAT_WHEELED</Tag>
+		<English>Wheeled units</English>
+		<French>
+			<Text>Unités Roulantes</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Rad-Einheiten</German>
+	</TEXT>
+	<TEXT> <!-- Diesel Ships -->
+		<Tag>TXT_KEY_UNITCOMBAT_DIESEL_SHIPS</Tag>
+		<English>Diesel Ships</English>
+	</TEXT>
+	<TEXT> <!-- Nuclear Ships -->
+		<Tag>TXT_KEY_UNITCOMBAT_NUCLEAR_SHIPS</Tag>
+		<English>Nuclear Ships</English>
+	</TEXT>
+	<TEXT> <!-- Steam Ships -->
+		<Tag>TXT_KEY_UNITCOMBAT_STEAM_SHIPS</Tag>
+		<English>Steam Ships</English>
+	</TEXT>
+	<TEXT> <!-- Submarines -->
+		<Tag>TXT_KEY_UNITCOMBAT_SUBMARINE</Tag>
+		<English>Submarines</English>
+	</TEXT>
+	<TEXT> <!-- Wooden Ships -->
+		<Tag>TXT_KEY_UNITCOMBAT_WOODEN_SHIPS</Tag>
+		<English>Wooden Ships</English>
+	</TEXT>
+	<TEXT> <!-- Animal -->
 		<Tag>TXT_KEY_UNITCOMBAT_ANIMAL</Tag>
 		<English>Animal Units</English>
 	</TEXT>
-	<TEXT> <!-- Barbarian Units -->
+	<TEXT> <!-- Barbarian -->
 		<Tag>TXT_KEY_UNITCOMBAT_BARBARIAN</Tag>
 		<English>Barbarian Units</English>
+	</TEXT>
+	<TEXT> <!-- Biological Warfare -->
+		<Tag>TXT_KEY_UNITCOMBAT_BIOLOGICAL</Tag>
+		<English>Biological Warfare Units</English>
+		<French>
+			<Text>Unités de guerre biologique</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>
+			<Text>Einheiten f&#252;r Biologische Kriegsf&#252;hrung</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Unità per la guerra biologica:Unità per la guerra biologica</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Unidad de guerra biológica:Unidades de guerra biológica</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT> <!-- Clones -->
+		<Tag>TXT_KEY_UNITCOMBAT_CLONES</Tag>
+		<English>Clone Units</English>
+		<French>
+			<Text>Clones</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>
+			<Text>Kloneinheiten</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Unità di cloni:Unità di cloni</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Unidad clon:Unidades clon</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT> <!-- Doomsday -->
+		<Tag>TXT_KEY_UNITCOMBAT_DOOMSDAY</Tag>
+		<English>Doomsday Units</English>
+		<French>
+			<Text>Unités Apocalyptiques</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>J&#252;ngster-Tag-Einheiten</German>
+	</TEXT>
+	<TEXT> <!-- Fort Ranged -->
+		<Tag>TXT_KEY_UNITCOMBAT_FORT_RANGED</Tag>
+		<English>Fort Ranged</English>
+	</TEXT>
+	<TEXT> <!-- Health Care -->
+		<Tag>TXT_KEY_UNITCOMBAT_HEALTH_CARE</Tag>
+		<English>Health Care</English>
+	</TEXT>
+	<TEXT> <!-- Hi-Tech -->
+		<Tag>TXT_KEY_UNITCOMBAT_HITECH</Tag>
+		<English>Hi-Tech Units</English>
+		<French>
+			<Text>Unités Hi-Tech</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Hi-Tech-Einheiten</German>
+	</TEXT>
+	<TEXT> <!-- Law Enforcement -->
+		<Tag>TXT_KEY_UNITCOMBAT_LAW_ENFORCEMENT</Tag>
+		<English>Law Enforcement Units</English>
+	</TEXT>
+	<TEXT> <!-- Cruise Missile -->
+		<Tag>TXT_KEY_UNITCOMBAT_CRUISE_MISSILE</Tag>
+		<English>Cruise Missile Units</English>
+		<French>
+			<Text>Unités Missiles</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Raketen-Einheiten</German>
+	</TEXT>
+	<TEXT> <!-- Missionary -->
+		<Tag>TXT_KEY_UNITCOMBAT_MISSIONARY</Tag>
+		<English>Missionary Units</English>
+	</TEXT>
+	<TEXT> <!-- Nanite -->
+		<Tag>TXT_KEY_UNITCOMBAT_NANITE</Tag>
+		<English>Nanite Units</English>
+		<French>
+			<Text>Unités Nanites</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Naniten-Einheiten</German>
+	</TEXT>
+	<TEXT> <!-- Robot -->
+		<Tag>TXT_KEY_UNITCOMBAT_ROBOT</Tag>
+		<English>Robot Units</English>
+		<French>
+			<Text>Unités Robotisées</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Roboter-Einheiten</German>
+	</TEXT>
+	<TEXT> <!-- Settler -->
+		<Tag>TXT_KEY_UNITCOMBAT_SETTLER</Tag>
+		<English>Settler Units</English>
+		<French>
+			<Text>Unités Colons</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Siedler-Einheiten</German>
+	</TEXT>
+	<TEXT> <!-- Trade -->
+		<Tag>TXT_KEY_UNITCOMBAT_TRADE</Tag>
+		<English>Trade Units</English>
 	</TEXT>
 	<TEXT> <!-- Espionage Units -->
 		<Tag>TXT_KEY_UNITCOMBAT_SPY</Tag>
@@ -19,34 +288,6 @@
 		<German>Spionage-Einheiten</German>
 		<Italian>Unite di spionaggio</Italian>
 		<Spanish>Unidades del espionaje</Spanish>
-	</TEXT>
-	<TEXT> <!-- Fort Ranged -->
-		<Tag>TXT_KEY_UNITCOMBAT_FORT_RANGED</Tag>
-		<English>Fort Ranged</English>
-	</TEXT>
-	<TEXT> <!-- Wooden Ships -->
-		<Tag>TXT_KEY_UNITCOMBAT_WOODEN_SHIPS</Tag>
-		<English>Wooden Ships</English>
-	</TEXT>
-	<TEXT> <!-- Diesel Ships -->
-		<Tag>TXT_KEY_UNITCOMBAT_DIESEL_SHIPS</Tag>
-		<English>Diesel Ships</English>
-	</TEXT>
-	<TEXT> <!-- Steam Ships -->
-		<Tag>TXT_KEY_UNITCOMBAT_STEAM_SHIPS</Tag>
-		<English>Steam Ships</English>
-	</TEXT>
-	<TEXT> <!-- Nuclear Ships -->
-		<Tag>TXT_KEY_UNITCOMBAT_NUCLEAR_SHIPS</Tag>
-		<English>Nuclear Ships</English>
-	</TEXT>
-	<TEXT> <!-- Slaver Units -->
-		<Tag>TXT_KEY_UNITCOMBAT_SLAVER</Tag>
-		<English>Slaver Units</English>
-	</TEXT>
-	<TEXT> <!-- Submarines -->
-		<Tag>TXT_KEY_UNITCOMBAT_SUBMARINE</Tag>
-		<English>Submarines</English>
 	</TEXT>
 	<TEXT> <!-- Worker -->
 		<Tag>TXT_KEY_UNITCOMBAT_WORKER</Tag>
@@ -57,15 +298,6 @@
 			<Plural>1</Plural>
 		</French>
 		<German>Bautrupp-Einheiten</German>
-	</TEXT>
-	<TEXT> <!-- Law Enforcement -->
-		<Tag>TXT_KEY_UNITCOMBAT_LAW_ENFORCEMENT</Tag>
-		<English>Law Enforcement Units</English>
-	</TEXT>
-	<TEXT> <!-- Hunter -->
-		<Tag>TXT_KEY_UNITCOMBAT_HUNTER</Tag>
-		<English>Hunting Units</English>
-		<Spanish>Unidad de Cacer&#237;a</Spanish>
 	</TEXT>
 
 <!-- ******************** -->

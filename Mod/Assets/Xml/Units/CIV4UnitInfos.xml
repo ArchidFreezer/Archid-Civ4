@@ -7,7 +7,7 @@
 		<UnitInfo> <!-- Airship -->
 			<Class>UNITCLASS_AIRSHIP</Class>
 			<Type>UNIT_AIRSHIP</Type>
-			<Combat>UNITCOMBAT_AIR</Combat>
+			<Combat>UNITCOMBAT_EARLY_BOMBERS</Combat>
 			<Domain>DOMAIN_AIR</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_AIR</DefaultUnitAI>
 			<SeeInvisibles>
@@ -57,7 +57,7 @@
 		<UnitInfo> <!-- Bomber -->
 			<Class>UNITCLASS_BOMBER</Class>
 			<Type>UNIT_BOMBER</Type>
-			<Combat>UNITCOMBAT_AIR</Combat>
+			<Combat>UNITCOMBAT_BOMBERS</Combat>
 			<Domain>DOMAIN_AIR</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_AIR</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_BOMBER</Description>
@@ -117,7 +117,7 @@
 			<Class>UNITCLASS_FIGHTER</Class>
 			<Type>UNIT_FIGHTER</Type>
 			<Special>SPECIALUNIT_FIGHTER</Special>
-			<Combat>UNITCOMBAT_AIR</Combat>
+			<Combat>UNITCOMBAT_EARLY_FIGHTERS</Combat>
 			<Domain>DOMAIN_AIR</Domain>
 			<DefaultUnitAI>UNITAI_DEFENSE_AIR</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_FIGHTER</Description>
@@ -169,7 +169,7 @@
 			<Class>UNITCLASS_JET_FIGHTER</Class>
 			<Type>UNIT_JET_FIGHTER</Type>
 			<Special>SPECIALUNIT_FIGHTER</Special>
-			<Combat>UNITCOMBAT_AIR</Combat>
+			<Combat>UNITCOMBAT_JET_FIGHTERS</Combat>
 			<Domain>DOMAIN_AIR</Domain>
 			<DefaultUnitAI>UNITAI_DEFENSE_AIR</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_JET_FIGHTER</Description>
@@ -220,7 +220,7 @@
 		<UnitInfo> <!-- Stealth Bomber -->
 			<Class>UNITCLASS_STEALTH_BOMBER</Class>
 			<Type>UNIT_STEALTH_BOMBER</Type>
-			<Combat>UNITCOMBAT_AIR</Combat>
+			<Combat>UNITCOMBAT_STEALTH</Combat>
 			<Domain>DOMAIN_AIR</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_AIR</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_STEALTH_BOMBER</Description>
@@ -1620,7 +1620,7 @@
 		<UnitInfo> <!-- Tank -->
 			<Class>UNITCLASS_TANK</Class>
 			<Type>UNIT_TANK</Type>
-			<Combat>UNITCOMBAT_ARMOR</Combat>
+			<Combat>UNITCOMBAT_TRACKED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_TANK</Description>
@@ -1678,7 +1678,7 @@
 		<UnitInfo> <!-- Tank: German Panzer -->
 			<Class>UNITCLASS_TANK</Class>
 			<Type>UNIT_GERMAN_PANZER</Type>
-			<Combat>UNITCOMBAT_ARMOR</Combat>
+			<Combat>UNITCOMBAT_TRACKED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_GERMAN_PANZER</Description>
@@ -1718,7 +1718,7 @@
 			<iCollateralDamageMaxUnits>5</iCollateralDamageMaxUnits>
 			<UnitCombatMods>
 				<UnitCombatMod>
-					<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+					<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 					<iUnitCombatMod>50</iUnitCombatMod>
 				</UnitCombatMod>
 			</UnitCombatMods>
@@ -1745,7 +1745,7 @@
 		<UnitInfo> <!-- Modern Armor -->
 			<Class>UNITCLASS_MODERN_ARMOR</Class>
 			<Type>UNIT_MODERN_ARMOR</Type>
-			<Combat>UNITCOMBAT_ARMOR</Combat>
+			<Combat>UNITCOMBAT_TRACKED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_MODERN_ARMOR</Description>
@@ -3515,7 +3515,7 @@
 			<iInterceptionProbability>20</iInterceptionProbability>
 			<UnitCombatMods>
 				<UnitCombatMod>
-					<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+					<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 					<iUnitCombatMod>100</iUnitCombatMod>
 				</UnitCombatMod>
 			</UnitCombatMods>
@@ -3763,7 +3763,7 @@
 			<iCollateralDamageMaxUnits>8</iCollateralDamageMaxUnits>
 			<UnitCombatMods>
 				<UnitCombatMod>
-					<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+					<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 					<iUnitCombatMod>100</iUnitCombatMod>
 				</UnitCombatMod>
 			</UnitCombatMods>

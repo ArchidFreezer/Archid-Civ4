@@ -7,15 +7,40 @@
 <Civ4UnitCombatInfos xmlns="x-schema:CIV4BasicInfoSchema.xml">
 	<UnitCombatInfos>
 <!-- +++ Air +++ -->
-		<UnitCombatInfo> <!-- Air -->
-			<Type>UNITCOMBAT_AIR</Type>
-			<Description>TXT_KEY_UNITCOMBAT_AIR</Description>
-			<Button>Art/Interface/Buttons/Combat/combat_air.dds</Button>
+		<UnitCombatInfo> <!-- Bombers -->
+			<Type>UNITCOMBAT_BOMBERS</Type>
+			<Description>TXT_KEY_UNITCOMBAT_BOMBERS</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_bomber.dds</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Early Bombers -->
+			<Type>UNITCOMBAT_EARLY_BOMBERS</Type>
+			<Description>TXT_KEY_UNITCOMBAT_EARLY_BOMBERS</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_early_bomber.dds</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Early Fighters -->
+			<Type>UNITCOMBAT_EARLY_FIGHTERS</Type>
+			<Description>TXT_KEY_UNITCOMBAT_EARLY_FIGHTERS</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_early_fighter.dds</Button>
 		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Helicopter -->
 			<Type>UNITCOMBAT_HELICOPTER</Type>
 			<Description>TXT_KEY_UNITCOMBAT_HELICOPTER</Description>
 			<Button>Art/Interface/Buttons/Combat/combat_helicopter.dds</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Jet Fighters -->
+			<Type>UNITCOMBAT_JET_FIGHTERS</Type>
+			<Description>TXT_KEY_UNITCOMBAT_JET_FIGHTERS</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_jet_fighter.dds</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Stealth -->
+			<Type>UNITCOMBAT_STEALTH</Type>
+			<Description>TXT_KEY_UNITCOMBAT_STEALTH</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_stealth.dds</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Supersonic Planes -->
+			<Type>UNITCOMBAT_SUPERSONIC_PLANES</Type>
+			<Description>TXT_KEY_UNITCOMBAT_SUPERSONIC_PLANES</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_supersonic_planes.dds</Button>
 		</UnitCombatInfo>
 
 <!-- +++ Land +++ -->
@@ -24,15 +49,20 @@
 			<Description>TXT_KEY_UNITCOMBAT_ARCHER</Description>
 			<Button>Art/Interface/Buttons/Combat/combat_archer.dds</Button>
 		</UnitCombatInfo>
-		<UnitCombatInfo> <!-- Armour -->
-			<Type>UNITCOMBAT_ARMOR</Type>
-			<Description>TXT_KEY_UNITCOMBAT_ARMOR</Description>
-			<Button>Art/Interface/Buttons/Combat/combat_armour.dds</Button>
+		<UnitCombatInfo> <!-- Assault Mech Units -->
+			<Type>UNITCOMBAT_ASSAULT_MECH</Type>
+			<Description>TXT_KEY_UNITCOMBAT_ASSAULT_MECH</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_assualt_mech.dds</Button>
 		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Barbarian -->
 			<Type>UNITCOMBAT_BARBARIAN</Type>
 			<Description>TXT_KEY_UNITCOMBAT_BARBARIAN</Description>
 			<Button>Art/Interface/Buttons/Combat/combat_barbarian.dds</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Dreadnought -->
+			<Type>UNITCOMBAT_DREADNOUGHT</Type>
+			<Description>TXT_KEY_UNITCOMBAT_DREADNOUGHT</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_dreadnaught.dds</Button>
 		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Gun -->
 			<Type>UNITCOMBAT_GUN</Type>
@@ -68,6 +98,16 @@
 			<Type>UNITCOMBAT_SLAVER</Type>
 			<Description>TXT_KEY_UNITCOMBAT_SLAVER</Description>
 			<Button>Art/Interface/Buttons/Combat/combat_slaver.dds</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Tracked -->
+			<Type>UNITCOMBAT_TRACKED</Type>
+			<Description>TXT_KEY_UNITCOMBAT_TRACKED</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_tracked.dds</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Wheeled -->
+			<Type>UNITCOMBAT_WHEELED</Type>
+			<Description>TXT_KEY_UNITCOMBAT_WHEELED</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_wheeled.dds</Button>
 		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Spy -->
 			<Type>UNITCOMBAT_SPY</Type>
@@ -108,10 +148,65 @@
 			<Description>TXT_KEY_UNITCOMBAT_ANIMAL</Description>
 			<Button>Art/Interface/Buttons/Combat/combat_animal.dds</Button>
 		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Biological -->
+			<Type>UNITCOMBAT_BIOLOGICAL</Type>
+			<Description>TXT_KEY_UNITCOMBAT_BIOLOGICAL</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_biological.dds</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Clones -->
+			<Type>UNITCOMBAT_CLONES</Type>
+			<Description>TXT_KEY_UNITCOMBAT_CLONES</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_clone.dds</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Doomsday -->
+			<Type>UNITCOMBAT_DOOMSDAY</Type>
+			<Description>TXT_KEY_UNITCOMBAT_DOOMSDAY</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_doomsday.dds</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Health Care -->
+			<Type>UNITCOMBAT_HEALTH_CARE</Type>
+			<Description>TXT_KEY_UNITCOMBAT_HEALTH_CARE</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_health_care.dds</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- HiTech -->
+			<Type>UNITCOMBAT_HITECH</Type>
+			<Description>TXT_KEY_UNITCOMBAT_HITECH</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_hi-tech.dds</Button>
+		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Law Enforcement -->
 			<Type>UNITCOMBAT_LAW_ENFORCEMENT</Type>
 			<Description>TXT_KEY_UNITCOMBAT_LAW_ENFORCEMENT</Description>
 			<Button>,Art/Interface/Buttons/Combat/combat_law_enforcement.dds</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Missile -->
+			<Type>UNITCOMBAT_CRUISE_MISSILE</Type>
+			<Description>TXT_KEY_UNITCOMBAT_CRUISE_MISSILE</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_cruise_missile.dds</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Missionary -->
+			<Type>UNITCOMBAT_MISSIONARY</Type>
+			<Description>TXT_KEY_UNITCOMBAT_MISSIONARY</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_missionary.dds</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Nanite -->
+			<Type>UNITCOMBAT_NANITE</Type>
+			<Description>TXT_KEY_UNITCOMBAT_NANITE</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_nanite.dds</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Robot -->
+			<Type>UNITCOMBAT_ROBOT</Type>
+			<Description>TXT_KEY_UNITCOMBAT_ROBOT</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_robot.dds</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Settler -->
+			<Type>UNITCOMBAT_SETTLER</Type>
+			<Description>TXT_KEY_UNITCOMBAT_SETTLER</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_settler.dds</Button>
+		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Trade -->
+			<Type>UNITCOMBAT_TRADE</Type>
+			<Description>TXT_KEY_UNITCOMBAT_TRADE</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_trade.dds</Button>
 		</UnitCombatInfo>
 		<UnitCombatInfo> <!-- Worker -->
 			<Type>UNITCOMBAT_WORKER</Type>

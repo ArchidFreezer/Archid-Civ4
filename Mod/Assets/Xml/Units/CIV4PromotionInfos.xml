@@ -24,7 +24,9 @@
 			</PrereqOrPromotions>
 			<iEvasionChange>25</iEvasionChange>
 			<OrUnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,5,15</Button>
@@ -78,16 +80,21 @@
 			</PrereqOrPromotions>
 			<UnitCombatMods>
 				<UnitCombatMod>
-					<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+					<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 					<iUnitCombatMod>25</iUnitCombatMod>
 				</UnitCombatMod>
 			</UnitCombatMods>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Ambush.dds,Art/Interface/Buttons/Promotions_Atlas.dds,2,1</Button>
@@ -421,7 +428,7 @@
 			<bBlitz>1</bBlitz>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
@@ -448,7 +455,7 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
@@ -513,7 +520,7 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/CityRaider1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,5,2</Button>
@@ -529,7 +536,7 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/CityRaider2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,6,2</Button>
@@ -551,7 +558,7 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/CityRaider3.dds,Art/Interface/Buttons/Promotions_Atlas.dds,7,2</Button>
@@ -567,14 +574,19 @@
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
@@ -594,14 +606,19 @@
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
@@ -621,14 +638,19 @@
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
@@ -649,14 +671,19 @@
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
@@ -677,14 +704,19 @@
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Promotions_Atlas.dds,4,6</Button>
@@ -704,14 +736,19 @@
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,6,15</Button>
@@ -732,7 +769,7 @@
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Commando.dds,Art/Interface/Buttons/Promotions_Atlas.dds,1,3</Button>
@@ -867,7 +904,7 @@
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
@@ -891,7 +928,7 @@
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
@@ -916,7 +953,7 @@
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
@@ -947,7 +984,7 @@
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
@@ -1028,7 +1065,7 @@
 			<iWithdrawalChange>10</iWithdrawalChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
@@ -1050,7 +1087,7 @@
 			<iWithdrawalChange>20</iWithdrawalChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
@@ -1366,7 +1403,10 @@
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<iInterceptChange>10</iInterceptChange>
 			<OrUnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
@@ -1381,7 +1421,10 @@
 			</PrereqOrPromotions>
 			<iInterceptChange>20</iInterceptChange>
 			<OrUnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
@@ -1436,7 +1479,7 @@
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
@@ -1461,7 +1504,7 @@
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
@@ -1630,7 +1673,7 @@
 			<iMoveDiscountChange>1</iMoveDiscountChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Mobility1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,5,4</Button>
@@ -1648,7 +1691,7 @@
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
@@ -1714,9 +1757,11 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Pinch.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,5</Button>
@@ -1730,7 +1775,12 @@
 			</PrereqOrPromotions>
 			<iAirRangeChange>1</iAirRangeChange>
 			<OrUnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,1,15</Button>
@@ -1744,7 +1794,12 @@
 			</PrereqOrPromotions>
 			<iAirRangeChange>1</iAirRangeChange>
 			<OrUnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_AIR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,2,15</Button>
@@ -1988,7 +2043,7 @@
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
@@ -2048,7 +2103,7 @@
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
