@@ -3320,6 +3320,10 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 						changeBuildingYieldChange((BuildingClassTypes)kBuilding.getBuildingClassType(), eYield, kBuilding.getBonusYieldChange(eBonus, eYield) * iChange);
 					}
 				}
+			} else if (hasVicinityBonus(eBonus, NULL, !kBuilding.isPrereqVicinityBonusUnconnectedAllowed())) {
+				for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+					changeBuildingYieldChange((BuildingClassTypes)kBuilding.getBuildingClassType(), eYield, kBuilding.getVicinityBonusYieldChange(eBonus, eYield) * iChange);
+				}
 			}
 		}
 
