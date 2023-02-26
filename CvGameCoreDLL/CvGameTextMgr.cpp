@@ -5181,6 +5181,8 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer& szHelpString, TraitTypes eTrait
 		if (kTrait.isAnyBuildingClassCommerceChange())
 			buildTraitBuildingClassCommerceChangeString(szHelpString, eTrait, eCivilization);
 
+		setYieldChangeHelp(szHelpString, gDLL->getText("TXT_KEY_BUILDING_WATER_PLOTS").c_str(), L": ", L"", kTrait.getSeaPlotYieldChangeArray());
+
 		//Yield From Unit Modifiers
 		szTempBuffer.clear();
 		bool bFoundKillYield = false;

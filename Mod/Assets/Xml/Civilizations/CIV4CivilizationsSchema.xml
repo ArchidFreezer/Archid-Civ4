@@ -347,6 +347,9 @@
 	<ElementType name="iStarSignMitigateChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="FoundCityCultureLevel" content="textOnly"/>
+	<ElementType name="SeaPlotYieldChanges" content="eltOnly">
+		<element type="iYield" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="TraitInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -383,6 +386,7 @@
 		<element type="FreePromotions" minOccurs="0"/>
 		<element type="FreePromotionUnitCombats" minOccurs="0"/>
 		<element type="FoundCityCultureLevel" minOccurs="0"/>
+		<element type="SeaPlotYieldChanges" minOccurs="0"/>
 	</ElementType>
 	<ElementType name="TraitInfos" content="eltOnly">
 		<element type="TraitInfo" maxOccurs="*"/>

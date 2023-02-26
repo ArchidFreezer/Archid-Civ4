@@ -4559,6 +4559,8 @@ public:
 	int getYieldFromUnitModifier(int i) const;
 	int getBaseCommerceFromUnit(int i) const;
 	int getCommerceFromUnitModifier(int i) const;
+	int getSeaPlotYieldChange(int i) const;
+	int* getSeaPlotYieldChangeArray() const;
 
 	int getBuildingClassCommerceChange(int i, int j) const;
 	int* getBuildingClassCommerceChangeArray(int i) const;
@@ -4609,6 +4611,7 @@ protected:
 	int* m_paiYieldFromUnitModifier;
 	int* m_paiBaseCommerceFromUnit;
 	int* m_paiCommerceFromUnitModifier;
+	int* m_paiSeaPlotYieldChange;
 
 	bool* m_pabFreePromotion;
 	bool* m_pabFreePromotionUnitCombat;

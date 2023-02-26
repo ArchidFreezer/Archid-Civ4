@@ -15565,6 +15565,7 @@ CvTraitInfo::CvTraitInfo() :
 	m_paiYieldFromUnitModifier(NULL),
 	m_paiBaseCommerceFromUnit(NULL),
 	m_paiCommerceFromUnitModifier(NULL),
+	m_paiSeaPlotYieldChange(NULL),
 	m_ppaiBuildingClassCommerceChange(NULL),
 	m_pabFreePromotionUnitCombat(NULL),
 	m_pabFreePromotion(NULL) {
@@ -15586,6 +15587,7 @@ CvTraitInfo::~CvTraitInfo() {
 	SAFE_DELETE_ARRAY(m_paiYieldFromUnitModifier);
 	SAFE_DELETE_ARRAY(m_paiBaseCommerceFromUnit);
 	SAFE_DELETE_ARRAY(m_paiCommerceFromUnitModifier);
+	SAFE_DELETE_ARRAY(m_paiSeaPlotYieldChange);
 	SAFE_DELETE_ARRAY(m_pabFreePromotionUnitCombat);
 	SAFE_DELETE_ARRAY(m_pabFreePromotion);
 
@@ -15596,6 +15598,14 @@ CvTraitInfo::~CvTraitInfo() {
 		SAFE_DELETE_ARRAY(m_ppaiBuildingClassCommerceChange);
 	}
 
+}
+
+int CvTraitInfo::getSeaPlotYieldChange(int i) const {
+	return m_paiSeaPlotYieldChange ? m_paiSeaPlotYieldChange[i] : -1;
+}
+
+int* CvTraitInfo::getSeaPlotYieldChangeArray() const {
+	return m_paiSeaPlotYieldChange;
 }
 
 int CvTraitInfo::getBuildingClassCommerceChange(int i, int j) const {
@@ -15800,6 +15810,7 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetListInfoBool(&m_pabFreePromotionUnitCombat, "FreePromotionUnitCombats", GC.getNumUnitCombatInfos());
 	pXML->GetChildXmlValByName(szTextVal, "FoundCityCultureLevel");
 	m_eFoundCityCultureLevel = (CultureLevelTypes)pXML->FindInInfoClass(szTextVal);
+	pXML->SetList(&m_paiSeaPlotYieldChange, "SeaPlotYieldChanges", NUM_YIELD_TYPES);
 
 	return true;
 }

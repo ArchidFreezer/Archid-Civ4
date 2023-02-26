@@ -142,6 +142,28 @@
 				</BuildingClassCommerceChange>
 			</BuildingClassCommerceChanges>
 		</TraitInfo>
+		<TraitInfo> <!-- Seafaring -->
+			<Type>TRAIT_SEAFARING</Type>
+			<Description>TXT_KEY_TRAIT_SEAFARING</Description>
+			<ShortDescription>TXT_KEY_TRAIT_SEAFARING_SHORT</ShortDescription>
+			<FreePromotions>
+				<PromotionType>PROMOTION_AMPHIBIOUS</PromotionType>
+			</FreePromotions>
+			<FreePromotionUnitCombats>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ASSAULT_MECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HITECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_CLONES</UnitCombatType>
+			</FreePromotionUnitCombats>
+			<SeaPlotYieldChanges>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</SeaPlotYieldChanges>
+		</TraitInfo>
 		<TraitInfo> <!-- Spiritual -->
 			<Type>TRAIT_SPIRITUAL</Type>
 			<Description>TXT_KEY_TRAIT_SPIRITUAL</Description>
