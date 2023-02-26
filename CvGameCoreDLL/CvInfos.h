@@ -4542,6 +4542,7 @@ public:
 	int getFoundCityPopulationChange() const;
 	int getGoldPercentDividendPerTurn() const;
 	int getOccupationTimeChange() const;
+	int getGoldenAgeGreatGeneralChange() const;
 
 	bool isUnitRangeUnbound() const;
 	bool isUnitTerritoryUnbound() const;
@@ -4597,6 +4598,7 @@ protected:
 	int m_iFoundCityPopulationChange;
 	int m_iGoldPercentDividendPerTurn;
 	int m_iOccupationTimeChange;
+	int m_iGoldenAgeGreatGeneralChange;
 
 	bool m_bUnitRangeUnbound;
 	bool m_bUnitTerritoryUnbound;

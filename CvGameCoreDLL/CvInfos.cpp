@@ -15556,6 +15556,7 @@ CvTraitInfo::CvTraitInfo() :
 	m_iFoundCityPopulationChange(0),
 	m_iGoldPercentDividendPerTurn(0),
 	m_iOccupationTimeChange(0),
+	m_iGoldenAgeGreatGeneralChange(0),
 	m_eFoundCityCultureLevel(NO_CULTURELEVEL),
 	m_bUnitRangeUnbound(false),
 	m_bUnitTerritoryUnbound(false),
@@ -15600,6 +15601,10 @@ CvTraitInfo::~CvTraitInfo() {
 		SAFE_DELETE_ARRAY(m_ppaiBuildingClassCommerceChange);
 	}
 
+}
+
+int CvTraitInfo::getGoldenAgeGreatGeneralChange() const {
+	return m_iGoldenAgeGreatGeneralChange;
 }
 
 int CvTraitInfo::getOccupationTimeChange() const {
@@ -15797,6 +15802,7 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iLevelExperienceModifier, "iLevelExperienceModifier");
 	pXML->GetChildXmlValByName(&m_iGreatPeopleRateModifier, "iGreatPeopleRateModifier");
 	pXML->GetChildXmlValByName(&m_iGreatGeneralRateModifier, "iGreatGeneralRateModifier");
+	pXML->GetChildXmlValByName(&m_iGoldenAgeGreatGeneralChange, "iGoldenAgeGreatGeneralChange");
 	pXML->GetChildXmlValByName(&m_iDomesticGreatGeneralRateModifier, "iDomesticGreatGeneralRateModifier");
 	pXML->GetChildXmlValByName(&m_iMaxGlobalBuildingProductionModifier, "iMaxGlobalBuildingProductionModifier");
 	pXML->GetChildXmlValByName(&m_iMaxTeamBuildingProductionModifier, "iMaxTeamBuildingProductionModifier");

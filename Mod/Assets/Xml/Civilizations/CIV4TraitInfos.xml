@@ -73,6 +73,7 @@
 			<Description>TXT_KEY_TRAIT_IMPERIALIST</Description>
 			<ShortDescription>TXT_KEY_TRAIT_IMPERIALIST_SHORT</ShortDescription>
 			<iGreatGeneralRateModifier>100</iGreatGeneralRateModifier>
+			<iGoldenAgeGreatGeneralChange>3</iGoldenAgeGreatGeneralChange>
 		</TraitInfo>
 		<TraitInfo> <!-- Industrious -->
 			<Type>TRAIT_INDUSTRIOUS</Type>

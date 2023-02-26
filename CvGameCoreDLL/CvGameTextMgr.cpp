@@ -5116,6 +5116,11 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer& szHelpString, TraitTypes eTrait
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_DOMESTIC_GREAT_GENERAL_MODIFIER", kTrait.getDomesticGreatGeneralRateModifier()));
 		}
 
+		// Golden Age GG bonus points
+		if (kTrait.getGoldenAgeGreatGeneralChange() != 0) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_GOLDEN_AGE_GREAT_GENERAL_CHANGE", kTrait.getGoldenAgeGreatGeneralChange()));
+		}
+
 		// iAttitudeChange
 		if (kTrait.getAttitudeChange() != 0) {
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_ATTITUDE_CHANGE", kTrait.getAttitudeChange()));

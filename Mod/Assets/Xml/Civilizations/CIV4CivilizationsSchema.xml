@@ -323,6 +323,7 @@
 	<ElementType name="bUnitTerritoryUnbound" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iUnitRangeChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iUnitRangeModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="iGoldenAgeGreatGeneralChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iOccupationTimeChange" content="textOnly" dt:type="int"/>
 	<ElementType name="BaseYieldFromUnits" content="eltOnly">
 		<element type="iYield" minOccurs="0"/>
@@ -366,6 +367,7 @@
 		<element type="iLevelExperienceModifier" minOccurs="0"/>
 		<element type="iGreatPeopleRateModifier" minOccurs="0"/>
 		<element type="iGreatGeneralRateModifier" minOccurs="0"/>
+		<element type="iGoldenAgeGreatGeneralChange" minOccurs="0"/>
 		<element type="iDomesticGreatGeneralRateModifier" minOccurs="0"/>
 		<element type="iMaxGlobalBuildingProductionModifier" minOccurs="0"/>
 		<element type="iMaxTeamBuildingProductionModifier" minOccurs="0"/>

@@ -55,6 +55,9 @@ public:
 	int getOccupationTimeChange() const;
 	void changeOccupationTimeChange(int iChange);
 
+	int getGoldenAgeGreatGeneralChange() const;
+	void changeGoldenAgeGreatGeneralChange(int iChange);
+
 	bool isCivSettled() const;
 	bool isTribalConscription() const;
 	bool isCreateBarbarians() const;
@@ -1400,6 +1403,7 @@ protected:
 	int m_iFoundCityPopulationChange;
 	int m_iGoldPercentDividendPerTurn;
 	int m_iOccupationTimeChange;
+	int m_iGoldenAgeGreatGeneralChange;
 
 	uint m_uiStartTime;  // XXX save these?
 
