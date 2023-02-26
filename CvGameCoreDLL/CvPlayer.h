@@ -46,7 +46,7 @@ public:
 	void changeFoundCityCultureLevels(CultureLevelTypes eCultureLevel, bool bAdd);
 
 	int getBuildingClassCommerceChange(BuildingClassTypes eBuildingClass, CommerceTypes eCommerce) const;
-	void setBuildingClassCommerceChange(BuildingClassTypes eBuildingClass, CommerceTypes eCommerce, int iChange);
+	void setBuildingClassCommerceChange(BuildingClassTypes eBuildingClass, CommerceTypes eCommerce, int iNewValue);
 	void changeBuildingClassCommerceChange(BuildingClassTypes eBuildingClass, CommerceTypes eCommerce, int iChange);
 
 	int getBuildingClassYieldChange(BuildingClassTypes eBuildingClass, YieldTypes eYield) const;
