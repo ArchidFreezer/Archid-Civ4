@@ -49,6 +49,9 @@ public:
 	void setBuildingClassCommerceChange(BuildingClassTypes eBuildingClass, CommerceTypes eCommerce, int iChange);
 	void changeBuildingClassCommerceChange(BuildingClassTypes eBuildingClass, CommerceTypes eCommerce, int iChange);
 
+	int getGoldPercentDividendPerTurn() const;
+	void changeGoldPercentDividendPerTurn(int iChange);
+
 	bool isCivSettled() const;
 	bool isTribalConscription() const;
 	bool isCreateBarbarians() const;
@@ -1392,6 +1395,7 @@ protected:
 	int m_iUpgradeAnywhereCount;
 	int m_iAttitudeChange;
 	int m_iFoundCityPopulationChange;
+	int m_iGoldPercentDividendPerTurn;
 
 	uint m_uiStartTime;  // XXX save these?
 

@@ -166,4 +166,8 @@
 		<Tag>TXT_KEY_TRAIT_SEA_YIELD_CHANGE</Tag>
 		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]%D1 %F2_yield from Sea Plots</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_GOLD_DIVIDEND</Tag>
+		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]%d1% Annual [ICON_GOLD] Dividend</English>
+	</TEXT>
 </Civ4GameText>

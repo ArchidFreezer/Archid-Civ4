@@ -346,6 +346,7 @@
 	<ElementType name="iFoundCityPopulationChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iStarSignMitigateChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
+	<ElementType name="iGoldPercentDividendPerTurn" content="textOnly" dt:type="int"/>
 	<ElementType name="FoundCityCultureLevel" content="textOnly"/>
 	<ElementType name="SeaPlotYieldChanges" content="eltOnly">
 		<element type="iYield" minOccurs="0" maxOccurs="*"/>
@@ -368,6 +369,7 @@
 		<element type="iMaxGlobalBuildingProductionModifier" minOccurs="0"/>
 		<element type="iMaxTeamBuildingProductionModifier" minOccurs="0"/>
 		<element type="iMaxPlayerBuildingProductionModifier" minOccurs="0"/>
+		<element type="iGoldPercentDividendPerTurn" minOccurs="0"/>
 		<element type="bUnitRangeUnbound" minOccurs="0"/>
 		<element type="bUnitTerritoryUnbound" minOccurs="0"/>
 		<element type="iUnitRangeChange" minOccurs="0"/>
