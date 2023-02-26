@@ -117,4 +117,8 @@
 		<Tag>TXT_KEY_TRAIT_FOUND_CITY_CULTURE_LEVEL</Tag>
 		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]Cities Start with %s1 [ICON_CULTURE]</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_FOUND_CITY_POPULATION</Tag>
+		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]Cities start with %d1 population</English>
+	</TEXT>
 </Civ4GameText>

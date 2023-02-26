@@ -39,6 +39,9 @@ public:
 	int getAttitudeChange() const;
 	void changeAttitudeChange(int iChange);
 
+	int getFoundCityPopulationChange() const;
+	void changeFoundCityPopulationChange(int iChange);
+
 	CultureLevelTypes getFoundCityCultureLevel() const;
 	void changeFoundCityCultureLevels(CultureLevelTypes eCultureLevel, bool bAdd);
 
@@ -1384,6 +1387,7 @@ protected:
 	int m_iDistantUnitSupplyCostModifier;
 	int m_iUpgradeAnywhereCount;
 	int m_iAttitudeChange;
+	int m_iFoundCityPopulationChange;
 
 	uint m_uiStartTime;  // XXX save these?
 

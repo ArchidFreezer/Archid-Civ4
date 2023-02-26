@@ -47,6 +47,7 @@
 			<Description>TXT_KEY_TRAIT_EXPANSIVE</Description>
 			<ShortDescription>TXT_KEY_TRAIT_EXPANSIVE_SHORT</ShortDescription>
 			<iHealth>2</iHealth>
+			<iFoundCityPopulationChange>1</iFoundCityPopulationChange>
 		</TraitInfo>
 		<TraitInfo> <!-- Financial -->
 			<Type>TRAIT_FINANCIAL</Type>

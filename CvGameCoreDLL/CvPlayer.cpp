@@ -539,6 +539,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iDistantUnitSupplyCostModifier = 0;
 	m_iUpgradeAnywhereCount = 0;
 	m_iAttitudeChange = 0;
+	m_iFoundCityPopulationChange = 0;
 
 	m_uiStartTime = 0;
 
@@ -4663,8 +4664,8 @@ void CvPlayer::found(int iX, int iY) {
 		}
 	}
 
-	for (int iI = 0; iI < GC.getNumBuildingClassInfos(); iI++) {
-		BuildingTypes eLoopBuilding = ((BuildingTypes)(GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(iI)));
+	for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
+		BuildingTypes eLoopBuilding = ((BuildingTypes)(GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(eBuildingClass)));
 
 		if (eLoopBuilding != NO_BUILDING) {
 			if (GC.getBuildingInfo(eLoopBuilding).getFreeStartEra() != NO_ERA) {
@@ -4684,12 +4685,16 @@ void CvPlayer::found(int iX, int iY) {
 		}
 	}
 
+	if (getFoundCityPopulationChange() > 0) {
+		pCity->setPopulation(std::max(1, pCity->getPopulation() + getFoundCityPopulationChange()));
+	}
+
 	if (getAdvancedStartPoints() >= 0) {
 		// Free border expansion for Creative
 		bool bCreative = false;
-		for (int iI = 0; iI < GC.getNumTraitInfos(); ++iI) {
-			if (hasTrait((TraitTypes)iI)) {
-				if (GC.getTraitInfo((TraitTypes)iI).getCommerceChange(COMMERCE_CULTURE) > 0) {
+		for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
+			if (hasTrait(eTrait)) {
+				if (GC.getTraitInfo(eTrait).getCommerceChange(COMMERCE_CULTURE) > 0) {
 					bCreative = true;
 					break;
 				}
@@ -4698,8 +4703,8 @@ void CvPlayer::found(int iX, int iY) {
 		}
 
 		if (bCreative) {
-			for (int iI = 0; iI < GC.getNumCultureLevelInfos(); ++iI) {
-				int iCulture = GC.getGameINLINE().getCultureThreshold((CultureLevelTypes)iI);
+			for (CultureLevelTypes eCultureLevel = (CultureLevelTypes)0; eCultureLevel < GC.getNumCultureLevelInfos(); eCultureLevel = (CultureLevelTypes)(eCultureLevel + 1)) {
+				int iCulture = GC.getGameINLINE().getCultureThreshold(eCultureLevel);
 				if (iCulture > 0) {
 					pCity->setCulture(getID(), iCulture, true, true);
 					break;
@@ -14118,6 +14123,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iDistantUnitSupplyCostModifier);
 	pStream->Read(&m_iUpgradeAnywhereCount);
 	pStream->Read(&m_iAttitudeChange);
+	pStream->Read(&m_iFoundCityPopulationChange);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14639,6 +14645,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iDistantUnitSupplyCostModifier);
 	pStream->Write(m_iUpgradeAnywhereCount);
 	pStream->Write(m_iAttitudeChange);
+	pStream->Write(m_iFoundCityPopulationChange);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -19338,6 +19345,7 @@ void CvPlayer::setHasTrait(TraitTypes eTrait, bool bNewValue) {
 	changeStarSignScalePercent(kTrait.getStarSignScaleChangePercent() * iChange);
 	changeAttitudeChange(kTrait.getAttitudeChange() * iChange);
 	changeFoundCityCultureLevels(kTrait.getFoundCityCultureLevel(), bNewValue);
+	changeFoundCityPopulationChange(kTrait.getFoundCityPopulationChange() * iChange);
 
 	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
 		changeExtraBuildingHappiness(eBuilding, GC.getBuildingInfo(eBuilding).getHappinessTraits(eTrait) * iChange);
@@ -20573,4 +20581,12 @@ void CvPlayer::changeFoundCityCultureLevels(CultureLevelTypes eCultureLevel, boo
 			}
 		}
 	}
+}
+
+int CvPlayer::getFoundCityPopulationChange() const {
+	return m_iFoundCityPopulationChange;
+}
+
+void CvPlayer::changeFoundCityPopulationChange(int iChange) {
+	m_iFoundCityPopulationChange += iChange;
 }
