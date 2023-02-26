@@ -5126,6 +5126,11 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer& szHelpString, TraitTypes eTrait
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_GOLD_DIVIDEND", kTrait.getGoldPercentDividendPerTurn()));
 		}
 
+		// Occupation timer change
+		if (kTrait.getOccupationTimeChange() != 0) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_OCCUPATION_TIME_CHANGE", kTrait.getOccupationTimeChange()));
+		}
+
 		// Starting city population change
 		if (kTrait.getFoundCityPopulationChange() != 0) {
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_FOUND_CITY_POPULATION", kTrait.getFoundCityPopulationChange()));

@@ -542,6 +542,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iAttitudeChange = 0;
 	m_iFoundCityPopulationChange = 0;
 	m_iGoldPercentDividendPerTurn = 0;
+	m_iOccupationTimeChange = 0;
 
 	m_uiStartTime = 0;
 
@@ -1774,7 +1775,12 @@ void CvPlayer::acquireCity(CvCity* pOldCity, bool bConquest, bool bTrade, bool b
 		int iTeamCulturePercent = pNewCity->calculateTeamCulturePercent(getTeam());
 
 		if (iTeamCulturePercent < GC.getDefineINT("OCCUPATION_CULTURE_PERCENT_THRESHOLD")) {
-			pNewCity->changeOccupationTimer(((GC.getDefineINT("BASE_OCCUPATION_TURNS") + ((pNewCity->getPopulation() * GC.getDefineINT("OCCUPATION_TURNS_POPULATION_PERCENT")) / 100)) * (100 - iTeamCulturePercent)) / 100);
+			iOccupationTimer = GC.getDefineINT("BASE_OCCUPATION_TURNS");
+			iOccupationTimer += pNewCity->getPopulation() * GC.getDefineINT("OCCUPATION_TURNS_POPULATION_PERCENT") / 100;
+			iOccupationTimer *= (100 - iTeamCulturePercent);
+			iOccupationTimer /= 100;
+			iOccupationTimer = std::max(0, iOccupationTimer + getOccupationTimeChange());
+			pNewCity->changeOccupationTimer(iOccupationTimer);
 		}
 
 		GC.getMapINLINE().verifyUnitValidPlot();
@@ -14133,6 +14139,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iAttitudeChange);
 	pStream->Read(&m_iFoundCityPopulationChange);
 	pStream->Read(&m_iGoldPercentDividendPerTurn);
+	pStream->Read(&m_iOccupationTimeChange);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14667,6 +14674,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iAttitudeChange);
 	pStream->Write(m_iFoundCityPopulationChange);
 	pStream->Write(m_iGoldPercentDividendPerTurn);
+	pStream->Write(m_iOccupationTimeChange);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -19373,6 +19381,7 @@ void CvPlayer::setHasTrait(TraitTypes eTrait, bool bNewValue) {
 	changeFoundCityCultureLevels(kTrait.getFoundCityCultureLevel(), bNewValue);
 	changeFoundCityPopulationChange(kTrait.getFoundCityPopulationChange() * iChange);
 	changeGoldPercentDividendPerTurn(kTrait.getGoldPercentDividendPerTurn() * iChange);
+	changeOccupationTimeChange(kTrait.getOccupationTimeChange() * iChange);
 
 	for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
 		if (kTrait.isAnyBuildingClassCommerceChange(eBuildingClass)) {
@@ -20675,4 +20684,12 @@ int CvPlayer::getGoldPercentDividendPerTurn() const {
 
 void CvPlayer::changeGoldPercentDividendPerTurn(int iChange) {
 	m_iGoldPercentDividendPerTurn += iChange;
+}
+
+int CvPlayer::getOccupationTimeChange() const {
+	return m_iOccupationTimeChange;
+}
+
+void CvPlayer::changeOccupationTimeChange(int iChange) {
+	m_iOccupationTimeChange += iChange;
 }

@@ -4541,6 +4541,7 @@ public:
 	int getAttitudeChange() const;
 	int getFoundCityPopulationChange() const;
 	int getGoldPercentDividendPerTurn() const;
+	int getOccupationTimeChange() const;
 
 	bool isUnitRangeUnbound() const;
 	bool isUnitTerritoryUnbound() const;
@@ -4595,6 +4596,7 @@ protected:
 	int m_iAttitudeChange;
 	int m_iFoundCityPopulationChange;
 	int m_iGoldPercentDividendPerTurn;
+	int m_iOccupationTimeChange;
 
 	bool m_bUnitRangeUnbound;
 	bool m_bUnitTerritoryUnbound;

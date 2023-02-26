@@ -60,6 +60,14 @@
 				<iExtraYieldThreshold>2</iExtraYieldThreshold>
 			</ExtraYieldThresholds>
 		</TraitInfo>
+		<TraitInfo> <!-- Humanitarian -->
+			<Type>TRAIT_HUMANITARIAN</Type>
+			<Description>TXT_KEY_TRAIT_HUMANITARIAN</Description>
+			<ShortDescription>TXT_KEY_TRAIT_HUMANITARIAN_SHORT</ShortDescription>
+			<iHappiness>1</iHappiness>
+			<iUpkeepModifier>-20</iUpkeepModifier>
+			<iOccupationTimeChange>-1</iOccupationTimeChange>
+		</TraitInfo>
 		<TraitInfo> <!-- Imperialistic -->
 			<Type>TRAIT_IMPERIALIST</Type>
 			<Description>TXT_KEY_TRAIT_IMPERIALIST</Description>

@@ -52,6 +52,9 @@ public:
 	int getGoldPercentDividendPerTurn() const;
 	void changeGoldPercentDividendPerTurn(int iChange);
 
+	int getOccupationTimeChange() const;
+	void changeOccupationTimeChange(int iChange);
+
 	bool isCivSettled() const;
 	bool isTribalConscription() const;
 	bool isCreateBarbarians() const;
@@ -1396,6 +1399,7 @@ protected:
 	int m_iAttitudeChange;
 	int m_iFoundCityPopulationChange;
 	int m_iGoldPercentDividendPerTurn;
+	int m_iOccupationTimeChange;
 
 	uint m_uiStartTime;  // XXX save these?
 
