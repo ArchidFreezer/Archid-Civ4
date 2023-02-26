@@ -363,6 +363,7 @@ void CvPlayer::uninit() {
 	m_triggersFired.clear();
 	m_civicDisabledBuildings.clear();
 	m_civicDisabledUnits.clear();
+	m_foundCityCultureLevels.clear();
 
 	if (m_ppaaiSpecialistExtraYield != NULL) {
 		for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
@@ -793,6 +794,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 		m_triggersFired.clear();
 		m_civicDisabledBuildings.clear();
 		m_civicDisabledUnits.clear();
+		m_foundCityCultureLevels.clear();
 	}
 
 	m_plotGroups.removeAll();
@@ -4672,6 +4674,13 @@ void CvPlayer::found(int iX, int iY) {
 					}
 				}
 			}
+		}
+	}
+
+	if (getFoundCityCultureLevel() > NO_CULTURELEVEL) {
+		int iCulture = GC.getGameINLINE().getCultureThreshold(getFoundCityCultureLevel());
+		if (iCulture > 0 && pCity->getCulture(getID()) < iCulture) {
+			pCity->setCulture(getID(), iCulture, true, true);
 		}
 	}
 
@@ -14477,6 +14486,17 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 		}
 	}
 
+	{
+		m_foundCityCultureLevels.clear();
+		uint iSize;
+		pStream->Read(&iSize);
+		for (uint i = 0; i < iSize; i++) {
+			CultureLevelTypes eUnit;
+			pStream->Read((int*)&eUnit);
+			m_foundCityCultureLevels.push_back(eUnit);
+		}
+	}
+
 	if (!isBarbarian()) {
 		// Get the NetID from the initialization structure
 		setNetID(gDLL->getAssignedNetworkID(getID()));
@@ -14912,6 +14932,12 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	iSize = m_civicDisabledUnits.size();
 	pStream->Write(iSize);
 	for (std::vector<UnitTypes>::iterator it = m_civicDisabledUnits.begin(); it != m_civicDisabledUnits.end(); ++it) {
+		pStream->Write((*it));
+	}
+
+	iSize = m_foundCityCultureLevels.size();
+	pStream->Write(iSize);
+	for (std::vector<CultureLevelTypes>::iterator it = m_foundCityCultureLevels.begin(); it != m_foundCityCultureLevels.end(); ++it) {
 		pStream->Write((*it));
 	}
 
@@ -19311,6 +19337,7 @@ void CvPlayer::setHasTrait(TraitTypes eTrait, bool bNewValue) {
 	changeStarSignMitigatePercent(kTrait.getStarSignMitigateChangePercent() * iChange);
 	changeStarSignScalePercent(kTrait.getStarSignScaleChangePercent() * iChange);
 	changeAttitudeChange(kTrait.getAttitudeChange() * iChange);
+	changeFoundCityCultureLevels(kTrait.getFoundCityCultureLevel(), bNewValue);
 
 	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
 		changeExtraBuildingHappiness(eBuilding, GC.getBuildingInfo(eBuilding).getHappinessTraits(eTrait) * iChange);
@@ -20524,4 +20551,26 @@ int CvPlayer::getAttitudeChange() const {
 
 void CvPlayer::changeAttitudeChange(int iChange) {
 	m_iAttitudeChange += iChange;
+}
+
+CultureLevelTypes CvPlayer::getFoundCityCultureLevel() const {
+	CultureLevelTypes eBestCutureLevel = NO_CULTURELEVEL;
+	for (std::vector<CultureLevelTypes>::const_iterator it = m_foundCityCultureLevels.begin(); it != m_foundCityCultureLevels.end(); ++it) {
+		if ((*it) > eBestCutureLevel) eBestCutureLevel = (*it);
+	}
+	return eBestCutureLevel;
+}
+
+void CvPlayer::changeFoundCityCultureLevels(CultureLevelTypes eCultureLevel, bool bAdd) {
+	if (bAdd) {
+		m_foundCityCultureLevels.push_back(eCultureLevel);
+	} else {
+		// Find the first element with this culture level and remove it
+		for (std::vector<CultureLevelTypes>::iterator it = m_foundCityCultureLevels.begin(); it != m_foundCityCultureLevels.end(); ++it) {
+			if ((*it) == eCultureLevel) {
+				m_foundCityCultureLevels.erase(it);
+				break;
+			}
+		}
+	}
 }

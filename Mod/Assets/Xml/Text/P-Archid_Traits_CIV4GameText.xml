@@ -113,4 +113,8 @@
 		<Tag>TXT_KEY_TRAIT_ATTITUDE_CHANGE</Tag>
 		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]%d1_change attitude for other civs</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_FOUND_CITY_CULTURE_LEVEL</Tag>
+		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]Cities Start with %s1 [ICON_CULTURE]</English>
+	</TEXT>
 </Civ4GameText>

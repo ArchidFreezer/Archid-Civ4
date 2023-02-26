@@ -5121,6 +5121,11 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer& szHelpString, TraitTypes eTrait
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_ATTITUDE_CHANGE", kTrait.getAttitudeChange()));
 		}
 
+		// Starting city culture level
+		if (kTrait.getFoundCityCultureLevel() > GC.getInfoTypeForString("CULTURELEVEL_NONE")) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_FOUND_CITY_CULTURE_LEVEL", GC.getCultureLevelInfo(kTrait.getFoundCityCultureLevel()).getDescription()));
+		}
+
 		// Wonder Production Effects
 		if ((kTrait.getMaxGlobalBuildingProductionModifier() != 0)
 			|| (kTrait.getMaxTeamBuildingProductionModifier() != 0)

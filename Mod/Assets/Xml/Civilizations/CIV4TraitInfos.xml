@@ -35,6 +35,12 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>2</iCommerce>
 			</CommerceChanges>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>5</iCommerce>
+			</CommerceModifiers>
+			<FoundCityCultureLevel>CULTURELEVEL_FLEDGLING</FoundCityCultureLevel>
 		</TraitInfo>
 		<TraitInfo> <!-- Expansive -->
 			<Type>TRAIT_EXPANSIVE</Type>

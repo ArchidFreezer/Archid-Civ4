@@ -15553,6 +15553,7 @@ CvTraitInfo::CvTraitInfo() :
 	m_iStarSignMitigateChangePercent(0),
 	m_iStarSignScaleChangePercent(0),
 	m_iAttitudeChange(0),
+	m_eFoundCityCultureLevel(NO_CULTURELEVEL),
 	m_bUnitRangeUnbound(false),
 	m_bUnitTerritoryUnbound(false),
 	m_paiExtraYieldThreshold(NULL),
@@ -15585,6 +15586,10 @@ CvTraitInfo::~CvTraitInfo() {
 	SAFE_DELETE_ARRAY(m_paiCommerceFromUnitModifier);
 	SAFE_DELETE_ARRAY(m_pabFreePromotionUnitCombat);
 	SAFE_DELETE_ARRAY(m_pabFreePromotion);
+}
+
+CultureLevelTypes CvTraitInfo::getFoundCityCultureLevel() const {
+	return m_eFoundCityCultureLevel;
 }
 
 int CvTraitInfo::getAttitudeChange() const {
@@ -15746,6 +15751,8 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetList(&m_paiCommerceFromUnitModifier, "CommerceFromUnitModifiers", NUM_COMMERCE_TYPES);
 	pXML->SetListInfoBool(&m_pabFreePromotion, "FreePromotions", GC.getNumPromotionInfos());
 	pXML->SetListInfoBool(&m_pabFreePromotionUnitCombat, "FreePromotionUnitCombats", GC.getNumUnitCombatInfos());
+	pXML->GetChildXmlValByName(szTextVal, "FoundCityCultureLevel");
+	m_eFoundCityCultureLevel = (CultureLevelTypes)pXML->FindInInfoClass(szTextVal);
 
 	return true;
 }

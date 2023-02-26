@@ -338,6 +338,7 @@
 	<ElementType name="iAttitudeChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iStarSignMitigateChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
+	<ElementType name="FoundCityCultureLevel" content="textOnly"/>
 	<ElementType name="TraitInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -371,6 +372,7 @@
 		<element type="CommerceFromUnitModifiers" minOccurs="0"/>
 		<element type="FreePromotions" minOccurs="0"/>
 		<element type="FreePromotionUnitCombats" minOccurs="0"/>
+		<element type="FoundCityCultureLevel" minOccurs="0"/>
 	</ElementType>
 	<ElementType name="TraitInfos" content="eltOnly">
 		<element type="TraitInfo" maxOccurs="*"/>

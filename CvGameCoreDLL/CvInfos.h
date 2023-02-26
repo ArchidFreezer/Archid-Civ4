@@ -4543,6 +4543,8 @@ public:
 	bool isUnitRangeUnbound() const;
 	bool isUnitTerritoryUnbound() const;
 
+	CultureLevelTypes getFoundCityCultureLevel() const;
+
 	const TCHAR* getShortDescription() const;				// Exposed to Python
 	void setShortDescription(const TCHAR* szVal);
 
@@ -4584,6 +4586,8 @@ protected:
 
 	bool m_bUnitRangeUnbound;
 	bool m_bUnitTerritoryUnbound;
+
+	CultureLevelTypes m_eFoundCityCultureLevel;
 
 	CvString m_szShortDescription;
 
