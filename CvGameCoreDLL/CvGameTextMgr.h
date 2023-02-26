@@ -191,6 +191,7 @@ public:
 	void buildBuildingTechCommerceChangeString(CvWStringBuffer& szBuffer, TechTypes eTech, BuildingTypes eBuilding, bool bList = false, bool bPlayerContext = false);
 	void buildBuildingTechYieldChangeString(CvWStringBuffer& szBuffer, TechTypes eTech, BuildingTypes eBuilding, bool bList = false, bool bPlayerContext = false);
 	void buildTraitBuildingClassCommerceChangeString(CvWStringBuffer& szBuffer, TraitTypes eTrait, CivilizationTypes eCivilization);
+	void buildTraitBuildingClassYieldChangeString(CvWStringBuffer& szBuffer, TraitTypes eTrait, CivilizationTypes eCivilization);
 
 	DllExport void buildCityBillboardIconString(CvWStringBuffer& szBuffer, CvCity* pCity);
 	DllExport void buildCityBillboardCityNameString(CvWStringBuffer& szBuffer, CvCity* pCity);

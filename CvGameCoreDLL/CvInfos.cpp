@@ -15570,6 +15570,7 @@ CvTraitInfo::CvTraitInfo() :
 	m_paiCommerceFromUnitModifier(NULL),
 	m_paiSeaPlotYieldChange(NULL),
 	m_ppaiBuildingClassCommerceChange(NULL),
+	m_ppaiBuildingClassYieldChange(NULL),
 	m_pabFreePromotionUnitCombat(NULL),
 	m_pabFreePromotion(NULL) {
 }
@@ -15601,6 +15602,44 @@ CvTraitInfo::~CvTraitInfo() {
 		SAFE_DELETE_ARRAY(m_ppaiBuildingClassCommerceChange);
 	}
 
+	if (m_ppaiBuildingClassYieldChange != NULL) {
+		for (int i = 0; i < GC.getNumBuildingClassInfos(); i++) {
+			SAFE_DELETE_ARRAY(m_ppaiBuildingClassYieldChange[i]);
+		}
+		SAFE_DELETE_ARRAY(m_ppaiBuildingClassYieldChange);
+	}
+
+}
+
+int CvTraitInfo::getBuildingClassYieldChange(int i, int j) const {
+	FAssertMsg(i < GC.getNumBuildingClassInfos(), "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	FAssertMsg(j < NUM_YIELD_TYPES, "Index out of bounds");
+	FAssertMsg(j > -1, "Index out of bounds");
+	return m_ppaiBuildingClassYieldChange ? m_ppaiBuildingClassYieldChange[i][j] : -1;
+}
+
+int* CvTraitInfo::getBuildingClassYieldChangeArray(int i) const {
+	FAssertMsg(i < GC.getNumBuildingClassInfos(), "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	return m_ppaiBuildingClassYieldChange[i];
+}
+
+bool CvTraitInfo::isAnyBuildingClassYieldChange() const {
+	return m_bAnyBuildingClassYieldChange;
+}
+
+bool CvTraitInfo::isAnyBuildingClassYieldChange(int i) const {
+	FAssertMsg(i < GC.getNumBuildingClassInfos(), "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	bool bChanges = false;
+	for (int j = 0; j < NUM_YIELD_TYPES; j++) {
+		if (m_ppaiBuildingClassYieldChange[i][j] != 0) {
+			bChanges = true;
+			break;
+		}
+	}
+	return bChanges;
 }
 
 int CvTraitInfo::getGoldenAgeGreatGeneralChange() const {
@@ -15822,6 +15861,7 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetList(&m_paiCommerceChange, "CommerceChanges", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_paiCommerceModifier, "CommerceModifiers", NUM_COMMERCE_TYPES);
 	m_bAnyBuildingClassCommerceChange = pXML->SetListPairInfoArray(&m_ppaiBuildingClassCommerceChange, "BuildingClassCommerceChanges", GC.getNumBuildingClassInfos(), NUM_COMMERCE_TYPES);
+	m_bAnyBuildingClassYieldChange = pXML->SetListPairInfoArray(&m_ppaiBuildingClassYieldChange, "BuildingClassYieldChanges", GC.getNumBuildingClassInfos(), NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiBaseCommerceFromUnit, "BaseCommerceFromUnits", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_paiCommerceFromUnitModifier, "CommerceFromUnitModifiers", NUM_COMMERCE_TYPES);
 	pXML->SetListInfoBool(&m_pabFreePromotion, "FreePromotions", GC.getNumPromotionInfos());

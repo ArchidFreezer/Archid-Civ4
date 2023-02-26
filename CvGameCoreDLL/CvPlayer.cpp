@@ -365,6 +365,7 @@ void CvPlayer::uninit() {
 	m_civicDisabledUnits.clear();
 	m_foundCityCultureLevels.clear();
 	m_buildingClassCommerceChanges.clear();
+	m_buildingClassYieldChanges.clear();
 
 	if (m_ppaaiSpecialistExtraYield != NULL) {
 		for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
@@ -801,6 +802,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 		m_civicDisabledUnits.clear();
 		m_foundCityCultureLevels.clear();
 		m_buildingClassCommerceChanges.clear();
+		m_buildingClassYieldChanges.clear();
 	}
 
 	m_plotGroups.removeAll();
@@ -4686,6 +4688,10 @@ void CvPlayer::found(int iX, int iY) {
 					}
 				}
 			}
+		}
+
+		for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+			pCity->changeBuildingYieldChange(eBuildingClass, eYield, getBuildingClassYieldChange(eBuildingClass, eYield));
 		}
 	}
 
@@ -14533,6 +14539,17 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 		}
 	}
 
+	{
+		int iNumElts;
+		pStream->Read(&iNumElts);
+		m_buildingClassYieldChanges.clear();
+		for (int i = 0; i < iNumElts; ++i) {
+			BuildingYieldChange kChange;
+			kChange.read(pStream);
+			m_buildingClassYieldChanges.push_back(kChange);
+		}
+	}
+
 	if (!isBarbarian()) {
 		// Get the NetID from the initialization structure
 		setNetID(gDLL->getAssignedNetworkID(getID()));
@@ -14983,6 +15000,11 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 
 	pStream->Write(m_buildingClassCommerceChanges.size());
 	for (std::vector<BuildingCommerceChange>::iterator it = m_buildingClassCommerceChanges.begin(); it != m_buildingClassCommerceChanges.end(); ++it) {
+		(*it).write(pStream);
+	}
+
+	pStream->Write(m_buildingClassYieldChanges.size());
+	for (std::vector<BuildingYieldChange>::iterator it = m_buildingClassYieldChanges.begin(); it != m_buildingClassYieldChanges.end(); ++it) {
 		(*it).write(pStream);
 	}
 
@@ -19394,6 +19416,11 @@ void CvPlayer::setHasTrait(TraitTypes eTrait, bool bNewValue) {
 				changeBuildingClassCommerceChange(eBuildingClass, eCommerce, kTrait.getBuildingClassCommerceChange(eBuildingClass, eCommerce) * iChange);
 			}
 		}
+		if (kTrait.isAnyBuildingClassYieldChange(eBuildingClass)) {
+			for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+				changeBuildingClassYieldChange(eBuildingClass, eYield, kTrait.getBuildingClassYieldChange(eBuildingClass, eYield) * iChange);
+			}
+		}
 	}
 
 	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
@@ -20681,6 +20708,53 @@ void CvPlayer::setBuildingClassCommerceChange(BuildingClassTypes eBuildingClass,
 
 void CvPlayer::changeBuildingClassCommerceChange(BuildingClassTypes eBuildingClass, CommerceTypes eCommerce, int iChange) {
 	setBuildingClassCommerceChange(eBuildingClass, eCommerce, getBuildingClassCommerceChange(eBuildingClass, eCommerce) + iChange);
+}
+
+int CvPlayer::getBuildingClassYieldChange(BuildingClassTypes eBuildingClass, YieldTypes eYield) const {
+	for (std::vector<BuildingYieldChange>::const_iterator it = m_buildingClassYieldChanges.begin(); it != m_buildingClassYieldChanges.end(); ++it) {
+		if ((*it).eBuildingClass == eBuildingClass && (*it).eYield == eYield) {
+			return (*it).iChange;
+		}
+	}
+
+	return 0;
+}
+
+void CvPlayer::setBuildingClassYieldChange(BuildingClassTypes eBuildingClass, YieldTypes eYield, int iNewValue) {
+	int iOldValue = getBuildingClassYieldChange(eBuildingClass, eYield);
+	if (iOldValue == iNewValue) return;
+
+	bool bFound = false;
+	for (std::vector<BuildingYieldChange>::iterator it = m_buildingClassYieldChanges.begin(); it != m_buildingClassYieldChanges.end(); ++it) {
+		if ((*it).eBuildingClass == eBuildingClass && (*it).eYield == eYield) {
+			// We have a match either set the new value or delete the entry
+			bFound = true;
+			if (iNewValue == 0) {
+				m_buildingClassYieldChanges.erase(it);
+			} else {
+				(*it).iChange = iNewValue;
+			}
+			break;
+		}
+	}
+
+	if (iNewValue != 0 && !bFound) {
+		BuildingYieldChange kChange;
+		kChange.eBuildingClass = eBuildingClass;
+		kChange.eYield = eYield;
+		kChange.iChange = iNewValue;
+		m_buildingClassYieldChanges.push_back(kChange);
+	}
+
+	int iLoop;
+	for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop)) {
+		pLoopCity->changeBuildingYieldChange(eBuildingClass, eYield, iNewValue - iOldValue);
+	}
+
+}
+
+void CvPlayer::changeBuildingClassYieldChange(BuildingClassTypes eBuildingClass, YieldTypes eYield, int iChange) {
+	setBuildingClassYieldChange(eBuildingClass, eYield, getBuildingClassYieldChange(eBuildingClass, eYield) + iChange);
 }
 
 int CvPlayer::getGoldPercentDividendPerTurn() const {

@@ -5192,9 +5192,13 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer& szHelpString, TraitTypes eTrait
 			}
 		}
 
-		// Building Class Commerce Chnages
+		// Building Class Commerce Changes
 		if (kTrait.isAnyBuildingClassCommerceChange())
 			buildTraitBuildingClassCommerceChangeString(szHelpString, eTrait, eCivilization);
+
+		// Building Class Yield Changes
+		if (kTrait.isAnyBuildingClassYieldChange())
+			buildTraitBuildingClassYieldChangeString(szHelpString, eTrait, eCivilization);
 
 		setYieldChangeHelp(szHelpString, gDLL->getText("TXT_KEY_BUILDING_WATER_PLOTS").c_str(), L": ", L"", kTrait.getSeaPlotYieldChangeArray());
 
@@ -17132,6 +17136,46 @@ void CvGameTextMgr::buildTraitBuildingClassCommerceChangeString(CvWStringBuffer&
 			// NOTE the CvWString.compare method returns 0 (false) if the strings match and != 0 (true) otherwise
 			setListHelp(szBuffer, szCommerces + " ", szBuilding, L", ", szLast.compare(szCommerces));
 			szLast = szCommerces;
+		}
+	}
+}
+
+void CvGameTextMgr::buildTraitBuildingClassYieldChangeString(CvWStringBuffer& szBuffer, TraitTypes eTrait, CivilizationTypes eCivilization) {
+	if (eTrait == NO_TRAIT)
+		return;
+
+	CvWString szNewLine;
+	CvWString szText;
+	CvWString szLast = "";
+
+	const CvTraitInfo& kTrait = GC.getTraitInfo(eTrait);
+	szNewLine.Format(L"%s  %c", NEWLINE, gDLL->getSymbolID(BULLET_CHAR));
+	for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
+		if (kTrait.isAnyBuildingClassYieldChange(eBuildingClass)) {
+			CvWString szBuilding = "";
+			CvWString szYields = "";
+
+			BuildingTypes eLoopBuilding = (BuildingTypes)(eCivilization == NO_CIVILIZATION ? GC.getBuildingClassInfo(eBuildingClass).getDefaultBuildingIndex() : GC.getCivilizationInfo(eCivilization).getCivilizationBuildings(eBuildingClass));
+			if (eLoopBuilding != NO_BUILDING) {
+				bool bFirst = true;
+
+				szBuilding.Format(L"<link=literal>%s</link>", GC.getBuildingInfo(eLoopBuilding).getDescription());
+				// Loop through the Commerces
+				for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+					int iYieldChange = kTrait.getBuildingClassYieldChange(eBuildingClass, eYield);
+					if (iYieldChange != 0) {
+						if (iYieldChange > 0)
+							szText.Format(L"+%d %c", iYieldChange, GC.getYieldInfo(eYield).getChar());
+						else
+							szText.Format(L"-%d %c", iYieldChange, GC.getYieldInfo(eYield).getChar());
+						setListHelp(szYields, szNewLine, szText, L", ", bFirst);
+						bFirst = false;
+					}
+				}
+			}
+			// NOTE the CvWString.compare method returns 0 (false) if the strings match and != 0 (true) otherwise
+			setListHelp(szBuffer, szYields + " ", szBuilding, L", ", szLast.compare(szYields));
+			szLast = szYields;
 		}
 	}
 }

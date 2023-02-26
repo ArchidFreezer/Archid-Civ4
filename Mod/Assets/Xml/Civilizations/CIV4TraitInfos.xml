@@ -82,6 +82,36 @@
 			<iMaxGlobalBuildingProductionModifier>50</iMaxGlobalBuildingProductionModifier>
 			<iMaxTeamBuildingProductionModifier>50</iMaxTeamBuildingProductionModifier>
 			<iMaxPlayerBuildingProductionModifier>50</iMaxPlayerBuildingProductionModifier>
+			<BuildingClassYieldChanges>
+				<BuildingClassYieldChange>
+					<BuildingClassType>BUILDINGCLASS_STONEWORKERS_HUT</BuildingClassType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BuildingClassYieldChange>
+				<BuildingClassYieldChange>
+					<BuildingClassType>BUILDINGCLASS_FORGE</BuildingClassType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BuildingClassYieldChange>
+				<BuildingClassYieldChange>
+					<BuildingClassType>BUILDINGCLASS_FACTORY</BuildingClassType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BuildingClassYieldChange>
+				<BuildingClassYieldChange>
+					<BuildingClassType>BUILDINGCLASS_INDUSTRIAL_PARK</BuildingClassType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BuildingClassYieldChange>
+			</BuildingClassYieldChanges>
 		</TraitInfo>
 		<TraitInfo> <!-- Organised -->
 			<Type>TRAIT_ORGANIZED</Type>

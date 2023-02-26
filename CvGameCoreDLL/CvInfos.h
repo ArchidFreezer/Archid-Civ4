@@ -4570,6 +4570,11 @@ public:
 	bool isAnyBuildingClassCommerceChange(int i) const;
 	bool isAnyBuildingClassCommerceChange() const;
 
+	int getBuildingClassYieldChange(int i, int j) const;
+	int* getBuildingClassYieldChangeArray(int i) const;
+	bool isAnyBuildingClassYieldChange(int i) const;
+	bool isAnyBuildingClassYieldChange() const;
+
 
 	int isFreePromotion(int i) const;				// Exposed to Python
 	int isFreePromotionUnitCombat(int i) const;
@@ -4623,7 +4628,9 @@ protected:
 	bool* m_pabFreePromotionUnitCombat;
 
 	int** m_ppaiBuildingClassCommerceChange;
+	int** m_ppaiBuildingClassYieldChange;
 	bool m_bAnyBuildingClassCommerceChange;
+	bool m_bAnyBuildingClassYieldChange;
 
 };
 
