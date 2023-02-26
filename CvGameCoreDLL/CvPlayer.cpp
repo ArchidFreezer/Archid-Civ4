@@ -364,6 +364,7 @@ void CvPlayer::uninit() {
 	m_civicDisabledBuildings.clear();
 	m_civicDisabledUnits.clear();
 	m_foundCityCultureLevels.clear();
+	m_buildingClassCommerceChanges.clear();
 
 	if (m_ppaaiSpecialistExtraYield != NULL) {
 		for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
@@ -796,6 +797,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 		m_civicDisabledBuildings.clear();
 		m_civicDisabledUnits.clear();
 		m_foundCityCultureLevels.clear();
+		m_buildingClassCommerceChanges.clear();
 	}
 
 	m_plotGroups.removeAll();
@@ -14503,6 +14505,17 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 		}
 	}
 
+	{
+		int iNumElts;
+		pStream->Read(&iNumElts);
+		m_buildingClassCommerceChanges.clear();
+		for (int i = 0; i < iNumElts; ++i) {
+			BuildingCommerceChange kChange;
+			kChange.read(pStream);
+			m_buildingClassCommerceChanges.push_back(kChange);
+		}
+	}
+
 	if (!isBarbarian()) {
 		// Get the NetID from the initialization structure
 		setNetID(gDLL->getAssignedNetworkID(getID()));
@@ -14946,6 +14959,11 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(iSize);
 	for (std::vector<CultureLevelTypes>::iterator it = m_foundCityCultureLevels.begin(); it != m_foundCityCultureLevels.end(); ++it) {
 		pStream->Write((*it));
+	}
+
+	pStream->Write(m_buildingClassCommerceChanges.size());
+	for (std::vector<BuildingCommerceChange>::iterator it = m_buildingClassCommerceChanges.begin(); it != m_buildingClassCommerceChanges.end(); ++it) {
+		(*it).write(pStream);
 	}
 
 	pStream->Write(m_iPopRushHurryCount);
@@ -19347,6 +19365,14 @@ void CvPlayer::setHasTrait(TraitTypes eTrait, bool bNewValue) {
 	changeFoundCityCultureLevels(kTrait.getFoundCityCultureLevel(), bNewValue);
 	changeFoundCityPopulationChange(kTrait.getFoundCityPopulationChange() * iChange);
 
+	for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
+		if (kTrait.isAnyBuildingClassCommerceChange(eBuildingClass)) {
+			for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+				changeBuildingClassCommerceChange(eBuildingClass, eCommerce, kTrait.getBuildingClassCommerceChange(eBuildingClass, eCommerce) * iChange);
+			}
+		}
+	}
+
 	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
 		changeExtraBuildingHappiness(eBuilding, GC.getBuildingInfo(eBuilding).getHappinessTraits(eTrait) * iChange);
 	}
@@ -20590,3 +20616,46 @@ int CvPlayer::getFoundCityPopulationChange() const {
 void CvPlayer::changeFoundCityPopulationChange(int iChange) {
 	m_iFoundCityPopulationChange += iChange;
 }
+
+int CvPlayer::getBuildingClassCommerceChange(BuildingClassTypes eBuildingClass, CommerceTypes eCommerce) const {
+	for (std::vector<BuildingCommerceChange>::const_iterator it = m_buildingClassCommerceChanges.begin(); it != m_buildingClassCommerceChanges.end(); ++it) {
+		if ((*it).eBuildingClass == eBuildingClass && (*it).eCommerce == eCommerce) {
+			return (*it).iChange;
+		}
+	}
+
+	return 0;
+}
+
+void CvPlayer::setBuildingClassCommerceChange(BuildingClassTypes eBuildingClass, CommerceTypes eCommerce, int iChange) {
+	for (std::vector<BuildingCommerceChange>::iterator it = m_buildingClassCommerceChanges.begin(); it != m_buildingClassCommerceChanges.end(); ++it) {
+		if ((*it).eBuildingClass == eBuildingClass && (*it).eCommerce == eCommerce) {
+			if ((*it).iChange != iChange) {
+				if (iChange == 0) {
+					m_buildingClassCommerceChanges.erase(it);
+				} else {
+					(*it).iChange = iChange;
+				}
+
+				updateBuildingCommerce();
+			}
+
+			return;
+		}
+	}
+
+	if (0 != iChange) {
+		BuildingCommerceChange kChange;
+		kChange.eBuildingClass = eBuildingClass;
+		kChange.eCommerce = eCommerce;
+		kChange.iChange = iChange;
+		m_buildingClassCommerceChanges.push_back(kChange);
+
+		updateBuildingCommerce();
+	}
+}
+
+void CvPlayer::changeBuildingClassCommerceChange(BuildingClassTypes eBuildingClass, CommerceTypes eCommerce, int iChange) {
+	setBuildingClassCommerceChange(eBuildingClass, eCommerce, getBuildingClassCommerceChange(eBuildingClass, eCommerce) + iChange);
+}
+

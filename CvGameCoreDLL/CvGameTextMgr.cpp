@@ -5177,6 +5177,10 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer& szHelpString, TraitTypes eTrait
 			}
 		}
 
+		// Building Class Commerce Chnages
+		if (kTrait.isAnyBuildingClassCommerceChange())
+			buildTraitBuildingClassCommerceChangeString(szHelpString, eTrait, eCivilization);
+
 		//Yield From Unit Modifiers
 		szTempBuffer.clear();
 		bool bFoundKillYield = false;
@@ -17074,3 +17078,44 @@ void CvGameTextMgr::buildBuildingTechYieldChangeString(CvWStringBuffer& szBuffer
 
 	setYieldChangeHelp(szBuffer, szTempBuffer, L": ", L"", kBuilding.getTechYieldChangeArray(eTech), false, bList);
 }
+
+void CvGameTextMgr::buildTraitBuildingClassCommerceChangeString(CvWStringBuffer& szBuffer, TraitTypes eTrait, CivilizationTypes eCivilization) {
+	if (eTrait == NO_TRAIT)
+		return;
+
+	CvWString szNewLine;
+	CvWString szText;
+	CvWString szLast = "";
+
+	const CvTraitInfo& kTrait = GC.getTraitInfo(eTrait);
+	szNewLine.Format(L"%s  %c", NEWLINE, gDLL->getSymbolID(BULLET_CHAR));
+	for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
+		if (kTrait.isAnyBuildingClassCommerceChange(eBuildingClass)) {
+			CvWString szBuilding = "";
+			CvWString szCommerces = "";
+
+			BuildingTypes eLoopBuilding = (BuildingTypes)(eCivilization == NO_CIVILIZATION ? GC.getBuildingClassInfo(eBuildingClass).getDefaultBuildingIndex() : GC.getCivilizationInfo(eCivilization).getCivilizationBuildings(eBuildingClass));
+			if (eLoopBuilding != NO_BUILDING) {
+				bool bFirst = true;
+
+				szBuilding.Format(L"<link=literal>%s</link>", GC.getBuildingInfo(eLoopBuilding).getDescription());
+				// Loop through the Commerces
+				for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+					int iCommerceChange = kTrait.getBuildingClassCommerceChange(eBuildingClass, eCommerce);
+					if (iCommerceChange != 0) {
+						if (iCommerceChange > 0)
+							szText.Format(L"+%d %c", iCommerceChange, GC.getCommerceInfo(eCommerce).getChar());
+						else
+							szText.Format(L"-%d %c", iCommerceChange, GC.getCommerceInfo(eCommerce).getChar());
+						setListHelp(szCommerces, szNewLine, szText, L", ", bFirst);
+						bFirst = false;
+					}
+				}
+			}
+			// NOTE the CvWString.compare method returns 0 (false) if the strings match and != 0 (true) otherwise
+			setListHelp(szBuffer, szCommerces + " ", szBuilding, L", ", szLast.compare(szCommerces));
+			szLast = szCommerces;
+		}
+	}
+}
+

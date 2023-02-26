@@ -4560,6 +4560,12 @@ public:
 	int getBaseCommerceFromUnit(int i) const;
 	int getCommerceFromUnitModifier(int i) const;
 
+	int getBuildingClassCommerceChange(int i, int j) const;
+	int* getBuildingClassCommerceChangeArray(int i) const;
+	bool isAnyBuildingClassCommerceChange(int i) const;
+	bool isAnyBuildingClassCommerceChange() const;
+
+
 	int isFreePromotion(int i) const;				// Exposed to Python
 	int isFreePromotionUnitCombat(int i) const;
 
@@ -4606,6 +4612,9 @@ protected:
 
 	bool* m_pabFreePromotion;
 	bool* m_pabFreePromotionUnitCombat;
+
+	int** m_ppaiBuildingClassCommerceChange;
+	bool m_bAnyBuildingClassCommerceChange;
 
 };
 

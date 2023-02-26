@@ -99,6 +99,49 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 			</FreePromotionUnitCombats>
 		</TraitInfo>
+		<TraitInfo> <!-- Scientific -->
+			<Type>TRAIT_SCIENTIFIC</Type>
+			<Description>TXT_KEY_TRAIT_SCIENTIFIC</Description>
+			<ShortDescription>TXT_KEY_TRAIT_SCIENTIFIC_SHORT</ShortDescription>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommerceChanges>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>10</iCommerce>
+			</CommerceModifiers>
+			<BuildingClassCommerceChanges>
+				<BuildingClassCommerceChange>
+					<BuildingClassType>BUILDINGCLASS_ELDER_COUNCIL</BuildingClassType>
+					<CommerceChanges>
+						<iCommerce>0</iCommerce>
+						<iCommerce>1</iCommerce>
+					</CommerceChanges>
+				</BuildingClassCommerceChange>
+				<BuildingClassCommerceChange>
+					<BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType>
+					<CommerceChanges>
+						<iCommerce>0</iCommerce>
+						<iCommerce>2</iCommerce>
+					</CommerceChanges>
+				</BuildingClassCommerceChange>
+				<BuildingClassCommerceChange>
+					<BuildingClassType>BUILDINGCLASS_OBSERVATORY</BuildingClassType>
+					<CommerceChanges>
+						<iCommerce>0</iCommerce>
+						<iCommerce>2</iCommerce>
+					</CommerceChanges>
+				</BuildingClassCommerceChange>
+				<BuildingClassCommerceChange>
+					<BuildingClassType>BUILDINGCLASS_LABORATORY</BuildingClassType>
+					<CommerceChanges>
+						<iCommerce>0</iCommerce>
+						<iCommerce>2</iCommerce>
+					</CommerceChanges>
+				</BuildingClassCommerceChange>
+			</BuildingClassCommerceChanges>
+		</TraitInfo>
 		<TraitInfo> <!-- Spiritual -->
 			<Type>TRAIT_SPIRITUAL</Type>
 			<Description>TXT_KEY_TRAIT_SPIRITUAL</Description>
