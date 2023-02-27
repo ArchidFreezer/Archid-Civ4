@@ -69,6 +69,9 @@ public:
 	int getMaxReligionAnarchyTurns() const;
 	void updateMaxAnarchyTurns();
 
+	int getCityHealRateChange() const;
+	void changeCityHealRateChange(int iChange);
+
 	bool isCivSettled() const;
 	bool isTribalConscription() const;
 	bool isCreateBarbarians() const;
@@ -1414,6 +1417,7 @@ protected:
 	int m_iUnitWithdrawalHealRate;
 	int m_iMaxCivicAnarchyTurns;
 	int m_iMaxReligionAnarchyTurns;
+	int m_iCityHealRateChange;
 
 	uint m_uiStartTime;  // XXX save these?
 

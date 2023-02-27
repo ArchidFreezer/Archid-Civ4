@@ -5083,6 +5083,11 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer& szHelpString, TraitTypes eTrait
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_HAPPINESS", kTrait.getHappiness()));
 		}
 
+		// City heal rate
+		if (kTrait.getCityHealRateChange() != 0) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_CITY_HEAL_RATE_CHANGE", kTrait.getCityHealRateChange()));
+		}
+
 		// Civic Anarchy
 		if (kTrait.getMaxCivicAnarchyTurns() == 0) {
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_NO_CIVIC_ANARCHY"));

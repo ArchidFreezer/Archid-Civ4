@@ -4546,6 +4546,7 @@ public:
 	int getWarWearinessModifier() const;
 	int getMaxCivicAnarchyTurns() const;
 	int getMaxReligionAnarchyTurns() const;
+	int getCityHealRateChange() const;
 
 	bool isUnitRangeUnbound() const;
 	bool isUnitTerritoryUnbound() const;
@@ -4610,6 +4611,7 @@ protected:
 	int m_iWarWearinessModifier;
 	int m_iMaxCivicAnarchyTurns;
 	int m_iMaxReligionAnarchyTurns;
+	int m_iCityHealRateChange;
 
 	bool m_bUnitRangeUnbound;
 	bool m_bUnitTerritoryUnbound;

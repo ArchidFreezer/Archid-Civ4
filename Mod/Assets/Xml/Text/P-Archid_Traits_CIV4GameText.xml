@@ -244,4 +244,8 @@
 		<Tag>TXT_KEY_TRAIT_NO_RELIGION_ANARCHY</Tag>
 		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]No Religious Anarchy</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_CITY_HEAL_RATE_CHANGE</Tag>
+		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]Units in Cities Heal %d1% Faster</English>
+	</TEXT>
 </Civ4GameText>

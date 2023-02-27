@@ -146,6 +146,7 @@
 			<Type>TRAIT_PROTECTIVE</Type>
 			<Description>TXT_KEY_TRAIT_PROTECTIVE</Description>
 			<ShortDescription>TXT_KEY_TRAIT_PROTECTIVE_SHORT</ShortDescription>
+			<iCityHealRateChange>20</iCityHealRateChange>
 			<FreePromotions>
 				<PromotionType>PROMOTION_CITY_GARRISON1</PromotionType>
 				<PromotionType>PROMOTION_DRILL1</PromotionType>
@@ -153,6 +154,7 @@
 			<FreePromotionUnitCombats>
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
 			</FreePromotionUnitCombats>
 		</TraitInfo>
 		<TraitInfo> <!-- Scientific -->

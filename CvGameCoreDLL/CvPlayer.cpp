@@ -546,6 +546,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iUnitWithdrawalHealRate = 0;
 	m_iMaxCivicAnarchyTurns = 0;
 	m_iMaxReligionAnarchyTurns = 0;
+	m_iCityHealRateChange = 0;
 
 	m_uiStartTime = 0;
 
@@ -1442,7 +1443,7 @@ CvPlotGroup* CvPlayer::initPlotGroup(CvPlot* pPlot) {
 	return pPlotGroup;
 }
 
-
+// Called on both city acquisition and founding
 CvCity* CvPlayer::initCity(int iX, int iY, bool bBumpUnits, bool bUpdatePlotGroups) {
 	PROFILE_FUNC();
 
@@ -1452,6 +1453,8 @@ CvCity* CvPlayer::initCity(int iX, int iY, bool bBumpUnits, bool bUpdatePlotGrou
 	FAssertMsg(!(GC.getMapINLINE().plotINLINE(iX, iY)->isCity()), "No city is expected at this plot when initializing new city");
 
 	pCity->init(pCity->getID(), getID(), iX, iY, bBumpUnits, bUpdatePlotGroups);
+
+	pCity->changeHealRate(getCityHealRateChange());
 
 	return pCity;
 }
@@ -14160,6 +14163,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iOccupationTimeChange);
 	pStream->Read(&m_iGoldenAgeGreatGeneralChange);
 	pStream->Read(&m_iUnitWithdrawalHealRate);
+	pStream->Read(&m_iCityHealRateChange);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14709,6 +14713,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iOccupationTimeChange);
 	pStream->Write(m_iGoldenAgeGreatGeneralChange);
 	pStream->Write(m_iUnitWithdrawalHealRate);
+	pStream->Write(m_iCityHealRateChange);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -20811,3 +20816,16 @@ void CvPlayer::changeUnitWithdrawalHealRate(int iChange) {
 	m_iUnitWithdrawalHealRate += iChange;
 }
 
+int CvPlayer::getCityHealRateChange() const {
+	return m_iCityHealRateChange;
+}
+
+void CvPlayer::changeCityHealRateChange(int iChange) {
+	if (iChange == 0) return;
+
+	m_iCityHealRateChange += iChange;
+	int iLoop;
+	for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop)) {
+		pLoopCity->changeHealRate(iChange);
+	}
+}
