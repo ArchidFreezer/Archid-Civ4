@@ -113,6 +113,20 @@
 				</BuildingClassYieldChange>
 			</BuildingClassYieldChanges>
 		</TraitInfo>
+		<TraitInfo> <!-- Nomadic -->
+			<Type>TRAIT_NOMADIC</Type>
+			<Description>TXT_KEY_TRAIT_NOMADIC</Description>
+			<ShortDescription>TXT_KEY_TRAIT_NOMADIC_SHORT</ShortDescription>
+			<iUnitWithdrawalHealRate>20</iUnitWithdrawalHealRate>
+			<FreePromotions>
+				<PromotionType>PROMOTION_FLANKING1</PromotionType>
+			</FreePromotions>
+			<FreePromotionUnitCombats>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WHEELED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
+			</FreePromotionUnitCombats>
+		</TraitInfo>
 		<TraitInfo> <!-- Organised -->
 			<Type>TRAIT_ORGANIZED</Type>
 			<Description>TXT_KEY_TRAIT_ORGANIZED</Description>

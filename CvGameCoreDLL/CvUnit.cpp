@@ -1147,10 +1147,9 @@ void CvUnit::resolveCombat(CvUnit* pDefender, CvPlot* pPlot, bool bVisible) {
 					pyArgs.add(iAttackerDamage);
 					CvEventReporter::getInstance().genericEvent("combatLogHit", pyArgs.makeFunctionArgs());
 				}
-			}
-			// K-Mod. Track the free-strike misses, to use for choreographing the battle animation.
-			else if (bVisible && !combat_log.empty())
+			} else if (bVisible && !combat_log.empty()) { // K-Mod. Track the free-strike misses, to use for choreographing the battle animation.
 				combat_log.push_back(0);
+			}
 		} else {
 			// Defender lost a round
 			if (pDefender->getCombatFirstStrikes() == 0) {
@@ -1228,6 +1227,19 @@ void CvUnit::resolveCombat(CvUnit* pDefender, CvPlot* pPlot, bool bVisible) {
 			gDLL->getEntityIFace()->AddMission(&kBattle);
 		}
 	}
+
+	// Check if there should be any withdrawal healing
+	// This needs to be done after the planBattle call above otherwise the battle damage tally will not match up
+	if (combatData.bAttackerWithdrawn && GET_PLAYER(getOwnerINLINE()).getUnitWithdrawalHealRate() > 0) {
+		int iTempDamage = getDamage() * (100 - GET_PLAYER(getOwnerINLINE()).getUnitWithdrawalHealRate());
+		iTempDamage /= 100;
+		setDamage(iTempDamage);
+	} else if (combatData.bDefenderWithdrawn && GET_PLAYER(pDefender->getOwnerINLINE()).getUnitWithdrawalHealRate() > 0) {
+		int iTempDamage = pDefender->getDamage() * (100 - GET_PLAYER(pDefender->getOwnerINLINE()).getUnitWithdrawalHealRate());
+		iTempDamage /= 100;
+		pDefender->setDamage(iTempDamage);
+	}
+
 
 	doFieldPromotions(&combatData, pDefender, pPlot);
 

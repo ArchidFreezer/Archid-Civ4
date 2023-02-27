@@ -62,6 +62,9 @@ public:
 	int getGoldenAgeGreatGeneralChange() const;
 	void changeGoldenAgeGreatGeneralChange(int iChange);
 
+	int getUnitWithdrawalHealRate() const;
+	void changeUnitWithdrawalHealRate(int iChange);
+
 	bool isCivSettled() const;
 	bool isTribalConscription() const;
 	bool isCreateBarbarians() const;
@@ -1408,6 +1411,7 @@ protected:
 	int m_iGoldPercentDividendPerTurn;
 	int m_iOccupationTimeChange;
 	int m_iGoldenAgeGreatGeneralChange;
+	int m_iUnitWithdrawalHealRate;
 
 	uint m_uiStartTime;  // XXX save these?
 

@@ -4543,6 +4543,7 @@ public:
 	int getGoldPercentDividendPerTurn() const;
 	int getOccupationTimeChange() const;
 	int getGoldenAgeGreatGeneralChange() const;
+	int getUnitWithdrawalHealRate() const;
 
 	bool isUnitRangeUnbound() const;
 	bool isUnitTerritoryUnbound() const;
@@ -4604,6 +4605,7 @@ protected:
 	int m_iGoldPercentDividendPerTurn;
 	int m_iOccupationTimeChange;
 	int m_iGoldenAgeGreatGeneralChange;
+	int m_iUnitWithdrawalHealRate;
 
 	bool m_bUnitRangeUnbound;
 	bool m_bUnitTerritoryUnbound;

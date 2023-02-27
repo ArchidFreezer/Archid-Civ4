@@ -5116,6 +5116,11 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer& szHelpString, TraitTypes eTrait
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_DOMESTIC_GREAT_GENERAL_MODIFIER", kTrait.getDomesticGreatGeneralRateModifier()));
 		}
 
+		// Troops heal on withdrawal
+		if (kTrait.getUnitWithdrawalHealRate() != 0) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_UNIT_WITHDRAW_HEAL", kTrait.getUnitWithdrawalHealRate()));
+		}
+
 		// Golden Age GG bonus points
 		if (kTrait.getGoldenAgeGreatGeneralChange() != 0) {
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_GOLDEN_AGE_GREAT_GENERAL_CHANGE", kTrait.getGoldenAgeGreatGeneralChange()));
