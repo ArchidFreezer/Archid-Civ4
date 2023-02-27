@@ -248,4 +248,8 @@
 		<Tag>TXT_KEY_TRAIT_CITY_HEAL_RATE_CHANGE</Tag>
 		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]Units in Cities Heal %d1% Faster</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_GOLDEN_AGE_DURATION_MODIFIER</Tag>
+		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]Golden Age Duration changed by %d1%</English>
+	</TEXT>
 </Civ4GameText>

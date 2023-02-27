@@ -141,6 +141,7 @@
 			<ShortDescription>TXT_KEY_TRAIT_PHILOSOPHICAL_SHORT</ShortDescription>
 			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
 			<iGreatPeopleRateModifier>100</iGreatPeopleRateModifier>
+			<iGoldenAgeDurationModifier>25</iGoldenAgeDurationModifier>
 		</TraitInfo>
 		<TraitInfo> <!-- Protective -->
 			<Type>TRAIT_PROTECTIVE</Type>

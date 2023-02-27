@@ -5140,6 +5140,11 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer& szHelpString, TraitTypes eTrait
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_UNIT_WITHDRAW_HEAL", kTrait.getUnitWithdrawalHealRate()));
 		}
 
+		// Golden Age duration
+		if (kTrait.getGoldenAgeDurationModifier() != 0) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_GOLDEN_AGE_DURATION_MODIFIER", kTrait.getGoldenAgeDurationModifier()));
+		}
+
 		// Golden Age GG bonus points
 		if (kTrait.getGoldenAgeGreatGeneralChange() != 0) {
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_GOLDEN_AGE_GREAT_GENERAL_CHANGE", kTrait.getGoldenAgeGreatGeneralChange()));

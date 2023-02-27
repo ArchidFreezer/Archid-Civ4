@@ -364,6 +364,7 @@
 	<ElementType name="iStarSignMitigateChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iGoldPercentDividendPerTurn" content="textOnly" dt:type="int"/>
+	<ElementType name="iGoldenAgeDurationModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="FoundCityCultureLevel" content="textOnly"/>
 	<ElementType name="SeaPlotYieldChanges" content="eltOnly">
 		<element type="iYield" minOccurs="0" maxOccurs="*"/>
@@ -400,6 +401,7 @@
 		<element type="iUnitWithdrawalHealRate" minOccurs="0"/>
 		<element type="iWarWearinessModifier" minOccurs="0"/>
 		<element type="iCityHealRateChange" minOccurs="0"/>
+		<element type="iGoldenAgeDurationModifier" minOccurs="0"/>
 		<element type="ExtraYieldThresholds" minOccurs="0"/>
 		<element type="TradeYieldModifiers" minOccurs="0"/>
 		<element type="BaseYieldFromUnits" minOccurs="0"/>

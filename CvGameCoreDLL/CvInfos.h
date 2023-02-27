@@ -4547,6 +4547,7 @@ public:
 	int getMaxCivicAnarchyTurns() const;
 	int getMaxReligionAnarchyTurns() const;
 	int getCityHealRateChange() const;
+	int getGoldenAgeDurationModifier() const;
 
 	bool isUnitRangeUnbound() const;
 	bool isUnitTerritoryUnbound() const;
@@ -4612,6 +4613,7 @@ protected:
 	int m_iMaxCivicAnarchyTurns;
 	int m_iMaxReligionAnarchyTurns;
 	int m_iCityHealRateChange;
+	int m_iGoldenAgeDurationModifier;
 
 	bool m_bUnitRangeUnbound;
 	bool m_bUnitTerritoryUnbound;
