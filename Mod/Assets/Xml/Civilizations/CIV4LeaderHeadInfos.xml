@@ -1815,7 +1815,7 @@
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_EXPANSIVE</TraitType>
-				<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+				<TraitType>TRAIT_NOMADIC</TraitType>
 			</Traits>
 			<Flavors>
 				<Flavor>

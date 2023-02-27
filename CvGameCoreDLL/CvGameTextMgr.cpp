@@ -5092,6 +5092,15 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer& szHelpString, TraitTypes eTrait
 			}
 		}
 
+		// War Wearinress
+		if (kTrait.getWarWearinessModifier() != 0) {
+			if (kTrait.getWarWearinessModifier() <= -100) {
+				szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_NO_WAR_WEARINESS"));
+			} else {
+				szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_EXTRA_WAR_WEARINESS", kTrait.getWarWearinessModifier()));
+			}
+		}
+
 		// iUpkeepModifier
 		if (kTrait.getUpkeepModifier() != 0) {
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_CIVIC_UPKEEP_MODIFIER", kTrait.getUpkeepModifier()));

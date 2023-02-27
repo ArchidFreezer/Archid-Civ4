@@ -10,6 +10,7 @@
 			<Type>TRAIT_AGGRESSIVE</Type>
 			<Description>TXT_KEY_TRAIT_AGGRESSIVE</Description>
 			<ShortDescription>TXT_KEY_TRAIT_AGGRESSIVE_SHORT</ShortDescription>
+			<iWarWearinessModifier>-25</iWarWearinessModifier>
 			<FreePromotions>
 				<PromotionType>PROMOTION_COMBAT1</PromotionType>
 			</FreePromotions>

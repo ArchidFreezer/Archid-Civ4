@@ -212,4 +212,20 @@
 		<Tag>TXT_KEY_TRAIT_UNIT_WITHDRAW_HEAL</Tag>
 		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]Heal %d1% on Combat Withdrawal</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_NO_WAR_WEARINESS</Tag>
+		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]No War [ICON_UNHAPPY]</English>
+		<French>[NEWLINE][SPACE][SPACE][ICON_BULLET]Pas de [ICON_UNHAPPY] d&#251; &#224; la guerre</French>
+		<German>[NEWLINE][SPACE][SPACE][ICON_BULLET]Keine [ICON_UNHAPPY] wegen Krieg</German>
+		<Italian>[NEWLINE][SPACE][SPACE][ICON_BULLET]Nessuna guerra [ICON_UNHAPPY]</Italian>
+		<Spanish>[NEWLINE][SPACE][SPACE][ICON_BULLET]Sin [ICON_UNHAPPY] b&#233;lico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_EXTRA_WAR_WEARINESS</Tag>
+		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]%D1_WarWearMod%% War [ICON_UNHAPPY]</English>
+		<French>[NEWLINE][SPACE][SPACE][ICON_BULLET]%D1_WarWearMod%% [ICON_UNHAPPY] d&#251; &#224; la guerre</French>
+		<German>[NEWLINE][SPACE][SPACE][ICON_BULLET]%D1_WarWearMod%% [ICON_UNHAPPY] wegen Krieg</German>
+		<Italian>[NEWLINE][SPACE][SPACE][ICON_BULLET]%D1_WarWearMod%% di [ICON_UNHAPPY] per la guerra</Italian>
+		<Spanish>[NEWLINE][SPACE][SPACE][ICON_BULLET]%D1_WarWearMod%% al [ICON_UNHAPPY] b&#233;lico</Spanish>
+	</TEXT>
 </Civ4GameText>

@@ -19413,6 +19413,7 @@ void CvPlayer::setHasTrait(TraitTypes eTrait, bool bNewValue) {
 	changeOccupationTimeChange(kTrait.getOccupationTimeChange() * iChange);
 	changeGoldenAgeGreatGeneralChange(kTrait.getGoldenAgeGreatGeneralChange() * iChange);
 	changeUnitWithdrawalHealRate(kTrait.getUnitWithdrawalHealRate() * iChange);
+	changeWarWearinessModifier(kTrait.getWarWearinessModifier() * iChange);
 
 	for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
 		if (kTrait.isAnyBuildingClassCommerceChange(eBuildingClass)) {

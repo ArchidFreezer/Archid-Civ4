@@ -326,6 +326,7 @@
 	<ElementType name="bUnitTerritoryUnbound" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iUnitRangeChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iUnitRangeModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="iWarWearinessModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iGoldenAgeGreatGeneralChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iOccupationTimeChange" content="textOnly" dt:type="int"/>
 	<ElementType name="BaseYieldFromUnits" content="eltOnly">
@@ -392,6 +393,7 @@
 		<element type="iFoundCityPopulationChange" minOccurs="0"/>
 		<element type="iOccupationTimeChange" minOccurs="0"/>
 		<element type="iUnitWithdrawalHealRate" minOccurs="0"/>
+		<element type="iWarWearinessModifier" minOccurs="0"/>
 		<element type="ExtraYieldThresholds" minOccurs="0"/>
 		<element type="TradeYieldModifiers" minOccurs="0"/>
 		<element type="BaseYieldFromUnits" minOccurs="0"/>
