@@ -5061,6 +5061,18 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer& szHelpString, TraitTypes eTrait
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_UNIT_RANGE_MODIFY", kTrait.getUnitRangeModifier()));
 		}
 
+		// Settlers carry religion
+		if (kTrait.isSettlerBuildTemple()) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_SETTLER_BUILD_TEMPLE"));
+		} else if (kTrait.isSettlerSpreadReligion()) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_SETTLER_CARRY_RELIGION"));
+		}
+
+		// Missionary survival chance
+		if (kTrait.getMissionarySurvivalChance() != 0) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_MISSIONARY_SURVIVAL_CHANCE", kTrait.getMissionarySurvivalChance()));
+		}
+
 		CvWString szBuffer;
 		if (kTrait.getStarSignMitigateChangePercent() != 0) {
 			szBuffer = kTrait.getStarSignMitigateChangePercent() > 0 ? "TXT_KEY_STAR_SIGN_TRAIT_MITIGATE_GOOD" : "TXT_KEY_STAR_SIGN_TRAIT_MITIGATE_BAD";
@@ -5096,10 +5108,10 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer& szHelpString, TraitTypes eTrait
 		}
 
 		// Religion Anarchy
-		if (GC.getTraitInfo(eTrait).getMaxReligionAnarchyTurns() == 0) {
+		if (kTrait.getMaxReligionAnarchyTurns() == 0) {
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_NO_RELIGION_ANARCHY"));
-		} else if (GC.getTraitInfo(eTrait).getMaxReligionAnarchyTurns() > 0) {
-			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_MAX_RELIGION_ANARCHY", GC.getTraitInfo(eTrait).getMaxReligionAnarchyTurns()));
+		} else if (kTrait.getMaxReligionAnarchyTurns() > 0) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_MAX_RELIGION_ANARCHY", kTrait.getMaxReligionAnarchyTurns()));
 		}
 
 		// War Wearinress

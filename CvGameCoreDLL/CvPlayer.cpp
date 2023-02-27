@@ -547,6 +547,9 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iMaxCivicAnarchyTurns = 0;
 	m_iMaxReligionAnarchyTurns = 0;
 	m_iCityHealRateChange = 0;
+	m_iMissionarySurvivalChance = 0;
+	m_iSettlerSpreadReligionCount = 0;
+	m_iSettlerBuildTempleCount = 0;
 
 	m_uiStartTime = 0;
 
@@ -4706,6 +4709,26 @@ void CvPlayer::found(int iX, int iY) {
 
 	if (getFoundCityPopulationChange() > 0) {
 		pCity->setPopulation(std::max(1, pCity->getPopulation() + getFoundCityPopulationChange()));
+	}
+
+	ReligionTypes eStateReligion = getStateReligion();
+	if (eStateReligion != NO_RELIGION) {
+		if (isSettlerSpreadReligion()) {
+			pCity->setHasReligion(eStateReligion, true, false, false);
+		}
+
+		if (isSettlerBuildTemple()) {
+			int iTemple = GC.getInfoTypeForString("SPECIALBUILDING_TEMPLE");
+			for (BuildingTypes eLoopBuilding = (BuildingTypes)0; eLoopBuilding < GC.getNumBuildingInfos(); eLoopBuilding = (BuildingTypes)(eLoopBuilding + 1)) {
+				const CvBuildingInfo& kLoopBuilding = GC.getBuildingInfo(eLoopBuilding);
+				if (kLoopBuilding.getReligionType() == eStateReligion && kLoopBuilding.getSpecialBuildingType() == iTemple) {
+					if (pCity->getNumRealBuilding(eLoopBuilding) < 1 && pCity->canConstruct(eLoopBuilding)) {
+						pCity->setNumRealBuilding(eLoopBuilding, 1);
+					}
+					break;
+				}
+			}
+		}
 	}
 
 	if (getAdvancedStartPoints() >= 0) {
@@ -14164,6 +14187,9 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iGoldenAgeGreatGeneralChange);
 	pStream->Read(&m_iUnitWithdrawalHealRate);
 	pStream->Read(&m_iCityHealRateChange);
+	pStream->Read(&m_iMissionarySurvivalChance);
+	pStream->Read(&m_iSettlerSpreadReligionCount);
+	pStream->Read(&m_iSettlerBuildTempleCount);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14714,6 +14740,9 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iGoldenAgeGreatGeneralChange);
 	pStream->Write(m_iUnitWithdrawalHealRate);
 	pStream->Write(m_iCityHealRateChange);
+	pStream->Write(m_iMissionarySurvivalChance);
+	pStream->Write(m_iSettlerSpreadReligionCount);
+	pStream->Write(m_iSettlerBuildTempleCount);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -19430,6 +19459,9 @@ void CvPlayer::setHasTrait(TraitTypes eTrait, bool bNewValue) {
 	changeUnitWithdrawalHealRate(kTrait.getUnitWithdrawalHealRate() * iChange);
 	changeWarWearinessModifier(kTrait.getWarWearinessModifier() * iChange);
 	changeGoldenAgeModifier(kTrait.getGoldenAgeDurationModifier() * iChange);
+	changeSettlerSpreadReligionCount(kTrait.isSettlerSpreadReligion() ? iChange : 0);
+	changeSettlerBuildTempleCount(kTrait.isSettlerBuildTemple() ? iChange : 0);
+	changeMissionarySurvivalChance(kTrait.getMissionarySurvivalChance() * iChange);
 
 	for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
 		if (kTrait.isAnyBuildingClassCommerceChange(eBuildingClass)) {
@@ -20829,4 +20861,28 @@ void CvPlayer::changeCityHealRateChange(int iChange) {
 	for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop)) {
 		pLoopCity->changeHealRate(iChange);
 	}
+}
+
+bool CvPlayer::isSettlerSpreadReligion() const {
+	return (m_iSettlerSpreadReligionCount > 0);
+}
+
+void CvPlayer::changeSettlerSpreadReligionCount(int iChange) {
+	m_iSettlerSpreadReligionCount += iChange;
+}
+
+bool CvPlayer::isSettlerBuildTemple() const {
+	return (m_iSettlerBuildTempleCount > 0);
+}
+
+void CvPlayer::changeSettlerBuildTempleCount(int iChange) {
+	m_iSettlerBuildTempleCount += iChange;
+}
+
+int CvPlayer::getMissionarySurvivalChance() const {
+	return m_iMissionarySurvivalChance;
+}
+
+void CvPlayer::changeMissionarySurvivalChance(int iChange) {
+	m_iMissionarySurvivalChance += iChange;
 }

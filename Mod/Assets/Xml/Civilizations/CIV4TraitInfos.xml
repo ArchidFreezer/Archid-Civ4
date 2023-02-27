@@ -228,7 +228,9 @@
 			<Description>TXT_KEY_TRAIT_SPIRITUAL</Description>
 			<ShortDescription>TXT_KEY_TRAIT_SPIRITUAL_SHORT</ShortDescription>
 			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
-			<iMaxAnarchy>0</iMaxAnarchy>
+			<iMaxReligionAnarchyTurns>0</iMaxReligionAnarchyTurns>
+			<iMissionarySurvivalChance>10</iMissionarySurvivalChance>
+			<iSettlerReligionLevel>2</iSettlerReligionLevel>
 		</TraitInfo>
 	</TraitInfos>
 </Civ4TraitInfos>

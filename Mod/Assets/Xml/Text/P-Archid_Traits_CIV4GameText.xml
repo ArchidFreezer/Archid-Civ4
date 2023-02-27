@@ -252,4 +252,16 @@
 		<Tag>TXT_KEY_TRAIT_GOLDEN_AGE_DURATION_MODIFIER</Tag>
 		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]Golden Age Duration changed by %d1%</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_SETTLER_CARRY_RELIGION</Tag>
+		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]Cities Start with State[ICON_RELIGION]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_SETTLER_BUILD_TEMPLE</Tag>
+		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]Cities Start with State[ICON_RELIGION] and Temple</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_MISSIONARY_SURVIVAL_CHANCE</Tag>
+		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]%d1% Chance for Missionaries to Survive</English>
+	</TEXT>
 </Civ4GameText>

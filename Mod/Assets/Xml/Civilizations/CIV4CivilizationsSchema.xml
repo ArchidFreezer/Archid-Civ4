@@ -329,6 +329,8 @@
 	<ElementType name="iUnitRangeChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iUnitRangeModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iWarWearinessModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="iMissionarySurvivalChance" content="textOnly" dt:type="int"/>
+	<ElementType name="iSettlerReligionLevel" content="textOnly" dt:type="int"/>
 	<ElementType name="iGoldenAgeGreatGeneralChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iOccupationTimeChange" content="textOnly" dt:type="int"/>
 	<ElementType name="BaseYieldFromUnits" content="eltOnly">
@@ -402,6 +404,8 @@
 		<element type="iWarWearinessModifier" minOccurs="0"/>
 		<element type="iCityHealRateChange" minOccurs="0"/>
 		<element type="iGoldenAgeDurationModifier" minOccurs="0"/>
+		<element type="iMissionarySurvivalChance" minOccurs="0"/>
+		<element type="iSettlerReligionLevel" minOccurs="0"/>
 		<element type="ExtraYieldThresholds" minOccurs="0"/>
 		<element type="TradeYieldModifiers" minOccurs="0"/>
 		<element type="BaseYieldFromUnits" minOccurs="0"/>

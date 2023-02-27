@@ -4548,9 +4548,12 @@ public:
 	int getMaxReligionAnarchyTurns() const;
 	int getCityHealRateChange() const;
 	int getGoldenAgeDurationModifier() const;
+	int getMissionarySurvivalChance() const;
 
 	bool isUnitRangeUnbound() const;
 	bool isUnitTerritoryUnbound() const;
+	bool isSettlerSpreadReligion() const;
+	bool isSettlerBuildTemple() const;
 
 	CultureLevelTypes getFoundCityCultureLevel() const;
 
@@ -4614,6 +4617,8 @@ protected:
 	int m_iMaxReligionAnarchyTurns;
 	int m_iCityHealRateChange;
 	int m_iGoldenAgeDurationModifier;
+	int m_iMissionarySurvivalChance;
+	int m_iSettlerReligionLevel;
 
 	bool m_bUnitRangeUnbound;
 	bool m_bUnitTerritoryUnbound;

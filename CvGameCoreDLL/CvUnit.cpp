@@ -4931,7 +4931,10 @@ bool CvUnit::spread(ReligionTypes eReligion) {
 		NotifyEntity(MISSION_SPREAD);
 	}
 
-	kill(true);
+	if (GC.getGameINLINE().getSorenRandNum(100, "Missionary survive spread chance") < GET_PLAYER(getOwnerINLINE()).getMissionarySurvivalChance())
+		finishMoves();
+	else
+		kill(true);
 
 	return true;
 }

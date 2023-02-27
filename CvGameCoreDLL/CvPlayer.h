@@ -72,6 +72,13 @@ public:
 	int getCityHealRateChange() const;
 	void changeCityHealRateChange(int iChange);
 
+	int getMissionarySurvivalChance() const;
+	bool isSettlerSpreadReligion() const;
+	bool isSettlerBuildTemple() const;
+	void changeMissionarySurvivalChance(int iChange);
+	void changeSettlerSpreadReligionCount(int iChange);
+	void changeSettlerBuildTempleCount(int iChange);
+
 	bool isCivSettled() const;
 	bool isTribalConscription() const;
 	bool isCreateBarbarians() const;
@@ -1418,6 +1425,9 @@ protected:
 	int m_iMaxCivicAnarchyTurns;
 	int m_iMaxReligionAnarchyTurns;
 	int m_iCityHealRateChange;
+	int m_iMissionarySurvivalChance;
+	int m_iSettlerSpreadReligionCount;
+	int m_iSettlerBuildTempleCount;
 
 	uint m_uiStartTime;  // XXX save these?
 

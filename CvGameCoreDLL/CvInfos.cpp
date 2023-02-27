@@ -15562,6 +15562,8 @@ CvTraitInfo::CvTraitInfo() :
 	m_iMaxReligionAnarchyTurns(0),
 	m_iCityHealRateChange(0),
 	m_iGoldenAgeDurationModifier(0),
+	m_iMissionarySurvivalChance(0),
+	m_iSettlerReligionLevel(0),
 	m_eFoundCityCultureLevel(NO_CULTURELEVEL),
 	m_bUnitRangeUnbound(false),
 	m_bUnitTerritoryUnbound(false),
@@ -15614,6 +15616,18 @@ CvTraitInfo::~CvTraitInfo() {
 		SAFE_DELETE_ARRAY(m_ppaiBuildingClassYieldChange);
 	}
 
+}
+
+int CvTraitInfo::getMissionarySurvivalChance() const {
+	return m_iMissionarySurvivalChance;
+}
+
+bool CvTraitInfo::isSettlerBuildTemple() const {
+	return (m_iSettlerReligionLevel > 1);
+}
+
+bool CvTraitInfo::isSettlerSpreadReligion() const {
+	return (m_iSettlerReligionLevel > 0);
 }
 
 int CvTraitInfo::getGoldenAgeDurationModifier() const {
@@ -15884,6 +15898,8 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iWarWearinessModifier, "iWarWearinessModifier");
 	pXML->GetChildXmlValByName(&m_iCityHealRateChange, "iCityHealRateChange");
 	pXML->GetChildXmlValByName(&m_iGoldenAgeDurationModifier, "iGoldenAgeDurationModifier");
+	pXML->GetChildXmlValByName(&m_iMissionarySurvivalChance, "iMissionarySurvivalChance");
+	pXML->GetChildXmlValByName(&m_iSettlerReligionLevel, "iSettlerReligionLevel");
 	pXML->SetList(&m_paiExtraYieldThreshold, "ExtraYieldThresholds", NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiTradeYieldModifier, "TradeYieldModifiers", NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiBaseYieldFromUnit, "BaseYieldFromUnits", NUM_YIELD_TYPES);
