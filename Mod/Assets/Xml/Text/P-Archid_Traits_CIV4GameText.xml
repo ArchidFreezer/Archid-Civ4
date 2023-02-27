@@ -228,4 +228,20 @@
 		<Italian>[NEWLINE][SPACE][SPACE][ICON_BULLET]%D1_WarWearMod%% di [ICON_UNHAPPY] per la guerra</Italian>
 		<Spanish>[NEWLINE][SPACE][SPACE][ICON_BULLET]%D1_WarWearMod%% al [ICON_UNHAPPY] b&#233;lico</Spanish>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_MAX_CIVIC_ANARCHY</Tag>
+		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]Max %d1 [NUM1:Turn:Turns] of Civic Anarchy</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_NO_CIVIC_ANARCHY</Tag>
+		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]No Civic Anarchy</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_MAX_RELIGION_ANARCHY</Tag>
+		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]Max %d1 [NUM1:Turn:Turns] of Religious Anarchy</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_NO_RELIGION_ANARCHY</Tag>
+		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]No Religious Anarchy</English>
+	</TEXT>
 </Civ4GameText>

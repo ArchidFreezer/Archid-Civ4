@@ -132,6 +132,7 @@
 			<Type>TRAIT_ORGANIZED</Type>
 			<Description>TXT_KEY_TRAIT_ORGANIZED</Description>
 			<ShortDescription>TXT_KEY_TRAIT_ORGANIZED_SHORT</ShortDescription>
+			<iMaxCivicAnarchyTurns>0</iMaxCivicAnarchyTurns>
 			<iUpkeepModifier>-50</iUpkeepModifier>
 		</TraitInfo>
 		<TraitInfo> <!-- Philosophical -->

@@ -5083,13 +5083,18 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer& szHelpString, TraitTypes eTrait
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_HAPPINESS", kTrait.getHappiness()));
 		}
 
-		// iMaxAnarchy
-		if (kTrait.getMaxAnarchy() != -1) {
-			if (kTrait.getMaxAnarchy() == 0) {
-				szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_NO_ANARCHY"));
-			} else {
-				szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_MAX_ANARCHY", kTrait.getMaxAnarchy()));
-			}
+		// Civic Anarchy
+		if (kTrait.getMaxCivicAnarchyTurns() == 0) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_NO_CIVIC_ANARCHY"));
+		} else if (kTrait.getMaxCivicAnarchyTurns() > 0) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_MAX_CIVIC_ANARCHY", kTrait.getMaxCivicAnarchyTurns()));
+		}
+
+		// Religion Anarchy
+		if (GC.getTraitInfo(eTrait).getMaxReligionAnarchyTurns() == 0) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_NO_RELIGION_ANARCHY"));
+		} else if (GC.getTraitInfo(eTrait).getMaxReligionAnarchyTurns() > 0) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_MAX_RELIGION_ANARCHY", GC.getTraitInfo(eTrait).getMaxReligionAnarchyTurns()));
 		}
 
 		// War Wearinress

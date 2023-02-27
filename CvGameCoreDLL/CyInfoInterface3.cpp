@@ -283,7 +283,6 @@ void CyInfoPythonInterface3() {
 	python::class_<CvTraitInfo, python::bases<CvInfoBase> >("CvTraitInfo")
 		.def("getHealth", &CvTraitInfo::getHealth, "int ()")
 		.def("getHappiness", &CvTraitInfo::getHappiness, "int ()")
-		.def("getMaxAnarchy", &CvTraitInfo::getMaxAnarchy, "int ()")
 		.def("getUpkeepModifier", &CvTraitInfo::getUpkeepModifier, "int ()")
 		.def("getLevelExperienceModifier", &CvTraitInfo::getLevelExperienceModifier, "int ()")
 		.def("getGreatPeopleRateModifier", &CvTraitInfo::getGreatPeopleRateModifier, "int ()")

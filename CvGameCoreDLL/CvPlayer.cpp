@@ -253,7 +253,6 @@ void CvPlayer::init(PlayerTypes eID, bool bInGame) {
 		}
 
 		updateLeaderheadTraits(true);
-		updateMaxAnarchyTurns();
 
 		for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 			updateExtraYieldThreshold(eYield);
@@ -425,7 +424,6 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iNumUnitGoldenAges = 0;
 	m_iStrikeTurns = 0;
 	m_iAnarchyTurns = 0;
-	m_iMaxAnarchyTurns = 0;
 	m_iAnarchyModifier = 0;
 	m_iGoldenAgeModifier = 0;
 	m_iGlobalHurryModifier = 0;
@@ -546,6 +544,8 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iOccupationTimeChange = 0;
 	m_iGoldenAgeGreatGeneralChange = 0;
 	m_iUnitWithdrawalHealRate = 0;
+	m_iMaxCivicAnarchyTurns = 0;
+	m_iMaxReligionAnarchyTurns = 0;
 
 	m_uiStartTime = 0;
 
@@ -906,8 +906,6 @@ void CvPlayer::changeLeader(LeaderHeadTypes eNewLeader) {
 
 	// Add new leaderhead traits
 	updateLeaderheadTraits(true);
-
-	updateMaxAnarchyTurns();
 
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 		updateExtraYieldThreshold(eYield);
@@ -6627,7 +6625,7 @@ void CvPlayer::foundCorporation(CorporationTypes eCorporation) {
 
 
 int CvPlayer::getCivicAnarchyLength(CivicTypes* paeNewCivics) const {
-	if (getMaxAnarchyTurns() == 0) {
+	if (getMaxCivicAnarchyTurns() == 0) {
 		return 0;
 	}
 
@@ -6665,12 +6663,12 @@ int CvPlayer::getCivicAnarchyLength(CivicTypes* paeNewCivics) const {
 	iAnarchyLength *= GC.getEraInfo(GC.getGameINLINE().getStartEra()).getAnarchyPercent();
 	iAnarchyLength /= 100;
 
-	return range(iAnarchyLength, 1, getMaxAnarchyTurns());
+	return range(iAnarchyLength, 1, getMaxCivicAnarchyTurns());
 }
 
 
 int CvPlayer::getReligionAnarchyLength() const {
-	if (getMaxAnarchyTurns() == 0) {
+	if (getMaxReligionAnarchyTurns() == 0) {
 		return 0;
 	}
 
@@ -6694,7 +6692,7 @@ int CvPlayer::getReligionAnarchyLength() const {
 	iAnarchyLength *= GC.getEraInfo(GC.getGameINLINE().getStartEra()).getAnarchyPercent();
 	iAnarchyLength /= 100;
 
-	return range(iAnarchyLength, 1, getMaxAnarchyTurns());
+	return range(iAnarchyLength, 1, getMaxReligionAnarchyTurns());
 }
 
 
@@ -6998,7 +6996,7 @@ void CvPlayer::changeGoldenAgeTurns(int iChange) {
 			if (isGoldenAge()) {
 				changeAnarchyTurns(-getAnarchyTurns());
 				// K-Mod. Allow the AI to reconsider their civics. (a golden age is a good time for reform!)
-				if (!isHuman() && getMaxAnarchyTurns() != 0 && getAnarchyModifier() + 100 > 0) {
+				if (!isHuman() && getMaxCivicAnarchyTurns() != 0 && getAnarchyModifier() + 100 > 0) {
 					GET_PLAYER(getID()).AI_setCivicTimer(0); // silly, I know. But what else can I do?
 				}
 			}
@@ -7121,27 +7119,37 @@ void CvPlayer::changeAnarchyTurns(int iChange) {
 }
 
 
-int CvPlayer::getMaxAnarchyTurns() const {
-	return m_iMaxAnarchyTurns;
+int CvPlayer::getMaxCivicAnarchyTurns() const {
+	return m_iMaxCivicAnarchyTurns;
+}
+
+
+int CvPlayer::getMaxReligionAnarchyTurns() const {
+	return m_iMaxReligionAnarchyTurns;
 }
 
 
 void CvPlayer::updateMaxAnarchyTurns() {
-	int iBestValue = GC.getDefineINT("MAX_ANARCHY_TURNS");
+	int iBestCivicValue = GC.getDefineINT("MAX_ANARCHY_TURNS");
+	int iBestReligionValue = GC.getDefineINT("MAX_ANARCHY_TURNS");
 
 	FAssertMsg((GC.getNumTraitInfos() > 0), "GC.getNumTraitInfos() is less than or equal to zero but is expected to be larger than zero in CvPlayer::updateMaxAnarchyTurns");
-	for (int iI = 0; iI < GC.getNumTraitInfos(); iI++) {
-		if (hasTrait((TraitTypes)iI)) {
-			if (GC.getTraitInfo((TraitTypes)iI).getMaxAnarchy() >= 0) {
-				if (GC.getTraitInfo((TraitTypes)iI).getMaxAnarchy() < iBestValue) {
-					iBestValue = GC.getTraitInfo((TraitTypes)iI).getMaxAnarchy();
-				}
+	for (TraitTypes eTrait = (TraitTypes)0; eTrait < GC.getNumTraitInfos(); eTrait = (TraitTypes)(eTrait + 1)) {
+		if (hasTrait(eTrait)) {
+			const CvTraitInfo& kTrait = GC.getTraitInfo(eTrait);
+			if (kTrait.getMaxCivicAnarchyTurns() >= 0) {
+				iBestCivicValue = std::min(iBestCivicValue, kTrait.getMaxCivicAnarchyTurns());
+			}
+			if (kTrait.getMaxReligionAnarchyTurns() >= 0) {
+				iBestReligionValue = std::min(iBestReligionValue, kTrait.getMaxReligionAnarchyTurns());
 			}
 		}
 	}
 
-	m_iMaxAnarchyTurns = iBestValue;
-	FAssert(getMaxAnarchyTurns() >= 0);
+	m_iMaxCivicAnarchyTurns = iBestCivicValue;
+	FAssert(getMaxCivicAnarchyTurns() >= 0);
+	m_iMaxReligionAnarchyTurns = iBestReligionValue;
+	FAssert(getMaxReligionAnarchyTurns() >= 0);
 }
 
 
@@ -14030,7 +14038,8 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iNumUnitGoldenAges);
 	pStream->Read(&m_iStrikeTurns);
 	pStream->Read(&m_iAnarchyTurns);
-	pStream->Read(&m_iMaxAnarchyTurns);
+	pStream->Read(&m_iMaxCivicAnarchyTurns);
+	pStream->Read(&m_iMaxReligionAnarchyTurns);
 	pStream->Read(&m_iAnarchyModifier);
 	pStream->Read(&m_iGoldenAgeModifier);
 	pStream->Read(&m_iGlobalHurryModifier);
@@ -14582,7 +14591,8 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iNumUnitGoldenAges);
 	pStream->Write(m_iStrikeTurns);
 	pStream->Write(m_iAnarchyTurns);
-	pStream->Write(m_iMaxAnarchyTurns);
+	pStream->Write(m_iMaxCivicAnarchyTurns);
+	pStream->Write(m_iMaxReligionAnarchyTurns);
 	pStream->Write(m_iAnarchyModifier);
 	pStream->Write(m_iGoldenAgeModifier);
 	pStream->Write(m_iGlobalHurryModifier);
@@ -19451,6 +19461,8 @@ void CvPlayer::setHasTrait(TraitTypes eTrait, bool bNewValue) {
 		changeYieldFromUnitModifier(eYield, kTrait.getYieldFromUnitModifier(eYield) * iChange);
 		changeSeaPlotYield(eYield, kTrait.getSeaPlotYieldChange(eYield) * iChange);
 	}
+
+	updateMaxAnarchyTurns();
 }
 
 int CvPlayer::getBaseYieldFromUnit(YieldTypes eIndex) const {

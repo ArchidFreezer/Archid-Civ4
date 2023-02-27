@@ -144,7 +144,7 @@ void CvPlayerAI::AI_init() {
 		AI_setPeaceWeight(GC.getLeaderHeadInfo(getPersonalityType()).getBasePeaceWeight() + GC.getGameINLINE().getSorenRandNum(GC.getLeaderHeadInfo(getPersonalityType()).getPeaceWeightRand(), "AI Peace Weight"));
 		AI_setEspionageWeight(GC.getLeaderHeadInfo(getPersonalityType()).getEspionageWeight() * GC.getCommerceInfo(COMMERCE_ESPIONAGE).getAIWeightPercent() / 100); // K-Mod. (I've changed the meaning of this value)
 		AI_setReligionTimer(1);
-		AI_setCivicTimer((getMaxAnarchyTurns() == 0) ? 1 : 2);
+		AI_setCivicTimer((getMaxCivicAnarchyTurns() == 0) ? 1 : 2);
 		AI_initStrategyRand(); // K-Mod
 		updateCacheData(); // K-Mod
 	}
@@ -12040,7 +12040,7 @@ int CvPlayerAI::AI_calculateGoldenAgeValue(bool bConsiderRevolution) const {
 
 	// K-Mod. Add some value if we would use the opportunity to switch civics
 	// Note: this first "if" isn't necessary. It just saves us checking civics when we don't need to.
-	if (bConsiderRevolution && getMaxAnarchyTurns() != 0 && !isGoldenAge() && getAnarchyModifier() + 100 > 0) {
+	if (bConsiderRevolution && getMaxCivicAnarchyTurns() != 0 && !isGoldenAge() && getAnarchyModifier() + 100 > 0) {
 		std::vector<CivicTypes> aeBestCivics(GC.getNumCivicOptionInfos());
 		for (int iI = 0; iI < GC.getNumCivicOptionInfos(); iI++) {
 			aeBestCivics[iI] = getCivics((CivicOptionTypes)iI);
@@ -12681,7 +12681,7 @@ void CvPlayerAI::AI_doCivics() {
 
 	if (canRevolution(&aeBestCivic[0])) {
 		revolution(&aeBestCivic[0]);
-		AI_setCivicTimer((getMaxAnarchyTurns() == 0) ? (GC.getDefineINT("MIN_REVOLUTION_TURNS") * 2) : CIVIC_CHANGE_DELAY);
+		AI_setCivicTimer((getMaxCivicAnarchyTurns() == 0) ? (GC.getDefineINT("MIN_REVOLUTION_TURNS") * 2) : CIVIC_CHANGE_DELAY);
 	}
 }
 
@@ -12717,7 +12717,7 @@ void CvPlayerAI::AI_doReligion() {
 				eBestReligion == NO_RELIGION ? 0 : AI_religionValue(eBestReligion), getStateReligion() == NO_RELIGION ? 0 : AI_religionValue(getStateReligion()));
 		}
 		convert(eBestReligion);
-		AI_setReligionTimer((getMaxAnarchyTurns() == 0) ? (GC.getDefineINT("MIN_CONVERSION_TURNS") * 2) : RELIGION_CHANGE_DELAY);
+		AI_setReligionTimer((getMaxReligionAnarchyTurns() == 0) ? (GC.getDefineINT("MIN_CONVERSION_TURNS") * 2) : RELIGION_CHANGE_DELAY);
 	}
 }
 

@@ -771,10 +771,6 @@ int CyPlayer::getStrikeTurns() {
 	return m_pPlayer ? m_pPlayer->getStrikeTurns() : -1;
 }
 
-int CyPlayer::getMaxAnarchyTurns() {
-	return m_pPlayer ? m_pPlayer->getMaxAnarchyTurns() : -1;
-}
-
 int CyPlayer::getAnarchyModifier() {
 	return m_pPlayer ? m_pPlayer->getAnarchyModifier() : -1;
 }

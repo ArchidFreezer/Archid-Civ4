@@ -288,6 +288,8 @@
 	<ElementType name="iHealth" content="textOnly" dt:type="int"/>
 	<ElementType name="iHappiness" content="textOnly" dt:type="int"/>
 	<ElementType name="iMaxAnarchy" content="textOnly" dt:type="int"/>
+	<ElementType name="iMaxReligionAnarchyTurns" content="textOnly" dt:type="int"/>
+	<ElementType name="iMaxCivicAnarchyTurns" content="textOnly" dt:type="int"/>
 	<ElementType name="iUpkeepModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iLevelExperienceModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iGreatPeopleRateModifier" content="textOnly" dt:type="int"/>
@@ -375,6 +377,8 @@
 		<element type="iHealth" minOccurs="0"/>
 		<element type="iHappiness" minOccurs="0"/>
 		<element type="iMaxAnarchy" minOccurs="0"/> <!-- default: -1 -->
+		<element type="iMaxReligionAnarchyTurns" minOccurs="0"/>
+		<element type="iMaxCivicAnarchyTurns" minOccurs="0"/>
 		<element type="iUpkeepModifier" minOccurs="0"/>
 		<element type="iLevelExperienceModifier" minOccurs="0"/>
 		<element type="iGreatPeopleRateModifier" minOccurs="0"/>

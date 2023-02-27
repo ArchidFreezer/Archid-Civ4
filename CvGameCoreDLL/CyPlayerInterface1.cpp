@@ -220,7 +220,6 @@ void CyPlayerPythonInterface1(python::class_<CyPlayer>& x) {
 		.def("isAnarchy", &CyPlayer::isAnarchy, "bool ()")
 		.def("changeAnarchyTurns", &CyPlayer::changeAnarchyTurns, "void ()")
 		.def("getStrikeTurns", &CyPlayer::getStrikeTurns, "int ()")
-		.def("getMaxAnarchyTurns", &CyPlayer::getMaxAnarchyTurns, "int ()")
 		.def("getAnarchyModifier", &CyPlayer::getAnarchyModifier, "int ()")
 		.def("getGoldenAgeModifier", &CyPlayer::getGoldenAgeModifier, "int ()")
 		.def("getHurryModifier", &CyPlayer::getHurryModifier, "int ()")

@@ -4525,7 +4525,6 @@ public:
 
 	int getHealth() const;				// Exposed to Python
 	int getHappiness() const;				// Exposed to Python
-	int getMaxAnarchy() const;				// Exposed to Python
 	int getUpkeepModifier() const;				// Exposed to Python
 	int getLevelExperienceModifier() const;				// Exposed to Python
 	int getGreatPeopleRateModifier() const;				// Exposed to Python
@@ -4545,6 +4544,8 @@ public:
 	int getGoldenAgeGreatGeneralChange() const;
 	int getUnitWithdrawalHealRate() const;
 	int getWarWearinessModifier() const;
+	int getMaxCivicAnarchyTurns() const;
+	int getMaxReligionAnarchyTurns() const;
 
 	bool isUnitRangeUnbound() const;
 	bool isUnitTerritoryUnbound() const;
@@ -4588,7 +4589,6 @@ protected:
 
 	int m_iHealth;
 	int m_iHappiness;
-	int m_iMaxAnarchy;
 	int m_iUpkeepModifier;
 	int m_iLevelExperienceModifier;
 	int m_iGreatPeopleRateModifier;
@@ -4608,6 +4608,8 @@ protected:
 	int m_iGoldenAgeGreatGeneralChange;
 	int m_iUnitWithdrawalHealRate;
 	int m_iWarWearinessModifier;
+	int m_iMaxCivicAnarchyTurns;
+	int m_iMaxReligionAnarchyTurns;
 
 	bool m_bUnitRangeUnbound;
 	bool m_bUnitTerritoryUnbound;
