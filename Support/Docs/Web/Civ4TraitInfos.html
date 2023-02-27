@@ -34,6 +34,7 @@
   <table>
     <tr><th>Tag<th>Default<th>Purpose
     <tr><td><span class="tagoptional">Description</span><td><td>A reference to the text files, which contain an entry for this trait. This is only required for the ParentTrait of multi-level traits
+    <tr><td><span class="tagoptional"><b>FoundCityCultureLevel</b></span><td><td>The minimum culture level that a city founded by a player with this trait will have
     <tr><td><span class="tagoptional">Help</span><td><td>Additional help text that will be displayed in the Platypedia
     <tr><td><span class="tagoptional">ShortDescription</span><td><td>A reference to the text files, which contains the short version which is typically a 3 character abbreviation. This is only used for LeaderHead traits, but should be considered mandatory for those.
     <tr><td><span class="tagmandatory">Type</span><td><td>The internal name of this Trait
@@ -42,21 +43,34 @@
   <h3 id="int">Integer</h3>
   <table>
     <tr><th>Tag<th>Default<th>Purpose
+    <tr><td><span class="tagoptional"><b>iAttitudeChange</b></span><td>0<td>The change in attitude rival civs will have with a player with this trait
+    <tr><td><span class="tagoptional"><b>iCityHealRateChange</b></span><td>0<td>Percentage change in the rate that units will heal whilst in a players own city if it is not considered occupied
     <tr><td><span class="tagoptional">iDomesticGreatGeneralRateModifier</span><td>0<td>Change to the rate that Great General points are gained within the players borders
+    <tr><td><span class="tagoptional"><b>iFoundCityPopulationChange</b></span><td>0<td>The minimum population that a city will have on founding
+    <tr><td><span class="tagoptional"><b>iGoldPercentDividendPerTurn</b></span><td>0<td>Percentage change in the gold return for a player
+    <tr><td><span class="tagoptional"><b>iGoldenAgeDurationModifier</b></span><td>0<td>Percentage change in the duration of Golden Ages
+    <tr><td><span class="tagoptional"><b>iGoldenAgeGreatGeneralChange</b></span><td>0<td>Number of Great General points gained per turn in a Golden Age
     <tr><td><span class="tagoptional">iGreatGeneralRateModifier</span><td>0<td>Change to the rate that Great General points are gained
     <tr><td><span class="tagoptional">iGreatPeopleRateModifier</span><td>0<td>Change to the rate that Great Person points are gained in each city
     <tr><td><span class="tagoptional">iHappiness</span><td>0<td>The extra happiness each city gains
     <tr><td><span class="tagoptional">iHealth</span><td>0<td>The extra health each city gains
     <tr><td><span class="tagoptional">iLevelExperienceModifier</span><td>0<td>Percentage change in required experience points per promotion
     <tr><td><span class="tagoptional">iMaxAnarchy</span><td>-1<td>Maximum number of turns of anarchy. -1 = no limit&semi; 0 = no anarchy
+    <tr><td><span class="tagoptional"><b>iMaxCivicAnarchyTurns</b></span><td>0<td>If the value is > 0 then this is the maximum number of anarchy during Civic changes
     <tr><td><span class="tagoptional">iMaxGlobalBuildingProductionModifier</span><td>0<td>Percentage change in the production of all world wonders in your cities
     <tr><td><span class="tagoptional">iMaxPlayerBuildingProductionModifier</span><td>0<td>Percentage change in the production of all national wonders in your cities
+    <tr><td><span class="tagoptional"><b>iMaxReligionAnarchyTurns</b></span><td>0<td>If the value is > 0 then this is the maximum number of anarchy during State Religion changes
     <tr><td><span class="tagoptional">iMaxTeamBuildingProductionModifier</span><td>0<td>Percentage change in the production of all team wonders in your cities
+    <tr><td><span class="tagoptional"><b>iMissionarySurvivalChance</b></span><td>0<td>Percentage chance that a Missionary will survive a spread religion attempt
+    <tr><td><span class="tagoptional"><b>iOccupationTimeChange</b></span><td>0<td>Additional change in occupation timer each turn
+    <tr><td><span class="tagoptional"><b>iSettlerReligionLevel</b></span><td>0<td>If 1, then a settler will spread the state religion to a founded city. If 2, then a temple will also be constructed
     <tr><td><span class="tagoptional"><b>iStarSignMitigateChangePercent</b></span><td>0<td>A percentile multiplier that impacts the scale of any star sign applied to the players cities
     <tr><td><span class="tagoptional"><b>iStarSignScaleChangePercent</b></span><td>0<td>A percentile multiplier that impacts the scale of any star sign applied to cities
     <tr><td><span class="tagoptional"><b>iUnitRangeChange</b></span><td>0<td>A change in range applied to all units with range restrictions
     <tr><td><span class="tagoptional"><b>iUnitRangeModifier</b></span><td>0<td>Percentage change in the range of units that have a range restriction
+    <tr><td><span class="tagoptional"><b>iUnitWithdrawalHealRate</b></span><td>0<td>A unit that withdraws form combat will have this percentage of its damage healed
     <tr><td><span class="tagoptional">iUpkeepModifier</span><td>0<td>Percentage amount civic maintenance costs are reduced
+    <tr><td><span class="tagoptional"><b>iWarWearinessModifier</b></span><td>0<td>Percentage change in War Weariness suffered by the player
   </table>	<p>
 
   <h3 id="boolean">Boolean</h3>
@@ -74,9 +88,23 @@
   &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
     <tr><td><span class="tagoptional"><b>BaseYieldFromUnits</b></span><td>NONE<td>Base yield values received from units that provide yields when killed. Thus value or the units value is used whichever is larger<br><pre class="code">
   &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional"><b>BuildingClassCommerceChanges</b></span><td><td>Commerce changes that buildings of this class provide to a city<br><pre class="code">
+  &lt;BuildingClassCommerceChange&gt;
+    &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
+    &lt;CommerceChanges&gt;
+      &lt;iCommerce&gt;0&lt;/iCommerce&gt;
+    &lt;/CommerceChanges&gt;
+  &lt;/BuildingClassCommerceChange&gt;</pre>
+    <tr><td><span class="tagoptional"><b>BuildingClassYieldChanges</b></span><td><td>Yield changes that buildings of this class provide to a city<br><pre class="code">
+  &lt;BuildingClassYieldChange&gt;
+    &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
+    &lt;YieldChanges&gt;
+      &lt;iYield&gt;0&lt;/iYield&gt;
+    &lt;/YieldChanges&gt;
+  &lt;/BuildingClassYieldChange&gt;</pre>
     <tr><td><span class="tagoptional">CommerceChanges</span><td>NONE<td>Extra commerce for each city<br><pre class="code">
   &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
-    <tr><td><span class="tagoptional"><b>CommerceFromUnitModifiers</b></span><td>NONE<td>Percentage change in the commerce received when killing a unit that provide some commerces<br><pre class="code">
+    <tr><td><span class="tagoptional"><b>CommerceFromUnitModifiers</b></span><td>NONE<td>Percentage change in the commerce received when killing a unit that provide some commerce<br><pre class="code">
   &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
     <tr><td><span class="tagoptional">CommerceModifiers</span><td>NONE<td>Percentage change in commerce for each city<br><pre class="code">
   &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
@@ -86,6 +114,8 @@
   &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;</pre>
     <tr><td><span class="tagoptional"><b>FreePromotions</b></span><td>NONE<td>The promotions that will be given to every new unit whose type is specified in the FreePromotionUnitCombats tag<br><pre class="code">
   &lt;PromotionType&gt;&lt;/PromotionType&gt;</pre>
+    <tr><td><span class="tagoptional"><b>SeaPlotYieldChanges</b></span><td><td>Yield change to sea plots<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
     <tr><td><span class="tagoptional">TradeYieldModifiers</span><td>NONE<td>Given a trade profit value, provides extra percentage yield for each trade route<br><pre class="code">
   &lt;iYield&gt;0&lt;/iYield&gt;</pre>
     <tr><td><span class="tagoptional"><b>YieldFromUnitModifiers</b></span><td>NONE<td>Percentage change in the yield received when killing a unit that provide some yields<br><pre class="code">
@@ -118,18 +148,31 @@
   &lt;iHealth&gt;0&lt;/iHealth&gt;
   &lt;iHappiness&gt;0&lt;/iHappiness&gt;
   &lt;iMaxAnarchy&gt;0&lt;/iMaxAnarchy&gt;
+  &lt;iMaxReligionAnarchyTurns&gt;0&lt;/iMaxReligionAnarchyTurns&gt;
+  &lt;iMaxCivicAnarchyTurns&gt;0&lt;/iMaxCivicAnarchyTurns&gt;
   &lt;iUpkeepModifier&gt;0&lt;/iUpkeepModifier&gt;
   &lt;iLevelExperienceModifier&gt;0&lt;/iLevelExperienceModifier&gt;
   &lt;iGreatPeopleRateModifier&gt;0&lt;/iGreatPeopleRateModifier&gt;
   &lt;iGreatGeneralRateModifier&gt;0&lt;/iGreatGeneralRateModifier&gt;
+  &lt;iGoldenAgeGreatGeneralChange&gt;0&lt;/iGoldenAgeGreatGeneralChange&gt;
   &lt;iDomesticGreatGeneralRateModifier&gt;0&lt;/iDomesticGreatGeneralRateModifier&gt;
   &lt;iMaxGlobalBuildingProductionModifier&gt;0&lt;/iMaxGlobalBuildingProductionModifier&gt;
   &lt;iMaxTeamBuildingProductionModifier&gt;0&lt;/iMaxTeamBuildingProductionModifier&gt;
   &lt;iMaxPlayerBuildingProductionModifier&gt;0&lt;/iMaxPlayerBuildingProductionModifier&gt;
+  &lt;iGoldPercentDividendPerTurn&gt;0&lt;/iGoldPercentDividendPerTurn&gt;
   &lt;bUnitRangeUnbound&gt;0&lt;/bUnitRangeUnbound&gt;
   &lt;bUnitTerritoryUnbound&gt;0&lt;/bUnitTerritoryUnbound&gt;
   &lt;iUnitRangeChange&gt;0&lt;/iUnitRangeChange&gt;
   &lt;iUnitRangeModifier&gt;0&lt;/iUnitRangeModifier&gt;
+  &lt;iAttitudeChange&gt;0&lt;/iAttitudeChange&gt;
+  &lt;iFoundCityPopulationChange&gt;0&lt;/iFoundCityPopulationChange&gt;
+  &lt;iOccupationTimeChange&gt;0&lt;/iOccupationTimeChange&gt;
+  &lt;iUnitWithdrawalHealRate&gt;0&lt;/iUnitWithdrawalHealRate&gt;
+  &lt;iWarWearinessModifier&gt;0&lt;/iWarWearinessModifier&gt;
+  &lt;iCityHealRateChange&gt;0&lt;/iCityHealRateChange&gt;
+  &lt;iGoldenAgeDurationModifier&gt;0&lt;/iGoldenAgeDurationModifier&gt;
+  &lt;iMissionarySurvivalChance&gt;0&lt;/iMissionarySurvivalChance&gt;
+  &lt;iSettlerReligionLevel&gt;0&lt;/iSettlerReligionLevel&gt;
   &lt;ExtraYieldThresholds&gt;
     &lt;iExtraYieldThreshold&gt;0&lt;/iExtraYieldThreshold&gt;
   &lt;/ExtraYieldThresholds&gt;
@@ -148,6 +191,22 @@
   &lt;CommerceModifiers&gt;
     &lt;iCommerce&gt;0&lt;/iCommerce&gt;
   &lt;/CommerceModifiers&gt;
+  &lt;BuildingClassCommerceChanges&gt;
+    &lt;BuildingClassCommerceChange&gt;
+      &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
+      &lt;CommerceChanges&gt;
+        &lt;iCommerce&gt;0&lt;/iCommerce&gt;
+      &lt;/CommerceChanges&gt;
+    &lt;/BuildingClassCommerceChange&gt;
+  &lt;/BuildingClassCommerceChanges&gt;
+  &lt;BuildingClassYieldChanges&gt;
+    &lt;BuildingClassYieldChange&gt;
+      &lt;BuildingClassType&gt;&lt;/BuildingClassType&gt;
+      &lt;YieldChanges&gt;
+        &lt;iYield&gt;0&lt;/iYield&gt;
+      &lt;/YieldChanges&gt;
+    &lt;/BuildingClassYieldChange&gt;
+  &lt;/BuildingClassYieldChanges&gt;
   &lt;BaseCommerceFromUnits&gt;
     &lt;iCommerce&gt;0&lt;/iCommerce&gt;
   &lt;/BaseCommerceFromUnits&gt;
@@ -160,6 +219,10 @@
   &lt;FreePromotionUnitCombats&gt;
     &lt;UnitCombatType&gt;&lt;/UnitCombatType&gt;
   &lt;/FreePromotionUnitCombats&gt;
+  &lt;FoundCityCultureLevel&gt;&lt;/FoundCityCultureLevel&gt;
+  &lt;SeaPlotYieldChanges&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/SeaPlotYieldChanges&gt;
 &lt;/TraitInfo&gt;</pre>
 		</div>
 	</table>
