@@ -15,7 +15,7 @@
 			<Description>TXT_KEY_YIELD_FOOD</Description>
 			<iHillsChange>-1</iHillsChange>
 			<iLakeChange>1</iLakeChange>
-			<iMinCity>2</iMinCity>
+			<iMinCity>3</iMinCity>
 			<ColorType>COLOR_YIELD_FOOD</ColorType>
 			<SymbolPaths>
 				<SymbolPath>Art/Interface/Symbols/Food/Food01.nif</SymbolPath>
