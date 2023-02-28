@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Jon Shafer (Firaxis Games) --><!-- Sid Meier's Civilization 4 --><!-- Copyright Firaxis Games 2005 --><!-- --><!-- Promotion Infos --><Civ4PromotionInfos xmlns="x-schema:CIV4UnitSchema.xml">
 	<PromotionInfos>
-		<PromotionInfo> <!-- Accuracy -->
-			<Type>PROMOTION_ACCURACY</Type>
+		<PromotionInfo> <!-- Accuracy I -->
+			<Type>PROMOTION_ACCURACY1</Type>
 			<Description>TXT_KEY_PROMOTION_ACCURACY</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<PrereqOrPromotions>
@@ -11,25 +11,175 @@
 			<iBombardRateChange>8</iBombardRateChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Accuracy.dds,Art/Interface/Buttons/Promotions_Atlas.dds,1,1</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Ace -->
+		<PromotionInfo> <!-- Accuracy II -->
+			<Type>PROMOTION_ACCURACY2</Type>
+			<Description>TXT_KEY_PROMOTION_ACCURACY2</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_ACCURACY1</PromotionType>
+			</PrereqOrPromotions>
+			<iBombardRateChange>16</iBombardRateChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/Accuracy2.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Accuracy III -->
+			<Type>PROMOTION_ACCURACY3</Type>
+			<Description>TXT_KEY_PROMOTION_ACCURACY3</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_ACCURACY2</PromotionType>
+			</PrereqOrPromotions>
+			<iBombardRateChange>24</iBombardRateChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/Accuracy3.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Ace Pilot -->
 			<Type>PROMOTION_ACE</Type>
 			<Description>TXT_KEY_PROMOTION_ACE</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<PrereqOrPromotions>
-				<PromotionType>PROMOTION_COMBAT3</PromotionType>
+				<PromotionType>PROMOTION_VETERAN</PromotionType>
 			</PrereqOrPromotions>
-			<iEvasionChange>25</iEvasionChange>
+			<iEvasionChange>10</iEvasionChange>
+			<iCombatPercent>10</iCombatPercent>
+			<iExperiencePercent>15</iExperiencePercent>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_BOMBERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
-			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,5,15</Button>
+			<Button>Art/Interface/Buttons/Promotions/acepilot.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Air Defence I -->
+			<Type>PROMOTION_AIR_DEFENCE1</Type>
+			<Description>TXT_KEY_PROMOTION_AIR_DEFENCE1</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_COMBAT1</PromotionType>
+				<PromotionType>PROMOTION_DRILL1</PromotionType>
+			</PrereqOrPromotions>
+			<TechPrereq>TECH_AUTOMATIC_WEAPONS</TechPrereq>
+			<iInterceptChange>5</iInterceptChange>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+					<iUnitCombatMod>10</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WHEELED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ASSAULT_MECH</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/air_defence1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Air Defence II -->
+			<Type>PROMOTION_AIR_DEFENCE2</Type>
+			<Description>TXT_KEY_PROMOTION_AIR_DEFENCE2</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_AIR_DEFENCE1</PromotionType>
+			</PrereqOrPromotions>
+			<iInterceptChange>10</iInterceptChange>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+					<iUnitCombatMod>15</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WHEELED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ASSAULT_MECH</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/air_defence2.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Air Defence III -->
+			<Type>PROMOTION_AIR_DEFENCE3</Type>
+			<Description>TXT_KEY_PROMOTION_AIR_DEFENCE3</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_AIR_DEFENCE2</PromotionType>
+			</PrereqOrPromotions>
+			<iInterceptChange>15</iInterceptChange>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+					<iUnitCombatMod>20</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/air_defence3.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Air to Air Missiles I -->
+			<Type>PROMOTION_AIR_TO_AIR1</Type>
+			<Description>TXT_KEY_PROMOTION_AIR_TO_AIR1</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<iInterceptChange>10</iInterceptChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/air_to_air1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Air to Air Missiles II -->
+			<Type>PROMOTION_AIR_TO_AIR2</Type>
+			<Description>TXT_KEY_PROMOTION_AIR_TO_AIR2</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_AIR_TO_AIR1</PromotionType>
+				<PromotionType>PROMOTION_IMPROVED_RADAR</PromotionType>
+			</PrereqOrPromotions>
+			<iInterceptChange>10</iInterceptChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/air_to_air2.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Air to Air Missiles III -->
+			<Type>PROMOTION_AIR_TO_AIR3</Type>
+			<Description>TXT_KEY_PROMOTION_AIR_TO_AIR3</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_AIR_TO_AIR2</PromotionType>
+			</PrereqOrPromotions>
+			<iAirRangeChange>-1</iAirRangeChange>
+			<iInterceptChange>15</iInterceptChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/air_to_air3.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Alchemist 1 -->
 			<Type>PROMOTION_ALCHEMIST1</Type>
@@ -1252,6 +1402,32 @@
 			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/hunter3.dds</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Improved Radar -->
+			<Type>PROMOTION_IMPROVED_RADAR</Type>
+			<Description>TXT_KEY_PROMOTION_IMPROVED_RADAR</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<TechPrereq>TECH_GUIDED_WEAPONS</TechPrereq>
+			<iInterceptChange>5</iInterceptChange>
+			<iEvasionChange>5</iEvasionChange>
+			<DomainMods>
+				<DomainMod>
+					<DomainType>DOMAIN_AIR</DomainType>
+					<iDomainMod>20</iDomainMod>
+				</DomainMod>
+			</DomainMods>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HITECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ROBOT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ASSAULT_MECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/improved_radar.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Improvise 1 -->
 			<Type>PROMOTION_IMPROVISE1</Type>
 			<Description>TXT_KEY_PROMOTION_IMPROVISE1</Description>
@@ -2113,6 +2289,23 @@
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,6,16</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Veteran Pilot -->
+			<Type>PROMOTION_VETERAN</Type>
+			<Description>TXT_KEY_PROMOTION_VETERAN</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<iEvasionChange>5</iEvasionChange>
+			<iCombatPercent>10</iCombatPercent>
+			<iExperiencePercent>10</iExperiencePercent>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_EARLY_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BOMBERS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,5,15</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Woodsman 1 -->
 			<Type>PROMOTION_WOODSMAN1</Type>

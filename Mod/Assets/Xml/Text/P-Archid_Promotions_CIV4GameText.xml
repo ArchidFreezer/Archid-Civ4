@@ -1,6 +1,132 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- Game Text - New -->
 <Civ4GameText xmlns="http://www.firaxis.com">
+<!-- +++ Accuracy +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_ACCURACY</Tag>
+		<English>Accuracy I</English>
+		<French>
+			<Text>Pr&#233;cision I</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Pr&#228;zision I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Precisione I</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Precisi_n I</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_ACCURACY2</Tag>
+		<English>Accuracy II</English>
+		<French>
+			<Text>Pr&#233;cision II</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Pr&#228;zision II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Precisione II</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Precisi_n II</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_ACCURACY3</Tag>
+		<English>Accuracy III</English>
+		<French>
+			<Text>Pr&#233;cision III</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Pr&#228;zision III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Precisione III</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Precisi_n III</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Ace Pilot -->
+		<Tag>TXT_KEY_PROMOTION_ACE</Tag>
+		<English>Ace Pilot</English>
+		<French>Pilote As</French>
+		<German>Flieger-Ass</German>
+	</TEXT>
+
+<!-- +++ Air Defence +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_AIR_DEFENCE1</Tag>
+		<English>Air Defence I</English>
+		<French>Défense Aér. I</French>
+		<German>Luftverteidigung I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_AIR_DEFENCE2</Tag>
+		<English>Air Defence II</English>
+		<French>Défense Aér. II</French>
+		<German>Luftverteidigunge II</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_AIR_DEFENCE3</Tag>
+		<English>Air Defence III</English>
+		<French>Défense Aér. III</French>
+		<German>Luftverteidigung III</German>
+	</TEXT>
+
+	<TEXT> <!-- Air to Air Missiles I -->
+		<Tag>TXT_KEY_PROMOTION_AIR_TO_AIR1</Tag>
+		<English>Air to Air Missiles I</English>
+		<French>Missiles Air/Air I</French>
+		<German>Luft-Luft-Raketen I</German>
+		<Italian>Aria per ventilare i missili I</Italian>
+		<Spanish>Aire para ventilar los misiles I</Spanish>
+	</TEXT>
+	<TEXT> <!-- Air to Air Missiles II -->
+		<Tag>TXT_KEY_PROMOTION_AIR_TO_AIR2</Tag>
+		<English>Air to Air Missiles II</English>
+		<French>Missiles Air/Air II</French>
+		<German>Luft-Luft-Raketen II</German>
+		<Italian>Aria per ventilare i missili II</Italian>
+		<Spanish>Aire para ventilar los misiles II</Spanish>
+	</TEXT>
+	<TEXT> <!-- Air to Air Missiles III -->
+		<Tag>TXT_KEY_PROMOTION_AIR_TO_AIR3</Tag>
+		<English>Air to Air Missiles III</English>
+		<French>Missiles Air/Air III</French>
+		<German>Luft-Luft-Raketen III</German>
+		<Italian>Aria per ventilare i missili III</Italian>
+		<Spanish>Aire para ventilar los misiles III</Spanish>
+	</TEXT>
+	
 <!-- +++ Alchemist +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_ALCHEMIST1</Tag>
@@ -381,6 +507,13 @@
 	<TEXT> <!-- Slaver Hunter -->
 		<Tag>TXT_KEY_PROMOTION_SLAVER_HUNTER</Tag>
 		<English>Slaver Hunter</English>
+	</TEXT>
+
+	<TEXT> <!-- Veteran Pilot -->
+		<Tag>TXT_KEY_PROMOTION_VETERAN</Tag>
+		<English>Veteran Pilot</English>
+		<French>Pilote Vétéran</French>
+		<German>Veteranen-Pilot</German>
 	</TEXT>
 
 <!-- +++ Work Rate +++ -->
