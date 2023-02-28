@@ -584,6 +584,7 @@ public:
 	bool isCanMovePeaks() const;
 	bool isLoyal() const;
 	bool isSpyRadiation() const;
+	bool isCarryReligion() const;
 
 	const TCHAR* getSound() const;				// Exposed to Python
 	void setSound(const TCHAR* szVal);
@@ -697,6 +698,7 @@ protected:
 	bool m_bCanMovePeaks;
 	bool m_bLoyal;
 	bool m_bSpyRadiation;
+	bool m_bCarryReligion;
 
 	TechTypes m_eObsoleteTech;
 

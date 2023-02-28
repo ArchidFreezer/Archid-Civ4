@@ -623,4 +623,8 @@
 		<Tag>TXT_KEY_PROMOTION_SALVAGE_MODIFIER_TEXT</Tag>
 		<English>[ICON_BULLET]%d1_percent%% modifier to salvage gains</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_CARRY_RELIGION</Tag>
+		<English>[ICON_BULLET]Unit Carries State [ICON_RELIGION][NEWLINE]</English>
+	</TEXT>
 </Civ4GameText>

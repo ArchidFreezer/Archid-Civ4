@@ -5951,6 +5951,12 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_LOYAL_TEXT"));
 	}
 
+	// Settler Promotions
+	if (kPromotion.isCarryReligion()) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_CARRY_RELIGION"));
+	}
+
 	if (kPromotion.isSpyRadiation()) {
 		szBuffer.append(pcNewline);
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_RADIATION_TEXT"));

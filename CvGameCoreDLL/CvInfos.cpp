@@ -1704,6 +1704,7 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_bCanMovePeaks(false),
 	m_bLoyal(false),
 	m_bSpyRadiation(false),
+	m_bCarryReligion(false),
 	m_piTerrainAttackPercent(NULL),
 	m_piTerrainDefensePercent(NULL),
 	m_piFeatureAttackPercent(NULL),
@@ -1731,6 +1732,10 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_piDomainModifierPercent);
 	SAFE_DELETE_ARRAY(m_pbTerrainDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
+}
+
+bool CvPromotionInfo::isCarryReligion() const {
+	return m_bCarryReligion;
 }
 
 TechTypes CvPromotionInfo::getObsoleteTech() const {
@@ -2245,6 +2250,7 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bCanMovePeaks);
 	stream->Read(&m_bLoyal);
 	stream->Read(&m_bSpyRadiation);
+	stream->Read(&m_bCarryReligion);
 
 	stream->ReadString(m_szSound);
 
@@ -2407,6 +2413,7 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bCanMovePeaks);
 	stream->Write(m_bLoyal);
 	stream->Write(m_bSpyRadiation);
+	stream->Write(m_bCarryReligion);
 
 	stream->WriteString(m_szSound);
 
@@ -2489,6 +2496,7 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bImmuneToFirstStrikes, "bImmuneToFirstStrikes");
 	pXML->GetChildXmlValByName(&m_bLoyal, "bLoyal");
 	pXML->GetChildXmlValByName(&m_bSpyRadiation, "bSpyRadiation");
+	pXML->GetChildXmlValByName(&m_bCarryReligion, "bCarryReligion");
 	pXML->GetChildXmlValByName(&m_iEnslaveCountChange, "iEnslaveCountChange");
 	pXML->GetChildXmlValByName(&m_iVisibilityChange, "iVisibilityChange");
 	pXML->GetChildXmlValByName(&m_iMovesChange, "iMovesChange");

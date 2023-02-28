@@ -4811,6 +4811,21 @@ bool CvUnit::found() {
 
 	GET_PLAYER(getOwnerINLINE()).found(getX_INLINE(), getY_INLINE());
 
+	CvCity* pCity = plot()->getPlotCity();
+	if (pCity == NULL) return false;
+
+	ReligionTypes eStateReligion = GET_PLAYER(getOwnerINLINE()).getStateReligion();
+	for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumBonusInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
+		if (isHasPromotion(ePromotion)) {
+			CvPromotionInfo& kPromotion = GC.getPromotionInfo(ePromotion);
+
+			// Settler carries religion
+			if (kPromotion.isCarryReligion() && eStateReligion != NO_RELIGION) {
+				pCity->setHasReligion(eStateReligion, true, true, false);
+			}
+		}
+	}
+
 	if (plot()->isActiveVisible(false)) {
 		NotifyEntity(MISSION_FOUND);
 	}

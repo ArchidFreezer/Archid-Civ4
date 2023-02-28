@@ -869,6 +869,7 @@
 		<element type="BuildType" minOccurs="0" maxOccurs="*"/>
 		<element type="FeatureType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="bCarryReligion" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iSalvageModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="PromotionInfo" content="eltOnly">
 		<element type="Type"/>
@@ -895,6 +896,7 @@
 		<element type="bImmuneToFirstStrikes" minOccurs="0"/>
 		<element type="bLoyal" minOccurs="0"/>
 		<element type="bSpyRadiation" minOccurs="0"/>
+		<element type="bCarryReligion" minOccurs="0"/>
 		<element type="iEnslaveCountChange" minOccurs="0"/>
 		<element type="iVisibilityChange" minOccurs="0"/>
 		<element type="iMovesChange" minOccurs="0"/>
