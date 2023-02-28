@@ -132,6 +132,7 @@ public:
 	DllExport void buildObsoleteSpecialString(CvWStringBuffer& szBuffer, int iItem, bool bList = false, bool bPlayerContext = false);
 	void buildObsoleteUnitString(CvWStringBuffer& szBuffer, int iItem, bool bList = false, bool bPlayerContext = false);
 	void buildObsoleteBuildString(CvWStringBuffer& szBuffer, int iItem, bool bList = false, bool bPlayerContext = false);
+	void buildObsoletePromotionString(CvWStringBuffer& szBuffer, PromotionTypes ePromotion, bool bList = false);
 	DllExport void buildMoveString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList = false, bool bPlayerContext = false);
 	void buildFirstFreeUnitString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList = false, bool bPlayerContext = false);
 	DllExport void buildFreeUnitString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList = false, bool bPlayerContext = false);

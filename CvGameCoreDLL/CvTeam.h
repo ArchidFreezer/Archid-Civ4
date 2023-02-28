@@ -81,6 +81,8 @@ public:
 	void changeCanPassPeaksCount(int iChange);
 	void changeMoveFastPeaksCount(int iChange);
 
+	void obsoletePromotions(TechTypes eObsoleteTech);
+
 	void updateYield();
 	void updatePowerHealth();
 	void updatePowerStatus(bool bAcquire);

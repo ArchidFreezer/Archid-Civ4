@@ -879,6 +879,7 @@
 		<element type="PromotionPrereq" minOccurs="0"/>
 		<element type="PrereqOrPromotions" minOccurs="0"/>
 		<element type="TechPrereq" minOccurs="0"/>
+		<element type="ObsoleteTech" minOccurs="0"/>
 		<element type="StateReligionPrereq" minOccurs="0"/>
 		<element type="SeeInvisibles" minOccurs="0"/>
 		<element type="bCityPrereq" minOccurs="0"/>

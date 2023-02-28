@@ -6317,6 +6317,11 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 		}
 	}
 
+	if (kPromotion.getObsoleteTech() != NO_TECH) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_OBSOLETE_WITH", GC.getTechInfo((TechTypes)kPromotion.getObsoleteTech()).getTextKeyWide()));
+	}
+
 	if (wcslen(kPromotion.getHelp()) > 0) {
 		szBuffer.append(pcNewline);
 		szBuffer.append(kPromotion.getHelp());
@@ -7141,6 +7146,13 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
 		if (GC.getBonusInfo(eBonus).getTechObsolete() == eTech) {
 			buildObsoleteBonusString(szBuffer, eBonus, true);
+		}
+	}
+
+	//	Obsolete Promotions
+	for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumBonusInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
+		if (GC.getPromotionInfo(ePromotion).getObsoleteTech() == eTech) {
+			buildObsoletePromotionString(szBuffer, ePromotion, true);
 		}
 	}
 
@@ -17219,5 +17231,14 @@ void CvGameTextMgr::buildTraitBuildingClassYieldChangeString(CvWStringBuffer& sz
 			szLast = szYields;
 		}
 	}
+}
+
+void CvGameTextMgr::buildObsoletePromotionString(CvWStringBuffer& szBuffer, PromotionTypes ePromotion, bool bList) {
+	CvWString szTempBuffer;
+
+	if (bList) {
+		szBuffer.append(NEWLINE);
+	}
+	szBuffer.append(gDLL->getText("TXT_KEY_TECH_OBSOLETES", GC.getPromotionInfo(ePromotion).getTextKeyWide()));
 }
 

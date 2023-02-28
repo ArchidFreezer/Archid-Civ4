@@ -1689,6 +1689,7 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_iSpyStealTreasuryChange(0),
 	m_iWorkRateModifier(0),
 	m_iSalvageModifier(0),
+	m_eObsoleteTech(NO_TECH),
 	m_bLeader(false),
 	m_bBlitz(false),
 	m_bAmphib(false),
@@ -1730,6 +1731,10 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_piDomainModifierPercent);
 	SAFE_DELETE_ARRAY(m_pbTerrainDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
+}
+
+TechTypes CvPromotionInfo::getObsoleteTech() const {
+	return m_eObsoleteTech;
 }
 
 int CvPromotionInfo::getSalvageModifier() const {
@@ -2221,6 +2226,11 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iWorkRateModifier);
 	stream->Read(&m_iSalvageModifier);
 
+	int iTemp;
+	stream->Read(&iTemp);
+	m_eObsoleteTech = (TechTypes)iTemp;
+
+
 	stream->Read(&m_bLeader);
 	stream->Read(&m_bBlitz);
 	stream->Read(&m_bAmphib);
@@ -2381,6 +2391,8 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iWorkRateModifier);
 	stream->Write(m_iSalvageModifier);
 
+	stream->Write(m_eObsoleteTech);
+
 	stream->Write(m_bLeader);
 	stream->Write(m_bBlitz);
 	stream->Write(m_bAmphib);
@@ -2454,6 +2466,8 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(szTextVal, "TechPrereq");
 	m_iTechPrereq = pXML->FindInInfoClass(szTextVal);
+	pXML->GetChildXmlValByName(szTextVal, "ObsoleteTech");
+	m_eObsoleteTech = (TechTypes) pXML->FindInInfoClass(szTextVal);
 
 	pXML->GetChildXmlValByName(szTextVal, "StateReligionPrereq");
 	m_iStateReligionPrereq = pXML->FindInInfoClass(szTextVal);

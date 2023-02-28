@@ -5091,6 +5091,10 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 			kPlayer.updateCorporation();
 		}
 	}
+
+	if (iChange > 0) {
+		obsoletePromotions(eTech);
+	}
 }
 
 
@@ -5412,6 +5416,33 @@ int CvTeam::getMoveFastPeaksCount() const {
 void CvTeam::changeMoveFastPeaksCount(int iChange) {
 	m_iMoveFastPeaksCount = (m_iMoveFastPeaksCount + iChange);
 	FAssert(getMoveFastPeaksCount() >= 0);
+}
+
+void CvTeam::obsoletePromotions(TechTypes eObsoleteTech) {
+	if (eObsoleteTech == NO_TECH) return;
+
+	std::vector<PromotionTypes> vObsoletePromotions;
+	for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumBonusInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
+		if (GC.getPromotionInfo(ePromotion).getObsoleteTech() == eObsoleteTech) {
+			vObsoletePromotions.push_back(ePromotion);
+		}
+	}
+
+	for (std::vector<PromotionTypes>::iterator it = vObsoletePromotions.begin(); it != vObsoletePromotions.end(); ++it) {
+		PromotionTypes eObsoletePromotion = (*it);
+		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+			const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+			if (kPlayer.isAlive() && kPlayer.getTeam() == getID()) {
+				int iLoop;
+				for (CvUnit* pLoopUnit = kPlayer.firstUnit(&iLoop); NULL != pLoopUnit; pLoopUnit = kPlayer.nextUnit(&iLoop)) {
+					if (pLoopUnit->isHasPromotion(eObsoletePromotion)) {
+						pLoopUnit->setHasPromotion(eObsoletePromotion, false);
+					}
+				}
+			}
+		}
+	}
+
 }
 
 bool CvTeam::isCanFoundOnPeaks() const {

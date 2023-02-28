@@ -568,6 +568,8 @@ public:
 	int getNumSeeInvisibleTypes() const;
 	int getSalvageModifier() const;
 
+	TechTypes getObsoleteTech() const;
+
 	bool isLeader() const;				// Exposed to Python
 	bool isBlitz() const;				// Exposed to Python
 	bool isAmphib() const;				// Exposed to Python
@@ -695,6 +697,8 @@ protected:
 	bool m_bCanMovePeaks;
 	bool m_bLoyal;
 	bool m_bSpyRadiation;
+
+	TechTypes m_eObsoleteTech;
 
 	CvString m_szSound;
 
