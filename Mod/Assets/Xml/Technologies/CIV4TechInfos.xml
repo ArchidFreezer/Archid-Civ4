@@ -11963,6 +11963,29 @@
 			<Sound>AS2D_TECH_GENERIC</Sound>
 			<Button>Art/Interface/Buttons/TechTree/space_stations.dds</Button>
 		</TechInfo>
+		<TechInfo> <!-- Special Promotion *** -->
+			<Type>TECH_SPECIAL_PROMOTION</Type>
+			<Description>TXT_KEY_TECH_SPECIAL_PROMOTION</Description>
+			<Civilopedia>TXT_KEY_TECH_SPECIAL_PROMOTION_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_TECH_SPECIAL_PROMOTION_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<iCost>-1</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<Era>ERA_FUTURE</Era>
+			<iAsset>-1</iAsset>
+			<bTrade>0</bTrade>
+			<bDisable>1</bDisable>
+			<iGridX>-1</iGridX>
+			<iGridY>-1</iGridY>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+			</Flavors>
+			<Sound>AS2D_TECH_GENERIC</Sound>
+			<Button>Art/Interface/Buttons/TechTree/special_promotion.dds</Button>
+		</TechInfo>
 		<TechInfo> <!-- Stealth -->
 			<Type>TECH_STEALTH</Type>
 			<Description>TXT_KEY_TECH_STEALTH</Description>

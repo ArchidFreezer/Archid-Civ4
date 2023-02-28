@@ -5330,6 +5330,15 @@
 		<French>La tech. '[COLOR_TECH_TEXT]stations spatiales[COLOR_REVERT]' permet la [COLOR_BUILDING_TEXT]station spatiale internationale[COLOR_REVERT] (projet) et l'[COLOR_BUILDING_TEXT]élévateur spatial[COLOR_REVERT] (avec les [COLOR_TECH_TEXT]nano-technologies[COLOR_REVERT]).</French>
 	</TEXT>
 
+	<TEXT> <!-- Special Promotion -->
+		<Tag>TXT_KEY_TECH_SPECIAL_PROMOTION</Tag>
+		<English>Special Promotion</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_SPECIAL_PROMOTION_PEDIA</Tag>
+		<English>[TAB]Unresearchable tech used as a dummy to allow other resources such as Promotions or Buildings to have it as a prereq to prevent them being selected in the UI. Resources that have this as a prereq may only be created by the game rules.</English>
+	</TEXT>
+
 	<TEXT> <!-- Stirrup -->
 		<Tag>TXT_KEY_TECH_STIRRUP</Tag>
 		<English>Stirrup</English>
