@@ -24,7 +24,6 @@
 			<Button>,Art/Interface/Buttons/TechTree/Buttons_Barter.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,5,12</Button>
 			<iIndex>1</iIndex>
 			<TechPrereq>TECH_TRADE</TechPrereq>
-			<iAnarchyLength>1</iAnarchyLength>
 			<Upkeep>UPKEEP_MEDIUM</Upkeep>
 			<iDistanceMaintenanceModifier>-25</iDistanceMaintenanceModifier>
 			<iCorporationMaintenanceModifier>100</iCorporationMaintenanceModifier>
@@ -117,7 +116,6 @@
 			<Button>Art/Interface/Buttons/Civics/ancestor_worship.dds</Button>
 			<iIndex>1</iIndex>
 			<TechPrereq>TECH_CHIEFDOM</TechPrereq>
-			<iAnarchyLength>1</iAnarchyLength>
 			<Upkeep>UPKEEP_HIGH</Upkeep>
 			<iCultureDefenceChange>10</iCultureDefenceChange>
 			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_DESPOT</WeLoveTheKing>
@@ -297,7 +295,6 @@
 			<Button>Art/Interface/Buttons/Civics/tribal_law.dds</Button>
 			<iIndex>1</iIndex>
 			<TechPrereq>TECH_CHIEFDOM</TechPrereq>
-			<iAnarchyLength>1</iAnarchyLength>
 			<Upkeep>UPKEEP_LOW</Upkeep>
 			<bTribalConscription>1</bTribalConscription>
 			<iMaxConscript>2</iMaxConscript>
@@ -402,7 +399,6 @@
 			<TechPrereq>TECH_MYSTICISM</TechPrereq>
 			<bEnableStarSigns>1</bEnableStarSigns>
 			<iStarSignScaleChangePercent>40</iStarSignScaleChangePercent>
-			<iAnarchyLength>1</iAnarchyLength>
 			<Upkeep>UPKEEP_MEDIUM</Upkeep>
 			<bStateReligion>1</bStateReligion>
 			<SpecialistCommerceChanges>

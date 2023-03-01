@@ -6440,7 +6440,7 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bEnableStarSigns, "bEnableStarSigns");
 	pXML->GetChildXmlValByName(&m_iStarSignMitigateChangePercent, "iStarSignMitigateChangePercent");
 	pXML->GetChildXmlValByName(&m_iStarSignScaleChangePercent, "iStarSignScaleChangePercent");
-	pXML->GetChildXmlValByName(&m_iAnarchyLength, "iAnarchyLength");
+	pXML->GetChildXmlValByName(&m_iAnarchyLength, "iAnarchyLength", 1);
 
 	pXML->GetChildXmlValByName(szTextVal, "Upkeep");
 	m_iUpkeep = pXML->FindInInfoClass(szTextVal);
