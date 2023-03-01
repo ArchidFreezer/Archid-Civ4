@@ -1570,6 +1570,7 @@ public:
 	int getTaxRateAngerModifier() const;
 	int getDistantUnitSupplyCostModifier() const;
 	int getCityDefenceModifier() const;
+	int getBuildingClassProductionModifier(BuildingClassTypes eBuildingClass) const;
 
 	bool isMilitaryFoodProduction() const;				// Exposed to Python
 	bool isBuildingOnlyHealthy() const;				// Exposed to Python
@@ -1707,6 +1708,9 @@ protected:
 	bool* m_pabSpecialistValid;
 
 	int** m_ppiImprovementYieldChanges;
+
+	// Maps
+	std::map<int, int> m_mBuildingClassProductionModifiers;
 
 };
 

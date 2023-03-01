@@ -808,6 +808,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 		m_foundCityCultureLevels.clear();
 		m_buildingClassCommerceChanges.clear();
 		m_buildingClassYieldChanges.clear();
+		m_mBuildingClassProductionModifiers.clear();
 	}
 
 	m_plotGroups.removeAll();
@@ -13987,6 +13988,7 @@ void CvPlayer::processCivics(CivicTypes eCivic, int iChange) {
 			changeExtraBuildingHappiness(eOurBuilding, kCivic.getBuildingHappinessChanges(eBuildingClass) * iChange);
 			changeExtraBuildingHealth(eOurBuilding, kCivic.getBuildingHealthChanges(eBuildingClass) * iChange);
 		}
+		changeBuildingClassProductionModifier(eBuildingClass, kCivic.getBuildingClassProductionModifier(eBuildingClass) * iChange);
 	}
 
 	for (FeatureTypes eFeature = (FeatureTypes)0; eFeature < GC.getNumFeatureInfos(); eFeature = (FeatureTypes)(eFeature + 1)) {
@@ -14591,6 +14593,17 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 		}
 	}
 
+	int iNumElts;
+	pStream->Read(&iNumElts);
+	m_mBuildingClassProductionModifiers.clear();
+	for (int i = 0; i < iNumElts; ++i) {
+		int iBuildingClass;
+		pStream->Read(&iBuildingClass);
+		int iModifier;
+		pStream->Read(&iModifier);
+		m_mBuildingClassProductionModifiers.insert(std::make_pair((BuildingClassTypes)iBuildingClass, iModifier));
+	}
+
 	if (!isBarbarian()) {
 		// Get the NetID from the initialization structure
 		setNetID(gDLL->getAssignedNetworkID(getID()));
@@ -15053,6 +15066,12 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_buildingClassYieldChanges.size());
 	for (std::vector<BuildingYieldChange>::iterator it = m_buildingClassYieldChanges.begin(); it != m_buildingClassYieldChanges.end(); ++it) {
 		(*it).write(pStream);
+	}
+
+	pStream->Write(m_mBuildingClassProductionModifiers.size());
+	for (std::map<BuildingClassTypes, int>::iterator it = m_mBuildingClassProductionModifiers.begin(); it != m_mBuildingClassProductionModifiers.end(); ++it) {
+		pStream->Write((*it).first);
+		pStream->Write((*it).second);
 	}
 
 	pStream->Write(m_iPopRushHurryCount);
@@ -20886,3 +20905,37 @@ int CvPlayer::getMissionarySurvivalChance() const {
 void CvPlayer::changeMissionarySurvivalChance(int iChange) {
 	m_iMissionarySurvivalChance += iChange;
 }
+
+int CvPlayer::getBuildingClassProductionModifier(BuildingClassTypes eBuildingClass) const {
+	for (std::map<BuildingClassTypes, int>::const_iterator it = m_mBuildingClassProductionModifiers.begin(); it != m_mBuildingClassProductionModifiers.end(); ++it) {
+		if ((*it).first == eBuildingClass) {
+			return (*it).second;
+		}
+	}
+
+	return 0;
+}
+
+void CvPlayer::setBuildingClassProductionModifier(BuildingClassTypes eBuildingClass, int iChange) {
+	for (std::map<BuildingClassTypes, int>::iterator it = m_mBuildingClassProductionModifiers.begin(); it != m_mBuildingClassProductionModifiers.end(); ++it) {
+		if ((*it).first == eBuildingClass) {
+			if ((*it).second != iChange) {
+				if (iChange == 0) {
+					m_mBuildingClassProductionModifiers.erase(it);
+				} else {
+					(*it).second = iChange;
+				}
+			}
+			return;
+		}
+	}
+
+	if (0 != iChange) {
+		m_mBuildingClassProductionModifiers.insert(std::make_pair(eBuildingClass, iChange));
+	}
+}
+
+void CvPlayer::changeBuildingClassProductionModifier(BuildingClassTypes eBuildingClass, int iChange) {
+	setBuildingClassProductionModifier(eBuildingClass, getBuildingClassProductionModifier(eBuildingClass) + iChange);
+}
+

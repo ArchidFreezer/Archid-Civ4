@@ -2709,10 +2709,13 @@ int CvCity::getProductionModifier(UnitTypes eUnit) const {
 
 
 int CvCity::getProductionModifier(BuildingTypes eBuilding) const {
-	int iMultiplier = GET_PLAYER(getOwnerINLINE()).getProductionModifier(eBuilding);
+	const CvPlayer& kPlayer = GET_PLAYER(getOwnerINLINE());
+
+	int iMultiplier = kPlayer.getProductionModifier(eBuilding);
 	if (eBuilding != NO_BUILDING) {
 		const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
 		iMultiplier += getBuildingClassProductionModifier((BuildingClassTypes)kBuilding.getBuildingClassType());
+		iMultiplier += kPlayer.getBuildingClassProductionModifier((BuildingClassTypes)kBuilding.getBuildingClassType());
 
 		for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
 			if (hasBonus(eBonus)) {
@@ -2722,9 +2725,9 @@ int CvCity::getProductionModifier(BuildingTypes eBuilding) const {
 	}
 
 
-	if (GET_PLAYER(getOwnerINLINE()).getStateReligion() != NO_RELIGION) {
-		if (isHasReligion(GET_PLAYER(getOwnerINLINE()).getStateReligion())) {
-			iMultiplier += GET_PLAYER(getOwnerINLINE()).getStateReligionBuildingProductionModifier();
+	if (kPlayer.getStateReligion() != NO_RELIGION) {
+		if (isHasReligion(kPlayer.getStateReligion())) {
+			iMultiplier += kPlayer.getStateReligionBuildingProductionModifier();
 		}
 	}
 

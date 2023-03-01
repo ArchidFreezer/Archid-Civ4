@@ -722,6 +722,15 @@
 	<ElementType name="iTaxRateAngerModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iForeignTradeRouteModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iDistantUnitSupplyCostModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="BuildingClassType" content="textOnly"/>
+	<ElementType name="iModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="BuildingClassProductionModifier" content="eltOnly">
+		<element type="BuildingClassType"/>
+		<element type="iModifier"/>
+	</ElementType>
+	<ElementType name="BuildingClassProductionModifiers" content="eltOnly">
+		<element type="BuildingClassProductionModifier" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="iCount" content="textOnly" dt:type="int"/>
 	<ElementType name="FreeSpecialistCount" content="eltOnly">
 		<element type="SpecialistType"/>
@@ -815,6 +824,7 @@
 		<element type="SpecialBuildingNotRequireds" minOccurs="0"/>
 		<element type="SpecialistValids" minOccurs="0"/>
 		<element type="FreeSpecialistCounts" minOccurs="0"/>
+		<element type="BuildingClassProductionModifiers" minOccurs="0"/>
 		<element type="BuildingHappinessChanges" minOccurs="0"/>
 		<element type="BuildingHealthChanges" minOccurs="0"/>
 		<element type="FeatureHappinessChanges" minOccurs="0"/>

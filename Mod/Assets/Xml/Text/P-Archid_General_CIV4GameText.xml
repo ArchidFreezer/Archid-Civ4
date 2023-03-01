@@ -1675,5 +1675,17 @@
 		<French>[ICON_BULLET]%d1%% de Défense dans toutes les Villes</French>
 		<German>[ICON_BULLET]%d1%% Stadtverteidigung in allen St&#228;dten</German>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_BUILDING_CLASS_PRODUCTION_MOD</Tag>
+		<English>%[SPACE]Faster Construction of[SPACE]</English>
+		<French>%[SPACE]Construction rapide de [SPACE]</French>
+		<German>%[SPACE]Schnellere Konstruktion von[SPACE]</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_BUILDING_CLASS_PRODUCTION_SLOW</Tag>
+		<English>%[SPACE]Slower Construction of[SPACE]</English>
+		<French>%[SPACE]Construction Lente de[SPACE]</French>
+		<German>%[SPACE]Langsamere Konstruktion von[SPACE]</German>
+	</TEXT>
 
 </Civ4GameText>

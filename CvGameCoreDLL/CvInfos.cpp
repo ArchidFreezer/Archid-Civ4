@@ -5799,6 +5799,11 @@ CvCivicInfo::~CvCivicInfo() {
 	}
 }
 
+int CvCivicInfo::getBuildingClassProductionModifier(BuildingClassTypes eBuildingClass) const {
+	std::map<int, int>::const_iterator it = m_mBuildingClassProductionModifiers.find(eBuildingClass);
+	return (it != m_mBuildingClassProductionModifiers.end()) ? it->second : 0;
+}
+
 int CvCivicInfo::getFreeSpecialistCount(int i) const {
 	FAssertMsg(i < GC.getNumSpecialistInfos(), "Index out of bounds");
 	FAssertMsg(i > -1, "Index out of bounds");
@@ -6304,6 +6309,17 @@ void CvCivicInfo::read(FDataStreamBase* stream) {
 		stream->Read(NUM_YIELD_TYPES, m_ppiImprovementYieldChanges[i]);
 	}
 
+	int iNumElements;
+	int iElement;
+	int iKey;
+	stream->Read(&iNumElements);
+	m_mBuildingClassProductionModifiers.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iKey);
+		stream->Read(&iElement);
+		m_mBuildingClassProductionModifiers.insert(std::make_pair(iKey, iElement));
+	}
+
 	stream->ReadString(m_szWeLoveTheKingKey);
 }
 
@@ -6397,6 +6413,12 @@ void CvCivicInfo::write(FDataStreamBase* stream) {
 		stream->Write(NUM_YIELD_TYPES, m_ppiImprovementYieldChanges[i]);
 	}
 
+	stream->Write(m_mBuildingClassProductionModifiers.size());
+	for (std::map<int, int>::iterator it = m_mBuildingClassProductionModifiers.begin(); it != m_mBuildingClassProductionModifiers.end(); ++it) {
+		stream->Write(it->first);
+		stream->Write(it->second);
+	}
+
 	stream->WriteString(m_szWeLoveTheKingKey);
 }
 
@@ -6488,6 +6510,7 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetListInfoBool(&m_pabSpecialistValid, "SpecialistValids", GC.getNumSpecialistInfos());
 	pXML->SetListPairInfo(&m_piFreeSpecialistCount, "FreeSpecialistCounts", GC.getNumSpecialistInfos());
 
+	pXML->SetMapInfo(m_mBuildingClassProductionModifiers, "BuildingClassProductionModifiers");
 	pXML->SetListPairInfo(&m_paiBuildingHappinessChanges, "BuildingHappinessChanges", GC.getNumBuildingClassInfos());
 	pXML->SetListPairInfo(&m_paiBuildingHealthChanges, "BuildingHealthChanges", GC.getNumBuildingClassInfos());
 	pXML->SetListPairInfo(&m_paiFeatureHappinessChanges, "FeatureHappinessChanges", GC.getNumFeatureInfos());
