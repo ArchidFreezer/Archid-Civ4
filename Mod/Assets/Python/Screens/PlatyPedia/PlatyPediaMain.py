@@ -2449,19 +2449,21 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 
 	def sortCivics(self, iType):
 		lSorted = []
-		lItems = []
+		lAlphaSortItems = []
+		lUnsortedItems = []
 		for iItem in xrange(gc.getNumCivicInfos()):
 			ItemInfo = gc.getCivicInfo(iItem)
 			if ItemInfo.isGraphicalOnly() and not CyGame().isDebugMode(): continue
-			lItems.append([ItemInfo.getDescription(), iItem, ItemInfo.getButton()])
-		if not lItems: return lSorted
-		lItems.sort()
+			lUnsortedItems.append([ItemInfo.getDescription(), iItem, ItemInfo.getButton()])
+		if not lUnsortedItems: return lSorted
+		lAlphaSortItems[:] = lUnsortedItems[:]
+		lAlphaSortItems.sort()
 		if iType == 0:
-			lSorted.append(["", "", lItems])
+			lSorted.append(["", "", lAlphaSortItems])
 		elif iType == 1:
 			for iCivicOption in xrange(gc.getNumCivicOptionInfos()):
 				lTemp = []
-				for item in lItems:
+				for item in lUnsortedItems:
 					ItemInfo = gc.getCivicInfo(item[1])
 					if ItemInfo.getCivicOptionType() == iCivicOption:
 						lTemp.append(item)
@@ -2470,7 +2472,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		elif iType == 2:
 			for iEra in xrange(-1, gc.getNumEraInfos()):
 				lTemp = []
-				for item in lItems:
+				for item in lAlphaSortItems:
 					iItemEra = -1
 					ItemInfo = gc.getCivicInfo(item[1])
 					iTech = ItemInfo.getTechPrereq()
@@ -2486,7 +2488,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		elif iType == 3:
 			for iUpkeep in xrange(-1, gc.getNumUpkeepInfos()):
 				lTemp = []
-				for item in lItems:
+				for item in lAlphaSortItems:
 					ItemInfo = gc.getCivicInfo(item[1])
 					if ItemInfo.getUpkeep() == iUpkeep:
 						lTemp.append(item)
