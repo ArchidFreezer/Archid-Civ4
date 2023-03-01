@@ -352,7 +352,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>90</iPercentGamesActive>
 			<iWeight>1000</iWeight>
-			<Civic>CIVIC_TRIBAL_LAW</Civic>
+			<Civic>CIVIC_TRIBAL</Civic>
 			<Events>
 				<Event>EVENT_BARBARIAN_ATTEMPT_1</Event>
 				<Event>EVENT_BARBARIAN_ATTEMPT_2</Event>
@@ -403,7 +403,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>90</iPercentGamesActive>
 			<iWeight>200</iWeight>
-			<Civic>CIVIC_TRIBAL_LAW</Civic>
+			<Civic>CIVIC_TRIBAL</Civic>
 			<Events>
 				<Event>EVENT_BARBARIAN_CIVIC_REQUEST_1</Event>
 				<Event>EVENT_BARBARIAN_CIVIC_REQUEST_2</Event>
@@ -584,7 +584,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>80</iPercentGamesActive>
 			<iWeight>120</iWeight>
-			<Civic>CIVIC_BARBARISM</Civic>
+			<Civic>CIVIC_OLIGARCHY</Civic>
 			<Events>
 				<Event>EVENT_BARBARIAN_GIFT</Event>
 			</Events>
@@ -907,7 +907,7 @@
 			<iPercentGamesActive>80</iPercentGamesActive>
 			<iWeight>250</iWeight>
 			<bProbabilityUnitMultiply>1</bProbabilityUnitMultiply>
-			<Civic>CIVIC_BARBARISM</Civic>
+			<Civic>CIVIC_OLIGARCHY</Civic>
 			<UnitsRequired>
 				<UnitClass>UNITCLASS_WARRIOR</UnitClass>
 				<UnitClass>UNITCLASS_STONE_SPEARMAN</UnitClass>
@@ -1615,7 +1615,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>65</iPercentGamesActive>
 			<iWeight>100</iWeight>
-			<Civic>CIVIC_POLICE_STATE</Civic>
+			<Civic>CIVIC_DESPOTISM</Civic>
 			<Events>
 				<Event>EVENT_CHARISMATIC_1</Event>
 				<Event>EVENT_CHARISMATIC_2</Event>
@@ -1752,7 +1752,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>85</iPercentGamesActive>
 			<iWeight>150</iWeight>
-			<Civic>CIVIC_BARBARISM</Civic>
+			<Civic>CIVIC_OLIGARCHY</Civic>
 			<Events>
 				<Event>EVENT_CIVIC_ATTITUDE_1</Event>
 				<Event>EVENT_CIVIC_ATTITUDE_2</Event>
@@ -1936,7 +1936,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>75</iPercentGamesActive>
 			<iWeight>1000</iWeight>
-			<Civic>CIVIC_THEOCRACY</Civic>
+			<Civic>CIVIC_INTOLERANT</Civic>
 			<Events>
 				<Event>EVENT_CONTROVERSIAL_PHILOSOPHER_1</Event>
 				<Event>EVENT_CONTROVERSIAL_PHILOSOPHER_2</Event>
@@ -2100,7 +2100,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>55</iPercentGamesActive>
 			<iWeight>100</iWeight>
-			<Civic>CIVIC_REPRESENTATION</Civic>
+			<Civic>CIVIC_REPUBLIC</Civic>
 			<Events>
 				<Event>EVENT_CRISIS_IN_THE_SENATE_1</Event>
 				<Event>EVENT_CRISIS_IN_THE_SENATE_2</Event>
@@ -2374,7 +2374,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>90</iPercentGamesActive>
 			<iWeight>200</iWeight>
-			<Civic>CIVIC_EMANCIPATION</Civic>
+			<Civic>CIVIC_LIBERAL</Civic>
 			<iAngry>-1</iAngry>
 			<iUnhealthy>-1</iUnhealthy>
 			<bOwnPlot>1</bOwnPlot>
@@ -2781,7 +2781,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>90</iPercentGamesActive>
 			<iWeight>200</iWeight>
-			<Civic>CIVIC_FREE_MARKET</Civic>
+			<Civic>CIVIC_LAISSEZ_FAIRE</Civic>
 			<bOwnPlot>1</bOwnPlot>
 			<Events>
 				<Event>EVENT_FEDERAL_RESERVE_1</Event>
@@ -2899,7 +2899,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>90</iPercentGamesActive>
 			<iWeight>200</iWeight>
-			<Civic>CIVIC_ORGANIZED_RELIGION</Civic>
+			<Civic>CIVIC_STATE_CHURCH</Civic>
 			<iNumPlotsRequired>1</iNumPlotsRequired>
 			<bOwnPlot>1</bOwnPlot>
 			<TerrainsRequired>
@@ -2938,7 +2938,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>95</iPercentGamesActive>
 			<iWeight>100</iWeight>
-			<Civic>CIVIC_FREE_RELIGION</Civic>
+			<Civic>CIVIC_SECULAR</Civic>
 			<iNumReligions>3</iNumReligions>
 			<Events>
 				<Event>EVENT_FREEDOMCONCERT_1</Event>
@@ -2962,7 +2962,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>100</iPercentGamesActive>
 			<iWeight>350</iWeight>
-			<Civic>CIVIC_BARBARISM</Civic>
+			<Civic>CIVIC_OLIGARCHY</Civic>
 			<Events>
 				<Event>EVENT_FREE_BARBARIAN_LEADER</Event>
 			</Events>
@@ -3542,7 +3542,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>85</iPercentGamesActive>
 			<iWeight>200</iWeight>
-			<Civic>CIVIC_THEOCRACY</Civic>
+			<Civic>CIVIC_INTOLERANT</Civic>
 			<bPickReligion>1</bPickReligion>
 			<bStateReligion>1</bStateReligion>
 			<Events>
@@ -4140,7 +4140,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>40</iPercentGamesActive>
 			<iWeight>150</iWeight>
-			<Civic>CIVIC_TRIBALISM</Civic>
+			<Civic>CIVIC_TRIBAL</Civic>
 			<Events>
 				<Event>EVENT_IMMIGRANTS_ARRIVAL_1</Event>
 				<Event>EVENT_IMMIGRANTS_ARRIVAL_2</Event>
@@ -4332,7 +4332,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>100</iPercentGamesActive>
 			<iWeight>100</iWeight>
-			<Civic>CIVIC_UNIVERSAL_SUFFRAGE</Civic>
+			<Civic>CIVIC_LIBERAL</Civic>
 			<Events>
 				<Event>EVENT_INTERSTATE_1</Event>
 			</Events>
@@ -4459,7 +4459,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>80</iPercentGamesActive>
 			<iWeight>200</iWeight>
-			<Civic>CIVIC_FREE_SPEECH</Civic>
+			<Civic>CIVIC_DEMOCRACY</Civic>
 			<BuildingsRequired>
 				<BuildingClass>BUILDINGCLASS_LABORATORY</BuildingClass>
 			</BuildingsRequired>
@@ -5286,7 +5286,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>75</iPercentGamesActive>
 			<iWeight>120</iWeight>
-			<Civic>CIVIC_FREE_SPEECH</Civic>
+			<Civic>CIVIC_DEMOCRACY</Civic>
 			<bOwnPlot>1</bOwnPlot>
 			<Events>
 				<Event>EVENT_NUCLEAR_PROTEST_1</Event>
@@ -5383,7 +5383,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>100</iPercentGamesActive>
 			<iWeight>-2</iWeight>
-			<Civic>CIVIC_EMANCIPATION</Civic>
+			<Civic>CIVIC_LIBERAL</Civic>
 			<Events>
 				<Event>EVENT_PARTISANS_1</Event>
 				<Event>EVENT_PARTISANS_2</Event>
@@ -5879,7 +5879,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>90</iPercentGamesActive>
 			<iWeight>100</iWeight>
-			<Civic>CIVIC_STATE_PROPERTY</Civic>
+			<Civic>CIVIC_MARXIST</Civic>
 			<BuildingsRequired>
 				<BuildingClass>BUILDINGCLASS_BROADCAST_TOWER</BuildingClass>
 			</BuildingsRequired>
@@ -6170,7 +6170,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>80</iPercentGamesActive>
 			<iWeight>200</iWeight>
-			<Civic>CIVIC_ANCESTOR_WORSHIP</Civic>
+			<Civic>CIVIC_FOLKLORE</Civic>
 			<BuildingsRequired>
 				<BuildingClass>BUILDINGCLASS_KNOWLEDGE_INHERITANCE</BuildingClass>
 			</BuildingsRequired>
@@ -6196,7 +6196,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>40</iPercentGamesActive>
 			<iWeight>100</iWeight>
-			<Civic>CIVIC_ANCESTOR_WORSHIP</Civic>
+			<Civic>CIVIC_FOLKLORE</Civic>
 			<BuildingsRequired>
 				<BuildingClass>BUILDINGCLASS_SHAMAN_TEMPLE</BuildingClass>
 			</BuildingsRequired>
@@ -6220,7 +6220,6 @@
 					<Era>NONE</Era>
 				</TriggerText>
 			</TriggerTexts>
-			<Civic>CIVIC_SLAVERY</Civic>
 			<iMinTreasury>4</iMinTreasury>
 			<bOwnPlot>1</bOwnPlot>
 			<Events>
@@ -6819,7 +6818,7 @@
 			</TriggerTexts>
 			<iPercentGamesActive>60</iPercentGamesActive>
 			<iWeight>100</iWeight>
-			<Civic>CIVIC_UNIVERSAL_SUFFRAGE</Civic>
+			<Civic>CIVIC_LIBERAL</Civic>
 			<Events>
 				<Event>EVENT_TOO_CLOSE_TO_CALL_1</Event>
 				<Event>EVENT_TOO_CLOSE_TO_CALL_2</Event>

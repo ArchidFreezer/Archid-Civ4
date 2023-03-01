@@ -727,7 +727,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_FREE_RELIGION</FavoriteCivic>
+			<FavoriteCivic>CIVIC_STATE_CHURCH</FavoriteCivic>
 			<FavoriteReligion>RELIGION_BUDDHISM</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_SPIRITUAL</TraitType>
@@ -1274,7 +1274,7 @@
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iVassalPowerModifier>20</iVassalPowerModifier>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_REPRESENTATION</FavoriteCivic>
+			<FavoriteCivic>CIVIC_SENATE</FavoriteCivic>
 			<Traits>
 				<TraitType>TRAIT_IMPERIALIST</TraitType>
 				<TraitType>TRAIT_INDUSTRIOUS</TraitType>
@@ -1811,7 +1811,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_NATIONHOOD</FavoriteCivic>
+			<FavoriteCivic>CIVIC_NATIONALIST</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_EXPANSIVE</TraitType>
@@ -2354,7 +2354,8 @@
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iVassalPowerModifier>10</iVassalPowerModifier>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_UNIVERSAL_SUFFRAGE</FavoriteCivic>
+			<FavoriteCivic>CIVIC_FEDERAL</FavoriteCivic>
+			<FavoriteReligion>NONE</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_CHARISMATIC</TraitType>
 				<TraitType>TRAIT_AGGRESSIVE</TraitType>
@@ -2898,7 +2899,8 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_ORGANIZED_RELIGION</FavoriteCivic>
+			<FavoriteCivic>CIVIC_STATE_CHURCH</FavoriteCivic>
+			<FavoriteReligion>NONE</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_SPIRITUAL</TraitType>
 				<TraitType>TRAIT_CHARISMATIC</TraitType>
@@ -4520,7 +4522,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_NATIONHOOD</FavoriteCivic>
+			<FavoriteCivic>CIVIC_NATIONALIST</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_CHARISMATIC</TraitType>
@@ -5617,7 +5619,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_FREE_RELIGION</FavoriteCivic>
+			<FavoriteCivic>CIVIC_BUREAUCRACY</FavoriteCivic>
 			<Traits>
 				<TraitType>TRAIT_ORGANIZED</TraitType>
 				<TraitType>TRAIT_FINANCIAL</TraitType>
@@ -6164,7 +6166,7 @@
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iVassalPowerModifier>-20</iVassalPowerModifier>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_NATIONHOOD</FavoriteCivic>
+			<FavoriteCivic>CIVIC_NATIONALIST</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_INDUSTRIOUS</TraitType>
@@ -6707,7 +6709,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_FREE_RELIGION</FavoriteCivic>
+			<FavoriteCivic>CIVIC_SECULAR</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
@@ -7254,7 +7256,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_ANNOYED</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_UNIVERSAL_SUFFRAGE</FavoriteCivic>
+			<FavoriteCivic>CIVIC_ARISTOCRACY</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
@@ -7790,7 +7792,7 @@
 			<VassalRefuseAttitudeThreshold>ATTITUDE_ANNOYED</VassalRefuseAttitudeThreshold>
 			<iVassalPowerModifier>-20</iVassalPowerModifier>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_UNIVERSAL_SUFFRAGE</FavoriteCivic>
+			<FavoriteCivic>CIVIC_PROLETARIAT</FavoriteCivic>
 			<FavoriteReligion>RELIGION_HINDUISM</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_SPIRITUAL</TraitType>
@@ -8303,7 +8305,7 @@
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iVassalPowerModifier>50</iVassalPowerModifier>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_POLICE_STATE</FavoriteCivic>
+			<FavoriteCivic>CIVIC_FUEDALISM</FavoriteCivic>
 			<Traits>
 				<TraitType>TRAIT_AGGRESSIVE</TraitType>
 				<TraitType>TRAIT_IMPERIALIST</TraitType>
@@ -9927,7 +9929,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_FREE_MARKET</FavoriteCivic>
+			<FavoriteCivic>CIVIC_LAISSEZ_FAIRE</FavoriteCivic>
 			<Traits>
 				<TraitType>TRAIT_FINANCIAL</TraitType>
 				<TraitType>TRAIT_CHARISMATIC</TraitType>
@@ -10476,7 +10478,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_ORGANIZED_RELIGION</FavoriteCivic>
+			<FavoriteCivic>CIVIC_STATE_CHURCH</FavoriteCivic>
 			<Traits>
 				<TraitType>TRAIT_SPIRITUAL</TraitType>
 				<TraitType>TRAIT_CREATIVE</TraitType>
@@ -11564,7 +11566,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_THEOCRACY</FavoriteCivic>
+			<FavoriteCivic>CIVIC_INTOLERANT</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_SPIRITUAL</TraitType>
@@ -12667,7 +12669,7 @@
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iVassalPowerModifier>20</iVassalPowerModifier>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_REPRESENTATION</FavoriteCivic>
+			<FavoriteCivic>CIVIC_REPUBLIC</FavoriteCivic>
 			<Traits>
 				<TraitType>TRAIT_ORGANIZED</TraitType>
 				<TraitType>TRAIT_IMPERIALIST</TraitType>
@@ -13208,7 +13210,7 @@
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iVassalPowerModifier>20</iVassalPowerModifier>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_THEOCRACY</FavoriteCivic>
+			<FavoriteCivic>CIVIC_FREE_CHURCH</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_SPIRITUAL</TraitType>
@@ -13747,7 +13749,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_BUREAUCRACY</FavoriteCivic>
+			<FavoriteCivic>CIVIC_PROLETARIAT</FavoriteCivic>
 			<FavoriteReligion>RELIGION_BUDDHISM</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_AGGRESSIVE</TraitType>
@@ -14290,7 +14292,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_EMANCIPATION</FavoriteCivic>
+			<FavoriteCivic>CIVIC_PRESIDENT</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
@@ -15372,7 +15374,7 @@
 			<VassalRefuseAttitudeThreshold>ATTITUDE_ANNOYED</VassalRefuseAttitudeThreshold>
 			<iVassalPowerModifier>-20</iVassalPowerModifier>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_FREE_MARKET</FavoriteCivic>
+			<FavoriteCivic>CIVIC_LAISSEZ_FAIRE</FavoriteCivic>
 			<FavoriteReligion>RELIGION_ISLAM</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_SPIRITUAL</TraitType>
@@ -15919,7 +15921,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_STATE_PROPERTY</FavoriteCivic>
+			<FavoriteCivic>CIVIC_PLANNED</FavoriteCivic>
 			<Traits>
 				<TraitType>TRAIT_EXPANSIVE</TraitType>
 				<TraitType>TRAIT_PROTECTIVE</TraitType>
@@ -17016,7 +17018,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_POLICE_STATE</FavoriteCivic>
+			<FavoriteCivic>CIVIC_DESPOTISM</FavoriteCivic>
 			<Traits>
 				<TraitType>TRAIT_AGGRESSIVE</TraitType>
 				<TraitType>TRAIT_SPIRITUAL</TraitType>
@@ -17559,7 +17561,7 @@
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iVassalPowerModifier>20</iVassalPowerModifier>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_REPRESENTATION</FavoriteCivic>
+			<FavoriteCivic>CIVIC_REPUBLIC</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_ORGANIZED</TraitType>
@@ -18656,7 +18658,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_REPRESENTATION</FavoriteCivic>
+			<FavoriteCivic>CIVIC_REPUBLIC</FavoriteCivic>
 			<Traits>
 				<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
 				<TraitType>TRAIT_CREATIVE</TraitType>
@@ -20837,7 +20839,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_ORGANIZED_RELIGION</FavoriteCivic>
+			<FavoriteCivic>CIVIC_STATE_CHURCH</FavoriteCivic>
 			<Traits>
 				<TraitType>TRAIT_SPIRITUAL</TraitType>
 				<TraitType>TRAIT_INDUSTRIOUS</TraitType>
@@ -21918,7 +21920,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_THEOCRACY</FavoriteCivic>
+			<FavoriteCivic>CIVIC_STATE_CHURCH</FavoriteCivic>
 			<FavoriteReligion>RELIGION_ISLAM</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_PROTECTIVE</TraitType>
@@ -22466,7 +22468,7 @@
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iVassalPowerModifier>20</iVassalPowerModifier>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_POLICE_STATE</FavoriteCivic>
+			<FavoriteCivic>CIVIC_ARISTOCRACY</FavoriteCivic>
 			<Traits>
 				<TraitType>TRAIT_AGGRESSIVE</TraitType>
 				<TraitType>TRAIT_EXPANSIVE</TraitType>
@@ -23541,7 +23543,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_STATE_PROPERTY</FavoriteCivic>
+			<FavoriteCivic>CIVIC_MARXIST</FavoriteCivic>
 			<Traits>
 				<TraitType>TRAIT_INDUSTRIOUS</TraitType>
 				<TraitType>TRAIT_AGGRESSIVE</TraitType>
@@ -24666,7 +24668,7 @@
 			<VassalRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</VassalRefuseAttitudeThreshold>
 			<iVassalPowerModifier>-10</iVassalPowerModifier>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_ORGANIZED_RELIGION</FavoriteCivic>
+			<FavoriteCivic>CIVIC_STATE_CHURCH</FavoriteCivic>
 			<FavoriteReligion>RELIGION_BUDDHISM</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_EXPANSIVE</TraitType>
@@ -25775,7 +25777,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_REPRESENTATION</FavoriteCivic>
+			<FavoriteCivic>CIVIC_PARLIAMENT</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_IMPERIALIST</TraitType>
@@ -26894,7 +26896,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_FREE_SPEECH</FavoriteCivic>
+			<FavoriteCivic>CIVIC_FEDERAL</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_EXPANSIVE</TraitType>
@@ -27465,7 +27467,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_FREE_RELIGION</FavoriteCivic>
+			<FavoriteCivic>CIVIC_SECULAR</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_CREATIVE</TraitType>
@@ -28034,7 +28036,7 @@
 			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
 			<VassalRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</VassalRefuseAttitudeThreshold>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_THEOCRACY</FavoriteCivic>
+			<FavoriteCivic>CIVIC_STATE_CHURCH</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<TraitType>TRAIT_CREATIVE</TraitType>
