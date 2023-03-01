@@ -333,6 +333,12 @@
 			<iCategory>28</iCategory>
 			<DefaultBuilding>BUILDING_FURRIER</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Shrine -->
+			<Type>BUILDINGCLASS_SHRINE</Type>
+			<Description>TXT_KEY_BUILDING_SHRINE</Description>
+			<iCategory>28</iCategory>
+			<DefaultBuilding>BUILDING_SHRINE</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Slave Market -->
 			<Type>BUILDINGCLASS_SLAVE_MARKET</Type>
 			<Description>TXT_KEY_BUILDING_SLAVE_MARKET</Description>

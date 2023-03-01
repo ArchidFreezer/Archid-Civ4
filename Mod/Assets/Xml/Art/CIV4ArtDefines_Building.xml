@@ -2327,5 +2327,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/elder_council.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Shrine -->
+			<Type>ART_DEF_BUILDING_SHRINE</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.9</fScale>
+			<fInterfaceScale>0.75</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Aztec Altar/Aztec_Altar.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/shrine.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

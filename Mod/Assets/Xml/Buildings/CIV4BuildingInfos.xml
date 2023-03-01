@@ -7398,6 +7398,83 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Shrine -->
+			<BuildingClass>BUILDINGCLASS_SHRINE</BuildingClass>
+			<Type>BUILDING_SHRINE</Type>
+			<Description>TXT_KEY_BUILDING_SHRINE</Description>
+			<Civilopedia>TXT_KEY_BUILDING_SHRINE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_SHRINE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_SHRINE</ArtDefineTag>
+			<PrereqOrCivics>
+				<CivicType>CIVIC_FOLKLORE</CivicType>
+				<CivicType>CIVIC_DIVINE_RULE</CivicType>
+				<CivicType>CIVIC_PROPHETS</CivicType>
+			</PrereqOrCivics>
+			<ObsoleteTech>TECH_PHILOSOPHY</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_RITUALISM</TechType>
+			</PrereqAndTechs>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_MARBLE</BonusType>
+				<BonusType>BONUS_STONE</BonusType>
+				<BonusType>BONUS_COPPER</BonusType>
+				<BonusType>BONUS_SILVER</BonusType>
+				<BonusType>BONUS_GOLD</BonusType>
+			</PrereqOrBonuses>
+			<iCost>15</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iAsset>1</iAsset>
+			<ConstructSound>AS2D_BUILD_ORACLE</ConstructSound>
+			<BonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_GOLD</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SILVER</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_COPPER</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_STONE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_MARBLE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</BonusYieldChanges>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Shwedagon Paya -->
 			<BuildingClass>BUILDINGCLASS_SHWEDAGON_PAYA</BuildingClass>
 			<Type>BUILDING_SHWEDAGON_PAYA</Type>
