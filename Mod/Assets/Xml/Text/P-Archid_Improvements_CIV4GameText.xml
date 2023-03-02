@@ -55,6 +55,19 @@
 		<Tag>TXT_KEY_IMPROVEMENT_TOWN_PEDIA</Tag>
 		<English>[TAB]A town is a human settlement larger than a village but smaller than a city. The size a settlement must be in order to be called a "town" varies considerably in different parts of the world, so that, for example, many American "small towns" seem to British people to be no more than villages, while many British "small towns" would qualify as cities in the United States.</English>
 	</TEXT>
+
+<!-- Factory -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_FACTORY</Tag>
+		<English>Factory</English>
+		<French>Usine</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_FACTORY</Tag>
+		<English>Build Factory</English>
+		<French>Construire une Usine</French>
+	</TEXT>
+
 	<TEXT> <!-- Farm -->
 		<Tag>TXT_KEY_IMPROVEMENT_FARM_PEDIA</Tag>
 		<English>[TAB]A farm is an area of land, including various structures, devoted primarily to the practice of producing and managing food (produce, grains, or livestock), fibres and, increasingly, fuel. It is the basic production facility in food production. Farms may be owned and operated by a single individual, family, community, corporation or a company. A farm can be a holding of any size from a fraction of a hectare to several thousand hectares.</English>
@@ -63,9 +76,9 @@
 		<Tag>TXT_KEY_IMPROVEMENT_FISHING_BOATS_PEDIA</Tag>
 		<English>[TAB]A fishing vessel is a boat or ship used to catch fish in the sea, or on a lake or river. Many different kinds of vessels are used in commercial, artisanal and recreational fishing.</English>
 	</TEXT>
-	<TEXT> <!-- Forest -->
+	<TEXT> <!-- Forest Preserve -->
 		<Tag>TXT_KEY_IMPROVEMENT_FOREST_PRESERVE_PEDIA</Tag>
-		<English>[TAB]A nature reserve (natural reserve, nature preserve, natural preserve) is a protected area of importance for wildlife, flora, fauna or features of geological or other special interest, which is reserved and managed for conservation and to provide special opportunities for study or research. Nature reserves may be designated by government institutions in some countries, or by private landowners, such as charities and research institutions, regardless of nationality. Nature reserves fall into different IUCN categories depending on the level of protection afforded by local laws.</English>
+		<English>[TAB]A nature reserve is a protected area of importance for wildlife, flora, fauna or features of geological or other special interest, which is reserved and managed for conservation and to provide special opportunities for study or research. Nature reserves may be designated by government institutions in some countries, or by private landowners, such as charities and research institutions, regardless of nationality. Nature reserves fall into different IUCN categories depending on the level of protection afforded by local laws.</English>
 	</TEXT>
 	<TEXT> <!-- Fort -->
 		<Tag>TXT_KEY_IMPROVEMENT_FORT_PEDIA</Tag>
@@ -75,6 +88,12 @@
 		<Tag>TXT_KEY_IMPROVEMENT_GOODY_HUT_PEDIA</Tag>
 		<English>[TAB]Hut may refer to: Hut (dwelling), a small and crude shelter.</English>
 	</TEXT>
+	<TEXT> <!-- Industrial Complex -->
+		<Tag>TXT_KEY_IMPROVEMENT_INDUSTRIAL_COMPLEX</Tag>
+		<English>Industrial Complex</English>
+		<French>Complexe Industriel</French>
+	</TEXT>
+
 <!-- Lumberjack Camp -->
 	<TEXT>
 		<Tag>TXT_KEY_BUILD_LUMBERJACK</Tag>
@@ -219,6 +238,66 @@
 		<English>Build a [LINK=IMPROVEMENT_SILK_FARM]Silk Farm[\LINK]</English>
 		<French>Construire une [LINK=IMPROVEMENT_SILK_FARM]Culture de Soie[\LINK]</French>
 		<German>Errichte eine [LINK=IMPROVEMENT_SILK_FARM]Seidenfarm[\LINK]</German>
+	</TEXT>
+
+<!-- Terraforming -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_TERRAFORM</Tag>
+		<English>Terraforming</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_TERRAFORMED_TERRAIN</Tag>
+		<English>Terraform Completed</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_TERRAFORM</Tag>
+		<English>Terraform</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_TERRAFORM_PEDIA</Tag>
+		<English>[TAB]The term 'Terraforming' is sometimes used more generally as a synonym for planetary engineering. The concept of terraforming developed from both science fiction and actual science. </English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_TERRAFORM_GRASS</Tag>
+		<English>Grasslands terraformed into plains</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_TERRAFORM_PLAINS</Tag>
+		<English>Plains terraformed into grasslands</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_TERRAFORM_DESERT</Tag>
+		<English>Desert terraformed into plains</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_TERRAFORM_TUNDRA</Tag>
+		<English>Tundra terraformed into plains</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_TERRAFORM_SNOW</Tag>
+		<English>Snow terraformed into tundra</English>
+	</TEXT>
+
+<!-- Terrain Elevation -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_HILL</Tag>
+		<English>Elevate/Level Terrain</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_HILL</Tag>
+		<English>Elevate/Level Terrain</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_HILL_PEDIA</Tag>
+		<English>[TAB]Leveling the terrain, or creating a hill is now possible with modern wehicles.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_HILL_ELEVATE</Tag>
+		<English>Hill created</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_HILL_LEVEL</Tag>
+		<English>Hill leveled</English>
 	</TEXT>
 
 <!-- Timber Camp -->

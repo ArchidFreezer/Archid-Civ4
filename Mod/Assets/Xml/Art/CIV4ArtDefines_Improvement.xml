@@ -27,6 +27,24 @@
 			<KFM/>
 			<Button>,Art/Interface/Buttons/Builds/BuildCityRuins.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,8,9</Button>
 		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- City Ruins Arcology -->
+			<Type>ART_DEF_IMPROVEMENT_CITY_RUINS_ARCOLOGY</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Arcology/Arcology_Destroyed.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/Builds/BuildCityRuins.dds,Art/Interface/Buttons/NextWar_Atlas.dds,4,4</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Factory (from Workshop) -->
+			<Type>ART_DEF_IMPROVEMENT_3FACTORY</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>0.9</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/German_Assembly_Plant/German_Assembly_Plant.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/Buildings/Factory.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,6,2</Button>
+		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Goody Hut -->
 			<Type>ART_DEF_IMPROVEMENT_GOODY_HUT</Type>
 			<bExtraAnimations>0</bExtraAnimations>
@@ -44,6 +62,15 @@
 			<NIF>Art/Structures/Improvements/Hamlet/Hamlet.nif</NIF>
 			<KFM>Art/Structures/Improvements/Hamlet/Hamlet.kfm</KFM>
 			<Button>,Art/Interface/Buttons/Builds/BuildHamlet.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,2,10</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Industrial Complex (from Factory) -->
+			<Type>ART_DEF_IMPROVEMENT_5FACTORY</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/IronWorks/IronWorks.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/Buildings/Factory.dds,Art/Interface/Buttons/Buildings_Atlas.dds,7,2</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Land Worked -->
 			<Type>ART_DEF_IMPROVEMENT_LAND_WORKED</Type>
@@ -165,6 +192,15 @@
 			<NIF>Art/Structures/Improvements/Bridge/Bridge_NESW.nif</NIF>
 			<KFM/>
 			<Button>Art/Interface/Buttons/Builds/seabridge_nesw.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Tree Nursery -->
+			<Type>ART_DEF_IMPROVEMENT_TREE_NURSERY</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>0.65</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/tree_nursery/spices.nif</NIF>
+			<KFM>Art/Structures/Improvements/tree_nursery/spices.kfm</KFM>
+			<Button>Art/Interface/Buttons/Builds/build_forest.dds</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Watermill -->
 			<Type>ART_DEF_IMPROVEMENT_WATERMILL</Type>
