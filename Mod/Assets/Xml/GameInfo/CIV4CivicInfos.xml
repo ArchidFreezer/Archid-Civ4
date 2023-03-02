@@ -1339,6 +1339,7 @@
 			<Strategy>TXT_KEY_CIVIC_FOLKLORE_STRATEGY</Strategy>
 			<Button>Art/Interface/Buttons/Civics/folklore.dds</Button>
 			<iIndex>1</iIndex>
+			<TechPrereq>TECH_MYSTICAL_BELIEFS</TechPrereq>
 			<bEnableStarSigns>1</bEnableStarSigns>
 			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
 			<iWarWearinessModifier>-20</iWarWearinessModifier>
