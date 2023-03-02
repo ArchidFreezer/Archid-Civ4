@@ -102,12 +102,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -192,12 +192,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -280,12 +280,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -372,12 +372,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -468,12 +468,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -561,12 +561,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -658,12 +658,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -755,12 +755,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -864,12 +864,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -955,12 +955,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -1047,12 +1047,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -1139,12 +1139,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -1246,12 +1246,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -1344,12 +1344,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -1443,12 +1443,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -1529,12 +1529,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -1678,12 +1678,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -1766,12 +1766,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -1859,12 +1859,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -1941,12 +1941,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -2023,12 +2023,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -2119,12 +2119,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -2204,12 +2204,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -2307,12 +2307,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -2404,12 +2404,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -2492,12 +2492,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -2610,12 +2610,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -2708,12 +2708,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -2815,12 +2815,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -2906,12 +2906,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -3001,12 +3001,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -3090,12 +3090,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -3181,12 +3181,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -3269,12 +3269,12 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -3383,12 +3383,12 @@
 				<TechType>TECH_HUNTING</TechType>
 			</FreeTechs>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
@@ -4101,12 +4101,12 @@
 				<TechType>TECH_EARLY_FISHING</TechType>
 			</FreeTechs>
 			<InitialCivics>
-				<CivicType>CIVIC_BARTER</CivicType>
 				<CivicType>CIVIC_MIGHT</CivicType>
-				<CivicType>CIVIC_BANDITS</CivicType>
-				<CivicType>CIVIC_OLIGARCHY</CivicType>
-				<CivicType>CIVIC_PRE_BELIEF</CivicType>
 				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
 				<CivicType>CIVIC_SURVIVAL</CivicType>
 				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
