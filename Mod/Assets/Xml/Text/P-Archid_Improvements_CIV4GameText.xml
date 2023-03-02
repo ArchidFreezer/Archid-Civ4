@@ -255,4 +255,23 @@
 		<Tag>TXT_KEY_IMPROVEMENT_WORKSHOP_PEDIA</Tag>
 		<English>[TAB]A workshop is a room or building which provides both the area and tools (or machinery) that may be required for the manufacture or repair of manufactured goods. Apart from the larger factories, workshops were the only places of production in the days before industrialisation.</English>
 	</TEXT>
+
+<!-- Improvement Game text -->	
+	<TEXT>
+		<Tag>TXT_KEY_MISC_IMPR_BAD_HEALTH</Tag>
+		<English>%D1_Change[ICON_UNHEALTHY] from %s2_ImpName</English>
+		<French>%D1_Change[ICON_UNHEALTHY] de %s2_ImpName</French>
+		<German>%D1_Change[ICON_UNHEALTHY] durch Gel&#228;ndeart %s2_ImpName</German>
+		<Italian>%D1_Change[ICON_UNHEALTHY] per %s2_ImpName</Italian>
+		<Spanish>%D1_Change [ICON_UNHEALTHY] por %s2_ImpName</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_IMPR_GOOD_HEALTH</Tag>
+		<English>%D1_Change[ICON_HEALTHY] from %s2_ImpName</English>
+		<French>%D1_Change[ICON_HEALTHY] de %s2_ImpName</French>
+		<German>%D1_Change[ICON_HEALTHY] durch Gel&#228;ndeart %s2_ImpName</German>
+		<Italian>%D1_Change[ICON_HEALTHY] per %s2_ImpName</Italian>
+		<Spanish>%D1_Change [ICON_HEALTHY] por %s2_ImpName</Spanish>
+	</TEXT>
+
 </Civ4GameText>

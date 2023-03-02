@@ -55,6 +55,10 @@ public:
 	void doUnitWeaponUpgrade(std::vector<WeaponTypes> vWeapons, CvUnit* pUnit);
 	std::vector<WeaponTypes> getWeaponTypes();
 
+	int getImprovementBadHealth() const;
+	int getImprovementGoodHealth() const;
+	void updateImprovementHealth();
+
 	int getNumCityPlots() const;
 	int getWorkableRadiusOverride() const;
 	void updateWorkableRadiusOverride();
@@ -1164,6 +1168,8 @@ protected:
 	int m_iWarWearinessTimer;
 	int m_iEventAnger;
 	int m_iSpecialistHappiness;
+	int m_iImprovementBadHealth;
+	int m_iImprovementGoodHealth;
 
 	bool m_bNeverLost;
 	bool m_bBombarded;

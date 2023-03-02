@@ -3188,6 +3188,7 @@ public:
 	int getBarbarianSpawnRatePercentage() const;
 	int getPrereqTech() const;
 	int getNumPrereqLandDirections() const;
+	int getHealthChangePartPercent() const;
 
 	bool isActsAsCity() const;				// Exposed to Python
 	bool isHillsMakesValid() const;				// Exposed to Python
@@ -3273,6 +3274,7 @@ protected:
 	int m_iAnimalSpawnRatePercentage;
 	int m_iBarbarianSpawnRatePercentage;
 	int m_iPrereqTech;
+	int m_iHealthChangePartPercent;
 
 	bool m_bActsAsCity;
 	bool m_bHillsMakesValid;

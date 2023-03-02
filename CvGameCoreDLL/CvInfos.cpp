@@ -11530,6 +11530,7 @@ CvImprovementInfo::CvImprovementInfo() :
 	m_iAppearanceProbability(0),
 	m_iAnimalSpawnRatePercentage(0),
 	m_iBarbarianSpawnRatePercentage(0),
+	m_iHealthChangePartPercent(0),
 	m_iImprovementPillage(NO_IMPROVEMENT),
 	m_iImprovementUpgrade(NO_IMPROVEMENT),
 	m_iUpgradeTech(NO_TECH),
@@ -11598,6 +11599,10 @@ CvImprovementInfo::~CvImprovementInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppiRouteYieldChanges);
 	}
+}
+
+int CvImprovementInfo::getHealthChangePartPercent() const {
+	return m_iHealthChangePartPercent;
 }
 
 int CvImprovementInfo::getPrereqLandDirection(int i) const {
@@ -11919,6 +11924,7 @@ void CvImprovementInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iAnimalSpawnRatePercentage);
 	stream->Read(&m_iBarbarianSpawnRatePercentage);
 	stream->Read(&m_iPrereqTech);
+	stream->Read(&m_iHealthChangePartPercent);
 
 	stream->Read(&m_bActsAsCity);
 	stream->Read(&m_bHillsMakesValid);
@@ -12038,6 +12044,7 @@ void CvImprovementInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iAnimalSpawnRatePercentage);
 	stream->Write(m_iBarbarianSpawnRatePercentage);
 	stream->Write(m_iPrereqTech);
+	stream->Write(m_iHealthChangePartPercent);
 
 	stream->Write(m_bActsAsCity);
 	stream->Write(m_bHillsMakesValid);
@@ -12136,6 +12143,7 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iUpgradeTime, "iUpgradeTime");
 	pXML->GetChildXmlValByName(&m_iAirBombDefense, "iAirBombDefense", -1);
 	pXML->GetChildXmlValByName(&m_iDefenseModifier, "iDefenseModifier");
+	pXML->GetChildXmlValByName(&m_iHealthChangePartPercent, "iHealthChangePartPercent");
 	pXML->GetChildXmlValByName(&m_iHappiness, "iHappiness");
 	pXML->GetChildXmlValByName(&m_iPillageGold, "iPillageGold");
 	pXML->GetChildXmlValByName(&m_iAppearanceProbability, "iAppearanceProbability");

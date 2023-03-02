@@ -1620,7 +1620,14 @@
 		<Italian>[SPACE]con[SPACE]</Italian>
 		<Spanish>[SPACE]con[SPACE]</Spanish>
 	</TEXT>
-	<!-- Civic - game text -->
+	<TEXT>
+		<Tag>TXT_KEY_MISC_IN_NEARBY_CITIES</Tag>
+		<English>[SPACE]in nearby cities</English>
+		<French>[SPACE]dans les villes voisines</French>
+		<German>[SPACE]in umliegenden St&#228;dten</German>
+		<Italian>[SPACE]nelle citt&#224; vicine</Italian>
+		<Spanish>[SPACE]en las ciudades cercanas</Spanish>
+	</TEXT>	<!-- Civic - game text -->
 	<TEXT>
 		<Tag>TXT_KEY_CIVIC_FOREIGN_TRADE_ROUTE_MOD</Tag>
 		<English>[ICON_BULLET]%D1_Mod%% Foreign Trade Route Yield in All Cities</English>

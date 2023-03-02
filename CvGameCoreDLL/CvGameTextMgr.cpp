@@ -10779,6 +10779,31 @@ void CvGameTextMgr::setBadHealthHelp(CvWStringBuffer& szBuffer, CvCity& city) {
 			szBuffer.append(NEWLINE);
 		}
 
+		iHealth = -(city.getImprovementBadHealth());
+		if (iHealth > 0) {
+			for (ImprovementTypes eImprovement = (ImprovementTypes)0; eImprovement < GC.getNumImprovementInfos() && iHealth > 0; eImprovement = (ImprovementTypes)(eImprovement + 1)) {
+				const CvImprovementInfo& kImprovement = GC.getImprovementInfo(eImprovement);
+
+				int iTotalHealth = 0;
+				if (kImprovement.getHealthChangePartPercent() < 0) {
+					for (int iLoopPlot = 0; iLoopPlot < city.getNumCityPlots(); ++iLoopPlot) {
+						CvPlot* pLoopPlot = plotCity(city.getX_INLINE(), city.getY_INLINE(), iLoopPlot);
+
+						if (pLoopPlot != NULL) {
+							if (pLoopPlot->getImprovementType() == eImprovement) {
+								iTotalHealth -= kImprovement.getHealthChangePartPercent(); // The modifier is negative for bad health so this is actually an increment
+							}
+						}
+					}
+				}
+				iHealth -= iTotalHealth;
+				if (iTotalHealth >= 100) {
+					szBuffer.append(gDLL->getText("TXT_KEY_MISC_IMPR_BAD_HEALTH", iTotalHealth / 100, kImprovement.getTextKeyWide()));
+					szBuffer.append(NEWLINE);
+				}
+			}
+		}
+
 		iHealth = city.getEspionageHealthCounter();
 		if (iHealth > 0) {
 			szBuffer.append(gDLL->getText("TXT_KEY_MISC_HEALTH_FROM_ESPIONAGE", iHealth));
@@ -10870,6 +10895,31 @@ void CvGameTextMgr::setGoodHealthHelp(CvWStringBuffer& szBuffer, CvCity& city) {
 
 			szBuffer.append(gDLL->getText("TXT_KEY_MISC_FEAT_GOOD_HEALTH", iHealth, ((eFeature == NO_FEATURE) ? L"TXT_KEY_MISC_FEATURES" : GC.getFeatureInfo(eFeature).getTextKeyWide())));
 			szBuffer.append(NEWLINE);
+		}
+
+		iHealth = city.getImprovementGoodHealth();
+		if (iHealth > 0) {
+			for (ImprovementTypes eImprovement = (ImprovementTypes)0; eImprovement < GC.getNumImprovementInfos() && iHealth > 0; eImprovement = (ImprovementTypes)(eImprovement + 1)) {
+				const CvImprovementInfo& kImprovement = GC.getImprovementInfo(eImprovement);
+
+				int iTotalHealth = 0;
+				if (kImprovement.getHealthChangePartPercent() > 0) {
+					for (int iLoopPlot = 0; iLoopPlot < city.getNumCityPlots(); ++iLoopPlot) {
+						CvPlot* pLoopPlot = plotCity(city.getX_INLINE(), city.getY_INLINE(), iLoopPlot);
+
+						if (pLoopPlot != NULL) {
+							if (pLoopPlot->getImprovementType() == eImprovement) {
+								iTotalHealth += kImprovement.getHealthChangePartPercent();
+							}
+						}
+					}
+				}
+				iHealth -= iTotalHealth;
+				if (iTotalHealth >= 100) {
+					szBuffer.append(gDLL->getText("TXT_KEY_MISC_IMPR_GOOD_HEALTH", iTotalHealth / 100, kImprovement.getTextKeyWide()));
+					szBuffer.append(NEWLINE);
+				}
+			}
 		}
 
 		iHealth = city.getPowerGoodHealth();
@@ -12777,6 +12827,31 @@ void CvGameTextMgr::setImprovementHelp(CvWStringBuffer& szBuffer, ImprovementTyp
 	if (0 != kImprovement.getDefenseModifier()) {
 		szBuffer.append(NEWLINE);
 		szBuffer.append(gDLL->getText("TXT_KEY_IMPROVEMENT_DEFENSE_MODIFIER", kImprovement.getDefenseModifier()));
+	}
+
+	if (0 != kImprovement.getHealthChangePartPercent()) {
+		szBuffer.append(NEWLINE);
+		int iHealthModifier = kImprovement.getHealthChangePartPercent();
+		if (iHealthModifier % 100 == 0) {
+			szTempBuffer = CvWString::format(L"%c%s%d%c%s", gDLL->getSymbolID(BULLET_CHAR),
+				iHealthModifier > 0 ? L"+" : L"",
+				abs(iHealthModifier / 100),
+				(iHealthModifier > 0 ? gDLL->getSymbolID(HEALTHY_CHAR) : gDLL->getSymbolID(UNHEALTHY_CHAR)),
+				gDLL->getText("TXT_KEY_MISC_IN_NEARBY_CITIES").GetCString());
+		} else if (iHealthModifier % 10 == 0) {
+			szTempBuffer = CvWString::format(L"%c%s%.1f%c%s", gDLL->getSymbolID(BULLET_CHAR),
+				iHealthModifier > 0 ? L"+" : L"",
+				abs(iHealthModifier) * 0.01f,
+				(iHealthModifier > 0 ? gDLL->getSymbolID(HEALTHY_CHAR) : gDLL->getSymbolID(UNHEALTHY_CHAR)),
+				gDLL->getText("TXT_KEY_MISC_IN_NEARBY_CITIES").GetCString());
+		} else {
+			szTempBuffer = CvWString::format(L"%c%s%.2f%c%s", gDLL->getSymbolID(BULLET_CHAR),
+				iHealthModifier > 0 ? L"+" : L"",
+				abs(iHealthModifier) * 0.01f,
+				(iHealthModifier > 0 ? gDLL->getSymbolID(HEALTHY_CHAR) : gDLL->getSymbolID(UNHEALTHY_CHAR)),
+				gDLL->getText("TXT_KEY_MISC_IN_NEARBY_CITIES").GetCString());
+		}
+		szBuffer.append(szTempBuffer);
 	}
 
 	if (0 != kImprovement.getHappiness()) {

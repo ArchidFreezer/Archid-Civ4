@@ -257,6 +257,7 @@ void CvCity::init(int iID, PlayerTypes eOwner, int iX, int iY, bool bBumpUnits, 
 	updateFeatureHealth();
 	updateFeatureHappiness();
 	updatePowerHealth();
+	updateImprovementHealth();
 
 	kOwner.updateMaintenance();
 
@@ -434,6 +435,8 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 	m_iWarWearinessTimer = 0;
 	m_iEventAnger = 0;
 	m_iSpecialistHappiness = 0;
+	m_iImprovementBadHealth = 0;
+	m_iImprovementGoodHealth = 0;
 
 	m_bNeverLost = true;
 	m_bBombarded = false;
@@ -3921,6 +3924,11 @@ int CvCity::goodHealth() const {
 		iTotalHealth += iHealth;
 	}
 
+	iHealth = getImprovementGoodHealth() / 100;
+	if (iHealth > 0) {
+		iTotalHealth += iHealth;
+	}
+
 	return iTotalHealth;
 }
 
@@ -3969,6 +3977,11 @@ int CvCity::badHealth(bool bNoAngry, int iExtra) const {
 	}
 
 	iHealth = getExtraBuildingBadHealth();
+	if (iHealth < 0) {
+		iTotalHealth += iHealth;
+	}
+
+	iHealth = getImprovementBadHealth() / 100;
 	if (iHealth < 0) {
 		iTotalHealth += iHealth;
 	}
@@ -11083,6 +11096,8 @@ void CvCity::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iWarWearinessTimer);
 	pStream->Read(&m_iEventAnger);
 	pStream->Read(&m_iSpecialistHappiness);
+	pStream->Read(&m_iImprovementBadHealth);
+	pStream->Read(&m_iImprovementGoodHealth);
 
 	pStream->Read(&m_bNeverLost);
 	pStream->Read(&m_bBombarded);
@@ -11347,6 +11362,8 @@ void CvCity::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iWarWearinessTimer);
 	pStream->Write(m_iEventAnger);
 	pStream->Write(m_iSpecialistHappiness);
+	pStream->Write(m_iImprovementBadHealth);
+	pStream->Write(m_iImprovementGoodHealth);
 
 	pStream->Write(m_bNeverLost);
 	pStream->Write(m_bBombarded);
@@ -13345,6 +13362,7 @@ int CvCity::getNumCityPlots() const {
 void CvCity::doWorkableRadiusChanged() {
 	updateFeatureHappiness();
 	updateFeatureHealth();
+	updateImprovementHealth();
 	AI_setAssignWorkDirty(true);
 }
 
@@ -13943,4 +13961,52 @@ bool CvCity::hasGreatJester() const {
 		}
 	}
 	return false;
+}
+
+int CvCity::getImprovementGoodHealth() const {
+	return m_iImprovementGoodHealth;
+}
+
+
+int CvCity::getImprovementBadHealth() const {
+	return m_iImprovementBadHealth;
+}
+
+void CvCity::updateImprovementHealth() {
+	CvPlayer& kPlayer = GET_PLAYER(getOwnerINLINE());
+
+	int iNewGoodHealthPercent = 0;
+	int iNewBadHealthPercent = 0;
+
+	for (int iLoopPlot = 0; iLoopPlot < getNumCityPlots(); iLoopPlot++) {
+		CvPlot* pLoopPlot = getCityIndexPlot(iLoopPlot);
+
+		if (pLoopPlot != NULL) {
+			if (pLoopPlot->getOwner() == getOwnerINLINE()) {
+				ImprovementTypes eImprovement = pLoopPlot->getImprovementType();
+
+				if (eImprovement != NO_IMPROVEMENT) {
+					const CvImprovementInfo& kImprovement = GC.getImprovementInfo(eImprovement);
+					if (kImprovement.getHealthChangePartPercent() > 0) {
+						iNewGoodHealthPercent += kImprovement.getHealthChangePartPercent();
+					} else {
+						iNewBadHealthPercent += kImprovement.getHealthChangePartPercent();
+					}
+				}
+			}
+		}
+	}
+
+	if ((getImprovementGoodHealth() != iNewGoodHealthPercent) || (getImprovementBadHealth() != iNewBadHealthPercent)) {
+		m_iImprovementGoodHealth = iNewGoodHealthPercent;
+		m_iImprovementBadHealth = iNewBadHealthPercent;
+		FAssert(getImprovementGoodHealth() >= 0);
+		FAssert(getImprovementBadHealth() <= 0);
+
+		AI_setAssignWorkDirty(true);
+
+		if (getTeam() == GC.getGameINLINE().getActiveTeam()) {
+			setInfoDirty(true);
+		}
+	}
 }

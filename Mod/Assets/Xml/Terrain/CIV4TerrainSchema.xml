@@ -113,6 +113,7 @@
 		<element type="iYieldChange" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="iHealthPercent" content="textOnly" dt:type="int"/>
+	<ElementType name="iHealthChangePartPercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iAppearance" content="textOnly" dt:type="int"/>
 	<ElementType name="iDisappearance" content="textOnly" dt:type="int"/>
 	<ElementType name="iGrowth" content="textOnly" dt:type="int"/>
@@ -449,6 +450,7 @@
 		<element type="iUpgradeTime" minOccurs="0"/>
 		<element type="iAirBombDefense" minOccurs="0"/> <!-- Default: -1 -->
 		<element type="iDefenseModifier" minOccurs="0"/>
+		<element type="iHealthChangePartPercent" minOccurs="0"/>
 		<element type="iHappiness" minOccurs="0"/>
 		<element type="iPillageGold" minOccurs="0"/>
 		<element type="iAppearanceProbability" minOccurs="0"/>
