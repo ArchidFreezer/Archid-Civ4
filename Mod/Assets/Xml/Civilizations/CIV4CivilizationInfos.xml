@@ -102,11 +102,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_WASHINGTON</LeaderName>
@@ -189,11 +192,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_SALADIN</LeaderName>
@@ -274,11 +280,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_MONTEZUMA</LeaderName>
@@ -363,11 +372,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_HAMMURABI</LeaderName>
@@ -456,11 +468,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_JUSTINIAN</LeaderName>
@@ -546,11 +561,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_HANNIBAL</LeaderName>
@@ -640,11 +658,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_BRENNUS</LeaderName>
@@ -734,11 +755,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_QIN_SHI_HUANG</LeaderName>
@@ -840,11 +864,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_HATSHEPSUT</LeaderName>
@@ -928,11 +955,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_ELIZABETH</LeaderName>
@@ -1017,11 +1047,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_ZARA_YAQOB</LeaderName>
@@ -1106,11 +1139,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_LOUIS_XIV</LeaderName>
@@ -1210,11 +1246,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_FREDERICK</LeaderName>
@@ -1305,11 +1344,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_ALEXANDER</LeaderName>
@@ -1401,11 +1443,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_CHARLEMAGNE</LeaderName>
@@ -1484,11 +1529,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_HUAYNA_CAPAC</LeaderName>
@@ -1630,11 +1678,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_ASOKA</LeaderName>
@@ -1715,11 +1766,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_TOKUGAWA</LeaderName>
@@ -1805,11 +1859,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_SURYAVARMAN</LeaderName>
@@ -1884,11 +1941,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_WANGKON</LeaderName>
@@ -1963,11 +2023,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_MANSA_MUSA</LeaderName>
@@ -2056,11 +2119,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_PACAL</LeaderName>
@@ -2138,11 +2204,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_GENGHIS_KHAN</LeaderName>
@@ -2238,11 +2307,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_SITTING_BULL</LeaderName>
@@ -2332,11 +2404,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_WILLEM_VAN_ORANJE</LeaderName>
@@ -2417,11 +2492,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_MEHMED</LeaderName>
@@ -2532,11 +2610,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_CYRUS</LeaderName>
@@ -2627,11 +2708,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_JOAO</LeaderName>
@@ -2731,11 +2815,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_JULIUS_CAESAR</LeaderName>
@@ -2819,11 +2906,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_PETER</LeaderName>
@@ -2911,11 +3001,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_ISABELLA</LeaderName>
@@ -2997,11 +3090,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_GILGAMESH</LeaderName>
@@ -3085,11 +3181,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_RAGNAR</LeaderName>
@@ -3170,11 +3269,14 @@
 				<BuildingClassType>BUILDINGCLASS_CAPITAL_SEAT</BuildingClassType>
 			</FreeBuildingClasses>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_SHAKA</LeaderName>
@@ -3281,11 +3383,14 @@
 				<TechType>TECH_HUNTING</TechType>
 			</FreeTechs>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_BARBARIAN</LeaderName>
@@ -3996,11 +4101,14 @@
 				<TechType>TECH_EARLY_FISHING</TechType>
 			</FreeTechs>
 			<InitialCivics>
-				<CivicType>CIVIC_DESPOTISM</CivicType>
-				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_NOMADISM</CivicType>
-				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
-				<CivicType>CIVIC_PAGANISM</CivicType>
+				<CivicType>CIVIC_BARTER</CivicType>
+				<CivicType>CIVIC_MIGHT</CivicType>
+				<CivicType>CIVIC_BANDITS</CivicType>
+				<CivicType>CIVIC_OLIGARCHY</CivicType>
+				<CivicType>CIVIC_PRE_BELIEF</CivicType>
+				<CivicType>CIVIC_UNSTRUCTURED</CivicType>
+				<CivicType>CIVIC_SURVIVAL</CivicType>
+				<CivicType>CIVIC_NOTHING</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<LeaderName>LEADER_BARBARIAN</LeaderName>
