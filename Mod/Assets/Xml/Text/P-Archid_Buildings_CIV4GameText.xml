@@ -316,6 +316,24 @@
 		<English>Adds gold and commerce with Fur; Resource requirement.</English>
 		<French>Ajoute de l'Or et du commerce avec la ressource Fourrure (nécessaire)</French>
 	</TEXT>
+	<TEXT> <!-- Garrison -->
+		<Tag>TXT_KEY_BUILDING_GARRISON</Tag>
+		<English>Garrison</English>
+		<French>
+			<Text>Garnison</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Garnison</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GARRISON_PEDIA</Tag>
+		<English>[TAB]Garrison (from the French garnison, itself from the verb garnir, "to equip") is the collective term for a body of troops stationed in a particular location, originally to guard it, of more than 50 men, but now often simply using it as a home base. The station is usually a city, town, fort, castle or similar.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GARRISON_STRATEGY</Tag>
+		<English>Garrison replaces Barracks in the city and gives experience to new land units. Also increases military production and heals damaged units.</English>
+	</TEXT>
 	<TEXT> <!-- Great Academy -->
 		<Tag>TXT_KEY_BUILDING_GREAT_ACADEMY</Tag>
 		<English>Great Academy</English>

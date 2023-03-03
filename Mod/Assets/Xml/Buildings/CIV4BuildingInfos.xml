@@ -613,12 +613,35 @@
 			<iAsset>2</iAsset>
 			<iPower>3</iPower>
 			<ConstructSound>AS2D_BUILD_BARRACKS</ConstructSound>
-			<DomainFreeExperiences>
-				<DomainFreeExperience>
-					<DomainType>DOMAIN_LAND</DomainType>
+			<UnitCombatFreeExperiences>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 					<iExperience>3</iExperience>
-				</DomainFreeExperience>
-			</DomainFreeExperiences>
+				</UnitCombatFreeExperience>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+					<iExperience>3</iExperience>
+				</UnitCombatFreeExperience>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_ANIMAL</UnitCombatType>
+					<iExperience>2</iExperience>
+				</UnitCombatFreeExperience>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+					<iExperience>2</iExperience>
+				</UnitCombatFreeExperience>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+					<iExperience>2</iExperience>
+				</UnitCombatFreeExperience>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+					<iExperience>1</iExperience>
+				</UnitCombatFreeExperience>
+			</UnitCombatFreeExperiences>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_GARRISON</BuildingClassType>
+			</ReplacedByBuildingClasses>		
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
@@ -649,12 +672,35 @@
 			<iAsset>3</iAsset>
 			<iPower>3</iPower>
 			<ConstructSound>AS2D_BUILD_BARRACKS</ConstructSound>
-			<DomainFreeExperiences>
-				<DomainFreeExperience>
-					<DomainType>DOMAIN_LAND</DomainType>
+			<UnitCombatFreeExperiences>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 					<iExperience>3</iExperience>
-				</DomainFreeExperience>
-			</DomainFreeExperiences>
+				</UnitCombatFreeExperience>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+					<iExperience>3</iExperience>
+				</UnitCombatFreeExperience>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_ANIMAL</UnitCombatType>
+					<iExperience>2</iExperience>
+				</UnitCombatFreeExperience>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+					<iExperience>2</iExperience>
+				</UnitCombatFreeExperience>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+					<iExperience>2</iExperience>
+				</UnitCombatFreeExperience>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+					<iExperience>1</iExperience>
+				</UnitCombatFreeExperience>
+			</UnitCombatFreeExperiences>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_GARRISON</BuildingClassType>
+			</ReplacedByBuildingClasses>		
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
@@ -3271,6 +3317,64 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Garrison -->
+			<BuildingClass>BUILDINGCLASS_GARRISON</BuildingClass>
+			<Type>BUILDING_GARRISON</Type>
+			<Description>TXT_KEY_BUILDING_GARRISON</Description>
+			<Civilopedia>TXT_KEY_BUILDING_GARRISON_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_GARRISON_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_GARRISON</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_LEADERSHIP</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_AGGRESSIVE</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<iCost>180</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iHealRateChange>20</iHealRateChange>
+			<iAsset>4</iAsset>
+			<iPower>5</iPower>
+			<ConstructSound>AS2D_BUILD_BARRACKS</ConstructSound>
+			<UnitCombatFreeExperiences>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+					<iExperience>2</iExperience>
+				</UnitCombatFreeExperience>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_WHEELED</UnitCombatType>
+					<iExperience>2</iExperience>
+				</UnitCombatFreeExperience>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
+					<iExperience>2</iExperience>
+				</UnitCombatFreeExperience>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+					<iExperience>2</iExperience>
+				</UnitCombatFreeExperience>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+					<iExperience>2</iExperience>
+				</UnitCombatFreeExperience>
+			</UnitCombatFreeExperiences>
+			<DomainProductionModifiers>
+				<DomainProductionModifier>
+					<DomainType>DOMAIN_LAND</DomainType>
+					<iModifier>20</iModifier>
+				</DomainProductionModifier>
+			</DomainProductionModifiers>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>

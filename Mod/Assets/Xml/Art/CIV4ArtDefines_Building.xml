@@ -2337,5 +2337,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/shrine.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Garrison -->
+			<Type>ART_DEF_BUILDING_GARRISON</Type>
+			<LSystem>LSYSTEM_GARRISON</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/garrison/Barracks.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/garrison.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
