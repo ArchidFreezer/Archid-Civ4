@@ -186,6 +186,15 @@
 			<Button>,Art/Interface/Buttons/WorldBuilder/Stone.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,6,14</Button>
 			<FontButtonIndex>7</FontButtonIndex>
 		</BonusArtInfo>
+		<BonusArtInfo> <!-- Sulphur -->
+			<Type>ART_DEF_BONUS_SULPHUR</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Sulphur/Silver.nif</NIF>
+			<KFM>Art/Terrain/Resources/Sulphur/Silver.kfm</KFM>
+			<Button>Art/Interface/Buttons/WorldBuilder/sulphur.dds</Button>
+			<FontButtonIndex>39</FontButtonIndex>
+		</BonusArtInfo>
 		<BonusArtInfo> <!-- Uranium -->
 			<Type>ART_DEF_BONUS_URANIUM</Type>
 			<fScale>1.0</fScale>

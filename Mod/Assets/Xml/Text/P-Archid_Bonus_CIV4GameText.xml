@@ -449,6 +449,35 @@
 		<Tag>TXT_KEY_BONUS_STEEL_PEDIA</Tag>
 		<English>[TAB]Steel is an alloy consisting mostly of iron, with a carbon content between 0.2 and 1.7 or 2.04% by weight depending on grade. Carbon is the most cost-effective alloying material for iron, but various other alloying elements are used such as manganese, chromium, vanadium, and tungsten. Carbon and other elements act as a hardening agent, preventing dislocations in the iron atom crystal lattice from sliding past one another. Varying the amount of alloying elements and form of their presence in the steel (solute elements, precipitated phase) controls qualities such as the hardness, ductility and tensile strength of the resulting steel. Steel with increased carbon content can be made harder and stronger than iron, but is also more brittle. [PARAGRAPH:1]Though steel had been produced by various inefficient methods long before the Renaissance, its use became more common after more efficient production methods were devised in the 17th century. With the invention of the Bessemer process in the mid-19th century, steel became a relatively inexpensive mass-produced good. Further refinements in the process, such as basic oxygen steelmaking, further lowered the cost of production while increasing the quality of the metal. Today, steel is one of the most common materials in the world and is a major component in buildings, tools, automobiles, and appliances. Modern steel is generally identified by various grades of steel defined by various standards organizations.</English>
 	</TEXT>
+<!-- Sulphur -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_SULPHUR</Tag>
+		<English>Sulphur</English>
+		<French>
+			<Text>Soufre</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schwefel</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Zolfo</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Azufre</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_SULPHUR_PEDIA</Tag>
+		<English>[TAB] Sulphur, in its native form, is a yellow crystaline solid. In nature, it can be found as the pure element or as sulfide and sulfate minerals. It is an essential element for life and is found in two amino acids. Its commercial uses are primarily in fertilizers but it is also widely used in gunpowder, matches, insecticides and fungicides. Gunpowder, whether black powder or smokeless powder, is a substance that burns very rapidly and is used as a propellant in firearms. As it burns, a subsonic deflagration wave is produced rather than the supersonic detonation wave which high explosives would produce. The first type of gunpowder was black powder. Historians of various cultures have postulated that it was invented between the seventh or ninth centuries by either the Arabs or the Chinese. It is also possible that black powder was invented by many cultures at around the same time. Regardless of origin, it was the first chemical propellant and the first explosive recorded in history. Black powder is a mix of sulphur, charcoal, and potassium or sodium nitrate, (sodium nitrate makes a less powerful compound), at a ratio of approximately 10:15:75. Historically, potassium nitrate was extracted from manure by a process superficially similar to composting. Nitre beds took about a year to produce crystallized potassium nitrate. - Wikipedia </English>
+	</TEXT>
 <!-- Synthetic Rubber -->
 	<TEXT>
 		<Tag>TXT_KEY_BONUS_SYNTHETIC_RUBBER</Tag>

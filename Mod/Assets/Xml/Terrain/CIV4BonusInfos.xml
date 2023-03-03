@@ -2109,6 +2109,50 @@
 				<TerrainType>TERRAIN_TUNDRA</TerrainType>
 			</FeatureTerrainBooleans>
 		</BonusInfo>
+		<BonusInfo> <!-- Sulphur -->
+			<Type>BONUS_SULPHUR</Type>
+			<Description>TXT_KEY_BONUS_SULPHUR</Description>
+			<Civilopedia>TXT_KEY_BONUS_SULPHUR_PEDIA</Civilopedia>
+			<BonusClassType>BONUSCLASS_RUSH</BonusClassType>
+			<ArtDefineTag>ART_DEF_BONUS_SULPHUR</ArtDefineTag>
+			<TechReveal>TECH_GUNPOWDER</TechReveal>
+			<TechCityTrade>TECH_MINING</TechCityTrade>
+			<YieldChanges>
+				<iYieldChange>-2</iYieldChange>
+				<iYieldChange>0</iYieldChange>
+				<iYieldChange>1</iYieldChange>
+			</YieldChanges>
+			<iAITradeModifier>10</iAITradeModifier>
+			<iPlacementOrder>2</iPlacementOrder>
+			<iConstAppearance>100</iConstAppearance>
+			<iMinAreaSize>3</iMinAreaSize>
+			<Rands>
+				<iRandApp1>25</iRandApp1>
+				<iRandApp2>25</iRandApp2>
+				<iRandApp3>0</iRandApp3>
+				<iRandApp4>0</iRandApp4>
+			</Rands>
+			<iPlayer>150</iPlayer>
+			<iGroupRand>25</iGroupRand>
+			<bHills>1</bHills>
+			<bFlatlands>1</bFlatlands>
+			<TerrainBooleans>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+				<TerrainType>TERRAIN_DESERT</TerrainType>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
+				<TerrainType>TERRAIN_SNOW</TerrainType>
+			</TerrainBooleans>
+			<FeatureBooleans>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
+				<FeatureType>FEATURE_FOREST</FeatureType>
+			</FeatureBooleans>
+			<FeatureTerrainBooleans>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
+			</FeatureTerrainBooleans>
+		</BonusInfo> 
 
 
 <!-- ************	-->
