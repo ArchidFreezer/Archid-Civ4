@@ -239,6 +239,12 @@
 			<iCategory>22</iCategory>
 			<DefaultBuilding>BUILDING_LEVEE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Manor -->
+			<Type>BUILDINGCLASS_MANOR</Type>
+			<Description>TXT_KEY_BUILDING_MANOR</Description>
+			<iCategory>22</iCategory>
+			<DefaultBuilding>BUILDING_MANOR</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Marina -->
 			<Type>BUILDINGCLASS_MARINA</Type>
 			<Description>TXT_KEY_BUILDING_MARINA</Description>
