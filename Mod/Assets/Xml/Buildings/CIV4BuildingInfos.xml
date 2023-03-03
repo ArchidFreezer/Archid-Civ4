@@ -510,14 +510,30 @@
 			<PrereqAndTechs>
 				<TechType>TECH_BANKING</TechType>
 			</PrereqAndTechs>
-			<iCost>200</iCost>
+			<iCost>220</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
+			<iConquestProb>75</iConquestProb>
+			<iHappiness>-2</iHappiness>
 			<iAsset>5</iAsset>
 			<CommerceModifiers>
-				<iCommerce>50</iCommerce>
+				<iCommerce>30</iCommerce>
 			</CommerceModifiers>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_BANK</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_INVESTMENT_BANK</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_INVESTMENT_BANK</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
@@ -536,14 +552,30 @@
 			<PrereqAndTechs>
 				<TechType>TECH_BANKING</TechType>
 			</PrereqAndTechs>
-			<iCost>200</iCost>
+			<iCost>220</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
+			<iConquestProb>75</iConquestProb>
+			<iHappiness>-2</iHappiness>
 			<iAsset>7</iAsset>
 			<CommerceModifiers>
-				<iCommerce>65</iCommerce>
+				<iCommerce>45</iCommerce>
 			</CommerceModifiers>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_BANK</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_INVESTMENT_BANK</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_INVESTMENT_BANK</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
@@ -1421,6 +1453,51 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Central Bank -->
+			<BuildingClass>BUILDINGCLASS_CENTRAL_BANK</BuildingClass>
+			<Type>BUILDING_CENTRAL_BANK</Type>
+			<Description>TXT_KEY_BUILDING_CENTRAL_BANK</Description>
+			<Civilopedia>TXT_KEY_BUILDING_CENTRAL_BANK_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_CENTRAL_BANK_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_CENTRAL_BANK</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_CENTRAL_BANK</MovieDefineTag>
+			<PrereqNotBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_FINANCIAL_NEXUS</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_WORLD_BANK</BuildingClassType>
+			</PrereqNotBuildingClasses>
+			<PrereqAndTechs>
+				<TechType>TECH_MERCANTILISM</TechType>
+			</PrereqAndTechs>
+			<GreatPeopleUnitClass>UNITCLASS_MERCHANT</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
+			<iCost>720</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iAsset>5</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>3</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>200</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<CommerceModifiers>
+				<iCommerce>75</iCommerce>
+			</CommerceModifiers>
+			<ConstructSound>AS2D_BUILD_BANK</ConstructSound>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
+					<iNeeded>4</iNeeded>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -2945,6 +3022,43 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Financial Nexus -->
+			<BuildingClass>BUILDINGCLASS_FINANCIAL_NEXUS</BuildingClass>
+			<Type>BUILDING_FINANCIAL_NEXUS</Type>
+			<Description>TXT_KEY_BUILDING_FINANCIAL_NEXUS</Description>
+			<Civilopedia>TXT_KEY_BUILDING_FINANCIAL_NEXUS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_FINANCIAL_NEXUS_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_FINANCIAL_NEXUS</ArtDefineTag>
+			<PrereqNotBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_CENTRAL_BANK</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_WORLD_BANK</BuildingClassType>
+			</PrereqNotBuildingClasses>
+			<PrereqAndTechs>
+				<TechType>TECH_MESH_NETWORKS</TechType>
+			</PrereqAndTechs>
+			<iCost>1030</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iHappiness>-2</iHappiness>
+			<iTradeRouteModifier>15</iTradeRouteModifier>
+			<iAsset>5</iAsset>
+			<CommerceModifiers>
+				<iCommerce>65</iCommerce>
+			</CommerceModifiers>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_FINANCIAL_NEXUS</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -4536,6 +4650,69 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Investment Bank -->
+			<BuildingClass>BUILDINGCLASS_INVESTMENT_BANK</BuildingClass>
+			<Type>BUILDING_INVESTMENT_BANK</Type>
+			<Description>TXT_KEY_BUILDING_INVESTMENT_BANK</Description>
+			<Civilopedia>TXT_KEY_BUILDING_INVESTMENT_BANK_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_E_BANK_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_INVESTMENT_BANK</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_APPLIED_ECONOMICS</TechType>
+			</PrereqAndTechs>
+			<bTeamShare>1</bTeamShare>
+			<iCost>560</iCost>
+			<iHurryCostModifier>100</iHurryCostModifier>
+			<iAdvancedStartCost>200</iAdvancedStartCost>
+			<iAdvancedStartCostIncrease>3</iAdvancedStartCostIncrease>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iConquestProb>50</iConquestProb>
+			<iHappiness>-4</iHappiness>
+			<iTradeRouteModifier>15</iTradeRouteModifier>
+			<iAsset>10</iAsset>
+			<CommerceModifiers>
+				<iCommerce>50</iCommerce>
+			</CommerceModifiers>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_SKYSCRAPER</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_FINANCIAL_NEXUS</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_CENTRAL_BANK</BuildingClassType>
+					<iModifier>50</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_WORLD_BANK</BuildingClassType>
+					<iModifier>50</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
+					<iNeeded>2</iNeeded>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_FINANCIAL_NEXUS</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CENTRAL_BANK</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_WORLD_BANK</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Iron Works -->
 			<BuildingClass>BUILDINGCLASS_IRON_WORKS</BuildingClass>
 			<Type>BUILDING_IRON_WORKS</Type>
@@ -6041,6 +6218,44 @@
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
 					<iFlavor>8</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Moneylender -->
+			<BuildingClass>BUILDINGCLASS_MONEYLENDER</BuildingClass>
+			<Type>BUILDING_MONEYLENDER</Type>
+			<Description>TXT_KEY_BUILDING_MONEYLENDER</Description>
+			<Civilopedia>TXT_KEY_BUILDING_MONEYLENDER_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_BANK_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_FRENCH_SALON</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_CURRENCY</TechType>
+			</PrereqAndTechs>
+			<iCost>100</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iConquestProb>75</iConquestProb>
+			<iHappiness>-1</iHappiness>
+			<iAsset>5</iAsset>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<CommerceModifiers>
+				<iCommerce>15</iCommerce>
+			</CommerceModifiers>
+			<ConstructSound>AS2D_BUILD_BANK</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
@@ -9666,6 +9881,59 @@
 				<Flavor>
 					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
 					<iFlavor>2</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- World Bank -->
+			<BuildingClass>BUILDINGCLASS_WORLD_BANK</BuildingClass>
+			<Type>BUILDING_WORLD_BANK</Type>
+			<SpecialBuildingType>SPECIALBUILDING_WORLD_BANK</SpecialBuildingType>
+			<Description>TXT_KEY_BUILDING_WORLD_BANK</Description>
+			<Civilopedia>TXT_KEY_BUILDING_WORLD_BANK_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_WORLD_BANK_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_WORLD_BANK</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_WORLD_BANK</MovieDefineTag>
+			<PrereqNotBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_CENTRAL_BANK</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_FINANCIAL_NEXUS</BuildingClassType>
+			</PrereqNotBuildingClasses>
+			<PrereqAndTechs>
+				<TechType>TECH_APPLIED_ECONOMICS</TechType>
+			</PrereqAndTechs>
+			<GreatPeopleUnitClass>UNITCLASS_MERCHANT</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
+			<iCost>750</iCost>
+			<iHurryCostModifier>100</iHurryCostModifier>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iCitiesPrereq>5</iCitiesPrereq>
+<!--			<iGoldPercentDividendPerTurn>3</iGoldPercentDividendPerTurn>
+			<iGoldIncreasePercent>50</iGoldIncreasePercent> -->
+			<iAsset>10</iAsset>
+			<CommerceModifiers>
+				<iCommerce>50</iCommerce>
+			</CommerceModifiers>
+			<GlobalCommerceModifiers>
+				<iCommerce>10</iCommerce>
+			</GlobalCommerceModifiers>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+					<iCount>3</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_BANK</ConstructSound>
+			<BonusProductionModifiers>
+				<BonusProductionModifier>
+					<BonusType>BONUS_GOLD</BonusType>
+					<iModifier>100</iModifier>
+				</BonusProductionModifier>
+			</BonusProductionModifiers>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>

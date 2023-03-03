@@ -315,5 +315,13 @@
 			<Type>ART_DEF_MOVIE_SUPERCOLLIDER</Type>
 			<Path>Art/Movies/NWonders/ParticleAccelerator.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_WORLD_BANK</Type>
+			<Path>Art/Movies/Wonders/WorldBank.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_CENTRAL_BANK</Type>
+			<Path>Art/Movies/NWonders/CentralBank.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

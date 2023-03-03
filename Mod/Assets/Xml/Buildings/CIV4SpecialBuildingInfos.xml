@@ -61,5 +61,15 @@
 			<ProductionTraits/>
 			<Button>Art/Interface/Buttons/Buildings/Laboratory.dds</Button>
 		</SpecialBuildingInfo>
+		<SpecialBuildingInfo>
+			<Type>SPECIALBUILDING_WORLD_BANK</Type>
+			<Description>TXT_KEY_SPECIALBUILDING_WORLD_BANK</Description>
+			<ObsoleteTech>NONE</ObsoleteTech>
+			<TechPrereq>NONE</TechPrereq>
+			<TechPrereqAnyone>NONE</TechPrereqAnyone>
+			<bValid>0</bValid>
+			<ProductionTraits/>
+			<Button>Art/Interface/Buttons/Buildings/world_bank.dds</Button>
+		</SpecialBuildingInfo>
 	</SpecialBuildingInfos>
 </Civ4SpecialBuildingInfos>

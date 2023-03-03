@@ -146,6 +146,24 @@
 		<English>Build a [COLOR_BUILDING_TEXT]Cave Painting[COLOR_REVERT] to increase your culture output in your cities.</English>
 		<Spanish>Construye una [COLOR_BUILDING_TEXT]Pintura Rupestre[COLOR_REVERT] para incrementar la cultura en tus ciudades.</Spanish>
 	</TEXT>
+	<TEXT> <!-- Central Bank -->
+		<Tag>TXT_KEY_BUILDING_CENTRAL_BANK</Tag>
+		<English>Central Bank</English>
+		<French>
+			<Text>Banque Centrale</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Zentralbank</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CENTRAL_BANK_PEDIA</Tag>
+		<English>[TAB]A central bank, reserve bank, or monetary authority is the entity responsible for the monetary policy of a country or of a group of member states. It is a bank that can lend money to other banks in times of need. Its primary responsibility is to maintain the stability of the national currency and money supply, but more active duties include controlling subsidized-loan interest rates, and acting as a lender of last resort to the banking sector during times of financial crisis (private banks often being integral to the national financial system). It may also have supervisory powers, to ensure that banks and other financial institutions do not behave recklessly or fraudulently.[PARAGRAPH:2]Most richer countries today have an "independent" central bank, that is, one which operates under rules designed to prevent political interference. Examples include the European Central Bank (ECB) and the Federal Reserve System in the United States. Some central banks are publicly owned, and others are privately owned. For example, the United States Federal Reserve is a quasi-public corporation.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CENTRAL_BANK_STRATEGY</Tag>
+		<English>Central Bank national wonder boosts city's commerce significantly</English>
+	</TEXT>
 	<TEXT> <!-- City Council -->
 		<Tag>TXT_KEY_BUILDING_CITY_COUNCIL</Tag>
 		<English>City Council</English>
@@ -243,6 +261,20 @@
 		<Tag>TXT_KEY_BUILDING_ELDER_COUNCIL_STRATEGY</Tag>
 		<English>Early science building.</English>
 		<French>Bâtiment Primitif de Science</French>
+	</TEXT>
+	<TEXT> <!-- Financial Nexus -->
+		<Tag>TXT_KEY_BUILDING_FINANCIAL_NEXUS</Tag>
+		<English>Financial Nexus</English>
+		<French>Nexus Financier</French>
+		<German>Finanznexus</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FINANCIAL_NEXUS_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FINANCIAL_NEXUS_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Financial Nexus[COLOR_REVERT] increases your total [ICON_GOLD] by 50%, and provides 2% interest on your [ICON_GOLD] reserves every turn.</English>
 	</TEXT>
 	<TEXT> <!-- Fish Market -->
 		<Tag>TXT_KEY_BUILDING_FISH_MARKET</Tag>
@@ -406,6 +438,15 @@
 		<English>Build a [COLOR_BUILDING_TEXT]Hunting Lodge[COLOR_REVERT] to increase the growth of your cities.</English>
 		<Spanish>Construye una [COLOR_BUILDING_TEXT]Caba&#241;a del Cazador[COLOR_REVERT] para incrementar el crecimiento de tus ciudades.</Spanish>
 	</TEXT>
+	<TEXT> <!-- Investment Bank -->
+		<Tag>TXT_KEY_BUILDING_INVESTMENT_BANK</Tag>
+		<English>Investment Bank</English>
+		<French>Banque d'Investissements</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INVESTMENT_BANK_PEDIA</Tag>
+		<English>[TAB]An investment bank is a financial institution that assists corporations and governments in raising capital by underwriting and acting as the agent in the issuance of securities. An investment bank also assists companies involved in mergers and acquisitions, derivatives, etc. Further it provides ancillary services such as market making and the trading of derivatives, fixed income instruments, foreign exchange, commodity, and equity securities.[PARAGRAPH:1]To provide investment banking services in the United States an advisor must be a licensed broker-dealer. Until 1999, the United States maintained a separation between investment banking and commercial banks. Other industrialized countries, including G7 countries, have not maintained this separation historically. Trading securities for cash or securities (i.e., facilitating transactions, market-making), or the promotion of securities (i.e., underwriting, research, etc.) was referred to as the "sell side".[PARAGRAPH:1]Dealing with the pension funds, mutual funds, hedge funds, and the investing public who consumed the products and services of the sell-side in order to maximize their return on investment constitutes the "buy side". Many firms have buy and sell side components.</English>
+	</TEXT>
 	<TEXT> <!-- Jumplane Portal -->
 		<Tag>TXT_KEY_BUILDING_JUMPLANE_PORTAL</Tag>
 		<English>Jumplane Portal</English>
@@ -540,6 +581,16 @@
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_MICROLITH_WORKSHOP_STRATEGY</Tag>
 		<English>Build a [COLOR_BUILDING_TEXT]Microlith Workshop[COLOR_REVERT] to increase your cities's military production in the earlier eras.</English>
+	</TEXT>
+	<TEXT> <!-- Moneylender -->
+		<Tag>TXT_KEY_BUILDING_MONEYLENDER</Tag>
+		<English>Moneylender</English>
+		<French>Prêteur</French>
+		<German>Geldverleiher</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MONEYLENDER_PEDIA</Tag>
+		<English>.</English>
 	</TEXT>
 	<TEXT> <!-- National Slave Auction -->
 		<Tag>TXT_KEY_BUILDING_NATIONAL_SLAVE_AUCTION</Tag>
@@ -893,6 +944,32 @@
 		<French>Procure une ressource 'Vêtement', fournissant du commerce</French>
 		<German>Erzeugt die Ressource "Kleidung", erzeugt Handel</German>
 	</TEXT>
+	<TEXT> <!-- World Bank -->
+		<Tag>TXT_KEY_BUILDING_WORLD_BANK</Tag>
+		<English>World Bank</English>
+		<French>
+			<Text>Banque Mondiale</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Weltbank</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WORLD_BANK_PEDIA</Tag>
+		<English>[TAB]The World Bank is one of two major institutions created as a result of the Bretton Woods Conference in 1944. The International Monetary Fund, a related but separate institution, is the second. Delegates from a wide variety of countries attended the Bretton Woods Conference, but the most powerful countries in attendance, the United States and Britain, mainly shaped negotiations.[PARAGRAPH:2]From its conception until 1967 the bank undertook a relatively low level of lending. Fiscal conservatism and careful screening of loan applications was generally accepted practice at the World Bank during this early period. Bank staff attempted to balance the priorities of providing loans for reconstruction and development with the need to instill confidence in the bank as a reliable institution suitable for investment.  Bank president John McCloy selected France to be the first recipient of World Bank aid; two other applications presented at this time from Poland and Chile was rejected. The loan was for $ 987 million, half the amount requested, and came with strict conditions. Staff from the World Bank would monitor the end use of the funds, ensuring that the French government would present a balanced budget, and give priority of debt repayment to the World Bank over other foreign governments. The United States State Department also acted at this time to inform the French Government that Communist elements within the Cabinétte needed to be removed. The French Government complied with this request and removed the Communist elements from the 1947 coalition government. Within hours of this event the loan to France was approved.  The Marshall Plan of 1947 caused lending practices at the bank to be altered, as many European countries received aid that competed directly with World Bank loans. Emphasis was shifted to non-European countries and up until 1968 loans were primarily earmarked for projects that would directly enable a borrower country to repay loans (such projects as ports, highway systems, and power plants).[PARAGRAPH:2]From 1968–1980 the bank focused on poverty alleviation and meeting the basic needs of people in the developing world. During this period the size and number of loans to borrower nations was greatly increased as the spectrum of loan targets expanded from infrastructure into social services and other sectors. These changes can to a large extent be attributed to Robert McNamara who assumed the Presidency in 1968 after being appointed by US president Lyndon B. Johnson.  McNamara imported a technocratic managerial style to the bank that he had employed during periods he had spent serving as United States Secretary of Defense, and President of the Ford Motor Company.  McNamara shifted the focus of bank policy towards measures such as building schools and hospitals, improving literacy rates and conducting large-scale agricultural reform. McNamara created a new system of gathering information from potential borrower nations that enabled the bank to process loan applications at a much faster rate. In order to finance the increased loan volume, McNamara tasked bank treasurer Eugene Rotberg to seek out new sources of capital outside of the northern banks that had previously been the primary sources of bank funding. Rotberg utilized the global bond market to greatly increase the amount of capital available to the bank.  One consequence of the period of poverty alleviation lending was the rapid rise of third world debt. From 1976–1980 third world debt rose at an average annual rate of 20%.[PARAGRAPH:2]In 1980 A.W. Clausen replaced Robert McNamara as World Bank president after being nominated by US President Ronald Reagan. Clausen replaced a large number of bank staffers who had been active during the McNamara era and instituted a new ideological focus in the bank. The replacement of Chief Economist Hollis B. Chenery by Anne Krueger in 1982 marked a notable policy shift at the bank. Krueger was known for her criticism of development funding as well as third world governments as rent-seeking states.  Lending for the purposes of servicing third world debt largely marked the period of 1980–1989. Structural adjustment policies aimed at streamlining the economies of developing nations (largely at the expense of health and social services reductions) were also a large part of World Bank policy during this period. UNICEF reported in the late 1980s that the structural adjustment programs of the World Bank were responsible for the "reduced health, nutritional, and educational levels for tens of millions of children in Asia, Latin America, and Africa".[PARAGRAPH:2]From 1989 to present, World Bank policy has shifted greatly, largely in response to criticism from a plurality of groups. Environmental groups and NGOs are often now integrated into the lending practices of the bank in order to mitigate the negative results of the previous era that prompted such harsh criticism.  Bank projects now explicitly embrace a "green" focus.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WORLD_BANK_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]World Bank[COLOR_REVERT] Instant increase in your [ICON_GOLD] reserves, and provides annual interest on your reserves.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GOLD_INCREASE_PERC</Tag>
+		<English>[ICON_BULLET]Instant %d1% increase in [ICON_GOLD]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GOLD_DIVIDEND</Tag>
+		<English>[ICON_BULLET]%d1% annual [ICON_GOLD] dividend</English>
+	</TEXT>
 
 <!-- +++ Special Building Strings +++ -->
 	<TEXT>
@@ -900,6 +977,16 @@
 		<English>Cloning Laboratory</English>
 		<French>Laboratoire de Clonage</French>
 		<German>Klonlabor</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPECIALBUILDING_WORLD_BANK</Tag>
+		<English>World Bank</English>
+		<French>
+			<Text>Banque Mondiale</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Weltbank</German>
 	</TEXT>
 
 </Civ4GameText>

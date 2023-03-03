@@ -2347,5 +2347,45 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/garrison.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Investment Bank -->
+			<Type>ART_DEF_BUILDING_INVESTMENT_BANK</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.25</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/UnitedNations/UnitedNations.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/investment_bank.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- Financial Nexus -->
+			<Type>ART_DEF_BUILDING_FINANCIAL_NEXUS</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.5</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/financial_nexus/Barrier_I.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/financial_nexus.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Central Bank -->
+			<Type>ART_DEF_BUILDING_CENTRAL_BANK</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.1</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/central_bank/Bank.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/central_bank.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- World Bank -->
+			<Type>ART_DEF_BUILDING_WORLD_BANK</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.13</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/wonders/world_bank/dubai.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/world_bank.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
