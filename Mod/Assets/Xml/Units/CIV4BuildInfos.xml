@@ -128,10 +128,34 @@
 		</BuildInfo>
 
 <!-- ** Improvements ** -->
+		<BuildInfo> <!-- Archeological Site -->
+			<Type>BUILD_ARCHEOLOGICAL_SITE</Type>
+			<Description>TXT_KEY_BUILD_ARCHEOLOGICAL_SITE</Description>
+			<PrereqTech>TECH_SCIENTIFIC_METHOD</PrereqTech>
+			<iTime>100</iTime>
+			<iCost>50</iCost>
+			<ImprovementType>IMPROVEMENT_ARCHEOLOGICAL_SITE</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_SHOVEL</EntityEvent>
+			<FeatureStructs>
+				<FeatureStruct>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<PrereqTech>TECH_NAVIGATION</PrereqTech>
+					<iTime>400</iTime>
+					<iProduction>20</iProduction>
+					<bRemove>1</bRemove>
+				</FeatureStruct>
+			</FeatureStructs>
+			<HotKey>KB_S</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>1</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>,Art/Interface/Buttons/Button_Select.dds,Art/Interface/Buttons/Actions_Builds_Leaderheads_Specialists_Atlas.dds,4,2</Button>
+		</BuildInfo>
 		<BuildInfo> <!-- Apple Orchard -->
 			<Type>BUILD_APPLE_FARM</Type>
 			<Description>TXT_KEY_BUILD_APPLE_FARM</Description>
-			<PrereqTech>TECH_CALENDAR</PrereqTech>
+			<PrereqTech>TECH_FERMENTATION</PrereqTech>
 			<iTime>500</iTime>
 			<ImprovementType>IMPROVEMENT_APPLE_FARM</ImprovementType>
 			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
@@ -141,6 +165,20 @@
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>1</iHotKeyPriority>
 			<Button>Art/Interface/Buttons/Builds/orchard.dds</Button>
+		</BuildInfo>
+		<BuildInfo> <!-- Bunker -->
+			<Type>BUILD_BUNKER</Type>
+			<Description>TXT_KEY_BUILD_BUNKER</Description>
+			<PrereqTech>TECH_ELECTRICITY</PrereqTech>
+			<iTime>1200</iTime>
+			<ImprovementType>IMPROVEMENT_BUNKER</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<HotKey>KB_F</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>1</bShiftDown>
+			<bCtrlDown>1</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Buildings/Bunker.dds</Button>
 		</BuildInfo>
 		<BuildInfo> <!-- Camp -->
 			<Type>BUILD_CAMP</Type>
@@ -156,6 +194,20 @@
 			<iHotKeyPriority>1</iHotKeyPriority>
 			<Button>,Art/Interface/Buttons/Builds/BuildCamp.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,1,7</Button>
 		</BuildInfo>
+		<BuildInfo> <!-- Command Centre -->
+			<Type>BUILD_COMMAND_CENTRE</Type>
+			<Description>TXT_KEY_BUILD_COMMAND_CENTRE</Description>
+			<PrereqTech>TECH_METAMATERIALS</PrereqTech>
+			<iTime>2000</iTime>
+			<ImprovementType>IMPROVEMENT_COMMAND_CENTRE</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<HotKey>KB_F</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>1</bShiftDown>
+			<bCtrlDown>1</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Buildings/Bunker.dds</Button>
+		</BuildInfo>
 		<BuildInfo> <!-- Cottage -->
 			<Type>BUILD_COTTAGE</Type>
 			<Description>TXT_KEY_BUILD_COTTAGE</Description>
@@ -167,8 +219,8 @@
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
 					<PrereqTech>TECH_IRON_WORKING</PrereqTech>
-					<iTime>400</iTime>
-					<iProduction>0</iProduction>
+					<iTime>600</iTime>
+					<iProduction>30</iProduction>
 					<bRemove>1</bRemove>
 				</FeatureStruct>
 				<FeatureStruct>
@@ -186,6 +238,67 @@
 			<iHotKeyPriority>0</iHotKeyPriority>
 			<Button>,Art/Interface/Buttons/Builds/BuildCottage.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,2,7</Button>
 		</BuildInfo>
+		<BuildInfo> <!-- Desert Windmill -->
+			<Type>BUILD_DESERTWINDMILL</Type>
+			<Description>TXT_KEY_BUILD_DESERTWINDMILL</Description>
+			<PrereqTech>TECH_ECOLOGY</PrereqTech>
+			<iTime>800</iTime>
+			<iCost>50</iCost>
+			<ImprovementType>IMPROVEMENT_DESERT_WINDMILL</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<HotKey>KB_W</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>1</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/desert_windmill.dds</Button>
+		</BuildInfo>
+		<BuildInfo> <!-- Extraction Facility -->
+			<Type>BUILD_EXTRACTION_FACILITY</Type>
+			<Description>TXT_KEY_BUILD_EXTRACTION_FACILITY</Description>
+			<PrereqTech>TECH_SUPERSTRONG_ALLOYS</PrereqTech>
+			<iTime>0</iTime>
+			<bKill>1</bKill>
+			<ImprovementType>IMPROVEMENT_EXTRACTION_FACILITY</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<HotKey>KB_M</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/extraction_facility.dds</Button>
+		</BuildInfo>
+		<BuildInfo> <!-- Factory -->
+			<Type>BUILD_3FACTORY</Type>
+			<Description>TXT_KEY_BUILD_FACTORY</Description>
+			<PrereqTech>TECH_ASSEMBLY_LINE</PrereqTech>
+			<iTime>1000</iTime>
+			<iCost>50</iCost>
+			<ImprovementType>IMPROVEMENT_3FACTORY</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<FeatureStructs>
+				<FeatureStruct>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<PrereqTech>TECH_IRON_WORKING</PrereqTech>
+					<iTime>400</iTime>
+					<iProduction>20</iProduction>
+					<bRemove>1</bRemove>
+				</FeatureStruct>
+				<FeatureStruct>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
+					<iTime>300</iTime>
+					<iProduction>30</iProduction>
+					<bRemove>1</bRemove>
+				</FeatureStruct>
+			</FeatureStructs>
+			<HotKey>0</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+			<Button>,Art/Interface/Buttons/Buildings/Factory.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,6,2</Button>
+		</BuildInfo>
 		<BuildInfo> <!-- Farm -->
 			<Type>BUILD_FARM</Type>
 			<Description>TXT_KEY_BUILD_FARM</Description>
@@ -197,8 +310,8 @@
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
 					<PrereqTech>TECH_IRON_WORKING</PrereqTech>
-					<iTime>400</iTime>
-					<iProduction>0</iProduction>
+					<iTime>600</iTime>
+					<iProduction>30</iProduction>
 					<bRemove>1</bRemove>
 				</FeatureStruct>
 				<FeatureStruct>
@@ -258,7 +371,64 @@
 			<iHotKeyPriority>0</iHotKeyPriority>
 			<Button>,Art/Interface/Buttons/Builds/BuildFort.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,7,9</Button>
 		</BuildInfo>
-		<BuildInfo> <!-- Lumberjack Camp -->
+		<BuildInfo> <!-- Geothermal Factory -->
+			<Type>BUILD_GEOTHERMAL_FACTORY</Type>
+			<Description>TXT_KEY_BUILD_GEOTHERMAL_FACTORY</Description>
+			<PrereqTech>TECH_ECOLOGICAL_ENGINEERING</PrereqTech>
+			<iTime>2000</iTime>
+			<iCost>50</iCost>
+			<ImprovementType>IMPROVEMENT_GEOTHERMAL_FACTORY</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_MINE</EntityEvent>
+			<HotKey>KB_M</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/geothermal_factory.dds</Button>
+		</BuildInfo>
+		<BuildInfo> <!-- Groundwater Well -->
+			<Type>BUILD_GROUNDWATER_WELL</Type>
+			<Description>TXT_KEY_BUILD_GROUNDWATER_WELL</Description>
+			<PrereqTech>TECH_MODERN_SEISMOLOGY</PrereqTech>
+			<iTime>1000</iTime>
+			<ImprovementType>IMPROVEMENT_GROUNDWATER_WELL</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<HotKey>KB_W</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>1</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>,Art/Interface/Buttons/Builds/BuildWell.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,4,8</Button>
+		</BuildInfo>
+		<BuildInfo> <!-- Hybrid Forest -->
+			<Type>BUILD_HYBRID_FOREST</Type>
+			<Description>TXT_KEY_BUILD_HYBRID_FOREST</Description>
+			<PrereqTech>TECH_PLANETARY_ECONOMICS</PrereqTech>
+			<iTime>3000</iTime>
+			<ImprovementType>IMPROVEMENT_HYBRID_FOREST</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_IRRIGATE</EntityEvent>
+			<HotKey>KB_I</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>1</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/tree_farm_build.dds</Button>
+		</BuildInfo>
+		<BuildInfo> <!-- Jungle Camp -->
+			<Type>BUILD_JUNGLE_CAMP</Type>
+			<Description>TXT_KEY_BUILD_JUNGLE_CAMP</Description>
+			<PrereqTech>TECH_STONE_TOOLS</PrereqTech>
+			<iTime>400</iTime>
+			<ImprovementType>IMPROVEMENT_JUNGLE_CAMP</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<HotKey>0</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/jungle_camp.dds</Button>
+		</BuildInfo>
+		<BuildInfo> <!-- Lumberjack -->
 			<Type>BUILD_LUMBERJACK</Type>
 			<Description>TXT_KEY_BUILD_LUMBERJACK</Description>
 			<PrereqTech>TECH_WOODWORKING</PrereqTech>
@@ -297,8 +467,8 @@
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
 					<PrereqTech>TECH_IRON_WORKING</PrereqTech>
-					<iTime>400</iTime>
-					<iProduction>0</iProduction>
+					<iTime>900</iTime>
+					<iProduction>30</iProduction>
 					<bRemove>1</bRemove>
 				</FeatureStruct>
 				<FeatureStruct>
@@ -315,6 +485,21 @@
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>0</iHotKeyPriority>
 			<Button>,Art/Interface/Buttons/Builds/BuildMine.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,6,7</Button>
+		</BuildInfo>
+		<BuildInfo> <!-- Modern Mine -->
+			<Type>BUILD_MODERN_MINE</Type>
+			<Description>TXT_KEY_BUILD_MODERN_MINE</Description>
+			<PrereqTech>TECH_MODERN_SEISMOLOGY</PrereqTech>
+			<iTime>1200</iTime>
+			<iCost>40</iCost>
+			<ImprovementType>IMPROVEMENT_MODERN_MINE</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_MINE</EntityEvent>
+			<HotKey>KB_M</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>1</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/modern_mine.dds</Button>
 		</BuildInfo>
 		<BuildInfo> <!-- Obsidian Camp -->
 			<Type>BUILD_OBSIDIAN_CAMP</Type>
@@ -349,7 +534,7 @@
 		<BuildInfo> <!-- Olive Orchard -->
 			<Type>BUILD_OLIVE_FARM</Type>
 			<Description>TXT_KEY_BUILD_OLIVE_FARM</Description>
-			<PrereqTech>TECH_CALENDAR</PrereqTech>
+			<PrereqTech>TECH_FERMENTATION</PrereqTech>
 			<iTime>500</iTime>
 			<ImprovementType>IMPROVEMENT_OLIVE_FARM</ImprovementType>
 			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
@@ -371,8 +556,8 @@
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
 					<PrereqTech>TECH_IRON_WORKING</PrereqTech>
-					<iTime>400</iTime>
-					<iProduction>0</iProduction>
+					<iTime>600</iTime>
+					<iProduction>30</iProduction>
 					<bRemove>1</bRemove>
 				</FeatureStruct>
 				<FeatureStruct>
@@ -431,8 +616,8 @@
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
 					<PrereqTech>TECH_IRON_WORKING</PrereqTech>
-					<iTime>400</iTime>
-					<iProduction>0</iProduction>
+					<iTime>600</iTime>
+					<iProduction>30</iProduction>
 					<bRemove>1</bRemove>
 				</FeatureStruct>
 				<FeatureStruct>
@@ -449,6 +634,20 @@
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>0</iHotKeyPriority>
 			<Button>,Art/Interface/Buttons/Builds/BuildQuarry.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,2,9</Button>
+		</BuildInfo>
+		<BuildInfo> <!-- Safari -->
+			<Type>BUILD_SAFARI</Type>
+			<Description>TXT_KEY_BUILD_SAFARI</Description>
+			<PrereqTech>TECH_TOURISM</PrereqTech>
+			<iTime>400</iTime>
+			<ImprovementType>IMPROVEMENT_SAFARI</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<HotKey>KB_H</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>,Art/Interface/Buttons/Builds/BuildCamp.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,1,7</Button>
 		</BuildInfo>
 		<BuildInfo> <!-- SeaBridge NS -->
 			<Type>BUILD_SEA_BRIDGE_NS</Type>
@@ -510,6 +709,21 @@
 			<iHotKeyPriority>1</iHotKeyPriority>
 			<Button>Art/Interface/Buttons/Builds/seabridge_nwse.dds</Button>
 		</BuildInfo>	
+		<BuildInfo> <!-- Shaft Mine -->
+			<Type>BUILD_SHAFT_MINE</Type>
+			<Description>TXT_KEY_BUILD_SHAFT_MINE</Description>
+			<PrereqTech>TECH_EXPLOSIVES</PrereqTech>
+			<iTime>800</iTime>
+			<iCost>25</iCost>
+			<ImprovementType>IMPROVEMENT_SHAFT_MINE</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_MINE</EntityEvent>
+			<HotKey>KB_M</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>1</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/shaft_mine.dds</Button>
+		</BuildInfo>
 		<BuildInfo> <!-- Seed Camp -->
 			<Type>BUILD_SEED_CAMP</Type>
 			<Description>TXT_KEY_BUILD_SEED_CAMP</Description>
@@ -528,7 +742,7 @@
 		<BuildInfo> <!-- Silk Farm -->
 			<Type>BUILD_SILK_FARM</Type>
 			<Description>TXT_KEY_BUILD_SILK_FARM</Description>
-			<PrereqTech>TECH_CALENDAR</PrereqTech>
+			<PrereqTech>TECH_TRADE</PrereqTech>
 			<iTime>500</iTime>
 			<ImprovementType>IMPROVEMENT_SILK_FARM</ImprovementType>
 			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
@@ -554,6 +768,21 @@
 			<iHotKeyPriority>0</iHotKeyPriority>
 			<Button>Art/Interface/Buttons/Builds/stone_tools_camp.dds</Button>
 		</BuildInfo>
+		<BuildInfo> <!-- Submerged Town -->
+			<Type>BUILD_SUBMERGED_TOWN</Type>
+			<Description>TXT_KEY_BUILD_SUBMERGED_TOWN</Description>
+			<PrereqTech>TECH_AQUACULTURE</PrereqTech>
+			<iTime>0</iTime>
+			<bKill>1</bKill>
+			<ImprovementType>IMPROVEMENT_SUBMERGED_TOWN</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<HotKey>KB_T</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>,Art/Interface/Buttons/Units/Transport.dds,Art/Interface/Buttons/FinalFrontier1_Atlas.dds,5,5</Button>
+		</BuildInfo>
 		<BuildInfo> <!-- Timber Camp -->
 			<Type>BUILD_TIMBER_CAMP</Type>
 			<Description>TXT_KEY_BUILD_TIMBER_CAMP</Description>
@@ -569,6 +798,20 @@
 			<iHotKeyPriority>0</iHotKeyPriority>
 			<Button>Art/Interface/Buttons/Builds/timber_camp.dds</Button>
 		</BuildInfo>
+		<BuildInfo> <!-- Tree farm -->
+			<Type>BUILD_TREE_FARM</Type>
+			<Description>TXT_KEY_BUILD_TREEFARM</Description>
+			<PrereqTech>TECH_ENVIRONMENTAL_ECONOMICS</PrereqTech>
+			<iTime>2000</iTime>
+			<ImprovementType>IMPROVEMENT_TREE_FARM</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_IRRIGATE</EntityEvent>
+			<HotKey>KB_I</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>1</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/tree_farm_build.dds</Button>
+		</BuildInfo>
 		<BuildInfo> <!-- Watermill -->
 			<Type>BUILD_WATERMILL</Type>
 			<Description>TXT_KEY_BUILD_WATERMILL</Description>
@@ -580,8 +823,8 @@
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
 					<PrereqTech>TECH_IRON_WORKING</PrereqTech>
-					<iTime>400</iTime>
-					<iProduction>0</iProduction>
+					<iTime>600</iTime>
+					<iProduction>30</iProduction>
 					<bRemove>1</bRemove>
 				</FeatureStruct>
 				<FeatureStruct>
@@ -654,8 +897,8 @@
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
 					<PrereqTech>TECH_IRON_WORKING</PrereqTech>
-					<iTime>400</iTime>
-					<iProduction>0</iProduction>
+					<iTime>600</iTime>
+					<iProduction>30</iProduction>
 					<bRemove>1</bRemove>
 				</FeatureStruct>
 				<FeatureStruct>
@@ -673,6 +916,37 @@
 			<iHotKeyPriority>0</iHotKeyPriority>
 			<Button>,Art/Interface/Buttons/Builds/BuildWindMill.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,5,8</Button>
 		</BuildInfo>
+		<BuildInfo> <!-- Windtrap -->
+			<Type>BUILD_WINDTRAP</Type>
+			<Description>TXT_KEY_BUILD_WINDTRAP</Description>
+			<PrereqTech>TECH_ECOLOGICAL_ENGINEERING</PrereqTech>
+			<iTime>1500</iTime>
+			<iCost>10</iCost>
+			<ImprovementType>IMPROVEMENT_WINDTRAP</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<FeatureStructs>
+				<FeatureStruct>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<PrereqTech>TECH_IRON_WORKING</PrereqTech>
+					<iTime>400</iTime>
+					<iProduction>20</iProduction>
+					<bRemove>1</bRemove>
+				</FeatureStruct>
+				<FeatureStruct>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<PrereqTech>TECH_IRON_WORKING</PrereqTech>
+					<iTime>300</iTime>
+					<iProduction>30</iProduction>
+					<bRemove>1</bRemove>
+				</FeatureStruct>
+			</FeatureStructs>
+			<HotKey>KB_W</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>1</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/windtrap.dds</Button>
+		</BuildInfo>
 		<BuildInfo> <!-- Winery -->
 			<Type>BUILD_WINERY</Type>
 			<Description>TXT_KEY_BUILD_WINERY</Description>
@@ -684,8 +958,8 @@
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
 					<PrereqTech>TECH_IRON_WORKING</PrereqTech>
-					<iTime>400</iTime>
-					<iProduction>0</iProduction>
+					<iTime>600</iTime>
+					<iProduction>30</iProduction>
 					<bRemove>1</bRemove>
 				</FeatureStruct>
 				<FeatureStruct>
@@ -714,8 +988,8 @@
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
 					<PrereqTech>TECH_IRON_WORKING</PrereqTech>
-					<iTime>400</iTime>
-					<iProduction>0</iProduction>
+					<iTime>600</iTime>
+					<iProduction>30</iProduction>
 					<bRemove>1</bRemove>
 				</FeatureStruct>
 				<FeatureStruct>
@@ -735,6 +1009,92 @@
 		</BuildInfo>
 
 <!-- ** Terraforming ** -->
+		<BuildInfo> <!-- Break Ice -->
+			<Type>BUILD_BREAK_ICE</Type>
+			<Description>TXT_KEY_BUILD_BREAK_ICE</Description>
+			<PrereqTech>NONE</PrereqTech>
+			<iTime>0</iTime>
+			<ImprovementType>NONE</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<FeatureStructs>
+				<FeatureStruct>
+					<FeatureType>FEATURE_ICE</FeatureType>
+					<PrereqTech>TECH_COMBUSTION</PrereqTech>
+					<iTime>300</iTime>
+					<iProduction>0</iProduction>
+					<bRemove>1</bRemove>
+				</FeatureStruct>
+			</FeatureStructs>
+			<HotKey>KB_S</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/break_ice.dds</Button>
+		</BuildInfo>		
+		<BuildInfo>	<!-- Build Hill -->
+			<Type>BUILD_HILL</Type>
+			<Description>TXT_KEY_BUILD_HILL</Description>
+			<PrereqTech>TECH_PLASTICS</PrereqTech>
+			<iTime>2000</iTime>
+			<iCost>100</iCost>
+			<ImprovementType>IMPROVEMENT_HILL</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<FeatureStructs>
+				<FeatureStruct>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
+					<iTime>600</iTime>
+					<iProduction>30</iProduction>
+					<bRemove>1</bRemove>
+				</FeatureStruct>
+				<FeatureStruct>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
+					<iTime>300</iTime>
+					<iProduction>30</iProduction>
+					<bRemove>1</bRemove>
+				</FeatureStruct>
+			</FeatureStructs>
+			<HotKey>KB_H</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>1</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/build_hill.dds</Button>
+		</BuildInfo>
+		<BuildInfo>	<!-- Plant Forest -->
+			<Type>BUILD_FOREST</Type>
+			<Description>TXT_KEY_BUILD_TREE_NURSERY</Description>
+			<Help />
+			<PrereqTech>TECH_PAPER</PrereqTech>
+			<iTime>500</iTime>
+			<iCost>10</iCost>
+			<ImprovementType>IMPROVEMENT_TREE_NURSERY</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_IRRIGATE</EntityEvent>
+			<FeatureStructs>
+				<FeatureStruct>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
+					<iTime>600</iTime>
+					<iProduction>30</iProduction>
+					<bRemove>1</bRemove>
+				</FeatureStruct>
+				<FeatureStruct>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
+					<iTime>300</iTime>
+					<iProduction>30</iProduction>
+					<bRemove>1</bRemove>
+				</FeatureStruct>
+			</FeatureStructs>
+			<HotKey>KB_T</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>1</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/build_forest.dds</Button>
+		</BuildInfo>
 		<BuildInfo> <!-- Remove Forest -->
 			<Type>BUILD_REMOVE_FOREST</Type>
 			<Description>TXT_KEY_BUILD_REMOVE_FOREST</Description>
@@ -765,8 +1125,8 @@
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
 					<PrereqTech>TECH_IRON_WORKING</PrereqTech>
-					<iTime>400</iTime>
-					<iProduction>0</iProduction>
+					<iTime>600</iTime>
+					<iProduction>30</iProduction>
 					<bRemove>1</bRemove>
 				</FeatureStruct>
 			</FeatureStructs>
@@ -798,5 +1158,38 @@
 			<iHotKeyPriority>1</iHotKeyPriority>
 			<Button>,Art/Interface/Buttons/Builds/BuildScrubFallout.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,2,8</Button>
 		</BuildInfo>
+		<BuildInfo>	<!-- Terraforming -->
+			<Type>BUILD_TERRAFORM</Type>
+			<Description>TXT_KEY_BUILD_TERRAFORM</Description>
+			<PrereqTech>TECH_ECOLOGY</PrereqTech>
+			<iTime>4000</iTime>
+			<iCost>1000</iCost>
+			<bKill>1</bKill>
+			<ImprovementType>IMPROVEMENT_TERRAFORM</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<FeatureStructs>
+				<FeatureStruct>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
+					<iTime>600</iTime>
+					<iProduction>30</iProduction>
+					<bRemove>1</bRemove>
+				</FeatureStruct>
+				<FeatureStruct>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
+					<iTime>300</iTime>
+					<iProduction>30</iProduction>
+					<bRemove>1</bRemove>
+				</FeatureStruct>
+			</FeatureStructs>
+			<HotKey>KB_T</HotKey>
+			<bAltDown>1</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/terraform.dds</Button>
+		</BuildInfo>
+
 	</BuildInfos>
 </Civ4BuildInfos>
