@@ -112,6 +112,33 @@
 <!-- ******************	-->
 <!-- Worker							-->
 <!-- ******************	-->
+		<ImprovementArtInfo> <!-- Archeological Site -->
+			<Type>ART_DEF_IMPROVEMENT_ARCHEOLOGICAL_SITE</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>0.0</fScale>
+			<fInterfaceScale>0.0</fInterfaceScale>
+			<NIF>Art/Empty.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Builds/archeological_site.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Bunker -->
+			<Type>ART_DEF_IMPROVEMENT_BUNKER</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/bunker/Bunker.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/Bunker.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Command Centre -->
+			<Type>ART_DEF_IMPROVEMENT_COMMAND_CENTRE</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>3.5</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/command_centre/Bunker.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/Bunker.dds</Button>
+		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Cottage -->
 			<Type>ART_DEF_IMPROVEMENT_COTTAGE</Type>
 			<bExtraAnimations>0</bExtraAnimations>
@@ -120,6 +147,25 @@
 			<NIF>Art/Structures/Improvements/Cottage/Cottage.nif</NIF>
 			<KFM>Art/Structures/Improvements/Cottage/Cottage.kfm</KFM>
 			<Button>,Art/Interface/Buttons/Builds/BuildCottage.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,2,7</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Desert Windmill -->
+			<Type>ART_DEF_IMPROVEMENT_DESERT_WINDMILL</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>1.3</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/WindMill/WindMill_Mod.nif</NIF>
+			<KFM>Art/Structures/Improvements/WindMill/WindMill_Mod.kfm</KFM>
+			<Button>Art/Interface/Buttons/Builds/desert_windmill.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Extraction Facility -->
+			<Type>ART_DEF_IMPROVEMENT_EXTRACTION_FACILITY</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>1.4</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/ExtractionFacility/ExtractionFacility.nif</NIF>
+			<KFM/>
+			<SHADERNIF>Art/Structures/Improvements/ExtractionFacility/ExtractionFacility_FX.nif</SHADERNIF>
+			<Button>Art/Interface/Buttons/Builds/extraction_facility.dds</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Forest Preserve -->
 			<Type>ART_DEF_IMPROVEMENT_FOREST_PRESERVE</Type>
@@ -138,6 +184,33 @@
 			<NIF>Art/Structures/Improvements/Fort/eu_med_fort.nif</NIF>
 			<KFM/>
 			<Button>,Art/Interface/Buttons/Builds/BuildFort.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,7,9</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Geothermal Factory -->
+			<Type>ART_DEF_IMPROVEMENT_GEOTHERMAL_FACTORY</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>1.1</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/geothermal_factory/mine_modern.nif</NIF>
+			<KFM>Art/Structures/Improvements/Mine/Mine_Modern.kfm</KFM>
+			<Button>Art/Interface/Buttons/Builds/geothermal_factory.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Groundwater Well -->
+			<Type>ART_DEF_IMPROVEMENT_GROUNDWATER_WELL</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/OilWell/OilWell.nif</NIF>
+			<KFM>Art/Structures/Improvements/OilWell/OilWell.kfm</KFM>
+			<Button>Art/Interface/Buttons/Builds/groundwater_well.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Jungle Camp -->
+			<Type>ART_DEF_IMPROVEMENT_JUNGLE_CAMP</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/Camp/Camp.nif</NIF>
+			<KFM>Art/Structures/Improvements/Camp/Camp.kfm</KFM>
+			<Button>Art/Interface/Buttons/Builds/jungle_camp.dds</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Lumberjack -->
 			<Type>ART_DEF_IMPROVEMENT_LUMBERJACK</Type>
@@ -193,6 +266,33 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Builds/seabridge_nesw.dds</Button>
 		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Submerged Town -->
+			<Type>ART_DEF_IMPROVEMENT_SUBMERGED_TOWN</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Units/FinalFrontier_Starbase/Starbase.nif</NIF>
+			<KFM>Art/Units/FinalFrontier_Starbase/Starbase.kfm</KFM>
+			<Button>Art/Interface/Buttons/Builds/submerged_town.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Terraform -->
+			<Type>ART_DEF_IMPROVEMENT_TERRAFORM</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>9.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/biodome/biodome.nif</NIF>
+			<KFM></KFM>
+			<Button>Art/Interface/Buttons/Builds/terraform.dds</Button>
+		</ImprovementArtInfo>			
+		<ImprovementArtInfo> <!-- Tree Farm -->
+			<Type>ART_DEF_IMPROVEMENT_TREE_FARM</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/ForestPreserve/ForestPreserve.nif</NIF>
+			<KFM>Art/Structures/Improvements/ForestPreserve/ForestPreserve.kfm</KFM>
+			<Button>Art/Interface/Buttons/Builds/tree_farm.dds</Button>
+		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Tree Nursery -->
 			<Type>ART_DEF_IMPROVEMENT_TREE_NURSERY</Type>
 			<bExtraAnimations>0</bExtraAnimations>
@@ -219,6 +319,15 @@
 			<NIF>Art/Structures/Improvements/WindMill/WindMill.nif</NIF>
 			<KFM>Art/Structures/Improvements/WindMill/WindMill.kfm</KFM>
 			<Button>,Art/Interface/Buttons/Builds/BuildWindMill.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,5,8</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Windtrap -->
+			<Type>ART_DEF_IMPROVEMENT_WINDTRAP</Type>
+			<bExtraAnimations>1</bExtraAnimations>
+			<fScale>2.0</fScale>
+			<fInterfaceScale>1.25</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/Windtrap/Windtrap.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Builds/windtrap.dds</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Workshop -->
 			<Type>ART_DEF_IMPROVEMENT_WORKSHOP</Type>
@@ -268,6 +377,15 @@
 			<NIF>Art/Structures/Improvements/Mine/Mine.nif</NIF>
 			<KFM>Art/Structures/Improvements/Mine/Mine.kfm</KFM>
 			<Button>,Art/Interface/Buttons/Builds/BuildMine.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,6,7</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Modern Mine -->
+			<Type>ART_DEF_IMPROVEMENT_MODERN_MINE</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/Mine/mine_modern.nif</NIF>
+			<KFM>Art/Structures/Improvements/Mine/Mine.kfm</KFM>
+			<Button>Art/Interface/Buttons/Builds/Modern_Mine.dds</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Obsidian Camp -->
 			<Type>ART_DEF_IMPROVEMENT_OBSIDIAN_CAMP</Type>
@@ -340,6 +458,15 @@
 			<NIF>Art/Structures/Improvements/SeedGatherer/camp_fx.nif</NIF>
 			<KFM>Art/Structures/Improvements/SeedGatherer/Camp.kfm</KFM>
 			<Button>Art/Interface/Buttons/Builds/seed_camp.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo> <!-- Shaft Mine -->
+			<Type>ART_DEF_IMPROVEMENT_SHAFT_MINE</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/Mine/Mine.nif</NIF>
+			<KFM>Art/Structures/Improvements/Mine/Mine.kfm</KFM>
+			<Button>Art/Interface/Buttons/Builds/Shaft_Mine.dds</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo> <!-- Timber Camp -->
 			<Type>ART_DEF_IMPROVEMENT_TIMBER_CAMP</Type>

@@ -523,7 +523,7 @@
 			</FeatureHappinessChanges>
 			<ImprovementYieldChanges>
 				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_TREEFARM</ImprovementType>
+					<ImprovementType>IMPROVEMENT_TREE_FARM</ImprovementType>
 					<ImprovementYields>
 						<iYield>1</iYield>
 					</ImprovementYields>
@@ -543,7 +543,7 @@
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_DESERTWINDMILL</ImprovementType>
+					<ImprovementType>IMPROVEMENT_DESERT_WINDMILL</ImprovementType>
 					<ImprovementYields>
 						<iYield>0</iYield>
 						<iYield>0</iYield>

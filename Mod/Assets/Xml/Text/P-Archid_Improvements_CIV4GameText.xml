@@ -31,6 +31,36 @@
 		<Spanish>Apple Orchard</Spanish>
 	</TEXT>
 
+<!-- Archeological Site -->
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_ARCHEOLOGICAL_SITE</Tag>
+		<English>Instigate an [LINK=IMPROVEMENT_ARCHEOLOGICAL_SITE]Archeological Site[\LINK]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_ARCHEOLOGICAL_SITE</Tag>
+		<English>Archeological Site</English>
+		<French>Site Archéologique</French>
+		<German>Arch&#228;ologische St&#228;tte</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_ARCHEOLOGICAL_SITE_PEDIA</Tag>
+		<English>[TAB]Create an archeological dig site on the remains of an ancient ruin.</English>
+	</TEXT>
+
+<!-- Bunker -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_BUNKER</Tag>
+		<English>Bunker</English>
+		<French>Bunker</French>
+		<German>Bunker</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_BUNKER</Tag>
+		<English>Build a [LINK=IMPROVEMENT_BUNKER]Bunker[\LINK]</English>
+		<French>Construire un [LINK=IMPROVEMENT_BUNKER]Bunker[\LINK]</French>
+		<German>Errichte einen [LINK=IMPROVEMENT_BUNKER]Bunker[\LINK]</German>
+	</TEXT>
+
 	<TEXT> <!-- Camp -->
 		<Tag>TXT_KEY_IMPROVEMENT_CAMP_PEDIA</Tag>
 		<English>[TAB]The term camp comes from the Latin word campus, meaning "field". Therefore, a campsite consists typically of open pieces of ground where a camper can pitch a tent or park a camper. More specifically a campsite is a dedicated area set aside for camping and for which often a user fee is charged. Campsites typically feature a few (but sometimes no) improvements.</English>
@@ -39,6 +69,21 @@
 		<Tag>TXT_KEY_IMPROVEMENT_CITY_RUINS_PEDIA</Tag>
 		<English>[TAB]Ruins are the remains of human-made architecture: structures that were once complete, as time went by, have fallen into a state of partial or complete disrepair, due to lack of maintenance or deliberate acts of destruction. Disasters, war and depopulation are the most common root causes, with many structures becoming progressively derelict over time due to long-term weathering and scavenging.</English>
 	</TEXT>
+
+<!-- Command Centre -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_COMMAND_CENTRE</Tag>
+		<English>Command Centre</English>
+		<French>Centre de Commandement</French>
+		<German>Kommandozentrum</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_COMMAND_CENTRE</Tag>
+		<English>Build a [LINK=IMPROVEMENT_COMMAND_CENTRE]Command Centre[\LINK]</English>
+		<French>Construire un [LINK=IMPROVEMENT_COMMAND_CENTRE]Centre de Commandement[\LINK]</French>
+		<German>Errichte ein [LINK=IMPROVEMENT_COMMAND_CENTRE]Kommandozentrum[\LINK]</German>
+	</TEXT>
+	
 	<TEXT> <!-- Cottage -->
 		<Tag>TXT_KEY_IMPROVEMENT_COTTAGE_PEDIA</Tag>
 		<English>[TAB]In modern usage, a cottage is usually a modest, often cozy dwelling, typically in a rural or semi-rural location. However there are cottage-style dwellings in cities, and in places such as Canada the term exists with no connotations of size at all (cf. vicarage or hermitage). In the United Kingdom the term cottage also tends to denote rural dwellings of traditional build, although it can also be applied to dwellings of modern construction which are designed to resemble traditional ones ("mock cottages").</English>
@@ -54,6 +99,52 @@
 	<TEXT> <!-- Town -->
 		<Tag>TXT_KEY_IMPROVEMENT_TOWN_PEDIA</Tag>
 		<English>[TAB]A town is a human settlement larger than a village but smaller than a city. The size a settlement must be in order to be called a "town" varies considerably in different parts of the world, so that, for example, many American "small towns" seem to British people to be no more than villages, while many British "small towns" would qualify as cities in the United States.</English>
+	</TEXT>
+
+<!-- Desert Windmill -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_DESERT_WINDMILL</Tag>
+		<English>Desert Windmill</English>
+		<French>
+			<Text>Moulin &#224; vent du désert</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>W&#252;sten-Windrad</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Mulino a vento di deserto:Mulini a vento di deserto</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Molino de viento del desierto:Molinos de viento del desierto</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_DESERT_WINDMILL</Tag>
+		<English>Build [LINK=IMPROVEMENT_DESERT_WINDMILL]Desert Windmill[\LINK]</English>
+		<French>Construire un [LINK=IMPROVEMENT_DESERT_WINDMILL]Moulin &#224; vent du désert[\LINK]</French>
+		<German>Baue [LINK=IMPROVEMENT_DESERT_WINDMILL]W&#252;sten-Windrad[\LINK]</German>
+	</TEXT>
+
+<!-- Extraction Facility -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_EXTRACTION_FACILITY</Tag>
+		<English>Extraction Facility</English>
+		<French>Installation d'Extraction</French>
+		<German>Extraktionsanlage</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_EXTRACTION_FACILITY</Tag>
+		<English>Build [LINK=IMPROVEMENT_EXTRACTION_FACILITY]Extraction Facility[\LINK]</English>
+		<French>Construire une [LINK=IMPROVEMENT_EXTRACTION_FACILITY]Installation d'Extraction[\LINK]</French>
+		<German>Errichte eine [LINK=IMPROVEMENT_EXTRACTION_FACILITY]Extraktions-Anlage[\LINK]</German>
 	</TEXT>
 
 <!-- Factory -->
@@ -84,14 +175,76 @@
 		<Tag>TXT_KEY_IMPROVEMENT_FORT_PEDIA</Tag>
 		<English>[TAB]Fortifications are military constructions and buildings designed for defence in warfare and military bases. Humans have constructed defensive works for many thousands of years, in a variety of increasingly complex designs. The term is derived from the Latin fortis ("strong") and facere ("to make").</English>
 	</TEXT>
+
+<!-- Geothermal Factory -->
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_GEOTHERMAL_FACTORY</Tag>
+		<English>Build [LINK=IMPROVEMENT_GEOTHERMAL_FACTORY]Geothermal Factory[\LINK]</English>
+		<French>Construire un [LINK=IMPROVEMENT_GEOTHERMAL_FACTORY]Forage Géothermique[\LINK]</French>
+		<German>Errichte eine [LINK=IMPROVEMENT_GEOTHERMAL_FACTORY]Geothermale Fabrik[\LINK]</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_GEOTHERMAL_FACTORY</Tag>
+		<English>Geothermal Factory</English>
+		<French>Forage Géothermique</French>
+		<German>Geothermalfabrik</German>
+	</TEXT>
+
 	<TEXT> <!-- Goody Hut -->
 		<Tag>TXT_KEY_IMPROVEMENT_GOODY_HUT_PEDIA</Tag>
 		<English>[TAB]Hut may refer to: Hut (dwelling), a small and crude shelter.</English>
 	</TEXT>
+
+<!-- Groundwater Well -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_GROUNDWATER_WELL</Tag>
+		<English>Groundwater Well</English>
+		<French>Puits Souterrain</French>
+		<German>Grundwasserbrunnen</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_GROUNDWATER_WELL</Tag>
+		<English>Build a [LINK=IMPROVEMENT_GROUNDWATER_WELL]Groundwater Well[\LINK]</English>
+		<French>Construire un [LINK=IMPROVEMENT_GROUNDWATER_WELL]Puits Souterrain[\LINK]</French>
+		<German>Errichte einen [LINK=IMPROVEMENT_GROUNDWATER_WELL]Grundwasserbrunnen[\LINK]</German>
+	</TEXT>
+	
+<!-- Hybrid Forest -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_HYBRID_FOREST</Tag>
+		<English>Hybrid Forest</English>
+		<French>
+			<Text>Forêt Hybride</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Hybrider Wald</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_HYBRID_FOREST</Tag>
+		<English>Build a [LINK=IMPROVEMENT_HYBRID_FOREST]Hybrid Forest[\LINK]</English>
+		<French>Construire une [LINK=IMPROVEMENT_HYBRID_FOREST]Forêt Hybride[\LINK]</French>
+		<German>Errichte einen [LINK=IMPROVEMENT_HYBRID_FOREST]Hybriden Wald[\LINK]</German>
+	</TEXT>
+
 	<TEXT> <!-- Industrial Complex -->
 		<Tag>TXT_KEY_IMPROVEMENT_INDUSTRIAL_COMPLEX</Tag>
 		<English>Industrial Complex</English>
 		<French>Complexe Industriel</French>
+	</TEXT>
+
+<!-- Jungle Camp -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_JUNGLE_CAMP</Tag>
+		<English>Jungle Camp</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_JUNGLE_CAMP_PEDIA</Tag>
+		<English>Jungle Camp</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_JUNGLE_CAMP</Tag>
+		<English>Build Jungle Camp</English>
 	</TEXT>
 
 <!-- Lumberjack Camp -->
@@ -113,6 +266,24 @@
 		<English>[TAB]A sawmill is a facility where logs are cut into boards.</English>
 	</TEXT>
 
+<!-- Modern Mine -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_MODERN_MINE</Tag>
+		<English>Modern Mine</English>
+		<French>
+			<Text>Mine Moderne</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Moderne Mine</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_MODERN_MINE</Tag>
+		<English>Build [LINK=IMPROVEMENT_MODERN_MINE]Modern Mine[\LINK]</English>
+		<French>Construire une [LINK=IMPROVEMENT_MODERN_MINE]Mine Moderne[\LINK]</French>
+		<German>Errichte eine[LINK=IMPROVEMENT_MODERN_MINE]Moderne Mine[\LINK]</German>
+	</TEXT>
+	
 <!-- Obsidian Camp -->
 	<TEXT>
 		<Tag>TXT_KEY_IMPROVEMENT_OBSIDIAN_CAMP</Tag>
@@ -167,6 +338,20 @@
 		<English>[TAB]A quarry is a type of open-pit mine from which rock or minerals are extracted. Quarries are generally used for extracting building materials, such as dimension stone, construction aggregate, riprap, sand, and gravel. They are often colocated with concrete and asphalt plants due to the requirement for large amounts of aggregate in those materials. The word quarry can include underground quarrying for stone, such as Bath stone.</English>
 	</TEXT>
 	
+<!-- Safari -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_SAFARI</Tag>
+		<English>Safari</English>
+		<French>Safari</French>
+		<German>Safari</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_SAFARI</Tag>
+		<English>Build [LINK=IMPROVEMENT_SAFARI]Safari[\LINK]</English>
+		<French>Construire un [LINK=IMPROVEMENT_SAFARI]Safari[\LINK]</French>
+		<German>Errichte eine [LINK=IMPROVEMENT_SAFARI]Safari[\LINK]</German>
+	</TEXT>
+
 <!-- Sea Bridge -->
 	<TEXT>
 		<Tag>TXT_KEY_BUILD_SEA_BRIDGE_NS</Tag>
@@ -222,6 +407,20 @@
 		<English>Build a [LINK=IMPROVEMENT_STONE_TOOLS_CAMP]Stone Tools Camp[\LINK]</English>
 	</TEXT>
 
+<!-- Shaft Mine -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_SHAFT_MINE</Tag>
+		<English>Shaft Mine</English>
+		<French>Puits de mine</French>
+		<German>Schachtmine</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_SHAFT_MINE</Tag>
+		<English>Build [LINK=IMPROVEMENT_SHAFT_MINE]Shaft Mine[\LINK]</English>
+		<French>Construire un [LINK=IMPROVEMENT_SHAFT_MINE]Puits de mine[\LINK]</French>
+		<German>Errichte eine [LINK=IMPROVEMENT_SHAFT_MINE]Schachtmine[\LINK]</German>
+	</TEXT>
+	
 <!-- Silk Farm -->
 	<TEXT>
 		<Tag>TXT_KEY_IMPROVEMENT_SILK_FARM</Tag>
@@ -238,6 +437,28 @@
 		<English>Build a [LINK=IMPROVEMENT_SILK_FARM]Silk Farm[\LINK]</English>
 		<French>Construire une [LINK=IMPROVEMENT_SILK_FARM]Culture de Soie[\LINK]</French>
 		<German>Errichte eine [LINK=IMPROVEMENT_SILK_FARM]Seidenfarm[\LINK]</German>
+	</TEXT>
+
+<!-- Submerged Town -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_SUBMERGED_TOWN</Tag>
+		<English>Submerged Town</English>
+		<French>
+			<Text>Ville Sous-marine</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Unterwasserstadt</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_SUBMERGED_TOWN_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_SUBMERGED_TOWN</Tag>
+		<English>Build [LINK=IMPROVEMENT_SUBMERGED_TOWN]Submerged Town[\LINK]</English>
+		<French>Construire un [LINK=IMPROVEMENT_SUBMERGED_TOWN]Ville Sous-marine[\LINK]</French>
+		<German>Errichte eine [LINK=IMPROVEMENT_SUBMERGED_TOWN]Unterwasserstadt[\LINK]</German>
 	</TEXT>
 
 <!-- Terraforming -->
@@ -314,6 +535,70 @@
 		<English>Build a [LINK=IMPROVEMENT_TIMBER_CAMP]Timber Camp[\LINK]</English>
 	</TEXT>
 	
+<!-- Tree Farm -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_TREE_FARM</Tag>
+		<English>Tree Farm</English>
+		<French>Verger</French>
+		<German>Baumschule</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_TREE_FARM</Tag>
+		<English>Build a [LINK=IMPROVEMENT_TREEFARM]Treefarm[\LINK]</English>
+		<French>Construire un [LINK=IMPROVEMENT_TREEFARM]Verger[\LINK]</French>
+		<German>Errichte eine [LINK=IMPROVEMENT_TREEFARM]Baumschule[\LINK]</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_TREE_FARM_PEDIA</Tag>
+		<English> </English>
+	</TEXT>
+
+<!-- Tree Nursery -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_TREE_NURSERY</Tag>
+		<English>Tree Nursery</English>
+		<French>
+			<Text>Tree Nursery</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Baumschule</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Piantagione:Piantagioni</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Plantaci&#243;n:Plantaciones</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_FOREST</Tag>
+		<English>Forest</English>
+	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_TREE_NURSERY</Tag>
+		<English>Plant a Forest</English>
+		<French>construire une plantation</French>
+		<German>Baumschule bauen</German>
+		<Italian>Costruisci una piantagione</Italian>
+		<Spanish>Construir una plantaci&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_TREE_NURSERY_PEDIA</Tag>
+		<English>[TAB]Be it to increase the amount of land available for agriculture or to gain large amounts of timber - for example to build and maintain navies - humans have a long history of causing deforestation. However, this demise of woods often carried unwanted side effects, from increasing difficulties in supplying the industry with enough wood to soil erosion or even desertification. And while forests will often regenerate on their own, in some areas this is impossible without assistance. Thus the first reforestation programs were created. [PARAGRAPH:2]Tree Nurseries represent a controlled effort to plant and nurse seedlings with the goal to re-establish tree cover in an area.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_TREE_NURSERY_MATURED</Tag>
+		<English>[TAB]A tree nursery has matured into a Forest</English>
+	</TEXT>
+
 	<TEXT> <!-- Watermill -->
 		<Tag>TXT_KEY_IMPROVEMENT_WATERMILL_PEDIA</Tag>
 		<English>[TAB]A watermill is a structure that uses a water wheel or turbine to drive a mechanical process such as flour, lumber or textile production, or metal shaping (rolling, grinding or wire drawing).</English>
@@ -322,6 +607,21 @@
 		<Tag>TXT_KEY_WHALING_BOATS_PEDIA</Tag>
 		<English>[TAB]Whaling is the hunting of whales mainly for meat and oil. Its earliest forms date to at least 3000 BC. Various coastal communities have long histories of sustenance whaling and harvesting beached whales. Industrial whaling emerged with organized fleets in the 17th century; competitive national whaling industries in the 18th and 19th centuries; and the introduction of factory ships along with the concept of whale harvesting in the first half of the 20th century.</English>
 	</TEXT>
+
+<!-- Windtrap -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_WINDTRAP</Tag>
+		<English>Windtrap</English>
+		<French>Piège à Vent</French>
+		<German>Windfalle</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_WINDTRAP</Tag>
+		<English>Build a [LINK=IMPROVEMENT_WINDTRAP]Windtrap[\LINK]</English>
+		<French>Construire un [LINK=IMPROVEMENT_WINDTRAP]Piège à Vent[\LINK]</French>
+		<German>Errichte eine [LINK=IMPROVEMENT_WINDTRAP]Windfalle[\LINK]</German>
+	</TEXT>
+	
 	<TEXT> <!-- Windmill -->
 		<Tag>TXT_KEY_IMPROVEMENT_WINDMILL_PEDIA</Tag>
 		<English>[TAB]A windmill is a machine which converts the energy of wind into rotational motion by means of adjustable vanes called sails or blades. The main use was originally for a grinding mill powered by the wind, reducing a solid or coarse substance into pulp or minute grains, by crushing, grinding, or pressing. Windmills have also been used to power sawmills and other industrial processes and as windpumps for obtaining fresh water from underground or for drainage of land.</English>
