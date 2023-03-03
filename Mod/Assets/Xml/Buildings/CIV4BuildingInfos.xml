@@ -157,6 +157,59 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Agora -->
+			<BuildingClass>BUILDINGCLASS_AGORA</BuildingClass>
+			<Type>BUILDING_AGORA</Type>
+			<Description>TXT_KEY_BUILDING_AGORA</Description>
+			<Civilopedia>TXT_KEY_BUILDING_AGORA_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_AGORA_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_AGORA</ArtDefineTag>
+			<ObsoleteTech>TECH_LEADERSHIP</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_DEMOCRACY</TechType>
+			</PrereqAndTechs>
+			<iCost>120</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iGreatPeopleRateModifier>10</iGreatPeopleRateModifier>
+			<iMilitaryProductionModifier>20</iMilitaryProductionModifier>
+			<iAsset>4</iAsset>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>10</iCommerce>
+				<iCommerce>5</iCommerce>
+			</CommerceModifiers>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_ARTIST</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_AGORA</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>5</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>5</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>5</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Airport -->
 			<BuildingClass>BUILDINGCLASS_AIRPORT</BuildingClass>
 			<Type>BUILDING_AIRPORT</Type>

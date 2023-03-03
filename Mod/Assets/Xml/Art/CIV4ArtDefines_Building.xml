@@ -2387,5 +2387,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/world_bank.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Agora -->
+			<Type>ART_DEF_BUILDING_AGORA</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/agora/Agora.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/agora.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

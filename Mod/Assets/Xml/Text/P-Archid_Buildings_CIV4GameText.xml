@@ -15,6 +15,24 @@
 		<Tag>TXT_KEY_BUILDING_ACCELERATOR_STRATEGY</Tag>
 		<English>Increases science, commerce and spaceship production.</English>
 	</TEXT>
+	<TEXT> <!-- Agora -->
+		<Tag>TXT_KEY_BUILDING_AGORA</Tag>
+		<English>Agora</English>
+		<French>
+			<Text>Agora</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Agora</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AGORA_PEDIA</Tag>
+		<English>[TAB]The Agora was an open "place of assembly" in ancient Greek city-states. Early in Greek history (900s - 700s BCE), free-born male land-owners who were citizens would gather in the agora for military duty or to hear statements of the ruling king or council. Later in Greek history, the agora served as a marketplace where merchants kept stalls or shops to sell their goods under colonnades.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AGORA_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
 	<TEXT> <!-- Alchemists Lab -->
 		<Tag>TXT_KEY_BUILDING_ALCHEMISTS_LAB</Tag>
 		<English>Alchemist's Lab</English>

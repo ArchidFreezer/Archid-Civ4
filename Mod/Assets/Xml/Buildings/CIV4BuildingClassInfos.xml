@@ -221,7 +221,13 @@
 			<DefaultBuilding>BUILDING_CUSTOM_HOUSE</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Boatyard -->                        <!-- City Boost -->
+		<BuildingClassInfo> <!-- Agora -->                           <!-- City Boost -->
+			<Type>BUILDINGCLASS_AGORA</Type>
+			<Description>TXT_KEY_BUILDING_AGORA</Description>
+			<iCategory>22</iCategory>
+			<DefaultBuilding>BUILDING_AGORA</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Boatyard -->
 			<Type>BUILDINGCLASS_BOATYARD</Type>
 			<Description>TXT_KEY_BUILDING_BOATYARD</Description>
 			<iCategory>22</iCategory>
