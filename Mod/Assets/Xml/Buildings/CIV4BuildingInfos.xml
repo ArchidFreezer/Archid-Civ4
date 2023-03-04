@@ -1135,14 +1135,14 @@
 					<iChange>1</iChange>
 				</HappinessTrait>
 			</HappinessTraits>
-			<iCost>175</iCost>
+			<iCost>230</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
+			<iConquestProb>75</iConquestProb>
 			<iAsset>5</iAsset>
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>50</iCommerce>
+				<iCommerce>30</iCommerce>
 			</CommerceModifiers>
 			<CommerceHappinesses>
 				<iCommerce>0</iCommerce>
@@ -1170,6 +1170,9 @@
 					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_COMMUNICATION_TOWER</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_CULTURE</FlavorType>
@@ -2332,6 +2335,73 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Communication Tower -->
+			<BuildingClass>BUILDINGCLASS_COMMUNICATION_TOWER</BuildingClass>
+			<Type>BUILDING_COMMUNICATION_TOWER</Type>
+			<Description>TXT_KEY_BUILDING_COMMUNICATION_TOWER</Description>
+			<Civilopedia>TXT_KEY_BUILDING_COMMUNICATION_TOWER_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_COMMUNICATION_TOWER_STRATEGY</Strategy>
+			<Advisor>ADVISOR_CULTURE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_COMMUNICATION_TOWER</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_COMMUNICATION_NETWORKS</TechType>
+			</PrereqAndTechs>
+			<HappinessTraits>
+				<HappinessTrait>
+					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<iChange>1</iChange>
+				</HappinessTrait>
+			</HappinessTraits>
+			<iCost>300</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>75</iConquestProb>
+			<iAsset>10</iAsset>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>5</iCommerce>
+			</CommerceChanges>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>30</iCommerce>
+			</CommerceModifiers>
+			<CommerceHappinesses>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>10</iCommerce>
+			</CommerceHappinesses>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_ARTIST</SpecialistType>
+					<iCount>3</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_BROADCASTTOWER</ConstructSound>
+			<BonusHappinessChanges>
+				<BonusHappinessChange>
+					<BonusType>BONUS_DRAMA</BonusType>
+					<iChange>2</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_MUSIC</BonusType>
+					<iChange>2</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_MOVIES</BonusType>
+					<iChange>2</iChange>
+				</BonusHappinessChange>
+			</BonusHappinessChanges>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_NETWORK_NODE</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -7618,6 +7688,74 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Network Node -->
+			<BuildingClass>BUILDINGCLASS_NETWORK_NODE</BuildingClass>
+			<Type>BUILDING_NETWORK_NODE</Type>
+			<Description>TXT_KEY_BUILDING_NETWORK_NODE</Description>
+			<Civilopedia>TXT_KEY_BUILDING_NETWORK_NODE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_NETWORK_NODE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_CULTURE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_NETWORK_NODE</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_TERRA_COMPUTER</TechType>
+			</PrereqAndTechs>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_NANOBOTS</BonusType>
+			</PrereqOrBonuses>
+			<HappinessTraits>
+				<HappinessTrait>
+					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<iChange>1</iChange>
+				</HappinessTrait>
+			</HappinessTraits>
+			<iCost>500</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>75</iConquestProb>
+			<iGlobalGreatPeopleRateModifier>3</iGlobalGreatPeopleRateModifier>
+			<iAsset>15</iAsset>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>10</iCommerce>
+			</CommerceChanges>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>50</iCommerce>
+			</CommerceModifiers>
+			<CommerceHappinesses>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>10</iCommerce>
+			</CommerceHappinesses>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_ARTIST</SpecialistType>
+					<iCount>5</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_BROADCASTTOWER</ConstructSound>
+			<BonusHappinessChanges>
+				<BonusHappinessChange>
+					<BonusType>BONUS_DRAMA</BonusType>
+					<iChange>3</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_MUSIC</BonusType>
+					<iChange>3</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_MOVIES</BonusType>
+					<iChange>3</iChange>
+				</BonusHappinessChange>
+			</BonusHappinessChanges>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>

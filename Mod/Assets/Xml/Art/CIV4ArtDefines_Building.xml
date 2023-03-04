@@ -2447,5 +2447,25 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/hypermarket.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_COMMUNICATION_TOWER</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.4</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/communication_tower/outpost.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/communication_tower.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NETWORK_NODE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.8</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/network_node/networknode.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/network_node.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

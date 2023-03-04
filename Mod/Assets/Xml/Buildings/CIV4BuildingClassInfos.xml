@@ -263,6 +263,12 @@
 			<iCategory>22</iCategory>
 			<DefaultBuilding>BUILDING_MARINA</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Network Node -->
+			<Type>BUILDINGCLASS_NETWORK_NODE</Type>
+			<Description>TXT_KEY_BUILDING_NETWORK_NODE</Description>
+			<iCategory>22</iCategory>
+			<DefaultBuilding>BUILDING_NETWORK_NODE</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Courthouse -->                      <!-- City Maintenance -->
 			<Type>BUILDINGCLASS_COURTHOUSE</Type>
@@ -482,6 +488,12 @@
 			<Description>TXT_KEY_BUILDING_BROADCAST_TOWER</Description>
 			<iCategory>32</iCategory>
 			<DefaultBuilding>BUILDING_BROADCAST_TOWER</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Communication Tower -->
+			<Type>BUILDINGCLASS_COMMUNICATION_TOWER</Type>
+			<Description>TXT_KEY_BUILDING_COMMUNICATION_TOWER</Description>
+			<iCategory>32</iCategory>
+			<DefaultBuilding>BUILDING_COMMUNICATION_TOWER</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Academy -->                         <!-- Research -->

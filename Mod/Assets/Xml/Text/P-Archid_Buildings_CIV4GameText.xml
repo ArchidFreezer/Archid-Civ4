@@ -238,6 +238,24 @@
 		<Tag>TXT_KEY_BUILDING_COMMERCIAL_PORT_STRATEGY</Tag>
 		<English>Commercial Ports increase coastal cities' trade routes and commerce and happiness. They are required to build International Ports.</English>
 	</TEXT>
+	<TEXT> <!-- Communication Tower -->
+		<Tag>TXT_KEY_BUILDING_COMMUNICATION_TOWER</Tag>
+		<English>Communication Tower</English>
+		<French>
+			<Text>Tour de Communication</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Sendeturm</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_COMMUNICATION_TOWER_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_COMMUNICATION_TOWER_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
 	<TEXT> <!-- Construction Firm -->
 		<Tag>TXT_KEY_BUILDING_CONSTRUCTION_FIRM</Tag>
 		<English>Construction Firm</English>
@@ -671,6 +689,20 @@
 	<TEXT>
 		<Tag>TXT_KEY_NATIONAL_SLAVE_AUCTION_PYTHON</Tag>
 		<English>[COLOR_SELECTED_TEXT]The [COLOR_BUILDING_TEXT]National Slave Auction[COLOR_SELECTED_TEXT] increases slavery infrastrucre nationwide[COLOR_REVERT]!</English>
+	</TEXT>
+	<TEXT> <!-- Network Node -->
+		<Tag>TXT_KEY_BUILDING_NETWORK_NODE</Tag>
+		<English>Network Node</English>
+		<French>Relais de Réseau</French>
+		<German>Netzwerkknoten</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NETWORK_NODE_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NETWORK_NODE_STRATEGY</Tag>
+		<English>.</English>
 	</TEXT>
 	<TEXT> <!-- Palisade -->
 		<Tag>TXT_KEY_BUILDING_PALISADE</Tag>
