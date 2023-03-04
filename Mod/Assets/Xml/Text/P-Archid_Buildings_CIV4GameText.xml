@@ -1070,6 +1070,24 @@
 		<Tag>TXT_KEY_BUILDING_TOWN_HALL_PEDIA</Tag>
 		<English>.</English>
 	</TEXT>
+	<TEXT> <!-- Townclock -->
+		<Tag>TXT_KEY_BUILDING_TOWNCLOCK</Tag>
+		<English>Townclock</English>
+		<French>
+			<Text>Horloge publique</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Turmuhr</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TOWNCLOCK_PEDIA</Tag>
+		<English>[TAB]A Town Clock or a clock tower is a tower built with one or more (often four) clock faces. The clock tower is usually part of a church or municipal building such as a town hall, but many clock towers are free-standing. [PARAGRAPH:2]The mechanism inside the tower is known as a turret clock. It often marks the hour (and sometimes segments of an hour) by sounding large bells or chimes, sometimes playing simple musical phrases or tunes. [PARAGRAPH:2]Although clock towers are today mostly admired for their aesthetics, they once served an important purpose. Before the middle of the twentieth century, most people did not have watches, and prior to the 18th century even home clocks were rare. The first clocks didn't have faces, but were solely striking clocks, which sounded bells to call the surrounding community to prayer. They were therefore placed in towers so the bells would be audible for a long distance. Clock towers were placed near the centers of towns and were often the tallest structures there. As clock towers became more common, the designers realized that a dial on the outside of the tower would allow the townspeople to read the time whenever they wanted.[PARAGRAPH:2]The use of clock towers dates back to the Middle Ages. The earliest clock tower was constructed by Su Song in Kaifeng, China, and completed in 1088. The first striking clock tower was constructed shortly after in 1154 near the Umayyad Mosque in Damascus, Syria, by the Arab engineer al-Kaysarani. The earliest clock tower in Europe was the Salisbury cathedral clock in England, completed in 1306.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TOWNCLOCK_STRATEGY</Tag>
+		<English>Increases production in city but the downside is slightly higher maintenance costs.</English>
+	</TEXT>
 	<TEXT> <!-- Trade Union -->
 		<Tag>TXT_KEY_BUILDING_TRADE_UNION</Tag>
 		<English>Trade Union</English>

@@ -399,6 +399,12 @@
 			<iCategory>28</iCategory>
 			<DefaultBuilding>BUILDING_WEAVERS_HUT</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Townclock -->
+			<Type>BUILDINGCLASS_TOWNCLOCK</Type>
+			<Description>TXT_KEY_BUILDING_TOWNCLOCK</Description>
+			<iCategory>28</iCategory>
+			<DefaultBuilding>BUILDING_TOWNCLOCK</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Early Instrument Maker -->          <!-- Commerce - Retail -->
 			<Type>BUILDINGCLASS_EARLY_INSTRUMENT_MAKER</Type>
