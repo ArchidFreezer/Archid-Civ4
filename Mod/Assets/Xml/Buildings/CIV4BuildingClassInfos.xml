@@ -325,6 +325,30 @@
 			<iCategory>24</iCategory>
 			<DefaultBuilding>BUILDING_UTILITY_FOG</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Toolmaker -->
+			<Type>BUILDINGCLASS_TOOLMAKER</Type>
+			<Description>TXT_KEY_BUILDING_TOOLMAKER</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_TOOLMAKER</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Foundry -->
+			<Type>BUILDINGCLASS_FOUNDRY</Type>
+			<Description>TXT_KEY_BUILDING_FOUNDRY</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_FOUNDRY</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Steel Mill -->
+			<Type>BUILDINGCLASS_STEEL_MILL</Type>
+			<Description>TXT_KEY_BUILDING_STEEL_MILL</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_STEEL_MILL</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Modern Steelworks -->
+			<Type>BUILDINGCLASS_MODERN_STEELWORKS</Type>
+			<Description>TXT_KEY_BUILDING_MODERN_STEELWORKS</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_MODERN_STEELWORKS</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Coal Plant -->                      <!-- Production - Factory/Power -->
 			<Type>BUILDINGCLASS_COAL_PLANT</Type>

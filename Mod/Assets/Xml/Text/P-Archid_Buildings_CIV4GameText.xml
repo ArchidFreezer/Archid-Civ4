@@ -401,6 +401,24 @@
 		<Tag>TXT_KEY_BUILDING_FISHERMAN_HUTS_STRATEGY</Tag>
 		<English>Fisherman's Hut increases city's food production if city has access to Fish, Crab and Whale resources.</English>
 	</TEXT>
+	<TEXT> <!-- Foundry -->
+		<Tag>TXT_KEY_BUILDING_FOUNDRY</Tag>
+		<English>Foundry</English>
+		<French>
+			<Text>Fonderie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Gie&#223;erei</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FOUNDRY_PEDIA</Tag>
+		<English>[TAB]A foundry is a factory that produces metal castings from either ferrous or non-ferrous alloys. Metals are turned into parts by melting the metal into a liquid, pouring the metal in a mold, and then removing the mold material or casting. The most common metal alloys processed are aluminum and cast iron. However, other metals, such as steel, magnesium, copper, tin, and zinc, can be processed.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FOUNDRY_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
 	<TEXT> <!-- Furrier -->
 		<Tag>TXT_KEY_BUILDING_FURRIER</Tag>
 		<English>Furrier</English>
@@ -664,6 +682,20 @@
 		<Tag>TXT_KEY_BUILDING_MICROLITH_WORKSHOP_STRATEGY</Tag>
 		<English>Build a [COLOR_BUILDING_TEXT]Microlith Workshop[COLOR_REVERT] to increase your cities's military production in the earlier eras.</English>
 	</TEXT>
+	<TEXT> <!-- Modern Steelworks -->
+		<Tag>TXT_KEY_BUILDING_MODERN_STEELWORKS</Tag>
+		<English>Modern Steelworks</English>
+		<French>Aciérie Moderne</French>
+		<German>Modernes Stahlwerk</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MODERN_STEELWORKS_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MODERN_STEELWORKS_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
 	<TEXT> <!-- Moneylender -->
 		<Tag>TXT_KEY_BUILDING_MONEYLENDER</Tag>
 		<English>Moneylender</English>
@@ -919,6 +951,24 @@
 		<Tag>TXT_KEY_BUILDING_STATE_SCHOOL_STRATEGY</Tag>
 		<English>Increases city's science and culture output in city. Extra happiness from science and culture every 20%</English>
 		</TEXT>
+	<TEXT> <!-- Steel Mill -->
+		<Tag>TXT_KEY_BUILDING_STEEL_MILL</Tag>
+		<English>Steel Mill</English>
+		<French>
+			<Text>Aciérie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Stahlm&#252;hle</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_STEEL_MILL_PEDIA</Tag>
+		<English>[TAB]A steel mill is an industrial plant for the manufacture of steel. [PARAGRAPH:2]Steel is an alloy of iron and carbon. It is produced in a two-stage process. First, iron ore is reduced or smelted with coke and limestone in a blast furnace, producing molten iron which is either cast into pig iron or carried to the next stage as molten iron. In the second stage, known as steelmaking, impurities such as sulfur, phosphorus, and excess carbon are removed and alloying elements such as manganese, nickel, chromium and vanadium added to produce the exact steel required.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_STEEL_MILL_STRATEGY</Tag>
+		<English>Steel Mill increases city's production and converts Iron and Coal to Steel resource. It replaces also Forge.</English>
+	</TEXT>
 	<TEXT> <!-- Stone Weapons Workshop -->
 		<Tag>TXT_KEY_BUILDING_STONE_WEAPONS_WORKSHOP</Tag>
 		<English>Stone Weapons Workshop</English>
@@ -992,6 +1042,23 @@
 		<Tag>TXT_KEY_BUILDING_TAILOR_SHOP_STRATEGY</Tag>
 		<English>Makes use of "clothing" resources, providing Commerce and Happiness</English>
 		<French>Procure une ressource 'Vêtement', fournissant commerce et bonheur</French>
+	</TEXT>
+	<TEXT> <!-- Toolmaker -->
+		<Tag>TXT_KEY_BUILDING_TOOLMAKER</Tag>
+		<English>Toolmaker</English>
+		<French>Outilleur</French>
+		<German>Werkzeugmacher</German>
+		<Italian>Utensillista</Italian>
+		<Spanish>Matricero</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TOOLMAKER_STRATEGY</Tag>
+		<English>Produces basic working tools of primitive materials.</English>
+		<German>Stellt einfache Werkzeuge aus primitiven Materialien her.</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TOOLMAKER_PEDIA</Tag>
+		<English>Increases the basic productivity of other workers</English>
 	</TEXT>
 	<TEXT> <!-- Town Hall -->
 		<Tag>TXT_KEY_BUILDING_TOWN_HALL</Tag>

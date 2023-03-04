@@ -2467,5 +2467,45 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/network_node.dds</Button>
 		</BuildingArtInfo>
+   	<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TOOLMAKER</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/clay_hut/Hut.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/toolmaker.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_FOUNDRY</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>0.65</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/foundry/cannon_forge.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/foundry.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_STEEL_MILL</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>.95</fScale>
+			<fInterfaceScale>0.9</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/steel_mill/Foundry.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/steel_mill.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MODERN_STEELWORKS</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/industrial_park/industrial_park_ind.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/TechTree/Steel.dds,Art/Interface/Buttons/TechTree_Atlas.dds,2,12</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
