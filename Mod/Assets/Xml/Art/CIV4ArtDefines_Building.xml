@@ -2417,5 +2417,35 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/doctors_office.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Bazaar -->
+			<Type>ART_DEF_BUILDING_BAZAAR</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>13.00</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/bazaar/humanbazaar.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/bazaar.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Shopping District -->
+			<Type>ART_DEF_BUILDING_SHOPPING_DISTRICT</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.25</fScale>
+			<fInterfaceScale>0.67</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Supermarket/Supermarket.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/shopping_district.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HYPERMARKET</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/hypermarket/Market.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/hypermarket.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

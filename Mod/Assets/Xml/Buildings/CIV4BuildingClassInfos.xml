@@ -400,6 +400,24 @@
 			<iCategory>29</iCategory>
 			<DefaultBuilding>BUILDING_TAILOR_SHOP</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Bazaar -->
+			<Type>BUILDINGCLASS_BAZAAR</Type>
+			<Description>TXT_KEY_BUILDING_BAZAAR</Description>
+			<iCategory>29</iCategory>
+			<DefaultBuilding>BUILDING_BAZAAR</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Shopping District -->
+			<Type>BUILDINGCLASS_SHOPPING_DISTRICT</Type>
+			<Description>TXT_KEY_BUILDING_SHOPPING_DISTRICT</Description>
+			<iCategory>29</iCategory>
+			<DefaultBuilding>BUILDING_SHOPPING_DISTRICT</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Hypermarket -->
+			<Type>BUILDINGCLASS_HYPERMARKET</Type>
+			<Description>TXT_KEY_BUILDING_HYPERMARKET</Description>
+			<iCategory>29</iCategory>
+			<DefaultBuilding>BUILDING_HYPERMARKET</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Bank -->                            <!-- Commerce - Banking -->
 			<Type>BUILDINGCLASS_BANK</Type>

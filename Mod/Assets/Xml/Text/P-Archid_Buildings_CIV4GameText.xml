@@ -60,6 +60,24 @@
 		<Tag>TXT_KEY_BUILDING_BARBARIAN_LODGE_STRATEGY</Tag>
 		<English>Build a [COLOR_BUILDING_TEXT]Barbarian Lodge[COLOR_REVERT] to allow you to have more barbarian units to harrass your neighbours with.</English>
 	</TEXT>
+	<TEXT> <!-- Bazaar -->
+		<Tag>TXT_KEY_BUILDING_BAZAAR</Tag>
+		<English>Bazaar</English>
+		<French>Bazar</French>
+		<German>Bazar</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BAZAAR_PEDIA</Tag>
+		<English>[TAB]As cities grew and prospered, trade between the farmers, artisans, and craftsmen who lived in the vicinity contributed to the economic health of the city. It soon became apparent that the best way for conducting trade within the city was to have a central location, or marketplace, where the people offering goods and services, or seeking them, could meet and conduct business. As a city's marketplace grew larger and more active, the economic vitality of the city grew as well.</English>
+		<French>[TAB]Lorsque les villes se sont agrandies et ont prosp&#233;r&#233;, le commerce entre les fermiers et les artisans des environs a contribu&#233; &#224; la bonne sant&#233; &#233;conomique de la ville. Rapidement, il est apparu que le meilleur moyen d'attirer le commerce dans la ville consistait &#224; cr&#233;er un emplacement central, une place du march&#233;, o&#249; la population pouvait &#233;changer ses biens et services, se rencontrer et faire des affaires. Lorsque la place du march&#233; d'un village s'agrandissait et devenait plus active, la vitalit&#233; &#233;conomique de la ville augmentait &#233;galement.</French>
+		<German>[TAB]Je mehr eine Stadt sich vergr&#246;&#223;erte, desto mehr trug der Handel zwischen Bauern, Kunsthandwerkern und Handwerkern, die im Stadtgebiet oder der n&#228;heren Umgebung ans&#228;ssig waren, zum st&#228;dtischen Wohlstand bei. Schnell erkannte man, dass es sinnvoll war, einen zentralen Ort - einen Marktplatz - f&#252;r Handelsaktivit&#228;ten bereitzustellen. Hier konnten sich alle B&#252;rger einfinden, die Waren und Dienstleistungen anboten oder suchten, um ihre Gesch&#228;fte zu t&#228;tigen. Je mehr ein Marktplatz genutzt wurde, desto st&#228;rker wurde auch die wirtschaftliche Situation der Stadt.</German>
+		<Italian>[TAB]Quando le citt&#224; crescevano e prosperavano, il commercio fra gli agricoltori, gli artigiani e gli artisti che vivevano nelle vicinanze contribuiva al benessere economico della citt&#224;. Divenne presto chiaro che il modo migliore per condurre questi scambi nella citt&#224; era di avere un'area centrale, il mercato, in cui la gente che offriva beni e servizi, oppure li cercava, potesse incontrarsi per condurre i suoi affari. Quando il mercato diventava pi&#249; grande e pi&#249; attraente in una citt&#224;, anche la vitalit&#224; di quest'ultima ne risentiva positivamente.</Italian>
+		<Spanish>[TAB]A medida que las ciudades crec&#237;an y prosperaban, el comercio entre los agricultores y artesanos que viv&#237;an en sus inmediaciones contribu&#237;a a su salud econ&#243;mica. Pronto se hizo evidente que la mejor manera de llevar a cabo el intercambio en la ciudad era con un lugar central o mercado en el que pudiera reunirse la gente que ofrec&#237;a mercanc&#237;as o servicios y la que iba en busca de los mismos. A medida que el mercado de la ciudad crec&#237;a y su actividad se intensificaba, la vitalidad econ&#243;mica tambi&#233;n aumentaba.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BAZAAR_STRATEGY</Tag>
+		<English>The Bazaar increases a city's commerce a small amount.</English>
+	</TEXT>
 	<TEXT> <!-- Biological Warfare Lab -->
 		<Tag>TXT_KEY_BUILDING_BIOLOGICAL_WARFARE_LAB</Tag>
 		<English>Biological Warfare Lab</English>
@@ -470,6 +488,20 @@
 		<English>Build a [COLOR_BUILDING_TEXT]Hunting Lodge[COLOR_REVERT] to increase the growth of your cities.</English>
 		<Spanish>Construye una [COLOR_BUILDING_TEXT]Caba&#241;a del Cazador[COLOR_REVERT] para incrementar el crecimiento de tus ciudades.</Spanish>
 	</TEXT>
+	<TEXT> <!-- Hypermarket -->
+		<Tag>TXT_KEY_BUILDING_HYPERMARKET</Tag>
+		<English>Hypermarket</English>
+		<French>Hypermarché</French>
+		<German>Hypermarkt</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HYPERMARKET_PEDIA</Tag>
+		<English>[TAB]In commerce, a hypermarket is a superstore which combines a supermarket and a department store. The result is a very large retail facility which carries an enormous range of products under one roof, including full lines of groceries and general merchandise. In theory, hypermarkets allow customers to satisfy all their routine weekly shopping needs in one trip.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HYPERMARKET_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
 	<TEXT> <!-- Investment Bank -->
 		<Tag>TXT_KEY_BUILDING_INVESTMENT_BANK</Tag>
 		<English>Investment Bank</English>
@@ -769,6 +801,20 @@
 		<Tag>TXT_KEY_BUILDING_SHAMAN_TEMPLE_STRATEGY</Tag>
 		<English>Build a [COLOR_BUILDING_TEXT]Shaman Temple[COLOR_REVERT] to allow [COLOR_UNIT_TEXT]Shaman[COLOR_REVERT] training and to increase the research in your city.</English>
 		<Spanish>Construye un [COLOR_BUILDING_TEXT]Templo Cham&#225;n[COLOR_REVERT] para permitir la construcci&#243;n de [COLOR_UNIT_TEXT]Chamanes[COLOR_REVERT]. Tambi&#233;n sirve para incrementar la raz&#243; de cambio de oro en tus ciudades.</Spanish>
+	</TEXT>
+	<TEXT> <!-- Shopping District -->
+		<Tag>TXT_KEY_BUILDING_SHOPPING_DISTRICT</Tag>
+		<English>Shopping District</English>
+		<French>Centre Commercial</French>
+		<German>Shoppingmeile</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SHOPPING_DISTRICT_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SHOPPING_DISTRICT_STRATEGY</Tag>
+		<English>Shopping District increases yield from trade routes.</English>
 	</TEXT>
 	<TEXT> <!-- Shrine -->
 		<Tag>TXT_KEY_BUILDING_SHRINE</Tag>

@@ -795,6 +795,148 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Bazaar -->
+			<BuildingClass>BUILDINGCLASS_BAZAAR</BuildingClass>
+			<Type>BUILDING_BAZAAR</Type>
+			<Description>TXT_KEY_BUILDING_BAZAAR</Description>
+			<Civilopedia>TXT_KEY_BUILDING_BAZAAR_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_BAZAAR_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_BAZAAR</ArtDefineTag>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<ObsoleteTech>TECH_APPLIED_ECONOMICS</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_WARFARE</TechType>
+			</PrereqAndTechs>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_SILK</BonusType>
+				<BonusType>BONUS_IVORY</BonusType>
+				<BonusType>BONUS_SPICES</BonusType>
+				<BonusType>BONUS_PEARLS</BonusType>
+			</PrereqOrBonuses>
+			<iCost>80</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>75</iConquestProb>
+			<iWarWearinessModifier>5</iWarWearinessModifier>
+			<iTradeRouteModifier>10</iTradeRouteModifier>
+			<iAsset>3</iAsset>
+			<CommerceModifiers>
+				<iCommerce>10</iCommerce>
+			</CommerceModifiers>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_MARKETPLACE</ConstructSound>
+			<BonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_IVORY</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SILK</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SPICES</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_PEARLS</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_COTTON</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_FUR</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SILK</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_INCENSE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_DYE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_COPPER</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_TEA</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</BonusYieldChanges>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_SHOPPING_DISTRICT</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_SHOPPING_DISTRICT</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+			<HotKey/>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Biological Warfare Lab -->
 			<BuildingClass>BUILDINGCLASS_BIOLOGICAL_WARFARE_LAB</BuildingClass>
 			<Type>BUILDING_BIOLOGICAL_WARFARE_LAB</Type>
@@ -3969,13 +4111,14 @@
 				<TechType>TECH_GUILDS</TechType>
 				<TechType>TECH_CURRENCY</TechType>
 			</PrereqAndTechs>
-			<iCost>150</iCost>
+			<iCost>165</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
+			<iConquestProb>75</iConquestProb>
+			<iHealth>2</iHealth>
 			<iAsset>4</iAsset>
-			<CommerceModifiers>
-				<iCommerce>25</iCommerce>
-			</CommerceModifiers>
+			<CommerceChanges>
+				<iCommerce>6</iCommerce>
+			</CommerceChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
@@ -3985,26 +4128,173 @@
 			<ConstructSound>AS2D_BUILD_GROCER</ConstructSound>
 			<BonusHealthChanges>
 				<BonusHealthChange>
-					<BonusType>BONUS_SPICES</BonusType>
+					<BonusType>BONUS_SALT</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_OLIVES</BonusType>
 					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_SUGAR</BonusType>
-					<iChange>1</iChange>
+					<iChange>-1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_WINE</BonusType>
-					<iChange>1</iChange>
+					<iChange>-1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
-					<BonusType>BONUS_BANANA</BonusType>
-					<iChange>1</iChange>
+					<BonusType>BONUS_TOBACCO</BonusType>
+					<iChange>-1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_ALCOHOL</BonusType>
+					<iChange>-1</iChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
+			<BonusHappinessChanges>
+				<BonusHappinessChange>
+					<BonusType>BONUS_ALCOHOL</BonusType>
+					<iChange>1</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_TOBACCO</BonusType>
+					<iChange>1</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_WINE</BonusType>
+					<iChange>1</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_SUGAR</BonusType>
+					<iChange>1</iChange>
+				</BonusHappinessChange>
+			</BonusHappinessChanges>	
+			<BonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_WINE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_CANNABIS</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SALT</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_TOBACCO</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_ALCOHOL</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SPICES</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SUGAR</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_COFFEE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_TEA</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</BonusYieldChanges>
+			<VicinityBonusYieldChanges>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_OLIVES</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>3</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_BANANA</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_LEMON</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_APPLE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+			</VicinityBonusYieldChanges>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
-					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
 					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>8</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
@@ -4022,12 +4312,12 @@
 			</PrereqAndTechs>
 			<iCost>150</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
-			<iHealth>2</iHealth>
-			<iAsset>6</iAsset>
-			<CommerceModifiers>
-				<iCommerce>25</iCommerce>
-			</CommerceModifiers>
+			<iConquestProb>75</iConquestProb>
+			<iHealth>4</iHealth>
+			<iAsset>4</iAsset>
+			<CommerceChanges>
+				<iCommerce>6</iCommerce>
+			</CommerceChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
@@ -4037,26 +4327,173 @@
 			<ConstructSound>AS2D_BUILD_GROCER</ConstructSound>
 			<BonusHealthChanges>
 				<BonusHealthChange>
-					<BonusType>BONUS_SPICES</BonusType>
+					<BonusType>BONUS_SALT</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_OLIVES</BonusType>
 					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_SUGAR</BonusType>
-					<iChange>1</iChange>
+					<iChange>-1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_WINE</BonusType>
-					<iChange>1</iChange>
+					<iChange>-1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
-					<BonusType>BONUS_BANANA</BonusType>
-					<iChange>1</iChange>
+					<BonusType>BONUS_TOBACCO</BonusType>
+					<iChange>-1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_ALCOHOL</BonusType>
+					<iChange>-1</iChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
+			<BonusHappinessChanges>
+				<BonusHappinessChange>
+					<BonusType>BONUS_ALCOHOL</BonusType>
+					<iChange>1</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_TOBACCO</BonusType>
+					<iChange>1</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_WINE</BonusType>
+					<iChange>1</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_SUGAR</BonusType>
+					<iChange>1</iChange>
+				</BonusHappinessChange>
+			</BonusHappinessChanges>	
+			<BonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_WINE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_CANNABIS</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SALT</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_TOBACCO</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_ALCOHOL</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SPICES</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SUGAR</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_COFFEE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_TEA</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</BonusYieldChanges>
+			<VicinityBonusYieldChanges>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_OLIVES</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>3</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_BANANA</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_LEMON</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_APPLE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+			</VicinityBonusYieldChanges>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
-					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
 					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>8</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
@@ -4641,6 +5078,232 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Hypermarket -->
+			<BuildingClass>BUILDINGCLASS_HYPERMARKET</BuildingClass>
+			<Type>BUILDING_HYPERMARKET</Type>
+			<Description>TXT_KEY_BUILDING_HYPERMARKET</Description>
+			<Civilopedia>TXT_KEY_BUILDING_HYPERMARKET_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_HYPERMARKET_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_HYPERMARKET</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_PLASTIC_ELECTRONICS</TechType>
+			</PrereqAndTechs>
+			<iCost>850</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>75</iConquestProb>
+			<iWarWearinessModifier>25</iWarWearinessModifier>
+			<iHealth>3</iHealth>
+			<iTradeRouteModifier>40</iTradeRouteModifier>
+			<iAsset>6</iAsset>
+			<YieldChanges>
+				<iYield>2</iYield>
+			</YieldChanges>
+			<CommerceChanges>
+				<iCommerce>12</iCommerce>
+			</CommerceChanges>
+			<CommerceModifiers>
+				<iCommerce>25</iCommerce>
+			</CommerceModifiers>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+					<iCount>5</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_HYPERMARKET</ConstructSound>
+			<BonusHealthChanges>
+				<BonusHealthChange>
+					<BonusType>BONUS_SALT</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_OLIVES</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_SUGAR</BonusType>
+					<iChange>-1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_WINE</BonusType>
+					<iChange>-1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_TOBACCO</BonusType>
+					<iChange>-2</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_ALCOHOL</BonusType>
+					<iChange>-2</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_COW</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_DEER</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_PIG</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_SHEEP</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+			</BonusHealthChanges>
+			<BonusHappinessChanges>
+				<BonusHappinessChange>
+					<BonusType>BONUS_COFFEE</BonusType>
+					<iChange>1</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_TEA</BonusType>
+					<iChange>1</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_TOBACCO</BonusType>
+					<iChange>2</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_ALCOHOL</BonusType>
+					<iChange>2</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_WINE</BonusType>
+					<iChange>1</iChange>
+				</BonusHappinessChange>
+			</BonusHappinessChanges>
+			<BonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_OLIVES</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_BANANA</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SPICES</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SILK</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_FUR</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SUGAR</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_WINE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SALT</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_COFFEE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_LEMON</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_TOBACCO</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_APPLE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_TEA</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_ALCOHOL</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</BonusYieldChanges>
+			<PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType>
+			</PrereqAndBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>8</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -5929,11 +6592,12 @@
 			</PrereqAndTechs>
 			<iCost>150</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
+			<iConquestProb>75</iConquestProb>
+			<iHealth>1</iHealth>
 			<iAsset>3</iAsset>
-			<CommerceModifiers>
-				<iCommerce>25</iCommerce>
-			</CommerceModifiers>
+			<CommerceChanges>
+				<iCommerce>3</iCommerce>
+			</CommerceChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
@@ -5941,28 +6605,139 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_MARKETPLACE</ConstructSound>
+			<BonusHealthChanges>
+				<BonusHealthChange>
+					<BonusType>BONUS_SALT</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_OLIVES</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_ALCOHOL</BonusType>
+					<iChange>-1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_TOBACCO</BonusType>
+					<iChange>-1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_SUGAR</BonusType>
+					<iChange>-1</iChange>
+				</BonusHealthChange>
+			</BonusHealthChanges>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
-					<BonusType>BONUS_FUR</BonusType>
+					<BonusType>BONUS_ALCOHOL</BonusType>
 					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
-					<BonusType>BONUS_IVORY</BonusType>
+					<BonusType>BONUS_TOBACCO</BonusType>
 					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
-					<BonusType>BONUS_SILK</BonusType>
+					<BonusType>BONUS_WINE</BonusType>
 					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
-					<BonusType>BONUS_WHALE</BonusType>
+					<BonusType>BONUS_SUGAR</BonusType>
 					<iChange>1</iChange>
 				</BonusHappinessChange>
-			</BonusHappinessChanges>
+			</BonusHappinessChanges>			
+			<BonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_WINE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_CANNABIS</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SALT</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_TOBACCO</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_ALCOHOL</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</BonusYieldChanges>
+			<VicinityBonusYieldChanges>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_OLIVES</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>3</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_BANANA</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_LEMON</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_APPLE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+			</VicinityBonusYieldChanges>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
-					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
 					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>8</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
@@ -5993,28 +6768,139 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_MARKETPLACE</ConstructSound>
+			<BonusHealthChanges>
+				<BonusHealthChange>
+					<BonusType>BONUS_SALT</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_OLIVES</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_ALCOHOL</BonusType>
+					<iChange>-1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_TOBACCO</BonusType>
+					<iChange>-1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_SUGAR</BonusType>
+					<iChange>-1</iChange>
+				</BonusHealthChange>
+			</BonusHealthChanges>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
-					<BonusType>BONUS_FUR</BonusType>
+					<BonusType>BONUS_ALCOHOL</BonusType>
 					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
-					<BonusType>BONUS_IVORY</BonusType>
+					<BonusType>BONUS_TOBACCO</BonusType>
 					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
-					<BonusType>BONUS_SILK</BonusType>
+					<BonusType>BONUS_WINE</BonusType>
 					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
-					<BonusType>BONUS_WHALE</BonusType>
+					<BonusType>BONUS_SUGAR</BonusType>
 					<iChange>1</iChange>
 				</BonusHappinessChange>
-			</BonusHappinessChanges>
+			</BonusHappinessChanges>			
+			<BonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_WINE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_CANNABIS</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SALT</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_TOBACCO</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_ALCOHOL</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</BonusYieldChanges>
+			<VicinityBonusYieldChanges>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_OLIVES</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>3</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_BANANA</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_LEMON</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_APPLE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+			</VicinityBonusYieldChanges>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
-					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
 					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>8</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
@@ -7833,6 +8719,157 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Shopping District -->
+			<BuildingClass>BUILDINGCLASS_SHOPPING_DISTRICT</BuildingClass>
+			<Type>BUILDING_SHOPPING_DISTRICT</Type>
+			<Description>TXT_KEY_BUILDING_SHOPPING_DISTRICT</Description>
+			<Civilopedia>TXT_KEY_BUILDING_SHOPPING_DISTRICT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_SHOPPING_DISTRICT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_SHOPPING_DISTRICT</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_GLOBALIZATION</TechType>
+			</PrereqAndTechs>
+			<iCost>700</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>33</iConquestProb>
+			<iWarWearinessModifier>15</iWarWearinessModifier>
+			<iTradeRouteModifier>25</iTradeRouteModifier>
+			<iAsset>6</iAsset>
+			<CommerceModifiers>
+				<iCommerce>20</iCommerce>
+			</CommerceModifiers>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+					<iCount>2</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_GROCER</ConstructSound>
+			<BonusHappinessChanges>
+				<BonusHappinessChange>
+					<BonusType>BONUS_DRAMA</BonusType>
+					<iChange>1</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_MUSIC</BonusType>
+					<iChange>1</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_MOVIES</BonusType>
+					<iChange>1</iChange>
+				</BonusHappinessChange>
+			</BonusHappinessChanges>
+			<BonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_IVORY</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SILK</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SPICES</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_PEARLS</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_COTTON</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_FUR</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_INCENSE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_DYE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_DRAMA</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_MUSIC</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_MOVIES</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</BonusYieldChanges>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_HYPERMARKET</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_HYPERMARKET</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>8</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Shrine -->
 			<BuildingClass>BUILDINGCLASS_SHRINE</BuildingClass>
 			<Type>BUILDING_SHRINE</Type>
@@ -8754,62 +9791,50 @@
 			<PrereqAndTechs>
 				<TechType>TECH_REFRIGERATION</TechType>
 			</PrereqAndTechs>
-			<iCost>150</iCost>
+			<iCost>195</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
+			<iConquestProb>75</iConquestProb>
+			<iHealth>3</iHealth>
 			<iAsset>6</iAsset>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
 			<YieldChanges>
 				<iYield>1</iYield>
 			</YieldChanges>
-			<ConstructSound>AS2D_BUILD_SUPERMARKET</ConstructSound>
+			<CommerceChanges>
+				<iCommerce>9</iCommerce>
+			</CommerceChanges>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+					<iCount>3</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_MALL</ConstructSound>
 			<BonusHealthChanges>
 				<BonusHealthChange>
-					<BonusType>BONUS_COW</BonusType>
+					<BonusType>BONUS_SALT</BonusType>
 					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
-					<BonusType>BONUS_DEER</BonusType>
+					<BonusType>BONUS_OLIVES</BonusType>
 					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
-					<BonusType>BONUS_PIG</BonusType>
-					<iChange>1</iChange>
+					<BonusType>BONUS_SUGAR</BonusType>
+					<iChange>-1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
-					<BonusType>BONUS_SHEEP</BonusType>
-					<iChange>1</iChange>
+					<BonusType>BONUS_WINE</BonusType>
+					<iChange>-1</iChange>
 				</BonusHealthChange>
-			</BonusHealthChanges>
-			<Flavors>
-				<Flavor>
-					<FlavorType>FLAVOR_GROWTH</FlavorType>
-					<iFlavor>10</iFlavor>
-				</Flavor>
-			</Flavors>
-		</BuildingInfo>
-		<BuildingInfo> <!-- Supermarket: American Mall -->
-			<BuildingClass>BUILDINGCLASS_SUPERMARKET</BuildingClass>
-			<Type>BUILDING_AMERICAN_MALL</Type>
-			<Description>TXT_KEY_BUILDING_AMERICAN_MALL</Description>
-			<Civilopedia>TXT_KEY_CHANGED_BUILDING_AMERICAN_MALL_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_BUILDING_AMERICAN_MALL_STRATEGY</Strategy>
-			<Advisor>ADVISOR_GROWTH</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_AMERICAN_MALL</ArtDefineTag>
-			<PrereqAndTechs>
-				<TechType>TECH_REFRIGERATION</TechType>
-			</PrereqAndTechs>
-			<iCost>150</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
-			<iAsset>8</iAsset>
-			<YieldChanges>
-				<iYield>1</iYield>
-			</YieldChanges>
-			<CommerceModifiers>
-				<iCommerce>20</iCommerce>
-			</CommerceModifiers>
-			<ConstructSound>AS2D_BUILD_GROCERY</ConstructSound>
-			<BonusHealthChanges>
+				<BonusHealthChange>
+					<BonusType>BONUS_TOBACCO</BonusType>
+					<iChange>-2</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_ALCOHOL</BonusType>
+					<iChange>-1</iChange>
+				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_COW</BonusType>
 					<iChange>1</iChange>
@@ -8829,22 +9854,359 @@
 			</BonusHealthChanges>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
-					<BonusType>BONUS_DRAMA</BonusType>
+					<BonusType>BONUS_COFFEE</BonusType>
 					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
-					<BonusType>BONUS_MUSIC</BonusType>
+					<BonusType>BONUS_TEA</BonusType>
 					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
-					<BonusType>BONUS_MOVIES</BonusType>
+					<BonusType>BONUS_TOBACCO</BonusType>
+					<iChange>2</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_ALCOHOL</BonusType>
+					<iChange>2</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_WINE</BonusType>
 					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
+			<BonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_OLIVES</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_BANANA</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SPICES</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SUGAR</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_WINE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SALT</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_COFFEE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_LEMON</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_TOBACCO</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_APPLE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_TEA</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_ALCOHOL</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</BonusYieldChanges>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_HYPERMARKET</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
+			</PrereqAndBuildingClasses>		
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_HYPERMARKET</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
 					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>8</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Supermarket: American Mall -->
+			<BuildingClass>BUILDINGCLASS_SUPERMARKET</BuildingClass>
+			<Type>BUILDING_AMERICAN_MALL</Type>
+			<Description>TXT_KEY_BUILDING_AMERICAN_MALL</Description>
+			<Civilopedia>TXT_KEY_CHANGED_BUILDING_AMERICAN_MALL_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_AMERICAN_MALL_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_AMERICAN_MALL</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_REFRIGERATION</TechType>
+			</PrereqAndTechs>
+			<iCost>195</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>75</iConquestProb>
+			<iHealth>3</iHealth>
+			<iAsset>6</iAsset>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<YieldChanges>
+				<iYield>2</iYield>
+			</YieldChanges>
+			<CommerceChanges>
+				<iCommerce>12</iCommerce>
+			</CommerceChanges>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+					<iCount>3</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_MALL</ConstructSound>
+			<BonusHealthChanges>
+				<BonusHealthChange>
+					<BonusType>BONUS_SALT</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_OLIVES</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_SUGAR</BonusType>
+					<iChange>-1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_WINE</BonusType>
+					<iChange>-1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_TOBACCO</BonusType>
+					<iChange>-2</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_ALCOHOL</BonusType>
+					<iChange>-1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_COW</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_DEER</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_PIG</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_SHEEP</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+			</BonusHealthChanges>
+			<BonusHappinessChanges>
+				<BonusHappinessChange>
+					<BonusType>BONUS_COFFEE</BonusType>
+					<iChange>1</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_TEA</BonusType>
+					<iChange>1</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_TOBACCO</BonusType>
+					<iChange>2</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_ALCOHOL</BonusType>
+					<iChange>2</iChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_WINE</BonusType>
+					<iChange>1</iChange>
+				</BonusHappinessChange>
+			</BonusHappinessChanges>
+			<BonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_OLIVES</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_BANANA</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SPICES</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SUGAR</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_WINE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SALT</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_COFFEE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_LEMON</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_TOBACCO</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_APPLE</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_TEA</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_ALCOHOL</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</BonusYieldChanges>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_HYPERMARKET</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
+			</PrereqAndBuildingClasses>		
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_HYPERMARKET</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>8</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
