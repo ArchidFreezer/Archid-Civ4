@@ -2761,6 +2761,46 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Doctor -->
+			<BuildingClass>BUILDINGCLASS_DOCTORS_OFFICE</BuildingClass>
+			<Type>BUILDING_DOCTORS_OFFICE</Type>
+			<Description>TXT_KEY_BUILDING_DOCTORS_OFFICE</Description>
+			<Civilopedia>TXT_KEY_BUILDING_DOCTORS_OFFICE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_DOCTORS_OFFICE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_DOCTORS_OFFICE</ArtDefineTag>
+			<FreeStartEra>ERA_RENAISSANCE</FreeStartEra>
+			<PrereqAndTechs>
+				<TechType>TECH_ANATOMY</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_HUMANITARIAN</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<HappinessTraits>
+				<HappinessTrait>
+					<TraitType>TRAIT_HUMANITARIAN</TraitType>
+					<iChange>1</iChange>
+				</HappinessTrait>
+			</HappinessTraits>
+			<GreatPeopleUnitClass>UNITCLASS_DOCTOR</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
+			<iCost>165</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>75</iConquestProb>
+			<iHealRateChange>20</iHealRateChange>
+			<iHealth>1</iHealth>
+			<iAsset>4</iAsset>
+			<ConstructSound>AS2D_BUILD_DOCTORS_OFFICE</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Drydock -->
 			<BuildingClass>BUILDINGCLASS_DRYDOCK</BuildingClass>
 			<Type>BUILDING_DRYDOCK</Type>

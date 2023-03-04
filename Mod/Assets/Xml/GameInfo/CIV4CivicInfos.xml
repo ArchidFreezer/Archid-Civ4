@@ -2270,7 +2270,7 @@
 					<iHealthChange>1</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_DOCTOR</BuildingType>
+					<BuildingType>BUILDINGCLASS_DOCTORS_OFFICE</BuildingType>
 					<iHealthChange>1</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
@@ -2414,7 +2414,7 @@
 			</BuildingHappinessChanges>
 			<BuildingHealthChanges>
 				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_DOCTOR</BuildingType>
+					<BuildingType>BUILDINGCLASS_DOCTORS_OFFICE</BuildingType>
 					<iHealthChange>3</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
@@ -2494,7 +2494,7 @@
 			</CommerceModifiers>
 			<BuildingHealthChanges>
 				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_DOCTOR</BuildingType>
+					<BuildingType>BUILDINGCLASS_DOCTORS_OFFICE</BuildingType>
 					<iHealthChange>1</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>

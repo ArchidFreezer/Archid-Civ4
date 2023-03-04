@@ -253,6 +253,20 @@
 		<Tag>TXT_KEY_BUILDING_CONTAINER_PORT_STRATEGY</Tag>
 		<English>Container ports significantly increase coastal cities' commerce but at the cost of increased polution.</English>
 	</TEXT>
+	<TEXT> <!-- Doctor's Office -->
+		<Tag>TXT_KEY_BUILDING_DOCTORS_OFFICE</Tag>
+		<English>Doctor's Office</English>
+		<French>Cabinet de médecin</French>
+		<German>Gesundheitsamt</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_DOCTORS_OFFICE_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_DOCTORS_OFFICE_STRATEGY</Tag>
+		<English>Doctor's Office provides health to the city and helps units recover health.</English>
+	</TEXT>
 	<TEXT> <!-- Early Instrument Maker -->
 		<Tag>TXT_KEY_BUILDING_EARLY_INSTRUMENT_MAKER</Tag>
 		<English>Early Instrument Maker</English>

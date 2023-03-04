@@ -583,6 +583,12 @@
 			<iCategory>37</iCategory>
 			<DefaultBuilding>BUILDING_RECYCLING_CENTER</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Doctor's Office -->
+			<Type>BUILDINGCLASS_DOCTORS_OFFICE</Type>
+			<Description>TXT_KEY_BUILDING_DOCTORS_OFFICE</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_DOCTORS_OFFICE</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Aqueduct -->                        <!-- Water -->
 			<Type>BUILDINGCLASS_AQUEDUCT</Type>

@@ -2407,5 +2407,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/trade_union.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Doctor's Office -->
+			<Type>ART_DEF_BUILDING_DOCTORS_OFFICE</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Roman Forum/Forum.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/doctors_office.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
