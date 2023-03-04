@@ -2481,7 +2481,7 @@
 			<Strategy>TXT_KEY_CIVIC_SOCIALIZED_STRATEGY</Strategy>
 			<Button>Art/Interface/Buttons/Civics/socialised.dds</Button>
 			<iIndex>7</iIndex>
-			<TechPrereq>TECH_LABOUR_UNION</TechPrereq>
+			<TechPrereq>TECH_TRADE_UNIONS</TechPrereq>
 			<Upkeep>UPKEEP_HIGH</Upkeep>
 			<iDistanceMaintenanceModifier>15</iDistanceMaintenanceModifier>
 			<iNumCitiesMaintenanceModifier>15</iNumCitiesMaintenanceModifier>

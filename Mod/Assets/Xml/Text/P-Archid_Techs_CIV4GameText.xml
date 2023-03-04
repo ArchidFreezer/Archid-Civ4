@@ -2819,7 +2819,7 @@
 	</TEXT>
 
 	<TEXT> <!-- Labour Union -->
-		<Tag>TXT_KEY_TECH_LABOUR_UNION</Tag>
+		<Tag>TXT_KEY_TECH_TRADE_UNIONS</Tag>
 		<English>Labour Union</English>
 		<French>Syndicalisme</French>
 		<German>Gewerkschaften</German>
@@ -2827,18 +2827,18 @@
 		<Japanese></Japanese>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_TECH_LABOUR_UNION_PEDIA</Tag>
+		<Tag>TXT_KEY_TECH_TRADE_UNIONS_PEDIA</Tag>
 		<English>[TAB]Labour unions arose in the 18th and 19th century in response to the poor working conditions brought on by an intense competition for jobs, and the increasing dependence of the working class on their employers created by the move toward industrialization. Early labour unions, formed by skilled labourers in specific fields, met with opposition from both employers and the government. In the 19th century, laws were passed legalizing trade unions, and by the 20th century unions were formed in semi- or unskilled fields such as mining, transportation, and dock working. Binding their interests together and bargaining collectively, trade unions forced factory and business owners to provide better working conditions and economic status for their workers.</English>
 		<Polish>[TAB]Zwi&#225;zek zawodowy - masowa organizacja spo&#244;eczna zrzeszaj&#225;ca na zasadzie dobrowolno&#228;ci ludzi pracy najemnej. Podstawowym zadaniem zwi&#225;zk&#243;w zawodowych jest obrona interes&#243;w pracownik&#243;w i dzia&#244;anie na rzecz poprawy ich sytuacji ekonomicznej i spo&#244;ecznej. Zwi&#225;zki pr&#243;buj&#225; wi&#234;c przeciwdzia&#244;a&#226; zwolnieniom, kontroluj&#225; przestrzeganie kodeksu pracy przez pracodawc&#243;w, zabiegaj&#225; o wy&#235;sze pensje i lepsze warunki pracy dla pracownik&#243;w. Cz&#234;sto prowadz&#225; r&#243;wnie&#235; dzia&#244;alno&#228;&#226; samopomocow&#225; (np. fundusze strajkowe), edukacyjn&#225; (np. kursy przekwalifikowuj&#225;ce) i o&#228;wiatow&#225; (np. kampanie informacyjne o prawach przys&#244;uguj&#225;cych pracownikom).Zwi&#225;zki zawodowe nie musz&#225; si&#234; kierowa&#226; dobrem firmy w kt&#243;rej pracuj&#225; przez co czasem firma z powodu negatywnych dzia&#244;a&#241; mo&#235;e upa&#228;&#226; lub ponie&#228;&#226; dotkliwe straty zar&#243;wno finansowe ale te&#235; wizerunkowe. Zwi&#225;zki zawodowe powsta&#244;y w Wielkiej Brytanii w roku 1824.</Polish>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_TECH_LABOUR_UNION_QUOTE</Tag>
+		<Tag>TXT_KEY_TECH_TRADE_UNIONS_QUOTE</Tag>
 		<English>[SPACE]"All that serves labour serves the nation. All that harms is treason. If a man tells you he trusts America, yet fears labour, he is a fool. There is no America without labour, and to fleece the one is to rob the other." - Abraham Lincoln</English>
 		<French>[SPACE]"Tout ce qui sert le travail sert la nation. Tout ce qui le nuit est trahison. Si un homme vous dit qu'il veut croire en l'Amérique, et a peur du travail, il est un sot. Il n'y a pas d'Amérique sans travail, et escroquer l'un c'est voler l'autre." - Abraham Lincoln</French>
 		<Polish>[SPACE]"Wszyscy kt&#243;rzy s&#244;u&#235;&#225; prac&#225;, s&#244;u&#235;&#225; narodowi. Wszycy kt&#243;rzy krzywdz&#225;, zdradzaj&#225;. Je&#235;eli m&#234;&#235;czyzna m&#243;wi ci, &#235;e ufa Ameryce, jednak pracuje w strachu, jest g&#244;upcem. Nie ma &#235;adnej Ameryki bez pracy i je&#228;li jeden rabuje to okrada wszystkich" - Abraham Lincoln</Polish>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_TECH_LABOUR_UNION_STRATEGY</Tag>
+		<Tag>TXT_KEY_TECH_TRADE_UNIONS_STRATEGY</Tag>
 		<English>[COLOR_TECH_TEXT]Labour Union[COLOR_REVERT] allows you to build the [COLOR_BUILDING_TEXT]Labour Union[COLOR_REVERT] National Wonder and enables the [COLOR_HIGHLIGHT_TEXT]Socialized[COLOR_REVERT] civic.</English>
 		<French>Le [COLOR_TECH_TEXT]syndicalisme[COLOR_REVERT] permet de construire le [COLOR_BUILDING_TEXT]syndicat de travailleur[COLOR_REVERT] (merveille nationale) et active la doctrine [COLOR_HIGHLIGHT_TEXT]socialisé[COLOR_REVERT].</French>
 	</TEXT>

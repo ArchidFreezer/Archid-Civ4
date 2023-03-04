@@ -5841,7 +5841,7 @@
 				</Flavor>
 			</Flavors>
 			<OrPreReqs>
-				<PrereqTech>TECH_LABOUR_UNION</PrereqTech>
+				<PrereqTech>TECH_TRADE_UNIONS</PrereqTech>
 			</OrPreReqs>
 			<AndPreReqs>
 				<PrereqTech>TECH_REPEATING_WEAPONS</PrereqTech>
@@ -5892,7 +5892,7 @@
 			</OrPreReqs>
 			<AndPreReqs>
 				<PrereqTech>TECH_AUTOMOBILE</PrereqTech>
-				<PrereqTech>TECH_LABOUR_UNION</PrereqTech>
+				<PrereqTech>TECH_TRADE_UNIONS</PrereqTech>
 			</AndPreReqs>
 			<Quote>TXT_KEY_TECH_INDUSTRIALISM_QUOTE</Quote>
 			<Sound>AS2D_TECH_INDUSTRIALISM</Sound>
@@ -6241,11 +6241,11 @@
 			<Sound>AS2D_TECH_GENERIC</Sound>
 			<Button>Art/Interface/Buttons/TechTree/knowledge_management.dds</Button>
 		</TechInfo>
-		<TechInfo> <!-- Labour Union -->
-			<Type>TECH_LABOUR_UNION</Type>
-			<Description>TXT_KEY_TECH_LABOUR_UNION</Description>
-			<Civilopedia>TXT_KEY_TECH_LABOUR_UNION_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_TECH_LABOUR_UNION_STRATEGY</Strategy>
+		<TechInfo> <!-- Trade Unions -->
+			<Type>TECH_TRADE_UNIONS</Type>
+			<Description>TXT_KEY_TECH_TRADE_UNIONS</Description>
+			<Civilopedia>TXT_KEY_TECH_TRADE_UNIONS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_TECH_TRADE_UNIONS_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<iCost>4750</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -6276,9 +6276,9 @@
 			<OrPreReqs>
 				<PrereqTech>TECH_MARXISM</PrereqTech>
 			</OrPreReqs>
-			<Quote>TXT_KEY_TECH_LABOUR_UNION_QUOTE</Quote>
+			<Quote>TXT_KEY_TECH_TRADE_UNIONS_QUOTE</Quote>
 			<Sound>AS2D_TECH_GENERIC</Sound>
-			<Button>Art/Interface/Buttons/TechTree/labour_union.dds</Button>
+			<Button>Art/Interface/Buttons/TechTree/trade_unions.dds</Button>
 		</TechInfo>
 		<TechInfo> <!-- Laser -->
 			<Type>TECH_LASER</Type>
