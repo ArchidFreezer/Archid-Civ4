@@ -2156,7 +2156,7 @@
 					<iHappinessChange>2</iHappinessChange>
 				</BuildingHappinessChange>
 				<BuildingHappinessChange>
-					<BuildingType>BUILDINGCLASS_COURIER_SYSTEM</BuildingType>
+					<BuildingType>BUILDINGCLASS_NATIONAL_COURIER_SYSTEM</BuildingType>
 					<iHappinessChange>2</iHappinessChange>
 				</BuildingHappinessChange>
 				<BuildingHappinessChange>
@@ -2339,7 +2339,7 @@
 			<iLargestCityHappiness>1</iLargestCityHappiness>
 			<BuildingHappinessChanges>
 				<BuildingHappinessChange>
-					<BuildingType>BUILDINGCLASS_COURIER_SYSTEM</BuildingType>
+					<BuildingType>BUILDINGCLASS_NATIONAL_COURIER_SYSTEM</BuildingType>
 					<iHappinessChange>1</iHappinessChange>
 				</BuildingHappinessChange>
 				<BuildingHappinessChange>

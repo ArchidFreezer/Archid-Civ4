@@ -674,6 +674,20 @@
 		<Tag>TXT_KEY_BUILDING_MONEYLENDER_PEDIA</Tag>
 		<English>.</English>
 	</TEXT>
+	<TEXT> <!-- National Courier System -->
+		<Tag>TXT_KEY_BUILDING_NATIONAL_COURIER_SYSTEM</Tag>
+		<English>National Courier System</English>
+		<French>La Poste nationale</French>
+		<German>Nationales Kuriersystem</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NATIONAL_COURIER_SYSTEM_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NATIONAL_COURIER_SYSTEM_STRATEGY</Tag>
+		<English>With National Courier System the important military messages and news spread faster throughout your empire. This decreases the effects of anarchy periods and more great people appear among your citizens.</English>
+	</TEXT>
 	<TEXT> <!-- National Slave Auction -->
 		<Tag>TXT_KEY_BUILDING_NATIONAL_SLAVE_AUCTION</Tag>
 		<English>National Slave Auction</English>

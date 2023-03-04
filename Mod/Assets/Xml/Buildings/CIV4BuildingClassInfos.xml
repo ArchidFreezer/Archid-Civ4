@@ -1035,6 +1035,13 @@
 			<iMaxPlayerInstances>1</iMaxPlayerInstances>
 			<DefaultBuilding>BUILDING_MT_RUSHMORE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- National Courier System -->
+			<Type>BUILDINGCLASS_NATIONAL_COURIER_SYSTEM</Type>
+			<Description>TXT_KEY_BUILDING_NATIONAL_COURIER_SYSTEM</Description>
+			<iCategory>3</iCategory>
+			<iMaxPlayerInstances>1</iMaxPlayerInstances>
+			<DefaultBuilding>BUILDING_NATIONAL_COURIER_SYSTEM</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- National Epic -->
 			<Type>BUILDINGCLASS_NATIONAL_EPIC</Type>
 			<Description>TXT_KEY_BUILDING_NATIONAL_EPIC</Description>

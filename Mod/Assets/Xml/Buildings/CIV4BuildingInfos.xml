@@ -1670,7 +1670,6 @@
 			<GreatPeopleUnitClass>UNITCLASS_MERCHANT</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<iCost>720</iCost>
-			<iAdvancedStartCost>-1</iAdvancedStartCost>
 			<iAsset>5</iAsset>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>3</iCommerce>
@@ -6263,7 +6262,6 @@
 			<bNukeImmune>1</bNukeImmune>
 			<iCost>120</iCost>
 			<iHurryCostModifier>100</iHurryCostModifier>
-			<iAdvancedStartCost>-1</iAdvancedStartCost>
 			<iConquestProb>100</iConquestProb>
 			<iMaxLatitude>90</iMaxLatitude>
 			<iFreeSpecialist>1</iFreeSpecialist>
@@ -7504,6 +7502,54 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
+					<iModifier>100</iModifier>
+				</BonusProductionModifier>
+			</BonusProductionModifiers>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- National Courier System -->
+			<BuildingClass>BUILDINGCLASS_NATIONAL_COURIER_SYSTEM</BuildingClass>
+			<Type>BUILDING_COURIER_SYSTEM</Type>
+			<Description>TXT_KEY_BUILDING_NATIONAL_COURIER_SYSTEM</Description>
+			<Civilopedia>TXT_KEY_BUILDING_NATIONAL_COURIER_SYSTEM_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_NATIONAL_COURIER_SYSTEM_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_STABLE</ArtDefineTag>
+			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra>
+			<ObsoleteTech>TECH_COMBUSTION</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_WRITING</TechType>
+				<TechType>TECH_ANIMAL_HUSBANDRY</TechType>
+			</PrereqAndTechs>
+			<GreatPeopleUnitClass>UNITCLASS_GREAT_SPY</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>200</iCost>
+			<iHurryCostModifier>50</iHurryCostModifier>
+			<iGreatPeopleRateModifier>10</iGreatPeopleRateModifier>
+			<iGreatGeneralRateModifier>10</iGreatGeneralRateModifier>
+			<iAnarchyModifier>-25</iAnarchyModifier>
+			<iAllCityDefense>10</iAllCityDefense>
+			<iAsset>5</iAsset>
+			<iPower>10</iPower>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>4</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<BonusProductionModifiers>
+				<BonusProductionModifier>
+					<BonusType>BONUS_HORSE</BonusType>
 					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
@@ -9879,7 +9925,6 @@
 			<bForceDisableStarSigns>1</bForceDisableStarSigns>
 			<iCost>1820</iCost>
 			<iHurryCostModifier>100</iHurryCostModifier>
-			<iAdvancedStartCost>-1</iAdvancedStartCost>
 			<iMaintenanceModifier>15</iMaintenanceModifier>
 			<iSpaceProductionModifier>30</iSpaceProductionModifier>
 			<iAsset>6</iAsset>
@@ -10888,7 +10933,6 @@
 				<TechType>TECH_TRADE_UNIONS</TechType>
 			</PrereqAndTechs>
 			<iCost>1040</iCost>
-			<iAdvancedStartCost>-1</iAdvancedStartCost>
 			<iAreaHealth>1</iAreaHealth>
 			<iAreaHappiness>1</iAreaHappiness>
 			<iAsset>5</iAsset>
@@ -11108,7 +11152,6 @@
 			</PrereqOrBonuses>
 			<iCost>1500</iCost>
 			<iHurryCostModifier>50</iHurryCostModifier>
-			<iAdvancedStartCost>-1</iAdvancedStartCost>
 			<iConquestProb>100</iConquestProb>
 			<iNukeExplosionRand>1000</iNukeExplosionRand>
 			<iMilitaryProductionModifier>-50</iMilitaryProductionModifier>
