@@ -2397,5 +2397,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/agora.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Trade Union -->
+			<Type>ART_DEF_BUILDING_TRADE_UNION</Type>
+			<LSystem>LSYSTEM_COURTHOUSE</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.1</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Courthouse/Courthouse.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/trade_union.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

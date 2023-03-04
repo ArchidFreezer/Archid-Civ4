@@ -1042,6 +1042,13 @@
 			<iMaxPlayerInstances>1</iMaxPlayerInstances>
 			<DefaultBuilding>BUILDING_SUPERCOLLIDER</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Trade Union -->
+			<Type>BUILDINGCLASS_TRADE_UNION</Type>
+			<Description>TXT_KEY_BUILDING_TRADE_UNION</Description>
+			<iCategory>3</iCategory>
+			<iMaxPlayerInstances>1</iMaxPlayerInstances>
+			<DefaultBuilding>BUILDING_TRADE_UNION</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Wall Street -->
 			<Type>BUILDINGCLASS_WALL_STREET</Type>
 			<Description>TXT_KEY_BUILDING_WALL_STREET</Description>

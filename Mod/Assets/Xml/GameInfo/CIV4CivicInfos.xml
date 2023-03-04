@@ -1796,7 +1796,7 @@
 					<iHappinessChange>1</iHappinessChange>
 				</BuildingHappinessChange>
 				<BuildingHappinessChange>
-					<BuildingType>BUILDINGCLASS_LABOR_UNION</BuildingType>
+					<BuildingType>BUILDINGCLASS_TRADE_UNION</BuildingType>
 					<iHappinessChange>2</iHappinessChange>
 				</BuildingHappinessChange>
 				<BuildingHappinessChange>
@@ -1900,7 +1900,7 @@
 					<iHappinessChange>-1</iHappinessChange>
 				</BuildingHappinessChange>
 				<BuildingHappinessChange>
-					<BuildingType>BUILDINGCLASS_LABOR_UNION</BuildingType>
+					<BuildingType>BUILDINGCLASS_TRADE_UNION</BuildingType>
 					<iHappinessChange>-2</iHappinessChange>
 				</BuildingHappinessChange>
 				<BuildingHappinessChange>
@@ -2050,7 +2050,7 @@
 					<iHappinessChange>-4</iHappinessChange>
 				</BuildingHappinessChange>
 				<BuildingHappinessChange>
-					<BuildingType>BUILDINGCLASS_LABOR_UNION</BuildingType>
+					<BuildingType>BUILDINGCLASS_TRADE_UNION</BuildingType>
 					<iHappinessChange>1</iHappinessChange>
 				</BuildingHappinessChange>
 				<BuildingHappinessChange>

@@ -323,5 +323,9 @@
 			<Type>ART_DEF_MOVIE_CENTRAL_BANK</Type>
 			<Path>Art/Movies/NWonders/CentralBank.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_LABOR_UNION</Type>
+			<Path>Art/Movies/NWonders/TradeUnion.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

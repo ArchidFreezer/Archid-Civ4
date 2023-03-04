@@ -122,7 +122,6 @@
 			</ProductionTraits>
 			<iCost>700</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>75</iConquestProb>
 			<iMaintenanceModifier>15</iMaintenanceModifier>
 			<iSpaceProductionModifier>25</iSpaceProductionModifier>
@@ -171,7 +170,6 @@
 			</PrereqAndTechs>
 			<iCost>120</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iGreatPeopleRateModifier>10</iGreatPeopleRateModifier>
 			<iMilitaryProductionModifier>20</iMilitaryProductionModifier>
 			<iAsset>4</iAsset>
@@ -811,7 +809,6 @@
 			</PrereqAndTechs>
 			<iCost>980</iCost>
 			<iAdvancedStartCost>450</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>75</iConquestProb>
 			<iHealth>-1</iHealth>
 			<iHappiness>-1</iHappiness>
@@ -1280,7 +1277,6 @@
 			<bCenterInCity>1</bCenterInCity>
 			<iCost>620</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iWorkableRadius>3</iWorkableRadius>
 			<iFreeSpecialist>6</iFreeSpecialist>
 			<iMaintenanceModifier>25</iMaintenanceModifier>
@@ -1530,7 +1526,6 @@
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<iCost>720</iCost>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iAsset>5</iAsset>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>3</iCommerce>
@@ -1785,7 +1780,6 @@
 			<bCenterInCity>1</bCenterInCity>
 			<iCost>220</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>85</iConquestProb>
 			<iMaxLatitude>90</iMaxLatitude>
 			<iFreeSpecialist>3</iFreeSpecialist>
@@ -1846,7 +1840,6 @@
 			</ProductionTraits>
 			<iCost>900</iCost>
 			<iAdvancedStartCost>150</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>75</iConquestProb>
 			<iHappiness>-2</iHappiness>
 			<iAsset>6</iAsset>
@@ -2372,7 +2365,6 @@
 			<iCost>350</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iAdvancedStartCostIncrease>-1</iAdvancedStartCostIncrease>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>50</iConquestProb>
 			<YieldModifiers>
 				<iYield>0</iYield>
@@ -2827,7 +2819,6 @@
 			</PrereqAndTechs>
 			<iCost>70</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>66</iConquestProb>
 			<iMaxLatitude>90</iMaxLatitude>
 			<iAsset>3</iAsset>
@@ -3136,7 +3127,6 @@
 			</PrereqVicinityOrBonus>
 			<iCost>90</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>75</iConquestProb>
 			<iHealth>2</iHealth>
 			<iAsset>3</iAsset>
@@ -4719,7 +4709,6 @@
 			<iHurryCostModifier>100</iHurryCostModifier>
 			<iAdvancedStartCost>200</iAdvancedStartCost>
 			<iAdvancedStartCostIncrease>3</iAdvancedStartCostIncrease>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>50</iConquestProb>
 			<iHappiness>-4</iHappiness>
 			<iTradeRouteModifier>15</iTradeRouteModifier>
@@ -5253,7 +5242,6 @@
 			<bPrereqPower>1</bPrereqPower>
 			<iCost>980</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iAirlift>3</iAirlift>
 			<iAirUnitCapacity>6</iAirUnitCapacity>
 			<iHealth>-2</iHealth>
@@ -5503,7 +5491,6 @@
 			<iCost>120</iCost>
 			<iHurryCostModifier>100</iHurryCostModifier>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>100</iConquestProb>
 			<iMaxLatitude>90</iMaxLatitude>
 			<iFreeSpecialist>1</iFreeSpecialist>
@@ -5803,7 +5790,6 @@
 			<iHurryAngerModifier>-25</iHurryAngerModifier>
 			<iCost>400</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iAsset>4</iAsset>
 			<iPower>5</iPower>
 			<YieldModifiers>
@@ -6011,7 +5997,6 @@
 			</ProductionTraits>
 			<iCost>80</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>50</iConquestProb>
 			<YieldModifiers>
 				<iYield>0</iYield>
@@ -6149,7 +6134,6 @@
 			<bCenterInCity>1</bCenterInCity>
 			<iCost>820</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>100</iConquestProb>
 			<iWorkableRadius>3</iWorkableRadius>
 			<iFreeSpecialist>4</iFreeSpecialist>
@@ -6287,7 +6271,6 @@
 			</PrereqAndTechs>
 			<iCost>100</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>75</iConquestProb>
 			<iHappiness>-1</iHappiness>
 			<iAsset>5</iAsset>
@@ -7185,7 +7168,6 @@
 			</PrereqAndTechs>
 			<iCost>70</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>66</iConquestProb>
 			<iMaxLatitude>90</iMaxLatitude>
 			<iFoodKept>10</iFoodKept>
@@ -7296,7 +7278,6 @@
 			<iGreatPeopleRateChange>6</iGreatPeopleRateChange>
 			<iCost>750</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>75</iConquestProb>
 			<iMaintenanceModifier>40</iMaintenanceModifier>
 			<iSpaceProductionModifier>50</iSpaceProductionModifier>
@@ -7341,7 +7322,6 @@
 			</PrereqAndTechs>
 			<iCost>80</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>66</iConquestProb>
 			<iMaxLatitude>90</iMaxLatitude>
 			<iFoodKept>10</iFoodKept>
@@ -7455,7 +7435,6 @@
 			</ProductionTraits>
 			<iCost>325</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>75</iConquestProb>
 			<iMaxLatitude>90</iMaxLatitude>
 			<iMaintenanceModifier>10</iMaintenanceModifier>
@@ -7527,7 +7506,6 @@
 			</ProductionTraits>
 			<iCost>325</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>75</iConquestProb>
 			<iMaxLatitude>90</iMaxLatitude>
 			<iMaintenanceModifier>10</iMaintenanceModifier>
@@ -8273,7 +8251,6 @@
 			</PrereqAndTechs>
 			<iCost>180</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>33</iConquestProb>
 			<iExperience>1</iExperience>
 			<iMaintenanceModifier>20</iMaintenanceModifier>
@@ -8549,7 +8526,6 @@
 			</ProductionTraits>
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>50</iConquestProb>
 			<YieldModifiers>
 				<iYield>0</iYield>
@@ -8689,7 +8665,6 @@
 			<iCost>1820</iCost>
 			<iHurryCostModifier>100</iHurryCostModifier>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iMaintenanceModifier>15</iMaintenanceModifier>
 			<iSpaceProductionModifier>30</iSpaceProductionModifier>
 			<iAsset>6</iAsset>
@@ -8854,7 +8829,6 @@
 			</PrereqOrBonuses>
 			<iCost>75</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>70</iConquestProb>
 			<iAsset>1</iAsset>
 			<BonusHappinessChanges>
@@ -9322,7 +9296,6 @@
 			<bCenterInCity>1</bCenterInCity>
 			<iCost>120</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>85</iConquestProb>
 			<iMaxLatitude>90</iMaxLatitude>
 			<iFreeSpecialist>2</iFreeSpecialist>
@@ -9359,6 +9332,35 @@
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>
 					<iFlavor>4</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Trade Union -->
+			<BuildingClass>BUILDINGCLASS_TRADE_UNION</BuildingClass>
+			<Type>BUILDING_TRADE_UNION</Type>
+			<Description>TXT_KEY_BUILDING_TRADE_UNION</Description>
+			<Civilopedia>TXT_KEY_BUILDING_TRADE_UNION_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_TRADE_UNION_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_TRADE_UNION</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_TRADE_UNION</MovieDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_TRADE_UNIONS</TechType>
+			</PrereqAndTechs>
+			<iCost>1040</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iAreaHealth>1</iAreaHealth>
+			<iAreaHappiness>1</iAreaHappiness>
+			<iAsset>5</iAsset>
+			<ConstructSound>AS2D_BUILD_COURTHOUSE</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
@@ -9567,7 +9569,6 @@
 			<iCost>1500</iCost>
 			<iHurryCostModifier>50</iHurryCostModifier>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>100</iConquestProb>
 			<iNukeExplosionRand>1000</iNukeExplosionRand>
 			<iMilitaryProductionModifier>-50</iMilitaryProductionModifier>
@@ -9664,7 +9665,6 @@
 			<bCenterInCity>1</bCenterInCity>
 			<iCost>60</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iConquestProb>85</iConquestProb>
 			<iFreeSpecialist>1</iFreeSpecialist>
 			<iMaintenanceModifier>10</iMaintenanceModifier>
@@ -9959,7 +9959,6 @@
 			<iCost>750</iCost>
 			<iHurryCostModifier>100</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>-1</iMinAreaSize>
 			<iCitiesPrereq>5</iCitiesPrereq>
 <!--			<iGoldPercentDividendPerTurn>3</iGoldPercentDividendPerTurn>
 			<iGoldIncreasePercent>50</iGoldIncreasePercent> -->

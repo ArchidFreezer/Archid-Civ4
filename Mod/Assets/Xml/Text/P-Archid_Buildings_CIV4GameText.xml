@@ -897,6 +897,20 @@
 		<Tag>TXT_KEY_BUILDING_TOWN_HALL_PEDIA</Tag>
 		<English>.</English>
 	</TEXT>
+	<TEXT> <!-- Trade Union -->
+		<Tag>TXT_KEY_BUILDING_TRADE_UNION</Tag>
+		<English>Trade Union</English>
+		<French>Syndicat</French>
+		<German>Gewerkschaft</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TRADE_UNION_PEDIA</Tag>
+		<English>[TAB]A trade union (or labour union) is an organization of workers who have banded together to achieve common goals in key areas, such as working conditions. The trade union, through its leadership, bargains with the employer on behalf of union members (rank and file members) and negotiates labor contracts (Collective bargaining) with employers. This may include the negotiation of wages, work rules, complaint procedures, rules governing hiring, firing and promotion of workers, benefits, workplace safety and policies. The agreements negotiated by the union leaders are binding on the rank and file members and the employer and in some cases on other non-member workers.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TRADE_UNION_STRATEGY</Tag>
+		<English>Trade union national wonder increases happiness and healthiness on whole continent.</English>
+	</TEXT>
 	<TEXT> <!-- Treadmill Crane -->
 		<Tag>TXT_KEY_BUILDING_TREADMILL_CRANE</Tag>
 		<English>Treadmill Crane</English>
