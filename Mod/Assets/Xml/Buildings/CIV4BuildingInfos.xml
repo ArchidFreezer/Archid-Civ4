@@ -494,6 +494,175 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Armaments Industry -->
+			<BuildingClass>BUILDINGCLASS_ARMAMENTS_INDUSTRY</BuildingClass>
+			<Type>BUILDING_ARMAMENTS_INDUSTRY</Type>
+			<Description>TXT_KEY_BUILDING_ARMAMENTS_INDUSTRY</Description>
+			<Civilopedia>TXT_KEY_BUILDING_ARMAMENTS_INDUSTRY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_ARMAMENTS_INDUSTRY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_INDUSTRIAL_PARK</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_AUTOMATIC_WEAPONS</TechType>
+			</PrereqAndTechs>
+			<PrereqBonus>BONUS_SULPHUR</PrereqBonus>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_STEEL</BonusType>
+			</PrereqOrBonuses>
+			<FreeBonus>BONUS_AMMO</FreeBonus>
+			<iNumFreeBonuses>-1</iNumFreeBonuses>
+			<iAIWeight>100</iAIWeight>
+			<iCost>580</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>25</iConquestProb>
+			<iMaintenanceModifier>40</iMaintenanceModifier>
+			<iHealth>-1</iHealth>
+			<iMilitaryProductionModifier>50</iMilitaryProductionModifier>
+			<iAsset>4</iAsset>
+			<iPower>5</iPower>
+			<bPrereqPower>1</bPrereqPower>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<ConstructSound>AS2D_BUILD_FACTORY</ConstructSound>	
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>8</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Armourer -->
+			<BuildingClass>BUILDINGCLASS_ARMOURER</BuildingClass>
+			<Type>BUILDING_ARMOURER</Type>
+			<Description>TXT_KEY_BUILDING_ARMOURER</Description>
+			<Civilopedia>TXT_KEY_BUILDING_ARMOURER_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_ARMOURER_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_ARMOURER</ArtDefineTag>
+			<ObsoleteTech>TECH_FLINTLOCK</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_SMITHING</TechType>
+			</PrereqAndTechs>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_COPPER</BonusType>
+				<BonusType>BONUS_IRON</BonusType>
+			</PrereqOrBonuses>
+			<iCost>160</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>75</iConquestProb>
+			<iMaintenanceModifier>10</iMaintenanceModifier>
+			<iHealth>-1</iHealth>
+			<iAsset>4</iAsset>
+			<iPower>5</iPower>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_ENGINEER</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_FORGE</ConstructSound>
+			<VicinityBonusYieldChanges>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_COPPER</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+				<VicinityBonusYieldChange>
+					<BonusType>BONUS_IRON</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>3</iYield>
+					</YieldChanges>
+				</VicinityBonusYieldChange>
+			</VicinityBonusYieldChanges>
+			<DomainProductionModifiers>
+				<DomainProductionModifier>
+					<DomainType>DOMAIN_LAND</DomainType>
+					<iModifier>20</iModifier>
+				</DomainProductionModifier>
+			</DomainProductionModifiers>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ARSENAL</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>		
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_ARSENAL</BuildingClassType>
+			</ReplacedByBuildingClasses>		
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Arsenal -->
+			<BuildingClass>BUILDINGCLASS_ARSENAL</BuildingClass>
+			<Type>BUILDING_ARSENAL</Type>
+			<Description>TXT_KEY_BUILDING_ARSENAL</Description>
+			<Civilopedia>TXT_KEY_BUILDING_ARSENAL_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_ARSENAL_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_ARSENAL</ArtDefineTag>
+			<ObsoleteTech>TECH_AUTOMATIC_WEAPONS</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_GUNPOWDER</TechType>
+			</PrereqAndTechs>
+			<PrereqBonus>BONUS_SULPHUR</PrereqBonus>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_IRON</BonusType>
+			</PrereqOrBonuses>
+			<iCost>240</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>25</iConquestProb>
+			<iMaxLatitude>90</iMaxLatitude>
+			<iMaintenanceModifier>15</iMaintenanceModifier>
+			<iHealth>-1</iHealth>
+			<iAsset>4</iAsset>
+			<iPower>5</iPower>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<ConstructSound>AS2D_BUILD_FORGE</ConstructSound>
+			<DomainProductionModifiers>
+				<DomainProductionModifier>
+					<DomainType>DOMAIN_LAND</DomainType>
+					<iModifier>30</iModifier>
+				</DomainProductionModifier>
+				<DomainProductionModifier>
+					<DomainType>DOMAIN_SEA</DomainType>
+					<iModifier>30</iModifier>
+				</DomainProductionModifier>
+			</DomainProductionModifiers>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_MUNITIONS_FACTORY</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>		
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ARMAMENTS_INDUSTRY</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>		
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_MUNITIONS_FACTORY</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_ARMAMENTS_INDUSTRY</BuildingClassType>
+			</ReplacedByBuildingClasses>		
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>8</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Artemis -->
 			<BuildingClass>BUILDINGCLASS_ARTEMIS</BuildingClass>
 			<Type>BUILDING_ARTEMIS</Type>
@@ -1395,6 +1564,49 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Cannon Forge -->
+			<BuildingClass>BUILDINGCLASS_CANNON_FORGE</BuildingClass>
+			<Type>BUILDING_CANNON_FORGE</Type>
+			<Description>TXT_KEY_BUILDING_CANNON_FORGE</Description>
+			<Civilopedia>TXT_KEY_BUILDING_CANNON_FORGE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_CANNON_FORGE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_CANNON_FORGE</ArtDefineTag>
+			<ObsoleteTech>TECH_MANUFACTURING</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_GUNPOWDER</TechType>
+			</PrereqAndTechs>
+			<BonusType>BONUS_IRON</BonusType>
+			<iAIWeight>1</iAIWeight>
+			<iCost>140</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>75</iConquestProb>
+			<iHealth>-1</iHealth>
+			<iAsset>4</iAsset>
+			<iPower>3</iPower>
+			<ConstructSound>AS2D_BUILD_FORGE</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ARMAMENTS_INDUSTRY</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>		
+			</BuildingClassProductionModifiers>
+			<UnitCombatProductionModifiers>
+				<UnitCombatProductionModifier>
+					<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+					<iModifier>100</iModifier>
+				</UnitCombatProductionModifier>
+			</UnitCombatProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_ARMAMENTS_INDUSTRY</BuildingClassType>
+			</ReplacedByBuildingClasses>		
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -7703,6 +7915,53 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Munitions Factory -->
+			<BuildingClass>BUILDINGCLASS_MUNITIONS_FACTORY</BuildingClass>
+			<Type>BUILDING_MUNITIONS_FACTORY</Type>
+			<SpecialBuildingType>NONE</SpecialBuildingType>
+			<Description>TXT_KEY_BUILDING_MUNITIONS_FACTORY</Description>
+			<Civilopedia>TXT_KEY_BUILDING_MUNITIONS_FACTORY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_MUNITIONS_FACTORY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_MUNITIONS_FACTORY</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_EXPLOSIVES</TechType>
+			</PrereqAndTechs>
+			<PrereqBonus>BONUS_SULPHUR</PrereqBonus>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_STEEL</BonusType>
+				<BonusType>BONUS_IRON</BonusType>
+			</PrereqOrBonuses>
+			<FreeBonus>BONUS_AMMO</FreeBonus>
+			<iNumFreeBonuses>-1</iNumFreeBonuses>
+			<iAIWeight>100</iAIWeight>
+			<iCost>340</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>75</iConquestProb>
+			<iMaintenanceModifier>25</iMaintenanceModifier>
+			<iHealth>-1</iHealth>
+			<iMilitaryProductionModifier>35</iMilitaryProductionModifier>
+			<iAsset>6</iAsset>
+			<iPower>30</iPower>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<ConstructSound>AS2D_BUILD_IRONWORKS</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ARMAMENTS_INDUSTRY</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>		
+			</BuildingClassProductionModifiers>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>8</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- National Courier System -->
 			<BuildingClass>BUILDINGCLASS_NATIONAL_COURIER_SYSTEM</BuildingClass>
 			<Type>BUILDING_COURIER_SYSTEM</Type>
@@ -9369,6 +9628,47 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Siege Weapons Workshop -->
+			<BuildingClass>BUILDINGCLASS_SIEGE_WORKSHOP</BuildingClass>
+			<Type>BUILDING_SIEGE_WORKSHOP</Type>
+			<Description>TXT_KEY_BUILDING_SIEGE_WORKSHOP</Description>
+			<Civilopedia>TXT_KEY_BUILDING_SIEGE_WORKSHOP_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_SIEGE_WORKSHOP_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_SIEGE_WORKSHOP</ArtDefineTag>
+			<ObsoleteTech>TECH_ARTILLERY</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_SIEGE_WARFARE</TechType>
+			</PrereqAndTechs>
+			<iAIWeight>1</iAIWeight>
+			<iCost>100</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iAsset>2</iAsset>
+			<iPower>3</iPower>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<ConstructSound>AS2D_BUILD_SIEGE_WORKSHOP</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_CANNON_FORGE</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>		
+			</BuildingClassProductionModifiers>
+			<UnitCombatProductionModifiers>
+				<UnitCombatProductionModifier>
+					<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+					<iModifier>100</iModifier>
+				</UnitCombatProductionModifier>
+			</UnitCombatProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_CANNON_FORGE</BuildingClassType>
+			</ReplacedByBuildingClasses>		
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>

@@ -157,11 +157,41 @@
 			<DefaultBuilding>BUILDING_STONE_WEAPONS_WORKSHOP</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Drydock -->                         <!-- Military Other -->
+		<BuildingClassInfo> <!-- Drydock -->                         <!-- Military Production -->
 			<Type>BUILDINGCLASS_DRYDOCK</Type>
 			<Description>TXT_KEY_BUILDING_DRYDOCK</Description>
 			<iCategory>18</iCategory>
 			<DefaultBuilding>BUILDING_DRYDOCK</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Armourer -->
+			<Type>BUILDINGCLASS_ARMOURER</Type>
+			<Description>TXT_KEY_BUILDING_ARMOURER</Description>
+			<iCategory>18</iCategory>
+			<DefaultBuilding>BUILDING_ARMOURER</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Arsenal -->
+			<Type>BUILDINGCLASS_ARSENAL</Type>
+			<Description>TXT_KEY_BUILDING_ARSENAL</Description>
+			<iCategory>18</iCategory>
+			<DefaultBuilding>BUILDING_ARSENAL</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Armaments Industry -->
+			<Type>BUILDINGCLASS_ARMAMENTS_INDUSTRY</Type>
+			<Description>TXT_KEY_BUILDING_ARMAMENTS_INDUSTRY</Description>
+			<iCategory>18</iCategory>
+			<DefaultBuilding>BUILDING_ARMAMENTS_INDUSTRY</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Siege Weapons Workshop -->
+			<Type>BUILDINGCLASS_SIEGE_WORKSHOP</Type>
+			<Description>TXT_KEY_BUILDING_SIEGE_WORKSHOP</Description>
+			<iCategory>18</iCategory>
+			<DefaultBuilding>BUILDING_SIEGE_WORKSHOP</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Cannon Forge -->
+			<Type>BUILDINGCLASS_CANNON_FORGE</Type>
+			<Description>TXT_KEY_BUILDING_CANNON_FORGE</Description>
+			<iCategory>18</iCategory>
+			<DefaultBuilding>BUILDING_CANNON_FORGE</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Fishermans Hut -->                  <!-- Seafood -->
@@ -1064,6 +1094,13 @@
 			<iCategory>3</iCategory>
 			<iMaxPlayerInstances>1</iMaxPlayerInstances>
 			<DefaultBuilding>BUILDING_MT_RUSHMORE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Munitions Factory -->
+			<Type>BUILDINGCLASS_MUNITIONS_FACTORY</Type>
+			<Description>TXT_KEY_BUILDING_MUNITIONS_FACTORY</Description>
+			<iCategory>3</iCategory>
+			<iMaxPlayerInstances>1</iMaxPlayerInstances>
+			<DefaultBuilding>BUILDING_MUNITIONS_FACTORY</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- National Courier System -->
 			<Type>BUILDINGCLASS_NATIONAL_COURIER_SYSTEM</Type>

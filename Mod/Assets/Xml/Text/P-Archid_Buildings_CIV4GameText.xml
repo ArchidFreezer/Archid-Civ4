@@ -47,6 +47,47 @@
 		<Tag>TXT_KEY_BUILDING_ALCHEMISTS_LAB_STRATEGY</Tag>
 		<English>An early research facility, grants a science bonus to your city.</English>
 	</TEXT>
+	<TEXT> <!-- Armaments Industry -->
+		<Tag>TXT_KEY_BUILDING_ARMAMENTS_INDUSTRY</Tag>
+		<English>Armaments Industry</English>
+		<French>Usine d'Armement</French>
+		<German>Rüstungsindustrie</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ARMAMENTS_INDUSTRY_STRATEGY</Tag>
+		<English>Increases production of military units at the expense of a high maintenace cost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ARMAMENTS_INDUSTRY_PEDIA</Tag>
+		<English>The arms industry is a global industry  and business  which manufactures and sells weapons and military technology and equipment. Arms producing companies, also referred to as defence companies or military industry, produce arms mainly for the armed forces of states. Products include guns, ammunition, missiles, military aircraft, military vehicles, ships, electronic systems, and more. The arms industry also conducts significant research and development.</English>
+	</TEXT>
+	<TEXT> <!-- Armourer -->
+		<Tag>TXT_KEY_BUILDING_ARMOURER</Tag>
+		<English>Armourer</English>
+		<French>Armurier</French>
+		<German>Waffenschmied</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ARMOURER_PEDIA</Tag>
+		<English>[TAB]An armourer was in former times a smith who specialized in manufacturing and repairing arms and armour. In modern usage, the word may also designate a member of a modern military or police force who maintains and repairs small arms, and weapons systems, with some duties resembling those of a civilian gunsmith.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ARMOURER_STRATEGY</Tag>
+		<English>The Armourer allows your city to construct military units faster but also addeds unhealthiness in the city.</English>
+	</TEXT>
+	<TEXT> <!-- Arsenal -->
+		<Tag>TXT_KEY_BUILDING_ARSENAL</Tag>
+		<English>Arsenal</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ARSENAL_STRATEGY</Tag>
+		<English>Increases production of military units at the expense of a high maintenace cost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ARSENAL_PEDIA</Tag>
+		<English>An arsenal is an establishment for the construction, repair, storage and issue of weapons and ammunition. The word is of Arabic origin, being a corruption of dar as-sina'ah, "house of manufacturing" or "manufacture".A first-class arsenal, which can furnish the material and equipment of a large army, embraces a gun factory, carriage factory, laboratory and small-arms ammunition factory, small-arms factory, harness, saddlery and tent factories, and a powder factory; in addition it must possess great store-houses. In a second-class arsenal the factories would be replaced by workshops. The situation of an arsenal should be governed by strategic considerations. If of the first class, it should be situated at the base of operations and supply, secure from attack, not too near a frontier, and placed so as to draw in readily the resources of the country.</English>
+		<French>An arsenal is an establishment for the construction, repair, storage and issue of weapons and ammunition. The word is of Arabic origin, being a corruption of dar as-sina'ah, "house of manufacturing" or "manufacture".A first-class arsenal, which can furnish the material and equipment of a large army, embraces a gun factory, carriage factory, laboratory and small-arms ammunition factory, small-arms factory, harness, saddlery and tent factories, and a powder factory; in addition it must possess great store-houses. In a second-class arsenal the factories would be replaced by workshops. The situation of an arsenal should be governed by strategic considerations. If of the first class, it should be situated at the base of operations and supply, secure from attack, not too near a frontier, and placed so as to draw in readily the resources of the country.</French>
+	</TEXT>
 	<TEXT> <!-- Barbarian Lodge -->
 		<Tag>TXT_KEY_BUILDING_BARBARIAN_LODGE</Tag>
 		<English>Barbarian Lodge</English>
@@ -141,6 +182,24 @@
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_BRIGHTSMITHS_HUT_STRATEGY</Tag>
 		<English>Makes use of unrefined metals resources, providing Commerce</English>
+	</TEXT>
+	<TEXT> <!-- Cannon Forge -->
+		<Tag>TXT_KEY_BUILDING_CANNON_FORGE</Tag>
+		<English>Cannon Forge</English>
+		<French>
+			<Text>Forge de Canons</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Kanonenschmiede</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CANNON_FORGE_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CANNON_FORGE_STRATEGY</Tag>
+		<English>[SPACE].</English>
 	</TEXT>
 	<TEXT> <!-- Capital Administration -->
 		<Tag>TXT_KEY_BUILDING_CAPITAL_ADMINISTRATION</Tag>
@@ -706,6 +765,24 @@
 		<Tag>TXT_KEY_BUILDING_MONEYLENDER_PEDIA</Tag>
 		<English>.</English>
 	</TEXT>
+	<TEXT> <!-- Munitions Factory -->
+		<Tag>TXT_KEY_BUILDING_MUNITIONS_FACTORY</Tag>
+		<English>Munitions Factory</English>
+		<French>
+			<Text>Usine de Munitions</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Munitionsfabrik</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MUNITIONS_FACTORY_PEDIA</Tag>
+		<English>[TAB]A munitions factory specialises in filling various munitions, such as bombs, shells, cartridges, screening smokes, etc. In the UK, in both World Wars, the majority of the employees were women. Munitions factories had a large number of buildings. Buildings were needed on the various Groups for filling of munitions. Explosives magazines were required by each Group to store the incoming explosive materials and to store the outgoing filled shells or gun cartridges, usually packed in ammunition boxes. Storage buildings were also needed on each Group to store the incoming empty shells, or cartridges, and the empty ammunition boxes.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MUNITIONS_FACTORY_STRATEGY</Tag>
+		<English>Munitions Factory manufactures [COLOR_HIGHLIGHT_TEXT]Ammunition[COLOR_REVERT] from Sulphur and other metal resources.</English>
+	</TEXT>
 	<TEXT> <!-- National Courier System -->
 		<Tag>TXT_KEY_BUILDING_NATIONAL_COURIER_SYSTEM</Tag>
 		<English>National Courier System</English>
@@ -908,6 +985,21 @@
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_SHRINE_PEDIA</Tag>
 		<English>[TAB]Idolatry is usually defined as worship of any cult image, idea, or object, as opposed to the worship of a monotheistic God. It is considered a major sin in the Abrahamic religions whereas in religions where such activity is not considered as sin, the term "idolatry" itself is absent. Which images, ideas, and objects, constitute idolatry, and which constitute reasonable worship, is a matter of contention with some religious authorities and groups using the term to describe certain other religions apart from their own.</English>
+	</TEXT>
+	<TEXT> <!-- Siege Weapons Workshop -->
+		<Tag>TXT_KEY_BUILDING_SIEGE_WORKSHOP</Tag>
+		<English>Siege Weapons Workshop</English>
+		<French>Atelier d'Armes de Siège</French>
+		<German>Werkstatt f&#252;r Belagerungswaffen</German>
+		<Spanish>Taller de Armas de Ascedio</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SIEGE_WORKSHOP_PEDIA</Tag>
+		<English>[TAB]A [COLOR_UNIT_TEXT]Siege Weapon[COLOR_REVERT] is a device that is designed to break or circumvent city walls and other fortifications in siege warfare. [COLOR_BUILDING_TEXT]Siege Weapons Workshops[COLOR_REVERT] are places where engineers developed Siege Weapons.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SIEGE_WORKSHOP_STRATEGY</Tag>
+		<English>Build a [COLOR_BUILDING_TEXT]Siege Weapons Workshop[COLOR_REVERT] to construct [COLOR_UNIT_TEXT]Catapults[COLOR_REVERT] and [COLOR_UNIT_TEXT]Trebuchets[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT> <!-- Skara Brae -->
 		<Tag>TXT_KEY_BUILDING_SKARA_BRAE</Tag>
