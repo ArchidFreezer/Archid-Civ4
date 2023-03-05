@@ -9658,6 +9658,17 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 		}
 	}
 
+	iLast = 0;
+	for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+		if (kBuilding.getUnitCombatProductionModifier(eUnitCombat) != 0) {
+			CvWString szUnitCombat;
+			szFirstBuffer.Format(L"%s%c%d%s", NEWLINE, gDLL->getSymbolID(BULLET_CHAR), abs(kBuilding.getUnitCombatProductionModifier(eUnitCombat)), (kBuilding.getUnitCombatProductionModifier(eUnitCombat) > 0 ? gDLL->getText("TXT_KEY_UNITCOMBAT_PRODUCTION_FAST") : gDLL->getText("TXT_KEY_UNITCOMBAT_PRODUCTION_SLOW")).c_str());
+			szUnitCombat.Format(L"<link=literal>%s</link>", GC.getUnitCombatInfo(eUnitCombat).getDescription());
+			setListHelp(szBuffer, szFirstBuffer, szUnitCombat, L", ", (kBuilding.getUnitCombatProductionModifier(eUnitCombat) != iLast));
+			iLast = kBuilding.getUnitCombatProductionModifier(eUnitCombat);
+		}
+	}
+
 	bool bFirst = true;
 	for (BuildingClassTypes eLoopBuildingClass = (BuildingClassTypes)0; eLoopBuildingClass < GC.getNumBuildingClassInfos(); eLoopBuildingClass = (BuildingClassTypes)(eLoopBuildingClass + 1)) {
 		BuildingTypes eLoopBuilding = NO_BUILDING;

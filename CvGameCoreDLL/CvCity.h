@@ -48,6 +48,10 @@ public:
 	void changeBuildingClassProductionModifier(BuildingClassTypes eIndex, int iChange);
 	void setBuildingClassProductionModifier(BuildingClassTypes eIndex, int iChange);
 
+	int getUnitCombatProductionModifier(UnitCombatTypes eUnitCombat) const;
+	void changeUnitCombatProductionModifier(UnitCombatTypes eIndex, int iChange);
+	void setUnitCombatProductionModifier(UnitCombatTypes eIndex, int iChange);
+
 	void createBarbarianLeader(UnitTypes eBarbarianLeaderUnit, bool bIncrementBarbarianExperience);
 
 	void doAutoBuild();
@@ -1265,6 +1269,7 @@ protected:
 	BuildingChangeArray m_aBuildingHealthChange;
 
 	std::map<BuildingClassTypes, int> m_mBuildingClassProductionModifiers;
+	std::map<UnitCombatTypes, int> m_mUnitCombatProductionModifiers;
 
 	// CACHE: cache frequently used values
 	mutable int	m_iPopulationRank;

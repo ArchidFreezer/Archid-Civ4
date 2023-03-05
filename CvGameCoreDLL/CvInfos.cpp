@@ -7073,6 +7073,11 @@ int CvBuildingInfo::getBuildingClassProductionModifier(BuildingClassTypes eBuild
 	return (it != m_mBuildingClassProductionModifiers.end()) ? it->second : 0;
 }
 
+int CvBuildingInfo::getUnitCombatProductionModifier(UnitCombatTypes eUnitCombat) const {
+	std::map<int, int>::const_iterator it = m_mUnitCombatProductionModifiers.find(eUnitCombat);
+	return (it != m_mUnitCombatProductionModifiers.end()) ? it->second : 0;
+}
+
 bool CvBuildingInfo::isPrereqVicinityBonusUnconnectedAllowed() const {
 	return m_bPrereqVicinityBonusUnconnectedAllowed;
 }
@@ -8369,6 +8374,14 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 		m_mBuildingClassProductionModifiers.insert(std::make_pair(iKey, iElement));
 	}
 
+	stream->Read(&iNumElements);
+	m_mUnitCombatProductionModifiers.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iKey);
+		stream->Read(&iElement);
+		m_mUnitCombatProductionModifiers.insert(std::make_pair(iKey, iElement));
+	}
+
 	SAFE_DELETE_ARRAY(m_piProductionTraits);
 	m_piProductionTraits = new int[GC.getNumTraitInfos()];
 	stream->Read(GC.getNumTraitInfos(), m_piProductionTraits);
@@ -8864,6 +8877,12 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 		stream->Write(it->second);
 	}
 
+	stream->Write(m_mUnitCombatProductionModifiers.size());
+	for (std::map<int, int>::iterator it = m_mUnitCombatProductionModifiers.begin(); it != m_mUnitCombatProductionModifiers.end(); ++it) {
+		stream->Write(it->first);
+		stream->Write(it->second);
+	}
+
 	stream->Write(GC.getNumTraitInfos(), m_piProductionTraits);
 	stream->Write(GC.getNumTraitInfos(), m_piHappinessTraits);
 	stream->Write(NUM_YIELD_TYPES, m_piSeaPlotYieldChange);
@@ -9162,6 +9181,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetListPairInfo(&m_piDomainFreeExperience, "DomainFreeExperiences", NUM_DOMAIN_TYPES);
 	pXML->SetListPairInfo(&m_piDomainProductionModifier, "DomainProductionModifiers", NUM_DOMAIN_TYPES);
 	pXML->SetMapInfo(m_mBuildingClassProductionModifiers, "BuildingClassProductionModifiers");
+	pXML->SetMapInfo(m_mUnitCombatProductionModifiers, "UnitCombatProductionModifiers");
 	pXML->SetListPairInfo(&m_piPrereqNumOfBuildingClass, "PrereqNumOfBuildingClasses", GC.getNumBuildingClassInfos());
 	pXML->SetVectorInfo(m_viPrereqAndBuildingClasses, "PrereqAndBuildingClasses");
 	pXML->SetVectorInfo(m_viPrereqOrBuildingClasses, "PrereqOrBuildingClasses");

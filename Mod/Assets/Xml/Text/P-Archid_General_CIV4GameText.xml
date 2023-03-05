@@ -1607,6 +1607,15 @@
 		<French>%[SPACE]Construction Lente de[SPACE]</French>
 		<German>%[SPACE]Langsamere Konstruktion von[SPACE]</German>
 	</TEXT>
+<!-- Unit combat production rate modifiers -->
+	<TEXT>
+		<Tag>TXT_KEY_UNITCOMBAT_PRODUCTION_FAST</Tag>
+		<English>%[SPACE]Faster training of[SPACE]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNITCOMBAT_PRODUCTION_SLOW</Tag>
+		<English>%[SPACE]Slower training of[SPACE]</English>
+	</TEXT>
 <!-- Generic -->
 	<TEXT>
 		<Tag>TXT_KEY_ON</Tag>

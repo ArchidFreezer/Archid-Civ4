@@ -634,6 +634,7 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 		m_aGreatJests.clear();
 
 		m_mBuildingClassProductionModifiers.clear();
+		m_mUnitCombatProductionModifiers.clear();
 	}
 
 	if (!bConstructorCall) {
@@ -2687,23 +2688,35 @@ int CvCity::getProductionModifier() const {
 
 
 int CvCity::getProductionModifier(UnitTypes eUnit) const {
-	int iMultiplier = GET_PLAYER(getOwnerINLINE()).getProductionModifier(eUnit);
+	const CvPlayer& kPlayer = GET_PLAYER(getOwnerINLINE());
 
-	iMultiplier += getDomainProductionModifier((DomainTypes)(GC.getUnitInfo(eUnit).getDomainType()));
+	int iMultiplier = kPlayer.getProductionModifier(eUnit);
 
-	if (GC.getUnitInfo(eUnit).isMilitaryProduction()) {
-		iMultiplier += getMilitaryProductionModifier();
-	}
+	if (eUnit != NO_UNIT) {
+		const CvUnitInfo& kUnit = GC.getUnitInfo(eUnit);
+		iMultiplier += getDomainProductionModifier((DomainTypes)kUnit.getDomainType());
 
-	for (int iI = 0; iI < GC.getNumBonusInfos(); iI++) {
-		if (hasBonus((BonusTypes)iI)) {
-			iMultiplier += GC.getUnitInfo(eUnit).getBonusProductionModifier(iI);
+		if (kUnit.isMilitaryProduction()) {
+			iMultiplier += getMilitaryProductionModifier();
+		}
+
+		for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+			if (kUnit.isCombatType(eUnitCombat)) {
+				iMultiplier += getUnitCombatProductionModifier(eUnitCombat);
+			}
+		}
+
+		for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
+			if (hasBonus(eBonus)) {
+				iMultiplier += kUnit.getBonusProductionModifier(eBonus);
+			}
 		}
 	}
 
-	if (GET_PLAYER(getOwnerINLINE()).getStateReligion() != NO_RELIGION) {
-		if (isHasReligion(GET_PLAYER(getOwnerINLINE()).getStateReligion())) {
-			iMultiplier += GET_PLAYER(getOwnerINLINE()).getStateReligionUnitProductionModifier();
+
+	if (kPlayer.getStateReligion() != NO_RELIGION) {
+		if (isHasReligion(kPlayer.getStateReligion())) {
+			iMultiplier += kPlayer.getStateReligionUnitProductionModifier();
 		}
 	}
 
@@ -3339,6 +3352,7 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 
 		for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
 			changeUnitCombatFreeExperience(eUnitCombat, kBuilding.getUnitCombatFreeExperience(eUnitCombat) * iChange);
+			changeUnitCombatProductionModifier(eUnitCombat, kBuilding.getUnitCombatProductionModifier(eUnitCombat) * iChange);
 		}
 
 		for (DomainTypes eDomain = (DomainTypes)0; eDomain < NUM_DOMAIN_TYPES; eDomain = (DomainTypes)(eDomain + 1)) {
@@ -11250,6 +11264,16 @@ void CvCity::read(FDataStreamBase* pStream) {
 	}
 
 	pStream->Read(&iNumElts);
+	m_mUnitCombatProductionModifiers.clear();
+	for (int i = 0; i < iNumElts; ++i) {
+		int iUnitCombat;
+		pStream->Read(&iUnitCombat);
+		int iModifier;
+		pStream->Read(&iModifier);
+		m_mUnitCombatProductionModifiers.insert(std::make_pair((UnitCombatTypes)iUnitCombat, iModifier));
+	}
+
+	pStream->Read(&iNumElts);
 	m_aGreatJests.clear();
 	for (int i = 0; i < iNumElts; ++i) {
 		int iHappiness;
@@ -11489,6 +11513,12 @@ void CvCity::write(FDataStreamBase* pStream) {
 
 	pStream->Write(m_mBuildingClassProductionModifiers.size());
 	for (std::map<BuildingClassTypes, int>::iterator it = m_mBuildingClassProductionModifiers.begin(); it != m_mBuildingClassProductionModifiers.end(); ++it) {
+		pStream->Write((*it).first);
+		pStream->Write((*it).second);
+	}
+
+	pStream->Write(m_mUnitCombatProductionModifiers.size());
+	for (std::map<UnitCombatTypes, int>::iterator it = m_mUnitCombatProductionModifiers.begin(); it != m_mUnitCombatProductionModifiers.end(); ++it) {
 		pStream->Write((*it).first);
 		pStream->Write((*it).second);
 	}
@@ -13906,6 +13936,39 @@ void CvCity::setBuildingClassProductionModifier(BuildingClassTypes eBuildingClas
 
 void CvCity::changeBuildingClassProductionModifier(BuildingClassTypes eBuildingClass, int iChange) {
 	setBuildingClassProductionModifier(eBuildingClass, getBuildingClassProductionModifier(eBuildingClass) + iChange);
+}
+
+int CvCity::getUnitCombatProductionModifier(UnitCombatTypes eUnitCombat) const {
+	for (std::map<UnitCombatTypes, int>::const_iterator it = m_mUnitCombatProductionModifiers.begin(); it != m_mUnitCombatProductionModifiers.end(); ++it) {
+		if ((*it).first == eUnitCombat) {
+			return (*it).second;
+		}
+	}
+
+	return 0;
+}
+
+void CvCity::setUnitCombatProductionModifier(UnitCombatTypes eUnitCombat, int iChange) {
+	for (std::map<UnitCombatTypes, int>::iterator it = m_mUnitCombatProductionModifiers.begin(); it != m_mUnitCombatProductionModifiers.end(); ++it) {
+		if ((*it).first == eUnitCombat) {
+			if ((*it).second != iChange) {
+				if (iChange == 0) {
+					m_mUnitCombatProductionModifiers.erase(it);
+				} else {
+					(*it).second = iChange;
+				}
+			}
+			return;
+		}
+	}
+
+	if (0 != iChange) {
+		m_mUnitCombatProductionModifiers.insert(std::make_pair(eUnitCombat, iChange));
+	}
+}
+
+void CvCity::changeUnitCombatProductionModifier(UnitCombatTypes eUnitCombat, int iChange) {
+	setUnitCombatProductionModifier(eUnitCombat, getUnitCombatProductionModifier(eUnitCombat) + iChange);
 }
 
 int CvCity::getSpecialistHappiness() const {

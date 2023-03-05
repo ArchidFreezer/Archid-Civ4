@@ -457,6 +457,13 @@
 	<ElementType name="TechYieldChanges" content="eltOnly">
 		<element type="TechYieldChange" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="UnitCombatProductionModifier" content="eltOnly">
+		<element type="UnitCombatType"/>
+		<element type="iModifier"/>
+	</ElementType>
+	<ElementType name="UnitCombatProductionModifiers" content="eltOnly">
+		<element type="UnitCombatProductionModifier" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="BuildingInfo" content="eltOnly">
 		<element type="BuildingClass"/>
 		<element type="Type"/>
@@ -631,6 +638,7 @@
 		<element type="DomainFreeExperiences" minOccurs="0"/>
 		<element type="DomainProductionModifiers" minOccurs="0"/>
 		<element type="BuildingClassProductionModifiers" minOccurs="0"/>
+		<element type="UnitCombatProductionModifiers" minOccurs="0"/>
 		<element type="BuildingHappinessChanges" minOccurs="0"/>
 		<element type="PrereqNumOfBuildingClasses" minOccurs="0"/>
 		<element type="PrereqAndBuildingClasses" minOccurs="0"/>
