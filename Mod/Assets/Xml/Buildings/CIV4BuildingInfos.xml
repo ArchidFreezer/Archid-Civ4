@@ -509,6 +509,7 @@
 			<PrereqOrBonuses>
 				<BonusType>BONUS_STEEL</BonusType>
 			</PrereqOrBonuses>
+			<bPrereqPower>1</bPrereqPower>
 			<FreeBonus>BONUS_AMMO</FreeBonus>
 			<iNumFreeBonuses>-1</iNumFreeBonuses>
 			<iAIWeight>100</iAIWeight>
@@ -520,9 +521,8 @@
 			<iMilitaryProductionModifier>50</iMilitaryProductionModifier>
 			<iAsset>4</iAsset>
 			<iPower>5</iPower>
-			<bPrereqPower>1</bPrereqPower>
 			<fVisibilityPriority>1.0</fVisibilityPriority>
-			<ConstructSound>AS2D_BUILD_FACTORY</ConstructSound>	
+			<ConstructSound>AS2D_BUILD_FACTORY</ConstructSound>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -564,6 +564,21 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_FORGE</ConstructSound>
+			<DomainProductionModifiers>
+				<DomainProductionModifier>
+					<DomainType>DOMAIN_LAND</DomainType>
+					<iModifier>20</iModifier>
+				</DomainProductionModifier>
+			</DomainProductionModifiers>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ARSENAL</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_ARSENAL</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<VicinityBonusYieldChanges>
 				<VicinityBonusYieldChange>
 					<BonusType>BONUS_COPPER</BonusType>
@@ -580,21 +595,6 @@
 					</YieldChanges>
 				</VicinityBonusYieldChange>
 			</VicinityBonusYieldChanges>
-			<DomainProductionModifiers>
-				<DomainProductionModifier>
-					<DomainType>DOMAIN_LAND</DomainType>
-					<iModifier>20</iModifier>
-				</DomainProductionModifier>
-			</DomainProductionModifiers>
-			<BuildingClassProductionModifiers>
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_ARSENAL</BuildingClassType>
-					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>		
-			</BuildingClassProductionModifiers>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_ARSENAL</BuildingClassType>
-			</ReplacedByBuildingClasses>		
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -642,16 +642,16 @@
 				<BuildingClassProductionModifier>
 					<BuildingClassType>BUILDINGCLASS_MUNITIONS_FACTORY</BuildingClassType>
 					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>		
+				</BuildingClassProductionModifier>
 				<BuildingClassProductionModifier>
 					<BuildingClassType>BUILDINGCLASS_ARMAMENTS_INDUSTRY</BuildingClassType>
 					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>		
+				</BuildingClassProductionModifier>
 			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_MUNITIONS_FACTORY</BuildingClassType>
 				<BuildingClassType>BUILDINGCLASS_ARMAMENTS_INDUSTRY</BuildingClassType>
-			</ReplacedByBuildingClasses>		
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -893,7 +893,7 @@
 			</UnitCombatFreeExperiences>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_GARRISON</BuildingClassType>
-			</ReplacedByBuildingClasses>		
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
@@ -952,7 +952,7 @@
 			</UnitCombatFreeExperiences>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_GARRISON</BuildingClassType>
-			</ReplacedByBuildingClasses>		
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
@@ -999,6 +999,15 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_MARKETPLACE</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_SHOPPING_DISTRICT</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_SHOPPING_DISTRICT</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<BonusYieldChanges>
 				<BonusYieldChange>
 					<BonusType>BONUS_IVORY</BonusType>
@@ -1089,22 +1098,12 @@
 					</YieldChanges>
 				</BonusYieldChange>
 			</BonusYieldChanges>
-			<BuildingClassProductionModifiers>
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_SHOPPING_DISTRICT</BuildingClassType>
-					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_SHOPPING_DISTRICT</BuildingClassType>
-			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
-			<HotKey/>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Biological Warfare Lab -->
 			<BuildingClass>BUILDINGCLASS_BIOLOGICAL_WARFARE_LAB</BuildingClass>
@@ -1580,7 +1579,7 @@
 			<PrereqAndTechs>
 				<TechType>TECH_GUNPOWDER</TechType>
 			</PrereqAndTechs>
-			<BonusType>BONUS_IRON</BonusType>
+			<PrereqBonus>BONUS_IRON</PrereqBonus>
 			<iAIWeight>1</iAIWeight>
 			<iCost>140</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -1593,7 +1592,7 @@
 				<BuildingClassProductionModifier>
 					<BuildingClassType>BUILDINGCLASS_ARMAMENTS_INDUSTRY</BuildingClassType>
 					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>		
+				</BuildingClassProductionModifier>
 			</BuildingClassProductionModifiers>
 			<UnitCombatProductionModifiers>
 				<UnitCombatProductionModifier>
@@ -1603,7 +1602,7 @@
 			</UnitCombatProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_ARMAMENTS_INDUSTRY</BuildingClassType>
-			</ReplacedByBuildingClasses>		
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -1872,10 +1871,6 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_CENTRAL_BANK</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_CENTRAL_BANK</MovieDefineTag>
-			<PrereqNotBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_FINANCIAL_NEXUS</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_WORLD_BANK</BuildingClassType>
-			</PrereqNotBuildingClasses>
 			<PrereqAndTechs>
 				<TechType>TECH_MERCANTILISM</TechType>
 			</PrereqAndTechs>
@@ -1899,6 +1894,10 @@
 					<iNeeded>4</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
+			<PrereqNotBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_FINANCIAL_NEXUS</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_WORLD_BANK</BuildingClassType>
+			</PrereqNotBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
@@ -3184,7 +3183,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Doctor -->
+		<BuildingInfo> <!-- Doctors Office -->
 			<BuildingClass>BUILDINGCLASS_DOCTORS_OFFICE</BuildingClass>
 			<Type>BUILDING_DOCTORS_OFFICE</Type>
 			<Description>TXT_KEY_BUILDING_DOCTORS_OFFICE</Description>
@@ -3541,10 +3540,6 @@
 			<Strategy>TXT_KEY_BUILDING_FINANCIAL_NEXUS_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_FINANCIAL_NEXUS</ArtDefineTag>
-			<PrereqNotBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_CENTRAL_BANK</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_WORLD_BANK</BuildingClassType>
-			</PrereqNotBuildingClasses>
 			<PrereqAndTechs>
 				<TechType>TECH_MESH_NETWORKS</TechType>
 			</PrereqAndTechs>
@@ -3563,6 +3558,10 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_FINANCIAL_NEXUS</ConstructSound>
+			<PrereqNotBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_CENTRAL_BANK</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_WORLD_BANK</BuildingClassType>
+			</PrereqNotBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
@@ -3803,6 +3802,31 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_FORGE</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_FOUNDRY</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_MANOR</BuildingClassType>
+					<iModifier>50</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ARMOURER</BuildingClassType>
+					<iModifier>50</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_TOWNCLOCK</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_GUILDHALL</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_FOUNDRY</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<VicinityBonusYieldChanges>
 				<VicinityBonusYieldChange>
 					<BonusType>BONUS_COPPER</BonusType>
@@ -3820,31 +3844,6 @@
 					</YieldChanges>
 				</VicinityBonusYieldChange>
 			</VicinityBonusYieldChanges>
-			<BuildingClassProductionModifiers>
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_FOUNDRY</BuildingClassType>
-					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>	
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_MANOR</BuildingClassType>
-					<iModifier>50</iModifier>
-				</BuildingClassProductionModifier>			
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_ARMOURER</BuildingClassType>
-					<iModifier>50</iModifier>
-				</BuildingClassProductionModifier>				
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_TOWNCLOCK</BuildingClassType>
-					<iModifier>100</iModifier>
-				</BuildingClassProductionModifier>	
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_GUILDHALL</BuildingClassType>
-					<iModifier>100</iModifier>
-				</BuildingClassProductionModifier>		
-			</BuildingClassProductionModifiers>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_FOUNDRY</BuildingClassType>
-			</ReplacedByBuildingClasses>		
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -3889,6 +3888,31 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_FORGE</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_FOUNDRY</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_MANOR</BuildingClassType>
+					<iModifier>50</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ARMOURER</BuildingClassType>
+					<iModifier>50</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_TOWNCLOCK</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_GUILDHALL</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_FOUNDRY</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<VicinityBonusYieldChanges>
 				<VicinityBonusYieldChange>
 					<BonusType>BONUS_COPPER</BonusType>
@@ -3906,31 +3930,6 @@
 					</YieldChanges>
 				</VicinityBonusYieldChange>
 			</VicinityBonusYieldChanges>
-			<BuildingClassProductionModifiers>
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_FOUNDRY</BuildingClassType>
-					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>	
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_MANOR</BuildingClassType>
-					<iModifier>50</iModifier>
-				</BuildingClassProductionModifier>			
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_ARMOURER</BuildingClassType>
-					<iModifier>50</iModifier>
-				</BuildingClassProductionModifier>				
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_TOWNCLOCK</BuildingClassType>
-					<iModifier>100</iModifier>
-				</BuildingClassProductionModifier>	
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_GUILDHALL</BuildingClassType>
-					<iModifier>100</iModifier>
-				</BuildingClassProductionModifier>		
-			</BuildingClassProductionModifiers>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_FOUNDRY</BuildingClassType>
-			</ReplacedByBuildingClasses>		
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -3973,8 +3972,24 @@
 					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
-			<FreeSpecialistCounts/>
 			<ConstructSound>AS2D_BUILD_FORGE</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_STEEL_MILL</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_TOWNCLOCK</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_MANOR</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_STEEL_MILL</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<BonusYieldChanges>
 				<BonusYieldChange>
 					<BonusType>BONUS_IRON</BonusType>
@@ -3983,24 +3998,7 @@
 						<iYield>3</iYield>
 					</YieldChanges>
 				</BonusYieldChange>
-			</BonusYieldChanges>	
-			<BuildingClassProductionModifiers>
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_STEEL_MILL</BuildingClassType>
-					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>	
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_TOWNCLOCK</BuildingClassType>
-					<iModifier>100</iModifier>
-				</BuildingClassProductionModifier>		
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_MANOR</BuildingClassType>
-					<iModifier>100</iModifier>
-				</BuildingClassProductionModifier>	
-			</BuildingClassProductionModifiers>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_STEEL_MILL</BuildingClassType>
-			</ReplacedByBuildingClasses>		
+			</BonusYieldChanges>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -4570,7 +4568,16 @@
 					<BonusType>BONUS_SUGAR</BonusType>
 					<iChange>1</iChange>
 				</BonusHappinessChange>
-			</BonusHappinessChanges>	
+			</BonusHappinessChanges>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<BonusYieldChanges>
 				<BonusYieldChange>
 					<BonusType>BONUS_WINE</BonusType>
@@ -4679,15 +4686,6 @@
 					</YieldChanges>
 				</VicinityBonusYieldChange>
 			</VicinityBonusYieldChanges>
-			<BuildingClassProductionModifiers>
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType>
-					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType>
-			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
@@ -4769,7 +4767,16 @@
 					<BonusType>BONUS_SUGAR</BonusType>
 					<iChange>1</iChange>
 				</BonusHappinessChange>
-			</BonusHappinessChanges>	
+			</BonusHappinessChanges>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<BonusYieldChanges>
 				<BonusYieldChange>
 					<BonusType>BONUS_WINE</BonusType>
@@ -4878,15 +4885,6 @@
 					</YieldChanges>
 				</VicinityBonusYieldChange>
 			</VicinityBonusYieldChanges>
-			<BuildingClassProductionModifiers>
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType>
-					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType>
-			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
@@ -5581,6 +5579,9 @@
 					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
+			<PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType>
+			</PrereqAndBuildingClasses>
 			<BonusYieldChanges>
 				<BonusYieldChange>
 					<BonusType>BONUS_OLIVES</BonusType>
@@ -5695,9 +5696,6 @@
 					</YieldChanges>
 				</BonusYieldChange>
 			</BonusYieldChanges>
-			<PrereqAndBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType>
-			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
@@ -7044,7 +7042,16 @@
 					<BonusType>BONUS_SUGAR</BonusType>
 					<iChange>1</iChange>
 				</BonusHappinessChange>
-			</BonusHappinessChanges>			
+			</BonusHappinessChanges>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<BonusYieldChanges>
 				<BonusYieldChange>
 					<BonusType>BONUS_WINE</BonusType>
@@ -7121,15 +7128,6 @@
 					</YieldChanges>
 				</VicinityBonusYieldChange>
 			</VicinityBonusYieldChanges>
-			<BuildingClassProductionModifiers>
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
-					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
-			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
@@ -7207,7 +7205,16 @@
 					<BonusType>BONUS_SUGAR</BonusType>
 					<iChange>1</iChange>
 				</BonusHappinessChange>
-			</BonusHappinessChanges>			
+			</BonusHappinessChanges>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<BonusYieldChanges>
 				<BonusYieldChange>
 					<BonusType>BONUS_WINE</BonusType>
@@ -7284,15 +7291,6 @@
 					</YieldChanges>
 				</VicinityBonusYieldChange>
 			</VicinityBonusYieldChanges>
-			<BuildingClassProductionModifiers>
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
-					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
-			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
@@ -7596,6 +7594,7 @@
 				<TechType>TECH_INDUSTRIALISM</TechType>
 			</PrereqAndTechs>
 			<PrereqBonus>BONUS_IRON</PrereqBonus>
+			<bPrereqPower>1</bPrereqPower>
 			<ProductionTraits>
 				<ProductionTrait>
 					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
@@ -7612,7 +7611,6 @@
 			<iHealth>-2</iHealth>
 			<iAsset>8</iAsset>
 			<iPower>20</iPower>
-			<bPrereqPower>1</bPrereqPower>
 			<fVisibilityPriority>1.0</fVisibilityPriority>
 			<YieldChanges>
 				<iYield>0</iYield>
@@ -7625,6 +7623,16 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_IRONWORKS</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_TOWNCLOCK</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_MANOR</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
 			<BonusYieldChanges>
 				<BonusYieldChange>
 					<BonusType>BONUS_IRON</BonusType>
@@ -7633,17 +7641,7 @@
 						<iYield>12</iYield>
 					</YieldChanges>
 				</BonusYieldChange>
-			</BonusYieldChanges>	
-			<BuildingClassProductionModifiers>
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_TOWNCLOCK</BuildingClassType>
-					<iModifier>100</iModifier>
-				</BuildingClassProductionModifier>		
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_MANOR</BuildingClassType>
-					<iModifier>100</iModifier>
-				</BuildingClassProductionModifier>	
-			</BuildingClassProductionModifiers>
+			</BonusYieldChanges>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -7654,7 +7652,7 @@
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
-		</BuildingInfo>	
+		</BuildingInfo>
 		<BuildingInfo> <!-- Moneylender -->
 			<BuildingClass>BUILDINGCLASS_MONEYLENDER</BuildingClass>
 			<Type>BUILDING_MONEYLENDER</Type>
@@ -7949,7 +7947,7 @@
 				<BuildingClassProductionModifier>
 					<BuildingClassType>BUILDINGCLASS_ARMAMENTS_INDUSTRY</BuildingClassType>
 					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>		
+				</BuildingClassProductionModifier>
 			</BuildingClassProductionModifiers>
 			<Flavors>
 				<Flavor>
@@ -9394,6 +9392,15 @@
 					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_HYPERMARKET</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_HYPERMARKET</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<BonusYieldChanges>
 				<BonusYieldChange>
 					<BonusType>BONUS_IVORY</BonusType>
@@ -9484,15 +9491,6 @@
 					</YieldChanges>
 				</BonusYieldChange>
 			</BonusYieldChanges>
-			<BuildingClassProductionModifiers>
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_HYPERMARKET</BuildingClassType>
-					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_HYPERMARKET</BuildingClassType>
-			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
@@ -9512,11 +9510,6 @@
 			<Strategy>TXT_KEY_BUILDING_SHRINE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_SHRINE</ArtDefineTag>
-			<PrereqOrCivics>
-				<CivicType>CIVIC_FOLKLORE</CivicType>
-				<CivicType>CIVIC_DIVINE_RULE</CivicType>
-				<CivicType>CIVIC_PROPHETS</CivicType>
-			</PrereqOrCivics>
 			<ObsoleteTech>TECH_PHILOSOPHY</ObsoleteTech>
 			<PrereqAndTechs>
 				<TechType>TECH_RITUALISM</TechType>
@@ -9528,6 +9521,11 @@
 				<BonusType>BONUS_SILVER</BonusType>
 				<BonusType>BONUS_GOLD</BonusType>
 			</PrereqOrBonuses>
+			<PrereqOrCivics>
+				<CivicType>CIVIC_FOLKLORE</CivicType>
+				<CivicType>CIVIC_DIVINE_RULE</CivicType>
+				<CivicType>CIVIC_PROPHETS</CivicType>
+			</PrereqOrCivics>
 			<iCost>15</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iAsset>1</iAsset>
@@ -9632,7 +9630,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Siege Weapons Workshop -->
+		<BuildingInfo> <!-- Siege Workshop -->
 			<BuildingClass>BUILDINGCLASS_SIEGE_WORKSHOP</BuildingClass>
 			<Type>BUILDING_SIEGE_WORKSHOP</Type>
 			<Description>TXT_KEY_BUILDING_SIEGE_WORKSHOP</Description>
@@ -9655,7 +9653,7 @@
 				<BuildingClassProductionModifier>
 					<BuildingClassType>BUILDINGCLASS_CANNON_FORGE</BuildingClassType>
 					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>		
+				</BuildingClassProductionModifier>
 			</BuildingClassProductionModifiers>
 			<UnitCombatProductionModifiers>
 				<UnitCombatProductionModifier>
@@ -9665,7 +9663,7 @@
 			</UnitCombatProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_CANNON_FORGE</BuildingClassType>
-			</ReplacedByBuildingClasses>		
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
@@ -10204,6 +10202,23 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_IRONWORKS</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_MODERN_STEELWORKS</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_TOWNCLOCK</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_MANOR</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_MODERN_STEELWORKS</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<BonusYieldChanges>
 				<BonusYieldChange>
 					<BonusType>BONUS_IRON</BonusType>
@@ -10212,24 +10227,7 @@
 						<iYield>10</iYield>
 					</YieldChanges>
 				</BonusYieldChange>
-			</BonusYieldChanges>	
-			<BuildingClassProductionModifiers>
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_MODERN_STEELWORKS</BuildingClassType>
-					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>	
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_TOWNCLOCK</BuildingClassType>
-					<iModifier>100</iModifier>
-				</BuildingClassProductionModifier>		
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_MANOR</BuildingClassType>
-					<iModifier>100</iModifier>
-				</BuildingClassProductionModifier>	
-			</BuildingClassProductionModifiers>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_MODERN_STEELWORKS</BuildingClassType>
-			</ReplacedByBuildingClasses>	
+			</BonusYieldChanges>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -10627,6 +10625,18 @@
 					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_HYPERMARKET</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
+			</PrereqAndBuildingClasses>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_HYPERMARKET</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<BonusYieldChanges>
 				<BonusYieldChange>
 					<BonusType>BONUS_OLIVES</BonusType>
@@ -10725,18 +10735,6 @@
 					</YieldChanges>
 				</BonusYieldChange>
 			</BonusYieldChanges>
-			<BuildingClassProductionModifiers>
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_HYPERMARKET</BuildingClassType>
-					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers>
-			<PrereqAndBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
-			</PrereqAndBuildingClasses>		
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_HYPERMARKET</BuildingClassType>
-			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
@@ -10842,6 +10840,18 @@
 					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_HYPERMARKET</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
+			</PrereqAndBuildingClasses>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_HYPERMARKET</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<BonusYieldChanges>
 				<BonusYieldChange>
 					<BonusType>BONUS_OLIVES</BonusType>
@@ -10940,18 +10950,6 @@
 					</YieldChanges>
 				</BonusYieldChange>
 			</BonusYieldChanges>
-			<BuildingClassProductionModifiers>
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_HYPERMARKET</BuildingClassType>
-					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers>
-			<PrereqAndBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
-			</PrereqAndBuildingClasses>		
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_HYPERMARKET</BuildingClassType>
-			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
@@ -11455,6 +11453,15 @@
 				<iYield>1</iYield>
 			</YieldChanges>
 			<ConstructSound>AS2D_BUILD_FORGE</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_FORGE</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_FORGE</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<VicinityBonusYieldChanges>
 				<VicinityBonusYieldChange>
 					<BonusType>BONUS_OBSIDIAN</BonusType>
@@ -11464,15 +11471,6 @@
 					</YieldChanges>
 				</VicinityBonusYieldChange>
 			</VicinityBonusYieldChanges>
-			<BuildingClassProductionModifiers>
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_FORGE</BuildingClassType>
-					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_FORGE</BuildingClassType>
-			</ReplacedByBuildingClasses>	
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -11483,7 +11481,7 @@
 					<iFlavor>2</iFlavor>
 				</Flavor>
 			</Flavors>
-		</BuildingInfo>	
+		</BuildingInfo>
 		<BuildingInfo> <!-- Town Hall -->
 			<BuildingClass>BUILDINGCLASS_TOWN_HALL</BuildingClass>
 			<Type>BUILDING_TOWN_HALL</Type>
@@ -12208,10 +12206,6 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_WORLD_BANK</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_WORLD_BANK</MovieDefineTag>
-			<PrereqNotBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_CENTRAL_BANK</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_FINANCIAL_NEXUS</BuildingClassType>
-			</PrereqNotBuildingClasses>
 			<PrereqAndTechs>
 				<TechType>TECH_APPLIED_ECONOMICS</TechType>
 			</PrereqAndTechs>
@@ -12221,8 +12215,6 @@
 			<iHurryCostModifier>100</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iCitiesPrereq>5</iCitiesPrereq>
-<!--			<iGoldPercentDividendPerTurn>3</iGoldPercentDividendPerTurn>
-			<iGoldIncreasePercent>50</iGoldIncreasePercent> -->
 			<iAsset>10</iAsset>
 			<CommerceModifiers>
 				<iCommerce>50</iCommerce>
@@ -12243,6 +12235,10 @@
 					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
+			<PrereqNotBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_CENTRAL_BANK</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_FINANCIAL_NEXUS</BuildingClassType>
+			</PrereqNotBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>

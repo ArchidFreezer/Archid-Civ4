@@ -157,11 +157,11 @@
 			<DefaultBuilding>BUILDING_STONE_WEAPONS_WORKSHOP</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Drydock -->                         <!-- Military Production -->
-			<Type>BUILDINGCLASS_DRYDOCK</Type>
-			<Description>TXT_KEY_BUILDING_DRYDOCK</Description>
+		<BuildingClassInfo> <!-- Armaments Industry -->              <!-- Military Production -->
+			<Type>BUILDINGCLASS_ARMAMENTS_INDUSTRY</Type>
+			<Description>TXT_KEY_BUILDING_ARMAMENTS_INDUSTRY</Description>
 			<iCategory>18</iCategory>
-			<DefaultBuilding>BUILDING_DRYDOCK</DefaultBuilding>
+			<DefaultBuilding>BUILDING_ARMAMENTS_INDUSTRY</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Armourer -->
 			<Type>BUILDINGCLASS_ARMOURER</Type>
@@ -175,23 +175,23 @@
 			<iCategory>18</iCategory>
 			<DefaultBuilding>BUILDING_ARSENAL</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Armaments Industry -->
-			<Type>BUILDINGCLASS_ARMAMENTS_INDUSTRY</Type>
-			<Description>TXT_KEY_BUILDING_ARMAMENTS_INDUSTRY</Description>
-			<iCategory>18</iCategory>
-			<DefaultBuilding>BUILDING_ARMAMENTS_INDUSTRY</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Siege Weapons Workshop -->
-			<Type>BUILDINGCLASS_SIEGE_WORKSHOP</Type>
-			<Description>TXT_KEY_BUILDING_SIEGE_WORKSHOP</Description>
-			<iCategory>18</iCategory>
-			<DefaultBuilding>BUILDING_SIEGE_WORKSHOP</DefaultBuilding>
-		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Cannon Forge -->
 			<Type>BUILDINGCLASS_CANNON_FORGE</Type>
 			<Description>TXT_KEY_BUILDING_CANNON_FORGE</Description>
 			<iCategory>18</iCategory>
 			<DefaultBuilding>BUILDING_CANNON_FORGE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Drydock -->
+			<Type>BUILDINGCLASS_DRYDOCK</Type>
+			<Description>TXT_KEY_BUILDING_DRYDOCK</Description>
+			<iCategory>18</iCategory>
+			<DefaultBuilding>BUILDING_DRYDOCK</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Siege Workshop -->
+			<Type>BUILDINGCLASS_SIEGE_WORKSHOP</Type>
+			<Description>TXT_KEY_BUILDING_SIEGE_WORKSHOP</Description>
+			<iCategory>18</iCategory>
+			<DefaultBuilding>BUILDING_SIEGE_WORKSHOP</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Fishermans Hut -->                  <!-- Seafood -->
@@ -319,6 +319,12 @@
 			<iCategory>24</iCategory>
 			<DefaultBuilding>BUILDING_FORGE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Foundry -->
+			<Type>BUILDINGCLASS_FOUNDRY</Type>
+			<Description>TXT_KEY_BUILDING_FOUNDRY</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_FOUNDRY</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Masons Guild -->
 			<Type>BUILDINGCLASS_MASONS_GUILD</Type>
 			<Description>TXT_KEY_BUILDING_MASONS_GUILD</Description>
@@ -330,6 +336,18 @@
 			<Description>TXT_KEY_BUILDING_MICROLITH_WORKSHOP</Description>
 			<iCategory>24</iCategory>
 			<DefaultBuilding>BUILDING_MICROLITH_WORKSHOP</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Modern Steelworks -->
+			<Type>BUILDINGCLASS_MODERN_STEELWORKS</Type>
+			<Description>TXT_KEY_BUILDING_MODERN_STEELWORKS</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_MODERN_STEELWORKS</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Steel Mill -->
+			<Type>BUILDINGCLASS_STEEL_MILL</Type>
+			<Description>TXT_KEY_BUILDING_STEEL_MILL</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_STEEL_MILL</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Stonemasons Workshop -->
 			<Type>BUILDINGCLASS_STONEMASONS_WORKSHOP</Type>
@@ -343,6 +361,12 @@
 			<iCategory>24</iCategory>
 			<DefaultBuilding>BUILDING_STONEWORKERS_HUT</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Toolmaker -->
+			<Type>BUILDINGCLASS_TOOLMAKER</Type>
+			<Description>TXT_KEY_BUILDING_TOOLMAKER</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_TOOLMAKER</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Treadmill Crane -->
 			<Type>BUILDINGCLASS_TREADMILL_CRANE</Type>
 			<Description>TXT_KEY_BUILDING_TREADMILL_CRANE</Description>
@@ -354,30 +378,6 @@
 			<Description>TXT_KEY_BUILDING_UTILITY_FOG</Description>
 			<iCategory>24</iCategory>
 			<DefaultBuilding>BUILDING_UTILITY_FOG</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Toolmaker -->
-			<Type>BUILDINGCLASS_TOOLMAKER</Type>
-			<Description>TXT_KEY_BUILDING_TOOLMAKER</Description>
-			<iCategory>24</iCategory>
-			<DefaultBuilding>BUILDING_TOOLMAKER</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Foundry -->
-			<Type>BUILDINGCLASS_FOUNDRY</Type>
-			<Description>TXT_KEY_BUILDING_FOUNDRY</Description>
-			<iCategory>24</iCategory>
-			<DefaultBuilding>BUILDING_FOUNDRY</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Steel Mill -->
-			<Type>BUILDINGCLASS_STEEL_MILL</Type>
-			<Description>TXT_KEY_BUILDING_STEEL_MILL</Description>
-			<iCategory>24</iCategory>
-			<DefaultBuilding>BUILDING_STEEL_MILL</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Modern Steelworks -->
-			<Type>BUILDINGCLASS_MODERN_STEELWORKS</Type>
-			<Description>TXT_KEY_BUILDING_MODERN_STEELWORKS</Description>
-			<iCategory>24</iCategory>
-			<DefaultBuilding>BUILDING_MODERN_STEELWORKS</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Coal Plant -->                      <!-- Production - Factory/Power -->
@@ -423,20 +423,26 @@
 			<iCategory>28</iCategory>
 			<DefaultBuilding>BUILDING_SLAVE_MARKET</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Weavers Hut -->
-			<Type>BUILDINGCLASS_WEAVERS_HUT</Type>
-			<Description>TXT_KEY_BUILDING_WEAVERS_HUT</Description>
-			<iCategory>28</iCategory>
-			<DefaultBuilding>BUILDING_WEAVERS_HUT</DefaultBuilding>
-		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Townclock -->
 			<Type>BUILDINGCLASS_TOWNCLOCK</Type>
 			<Description>TXT_KEY_BUILDING_TOWNCLOCK</Description>
 			<iCategory>28</iCategory>
 			<DefaultBuilding>BUILDING_TOWNCLOCK</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Weavers Hut -->
+			<Type>BUILDINGCLASS_WEAVERS_HUT</Type>
+			<Description>TXT_KEY_BUILDING_WEAVERS_HUT</Description>
+			<iCategory>28</iCategory>
+			<DefaultBuilding>BUILDING_WEAVERS_HUT</DefaultBuilding>
+		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Early Instrument Maker -->          <!-- Commerce - Retail -->
+		<BuildingClassInfo> <!-- Bazaar -->                          <!-- Commerce - Retail -->
+			<Type>BUILDINGCLASS_BAZAAR</Type>
+			<Description>TXT_KEY_BUILDING_BAZAAR</Description>
+			<iCategory>29</iCategory>
+			<DefaultBuilding>BUILDING_BAZAAR</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Early Instrument Maker -->
 			<Type>BUILDINGCLASS_EARLY_INSTRUMENT_MAKER</Type>
 			<Description>TXT_KEY_BUILDING_EARLY_INSTRUMENT_MAKER</Description>
 			<iCategory>29</iCategory>
@@ -448,11 +454,23 @@
 			<iCategory>29</iCategory>
 			<DefaultBuilding>BUILDING_GROCER</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Hypermarket -->
+			<Type>BUILDINGCLASS_HYPERMARKET</Type>
+			<Description>TXT_KEY_BUILDING_HYPERMARKET</Description>
+			<iCategory>29</iCategory>
+			<DefaultBuilding>BUILDING_HYPERMARKET</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Market -->
 			<Type>BUILDINGCLASS_MARKET</Type>
 			<Description>TXT_KEY_BUILDING_MARKET</Description>
 			<iCategory>29</iCategory>
 			<DefaultBuilding>BUILDING_MARKET</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Shopping District -->
+			<Type>BUILDINGCLASS_SHOPPING_DISTRICT</Type>
+			<Description>TXT_KEY_BUILDING_SHOPPING_DISTRICT</Description>
+			<iCategory>29</iCategory>
+			<DefaultBuilding>BUILDING_SHOPPING_DISTRICT</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Supermarket -->
 			<Type>BUILDINGCLASS_SUPERMARKET</Type>
@@ -466,24 +484,6 @@
 			<iCategory>29</iCategory>
 			<DefaultBuilding>BUILDING_TAILOR_SHOP</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Bazaar -->
-			<Type>BUILDINGCLASS_BAZAAR</Type>
-			<Description>TXT_KEY_BUILDING_BAZAAR</Description>
-			<iCategory>29</iCategory>
-			<DefaultBuilding>BUILDING_BAZAAR</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Shopping District -->
-			<Type>BUILDINGCLASS_SHOPPING_DISTRICT</Type>
-			<Description>TXT_KEY_BUILDING_SHOPPING_DISTRICT</Description>
-			<iCategory>29</iCategory>
-			<DefaultBuilding>BUILDING_SHOPPING_DISTRICT</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Hypermarket -->
-			<Type>BUILDINGCLASS_HYPERMARKET</Type>
-			<Description>TXT_KEY_BUILDING_HYPERMARKET</Description>
-			<iCategory>29</iCategory>
-			<DefaultBuilding>BUILDING_HYPERMARKET</DefaultBuilding>
-		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Bank -->                            <!-- Commerce - Banking -->
 			<Type>BUILDINGCLASS_BANK</Type>
@@ -491,11 +491,11 @@
 			<iCategory>30</iCategory>
 			<DefaultBuilding>BUILDING_BANK</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Moneylender -->
-			<Type>BUILDINGCLASS_MONEYLENDER</Type>
-			<Description>TXT_KEY_BUILDING_MONEYLENDER</Description>
+		<BuildingClassInfo> <!-- Financial Nexus -->
+			<Type>BUILDINGCLASS_FINANCIAL_NEXUS</Type>
+			<Description>TXT_KEY_BUILDING_FINANCIAL_NEXUS</Description>
 			<iCategory>30</iCategory>
-			<DefaultBuilding>BUILDING_MONEYLENDER</DefaultBuilding>
+			<DefaultBuilding>BUILDING_FINANCIAL_NEXUS</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Investment Bank -->
 			<Type>BUILDINGCLASS_INVESTMENT_BANK</Type>
@@ -503,11 +503,11 @@
 			<iCategory>30</iCategory>
 			<DefaultBuilding>BUILDING_INVESTMENT_BANK</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Financial Nexus -->
-			<Type>BUILDINGCLASS_FINANCIAL_NEXUS</Type>
-			<Description>TXT_KEY_BUILDING_FINANCIAL_NEXUS</Description>
+		<BuildingClassInfo> <!-- Moneylender -->
+			<Type>BUILDINGCLASS_MONEYLENDER</Type>
+			<Description>TXT_KEY_BUILDING_MONEYLENDER</Description>
 			<iCategory>30</iCategory>
-			<DefaultBuilding>BUILDING_FINANCIAL_NEXUS</DefaultBuilding>
+			<DefaultBuilding>BUILDING_MONEYLENDER</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Cave Painting -->                   <!-- Culture -->
@@ -654,7 +654,13 @@
 			<DefaultBuilding>BUILDING_HYDRO_PLANT</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Hospital -->                        <!-- Health -->
+		<BuildingClassInfo> <!-- Doctors Office -->                  <!-- Health -->
+			<Type>BUILDINGCLASS_DOCTORS_OFFICE</Type>
+			<Description>TXT_KEY_BUILDING_DOCTORS_OFFICE</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_DOCTORS_OFFICE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Hospital -->
 			<Type>BUILDINGCLASS_HOSPITAL</Type>
 			<Description>TXT_KEY_BUILDING_HOSPITAL</Description>
 			<iCategory>37</iCategory>
@@ -672,12 +678,6 @@
 			<Description>TXT_KEY_BUILDING_RECYCLING_CENTER</Description>
 			<iCategory>37</iCategory>
 			<DefaultBuilding>BUILDING_RECYCLING_CENTER</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Doctor's Office -->
-			<Type>BUILDINGCLASS_DOCTORS_OFFICE</Type>
-			<Description>TXT_KEY_BUILDING_DOCTORS_OFFICE</Description>
-			<iCategory>37</iCategory>
-			<DefaultBuilding>BUILDING_DOCTORS_OFFICE</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Aqueduct -->                        <!-- Water -->
