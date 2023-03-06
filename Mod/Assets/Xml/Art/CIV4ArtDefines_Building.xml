@@ -2607,5 +2607,35 @@
 			<KFM/>
 			<Button>,Art/Interface/Buttons/Buildings/Factory.dds,Art/Interface/Buttons/Buildings_Atlas.dds,7,2</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HEALERS_HUT</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/clay_hut/Hut.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/healers_hut.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_APOTHECARY_SHOP</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>1.50</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/apothecary_shop/Apothecary.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/apothecary_Shop.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CHEMIST</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Roman Forum/Forum.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/chemist.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

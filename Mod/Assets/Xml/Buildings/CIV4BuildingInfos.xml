@@ -406,6 +406,34 @@
 				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
 			</CommerceChangeOriginalOwners>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Apothecary Shop -->
+			<BuildingClass>BUILDINGCLASS_APOTHECARY_SHOP</BuildingClass>
+			<Type>BUILDING_APOTHECARY_SHOP</Type>
+			<Description>TXT_KEY_BUILDING_APOTHECARY_SHOP</Description>
+			<Civilopedia>TXT_KEY_BUILDING_APOTHECARY_SHOP_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_APOTHECARY_SHOP_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_APOTHECARY_SHOP</ArtDefineTag>						
+			<MaxStartEra>ERA_INDUSTRIAL</MaxStartEra>
+			<PrereqAndTechs>
+				<TechType>TECH_CONSTRUCTION</TechType>
+			</PrereqAndTechs>
+			<iCost>100</iCost>
+			<iConquestProb>75</iConquestProb>
+			<iHealRateChange>15</iHealRateChange>
+			<iHealth>2</iHealth>			
+			<iAsset>3</iAsset>
+			<ConstructSound>AS2D_BUILD_GRANARY</ConstructSound>		
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_CHEMIST</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>				
+			</Flavors>			
+		</BuildingInfo>	
 		<BuildingInfo> <!-- Aqueduct -->
 			<BuildingClass>BUILDINGCLASS_AQUEDUCT</BuildingClass>
 			<Type>BUILDING_AQUEDUCT</Type>
@@ -1901,6 +1929,39 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Chemist -->
+			<BuildingClass>BUILDINGCLASS_CHEMIST</BuildingClass>
+			<Type>BUILDING_CHEMIST</Type>
+			<Description>TXT_KEY_BUILDING_CHEMIST</Description>
+			<Civilopedia>TXT_KEY_BUILDING_CHEMIST_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_CHEMIST_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_CHEMIST</ArtDefineTag>
+			<FreeStartEra>ERA_RENAISSANCE</FreeStartEra>
+			<PrereqAndTechs>
+				<TechType>TECH_BATTLEFIELD_MEDICINE</TechType>
+			</PrereqAndTechs>
+			<GreatPeopleUnitClass>UNITCLASS_DOCTOR</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
+			<iCost>180</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>75</iConquestProb>
+			<iHealth>1</iHealth>
+			<iAsset>4</iAsset>
+			<ConstructSound>AS2D_BUILD_HOSPITAL</ConstructSound>
+			<BonusHealthChanges>
+				<BonusHealthChange>
+					<BonusType>BONUS_CHEMICALS</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+			</BonusHealthChanges>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -5252,6 +5313,38 @@
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
 					<iFlavor>8</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Healers Hut -->
+			<BuildingClass>BUILDINGCLASS_HEALERS_HUT</BuildingClass>
+			<Type>BUILDING_HEALERS_HUT</Type>
+			<Description>TXT_KEY_BUILDING_HEALERS_HUT</Description>
+			<Civilopedia>TXT_KEY_BUILDING_HEALERS_HUT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_HEALERS_HUT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_HEALERS_HUT</ArtDefineTag>
+			<FreeStartEra>ERA_MEDIEVAL</FreeStartEra>
+			<ObsoleteTech>TECH_MEDICINE</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_NATUROPATHY</TechType>
+			</PrereqAndTechs>
+			<PrereqOrBonuses/>
+			<PrereqVicinityOrBonus/>
+			<iCost>40</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>75</iConquestProb>
+			<iHealRateChange>8</iHealRateChange>
+			<iHealth>1</iHealth>
+			<iAsset>3</iAsset>
+			<ConstructSound>AS2D_BUILD_HEALERS_HUT</ConstructSound>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_APOTHECARY_SHOP</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>

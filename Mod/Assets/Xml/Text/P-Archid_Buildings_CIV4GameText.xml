@@ -47,6 +47,18 @@
 		<Tag>TXT_KEY_BUILDING_ALCHEMISTS_LAB_STRATEGY</Tag>
 		<English>An early research facility, grants a science bonus to your city.</English>
 	</TEXT>
+	<TEXT> <!-- Apothecary Shop -->
+		<Tag>TXT_KEY_BUILDING_APOTHECARY_SHOP</Tag>
+		<English>Apothecary Shop</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_APOTHECARY_SHOP_PEDIA</Tag>
+		<English>In colonial times, the apothecary was more than simply a druggist. An apothecary often provided medical treatment, prescribed medicine, trained apprentices, performed surgery and served as man-midwives. Records kept by 18th-century Williamsburg's apothecaries show they practiced as doctor and even made house calls to treat patients.  Williamsburg apothecaries also sold cooking spices, candles, salad oil, anchovies, toothbrushes, and tobacco, making them true precursors of today's drugstores.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_APOTHECARY_SHOP_STRATEGY</Tag>
+		<English>[SPACE]The Apothecary shop provides health to your city and heals units a small amount.</English>
+	</TEXT>
 	<TEXT> <!-- Armaments Industry -->
 		<Tag>TXT_KEY_BUILDING_ARMAMENTS_INDUSTRY</Tag>
 		<English>Armaments Industry</English>
@@ -258,6 +270,24 @@
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_CENTRAL_BANK_STRATEGY</Tag>
 		<English>Central Bank national wonder boosts city's commerce significantly</English>
+	</TEXT>
+	<TEXT> <!-- Chemist -->
+		<Tag>TXT_KEY_BUILDING_CHEMIST</Tag>
+		<English>Chemist</English>
+		<French>
+			<Text>Pharmacie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Apotheke</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CHEMIST_PEDIA</Tag>
+		<English>[TAB]A chemist (commonly drugstore in North America; retail pharmacy in industry terminology; or Apothecary, historically) is the place where most pharmacists practice the profession of pharmacy. It is the community pharmacy where the dichotomy of the profession exists-health professionals who are also retailers. [PARAGRAPH:2]Community pharmacies usually consist of a retail storefront with a dispensary where medications are stored and dispensed. The dispensary is subject to pharmacy legislation; with requirements for storage conditions, compulsory texts, equipment, etc., specified in legislation. Where it was once the case that pharmacists stayed within the dispensary compounding/dispensing medications; there has been an increasing trend towards the use of trained pharmacy technicians while the pharmacist spends more time communicating with patients.[PARAGRAPH:2]All pharmacies are required to have a pharmacist on-duty at all times when open. In many jurisdictions, it is also a requirement that the owner of a pharmacy must be a registered pharmacist (R.Ph.). This latter requirement has been revoked in many jurisdictions, such that many retailers (including supermarkets and mass merchandisers) now include a pharmacy as a department of their store.[PARAGRAPH:2]Likewise, many pharmacies are now rather grocery store-like in their design. In addition to medicines and prescriptions, many now sell a diverse arrangement of additional household items such as cosmetics, shampoo, office supplies, confectionary, and snack foods.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CHEMIST_STRATEGY</Tag>
+		<English>.</English>
 	</TEXT>
 	<TEXT> <!-- City Council -->
 		<Tag>TXT_KEY_BUILDING_CITY_COUNCIL</Tag>
@@ -570,6 +600,25 @@
 		<German>Ein [COLOR_BUILDING_TEXT]Hafen[COLOR_REVERT] erh&#246;ht das Handelseinkommen einer Stadt und erschlie&#223;t die Ressourcen [COLOR_HIGHLIGHT_TEXT]Muscheln[COLOR_REVERT], [COLOR_HIGHLIGHT_TEXT]Krabben[COLOR_REVERT] und [COLOR_HIGHLIGHT_TEXT]Fisch[COLOR_REVERT]. Diese wirken sich wiederum positiv auf die Gesundheit Ihrer Bev&#246;lkerung aus.</German>
 		<Italian>Il [COLOR_BUILDING_TEXT]porto[COLOR_REVERT] aumenta il guadagno della citt&#224; da parte delle rotte commerciali. Inoltre, con l'accesso a [COLOR_HIGHLIGHT_TEXT]Molluschi[COLOR_REVERT], [COLOR_HIGHLIGHT_TEXT]Crostacei[COLOR_REVERT] e [COLOR_HIGHLIGHT_TEXT]Pesci[COLOR_REVERT], aumenta la salute della citt&#224;.</Italian>
 		<Spanish>El [COLOR_BUILDING_TEXT]Puerto[COLOR_REVERT] aumenta los ingresos por rutas comerciales de la ciudad. Tambi&#233;n incrementa su salud por acceder a los recursos de las [COLOR_HIGHLIGHT_TEXT]Almejas[COLOR_REVERT], los [COLOR_HIGHLIGHT_TEXT]Cangrejos[COLOR_REVERT] y el [COLOR_HIGHLIGHT_TEXT]Pescado[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT> <!-- Healer's Hut -->
+		<Tag>TXT_KEY_BUILDING_HEALERS_HUT</Tag>
+		<English>Healer's Hut</English>
+		<French>
+			<Text>Hutte du Guérisseur</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Medizinmann</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HEALERS_HUT_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HEALERS_HUT_STRATEGY</Tag>
+		<English>Healer's Hut provides health to your city and heals units a small amount.</English>
+		<French>Les Guérisseurs améliore la Santé de la population, et soigne également les unités.</French>
 	</TEXT>
 	<TEXT> <!-- Hunting Instruction -->
 		<Tag>TXT_KEY_BUILDING_HUNTING_INSTRUCTION</Tag>

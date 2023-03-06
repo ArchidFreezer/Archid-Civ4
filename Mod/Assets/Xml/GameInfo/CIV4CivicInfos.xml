@@ -2240,7 +2240,7 @@
 			</BuildingHappinessChanges>
 			<BuildingHealthChanges>
 				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_HEALERHUT</BuildingType>
+					<BuildingType>BUILDINGCLASS_HEALERS_HUT</BuildingType>
 					<iHealthChange>1</iHealthChange>
 				</BuildingHealthChange>
 			</BuildingHealthChanges>
@@ -2266,7 +2266,7 @@
 			</BuildingHappinessChanges>
 			<BuildingHealthChanges>
 				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_HEALERHUT</BuildingType>
+					<BuildingType>BUILDINGCLASS_HEALERS_HUT</BuildingType>
 					<iHealthChange>1</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>

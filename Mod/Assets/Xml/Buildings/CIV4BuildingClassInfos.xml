@@ -703,6 +703,24 @@
 			<iCategory>37</iCategory>
 			<DefaultBuilding>BUILDING_RECYCLING_CENTER</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Healers Hut -->
+			<Type>BUILDINGCLASS_HEALERS_HUT</Type>
+			<Description>TXT_KEY_BUILDING_HEALERS_HUT</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_HEALERS_HUT</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Apothecary Shop -->
+			<Type>BUILDINGCLASS_APOTHECARY_SHOP</Type>
+			<Description>TXT_KEY_BUILDING_APOTHECARY_SHOP</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_APOTHECARY_SHOP</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Chemist -->
+			<Type>BUILDINGCLASS_CHEMIST</Type>
+			<Description>TXT_KEY_BUILDING_CHEMIST</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_CHEMIST</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Aqueduct -->                        <!-- Water -->
 			<Type>BUILDINGCLASS_AQUEDUCT</Type>
