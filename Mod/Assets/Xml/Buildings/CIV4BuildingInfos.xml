@@ -1555,6 +1555,49 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Brothel -->
+			<BuildingClass>BUILDINGCLASS_BROTHEL</BuildingClass>
+			<Type>BUILDING_BROTHEL</Type>
+			<Description>TXT_KEY_BUILDING_BROTHEL</Description>
+			<Civilopedia>TXT_KEY_BUILDING_BROTHEL_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_BROTHEL_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_BROTHEL</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_CURRENCY</TechType>
+			</PrereqAndTechs>
+			<iCost>75</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>75</iConquestProb>
+			<iHealth>-1</iHealth>
+			<iAsset>4</iAsset>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>25</iCommerce>
+			</CommerceModifiers>
+			<CommerceHappinesses>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>4</iCommerce>
+			</CommerceHappinesses>
+			<ConstructSound>AS2D_BUILD_BROTHEL</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>5</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
+					<iFlavor>3</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Buddhist Cathedral -->
 			<BuildingClass>BUILDINGCLASS_BUDDHIST_CATHEDRAL</BuildingClass>
 			<Type>BUILDING_BUDDHIST_CATHEDRAL</Type>

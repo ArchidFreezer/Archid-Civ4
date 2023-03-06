@@ -244,6 +244,20 @@
 		<Tag>TXT_KEY_BUILDING_BRIGHTSMITHS_HUT_STRATEGY</Tag>
 		<English>Makes use of unrefined metals resources, providing Commerce</English>
 	</TEXT>
+	<TEXT> <!-- Brothel -->
+		<Tag>TXT_KEY_BUILDING_BROTHEL</Tag>
+		<English>Brothel</English>
+		<French>Bordel</French>
+		<German>Bordell</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BROTHEL_PEDIA</Tag>
+		<English>[TAB]A brothel is an establishment specifically dedicated to prostitution, providing the prostitutes a place to meet and to have sex with the clients. In some places, brothels are legal, and in many countries, places such as massage parlor are allowed to function as brothels, with varying degrees of regulation and repression. [PARAGRAPH:2]Brothels have been known for most of recorded history. Early incidences include temple prostitution in many Mediterranean and Middle Eastern countries. By the time of the ancient Grecian and Roman civilizations, brothels were established and sometimes licensed institutions, with the latter first being recorded in Athens in 594 BC. Public sources of the time applauded the installation of said brothel by Solon, as this was deemed to reduce the disruptions caused by sexually unfulfilled transients (sailors, workers), as well as bringing money into the public purse. This first official brothel was soon followed by many others, and also influenced the creation of special schools in which various classes of prostitutes (from slavegirls to future courtesans) were trained for their profession.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BROTHEL_STRATEGY</Tag>
+		<English>Brothels provides a small happiness bonus to your city and increases espionage.</English>
+	</TEXT>
 	<TEXT> <!-- Cannon Forge -->
 		<Tag>TXT_KEY_BUILDING_CANNON_FORGE</Tag>
 		<English>Cannon Forge</English>

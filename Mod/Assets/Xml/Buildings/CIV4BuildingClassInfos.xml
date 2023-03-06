@@ -603,6 +603,12 @@
 			<iCategory>32</iCategory>
 			<DefaultBuilding>BUILDING_COMMUNICATION_TOWER</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Brothel -->
+			<Type>BUILDINGCLASS_BROTHEL</Type>
+			<Description>TXT_KEY_BUILDING_BROTHEL</Description>
+			<iCategory>32</iCategory>
+			<DefaultBuilding>BUILDING_BROTHEL</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Academy -->                         <!-- Research -->
 			<Type>BUILDINGCLASS_ACADEMY</Type>
