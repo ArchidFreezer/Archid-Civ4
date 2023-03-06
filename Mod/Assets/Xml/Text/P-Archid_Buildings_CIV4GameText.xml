@@ -144,6 +144,24 @@
 		<Tag>TXT_KEY_BUILDING_BARBARIAN_LODGE_STRATEGY</Tag>
 		<English>Build a [COLOR_BUILDING_TEXT]Barbarian Lodge[COLOR_REVERT] to allow you to have more barbarian units to harrass your neighbours with.</English>
 	</TEXT>
+	<TEXT> <!-- Bath House -->
+		<Tag>TXT_KEY_BUILDING_BATH_HOUSE</Tag>
+		<English>Bath House</English>
+		<French>
+			<Text>Maison des Bains</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Badeanstalt</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BATH_HOUSE_PEDIA</Tag>
+		<English>[TAB]Public baths originated from a communal need for cleanliness. Often the term public is misleading to some people, as they will have restrictions based upon who can use the facility — elite members of the culture, men only, religious only. As societies advance, public baths often disappear as private washing stations become possible, or they become incorporated into the social system and now are 'meeting places'. [PARAGRAPH:2]The first Roman public thermae of 19 BC had a rotunda 25 meters across, circled by small rooms, set in a park with artificial river and pool. By AD 300 the Baths of Diocletian would cover 1.5 million square feet (140,000 square meters), its soaring granite and porphry sheltering 3,000 bathers a day. Roman baths became "something like a cross between an aquacentre and a theme park," with pools, game rooms, gardens, even libraries and theatres. One of the most famous public bath sites is Aquae Sulis in Bath, England.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BATH_HOUSE_STRATEGY</Tag>
+		<English>Bath Houses provide health and culture to cities. It also increases the rate at which its city produces [COLOR_HIGHLIGHT_TEXT]Great People[COLOR_REVERT]</English>
+	</TEXT>
 	<TEXT> <!-- Bazaar -->
 		<Tag>TXT_KEY_BUILDING_BAZAAR</Tag>
 		<English>Bazaar</English>

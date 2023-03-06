@@ -2697,5 +2697,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/circus_maximus.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BATH_HOUSE</Type>
+			<LSystem>LSYSTEM_BATH_HOUSE</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/bath_house/bath_europe.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/bath_house.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

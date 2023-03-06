@@ -745,6 +745,12 @@
 			<iCategory>37</iCategory>
 			<DefaultBuilding>BUILDING_CHEMIST</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Bath House -->
+			<Type>BUILDINGCLASS_BATH_HOUSE</Type>
+			<Description>TXT_KEY_BUILDING_BATH_HOUSE</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_BATH_HOUSE</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Aqueduct -->                        <!-- Water -->
 			<Type>BUILDINGCLASS_AQUEDUCT</Type>
