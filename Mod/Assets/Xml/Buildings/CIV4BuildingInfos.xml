@@ -156,6 +156,52 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Aerospace Complex -->
+			<BuildingClass>BUILDINGCLASS_AEROSPACE_COMPLEX</BuildingClass>
+			<Type>BUILDING_AEROSPACE_COMPLEX</Type>
+			<Description>TXT_KEY_BUILDING_AEROSPACE_COMPLEX</Description>
+			<Civilopedia>TXT_KEY_BUILDING_AEROSPACE_COMPLEX_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_AEROSPACE_COMPLEX_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_AEROSPACE_COMPLEX</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_ORBITAL_FLIGHT</TechType>
+			</PrereqAndTechs>
+			<PrereqBonus>BONUS_NANOTUBES</PrereqBonus>
+			<PrereqVicinityOrBonus/>
+			<iCost>1000</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iAirlift>2</iAirlift>
+			<iAirModifier>-20</iAirModifier>
+			<iAirUnitCapacity>8</iAirUnitCapacity>
+			<iAsset>5</iAsset>
+			<iPower>4</iPower>
+			<ConstructSound>AS2D_BUILD_MILITARY_AIRBASE</ConstructSound>
+			<UnitCombatFreeExperiences>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+					<iExperience>5</iExperience>
+				</UnitCombatFreeExperience>
+			</UnitCombatFreeExperiences>
+			<DomainFreeExperiences>
+				<DomainFreeExperience>
+					<DomainType>DOMAIN_AIR</DomainType>
+					<iExperience>5</iExperience>
+				</DomainFreeExperience>
+			</DomainFreeExperiences>
+			<DomainProductionModifiers>
+				<DomainProductionModifier>
+					<DomainType>DOMAIN_AIR</DomainType>
+					<iModifier>50</iModifier>
+				</DomainProductionModifier>
+			</DomainProductionModifiers>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Agora -->
 			<BuildingClass>BUILDINGCLASS_AGORA</BuildingClass>
 			<Type>BUILDING_AGORA</Type>
@@ -1929,6 +1975,56 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Ceremonial Altar -->
+			<BuildingClass>BUILDINGCLASS_CEREMONIAL_ALTAR</BuildingClass>
+			<Type>BUILDING_SACRIFICIAL_ALTAR</Type>
+			<SpecialBuildingType>SPECIALBUILDING_TEMPLE</SpecialBuildingType>
+			<Description>TXT_KEY_BUILDING_CEREMONIAL_ALTAR</Description>
+			<Civilopedia>TXT_KEY_BUILDING_CEREMONIAL_ALTAR_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_CEREMONIAL_ALTAR_STRATEGY</Strategy>
+			<Advisor>ADVISOR_RELIGION</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_CEREMONIAL_ALTAR</ArtDefineTag>
+			<ObsoleteTech>TECH_HUMANISM</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_SACRIFICE</TechType>
+			</PrereqAndTechs>
+			<PrereqVicinityOrBonus/>
+			<bNeverCapture>1</bNeverCapture>
+			<iCost>80</iCost>
+			<iHappiness>1</iHappiness>
+			<iAsset>4</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<FreeSpecialistCounts/>
+			<ConstructSound>AS2D_BUILD_CEREMONIAL_ALTAR</ConstructSound>
+			<BonusHappinessChanges>
+				<BonusHappinessChange>
+					<BonusType>BONUS_CANNABIS</BonusType>
+					<iChange>1</iChange>
+				</BonusHappinessChange>
+			</BonusHappinessChanges>
+			<BonusProductionModifiers/>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -7893,6 +7989,56 @@
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
 					<iFlavor>20</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Military Airbase -->
+			<BuildingClass>BUILDINGCLASS_MILITARY_AIRBASE</BuildingClass>
+			<Type>BUILDING_MILITARY_AIRBASE</Type>
+			<Description>TXT_KEY_BUILDING_MILITARY_AIRBASE</Description>
+			<Civilopedia>TXT_KEY_BUILDING_MILITARY_AIRBASE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_MILITARY_AIRBASE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_MILITARY_AIRBASE</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_AVIATION</TechType>
+			</PrereqAndTechs>
+			<PrereqBonus>BONUS_OIL</PrereqBonus>
+			<PrereqVicinityOrBonus/>
+			<iCost>520</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iAirlift>1</iAirlift>
+			<iAirModifier>-10</iAirModifier>
+			<iAirUnitCapacity>5</iAirUnitCapacity>
+			<iHealth>-1</iHealth>
+			<iAsset>5</iAsset>
+			<iPower>4</iPower>
+			<ConstructSound>AS2D_BUILD_MILITARY_AIRBASE</ConstructSound>
+			<UnitCombatFreeExperiences>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+					<iExperience>3</iExperience>
+				</UnitCombatFreeExperience>
+			</UnitCombatFreeExperiences>
+			<DomainFreeExperiences>
+				<DomainFreeExperience>
+					<DomainType>DOMAIN_AIR</DomainType>
+					<iExperience>3</iExperience>
+				</DomainFreeExperience>
+			</DomainFreeExperiences>
+			<DomainProductionModifiers>
+				<DomainProductionModifier>
+					<DomainType>DOMAIN_AIR</DomainType>
+					<iModifier>50</iModifier>
+				</DomainProductionModifier>
+			</DomainProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_AEROSPACE_COMPLEX</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>

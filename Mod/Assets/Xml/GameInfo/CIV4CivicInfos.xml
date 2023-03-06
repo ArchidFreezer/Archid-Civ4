@@ -1399,7 +1399,7 @@
 			</SpecialistValids>
 			<BuildingHappinessChanges>
 				<BuildingHappinessChange>
-					<BuildingType>BUILDINGCLASS_SACRIFICIAL_ALTAR</BuildingType>
+					<BuildingType>BUILDINGCLASS_CEREMONIAL_ALTAR</BuildingType>
 					<iHappinessChange>1</iHappinessChange>
 				</BuildingHappinessChange>
 				<BuildingHappinessChange>
@@ -1425,10 +1425,6 @@
 				<BuildingHappinessChange>
 					<BuildingType>BUILDINGCLASS_TAJ_MAHAL</BuildingType>
 					<iHappinessChange>1</iHappinessChange>
-				</BuildingHappinessChange>
-				<BuildingHappinessChange>
-					<BuildingType>BUILDINGCLASS_MESOAMERICAN_MAGICIAN_PYRAMID</BuildingType>
-					<iHappinessChange>2</iHappinessChange>
 				</BuildingHappinessChange>
 			</BuildingHappinessChanges>
 		</CivicInfo>
@@ -1792,7 +1788,7 @@
 					<iHappinessChange>1</iHappinessChange>
 				</BuildingHappinessChange>
 				<BuildingHappinessChange>
-					<BuildingType>BUILDINGCLASS_PUBLIC_SCHOOL</BuildingType>
+					<BuildingType>BUILDINGCLASS_STATE_SCHOOL</BuildingType>
 					<iHappinessChange>1</iHappinessChange>
 				</BuildingHappinessChange>
 				<BuildingHappinessChange>
@@ -2226,7 +2222,7 @@
 			<iMilitaryProductionModifier>10</iMilitaryProductionModifier>
 			<BuildingHappinessChanges>
 				<BuildingHappinessChange>
-					<BuildingType>BUILDINGCLASS_SACRIFICIAL_ALTAR</BuildingType>
+					<BuildingType>BUILDINGCLASS_CEREMONIAL_ALTAR</BuildingType>
 					<iHappinessChange>1</iHappinessChange>
 				</BuildingHappinessChange>
 				<BuildingHappinessChange>
@@ -2464,7 +2460,7 @@
 					<iHappinessChange>1</iHappinessChange>
 				</BuildingHappinessChange>
 				<BuildingHappinessChange>
-					<BuildingType>BUILDINGCLASS_PUBLIC_SCHOOL</BuildingType>
+					<BuildingType>BUILDINGCLASS_STATE_SCHOOL</BuildingType>
 					<iHappinessChange>1</iHappinessChange>
 				</BuildingHappinessChange>
 				<BuildingHappinessChange>

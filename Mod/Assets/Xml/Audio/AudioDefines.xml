@@ -7,6 +7,20 @@
 <AudioDefines xmlns="x-schema:AudioDefinesSchema.xml">
 	<SoundDatas>
 		<SoundData>
+			<SoundID>SND_BUILD_CEREMONIAL_ALTAR</SoundID>
+			<Filename>Sounds/Buildings/CeremonialAltar</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
+			<SoundID>SND_BUILD_MILITARY_AIRBASE</SoundID>
+			<Filename>Sounds/Buildings/MilitaryAirbase</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
 			<SoundID>SND_BUILD_HEALERS_HUT</SoundID>
 			<Filename>Sounds/Buildings/HealersHut</Filename>
 			<LoadType>DYNAMIC_RES</LoadType>

@@ -156,6 +156,18 @@
 			<iCategory>17</iCategory>
 			<DefaultBuilding>BUILDING_STONE_WEAPONS_WORKSHOP</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Military Airbase -->
+			<Type>BUILDINGCLASS_MILITARY_AIRBASE</Type>
+			<Description>TXT_KEY_BUILDING_MILITARY_AIRBASE</Description>
+			<iCategory>17</iCategory>
+			<DefaultBuilding>BUILDING_MILITARY_AIRBASE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Aerospace Complex -->
+			<Type>BUILDINGCLASS_AEROSPACE_COMPLEX</Type>
+			<Description>TXT_KEY_BUILDING_AEROSPACE_COMPLEX</Description>
+			<iCategory>17</iCategory>
+			<DefaultBuilding>BUILDING_AEROSPACE_COMPLEX</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Armaments Industry -->              <!-- Military Production -->
 			<Type>BUILDINGCLASS_ARMAMENTS_INDUSTRY</Type>
@@ -1246,6 +1258,12 @@
 			<iCategory>5</iCategory>
 			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_BUDDHIST_TEMPLE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Ceremonial Altar -->
+			<Type>BUILDINGCLASS_CEREMONIAL_ALTAR</Type>
+			<Description>TXT_KEY_BUILDING_CEREMONIAL_ALTAR</Description>
+			<iCategory>5</iCategory>
+			<DefaultBuilding>BUILDING_CEREMONIAL_ALTAR</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Christian Cathedral -->
 			<Type>BUILDINGCLASS_CHRISTIAN_CATHEDRAL</Type>
