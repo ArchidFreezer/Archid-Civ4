@@ -517,6 +517,20 @@
 		<French>Grande Académie</French>
 		<German>Große Akademie</German>
 	</TEXT>
+	<TEXT> <!-- Guild Hall -->
+		<Tag>TXT_KEY_BUILDING_GUILDHALL</Tag>
+		<English>Guild Hall</English>
+		<French>Maison des Corporations</French>
+		<German>Gildehalle</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILDHALL_PEDIA</Tag>
+		<English>[TAB]A Guildhall is a building used by guilds for meetings. The town authorities were represented in the guild meetings and thus had a means of controlling the handicraft activities. This was important since towns very often depended on a good reputation for export of a narrow range of products, on which not only the guild's, but the town's, reputation depended.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILDHALL_STRATEGY</Tag>
+		<English>Increases production in city but the downside is slightly higher maintenance costs.</English>
+	</TEXT>
 	<TEXT> <!-- Harbour -->
 		<Tag>TXT_KEY_BUILDING_HARBOUR</Tag>
 		<English>Harbour</English>
@@ -682,6 +696,36 @@
 		<Tag>TXT_KEY_BUILDING_MANOR_STRATEGY</Tag>
 		<English>.</English>
 	</TEXT>
+	<TEXT> <!-- Manufactory -->
+		<Tag>TXT_KEY_BUILDING_MANUFACTORY</Tag>
+		<English>Manufactory</English>
+		<French>Manufacture</French>
+		<German>Manufaktur</German>
+		<Italian>Manifattura</Italian>
+		<Spanish>Manufactura</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MANUFACTORY_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MANUFACTORY_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT> <!-- Manufacturing Plant -->
+		<Tag>TXT_KEY_BUILDING_MANUFACTURING_PLANT</Tag>
+		<English>Manufacturing Plant</English>
+		<French>Complexe Industriel</French>
+		<German>Industrieanlage</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MANUFACTURING_PLANT_PEDIA</Tag>
+		<English>[TAB]Manufacturing plant is an industrial building where workers manufacture goods or supervise machines processing one product into another. Most modern factories have large warehouses or warehouse-like facilities that contain heavy equipment used for assembly line production. Typically, factories gather and concentrate resources: workers, capital and plant.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MANUFACTURING_PLANT_STRATEGY</Tag>
+		<English>Manufacturing Plants increase cities' production by 65% with power.</English>
+	</TEXT>
 	<TEXT> <!-- Marina -->
 		<Tag>TXT_KEY_BUILDING_MARINA</Tag>
 		<English>Marina</English>
@@ -782,6 +826,24 @@
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_MUNITIONS_FACTORY_STRATEGY</Tag>
 		<English>Munitions Factory manufactures [COLOR_HIGHLIGHT_TEXT]Ammunition[COLOR_REVERT] from Sulphur and other metal resources.</English>
+	</TEXT>
+	<TEXT> <!-- Nanofactory -->
+		<Tag>TXT_KEY_BUILDING_NANOFACTORY</Tag>
+		<English>Nanofactory</English>
+		<French>
+			<Text>Usine de Nano-Composants</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Nanofabrik</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NANOFACTORY_PEDIA</Tag>
+		<English>[TAB]A nanofactory is a system in which nanomachines (resembling molecular assemblers, or industrial robot arms) would combine reactive molecules via mechanosynthesis to build larger atomically precise parts. These, in turn, would be assembled by positioning mechanisms of assorted sizes to build macroscopic (visible) but still atomically-precise products.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NANOFACTORY_STRATEGY</Tag>
+		<English>Nanofactory increases city's production.</English>
 	</TEXT>
 	<TEXT> <!-- National Courier System -->
 		<Tag>TXT_KEY_BUILDING_NATIONAL_COURIER_SYSTEM</Tag>

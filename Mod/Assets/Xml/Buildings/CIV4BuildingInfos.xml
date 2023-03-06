@@ -3415,6 +3415,7 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_FACTORY</ArtDefineTag>
 			<FreeStartEra>ERA_FUTURE</FreeStartEra>
+			<ObsoleteTech>TECH_NANOBOTICS</ObsoleteTech>
 			<PrereqAndTechs>
 				<TechType>TECH_ASSEMBLY_LINE</TechType>
 			</PrereqAndTechs>
@@ -3424,39 +3425,78 @@
 					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
-			<iCost>250</iCost>
+			<iCost>325</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
-			<iHealth>-1</iHealth>
+			<iConquestProb>75</iConquestProb>
+			<iMaintenanceModifier>25</iMaintenanceModifier>
+			<iHealth>-3</iHealth>
 			<iAsset>6</iAsset>
-			<iPower>2</iPower>
+			<iPower>15</iPower>
 			<YieldModifiers>
 				<iYield>0</iYield>
 				<iYield>25</iYield>
-				<iYield>0</iYield>
 			</YieldModifiers>
 			<PowerYieldModifiers>
 				<iYield>0</iYield>
-				<iYield>50</iYield>
-				<iYield>0</iYield>
+				<iYield>15</iYield>
 			</PowerYieldModifiers>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_ENGINEER</SpecialistType>
-					<iCount>2</iCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_FACTORY</ConstructSound>
 			<BonusHealthChanges>
 				<BonusHealthChange>
 					<BonusType>BONUS_OIL</BonusType>
-					<iChange>-2</iChange>
+					<iChange>-1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_COAL</BonusType>
 					<iChange>-2</iChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
+			<BonusYieldModifiers>
+				<BonusYieldModifier>
+					<BonusType>BONUS_COAL</BonusType>
+					<YieldModifiers>
+						<iYield>0</iYield>
+						<iYield>5</iYield>
+					</YieldModifiers>
+				</BonusYieldModifier>
+				<BonusYieldModifier>
+					<BonusType>BONUS_STEEL</BonusType>
+					<YieldModifiers>
+						<iYield>0</iYield>
+						<iYield>7</iYield>
+					</YieldModifiers>
+				</BonusYieldModifier>
+				<BonusYieldModifier>
+					<BonusType>BONUS_OIL</BonusType>
+					<YieldModifiers>
+						<iYield>0</iYield>
+						<iYield>3</iYield>
+					</YieldModifiers>
+				</BonusYieldModifier>
+			</BonusYieldModifiers> 			
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_MANUFACTURING_PLANT</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>	
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_HYDRO_PLANT</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>	
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_NUCLEAR_PLANT</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>	
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_MANUFACTURING_PLANT</BuildingClassType>
+			</ReplacedByBuildingClasses>	
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -3482,12 +3522,13 @@
 					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
-			<iCost>250</iCost>
+			<iCost>325</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
-			<iHealth>-1</iHealth>
+			<iConquestProb>75</iConquestProb>
+			<iMaintenanceModifier>25</iMaintenanceModifier>
+			<iHealth>-3</iHealth>
 			<iAsset>6</iAsset>
-			<iPower>2</iPower>
+			<iPower>15</iPower>
 			<YieldChanges>
 				<iYield>0</iYield>
 				<iYield>2</iYield>
@@ -3495,36 +3536,68 @@
 			<YieldModifiers>
 				<iYield>0</iYield>
 				<iYield>25</iYield>
-				<iYield>0</iYield>
 			</YieldModifiers>
 			<PowerYieldModifiers>
 				<iYield>0</iYield>
-				<iYield>50</iYield>
-				<iYield>0</iYield>
+				<iYield>15</iYield>
 			</PowerYieldModifiers>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_ENGINEER</SpecialistType>
-					<iCount>4</iCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_FACTORY</ConstructSound>
 			<BonusHealthChanges>
 				<BonusHealthChange>
 					<BonusType>BONUS_OIL</BonusType>
-					<iChange>-2</iChange>
+					<iChange>-1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_COAL</BonusType>
 					<iChange>-2</iChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
-			<BonusProductionModifiers>
-				<BonusProductionModifier>
+			<BonusYieldModifiers>
+				<BonusYieldModifier>
 					<BonusType>BONUS_COAL</BonusType>
-					<iModifier>50</iModifier>
-				</BonusProductionModifier>
-			</BonusProductionModifiers>
+					<YieldModifiers>
+						<iYield>0</iYield>
+						<iYield>5</iYield>
+					</YieldModifiers>
+				</BonusYieldModifier>
+				<BonusYieldModifier>
+					<BonusType>BONUS_STEEL</BonusType>
+					<YieldModifiers>
+						<iYield>0</iYield>
+						<iYield>7</iYield>
+					</YieldModifiers>
+				</BonusYieldModifier>
+				<BonusYieldModifier>
+					<BonusType>BONUS_OIL</BonusType>
+					<YieldModifiers>
+						<iYield>0</iYield>
+						<iYield>3</iYield>
+					</YieldModifiers>
+				</BonusYieldModifier>
+			</BonusYieldModifiers> 			
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_MANUFACTURING_PLANT</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>	
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_HYDRO_PLANT</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>	
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_NUCLEAR_PLANT</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>	
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_MANUFACTURING_PLANT</BuildingClassType>
+			</ReplacedByBuildingClasses>	
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -4892,6 +4965,70 @@
 				</Flavor>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>8</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Guildhall -->
+			<BuildingClass>BUILDINGCLASS_GUILDHALL</BuildingClass>
+			<Type>BUILDING_GUILDHALL</Type>
+			<Description>TXT_KEY_BUILDING_GUILDHALL</Description>
+			<Civilopedia>TXT_KEY_BUILDING_GUILDHALL_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_GUILDHALL_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_GUILD_HALL</ArtDefineTag>
+			<PrereqAndCivics>
+				<CivicType>CIVIC_GUILDS</CivicType>
+			</PrereqAndCivics>
+			<ObsoleteTech>TECH_INDUSTRIALISM</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_GUILDS</TechType>
+			</PrereqAndTechs>
+			<BonusType>BONUS_GOLD</BonusType>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bNeverCapture>1</bNeverCapture>
+			<iCost>155</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMaintenanceModifier>5</iMaintenanceModifier>
+			<iAsset>4</iAsset>
+			<iPower>5</iPower>
+			<YieldModifiers>
+				<iYield>0</iYield>
+				<iYield>10</iYield>
+				<iYield>0</iYield>
+			</YieldModifiers>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<ConstructSound>AS2D_BUILD_GUILDHALL</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_MANUFACTORY</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>	
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_MANUFACTORY</BuildingClassType>
+			</ReplacedByBuildingClasses>	
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
 					<iFlavor>8</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -6920,6 +7057,143 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Manufactory -->
+			<BuildingClass>BUILDINGCLASS_MANUFACTORY</BuildingClass>
+			<Type>BUILDING_MANUFACTORY</Type>
+			<Description>TXT_KEY_BUILDING_MANUFACTORY</Description>
+			<Civilopedia>TXT_KEY_BUILDING_MANUFACTORY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_MANUFACTORY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_MANUFACTORY</ArtDefineTag>
+			<ObsoleteTech>TECH_MANUFACTURING</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MERCANTILISM</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<iCost>240</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>50</iConquestProb>
+			<iMaintenanceModifier>15</iMaintenanceModifier>
+			<iHealth>-2</iHealth>
+			<YieldModifiers>
+				<iYield>0</iYield>
+				<iYield>20</iYield>
+			</YieldModifiers>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_ENGINEER</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_FORGE</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_FACTORY</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>	
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_FACTORY</BuildingClassType>
+			</ReplacedByBuildingClasses>	
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>	
+		<BuildingInfo> <!-- Manufacturing Plant -->
+			<BuildingClass>BUILDINGCLASS_MANUFACTURING_PLANT</BuildingClass>
+			<Type>BUILDING_MANUFACTURING_PLANT</Type>
+			<Description>TXT_KEY_BUILDING_MANUFACTURING_PLANT</Description>
+			<Civilopedia>TXT_KEY_BUILDING_MANUFACTURING_PLANT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_MANUFACTURING_PLANT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_MANUFACTURING_PLANT</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_MANUFACTURING</TechType>
+			</PrereqAndTechs>
+			<BonusType>BONUS_ALUMINUM</BonusType>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<iCost>700</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>75</iConquestProb>
+			<iMaintenanceModifier>35</iMaintenanceModifier>
+			<iHealth>-2</iHealth>
+			<iAsset>6</iAsset>
+			<iPower>20</iPower>
+			<bPrereqPower>1</bPrereqPower>
+			<PowerYieldModifiers>
+				<iYield>0</iYield>
+				<iYield>65</iYield>
+			</PowerYieldModifiers>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_ENGINEER</SpecialistType>
+					<iCount>5</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_MANUFACTURING_PLANT</ConstructSound>
+			<BonusHealthChanges>
+				<BonusHealthChange>
+					<BonusType>BONUS_OIL</BonusType>
+					<iChange>-2</iChange>
+				</BonusHealthChange>
+			</BonusHealthChanges>
+			<BonusYieldModifiers>
+				<BonusYieldModifier>
+					<BonusType>BONUS_STEEL</BonusType>
+					<YieldModifiers>
+						<iYield>0</iYield>
+						<iYield>7</iYield>
+					</YieldModifiers>
+				</BonusYieldModifier>
+				<BonusYieldModifier>
+					<BonusType>BONUS_OIL</BonusType>
+					<YieldModifiers>
+						<iYield>0</iYield>
+						<iYield>8</iYield>
+					</YieldModifiers>
+				</BonusYieldModifier>
+			</BonusYieldModifiers> 			
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_NANOFACTORY</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>	
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_HYDRO_PLANT</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>	
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_NUCLEAR_PLANT</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>	
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_NANOFACTORY</BuildingClassType>
+			</ReplacedByBuildingClasses>	
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Marina -->
 			<BuildingClass>BUILDINGCLASS_MARINA</BuildingClass>
 			<Type>BUILDING_MARINA</Type>
@@ -7956,6 +8230,53 @@
 				</Flavor>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Nanofactory -->
+			<BuildingClass>BUILDINGCLASS_NANOFACTORY</BuildingClass>
+			<Type>BUILDING_NANOFACTORY</Type>
+			<Description>TXT_KEY_BUILDING_NANOFACTORY</Description>
+			<Civilopedia>TXT_KEY_BUILDING_NANOFACTORY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_NANOFACTORY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_NANOFACTORY</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_NANOBOTICS</TechType>
+			</PrereqAndTechs>
+			<BonusType>BONUS_NANOBOTS</BonusType>
+			<iCost>1500</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>75</iConquestProb>
+			<iMaintenanceModifier>45</iMaintenanceModifier>
+			<iAsset>20</iAsset>
+			<iPower>25</iPower>
+			<bPrereqPower>1</bPrereqPower>
+			<PowerYieldModifiers>
+				<iYield>0</iYield>
+				<iYield>100</iYield>
+			</PowerYieldModifiers>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_ENGINEER</SpecialistType>
+					<iCount>7</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_NANOFACTORY</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_HYDRO_PLANT</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>	
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_NUCLEAR_PLANT</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>	
+			</BuildingClassProductionModifiers>			
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>

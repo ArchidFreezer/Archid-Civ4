@@ -7,6 +7,20 @@
 <AudioDefines xmlns="x-schema:AudioDefinesSchema.xml">
 	<SoundDatas>
 		<SoundData>
+			<SoundID>SND_BUILD_MANUFACTURING_PLANT</SoundID>
+			<Filename>Sounds/Buildings/ManufacturingPlant</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
+			<SoundID>SND_BUILD_GUILDHALL</SoundID>
+			<Filename>Sounds/Buildings/GuildHall</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
 			<SoundID>SND_BUILD_SIEGE_WORKSHOP</SoundID>
 			<Filename>Sounds/Buildings/SiegeWorkshop</Filename>
 			<LoadType>DYNAMIC_RES</LoadType>
