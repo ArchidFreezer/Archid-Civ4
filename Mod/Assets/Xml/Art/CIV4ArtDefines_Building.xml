@@ -2667,5 +2667,35 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/ceremonial_altar.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_FIGHTING_PIT</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>.55</fScale>
+			<fInterfaceScale>.55</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/fighting_pit/cell.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/fighting_pit.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ARENA</Type>
+			<LSystem>LSYSTEM_COLOSSEUM</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.37</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Colosseum/Colosseum.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/arena.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CIRCUS_MAXIMUS</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.9</fScale>
+			<fInterfaceScale>0.55</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/wonders/circus_maximus/circus.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/circus_maximus.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

@@ -168,6 +168,18 @@
 			<iCategory>17</iCategory>
 			<DefaultBuilding>BUILDING_AEROSPACE_COMPLEX</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Fighting Pit -->
+			<Type>BUILDINGCLASS_FIGHTING_PIT</Type>
+			<Description>TXT_KEY_BUILDING_FIGHTING_PIT</Description>
+			<iCategory>17</iCategory>
+			<DefaultBuilding>BUILDING_FIGHTING_PIT</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Arena -->
+			<Type>BUILDINGCLASS_ARENA</Type>
+			<Description>TXT_KEY_BUILDING_ARENA</Description>
+			<iCategory>17</iCategory>
+			<DefaultBuilding>BUILDING_ARENA</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Armaments Industry -->              <!-- Military Production -->
 			<Type>BUILDINGCLASS_ARMAMENTS_INDUSTRY</Type>
@@ -792,6 +804,13 @@
 			<iCategory>2</iCategory>
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_CHICHEN_ITZA</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Circus Maximus -->
+			<Type>BUILDINGCLASS_CIRCUS_MAXIMUS</Type>
+			<Description>TXT_KEY_BUILDING_CIRCUS_MAXIMUS</Description>
+			<iCategory>2</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_CIRCUS_MAXIMUS</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Colossus -->
 			<Type>BUILDINGCLASS_COLOSSUS</Type>

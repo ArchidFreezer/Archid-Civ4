@@ -73,6 +73,23 @@
 		<Tag>TXT_KEY_BUILDING_APOTHECARY_SHOP_STRATEGY</Tag>
 		<English>[SPACE]The Apothecary shop provides health to your city and heals units a small amount.</English>
 	</TEXT>
+	<TEXT> <!-- Arena -->
+		<Tag>TXT_KEY_BUILDING_ARENA</Tag>
+		<English>Arena</English>
+		<French>
+			<Text>Arêne</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ARENA_PEDIA</Tag>
+		<English>[TAB]An arena is an enclosed area, often circular or oval-shaped, designed to showcase theater, musical performances, or sporting events. It is composed of a large open space surrounded on most or all sides by tiered seating for spectators. The key feature of an arena is that the event space is the lowest point, allowing for maximum visibility. Usually, an arena is designed to accommodate a fairly large number of spectators. [PARAGRAPH:2]The Latin word arena means "sand", which was useful as the primary surface where gladiators battled, to absorb the blood. In Spanish, the word carries both meanings. A bullfight is held in an arena (or plaza de toros, literally "circus/square of bulls") and its floor is also covered with arena.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ARENA_STRATEGY</Tag>
+		<English>Arenas entertain the people, providing happiness to your city. Arenas are required to build the Circus Maximus world Wonder or the Statue of Champion national Wonder.</English>
+	</TEXT>
 	<TEXT> <!-- Armaments Industry -->
 		<Tag>TXT_KEY_BUILDING_ARMAMENTS_INDUSTRY</Tag>
 		<English>Armaments Industry</English>
@@ -317,6 +334,20 @@
 		<Tag>TXT_KEY_BUILDING_CHEMIST_STRATEGY</Tag>
 		<English>.</English>
 	</TEXT>
+	<TEXT> <!-- Circus Maximus -->
+		<Tag>TXT_KEY_BUILDING_CIRCUS_MAXIMUS</Tag>
+		<English>Circus Maximus</English>
+		<French>Cirque Maxime</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CIRCUS_MAXIMUS_PEDIA</Tag>
+		<English>[TAB]The Circus Maximus (Latin for largest arena) is an ancient arena and mass entertainment venue located in Rome.[NEWLINE] [PARAGRAPH:1]Situated in the valley between the Aventine and Palatine hills, the location was first utilised for public games and entertainment by the Etruscan kings of Rome. Certainly, the first games of the Ludi Romani (Roman Games) were staged at the location by Tarquinius Priscus, the first Etruscan ruler of Rome. Somewhat later, the Circus was the site of public games and festivals influenced by the Greeks in the 2nd century BC. Meeting the demands of the Roman citizenry for mass public entertainment on a lavish scale, Julius Caesar expanded the Circus around 50 BC, after which the track measured approximately 600 metres in length, 225 metres in breadth and could accommodate an estimated 150,000 seated spectators (many more, perhaps an equal number again, could view the games by standing, crowding and lining the adjoining hills). In 81 AD, the Senate built a triple arch honoring Titus by the closed East end (not to be confused with the Arch of Titus over the Via Sacra on the opposite side of the Palatinum). The emperor Domitian connected his new palace on the Palatine to the Circus in order that he could more easily view the races. The emperor Trajan later added another 5000 seats and expanded the emperor's seating in order to increase his public visibility during the games. [NEWLINE] [PARAGRAPH:1]The most important event at the Circus was chariot racing. The track could hold 12 chariots, and the two sides of the track were separated by a raised median termed the spina. Statues of various gods were set up on the spina, and Augustus erected an Egyptian obelisk on it as well. At either end of the spina was a turning post, the meta, around which chariots made dangerous turns at speed. One end of the track extended further back than the other, to allow the chariots to line up to begin the race. Here there were starting gates, or carceres, which staggered the chariots so that each travelled the same distance to the first turn. [PARAGRAPH:1] From : Wikipedia</English>
+		<French>[TAB]À Rome, le Circus maximus (en latin : Cirque le plus grand) ou Cirque Maxime (ou simplement Grand Cirque), dédié aux courses de chars, reste à ce jour la plus vaste enceinte sportive que le monde ait connu.[NEWLINE] [PARAGRAPH:1] Source : Wikipedia</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CIRCUS_MAXIMUS_STRATEGY</Tag>
+		<English>Circus Maximus increases happiness in all cities on the same continent and provides bonus XP for melee and mounted units constructed in the city.</English>
+	</TEXT>
 	<TEXT> <!-- City Council -->
 		<Tag>TXT_KEY_BUILDING_CITY_COUNCIL</Tag>
 		<English>City Council</English>
@@ -446,6 +477,24 @@
 		<Tag>TXT_KEY_BUILDING_ELDER_COUNCIL_STRATEGY</Tag>
 		<English>Early science building.</English>
 		<French>Bâtiment Primitif de Science</French>
+	</TEXT>
+	<TEXT> <!-- Fighting Pit -->
+		<Tag>TXT_KEY_BUILDING_FIGHTING_PIT</Tag>
+		<English>Fighting Pit</English>
+		<French>
+			<Text>Fosse de Combat</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Kampfgrube</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FIGHTING_PIT_PEDIA</Tag>
+		<English>Pit Fighting is a martial art where combatants fight in pits or other enclosed spaces to resolve disputes or gain money, pride or respect.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FIGHTING_PIT_STRATEGY</Tag>
+		<English>Build a fighting pit in cities that need a quick diversion from normal life.</English>
 	</TEXT>
 	<TEXT> <!-- Financial Nexus -->
 		<Tag>TXT_KEY_BUILDING_FINANCIAL_NEXUS</Tag>

@@ -168,7 +168,6 @@
 				<TechType>TECH_ORBITAL_FLIGHT</TechType>
 			</PrereqAndTechs>
 			<PrereqBonus>BONUS_NANOTUBES</PrereqBonus>
-			<PrereqVicinityOrBonus/>
 			<iCost>1000</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iAirlift>2</iAirlift>
@@ -568,6 +567,54 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Arena -->
+			<BuildingClass>BUILDINGCLASS_ARENA</BuildingClass>
+			<Type>BUILDING_ARENA</Type>
+			<Description>TXT_KEY_BUILDING_ARENA</Description>
+			<Civilopedia>TXT_KEY_BUILDING_ARENA_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_ARENA_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_ARENA</ArtDefineTag>
+			<ObsoleteTech>TECH_REALISM</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ATHLETICS</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_CREATIVE</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<iCost>70</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>75</iConquestProb>
+			<iMaintenanceModifier>10</iMaintenanceModifier>
+			<iHealth>-1</iHealth>
+			<iHappiness>1</iHappiness>
+			<iAsset>4</iAsset>
+			<iPower>5</iPower>
+			<CommerceChanges>
+				<iCommerce>3</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommerceChanges>
+			<CommerceHappinesses>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>4</iCommerce>
+			</CommerceHappinesses>
+			<ConstructSound>AS2D_BUILD_COLOSSEUM</ConstructSound>
+			<UnitCombatFreeExperiences>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+					<iExperience>1</iExperience>
+				</UnitCombatFreeExperience>
+			</UnitCombatFreeExperiences>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_CIRCUS_MAXIMUS</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors/>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Armaments Industry -->
 			<BuildingClass>BUILDINGCLASS_ARMAMENTS_INDUSTRY</BuildingClass>
 			<Type>BUILDING_ARMAMENTS_INDUSTRY</Type>
@@ -695,7 +742,6 @@
 			<iCost>240</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>25</iConquestProb>
-			<iMaxLatitude>90</iMaxLatitude>
 			<iMaintenanceModifier>15</iMaintenanceModifier>
 			<iHealth>-1</iHealth>
 			<iAsset>4</iAsset>
@@ -1992,7 +2038,6 @@
 			<PrereqAndTechs>
 				<TechType>TECH_SACRIFICE</TechType>
 			</PrereqAndTechs>
-			<PrereqVicinityOrBonus/>
 			<bNeverCapture>1</bNeverCapture>
 			<iCost>80</iCost>
 			<iHappiness>1</iHappiness>
@@ -2270,6 +2315,84 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Circus Maximus -->
+			<BuildingClass>BUILDINGCLASS_CIRCUS_MAXIMUS</BuildingClass>
+			<Type>BUILDING_CIRCUS_MAXIMUS</Type>
+			<Description>TXT_KEY_BUILDING_CIRCUS_MAXIMUS</Description>
+			<Civilopedia>TXT_KEY_BUILDING_CIRCUS_MAXIMUS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_CIRCUS_MAXIMUS_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_CIRCUS_MAXIMUS</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_CIRCUS_MAXIMUS</MovieDefineTag>
+			<MaxStartEra>ERA_MEDIEVAL</MaxStartEra>
+			<ObsoleteTech>TECH_HUMANISM</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ATHLETICS</TechType>
+			</PrereqAndTechs>
+			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
+			<bTeamShare>1</bTeamShare>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>400</iCost>
+			<iHurryCostModifier>100</iHurryCostModifier>
+			<iConquestProb>100</iConquestProb>
+			<iAreaHappiness>1</iAreaHappiness>
+			<iAsset>4</iAsset>
+			<CommerceChanges>
+				<iCommerce>6</iCommerce>
+			</CommerceChanges>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<CommerceHappinesses>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>4</iCommerce>
+			</CommerceHappinesses>
+			<CommerceChangeOriginalOwners>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
+			</CommerceChangeOriginalOwners>
+			<BonusHappinessChanges>
+				<BonusHappinessChange>
+					<BonusType>BONUS_HORSE</BonusType>
+					<iChange>1</iChange>
+				</BonusHappinessChange>
+			</BonusHappinessChanges>
+			<UnitCombatFreeExperiences>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+					<iExperience>1</iExperience>
+				</UnitCombatFreeExperience>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+					<iExperience>1</iExperience>
+				</UnitCombatFreeExperience>
+			</UnitCombatFreeExperiences>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_ARENA</BuildingClassType>
+					<iNeeded>3</iNeeded>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
+			<PrereqAndBuildingClasses>
+				<BuildingClass>BUILDINGCLASS_ARENA</BuildingClass>
+			</PrereqAndBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- City Council -->
 			<BuildingClass>BUILDINGCLASS_CITY_COUNCIL</BuildingClass>
 			<Type>BUILDING_CITY_COUNCIL</Type>
@@ -2293,7 +2416,6 @@
 			<iCost>220</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>85</iConquestProb>
-			<iMaxLatitude>90</iMaxLatitude>
 			<iFreeSpecialist>3</iFreeSpecialist>
 			<iMaintenanceModifier>20</iMaintenanceModifier>
 			<iAsset>4</iAsset>
@@ -2670,7 +2792,6 @@
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>10</iMinAreaSize>
 			<iConquestProb>100</iConquestProb>
-			<iMaxLatitude>90</iMaxLatitude>
 			<iHealth>-2</iHealth>
 			<iTradeRoutes>2</iTradeRoutes>
 			<iTradeRouteModifier>50</iTradeRouteModifier>
@@ -3439,7 +3560,6 @@
 			<iCost>70</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>66</iConquestProb>
-			<iMaxLatitude>90</iMaxLatitude>
 			<iAsset>3</iAsset>
 			<fVisibilityPriority>1.0</fVisibilityPriority>
 			<YieldChanges>
@@ -3759,6 +3879,47 @@
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
 					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Fighting Pit -->
+			<BuildingClass>BUILDINGCLASS_FIGHTING_PIT</BuildingClass>
+			<Type>BUILDING_FIGHTING_PIT</Type>
+			<Description>TXT_KEY_BUILDING_FIGHTING_PIT</Description>
+			<Civilopedia>TXT_KEY_BUILDING_FIGHTING_PIT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_FIGHTING_PIT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_FIGHTING_PIT</ArtDefineTag>
+			<ObsoleteTech>TECH_SANITATION</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_SLAVERY</TechType>
+			</PrereqAndTechs>
+			<iCost>40</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMaintenanceModifier>5</iMaintenanceModifier>
+			<iHealth>-1</iHealth>
+			<iHappiness>1</iHappiness>
+			<iAsset>5</iAsset>
+			<iPower>6</iPower>
+			<fVisibilityPriority>0.0</fVisibilityPriority>
+			<ConstructSound>AS2D_BUILD_FIGHTING_PIT</ConstructSound>
+			<UnitCombatFreeExperiences>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+					<iExperience>1</iExperience>
+				</UnitCombatFreeExperience>
+			</UnitCombatFreeExperiences>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_ARENA</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>4</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
@@ -5426,7 +5587,6 @@
 				<TechType>TECH_NATUROPATHY</TechType>
 			</PrereqAndTechs>
 			<PrereqOrBonuses/>
-			<PrereqVicinityOrBonus/>
 			<iCost>40</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>75</iConquestProb>
@@ -6919,7 +7079,6 @@
 			<iCost>120</iCost>
 			<iHurryCostModifier>100</iHurryCostModifier>
 			<iConquestProb>100</iConquestProb>
-			<iMaxLatitude>90</iMaxLatitude>
 			<iFreeSpecialist>1</iFreeSpecialist>
 			<iGlobalHealth>1</iGlobalHealth>
 			<iAsset>8</iAsset>
@@ -8004,7 +8163,6 @@
 				<TechType>TECH_AVIATION</TechType>
 			</PrereqAndTechs>
 			<PrereqBonus>BONUS_OIL</PrereqBonus>
-			<PrereqVicinityOrBonus/>
 			<iCost>520</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iAirlift>1</iAirlift>
@@ -9287,7 +9445,6 @@
 			<iCost>70</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>66</iConquestProb>
-			<iMaxLatitude>90</iMaxLatitude>
 			<iFoodKept>10</iFoodKept>
 			<iAsset>3</iAsset>
 			<fVisibilityPriority>1.0</fVisibilityPriority>
@@ -9441,7 +9598,6 @@
 			<iCost>80</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>66</iConquestProb>
-			<iMaxLatitude>90</iMaxLatitude>
 			<iFoodKept>10</iFoodKept>
 			<iAsset>3</iAsset>
 			<fVisibilityPriority>1.0</fVisibilityPriority>
@@ -9554,7 +9710,6 @@
 			<iCost>325</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>75</iConquestProb>
-			<iMaxLatitude>90</iMaxLatitude>
 			<iMaintenanceModifier>10</iMaintenanceModifier>
 			<iSpaceProductionModifier>25</iSpaceProductionModifier>
 			<iAsset>6</iAsset>
@@ -9625,7 +9780,6 @@
 			<iCost>325</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>75</iConquestProb>
-			<iMaxLatitude>90</iMaxLatitude>
 			<iMaintenanceModifier>10</iMaintenanceModifier>
 			<iSpaceProductionModifier>25</iSpaceProductionModifier>
 			<iAsset>6</iAsset>
@@ -12065,7 +12219,6 @@
 			<iCost>120</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>85</iConquestProb>
-			<iMaxLatitude>90</iMaxLatitude>
 			<iFreeSpecialist>2</iFreeSpecialist>
 			<iMaintenanceModifier>15</iMaintenanceModifier>
 			<iAsset>4</iAsset>
