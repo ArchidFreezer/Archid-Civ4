@@ -7,6 +7,27 @@
 <AudioDefines xmlns="x-schema:AudioDefinesSchema.xml">
 	<SoundDatas>
 		<SoundData>
+			<SoundID>SND_BUILD_TELEPHONE_NETWORK</SoundID>
+			<Filename>Sounds/Buildings/TelephoneNetwork</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
+			<SoundID>SND_BUILD_COMPUTER_NETWORK</SoundID>
+			<Filename>Sounds/Buildings/ComputerNetwork</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
+			<SoundID>SND_BUILD_INFO_NET</SoundID>
+			<Filename>Sounds/Buildings/InfoNet</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
 			<SoundID>SND_BUILD_CASINO</SoundID>
 			<Filename>Sounds/Buildings/Casino</Filename>
 			<LoadType>DYNAMIC_RES</LoadType>

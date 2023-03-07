@@ -2747,5 +2747,45 @@
 			<KFM/>
 			<Button>,Art/Interface/Buttons/Buildings/Wall.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,7,4</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INFO_NET</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.15</fScale>
+			<fInterfaceScale>0.52</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Laboratory/Laboratory.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/info_net.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_COMPUTER_NETWORK</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.15</fScale>
+			<fInterfaceScale>0.52</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Laboratory/Laboratory.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/TechTree/Computers.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_POSTAL_SERVICE</Type>
+			<LSystem>LSYSTEM_STABLE</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.8</fScale>
+			<fInterfaceScale>0.75</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Stable/Stable.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/postal_service.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TELEPHONE_NETWORK</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.4</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/NSA_Headquarters/NSA_Headquarters.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/telephone_network.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

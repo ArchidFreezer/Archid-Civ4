@@ -718,6 +718,12 @@
 			<iCategory>33</iCategory>
 			<DefaultBuilding>BUILDING_UNIVERSITY</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Info Net -->
+			<Type>BUILDINGCLASS_INFO_NET</Type>
+			<Description>TXT_KEY_BUILDING_INFO_NET</Description>
+			<iCategory>33</iCategory>
+			<DefaultBuilding>BUILDING_INFO_NET</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Hydro Plant -->                     <!-- Resources -->
 			<Type>BUILDINGCLASS_HYDRO_PLANT</Type>
@@ -795,7 +801,24 @@
 			<iCategory>40</iCategory>
 			<DefaultBuilding>BUILDING_JUMPLANE_PORTAL</DefaultBuilding>
 		</BuildingClassInfo>
-
+		<BuildingClassInfo> <!-- Computer Network -->
+			<Type>BUILDINGCLASS_COMPUTER_NETWORK</Type>
+			<Description>TXT_KEY_BUILDING_COMPUTER_NETWORK</Description>
+			<iCategory>40</iCategory>
+			<DefaultBuilding>BUILDING_COMPUTER_NETWORK</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Postal Service -->
+			<Type>BUILDINGCLASS_POSTAL_SERVICE</Type>
+			<Description>TXT_KEY_BUILDING_POSTAL_SERVICE</Description>
+			<iCategory>40</iCategory>
+			<DefaultBuilding>BUILDING_POSTAL_SERVICE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Telephone Network -->
+			<Type>BUILDINGCLASS_TELEPHONE_NETWORK</Type>
+			<Description>TXT_KEY_BUILDING_TELEPHONE_NETWORK</Description>
+			<iCategory>40</iCategory>
+			<DefaultBuilding>BUILDING_TELEPHONE_NETWORK</DefaultBuilding>
+		</BuildingClassInfo>
 
 <!-- ************	-->
 <!-- World Wonders -->

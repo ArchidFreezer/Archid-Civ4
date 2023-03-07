@@ -450,6 +450,20 @@
 		<Tag>TXT_KEY_BUILDING_COMMUNICATION_TOWER_STRATEGY</Tag>
 		<English>.</English>
 	</TEXT>
+	<TEXT> <!-- Computer Network -->
+		<Tag>TXT_KEY_BUILDING_COMPUTER_NETWORK</Tag>
+		<English>Computer Network</English>
+		<French>Réseau Informatique</French>
+		<German>Computernetzwerk</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_COMPUTER_NETWORK_PEDIA</Tag>
+		<English>[TAB]A computer network allows computers to communicate with many other and to share resources and information. The Advanced Research Projects Agency (ARPA) funded the design of the "Advanced Research Projects Agency Network" (ARPANET) for the United States Department of Defense. It was the first operational computer network in the world. Development of the network began in 1969, based on designs begun in the 1960s.[PARAGRAPH:2]Computer networks can be classified according to the hardware and software technology that is used to interconnect the individual devices in the network, such as Optical fiber, Ethernet, Wireless LAN, HomePNA, Power line communication or G.hn. Ethernet uses physical wiring to connect devices. Frequently deployed devices include hubs, switches, bridges and/or routers.[PARAGRAPH:2]Networks are often classified as Local Area Network (LAN), Wide Area Network (WAN), Metropolitan Area Network (MAN), Personal Area Network (PAN), Virtual Private Network (VPN), Campus Area Network (CAN), Storage Area Network (SAN), etc. depending on their scale, scope and purpose. Usage, trust levels and access rights often differ between these types of network - for example, LANs tend to be designed for internal use by an organization's internal systems and employees in individual physical locations (such as a building), while WANs may connect physically separate parts of an organization to each other and may include connections to third parties.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_COMPUTER_NETWORK_STRATEGY</Tag>
+		<English>Computer Network increases city's wealth and science output but causes some unhealthiness. Required building in the city for many other advanced buildings.</English>
+	</TEXT>
 	<TEXT> <!-- Construction Firm -->
 		<Tag>TXT_KEY_BUILDING_CONSTRUCTION_FIRM</Tag>
 		<English>Construction Firm</English>
@@ -844,6 +858,18 @@
 		<Tag>TXT_KEY_BUILDING_HYPERMARKET_STRATEGY</Tag>
 		<English>.</English>
 	</TEXT>
+	<TEXT> <!-- Info Net -->
+		<Tag>TXT_KEY_BUILDING_INFO_NET</Tag>
+		<English>Info Net</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INFO_NET_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INFO_NET_STRATEGY</Tag>
+		<English>Info Net increases city's science output.</English>
+	</TEXT>
 	<TEXT> <!-- Investment Bank -->
 		<Tag>TXT_KEY_BUILDING_INVESTMENT_BANK</Tag>
 		<English>Investment Bank</English>
@@ -1172,6 +1198,16 @@
 		<Tag>TXT_KEY_BUILDING_PORT_STRATEGY</Tag>
 		<English>The [COLOR_BUILDING_TEXT]Port[COLOR_REVERT] increases that city's income from trade routes. It increases a city's health from access to [COLOR_HIGHLIGHT_TEXT]Clam[COLOR_REVERT], and [COLOR_HIGHLIGHT_TEXT]Crab[COLOR_REVERT] resources.</English>
 	</TEXT>
+	<TEXT> <!-- Postal Service -->
+		<Tag>TXT_KEY_BUILDING_POSTAL_SERVICE</Tag>
+		<English>Postal Service</English>
+		<French>Bureau de Poste</French>
+		<German>Postamt</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_POSTAL_SERVICE_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
 	<TEXT> <!-- Poultry Farm -->
 		<Tag>TXT_KEY_BUILDING_POULTRY_FARM</Tag>
 		<English>Poultry Farm</English>
@@ -1447,6 +1483,20 @@
 		<Tag>TXT_KEY_BUILDING_TAILOR_SHOP_STRATEGY</Tag>
 		<English>Makes use of "clothing" resources, providing Commerce and Happiness</English>
 		<French>Procure une ressource 'Vêtement', fournissant commerce et bonheur</French>
+	</TEXT>
+	<TEXT> <!-- Telephone Network -->
+		<Tag>TXT_KEY_BUILDING_TELEPHONE_NETWORK</Tag>
+		<English>Telephone Network</English>
+		<French>Réseau téléphonique</French>
+		<German>Telefonnetz</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TELEPHONE_NETWORK_PEDIA</Tag>
+		<English>[TAB]The first telephones had no network but were in private use, wired together in pairs. Users who wanted to talk to different people had as many telephones as necessary for the purpose. A user who wished to speak, whistled into the transmitter until the other party heard. Soon, however, a bell was added for signalling, and then a switchhook, and telephones took advantage of the exchange principle already employed in telegraph networks. Each telephone was wired to a local telephone exchange, and the exchanges were wired together with trunks. Networks were connected together in a hierarchical manner until they spanned cities, countries, continents and oceans. This was the beginning of the PSTN, though the term was unknown for many decades.[PARAGRAPH:2]Automation introduced pulse dialing between the phone and the exchange, and then among exchanges, followed by more sophisticated address signaling including multi-frequency, culminating in the SS7 network that connected most exchanges by the end of the 20th century.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TELEPHONE_NETWORK_STRATEGY</Tag>
+		<English>.</English>
 	</TEXT>
 	<TEXT> <!-- Toolmaker -->
 		<Tag>TXT_KEY_BUILDING_TOOLMAKER</Tag>
