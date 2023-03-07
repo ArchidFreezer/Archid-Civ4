@@ -6241,45 +6241,6 @@
 			<Sound>AS2D_TECH_GENERIC</Sound>
 			<Button>Art/Interface/Buttons/TechTree/knowledge_management.dds</Button>
 		</TechInfo>
-		<TechInfo> <!-- Trade Unions -->
-			<Type>TECH_TRADE_UNIONS</Type>
-			<Description>TXT_KEY_TECH_TRADE_UNIONS</Description>
-			<Civilopedia>TXT_KEY_TECH_TRADE_UNIONS_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_TECH_TRADE_UNIONS_STRATEGY</Strategy>
-			<Advisor>ADVISOR_MILITARY</Advisor>
-			<iCost>4750</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<Era>ERA_INDUSTRIAL</Era>
-			<iAsset>40</iAsset>
-			<iPower>6</iPower>
-			<bTrade>1</bTrade>
-			<iGridX>38</iGridX>
-			<iGridY>14</iGridY>
-			<Flavors>
-				<Flavor>
-					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
-					<iFlavor>4</iFlavor>
-				</Flavor>
-				<Flavor>
-					<FlavorType>FLAVOR_CULTURE</FlavorType>
-					<iFlavor>3</iFlavor>
-				</Flavor>
-				<Flavor>
-					<FlavorType>FLAVOR_GROWTH</FlavorType>
-					<iFlavor>6</iFlavor>
-				</Flavor>
-				<Flavor>
-					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
-					<iFlavor>4</iFlavor>
-				</Flavor>
-			</Flavors>
-			<OrPreReqs>
-				<PrereqTech>TECH_MARXISM</PrereqTech>
-			</OrPreReqs>
-			<Quote>TXT_KEY_TECH_TRADE_UNIONS_QUOTE</Quote>
-			<Sound>AS2D_TECH_GENERIC</Sound>
-			<Button>Art/Interface/Buttons/TechTree/trade_unions.dds</Button>
-		</TechInfo>
 		<TechInfo> <!-- Laser -->
 			<Type>TECH_LASER</Type>
 			<Description>TXT_KEY_TECH_LASER</Description>
@@ -12823,6 +12784,45 @@
 			<Quote>TXT_KEY_TECH_TRADE_QUOTE</Quote>
 			<Sound>AS2D_TECH_GENERIC</Sound>
 			<Button>Art/Interface/Buttons/TechTree/trade.dds</Button>
+		</TechInfo>
+		<TechInfo> <!-- Trade Unions -->
+			<Type>TECH_TRADE_UNIONS</Type>
+			<Description>TXT_KEY_TECH_TRADE_UNIONS</Description>
+			<Civilopedia>TXT_KEY_TECH_TRADE_UNIONS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_TECH_TRADE_UNIONS_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<iCost>4750</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<Era>ERA_INDUSTRIAL</Era>
+			<iAsset>40</iAsset>
+			<iPower>6</iPower>
+			<bTrade>1</bTrade>
+			<iGridX>38</iGridX>
+			<iGridY>14</iGridY>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>4</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>3</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
+					<iFlavor>4</iFlavor>
+				</Flavor>
+			</Flavors>
+			<OrPreReqs>
+				<PrereqTech>TECH_MARXISM</PrereqTech>
+			</OrPreReqs>
+			<Quote>TXT_KEY_TECH_TRADE_UNIONS_QUOTE</Quote>
+			<Sound>AS2D_TECH_GENERIC</Sound>
+			<Button>Art/Interface/Buttons/TechTree/trade_unions.dds</Button>
 		</TechInfo>
 		<TechInfo> <!-- Tribalism -->
 			<Type>TECH_TRIBALISM</Type>

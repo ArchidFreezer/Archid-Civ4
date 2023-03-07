@@ -458,7 +458,7 @@
 			<Civilopedia>TXT_KEY_BUILDING_APOTHECARY_SHOP_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_BUILDING_APOTHECARY_SHOP_STRATEGY</Strategy>
 			<Advisor>ADVISOR_GROWTH</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_APOTHECARY_SHOP</ArtDefineTag>						
+			<ArtDefineTag>ART_DEF_BUILDING_APOTHECARY_SHOP</ArtDefineTag>
 			<MaxStartEra>ERA_INDUSTRIAL</MaxStartEra>
 			<PrereqAndTechs>
 				<TechType>TECH_CONSTRUCTION</TechType>
@@ -466,9 +466,9 @@
 			<iCost>100</iCost>
 			<iConquestProb>75</iConquestProb>
 			<iHealRateChange>15</iHealRateChange>
-			<iHealth>2</iHealth>			
+			<iHealth>2</iHealth>
 			<iAsset>3</iAsset>
-			<ConstructSound>AS2D_BUILD_GRANARY</ConstructSound>		
+			<ConstructSound>AS2D_BUILD_GRANARY</ConstructSound>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_CHEMIST</BuildingClassType>
 			</ReplacedByBuildingClasses>
@@ -476,9 +476,9 @@
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
 					<iFlavor>10</iFlavor>
-				</Flavor>				
-			</Flavors>			
-		</BuildingInfo>	
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Aqueduct -->
 			<BuildingClass>BUILDINGCLASS_AQUEDUCT</BuildingClass>
 			<Type>BUILDING_AQUEDUCT</Type>
@@ -613,7 +613,6 @@
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_CIRCUS_MAXIMUS</BuildingClassType>
 			</ReplacedByBuildingClasses>
-			<Flavors/>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Armaments Industry -->
 			<BuildingClass>BUILDINGCLASS_ARMAMENTS_INDUSTRY</BuildingClass>
@@ -1123,7 +1122,7 @@
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqAndBuildingClasses>
-				<BuildingClass>BUILDINGCLASS_AQUEDUCT</BuildingClass>
+				<BuildingClassType>BUILDINGCLASS_AQUEDUCT</BuildingClassType>
 			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
@@ -2192,7 +2191,6 @@
 					<iCount>1</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
-			<FreeSpecialistCounts/>
 			<ConstructSound>AS2D_BUILD_CEREMONIAL_ALTAR</ConstructSound>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
@@ -2200,7 +2198,6 @@
 					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
-			<BonusProductionModifiers/>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -2460,7 +2457,7 @@
 			<PrereqAndTechs>
 				<TechType>TECH_MOTION_PICTURES</TechType>
 			</PrereqAndTechs>
-			<BonusType>BONUS_MOVIES</BonusType>
+			<PrereqBonus>BONUS_MOVIES</PrereqBonus>
 			<iCost>300</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>75</iConquestProb>
@@ -2569,7 +2566,7 @@
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<PrereqAndBuildingClasses>
-				<BuildingClass>BUILDINGCLASS_ARENA</BuildingClass>
+				<BuildingClassType>BUILDINGCLASS_ARENA</BuildingClassType>
 			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
@@ -3090,6 +3087,7 @@
 			<PrereqAndTechs>
 				<TechType>TECH_COMPUTER_NETWORKS</TechType>
 			</PrereqAndTechs>
+			<bPrereqPower>1</bPrereqPower>
 			<iCost>700</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>75</iConquestProb>
@@ -3098,7 +3096,6 @@
 			<iTradeRouteModifier>30</iTradeRouteModifier>
 			<iForeignTradeRouteModifier>10</iForeignTradeRouteModifier>
 			<iAsset>6</iAsset>
-			<bPrereqPower>1</bPrereqPower>
 			<YieldModifiers>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
@@ -3857,7 +3854,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Einsteins Laboratory -->
+		<BuildingInfo> <!-- Einstein Lab -->
 			<BuildingClass>BUILDINGCLASS_EINSTEIN_LAB</BuildingClass>
 			<Type>BUILDING_EINSTEIN_LAB</Type>
 			<Description>TXT_KEY_BUILDING_EINSTEIN_LAB</Description>
@@ -3894,7 +3891,6 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>25</iCommerce>
 			</CommerceModifiers>
-			<GlobalCommerceModifiers/>
 			<FreeSpecialistCounts>
 				<FreeSpecialistCount>
 					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
@@ -4027,6 +4023,23 @@
 					<iChange>-2</iChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_MANUFACTURING_PLANT</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_HYDRO_PLANT</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_NUCLEAR_PLANT</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_MANUFACTURING_PLANT</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<BonusYieldModifiers>
 				<BonusYieldModifier>
 					<BonusType>BONUS_COAL</BonusType>
@@ -4049,24 +4062,7 @@
 						<iYield>3</iYield>
 					</YieldModifiers>
 				</BonusYieldModifier>
-			</BonusYieldModifiers> 			
-			<BuildingClassProductionModifiers>
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_MANUFACTURING_PLANT</BuildingClassType>
-					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>	
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_HYDRO_PLANT</BuildingClassType>
-					<iModifier>100</iModifier>
-				</BuildingClassProductionModifier>	
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_NUCLEAR_PLANT</BuildingClassType>
-					<iModifier>100</iModifier>
-				</BuildingClassProductionModifier>	
-			</BuildingClassProductionModifiers>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_MANUFACTURING_PLANT</BuildingClassType>
-			</ReplacedByBuildingClasses>	
+			</BonusYieldModifiers>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -4128,6 +4124,23 @@
 					<iChange>-2</iChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_MANUFACTURING_PLANT</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_HYDRO_PLANT</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_NUCLEAR_PLANT</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_MANUFACTURING_PLANT</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<BonusYieldModifiers>
 				<BonusYieldModifier>
 					<BonusType>BONUS_COAL</BonusType>
@@ -4150,24 +4163,7 @@
 						<iYield>3</iYield>
 					</YieldModifiers>
 				</BonusYieldModifier>
-			</BonusYieldModifiers> 			
-			<BuildingClassProductionModifiers>
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_MANUFACTURING_PLANT</BuildingClassType>
-					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>	
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_HYDRO_PLANT</BuildingClassType>
-					<iModifier>100</iModifier>
-				</BuildingClassProductionModifier>	
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_NUCLEAR_PLANT</BuildingClassType>
-					<iModifier>100</iModifier>
-				</BuildingClassProductionModifier>	
-			</BuildingClassProductionModifiers>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_MANUFACTURING_PLANT</BuildingClassType>
-			</ReplacedByBuildingClasses>	
+			</BonusYieldModifiers>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -4781,7 +4777,7 @@
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
 					<iFlavor>10</iFlavor>
-				</Flavor>				
+				</Flavor>
 			</Flavors>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Garrison -->
@@ -5651,14 +5647,14 @@
 			<Strategy>TXT_KEY_BUILDING_GUILDHALL_STRATEGY</Strategy>
 			<Advisor>ADVISOR_SCIENCE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_GUILD_HALL</ArtDefineTag>
-			<PrereqAndCivics>
-				<CivicType>CIVIC_GUILDS</CivicType>
-			</PrereqAndCivics>
 			<ObsoleteTech>TECH_INDUSTRIALISM</ObsoleteTech>
 			<PrereqAndTechs>
 				<TechType>TECH_GUILDS</TechType>
 			</PrereqAndTechs>
-			<BonusType>BONUS_GOLD</BonusType>
+			<PrereqBonus>BONUS_GOLD</PrereqBonus>
+			<PrereqAndCivics>
+				<CivicType>CIVIC_GUILDS</CivicType>
+			</PrereqAndCivics>
 			<ProductionTraits>
 				<ProductionTrait>
 					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
@@ -5691,11 +5687,11 @@
 				<BuildingClassProductionModifier>
 					<BuildingClassType>BUILDINGCLASS_MANUFACTORY</BuildingClassType>
 					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>	
+				</BuildingClassProductionModifier>
 			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_MANUFACTORY</BuildingClassType>
-			</ReplacedByBuildingClasses>	
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -5942,7 +5938,6 @@
 			<PrereqAndTechs>
 				<TechType>TECH_NATUROPATHY</TechType>
 			</PrereqAndTechs>
-			<PrereqOrBonuses/>
 			<iCost>40</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>75</iConquestProb>
@@ -6656,12 +6651,12 @@
 			<PrereqAndTechs>
 				<TechType>TECH_KNOWLEDGE_MANAGEMENT</TechType>
 			</PrereqAndTechs>
+			<bPrereqPower>1</bPrereqPower>
 			<iCost>490</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>75</iConquestProb>
 			<iExperience>1</iExperience>
 			<iAsset>6</iAsset>
-			<bPrereqPower>1</bPrereqPower>
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
 				<iCommerce>25</iCommerce>
@@ -6675,7 +6670,7 @@
 			<ConstructSound>AS2D_BUILD_INFO_NET</ConstructSound>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
-				<BuildingClassType>BUILDINGCLASS_COMPUTER_NETWORK</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_COMPUTER_NETWORK</BuildingClassType>
 					<iNeeded>3</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
@@ -7896,11 +7891,11 @@
 				<BuildingClassProductionModifier>
 					<BuildingClassType>BUILDINGCLASS_FACTORY</BuildingClassType>
 					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>	
+				</BuildingClassProductionModifier>
 			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_FACTORY</BuildingClassType>
-			</ReplacedByBuildingClasses>	
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -7911,7 +7906,7 @@
 					<iFlavor>2</iFlavor>
 				</Flavor>
 			</Flavors>
-		</BuildingInfo>	
+		</BuildingInfo>
 		<BuildingInfo> <!-- Manufacturing Plant -->
 			<BuildingClass>BUILDINGCLASS_MANUFACTURING_PLANT</BuildingClass>
 			<Type>BUILDING_MANUFACTURING_PLANT</Type>
@@ -7923,7 +7918,8 @@
 			<PrereqAndTechs>
 				<TechType>TECH_MANUFACTURING</TechType>
 			</PrereqAndTechs>
-			<BonusType>BONUS_ALUMINUM</BonusType>
+			<PrereqBonus>BONUS_ALUMINUM</PrereqBonus>
+			<bPrereqPower>1</bPrereqPower>
 			<ProductionTraits>
 				<ProductionTrait>
 					<TraitType>TRAIT_ORGANIZED</TraitType>
@@ -7937,7 +7933,6 @@
 			<iHealth>-2</iHealth>
 			<iAsset>6</iAsset>
 			<iPower>20</iPower>
-			<bPrereqPower>1</bPrereqPower>
 			<PowerYieldModifiers>
 				<iYield>0</iYield>
 				<iYield>65</iYield>
@@ -7955,6 +7950,23 @@
 					<iChange>-2</iChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_NANOFACTORY</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_HYDRO_PLANT</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_NUCLEAR_PLANT</BuildingClassType>
+					<iModifier>100</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_NANOFACTORY</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<BonusYieldModifiers>
 				<BonusYieldModifier>
 					<BonusType>BONUS_STEEL</BonusType>
@@ -7970,24 +7982,7 @@
 						<iYield>8</iYield>
 					</YieldModifiers>
 				</BonusYieldModifier>
-			</BonusYieldModifiers> 			
-			<BuildingClassProductionModifiers>
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_NANOFACTORY</BuildingClassType>
-					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>	
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_HYDRO_PLANT</BuildingClassType>
-					<iModifier>100</iModifier>
-				</BuildingClassProductionModifier>	
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_NUCLEAR_PLANT</BuildingClassType>
-					<iModifier>100</iModifier>
-				</BuildingClassProductionModifier>	
-			</BuildingClassProductionModifiers>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_NANOFACTORY</BuildingClassType>
-			</ReplacedByBuildingClasses>	
+			</BonusYieldModifiers>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -9147,14 +9142,14 @@
 			<PrereqAndTechs>
 				<TechType>TECH_NANOBOTICS</TechType>
 			</PrereqAndTechs>
-			<BonusType>BONUS_NANOBOTS</BonusType>
+			<PrereqBonus>BONUS_NANOBOTS</PrereqBonus>
+			<bPrereqPower>1</bPrereqPower>
 			<iCost>1500</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>75</iConquestProb>
 			<iMaintenanceModifier>45</iMaintenanceModifier>
 			<iAsset>20</iAsset>
 			<iPower>25</iPower>
-			<bPrereqPower>1</bPrereqPower>
 			<PowerYieldModifiers>
 				<iYield>0</iYield>
 				<iYield>100</iYield>
@@ -9170,12 +9165,12 @@
 				<BuildingClassProductionModifier>
 					<BuildingClassType>BUILDINGCLASS_HYDRO_PLANT</BuildingClassType>
 					<iModifier>100</iModifier>
-				</BuildingClassProductionModifier>	
+				</BuildingClassProductionModifier>
 				<BuildingClassProductionModifier>
 					<BuildingClassType>BUILDINGCLASS_NUCLEAR_PLANT</BuildingClassType>
 					<iModifier>100</iModifier>
-				</BuildingClassProductionModifier>	
-			</BuildingClassProductionModifiers>			
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -9409,7 +9404,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- National TV Station -->
+		<BuildingInfo> <!-- National Tv Station -->
 			<BuildingClass>BUILDINGCLASS_NATIONAL_TV_STATION</BuildingClass>
 			<Type>BUILDING_NATIONAL_TV_STATION</Type>
 			<Description>TXT_KEY_BUILDING_NATIONAL_TV_STATION</Description>
@@ -9923,7 +9918,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Pont du Gard Aqueduct -->
+		<BuildingInfo> <!-- Pont Du Gard Aqueduct -->
 			<BuildingClass>BUILDINGCLASS_PONT_DU_GARD_AQUEDUCT</BuildingClass>
 			<Type>BUILDING_PONT_DU_GARD_AQUEDUCT</Type>
 			<Description>TXT_KEY_BUILDING_PONT_DU_GARD_AQUEDUCT</Description>
@@ -10079,7 +10074,7 @@
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
-		</BuildingInfo>		
+		</BuildingInfo>
 		<BuildingInfo> <!-- Poultry Farm -->
 			<BuildingClass>BUILDINGCLASS_POULTRY_FARM</BuildingClass>
 			<Type>BUILDING_POULTRY_FARM</Type>
@@ -12660,7 +12655,8 @@
 			<PrereqAndTechs>
 				<TechType>TECH_TELEGRAPH</TechType>
 			</PrereqAndTechs>
-			<BonusType>BONUS_COPPER</BonusType>
+			<PrereqBonus>BONUS_COPPER</PrereqBonus>
+			<bPrereqPower>1</bPrereqPower>
 			<iCost>300</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>75</iConquestProb>
@@ -12669,7 +12665,6 @@
 			<iForeignTradeRouteModifier>5</iForeignTradeRouteModifier>
 			<iAsset>5</iAsset>
 			<iPower>10</iPower>
-			<bPrereqPower>1</bPrereqPower>
 			<YieldModifiers>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
@@ -13128,7 +13123,7 @@
 			</CommerceModifiers>
 			<GlobalCommerceModifiers>
 				<iCommerce>10</iCommerce>
-			</GlobalCommerceModifiers>		
+			</GlobalCommerceModifiers>
 			<ConstructSound>AS2D_BUILD_MARKETPLACE</ConstructSound>
 			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>

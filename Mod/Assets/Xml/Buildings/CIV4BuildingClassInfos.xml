@@ -49,7 +49,13 @@
 			<DefaultBuilding>BUILDING_VILLAGE_HALL</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Palisade -->                        <!-- City Walls -->
+		<BuildingClassInfo> <!-- High Walls -->                      <!-- City Walls -->
+			<Type>BUILDINGCLASS_HIGH_WALLS</Type>
+			<Description>TXT_KEY_BUILDING_HIGH_WALLS</Description>
+			<iCategory>12</iCategory>
+			<DefaultBuilding>BUILDING_HIGH_WALLS</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Palisade -->
 			<Type>BUILDINGCLASS_PALISADE</Type>
 			<Description>TXT_KEY_BUILDING_PALISADE</Description>
 			<iCategory>12</iCategory>
@@ -60,12 +66,6 @@
 			<Description>TXT_KEY_BUILDING_WALLS</Description>
 			<iCategory>12</iCategory>
 			<DefaultBuilding>BUILDING_WALLS</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- High Walls -->
-			<Type>BUILDINGCLASS_HIGH_WALLS</Type>
-			<Description>TXT_KEY_BUILDING_HIGH_WALLS</Description>
-			<iCategory>12</iCategory>
-			<DefaultBuilding>BUILDING_HIGH_WALLS</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Castle -->                          <!-- Castle -->
@@ -119,6 +119,12 @@
 			<iCategory>16</iCategory>
 			<DefaultBuilding>BUILDING_HUNTING_LODGE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Modern Granary -->
+			<Type>BUILDINGCLASS_MODERN_GRANARY</Type>
+			<Description>TXT_KEY_BUILDING_MODERN_GRANARY</Description>
+			<iCategory>16</iCategory>
+			<DefaultBuilding>BUILDING_MODERN_GRANARY</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Poultry Farm -->
 			<Type>BUILDINGCLASS_POULTRY_FARM</Type>
 			<Description>TXT_KEY_BUILDING_POULTRY_FARM</Description>
@@ -131,18 +137,30 @@
 			<iCategory>16</iCategory>
 			<DefaultBuilding>BUILDING_RANCH</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Modern Granary -->
-			<Type>BUILDINGCLASS_MODERN_GRANARY</Type>
-			<Description>TXT_KEY_BUILDING_MODERN_GRANARY</Description>
-			<iCategory>16</iCategory>
-			<DefaultBuilding>BUILDING_MODERN_GRANARY</DefaultBuilding>
-		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Barracks -->                        <!-- Military Training -->
+		<BuildingClassInfo> <!-- Aerospace Complex -->               <!-- Military Training -->
+			<Type>BUILDINGCLASS_AEROSPACE_COMPLEX</Type>
+			<Description>TXT_KEY_BUILDING_AEROSPACE_COMPLEX</Description>
+			<iCategory>17</iCategory>
+			<DefaultBuilding>BUILDING_AEROSPACE_COMPLEX</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Arena -->
+			<Type>BUILDINGCLASS_ARENA</Type>
+			<Description>TXT_KEY_BUILDING_ARENA</Description>
+			<iCategory>17</iCategory>
+			<DefaultBuilding>BUILDING_ARENA</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Barracks -->
 			<Type>BUILDINGCLASS_BARRACKS</Type>
 			<Description>TXT_KEY_BUILDING_BARRACKS</Description>
 			<iCategory>17</iCategory>
 			<DefaultBuilding>BUILDING_BARRACKS</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Fighting Pit -->
+			<Type>BUILDINGCLASS_FIGHTING_PIT</Type>
+			<Description>TXT_KEY_BUILDING_FIGHTING_PIT</Description>
+			<iCategory>17</iCategory>
+			<DefaultBuilding>BUILDING_FIGHTING_PIT</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Garrison -->
 			<Type>BUILDINGCLASS_GARRISON</Type>
@@ -156,6 +174,12 @@
 			<iCategory>17</iCategory>
 			<DefaultBuilding>BUILDING_HUNTING_INSTRUCTION</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Military Airbase -->
+			<Type>BUILDINGCLASS_MILITARY_AIRBASE</Type>
+			<Description>TXT_KEY_BUILDING_MILITARY_AIRBASE</Description>
+			<iCategory>17</iCategory>
+			<DefaultBuilding>BUILDING_MILITARY_AIRBASE</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Stable -->
 			<Type>BUILDINGCLASS_STABLE</Type>
 			<Description>TXT_KEY_BUILDING_STABLE</Description>
@@ -167,30 +191,6 @@
 			<Description>TXT_KEY_BUILDING_STONE_WEAPONS_WORKSHOP</Description>
 			<iCategory>17</iCategory>
 			<DefaultBuilding>BUILDING_STONE_WEAPONS_WORKSHOP</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Military Airbase -->
-			<Type>BUILDINGCLASS_MILITARY_AIRBASE</Type>
-			<Description>TXT_KEY_BUILDING_MILITARY_AIRBASE</Description>
-			<iCategory>17</iCategory>
-			<DefaultBuilding>BUILDING_MILITARY_AIRBASE</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Aerospace Complex -->
-			<Type>BUILDINGCLASS_AEROSPACE_COMPLEX</Type>
-			<Description>TXT_KEY_BUILDING_AEROSPACE_COMPLEX</Description>
-			<iCategory>17</iCategory>
-			<DefaultBuilding>BUILDING_AEROSPACE_COMPLEX</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Fighting Pit -->
-			<Type>BUILDINGCLASS_FIGHTING_PIT</Type>
-			<Description>TXT_KEY_BUILDING_FIGHTING_PIT</Description>
-			<iCategory>17</iCategory>
-			<DefaultBuilding>BUILDING_FIGHTING_PIT</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Arena -->
-			<Type>BUILDINGCLASS_ARENA</Type>
-			<Description>TXT_KEY_BUILDING_ARENA</Description>
-			<iCategory>17</iCategory>
-			<DefaultBuilding>BUILDING_ARENA</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Armaments Industry -->              <!-- Military Production -->
@@ -428,12 +428,6 @@
 			<iCategory>26</iCategory>
 			<DefaultBuilding>BUILDING_FACTORY</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Nuclear Plant -->
-			<Type>BUILDINGCLASS_NUCLEAR_PLANT</Type>
-			<Description>TXT_KEY_BUILDING_NUCLEAR_PLANT</Description>
-			<iCategory>26</iCategory>
-			<DefaultBuilding>BUILDING_NUCLEAR_PLANT</DefaultBuilding>
-		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Guildhall -->
 			<Type>BUILDINGCLASS_GUILDHALL</Type>
 			<Description>TXT_KEY_BUILDING_GUILDHALL</Description>
@@ -458,12 +452,24 @@
 			<iCategory>26</iCategory>
 			<DefaultBuilding>BUILDING_NANOFACTORY</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Nuclear Plant -->
+			<Type>BUILDINGCLASS_NUCLEAR_PLANT</Type>
+			<Description>TXT_KEY_BUILDING_NUCLEAR_PLANT</Description>
+			<iCategory>26</iCategory>
+			<DefaultBuilding>BUILDING_NUCLEAR_PLANT</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Brightsmiths Hut -->                <!-- Commerce -->
 			<Type>BUILDINGCLASS_BRIGHTSMITHS_HUT</Type>
 			<Description>TXT_KEY_BUILDING_BRIGHTSMITHS_HUT</Description>
 			<iCategory>28</iCategory>
 			<DefaultBuilding>BUILDING_BRIGHTSMITHS_HUT</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Casino -->
+			<Type>BUILDINGCLASS_CASINO</Type>
+			<Description>TXT_KEY_BUILDING_CASINO</Description>
+			<iCategory>28</iCategory>
+			<DefaultBuilding>BUILDING_CASINO</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Furrier -->
 			<Type>BUILDINGCLASS_FURRIER</Type>
@@ -494,12 +500,6 @@
 			<Description>TXT_KEY_BUILDING_WEAVERS_HUT</Description>
 			<iCategory>28</iCategory>
 			<DefaultBuilding>BUILDING_WEAVERS_HUT</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Casino -->
-			<Type>BUILDINGCLASS_CASINO</Type>
-			<Description>TXT_KEY_BUILDING_CASINO</Description>
-			<iCategory>28</iCategory>
-			<DefaultBuilding>BUILDING_CASINO</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Bazaar -->                          <!-- Commerce - Retail -->
@@ -615,29 +615,29 @@
 			<iCategory>32</iCategory>
 			<DefaultBuilding>BUILDING_BROADCAST_TOWER</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Communication Tower -->
-			<Type>BUILDINGCLASS_COMMUNICATION_TOWER</Type>
-			<Description>TXT_KEY_BUILDING_COMMUNICATION_TOWER</Description>
-			<iCategory>32</iCategory>
-			<DefaultBuilding>BUILDING_COMMUNICATION_TOWER</DefaultBuilding>
-		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Brothel -->
 			<Type>BUILDINGCLASS_BROTHEL</Type>
 			<Description>TXT_KEY_BUILDING_BROTHEL</Description>
 			<iCategory>32</iCategory>
 			<DefaultBuilding>BUILDING_BROTHEL</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Gambling Hall -->
-			<Type>BUILDINGCLASS_GAMBLING_HALL</Type>
-			<Description>TXT_KEY_BUILDING_GAMBLING_HALL</Description>
-			<iCategory>32</iCategory>
-			<DefaultBuilding>BUILDING_GAMBLING_HALL</DefaultBuilding>
-		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Cinema -->
 			<Type>BUILDINGCLASS_CINEMA</Type>
 			<Description>TXT_KEY_BUILDING_CINEMA</Description>
 			<iCategory>32</iCategory>
 			<DefaultBuilding>BUILDING_CINEMA</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Communication Tower -->
+			<Type>BUILDINGCLASS_COMMUNICATION_TOWER</Type>
+			<Description>TXT_KEY_BUILDING_COMMUNICATION_TOWER</Description>
+			<iCategory>32</iCategory>
+			<DefaultBuilding>BUILDING_COMMUNICATION_TOWER</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Gambling Hall -->
+			<Type>BUILDINGCLASS_GAMBLING_HALL</Type>
+			<Description>TXT_KEY_BUILDING_GAMBLING_HALL</Description>
+			<iCategory>32</iCategory>
+			<DefaultBuilding>BUILDING_GAMBLING_HALL</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Academy -->                         <!-- Research -->
@@ -675,6 +675,12 @@
 			<Description>TXT_KEY_BUILDING_GREAT_ACADEMY</Description>
 			<iCategory>33</iCategory>
 			<DefaultBuilding>BUILDING_GREAT_ACADEMY</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Info Net -->
+			<Type>BUILDINGCLASS_INFO_NET</Type>
+			<Description>TXT_KEY_BUILDING_INFO_NET</Description>
+			<iCategory>33</iCategory>
+			<DefaultBuilding>BUILDING_INFO_NET</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Laboratory -->
 			<Type>BUILDINGCLASS_LABORATORY</Type>
@@ -730,12 +736,6 @@
 			<iCategory>33</iCategory>
 			<DefaultBuilding>BUILDING_UNIVERSITY</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Info Net -->
-			<Type>BUILDINGCLASS_INFO_NET</Type>
-			<Description>TXT_KEY_BUILDING_INFO_NET</Description>
-			<iCategory>33</iCategory>
-			<DefaultBuilding>BUILDING_INFO_NET</DefaultBuilding>
-		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Hydro Plant -->                     <!-- Resources -->
 			<Type>BUILDINGCLASS_HYDRO_PLANT</Type>
@@ -744,11 +744,35 @@
 			<DefaultBuilding>BUILDING_HYDRO_PLANT</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Doctors Office -->                  <!-- Health -->
+		<BuildingClassInfo> <!-- Apothecary Shop -->                 <!-- Health -->
+			<Type>BUILDINGCLASS_APOTHECARY_SHOP</Type>
+			<Description>TXT_KEY_BUILDING_APOTHECARY_SHOP</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_APOTHECARY_SHOP</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Bath House -->
+			<Type>BUILDINGCLASS_BATH_HOUSE</Type>
+			<Description>TXT_KEY_BUILDING_BATH_HOUSE</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_BATH_HOUSE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Chemist -->
+			<Type>BUILDINGCLASS_CHEMIST</Type>
+			<Description>TXT_KEY_BUILDING_CHEMIST</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_CHEMIST</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Doctors Office -->
 			<Type>BUILDINGCLASS_DOCTORS_OFFICE</Type>
 			<Description>TXT_KEY_BUILDING_DOCTORS_OFFICE</Description>
 			<iCategory>37</iCategory>
 			<DefaultBuilding>BUILDING_DOCTORS_OFFICE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Healers Hut -->
+			<Type>BUILDINGCLASS_HEALERS_HUT</Type>
+			<Description>TXT_KEY_BUILDING_HEALERS_HUT</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_HEALERS_HUT</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Hospital -->
 			<Type>BUILDINGCLASS_HOSPITAL</Type>
@@ -768,30 +792,6 @@
 			<Description>TXT_KEY_BUILDING_RECYCLING_CENTER</Description>
 			<iCategory>37</iCategory>
 			<DefaultBuilding>BUILDING_RECYCLING_CENTER</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Healers Hut -->
-			<Type>BUILDINGCLASS_HEALERS_HUT</Type>
-			<Description>TXT_KEY_BUILDING_HEALERS_HUT</Description>
-			<iCategory>37</iCategory>
-			<DefaultBuilding>BUILDING_HEALERS_HUT</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Apothecary Shop -->
-			<Type>BUILDINGCLASS_APOTHECARY_SHOP</Type>
-			<Description>TXT_KEY_BUILDING_APOTHECARY_SHOP</Description>
-			<iCategory>37</iCategory>
-			<DefaultBuilding>BUILDING_APOTHECARY_SHOP</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Chemist -->
-			<Type>BUILDINGCLASS_CHEMIST</Type>
-			<Description>TXT_KEY_BUILDING_CHEMIST</Description>
-			<iCategory>37</iCategory>
-			<DefaultBuilding>BUILDING_CHEMIST</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Bath House -->
-			<Type>BUILDINGCLASS_BATH_HOUSE</Type>
-			<Description>TXT_KEY_BUILDING_BATH_HOUSE</Description>
-			<iCategory>37</iCategory>
-			<DefaultBuilding>BUILDING_BATH_HOUSE</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Sewer System -->
 			<Type>BUILDINGCLASS_SEWER_SYSTEM</Type>
@@ -819,17 +819,17 @@
 			<iCategory>40</iCategory>
 			<DefaultBuilding>BUILDING_AIRPORT</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Jumplane Portal -->
-			<Type>BUILDINGCLASS_JUMPLANE_PORTAL</Type>
-			<Description>TXT_KEY_BUILDING_JUMPLANE_PORTAL</Description>
-			<iCategory>40</iCategory>
-			<DefaultBuilding>BUILDING_JUMPLANE_PORTAL</DefaultBuilding>
-		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Computer Network -->
 			<Type>BUILDINGCLASS_COMPUTER_NETWORK</Type>
 			<Description>TXT_KEY_BUILDING_COMPUTER_NETWORK</Description>
 			<iCategory>40</iCategory>
 			<DefaultBuilding>BUILDING_COMPUTER_NETWORK</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Jumplane Portal -->
+			<Type>BUILDINGCLASS_JUMPLANE_PORTAL</Type>
+			<Description>TXT_KEY_BUILDING_JUMPLANE_PORTAL</Description>
+			<iCategory>40</iCategory>
+			<DefaultBuilding>BUILDING_JUMPLANE_PORTAL</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Postal Service -->
 			<Type>BUILDINGCLASS_POSTAL_SERVICE</Type>
@@ -843,6 +843,7 @@
 			<iCategory>40</iCategory>
 			<DefaultBuilding>BUILDING_TELEPHONE_NETWORK</DefaultBuilding>
 		</BuildingClassInfo>
+
 
 <!-- ************	-->
 <!-- World Wonders -->
@@ -959,7 +960,7 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_EIFFEL_TOWER</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Einsteins Laboratory -->
+		<BuildingClassInfo> <!-- Einstein Lab -->
 			<Type>BUILDINGCLASS_EINSTEIN_LAB</Type>
 			<Description>TXT_KEY_BUILDING_EINSTEIN_LAB</Description>
 			<iCategory>2</iCategory>
@@ -1071,7 +1072,7 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_PENTAGON</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Pont du Gard -->
+		<BuildingClassInfo> <!-- Pont Du Gard Aqueduct -->
 			<Type>BUILDINGCLASS_PONT_DU_GARD_AQUEDUCT</Type>
 			<Description>TXT_KEY_BUILDING_PONT_DU_GARD_AQUEDUCT</Description>
 			<iCategory>2</iCategory>
@@ -1295,7 +1296,7 @@
 			<iMaxPlayerInstances>1</iMaxPlayerInstances>
 			<DefaultBuilding>BUILDING_NATIONAL_SLAVE_AUCTION</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- National TV Station -->
+		<BuildingClassInfo> <!-- National Tv Station -->
 			<Type>BUILDINGCLASS_NATIONAL_TV_STATION</Type>
 			<Description>TXT_KEY_BUILDING_NATIONAL_TV_STATION</Description>
 			<iCategory>3</iCategory>
