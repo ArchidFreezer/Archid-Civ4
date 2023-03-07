@@ -2828,5 +2828,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/pont_du_gard.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TREASURY</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.75</fScale>
+			<fInterfaceScale>0.75</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/treasury/dangeon.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/treasury.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

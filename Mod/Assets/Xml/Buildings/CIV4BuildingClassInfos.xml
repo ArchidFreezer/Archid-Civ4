@@ -1318,6 +1318,13 @@
 			<iMaxPlayerInstances>1</iMaxPlayerInstances>
 			<DefaultBuilding>BUILDING_TRADE_UNION</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Treasury -->
+			<Type>BUILDINGCLASS_TREASURY</Type>
+			<Description>TXT_KEY_BUILDING_TREASURY</Description>
+			<iCategory>3</iCategory>
+			<iMaxPlayerInstances>1</iMaxPlayerInstances>
+			<DefaultBuilding>BUILDING_TREASURY</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Wall Street -->
 			<Type>BUILDINGCLASS_WALL_STREET</Type>
 			<Description>TXT_KEY_BUILDING_WALL_STREET</Description>

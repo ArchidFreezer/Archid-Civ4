@@ -13074,6 +13074,40 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Treasury -->
+			<BuildingClass>BUILDINGCLASS_TREASURY</BuildingClass>
+			<Type>BUILDING_TREASURY</Type>
+			<Description>TXT_KEY_BUILDING_TREASURY</Description>
+			<Civilopedia>TXT_KEY_BUILDING_TREASURY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_TREASURY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_TREASURY</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_TREASURY</MovieDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_MONARCHY</TechType>
+			</PrereqAndTechs>
+			<bNeverCapture>1</bNeverCapture>
+			<iCost>150</iCost>
+			<iHurryCostModifier>100</iHurryCostModifier>
+			<iCitiesPrereq>4</iCitiesPrereq>
+			<iAsset>3</iAsset>
+			<CommerceModifiers>
+				<iCommerce>10</iCommerce>
+			</CommerceModifiers>
+			<GlobalCommerceModifiers>
+				<iCommerce>10</iCommerce>
+			</GlobalCommerceModifiers>		
+			<ConstructSound>AS2D_BUILD_MARKETPLACE</ConstructSound>
+			<PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+			</PrereqAndBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- United Nations -->
 			<BuildingClass>BUILDINGCLASS_UNITED_NATIONS</BuildingClass>
 			<Type>BUILDING_UNITED_NATIONS</Type>
