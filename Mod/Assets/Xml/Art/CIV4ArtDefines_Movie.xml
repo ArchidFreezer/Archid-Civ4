@@ -331,5 +331,9 @@
 			<Type>ART_DEF_MOVIE_CIRCUS_MAXIMUS</Type>
 			<Path>Art/Movies/Wonders/CircusMaximus.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_EINSTEIN</Type>
+			<Path>Art/Movies/Wonders/Einstein.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

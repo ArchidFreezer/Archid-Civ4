@@ -906,6 +906,13 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_EIFFEL_TOWER</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Einsteins Laboratory -->
+			<Type>BUILDINGCLASS_EINSTEIN_LAB</Type>
+			<Description>TXT_KEY_BUILDING_EINSTEIN_LAB</Description>
+			<iCategory>2</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_EINSTEIN_LAB</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Great Dam -->
 			<Type>BUILDINGCLASS_GREAT_DAM</Type>
 			<Description>TXT_KEY_BUILDING_GREAT_DAM</Description>

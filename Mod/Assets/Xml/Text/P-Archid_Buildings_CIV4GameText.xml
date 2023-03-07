@@ -509,6 +509,20 @@
 		<Tag>TXT_KEY_BUILDING_EARLY_INSTRUMENT_MAKER_STRATEGY</Tag>
 		<English>Build a [COLOR_BUILDING_TEXT]Early Instrument Maker[COLOR_REVERT] to increase the commerce output in your cities.</English>
 	</TEXT>
+	<TEXT> <!-- Einsteins Laboratory -->
+		<Tag>TXT_KEY_BUILDING_EINSTEIN_LAB</Tag>
+		<English>Einsteins Laboratory</English>
+		<French>Laboratoire d'Einstein</French>
+		<German>Einsteins Labor</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_EINSTEIN_LAB_PEDIA</Tag>
+		<English>[TAB]Albert Einstein (14 March 1879 - 18 April 1955) was a theoretical physicist. He is best known for his theories of special relativity and general relativity. Einstein received the 1921 Nobel Prize in Physics "for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect."[PARAGRAPH:2]Einstein's many contributions to physics included the special and general theories of relativity, the founding of relativistic cosmology, the first post-Newtonian expansion, explaining the perihelion advance of Mercury, prediction of the deflection of light by gravity and gravitational lensing, the first fluctuation dissipation theorem which explained the Brownian movement of molecules, the photon theory and wave-particle duality, the quantum theory of atomic motion in solids, the zero-point energy concept, the semiclassical version of the Schr&#246;dinger equation, and the quantum theory of a monatomic gas which predicted Bose-Einstein condensation.[PARAGRAPH:2]Einstein published more than 300 scientific works and more than 150 non-scientific works.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_EINSTEIN_LAB_STRATEGY</Tag>
+		<English>Increases science output of city and gives +2 free scientists.</English>
+	</TEXT>
 	<TEXT> <!-- Elder Council -->
 		<Tag>TXT_KEY_BUILDING_ELDER_COUNCIL</Tag>
 		<English>Elder Council</English>
