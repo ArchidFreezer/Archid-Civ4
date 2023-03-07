@@ -302,6 +302,20 @@
 		<Tag>TXT_KEY_BUILDING_CAPITAL_SEAT_STRATEGY</Tag>
 		<English>The [COLOR_BUILDING_TEXT]Capital Seat[COLOR_REVERT] defines the capital and administrative centre of a civilzation and also provides a small production bonus.</English>
 	</TEXT>
+	<TEXT> <!-- Casino -->
+		<Tag>TXT_KEY_BUILDING_CASINO</Tag>
+		<English>Casino</English>
+		<French>Casino</French>
+		<German>Kasino</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CASINO_PEDIA</Tag>
+		<English>[TAB]The term "Casino" is of Italian origin, the root word being "Casa" (house) and originally meant a small country villa, summerhouse or pavilion. The word changed to refer to a building built for pleasure, usually on the grounds of a larger Italian villa or palazzo. Such buildings were used to host civic town functions - including dancing, music listening and gambling.[PARAGRAPH:2]The precise origin of gambling is unknown. The Chinese recorded the first official account of the practice in 2300 B.C., but it is generally believed that activity of gambling, in some way or another, has been seen in almost every society in history. From the Ancient Greeks and Romans to Napoleon's France and Elizabethan England, much of history is filled with stories of entertainment based on the games of chance.  One of the first known casinos was the Casinò di Venezia, established in Venice Italy around 1638, and is still in operation.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CASINO_STRATEGY</Tag>
+		<English>Casino increases city's wealth.</English>
+	</TEXT>
 	<TEXT> <!-- Cave Painting -->
 		<Tag>TXT_KEY_BUILDING_CAVE_PAINTING</Tag>
 		<English>Cave Painting</English>
@@ -649,6 +663,21 @@
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_GARRISON_STRATEGY</Tag>
 		<English>Garrison replaces Barracks in the city and gives experience to new land units. Also increases military production and heals damaged units.</English>
+	</TEXT>
+	<TEXT> <!-- Gambling Hall -->
+		<Tag>TXT_KEY_BUILDING_GAMBLING_HALL</Tag>
+		<English>Gambling Hall</English>
+		<French>Hall de Jeux</French>
+		<German>Gl&#252;cksspielsaal</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GAMBLING_HALL_PEDIA</Tag>
+		<English>Gambling is the wagering of money or something of material value on an event with an uncertain outcome with the primary intent of winning additional money and/or material goods. Typically, the outcome of the wager is evident within a short period.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GAMBLING_HALL_STRATEGY</Tag>
+		<English>Cheap gold building, but angers citizens</English>
+		<French>Bâtiment générant de l'Or, mais rend certains citoyens mécontents</French>
 	</TEXT>
 	<TEXT> <!-- Great Academy -->
 		<Tag>TXT_KEY_BUILDING_GREAT_ACADEMY</Tag>

@@ -1909,6 +1909,49 @@
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</ReplacedByBuildingClasses>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Casino -->
+			<BuildingClass>BUILDINGCLASS_CASINO</BuildingClass>
+			<Type>BUILDING_CASINO</Type>
+			<Description>TXT_KEY_BUILDING_CASINO</Description>
+			<Civilopedia>TXT_KEY_BUILDING_CASINO_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_CASINO_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_CASINO</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_TOURISM</TechType>
+			</PrereqAndTechs>
+			<iCost>650</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>75</iConquestProb>
+			<iAsset>7</iAsset>
+			<YieldModifiers>
+				<iYield>0</iYield>
+				<iYield>-15</iYield>
+			</YieldModifiers>
+			<CommerceChanges>
+				<iCommerce>5</iCommerce>
+			</CommerceChanges>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>100</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<CommerceModifiers>
+				<iCommerce>10</iCommerce>
+			</CommerceModifiers>
+			<ConstructSound>AS2D_BUILD_CASINO</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Castle -->
 			<BuildingClass>BUILDINGCLASS_CASTLE</BuildingClass>
 			<Type>BUILDING_CASTLE</Type>
@@ -4539,6 +4582,47 @@
 					<FlavorType>FLAVOR_GOLD</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Gambling Hall -->
+			<BuildingClass>BUILDINGCLASS_GAMBLING_HALL</BuildingClass>
+			<Type>BUILDING_GAMBLING_HALL</Type>
+			<Description>TXT_KEY_BUILDING_GAMBLING_HALL</Description>
+			<Civilopedia>TXT_KEY_BUILDING_GAMBLING_HALL_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_GAMBLING_HALL_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_GAMBLING_HALL</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_USURY</TechType>
+			</PrereqAndTechs>
+			<iCost>25</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iAdvancedStartCostIncrease>-1</iAdvancedStartCostIncrease>
+			<iMaxLatitude>90</iMaxLatitude>
+			<iHappiness>-1</iHappiness>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>-1</iYield>
+			</YieldChanges>
+			<CommerceChanges>
+				<iCommerce>5</iCommerce>
+			</CommerceChanges>
+			<ConstructSound>AS2D_BUILD_TOLLHOUSE</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_CASINO</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_CASINO</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>				
 			</Flavors>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Garrison -->

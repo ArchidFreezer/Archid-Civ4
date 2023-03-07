@@ -7,6 +7,20 @@
 <AudioDefines xmlns="x-schema:AudioDefinesSchema.xml">
 	<SoundDatas>
 		<SoundData>
+			<SoundID>SND_BUILD_CASINO</SoundID>
+			<Filename>Sounds/Buildings/Casino</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
+			<SoundID>SND_BUILD_TOLLHOUSE</SoundID>
+			<Filename>Sounds/Buildings/TollHouse</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
 			<SoundID>SND_BUILD_BROTHEL</SoundID>
 			<Filename>Sounds/Buildings/Brothel</Filename>
 			<LoadType>DYNAMIC_RES</LoadType>

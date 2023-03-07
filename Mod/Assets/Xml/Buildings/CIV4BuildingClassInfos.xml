@@ -483,6 +483,12 @@
 			<iCategory>28</iCategory>
 			<DefaultBuilding>BUILDING_WEAVERS_HUT</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Casino -->
+			<Type>BUILDINGCLASS_CASINO</Type>
+			<Description>TXT_KEY_BUILDING_CASINO</Description>
+			<iCategory>28</iCategory>
+			<DefaultBuilding>BUILDING_CASINO</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Bazaar -->                          <!-- Commerce - Retail -->
 			<Type>BUILDINGCLASS_BAZAAR</Type>
@@ -608,6 +614,12 @@
 			<Description>TXT_KEY_BUILDING_BROTHEL</Description>
 			<iCategory>32</iCategory>
 			<DefaultBuilding>BUILDING_BROTHEL</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Gambling Hall -->
+			<Type>BUILDINGCLASS_GAMBLING_HALL</Type>
+			<Description>TXT_KEY_BUILDING_GAMBLING_HALL</Description>
+			<iCategory>32</iCategory>
+			<DefaultBuilding>BUILDING_GAMBLING_HALL</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Academy -->                         <!-- Research -->

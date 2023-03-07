@@ -2717,5 +2717,25 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/brothel.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_GAMBLING_HALL</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.6</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/gambling_hall/grocery.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/gambling_hall.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CASINO</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.5</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/Casino/casino.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/casino.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
