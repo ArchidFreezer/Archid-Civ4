@@ -1059,6 +1059,13 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_PENTAGON</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Pont du Gard -->
+			<Type>BUILDINGCLASS_PONT_DU_GARD_AQUEDUCT</Type>
+			<Description>TXT_KEY_BUILDING_PONT_DU_GARD_AQUEDUCT</Description>
+			<iCategory>2</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_PONT_DU_GARD_AQUEDUCT</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Pyramid -->
 			<Type>BUILDINGCLASS_PYRAMID</Type>
 			<Description>TXT_KEY_BUILDING_PYRAMID</Description>

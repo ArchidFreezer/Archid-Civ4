@@ -2817,5 +2817,16 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/national_tv_station.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PONT_DU_GARD</Type>
+			<!-- the actual art for this aqueduct is controlled by ArtDefines_Misc.xml : ART_AQUEDUCT_SEGMENT/ART_AQUEDUCT_WALL/ART_AQUEDUCT_ENDPOINT -->
+			<LSystem>LSYSTEM_AQUEDUCT</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Aqueduct/Pedia_Aqueduct.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/pont_du_gard.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
