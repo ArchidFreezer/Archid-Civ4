@@ -1276,6 +1276,13 @@
 			<iMaxPlayerInstances>1</iMaxPlayerInstances>
 			<DefaultBuilding>BUILDING_NATIONAL_SLAVE_AUCTION</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- National TV Station -->
+			<Type>BUILDINGCLASS_NATIONAL_TV_STATION</Type>
+			<Description>TXT_KEY_BUILDING_NATIONAL_TV_STATION</Description>
+			<iCategory>3</iCategory>
+			<iMaxPlayerInstances>1</iMaxPlayerInstances>
+			<DefaultBuilding>BUILDING_NATIONAL_TV_STATION</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Oxford University -->
 			<Type>BUILDINGCLASS_OXFORD_UNIVERSITY</Type>
 			<Description>TXT_KEY_BUILDING_OXFORD_UNIVERSITY</Description>

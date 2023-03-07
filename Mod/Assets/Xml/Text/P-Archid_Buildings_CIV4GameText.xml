@@ -380,8 +380,7 @@
 		<Tag>TXT_KEY_BUILDING_CHEMIST_STRATEGY</Tag>
 		<English>.</English>
 	</TEXT>
-<!-- Cinema -->
-	<TEXT>
+	<TEXT> <!-- Cinema -->
 		<Tag>TXT_KEY_BUILDING_CINEMA</Tag>
 		<English>Cinema</English>
 		<French>Cinéma</French>
@@ -1176,6 +1175,24 @@
 	<TEXT>
 		<Tag>TXT_KEY_NATIONAL_SLAVE_AUCTION_PYTHON</Tag>
 		<English>[COLOR_SELECTED_TEXT]The [COLOR_BUILDING_TEXT]National Slave Auction[COLOR_SELECTED_TEXT] increases slavery infrastrucre nationwide[COLOR_REVERT]!</English>
+	</TEXT>
+	<TEXT> <!-- National TV Station -->
+		<Tag>TXT_KEY_BUILDING_NATIONAL_TV_STATION</Tag>
+		<English>National TV-Station</English>
+		<French>
+			<Text>Station de Télévision Nationale</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Nationale TV-Station</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NATIONAL_TV_STATION_PEDIA</Tag>
+		<English>[TAB]A television station is a type of broadcast station that broadcasts both audio and video to television receivers in a particular area. Traditionally, TV stations made their broadcasts by sending specially-encoded radio signals over the air, called terrestrial television. Individual television stations are usually granted licenses by a government agency to use a particular section of the radio spectrum (a channel) through which they send their signals. Some stations use LPTV broadcast translators to retransmit to further areas. Many television stations are now in the process of converting from analogue (NTSC, PAL, or SECAM) to digital TV (ATSC, DVB, or ISDB).</English>
+	</TEXT>
+ 	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NATIONAL_TV_STATION_STRATEGY</Tag>
+		<English>.</English>
 	</TEXT>
 	<TEXT> <!-- Network Node -->
 		<Tag>TXT_KEY_BUILDING_NETWORK_NODE</Tag>

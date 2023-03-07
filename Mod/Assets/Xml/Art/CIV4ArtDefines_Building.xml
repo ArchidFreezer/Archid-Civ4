@@ -2807,5 +2807,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/cinema.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TVSTATION</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.0</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/national_tv_station/tvstation.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/national_tv_station.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

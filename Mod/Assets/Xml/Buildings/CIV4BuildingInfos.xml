@@ -9409,6 +9409,56 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- National TV Station -->
+			<BuildingClass>BUILDINGCLASS_NATIONAL_TV_STATION</BuildingClass>
+			<Type>BUILDING_NATIONAL_TV_STATION</Type>
+			<Description>TXT_KEY_BUILDING_NATIONAL_TV_STATION</Description>
+			<Civilopedia>TXT_KEY_BUILDING_NATIONAL_TV_STATION_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_NATIONAL_TV_STATION_STRATEGY</Strategy>
+			<Advisor>ADVISOR_CULTURE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_TVSTATION</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_MASS_MEDIA</TechType>
+			</PrereqAndTechs>
+			<iCost>450</iCost>
+			<iHurryCostModifier>50</iHurryCostModifier>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iGlobalGreatPeopleRateModifier>10</iGlobalGreatPeopleRateModifier>
+			<iAsset>10</iAsset>
+			<iPower>10</iPower>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>25</iCommerce>
+			</CommerceModifiers>
+			<FreeSpecialistCounts>
+				<FreeSpecialistCount>
+					<SpecialistType>SPECIALIST_ARTIST</SpecialistType>
+					<iCount>1</iCount>
+				</FreeSpecialistCount>
+			</FreeSpecialistCounts>
+			<ConstructSound>AS2D_BUILD_BROADCASTTOWER</ConstructSound>
+			<BonusYieldModifiers>
+				<BonusYieldModifier>
+					<BonusType>BONUS_MOVIES</BonusType>
+					<YieldModifiers>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>10</iYield>
+					</YieldModifiers>
+				</BonusYieldModifier>
+			</BonusYieldModifiers>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Network Node -->
 			<BuildingClass>BUILDINGCLASS_NETWORK_NODE</BuildingClass>
 			<Type>BUILDING_NETWORK_NODE</Type>
