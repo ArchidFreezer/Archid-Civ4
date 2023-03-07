@@ -5916,6 +5916,55 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- High Walls -->
+			<BuildingClass>BUILDINGCLASS_HIGH_WALLS</BuildingClass>
+			<Type>BUILDING_HIGH_WALLS</Type>
+			<Description>TXT_KEY_BUILDING_HIGH_WALLS</Description>
+			<Civilopedia>TXT_KEY_BUILDING_HIGH_WALLS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_WALLS_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_HIGH_WALLS</ArtDefineTag>
+			<ObsoleteTech>TECH_RIFLING</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_SIEGE_WARFARE</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_PROTECTIVE</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bCenterInCity>1</bCenterInCity>
+			<iCost>100</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>30</iConquestProb>
+			<iDefense>50</iDefense>
+			<iBombardDefense>40</iBombardDefense>
+			<iAsset>1</iAsset>
+			<iPower>2</iPower>
+			<fVisibilityPriority>1000.0</fVisibilityPriority>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommerceChanges>
+			<ConstructSound>AS2D_BUILD_WALLS</ConstructSound>
+			<BonusProductionModifiers>
+				<BonusProductionModifier>
+					<BonusType>BONUS_STONE</BonusType>
+					<iModifier>100</iModifier>
+				</BonusProductionModifier>
+			</BonusProductionModifiers>
+			<PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_WALLS</BuildingClassType>
+			</PrereqAndBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Hindu Cathedral -->
 			<BuildingClass>BUILDINGCLASS_HINDU_CATHEDRAL</BuildingClass>
 			<Type>BUILDING_HINDU_CATHEDRAL</Type>
@@ -12969,10 +13018,17 @@
 			<bCenterInCity>1</bCenterInCity>
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iDefense>50</iDefense>
-			<iBombardDefense>50</iBombardDefense>
+			<iConquestProb>20</iConquestProb>
+			<iDefense>30</iDefense>
+			<iBombardDefense>20</iBombardDefense>
 			<iAsset>1</iAsset>
 			<iPower>2</iPower>
+			<fVisibilityPriority>1000.0</fVisibilityPriority>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommerceChanges>
 			<ConstructSound>AS2D_BUILD_WALLS</ConstructSound>
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
@@ -12980,6 +13036,9 @@
 					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_HIGH_WALLS</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
@@ -13009,10 +13068,17 @@
 			<bCenterInCity>1</bCenterInCity>
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iDefense>50</iDefense>
-			<iBombardDefense>50</iBombardDefense>
+			<iConquestProb>20</iConquestProb>
+			<iDefense>30</iDefense>
+			<iBombardDefense>20</iBombardDefense>
 			<iAsset>1</iAsset>
 			<iPower>3</iPower>
+			<fVisibilityPriority>1000.0</fVisibilityPriority>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommerceChanges>
 			<ConstructSound>AS2D_BUILD_WALLS</ConstructSound>
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
@@ -13020,12 +13086,9 @@
 					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<UnitCombatFreeExperiences>
-				<UnitCombatFreeExperience>
-					<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
-					<iExperience>1</iExperience>
-				</UnitCombatFreeExperience>
-			</UnitCombatFreeExperiences>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_HIGH_WALLS</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>

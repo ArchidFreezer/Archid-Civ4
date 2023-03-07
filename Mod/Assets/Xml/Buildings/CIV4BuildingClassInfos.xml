@@ -61,6 +61,12 @@
 			<iCategory>12</iCategory>
 			<DefaultBuilding>BUILDING_WALLS</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- High Walls -->
+			<Type>BUILDINGCLASS_HIGH_WALLS</Type>
+			<Description>TXT_KEY_BUILDING_HIGH_WALLS</Description>
+			<iCategory>12</iCategory>
+			<DefaultBuilding>BUILDING_HIGH_WALLS</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Castle -->                          <!-- Castle -->
 			<Type>BUILDINGCLASS_CASTLE</Type>
