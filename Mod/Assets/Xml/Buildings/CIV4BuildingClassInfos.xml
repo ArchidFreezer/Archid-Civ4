@@ -793,6 +793,18 @@
 			<iCategory>37</iCategory>
 			<DefaultBuilding>BUILDING_BATH_HOUSE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Sewer System -->
+			<Type>BUILDINGCLASS_SEWER_SYSTEM</Type>
+			<Description>TXT_KEY_BUILDING_SEWER_SYSTEM</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_SEWER_SYSTEM</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Water Treatment Plant -->
+			<Type>BUILDINGCLASS_WATER_TREATMENT_PLANT</Type>
+			<Description>TXT_KEY_BUILDING_WATER_TREATMENT_PLANT</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_WATER_TREATMENT_PLANT</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Aqueduct -->                        <!-- Water -->
 			<Type>BUILDINGCLASS_AQUEDUCT</Type>

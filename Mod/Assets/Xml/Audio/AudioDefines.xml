@@ -7,6 +7,20 @@
 <AudioDefines xmlns="x-schema:AudioDefinesSchema.xml">
 	<SoundDatas>
 		<SoundData>
+			<SoundID>SND_BUILD_WATER_TREATMENT</SoundID>
+			<Filename>Sounds/Buildings/WaterTreatment</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
+			<SoundID>SND_BUILD_SEWER_SYSTEM</SoundID>
+			<Filename>Sounds/Buildings/Sewer</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
 			<SoundID>SND_BUILD_CINEMA</SoundID>
 			<Filename>Sounds/Buildings/Cinema</Filename>
 			<LoadType>DYNAMIC_RES</LoadType>

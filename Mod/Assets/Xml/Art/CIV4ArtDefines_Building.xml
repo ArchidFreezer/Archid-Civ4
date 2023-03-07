@@ -2838,5 +2838,25 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/treasury.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SEWER_SYSTEM</Type>
+			<LSystem>LSYSTEM_2x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/sewer/sewer.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/sewer.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_WATER_TREATMENT</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/water_treatment_plant/Sewage_Treatment_Plant.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/water_treatment_plant.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

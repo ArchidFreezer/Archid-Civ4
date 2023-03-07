@@ -1350,6 +1350,20 @@
 		<Tag>TXT_KEY_BUILDING_SCHOOL_OF_SCRIBES_STRATEGY</Tag>
 		<English>Increases city's science output and generates some culture as well. Required before you can build Plato's Academy.</English>
 	</TEXT>
+	<TEXT> <!-- Sewer System -->
+		<Tag>TXT_KEY_BUILDING_SEWER_SYSTEM</Tag>
+		<English>Sewer System</English>
+		<French>Système d'Egouts</French>
+		<German>Kanalisation</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SEWER_SYSTEM_PEDIA</Tag>
+		<English>[TAB]A sewer is an artificial conduit (or pipe) or system of conduits used to carry and remove sewage (human liquid waste) and to provide drainage. In the 21st century developed world, sewers are usually pipelines that begin with connecting pipes from buildings to one or more levels of larger underground horizontal mains, which terminate at sewage treatment facilities. Vertical pipes, called manholes, connect the mains to the surface. Sewers are generally gravity powered, though pumps may be used if necessary. [PARAGRAPH:2]The earliest covered sewers uncovered by archaeologists are in the regularly planned cities of the Indus Valley Civilization. In ancient Rome, the Cloaca Maxima, considered a marvel of engineering, disgorged into the Tiber. In medieval European cities, small natural waterways used for carrying off wastewater were eventually covered over and functioned as sewers. London's River Fleet is such a system. Open drains along the center of some streets were known as 'kennels' (= canals, channels).</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SEWER_SYSTEM_STRATEGY</Tag>
+		<English>Sewer System provides health to your city.</English>
+	</TEXT>
 	<TEXT> <!-- Shaman Temple -->
 		<Tag>TXT_KEY_BUILDING_SHAMAN_TEMPLE</Tag>
 		<English>Shaman Temple</English>
@@ -1677,6 +1691,24 @@
 		<Tag>TXT_KEY_BUILDING_CITYBUILDINGS_STRATEGY</Tag>
 		<English>Build Village Halls, Town Halls and City Councils to add free specialist in your cities.</English>
 		<French>Construisez Salle des fêtes, Hôtel de Ville, Conseil Municipal,... pour ajouter des spécialistes gratuitement dans vos Villes.</French>
+	</TEXT>
+	<TEXT> <!-- Water Treatment Plant -->
+		<Tag>TXT_KEY_BUILDING_WATER_TREATMENT_PLANT</Tag>
+		<English>Water Treatment Plant</English>
+		<French>
+			<Text>Usine de Traitement de l'eau</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Kl&#228;ranlage</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WATER_TREATMENT_PLANT_PEDIA</Tag>
+		<English>[TAB]Water treatment describes those processes used to make water more acceptable for a desired end-use. These can include use as drinking water, industrial processes, medical and many other uses. The goal of all water treatment process is to remove existing contaminants in the water, or reduce the concentration of such contaminants so the water becomes fit for its desired end-use. One such use is returning water that has been used back into the natural environment without adverse ecological impact.[PARAGRAPH:2]The processes involved in treating water for drinking purpose may be solids separation using physical such as settling and filtration, chemical such as disinfection and coagulation.[PARAGRAPH:2]Biological processes are also employed in the treatment of wastewater and these processes may include, for example, aerated lagoons, activated sludge or slow sand filters.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WATER_TREATMENT_PLANT_STRATEGY</Tag>
+		<English>Increases healthiness in the city but also increases maintenance slightly.</English>
 	</TEXT>
 	<TEXT> <!-- Weavers Hut -->
 		<Tag>TXT_KEY_BUILDING_WEAVERS_HUT</Tag>

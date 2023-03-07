@@ -10671,6 +10671,38 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Sewer System -->
+			<BuildingClass>BUILDINGCLASS_SEWER_SYSTEM</BuildingClass>
+			<Type>BUILDING_SEWER_SYSTEM</Type>
+			<Description>TXT_KEY_BUILDING_SEWER_SYSTEM</Description>
+			<Civilopedia>TXT_KEY_BUILDING_SEWER_SYSTEM_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_SEWER_SYSTEM_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_SEWER_SYSTEM</ArtDefineTag>
+			<FreeStartEra>ERA_MODERN</FreeStartEra>
+			<PrereqAndTechs>
+				<TechType>TECH_SANITATION</TechType>
+			</PrereqAndTechs>
+			<iCost>165</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>100</iConquestProb>
+			<iMaintenanceModifier>5</iMaintenanceModifier>
+			<iHealth>1</iHealth>
+			<iAsset>3</iAsset>
+			<ConstructSound>AS2D_BUILD_SEWER_SYSTEM</ConstructSound>
+			<BonusProductionModifiers>
+				<BonusProductionModifier>
+					<BonusType>BONUS_LEAD</BonusType>
+					<iModifier>25</iModifier>
+				</BonusProductionModifier>
+			</BonusProductionModifiers>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Shaman Temple -->
 			<BuildingClass>BUILDINGCLASS_SHAMAN_TEMPLE</BuildingClass>
 			<Type>BUILDING_SHAMAN_TEMPLE</Type>
@@ -13535,6 +13567,34 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Water Treatment Plant -->
+			<BuildingClass>BUILDINGCLASS_WATER_TREATMENT_PLANT</BuildingClass>
+			<Type>BUILDING_WATER_TREATMENT_PLANT</Type>
+			<Description>TXT_KEY_BUILDING_WATER_TREATMENT_PLANT</Description>
+			<Civilopedia>TXT_KEY_BUILDING_WATER_TREATMENT_PLANT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_WATER_TREATMENT_PLANT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_WATER_TREATMENT</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_PUBLIC_HEALTH</TechType>
+			</PrereqAndTechs>
+			<iCost>195</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>33</iConquestProb>
+			<iMaintenanceModifier>5</iMaintenanceModifier>
+			<iHealth>2</iHealth>
+			<iAsset>3</iAsset>
+			<ConstructSound>AS2D_BUILD_WATER_TREATMENT</ConstructSound>
+			<PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_SEWER_SYSTEM</BuildingClassType>
+			</PrereqAndBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
