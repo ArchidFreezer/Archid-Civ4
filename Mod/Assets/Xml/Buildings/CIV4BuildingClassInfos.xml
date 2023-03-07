@@ -131,6 +131,12 @@
 			<iCategory>16</iCategory>
 			<DefaultBuilding>BUILDING_RANCH</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Modern Granary -->
+			<Type>BUILDINGCLASS_MODERN_GRANARY</Type>
+			<Description>TXT_KEY_BUILDING_MODERN_GRANARY</Description>
+			<iCategory>16</iCategory>
+			<DefaultBuilding>BUILDING_MODERN_GRANARY</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Barracks -->                        <!-- Military Training -->
 			<Type>BUILDINGCLASS_BARRACKS</Type>

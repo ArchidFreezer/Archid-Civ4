@@ -1062,6 +1062,16 @@
 		<Tag>TXT_KEY_BUILDING_MILITARY_AIRBASE_STRATEGY</Tag>
 		<English>Increases the amount of air units city can hold and new air units will be more experienced. Slightly also increases defense against air attacks.</English>
 	</TEXT>
+	<TEXT> <!-- Modern Granary -->
+		<Tag>TXT_KEY_BUILDING_MODERN_GRANARY</Tag>
+		<English>Modern Granary</English>
+		<French>Silot à Grain</French>
+		<German>Moderner Kornspeicher</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MODERN_GRANARY_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Modern Granaries[COLOR_REVERT] store food to help increase a city's growth rate. They add additional health if your civ has access to [COLOR_HIGHLIGHT_TEXT]Corn[COLOR_REVERT], [COLOR_HIGHLIGHT_TEXT]Wheat[COLOR_REVERT], [COLOR_HIGHLIGHT_TEXT]Rice[COLOR_REVERT], and [COLOR_HIGHLIGHT_TEXT]Potato[COLOR_REVERT].</English>
+	</TEXT>
 	<TEXT> <!-- Modern Steelworks -->
 		<Tag>TXT_KEY_BUILDING_MODERN_STEELWORKS</Tag>
 		<English>Modern Steelworks</English>

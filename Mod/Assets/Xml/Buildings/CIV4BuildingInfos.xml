@@ -4857,8 +4857,8 @@
 			</ProductionTraits>
 			<iCost>60</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
-			<iFoodKept>50</iFoodKept>
+			<iConquestProb>75</iConquestProb>
+			<iFoodKept>30</iFoodKept>
 			<iAsset>3</iAsset>
 			<ConstructSound>AS2D_BUILD_GRANARY</ConstructSound>
 			<BonusHealthChanges>
@@ -4871,10 +4871,21 @@
 					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
+					<BonusType>BONUS_POTATO</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
 					<BonusType>BONUS_WHEAT</BonusType>
 					<iChange>1</iChange>
 				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_BARLEY</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
 			</BonusHealthChanges>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_MODERN_GRANARY</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
@@ -4902,8 +4913,8 @@
 			</ProductionTraits>
 			<iCost>60</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
-			<iFoodKept>50</iFoodKept>
+			<iConquestProb>75</iConquestProb>
+			<iFoodKept>30</iFoodKept>
 			<iAsset>4</iAsset>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
@@ -4926,10 +4937,21 @@
 					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
+					<BonusType>BONUS_POTATO</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
 					<BonusType>BONUS_WHEAT</BonusType>
 					<iChange>1</iChange>
 				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_BARLEY</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
 			</BonusHealthChanges>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_MODERN_GRANARY</BuildingClassType>
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
@@ -8630,6 +8652,58 @@
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
 					<iFlavor>8</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Modern Granary -->
+			<BuildingClass>BUILDINGCLASS_MODERN_GRANARY</BuildingClass>
+			<Type>BUILDING_MODERN_GRANARY</Type>
+			<Description>TXT_KEY_BUILDING_MODERN_GRANARY</Description>
+			<Civilopedia>TXT_KEY_BUILDING_GRANARY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_MODERN_GRANARY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_MODERN_GRANARY</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_AGRICULTURAL_ENGINEERING</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_EXPANSIVE</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<iCost>60</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>75</iConquestProb>
+			<iFoodKept>50</iFoodKept>
+			<iAsset>3</iAsset>
+			<ConstructSound>AS2D_BUILD_GRANARY</ConstructSound>
+			<BonusHealthChanges>
+				<BonusHealthChange>
+					<BonusType>BONUS_BARLEY</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_CORN</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_RICE</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_WHEAT</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+				<BonusHealthChange>
+					<BonusType>BONUS_POTATO</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+			</BonusHealthChanges>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
