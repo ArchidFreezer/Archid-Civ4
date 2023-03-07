@@ -380,6 +380,21 @@
 		<Tag>TXT_KEY_BUILDING_CHEMIST_STRATEGY</Tag>
 		<English>.</English>
 	</TEXT>
+<!-- Cinema -->
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CINEMA</Tag>
+		<English>Cinema</English>
+		<French>Cinéma</French>
+		<German>Kino</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CINEMA_PEDIA</Tag>
+		<English>[TAB]Most cinemas are commercial operations catering to the general public, who attend by purchasing a ticket. The film is projected onto a large projection screen at the front of the auditorium. Some cinemas are now equipped for digital cinema projection, removing the need to create and transport a physical film print.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CINEMA_STRATEGY</Tag>
+		<English>Movies can make people happy and some might even become celebrities.</English>
+	</TEXT>
 	<TEXT> <!-- Circus Maximus -->
 		<Tag>TXT_KEY_BUILDING_CIRCUS_MAXIMUS</Tag>
 		<English>Circus Maximus</English>

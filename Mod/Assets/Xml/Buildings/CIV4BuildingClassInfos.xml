@@ -633,6 +633,12 @@
 			<iCategory>32</iCategory>
 			<DefaultBuilding>BUILDING_GAMBLING_HALL</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Cinema -->
+			<Type>BUILDINGCLASS_CINEMA</Type>
+			<Description>TXT_KEY_BUILDING_CINEMA</Description>
+			<iCategory>32</iCategory>
+			<DefaultBuilding>BUILDING_CINEMA</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Academy -->                         <!-- Research -->
 			<Type>BUILDINGCLASS_ACADEMY</Type>
