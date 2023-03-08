@@ -719,17 +719,6 @@
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<iCombatPercent>10</iCombatPercent>
 			<OrUnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_BOMBERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_EARLY_BOMBERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
@@ -737,7 +726,32 @@
 				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ASSAULT_MECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BARBARIAN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DREADNOUGHT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WHEELED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ANIMAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BIOLOGICAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_CLONES</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HEALTH_CARE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HITECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NANITE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ROBOT</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,8,2</Button>
@@ -751,17 +765,6 @@
 			</PrereqOrPromotions>
 			<iCombatPercent>10</iCombatPercent>
 			<OrUnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_BOMBERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_EARLY_BOMBERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
@@ -769,7 +772,32 @@
 				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ASSAULT_MECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BARBARIAN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DREADNOUGHT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WHEELED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ANIMAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BIOLOGICAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_CLONES</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HEALTH_CARE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HITECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NANITE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ROBOT</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,1,6</Button>
@@ -783,17 +811,6 @@
 			</PrereqOrPromotions>
 			<iCombatPercent>10</iCombatPercent>
 			<OrUnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_BOMBERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_EARLY_BOMBERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
@@ -801,7 +818,29 @@
 				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ASSAULT_MECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BARBARIAN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DREADNOUGHT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WHEELED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ANIMAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BIOLOGICAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_CLONES</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HITECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NANITE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ROBOT</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat3.dds,Art/Interface/Buttons/Promotions_Atlas.dds,2,6</Button>
@@ -816,17 +855,6 @@
 			<iNeutralHealChange>10</iNeutralHealChange>
 			<iCombatPercent>10</iCombatPercent>
 			<OrUnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_BOMBERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_EARLY_BOMBERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
@@ -834,7 +862,29 @@
 				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ASSAULT_MECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BARBARIAN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DREADNOUGHT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WHEELED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ANIMAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BIOLOGICAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_CLONES</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HITECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NANITE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ROBOT</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat4.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,6</Button>
@@ -849,17 +899,6 @@
 			<iEnemyHealChange>10</iEnemyHealChange>
 			<iCombatPercent>10</iCombatPercent>
 			<OrUnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_BOMBERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_EARLY_BOMBERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
@@ -867,6 +906,29 @@
 				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ASSAULT_MECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BARBARIAN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DREADNOUGHT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WHEELED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ANIMAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BIOLOGICAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_CLONES</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HITECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NANITE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ROBOT</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Promotions_Atlas.dds,4,6</Button>
@@ -881,17 +943,6 @@
 			</PrereqOrPromotions>
 			<iCombatPercent>25</iCombatPercent>
 			<OrUnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_BOMBERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_EARLY_BOMBERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_EARLY_FIGHTERS</UnitCombatType>
@@ -899,6 +950,28 @@
 				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ASSAULT_MECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DREADNOUGHT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WHEELED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ANIMAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_BIOLOGICAL</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_CLONES</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HITECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NANITE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ROBOT</UnitCombatType>
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,6,15</Button>
