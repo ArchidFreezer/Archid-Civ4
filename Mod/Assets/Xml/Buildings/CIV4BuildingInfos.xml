@@ -3338,12 +3338,12 @@
 					</YieldChanges>
 				</BonusYieldChange>
 			</BonusYieldChanges>
-<!--			<BuildingClassProductionModifiers>
+			<BuildingClassProductionModifiers>
 				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_SKYSCRAPER</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_INVESTMENT_BANK</BuildingClassType>
 					<iModifier>40</iModifier>
 				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers> -->
+			</BuildingClassProductionModifiers>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
