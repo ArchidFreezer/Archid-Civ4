@@ -805,6 +805,12 @@
 			<iCategory>37</iCategory>
 			<DefaultBuilding>BUILDING_WATER_TREATMENT_PLANT</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Health Spa -->
+			<Type>BUILDINGCLASS_HEALTH_SPA</Type>
+			<Description>TXT_KEY_BUILDING_HEALTH_SPA</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_HEALTH_SPA</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Aqueduct -->                        <!-- Water -->
 			<Type>BUILDINGCLASS_AQUEDUCT</Type>

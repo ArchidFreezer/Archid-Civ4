@@ -5955,6 +5955,39 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Health Spa -->
+			<BuildingClass>BUILDINGCLASS_HEALTH_SPA</BuildingClass>
+			<Type>BUILDING_HEALTH_SPA</Type>
+			<Description>TXT_KEY_BUILDING_HEALTH_SPA</Description>
+			<Civilopedia>TXT_KEY_BUILDING_HEALTH_SPA_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_HEALTH_SPA_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_ACADEMY</ArtDefineTag>
+			<iCost>200</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>100</iConquestProb>
+			<iHealRateChange>10</iHealRateChange>
+			<iHealth>2</iHealth>
+			<iAsset>6</iAsset>
+			<CommerceChangeOriginalOwners>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
+			</CommerceChangeOriginalOwners>
+			<ConstructSound>AS2D_BUILD_HOSPITAL</ConstructSound>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
+				<BuildingClassType>BUILDINGCLASS_RED_CROSS</BuildingClassType>
+					<iNeeded>1</iNeeded>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Hermitage -->
 			<BuildingClass>BUILDINGCLASS_HERMITAGE</BuildingClass>
 			<Type>BUILDING_HERMITAGE</Type>
@@ -10307,14 +10340,22 @@
 			<Strategy>TXT_KEY_BUILDING_RED_CROSS_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_RED_CROSS</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_RED_CROSS</MovieDefineTag>
 			<PrereqAndTechs>
 				<TechType>TECH_MEDICINE</TechType>
 			</PrereqAndTechs>
+			<HappinessTraits>
+				<HappinessTrait>
+					<TraitType>TRAIT_HUMANITARIAN</TraitType>
+					<iChange>1</iChange>
+				</HappinessTrait>
+			</HappinessTraits>
 			<FreePromotion>PROMOTION_MEDIC1</FreePromotion>
-			<GreatPeopleUnitClass>UNITCLASS_SCIENTIST</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
+			<GreatPeopleUnitClass>UNITCLASS_DOCTOR</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<iCost>600</iCost>
 			<iHurryCostModifier>100</iHurryCostModifier>
+			<iHealRateChange>25</iHealRateChange>				
 			<iAsset>8</iAsset>
 			<iPower>4</iPower>
 			<ObsoleteSafeCommerceChanges>
@@ -10329,10 +10370,14 @@
 			</CommerceChangeDoubleTimes>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_HOSPITAL</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_HOSPITAL</BuildingClassType>
 					<iNeeded>4</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
+			<PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_HOSPITAL</BuildingClassType>
+			</PrereqAndBuildingClasses>
+			<Flavors/>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Research Institute -->
 			<BuildingClass>BUILDINGCLASS_RESEARCH_INSTITUTE</BuildingClass>

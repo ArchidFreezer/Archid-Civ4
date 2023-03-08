@@ -800,6 +800,18 @@
 		<English>Healer's Hut provides health to your city and heals units a small amount.</English>
 		<French>Les Guérisseurs améliore la Santé de la population, et soigne également les unités.</French>
 	</TEXT>
+	<TEXT> <!-- Health Spa -->
+		<Tag>TXT_KEY_BUILDING_HEALTH_SPA</Tag>
+		<English>Health Spa</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HEALTH_SPA_PEDIA</Tag>
+		<English>[TAB]Often found at natural springs Health Spas are places for taking the waters and hopefully getting healthy.  they have existed since antuquity.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HEALTH_SPA_STRATEGY</Tag>
+		<English>[TAB]An Health Spa provides a health boost to the city it is built in plus provides some protection against disease.</English>
+	</TEXT>
 	<TEXT> <!-- High Walls -->
 		<Tag>TXT_KEY_BUILDING_HIGH_WALLS</Tag>
 		<English>High Walls</English>
