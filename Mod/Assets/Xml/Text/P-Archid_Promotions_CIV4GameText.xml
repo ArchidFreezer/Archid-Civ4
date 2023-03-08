@@ -351,6 +351,15 @@
 		<English>Hunter III</English>
 	</TEXT>
 
+	<TEXT> <!-- Improved Radar -->
+		<Tag>TXT_KEY_PROMOTION_IMPROVED_RADAR</Tag>
+		<English>Improved Radar</English>
+		<French>Radar Am&#233;lior&#233;</French>
+		<German>Verbessertes Radar</German>
+		<Italian>Radar Migliorato</Italian>
+		<Spanish>Radar Mejorado</Spanish>
+	</TEXT>
+
 <!-- +++ Improviser +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_IMPROVISE1</Tag>
