@@ -52,6 +52,10 @@ public:
 	void changeUnitCombatProductionModifier(UnitCombatTypes eIndex, int iChange);
 	void setUnitCombatProductionModifier(UnitCombatTypes eIndex, int iChange);
 
+	bool isApplyAllFreePromotionsOnMove() const;
+	void changeApplyAllFreePromotionsOnMove(int iChange);
+	void doPromotion(bool bIgnorePrereqs);
+
 	void createBarbarianLeader(UnitTypes eBarbarianLeaderUnit, bool bIncrementBarbarianExperience);
 
 	void doAutoBuild();
@@ -1174,6 +1178,7 @@ protected:
 	int m_iSpecialistHappiness;
 	int m_iImprovementBadHealth;
 	int m_iImprovementGoodHealth;
+	int m_iApplyFreePromotionsOnMoveCount;
 
 	bool m_bNeverLost;
 	bool m_bBombarded;

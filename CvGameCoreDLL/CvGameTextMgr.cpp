@@ -9112,7 +9112,13 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 
 	if (kBuilding.getFreePromotion() != NO_PROMOTION) {
 		szBuffer.append(NEWLINE);
-		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_FREE_PROMOTION", GC.getPromotionInfo((PromotionTypes)(kBuilding.getFreePromotion())).getTextKeyWide()));
+		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_FREE_PROMOTION_START", GC.getPromotionInfo((PromotionTypes)(kBuilding.getFreePromotion())).getTextKeyWide()));
+		szBuffer.append(gDLL->getText(kBuilding.isApplyFreePromotionOnMove() ? "TXT_KEY_BUILDING_FREE_PROMOTION_END_GARRISON" : "TXT_KEY_BUILDING_FREE_PROMOTION_END_BUILT"));
+	}
+
+	if (kBuilding.isApplyAllFreePromotionsOnMove()) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_FREE_PROMOTION_GARRISON_ALL"));
 	}
 
 	if (kBuilding.getCivicOption() != NO_CIVICOPTION) {

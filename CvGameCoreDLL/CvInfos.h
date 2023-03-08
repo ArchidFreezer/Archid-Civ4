@@ -1946,6 +1946,8 @@ public:
 	bool isStarSignGoodOnly() const;
 	bool isSlaveMarket() const;
 	bool isPrereqVicinityBonusUnconnectedAllowed() const;
+	bool isApplyAllFreePromotionsOnMove() const;
+	bool isApplyFreePromotionOnMove() const;
 
 	CultureLevelTypes getMinCultureLevel() const;
 
@@ -2198,6 +2200,8 @@ protected:
 	bool m_bStarSignGoodOnly;
 	bool m_bSlaveMarket;
 	bool m_bPrereqVicinityBonusUnconnectedAllowed;
+	bool m_bApplyAllFreePromotionsOnMove;
+	bool m_bApplyFreePromotionOnMove;
 
 	CultureLevelTypes m_eMinCultureLevel;
 

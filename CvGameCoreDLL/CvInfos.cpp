@@ -6880,6 +6880,8 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_bStarSignGoodOnly(false),
 	m_bSlaveMarket(false),
 	m_bPrereqVicinityBonusUnconnectedAllowed(false),
+	m_bApplyFreePromotionOnMove(false),
+	m_bApplyAllFreePromotionsOnMove(false),
 	m_eMinCultureLevel(NO_CULTURELEVEL),
 	m_piProductionTraits(NULL),
 	m_piHappinessTraits(NULL),
@@ -7012,6 +7014,14 @@ CvBuildingInfo::~CvBuildingInfo() {
 		SAFE_DELETE_ARRAY(m_ppaiTechYieldChange);
 	}
 
+}
+
+bool CvBuildingInfo::isApplyAllFreePromotionsOnMove() const {
+	return m_bApplyAllFreePromotionsOnMove;
+}
+
+bool CvBuildingInfo::isApplyFreePromotionOnMove() const {
+	return m_bApplyFreePromotionOnMove;
 }
 
 int CvBuildingInfo::getTechYieldChange(int i, int j) const {
@@ -8254,6 +8264,8 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bStarSignGoodOnly);
 	stream->Read(&m_bSlaveMarket);
 	stream->Read(&m_bPrereqVicinityBonusUnconnectedAllowed);
+	stream->Read(&m_bApplyAllFreePromotionsOnMove);
+	stream->Read(&m_bApplyFreePromotionOnMove);
 
 	stream->ReadString(m_szConstructSound);
 	stream->ReadString(m_szArtDefineTag);
@@ -8791,6 +8803,8 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bStarSignGoodOnly);
 	stream->Write(m_bSlaveMarket);
 	stream->Write(m_bPrereqVicinityBonusUnconnectedAllowed);
+	stream->Write(m_bApplyAllFreePromotionsOnMove);
+	stream->Write(m_bApplyFreePromotionOnMove);
 
 	stream->WriteString(m_szConstructSound);
 	stream->WriteString(m_szArtDefineTag);
@@ -9077,6 +9091,8 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bCenterInCity, "bCenterInCity");
 	pXML->GetChildXmlValByName(&m_bSlaveMarket, "bSlaveMarket");
 	pXML->GetChildXmlValByName(&m_bStateReligion, "bStateReligion");
+	pXML->GetChildXmlValByName(&m_bApplyAllFreePromotionsOnMove, "bApplyAllFreePromotionsOnMove");
+	pXML->GetChildXmlValByName(&m_bApplyFreePromotionOnMove, "bApplyFreePromotionOnMove");
 	pXML->GetChildXmlValByName(&m_bForceDisableStarSigns, "bForceDisableStarSigns");
 	pXML->GetChildXmlValByName(&m_bStarSignGoodOnly, "bStarSignGoodOnly");
 	pXML->GetChildXmlValByName(&m_iStarSignMitigateChangePercent, "iStarSignMitigateChangePercent");

@@ -468,6 +468,8 @@
 	<ElementType name="UnitCombatProductionModifiers" content="eltOnly">
 		<element type="UnitCombatProductionModifier" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="bApplyAllFreePromotionsOnMove" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bApplyFreePromotionOnMove" content="textOnly" dt:type="boolean"/>
 	<ElementType name="BuildingInfo" content="eltOnly">
 		<element type="BuildingClass"/>
 		<element type="Type"/>
@@ -543,6 +545,8 @@
 		<element type="bPrereqReligion" minOccurs="0"/>
 		<element type="bCenterInCity" minOccurs="0"/>
 		<element type="bSlaveMarket" minOccurs="0"/>
+		<element type="bApplyAllFreePromotionsOnMove" minOccurs="0"/>
+		<element type="bApplyFreePromotionOnMove" minOccurs="0"/>
 		<element type="bForceDisableStarSigns" minOccurs="0"/>
 		<element type="bStarSignGoodOnly" minOccurs="0"/>
 		<element type="iStarSignMitigateChangePercent" minOccurs="0"/>

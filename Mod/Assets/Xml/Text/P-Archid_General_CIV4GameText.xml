@@ -1703,5 +1703,22 @@
 		<French>%[SPACE]Construction Lente de[SPACE]</French>
 		<German>%[SPACE]Langsamere Konstruktion von[SPACE]</German>
 	</TEXT>
+<!-- Promotions on the move -->
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FREE_PROMOTION_START</Tag>
+		<English>[ICON_BULLET]Free [COLOR_HIGHLIGHT_TEXT][LINK=literal]%s1_Name[\LINK][COLOR_REVERT] Promotion for Units</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FREE_PROMOTION_END_BUILT</Tag>
+		<English>[SPACE]Built in this City</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FREE_PROMOTION_END_GARRISON</Tag>
+		<English>[SPACE]ending their turn in this City</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FREE_PROMOTION_GARRISON_ALL</Tag>
+		<English>All free promotions applied to Units ending their turn in this City</English>
+	</TEXT>
 
 </Civ4GameText>

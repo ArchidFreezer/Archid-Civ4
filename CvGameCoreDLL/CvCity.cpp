@@ -437,6 +437,7 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 	m_iSpecialistHappiness = 0;
 	m_iImprovementBadHealth = 0;
 	m_iImprovementGoodHealth = 0;
+	m_iApplyFreePromotionsOnMoveCount = 0;
 
 	m_bNeverLost = true;
 	m_bBombarded = false;
@@ -880,6 +881,7 @@ void CvCity::doTurn() {
 	}
 
 	doAutoBuild();
+	doPromotion(false);
 
 	if (getCultureUpdateTimer() > 0) {
 		changeCultureUpdateTimer(-1);
@@ -3271,6 +3273,7 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 		changeUnhealthyPopulationModifier(kBuilding.getUnhealthyPopulationModifier() * iChange); // K-Mod
 		changeBuildingOnlyHealthyCount((kBuilding.isBuildingOnlyHealthy()) ? iChange : 0);
 		changeSlaveMarketCount(kBuilding.isSlaveMarket() ? iChange : 0);
+		changeApplyAllFreePromotionsOnMove(kBuilding.isApplyAllFreePromotionsOnMove() ? iChange : 0);
 
 		for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 			changeSeaPlotYield(eYield, (kBuilding.getSeaPlotYieldChange(eYield) * iChange));
@@ -11112,6 +11115,7 @@ void CvCity::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iSpecialistHappiness);
 	pStream->Read(&m_iImprovementBadHealth);
 	pStream->Read(&m_iImprovementGoodHealth);
+	pStream->Read(&m_iApplyFreePromotionsOnMoveCount);
 
 	pStream->Read(&m_bNeverLost);
 	pStream->Read(&m_bBombarded);
@@ -11388,6 +11392,7 @@ void CvCity::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iSpecialistHappiness);
 	pStream->Write(m_iImprovementBadHealth);
 	pStream->Write(m_iImprovementGoodHealth);
+	pStream->Write(m_iApplyFreePromotionsOnMoveCount);
 
 	pStream->Write(m_bNeverLost);
 	pStream->Write(m_bBombarded);
@@ -14070,6 +14075,62 @@ void CvCity::updateImprovementHealth() {
 
 		if (getTeam() == GC.getGameINLINE().getActiveTeam()) {
 			setInfoDirty(true);
+		}
+	}
+}
+
+bool CvCity::isApplyAllFreePromotionsOnMove() const {
+	return m_iApplyFreePromotionsOnMoveCount > 0;
+}
+
+void CvCity::changeApplyAllFreePromotionsOnMove(int iChange) {
+	m_iApplyFreePromotionsOnMoveCount += iChange;
+}
+
+void CvCity::doPromotion(bool bIgnorePrereqs) {
+
+	if (isDisorder()) {
+		return;
+	}
+
+	std::vector<PromotionTypes> aAvailablePromotions;
+
+	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+		const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+		if (getNumBuilding(eBuilding) > 0 && kBuilding.getFreePromotion() != NO_PROMOTION) {
+			if (kBuilding.isApplyFreePromotionOnMove() || isApplyAllFreePromotionsOnMove()) {
+				if (!(std::find(aAvailablePromotions.begin(), aAvailablePromotions.end(), kBuilding.getFreePromotion()) != aAvailablePromotions.end())) {
+					aAvailablePromotions.push_back((PromotionTypes)kBuilding.getFreePromotion());
+				}
+			}
+		}
+	}
+	if (aAvailablePromotions.size() > 0) {
+		CLLNode<IDInfo>* pUnitNode = plot()->headUnitNode();
+		while (pUnitNode != NULL) {
+			CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+			pUnitNode = plot()->nextUnitNode(pUnitNode);
+
+			if (pLoopUnit->getUnitCombatType() == NO_UNITCOMBAT) {
+				continue;
+			}
+
+			// There may be promotions that have dependencies so we have to loop through the vector multiple times
+			// until we find that no more were added
+			while (true) {
+				bool bAdded = false;
+				for (std::vector<PromotionTypes>::iterator it = aAvailablePromotions.begin(); it != aAvailablePromotions.end(); /* No increment due to erase in loop */) {
+					if (!pLoopUnit->isHasPromotion(*it) && (pLoopUnit->canAcquirePromotion(*it) || (bIgnorePrereqs && pLoopUnit->isPromotionValid(*it)))) {
+						pLoopUnit->setHasPromotion(*it, true);
+						bAdded = true;
+						aAvailablePromotions.erase(it); // This increments the iterator
+					} else {
+						it++;
+					}
+				}
+				// If we didn't add any more promotions then we can break out of the loop and go to the next unit
+				if (!bAdded) break;
+			}
 		}
 	}
 }
