@@ -431,6 +431,15 @@
 		<Spanish>Construye [COLOR_UNIT_TEXT]Recolectores[COLOR_REVERT] para mejorar tu tierra en las eras Paleol&#237;tica y Mesol&#237;tica.</Spanish>
 	</TEXT>
 
+	<TEXT> <!-- Great Doctor -->
+		<Tag>TXT_KEY_UNIT_GREAT_DOCTOR</Tag>
+		<English>Great Doctor</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GREAT_DOCTOR_STRATEGY</Tag>
+		<English>[COLOR_UNIT_TEXT]Great Doctors[COLOR_REVERT] can build a [COLOR_BUILDING_TEXT]Military Academy[COLOR_REVERT], which greatly increases a city's research. They can also go into the field and assist different units by providing field hospitals or making them self sufficient in taking care of their own wounds.</English>
+	</TEXT>
+
 	<TEXT> <!-- Great Jester -->
 		<Tag>TXT_KEY_UNIT_GREAT_JESTER</Tag>
 		<English>Great Jester</English>

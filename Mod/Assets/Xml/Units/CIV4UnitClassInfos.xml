@@ -225,6 +225,11 @@
 			<Description>TXT_KEY_UNIT_GREAT_ARTIST</Description>
 			<DefaultUnit>UNIT_ARTIST</DefaultUnit>
 		</UnitClassInfo>
+		<UnitClassInfo> <!-- Great Doctor -->
+			<Type>UNITCLASS_DOCTOR</Type>
+			<Description>TXT_KEY_UNIT_GREAT_DOCTOR</Description>
+			<DefaultUnit>UNIT_DOCTOR</DefaultUnit>
+		</UnitClassInfo>
 		<UnitClassInfo> <!-- Great Engineer -->
 			<Type>UNITCLASS_ENGINEER</Type>
 			<Description>TXT_KEY_UNIT_GREAT_ENGINEER</Description>
