@@ -1360,6 +1360,21 @@
 		<French>Russian version of the Research Institute strongly increse research and space ship constructionat the cost of the cities productivity. They are prerequiste for more specialised research facilities.</French>
 		<German>Die Russische Variante des Forschungsinstitute verbessert die Forschung und Raumschiffkonstruktion wesentlicher stärker. Es sind Voraussetzung für den Bau spezialisierter Forschungseinrichtungen.</German>
 	</TEXT>	
+<!-- Sacred Site -->
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SACRED_SITE</Tag>
+		<English>Sacred Site</English>
+		<French>Site Sacré</French>
+		<German>heilige Stätte</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SACRED_SITE_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SACRED_SITE_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
 	<TEXT> <!-- School of Scribes -->
 		<Tag>TXT_KEY_BUILDING_SCHOOL_OF_SCRIBES</Tag>
 		<English>School of Scribes</English>

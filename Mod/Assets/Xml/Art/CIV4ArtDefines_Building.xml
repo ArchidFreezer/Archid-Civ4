@@ -2878,5 +2878,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/military_hospital.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SACRED_SITE</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.33</fScale>
+			<fInterfaceScale>0.83</fInterfaceScale>
+			<NIF>Art/empty.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/sacred_site.dds</Button>
+		</BuildingArtInfo>				
 	</BuildingArtInfos>
 </Civ4ArtDefines>

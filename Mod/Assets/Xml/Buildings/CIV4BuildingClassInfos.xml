@@ -1538,6 +1538,12 @@
 			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_JEWISH_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Sacred Site -->
+			<Type>BUILDINGCLASS_SACRED_SITE</Type>
+			<Description>TXT_KEY_BUILDING_SACRED_SITE</Description>
+			<iCategory>5</iCategory>
+			<DefaultBuilding>BUILDING_SACRED_SITE</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Taoist Cathedral -->
 			<Type>BUILDINGCLASS_TAOIST_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_TAOIST_CATHEDRAL</Description>

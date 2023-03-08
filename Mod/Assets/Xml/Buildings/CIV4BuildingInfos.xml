@@ -1597,7 +1597,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Buddhist Cathedral -->
+		<BuildingInfo> <!-- Buddhist Cathedral (Stupa) -->
 			<BuildingClass>BUILDINGCLASS_BUDDHIST_CATHEDRAL</BuildingClass>
 			<Type>BUILDING_BUDDHIST_CATHEDRAL</Type>
 			<SpecialBuildingType>SPECIALBUILDING_CATHEDRAL</SpecialBuildingType>
@@ -1611,37 +1611,52 @@
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>10</iStarSignMitigateChangePercent>
 			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
-			<iCost>240</iCost>
-			<iStateReligionHappiness>2</iStateReligionHappiness>
+			<iCost>350</iCost>
+			<iMaintenanceModifier>15</iMaintenanceModifier>
+			<iStateReligionHappiness>4</iStateReligionHappiness>
 			<iAsset>6</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>40</iCommerce>
+				<iCommerce>50</iCommerce>
 			</CommerceModifiers>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_BUDDHISM</ReligionType>
+					<iChange>3</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iCount>2</iCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_BUDDHIST</ConstructSound>
-			<BonusHappinessChanges>
-				<BonusHappinessChange>
-					<BonusType>BONUS_INCENSE</BonusType>
-					<iChange>1</iChange>
-				</BonusHappinessChange>
-			</BonusHappinessChanges>
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_COPPER</BonusType>
 					<iModifier>100</iModifier>
 				</BonusProductionModifier>
+				<BonusProductionModifier>
+					<BonusType>BONUS_GOLD</BonusType>
+					<iModifier>15</iModifier>
+				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
 					<BuildingClassType>BUILDINGCLASS_BUDDHIST_TEMPLE</BuildingClassType>
-					<iNeeded>2</iNeeded>
+					<iNeeded>1</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<Flavors>
@@ -1726,8 +1741,9 @@
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>2</iStarSignMitigateChangePercent>
 			<iStarSignScaleChangePercent>10</iStarSignScaleChangePercent>
-			<iCost>80</iCost>
-			<iHappiness>1</iHappiness>
+			<iCost>90</iCost>
+			<iMaintenanceModifier>10</iMaintenanceModifier>
+			<iStateReligionHappiness>2</iStateReligionHappiness>
 			<iAsset>4</iAsset>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
@@ -1739,6 +1755,12 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>1000</iCommerce>
 			</CommerceChangeDoubleTimes>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_BUDDHISM</ReligionType>
+					<iChange>2</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
@@ -1746,6 +1768,15 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_BUDDHIST</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_BUDDHIST_CATHEDRAL</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>				
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_BUDDHIST_CATHEDRAL</BuildingClassType>
+			</ReplacedByBuildingClasses>			
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -2304,37 +2335,52 @@
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>10</iStarSignMitigateChangePercent>
 			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
-			<iCost>240</iCost>
-			<iStateReligionHappiness>2</iStateReligionHappiness>
+			<iCost>350</iCost>
+			<iMaintenanceModifier>15</iMaintenanceModifier>
+			<iStateReligionHappiness>4</iStateReligionHappiness>
 			<iAsset>6</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>40</iCommerce>
+				<iCommerce>50</iCommerce>
 			</CommerceModifiers>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_CHRISTIANITY</ReligionType>
+					<iChange>3</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iCount>2</iCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_CHRISTIAN</ConstructSound>
-			<BonusHappinessChanges>
-				<BonusHappinessChange>
-					<BonusType>BONUS_INCENSE</BonusType>
-					<iChange>1</iChange>
-				</BonusHappinessChange>
-			</BonusHappinessChanges>
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
 					<iModifier>100</iModifier>
 				</BonusProductionModifier>
+				<BonusProductionModifier>
+					<BonusType>BONUS_LEAD</BonusType>
+					<iModifier>15</iModifier>
+				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_CHRISTIAN_TEMPLE</BuildingClassType>
-					<iNeeded>2</iNeeded>
+				<BuildingClassType>BUILDINGCLASS_CHRISTIAN_TEMPLE</BuildingClassType>
+					<iNeeded>1</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<Flavors>
@@ -2419,8 +2465,9 @@
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>2</iStarSignMitigateChangePercent>
 			<iStarSignScaleChangePercent>10</iStarSignScaleChangePercent>
-			<iCost>80</iCost>
-			<iHappiness>1</iHappiness>
+			<iCost>90</iCost>
+			<iMaintenanceModifier>10</iMaintenanceModifier>
+			<iStateReligionHappiness>2</iStateReligionHappiness>
 			<iAsset>4</iAsset>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
@@ -2432,6 +2479,12 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>1000</iCommerce>
 			</CommerceChangeDoubleTimes>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_CHRISTIANITY</ReligionType>
+					<iChange>2</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
@@ -2439,6 +2492,15 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_CHRISTIAN</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_CHRISTIAN_CATHEDRAL</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>				
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_CHRISTIAN_CATHEDRAL</BuildingClassType>
+			</ReplacedByBuildingClasses>			
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -3124,7 +3186,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Confucian Cathedral -->
+		<BuildingInfo> <!-- Confucian Cathedral (Academy) -->
 			<BuildingClass>BUILDINGCLASS_CONFUCIAN_CATHEDRAL</BuildingClass>
 			<Type>BUILDING_CONFUCIAN_CATHEDRAL</Type>
 			<SpecialBuildingType>SPECIALBUILDING_CATHEDRAL</SpecialBuildingType>
@@ -3138,37 +3200,52 @@
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>10</iStarSignMitigateChangePercent>
 			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
-			<iCost>240</iCost>
-			<iStateReligionHappiness>2</iStateReligionHappiness>
+			<iCost>350</iCost>
+			<iMaintenanceModifier>15</iMaintenanceModifier>
+			<iStateReligionHappiness>4</iStateReligionHappiness>
 			<iAsset>6</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>40</iCommerce>
+				<iCommerce>50</iCommerce>
 			</CommerceModifiers>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_CONFUCIANISM</ReligionType>
+					<iChange>3</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iCount>2</iCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_CONFUCIAN</ConstructSound>
-			<BonusHappinessChanges>
-				<BonusHappinessChange>
-					<BonusType>BONUS_INCENSE</BonusType>
-					<iChange>1</iChange>
-				</BonusHappinessChange>
-			</BonusHappinessChanges>
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_COPPER</BonusType>
 					<iModifier>100</iModifier>
 				</BonusProductionModifier>
+				<BonusProductionModifier>
+					<BonusType>BONUS_STONE</BonusType>
+					<iModifier>15</iModifier>
+				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_CONFUCIAN_TEMPLE</BuildingClassType>
-					<iNeeded>2</iNeeded>
+				<BuildingClassType>BUILDINGCLASS_CONFUCIAN_TEMPLE</BuildingClassType>
+					<iNeeded>1</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<Flavors>
@@ -3254,7 +3331,8 @@
 			<iStarSignMitigateChangePercent>2</iStarSignMitigateChangePercent>
 			<iStarSignScaleChangePercent>10</iStarSignScaleChangePercent>
 			<iCost>80</iCost>
-			<iHappiness>1</iHappiness>
+			<iMaintenanceModifier>10</iMaintenanceModifier>
+			<iStateReligionHappiness>2</iStateReligionHappiness>
 			<iAsset>4</iAsset>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
@@ -3266,6 +3344,12 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>1000</iCommerce>
 			</CommerceChangeDoubleTimes>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_CONFUCIANISM</ReligionType>
+					<iChange>1</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
@@ -3273,6 +3357,15 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_CONFUCIAN</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_CONFUCIAN_CATHEDRAL</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>				
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_CONFUCIAN_CATHEDRAL</BuildingClassType>
+			</ReplacedByBuildingClasses>			
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -6113,7 +6206,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Hindu Cathedral -->
+		<BuildingInfo> <!-- Hindu Cathedral (Mandir) -->
 			<BuildingClass>BUILDINGCLASS_HINDU_CATHEDRAL</BuildingClass>
 			<Type>BUILDING_HINDU_CATHEDRAL</Type>
 			<SpecialBuildingType>SPECIALBUILDING_CATHEDRAL</SpecialBuildingType>
@@ -6127,37 +6220,52 @@
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>10</iStarSignMitigateChangePercent>
 			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
-			<iCost>240</iCost>
-			<iStateReligionHappiness>2</iStateReligionHappiness>
+			<iCost>350</iCost>
+			<iMaintenanceModifier>15</iMaintenanceModifier>
+			<iStateReligionHappiness>4</iStateReligionHappiness>
 			<iAsset>6</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>40</iCommerce>
+				<iCommerce>50</iCommerce>
 			</CommerceModifiers>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_HINDUISM</ReligionType>
+					<iChange>3</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iCount>2</iCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_HINDU</ConstructSound>
-			<BonusHappinessChanges>
-				<BonusHappinessChange>
-					<BonusType>BONUS_INCENSE</BonusType>
-					<iChange>1</iChange>
-				</BonusHappinessChange>
-			</BonusHappinessChanges>
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_MARBLE</BonusType>
 					<iModifier>100</iModifier>
 				</BonusProductionModifier>
+				<BonusProductionModifier>
+					<BonusType>BONUS_IVORY</BonusType>
+					<iModifier>15</iModifier>
+				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_HINDU_TEMPLE</BuildingClassType>
-					<iNeeded>2</iNeeded>
+				<BuildingClassType>BUILDINGCLASS_HINDU_TEMPLE</BuildingClassType>
+					<iNeeded>1</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<Flavors>
@@ -6243,7 +6351,8 @@
 			<iStarSignMitigateChangePercent>2</iStarSignMitigateChangePercent>
 			<iStarSignScaleChangePercent>10</iStarSignScaleChangePercent>
 			<iCost>80</iCost>
-			<iHappiness>1</iHappiness>
+			<iMaintenanceModifier>10</iMaintenanceModifier>
+			<iStateReligionHappiness>2</iStateReligionHappiness>
 			<iAsset>4</iAsset>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
@@ -6255,6 +6364,12 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>1000</iCommerce>
 			</CommerceChangeDoubleTimes>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_HINDUISM</ReligionType>
+					<iChange>1</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
@@ -6262,6 +6377,15 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_HINDU</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_HINDU_CATHEDRAL</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>				
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_HINDU_CATHEDRAL</BuildingClassType>
+			</ReplacedByBuildingClasses>			
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -6879,7 +7003,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Islamic Cathedral -->
+		<BuildingInfo> <!-- Islamic Cathedral (Mosque) -->
 			<BuildingClass>BUILDINGCLASS_ISLAMIC_CATHEDRAL</BuildingClass>
 			<Type>BUILDING_ISLAMIC_CATHEDRAL</Type>
 			<SpecialBuildingType>SPECIALBUILDING_CATHEDRAL</SpecialBuildingType>
@@ -6893,37 +7017,52 @@
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>10</iStarSignMitigateChangePercent>
 			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
-			<iCost>240</iCost>
-			<iStateReligionHappiness>2</iStateReligionHappiness>
+			<iCost>350</iCost>
+			<iMaintenanceModifier>15</iMaintenanceModifier>
+			<iStateReligionHappiness>4</iStateReligionHappiness>
 			<iAsset>6</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>40</iCommerce>
+				<iCommerce>50</iCommerce>
 			</CommerceModifiers>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_ISLAM</ReligionType>
+					<iChange>3</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iCount>2</iCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_ISLAMIC</ConstructSound>
-			<BonusHappinessChanges>
-				<BonusHappinessChange>
-					<BonusType>BONUS_INCENSE</BonusType>
-					<iChange>1</iChange>
-				</BonusHappinessChange>
-			</BonusHappinessChanges>
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_MARBLE</BonusType>
 					<iModifier>100</iModifier>
 				</BonusProductionModifier>
+				<BonusProductionModifier>
+					<BonusType>BONUS_STONE</BonusType>
+					<iModifier>15</iModifier>
+				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_ISLAMIC_TEMPLE</BuildingClassType>
-					<iNeeded>2</iNeeded>
+				<BuildingClassType>BUILDINGCLASS_ISLAMIC_TEMPLE</BuildingClassType>
+					<iNeeded>1</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<Flavors>
@@ -7008,8 +7147,9 @@
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>2</iStarSignMitigateChangePercent>
 			<iStarSignScaleChangePercent>10</iStarSignScaleChangePercent>
-			<iCost>80</iCost>
-			<iHappiness>1</iHappiness>
+			<iCost>90</iCost>
+			<iMaintenanceModifier>10</iMaintenanceModifier>
+			<iStateReligionHappiness>2</iStateReligionHappiness>
 			<iAsset>4</iAsset>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
@@ -7021,6 +7161,12 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>1000</iCommerce>
 			</CommerceChangeDoubleTimes>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_ISLAM</ReligionType>
+					<iChange>2</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
@@ -7028,6 +7174,15 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_ISLAMIC</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ISLAMIC_CATHEDRAL</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>				
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_ISLAMIC_CATHEDRAL</BuildingClassType>
+			</ReplacedByBuildingClasses>			
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -7140,7 +7295,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Jewish Cathedral -->
+		<BuildingInfo> <!-- Jewish Cathedral (Synagogue) -->
 			<BuildingClass>BUILDINGCLASS_JEWISH_CATHEDRAL</BuildingClass>
 			<Type>BUILDING_JEWISH_CATHEDRAL</Type>
 			<SpecialBuildingType>SPECIALBUILDING_CATHEDRAL</SpecialBuildingType>
@@ -7154,37 +7309,52 @@
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>10</iStarSignMitigateChangePercent>
 			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
-			<iCost>240</iCost>
-			<iStateReligionHappiness>2</iStateReligionHappiness>
+			<iCost>350</iCost>
+			<iMaintenanceModifier>15</iMaintenanceModifier>
+			<iStateReligionHappiness>4</iStateReligionHappiness>
 			<iAsset>6</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>40</iCommerce>
+				<iCommerce>50</iCommerce>
 			</CommerceModifiers>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_JUDAISM</ReligionType>
+					<iChange>3</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iCount>2</iCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_JEWISH</ConstructSound>
-			<BonusHappinessChanges>
-				<BonusHappinessChange>
-					<BonusType>BONUS_INCENSE</BonusType>
-					<iChange>1</iChange>
-				</BonusHappinessChange>
-			</BonusHappinessChanges>
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
 					<iModifier>100</iModifier>
 				</BonusProductionModifier>
+				<BonusProductionModifier>
+					<BonusType>BONUS_LEAD</BonusType>
+					<iModifier>15</iModifier>
+				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_JEWISH_TEMPLE</BuildingClassType>
-					<iNeeded>2</iNeeded>
+				<BuildingClassType>BUILDINGCLASS_JEWISH_TEMPLE</BuildingClassType>
+					<iNeeded>1</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<Flavors>
@@ -7270,7 +7440,8 @@
 			<iStarSignMitigateChangePercent>2</iStarSignMitigateChangePercent>
 			<iStarSignScaleChangePercent>10</iStarSignScaleChangePercent>
 			<iCost>80</iCost>
-			<iHappiness>1</iHappiness>
+			<iMaintenanceModifier>10</iMaintenanceModifier>
+			<iStateReligionHappiness>2</iStateReligionHappiness>
 			<iAsset>4</iAsset>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
@@ -7282,6 +7453,12 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>1000</iCommerce>
 			</CommerceChangeDoubleTimes>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_JUDAISM</ReligionType>
+					<iChange>1</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
@@ -7289,6 +7466,15 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_JEWISH</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_JEWISH_CATHEDRAL</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>				
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_JEWISH_CATHEDRAL</BuildingClassType>
+			</ReplacedByBuildingClasses>			
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -10563,6 +10749,78 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Sacred Site -->
+			<BuildingClass>BUILDINGCLASS_SACRED_SITE</BuildingClass>
+			<Type>BUILDING_SACRED_SITE</Type>
+			<Description>TXT_KEY_BUILDING_SACRED_SITE</Description>
+			<Civilopedia>TXT_KEY_BUILDING_SACRED_SITE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_SACRED_SITE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_RELIGION</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_SACRED_SITE</ArtDefineTag>
+			<bStateReligion>1</bStateReligion>
+			<ObsoleteTech>TECH_THEOLOGY</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MYSTICISM</TechType>
+			</PrereqAndTechs>
+			<bNeverCapture>1</bNeverCapture>
+			<iCost>35</iCost>
+			<iHappiness>1</iHappiness>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_BUDDHIST_TEMPLE</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_CHRISTIAN_TEMPLE</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_CONFUCIAN_TEMPLE</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_HINDU_TEMPLE</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_ISLAMIC_TEMPLE</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_JEWISH_TEMPLE</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_TAOIST_TEMPLE</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>				
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_BUDDHIST_TEMPLE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CHRISTIAN_TEMPLE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_CONFUCIAN_TEMPLE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_HINDU_TEMPLE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_ISLAMIC_TEMPLE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_JEWISH_TEMPLE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_TAOIST_TEMPLE</BuildingClassType>
+			</ReplacedByBuildingClasses>		
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>5</iFlavor>
+				</Flavor>
+			</Flavors>	
+		</BuildingInfo>
 		<BuildingInfo> <!-- Sankore -->
 			<BuildingClass>BUILDINGCLASS_SANKORE</BuildingClass>
 			<Type>BUILDING_SANKORE</Type>
@@ -12532,7 +12790,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Taoist Cathedral -->
+		<BuildingInfo> <!-- Taoist Cathedral (Pagoda) -->
 			<BuildingClass>BUILDINGCLASS_TAOIST_CATHEDRAL</BuildingClass>
 			<Type>BUILDING_TAOIST_CATHEDRAL</Type>
 			<SpecialBuildingType>SPECIALBUILDING_CATHEDRAL</SpecialBuildingType>
@@ -12546,37 +12804,52 @@
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>10</iStarSignMitigateChangePercent>
 			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
-			<iCost>240</iCost>
-			<iStateReligionHappiness>2</iStateReligionHappiness>
+			<iCost>350</iCost>
+			<iMaintenanceModifier>15</iMaintenanceModifier>
+			<iStateReligionHappiness>4</iStateReligionHappiness>
 			<iAsset>6</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>40</iCommerce>
+				<iCommerce>50</iCommerce>
 			</CommerceModifiers>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_TAOISM</ReligionType>
+					<iChange>3</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iCount>2</iCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_TAOIST</ConstructSound>
-			<BonusHappinessChanges>
-				<BonusHappinessChange>
-					<BonusType>BONUS_INCENSE</BonusType>
-					<iChange>1</iChange>
-				</BonusHappinessChange>
-			</BonusHappinessChanges>
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_COPPER</BonusType>
 					<iModifier>100</iModifier>
 				</BonusProductionModifier>
+				<BonusProductionModifier>
+					<BonusType>BONUS_LEAD</BonusType>
+					<iModifier>15</iModifier>
+				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_TAOIST_TEMPLE</BuildingClassType>
-					<iNeeded>2</iNeeded>
+				<BuildingClassType>BUILDINGCLASS_TAOIST_TEMPLE</BuildingClassType>
+					<iNeeded>1</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<Flavors>
@@ -12661,8 +12934,9 @@
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>2</iStarSignMitigateChangePercent>
 			<iStarSignScaleChangePercent>10</iStarSignScaleChangePercent>
-			<iCost>80</iCost>
-			<iHappiness>1</iHappiness>
+			<iCost>90</iCost>
+			<iMaintenanceModifier>10</iMaintenanceModifier>
+			<iStateReligionHappiness>2</iStateReligionHappiness>
 			<iAsset>4</iAsset>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
@@ -12674,6 +12948,12 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>1000</iCommerce>
 			</CommerceChangeDoubleTimes>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_TAOISM</ReligionType>
+					<iChange>2</iChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
@@ -12681,6 +12961,15 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_TAOIST</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_TAOIST_CATHEDRAL</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>				
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_TAOIST_CATHEDRAL</BuildingClassType>
+			</ReplacedByBuildingClasses>			
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
