@@ -1344,6 +1344,13 @@
 			<iMaxPlayerInstances>1</iMaxPlayerInstances>
 			<DefaultBuilding>BUILDING_TREASURY</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Universal Health Care -->
+			<Type>BUILDINGCLASS_UNIVERSAL_HEALTH_CARE</Type>
+			<Description>TXT_KEY_BUILDING_UNIVERSAL_HEALTH_CARE</Description>
+			<iCategory>3</iCategory>
+			<iMaxPlayerInstances>1</iMaxPlayerInstances>
+			<DefaultBuilding>BUILDING_UNIVERSAL_HEALTH_CARE</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Wall Street -->
 			<Type>BUILDINGCLASS_WALL_STREET</Type>
 			<Description>TXT_KEY_BUILDING_WALL_STREET</Description>

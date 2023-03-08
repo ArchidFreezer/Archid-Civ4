@@ -2858,5 +2858,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/water_treatment_plant.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_UNIVERSAL_HEALTH_CARE</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>.85</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/wonders/universal_health_care/dna.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/Universal_Health_Care.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

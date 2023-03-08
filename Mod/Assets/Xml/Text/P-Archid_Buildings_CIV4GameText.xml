@@ -1671,6 +1671,18 @@
 		<Tag>TXT_KEY_BUILDING_TREASURY_STRATEGY</Tag>
 		<English>Treasury increases wealth in your capital by 20% and in all other cities by 10%</English>
 	</TEXT>
+	<TEXT> <!-- Universal Health Care -->
+		<Tag>TXT_KEY_BUILDING_UNIVERSAL_HEALTH_CARE</Tag>
+		<English>Universal Health Care</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_UNIVERSAL_HEALTH_CARE_PEDIA</Tag>
+		<English>[TAB]Universal health care is a socialist government system that seeks to provide health care access and coverage to all members of society.  It is implemented through legislation, regulation and increased taxation (Redistribution of Wealth).</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_UNIVERSAL_HEALTH_CARE_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Universal Health Care[COLOR_REVERT] National Wonder increases the population in every city by 1.</English>
+	</TEXT>
 	<TEXT> <!-- Utility Fog -->
 		<Tag>TXT_KEY_BUILDING_UTILITY_FOG</Tag>
 		<English>Utility Fog</English>
