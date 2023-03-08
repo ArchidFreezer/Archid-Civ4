@@ -1346,6 +1346,97 @@
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Guerilla2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,7,5</Button>
 		</PromotionInfo>
+		<PromotionInfo>	<!-- Heal 1 -->
+			<Type>PROMOTION_HEAL1</Type>
+			<Description>TXT_KEY_PROMOTION_HEAL1</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_COMBAT3</PromotionType>
+				<PromotionType>PROMOTION_DRILL3</PromotionType>
+			</PrereqOrPromotions>
+			<iEnemyHealChange>5</iEnemyHealChange>
+			<iNeutralHealChange>6</iNeutralHealChange>
+			<iFriendlyHealChange>7</iFriendlyHealChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ASSAULT_MECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DREADNOUGHT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WHEELED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HEALTH_CARE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HITECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/Heal1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo>	<!-- Heal 2 -->
+			<Type>PROMOTION_HEAL2</Type>
+			<Description>TXT_KEY_PROMOTION_HEAL2</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_HEAL1</PromotionType>
+			</PrereqOrPromotions>
+			<iEnemyHealChange>5</iEnemyHealChange>
+			<iNeutralHealChange>6</iNeutralHealChange>
+			<iFriendlyHealChange>7</iFriendlyHealChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ASSAULT_MECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DREADNOUGHT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WHEELED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HEALTH_CARE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HITECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/Heal2.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo>	<!-- Heal 3 -->
+			<Type>PROMOTION_HEAL3</Type>
+			<Description>TXT_KEY_PROMOTION_HEAL3</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_HEAL2</PromotionType>
+			</PrereqOrPromotions>
+			<iEnemyHealChange>6</iEnemyHealChange>
+			<iNeutralHealChange>7</iNeutralHealChange>
+			<iFriendlyHealChange>8</iFriendlyHealChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ASSAULT_MECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DREADNOUGHT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WHEELED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HEALTH_CARE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HITECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/Heal3.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Hunter 1 -->
 			<Type>PROMOTION_HUNTER1</Type>
 			<Description>TXT_KEY_PROMOTION_HUNTER1</Description>

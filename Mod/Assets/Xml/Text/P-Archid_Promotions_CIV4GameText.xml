@@ -278,6 +278,65 @@
 		<Spanish>Gran Cazador</Spanish>
 	</TEXT>
 
+<!-- +++ Heal +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_HEAL1</Tag>
+		<English>Heal I</English>
+		<French>
+			<Text>Gu&#233;rissez I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Heilen Sie I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Guar I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_HEAL2</Tag>
+		<English>Heal II</English>
+		<French>
+			<Text>Gu&#233;rissez II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Heilen Sie II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Guar II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_HEAL3</Tag>
+		<English>Heal III</English>
+		<French>
+			<Text>Gu&#233;rissez III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Heilen Sie III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Guar III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+	</TEXT>
+
 <!-- +++ Hunter +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_HUNTER1</Tag>
