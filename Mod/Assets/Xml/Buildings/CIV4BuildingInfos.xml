@@ -15290,6 +15290,35 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Military Hospital -->
+			<BuildingClass>BUILDINGCLASS_MILITARY_HOSPITAL</BuildingClass>
+			<Type>BUILDING_MILITARY_HOSPITAL</Type>
+			<Description>TXT_KEY_BUILDING_MILITARY_HOSPITAL</Description>
+			<Civilopedia>TXT_KEY_BUILDING_MILITARY_HOSPITAL_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_MILITARY_HOSPITAL_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_MILITARY_HOSPITAL</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_MEDICINE</TechType>
+			</PrereqAndTechs>
+			<FreePromotion>PROMOTION_MARCH</FreePromotion>
+			<bApplyFreePromotionOnMove>1</bApplyFreePromotionOnMove>
+			<GreatPeopleUnitClass>UNITCLASS_DOCTOR</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
+			<iCost>-1</iCost>
+			<iConquestProb>75</iConquestProb>
+			<iHealRateChange>25</iHealRateChange>
+			<iHealth>5</iHealth>
+			<iHappiness>1</iHappiness>
+			<iAsset>5</iAsset>
+			<ConstructSound>AS2D_BUILD_HOSPITAL</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Scotland Yard -->
 			<BuildingClass>BUILDINGCLASS_SCOTLAND_YARD</BuildingClass>
 			<Type>BUILDING_SCOTLAND_YARD</Type>

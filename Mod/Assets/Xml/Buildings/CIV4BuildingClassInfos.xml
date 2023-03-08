@@ -1576,6 +1576,12 @@
 			<iCategory>6</iCategory>
 			<DefaultBuilding>BUILDING_MILITARY_ACADEMY</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo>	<!-- Military Hospital -->
+			<Type>BUILDINGCLASS_MILITARY_HOSPITAL</Type>
+			<Description>TXT_KEY_BUILDING_MILITARY_HOSPITAL</Description>
+			<iCategory>6</iCategory>
+			<DefaultBuilding>BUILDING_MILITARY_HOSPITAL</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Scotland Yard -->
 			<Type>BUILDINGCLASS_SCOTLAND_YARD</Type>
 			<Description>TXT_KEY_BUILDING_SCOTLAND_YARD</Description>

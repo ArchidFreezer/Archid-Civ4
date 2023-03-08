@@ -2868,5 +2868,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/Universal_Health_Care.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- Military Hospital -->
+			<Type>ART_DEF_BUILDING_MILITARY_HOSPITAL</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>.95</fScale>
+			<fInterfaceScale>1.4</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Hospital/Hospital.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/military_hospital.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

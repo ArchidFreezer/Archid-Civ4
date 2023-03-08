@@ -1088,6 +1088,22 @@
 		<Tag>TXT_KEY_BUILDING_MILITARY_AIRBASE_STRATEGY</Tag>
 		<English>Increases the amount of air units city can hold and new air units will be more experienced. Slightly also increases defense against air attacks.</English>
 	</TEXT>
+	<TEXT> <!-- Military Hospital -->
+		<Tag>TXT_KEY_BUILDING_MILITARY_HOSPITAL</Tag>
+		<English>Military Hospital</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MILITARY_HOSPITAL_PEDIA</Tag>
+		<English>[TAB]Military hospitals are institutions that focus on the diagnosis and treatment of disease and trauma. While dispensing these services, they also provide housing. With technological innovation in medicine, hospitals have increasingly become community hubs, expanding their role to include teaching and research. Throughout history a hospital's role has shifted from a place to secure the ill or insane, to one of hope and health.</English>
+		<French>[TAB]Les h&#244;pitaux militaires sont des institutions sp&#233;cialis&#233;es dans le diagnostic et le traitement des maladies et des traumatismes. Lorsqu'ils dispensent ces services m&#233;dicaux, ils fournissent &#233;galement un h&#233;bergement. Les innovations technologiques dans le domaine de la m&#233;decine ont fait consid&#233;rablement &#233;voluer les h&#244;pitaux, qui sont d&#233;sormais au centre de la communaut&#233; et &#233;largissent leurs activit&#233;s &#224; l'enseignement et &#224; la recherche. Au fil du temps, la conception de l'h&#244;pital a &#233;volu&#233;, devenant un lieu d'espoir et de sant&#233; apr&#232;s avoir &#233;t&#233; un lieu destin&#233; aux malades et aux personnes ali&#233;n&#233;es.</French>
+		<German>[TAB]Krankenh&#228;user milit&#228;rischer sind Einrichtungen, in denen man sich vornehmlich mit der Diagnose und Behandlung von Krankheiten und Verletzungen besch&#228;ftigt. Zus&#228;tzlich zu diesen Diensten wird eine Unterkunft geboten. Mit der Verf&#252;gbarkeit technologischer Innovationen auf dem Gebiet der Medizin wurden Krankenh&#228;user immer mehr zu gemeinn&#252;tzigen Institutionen, die sich auch auf den Gebieten der medizinischen Fortbildung und der wissenschaftlichen Forschung engagierten. Im Laufe der Geschichte hat sich die Rolle des Krankenhauses von einer Verwahranstalt f&#252;r Kranke und Irre zu einem Ort der Hoffnung und der Gesundheit gewandelt.</German>
+		<Italian>[TAB]Gli ospedali militari sono istituzioni che si concentrano sulla diagnosi e la cura delle malattie e dei traumi. Mentre forniscono questi servizi, offrono anche un alloggio. Con l'innovazione tecnologica nella medicina, gli ospedali sono diventati sempre pi&#249; dei centri della comunit&#224;, espandendo il loro ruolo per comprendere insegnamento e ricerca. Nel corso della storia, il ruolo dell'ospedale &#232; passato da quello di un luogo per mettere al sicuro le persone malate, a uno di speranza e di benessere.</Italian>
+		<Spanish>[TAB]Los hospitales militares son instituciones dedicadas al diagn&#243;stico y tratamiento de las enfermedades y los traumatismos. Adem&#225;s de estos servicios, tambi&#233;n proporcionan alojamiento. Con las innovaciones tecnol&#243;gicas en el campo de la medicina, se han ido convirtiendo en ejes de las comunidades, ampliando su papel a la ense&#241;anza e investigaci&#243;n. A lo largo de la historia, la funci&#243;n desempe&#241;ada por un hospital ha pasado de ser la de proporcionar protecci&#243;n a los enfermos f&#237;sicos y mentales a la de proveer esperanza y salud.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MILITARY_HOSPITAL_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Military hospitals[COLOR_REVERT] help units heal damage more quickly and add health to a city.</English>
+	</TEXT>
 	<TEXT> <!-- Modern Granary -->
 		<Tag>TXT_KEY_BUILDING_MODERN_GRANARY</Tag>
 		<English>Modern Granary</English>
