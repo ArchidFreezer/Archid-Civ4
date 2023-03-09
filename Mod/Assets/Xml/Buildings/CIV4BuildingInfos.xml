@@ -341,6 +341,40 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Ancient Mysteries -->
+			<BuildingClass>BUILDINGCLASS_ANCIENT_MYSTERIES</BuildingClass>
+			<Type>BUILDING_ANCIENT_MYSTERIES</Type>
+			<Description>TXT_KEY_BUILDING_ANCIENT_MYSTERIES</Description>
+			<Civilopedia>TXT_KEY_BUILDING_ANCIENT_MYSTERIES_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_ANCIENT_MYSTERIES_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_ANCIENT_MYSTERIES_HELP</Help>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_ANCIENT_MYSTERIES</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_ANCIENT_MYSTERIES</MovieDefineTag>
+			<MaxStartEra>ERA_ANCIENT</MaxStartEra>
+			<PrereqAndTechs>
+				<TechType>TECH_MYSTICISM</TechType>
+				<TechType>TECH_MINING</TechType>
+			</PrereqAndTechs>
+			<GreatPeopleUnitClass>UNITCLASS_SCIENTIST</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>120</iCost>
+			<iConquestProb>100</iConquestProb>
+			<iAsset>10</iAsset>
+			<CommerceChangeOriginalOwners>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
+			</CommerceChangeOriginalOwners>
+			<ConstructSound>AS2D_BUILD_STONEHENGE</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Angkor Wat -->
 			<BuildingClass>BUILDINGCLASS_ANGKOR_WAT</BuildingClass>
 			<Type>BUILDING_ANGKOR_WAT</Type>

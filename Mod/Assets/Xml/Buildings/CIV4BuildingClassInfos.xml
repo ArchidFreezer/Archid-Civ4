@@ -1195,6 +1195,13 @@
 <!-- ************	-->
 <!-- National Wonders -->
 <!-- ************	-->
+		<BuildingClassInfo> <!-- Ancient Mysteries -->
+			<Type>BUILDINGCLASS_ANCIENT_MYSTERIES</Type>
+			<Description>TXT_KEY_BUILDING_ANCIENT_MYSTERIES</Description>
+			<iCategory>3</iCategory>
+			<iMaxPlayerInstances>1</iMaxPlayerInstances>
+			<DefaultBuilding>BUILDING_ANCIENT_MYSTERIES</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Barbarian Lodge -->
 			<Type>BUILDINGCLASS_BARBARIAN_LODGE</Type>
 			<Description>TXT_KEY_BARBARIAN_LODGE</Description>

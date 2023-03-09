@@ -339,5 +339,9 @@
 			<Type>ART_DEF_MOVIE_PONT_DU_GARD</Type>
 			<Path>Art/Movies/Wonders/PontDuGard.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo> <!-- Ancient Mysteries -->
+			<Type>ART_DEF_MOVIE_ANCIENT_MYSTERIES</Type>
+			<Path>Art/Movies/NWonders/ancient_mysteries.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

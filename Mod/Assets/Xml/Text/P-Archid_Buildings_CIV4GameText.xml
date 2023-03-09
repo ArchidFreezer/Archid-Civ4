@@ -61,6 +61,30 @@
 		<Tag>TXT_KEY_BUILDING_ALCHEMISTS_LAB_STRATEGY</Tag>
 		<English>An early research facility, grants a science bonus to your city.</English>
 	</TEXT>
+	<TEXT> <!-- Ancient Mysteries -->
+		<Tag>TXT_KEY_BUILDING_ANCIENT_MYSTERIES</Tag>
+		<English>Ancient Mysteries</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ANCIENT_MYSTERIES_PEDIA</Tag>
+		<English>[TAB]The wisdom of our ancestors frequently puzzles modern people. Many popular experts suggest possibility that mysterious sites around the world were created with help of advanced knowledge and technology possessed by lost civilizations.  Scientists excavate these sites in the hope of discovering the secrets knowledge of those who lived long ago.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ANCIENT_MYSTERIES_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Ancient Mysteries[COLOR_REVERT] National Wonder provides one free trait upon excavation.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ANCIENT_MYSTERIES_HELP</Tag>
+		<English>[ICON_BULLET]Free Leaderhead Trait</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAITS_POPUP_TITLE</Tag>
+		<English>TRAITS MENU</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SELECT_TRAIT</Tag>
+		<English>Select New Trait</English>
+	</TEXT>
 	<TEXT> <!-- Apothecary Shop -->
 		<Tag>TXT_KEY_BUILDING_APOTHECARY_SHOP</Tag>
 		<English>Apothecary Shop</English>
@@ -1360,8 +1384,7 @@
 		<French>Russian version of the Research Institute strongly increse research and space ship constructionat the cost of the cities productivity. They are prerequiste for more specialised research facilities.</French>
 		<German>Die Russische Variante des Forschungsinstitute verbessert die Forschung und Raumschiffkonstruktion wesentlicher stärker. Es sind Voraussetzung für den Bau spezialisierter Forschungseinrichtungen.</German>
 	</TEXT>	
-<!-- Sacred Site -->
-	<TEXT>
+	<TEXT> <!-- Sacred Site -->
 		<Tag>TXT_KEY_BUILDING_SACRED_SITE</Tag>
 		<English>Sacred Site</English>
 		<French>Site Sacré</French>

@@ -51,4 +51,14 @@ def getBackground():
 	if sNewArt:
 		sBackGround = sNewArt.getPath()
 	return sBackGround
-		
+
+def standardPopup(pTitle, pText, iPlayer):
+	# Orion's Standard Functions
+	# Displays a standard popup message for the specified Player.
+	popupInfo = CyPopupInfo()
+	popupInfo.setButtonPopupType(ButtonPopupTypes.BUTTONPOPUP_PYTHON)
+	spTitle = u"<font=4b>" + CyTranslator().getText(pTitle, ()) + u"</font>"
+	spBody = u"<font=3>" + CyTranslator().getText(pText, ()) + u"</font>"
+	popupInfo.setText(spTitle + u"\n\n" + spBody)	
+	popupInfo.addPythonButton("OK", "")
+	popupInfo.addPopup(iPlayer)

@@ -75,6 +75,7 @@
 	<load mod="AbandonCity"/>
 	<load mod="AdvancedCombatOdds"/>
 	<load mod="AIAutoPlay"/>
+	<load mod="AncientMysteriesWonder"/>
 	<load mod="ChangePlayer"/>
 	<load mod="CityBar"/>
 	<load mod="MigratingGP"/>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+	Grants a player who constructs BUILDING_ANCIENT_MYSTERIES a new trait
+	Defaults for TRAIT_FINANCIAL for the AI if they don't have it otherwise a random trait
+-->
+<mod id="AncientMysteriesWonder" 
+	 name="Ancient Mysteries Wonder"
+	 module="AncientMysteriesUtils">
+
+	<events class="AncientMysteriesEventHandler" />
+	
+</mod>
