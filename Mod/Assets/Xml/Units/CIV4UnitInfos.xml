@@ -2142,6 +2142,8 @@
 					<iFlavor>1</iFlavor>
 				</Flavor>
 			</Flavors>
+			<iCost>-1</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
 			<iMoves>2</iMoves>
 			<iWorkRate>100</iWorkRate>
 			<iBaseDiscover>1500</iBaseDiscover>
