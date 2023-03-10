@@ -2898,5 +2898,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/ancient_mysteries.dds</Button>
 		</BuildingArtInfo>
+ 		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_GRAVEYARD</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>10.0</fScale>
+			<fInterfaceScale>4.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/Graveyard/barracks.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/graveyard.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

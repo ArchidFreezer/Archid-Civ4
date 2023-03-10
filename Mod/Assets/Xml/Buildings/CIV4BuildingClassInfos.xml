@@ -811,6 +811,12 @@
 			<iCategory>37</iCategory>
 			<DefaultBuilding>BUILDING_HEALTH_SPA</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Graveyard -->
+			<Type>BUILDINGCLASS_GRAVEYARD</Type>
+			<Description>TXT_KEY_BUILDING_GRAVEYARD</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_GRAVEYARD</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Aqueduct -->                        <!-- Water -->
 			<Type>BUILDINGCLASS_AQUEDUCT</Type>

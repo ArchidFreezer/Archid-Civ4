@@ -745,6 +745,21 @@
 		<English>Cheap gold building, but angers citizens</English>
 		<French>Bâtiment générant de l'Or, mais rend certains citoyens mécontents</French>
 	</TEXT>
+	<TEXT> <!-- Graveyard -->
+		<Tag>TXT_KEY_BUILDING_GRAVEYARD</Tag>
+		<English>Graveyard</English>
+		<French>Cimetière</French>
+		<German>Friedhof</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GRAVEYARD_PEDIA</Tag>
+		<English>A graveyard is any place set aside for long-term burial of the dead, with or without monuments such as headstones. It is usually located near and administered by a church.  Since the mid-1800s, the term cemetery has become a more popular label for most burying grounds.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GRAVEYARD_STRATEGY</Tag>
+		<English>Provides Culture and Happiness, but increased Maintenance.</English>
+		<French>Procure Culture et Bonheur, mais augmente le coût d'entretien de la ville.</French>
+	</TEXT>
 	<TEXT> <!-- Great Academy -->
 		<Tag>TXT_KEY_BUILDING_GREAT_ACADEMY</Tag>
 		<English>Great Academy</English>
