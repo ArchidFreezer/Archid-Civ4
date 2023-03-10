@@ -137,6 +137,17 @@
 			<iCategory>16</iCategory>
 			<DefaultBuilding>BUILDING_RANCH</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Apiary -->
+			<Type>BUILDINGCLASS_APIARY</Type>
+			<Description>TXT_KEY_BUILDING_APIARY</Description>
+			<iCategory>16</iCategory>
+			<DefaultBuilding>BUILDING_APIARY</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Butchery -->
+			<Type>BUILDINGCLASS_BUTCHERY</Type>
+			<Description>TXT_KEY_BUILDING_BUTCHERY</Description>
+			<DefaultBuilding>BUILDING_BUTCHERY</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Aerospace Complex -->               <!-- Military Training -->
 			<Type>BUILDINGCLASS_AEROSPACE_COMPLEX</Type>
@@ -414,6 +425,18 @@
 			<Description>TXT_KEY_BUILDING_UTILITY_FOG</Description>
 			<iCategory>24</iCategory>
 			<DefaultBuilding>BUILDING_UTILITY_FOG</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Candlemaker -->
+			<Type>BUILDINGCLASS_CANDLEMAKER</Type>
+			<Description>TXT_KEY_BUILDING_CANDLEMAKER</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_CANDLEMAKER</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Tannery -->
+			<Type>BUILDINGCLASS_TANNERY</Type>
+			<Description>TXT_KEY_BUILDING_TANNERY</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_TANNERY</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Coal Plant -->                      <!-- Production - Factory/Power -->

@@ -441,6 +441,32 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Apiary -->
+			<BuildingClass>BUILDINGCLASS_APIARY</BuildingClass>
+			<Type>BUILDING_APIARY</Type>
+			<Description>TXT_KEY_BUILDING_APIARY</Description>
+			<Civilopedia>TXT_KEY_BUILDING_APIARY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_APIARY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_APIARY</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_ANIMAL_HUSBANDRY</TechType>
+			</PrereqAndTechs>
+			<iCost>45</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>60</iConquestProb>
+			<YieldChanges>
+				<iYield>1</iYield>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</YieldChanges>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Apostolic Palace -->
 			<BuildingClass>BUILDINGCLASS_APOSTOLIC_PALACE</BuildingClass>
 			<Type>BUILDING_APOSTOLIC_PALACE</Type>
@@ -1840,6 +1866,139 @@
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Butchery -->
+			<BuildingClass>BUILDINGCLASS_BUTCHERY</BuildingClass>
+			<Type>BUILDING_BUTCHERY</Type>
+			<Description>TXT_KEY_BUILDING_BUTCHERY</Description>
+			<Civilopedia>TXT_KEY_BUILDING_BUTCHERY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_BUTCHERY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_BUTCHERY</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_ANIMAL_HUSBANDRY</TechType>
+			</PrereqAndTechs>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_BISON</BonusType>
+				<BonusType>BONUS_COW</BonusType>
+				<BonusType>BONUS_SHEEP</BonusType>
+				<BonusType>BONUS_PIG</BonusType>
+				<BonusType>BONUS_DEER</BonusType>
+				<BonusType>BONUS_FUR</BonusType>
+			</PrereqOrBonuses>
+			<iAIWeight>100</iAIWeight>
+			<iCost>50</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>75</iConquestProb>
+			<iAsset>4</iAsset>
+			<YieldChanges>
+				<iYield>1</iYield>
+			</YieldChanges>
+			<ConstructSound>AS2D_BUILD_BUTCHERY</ConstructSound>
+			<BonusHealthChanges>
+				<BonusHealthChange>
+					<BonusType>BONUS_SALT</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+			</BonusHealthChanges>
+			<BonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_BISON</BonusType>
+					<YieldChanges>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_DEER</BonusType>
+					<YieldChanges>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_COW</BonusType>
+					<YieldChanges>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_PIG</BonusType>
+					<YieldChanges>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_SHEEP</BonusType>
+					<YieldChanges>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</BonusYieldChanges>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>4</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>4</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Candlemaker -->
+			<BuildingClass>BUILDINGCLASS_CANDLEMAKER</BuildingClass>
+			<Type>BUILDING_CANDLEMAKER</Type>
+			<Description>TXT_KEY_BUILDING_CANDLEMAKER</Description>
+			<Civilopedia>TXT_KEY_BUILDING_CANDLEMAKER_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_CANDLEMAKER_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_CANDLEMAKER</ArtDefineTag>
+			<ObsoleteTech>TECH_OPTICS</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_PRIESTHOOD</TechType>
+				<TechType>TECH_TRADE</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_SPIRITUAL</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>35</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>80</iConquestProb>
+			<iAsset>1</iAsset>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+				<iYield>1</iYield>
+			</YieldChanges>
+			<PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_BUTCHERY</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_APIARY</BuildingClassType>
+			</PrereqAndBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>8</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>4</iFlavor>
+				</Flavor>				
 			</Flavors>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Cannon Forge -->
@@ -12879,6 +13038,59 @@
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
 					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Tannery -->
+			<BuildingClass>BUILDINGCLASS_TANNERY</BuildingClass>
+			<Type>BUILDING_TANNERY</Type>
+			<Description>TXT_KEY_BUILDING_TANNERY</Description>
+			<Civilopedia>TXT_KEY_BUILDING_TANNERY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_TANNERY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_TANNERY</ArtDefineTag>
+			<PrereqVicinityOrBonus>
+				<BonusType>BONUS_BISON</BonusType>
+				<BonusType>BONUS_COW</BonusType>
+				<BonusType>BONUS_PIG</BonusType>
+				<BonusType>BONUS_SHEEP</BonusType>
+				<BonusType>BONUS_DEER</BonusType>
+			</PrereqVicinityOrBonus>
+			<ObsoleteTech>TECH_CHEMISTRY</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ANIMAL_HUSBANDRY</TechType>
+			</PrereqAndTechs>
+			<iCost>50</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>75</iConquestProb>
+			<iHealth>-1</iHealth>
+			<iAsset>4</iAsset>
+			<iPower>2</iPower>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>2</iYield>
+			</YieldChanges>
+			<CommerceChanges>
+				<iCommerce>2</iCommerce>
+			</CommerceChanges>
+			<ConstructSound>AS2D_BUILD_TANNERY</ConstructSound>
+			<BonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_SALT</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</BonusYieldChanges>
+			<PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_BUTCHERY</BuildingClassType>
+			</PrereqAndBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>6</iFlavor>
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>

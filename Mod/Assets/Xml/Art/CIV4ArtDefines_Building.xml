@@ -2918,5 +2918,45 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/terracotta_army.dds</Button>
 		</BuildingArtInfo>
+ 		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_APIARY</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.1</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/Apiary/beehive3x.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/apiary.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CANDLEMAKER</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.00</fScale>
+			<fInterfaceScale>0.75</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/alchemists_shop/alchemist_shop.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/candlemakers.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TANNERY</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Granary/Granary.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/tannery.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BUTCHERY</Type>
+			<LSystem>LSYSTEM_2x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/Butcher/Butcher.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/butchery.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

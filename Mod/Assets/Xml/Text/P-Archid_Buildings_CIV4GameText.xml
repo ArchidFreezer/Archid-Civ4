@@ -85,6 +85,21 @@
 		<Tag>TXT_KEY_SELECT_TRAIT</Tag>
 		<English>Select New Trait</English>
 	</TEXT>
+	<TEXT> <!-- Apiary -->
+		<Tag>TXT_KEY_BUILDING_APIARY</Tag>
+		<English>Apiary</English>
+		<French>Rucher</French>
+		<German>Bienenhaus</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_APIARY_PEDIA</Tag>
+		<English>An apiary (also known as a bee yard) is a place where beehives of honey bees are kept. Traditionally beekeepers (also known as apiarists) paid land rent in honey for the use of small parcels. Some farmers will provide free apiary sites, because they need pollination, and farmers who need many hives often pay for them to be moved to the crops when they bloom.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_APIARY_STRATEGY</Tag>
+		<English>Great for growth, providing Food and Commerce</English>
+		<French>Utile pour la croissance, procure Nourriture et Santé. Procure du Miel, qui ajoute Santé et Commerce</French>
+	</TEXT>
 	<TEXT> <!-- Apothecary Shop -->
 		<Tag>TXT_KEY_BUILDING_APOTHECARY_SHOP</Tag>
 		<English>Apothecary Shop</English>
@@ -281,6 +296,39 @@
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_BROTHEL_STRATEGY</Tag>
 		<English>Brothels provides a small happiness bonus to your city and increases espionage.</English>
+	</TEXT>
+	<TEXT> <!-- Butchery -->
+		<Tag>TXT_KEY_BUILDING_BUTCHERY</Tag>
+		<English>Butchery</English>
+		<French>
+			<Text>Boucherie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Metzgerei</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BUTCHERY_PEDIA</Tag>
+		<English>[TAB]Butchery is a traditional work. Primary butchery consists of selecting carcasses, sides, or quarters from which primal cuts can be produced with the minimum of wastage, separate the primal cuts from the carcasses using the appropriate tools and equipment following company procedures trim primal cuts and prepare for secondary butchery or sale, and store cut meats hygienically and safely. Secondary butchery involves boning and trimming primal cuts in preparation for sale. Historically, primary and secondary butchery were performed in the same establishment but the advent of methods of preservation and low cost transportation has largely separated them.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BUTCHERY_STRATEGY</Tag>
+		<English>Butchery provides additional food for each Bison, Cow, Deer, Pig, Sheep your civ has access to, and health from salt.</English>
+	</TEXT>
+	<TEXT> <!-- Candlemaker -->
+		<Tag>TXT_KEY_BUILDING_CANDLEMAKER</Tag>
+		<English>Candlemaker's Shop</English>
+		<French>Atelier du Chandeleur</French>
+		<German>Kerzenmacherwerkstatt</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CANDLEMAKER_PEDIA</Tag>
+		<English>Candle making was developed independently in many countries throughout history. The Egyptians produced candles out of beeswax as early as 3000 BC.  The Chinese made candles from whale fat during the Qin Dynasty (221–206 BC). In early China and Japan, tapers were made with wax from insects and seeds, wrapped in paper.  In India, wax from boiling cinnamon was used for temple candles.  During the first century AD, indigenous people of the Pacific Northwest fused oil from the eulachon, or "candlefish", for illumination.  Excavations at Pompeii, Italy, revealed several candelabra.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CANDLEMAKER_STRATEGY</Tag>
+		<English>The ability to work at night allows extra Commerce and Production.</English>
+		<French>La possibilité de travailler la nuit permet un bonus en Commerce et Production.</French>
 	</TEXT>
 	<TEXT> <!-- Cannon Forge -->
 		<Tag>TXT_KEY_BUILDING_CANNON_FORGE</Tag>
@@ -1650,6 +1698,24 @@
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_TELEPHONE_NETWORK_STRATEGY</Tag>
 		<English>.</English>
+	</TEXT>
+	<TEXT> <!-- Tannery -->
+		<Tag>TXT_KEY_BUILDING_TANNERY</Tag>
+		<English>Tannery</English>
+		<French>
+			<Text>Tannerie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Gerberei</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TANNERY_PEDIA</Tag>
+		<English>[TAB]Tanning is the process of converting putrescible skin into non-putrescible leather, usually with tannin, an acidic chemical compound that prevents decomposition and often imparts color. Tanning leather involves a process which permanently alters the protein structure of skin so that it can not ever return to rawhide. [PARAGRAPH:2]In ancient history, tanning was considered a noxious or "odiferous trade" and relegated to the outskirts of town, amongst the poor. Indeed, tanning by ancient methods is so foul smelling that tanneries are still isolated from those towns today where the old methods are used. The ancients used leather for waterskins, bags, harnesses, boats, armor, quivers, scabbards, boots and sandals. Around 2500 BC, the Sumerians began using leather, affixed by copper studs, on chariot wheels. [PARAGRAPH:2]Skins typically arrived at the tannery dried stiff and dirty with soil and gore. First, the ancient tanners would soak the skins in water to clean and soften them. Then they would pound and scour the skin to remove any remaining flesh and fat. Next, the tanner needed to remove the hair fibers from the skin. This was done by either soaking the skin in urine, painting it with an alkaline lime mixture, or simply letting the skin putrefy for several months then dipping it in a salt solution. After the hair fibers were loosened, the tanners scraped them off with a knife. [PARAGRAPH:2]Once the hair was removed, the tanners would bate the material (see below) by pounding dung into the skin or soaking the skin in a solution of animal brains. Among the kinds of dung commonly used were that of dogs or pigeons. Sometimes the dung was mixed with water in a large vat, and the prepared skins were kneaded in the dung water until they became supple, but not too soft. The ancient tanner might use his bare feet to knead the skins in the dung water, and the kneading could last two or three hours. It was this combination of urine, animal feces and decaying flesh that made ancient tanneries so odiferous.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TANNERY_STRATEGY</Tag>
+		<English>Increases early production at a cost of health.</English>
 	</TEXT>
 	<TEXT> <!-- Terracotta Army -->
 		<Tag>TXT_KEY_BUILDING_TERRACOTTA_ARMY</Tag>
