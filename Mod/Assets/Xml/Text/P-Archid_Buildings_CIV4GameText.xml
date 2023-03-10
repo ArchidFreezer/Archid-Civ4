@@ -1651,6 +1651,18 @@
 		<Tag>TXT_KEY_BUILDING_TELEPHONE_NETWORK_STRATEGY</Tag>
 		<English>.</English>
 	</TEXT>
+	<TEXT> <!-- Terracotta Army -->
+		<Tag>TXT_KEY_BUILDING_TERRACOTTA_ARMY</Tag>
+		<English>Terracotta Army</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TERRACOTTA_ARMY_PEDIA</Tag>
+		<English>[TAB]The Terracotta Army are the Terracotta Warriors and Horses of Qin Shi Huang the First Emperor of China. The terracotta figures, dating from 210 BC, were discovered in 1974 by several local farmers near Xi'an, Shaanxi province, China near the Mausouleum of the First Qin Emperor. The figures vary in height, according to their role, the tallest being the generals. The figures include warriors, chariots, horses, officials, acrobats, strongmen, and musicians. Current estimates are that in the three pits containing the Terracotta Army there were over 8,000 soldiers, 130 chariots with 520 horses and 150 cavalry horses, the majority of which are still buried in the pits.[NEWLINE][NEWLINE][TAB]The Terracotta Army is a form of funerary art buried with the First Emperor of Qin. Their purpose was to help rule another empire with Shi Huang Di in the afterlife. Consequently, they are also sometimes referred to as "Qin's Armies." Mount Li is also where the material to make the terracotta warriors originated. In addition to the warriors, an entire man-made necropolis for the emperor has been excavated.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TERRACOTTA_ARMY_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Terracotta Army[COLOR_REVERT] adds [ICON_CULTURE] every time a unit is killed within a city. The amount of [ICON_CULTURE] is determined by the unit's experience.</English>
+	</TEXT>
 	<TEXT> <!-- Toolmaker -->
 		<Tag>TXT_KEY_BUILDING_TOOLMAKER</Tag>
 		<English>Toolmaker</English>

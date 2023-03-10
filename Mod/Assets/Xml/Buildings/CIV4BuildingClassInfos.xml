@@ -1175,6 +1175,13 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_TAJ_MAHAL</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Terracotta Army -->
+			<Type>BUILDINGCLASS_TERRACOTTA_ARMY</Type>
+			<Description>TXT_KEY_BUILDING_TERRACOTTA_ARMY</Description>
+			<iCategory>2</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_TERRACOTTA_ARMY</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- United Nations -->
 			<Type>BUILDINGCLASS_UNITED_NATIONS</Type>
 			<Description>TXT_KEY_BUILDING_UNITED_NATIONS</Description>

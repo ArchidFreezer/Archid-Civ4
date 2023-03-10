@@ -2908,5 +2908,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/graveyard.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- Terracotta Army -->
+			<Type>ART_DEF_BUILDING_TERRACOTTA_ARMY</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/terracotta_army/Xian.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/terracotta_army.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

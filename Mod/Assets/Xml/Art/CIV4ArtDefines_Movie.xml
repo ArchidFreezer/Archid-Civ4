@@ -343,5 +343,9 @@
 			<Type>ART_DEF_MOVIE_ANCIENT_MYSTERIES</Type>
 			<Path>Art/Movies/NWonders/ancient_mysteries.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo> <!-- Terracotta Army -->
+			<Type>ART_DEF_MOVIE_TERRACOTTA_ARMY</Type>
+			<Path>Art/Movies/Wonders/terracotta_army.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>
