@@ -153,50 +153,538 @@
 		<Spanish>Alquimista III</Spanish>
 	</TEXT>
 
+<!-- +++ Ambush +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_AMBUSH</Tag>
+		<English>Ambush I</English>
+		<French>
+			<Text>Embuscade I</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Hinterhalt I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Imboscata I</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Emboscada I</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_AMBUSH2</Tag>
+		<English>Ambush II</English>
+		<French>
+			<Text>Embuscade II</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Hinterhalt II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Imboscata II</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Emboscada II</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_AMBUSH3</Tag>
+		<English>Ambush III</English>
+		<French>
+			<Text>Embuscade III</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Hinterhalt III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Imboscata III</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Emboscada III</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Anti-Biological Warfare -->
+		<Tag>TXT_KEY_PROMOTION_ANTIBIOLOGICAL</Tag>
+		<English>Anti-Biological Warfare</English>
+		<French>
+			<Text>Guerre anti-biologique</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Antibiologische Kriegsf&#252;hrung</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Guerra antibatteriologica</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Guerra antibiológica</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	
+<!-- +++ Antitank Defense +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_ANTITANK_DEFENCE1</Tag>
+		<English>Antitank Defense I</English>
+		<French>Défense Anti-char I</French>
+		<German>Panzerverteidigung I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_ANTITANK_DEFENCE2</Tag>
+		<English>Antitank Defense II</English>
+		<French>Défense Anti-char II</French>
+		<German>Panzerverteidigung  II</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_ANTITANK_DEFENCE3</Tag>
+		<English>Antitank Defense III</English>
+		<French>Défense Anti-char III</French>
+		<German>Panzerverteidigung  III</German>
+	</TEXT>
+
 <!-- +++ Arborial +++ -->
 	<TEXT>
-		<Tag>TXT_KEY_PROMOTION_ARBORIALCOTTAGES</Tag>
+		<Tag>TXT_KEY_PROMOTION_ARBORIAL_COTTAGES</Tag>
 		<English>Arborial Cottages</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_PROMOTION_ARBORIALFARMER</Tag>
+		<Tag>TXT_KEY_PROMOTION_ARBORIAL_FARMER</Tag>
 		<English>Arborial Farms</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_PROMOTION_ARBORIALMINES</Tag>
+		<Tag>TXT_KEY_PROMOTION_ARBORIAL_MINES</Tag>
 		<English>Arborial Mines</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_PROMOTION_ARBORIALPASTURES</Tag>
+		<Tag>TXT_KEY_PROMOTION_ARBORIAL_PASTURES</Tag>
 		<English>Arborial Pastures</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_PROMOTION_ARBORIALPLANTATIONS</Tag>
+		<Tag>TXT_KEY_PROMOTION_ARBORIAL_PLANTATIONS</Tag>
 		<English>Arborial Plantations</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_PROMOTION_ARBORIALQUARRIES</Tag>
+		<Tag>TXT_KEY_PROMOTION_ARBORIAL_QUARRIES</Tag>
 		<English>Arborial Quarries</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_PROMOTION_ARBORIALWATERMILLS</Tag>
+		<Tag>TXT_KEY_PROMOTION_ARBORIAL_WATERMILLS</Tag>
 		<English>Arborial Watermills</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_PROMOTION_ARBORIALWELLS</Tag>
+		<Tag>TXT_KEY_PROMOTION_ARBORIAL_WELLS</Tag>
 		<English>Arborial Wells</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_PROMOTION_ARBORIALWINDMILLS</Tag>
+		<Tag>TXT_KEY_PROMOTION_ARBORIAL_WINDMILLS</Tag>
 		<English>Arborial Windmills</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_PROMOTION_ARBORIALWINERY</Tag>
+		<Tag>TXT_KEY_PROMOTION_ARBORIAL_WINERY</Tag>
 		<English>Arborial Wineries</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_PROMOTION_ARBORIALWORKSHOPS</Tag>
+		<Tag>TXT_KEY_PROMOTION_ARBORIAL_WORKSHOPS</Tag>
 		<English>Arborial Workshops</English>
+	</TEXT>
+
+	<TEXT> <!-- Arctic Combat I -->
+		<Tag>TXT_KEY_PROMOTION_ARCTIC_COMBAT1</Tag>
+		<English>Arctic Combat I</English>
+		<French>
+			<Text>Combat Arctique I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Arktischer Kampf I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Combattimento Artico I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Combattimento Artico I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+
+<!-- +++ Armour Upgrade +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_ARMOUR_UPGRADE1</Tag>
+		<English>Armour Upgrade MK I</English>
+		<French>Blindage MK I</French>
+		<German>Panzer-Upgrade MK I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_ARMOUR_UPGRADE2</Tag>
+		<English>Armour Upgrade MK II</English>
+		<French>Blindage MK II</French>
+		<German>Panzer-Upgrade MK II</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_ARMOUR_UPGRADE3</Tag>
+		<English>Armour Upgrade MK III</English>
+		<French>Blindage MK III</French>
+		<German>Panzer-Upgrade MK III</German>
+	</TEXT>
+	
+<!-- +++ Automatic Repairs +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_AUTOMATIC_REPAIRS1</Tag>
+		<English>Automatic Repairs MK I</English>
+		<French>Réparations Auto. MK I</French>
+		<German>Automatik-Reparatur MK I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_AUTOMATIC_REPAIRS2</Tag>
+		<English>Automatic Repairs MK II</English>
+		<French>Réparations Auto. MK II</French>
+		<German>Automatik-Reparatur MK II</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_AUTOMATIC_REPAIRS3</Tag>
+		<English>Automatic Repairs MK III</English>
+		<French>Réparations Auto. MK III</French>
+		<German>Automatik-Reparatur MK III</German>
+	</TEXT>
+	
+<!-- +++ Bombarding +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_BOMBARDING1</Tag>
+		<English>Bombarding I</English>
+		<French>Bombardement I</French>
+		<German>Bombardierung I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_BOMBARDING2</Tag>
+		<English>Bombarding II</English>
+		<French>Bombardement II</French>
+		<German>Bombardierung II</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_BOMBARDING3</Tag>
+		<English>Bombarding III</English>
+		<French>Bombardement III</French>
+		<German>Bombardierung III</German>
+	</TEXT>
+
+	<TEXT> <!-- Chaff -->
+		<Tag>TXT_KEY_PROMOTION_CHAFF</Tag>
+		<English>Chaff</English>
+		<French>Fuite</French>
+		<German>Spreu</German>
+	</TEXT>
+
+	<TEXT> <!-- Chain Shot -->
+		<Tag>TXT_KEY_PROMOTION_CHAIN_SHOT</Tag>
+		<English>Chain Shot</English>
+		<French>Tir en rafales</French>
+		<German>Kettenschuss</German>
+	</TEXT>
+
+<!-- +++ Charge +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_CHARGE</Tag>
+		<English>Charge I</English>
+		<French>
+			<Text>Charge I</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Angriff I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Carica I</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Carga I</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_CHARGE2</Tag>
+		<English>Charge II</English>
+		<French>
+			<Text>Charge II</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Angriff II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Carica II</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Carga II</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_CHARGE3</Tag>
+		<English>Charge III</English>
+		<French>
+			<Text>Charge III</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Angriff III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Carica III</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Carga III</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+
+<!-- +++ Chemical +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_CHEMICAL1</Tag>
+		<English>Chemical I</English>
+		<French>Chimie I</French>
+		<German>Chemisch I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_CHEMICAL2</Tag>
+		<English>Chemical II</English>
+		<French>Chimie II</French>
+		<German>Chemisch II</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_CHEMICAL3</Tag>
+		<English>Chemical III</English>
+		<French>Chimie III</French>
+		<German>Chemisch III</German>
+	</TEXT>
+
+<!-- +++ City Raider +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_CITYRAIDER1</Tag>
+		<English>City Raider I</English>
+		<French>
+			<Text>Assaillant I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>H&#228;userkampf I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Razziatore I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Asalto de ciudades I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+		<Finnish></Finnish>
+		<Hungarian></Hungarian>
+		<Polish></Polish>
+		<Russian></Russian>
+		<Chinese></Chinese>
+		<Japanese></Japanese>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_CITYRAIDER2</Tag>
+		<English>City Raider II</English>
+		<French>
+			<Text>Assaillant II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>H&#228;userkampf II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Razziatore II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Asalto de ciudades II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_CITYRAIDER3</Tag>
+		<English>City Raider III</English>
+		<French>
+			<Text>Assaillant III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>H&#228;userkampf III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Razziatore III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Asalto de ciudades III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_CITYRAIDER4</Tag>
+		<English>City Raider IV</English>
+		<French>
+			<Text>Assaillant IV</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>H&#228;userkampf IV</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Razziatore IV</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Asalto de ciudades IV</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+
+<!-- +++ Coastal Assault +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_COASTAL_ASSAULT1</Tag>
+		<English>Coastal Assault I</English>
+		<French>Assaut Marit. I</French>
+		<German>K&#252;stenangriff I</German>
+		<Italian>Coastal Assault I</Italian>
+		<Spanish>Coastal Assault I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_COASTAL_ASSAULT2</Tag>
+		<English>Coastal Assault II</English>
+		<French>Assaut Marit. II</French>
+		<German>K&#252;stenangriff II</German>
+		<Italian>Coastal Assault II</Italian>
+		<Spanish>Coastal Assault II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_COASTAL_ASSAULT3</Tag>
+		<English>Coastal Assault III</English>
+		<French>Assaut Marit. III</French>
+		<German>K&#252;stenangriff III</German>
+		<Italian>Coastal Assault III</Italian>
+		<Spanish>Coastal Assault III</Spanish>
+	</TEXT>
+
+<!-- +++ Coastal Guard +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_COASTAL_GUARD1</Tag>
+		<English>Coastal Guard I</English>
+		<French>Garde côtes I</French>
+		<German>K&#252;stenwache I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_COASTAL_GUARD2</Tag>
+		<English>Coastal Guard II</English>
+		<French>Garde côtes II</French>
+		<German>K&#252;stenwache II</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_COASTAL_GUARD3</Tag>
+		<English>Coastal Guard III</English>
+		<French>Garde côtes III</French>
+		<German>K&#252;stenwache III</German>
+	</TEXT>
+
+<!-- +++ Combat AI +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_COMBAT_AI1</Tag>
+		<English>Combat AI 1.0</English>
+		<French>Combat IA 1.0</French>
+		<German>Schlacht-KI 1.0</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_COMBAT_AI2</Tag>
+		<English>Combat AI 2.0</English>
+		<French>Combat IA 2.0</French>
+		<German>Schlacht-KI 2.0</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_COMBAT_AI3</Tag>
+		<English>Combat AI 3.0</English>
+		<French>Combat IA 3.0</French>
+		<German>Schlacht-KI 3.0</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_COMBAT_AI4</Tag>
+		<English>Combat AI 4.0</English>
+		<French>Combat IA 4.0</French>
+		<German>Schlacht-KI 4.0</German>
 	</TEXT>
 
 <!-- +++ Conspiracy +++ -->
@@ -214,6 +702,27 @@
 		<Tag>TXT_KEY_PROMOTION_CONSPIRACY3</Tag>
 		<English>Conspiracy III</English>
 		<French>Conspiration III</French>
+	</TEXT>
+
+	<TEXT> <!-- Copper Plating -->
+		<Tag>TXT_KEY_PROMOTION_COPPER_PLATING</Tag>
+		<English>Copper Plating</English>
+		<French>Blindage en Cuivre</French>
+		<German>Kupferpanzer</German>
+	</TEXT>
+	
+<!-- +++ Cover +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_COVER</Tag>
+		<English>Cover I</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_COVER2</Tag>
+		<English>Cover II</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_COVER3</Tag>
+		<English>Cover III</English>
 	</TEXT>
 
 <!-- +++ Crew +++ -->
@@ -234,12 +743,77 @@
 		<English>Racing Crew</English>
 	</TEXT>
 
+<!-- +++ Defensive Protocols +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_DEFENSIVE_PROTOCOLS1</Tag>
+		<English>Defensive Protocols 1.0</English>
+		<French>Protocoles Défensifs 1.0</French>
+		<German>Verteidigungsprotokoll 1.0</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_DEFENSIVE_PROTOCOLS2</Tag>
+		<English>Defensive Protocols 2.0</English>
+		<French>Protocoles Défensifs 2.0</French>
+		<German>Verteidigungsprotokoll 2.0</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_DEFENSIVE_PROTOCOLS3</Tag>
+		<English>Defensive Protocols 3.0</English>
+		<French>Protocoles Défensifs 3.0</French>
+		<German>Verteidigungsprotokoll 3.0</German>
+	</TEXT>
+
+	<TEXT> <!-- Desert Combat -->
+		<Tag>TXT_KEY_PROMOTION_DESERT_COMBAT1</Tag>
+		<English>Desert Combat I</English>
+		<French>
+			<Text>Combat en milieu d&#233;sertique I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>W&#252;stenkampf I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Combattente del deserto I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Combate en el desierto I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+
 	<TEXT> <!-- Disorganised (Barbarian Ships) -->
 		<Tag>TXT_KEY_PROMOTION_DISORGANIZED</Tag>
 		<English>Disorganized</English>
 		<Spanish>Desorganizado</Spanish>
 	</TEXT>
-	
+
+<!-- +++ Electro-Magnetic Armour +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_ELECTROMAGNETIC_ARMOR1</Tag>
+		<English>Electro-Magnetic Armour MK I</English>
+		<French>Armure Electro-Magnétique MK I</French>
+		<German>Electromagnetischer Panzer MK I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_ELECTROMAGNETIC_ARMOR2</Tag>
+		<English>Electro-Magnetic Armour MK II</English>
+		<French>Armure Electro-Magnétique MK II</French>
+		<German>Electromagnetischer Panzer MK II</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_ELECTROMAGNETIC_ARMOR3</Tag>
+		<English>Electro-Magnetic Armour MK III</English>
+		<French>Armure Electro-Magnétique MK III</French>
+		<German>Electromagnetischer Panzer MK III</German>
+	</TEXT>
+
 <!-- +++ Escape Artist +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_ESCAPE1</Tag>
@@ -272,10 +846,363 @@
 		<English>Evasion III</English>
 	</TEXT>
 
-	<TEXT>	<!-- Great Hunter -->
+	<TEXT> <!-- Extra Fuel Tank -->
+		<Tag>TXT_KEY_PROMOTION_EXTRA_FUEL_TANK</Tag>
+		<English>Extra Fuel Tank</English>
+		<French>Carburant Suppl.</French>
+		<German>Extra Treibstofftank</German>
+	</TEXT>
+
+	<TEXT> <!-- Fanatic -->
+		<Tag>TXT_KEY_PROMOTION_FANATIC</Tag>
+		<English>Fanatic</English>
+		<French>Fanatique</French>
+		<German>Fanatiker</German>
+	</TEXT>
+	
+<!-- +++ Fieldsman +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_FIELDSMAN1</Tag>
+		<English>Fieldsman I</English>
+		<French>Champs I</French>
+		<German>Feld I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_FIELDSMAN2</Tag>
+		<English>Fieldsman II</English>
+		<French>Champs II</French>
+		<German>Feld II</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_FIELDSMAN3</Tag>
+		<English>Fieldsman III</English>
+		<French>Champs III</French>
+		<German>Feld III</German>
+	</TEXT>
+
+<!-- +++ Firearms +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_FIREARMS1</Tag>
+		<English>Firearms I</English>
+		<French>Armes à Feu I</French>
+		<German>Feuerwaffen I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_FIREARMS2</Tag>
+		<English>Firearms II</English>
+		<French>Armes à Feu II</French>
+		<German>FeuerwaffenII</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_FIREARMS3</Tag>
+		<English>Firearms III</English>
+		<French>Armes à Feu III</French>
+		<German>Feuerwaffen III</German>
+	</TEXT>
+
+<!-- +++ Flanking +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_FLANKING1</Tag>
+		<English>Flanking I</English>
+		<French>
+			<Text>Contournement I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Flanke I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Attacco laterale I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Flanqueo I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_FLANKING2</Tag>
+		<English>Flanking II</English>
+		<French>
+			<Text>Contournement II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Flanke II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Attacco laterale II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Flanqueo II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_FLANKING3</Tag>
+		<English>Flanking III</English>
+		<French>
+			<Text>Contournement III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Flanke III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Attacco laterale III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Flanqueo III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+
+<!-- +++ Formation +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_FORMATION</Tag>
+		<English>Formation I</English>
+		<French>
+			<Text>Formation I</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Formation I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Formazione I</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Formaci_n I</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_FORMATION2</Tag>
+		<English>Formation II</English>
+		<French>
+			<Text>Formation II</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Formation II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Formazione II</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Formaci_n II</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_FORMATION3</Tag>
+		<English>Formation III</English>
+		<French>
+			<Text>Formation III</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Formation III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Formazione III</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Formaci_n III</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Fusion Power Source -->
+		<Tag>TXT_KEY_PROMOTION_FUSION_POWER_SOURCE</Tag>
+		<English>Fusion Power Source</English>
+		<French>Moteur à Fusion</French>
+		<German>Fusionsenergiequelle</German>
+	</TEXT>
+
+	<TEXT> <!-- Fuzzy Logic -->
+		<Tag>TXT_KEY_PROMOTION_FUZZY_LOGIC</Tag>
+		<English>Fuzzy Logic</English>
+	</TEXT>
+
+	<TEXT> <!-- Global Awareness -->
+		<Tag>TXT_KEY_PROMOTION_GLOBAL_AWARENESS</Tag>
+		<English>Global Awareness</English>
+		<French>Sensibilisation Globale</French>
+		<German>Globales Bewusstsein</German>
+	</TEXT>
+
+	<TEXT> <!-- Global Positioning System -->
+		<Tag>TXT_KEY_PROMOTION_GPS</Tag>
+		<English>Global Positioning System</English>
+	</TEXT>
+
+	<TEXT> <!-- Grape Shot -->
+		<Tag>TXT_KEY_PROMOTION_GRAPE_SHOT</Tag>
+		<English>Grape Shot</English>
+		<French>Tir en Grapes</French>
+		<German>Kart&#228;tsche</German>
+	</TEXT>
+
+	<TEXT> <!-- Great Hunter -->
 		<Tag>TXT_KEY_PROMOTION_GREAT_HUNTER</Tag>
 		<English>Great Hunter</English>
 		<Spanish>Gran Cazador</Spanish>
+	</TEXT>
+
+<!-- +++ Guardian +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GUARDIAN1</Tag>
+		<English>Guardian 1.0</English>
+		<French>Gardien 1.0</French>
+		<German>Besch&#252;tzer 1.0</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GUARDIAN2</Tag>
+		<English>Guardian 2.0</English>
+		<French>Gardien 2.0</French>
+		<German>Besch&#252;tzer 2.0</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GUARDIAN3</Tag>
+		<English>Guardian 3.0</English>
+		<French>Gardien 3.0</French>
+		<German>Besch&#252;tzer 3.0</German>
+	</TEXT>
+
+<!-- +++ Guerilla +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GUERILLA1</Tag>
+		<English>Guerilla I</English>
+		<French>
+			<Text>Gu&#233;rilla I</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Guerilla I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Guerriglia I</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Guerrilla I</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GUERILLA2</Tag>
+		<English>Guerilla II</English>
+		<French>
+			<Text>Gu&#233;rilla II</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Guerilla II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Guerriglia II</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Guerrilla II</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GUERILLA3</Tag>
+		<English>Guerilla III</English>
+		<French>
+			<Text>Gu&#233;rilla III</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Guerilla III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Guerriglia III</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Guerrilla III</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Gunnery Control -->
+		<Tag>TXT_KEY_PROMOTION_GUNNERY_CONTROL</Tag>
+		<English>Gunnery Control</English>
+		<French>
+			<Text>Gunnery Control</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Geschütztraining</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Monitoraggio Artiglieria</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Gunnery Control</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+		<Hungarian>Gunnery Control</Hungarian>
 	</TEXT>
 
 <!-- +++ Heal +++ -->
@@ -335,6 +1262,25 @@
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</Italian>
+	</TEXT>
+
+	<TEXT> <!-- Heat Seeking -->
+		<Tag>TXT_KEY_PROMOTION_HEAT_SEEKING</Tag>
+		<English>Heat Seeking</English>
+		<French>Guidage Infrarouge</French>
+		<German>W&#228;rmesuchend</German>
+	</TEXT>
+
+	<TEXT> <!-- Herbal Cures -->
+		<Tag>TXT_KEY_PROMOTION_HERBAL_CURES</Tag>
+		<English>Herbal Cures</English>
+	</TEXT>
+
+	<TEXT> <!-- Heroic -->
+		<Tag>TXT_KEY_PROMOTION_HEROIC</Tag>
+		<English>Heroic</English>
+		<French>Héroïque</French>
+		<German>Heroisch</German>
 	</TEXT>
 
 <!-- +++ Hunter +++ -->
@@ -468,6 +1414,44 @@
 		<English>Intrigue III</English>
 	</TEXT>
 
+	<TEXT> <!-- Jump Sets -->
+		<Tag>TXT_KEY_PROMOTION_JUMP_SETS</Tag>
+		<English>Jump Sets</English>
+		<French>Réacteurs Dorsaux</French>
+	</TEXT>
+
+<!-- +++ Land Warrior +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_LAND_WARRIOR1</Tag>
+		<English>Land Warrior I</English>
+		<French>Guerrier Terrestre I</French>
+		<German>Landkrieger I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_LAND_WARRIOR2</Tag>
+		<English>Land Warrior II</English>
+		<French>Guerrier Terrestre II</French>
+		<German>Landkrieger II</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_LAND_WARRIOR3</Tag>
+		<English>Land Warrior III</English>
+		<French>Guerrier Terrestre III</French>
+		<German>Landkrieger III</German>
+	</TEXT>
+
+	<TEXT> <!-- Laser Guidance -->
+		<Tag>TXT_KEY_PROMOTION_LASER_GUIDANCE</Tag>
+		<English>Laser Guidance</English>
+		<French>Guidage Laser</French>
+		<German>Lasergef&#252;hrt</German>
+	</TEXT>
+
+	<TEXT> <!-- Letter of Marque -->
+		<Tag>TXT_KEY_PROMOTION_LETTER_OF_MARQUE</Tag>
+		<English>Letter of Marque</English>
+	</TEXT>
+	
 <!-- +++ Logistics +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_LOGISTICS1</Tag>
@@ -491,6 +1475,20 @@
 		<Italian>Logistica III</Italian>
 	</TEXT>
 
+	<TEXT> <!-- Looter -->
+		<Tag>TXT_KEY_PROMOTION_LOOTER</Tag>
+		<English>Looter</English>
+		<French>Pilleur</French>
+		<German>R&#228;uber</German>
+	</TEXT>
+
+	<TEXT> <!-- Low Altitude Maneuvers -->
+		<Tag>TXT_KEY_PROMOTION_LOW_ALTITUDE</Tag>
+		<English>Low Altitude Maneuvers</English>
+		<French>Manoeuvres de Basse Altitude</French>
+		<German>Tiefflugman&#246;ver</German>
+	</TEXT>
+
 	<TEXT> <!-- Loyalty -->
 		<Tag>TXT_KEY_PROMOTION_LOYALTY</Tag>
 		<English>Loyalty</English>
@@ -500,6 +1498,263 @@
 		<Spanish>Lealtad</Spanish>
 	</TEXT>	
 
+<!-- +++ Maneuvering +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_MANEUVERING1</Tag>
+		<English>Maneuvering I</English>
+		<French>Manoeuvre I</French>
+		<German>Man&#246;ver I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_MANEUVERING2</Tag>
+		<English>Maneuvering II</English>
+		<French>Manoeuvre II</French>
+		<German>Man&#246;verII</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_MANEUVERING3</Tag>
+		<English>Maneuvering III</English>
+		<French>Manoeuvre III</French>
+		<German>Man&#246;ver III</German>
+	</TEXT>
+
+<!-- +++ Martial Arts +++	 -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_MARTIAL_ARTS1</Tag>
+		<English>Martial Arts I</English>
+		<French>Arts Martiaux I</French>
+		<German>Kampfsport I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_MARTIAL_ARTS2</Tag>
+		<English>Martial Arts II</English>
+		<French>Arts Martiaux II</French>
+		<German>Kampfsport II</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_MARTIAL_ARTS3</Tag>
+		<English>Martial Arts III</English>
+		<French>Arts Martiaux III</French>
+		<German>Kampfsport III</German>
+	</TEXT>
+
+	<TEXT> <!-- Mountaineer -->
+		<Tag>TXT_KEY_PROMOTION_MOUNTAINEER</Tag>
+		<English>Mountaineer</English>
+		<French>Montagnard</French>
+		<German>Bergsteiger</German>
+	</TEXT>
+
+	<TEXT> <!-- Nanoids -->
+		<Tag>TXT_KEY_PROMOTION_NANOIDS</Tag>
+		<English>Nanoids</English>
+		<French>
+			<Text>Nanites</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>
+			<Text>Naniten</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Nanoidi</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Nanoide:Nanoides</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Napalm Bombs -->
+		<Tag>TXT_KEY_PROMOTION_NAPALM_BOMBS</Tag>
+		<English>Napalm Bombs</English>
+		<French>Bombes au Napalm</French>
+		<German>Napalm-Bomben</German>
+	</TEXT>
+
+	<TEXT> <!-- Navigation III -->
+		<Tag>TXT_KEY_PROMOTION_NAVIGATION3</Tag>
+		<English>Navigation III</English>
+	</TEXT>
+
+<!-- +++ Offensive Protocols +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_OFFENSIVE_PROTOCOLS1</Tag>
+		<English>Offensive Protocols 1.0</English>
+		<French>Protocoles Offensifs 1.0</French>
+		<German>Offensives Protokoll 1.0</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_OFFENSIVE_PROTOCOLS2</Tag>
+		<English>Offensive Protocols 2.0</English>
+		<French>Protocoles Offensifs 2.0</French>
+		<German>Offensives Protokoll 2.0</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_OFFENSIVE_PROTOCOLS3</Tag>
+		<English>Offensive Protocols 3.0</English>
+		<French>Protocoles Offensifs 3.0</French>
+		<German>Offensives Protokoll 3.0</German>
+	</TEXT>
+
+	<TEXT> <!-- Pacification -->
+		<Tag>TXT_KEY_PROMOTION_PACIFICATION</Tag>
+		<English>Pacification</English>
+	</TEXT>
+
+<!-- +++ Patrol +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_PATROL</Tag>
+		<English>Patrol I</English>
+		<French>Patrouille I</French>
+		<German>Patroullieren I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_PATROL2</Tag>
+		<English>Patrol II</English>
+		<French>Patrouille II</French>
+		<German>Patroullieren II</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_PATROL3</Tag>
+		<English>Patrol III</English>
+		<French>Patrouille III</French>
+		<German>Patroullieren III</German>
+	</TEXT>
+
+<!-- +++ Pinch +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_PINCH</Tag>
+		<English>Pinch I</English>
+		<French>
+			<Text>Tenaille I</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Finte I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Accerchiamento I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Tenaza I</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_PINCH2</Tag>
+		<English>Pinch II</English>
+		<French>
+			<Text>Tenaille II</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Finte II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Accerchiamento II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Tenaza II</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_PINCH3</Tag>
+		<English>Pinch III</English>
+		<French>
+			<Text>Tenaille III</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Finte III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Accerchiamento III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Tenaza III</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Poisoned Arrows -->
+		<Tag>TXT_KEY_PROMOTION_POISON_ARROWS</Tag>
+		<English>Poisoned Arrows</English>
+		<French>Flèches empoisonnées</French>
+		<German>Vergiftete Pfeile</German>
+	</TEXT>
+
+<!-- +++ Power Source Upgrade +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_POWER_SOURCE_UPGRADE1</Tag>
+		<English>Power Source Upgrade MK I</English>
+		<French>Energie MK I</French>
+		<German>Energiequelle-Upgrade MK I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_POWER_SOURCE_UPGRADE2</Tag>
+		<English>Power Source Upgrade MK II</English>
+		<French>Energie MK II</French>
+		<German>Energiequelle-Upgrade MK II</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_POWER_SOURCE_UPGRADE3</Tag>
+		<English>Power Source Upgrade MK III</English>
+		<French>Energie MK III</French>
+		<German>Energiequelle-Upgrade MK III</German>
+	</TEXT>
+
+	<TEXT> <!-- Precision Bombing -->
+		<Tag>TXT_KEY_PROMOTION_PRECISION_BOMBING</Tag>
+		<English>Precision Bombing</English>
+		<French>Bombardement de Précision </French>
+		<German>Pr&#228;zissionsbombardierung</German>
+	</TEXT>
+
+	<TEXT> <!-- Quantum Algorithms -->
+		<Tag>TXT_KEY_PROMOTION_QUANTUM_ALGORITHMS</Tag>
+		<English>Quantum Algorithms</English>
+		<French>Algorithmes Quantiques</French>
+		<German>Quantenalgorythmus</German>
+	</TEXT>
+
+	<TEXT> <!-- Rapid Deployment -->
+		<Tag>TXT_KEY_PROMOTION_RAPID_DEPLOYMENT1</Tag>
+		<English>Rapid Deployment I</English>
+		<French>Déploiement Rapide I</French>
+		<German>Schnelle Stationierung I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_RAPID_DEPLOYMENT2</Tag>
+		<English>Rapid Deployment II</English>
+		<French>Déploiement Rapide II</French>
+		<German>Schnelle Stationierung II</German>
+	</TEXT>
+
 <!-- +++ Recon +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_RECON1</Tag>
@@ -508,6 +1763,20 @@
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_RECON2</Tag>
 		<English>Recon II</English>
+	</TEXT>
+
+	<TEXT> <!-- Refuel in Air -->
+		<Tag>TXT_KEY_PROMOTION_AIR_REFUEL</Tag>
+		<English>Refuel in Air</English>
+		<French>Ravitaillement en Vol</French>
+		<German>Luftbetankung</German>
+	</TEXT>
+
+	<TEXT> <!-- Reinforced Structure -->
+		<Tag>TXT_KEY_PROMOTION_REINFORCED_STRUCTURE</Tag>
+		<English>Reinforced Structure</English>
+		<French>Structure Renforcée</French>
+		<German>Verst&#228;rkte Strukturen</German>
 	</TEXT>
 
 <!-- +++ Safecracker +++ -->
@@ -534,6 +1803,76 @@
 		<English>Scavenger II</English>
 	</TEXT>
 
+	<TEXT> <!-- Segmented Armour -->
+		<Tag>TXT_KEY_PROMOTION_SEGMENTED_ARMOR</Tag>
+		<English>Segmented Armour</English>
+		<French>Armure Segmentée</French>
+		<German>Geteilter Panzer</German>
+	</TEXT>
+
+<!-- +++ Sensors +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SENSORS</Tag>
+		<English>Sensors I</English>
+		<French>Sensors I</French>
+		<German>Sensoren I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SENSORS2</Tag>
+		<English>Sensors II</English>
+		<French>Sensors II</French>
+		<German>Sensoren II</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SENSORS3</Tag>
+		<English>Sensors III</English>
+		<French>Sensors III</French>
+		<German>Sensoren III</German>
+	</TEXT>
+
+	<TEXT> <!-- Sentry II -->
+		<Tag>TXT_KEY_PROMOTION_SENTRY2</Tag>
+		<English>Sentry II</English>
+	</TEXT>
+	<TEXT> <!-- Sentry III -->
+		<Tag>TXT_KEY_PROMOTION_SENTRY3</Tag>
+		<English>Sentry III</English>
+	</TEXT>
+
+<!-- +++ Shielding +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SHIELDING1</Tag>
+		<English>Shielding I</English>
+		<French>Bouclier I</French>
+		<German>Schilde I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SHIELDING2</Tag>
+		<English>Shielding II</English>
+		<French>Bouclier II</French>
+		<German>Schilde II</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SHIELDING3</Tag>
+		<English>Shielding III</English>
+		<French>Bouclier III</French>
+		<German>Schilde III</German>
+	</TEXT>
+
+<!-- +++ Shock +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SHOCK</Tag>
+		<English>Shock I</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SHOCK2</Tag>
+		<English>Shock II</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SHOCK3</Tag>
+		<English>Shock III</English>
+	</TEXT>
+
 <!-- +++ Sidestep +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_SIDESTEP1</Tag>
@@ -542,6 +1881,13 @@
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_SIDESTEP2</Tag>
 		<English>Sidestep II</English>
+	</TEXT>
+
+	<TEXT> <!-- Siege Master -->
+		<Tag>TXT_KEY_PROMOTION_WALL_BREAKER</Tag>
+		<English>Siege Master</English>
+		<French>Maîtrise du Siège</French>
+		<German>Meister der Belagerung</German>
 	</TEXT>
 
 <!-- +++ Slaver +++ -->
@@ -577,11 +1923,180 @@
 		<English>Slaver Hunter</English>
 	</TEXT>
 
+	<TEXT> <!-- Small Diameter Bomb -->
+		<Tag>TXT_KEY_PROMOTION_SMALL_DIAMETER_BOMB</Tag>
+		<English>Small Diameter Bomb</English>
+		<French>Bombes à petit diamètre</French>
+		<German>Kleindurchmesser-Bombe</German>
+	</TEXT>
+
+	<TEXT> <!-- Sonar -->
+		<Tag>TXT_KEY_PROMOTION_SONAR</Tag>
+		<English>Sonar</English>
+	</TEXT>
+
+	<TEXT> <!-- Speed -->
+		<Tag>TXT_KEY_PROMOTION_SPEED</Tag>
+		<English>Speed</English>
+		<French>
+			<Text>Vitesse</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Geschwindigkeit</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Velocit_</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Velocidad</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+
+<!-- +++ Stealth +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_STEALTH1</Tag>
+		<English>Stealth I</English>
+		<French>Furtif I</French>
+		<German>Stealth I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_STEALTH2</Tag>
+		<English>Stealth II</English>
+		<French>Furtif II</French>
+		<German>Stealth II</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_STEALTH3</Tag>
+		<English>Stealth III</English>
+		<French>Furtif III</French>
+		<German>Stealth III</German>
+	</TEXT>
+
+	<TEXT> <!-- Super Cavitation -->
+		<Tag>TXT_KEY_PROMOTION_SUPER_CAVITATION</Tag>
+		<English>Super Cavitation</English>
+		<French>Super Cavitation</French>
+		<German>Super-Kavitation</German>
+	</TEXT>
+
+<!-- +++ Terrain Analysis +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_TERRAIN_ANALYSIS1</Tag>
+		<English>Terrain Analysis 1.0</English>
+		<French>Analyse du Terrain 1.0</French>
+		<German>Gel&#228;nde-Analyse 1.0</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_TERRAIN_ANALYSIS2</Tag>
+		<English>Terrain Analysis 2.0</English>
+		<French>Analyse du Terrain 2.0</French>
+		<German>Gel&#228;nde-Analyse 2.0</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_TERRAIN_ANALYSIS3</Tag>
+		<English>Terrain Analysis 3.0</English>
+		<French>Analyse du Terrain 3.0</French>
+		<German>Gel&#228;nde-Analyse 3.0</German>
+	</TEXT>
+
+	<TEXT> <!-- Top Gun Pilot -->
+		<Tag>TXT_KEY_PROMOTION_TOPGUN_PILOT</Tag>
+		<English>Top Gun Pilot</English>
+		<French>Pilote Top Gun</French>
+	</TEXT>
+
+	<TEXT> <!-- Torpedoes -->
+		<Tag>TXT_KEY_PROMOTION_TORPEDOES</Tag>
+		<English>Torpedoes</English>
+		<French>Torpilles</French>
+		<German>Torpedos</German>
+	</TEXT>
+
+	<TEXT> <!-- Trainer -->
+		<Tag>TXT_KEY_PROMOTION_TRAINER</Tag>
+		<English>Trainer</English>
+	</TEXT>
+
+<!-- +++ Trench +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_TRENCH1</Tag>
+		<English>Trench I</English>
+		<French>Tranchées I</French>
+		<German>Graben I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_TRENCH2</Tag>
+		<English>Trench II</English>
+		<French>Tranchées II</French>
+		<German>Graben II</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_TRENCH3</Tag>
+		<English>Trench III</English>
+		<French>Tranchées III</French>
+		<German>Graben III</German>
+	</TEXT>
+
+	<TEXT> <!-- Upgrade Discount -->
+		<Tag>TXT_KEY_PROMOTION_UPGRADE_DISCOUNT</Tag>
+		<English>Upgrade Discount</English>
+		<French>Améliorations moins coûteuses</French>
+		<German>Verbilligte Modernisierung</German>
+	</TEXT>
+
+<!-- +++ Urban Tactics +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_URBAN_TACTICS1</Tag>
+		<English>Urban Tactics I</English>
+		<French>Tactiques Urbaines I</French>
+		<German>Stadttaktiken I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_URBAN_TACTICS2</Tag>
+		<English>Urban Tactics II</English>
+		<French>Tactiques Urbaines II</French>
+		<German>Stadttaktiken II</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_URBAN_TACTICS3</Tag>
+		<English>Urban Tactics III</English>
+		<French>Tactiques Urbaines III</French>
+		<German>Stadttaktiken III</German>
+	</TEXT>
+
 	<TEXT> <!-- Veteran Pilot -->
 		<Tag>TXT_KEY_PROMOTION_VETERAN</Tag>
 		<English>Veteran Pilot</English>
 		<French>Pilote Vétéran</French>
 		<German>Veteranen-Pilot</German>
+	</TEXT>
+
+<!-- +++ Weapon Upgrade +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_WEAPON_UPGRADE1</Tag>
+		<English>Weapon Upgrade MK I</English>
+		<French>Armes MK I</French>
+		<German>Waffen-Upgrade MK I</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_WEAPON_UPGRADE2</Tag>
+		<English>Weapon Upgrade MK II</English>
+		<French>Armes MK II</French>
+		<German>Waffen-Upgrade MK II</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_WEAPON_UPGRADE3</Tag>
+		<English>Weapon Upgrade MK III</English>
+		<French>Armes MK III</French>
+		<German>Waffen-Upgrade MK III</German>
 	</TEXT>
 
 <!-- +++ Work Rate +++ -->
