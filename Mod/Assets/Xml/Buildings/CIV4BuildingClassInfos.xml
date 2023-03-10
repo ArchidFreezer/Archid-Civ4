@@ -524,6 +524,12 @@
 			<iCategory>28</iCategory>
 			<DefaultBuilding>BUILDING_WEAVERS_HUT</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Wheelwright -->
+			<Type>BUILDINGCLASS_WHEELWRIGHT</Type>
+			<Description>TXT_KEY_BUILDING_WHEELWRIGHT</Description>
+			<iCategory>28</iCategory>
+			<DefaultBuilding>BUILDING_WHEELWRIGHT</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Bazaar -->                          <!-- Commerce - Retail -->
 			<Type>BUILDINGCLASS_BAZAAR</Type>
@@ -878,7 +884,18 @@
 			<iCategory>40</iCategory>
 			<DefaultBuilding>BUILDING_TELEPHONE_NETWORK</DefaultBuilding>
 		</BuildingClassInfo>
-
+		<BuildingClassInfo> <!-- Train Yard -->
+			<Type>BUILDINGCLASS_TRAIN_YARD</Type>
+			<Description>TXT_KEY_BUILDING_TRAIN_YARD</Description>
+			<iCategory>40</iCategory>
+			<DefaultBuilding>BUILDING_TRAIN_YARD</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Maglev Yard -->
+			<Type>BUILDINGCLASS_MAGLEV_YARD</Type>
+			<Description>TXT_KEY_BUILDING_MAGLEV_YARD</Description>
+			<iCategory>40</iCategory>
+			<DefaultBuilding>BUILDING_MAGLEV_YARD</DefaultBuilding>
+		</BuildingClassInfo>
 
 <!-- ************	-->
 <!-- World Wonders -->

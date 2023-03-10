@@ -1054,6 +1054,12 @@
 		<Italian>Le [COLOR_BUILDING_TEXT]biblioteche[COLOR_REVERT] aumentano la ricerca e la cultura delle citt&#224;. Sono necessarie per la realizzazione di [COLOR_BUILDING_TEXT]universit&#224;[COLOR_REVERT], della Meraviglia [COLOR_BUILDING_TEXT]Grande Biblioteca[COLOR_REVERT] e delle Meraviglia Nazionali [COLOR_BUILDING_TEXT]Poema Patriottico[COLOR_REVERT].</Italian>
 		<Spanish>Las [COLOR_BUILDING_TEXT]Bibliotecas[COLOR_REVERT] impulsan la investigaci&#243;n de las ciudades y proporcionan cultura. Son necesarias para construir [COLOR_BUILDING_TEXT]Universidades[COLOR_REVERT], la maravilla de la [COLOR_BUILDING_TEXT]Gran Biblioteca[COLOR_REVERT] y las maravilla nacionales de la [COLOR_BUILDING_TEXT]Epopeya nacional[COLOR_REVERT].</Spanish>
 	</TEXT>
+	<TEXT> <!-- Maglev Yard -->
+		<Tag>TXT_KEY_BUILDING_MAGLEV_YARD</Tag>
+		<English>Maglev Yard</English>
+		<French>Gare de Maglev</French>
+		<German>Maglev Güterbahnhof</German>
+	</TEXT>
 	<TEXT> <!-- Manor -->
 		<Tag>TXT_KEY_BUILDING_MANOR</Tag>
 		<English>Manor</English>
@@ -1788,6 +1794,20 @@
 		<Tag>TXT_KEY_BUILDING_TRADE_UNION_STRATEGY</Tag>
 		<English>Trade union national wonder increases happiness and healthiness on whole continent.</English>
 	</TEXT>
+	<TEXT> <!-- Train Yard -->
+		<Tag>TXT_KEY_BUILDING_TRAIN_YARD</Tag>
+		<English>Train Yard</English>
+		<French>Gare de Chemin de Fer</French>
+		<German>Güterbahnhof</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FREIGHT_YARD_PEDIA</Tag>
+		<English>[TAB]A goods station (or freight station) is, in the widest sense, a railway station which is exclusively or predominantly where goods (or freight) of any description are loaded or unloaded from ships or road vehicles and/or where goods wagons are transferred to local sidings.[PARAGRAPH:1]A station where goods are not specifically received or dispatched, but simply transferred on their way to their destination between the railway and another means of transport, such as ships or lorries, may be referred to as a transshipment station. This often takes the form of a container terminal and may also be known as a container station.</English>
+	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_LAND_TRADE_STRATEGY</Tag>
+		<English>Paved Roads, Train and Maglev Yards expand your domestic trade.</English>
+	</TEXT>
 	<TEXT> <!-- Treadmill Crane -->
 		<Tag>TXT_KEY_BUILDING_TREADMILL_CRANE</Tag>
 		<English>Treadmill Crane</English>
@@ -1900,6 +1920,21 @@
 		<English>Makes use of "clothing" resources, providing Commerce</English>
 		<French>Procure une ressource 'Vêtement', fournissant du commerce</French>
 		<German>Erzeugt die Ressource "Kleidung", erzeugt Handel</German>
+	</TEXT>
+	<TEXT> <!-- Wheelwright -->
+		<Tag>TXT_KEY_BUILDING_WHEELWRIGHT</Tag>
+		<English>Wheelwright</English>
+		<French>Charron</French>
+		<German>Stellmacher</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WHEELWRIGHT_PEDIA</Tag>
+		<English>Historically, these tradesmen made wheels for carts and wagons by first constructing the hub, the spokes and the rim/fellows segments and assembling them all into a unit working from the center of the wheel outwards. Most wheels were made from wood but other materials have been used, such as bone and horn, for decorative or other purposes. Around the middle of the 19th century iron strakes were replaced by a solid iron tire custom made by a blacksmith who first measured each wheel to ensure proper fit. Strakes were lengths of iron that were nailed to the outside of wheels to hold wooden wheels together. Strakes were replaced around the mid-1800s by more dependable iron tires that were fastened to the wooden wheel by both the tight fit of the tire/band as well as tire-bolts. Tire-bolts were less likely than tire-nails to break off because they were flush with the wheel's outer surface. During the second half of the 19th century the use of pre-manufactured iron hubs, and other factory-made wood, iron and rubber wheel parts became increasingly common.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WHEELWRIGHT_STRATEGY</Tag>
+		<English>Increases trade and Commerce</English>
+		<French>Augmente les échanges et le Commerce</French>
 	</TEXT>
 	<TEXT> <!-- World Bank -->
 		<Tag>TXT_KEY_BUILDING_WORLD_BANK</Tag>

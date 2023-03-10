@@ -8278,6 +8278,52 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Maglev Yard -->
+			<BuildingClass>BUILDINGCLASS_MAGLEV_YARD</BuildingClass>
+			<Type>BUILDING_MAGLEV_YARD</Type>
+			<Description>TXT_KEY_BUILDING_MAGLEV_YARD</Description>
+			<Civilopedia>TXT_KEY_BUILDING_FREIGHT_YARD_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_LAND_TRADE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_MAGLEV_YARD</ArtDefineTag>			
+			<PrereqAndTechs>
+				<TechType>TECH_MAGNETIC_LEVITATION</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_EXPANSIVE</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<iCost>600</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>10</iMinAreaSize>
+			<iConquestProb>100</iConquestProb>
+			<iHealth>-1</iHealth>
+			<iTradeRoutes>2</iTradeRoutes>
+			<iTradeRouteModifier>50</iTradeRouteModifier>
+			<iAsset>4</iAsset>
+			<bPrereqPower>1</bPrereqPower>
+			<CommerceChanges>
+				<iCommerce>6</iCommerce>
+			</CommerceChanges>
+			<ConstructSound>AS2D_BUILD_WALLS</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_JUMPLANE_PORTAL</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_JUMPLANE_PORTAL</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>	
 		<BuildingInfo> <!-- Manor -->
 			<BuildingClass>BUILDINGCLASS_MANOR</BuildingClass>
 			<Type>BUILDING_MANOR</Type>
@@ -13750,6 +13796,52 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Train Yard -->
+			<BuildingClass>BUILDINGCLASS_TRAIN_YARD</BuildingClass>
+			<Type>BUILDING_TRAIN_YARD</Type>
+			<Description>TXT_KEY_BUILDING_TRAIN_YARD</Description>
+			<Civilopedia>TXT_KEY_BUILDING_FREIGHT_YARD_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_LAND_TRADE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_TRAIN_YARD</ArtDefineTag>			
+			<PrereqAndTechs>
+				<TechType>TECH_RAILROAD</TechType>
+			</PrereqAndTechs>
+			<PrereqBonus>BONUS_STEEL</PrereqBonus>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_EXPANSIVE</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<iCost>350</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>10</iMinAreaSize>
+			<iConquestProb>100</iConquestProb>
+			<iHealth>-1</iHealth>
+			<iTradeRoutes>2</iTradeRoutes>
+			<iTradeRouteModifier>25</iTradeRouteModifier>
+			<iAsset>4</iAsset>
+			<CommerceChanges>
+				<iCommerce>4</iCommerce>
+			</CommerceChanges>
+			<ConstructSound>AS2D_BUILD_WALLS</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_MAGLEV_YARD</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_MAGLEV_YARD</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>	
 		<BuildingInfo> <!-- Treadmill Crane -->
 			<BuildingClass>BUILDINGCLASS_TREADMILL_CRANE</BuildingClass>
 			<Type>BUILDING_TREADMILL_CRANE</Type>
@@ -14432,6 +14524,63 @@
 					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
 					<iFlavor>2</iFlavor>
 				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Wheelwright -->
+			<BuildingClass>BUILDINGCLASS_WHEELWRIGHT</BuildingClass>
+			<Type>BUILDING_WHEELWRIGHT</Type>
+			<Description>TXT_KEY_BUILDING_WHEELWRIGHT</Description>
+			<Civilopedia>TXT_KEY_BUILDING_WHEELWRIGHT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_WHEELWRIGHT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_WHEELWRIGHT</ArtDefineTag>
+			<ObsoleteTech>TECH_INDUSTRIALISM</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_THE_WHEEL</TechType>
+			</PrereqAndTechs>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>30</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iAdvancedStartCostIncrease>-1</iAdvancedStartCostIncrease>
+			<iConquestProb>33</iConquestProb>
+			<iTradeRoutes>1</iTradeRoutes>
+			<ConstructSound>AS2D_BUILD_SIEGE_WORKSHOP</ConstructSound>
+			<UnitCombatProductionModifiers>
+				<UnitCombatProductionModifier>
+					<UnitCombatType>UNITCOMBAT_WHEELED</UnitCombatType>
+					<iModifier>50</iModifier>
+				</UnitCombatProductionModifier>
+			</UnitCombatProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_TRAIN_YARD</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<TechYieldChanges>
+				<TechYieldChange>
+					<TechType>TECH_TRADE</TechType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</TechYieldChange>
+				<TechYieldChange>
+					<TechType>TECH_CHARIOTRY</TechType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</TechYieldChange>
+			</TechYieldChanges>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>7</iFlavor>
+				</Flavor>				
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>3</iFlavor>
+				</Flavor>					
 			</Flavors>
 		</BuildingInfo>
 		<BuildingInfo> <!-- World Bank -->

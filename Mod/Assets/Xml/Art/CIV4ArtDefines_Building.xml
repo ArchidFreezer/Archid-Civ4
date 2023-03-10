@@ -2958,5 +2958,35 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/butchery.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_WHEELWRIGHT</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.5</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/City/wheelwright/wheelwrightB.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/wheelwright.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TRAIN_YARD</Type>
+			<LSystem>LSYSTEM_MARKET</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.05</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/empty.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/train_yard.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MAGLEV_YARD</Type>
+			<LSystem>LSYSTEM_MARKET</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.05</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/empty.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/maglev_yard.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
