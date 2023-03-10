@@ -470,6 +470,8 @@
 	</ElementType>
 	<ElementType name="bApplyAllFreePromotionsOnMove" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bApplyFreePromotionOnMove" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bUnitCityDeathCulture" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bUnitAllCityDeathCulture" content="textOnly" dt:type="boolean"/>
 	<ElementType name="BuildingInfo" content="eltOnly">
 		<element type="BuildingClass"/>
 		<element type="Type"/>
@@ -547,6 +549,8 @@
 		<element type="bSlaveMarket" minOccurs="0"/>
 		<element type="bApplyAllFreePromotionsOnMove" minOccurs="0"/>
 		<element type="bApplyFreePromotionOnMove" minOccurs="0"/>
+		<element type="bUnitCityDeathCulture" minOccurs="0"/>
+		<element type="bUnitAllCityDeathCulture" minOccurs="0"/>
 		<element type="bForceDisableStarSigns" minOccurs="0"/>
 		<element type="bStarSignGoodOnly" minOccurs="0"/>
 		<element type="iStarSignMitigateChangePercent" minOccurs="0"/>

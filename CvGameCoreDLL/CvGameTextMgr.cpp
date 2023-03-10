@@ -9121,6 +9121,16 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_FREE_PROMOTION_GARRISON_ALL"));
 	}
 
+	if (kBuilding.isUnitCityDeathCulture()) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_UNIT_CITY_DEATH_CULTURE"));
+	}
+
+	if (kBuilding.isUnitAllCityDeathCulture()) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_UNIT_ALL_CITY_DEATH_CULTURE"));
+	}
+
 	if (kBuilding.getCivicOption() != NO_CIVICOPTION) {
 		szBuffer.append(NEWLINE);
 		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_ENABLES_CIVICS", GC.getCivicOptionInfo((CivicOptionTypes)(kBuilding.getCivicOption())).getTextKeyWide()));

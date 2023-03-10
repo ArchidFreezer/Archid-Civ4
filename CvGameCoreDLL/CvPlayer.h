@@ -36,6 +36,9 @@ public:
 	CvPlayerAI* AI() { return (CvPlayerAI*)(this); }
 	const CvPlayerAI* AI() const { return (const CvPlayerAI*)(this); }
 
+	bool isUnitAllCityDeathCulture() const;
+	void changeUnitAllCityDeathCultureCount(int iChange);
+
 	int getAttitudeChange() const;
 	void changeAttitudeChange(int iChange);
 
@@ -1432,6 +1435,7 @@ protected:
 	int m_iMissionarySurvivalChance;
 	int m_iSettlerSpreadReligionCount;
 	int m_iSettlerBuildTempleCount;
+	int m_iUnitAllCityDeathCultureCount;
 
 	uint m_uiStartTime;  // XXX save these?
 

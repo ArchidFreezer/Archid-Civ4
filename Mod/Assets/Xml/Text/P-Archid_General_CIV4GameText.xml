@@ -1720,5 +1720,14 @@
 		<Tag>TXT_KEY_BUILDING_FREE_PROMOTION_GARRISON_ALL</Tag>
 		<English>All free promotions applied to Units ending their turn in this City</English>
 	</TEXT>
+<!-- Unit death culture -->
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_UNIT_ALL_CITY_DEATH_CULTURE</Tag>
+		<English>[ICON_BULLET]Units Killed in your Cities add [ICON_CULTURE]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_UNIT_CITY_DEATH_CULTURE</Tag>
+		<English>[ICON_BULLET]Units Killed in City add [ICON_CULTURE]</English>
+	</TEXT>
 
 </Civ4GameText>

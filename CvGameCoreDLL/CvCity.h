@@ -34,6 +34,9 @@ public:
 
 	void kill(bool bUpdatePlotGroups);																								// Exposed to Python
 
+	bool isUnitCityDeathCulture() const;
+	void changeUnitCityDeathCultureCount(int iChange);
+
 	bool hasGreatJester() const;
 	int getGreatJestHappiness() const;
 	void addGreatJest(int iHappiness, int iDuration);
@@ -1179,6 +1182,7 @@ protected:
 	int m_iImprovementBadHealth;
 	int m_iImprovementGoodHealth;
 	int m_iApplyFreePromotionsOnMoveCount;
+	int m_iUnitCityDeathCultureCount;
 
 	bool m_bNeverLost;
 	bool m_bBombarded;
