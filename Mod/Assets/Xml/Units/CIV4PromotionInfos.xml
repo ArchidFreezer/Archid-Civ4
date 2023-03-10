@@ -1427,6 +1427,7 @@
 				<PromotionType>PROMOTION_COMBAT3</PromotionType>
 				<PromotionType>PROMOTION_DRILL3</PromotionType>
 			</PrereqOrPromotions>
+			<TechPrereq>TECH_NATUROPATHY</TechPrereq>
 			<iEnemyHealChange>5</iEnemyHealChange>
 			<iNeutralHealChange>6</iNeutralHealChange>
 			<iFriendlyHealChange>7</iFriendlyHealChange>
