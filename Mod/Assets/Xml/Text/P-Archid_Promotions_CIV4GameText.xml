@@ -974,6 +974,11 @@
 		</Spanish>
 	</TEXT>
 
+	<TEXT> <!-- Forced March -->
+		<Tag>TXT_KEY_PROMOTION_FORCED_MARCH</Tag>
+		<English>Forced March</English>
+	</TEXT>
+
 <!-- +++ Formation +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_FORMATION</Tag>

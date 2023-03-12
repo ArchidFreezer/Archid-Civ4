@@ -2649,6 +2649,40 @@
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/Flanking3.dds</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Forced March -->
+			<Type>PROMOTION_FORCED_MARCH</Type>
+			<Description>TXT_KEY_PROMOTION_FORCED_MARCH</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PromotionPrereq>PROMOTION_LEADER</PromotionPrereq>
+			<iMovesChange>1</iMovesChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HEALTH_CARE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HITECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ROBOT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WHEELED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_CLONES</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ASSAULT_MECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_DREADNOUGHT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,7,16</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Formation I -->
 			<Type>PROMOTION_FORMATION1</Type>
 			<Description>TXT_KEY_PROMOTION_FORMATION</Description>
@@ -3950,40 +3984,6 @@
 				<UnitCombatType>UNITCOMBAT_DREADNOUGHT</UnitCombatType>
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/Mobility1.dds</Button>
-		</PromotionInfo>
-		<PromotionInfo> <!-- Morale -->
-			<Type>PROMOTION_MORALE</Type>
-			<Description>TXT_KEY_PROMOTION_MORALE</Description>
-			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PromotionPrereq>PROMOTION_LEADER</PromotionPrereq>
-			<iMovesChange>1</iMovesChange>
-			<OrUnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_HEALTH_CARE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_HITECH</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ROBOT</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_WHEELED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_CLONES</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_ASSAULT_MECH</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_DREADNOUGHT</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
-			</OrUnitCombatTypes>
-			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,7,16</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Mountaineer -->
 			<Type>PROMOTION_MOUNTAINEER</Type>

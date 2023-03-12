@@ -784,27 +784,27 @@
 			<UnitClassPromotions>
 				<UnitClassPromotion>
 					<UnitClass>UNITCLASS_WARRIOR</UnitClass>
-					<UnitPromotion>PROMOTION_MORALE</UnitPromotion>
+					<UnitPromotion>PROMOTION_FORCED_MARCH</UnitPromotion>
 				</UnitClassPromotion>
 				<UnitClassPromotion>
 					<UnitClass>UNITCLASS_STONE_SPEARMAN</UnitClass>
-					<UnitPromotion>PROMOTION_MORALE</UnitPromotion>
+					<UnitPromotion>PROMOTION_FORCED_MARCH</UnitPromotion>
 				</UnitClassPromotion>
 				<UnitClassPromotion>
 					<UnitClass>UNITCLASS_FLETCHER</UnitClass>
-					<UnitPromotion>PROMOTION_MORALE</UnitPromotion>
+					<UnitPromotion>PROMOTION_FORCED_MARCH</UnitPromotion>
 				</UnitClassPromotion>
 				<UnitClassPromotion>
 					<UnitClass>UNITCLASS_JAVELINEER</UnitClass>
-					<UnitPromotion>PROMOTION_MORALE</UnitPromotion>
+					<UnitPromotion>PROMOTION_FORCED_MARCH</UnitPromotion>
 				</UnitClassPromotion>
 				<UnitClassPromotion>
 					<UnitClass>UNITCLASS_STONE_AXEMAN</UnitClass>
-					<UnitPromotion>PROMOTION_MORALE</UnitPromotion>
+					<UnitPromotion>PROMOTION_FORCED_MARCH</UnitPromotion>
 				</UnitClassPromotion>
 				<UnitClassPromotion>
 					<UnitClass>UNITCLASS_HORSEMAN</UnitClass>
-					<UnitPromotion>PROMOTION_MORALE</UnitPromotion>
+					<UnitPromotion>PROMOTION_FORCED_MARCH</UnitPromotion>
 				</UnitClassPromotion>
 			</UnitClassPromotions>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
