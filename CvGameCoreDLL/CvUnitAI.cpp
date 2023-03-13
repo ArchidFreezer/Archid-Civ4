@@ -7568,6 +7568,33 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		}
 	}
 
+	// We want negative values for this promotion
+	int iTemp = -(kPromotion.getEnemyMoraleModifier());
+	if ((AI_getUnitAIType() == UNITAI_ATTACK) ||
+		(AI_getUnitAIType() == UNITAI_ATTACK_CITY) ||
+		(AI_getUnitAIType() == UNITAI_COUNTER) ||
+		(AI_getUnitAIType() == UNITAI_CITY_DEFENSE) ||
+		(AI_getUnitAIType() == UNITAI_CITY_COUNTER) ||
+		(AI_getUnitAIType() == UNITAI_CITY_SPECIAL) ||
+		(AI_getUnitAIType() == UNITAI_PARADROP)) {
+		iValue += (iTemp * 2);
+	} else if ((AI_getUnitAIType() == UNITAI_ATTACK_SEA)
+		|| (AI_getUnitAIType() == UNITAI_PIRATE_SEA)
+		|| (AI_getUnitAIType() == UNITAI_ASSAULT_SEA)) {
+		iValue += (iTemp * 4);
+	} else {
+		iValue += iTemp;
+	}
+
+	iTemp = kPromotion.getExtraMorale();
+	if (getMorale() < 100) {
+		iValue += iTemp * 4;
+	} else if (getMorale() < 250) {
+		iValue += iTemp * 2;
+	} else if (getMorale() < 500) {
+		iValue += iTemp;
+	}
+
 	if (kPromotion.isUnitTerritoryUnbound() && getRangeType() == UNITRANGE_TERRITORY) {
 		if ((AI_getUnitAIType() == UNITAI_EXPLORE) ||
 			(AI_getUnitAIType() == UNITAI_HUNTER)) {
@@ -7596,7 +7623,7 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		}
 	}
 
-	int iTemp = kPromotion.getEnslaveCountChange();
+	iTemp = kPromotion.getEnslaveCountChange();
 	if (isSlaver() && iTemp > 0) {
 		// This line of promotions should be a priority for slavers
 		iValue += (iTemp * 50);

@@ -484,12 +484,13 @@
 	<ElementType name="SlaveSpecialistType" content="textOnly"/>
 	<ElementType name="bSlave" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bFixedAI" content="textOnly" dt:type="boolean"/>
-	<ElementType name="iMaxWeaponTypeTier" content="textOnly" dt:type="int"/>		
+	<ElementType name="iMaxWeaponTypeTier" content="textOnly" dt:type="int"/>
 	<ElementType name="iMaxAmmoTypeTier" content="textOnly" dt:type="int"/>
 	<ElementType name="iGreatJestDuration" content="textOnly" dt:type="int"/>
 	<ElementType name="iGreatJestHappiness" content="textOnly" dt:type="int"/>
 	<ElementType name="bBarbarianLeader" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bCityPacifier" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iMorale" content="textOnly" dt:type="int"/>
 	<ElementType name="UnitInfo" content="eltOnly">
 		<element type="Class"/>
 		<element type="Type"/>
@@ -600,6 +601,7 @@
 		<element type="iAdvancedStartCost" minOccurs="0"/>
 		<element type="iAdvancedStartCostIncrease" minOccurs="0"/>
 		<element type="iMinAreaSize" minOccurs="0"/> <!-- Default: -1 -->
+		<element type="iMorale" minOccurs="0"/> <!-- Default: 500 -->
 		<element type="iMoves" minOccurs="0"/>
 		<element type="UnitRangeType" minOccurs="0"/> <!-- Default: UNITRANGE_UNLIMITED -->
 		<element type="bNoRevealMap" minOccurs="0"/>
@@ -871,6 +873,8 @@
 	</ElementType>
 	<ElementType name="bCarryReligion" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iSalvageModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="iMoraleModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="iEnemyMoraleModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="PromotionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -948,6 +952,8 @@
 		<element type="iCollateralDamageProtection" minOccurs="0"/>
 		<element type="iPillageChange" minOccurs="0"/>
 		<element type="iSalvageModifier" minOccurs="0"/>
+		<element type="iMoraleModifier" minOccurs="0"/>
+		<element type="iEnemyMoraleModifier" minOccurs="0"/>
 		<element type="iUpgradeDiscount" minOccurs="0"/>
 		<element type="iExperiencePercent" minOccurs="0"/>
 		<element type="iWorkRateModifier" minOccurs="0"/>

@@ -5951,6 +5951,16 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_LOYAL_TEXT"));
 	}
 
+	if (kPromotion.getExtraMorale() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_EXTRA_MORALE", kPromotion.getExtraMorale()));
+	}
+
+	if (kPromotion.getEnemyMoraleModifier() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_ENEMY_MORALE_MODIFIER", kPromotion.getEnemyMoraleModifier()));
+	}
+
 	// Settler Promotions
 	if (kPromotion.isCarryReligion()) {
 		szBuffer.append(pcNewline);

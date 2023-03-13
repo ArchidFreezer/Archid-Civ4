@@ -1729,5 +1729,14 @@
 		<Tag>TXT_KEY_BUILDING_UNIT_CITY_DEATH_CULTURE</Tag>
 		<English>[ICON_BULLET]Units Killed in City add [ICON_CULTURE]</English>
 	</TEXT>
+<!-- Unit Morale -->
+	<TEXT>
+		<Tag>TXT_KEY_MISC_YOU_ROUTED_ENEMY_UNIT</Tag>
+		<English>The %s3_owner_adjective %s2_EnUName has been routed by your defending %s1_UnitName!</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_YOU_UNIT_ROUTED_ENEMY</Tag>
+		<English>Your %s1_UnitName has routed a %s2_EnUName!</English>
+	</TEXT>
 
 </Civ4GameText>

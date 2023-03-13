@@ -3625,7 +3625,7 @@
 			<Description>TXT_KEY_PROMOTION_LETTER_OF_MARQUE</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<TechPrereq>TECH_SPECIAL_PROMOTION</TechPrereq>
-<!--			<iExtraWeakenLoyalty>15</iExtraWeakenLoyalty> -->
+			<iEnemyMoraleModifier>-15</iEnemyMoraleModifier>
 <!--			<iPlunder>3</iPlunder> -->
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>

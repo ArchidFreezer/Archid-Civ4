@@ -88,6 +88,16 @@ public:
 	void reset(int iID = 0, UnitTypes eUnit = NO_UNIT, PlayerTypes eOwner = NO_PLAYER, bool bConstructorCall = false);
 	void setupGraphical();
 
+	bool processRout(int iExtraDamage, int iMoraleModifier);
+	int getMorale() const;
+	int getMorale(int iExtraDamage, int iModifier) const;
+	int getExtraMorale() const;
+	void changeExtraMorale(int iChange);
+	void setExtraMorale(int iValue);
+	int getEnemyMoraleModifier() const;
+	void changeEnemyMoraleModifier(int iChange);
+	void setEnemyMoraleModifier(int Ivalue);
+
 	void doCultureOnDeath(CvPlot* pPlot);
 
 	bool isSpecialistUnit() const;
@@ -1057,6 +1067,8 @@ protected:
 	int m_iWeaponStrength; // Cached for speed
 	int m_iAmmunitionStrength; // Cached for speed
 	int m_iSalvageModifier;
+	int m_iExtraMorale;
+	int m_iEnemyMoraleModifier;
 
 	bool m_bMadeAttack;
 	bool m_bMadeInterception;
@@ -1075,6 +1087,7 @@ protected:
 	bool m_bFixedAI;
 	bool m_bAlwaysHostile;
 	bool m_bHiddenNationality;
+	bool m_bRout;
 
 	InvisibleTypes m_eInvisible;
 	PlayerTypes m_eOwner;
@@ -1132,6 +1145,8 @@ protected:
 	void getDefenderCombatValues(CvUnit& kDefender, const CvPlot* pPlot, int iOurStrength, int iOurFirepower, int& iTheirOdds, int& iTheirStrength, int& iOurDamage, int& iTheirDamage, CombatDetails* pTheirDetails = NULL) const;
 
 	bool isCombatVisible(const CvUnit* pDefender) const;
+	bool isRout() const;
+	void setRout(bool bValue);
 	void resolveCombat(CvUnit* pDefender, CvPlot* pPlot, bool bVisible); // K-Mod
 	void resolveAirCombat(CvUnit* pInterceptor, CvPlot* pPlot, CvAirMissionDefinition& kBattle);
 	void checkRemoveSelectionAfterAttack();

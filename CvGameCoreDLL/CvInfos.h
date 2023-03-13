@@ -567,6 +567,8 @@ public:
 	int getNumBuildLeaveFeatures() const;
 	int getNumSeeInvisibleTypes() const;
 	int getSalvageModifier() const;
+	int getExtraMorale() const;
+	int getEnemyMoraleModifier() const;
 
 	TechTypes getObsoleteTech() const;
 
@@ -683,6 +685,8 @@ protected:
 	int m_iSpyStealTreasuryChange;
 	int m_iWorkRateModifier;
 	int m_iSalvageModifier;
+	int m_iExtraMorale;
+	int m_iEnemyMoraleModifier;
 
 	bool m_bLeader;
 	bool m_bBlitz;
@@ -1036,6 +1040,7 @@ public:
 	int getMaxAmmunitionTypeTier() const;
 	int getGreatJestDuration() const;
 	int getGreatJestHappiness() const;
+	int getMorale() const;
 
 	bool isAnimal() const;				// Exposed to Python
 	bool isFoodProduction() const;				// Exposed to Python
@@ -1266,6 +1271,7 @@ protected:
 	int m_iMaxAmmunitionTypeTier;
 	int m_iGreatJestDuration;
 	int m_iGreatJestHappiness;
+	int m_iMorale;
 
 	bool m_bAnimal;
 	bool m_bFoodProduction;

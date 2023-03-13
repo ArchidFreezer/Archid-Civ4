@@ -2348,4 +2348,12 @@
 		<Tag>TXT_KEY_PROMOTION_CARRY_RELIGION</Tag>
 		<English>[ICON_BULLET]Unit Carries State [ICON_RELIGION][NEWLINE]</English>
 	</TEXT>
+	<TEXT> <!-- Morale -->
+		<Tag>TXT_KEY_PROMOTION_EXTRA_MORALE</Tag>
+		<English>[ICON_BULLET]%d1_change% extra Morale</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_ENEMY_MORALE_MODIFIER</Tag>
+		<English>[ICON_BULLET]%d1_percent%% modifier to enemy Morale</English>
+	</TEXT>
 </Civ4GameText>
