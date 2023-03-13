@@ -341,6 +341,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iSalvageModifier = 0;
 	m_iExtraMorale = 0;
 	m_iEnemyMoraleModifier = 0;
+	m_iPlunderValue = 0;
 
 	m_bMadeAttack = false;
 	m_bMadeInterception = false;
@@ -1523,6 +1524,14 @@ void CvUnit::updateCombat(bool bQuick) {
 				szTempBuffer.Format(L" Influence: +%.1f%%", fInfluenceRatio);
 				szBuffer += szTempBuffer;
 			}
+
+			// Process plundering
+			if (getPlunderValue() > 0) {
+				int iPlunder = GET_PLAYER(pDefender->getOwnerINLINE()).getPlundered(getOwnerINLINE(), getPlunderValue());
+				CvWString szTempBuffer = gDLL->getText("TXT_KEY_MISC_PLUNDER_UNIT", iPlunder);
+				szBuffer += szTempBuffer;
+			}
+
 			gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getEraInfo(GC.getGameINLINE().getCurrentEra()).getAudioUnitVictoryScript(), MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), pPlot->getX_INLINE(), pPlot->getY_INLINE());
 
 			if (getVisualOwner(pDefender->getTeam()) != getOwnerINLINE()) {
@@ -10069,6 +10078,7 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 		changeSalvageModifier(kPromotion.getSalvageModifier() * iChange);
 		changeExtraMorale(kPromotion.getExtraMorale() * iChange);
 		changeEnemyMoraleModifier(kPromotion.getEnemyMoraleModifier() * iChange);
+		changePlunderValue(kPromotion.getPlunderChange() * iChange);
 
 		for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
 			changeExtraTerrainAttackPercent(eTerrain, kPromotion.getTerrainAttackPercent(eTerrain) * iChange);
@@ -10234,6 +10244,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iSalvageModifier);
 	pStream->Read(&m_iExtraMorale);
 	pStream->Read(&m_iEnemyMoraleModifier);
+	pStream->Read(&m_iPlunderValue);
 
 	pStream->Read(&m_bMadeAttack);
 	pStream->Read(&m_bMadeInterception);
@@ -10400,6 +10411,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iSalvageModifier);
 	pStream->Write(m_iExtraMorale);
 	pStream->Write(m_iEnemyMoraleModifier);
+	pStream->Write(m_iPlunderValue);
 
 	pStream->Write(m_bMadeAttack);
 	pStream->Write(m_bMadeInterception);
@@ -13774,4 +13786,16 @@ bool CvUnit::isRout() const {
 
 void CvUnit::setRout(bool bValue) {
 	m_bRout = bValue;
+}
+
+int CvUnit::getPlunderValue() const {
+	return m_iPlunderValue;
+}
+
+void CvUnit::setPlunderValue(int iValue) {
+	m_iPlunderValue = iValue;
+}
+
+void CvUnit::changePlunderValue(int iChange) {
+	setPlunderValue(getPlunderValue() + iChange);
 }

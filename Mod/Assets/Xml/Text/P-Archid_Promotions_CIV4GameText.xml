@@ -2356,4 +2356,8 @@
 		<Tag>TXT_KEY_PROMOTION_ENEMY_MORALE_MODIFIER</Tag>
 		<English>[ICON_BULLET]%d1_percent%% modifier to enemy Morale</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_PLUNDER_CHANGE_TEXT</Tag>
+		<English>[ICON_BULLET]Plunders %d1 [ICON_GOLD] from a civ on combat victory</English>
+	</TEXT>
 </Civ4GameText>

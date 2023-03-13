@@ -89,6 +89,10 @@ public:
 	void setupGraphical();
 
 	bool processRout(int iExtraDamage, int iMoraleModifier);
+	int getPlunderValue() const;
+	void changePlunderValue(int iChange);
+	void setPlunderValue(int iValue);
+
 	int getMorale() const;
 	int getMorale(int iExtraDamage, int iModifier) const;
 	int getExtraMorale() const;
@@ -1069,6 +1073,7 @@ protected:
 	int m_iSalvageModifier;
 	int m_iExtraMorale;
 	int m_iEnemyMoraleModifier;
+	int m_iPlunderValue;
 
 	bool m_bMadeAttack;
 	bool m_bMadeInterception;

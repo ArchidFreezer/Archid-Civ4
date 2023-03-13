@@ -1738,5 +1738,10 @@
 		<Tag>TXT_KEY_MISC_YOU_UNIT_ROUTED_ENEMY</Tag>
 		<English>Your %s1_UnitName has routed a %s2_EnUName!</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_PLUNDER_UNIT</Tag>
+		<English>[SPACE]Plunder: %d1_plunder!</English>
+	</TEXT>
+
 
 </Civ4GameText>

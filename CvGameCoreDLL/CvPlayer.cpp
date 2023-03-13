@@ -551,6 +551,8 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iSettlerSpreadReligionCount = 0;
 	m_iSettlerBuildTempleCount = 0;
 	m_iUnitAllCityDeathCultureCount = 0;
+	m_iMaxPlunderBudget = 0;
+	m_iCurrPlunderBudget = 0;
 
 	m_uiStartTime = 0;
 
@@ -810,6 +812,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 		m_buildingClassCommerceChanges.clear();
 		m_buildingClassYieldChanges.clear();
 		m_mBuildingClassProductionModifiers.clear();
+		m_mPlayerPlunderedCount.clear();
 	}
 
 	m_plotGroups.removeAll();
@@ -8791,6 +8794,8 @@ void CvPlayer::setTurnActive(bool bNewValue, bool bDoTurn) {
 		}
 	}
 
+	resetPlunderBudget();
+
 	gDLL->getInterfaceIFace()->updateCursorType();
 
 	gDLL->getInterfaceIFace()->setDirty(Score_DIRTY_BIT, true);
@@ -14195,6 +14200,8 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iSettlerSpreadReligionCount);
 	pStream->Read(&m_iSettlerBuildTempleCount);
 	pStream->Read(&m_iUnitAllCityDeathCultureCount);
+	pStream->Read(&m_iMaxPlunderBudget);
+	pStream->Read(&m_iCurrPlunderBudget);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14607,6 +14614,16 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 		m_mBuildingClassProductionModifiers.insert(std::make_pair((BuildingClassTypes)iBuildingClass, iModifier));
 	}
 
+	pStream->Read(&iNumElts);
+	m_mPlayerPlunderedCount.clear();
+	for (int i = 0; i < iNumElts; ++i) {
+		int iPlayer;
+		pStream->Read(&iPlayer);
+		int iPlunder;
+		pStream->Read(&iPlunder);
+		m_mPlayerPlunderedCount.insert(std::make_pair((PlayerTypes)iPlayer, iPlunder));
+	}
+
 	if (!isBarbarian()) {
 		// Get the NetID from the initialization structure
 		setNetID(gDLL->getAssignedNetworkID(getID()));
@@ -14760,6 +14777,8 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iSettlerSpreadReligionCount);
 	pStream->Write(m_iSettlerBuildTempleCount);
 	pStream->Write(m_iUnitAllCityDeathCultureCount);
+	pStream->Write(m_iMaxPlunderBudget);
+	pStream->Write(m_iCurrPlunderBudget);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -15074,6 +15093,12 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 
 	pStream->Write(m_mBuildingClassProductionModifiers.size());
 	for (std::map<BuildingClassTypes, int>::iterator it = m_mBuildingClassProductionModifiers.begin(); it != m_mBuildingClassProductionModifiers.end(); ++it) {
+		pStream->Write((*it).first);
+		pStream->Write((*it).second);
+	}
+
+	pStream->Write(m_mPlayerPlunderedCount.size());
+	for (std::map<PlayerTypes, int>::iterator it = m_mPlayerPlunderedCount.begin(); it != m_mPlayerPlunderedCount.end(); ++it) {
 		pStream->Write((*it).first);
 		pStream->Write((*it).second);
 	}
@@ -20951,3 +20976,45 @@ void CvPlayer::changeUnitAllCityDeathCultureCount(int iChange) {
 	m_iUnitAllCityDeathCultureCount += iChange;
 }
 
+int CvPlayer::getPlunderBudget() const {
+	return m_iMaxPlunderBudget;
+}
+
+int CvPlayer::getPlundered(PlayerTypes ePlayer, int iDesired) {
+
+	if (iDesired <= 0) return 0;
+
+	int iPreviousPlunder = 0;
+
+	// As we aree likely to be updating this value we are going to cheat a little as updating an existing entry in this
+	// old version of C++ is a pain so we are going to do the easy thing and get the value from any existing entry and
+	// then delete the entry so we know we can add a new entry later.
+	for (std::map<PlayerTypes, int>::iterator it = m_mPlayerPlunderedCount.begin(); it != m_mPlayerPlunderedCount.end(); ++it) {
+		if ((*it).first == ePlayer) {
+			iPreviousPlunder = (*it).second;
+			m_mPlayerPlunderedCount.erase(it);
+			break;
+		}
+	}
+
+	int iPlunder = std::min(iDesired, getPlunderBudget() - iPreviousPlunder);
+	m_mPlayerPlunderedCount.insert(std::make_pair(ePlayer, iPlunder + iPreviousPlunder));
+	if (iPlunder > 0) {
+		// Take the gold away from the loser
+		int iGoldLost = std::min(iPlunder, m_iCurrPlunderBudget);
+		changeGold(-(iGoldLost));
+		m_iCurrPlunderBudget -= iGoldLost;
+	}
+	// Players always get something for plundering even if they have used up the budget
+	iPlunder = std::max(iPlunder, 1);
+	// Add to the winner
+	GET_PLAYER(ePlayer).changeGold(iPlunder);
+
+	return iPlunder;
+}
+
+void CvPlayer::resetPlunderBudget() {
+	m_mPlayerPlunderedCount.clear();
+	m_iMaxPlunderBudget = getGold() / 10;
+	m_iCurrPlunderBudget = m_iMaxPlunderBudget;
+}

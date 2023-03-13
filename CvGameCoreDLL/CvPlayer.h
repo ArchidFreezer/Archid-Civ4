@@ -36,6 +36,10 @@ public:
 	CvPlayerAI* AI() { return (CvPlayerAI*)(this); }
 	const CvPlayerAI* AI() const { return (const CvPlayerAI*)(this); }
 
+	int getPlundered(PlayerTypes ePlayer, int iDesired);
+	int getPlunderBudget() const;
+	void resetPlunderBudget();
+
 	bool isUnitAllCityDeathCulture() const;
 	void changeUnitAllCityDeathCultureCount(int iChange);
 
@@ -1436,6 +1440,8 @@ protected:
 	int m_iSettlerSpreadReligionCount;
 	int m_iSettlerBuildTempleCount;
 	int m_iUnitAllCityDeathCultureCount;
+	int m_iMaxPlunderBudget;
+	int m_iCurrPlunderBudget;
 
 	uint m_uiStartTime;  // XXX save these?
 
@@ -1558,6 +1564,7 @@ protected:
 	std::vector< std::pair<UnitClassTypes, int> > m_aUnitExtraCosts;
 
 	std::map<BuildingClassTypes, int> m_mBuildingClassProductionModifiers;
+	std::map<PlayerTypes, int> m_mPlayerPlunderedCount;
 
 	CvMessageQueue m_listGameMessages;
 	CvPopupQueue m_listPopups;

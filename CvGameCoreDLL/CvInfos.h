@@ -569,6 +569,7 @@ public:
 	int getSalvageModifier() const;
 	int getExtraMorale() const;
 	int getEnemyMoraleModifier() const;
+	int getPlunderChange() const;
 
 	TechTypes getObsoleteTech() const;
 
@@ -687,6 +688,7 @@ protected:
 	int m_iSalvageModifier;
 	int m_iExtraMorale;
 	int m_iEnemyMoraleModifier;
+	int m_iPlunderChange;
 
 	bool m_bLeader;
 	bool m_bBlitz;

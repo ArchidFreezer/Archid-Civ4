@@ -7966,6 +7966,22 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		iValue += (iTemp / 16);
 	}
 
+	iTemp = kPromotion.getPlunderChange();
+	if ((AI_getUnitAIType() == UNITAI_ATTACK) ||
+		(AI_getUnitAIType() == UNITAI_SLAVER) ||
+		(AI_getUnitAIType() == UNITAI_COUNTER) ||
+		(AI_getUnitAIType() == UNITAI_ATTACK_CITY) ||
+		(AI_getUnitAIType() == UNITAI_ATTACK_SEA) ||
+		(AI_getUnitAIType() == UNITAI_PARADROP) ||
+		(AI_getUnitAIType() == UNITAI_PIRATE_SEA) ||
+		(AI_getUnitAIType() == UNITAI_RESERVE_SEA) ||
+		(AI_getUnitAIType() == UNITAI_ESCORT_SEA) ||
+		(AI_getUnitAIType() == UNITAI_CARRIER_SEA)) {
+		iValue += (iTemp / 3);
+	} else {
+		iValue += (iTemp / 12);
+	}
+
 	iTemp = kPromotion.getUpgradeDiscount();
 	iValue += (iTemp / 16);
 

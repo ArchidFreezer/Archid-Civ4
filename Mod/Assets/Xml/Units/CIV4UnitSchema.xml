@@ -875,6 +875,7 @@
 	<ElementType name="iSalvageModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iMoraleModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iEnemyMoraleModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="iPlunderChange" content="textOnly" dt:type="int"/>
 	<ElementType name="PromotionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -951,6 +952,7 @@
 		<element type="iRevoltProtection" minOccurs="0"/>
 		<element type="iCollateralDamageProtection" minOccurs="0"/>
 		<element type="iPillageChange" minOccurs="0"/>
+		<element type="iPlunderChange" minOccurs="0"/>
 		<element type="iSalvageModifier" minOccurs="0"/>
 		<element type="iMoraleModifier" minOccurs="0"/>
 		<element type="iEnemyMoraleModifier" minOccurs="0"/>

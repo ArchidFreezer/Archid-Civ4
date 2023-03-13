@@ -3626,7 +3626,7 @@
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<TechPrereq>TECH_SPECIAL_PROMOTION</TechPrereq>
 			<iEnemyMoraleModifier>-15</iEnemyMoraleModifier>
-<!--			<iPlunder>3</iPlunder> -->
+			<iPlunderChange>3</iPlunderChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
 			</OrUnitCombatTypes>
