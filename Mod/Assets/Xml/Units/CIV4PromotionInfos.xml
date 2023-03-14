@@ -2681,7 +2681,7 @@
 				<UnitCombatType>UNITCOMBAT_DREADNOUGHT</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,7,16</Button>
+			<Button>Art/Interface/Buttons/Promotions/forced_march.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Formation I -->
 			<Type>PROMOTION_FORMATION1</Type>
