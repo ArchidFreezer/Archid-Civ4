@@ -992,6 +992,24 @@
 		<Tag>TXT_KEY_BUILDING_INVESTMENT_BANK_PEDIA</Tag>
 		<English>[TAB]An investment bank is a financial institution that assists corporations and governments in raising capital by underwriting and acting as the agent in the issuance of securities. An investment bank also assists companies involved in mergers and acquisitions, derivatives, etc. Further it provides ancillary services such as market making and the trading of derivatives, fixed income instruments, foreign exchange, commodity, and equity securities.[PARAGRAPH:1]To provide investment banking services in the United States an advisor must be a licensed broker-dealer. Until 1999, the United States maintained a separation between investment banking and commercial banks. Other industrialized countries, including G7 countries, have not maintained this separation historically. Trading securities for cash or securities (i.e., facilitating transactions, market-making), or the promotion of securities (i.e., underwriting, research, etc.) was referred to as the "sell side".[PARAGRAPH:1]Dealing with the pension funds, mutual funds, hedge funds, and the investing public who consumed the products and services of the sell-side in order to maximize their return on investment constitutes the "buy side". Many firms have buy and sell side components.</English>
 	</TEXT>
+	<TEXT> <!-- Jewellers -->
+		<Tag>TXT_KEY_BUILDING_JEWELLERS</Tag>
+		<English>Jewellers</English>
+		<French>
+			<Text>Bijouterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Juwelier</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_JEWELLERS_PEDIA</Tag>
+		<English>[TAB]The first signs of established jewellery making in Ancient Egypt was around 3,000-5,000 years ago. The Egyptians preferred the luxury, rarity, and workability of gold over other metals. Predynastic Egypt had Jewellery in Egypt soon began to symbolize power and religious power in the community. Although it was worn by wealthy Egyptians in life, it was also worn by them in death, with jewellery commonly placed among grave goods. [PARAGRAPH:2]In conjunction with gold jewellery, Egyptians used coloured glass in place of precious gems. Although the Egyptians had access to gemstones, they preferred the colours they could create in glass over the natural colours of stones. For nearly each gemstone, there was a glass formulation used by the Egyptians to mimic it. The colour of the jewellery was very important, as different colours meant different things; the Book of the Dead dictated that the necklace of Isis around a mummy’s neck must be red to satisfy Isis’s need for blood, while green jewellery meant new growth for crops and fertility. Although lapis lazuli and silver had to be imported from beyond the country’s borders, most other materials for jewellery were found in or near Egypt, for example in the Red Sea, where the Egyptians mined Cleopatra's favourite gem, the emerald. Egyptian jewellery was predominantly made in large workshops attached to temples or palaces.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_JEWELLERS_STRATEGY</Tag>
+		<English>A Jewellers increases city's wealth and Commerce, along with improved trade route yield.</English>
+	</TEXT>
 	<TEXT> <!-- Jumplane Portal -->
 		<Tag>TXT_KEY_BUILDING_JUMPLANE_PORTAL</Tag>
 		<English>Jumplane Portal</English>
