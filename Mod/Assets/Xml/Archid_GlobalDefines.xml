@@ -700,4 +700,9 @@
 		<!-- Minimum value that a units morale can be reduced to through damage -->
 		<iDefineIntVal>10</iDefineIntVal>
 	</Define>
+	<Define>
+		<DefineName>HEAL_XP</DefineName>
+		<!-- The amount of XP a units hets fopr healing another unit -->
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
 </Civ4Defines>

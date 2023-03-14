@@ -3377,7 +3377,7 @@ bool CvUnit::canSentry(const CvPlot* pPlot) const {
 }
 
 
-int CvUnit::healRate(const CvPlot* pPlot, bool bLocation, bool bUnits) const {
+int CvUnit::healRate(const CvPlot* pPlot, bool bLocation, bool bUnits, bool bXP) const {
 	PROFILE_FUNC();
 
 	CvCity* pCity = pPlot->getPlotCity();
@@ -3408,6 +3408,7 @@ int CvUnit::healRate(const CvPlot* pPlot, bool bLocation, bool bUnits) const {
 	{
 		// XXX optimize this (save it?)
 		int iBestHeal = 0;
+		CvUnit* pHealUnit = NULL;
 
 		CLLNode<IDInfo>* pUnitNode = pPlot->headUnitNode();
 
@@ -3421,6 +3422,7 @@ int CvUnit::healRate(const CvPlot* pPlot, bool bLocation, bool bUnits) const {
 
 				if (iHeal > iBestHeal) {
 					iBestHeal = iHeal;
+					pHealUnit = pLoopUnit;
 				}
 			}
 		}
@@ -3442,6 +3444,7 @@ int CvUnit::healRate(const CvPlot* pPlot, bool bLocation, bool bUnits) const {
 
 							if (iHeal > iBestHeal) {
 								iBestHeal = iHeal;
+								pHealUnit = pLoopUnit;
 							}
 						}
 					}
@@ -3450,6 +3453,9 @@ int CvUnit::healRate(const CvPlot* pPlot, bool bLocation, bool bUnits) const {
 		}
 
 		iTotalHeal += iBestHeal;
+		if (bXP && pHealUnit != NULL && getDamage() > 0) {
+			pHealUnit->changeExperience(GC.getHEAL_XP());
+		}
 		// XXX
 	}
 
@@ -3477,7 +3483,7 @@ int CvUnit::healTurns(const CvPlot* pPlot) const {
 
 
 void CvUnit::doHeal() {
-	changeDamage(-(healRate(plot())));
+	changeDamage(-(healRate(plot(), true, true, true)));
 }
 
 
