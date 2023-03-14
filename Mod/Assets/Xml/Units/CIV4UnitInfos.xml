@@ -8199,8 +8199,7 @@
 				<UnitAIType>UNITAI_EXPLORE_SEA</UnitAIType>
 			</UnitAIs>
 			<PrereqTechs>
-				<TechType>TECH_METAL_CASTING</TechType>
-				<TechType>TECH_SAILING</TechType>
+				<TechType>TECH_SHIP_BUILDING</TechType>
 			</PrereqTechs>
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
