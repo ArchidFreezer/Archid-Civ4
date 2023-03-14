@@ -310,6 +310,64 @@
 			<DefaultUnit>UNIT_AT_INFANTRY</DefaultUnit>
 		</UnitClassInfo>
 
+<!-- ************	-->
+<!-- Health Care  -->
+<!-- ************	-->
+		<UnitClassInfo> <!-- Healer -->
+			<Type>UNITCLASS_HEALER</Type>
+			<Description>TXT_KEY_UNIT_HEALER</Description>
+			<iMaxPlayerInstances>3</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_HEALER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Apothecary -->
+			<Type>UNITCLASS_APOTHECARY</Type>
+			<Description>TXT_KEY_UNIT_APOTHECARY</Description>
+			<iMaxPlayerInstances>3</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_APOTHECARY</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Surgeon -->
+			<Type>UNITCLASS_SURGEON</Type>
+			<Description>TXT_KEY_UNIT_SURGEON</Description>
+			<iMaxPlayerInstances>5</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_SURGEON</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Medic -->
+			<Type>UNITCLASS_MEDIC</Type>
+			<Description>TXT_KEY_UNIT_MEDIC</Description>
+			<iMaxPlayerInstances>5</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_MEDIC</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Hospital Ship -->
+			<Type>UNITCLASS_HOSPITAL_SHIP</Type>
+			<Description>TXT_KEY_UNIT_HOSPITAL_SHIP</Description>
+			<DefaultUnit>UNIT_HOSPITAL_SHIP</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Hospital Ship II -->
+			<Type>UNITCLASS_HOSPITAL_SHIP_2</Type>
+			<Description>TXT_KEY_UNIT_HOSPITAL_SHIP_2</Description>
+			<DefaultUnit>UNIT_HOSPITAL_SHIP_2</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Ambulance (WWI) -->
+			<Type>UNITCLASS_AMBULANCE</Type>
+			<Description>TXT_KEY_UNIT_AMBULANCE</Description>
+			<DefaultUnit>UNIT_AMBULANCE</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Ambulance (WWII) -->
+			<Type>UNITCLASS_AMBULANCE_II</Type>
+			<Description>TXT_KEY_UNIT_AMBULANCE_II</Description>
+			<DefaultUnit>UNIT_AMBULANCE_II</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Medivac Helicopter -->
+			<Type>UNITCLASS_EARLY_MEDIVAC</Type>
+			<Description>TXT_KEY_UNIT_EARLY_MEDIVAC</Description>
+			<DefaultUnit>UNIT_EARLY_MEDIVAC</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Modern Medivac Helicopter -->
+			<Type>UNITCLASS_MODERN_MEDIVAC</Type>
+			<Description>TXT_KEY_UNIT_MODERN_MEDIVAC</Description>
+			<DefaultUnit>UNIT_MODERN_MEDIVAC</DefaultUnit>
+		</UnitClassInfo>
+
 <!-- ************    -->
 <!-- Law Enforcement -->
 <!-- ************    -->

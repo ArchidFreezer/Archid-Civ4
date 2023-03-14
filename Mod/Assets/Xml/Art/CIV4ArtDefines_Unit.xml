@@ -6915,5 +6915,242 @@
 			<AudioRunTypeEnd/>
 		  </AudioRunSounds>
 		</UnitArtInfo>
+		<UnitArtInfo> <!-- Healer -->
+			<Type>ART_DEF_UNIT_HEALER</Type>
+			<Button>Art/Interface/Buttons/Units/Healer.dds</Button>
+			<fScale>0.50</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<bActAsLand>0</bActAsLand>
+			<bActAsAir>0</bActAsAir>
+			<NIF>Art/Units/Healer/explorer.nif</NIF>
+			<KFM>Art/Units/Healer/explorer.kfm</KFM>
+			<SHADERNIF>Art/Units/Healer/explorer.nif</SHADERNIF>
+			<ShadowDef>
+				<ShadowNIF>Art/Units/01_UnitShadows/UnitShadow.nif</ShadowNIF>
+				<ShadowAttachNode>BIP Pelvis</ShadowAttachNode>
+				<fShadowScale>0.9</fShadowScale>
+			</ShadowDef>
+			<fBattleDistance>0.35</fBattleDistance>
+			<fRangedDeathTime>0.05</fRangedDeathTime>
+			<bActAsRanged>1</bActAsRanged>
+			<TrainSound>AS2D_UNIT_BUILD_UNIT</TrainSound>
+			<AudioRunSounds>
+				<AudioRunTypeLoop/>
+				<AudioRunTypeEnd/>
+			</AudioRunSounds>
+		</UnitArtInfo>
+		<UnitArtInfo> <!-- Apothecary -->
+			<Type>ART_DEF_UNIT_APOTHECARY</Type>
+			<Button>Art/Interface/Buttons/Units/Apothecary.dds</Button>
+			<fScale>0.40</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<bActAsLand>0</bActAsLand>
+			<bActAsAir>0</bActAsAir>
+			<NIF>Art/Units/Apothecary/ancient_spy.nif</NIF>
+			<KFM>Art/Units/Apothecary/ancient_spy.kfm</KFM>
+			<SHADERNIF>Art/Units/Apothecary/ancient_spy.nif</SHADERNIF>
+			<ShadowDef>
+				<ShadowNIF>Art/Units/01_UnitShadows/UnitShadow.nif</ShadowNIF>
+				<ShadowAttachNode>BIP Pelvis</ShadowAttachNode>
+				<fShadowScale>0.9</fShadowScale>
+			</ShadowDef>
+			<fBattleDistance>0.35</fBattleDistance>
+			<fRangedDeathTime>0.05</fRangedDeathTime>
+			<bActAsRanged>1</bActAsRanged>
+			<TrainSound>AS2D_UNIT_BUILD_UNIT</TrainSound>
+			<AudioRunSounds>
+				<AudioRunTypeLoop/>
+				<AudioRunTypeEnd/>
+			</AudioRunSounds>
+		</UnitArtInfo>
+		<UnitArtInfo> <!-- Surgeon -->
+			<Type>ART_DEF_UNIT_SURGEON</Type>
+			<Button>Art/Interface/Buttons/Units/surgeon.dds</Button>
+			<fScale>0.44</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<bActAsLand>0</bActAsLand>
+			<bActAsAir>0</bActAsAir>
+			<NIF>Art/Units/Surgeon/ModernScientist.nif</NIF>
+			<KFM>Art/Units/greatpeople/modernscientist/ModernScientist.kfm</KFM>
+			<SHADERNIF>Art/Units/Surgeon/ModernScientist_FX.nif</SHADERNIF>
+			<ShadowDef>
+				<ShadowNIF>Art/Units/01_UnitShadows/UnitShadow.nif</ShadowNIF>
+				<ShadowAttachNode>BIP Pelvis</ShadowAttachNode>
+				<fShadowScale>1.0</fShadowScale>
+			</ShadowDef>
+			<fBattleDistance>0.35</fBattleDistance>
+			<fRangedDeathTime>0.31</fRangedDeathTime>
+			<bActAsRanged>0</bActAsRanged>
+			<TrainSound>AS2D_UNIT_BUILD_UNIT</TrainSound>
+			<AudioRunSounds>
+				<AudioRunTypeLoop/>
+				<AudioRunTypeEnd/>
+			</AudioRunSounds>
+		</UnitArtInfo>
+		<UnitArtInfo> <!-- Medic -->
+			<Type>ART_DEF_UNIT_MEDIC</Type>
+			<Button>Art/Interface/Buttons/Units/medic.dds</Button>
+			<fScale>0.44</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<bActAsLand>0</bActAsLand>
+			<bActAsAir>0</bActAsAir>
+			<NIF>Art/Units/combat_medic/medic.nif</NIF>
+			<KFM>Art/Units/Settler/Settler_Female.kfm</KFM>
+			<SHADERNIF/>
+			<ShadowDef>
+				<ShadowNIF>Art/Units/01_UnitShadows/UnitShadow.nif</ShadowNIF>
+				<ShadowAttachNode>BIP Pelvis</ShadowAttachNode>
+				<fShadowScale>0.9</fShadowScale>
+			</ShadowDef>
+			<fBattleDistance>0.35</fBattleDistance>
+			<fRangedDeathTime>0.05</fRangedDeathTime>
+			<bActAsRanged>1</bActAsRanged>
+			<TrainSound>AS2D_UNIT_BUILD_UNIT</TrainSound>
+			<AudioRunSounds>
+				<AudioRunTypeLoop/>
+				<AudioRunTypeEnd/>
+			</AudioRunSounds>
+		</UnitArtInfo>
+		<UnitArtInfo> <!-- Hospital Ship -->
+			<Type>ART_DEF_UNIT_HOSPITAL_SHIP</Type>
+			<Button>Art/Interface/Buttons/Units/hospital_ship.dds</Button>
+			<fScale>0.5</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<bActAsLand>0</bActAsLand>
+			<bActAsAir>0</bActAsAir>
+			<NIF>Art/Units/hospital_ship/FREMM.nif</NIF>
+			<KFM/>
+			<SHADERNIF/>
+			<ShadowDef>
+				<ShadowNIF>Art/Units/01_UnitShadows/BearShadow.nif</ShadowNIF>
+				<ShadowAttachNode>BIP Pelvis</ShadowAttachNode>
+				<fShadowScale>0.65</fShadowScale>
+			</ShadowDef>
+			<iDamageStates>4</iDamageStates>
+			<fBattleDistance>0.35</fBattleDistance>
+			<fRangedDeathTime>0.31</fRangedDeathTime>
+			<bSmoothMove>1</bSmoothMove>
+			<fBankRate>0.35</fBankRate>
+			<bActAsRanged>0</bActAsRanged>
+			<TrainSound>AS2D_UNIT_BUILD_UNIT</TrainSound>
+			<AudioRunSounds>
+				<AudioRunTypeLoop>LOOPSTEP_TRANSPORT</AudioRunTypeLoop>
+				<AudioRunTypeEnd>ENDSTEP_TRANSPORT</AudioRunTypeEnd>
+			</AudioRunSounds>
+			<SelectionSound>AS3D_UN_TRANSPORT_FORT</SelectionSound>
+			<ActionSound>AS3D_UN_TRANSPORT_FORT</ActionSound>
+		</UnitArtInfo>
+		<UnitArtInfo> <!-- WWI Ambulance -->
+			<Type>ART_DEF_UNIT_WWI_AMBULANCE</Type>
+			<Button>Art/Interface/Buttons/Units/ambulance_wwi.dds </Button>
+			<fScale>0.50</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<bActAsLand>0</bActAsLand>
+			<bActAsAir>0</bActAsAir>
+			<NIF>Art/Units/ambulance_wwi/fiat-38.nif</NIF>
+			<KFM> Art/Units/MechanizedInfantry/MechanizedInfantry.kfm </KFM>
+			<SHADERNIF>Art/Units/ambulance_wwi/fiat-38.nif</SHADERNIF>
+			<ShadowDef>
+				<ShadowNIF>Art/Units/01_UnitShadows/BearShadow.nif</ShadowNIF>
+				<ShadowAttachNode>BIP Pelvis</ShadowAttachNode>
+				<fShadowScale>0.65</fShadowScale>
+			</ShadowDef>
+			<iDamageStates>4</iDamageStates>
+			<fBattleDistance>0.35</fBattleDistance>
+			<fRangedDeathTime>0.31</fRangedDeathTime>
+			<bSmoothMove>1</bSmoothMove>
+			<fBankRate>0.35</fBankRate>
+			<bActAsRanged>0</bActAsRanged>
+			<TrainSound>AS2D_UNIT_BUILD_UNIT</TrainSound>
+			<AudioRunSounds>
+				<AudioRunTypeLoop>NONE</AudioRunTypeLoop>
+				<AudioRunTypeEnd>NONE</AudioRunTypeEnd>
+			</AudioRunSounds>
+			<SelectionSound>AS3D_UN_TANK_FORT</SelectionSound>
+			<ActionSound>AS3D_UN_TANK_FORT</ActionSound>
+		</UnitArtInfo>
+		<UnitArtInfo> <!-- WWII Ambulance -->
+			<Type>ART_DEF_UNIT_WWII_AMBULANCE</Type>
+			<Button>Art/Interface/Buttons/Units/ambulance_wwii.dds </Button>
+			<fScale>0.50</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<bActAsLand>0</bActAsLand>
+			<bActAsAir>0</bActAsAir>
+			<NIF>Art/Units/ambulance_wwii/Opel.nif</NIF>
+			<KFM> Art/Units/MechanizedInfantry/MechanizedInfantry.kfm </KFM>
+			<SHADERNIF>Art/Units/ambulance_wwii/Opel.nif</SHADERNIF>
+			<ShadowDef>
+				<ShadowNIF>Art/Units/01_UnitShadows/BearShadow.nif</ShadowNIF>
+				<ShadowAttachNode>BIP Pelvis</ShadowAttachNode>
+				<fShadowScale>0.65</fShadowScale>
+			</ShadowDef>
+			<iDamageStates>4</iDamageStates>
+			<fBattleDistance>0.35</fBattleDistance>
+			<fRangedDeathTime>0.31</fRangedDeathTime>
+			<bSmoothMove>1</bSmoothMove>
+			<fBankRate>0.35</fBankRate>
+			<bActAsRanged>0</bActAsRanged>
+			<TrainSound>AS2D_UNIT_BUILD_UNIT</TrainSound>
+			<AudioRunSounds>
+				<AudioRunTypeLoop>NONE</AudioRunTypeLoop>
+				<AudioRunTypeEnd>NONE</AudioRunTypeEnd>
+			</AudioRunSounds>
+			<SelectionSound>AS3D_UN_TANK_FORT</SelectionSound>
+			<ActionSound>AS3D_UN_TANK_FORT</ActionSound>
+		</UnitArtInfo>
+		<UnitArtInfo> <!-- Early Medivac -->
+			<Type>ART_DEF_UNIT_EARLY_MEDIVAC</Type>
+			<Button>Art/Interface/Buttons/Units/medivac_helicopter.dds</Button>
+			<fScale>0.36</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<bActAsLand>0</bActAsLand>
+			<bActAsAir>0</bActAsAir>
+			<NIF>Art/Units/medivac_helicopter/UH1.nif</NIF>
+			<KFM>Art/Units/medivac_helicopter/UH1.kfm</KFM>
+			<SHADERNIF/>
+			<ShadowDef>
+				<ShadowNIF>Art/Units/01_UnitShadows/GunshipShadow.nif</ShadowNIF>
+				<ShadowAttachNode>BIP Pelvis</ShadowAttachNode>
+				<fShadowScale>0.75</fShadowScale>
+			</ShadowDef>
+			<iDamageStates>4</iDamageStates>
+			<fBattleDistance>0.5</fBattleDistance>
+			<fRangedDeathTime>0.12</fRangedDeathTime>
+			<bActAsRanged>1</bActAsRanged>
+			<TrainSound>AS2D_UNIT_BUILD_UNIT</TrainSound>
+			<AudioRunSounds>
+				<AudioRunTypeLoop>LOOPSTEP_GUNSHIP</AudioRunTypeLoop>
+				<AudioRunTypeEnd>ENDSTEP_GUNSHIP</AudioRunTypeEnd>
+			</AudioRunSounds>
+			<SelectionSound>AS3D_UN_GUNSHIP_FORT</SelectionSound>
+			<ActionSound>AS3D_UN_GUNSHIP_FORT</ActionSound>
+		</UnitArtInfo>
+		<UnitArtInfo> <!-- Modern Medivac -->
+			<Type>ART_DEF_UNIT_MODERN_MEDIVAC</Type>
+			<Button>Art/Interface/Buttons/Units/modern_medivac_helicopter.dds</Button>
+			<fScale>0.36</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<bActAsLand>0</bActAsLand>
+			<bActAsAir>0</bActAsAir>
+			<NIF>Art/Units/modern_medivac_helicopter/mi26.nif</NIF>
+			<KFM>Art/Units/medivac_helicopter/UH1.kfm</KFM>
+			<SHADERNIF/>
+			<ShadowDef>
+				<ShadowNIF>Art/Units/01_UnitShadows/GunshipShadow.nif</ShadowNIF>
+				<ShadowAttachNode>BIP Pelvis</ShadowAttachNode>
+				<fShadowScale>0.75</fShadowScale>
+			</ShadowDef>
+			<iDamageStates>4</iDamageStates>
+			<fBattleDistance>0.5</fBattleDistance>
+			<fRangedDeathTime>0.12</fRangedDeathTime>
+			<bActAsRanged>1</bActAsRanged>
+			<TrainSound>AS2D_UNIT_BUILD_UNIT</TrainSound>
+			<AudioRunSounds>
+				<AudioRunTypeLoop>LOOPSTEP_GUNSHIP</AudioRunTypeLoop>
+				<AudioRunTypeEnd>ENDSTEP_GUNSHIP</AudioRunTypeEnd>
+			</AudioRunSounds>
+			<SelectionSound>AS3D_UN_GUNSHIP_FORT</SelectionSound>
+			<ActionSound>AS3D_UN_GUNSHIP_FORT</ActionSound>
+		</UnitArtInfo>
 	</UnitArtInfos>
 </Civ4ArtDefines>

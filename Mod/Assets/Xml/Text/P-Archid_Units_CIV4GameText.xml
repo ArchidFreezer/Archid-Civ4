@@ -303,6 +303,33 @@
 <!-- ******************** -->
 <!-- Units                -->
 <!-- ******************** -->
+	<TEXT> <!-- Ambulance WWI -->
+		<Tag>TXT_KEY_UNIT_AMBULANCE</Tag>
+		<English>Ambulance (WWI)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_AMBULANCE_STRATEGY</Tag>
+		<English>Ambulances are used to heal units.</English>
+	</TEXT>
+
+	<TEXT> <!-- Ambulance WWII -->
+		<Tag>TXT_KEY_UNIT_AMBULANCE_II</Tag>
+		<English>Ambulance (WWII)</English>
+	</TEXT>
+
+	<TEXT> <!-- Apothecary -->
+		<Tag>TXT_KEY_UNIT_APOTHECARY</Tag>
+		<English>Apothecary</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_APOTHECARY_PEDIA</Tag>
+		<English>[TAB]The Apothecary provides his patients with medicinal herbs, which were very effective in healing the allergies, and raising and renewing the body vitality.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_APOTHECARY_STRATEGY</Tag>
+		<English>Use the [COLOR_UNIT_TEXT]Apothecary[COLOR_REVERT] to heal troops. They are fast moving, but expensive to produce and maintain. The Apothecary starts out with the [COLOR_UNIT_TEXT]Medic1[COLOR_REVERT] promotion.  Additionally, Apothecary require the Apothecary's Shop in the city in which they are built. The Apothecary can be upgraded to an [COLOR_UNIT_TEXT]Medic[COLOR_REVERT], after discovering Medicine.</English>
+	</TEXT>
+
 	<TEXT> <!-- Atlatl -->
 		<Tag>TXT_KEY_UNIT_ATLATL</Tag>
 		<English>Atlatl</English>
@@ -483,6 +510,19 @@
 		<English>Gorilla</English>
 	</TEXT>
 
+	<TEXT> <!-- Healer -->
+		<Tag>TXT_KEY_UNIT_HEALER</Tag>
+		<English>Healer</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HEALER_PEDIA</Tag>
+		<English>[TAB]The Healer provides his patients with medicinal herbs, which were very effective in healing the allergies, and raising and renewing the body vitality.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HEALER_STRATEGY</Tag>
+		<English>Use the [COLOR_UNIT_TEXT]Healer[COLOR_REVERT] to heal troops. They are fast moving, but expensive to produce and maintain.  Additionally, Healers require the Healer's Hut in the city in which they are built. The Healer can be upgraded to an [COLOR_UNIT_TEXT]Apothecary[COLOR_REVERT], after discovering Education.</English>	
+	</TEXT>
+
 	<TEXT> <!-- Heavy Frigate -->
 		<Tag>TXT_KEY_UNIT_HEAVY_FRIGATE</Tag>
 		<English>Heavy Frigate</English>
@@ -536,8 +576,7 @@
 		<German>Hauspferd</German>
 	</TEXT>
 
-<!-- Horseman -->
-	<TEXT>
+	<TEXT> <!-- Horseman -->
 		<Tag>TXT_KEY_UNIT_HORSEMAN</Tag>
 		<English>Horseman</English>
 		<French>Cavalier</French>
@@ -552,6 +591,24 @@
 		<English>Horseman is the first mounted unit capable of making flanking strikes against enemy siege units.</English>
 	</TEXT>
 
+	<TEXT> <!-- Hospital Ship -->
+		<Tag>TXT_KEY_UNIT_HOSPITAL_SHIP</Tag>
+		<English>Hospital Ship</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HOSPITAL_SHIP_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HOSPITAL_SHIP_STRATEGY</Tag>
+		<English>Hospital Ships are used to heal units.</English>
+	</TEXT>
+
+	<TEXT> <!-- Hospital Ship II -->
+		<Tag>TXT_KEY_UNIT_HOSPITAL_SHIP_2</Tag>
+		<English>Hospital Ship II</English>
+	</TEXT>
+
 	<TEXT> <!-- Javelineer -->
 		<Tag>TXT_KEY_UNIT_JAVELINEER</Tag>
 		<English>Javelineer</English>
@@ -561,6 +618,28 @@
 	<TEXT> <!-- Lion Pride -->
 		<Tag>TXT_KEY_UNIT_PRIDE_OF_LIONS</Tag>
 		<English>Pride of Lions</English>
+	</TEXT>
+
+	<TEXT> <!-- Medic -->
+		<Tag>TXT_KEY_UNIT_MEDIC</Tag>
+		<English>Medic</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MEDIC_PEDIA</Tag>
+		<English>[TAB]Watch out soldiers! She's gonna heal your wounds and break your hearts.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MEDIC_STRATEGY</Tag>
+		<English>Use [COLOR_UNIT_TEXT]Medics[COLOR_REVERT] to heal troops. They are fast moving, but expensive to produce and maintain. Additionally, Medics require a hospital in the city in which they are built. However, upgrading an [COLOR_UNIT_TEXT]Explorer[COLOR_REVERT] or adding a [COLOR_UNIT_TEXT]Great General[COLOR_REVERT] are great ways to get the precious [COLOR_UNIT_TEXT]Medic 3[COLOR_REVERT] and [COLOR_UNIT_TEXT]Woodsman 3[COLOR_REVERT] promotions, both of which add to a unit's healing percentage.</English>
+	</TEXT>
+
+	<TEXT> <!-- Medivac Helicopter -->
+		<Tag>TXT_KEY_UNIT_EARLY_MEDIVAC</Tag>
+		<English>Medivac Helicopter</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_EARLY_MEDIVAC_STRATEGY</Tag>
+		<English>The Medivac Helicopter is an upgrade to the WW2 Ambulance. It continues the Health Care mod into the Modern Era.</English>
 	</TEXT>
 
 	<TEXT> <!-- Minutemen -->
@@ -574,6 +653,15 @@
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_MINUTEMAN_STRATEGY</Tag>
 		<English>The minuteman provides city defense and they have a first strike advantage.</English>
+	</TEXT>
+
+	<TEXT> <!-- Modern Medivac Helicopter -->
+		<Tag>TXT_KEY_UNIT_MODERN_MEDIVAC</Tag>
+		<English>Modern Medivac Helicopter</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MODERN_MEDIVAC_STRATEGY</Tag>
+		<English>The Modern Medivac Helicopter is an upgrade to the Medivac Helicopter. It continues the Health Care mod into the Modern Era.</English>
 	</TEXT>
 
 	<TEXT> <!-- Polar Bear -->
@@ -748,6 +836,19 @@ A sloop-of-war was smaller than a sailing frigate and outside the rating system.
 		<Tag>TXT_KEY_UNIT_STONE_SPEARMAN_STRATEGY</Tag>
 		<English>Build [COLOR_UNIT_TEXT]Stone Spearmen[COLOR_REVERT] to defend against early Mounted/Wheeled units.</English>
 		<Spanish>Construye [COLOR_UNIT_TEXT]Lanceros de Piedra[COLOR_REVERT] para protegerte de las Unidades a Caballo/Rueda anticipadas.</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Surgeon -->
+		<Tag>TXT_KEY_UNIT_SURGEON</Tag>
+		<English>Surgeon</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SURGEON_STRATEGY</Tag>
+		<English>More skilled than an apothecary, surgeons can heal soldiers in the battlefield quickly.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SURGEON_PEDIA</Tag>
+		<English>[TAB]Not yet available.</English>
 	</TEXT>
 
 	<TEXT> <!-- Tiger -->
