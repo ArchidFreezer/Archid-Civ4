@@ -211,7 +211,7 @@
 		<BuildInfo> <!-- Cottage -->
 			<Type>BUILD_COTTAGE</Type>
 			<Description>TXT_KEY_BUILD_COTTAGE</Description>
-			<PrereqTech>TECH_SEDENTARY_LIFESTYLE</PrereqTech>
+			<PrereqTech>TECH_POTTERY</PrereqTech>
 			<iTime>400</iTime>
 			<ImprovementType>IMPROVEMENT_COTTAGE</ImprovementType>
 			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
