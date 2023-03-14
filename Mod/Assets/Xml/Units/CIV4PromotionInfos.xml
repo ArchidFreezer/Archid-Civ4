@@ -4111,12 +4111,9 @@
 			<PromotionPrereq>PROMOTION_NAVIGATION2</PromotionPrereq>
 			<TechPrereq>TECH_NAVIGATION</TechPrereq>
 			<iMovesChange>1</iMovesChange>
-<!--			<FeatureDoubleMoves>
-				<FeatureDoubleMove>
-					<FeatureType>FEATURE_STORM</FeatureType>
-					<bFeatureDoubleMove>1</bFeatureDoubleMove>
-				</FeatureDoubleMove>
-			</FeatureDoubleMoves> -->
+			<FeatureDoubleMoves>
+				<FeatureType>FEATURE_STORM</FeatureType>
+			</FeatureDoubleMoves>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_STEAM_SHIPS</UnitCombatType>
