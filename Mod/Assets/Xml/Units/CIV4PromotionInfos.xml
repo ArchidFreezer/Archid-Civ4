@@ -1900,6 +1900,7 @@
 			<PrereqOrPromotions>
 				<PromotionType>PROMOTION_COVER2</PromotionType>
 			</PrereqOrPromotions>
+			<TechPrereq>TECH_ARCHERY</TechPrereq>
 			<UnitCombatMods>
 				<UnitCombatMod>
 					<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
