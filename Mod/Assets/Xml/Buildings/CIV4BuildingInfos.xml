@@ -6306,6 +6306,9 @@
 			<Strategy>TXT_KEY_BUILDING_HEALTH_SPA_STRATEGY</Strategy>
 			<Advisor>ADVISOR_SCIENCE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_ACADEMY</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_MEDICINE</TechType>
+			</PrereqAndTechs>
 			<iCost>200</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>100</iConquestProb>
