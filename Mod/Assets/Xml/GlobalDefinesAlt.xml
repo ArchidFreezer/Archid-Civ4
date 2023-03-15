@@ -78,4 +78,8 @@
 		<DefineName>MAX_NATIONAL_WONDERS_PER_CITY_FOR_OCC</DefineName>
 		<iDefineIntVal>8</iDefineIntVal>
 	</Define>
+	<Define>
+		<DefineName>INITIAL_CITY_ROUTE_TYPE</DefineName>
+		<DefineTextVal>ROUTE_TRACK</DefineTextVal>
+	</Define>
 </Civ4Defines>
