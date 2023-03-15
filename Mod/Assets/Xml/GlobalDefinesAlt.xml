@@ -70,4 +70,12 @@
 		<DefineName>MOVE_DENOMINATOR</DefineName>
 		<iDefineIntVal>120</iDefineIntVal>
 	</Define>
+	<Define>
+		<DefineName>MAX_NATIONAL_WONDERS_PER_CITY</DefineName>
+		<iDefineIntVal>6</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>MAX_NATIONAL_WONDERS_PER_CITY_FOR_OCC</DefineName>
+		<iDefineIntVal>8</iDefineIntVal>
+	</Define>
 </Civ4Defines>
