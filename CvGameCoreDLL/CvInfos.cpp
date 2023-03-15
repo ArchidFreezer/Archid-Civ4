@@ -6885,6 +6885,7 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_iExtraBarbarianCostChange(0),
 	m_iBarbarianConversionCostModifier(0),
 	m_iFreeUnitClass(0),
+	m_iCreateFeatureType(0),
 	m_fVisibilityPriority(0.0f),
 	m_bTeamShare(false),
 	m_bWater(false),
@@ -7049,6 +7050,10 @@ CvBuildingInfo::~CvBuildingInfo() {
 		SAFE_DELETE_ARRAY(m_ppaiTechYieldChange);
 	}
 
+}
+
+int CvBuildingInfo::getCreateFeatureType() const {
+	return m_iCreateFeatureType;
 }
 
 int CvBuildingInfo::getFreeUnitClass() const {
@@ -8278,6 +8283,7 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iExtraBarbarianCostChange);
 	stream->Read(&m_iBarbarianConversionCostModifier);
 	stream->Read(&m_iFreeUnitClass);
+	stream->Read(&m_iCreateFeatureType);
 
 	int iVal;
 	stream->Read(&iVal);
@@ -8822,6 +8828,7 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iExtraBarbarianCostChange);
 	stream->Write(m_iBarbarianConversionCostModifier);
 	stream->Write(m_iFreeUnitClass);
+	stream->Write(m_iCreateFeatureType);
 
 	stream->Write(m_eMinCultureLevel);
 
@@ -9114,6 +9121,9 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(szTextVal, "FreeUnitClass");
 	m_iFreeUnitClass = pXML->FindInInfoClass(szTextVal);
+
+	pXML->GetChildXmlValByName(szTextVal, "CreateFeatureType");
+	m_iCreateFeatureType = pXML->FindInInfoClass(szTextVal);
 
 	pXML->GetChildXmlValByName(szTextVal, "CivicOption");
 	m_iCivicOption = pXML->FindInInfoClass(szTextVal);

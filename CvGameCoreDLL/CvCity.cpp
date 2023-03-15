@@ -3242,6 +3242,10 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 			}
 		}
 
+		if (kBuilding.getCreateFeatureType() != NO_FEATURE && iChange > 0) {
+			plot()->setFeatureType((FeatureTypes)kBuilding.getCreateFeatureType(), 1);
+		}
+
 		changeEspionageDefenseModifier(kBuilding.getEspionageDefenseModifier() * iChange);
 		changeGreatPeopleRateModifier(kBuilding.getGreatPeopleRateModifier() * iChange);
 		changeFreeExperience(kBuilding.getFreeExperience() * iChange);

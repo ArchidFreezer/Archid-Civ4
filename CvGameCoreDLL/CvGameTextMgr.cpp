@@ -9106,6 +9106,11 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 		}
 	}
 
+	if (kBuilding.getCreateFeatureType() != NO_FEATURE) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_CREATE_FEATURE", GC.getFeatureInfo((FeatureTypes)kBuilding.getCreateFeatureType()).getDescription()));
+	}
+
 	if (kBuilding.getFreeUnitClass() != NO_UNITCLASS) {
 		UnitClassTypes eFreeUnitClass = (UnitClassTypes)kBuilding.getFreeUnitClass();
 		UnitTypes eFreeUnit = (UnitTypes)(ePlayer == NO_PLAYER ? GC.getUnitClassInfo(eFreeUnitClass).getDefaultUnitIndex() : GC.getCivilizationInfo(kPlayer.getCivilizationType()).getCivilizationUnits(eFreeUnitClass));

@@ -1926,6 +1926,7 @@ public:
 	int getExtraBarbarianCostChange() const;
 	int getBarbarianConversionCostModifier() const;
 	int getFreeUnitClass() const;
+	int getCreateFeatureType() const;
 
 	float getVisibilityPriority() const;
 
@@ -2183,6 +2184,7 @@ protected:
 	int m_iExtraBarbarianCostChange;
 	int m_iBarbarianConversionCostModifier;
 	int m_iFreeUnitClass;
+	int m_iCreateFeatureType;
 
 	float m_fVisibilityPriority;
 
