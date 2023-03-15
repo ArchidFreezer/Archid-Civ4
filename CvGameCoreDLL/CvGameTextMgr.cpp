@@ -9464,6 +9464,11 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_GLOBAL_POP", kBuilding.getGlobalPopulationChange()));
 	}
 
+	if (kBuilding.getGlobalFoundPopulationChange() != 0) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_GLOBAL_FOUND_POP", kBuilding.getGlobalFoundPopulationChange()));
+	}
+
 	if (kBuilding.getFreeTechs() != 0) {
 		if (kBuilding.getFreeTechs() == 1) {
 			szBuffer.append(NEWLINE);

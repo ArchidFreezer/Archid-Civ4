@@ -162,6 +162,7 @@
 	<ElementType name="iTradeRouteModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iForeignTradeRouteModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iGlobalPopulationChange" content="textOnly" dt:type="int"/>
+	<ElementType name="iGlobalFoundPopulationChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iFreeTechs" content="textOnly" dt:type="int"/>
 	<ElementType name="iDefense" content="textOnly" dt:type="int"/>
 	<ElementType name="iBombardDefense" content="textOnly" dt:type="int"/>
@@ -616,6 +617,7 @@
 		<element type="iTradeRouteModifier" minOccurs="0"/>
 		<element type="iForeignTradeRouteModifier" minOccurs="0"/>
 		<element type="iGlobalPopulationChange" minOccurs="0"/>
+		<element type="iGlobalFoundPopulationChange" minOccurs="0"/>
 		<element type="iFreeTechs" minOccurs="0"/>
 		<element type="iDefense" minOccurs="0"/>
 		<element type="iObsoleteDefence" minOccurs="0"/>

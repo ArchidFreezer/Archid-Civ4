@@ -3219,6 +3219,7 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 			}
 
 			iValue += (kBuilding.getGlobalPopulationChange() * iNumCities * 4);
+			iValue += (kBuilding.getGlobalFoundPopulationChange() * (iCitiesTarget - iNumCities) * 3);
 
 			// K-Mod. A slightly more nuanced evaluation of free techs (but still very rough)
 			if (kBuilding.getFreeTechs() > 0) {

@@ -5456,6 +5456,7 @@ void CvPlayer::processBuilding(BuildingTypes eBuilding, int iChange, CvArea* pAr
 	changeStarSignMitigatePercent(kBuilding.getGlobalStarSignMitigateChangePercent() * iChange);
 	changeStarSignScalePercent(kBuilding.getGlobalStarSignScaleChangePercent() * iChange);
 	changeUnitAllCityDeathCultureCount(kBuilding.isUnitAllCityDeathCulture() ? iChange : 0);
+	changeFoundCityPopulationChange(kBuilding.getGlobalFoundPopulationChange() * iChange);
 
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 		changeSeaPlotYield(eYield, kBuilding.getGlobalSeaPlotYieldChange(eYield) * iChange);

@@ -1755,4 +1755,8 @@
 		<Tag>TXT_KEY_BUILDING_CREATE_FEATURE</Tag>
 		<English>[ICON_BULLET]Creates a [COLOR_UNIT_TEXT][LINK=literal]%s1_Name[\LINK][COLOR_REVERT] feature in the City plot.</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GLOBAL_FOUND_POP</Tag>
+		<English>[ICON_BULLET]%D1_Change Population in New Cities</English>
+	</TEXT>
 </Civ4GameText>
