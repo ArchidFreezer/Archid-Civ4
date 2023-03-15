@@ -6884,6 +6884,7 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_iObsoleteDefenceModifier(0),
 	m_iExtraBarbarianCostChange(0),
 	m_iBarbarianConversionCostModifier(0),
+	m_iFreeUnitClass(0),
 	m_fVisibilityPriority(0.0f),
 	m_bTeamShare(false),
 	m_bWater(false),
@@ -7048,6 +7049,10 @@ CvBuildingInfo::~CvBuildingInfo() {
 		SAFE_DELETE_ARRAY(m_ppaiTechYieldChange);
 	}
 
+}
+
+int CvBuildingInfo::getFreeUnitClass() const {
+	return m_iFreeUnitClass;
 }
 
 bool CvBuildingInfo::isUnitCityDeathCulture() const {
@@ -8272,6 +8277,7 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iObsoleteDefenceModifier);
 	stream->Read(&m_iExtraBarbarianCostChange);
 	stream->Read(&m_iBarbarianConversionCostModifier);
+	stream->Read(&m_iFreeUnitClass);
 
 	int iVal;
 	stream->Read(&iVal);
@@ -8815,6 +8821,7 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iObsoleteDefenceModifier);
 	stream->Write(m_iExtraBarbarianCostChange);
 	stream->Write(m_iBarbarianConversionCostModifier);
+	stream->Write(m_iFreeUnitClass);
 
 	stream->Write(m_eMinCultureLevel);
 
@@ -9104,6 +9111,9 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(szTextVal, "FreePromotion");
 	m_iFreePromotion = pXML->FindInInfoClass(szTextVal);
+
+	pXML->GetChildXmlValByName(szTextVal, "FreeUnitClass");
+	m_iFreeUnitClass = pXML->FindInInfoClass(szTextVal);
 
 	pXML->GetChildXmlValByName(szTextVal, "CivicOption");
 	m_iCivicOption = pXML->FindInInfoClass(szTextVal);

@@ -9106,13 +9106,19 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 		}
 	}
 
-	if (kBuilding.getFreeBuildingClass() != NO_BUILDINGCLASS) {
-		BuildingTypes eFreeBuilding;
-		if (ePlayer != NO_PLAYER) {
-			eFreeBuilding = ((BuildingTypes)(GC.getCivilizationInfo(kPlayer.getCivilizationType()).getCivilizationBuildings(kBuilding.getFreeBuildingClass())));
-		} else {
-			eFreeBuilding = (BuildingTypes)GC.getBuildingClassInfo((BuildingClassTypes)kBuilding.getFreeBuildingClass()).getDefaultBuildingIndex();
+	if (kBuilding.getFreeUnitClass() != NO_UNITCLASS) {
+		UnitClassTypes eFreeUnitClass = (UnitClassTypes)kBuilding.getFreeUnitClass();
+		UnitTypes eFreeUnit = (UnitTypes)(ePlayer == NO_PLAYER ? GC.getUnitClassInfo(eFreeUnitClass).getDefaultUnitIndex() : GC.getCivilizationInfo(kPlayer.getCivilizationType()).getCivilizationUnits(eFreeUnitClass));
+
+		if (eFreeUnit != NO_UNIT) {
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText("TXT_KEY_UNIT_FREE_IN_CITY", GC.getUnitInfo(eFreeUnit).getTextKeyWide()));
 		}
+	}
+
+	if (kBuilding.getFreeBuildingClass() != NO_BUILDINGCLASS) {
+		BuildingClassTypes eFreeBuildingClass = (BuildingClassTypes)kBuilding.getFreeBuildingClass();
+		BuildingTypes eFreeBuilding = (BuildingTypes)(ePlayer == NO_PLAYER ? GC.getBuildingClassInfo(eFreeBuildingClass).getDefaultBuildingIndex() : GC.getCivilizationInfo(kPlayer.getCivilizationType()).getCivilizationBuildings(eFreeBuildingClass));
 
 		if (NO_BUILDING != eFreeBuilding) {
 			szBuffer.append(NEWLINE);

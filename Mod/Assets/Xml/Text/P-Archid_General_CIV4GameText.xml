@@ -1742,6 +1742,13 @@
 		<Tag>TXT_KEY_MISC_PLUNDER_UNIT</Tag>
 		<English>[SPACE]Plunder: %d1_plunder!</English>
 	</TEXT>
-
-
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FREE_IN_CITY</Tag>
+		<!-- %s1_Name = TXT_KEY_UNIT_ -->
+		<English>[ICON_BULLET]Free [COLOR_UNIT_TEXT][LINK=literal]%s1_Name[\LINK][COLOR_REVERT].</English>
+		<French>[ICON_BULLET]1 [COLOR_BUILDING_TEXT][LINK=literal]%s1_Name[\LINK][COLOR_REVERT].</French>
+		<German>[ICON_BULLET]Freies Geb&#228;ude [COLOR_BUILDING_TEXT][LINK=literal]%s1_Name[\LINK][COLOR_REVERT].</German>
+		<Italian>[ICON_BULLET][COLOR_BUILDING_TEXT][LINK=literal]%s1_Name[\LINK][COLOR_REVERT] [NUM1:gratuito:gratuita:gratuiti:gratuite].</Italian>
+		<Spanish>[ICON_BULLET][NUM1:Un:Una:Unos:Unas] [COLOR_BUILDING_TEXT][LINK=literal]%s1:1_Name[\LINK][COLOR_REVERT] gratis.</Spanish>
+	</TEXT>
 </Civ4GameText>

@@ -1925,6 +1925,7 @@ public:
 	int getObsoleteDefenceModifier() const;
 	int getExtraBarbarianCostChange() const;
 	int getBarbarianConversionCostModifier() const;
+	int getFreeUnitClass() const;
 
 	float getVisibilityPriority() const;
 
@@ -2181,6 +2182,7 @@ protected:
 	int m_iObsoleteDefenceModifier;
 	int m_iExtraBarbarianCostChange;
 	int m_iBarbarianConversionCostModifier;
+	int m_iFreeUnitClass;
 
 	float m_fVisibilityPriority;
 

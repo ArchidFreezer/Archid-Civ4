@@ -3267,6 +3267,16 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 
 			for (UnitTypes eUnit = (UnitTypes)0; eUnit < GC.getNumUnitInfos(); eUnit = (UnitTypes)(eUnit + 1)) {
 				const CvUnitInfo& kUnit = GC.getUnitInfo(eUnit);
+				if (kBuilding.getFreeUnitClass() == kUnit.getUnitClassType()) {
+					// GPs and settlers are good units, but outside those a single unit isn't that great
+					iValue += 10;
+					if (kUnit.isGoldenAge()) {
+						iValue += 50;
+					}
+					if (kUnit.isFound()) {
+						iValue += 50;
+					}
+				}
 				if (kUnit.getPrereqBuilding() == eBuilding) {
 					// BBAI TODO: Smarter monastary construction, better support for mods
 

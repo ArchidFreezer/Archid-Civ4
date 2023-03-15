@@ -3235,6 +3235,13 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 			updateWorkableRadiusOverride();
 		}
 
+		if (kBuilding.getFreeUnitClass() != NO_UNITCLASS && iChange > 0) {
+			UnitTypes eFreeUnit = (UnitTypes)GC.getCivilizationInfo(kOwner.getCivilizationType()).getCivilizationUnits(kBuilding.getFreeUnitClass());
+			if (eFreeUnit != NO_UNIT) {
+				kOwner.initUnit(eFreeUnit, getX_INLINE(), getY_INLINE());
+			}
+		}
+
 		changeEspionageDefenseModifier(kBuilding.getEspionageDefenseModifier() * iChange);
 		changeGreatPeopleRateModifier(kBuilding.getGreatPeopleRateModifier() * iChange);
 		changeFreeExperience(kBuilding.getFreeExperience() * iChange);

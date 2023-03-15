@@ -472,6 +472,7 @@
 	<ElementType name="bApplyFreePromotionOnMove" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bUnitCityDeathCulture" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bUnitAllCityDeathCulture" content="textOnly" dt:type="boolean"/>
+	<ElementType name="FreeUnitClass" content="textOnly"/>
 	<ElementType name="BuildingInfo" content="eltOnly">
 		<element type="BuildingClass"/>
 		<element type="Type"/>
@@ -521,6 +522,7 @@
 		<element type="iNumFreeBonuses" minOccurs="0"/>
 		<element type="FreeBuilding" minOccurs="0"/>
 		<element type="FreePromotion" minOccurs="0"/>
+		<element type="FreeUnitClass" minOccurs="0"/>
 		<element type="CivicOption" minOccurs="0"/>
 		<element type="GreatPeopleUnitClass" minOccurs="0"/>
 		<element type="iGreatPeopleRateChange" minOccurs="0"/>
