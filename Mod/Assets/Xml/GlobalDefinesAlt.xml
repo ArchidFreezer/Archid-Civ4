@@ -94,4 +94,16 @@
 		<DefineName>INITIAL_TRADE_ROUTES</DefineName>
 		<iDefineIntVal>0</iDefineIntVal>
 	</Define>
+	<Define>
+		<DefineName>MAX_TRADE_ROUTES</DefineName>
+		<iDefineIntVal>16</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>OVERSEAS_TRADE_MODIFIER</DefineName>
+		<iDefineIntVal>50</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>FOREIGN_TRADE_MODIFIER</DefineName>
+		<iDefineIntVal>100</iDefineIntVal>
+	</Define>
 </Civ4Defines>
