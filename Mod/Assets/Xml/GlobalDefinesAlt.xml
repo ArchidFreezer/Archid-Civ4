@@ -106,4 +106,24 @@
 		<DefineName>FOREIGN_TRADE_MODIFIER</DefineName>
 		<iDefineIntVal>100</iDefineIntVal>
 	</Define>
+	<Define>
+		<DefineName>WW_UNIT_KILLED_ATTACKING</DefineName>
+		<iDefineIntVal>3</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>WW_KILLED_UNIT_DEFENDING</DefineName>
+		<iDefineIntVal>3</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>WW_UNIT_CAPTURED</DefineName>
+		<iDefineIntVal>3</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>WW_HIT_BY_NUKE</DefineName>
+		<iDefineIntVal>7</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>BASE_WAR_WEARINESS_MULTIPLIER</DefineName>
+		<iDefineIntVal>5</iDefineIntVal>
+	</Define>
 </Civ4Defines>
