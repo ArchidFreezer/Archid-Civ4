@@ -1130,6 +1130,13 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_PENTAGON</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Petra -->
+			<Type>BUILDINGCLASS_PETRA</Type>
+			<Description>TXT_KEY_BUILDING_PETRA</Description>
+			<iCategory>2</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_PETRA</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Pont Du Gard Aqueduct -->
 			<Type>BUILDINGCLASS_PONT_DU_GARD_AQUEDUCT</Type>
 			<Description>TXT_KEY_BUILDING_PONT_DU_GARD_AQUEDUCT</Description>

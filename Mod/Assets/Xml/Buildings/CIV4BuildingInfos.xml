@@ -10588,6 +10588,74 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Petra -->
+			<BuildingClass>BUILDINGCLASS_PETRA</BuildingClass>
+			<Type>BUILDING_PETRA</Type>
+			<Description>TXT_KEY_BUILDING_PETRA</Description>
+			<Civilopedia>TXT_KEY_BUILDING_PETRA_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_PETRA_STRATEGY</Strategy>
+			<Advisor>ADVISOR_RELIGION</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_PETRA</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_PETRA</MovieDefineTag>
+			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
+			<ObsoleteTech>TECH_ECONOMICS</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_PRIESTHOOD</TechType>
+			</PrereqAndTechs>
+			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
+			<bTeamShare>1</bTeamShare>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>300</iCost>
+			<iHurryCostModifier>100</iHurryCostModifier>
+			<iConquestProb>100</iConquestProb>
+			<iGlobalTradeRoutes>1</iGlobalTradeRoutes>
+			<iAsset>8</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>3</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<FreeSpecialistCounts>
+				<FreeSpecialistCount>
+					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
+					<iCount>1</iCount>
+				</FreeSpecialistCount>
+			</FreeSpecialistCounts>
+			<CommerceChangeOriginalOwners>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
+			</CommerceChangeOriginalOwners>
+			<ConstructSound>AS2D_BUILD_PYRAMID</ConstructSound>
+			<BonusProductionModifiers>
+				<BonusProductionModifier>
+					<BonusType>BONUS_STONE</BonusType>
+					<iModifier>100</iModifier>
+				</BonusProductionModifier>
+			</BonusProductionModifiers>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Pont Du Gard Aqueduct -->
 			<BuildingClass>BUILDINGCLASS_PONT_DU_GARD_AQUEDUCT</BuildingClass>
 			<Type>BUILDING_PONT_DU_GARD_AQUEDUCT</Type>

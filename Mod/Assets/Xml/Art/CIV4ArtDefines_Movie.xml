@@ -347,5 +347,9 @@
 			<Type>ART_DEF_MOVIE_TERRACOTTA_ARMY</Type>
 			<Path>Art/Movies/Wonders/terracotta_army.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_PETRA</Type>
+			<Path>Art/Movies/Wonders/petra.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

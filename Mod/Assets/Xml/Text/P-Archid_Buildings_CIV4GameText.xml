@@ -1383,6 +1383,22 @@
 		<English>Build a [COLOR_BUILDING_TEXT]Palisade[COLOR_REVERT] to increase a cities defence.</English>
 		<Spanish>Construye una [COLOR_BUILDING_TEXT]Empalizada[COLOR_REVERT] para incrementar el bono de defensa en tus ciudades.</Spanish>
 	</TEXT>
+	<TEXT> <!-- Petra -->
+		<Tag>TXT_KEY_BUILDING_PETRA</Tag>
+		<English>Petra</English>
+		<French>Petra</French>
+		<German>Petra</German>
+		<Italian>Petra</Italian>
+		<Spanish>Petra</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_PETRA_PEDIA</Tag>
+		<English>[TAB]Petra is an archaeological site in southwestern Jordan, lying on the slope of Mount Hor in a basin among the mountains which form the eastern flank of Arabah (Wadi Araba), the large valley running from the Dead Sea to the Gulf of Aqaba. It is renowned for its rock-cut architecture. [PARAGRAPH:1]The site remained unknown to the Western world until 1812, when it was discovered by Swiss explorer Johann Ludwig Burckhardt. It was famously described as "a rose-red city half as old as time" in a Newdigate prize-winning sonnet by John William Burgon. UNESCO has described it as "one of the most precious cultural properties of man's cultural heritage." In 1985, Petra was designated a World Heritage Site. It is one of the "New Seven Wonders of the World" as determined by the New Open World Corporation (not affiliated with UNESCO).</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_PETRA_STRATEGY</Tag>
+		<English>Petra grants +1 free trade route in all cities and 1 free priest in the city where it's built.</English>
+	</TEXT>
 	<TEXT> <!-- Pont du Gard -->
 		<Tag>TXT_KEY_BUILDING_PONT_DU_GARD_AQUEDUCT</Tag>
 		<English>Pont du Gard</English>
