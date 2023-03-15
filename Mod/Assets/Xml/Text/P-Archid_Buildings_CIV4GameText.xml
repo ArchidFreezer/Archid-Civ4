@@ -1455,6 +1455,26 @@
 		<Tag>TXT_KEY_BUILDING_POSTAL_SERVICE_PEDIA</Tag>
 		<English>.</English>
 	</TEXT>
+	<TEXT> <!-- Potters Hut -->
+		<Tag>TXT_KEY_BUILDING_POTTERS_HUT</Tag>
+		<English>Potters Hut</English>
+		<French>
+			<Text>Hutte du potier</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>T&#246;pferh&#252;tte</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_POTTERS_HUT_PEDIA</Tag>
+		<English>The invention of pottery was essential to the development of agricultural societies. To get the most out of seasonal crops and domesticated animals, a tribe needed sturdy, waterproof containers in which to store and protect surplus food. The discovery of the properties of clay, and the invention of the kiln and the potter's wheel made it possible to build such containers. The earliest examples of Western pottery date back to as early as 6500 BC. Most of the examples from this period were strictly utilitarian. Although use continued to be primarily practical, decorative pottery soon became a ritualistic and aesthetic art form in cultures all over the world. Some of the most impressive examples of artistic pottery comes from the pre-Columbian cultures of South America, and from the Ming dynasty in 14th century China.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_POTTERS_HUT_STRATEGY</Tag>
+		<English>Provides Pottery</English>
+		<French>Procure la Poterie</French>
+		<German>Erm&#246;glicht T&#246;pferei</German>
+	</TEXT>
 	<TEXT> <!-- Poultry Farm -->
 		<Tag>TXT_KEY_BUILDING_POULTRY_FARM</Tag>
 		<English>Poultry Farm</English>

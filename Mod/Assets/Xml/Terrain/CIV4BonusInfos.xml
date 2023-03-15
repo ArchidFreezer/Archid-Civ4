@@ -1719,6 +1719,7 @@
 			<TechObsolete>TECH_GLASS_BLOWING</TechObsolete>
 			<iAITradeModifier>3</iAITradeModifier>
 			<iHealth>1</iHealth>
+			<iHappiness>1</iHappiness>
 			<iPlacementOrder>-1</iPlacementOrder>
 			<iMinAreaSize>-1</iMinAreaSize>
 		</BonusInfo>

@@ -10863,6 +10863,56 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Potters Hut -->
+			<BuildingClass>BUILDINGCLASS_POTTERS_HUT</BuildingClass>
+			<Type>BUILDING_POTTERS_HUT</Type>
+			<Description>TXT_KEY_BUILDING_POTTERS_HUT</Description>
+			<Civilopedia>TXT_KEY_BUILDING_POTTERS_HUT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_POTTERS_HUT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_POTTERS_HUT</ArtDefineTag>
+			<ObsoleteTech>TECH_GLASS_BLOWING</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_POTTERY</TechType>
+			</PrereqAndTechs>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_LEAD</BonusType>
+				<BonusType>BONUS_COPPER</BonusType>
+			</PrereqOrBonuses>
+			<FreeBonus>BONUS_POTTERY</FreeBonus>
+			<iNumFreeBonuses>1</iNumFreeBonuses>
+			<bRiver>1</bRiver>
+			<iCost>60</iCost>
+			<iConquestProb>50</iConquestProb>
+			<BonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_COPPER</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_LEAD</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</BonusYieldChanges>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Poultry Farm -->
 			<BuildingClass>BUILDINGCLASS_POULTRY_FARM</BuildingClass>
 			<Type>BUILDING_POULTRY_FARM</Type>
@@ -13684,7 +13734,7 @@
 			<ConstructSound>AS2D_BUILD_BARRACKS</ConstructSound>
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
-					<BonusType>BONUS_STONE</BonusType>
+					<BonusType>BONUS_POTTERY</BonusType>
 					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>

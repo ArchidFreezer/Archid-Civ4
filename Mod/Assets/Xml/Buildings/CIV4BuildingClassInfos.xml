@@ -778,6 +778,12 @@
 			<iCategory>36</iCategory>
 			<DefaultBuilding>BUILDING_HYDRO_PLANT</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Potters Hut -->
+			<Type>BUILDINGCLASS_POTTERS_HUT</Type>
+			<Description>TXT_KEY_BUILDING_POTTERS_HUT</Description>
+			<iCategory>36</iCategory>
+			<DefaultBuilding>BUILDING_POTTERS_HUT</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Apothecary Shop -->                 <!-- Health -->
 			<Type>BUILDINGCLASS_APOTHECARY_SHOP</Type>
