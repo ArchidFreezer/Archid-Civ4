@@ -491,6 +491,27 @@
 				<VarietyButton>Art/Interface/Buttons/TechTree/weather_control.dds</VarietyButton>
 			</FeatureVariety>
 		</FeatureArtInfo>
+		<FeatureArtInfo> <!-- Underground Water -->
+			<Type>ART_DEF_FEATURE_UNDERGROUND_WATER</Type>
+			<bAnimated>1</bAnimated>
+			<bRiverArt>0</bRiverArt>
+			<TileArtType>TILE_ART_TYPE_NONE</TileArtType>
+			<LightType>LIGHT_TYPE_SUN</LightType>
+			<fScale>1</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<Button>Art/Interface/Buttons/TerrainFeatures/underground_water.dds</Button>
+			<FeatureVariety>
+				<FeatureArtPieces>
+					<FeatureArtPiece>
+						<ModelFile>Art/Structures/Buildings/Wonders/great_bath/bath_middle_east_water.nif</ModelFile>
+						<Connections></Connections>
+					</FeatureArtPiece>
+				</FeatureArtPieces>
+				<FeatureDummyNodes/>
+				<bGenerateRotations>0</bGenerateRotations>
+				<VarietyButton>Art/Interface/Buttons/TerrainFeatures/underground_water.dds</VarietyButton>
+			</FeatureVariety>			
+		</FeatureArtInfo>
 
 <!-- Natural Wonders -->
 		<FeatureArtInfo> <!-- Aurora -->

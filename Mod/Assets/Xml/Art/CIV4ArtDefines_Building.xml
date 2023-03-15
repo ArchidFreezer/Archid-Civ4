@@ -3038,5 +3038,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/potters_hut.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Great Bath of Mohenjo-daro -->
+			<Type>ART_DEF_BUILDING_GREAT_BATH_OF_MOHENJO_DARO</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/great_bath/bath_middle_east.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/great_bath.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

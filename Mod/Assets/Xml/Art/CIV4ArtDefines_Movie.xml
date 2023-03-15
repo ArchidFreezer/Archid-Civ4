@@ -351,5 +351,9 @@
 			<Type>ART_DEF_MOVIE_PETRA</Type>
 			<Path>Art/Movies/Wonders/petra.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo> <!-- Great Bath of Mohenjo-daro -->
+			<Type>ART_DEF_MOVIE_GREAT_BATH</Type>
+			<Path>Art/Movies/Wonders/GreatBath.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

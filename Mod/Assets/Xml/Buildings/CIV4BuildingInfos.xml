@@ -5399,6 +5399,59 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Great Bath of Mohenjo-daro -->
+			<BuildingClass>BUILDINGCLASS_GREAT_BATH_OF_MOHENJO_DARO</BuildingClass>
+			<Type>BUILDING_GREAT_BATH_OF_MOHENJO_DARO</Type>
+			<Description>TXT_KEY_BUILDING_GREAT_BATH_OF_MOHENJO_DARO</Description>
+			<Civilopedia>TXT_KEY_BUILDING_GREAT_BATH_OF_MOHENJO_DARO_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_GREAT_BATH_OF_MOHENJO_DARO_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_GREAT_BATH_OF_MOHENJO_DARO</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_GREAT_BATH</MovieDefineTag>
+			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
+			<ObsoleteTech>TECH_CIVIL_SERVICE</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_POTTERY</TechType>
+			</PrereqAndTechs>
+			<CreateFeatureType>FEATURE_UNDERGROUND_WATER</CreateFeatureType>
+			<GreatPeopleUnitClass>UNITCLASS_ENGINEER</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
+			<bTeamShare>1</bTeamShare>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>500</iCost>
+			<iHurryCostModifier>100</iHurryCostModifier>
+			<iConquestProb>100</iConquestProb>
+			<iGlobalFoundPopulationChange>1</iGlobalFoundPopulationChange>
+			<iAsset>10</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>4</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<CommerceChangeOriginalOwners>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
+			</CommerceChangeOriginalOwners>
+			<ConstructSound>AS2D_BUILD_HANGGARDENS</ConstructSound>
+			<BonusProductionModifiers>
+				<BonusProductionModifier>
+					<BonusType>BONUS_STONE</BonusType>
+					<iModifier>100</iModifier>
+				</BonusProductionModifier>
+			</BonusProductionModifiers>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Great Dam -->
 			<BuildingClass>BUILDINGCLASS_GREAT_DAM</BuildingClass>
 			<Type>BUILDING_GREAT_DAM</Type>

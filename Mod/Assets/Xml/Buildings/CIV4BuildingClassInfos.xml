@@ -1038,6 +1038,13 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_EINSTEIN_LAB</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Great Bath of Mohenjo-daro -->
+			<Type>BUILDINGCLASS_GREAT_BATH_OF_MOHENJO_DARO</Type>
+			<Description>TXT_KEY_BUILDING_GREAT_BATH_OF_MOHENJO_DARO</Description>
+			<iCategory>2</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_GREAT_BATH_OF_MOHENJO_DARO</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Great Dam -->
 			<Type>BUILDINGCLASS_GREAT_DAM</Type>
 			<Description>TXT_KEY_BUILDING_GREAT_DAM</Description>
