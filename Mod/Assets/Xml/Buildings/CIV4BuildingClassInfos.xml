@@ -927,6 +927,13 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_ARTEMIS</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Asklepieion of Kos -->
+			<Type>BUILDINGCLASS_ASKLEPIEION_OF_KOS</Type>
+			<Description>TXT_KEY_BUILDING_TEMPLE_OF_ASCL</Description>
+			<iCategory>2</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_ASKLEPIEION_OF_KOS</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Broadway -->
 			<Type>BUILDINGCLASS_BROADWAY</Type>
 			<Description>TXT_KEY_BUILDING_BROADWAY</Description>
