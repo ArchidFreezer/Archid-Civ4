@@ -82,4 +82,8 @@
 		<DefineName>INITIAL_CITY_ROUTE_TYPE</DefineName>
 		<DefineTextVal>ROUTE_TRACK</DefineTextVal>
 	</Define>
+	<Define>
+		<DefineName>INITIAL_TRADE_ROUTES</DefineName>
+		<iDefineIntVal>0</iDefineIntVal>
+	</Define>
 </Civ4Defines>
