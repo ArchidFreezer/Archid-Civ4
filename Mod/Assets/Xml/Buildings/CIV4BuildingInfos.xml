@@ -2384,7 +2384,7 @@
 		</BuildingInfo>
 		<BuildingInfo> <!-- Ceremonial Altar -->
 			<BuildingClass>BUILDINGCLASS_CEREMONIAL_ALTAR</BuildingClass>
-			<Type>BUILDING_SACRIFICIAL_ALTAR</Type>
+			<Type>BUILDING_CEREMONIAL_ALTAR</Type>
 			<SpecialBuildingType>SPECIALBUILDING_TEMPLE</SpecialBuildingType>
 			<Description>TXT_KEY_BUILDING_CEREMONIAL_ALTAR</Description>
 			<Civilopedia>TXT_KEY_BUILDING_CEREMONIAL_ALTAR_PEDIA</Civilopedia>
