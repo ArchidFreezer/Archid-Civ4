@@ -1299,6 +1299,28 @@
 		<Tag>TXT_KEY_BUILDING_NATIONAL_COURIER_SYSTEM_STRATEGY</Tag>
 		<English>With National Courier System the important military messages and news spread faster throughout your empire. This decreases the effects of anarchy periods and more great people appear among your citizens.</English>
 	</TEXT>
+	<TEXT> <!-- National Mint -->
+		<Tag>TXT_KEY_BUILDING_NATIONAL_MINT</Tag>
+		<English>National Mint</English>
+		<French>Monnaie Nationale</French>
+		<German>Staatliche M&#252;nzanstalt</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NATIONAL_MINT_PEDIA</Tag>
+		<English>A mint is an industrial facility which manufactures coins for currency.[NEWLINE]The history of mints correlates closely with the history of coins. One difference is that the history of the mint is normally related in a fashion that more closely ties to the political situation of an era. For example, when discussing the history of the New Orleans Mint, the usage of that mint by the Confederate States of America beginning in 1861 is a notable occurrence. The origins of the Philadelphia Mint, which began operations in 1792 and first produced circulating coinage in 1793, are often related within the political context of the time.[NEWLINE]In the beginning, hammered coinage or cast coinage were the chief means of coin minting, with resulting production runs numbering as little as the hundreds or thousands. In modern mints, coin dies are manufactured in large numbers and planchets are made into milled coins by the billions.[NEWLINE]With the mass production of currency the production cost is weighed when minting coins. For example, it costs the US Mint much less than 25 cents to make a quarter, and the difference in production cost and face value (called seigniorage) helps fund the minting body.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NATIONAL_MINT_STRATEGY</Tag>
+		<English>Build A Mint when you have access to lots of rare metals</English>
+		<French>Faites Frapper la Monnaie nationale lorsque vous avez accès à beaucoup de métaux rares</French>
+		<German>Errichte eine M&#252;nzanstalt wenn DU Zugang zu vielen seltenen Metallen hast</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NATIONAL_MINT_HELP</Tag>
+		<English>If a National Mint is captured by the enemy, they will recieve 5 times the normal amount of plunder</English>
+		<French>Si la Monnaie Nationale est capturée par l'ennemi, il recevra un 5x le montant standard de pillage</French>
+		<German>Wenn eine staatliche M&#252;nzanstalt vom Feind eingenommen wird, so erhalten sie das 5fache der &#252;blichen Beute</German>
+	</TEXT>
 	<TEXT> <!-- National Slave Auction -->
 		<Tag>TXT_KEY_BUILDING_NATIONAL_SLAVE_AUCTION</Tag>
 		<English>National Slave Auction</English>

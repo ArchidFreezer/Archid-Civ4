@@ -1354,6 +1354,13 @@
 			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_NATIONAL_EPIC</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- National Mint -->
+			<Type>BUILDINGCLASS_NATIONAL_MINT</Type>
+			<Description>TXT_KEY_BUILDING_NATIONAL_MINT</Description>
+			<iCategory>3</iCategory>
+			<iMaxPlayerInstances>1</iMaxPlayerInstances>
+			<DefaultBuilding>BUILDING_NATIONAL_MINT</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- National Park -->
 			<Type>BUILDINGCLASS_NATIONAL_PARK</Type>
 			<Description>TXT_KEY_BUILDING_NATIONAL_PARK</Description>

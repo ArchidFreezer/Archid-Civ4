@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+	A player that captures a city with BUILDING_NATIONAL_MINT gains 10x the usual pillage value
+-->
+<mod id="NationalMintWonder" name="National Mint Wonder">
+
+	<!-- We are using a listener as these are always called after the hander and we want to modify the base value -->
+	<gameutils module="NationalMintUtils" handlers="doCityCaptureGold" override="True"/>
+	
+</mod>

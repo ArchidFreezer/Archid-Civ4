@@ -9861,6 +9861,73 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- National Mint -->
+			<BuildingClass>BUILDINGCLASS_NATIONAL_MINT</BuildingClass>
+			<Type>BUILDING_NATIONAL_MINT</Type>
+			<Description>TXT_KEY_BUILDING_NATIONAL_MINT</Description>
+			<Civilopedia>TXT_KEY_BUILDING_NATIONAL_MINT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_NATIONAL_MINT_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_NATIONAL_MINT_HELP</Help>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_NATIONAL_MINT</ArtDefineTag>
+			<PrereqOrCivics>
+				<CivicType>CIVIC_COINAGE</CivicType>
+				<CivicType>CIVIC_LAISSEZ_FAIRE</CivicType>
+				<CivicType>CIVIC_MERCANTILISM</CivicType>
+			</PrereqOrCivics>
+			<PrereqAndTechs>
+				<TechType>TECH_METAL_CASTING</TechType>
+			</PrereqAndTechs>
+			<iCost>300</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMaintenanceModifier>10</iMaintenanceModifier>
+			<iAsset>8</iAsset>
+			<iPower>2</iPower>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>2</iYield>
+			</YieldChanges>
+			<ConstructSound>AS2D_BUILD_BANK</ConstructSound>
+			<BonusYieldModifiers>
+				<BonusYieldModifier>
+					<BonusType>BONUS_GOLD</BonusType>
+					<YieldModifiers>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>25</iYield>
+					</YieldModifiers>
+				</BonusYieldModifier>
+				<BonusYieldModifier>
+					<BonusType>BONUS_SILVER</BonusType>
+					<YieldModifiers>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>15</iYield>
+					</YieldModifiers>
+				</BonusYieldModifier>
+				<BonusYieldModifier>
+					<BonusType>BONUS_COPPER</BonusType>
+					<YieldModifiers>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>8</iYield>
+					</YieldModifiers>
+				</BonusYieldModifier>
+			</BonusYieldModifiers>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
+					<iNeeded>5</iNeeded>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>8</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- National Park -->
 			<BuildingClass>BUILDINGCLASS_NATIONAL_PARK</BuildingClass>
 			<Type>BUILDING_NATIONAL_PARK</Type>
