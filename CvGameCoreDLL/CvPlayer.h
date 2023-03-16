@@ -910,6 +910,9 @@ public:
 	int getRiverPlotYield(YieldTypes eIndex) const;
 	void changeRiverPlotYield(YieldTypes eIndex, int iChange);
 
+	int getPlotYield(YieldTypes eIndex) const;																											// Exposed to Python
+	void changePlotYield(YieldTypes eIndex, int iChange);
+
 	int getYieldRateModifier(YieldTypes eIndex) const;																								// Exposed to Python
 	void changeYieldRateModifier(YieldTypes eIndex, int iChange);
 
@@ -1471,6 +1474,7 @@ protected:
 	int* m_aiSeaPlotYield;
 	int* m_aiForestPlotYield;
 	int* m_aiRiverPlotYield;
+	int* m_aiPlotYield;
 	int* m_aiYieldRateModifier;
 	int* m_aiCapitalYieldRateModifier;
 	int* m_aiExtraYieldThreshold;

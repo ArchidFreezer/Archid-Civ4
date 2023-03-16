@@ -38,6 +38,7 @@
 // Public Functions...
 
 CvPlayer::CvPlayer() {
+	m_aiPlotYield = new int[NUM_YIELD_TYPES];
 	m_aiSeaPlotYield = new int[NUM_YIELD_TYPES];
 	m_aiForestPlotYield = new int[NUM_YIELD_TYPES];
 	m_aiRiverPlotYield = new int[NUM_YIELD_TYPES];
@@ -109,6 +110,7 @@ CvPlayer::CvPlayer() {
 CvPlayer::~CvPlayer() {
 	uninit();
 
+	SAFE_DELETE_ARRAY(m_aiPlotYield);
 	SAFE_DELETE_ARRAY(m_aiSeaPlotYield);
 	SAFE_DELETE_ARRAY(m_aiForestPlotYield);
 	SAFE_DELETE_ARRAY(m_aiRiverPlotYield);
@@ -585,6 +587,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_eParent = NO_PLAYER;
 
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+		m_aiPlotYield[eYield] = 0;
 		m_aiSeaPlotYield[eYield] = 0;
 		m_aiForestPlotYield[eYield] = 0;
 		m_aiRiverPlotYield[eYield] = 0;
@@ -5459,6 +5462,7 @@ void CvPlayer::processBuilding(BuildingTypes eBuilding, int iChange, CvArea* pAr
 	changeFoundCityPopulationChange(kBuilding.getGlobalFoundPopulationChange() * iChange);
 
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
+		changePlotYield(eYield, kBuilding.getGlobalYieldChange(eYield) * iChange);
 		changeSeaPlotYield(eYield, kBuilding.getGlobalSeaPlotYieldChange(eYield) * iChange);
 		pArea->changeYieldRateModifier(getID(), eYield, kBuilding.getAreaYieldModifier(eYield) * iChange);
 		changeYieldRateModifier(eYield, kBuilding.getGlobalYieldModifier(eYield) * iChange);
@@ -9269,6 +9273,24 @@ void CvPlayer::changeSeaPlotYield(YieldTypes eIndex, int iChange) {
 
 	if (iChange != 0) {
 		m_aiSeaPlotYield[eIndex] = (m_aiSeaPlotYield[eIndex] + iChange);
+
+		updateYield();
+	}
+}
+
+int CvPlayer::getPlotYield(YieldTypes eIndex) const {
+	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
+	FAssertMsg(eIndex < NUM_YIELD_TYPES, "eIndex is expected to be within maximum bounds (invalid Index)");
+	return m_aiPlotYield[eIndex];
+}
+
+
+void CvPlayer::changePlotYield(YieldTypes eIndex, int iChange) {
+	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
+	FAssertMsg(eIndex < NUM_YIELD_TYPES, "eIndex is expected to be within maximum bounds (invalid Index)");
+
+	if (iChange != 0) {
+		m_aiPlotYield[eIndex] = (m_aiPlotYield[eIndex] + iChange);
 
 		updateYield();
 	}
@@ -14232,6 +14254,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	updateTeamType(); //m_eTeamType not saved
 	updateHuman();
 
+	pStream->Read(NUM_YIELD_TYPES, m_aiPlotYield);
 	pStream->Read(NUM_YIELD_TYPES, m_aiSeaPlotYield);
 	pStream->Read(NUM_YIELD_TYPES, m_aiForestPlotYield);
 	pStream->Read(NUM_YIELD_TYPES, m_aiRiverPlotYield);
@@ -14802,6 +14825,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_ePersistentStarEvent);
 	//m_eTeamType not saved
 
+	pStream->Write(NUM_YIELD_TYPES, m_aiPlotYield);
 	pStream->Write(NUM_YIELD_TYPES, m_aiSeaPlotYield);
 	pStream->Write(NUM_YIELD_TYPES, m_aiForestPlotYield);
 	pStream->Write(NUM_YIELD_TYPES, m_aiRiverPlotYield);

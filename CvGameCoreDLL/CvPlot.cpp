@@ -4980,6 +4980,10 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay) const {
 
 		CvCity* pWorkingCity = getWorkingCity();
 		if (pWorkingCity != NULL) {
+			if (!isImpassable(kPlayer.getTeam())) {
+				iYield += kPlayer.getPlotYield(eYield);
+			}
+
 			if (isWater()) {
 				if (!isImpassable(kPlayer.getTeam())) {
 					iYield += kPlayer.getSeaPlotYield(eYield);

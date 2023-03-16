@@ -3544,6 +3544,7 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 					iTempValue += ((kBuilding.getSpecialistYieldChange(eSpecialist, eYield) * kOwner.getTotalPopulation()) / 5);
 				}
 				iTempValue += kBuilding.getGlobalSeaPlotYieldChange(eYield) * kOwner.countNumCoastalCities() * 8;
+				iTempValue += (kBuilding.getGlobalYieldChange(eYield) * iNumCities) * 4;
 				iTempValue += (kBuilding.getAreaYieldModifier(eYield) * iNumCitiesInArea) / 3;
 				iTempValue += (kBuilding.getGlobalYieldModifier(eYield) * iNumCities) / 3;
 
@@ -3568,6 +3569,10 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 
 				if (kBuilding.getYieldChange(YIELD_FOOD) > 0) {
 					iValue = kBuilding.getYieldChange(YIELD_FOOD) * 4 / std::max(1, iFoodDifference);
+				}
+
+				if (kBuilding.getGlobalYieldChange(YIELD_FOOD) > 0) {
+					iValue = kBuilding.getGlobalYieldChange(YIELD_FOOD) * 4 / std::max(1, iFoodDifference);
 				}
 
 				if (kBuilding.getSeaPlotYieldChange(YIELD_FOOD) > 0) {
