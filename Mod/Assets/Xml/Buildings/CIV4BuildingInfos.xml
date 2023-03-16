@@ -12361,7 +12361,8 @@
 			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
 			<ObsoleteTech>TECH_LIBERALISM</ObsoleteTech>
 			<PrereqAndTechs>
-				<TechType>TECH_BRONZE_WORKING</TechType>
+				<TechType>TECH_TRADE</TechType>
+				<TechType>TECH_SLAVERY</TechType>
 			</PrereqAndTechs>
 			<PrereqWorldViews>
 				<WorldViewType>WORLD_VIEW_SLAVERY</WorldViewType>
@@ -12378,7 +12379,7 @@
 			</ProductionTraits>
 			<bNukeImmune>1</bNukeImmune>
 			<bSlaveMarket>1</bSlaveMarket>
-			<iCost>30</iCost>
+			<iCost>40</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>66</iConquestProb>
 			<iHappiness>1</iHappiness>
@@ -12387,8 +12388,8 @@
 			<fVisibilityPriority>10.0</fVisibilityPriority>
 			<YieldModifiers>
 				<iYield>0</iYield>
-				<iYield>25</iYield>
-				<iYield>5</iYield>
+				<iYield>15</iYield>
+				<iYield>10</iYield>
 			</YieldModifiers>
 			<ConstructSound>AS2D_BUILD_SLAVE_MARKET</ConstructSound>
 			<Flavors>

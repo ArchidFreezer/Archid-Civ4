@@ -1739,7 +1739,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_SLAVE_MARKET_STRATEGY</Tag>
-		<English>The [COLOR_BUILDING_TEXT]Slave Market[COLOR_REVERT] provides a 25% production bonus and a +1 happiness bonus in any city it is built in. Allows for the purchase of slaves. Doubles Production for leaders with Organized or Industrius traits.</English>
+		<English>The [COLOR_BUILDING_TEXT]Slave Market[COLOR_REVERT] provides a production and happiness bonus in any city it is built in. Allows for the purchase of slaves. Doubles Production for leaders with Organized or Industrius traits.</English>
 	</TEXT>
 	<TEXT> <!-- State School -->
 		<Tag>TXT_KEY_BUILDING_STATE_SCHOOL</Tag>
