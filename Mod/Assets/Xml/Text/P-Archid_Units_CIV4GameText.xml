@@ -351,6 +351,25 @@
 		<Spanish>L&#247;der B&#225;rbaro</Spanish>
 	</TEXT>
 
+	<TEXT> <!-- Bombard -->
+		<Tag>TXT_KEY_UNIT_BOMBARD</Tag>
+		<English>Bombard</English>
+		<French>
+			<Text>Bombarde</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Bombarde</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_BOMBARD_PEDIA</Tag>
+		<English>[TAB]A bombard is a medieval cannon or mortar, used chiefly in sieges for throwing heavy stone balls. This weapon was usually used during sieges to hurl various forms of missile into enemy fortifications. Projectiles such as stone or metal balls, burning materials and weighted cloth soaked in quicklime or Greek fire are documented.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_BOMBARD_STRATEGY</Tag>
+		<English>This early gunpower based seige unit is much more dangerous than the Catapult or Trebuchet.</English>
+	</TEXT>
+
 	<TEXT> <!-- Canoe -->
 		<Tag>TXT_KEY_UNIT_CANOE</Tag>
 		<English>Canoe</English>

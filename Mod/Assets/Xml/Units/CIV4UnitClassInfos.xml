@@ -727,6 +727,11 @@
 			<Description>TXT_KEY_UNIT_TREBUCHET</Description>
 			<DefaultUnit>UNIT_TREBUCHET</DefaultUnit>
 		</UnitClassInfo>
+		<UnitClassInfo> <!-- Bombard -->
+			<Type>UNITCLASS_BOMBARD</Type>
+			<Description>TXT_KEY_UNIT_BOMBARD</Description>
+			<DefaultUnit>UNIT_BOMBARD</DefaultUnit>
+		</UnitClassInfo> 
 		<UnitClassInfo> <!-- Cannon -->
 			<Type>UNITCLASS_CANNON</Type>
 			<Description>TXT_KEY_UNIT_CANNON</Description>
