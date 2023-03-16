@@ -519,6 +519,11 @@
 			<Description>TXT_KEY_UNIT_CAVALRY</Description>
 			<DefaultUnit>UNIT_CAVALRY</DefaultUnit>
 		</UnitClassInfo>
+		<UnitClassInfo> <!-- Elephant Rider -->
+			<Type>UNITCLASS_ELEPHANT_RIDER</Type>
+			<Description>TXT_KEY_UNIT_ELEPHANT_RIDER</Description>
+			<DefaultUnit>UNIT_ELEPHANT_RIDER</DefaultUnit>
+		</UnitClassInfo>
 		<UnitClassInfo> <!-- War Elephant -->
 			<Type>UNITCLASS_WAR_ELEPHANT</Type>
 			<Description>TXT_KEY_UNIT_WAR_ELEPHANT</Description>
