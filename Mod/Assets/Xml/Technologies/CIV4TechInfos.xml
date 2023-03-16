@@ -7275,7 +7275,7 @@
 			</OrPreReqs>
 			<Quote>TXT_KEY_TECH_METALLURGY_QUOTE</Quote>
 			<Sound>AS2D_TECH_GENERIC</Sound>
-			<Button>,Art/Interface/Buttons/TechTree/metallurgy.dds,Art/Interface/Buttons/RoM_Techtree_Atlas.dds,3,11</Button>
+			<Button>Art/Interface/Buttons/TechTree/metallurgy.dds</Button>
 		</TechInfo>
 		<TechInfo> <!-- Metal Casting -->
 			<Type>TECH_METAL_CASTING</Type>
