@@ -190,6 +190,9 @@
 	<ElementType name="YieldChanges" content="eltOnly">
 		<element type="iYield" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="GlobalYieldChanges" content="eltOnly">
+		<element type="iYield" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="YieldModifiers" content="eltOnly">
 		<element type="iYield" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
@@ -631,6 +634,7 @@
 		<element type="RiverPlotYieldChanges" minOccurs="0"/>
 		<element type="GlobalSeaPlotYieldChanges" minOccurs="0"/>
 		<element type="YieldChanges" minOccurs="0"/>
+		<element type="GlobalYieldChanges" minOccurs="0"/>
 		<element type="YieldModifiers" minOccurs="0"/>
 		<element type="PowerYieldModifiers" minOccurs="0"/>
 		<element type="AreaYieldModifiers" minOccurs="0"/>

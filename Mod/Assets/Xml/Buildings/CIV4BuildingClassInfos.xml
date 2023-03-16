@@ -1423,6 +1423,13 @@
 			<iMaxPlayerInstances>1</iMaxPlayerInstances>
 			<DefaultBuilding>BUILDING_RED_CROSS</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Strategic Grain Reserve -->
+			<Type>BUILDINGCLASS_STRATEGIC_GRAIN_RESERVE</Type>
+			<Description>TXT_KEY_BUILDING_STRATEGIC_GRAIN_RESERVE</Description>
+			<iCategory>3</iCategory>
+			<iMaxPlayerInstances>1</iMaxPlayerInstances>
+			<DefaultBuilding>BUILDING_STRATEGIC_GRAIN_RESERVE</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Supercollider -->
 			<Type>BUILDINGCLASS_SUPERCOLLIDER</Type>
 			<Description>TXT_KEY_BUILDING_SUPERCOLLIDER</Description>

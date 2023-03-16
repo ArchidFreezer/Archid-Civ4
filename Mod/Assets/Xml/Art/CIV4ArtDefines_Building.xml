@@ -3048,5 +3048,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/great_bath.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Strategic Grain Reserve -->
+			<Type>ART_DEF_BUILDING_STRATEGIC_GRAIN_RESERVE</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>			
+			<fScale>.33</fScale>
+			<fInterfaceScale>.70</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/strategic_grain_reserve/grain_elevator.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/strategic_grain_reserve.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

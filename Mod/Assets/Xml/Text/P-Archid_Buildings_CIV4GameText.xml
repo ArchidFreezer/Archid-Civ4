@@ -1766,6 +1766,18 @@
 		<English>Production bonus with Resources</English>
 		<French>Bonus de Production avec Ressources</French>
 	</TEXT>
+	<TEXT> <!-- Strategic Grain Reserve -->
+		<Tag>TXT_KEY_BUILDING_STRATEGIC_GRAIN_RESERVE</Tag>
+		<English>Strategic Grain Reserve</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_STRATEGIC_GRAIN_RESERVE_PEDIA</Tag>
+		<English>[TAB]The Strategic Grain Reserve allows a population to store food in huge grain silos as a hedge against possible starvation during times of severe drought.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_STRATEGIC_GRAIN_RESERVE_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Strategic Grain Reserve[COLOR_REVERT] provides extra food and health for all cities.  It increases it's city's odds of generating a Great Engineer.</English>
+	</TEXT>	
 	<TEXT> <!-- Supercollider -->
 		<Tag>TXT_KEY_BUILDING_SUPERCOLLIDER</Tag>
 		<English>Supercollider</English>

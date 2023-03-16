@@ -355,5 +355,9 @@
 			<Type>ART_DEF_MOVIE_GREAT_BATH</Type>
 			<Path>Art/Movies/Wonders/GreatBath.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo> <!-- Strategic Grain Reserve -->
+			<Type>ART_DEF_MOVIE_STRATEGIC_GRAIN_RESERVE</Type>
+			<Path>Art/Movies/NWonders/strategic_grain_reserve.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>
