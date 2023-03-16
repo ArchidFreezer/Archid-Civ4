@@ -12362,7 +12362,6 @@
 			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
 			<ObsoleteTech>TECH_LIBERALISM</ObsoleteTech>
 			<PrereqAndTechs>
-				<TechType>TECH_TRADE</TechType>
 				<TechType>TECH_SLAVERY</TechType>
 			</PrereqAndTechs>
 			<PrereqWorldViews>
