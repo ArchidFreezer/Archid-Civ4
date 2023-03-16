@@ -2280,7 +2280,7 @@
 			<Civilopedia>TXT_KEY_BONUS_WHALE_PEDIA</Civilopedia>
 			<BonusClassType>BONUSCLASS_SEAFOOD</BonusClassType>
 			<ArtDefineTag>ART_DEF_BONUS_WHALE</ArtDefineTag>
-			<TechReveal>TECH_FISHING</TechReveal>
+			<TechReveal>TECH_SAILING</TechReveal>
 			<TechObsolete>TECH_SONAR</TechObsolete>
 			<YieldChanges>
 				<iYieldChange>1</iYieldChange>
