@@ -6871,8 +6871,8 @@
 				<BuildType>BUILD_REMOVE_FOREST</BuildType>
 			</Builds>
 			<PrereqTechs>
-				<TechType>TECH_ELEPHANT_RIDING</TechType>
 				<TechType>TECH_CONSTRUCTION</TechType>
+				<TechType>TECH_ELEPHANT_RIDING</TechType>
 			</PrereqTechs>
 			<BonusType>BONUS_IVORY</BonusType>
 			<iCost>70</iCost>
@@ -6963,8 +6963,8 @@
 				<BuildType>BUILD_REMOVE_FOREST</BuildType>
 			</Builds>
 			<PrereqTechs>
-				<TechType>TECH_ELEPHANT_RIDING</TechType>
 				<TechType>TECH_CONSTRUCTION</TechType>
+				<TechType>TECH_ELEPHANT_RIDING</TechType>
 			</PrereqTechs>
 			<BonusType>BONUS_IVORY</BonusType>
 			<iCost>70</iCost>
