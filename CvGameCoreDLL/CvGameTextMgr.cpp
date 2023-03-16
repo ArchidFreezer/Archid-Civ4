@@ -10471,6 +10471,9 @@ void CvGameTextMgr::buildBuildingRequiresString(CvWStringBuffer& szBuffer, Build
 					bFirst = false;
 				}
 			}
+			if (!bFirst) {
+				szBuffer.append(gDLL->getText("TXT_KEY_IN_CITY"));
+			}
 		}
 
 		// OR BuildingClass
@@ -10497,6 +10500,9 @@ void CvGameTextMgr::buildBuildingRequiresString(CvWStringBuffer& szBuffer, Build
 					bFirst = false;
 				}
 			}
+			if (!bFirst) {
+				szBuffer.append(gDLL->getText("TXT_KEY_IN_CITY"));
+			}
 		}
 
 		// NOT BuildingClass
@@ -10522,6 +10528,9 @@ void CvGameTextMgr::buildBuildingRequiresString(CvWStringBuffer& szBuffer, Build
 					setListHelp(szBuffer, szFirstBuffer, szTempBuffer, L", ", bFirst);
 					bFirst = false;
 				}
+			}
+			if (!bFirst) {
+				szBuffer.append(gDLL->getText("TXT_KEY_IN_CITY"));
 			}
 		}
 

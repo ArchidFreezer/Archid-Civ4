@@ -752,9 +752,9 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_NOT_REQUIRED_TO_BUILD</Tag>
-		<English>[COLOR_WARNING_TEXT]Can't co-exist in a City with[SPACE][COLOR_REVERT]</English>
-		<French>[COLOR_WARNING_TEXT]Ne peut être construit dans la même Ville que[SPACE][COLOR_REVERT]</French>
-		<German>[COLOR_WARNING_TEXT]Kann nicht in derselben Stadt gebaut werden wie[SPACE][COLOR_REVERT]</German>
+		<English>[COLOR_WARNING_TEXT]Can't co-exist in a City with[SPACE]</English>
+		<French>[COLOR_WARNING_TEXT]Ne peut être construit dans la même Ville que[SPACE]</French>
+		<German>[COLOR_WARNING_TEXT]Kann nicht in derselben Stadt gebaut werden wie[SPACE]</German>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_REQUIRES_POPULATION</Tag>
@@ -1636,8 +1636,12 @@
 		<German>[SPACE]in umliegenden St&#228;dten</German>
 		<Italian>[SPACE]nelle citt&#224; vicine</Italian>
 		<Spanish>[SPACE]en las ciudades cercanas</Spanish>
-	</TEXT>	<!-- Civic - game text -->
+	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_IN_CITY</Tag>
+		<English>[SPACE]in city.</English>
+	</TEXT>
+	<TEXT>	<!-- Civic - game text -->
 		<Tag>TXT_KEY_CIVIC_FOREIGN_TRADE_ROUTE_MOD</Tag>
 		<English>[ICON_BULLET]%D1_Mod%% Foreign Trade Route Yield in All Cities</English>
 		<French>[ICON_BULLET]%D1_Mod%% Les Routes commerciales étrangères sont réparties dans toutes les Villes</French>
