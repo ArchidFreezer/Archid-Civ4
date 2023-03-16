@@ -2522,9 +2522,10 @@
 			<ArtDefineTag>ART_DEF_BUILDING_CHICHEN_ITZA</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_CHICHEN_ITZA</MovieDefineTag>
 			<MaxStartEra>ERA_MEDIEVAL</MaxStartEra>
-			<ObsoleteTech>TECH_RIFLING</ObsoleteTech>
+			<ObsoleteTech>TECH_DIVINE_RIGHT</ObsoleteTech>
 			<PrereqAndTechs>
-				<TechType>TECH_CODE_OF_LAWS</TechType>
+				<TechType>TECH_SACRIFICE</TechType>
+				<TechType>TECH_MASONRY</TechType>
 			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
@@ -2539,7 +2540,7 @@
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>5</iCommerce>
+				<iCommerce>6</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<CommerceChangeDoubleTimes>
 				<iCommerce>0</iCommerce>
