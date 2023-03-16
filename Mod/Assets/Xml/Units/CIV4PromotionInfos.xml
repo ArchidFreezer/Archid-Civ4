@@ -5213,7 +5213,7 @@
 			<PrereqOrPromotions>
 				<PromotionType>PROMOTION_COMBAT1</PromotionType>
 			</PrereqOrPromotions>
-			<TechPrereq>TECH_BRONZE_WORKING</TechPrereq>
+			<TechPrereq>TECH_SLAVERY</TechPrereq>
 			<iEnslaveCountChange>1</iEnslaveCountChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
@@ -5242,7 +5242,7 @@
 			<PrereqOrPromotions>
 				<PromotionType>PROMOTION_SLAVER2</PromotionType>
 			</PrereqOrPromotions>
-			<TechPrereq>TECH_BRONZE_WORKING</TechPrereq>
+			<TechPrereq>TECH_IRON_WORKING</TechPrereq>
 			<iEnslaveCountChange>1</iEnslaveCountChange>
 			<iMovesChange>1</iMovesChange>
 			<OrUnitCombatTypes>
