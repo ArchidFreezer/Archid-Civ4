@@ -5608,7 +5608,7 @@
 			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
 			<ObsoleteTech>TECH_CORPORATION</ObsoleteTech>
 			<PrereqAndTechs>
-				<TechType>TECH_SAILING</TechType>
+				<TechType>TECH_SEAFARING</TechType>
 				<TechType>TECH_MASONRY</TechType>
 			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_MERCHANT</GreatPeopleUnitClass>
