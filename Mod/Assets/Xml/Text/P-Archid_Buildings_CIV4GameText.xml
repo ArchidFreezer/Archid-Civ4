@@ -609,6 +609,16 @@
 		<Tag>TXT_KEY_BUILDING_DOCTORS_OFFICE_STRATEGY</Tag>
 		<English>Doctor's Office provides health to the city and helps units recover health.</English>
 	</TEXT>
+	<TEXT> <!-- Domestic Cargo Port -->
+		<Tag>TXT_KEY_BUILDING_DOMESTIC_CARGO_PORT</Tag>
+		<English>Domestic Cargo Port</English>
+		<French>Port de marchandises</French>
+		<German>Binnenfrachthafen</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_DOMESTIC_CARGO_PORT_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
 	<TEXT> <!-- Early Instrument Maker -->
 		<Tag>TXT_KEY_BUILDING_EARLY_INSTRUMENT_MAKER</Tag>
 		<English>Early Instrument Maker</English>
@@ -1011,6 +1021,20 @@
 		<Tag>TXT_KEY_BUILDING_INFO_NET_STRATEGY</Tag>
 		<English>Info Net increases city's science output.</English>
 	</TEXT>
+	<TEXT> <!-- Inland Port -->
+		<Tag>TXT_KEY_BUILDING_INLAND_PORT</Tag>
+		<English>Inland Port</English>
+		<French>Port intérieur</French>
+		<German>Binnenhafen</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INLAND_PORT_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_PORTS_STRATEGY</Tag>
+		<English>Ports increse your income from trade routes.</English>
+	</TEXT>	
 	<TEXT> <!-- Investment Bank -->
 		<Tag>TXT_KEY_BUILDING_INVESTMENT_BANK</Tag>
 		<English>Investment Bank</English>
@@ -1019,6 +1043,24 @@
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_INVESTMENT_BANK_PEDIA</Tag>
 		<English>[TAB]An investment bank is a financial institution that assists corporations and governments in raising capital by underwriting and acting as the agent in the issuance of securities. An investment bank also assists companies involved in mergers and acquisitions, derivatives, etc. Further it provides ancillary services such as market making and the trading of derivatives, fixed income instruments, foreign exchange, commodity, and equity securities.[PARAGRAPH:1]To provide investment banking services in the United States an advisor must be a licensed broker-dealer. Until 1999, the United States maintained a separation between investment banking and commercial banks. Other industrialized countries, including G7 countries, have not maintained this separation historically. Trading securities for cash or securities (i.e., facilitating transactions, market-making), or the promotion of securities (i.e., underwriting, research, etc.) was referred to as the "sell side".[PARAGRAPH:1]Dealing with the pension funds, mutual funds, hedge funds, and the investing public who consumed the products and services of the sell-side in order to maximize their return on investment constitutes the "buy side". Many firms have buy and sell side components.</English>
+	</TEXT>
+	<TEXT> <!-- Irrigation Canals -->
+		<Tag>TXT_KEY_BUILDING_IRRIGATION_CANALS</Tag>
+		<English>Irrigation Canals</English>
+		<French>
+			<Text>Canaux d'Irrigation</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Bew&#228;sserungskan&#228;le</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_IRRIGATION_CANALS_PEDIA</Tag>
+		<English>[TAB]Irrigation canals are artificial channels for water. The oldest known irrigation canals were built in Mesopotamia circa 4000 BC, in what is now modern day Iraq and Syria. The Indus Valley Civilization in Pakistan and North India (circa 2600 BC) had sophisticated irrigation and storage systems developed, including the reservoirs built at Girnar in 3000 BC. In Egypt, canals date back at least to the time of Pepi I Meryre (reigned 2332–2283 BC), who ordered a canal built to bypass the cataract on the Nile near Aswan.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_IRRIGATION_CANALS_STRATEGY</Tag>
+		<English>Increases commerce along rivers.</English>
 	</TEXT>
 	<TEXT> <!-- Jewellers -->
 		<Tag>TXT_KEY_BUILDING_JEWELLERS</Tag>
@@ -1557,6 +1599,20 @@
 		<French>Russian version of the Research Institute strongly increse research and space ship constructionat the cost of the cities productivity. They are prerequiste for more specialised research facilities.</French>
 		<German>Die Russische Variante des Forschungsinstitute verbessert die Forschung und Raumschiffkonstruktion wesentlicher stärker. Es sind Voraussetzung für den Bau spezialisierter Forschungseinrichtungen.</German>
 	</TEXT>	
+	<TEXT> <!-- Riverside Pier -->
+		<Tag>TXT_KEY_BUILDING_RIVERSIDE_PIER</Tag>
+		<English>Riverside Piers</English>
+		<French>Jetée</French>
+		<German>Anlegesteg</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_RIVERSIDE_PIER_PEDIA</Tag>
+		<English>Piers on rivers allow for the easy loading and unloading of boats increasing the volume of trade goods that can pass through.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_RIVERSIDE_PIER_STRATEGY</Tag>
+		<English>Gives 30% bonus for trade routes. Can be built in cities which have access to river. Building Harbor in the same city disables this building.</English>
+	</TEXT>
 	<TEXT> <!-- Sacred Site -->
 		<Tag>TXT_KEY_BUILDING_SACRED_SITE</Tag>
 		<English>Sacred Site</English>

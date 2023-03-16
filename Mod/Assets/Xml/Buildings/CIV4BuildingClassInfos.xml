@@ -272,11 +272,29 @@
 			<iCategory>20</iCategory>
 			<DefaultBuilding>BUILDING_CONTAINER_PORT</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Domestic Cargo Port -->
+			<Type>BUILDINGCLASS_DOMESTIC_CARGO_PORT</Type>
+			<Description>TXT_KEY_BUILDING_DOMESTIC_CARGO_PORT</Description>
+			<iCategory>20</iCategory>
+			<DefaultBuilding>BUILDING_DOMESTIC_CARGO_PORT</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Harbour -->
 			<Type>BUILDINGCLASS_HARBOUR</Type>
 			<Description>TXT_KEY_BUILDING_HARBOUR</Description>
 			<iCategory>20</iCategory>
 			<DefaultBuilding>BUILDING_HARBOUR</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Inland Port -->
+			<Type>BUILDINGCLASS_INLAND_PORT</Type>
+			<Description>TXT_KEY_BUILDING_INLAND_PORT</Description>
+			<iCategory>20</iCategory>
+			<DefaultBuilding>BUILDING_INLAND_PORT</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Irrigation Canals -->
+			<Type>BUILDINGCLASS_IRRIGATION_CANALS</Type>
+			<Description>TXT_KEY_BUILDING_IRRIGATION_CANALS</Description>
+			<iCategory>20</iCategory>
+			<DefaultBuilding>BUILDING_IRRIGATION_CANALS</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Lighthouse -->
 			<Type>BUILDINGCLASS_LIGHTHOUSE</Type>
@@ -289,6 +307,12 @@
 			<Description>TXT_KEY_BUILDING_PORT</Description>
 			<iCategory>20</iCategory>
 			<DefaultBuilding>BUILDING_PORT</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Riverside Pier -->
+			<Type>BUILDINGCLASS_RIVERSIDE_PIER</Type>
+			<Description>TXT_KEY_BUILDING_RIVERSIDE_PIER</Description>
+			<iCategory>20</iCategory>
+			<DefaultBuilding>BUILDING_RIVERSIDE_PIER</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Custom House -->                    <!-- Taxes -->

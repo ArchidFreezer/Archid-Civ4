@@ -3266,7 +3266,7 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_COMMERCIAL_PORT</ArtDefineTag>
 			<PrereqAndTechs>
-				<TechType>TECH_COMPASS</TechType>
+				<TechType>TECH_STEAM_POWER</TechType>
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
@@ -4063,6 +4063,59 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Domestic Cargo Port -->
+			<BuildingClass>BUILDINGCLASS_DOMESTIC_CARGO_PORT</BuildingClass>
+			<Type>BUILDING_DOMESTIC_CARGO_PORT</Type>
+			<Description>TXT_KEY_BUILDING_DOMESTIC_CARGO_PORT</Description>
+			<Civilopedia>TXT_KEY_BUILDING_DOMESTIC_CARGO_PORT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_PORTS_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_DOMESTIC_CARGO_PORT</ArtDefineTag>
+			<PrereqOrBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_IRRIGATION_CANALS</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_LEVEE</BuildingClassType>
+			</PrereqOrBuildingClasses>
+			<PrereqAndTechs>
+				<TechType>TECH_COMPASS</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_EXPANSIVE</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bRiver>1</bRiver>
+			<iCost>400</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>10</iMinAreaSize>
+			<iConquestProb>100</iConquestProb>
+			<iHealth>-1</iHealth>
+			<iTradeRoutes>1</iTradeRoutes>
+			<iTradeRouteModifier>40</iTradeRouteModifier>
+			<iAsset>4</iAsset>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<CommerceChanges>
+				<iCommerce>5</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommerceChanges>
+			<ConstructSound>AS2D_BUILD_HARBOR</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_COMMERCIAL_PORT</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_COMMERCIAL_PORT</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -7204,6 +7257,61 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Inland Port -->
+			<BuildingClass>BUILDINGCLASS_INLAND_PORT</BuildingClass>
+			<Type>BUILDING_INLAND_PORT</Type>
+			<Description>TXT_KEY_BUILDING_INLAND_PORT</Description>
+			<Civilopedia>TXT_KEY_BUILDING_INLAND_PORT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_PORTS_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_INLAND_PORT</ArtDefineTag>
+			<PrereqOrBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_IRRIGATION_CANALS</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_LEVEE</BuildingClassType>
+			</PrereqOrBuildingClasses>
+			<PrereqAndTechs>
+				<TechType>TECH_CANALS</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_EXPANSIVE</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bRiver>1</bRiver>
+			<iCost>160</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>10</iMinAreaSize>
+			<iConquestProb>100</iConquestProb>
+			<iTradeRouteModifier>40</iTradeRouteModifier>
+			<iAsset>4</iAsset>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<CommerceChanges>
+				<iCommerce>2</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</CommerceChanges>
+			<ConstructSound>AS2D_BUILD_HARBOR</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_DOMESTIC_CARGO_PORT</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_PORT</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_PORT</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Intelligence Agency -->
 			<BuildingClass>BUILDINGCLASS_INTELLIGENCE_AGENCY</BuildingClass>
 			<Type>BUILDING_INTELLIGENCE_AGENCY</Type>
@@ -7303,6 +7411,50 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Irrigation Canals -->
+			<BuildingClass>BUILDINGCLASS_IRRIGATION_CANALS</BuildingClass>
+			<Type>BUILDING_IRRIGATION_CANALS</Type>
+			<Description>TXT_KEY_BUILDING_IRRIGATION_CANALS</Description>
+			<Civilopedia>TXT_KEY_BUILDING_IRRIGATION_CANALS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_IRRIGATION_CANALS_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_IRRIGATION_CANALS</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_CANALS</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bRiver>1</bRiver>
+			<iCost>140</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>90</iConquestProb>
+			<iAsset>3</iAsset>
+			<RiverPlotYieldChanges>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</RiverPlotYieldChanges>
+			<ConstructSound>AS2D_BUILD_AQUEDUCT</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_LEVEE</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_LEVEE</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -11383,6 +11535,50 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Riverside Piers -->
+			<BuildingClass>BUILDINGCLASS_RIVERSIDE_PIER</BuildingClass>
+			<Type>BUILDING_RIVERSIDE_PIER</Type>
+			<Description>TXT_KEY_BUILDING_RIVERSIDE_PIER</Description>
+			<Civilopedia>TXT_KEY_BUILDING_RIVERSIDE_PIER_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_RIVERSIDE_PIER_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_RIVERSIDE_PIER</ArtDefineTag>
+			<ObsoleteTech>TECH_RAILROAD</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_SAILING</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_EXPANSIVE</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bRiver>1</bRiver>
+			<iCost>70</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>100</iConquestProb>
+			<iTradeRouteModifier>30</iTradeRouteModifier>
+			<iAsset>4</iAsset>
+			<iPower>0</iPower>
+			<CommerceChanges>
+				<iCommerce>1</iCommerce>
+			</CommerceChanges>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_INLAND_PORT</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_INLAND_PORT</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
