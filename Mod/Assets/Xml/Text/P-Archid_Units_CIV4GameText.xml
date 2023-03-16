@@ -541,6 +541,55 @@
 		<English>Use the [COLOR_UNIT_TEXT]Healer[COLOR_REVERT] to heal troops. They are fast moving, but expensive to produce and maintain.  Additionally, Healers require the Healer's Hut in the city in which they are built. The Healer can be upgraded to an [COLOR_UNIT_TEXT]Apothecary[COLOR_REVERT], after discovering Education.</English>	
 	</TEXT>
 
+	<TEXT> <!-- Heavy Cavalry -->
+		<Tag>TXT_KEY_UNIT_HEAVY_CAVALRY</Tag>
+		<English>Heavy Cavalry</English>
+		<French>
+			<Text>Cavalerie lourde</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Schwere Kavallerie</German>
+		<Italian>
+			<Text>Cavalleria pesante:Cavallerie pesanti</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Caballer&#237;a pesada:Caballer&#237;as pesadas</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_THIRD_ROUND_CHARL_UNIT_HEAVY_CAVALRY_PEDIA</Tag>
+		<English>[TAB]To put it simply, a Heavy Cavalry unit is better-armed and armored than its Light Cavalry cousin. The creation of Heavy Cavalry required a number of technological advances: first, larger horses had to be bred; then metal armor had to be made lighter and more flexible. All of these required a fairly wealthy and advanced civilization, but the price was well worth it: few unarmored cavalry units could hope to stand against the determined charge of Heavy Cavalry.</English>
+		<French>[TAB]Une unit&#233; de cavalerie lourde est mieux arm&#233;e et mieux prot&#233;g&#233;e qu'une unit&#233; de cavalerie l&#233;g&#232;re. La cr&#233;ation d'unit&#233;s de cavalerie lourde n&#233;cessite de nombreuses avanc&#233;es technologiques. Il faut des chevaux plus robustes. Les armures de m&#233;tal doivent &#234;tre plus l&#233;g&#232;res et plus flexibles. Pour cela, il faut poss&#233;der une civilisation assez riche et avanc&#233;e, mais cela en vaut la peine : une charge de cavalerie lourde peut venir &#224; bout de la plupart des unit&#233;s mont&#233;es sans armure.</French>
+		<German>[TAB]Um es einfach auszudr&#252;cken: Einheiten der Schweren Kavallerie sind besser bewaffnet und gepanzert als Einheiten der Leichten Kavallerie. F&#252;r die Erschaffung der Schweren Kavallerie waren einige technologische Errungenschaften notwendig. Zun&#228;chst mussten gr&#246;&#223;ere Pferde gez&#252;chtet werden. Dann musste die metallene R&#252;stung leichter und flexibler gemacht werden. Zu all dessen bedurfte es einer recht wohlhabenden und fortschrittlichen Zivilisation, doch der hohe Preis war es wert: Nur wenige ungepanzerte Kavallerieeinheiten konnten darauf hoffen, einem energischen Angriff der Schweren Kavallerie standhalten zu k&#246;nnen.</German>
+		<Italian>[TAB]In parole povere, un'unit&#224; di cavalleria pesante &#232; pi&#249; corazzata e meglio armata della cugina, la cavalleria leggera. La creazione della cavalleria pesante necessit&#242; di diversi sviluppi: dovettero essere riprodotti dei cavalli pi&#249; grandi, quindi fu necessario rendere pi&#249; leggere e flessibili le armature. Ci&#242; richiedeva civilt&#224; abbastanza ricche ed evolute, ma ne valeva la pena: ben poche unit&#224; di cavalleria leggera avevano qualche possibilit&#224; di cavarsela davanti a una carica della cavalleria pesante.</Italian>
+		<Spanish>[TAB]En pocas palabras, una unidad de caballer&#237;a pesada es una versi&#243;n mejor armada y equipada de la caballer&#237;a ligera. La creaci&#243;n de la caballer&#237;a pesada requer&#237;a una serie de avances tecnol&#243;gicos: para empezar, caballos m&#225;s grandes. Luego, era necesario que la armadura de metal fuera m&#225;s liviana y flexible. Todo esto solo pod&#237;a darse en civilizaciones opulentas y avanzadas, pero el resultado merec&#237;a la pena: pocas unidades de caballer&#237;a no pesada pod&#237;an resistir una carga de una de estas unidades.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CHARL_UNIT_HEAVY_CAVALRY_STRATEGY</Tag>
+		<English>Good against melee units in the open and against Light Cavalry, Horse Archers, and Mounted Infantry.</English>
+		<French>
+			<Text>Unit&#233;s efficaces en terrain d&#233;gag&#233; contre les unit&#233;s de combat rapproch&#233;, ainsi que contre la cavalerie l&#233;g&#232;re, les archers mont&#233;s et l'infanterie mont&#233;e.</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Gut gegen Nahkampfeinheiten im Freien sowie gegen Leichte Kavallerie, Berittene Bogensch&#252;tzen und Berittene Infanterie.</German>
+		<Italian>
+			<Text>Ottima su terreno aperto contro unit&#224; da combattimento ravvicinato e contro cavalleria leggera, arcieri a cavallo e fanteria a cavallo.</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Es especialmente buena frente a unidades de cuerpo a cuerpo a campo abierto, as&#237; como frente a unidades de caballer&#237;a ligera, arqueros a caballo e infanter&#237;a montada.</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
+	</TEXT>
+
 	<TEXT> <!-- Heavy Frigate -->
 		<Tag>TXT_KEY_UNIT_HEAVY_FRIGATE</Tag>
 		<English>Heavy Frigate</English>
@@ -633,9 +682,73 @@
 		<Spanish>Lanza-Jabalina</Spanish>
 	</TEXT>
 
+ 	<TEXT> <!-- Light Cavalry -->
+		<Tag>TXT_KEY_UNIT_LIGHT_CAVALRY</Tag>
+		<English>Light Cavalry</English>
+		<French>
+			<Text>Cavalerie l&#233;g&#232;re</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Leichte Kavallerie</German>
+		<Italian>
+			<Text>Cavalleria leggera:Cavallerie leggere</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Caballer&#237;a ligera:Caballer&#237;as ligeras</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_THIRD_ROUND_CHARL_UNIT_LIGHT_CAVALRY_PEDIA</Tag>
+		<English>[TAB]Before the invention of the stirrup, riders stayed atop their horses by knee pressure alone. Close combat was virtually impossible, as the shock from a blow - taken OR given - would very likely pitch the rider onto the ground. While the earliest stirrups appeared around 500 BC, they didn't reach Europe until the sixth or seventh century AD. At this point the European Light Cavalry was born. While lightly armored when compared with Heavy Cavalry or Knights, a Light Cavalry unit can still deliver a shocking blow to infantry or siege units.</English>
+		<French>[TAB]Avant l'invention des &#233;triers, les cavaliers se tenaient sur leur monture par la seule pression de leurs genoux. Le combat rapproch&#233; &#233;tait quasiment impossible : un coup, re&#231;u ou port&#233;, avait de grandes chances de faire tomber le cavalier. Les premiers &#233;triers apparurent aux alentours de 500 av. J.-C., mais ils ne furent utilis&#233;s en Europe qu'&#224; partir du sixi&#232;me ou septi&#232;me si&#232;cle ap. J.-C. La cavalerie l&#233;g&#232;re europ&#233;enne fit alors son apparition. La cavalerie l&#233;g&#232;re, bien que moins prot&#233;g&#233;e que la cavalerie lourde ou que les chevaliers, peut d&#233;livrer des charges efficace contre des troupes d'infanterie ou des unit&#233;s de si&#232;ge.</French>
+		<German>[TAB]Vor der Erfindung der Steigb&#252;gel hielten sich Reiter allein durch Druck ihrer Knie im Sattel. Ein Nahkampf war so nahezu unm&#246;glich, da die Ersch&#252;tterung eines Schlages - ausgeteilt wie eingesteckt - den Reiter wahrscheinlich auf den Boden geschleudert h&#228;tte. Auch wenn die ersten Steigb&#252;gel bereits aus dem Jahre 500 v. Chr. datieren, waren sie in Europa nicht vor dem 6. oder 7. Jahrhundert n. Chr. zu finden. Zu dieser Zeit wurde die europ&#228;ische Leichte Kavallerie geboren. Auch wenn sie im Vergleich zur schweren Kavallerie oder den Rittern nur sehr leicht gepanzert waren, kann die Leichte Kavallerie der Infanterie oder Belagerungseinheiten einen schweren Schlag versetzen.</German>
+		<Italian>[TAB]Prima dell'invenzione della staffa, i cavalieri rimanevano a cavallo unicamente grazie alla pressione delle ginocchia. Il combattimento ravvicinato era impossibile, visto che con un colpo (dato o ricevuto) il cavaliere sarebbe probabilmente caduto a terra. Pur essendo comparse attorno al 500 a.C., le staffe non raggiunsero l'Europa se non durante il sesto o settimo secolo d.C. A questo punto nacque la cavalleria leggera. Pur essendo poco corazzata, se confrontata con la cavalleria pesante o coi cavalieri, un'unit&#224; di cavalleria leggera pu&#242; comunque infliggere colpi pesanti alla fanteria o a unit&#224; d'assedio.</Italian>
+		<Spanish>[TAB]Antes de la invenci&#243;n del estribo, los jinetes se manten&#237;an sobre los caballos utilizando solo la presi&#243;n de las rodillas. Entrar en combate cuerpo a cuerpo era pr&#225;cticamente imposible para este tipo de unidades, puesto que era muy probable que el impacto de un golpe, ya fuera recibido o infligido, arrojase al jinete al suelo. Aunque los primeros estribos aparecieron alrededor del a&#241;o 500 a. C., en Europa no hicieron su aparici&#243;n hasta los siglos VI o VII d. C. &#201;se fue el nacimiento de la caballer&#237;a ligera europea. Aunque est&#225; menos armada y peor equipada que la caballer&#237;a pesada o los caballeros, la caballer&#237;a ligera puede ser letal frente a las unidades de infanter&#237;a o de asedio.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CHARL_UNIT_LIGHT_CAVALRY_STRATEGY</Tag>
+		<English>These units can be especially effective against archery or melee units in open terrain. </English>
+		<French>
+			<Text>Ces unit&#233;s peuvent &#234;tre particuli&#232;rement efficaces contre les unit&#233;s de combat rapproch&#233; et les archers en terrain d&#233;gag&#233;.</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Diese Einheiten k&#246;nnen besonders effektiv gegen unberittene Einheiten auf offenem Feld sein.</German>
+		<Italian>
+			<Text>Queste unit&#224; sono particolarmente efficaci contro arcieri o unit&#224; da combattimento ravvicinato su terreno aperto. </Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Estas unidades pueden ser especialmente eficaces frente a arqueros o a unidades de cuerpo a cuerpo a campo abierto. </Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
+	</TEXT>
+
 	<TEXT> <!-- Lion Pride -->
 		<Tag>TXT_KEY_UNIT_PRIDE_OF_LIONS</Tag>
 		<English>Pride of Lions</English>
+	</TEXT>
+
+	<TEXT> <!-- Mailed Knight -->
+		<Tag>TXT_KEY_UNIT_MAILED_KNIGHT</Tag>
+		<English>Mailed Knight</English>
+		<French>Chevalier en Cotte de Mailles</French>
+		<German>Gepanzerter Ritter</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MAILED_KNIGHT_PEDIA</Tag>
+		<English>[TAB]The Chevaliers are medieval knights who follow the code of knightly conduct. The particulars of the code varied, but codes would emphasize the virtues of courage, honor, and service. They were adept at the art of war, trained in fighting in armor, with horses, lances, swords and shields. Chevaliers were taught to excel in the arms, to show courage, to be gallant, loyal and to swear off cowardice and baseness.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MAILED_KNIGHT_STRATEGY</Tag>
+		<English>These are the strongest pre-gunpowder unit in the game. They are not effective attacking against cities.</English>
 	</TEXT>
 
 	<TEXT> <!-- Medic -->
@@ -680,6 +793,55 @@
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_MODERN_MEDIVAC_STRATEGY</Tag>
 		<English>The Modern Medivac Helicopter is an upgrade to the Medivac Helicopter. It continues the Health Care mod into the Modern Era.</English>
+	</TEXT>
+
+	<TEXT> <!-- Mounted Infantry -->
+		<Tag>TXT_KEY_UNIT_MOUNTED_INFANTRY</Tag>
+		<English>Mounted Infantry</English>
+		<French>
+			<Text>Infanterie mont&#233;e</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Berittene Infanterie</German>
+		<Italian>
+			<Text>Fanteria a cavallo:Fanterie a cavallo</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Infanter&#237;a montada:Infanter&#237;as montadas</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_THIRD_ROUND_CHARL_UNIT_MOUNTED_INFANTRY_PEDIA</Tag>
+		<English>[TAB]Mounted Infantry soldiers use horses to get to the battlefield, but once there they dismount and fight on foot. They rarely take part in charges or other horseback maneuvers, and they tend to suffer badly when engaged in such against trained cavalry units. On the other hand, when fortified on a hill, Mounted Infantry can do serious damage to an attacking Horse Archer or Light Cavalry unit.</English>
+		<French>[TAB]Les soldats d'infanterie mont&#233;e se servent de chevaux pour atteindre le champ de bataille mais une fois sur place, ils se battent &#224; pied. Ils ne prennent que rarement part aux charges ou aux manoeuvres &#224; cheval et ont tendance &#224; subir des pertes importantes face &#224; des unit&#233;s de cavalerie entra&#238;n&#233;es. Cependant, si elle est plac&#233;e dans des fortifications sur une colline, l'infanterie mont&#233;e peut infliger de s&#233;rieux dommages &#224; une unit&#233; d'archers mont&#233;s ou de cavalerie l&#233;g&#232;re.</French>
+		<German>[TAB]Soldaten der Berittenen Infanterie nutzen Pferde, um aufs Schlachtfeld zu gelangen. Sobald sie es erreicht haben, satteln sie jedoch ab und k&#228;mpfen zu Fu&#223;. Sie nehmen nur selten an Vorst&#246;&#223;en oder anderen Man&#246;vern zu Pferd teil, und wenn sie gegen ausgebildete Einheiten der Kavallerie eingesetzt werden, stecken sie meist viel Schaden ein. Wenn sie gefestigt auf einem H&#252;gel stationiert ist, kann die Berittene Infanterie anr&#252;ckenden Berittenen Bogensch&#252;tzen oder Einheiten der Leichten Kavallerie jedoch schweren Schaden zuf&#252;gen.</German>
+		<Italian>[TAB]I soldati della fanteria a cavallo usano i cavalli per arrivare al campo di battaglia ma poi smontano e combattono a piedi. Di rado prendono parte a cariche o altre manovre a cavallo, e tendono a subire malamente gli attacchi delle unit&#224; di cavalleria. D'altro canto quando sono fortificate in collina, i fanti a cavallo possono infliggere seri danni ad arcieri a cavallo o cavalleria leggera.</Italian>
+		<Spanish>[TAB]Los soldados de la infanter&#237;a montada usan sus caballos para llegar al campo de batalla, pero una vez all&#237; desmontan y luchan a pie. Solo en raras ocasiones toman parte en cargas u otras maniobras t&#237;picas de caballer&#237;a y, cuando se enfrentan con escuadrones de caballer&#237;a profesional, normalmente llevan las de perder. Por otro lado, cuando est&#225; atrincherada en una colina, la infanter&#237;a montada puede ser muy peligrosa para los arqueros a caballo o la caballer&#237;a ligera.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CHARL_UNIT_MOUNTED_INFANTRY_STRATEGY</Tag>
+		<English>Use these speedy infantrymen as rapid-reaction forces and to defend hills and forests.</English>
+		<French>
+			<Text>Utilisez ces Spadassins pour intervenir rapidement ou pour d&#233;fendre les collines et les for&#234;ts.</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Setzen Sie diese schnellen Infanteriek&#228;mpfer als Streitkr&#228;fte f&#252;r schnelle Gegenma&#223;nahmen und zur Verteidigung von H&#252;geln und W&#228;ldern ein.</German>
+		<Italian>
+			<Text>Usa questi veloci fanti per reagire rapidamente e per difendere colline e foreste.</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Utiliza a estas veloces unidades de infanter&#237;a como fuerzas de reacci&#243;n r&#225;pida, as&#237; como para defender colinas y bosques.</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
 	</TEXT>
 
 	<TEXT> <!-- Polar Bear -->

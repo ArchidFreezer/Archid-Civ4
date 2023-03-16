@@ -6145,6 +6145,8 @@
 			<UnitClassUpgrades>
 				<UnitClassType>UNITCLASS_CHARIOT</UnitClassType>
 				<UnitClassType>UNITCLASS_HORSE_ARCHER</UnitClassType>
+				<UnitClassType>UNITCLASS_LIGHT_CAVALRY</UnitClassType>
+				<UnitClassType>UNITCLASS_MOUNTED_INFANTRY</UnitClassType>
 			</UnitClassUpgrades>
 			<FlankingStrikes>
 				<FlankingStrike>
@@ -6209,7 +6211,7 @@
 			<UnitMeshGroups>
 				<iGroupSize>3</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
+				<fPadTime>1</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
 				<iRangedWaveSize>3</iRangedWaveSize>
 				<UnitMeshGroup>
@@ -6225,6 +6227,7 @@
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>2</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_CHARIOT</Description>
 			<Civilopedia>TXT_KEY_UNIT_CHARIOT_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_CHARIOT_STRATEGY</Strategy>
@@ -6283,6 +6286,7 @@
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>2</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_EGYPT_WARCHARIOT</Description>
 			<Civilopedia>TXT_KEY_UNIT_EGYPT_WARCHARIOT_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_EGYPT_WARCHARIOT_STRATEGY</Strategy>
@@ -6342,6 +6346,7 @@
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>2</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_PERIA_IMMORTAL</Description>
 			<Civilopedia>TXT_KEY_UNIT_PERIA_IMMORTAL_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_PERIA_IMMORTAL_STRATEGY</Strategy>
@@ -6408,6 +6413,7 @@
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_HORSE_ARCHER</Description>
 			<Civilopedia>TXT_KEY_UNIT_HORSE_ARCHER_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_HORSE_ARCHER_STRATEGY</Strategy>
@@ -6445,20 +6451,36 @@
 			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
 			<iCombat>7</iCombat>
 			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
+			<iXPValueAttack>5</iXPValueAttack>
+			<iXPValueDefense>3</iXPValueDefense>
+			<iFirstStrikes>1</iFirstStrikes>
+			<iChanceFirstStrikes>1</iChanceFirstStrikes>
 			<iWithdrawalProb>20</iWithdrawalProb>
 			<iCollateralDamageLimit>100</iCollateralDamageLimit>
 			<iCollateralDamageMaxUnits>6</iCollateralDamageMaxUnits>
+			<FeatureAttacks>
+				<FeatureAttack>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<iFeatureAttack>-25</iFeatureAttack>
+				</FeatureAttack>
+				<FeatureAttack>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureAttack>-50</iFeatureAttack>
+				</FeatureAttack>
+			</FeatureAttacks>
 			<UnitClassAttackMods>
 				<UnitClassAttackMod>
 					<UnitClassType>UNITCLASS_CATAPULT</UnitClassType>
 					<iUnitClassMod>50</iUnitClassMod>
 				</UnitClassAttackMod>
+				<UnitClassAttackMod>
+					<UnitClassType>UNITCLASS_TREBUCHET</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassAttackMod>
 			</UnitClassAttackMods>
 			<iCultureGarrison>5</iCultureGarrison>
 			<iAsset>2</iAsset>
-			<iPower>6</iPower>
+			<iPower>15</iPower>
 			<UnitMeshGroups>
 				<iGroupSize>3</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
@@ -6478,6 +6500,7 @@
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_CARTHAGE_NUMIDIAN_CAVALRY</Description>
 			<Civilopedia>TXT_KEY_UNIT_CARTHAGE_NUMIDIAN_CAVALRY_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_CARTHAGE_NUMIDIAN_CAVALRY_STRATEGY</Strategy>
@@ -6518,12 +6541,18 @@
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
+			<iFirstStrikes>1</iFirstStrikes>
+			<iChanceFirstStrikes>1</iChanceFirstStrikes>
 			<iWithdrawalProb>20</iWithdrawalProb>
 			<iCollateralDamageLimit>100</iCollateralDamageLimit>
 			<iCollateralDamageMaxUnits>6</iCollateralDamageMaxUnits>
 			<UnitClassAttackMods>
 				<UnitClassAttackMod>
 					<UnitClassType>UNITCLASS_CATAPULT</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassAttackMod>
+				<UnitClassAttackMod>
+					<UnitClassType>UNITCLASS_TREBUCHET</UnitClassType>
 					<iUnitClassMod>50</iUnitClassMod>
 				</UnitClassAttackMod>
 			</UnitClassAttackMods>
@@ -6535,7 +6564,7 @@
 			</UnitCombatMods>
 			<iCultureGarrison>5</iCultureGarrison>
 			<iAsset>2</iAsset>
-			<iPower>6</iPower>
+			<iPower>16</iPower>
 			<UnitMeshGroups>
 				<iGroupSize>3</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
@@ -6558,6 +6587,7 @@
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_MONGOL_KESHIK</Description>
 			<Civilopedia>TXT_KEY_UNIT_MONGOL_KESHIK_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_MONGOL_KESHIK_STRATEGY</Strategy>
@@ -6589,7 +6619,7 @@
 				<TechType>TECH_MOUNTED_ARCHERY</TechType>
 			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
-			<iCost>50</iCost>
+			<iCost>60</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
 			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
@@ -6598,12 +6628,17 @@
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
 			<iFirstStrikes>1</iFirstStrikes>
+			<iChanceFirstStrikes>1</iChanceFirstStrikes>
 			<iWithdrawalProb>20</iWithdrawalProb>
 			<iCollateralDamageLimit>100</iCollateralDamageLimit>
 			<iCollateralDamageMaxUnits>6</iCollateralDamageMaxUnits>
 			<UnitClassAttackMods>
 				<UnitClassAttackMod>
 					<UnitClassType>UNITCLASS_CATAPULT</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassAttackMod>
+				<UnitClassAttackMod>
+					<UnitClassType>UNITCLASS_TREBUCHET</UnitClassType>
 					<iUnitClassMod>50</iUnitClassMod>
 				</UnitClassAttackMod>
 			</UnitClassAttackMods>
@@ -6623,12 +6658,191 @@
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
 		</UnitInfo>
+		<UnitInfo> <!-- Light Cavalry -->
+			<Class>UNITCLASS_LIGHT_CAVALRY</Class>
+			<Type>UNIT_LIGHT_CAVALRY</Type>
+			<Combat>UNITCOMBAT_MOUNTED</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>2</iMaxWeaponTypeTier>
+			<Description>TXT_KEY_UNIT_LIGHT_CAVALRY</Description>
+			<Civilopedia>TXT_KEY_THIRD_ROUND_CHARL_UNIT_LIGHT_CAVALRY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CHARL_UNIT_LIGHT_CAVALRY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitaryHappiness>1</bMilitaryHappiness>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<bFirstStrikeImmune>1</bFirstStrikeImmune>
+			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_HEAVY_CAVALRY</UnitClassType>
+			</UnitClassUpgrades>
+			<FlankingStrikes>
+				<FlankingStrike>
+					<FlankingStrikeUnitClass>UNITCLASS_ARCHER</FlankingStrikeUnitClass>
+					<iFlankingStrength>100</iFlankingStrength>
+				</FlankingStrike>
+				<FlankingStrike>
+					<FlankingStrikeUnitClass>UNITCLASS_LONGBOWMAN</FlankingStrikeUnitClass>
+					<iFlankingStrength>100</iFlankingStrength>
+				</FlankingStrike>
+				<FlankingStrike>
+					<FlankingStrikeUnitClass>UNITCLASS_CROSSBOWMAN</FlankingStrikeUnitClass>
+					<iFlankingStrength>100</iFlankingStrength>
+				</FlankingStrike>
+			</FlankingStrikes>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ATTACK</UnitAIType>
+				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
+				<UnitAIType>UNITAI_COUNTER</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_STIRRUP</TechType>
+			</PrereqTechs>
+			<BonusType>BONUS_HORSE</BonusType>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_COPPER</BonusType>
+				<BonusType>BONUS_IRON</BonusType>
+				<BonusType>BONUS_OBSIDIAN</BonusType>
+			</PrereqOrBonuses>
+			<iCost>65</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>2</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>9</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>6</iXPValueAttack>
+			<iXPValueDefense>3</iXPValueDefense>
+			<iWithdrawalProb>15</iWithdrawalProb>
+			<iCollateralDamageLimit>100</iCollateralDamageLimit>
+			<iCollateralDamageMaxUnits>3</iCollateralDamageMaxUnits>
+			<iCityAttack>-20</iCityAttack>
+			<FeatureAttacks>
+				<FeatureAttack>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<iFeatureAttack>-25</iFeatureAttack>
+				</FeatureAttack>
+				<FeatureAttack>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureAttack>-50</iFeatureAttack>
+				</FeatureAttack>
+			</FeatureAttacks>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+					<iUnitCombatMod>25</iUnitCombatMod>
+				</UnitCombatMod>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+					<iUnitCombatMod>25</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<iCultureGarrison>6</iCultureGarrison>
+			<iAsset>3</iAsset>
+			<iPower>15</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>3</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>3</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>3</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_LIGHT_CAVALRY</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+			<FreePromotions>
+				<PromotionType>PROMOTION_FLANKING1</PromotionType>
+				<PromotionType>PROMOTION_FLANKING2</PromotionType>
+			</FreePromotions>
+		</UnitInfo>
+		<UnitInfo> <!-- Mounted Infantry -->
+			<Class>UNITCLASS_MOUNTED_INFANTRY</Class>
+			<Type>UNIT_MOUNTED_INFANTRY</Type>
+			<Combat>UNITCOMBAT_MOUNTED</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>2</iMaxWeaponTypeTier>
+			<Description>TXT_KEY_UNIT_MOUNTED_INFANTRY</Description>
+			<Civilopedia>TXT_KEY_THIRD_ROUND_CHARL_UNIT_MOUNTED_INFANTRY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CHARL_UNIT_MOUNTED_INFANTRY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitaryHappiness>1</bMilitaryHappiness>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_MAILED_KNIGHT</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ATTACK</UnitAIType>
+				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
+				<UnitAIType>UNITAI_RESERVE</UnitAIType>
+				<UnitAIType>UNITAI_COUNTER</UnitAIType>
+				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
+				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
+				<UnitAIType>UNITAI_CITY_SPECIAL</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_HORSE_BREEDING</TechType>
+				<TechType>TECH_BRONZE_WORKING</TechType>
+			</PrereqTechs>
+			<BonusType>BONUS_HORSE</BonusType>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_COPPER</BonusType>
+				<BonusType>BONUS_IRON</BonusType>
+			</PrereqOrBonuses>
+			<iCost>50</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>2</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>8</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>6</iXPValueAttack>
+			<iXPValueDefense>3</iXPValueDefense>
+			<iWithdrawalProb>20</iWithdrawalProb>
+			<iHillsDefense>10</iHillsDefense>
+			<FeatureAttacks>
+				<FeatureAttack>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<iFeatureAttack>-25</iFeatureAttack>
+				</FeatureAttack>
+				<FeatureAttack>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureAttack>-50</iFeatureAttack>
+				</FeatureAttack>
+			</FeatureAttacks>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+					<iUnitCombatMod>50</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<iCultureGarrison>5</iCultureGarrison>
+			<iAsset>2</iAsset>
+			<iPower>10</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>3</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>3</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>3</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_MOUNTED_INFANTRY</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+		</UnitInfo>	
 		<UnitInfo> <!-- War Elephant -->
 			<Class>UNITCLASS_WAR_ELEPHANT</Class>
 			<Type>UNIT_WAR_ELEPHANT</Type>
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>2</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_WAR_ELEPHANT</Description>
 			<Civilopedia>TXT_KEY_UNIT_WAR_ELEPHANT_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_WAR_ELEPHANT_STRATEGY</Strategy>
@@ -6645,9 +6859,20 @@
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 			</UnitAIs>
+			<Builds>
+				<BuildType>BUILD_TRACK</BuildType>
+				<BuildType>BUILD_ROAD</BuildType>
+				<BuildType>BUILD_PAVED_ROAD</BuildType>
+				<BuildType>BUILD_MODERN_ROAD</BuildType>
+				<BuildType>BUILD_RAILROAD</BuildType>
+				<BuildType>BUILD_QUARRY</BuildType>
+				<BuildType>BUILD_FORT</BuildType>
+				<BuildType>BUILD_REMOVE_JUNGLE</BuildType>
+				<BuildType>BUILD_REMOVE_FOREST</BuildType>
+			</Builds>
 			<PrereqTechs>
+				<TechType>TECH_ELEPHANT_RIDING</TechType>
 				<TechType>TECH_CONSTRUCTION</TechType>
-				<TechType>TECH_HORSEBACK_RIDING</TechType>
 			</PrereqTechs>
 			<BonusType>BONUS_IVORY</BonusType>
 			<iCost>70</iCost>
@@ -6658,6 +6883,26 @@
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
+			<FeatureAttacks>
+				<FeatureAttack>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<iFeatureAttack>25</iFeatureAttack>
+				</FeatureAttack>
+				<FeatureAttack>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureAttack>25</iFeatureAttack>
+				</FeatureAttack>
+			</FeatureAttacks>
+			<UnitClassAttackMods>
+				<UnitClassAttackMod>
+					<UnitClassType>UNITCLASS_CATAPULT</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassAttackMod>
+				<UnitClassAttackMod>
+					<UnitClassType>UNITCLASS_TREBUCHET</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassAttackMod>
+			</UnitClassAttackMods>
 			<UnitCombatMods>
 				<UnitCombatMod>
 					<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
@@ -6686,6 +6931,7 @@
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>2</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_KHMER_BALLISTA_ELEPHANT</Description>
 			<Civilopedia>TXT_KEY_UNIT_KHMER_BALLISTA_ELEPHANT_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_KHMER_BALLISTA_ELEPHANT_STRATEGY</Strategy>
@@ -6705,9 +6951,20 @@
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
 			</UnitAIs>
+			<Builds>
+				<BuildType>BUILD_TRACK</BuildType>
+				<BuildType>BUILD_ROAD</BuildType>
+				<BuildType>BUILD_PAVED_ROAD</BuildType>
+				<BuildType>BUILD_MODERN_ROAD</BuildType>
+				<BuildType>BUILD_RAILROAD</BuildType>
+				<BuildType>BUILD_QUARRY</BuildType>
+				<BuildType>BUILD_FORT</BuildType>
+				<BuildType>BUILD_REMOVE_JUNGLE</BuildType>
+				<BuildType>BUILD_REMOVE_FOREST</BuildType>
+			</Builds>
 			<PrereqTechs>
+				<TechType>TECH_ELEPHANT_RIDING</TechType>
 				<TechType>TECH_CONSTRUCTION</TechType>
-				<TechType>TECH_HORSEBACK_RIDING</TechType>
 			</PrereqTechs>
 			<BonusType>BONUS_IVORY</BonusType>
 			<iCost>70</iCost>
@@ -6719,6 +6976,26 @@
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
 			<iFirstStrikes>1</iFirstStrikes>
+			<FeatureAttacks>
+				<FeatureAttack>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<iFeatureAttack>25</iFeatureAttack>
+				</FeatureAttack>
+				<FeatureAttack>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureAttack>25</iFeatureAttack>
+				</FeatureAttack>
+			</FeatureAttacks>
+			<UnitClassAttackMods>
+				<UnitClassAttackMod>
+					<UnitClassType>UNITCLASS_CATAPULT</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassAttackMod>
+				<UnitClassAttackMod>
+					<UnitClassType>UNITCLASS_TREBUCHET</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassAttackMod>
+			</UnitClassAttackMods>
 			<UnitCombatMods>
 				<UnitCombatMod>
 					<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
@@ -6747,6 +7024,7 @@
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>3</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_KNIGHT</Description>
 			<Civilopedia>TXT_KEY_UNIT_KNIGHT_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_KNIGHT_STRATEGY</Strategy>
@@ -6775,8 +7053,7 @@
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
 			<PrereqTechs>
-				<TechType>TECH_GUILDS</TechType>
-				<TechType>TECH_HORSEBACK_RIDING</TechType>
+				<TechType>TECH_ARMOURED_CAVALRY</TechType>
 			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
 			<PrereqOrBonuses>
@@ -6792,6 +7069,16 @@
 			<iXPValueDefense>2</iXPValueDefense>
 			<iCollateralDamageLimit>100</iCollateralDamageLimit>
 			<iCollateralDamageMaxUnits>6</iCollateralDamageMaxUnits>
+			<FeatureAttacks>
+				<FeatureAttack>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<iFeatureAttack>-25</iFeatureAttack>
+				</FeatureAttack>
+				<FeatureAttack>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureAttack>-50</iFeatureAttack>
+				</FeatureAttack>
+			</FeatureAttacks>
 			<iCultureGarrison>6</iCultureGarrison>
 			<iAsset>3</iAsset>
 			<iPower>10</iPower>
@@ -6814,6 +7101,7 @@
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>3</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_ARABIA_CAMELARCHER</Description>
 			<Civilopedia>TXT_KEY_UNIT_ARABIA_CAMELARCHER_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ARABIA_CAMELARCHER_STRATEGY</Strategy>
@@ -6842,9 +7130,7 @@
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
 			<PrereqTechs>
-				<TechType>TECH_GUILDS</TechType>
-				<TechType>TECH_HORSEBACK_RIDING</TechType>
-				<TechType>TECH_ARCHERY</TechType>
+				<TechType>TECH_ARMOURED_CAVALRY</TechType>
 			</PrereqTechs>
 			<iCost>90</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -6857,6 +7143,16 @@
 			<iWithdrawalProb>15</iWithdrawalProb>
 			<iCollateralDamageLimit>100</iCollateralDamageLimit>
 			<iCollateralDamageMaxUnits>6</iCollateralDamageMaxUnits>
+			<FeatureAttacks>
+				<FeatureAttack>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<iFeatureAttack>-25</iFeatureAttack>
+				</FeatureAttack>
+				<FeatureAttack>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureAttack>-50</iFeatureAttack>
+				</FeatureAttack>
+			</FeatureAttacks>
 			<iCultureGarrison>6</iCultureGarrison>
 			<iAsset>3</iAsset>
 			<iPower>10</iPower>
@@ -6879,6 +7175,7 @@
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>3</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_BYZANTINE_CATAPHRACT</Description>
 			<Civilopedia>TXT_KEY_UNIT_BYZANTINE_CATAPHRACT_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_BYZANTINE_CATAPHRACT_STRATEGY</Strategy>
@@ -6906,8 +7203,7 @@
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
 			<PrereqTechs>
-				<TechType>TECH_GUILDS</TechType>
-				<TechType>TECH_HORSEBACK_RIDING</TechType>
+				<TechType>TECH_ARMOURED_CAVALRY</TechType>
 			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
 			<PrereqOrBonuses>
@@ -6923,6 +7219,16 @@
 			<iXPValueDefense>2</iXPValueDefense>
 			<iCollateralDamageLimit>100</iCollateralDamageLimit>
 			<iCollateralDamageMaxUnits>6</iCollateralDamageMaxUnits>
+			<FeatureAttacks>
+				<FeatureAttack>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<iFeatureAttack>-25</iFeatureAttack>
+				</FeatureAttack>
+				<FeatureAttack>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureAttack>-50</iFeatureAttack>
+				</FeatureAttack>
+			</FeatureAttacks>
 			<iCultureGarrison>6</iCultureGarrison>
 			<iAsset>3</iAsset>
 			<iPower>12</iPower>
@@ -6939,12 +7245,186 @@
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
 		</UnitInfo>
+		<UnitInfo> <!-- Mailed Knight -->
+			<Class>UNITCLASS_MAILED_KNIGHT</Class>
+			<Type>UNIT_MAILED_KNIGHT</Type>
+			<Combat>UNITCOMBAT_MOUNTED</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>2</iMaxWeaponTypeTier>
+			<Description>TXT_KEY_UNIT_MAILED_KNIGHT</Description>
+			<Civilopedia>TXT_KEY_UNIT_MAILED_KNIGHT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_MAILED_KNIGHT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitaryHappiness>1</bMilitaryHappiness>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<bFirstStrikeImmune>1</bFirstStrikeImmune>
+			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_CUIRASSIER</UnitClassType>
+			</UnitClassUpgrades>
+			<FlankingStrikes>
+				<FlankingStrike>
+					<FlankingStrikeUnitClass>UNITCLASS_CATAPULT</FlankingStrikeUnitClass>
+					<iFlankingStrength>100</iFlankingStrength>
+				</FlankingStrike>
+				<FlankingStrike>
+					<FlankingStrikeUnitClass>UNITCLASS_TREBUCHET</FlankingStrikeUnitClass>
+					<iFlankingStrength>100</iFlankingStrength>
+				</FlankingStrike>
+				<FlankingStrike>
+					<FlankingStrikeUnitClass>UNITCLASS_BOMBARD</FlankingStrikeUnitClass>
+					<iFlankingStrength>50</iFlankingStrength>
+				</FlankingStrike>
+			</FlankingStrikes>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ATTACK</UnitAIType>
+				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_CHIVALRY</TechType>
+			</PrereqTechs>
+			<BonusType>BONUS_HORSE</BonusType>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_IRON</BonusType>
+			</PrereqOrBonuses>
+			<iCost>130</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>2</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>18</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>6</iXPValueAttack>
+			<iXPValueDefense>3</iXPValueDefense>
+			<iCollateralDamageLimit>100</iCollateralDamageLimit>
+			<iCollateralDamageMaxUnits>6</iCollateralDamageMaxUnits>
+			<iCityAttack>-30</iCityAttack>
+			<FeatureAttacks>
+				<FeatureAttack>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<iFeatureAttack>-25</iFeatureAttack>
+				</FeatureAttack>
+				<FeatureAttack>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureAttack>-50</iFeatureAttack>
+				</FeatureAttack>
+			</FeatureAttacks>
+			<iCultureGarrison>6</iCultureGarrison>
+			<iAsset>3</iAsset>
+			<iPower>31</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>3</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>3</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>3</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_MAILED_KNIGHT</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+		</UnitInfo>
+		<UnitInfo> <!-- Heavy Cavalry -->
+			<Class>UNITCLASS_HEAVY_CAVALRY</Class>
+			<Type>UNIT_HEAVY_CAVALRY</Type>
+			<Combat>UNITCOMBAT_MOUNTED</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>2</iMaxWeaponTypeTier>
+			<Description>TXT_KEY_UNIT_HEAVY_CAVALRY</Description>
+			<Civilopedia>TXT_KEY_THIRD_ROUND_CHARL_UNIT_HEAVY_CAVALRY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_CHARL_UNIT_HEAVY_CAVALRY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitaryHappiness>1</bMilitaryHappiness>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_CUIRASSIER</UnitClassType>
+			</UnitClassUpgrades>
+			<FlankingStrikes>
+				<FlankingStrike>
+					<FlankingStrikeUnitClass>UNITCLASS_ARCHER</FlankingStrikeUnitClass>
+					<iFlankingStrength>100</iFlankingStrength>
+				</FlankingStrike>
+				<FlankingStrike>
+					<FlankingStrikeUnitClass>UNITCLASS_LONGBOWMAN</FlankingStrikeUnitClass>
+					<iFlankingStrength>100</iFlankingStrength>
+				</FlankingStrike>
+				<FlankingStrike>
+					<FlankingStrikeUnitClass>UNITCLASS_CROSSBOWMAN</FlankingStrikeUnitClass>
+					<iFlankingStrength>100</iFlankingStrength>
+				</FlankingStrike>
+			</FlankingStrikes>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ATTACK</UnitAIType>
+				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
+				<UnitAIType>UNITAI_COUNTER</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_GUILDS</TechType>
+				<TechType>TECH_HORSE_BREEDING</TechType>
+				<TechType>TECH_HERALDRY</TechType>
+			</PrereqTechs>
+			<BonusType>BONUS_HORSE</BonusType>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_IRON</BonusType>
+			</PrereqOrBonuses>
+			<iCost>100</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>15</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>6</iXPValueAttack>
+			<iXPValueDefense>3</iXPValueDefense>
+			<iWithdrawalProb>5</iWithdrawalProb>
+			<iCollateralDamageLimit>100</iCollateralDamageLimit>
+			<iCollateralDamageMaxUnits>5</iCollateralDamageMaxUnits>
+			<iCityAttack>-10</iCityAttack>
+			<FeatureAttacks>
+				<FeatureAttack>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<iFeatureAttack>-25</iFeatureAttack>
+				</FeatureAttack>
+				<FeatureAttack>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureAttack>-50</iFeatureAttack>
+				</FeatureAttack>
+			</FeatureAttacks>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+					<iUnitCombatMod>25</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<iCultureGarrison>6</iCultureGarrison>
+			<iAsset>3</iAsset>
+			<iPower>25</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>3</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>3</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>3</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_HEAVY_CAVALRY</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+		</UnitInfo> 
 		<UnitInfo> <!-- Cuirassier -->
 			<Class>UNITCLASS_CUIRASSIER</Class>
 			<Type>UNIT_CUIRASSIER</Type>
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>3</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_CUIRASSIER</Description>
 			<Civilopedia>TXT_KEY_UNIT_CUIRASSIER_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_CUIRASSIER_STRATEGY</Strategy>
@@ -6969,6 +7449,10 @@
 					<iFlankingStrength>100</iFlankingStrength>
 				</FlankingStrike>
 				<FlankingStrike>
+					<FlankingStrikeUnitClass>UNITCLASS_BOMBARD</FlankingStrikeUnitClass>
+					<iFlankingStrength>100</iFlankingStrength>
+				</FlankingStrike>
+				<FlankingStrike>
 					<FlankingStrikeUnitClass>UNITCLASS_CANNON</FlankingStrikeUnitClass>
 					<iFlankingStrength>100</iFlankingStrength>
 				</FlankingStrike>
@@ -6978,9 +7462,7 @@
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
 			<PrereqTechs>
-				<TechType>TECH_MILITARY_TRADITION</TechType>
-				<TechType>TECH_GUNPOWDER</TechType>
-				<TechType>TECH_HORSEBACK_RIDING</TechType>
+				<TechType>TECH_CAVALRY_TACTICS</TechType>
 			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
 			<PrereqOrBonuses>
@@ -7019,6 +7501,7 @@
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>3</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_SPANISH_CONQUISTADOR</Description>
 			<Civilopedia>TXT_KEY_UNIT_SPANISH_CONQUISTADOR_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_SPANISH_CONQUISTADOR_STRATEGY</Strategy>
@@ -7043,6 +7526,10 @@
 					<iFlankingStrength>100</iFlankingStrength>
 				</FlankingStrike>
 				<FlankingStrike>
+					<FlankingStrikeUnitClass>UNITCLASS_BOMBARD</FlankingStrikeUnitClass>
+					<iFlankingStrength>100</iFlankingStrength>
+				</FlankingStrike>
+				<FlankingStrike>
 					<FlankingStrikeUnitClass>UNITCLASS_CANNON</FlankingStrikeUnitClass>
 					<iFlankingStrength>100</iFlankingStrength>
 				</FlankingStrike>
@@ -7056,9 +7543,7 @@
 				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
 			</NotUnitAIs>
 			<PrereqTechs>
-				<TechType>TECH_MILITARY_TRADITION</TechType>
-				<TechType>TECH_GUNPOWDER</TechType>
-				<TechType>TECH_HORSEBACK_RIDING</TechType>
+				<TechType>TECH_CAVALRY_TACTICS</TechType>
 			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
 			<PrereqOrBonuses>
@@ -7103,6 +7588,7 @@
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>3</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_CAVALRY</Description>
 			<Civilopedia>TXT_KEY_UNIT_CAVALRY_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_CAVALRY_STRATEGY</Strategy>
@@ -7126,6 +7612,10 @@
 					<iFlankingStrength>100</iFlankingStrength>
 				</FlankingStrike>
 				<FlankingStrike>
+					<FlankingStrikeUnitClass>UNITCLASS_BOMBARD</FlankingStrikeUnitClass>
+					<iFlankingStrength>100</iFlankingStrength>
+				</FlankingStrike>
+				<FlankingStrike>
 					<FlankingStrikeUnitClass>UNITCLASS_CANNON</FlankingStrikeUnitClass>
 					<iFlankingStrength>100</iFlankingStrength>
 				</FlankingStrike>
@@ -7135,9 +7625,9 @@
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
 			<PrereqTechs>
-				<TechType>TECH_MILITARY_TRADITION</TechType>
+				<TechType>TECH_STEAM_POWER</TechType>
 				<TechType>TECH_RIFLING</TechType>
-				<TechType>TECH_HORSEBACK_RIDING</TechType>
+				<TechType>TECH_CAVALRY_TACTICS</TechType>
 			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
 			<iCost>120</iCost>
@@ -7154,6 +7644,18 @@
 			<UnitClassAttackMods>
 				<UnitClassAttackMod>
 					<UnitClassType>UNITCLASS_CANNON</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassAttackMod>
+				<UnitClassAttackMod>
+					<UnitClassType>UNITCLASS_SPEARMAN</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassAttackMod>
+				<UnitClassAttackMod>
+					<UnitClassType>UNITCLASS_PIKEMAN</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassAttackMod>
+				<UnitClassAttackMod>
+					<UnitClassType>UNITCLASS_HEAVY_PIKEMAN</UnitClassType>
 					<iUnitClassMod>50</iUnitClassMod>
 				</UnitClassAttackMod>
 			</UnitClassAttackMods>
@@ -7179,6 +7681,7 @@
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>3</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_RUSSIA_COSSACK</Description>
 			<Civilopedia>TXT_KEY_UNIT_RUSSIA_COSSACK_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_RUSSIA_COSSACK_STRATEGY</Strategy>
@@ -7202,6 +7705,10 @@
 					<iFlankingStrength>100</iFlankingStrength>
 				</FlankingStrike>
 				<FlankingStrike>
+					<FlankingStrikeUnitClass>UNITCLASS_BOMBARD</FlankingStrikeUnitClass>
+					<iFlankingStrength>100</iFlankingStrength>
+				</FlankingStrike>
+				<FlankingStrike>
 					<FlankingStrikeUnitClass>UNITCLASS_CANNON</FlankingStrikeUnitClass>
 					<iFlankingStrength>100</iFlankingStrength>
 				</FlankingStrike>
@@ -7211,9 +7718,9 @@
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
 			<PrereqTechs>
-				<TechType>TECH_MILITARY_TRADITION</TechType>
+				<TechType>TECH_STEAM_POWER</TechType>
 				<TechType>TECH_RIFLING</TechType>
-				<TechType>TECH_HORSEBACK_RIDING</TechType>
+				<TechType>TECH_CAVALRY_TACTICS</TechType>
 			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
 			<iCost>120</iCost>
@@ -7230,6 +7737,18 @@
 			<UnitClassAttackMods>
 				<UnitClassAttackMod>
 					<UnitClassType>UNITCLASS_CANNON</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassAttackMod>
+				<UnitClassAttackMod>
+					<UnitClassType>UNITCLASS_SPEARMAN</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassAttackMod>
+				<UnitClassAttackMod>
+					<UnitClassType>UNITCLASS_PIKEMAN</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassAttackMod>
+				<UnitClassAttackMod>
+					<UnitClassType>UNITCLASS_HEAVY_PIKEMAN</UnitClassType>
 					<iUnitClassMod>50</iUnitClassMod>
 				</UnitClassAttackMod>
 			</UnitClassAttackMods>
@@ -7296,6 +7815,7 @@
 			<iCost>65</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
 			<iWorkRate>150</iWorkRate>
 			<iCombat>5</iCombat>
 			<iCombatLimit>100</iCombatLimit>

@@ -504,10 +504,30 @@
 			<Description>TXT_KEY_UNIT_HORSE_ARCHER</Description>
 			<DefaultUnit>UNIT_HORSE_ARCHER</DefaultUnit>
 		</UnitClassInfo>
+		<UnitClassInfo> <!-- Light Cavalry -->
+			<Type>UNITCLASS_LIGHT_CAVALRY</Type>
+			<Description>TXT_KEY_UNIT_LIGHT_CAVALRY</Description>
+			<DefaultUnit>UNIT_LIGHT_CAVALRY</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Mounted Infantry -->
+			<Type>UNITCLASS_MOUNTED_INFANTRY</Type>
+			<Description>TXT_KEY_UNIT_MOUNTED_INFANTRY</Description>
+			<DefaultUnit>UNIT_MOUNTED_INFANTRY</DefaultUnit>
+		</UnitClassInfo>
 		<UnitClassInfo> <!-- Knight -->
 			<Type>UNITCLASS_KNIGHT</Type>
 			<Description>TXT_KEY_UNIT_KNIGHT</Description>
 			<DefaultUnit>UNIT_KNIGHT</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Mailed Knight -->
+			<Type>UNITCLASS_MAILED_KNIGHT</Type>
+			<Description>TXT_KEY_UNIT_MAILED_KNIGHT</Description>
+			<DefaultUnit>UNIT_MAILED_KNIGHT</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Heavy Cavalry -->
+			<Type>UNITCLASS_HEAVY_CAVALRY</Type>
+			<Description>TXT_KEY_UNIT_HEAVY_CAVALRY</Description>
+			<DefaultUnit>UNIT_HEAVY_CAVALRY</DefaultUnit>
 		</UnitClassInfo>
 		<UnitClassInfo> <!-- Cuirassier -->
 			<Type>UNITCLASS_CUIRASSIER</Type>
