@@ -363,5 +363,9 @@
 			<Type>ART_DEF_MOVIE_SILKROAD</Type>
 			<Path>Art/Movies/Wonders/silk_road.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo> <!-- Sphinx -->
+			<Type>ART_DEF_MOVIE_SPHINX</Type>
+			<Path>Art/Movies/Wonders/sphinx.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

@@ -1807,6 +1807,19 @@
 		<Tag>TXT_KEY_BUILDING_SLAVE_MARKET_STRATEGY</Tag>
 		<English>The [COLOR_BUILDING_TEXT]Slave Market[COLOR_REVERT] provides a production and happiness bonus in any city it is built in. Allows for the purchase of slaves. Doubles Production for leaders with Organized or Industrius traits.</English>
 	</TEXT>
+	<TEXT> <!-- Sphinx -->
+		<Tag>TXT_KEY_BUILDING_SPHINX</Tag>
+		<English>Sphinx</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SPHINX_PEDIA</Tag>
+		<English>[TAB]The Great Sphinx of Giza is a half-human, half-lion Sphinx statue in Egypt, on the Giza Plateau at the west bank of the Nile River, near modern-day Cairo. The largest monolith statue in the world, it stands 73.5 metres (241 feet) long, 6 m (20 ft) wide, and 20 m (65 ft) high. Commonly believed to have been built by ancient Egyptians in the 3rd millennium BC, it is the earliest known monumental sculpture.</English>
+		<German>[TAB]Die Gro&#223;e Sphinx von Gizeh in &#228;gypten ist die mit Abstand ber&#252;hmteste und gr&#246;&#223;te Sphinx. Sie stellt einen liegenden L&#246;wen mit einem Menschenkopf dar und wurde in der 4. Dynastie, circa 2700-2600 v. Chr. errichtet.[NEWLINE][TAB]Seit mehr als vier Jahrtausenden ragt die Sphinx aus dem Sand der &#228;gyptischen W&#252;ste. Die Figur ist ca. 73,5 m lang, 6 m breit und ca. 20 m hoch. Allein die Vorderpfoten haben eine L&#228;nge von etwa 15 m. Farbreste am Ohr lassen darauf schlie&#223;en, dass die Figur urspr&#252;nglich bunt bemalt war. Sie wurde aus dem Rest eines Kalksteinh&#252;gels gehauen, der als Steinbruch f&#252;r die Cheops-Pyramide diente. Neben der Sphinx wurde ein Tempel errichtet, der mit dem Taltempel der Chephren-Pyramide fast exakt in einer Linie liegt. Thutmosis IV. errichtete zwischen den Pranken der Sphinx eine Traumtafel, deren Inschriften aus seinem Leben berichten.</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SPHINX_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]The Sphinx[COLOR_REVERT] decreases the cost of Wonders by 20% in all cities.</English>
+	</TEXT>
 	<TEXT> <!-- State School -->
 		<Tag>TXT_KEY_BUILDING_STATE_SCHOOL</Tag>
 		<English>State School</English>

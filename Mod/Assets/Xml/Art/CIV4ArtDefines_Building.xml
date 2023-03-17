@@ -3128,5 +3128,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/silkroad.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- Sphinx -->
+			<Type>ART_DEF_BUILDING_SPHINX</Type>
+			<LSystem>LSYSTEM_2x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>.5</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/sphinx/sphinx.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/sphinx.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

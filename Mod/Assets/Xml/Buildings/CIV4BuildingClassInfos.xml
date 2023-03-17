@@ -1257,6 +1257,13 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_SPACE_ELEVATOR</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Sphinx -->
+			<Type>BUILDINGCLASS_SPHINX</Type>
+			<Description>TXT_KEY_BUILDING_SPHINX</Description>
+			<iCategory>2</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_SPHINX</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Spiral Minaret -->
 			<Type>BUILDINGCLASS_SPIRAL_MINARET</Type>
 			<Description>TXT_KEY_BUILDING_SPIRAL_MINARET</Description>
