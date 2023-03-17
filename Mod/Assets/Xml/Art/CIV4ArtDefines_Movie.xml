@@ -359,5 +359,9 @@
 			<Type>ART_DEF_MOVIE_STRATEGIC_GRAIN_RESERVE</Type>
 			<Path>Art/Movies/NWonders/strategic_grain_reserve.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_SILKROAD</Type>
+			<Path>Art/Movies/Wonders/silk_road.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

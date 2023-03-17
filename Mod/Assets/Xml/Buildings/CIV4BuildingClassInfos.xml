@@ -1229,6 +1229,13 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_SHWEDAGON_PAYA</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Silk Road -->
+			<Type>BUILDINGCLASS_SILK_ROAD</Type>
+			<Description>TXT_KEY_BUILDING_SILK_ROAD</Description>
+			<iCategory>2</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_SILK_ROAD</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Sistine Chapel -->
 			<Type>BUILDINGCLASS_SISTINE_CHAPEL</Type>
 			<Description>TXT_KEY_BUILDING_SISTINE_CHAPEL</Description>

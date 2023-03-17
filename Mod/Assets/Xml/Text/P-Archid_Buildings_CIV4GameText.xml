@@ -1751,6 +1751,38 @@
 		<Tag>TXT_KEY_BUILDING_SIEGE_WORKSHOP_STRATEGY</Tag>
 		<English>Build a [COLOR_BUILDING_TEXT]Siege Weapons Workshop[COLOR_REVERT] to construct [COLOR_UNIT_TEXT]Catapults[COLOR_REVERT] and [COLOR_UNIT_TEXT]Trebuchets[COLOR_REVERT].</English>
 	</TEXT>
+	<TEXT> <!-- Silk Road -->
+		<Tag>TXT_KEY_BUILDING_SILK_ROAD</Tag>
+		<English>Silk Road</English>
+		<French>
+			<Text>Route de Soie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Seidenstra&#223;e</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Seta</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Seda</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SILK_ROAD_PEDIA</Tag>
+		<English>[TAB]The Silk Road, or Silk Route, is a series of trade and cultural transmission routes that were central to cultural interaction through regions of the Asian continent connecting East and West Asia by linking traders, merchants, pilgrims, monks, soldiers, nomads and urban dwellers from China to the Mediterranean Sea during various periods of time. The trade route was initiated around 114 BC by the Han Dynasty, although earlier trade across the continents had already existed. [PARAGRAPH:2]Geographically, the Silk Road or Silk Route is an interconnected series of ancient trade routes connecting Chang'an (today's Xi'an) in China, with Asia Minor and the Mediterranean, extending over 8,000 km (5,000 miles) on land and sea. Trade on the Silk Road was a significant factor in the development of the great civilizations of China, Egypt, Mesopotamia, Persia, Indian subcontinent, and Rome, and helped to lay the foundations for the modern world.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SILK_ROAD_STRATEGY</Tag>
+		<English>Adds 1 trade route to city and increases wealth in city by 100%. Extra happiness from silk.</English>
+	</TEXT>
 	<TEXT> <!-- Skara Brae -->
 		<Tag>TXT_KEY_BUILDING_SKARA_BRAE</Tag>
 		<English>Skara Brae</English>
