@@ -10990,6 +10990,41 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Plague Hospital -->
+			<BuildingClass>BUILDINGCLASS_PLAGUE_HOSPITAL</BuildingClass>
+			<Type>BUILDING_PLAGUE_HOSPITAL</Type>
+			<Description>TXT_KEY_BUILDING_PLAGUE_HOSPITAL</Description>
+			<Civilopedia>TXT_KEY_BUILDING_PLAGUE_HOSPITAL_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_PLAGUE_HOSPITAL_STRATEGY</Strategy>
+			<Help><!--TXT_KEY_BUILDING_PLAGUE_HOSPITAL_HELP--></Help>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_PLAGUE_HOSPITAL</ArtDefineTag>
+			<PrereqAndCivics>
+				<CivicType>CIVIC_CHARITY</CivicType>
+			</PrereqAndCivics>
+			<ObsoleteTech>TECH_MEDICINE</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_TRADE</TechType>
+			</PrereqAndTechs>
+			<iCost>65</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iHealth>1</iHealth>
+			<iAsset>3</iAsset>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<ConstructSound>AS2D_BUILD_DOCTORS_OFFICE</ConstructSound>
+			<BonusHealthChanges>
+				<BonusHealthChange>
+					<BonusType>BONUS_INCENSE</BonusType>
+					<iChange>1</iChange>
+				</BonusHealthChange>
+			</BonusHealthChanges>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Pont Du Gard Aqueduct -->
 			<BuildingClass>BUILDINGCLASS_PONT_DU_GARD_AQUEDUCT</BuildingClass>
 			<Type>BUILDING_PONT_DU_GARD_AQUEDUCT</Type>

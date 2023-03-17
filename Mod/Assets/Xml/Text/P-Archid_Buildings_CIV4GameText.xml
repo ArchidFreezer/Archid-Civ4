@@ -1488,6 +1488,21 @@
 		<Tag>TXT_KEY_BUILDING_PETRA_STRATEGY</Tag>
 		<English>Petra grants +1 free trade route in all cities and 1 free priest in the city where it's built.</English>
 	</TEXT>
+	<TEXT> <!-- Plague Hospital -->
+		<Tag>TXT_KEY_BUILDING_PLAGUE_HOSPITAL</Tag>
+		<English>Plague Hospital</English>
+		<French>Hospice pour Pestiférés</French>
+		<German>Pestkrankenhaus</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_PLAGUE_HOSPITAL_STRATEGY</Tag>
+		<English>Increases Health, greatly increases Health with resources.  This building requires Charity civic.</English>
+		<French>Augmente la Santé, en particulier celle provenant des Ressources.  Requiert la Doctrine 'Charité'.</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_PLAGUE_HOSPITAL_PEDIA</Tag>
+		<English>[TAB]A plague hospital is an old institution where victims of various contagions are quarantined.  The Abbassids realized that disease spread from person to person, and wrote the first accurate descriptions of measles and smallpox. To respond to this, they built clean hospitals to treat victims of disease.  Lazzaretti in Italy where used to quarantine sailors to stop the spread of the Bubonic Plague; eventually, any plague victims where placed there.  Lazzaretti were also used as a model for quarantining syphilitics after it spread to Italy in 1494.</English>
+	</TEXT>
 	<TEXT> <!-- Pont du Gard -->
 		<Tag>TXT_KEY_BUILDING_PONT_DU_GARD_AQUEDUCT</Tag>
 		<English>Pont du Gard</English>
