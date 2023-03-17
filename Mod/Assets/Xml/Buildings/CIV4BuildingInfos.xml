@@ -10362,7 +10362,7 @@
 			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
 			<ObsoleteTech>TECH_LIBERALISM</ObsoleteTech>
 			<PrereqAndTechs>
-				<TechType>TECH_BRONZE_WORKING</TechType>
+				<TechType>TECH_TRADE</TechType>
 			</PrereqAndTechs>
 			<PrereqWorldViews>
 				<WorldViewType>WORLD_VIEW_SLAVERY</WorldViewType>
