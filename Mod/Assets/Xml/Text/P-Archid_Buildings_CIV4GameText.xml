@@ -231,6 +231,25 @@
 		<Tag>TXT_KEY_BUILDING_BAZAAR_STRATEGY</Tag>
 		<English>The Bazaar increases a city's commerce a small amount.</English>
 	</TEXT>
+	<TEXT> <!-- Beadmakers Hut -->
+		<Tag>TXT_KEY_BUILDING_BEADMAKERS_HUT</Tag>
+		<English>Beadmaker's Hut</English>
+		<French>
+			<Text>Hutte du Perlier</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Glasperlenwerkstatt</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BEADMAKERS_HUT_PEDIA</Tag>
+		<English>Beadwork is the art or craft of attaching beads to one another or to cloth, usually by the use of a needle and thread or soft, flexible wire. Most beadwork takes the form of jewelry or other personal adornment, but beads are also used in wall hangings and sculpture.  Beadwork techniques are broadly divided into loom and off-loom weaving, stringing, bead embroidery, bead crochet, and bead knitting.  Most cultures have employed beads for personal adornment. Archaeological records show that people made and used beads as long as 5,000 years ago. Beads have also been used for religious purposes, as good luck talismans, and as curative agents.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BEADMAKERS_HUT_STRATEGY</Tag>
+		<English>Extra Commerce from nearby resources</English>
+		<French>Bonus de Commerce en fonction des ressources proches</French>
+	</TEXT>
 	<TEXT> <!-- Biological Warfare Lab -->
 		<Tag>TXT_KEY_BUILDING_BIOLOGICAL_WARFARE_LAB</Tag>
 		<English>Biological Warfare Lab</English>

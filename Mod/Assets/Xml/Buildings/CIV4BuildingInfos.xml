@@ -1382,6 +1382,80 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Beadmaker's Hut -->
+			<BuildingClass>BUILDINGCLASS_BEADMAKERS_HUT</BuildingClass>
+			<Type>BUILDING_BEADMAKERS_HUT</Type>
+			<Description>TXT_KEY_BUILDING_BEADMAKERS_HUT</Description>
+			<Civilopedia>TXT_KEY_BUILDING_BEADMAKERS_HUT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_BEADMAKERS_HUT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_BEADMAKERS_HUT</ArtDefineTag>
+			<PrereqVicinityOrBonus>
+				<BonusType>BONUS_PEARLS</BonusType>
+				<BonusType>BONUS_GEMS</BonusType>
+				<BonusType>BONUS_CLAM</BonusType>
+				<BonusType>BONUS_IVORY</BonusType>
+			</PrereqVicinityOrBonus>
+			<ObsoleteTech>TECH_GUILDS</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_TRADE</TechType>
+			</PrereqAndTechs>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>55</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iAdvancedStartCostIncrease>-1</iAdvancedStartCostIncrease>
+			<iConquestProb>80</iConquestProb>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>2</iYield>
+			</YieldChanges>
+			<ConstructSound>AS2D_BUILD_JEWELLERY</ConstructSound>
+			<BonusYieldChanges>
+				<BonusYieldChange>
+					<BonusType>BONUS_IVORY</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_PEARLS</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_GEMS</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+				<BonusYieldChange>
+					<BonusType>BONUS_CLAM</BonusType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</YieldChanges>
+				</BonusYieldChange>
+			</BonusYieldChanges>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>8</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>4</iFlavor>
+				</Flavor>				
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Biological Warfare Lab -->
 			<BuildingClass>BUILDINGCLASS_BIOLOGICAL_WARFARE_LAB</BuildingClass>
 			<Type>BUILDING_BIOLOGICAL_WARFARE_LAB</Type>

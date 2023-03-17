@@ -506,7 +506,13 @@
 			<DefaultBuilding>BUILDING_NUCLEAR_PLANT</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Brightsmiths Hut -->                <!-- Commerce -->
+		<BuildingClassInfo> <!-- Beadmaker's Hut -->                 <!-- Commerce -->
+			<Type>BUILDINGCLASS_BEADMAKERS_HUT</Type>
+			<Description>TXT_KEY_BUILDING_BEADMAKERS_HUT</Description>
+			<iCategory>28</iCategory>
+			<DefaultBuilding>BUILDING_BEADMAKERS_HUT</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Brightsmiths Hut -->
 			<Type>BUILDINGCLASS_BRIGHTSMITHS_HUT</Type>
 			<Description>TXT_KEY_BUILDING_BRIGHTSMITHS_HUT</Description>
 			<iCategory>28</iCategory>
