@@ -108,6 +108,18 @@
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Granary -->                         <!-- Food -->
+			<Type>BUILDINGCLASS_APIARY</Type>
+			<Description>TXT_KEY_BUILDING_APIARY</Description>
+			<iCategory>16</iCategory>
+			<DefaultBuilding>BUILDING_APIARY</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Butchery -->
+			<Type>BUILDINGCLASS_BUTCHERY</Type>
+			<Description>TXT_KEY_BUILDING_BUTCHERY</Description>
+			<iCategory>16</iCategory>
+			<DefaultBuilding>BUILDING_BUTCHERY</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Granary -->
 			<Type>BUILDINGCLASS_GRANARY</Type>
 			<Description>TXT_KEY_BUILDING_GRANARY</Description>
 			<iCategory>16</iCategory>
@@ -136,17 +148,6 @@
 			<Description>TXT_KEY_BUILDING_RANCH</Description>
 			<iCategory>16</iCategory>
 			<DefaultBuilding>BUILDING_RANCH</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Apiary -->
-			<Type>BUILDINGCLASS_APIARY</Type>
-			<Description>TXT_KEY_BUILDING_APIARY</Description>
-			<iCategory>16</iCategory>
-			<DefaultBuilding>BUILDING_APIARY</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Butchery -->
-			<Type>BUILDINGCLASS_BUTCHERY</Type>
-			<Description>TXT_KEY_BUILDING_BUTCHERY</Description>
-			<DefaultBuilding>BUILDING_BUTCHERY</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Aerospace Complex -->               <!-- Military Training -->
@@ -379,6 +380,12 @@
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Construction Firm -->               <!-- Production -->
+			<Type>BUILDINGCLASS_CANDLEMAKER</Type>
+			<Description>TXT_KEY_BUILDING_CANDLEMAKER</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_CANDLEMAKER</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Construction Firm -->
 			<Type>BUILDINGCLASS_CONSTRUCTION_FIRM</Type>
 			<Description>TXT_KEY_BUILDING_CONSTRUCTION_FIRM</Description>
 			<iCategory>24</iCategory>
@@ -433,6 +440,12 @@
 			<DefaultBuilding>BUILDING_STONEWORKERS_HUT</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Toolmaker -->
+			<Type>BUILDINGCLASS_TANNERY</Type>
+			<Description>TXT_KEY_BUILDING_TANNERY</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_TANNERY</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Toolmaker -->
 			<Type>BUILDINGCLASS_TOOLMAKER</Type>
 			<Description>TXT_KEY_BUILDING_TOOLMAKER</Description>
 			<iCategory>24</iCategory>
@@ -449,18 +462,6 @@
 			<Description>TXT_KEY_BUILDING_UTILITY_FOG</Description>
 			<iCategory>24</iCategory>
 			<DefaultBuilding>BUILDING_UTILITY_FOG</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Candlemaker -->
-			<Type>BUILDINGCLASS_CANDLEMAKER</Type>
-			<Description>TXT_KEY_BUILDING_CANDLEMAKER</Description>
-			<iCategory>24</iCategory>
-			<DefaultBuilding>BUILDING_CANDLEMAKER</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Tannery -->
-			<Type>BUILDINGCLASS_TANNERY</Type>
-			<Description>TXT_KEY_BUILDING_TANNERY</Description>
-			<iCategory>24</iCategory>
-			<DefaultBuilding>BUILDING_TANNERY</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Coal Plant -->                      <!-- Production - Factory/Power -->
@@ -586,6 +587,12 @@
 			<DefaultBuilding>BUILDING_HYPERMARKET</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Market -->
+			<Type>BUILDINGCLASS_JEWELLERS</Type>
+			<Description>TXT_KEY_BUILDING_JEWELLERS</Description>
+			<iCategory>29</iCategory>
+			<DefaultBuilding>BUILDING_JEWELLERS</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Market -->
 			<Type>BUILDINGCLASS_MARKET</Type>
 			<Description>TXT_KEY_BUILDING_MARKET</Description>
 			<iCategory>29</iCategory>
@@ -608,12 +615,6 @@
 			<Description>TXT_KEY_BUILDING_TAILOR_SHOP</Description>
 			<iCategory>29</iCategory>
 			<DefaultBuilding>BUILDING_TAILOR_SHOP</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Jewellers -->
-			<Type>BUILDINGCLASS_JEWELLERS</Type>
-			<Description>TXT_KEY_BUILDING_JEWELLERS</Description>
-			<iCategory>29</iCategory>
-			<DefaultBuilding>BUILDING_JEWELLERS</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Bank -->                            <!-- Commerce - Banking -->
@@ -840,10 +841,22 @@
 			<DefaultBuilding>BUILDING_DOCTORS_OFFICE</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Healers Hut -->
+			<Type>BUILDINGCLASS_GRAVEYARD</Type>
+			<Description>TXT_KEY_BUILDING_GRAVEYARD</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_GRAVEYARD</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Healers Hut -->
 			<Type>BUILDINGCLASS_HEALERS_HUT</Type>
 			<Description>TXT_KEY_BUILDING_HEALERS_HUT</Description>
 			<iCategory>37</iCategory>
 			<DefaultBuilding>BUILDING_HEALERS_HUT</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Health Spa -->
+			<Type>BUILDINGCLASS_HEALTH_SPA</Type>
+			<Description>TXT_KEY_BUILDING_HEALTH_SPA</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_HEALTH_SPA</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Hospital -->
 			<Type>BUILDINGCLASS_HOSPITAL</Type>
@@ -876,18 +889,6 @@
 			<iCategory>37</iCategory>
 			<DefaultBuilding>BUILDING_WATER_TREATMENT_PLANT</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Health Spa -->
-			<Type>BUILDINGCLASS_HEALTH_SPA</Type>
-			<Description>TXT_KEY_BUILDING_HEALTH_SPA</Description>
-			<iCategory>37</iCategory>
-			<DefaultBuilding>BUILDING_HEALTH_SPA</DefaultBuilding>
-		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Graveyard -->
-			<Type>BUILDINGCLASS_GRAVEYARD</Type>
-			<Description>TXT_KEY_BUILDING_GRAVEYARD</Description>
-			<iCategory>37</iCategory>
-			<DefaultBuilding>BUILDING_GRAVEYARD</DefaultBuilding>
-		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Aqueduct -->                        <!-- Water -->
 			<Type>BUILDINGCLASS_AQUEDUCT</Type>
@@ -915,6 +916,12 @@
 			<DefaultBuilding>BUILDING_JUMPLANE_PORTAL</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Postal Service -->
+			<Type>BUILDINGCLASS_MAGLEV_YARD</Type>
+			<Description>TXT_KEY_BUILDING_MAGLEV_YARD</Description>
+			<iCategory>40</iCategory>
+			<DefaultBuilding>BUILDING_MAGLEV_YARD</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Postal Service -->
 			<Type>BUILDINGCLASS_POSTAL_SERVICE</Type>
 			<Description>TXT_KEY_BUILDING_POSTAL_SERVICE</Description>
 			<iCategory>40</iCategory>
@@ -932,12 +939,7 @@
 			<iCategory>40</iCategory>
 			<DefaultBuilding>BUILDING_TRAIN_YARD</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Maglev Yard -->
-			<Type>BUILDINGCLASS_MAGLEV_YARD</Type>
-			<Description>TXT_KEY_BUILDING_MAGLEV_YARD</Description>
-			<iCategory>40</iCategory>
-			<DefaultBuilding>BUILDING_MAGLEV_YARD</DefaultBuilding>
-		</BuildingClassInfo>
+
 
 <!-- ************	-->
 <!-- World Wonders -->

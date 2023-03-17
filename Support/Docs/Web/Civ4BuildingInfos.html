@@ -39,6 +39,7 @@
     <tr><td><span class="tagoptional">CivicOption</span><td>NO_CIVICOPTION<td>All the civics in this civic option are available to the player on construction
     <tr><td><span class="tagmandatory">Civilopedia</span><td><td>Refers to a tag in the Civ4GameText file which stores the Pedia description for the building
     <tr><td><span class="tagoptional">ConstructSound</span><td>NO_SOUND<td>The sound to play when the building is constructed
+    <tr><td><span class="tagoptional"><b>CreateFeatureType</b></span><td>NO_FEATURE<td>A feature that will be created on the city plot on construction of the building
     <tr><td><span class="tagmandatory">Description</span><td><td>A reference to the text files, which contain an entry for this Building
     <tr><td><span class="tagoptional">DiploVoteType</span><td>NO_DIPLOVOTE<td>The type of diplomatic vote that this building allows the player to participate in
     <tr><td><span class="tagoptional">FoundsCorporation</span><td>NO_CORPORATION<td>If set, the corporation that will be create din the city if this building is constructed
@@ -46,6 +47,7 @@
     <tr><td><span class="tagoptional">FreeBuilding</span><td>NO_BUILDING<td>Provides this building free to <em>every</em> city
     <tr><td><span class="tagoptional">FreePromotion</span><td>NO_PROMOTION<td>Provides this promotion to every unit trained in the city if the unit can gain it
     <tr><td><span class="tagoptional">FreeStartEra</span><td>NO_ERA<td>Building is free if you start in this Era or later.
+    <tr><td><span class="tagoptional"><b>FreeUnitClass</b></span><td>NO_UNITCLASS<td>On construction of this building a unit of this unit class will be created in the city
     <tr><td><span class="tagoptional">GlobalCorporationCommerce</span><td>NO_CORPORATION<td>Earns gold from every city with this corporation.
     <tr><td><span class="tagoptional">GlobalReligionCommerce</span><td>NO_RELIGION<td>Earns gold from every city with this religion.
     <tr><td><span class="tagoptional">GreatPeopleUnitClass</span><td>NO_UNITCLASS<td>Type of Great Person points the building generates
@@ -95,12 +97,13 @@
     <tr><td><span class="tagoptional">iEnemyWarWearinessModifier</span><td>0<td>Percentage change to war weariness in all enemy cities
     <tr><td><span class="tagoptional">iEspionageDefense</span><td>0<td>Change to the cities defence against spies. This impacts the cost of missions against the city and the chance of success.
     <tr><td><span class="tagoptional">iExperience</span><td>0<td>Change to the free experience given to all units trained in the city
-    <tr><td><span class="tagoptional"><b>iExtraBarbarianCostChange</b></span><td>0<td>The change the the additional gold that a barbarian unit costs to maintain 
+    <tr><td><span class="tagoptional"><b>iExtraBarbarianCostChange</b></span><td>0<td>The change the the additional gold that a barbarian unit costs to maintain
     <tr><td><span class="tagoptional">iFoodKept</span><td>0<td>Percentage change to the food kept in a city after growth
     <tr><td><span class="tagoptional">iForeignTradeRouteModifier</span><td>0<td>Percentage change to the value of foreign trade routes in the city
     <tr><td><span class="tagoptional">iFreeSpecialist</span><td>0<td>Change to the number of free specialists allowed in the city
     <tr><td><span class="tagoptional">iFreeTechs</span><td>0<td>Number of free techs that can be chosen on construction of the building
     <tr><td><span class="tagoptional">iGlobalExperience</span><td>0<td>Change to the free experience given to all units trained in all cities
+    <tr><td><span class="tagoptional"><b>iGlobalFoundPopulationChange</b></span><td>0<td>Change in the population of all player newly founded cities
     <tr><td><span class="tagoptional">iGlobalFreeSpecialist</span><td>0<td>Change to the number of free specialists allowed in all cities
     <tr><td><span class="tagoptional">iGlobalGreatPeopleRateModifier</span><td>0<td>The percentage change in the rate at which the player accumulates great people points in all cities
     <tr><td><span class="tagoptional">iGlobalHappiness</span><td>0<td>Change to the happiness of all player cities
@@ -153,6 +156,8 @@
     <tr><th>Tag<th>Default<th>Purpose
     <tr><td><span class="tagoptional">bAllowsNukes</span><td>0<td>If true, allows <em>all</em> players to construct nukes
     <tr><td><span class="tagoptional">bAltDown</span><td>0<td>If true, the HotKey is only used if the Alt key is also pressed
+    <tr><td><span class="tagoptional"><b>bApplyAllFreePromotionsOnMove</b></span><td>0<td>If true, promotions that another building in the city would apply on unit creation will be applied to units ending their turn in the city.
+    <tr><td><span class="tagoptional"><b>bApplyFreePromotionOnMove</b></span><td>0<td>If true, promotions that this building would normally apply on unit creation will be applied to units ending their turn in the city.
     <tr><td><span class="tagoptional">bAreaCleanPower</span><td>0<td>If true, provided non-polluting power to all player cites in the area
     <tr><td><span class="tagoptional"><b>bAutoBuild</b></span><td>0<td>If true, the building will be constructed automatically if all its other preqs are met
     <tr><td><span class="tagoptional">bBorderObstacle</span><td>0<td>If true, barbarians cannot cross into your borders in this area
@@ -180,6 +185,8 @@
     <tr><td><span class="tagoptional"><b>bStarSignGoodOnly</b></span><td>0<td>If true, only good star signs effects will be applied to the city
     <tr><td><span class="tagoptional">bStateReligion</span><td>0<td>If true, this building requires a state religion before it can be constructed.
     <tr><td><span class="tagoptional">bTeamShare</span><td>0<td>If true, the building effects all members of the constructing players team
+    <tr><td><span class="tagoptional"><b>bUnitAllCityDeathCulture</b></span><td>0<td>Any player unit that dies in a city will create some culture in that city
+    <tr><td><span class="tagoptional"><b>bUnitCityDeathCulture</b></span><td>0<td>Player units that die in this city will create some culture
     <tr><td><span class="tagoptional">bWater</span><td>0<td>If true, requires an adjacent water source before it can be constructed
   </table>	<p>
 
@@ -268,6 +275,8 @@
     <tr><td><span class="tagoptional">GlobalCommerceModifiers</span><td>NONE<td>Percentage change to the commerce received by all the players cities<br><pre class="code">
   &lt;iCommerce&gt;0&lt;/iCommerce&gt;</pre>
     <tr><td><span class="tagoptional">GlobalSeaPlotYieldChanges</span><td>NONE<td>Changes to the yield output of sea plots in all player cities<br><pre class="code">
+  &lt;iYield&gt;0&lt;/iYield&gt;</pre>
+    <tr><td><span class="tagoptional"><b>GlobalYieldChanges</b></span><td>NONE<td>Change to yields in all player cities<br><pre class="code">
   &lt;iYield&gt;0&lt;/iYield&gt;</pre>
     <tr><td><span class="tagoptional">GlobalYieldModifiers</span><td>NONE<td>Percentage change to the yields all player cities<br><pre class="code">
   &lt;iYield&gt;0&lt;/iYield&gt;</pre>
@@ -490,6 +499,8 @@
   &lt;iNumFreeBonuses&gt;0&lt;/iNumFreeBonuses&gt;
   &lt;FreeBuilding&gt;&lt;/FreeBuilding&gt;
   &lt;FreePromotion&gt;&lt;/FreePromotion&gt;
+  &lt;FreeUnitClass&gt;&lt;/FreeUnitClass&gt;
+  &lt;CreateFeatureType&gt;&lt;/CreateFeatureType&gt;
   &lt;CivicOption&gt;&lt;/CivicOption&gt;
   &lt;GreatPeopleUnitClass&gt;&lt;/GreatPeopleUnitClass&gt;
   &lt;iGreatPeopleRateChange&gt;0&lt;/iGreatPeopleRateChange&gt;
@@ -516,6 +527,10 @@
   &lt;bPrereqReligion&gt;0&lt;/bPrereqReligion&gt;
   &lt;bCenterInCity&gt;0&lt;/bCenterInCity&gt;
   &lt;bSlaveMarket&gt;0&lt;/bSlaveMarket&gt;
+  &lt;bApplyAllFreePromotionsOnMove&gt;0&lt;/bApplyAllFreePromotionsOnMove&gt;
+  &lt;bApplyFreePromotionOnMove&gt;0&lt;/bApplyFreePromotionOnMove&gt;
+  &lt;bUnitCityDeathCulture&gt;0&lt;/bUnitCityDeathCulture&gt;
+  &lt;bUnitAllCityDeathCulture&gt;0&lt;/bUnitAllCityDeathCulture&gt;
   &lt;bForceDisableStarSigns&gt;0&lt;/bForceDisableStarSigns&gt;
   &lt;bStarSignGoodOnly&gt;0&lt;/bStarSignGoodOnly&gt;
   &lt;iStarSignMitigateChangePercent&gt;0&lt;/iStarSignMitigateChangePercent&gt;
@@ -577,6 +592,7 @@
   &lt;iTradeRouteModifier&gt;0&lt;/iTradeRouteModifier&gt;
   &lt;iForeignTradeRouteModifier&gt;0&lt;/iForeignTradeRouteModifier&gt;
   &lt;iGlobalPopulationChange&gt;0&lt;/iGlobalPopulationChange&gt;
+  &lt;iGlobalFoundPopulationChange&gt;0&lt;/iGlobalFoundPopulationChange&gt;
   &lt;iFreeTechs&gt;0&lt;/iFreeTechs&gt;
   &lt;iDefense&gt;0&lt;/iDefense&gt;
   &lt;iObsoleteDefence&gt;0&lt;/iObsoleteDefence&gt;
@@ -598,6 +614,9 @@
   &lt;YieldChanges&gt;
     &lt;iYield&gt;0&lt;/iYield&gt;
   &lt;/YieldChanges&gt;
+  &lt;GlobalYieldChanges&gt;
+    &lt;iYield&gt;0&lt;/iYield&gt;
+  &lt;/GlobalYieldChanges&gt;
   &lt;YieldModifiers&gt;
     &lt;iYield&gt;0&lt;/iYield&gt;
   &lt;/YieldModifiers&gt;

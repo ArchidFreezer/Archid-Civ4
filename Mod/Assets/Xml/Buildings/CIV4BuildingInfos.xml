@@ -898,7 +898,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Asklepieion of Kos -->
+		<BuildingInfo> <!-- Asklepieion Of Kos -->
 			<BuildingClass>BUILDINGCLASS_ASKLEPIEION_OF_KOS</BuildingClass>
 			<Type>BUILDING_ASKLEPIEION_OF_KOS</Type>
 			<Description>TXT_KEY_BUILDING_ASKLEPIEION_OF_KOS</Description>
@@ -1382,7 +1382,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Beadmaker's Hut -->
+		<BuildingInfo> <!-- Beadmakers Hut -->
 			<BuildingClass>BUILDINGCLASS_BEADMAKERS_HUT</BuildingClass>
 			<Type>BUILDING_BEADMAKERS_HUT</Type>
 			<Description>TXT_KEY_BUILDING_BEADMAKERS_HUT</Description>
@@ -1390,16 +1390,16 @@
 			<Strategy>TXT_KEY_BUILDING_BEADMAKERS_HUT_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_BEADMAKERS_HUT</ArtDefineTag>
+			<ObsoleteTech>TECH_GUILDS</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_TRADE</TechType>
+			</PrereqAndTechs>
 			<PrereqVicinityOrBonus>
 				<BonusType>BONUS_PEARLS</BonusType>
 				<BonusType>BONUS_GEMS</BonusType>
 				<BonusType>BONUS_CLAM</BonusType>
 				<BonusType>BONUS_IVORY</BonusType>
 			</PrereqVicinityOrBonus>
-			<ObsoleteTech>TECH_GUILDS</ObsoleteTech>
-			<PrereqAndTechs>
-				<TechType>TECH_TRADE</TechType>
-			</PrereqAndTechs>
 			<bNukeImmune>1</bNukeImmune>
 			<iCost>55</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -1453,7 +1453,7 @@
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
 					<iFlavor>4</iFlavor>
-				</Flavor>				
+				</Flavor>
 			</Flavors>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Biological Warfare Lab -->
@@ -1781,7 +1781,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Buddhist Cathedral (Stupa) -->
+		<BuildingInfo> <!-- Buddhist Cathedral -->
 			<BuildingClass>BUILDINGCLASS_BUDDHIST_CATHEDRAL</BuildingClass>
 			<Type>BUILDING_BUDDHIST_CATHEDRAL</Type>
 			<SpecialBuildingType>SPECIALBUILDING_CATHEDRAL</SpecialBuildingType>
@@ -1957,10 +1957,10 @@
 					<BuildingClassType>BUILDINGCLASS_BUDDHIST_CATHEDRAL</BuildingClassType>
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers>				
+			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_BUDDHIST_CATHEDRAL</BuildingClassType>
-			</ReplacedByBuildingClasses>			
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -2122,7 +2122,7 @@
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
 					<iFlavor>4</iFlavor>
-				</Flavor>				
+				</Flavor>
 			</Flavors>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Cannon Forge -->
@@ -2697,7 +2697,7 @@
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
-				<BuildingClassType>BUILDINGCLASS_CHRISTIAN_TEMPLE</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_CHRISTIAN_TEMPLE</BuildingClassType>
 					<iNeeded>1</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
@@ -2815,10 +2815,10 @@
 					<BuildingClassType>BUILDINGCLASS_CHRISTIAN_CATHEDRAL</BuildingClassType>
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers>				
+			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_CHRISTIAN_CATHEDRAL</BuildingClassType>
-			</ReplacedByBuildingClasses>			
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -3504,7 +3504,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Confucian Cathedral (Academy) -->
+		<BuildingInfo> <!-- Confucian Cathedral -->
 			<BuildingClass>BUILDINGCLASS_CONFUCIAN_CATHEDRAL</BuildingClass>
 			<Type>BUILDING_CONFUCIAN_CATHEDRAL</Type>
 			<SpecialBuildingType>SPECIALBUILDING_CATHEDRAL</SpecialBuildingType>
@@ -3562,7 +3562,7 @@
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
-				<BuildingClassType>BUILDINGCLASS_CONFUCIAN_TEMPLE</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_CONFUCIAN_TEMPLE</BuildingClassType>
 					<iNeeded>1</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
@@ -3680,10 +3680,10 @@
 					<BuildingClassType>BUILDINGCLASS_CONFUCIAN_CATHEDRAL</BuildingClassType>
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers>				
+			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_CONFUCIAN_CATHEDRAL</BuildingClassType>
-			</ReplacedByBuildingClasses>			
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -3722,6 +3722,12 @@
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_WALLS</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_INVESTMENT_BANK</BuildingClassType>
+					<iModifier>40</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_UTILITY_FOG</BuildingClassType>
 			</ReplacedByBuildingClasses>
@@ -3749,12 +3755,6 @@
 					</YieldChanges>
 				</BonusYieldChange>
 			</BonusYieldChanges>
-			<BuildingClassProductionModifiers>
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_INVESTMENT_BANK</BuildingClassType>
-					<iModifier>40</iModifier>
-				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -4150,10 +4150,6 @@
 			<Strategy>TXT_KEY_BUILDING_PORTS_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_DOMESTIC_CARGO_PORT</ArtDefineTag>
-			<PrereqOrBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_IRRIGATION_CANALS</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_LEVEE</BuildingClassType>
-			</PrereqOrBuildingClasses>
 			<PrereqAndTechs>
 				<TechType>TECH_COMPASS</TechType>
 			</PrereqAndTechs>
@@ -4185,6 +4181,10 @@
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
 			</BuildingClassProductionModifiers>
+			<PrereqOrBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_IRRIGATION_CANALS</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_LEVEE</BuildingClassType>
+			</PrereqOrBuildingClasses>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_COMMERCIAL_PORT</BuildingClassType>
 			</ReplacedByBuildingClasses>
@@ -5527,7 +5527,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Great Bath of Mohenjo-daro -->
+		<BuildingInfo> <!-- Great Bath Of Mohenjo Daro -->
 			<BuildingClass>BUILDINGCLASS_GREAT_BATH_OF_MOHENJO_DARO</BuildingClass>
 			<Type>BUILDING_GREAT_BATH_OF_MOHENJO_DARO</Type>
 			<Description>TXT_KEY_BUILDING_GREAT_BATH_OF_MOHENJO_DARO</Description>
@@ -6557,7 +6557,7 @@
 			<ConstructSound>AS2D_BUILD_HOSPITAL</ConstructSound>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
-				<BuildingClassType>BUILDINGCLASS_RED_CROSS</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_RED_CROSS</BuildingClassType>
 					<iNeeded>1</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
@@ -6694,7 +6694,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Hindu Cathedral (Mandir) -->
+		<BuildingInfo> <!-- Hindu Cathedral -->
 			<BuildingClass>BUILDINGCLASS_HINDU_CATHEDRAL</BuildingClass>
 			<Type>BUILDING_HINDU_CATHEDRAL</Type>
 			<SpecialBuildingType>SPECIALBUILDING_CATHEDRAL</SpecialBuildingType>
@@ -6752,7 +6752,7 @@
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
-				<BuildingClassType>BUILDINGCLASS_HINDU_TEMPLE</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_HINDU_TEMPLE</BuildingClassType>
 					<iNeeded>1</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
@@ -6870,10 +6870,10 @@
 					<BuildingClassType>BUILDINGCLASS_HINDU_CATHEDRAL</BuildingClassType>
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers>				
+			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_HINDU_CATHEDRAL</BuildingClassType>
-			</ReplacedByBuildingClasses>			
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -7340,10 +7340,6 @@
 			<Strategy>TXT_KEY_BUILDING_PORTS_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_INLAND_PORT</ArtDefineTag>
-			<PrereqOrBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_IRRIGATION_CANALS</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_LEVEE</BuildingClassType>
-			</PrereqOrBuildingClasses>
 			<PrereqAndTechs>
 				<TechType>TECH_CANALS</TechType>
 			</PrereqAndTechs>
@@ -7377,6 +7373,10 @@
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
 			</BuildingClassProductionModifiers>
+			<PrereqOrBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_IRRIGATION_CANALS</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_LEVEE</BuildingClassType>
+			</PrereqOrBuildingClasses>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PORT</BuildingClassType>
 			</ReplacedByBuildingClasses>
@@ -7490,50 +7490,6 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Irrigation Canals -->
-			<BuildingClass>BUILDINGCLASS_IRRIGATION_CANALS</BuildingClass>
-			<Type>BUILDING_IRRIGATION_CANALS</Type>
-			<Description>TXT_KEY_BUILDING_IRRIGATION_CANALS</Description>
-			<Civilopedia>TXT_KEY_BUILDING_IRRIGATION_CANALS_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_BUILDING_IRRIGATION_CANALS_STRATEGY</Strategy>
-			<Advisor>ADVISOR_GROWTH</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_IRRIGATION_CANALS</ArtDefineTag>
-			<PrereqAndTechs>
-				<TechType>TECH_CANALS</TechType>
-			</PrereqAndTechs>
-			<ProductionTraits>
-				<ProductionTrait>
-					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
-					<iChange>100</iChange>
-				</ProductionTrait>
-			</ProductionTraits>
-			<bRiver>1</bRiver>
-			<iCost>140</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>90</iConquestProb>
-			<iAsset>3</iAsset>
-			<RiverPlotYieldChanges>
-				<iYield>0</iYield>
-				<iYield>0</iYield>
-				<iYield>1</iYield>
-			</RiverPlotYieldChanges>
-			<ConstructSound>AS2D_BUILD_AQUEDUCT</ConstructSound>
-			<BuildingClassProductionModifiers>
-				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_LEVEE</BuildingClassType>
-					<iModifier>15</iModifier>
-				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_LEVEE</BuildingClassType>
-			</ReplacedByBuildingClasses>
-			<Flavors>
-				<Flavor>
-					<FlavorType>FLAVOR_GROWTH</FlavorType>
-					<iFlavor>10</iFlavor>
-				</Flavor>
-			</Flavors>
-		</BuildingInfo>
 		<BuildingInfo> <!-- Iron Works -->
 			<BuildingClass>BUILDINGCLASS_IRON_WORKS</BuildingClass>
 			<Type>BUILDING_IRON_WORKS</Type>
@@ -7590,7 +7546,51 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Islamic Cathedral (Mosque) -->
+		<BuildingInfo> <!-- Irrigation Canals -->
+			<BuildingClass>BUILDINGCLASS_IRRIGATION_CANALS</BuildingClass>
+			<Type>BUILDING_IRRIGATION_CANALS</Type>
+			<Description>TXT_KEY_BUILDING_IRRIGATION_CANALS</Description>
+			<Civilopedia>TXT_KEY_BUILDING_IRRIGATION_CANALS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_IRRIGATION_CANALS_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_IRRIGATION_CANALS</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_CANALS</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bRiver>1</bRiver>
+			<iCost>140</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>90</iConquestProb>
+			<iAsset>3</iAsset>
+			<RiverPlotYieldChanges>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</RiverPlotYieldChanges>
+			<ConstructSound>AS2D_BUILD_AQUEDUCT</ConstructSound>
+			<BuildingClassProductionModifiers>
+				<BuildingClassProductionModifier>
+					<BuildingClassType>BUILDINGCLASS_LEVEE</BuildingClassType>
+					<iModifier>15</iModifier>
+				</BuildingClassProductionModifier>
+			</BuildingClassProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_LEVEE</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Islamic Cathedral -->
 			<BuildingClass>BUILDINGCLASS_ISLAMIC_CATHEDRAL</BuildingClass>
 			<Type>BUILDING_ISLAMIC_CATHEDRAL</Type>
 			<SpecialBuildingType>SPECIALBUILDING_CATHEDRAL</SpecialBuildingType>
@@ -7648,7 +7648,7 @@
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
-				<BuildingClassType>BUILDINGCLASS_ISLAMIC_TEMPLE</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_ISLAMIC_TEMPLE</BuildingClassType>
 					<iNeeded>1</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
@@ -7766,10 +7766,10 @@
 					<BuildingClassType>BUILDINGCLASS_ISLAMIC_CATHEDRAL</BuildingClassType>
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers>				
+			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_ISLAMIC_CATHEDRAL</BuildingClassType>
-			</ReplacedByBuildingClasses>			
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -7882,7 +7882,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Jewellery -->
+		<BuildingInfo> <!-- Jewellers -->
 			<BuildingClass>BUILDINGCLASS_JEWELLERS</BuildingClass>
 			<Type>BUILDING_JEWELLERS</Type>
 			<Description>TXT_KEY_BUILDING_JEWELLERS</Description>
@@ -7890,6 +7890,10 @@
 			<Strategy>TXT_KEY_BUILDING_JEWELLERS_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_JEWELLERS</ArtDefineTag>
+			<ObsoleteTech>TECH_MOTION_PICTURES</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_METAL_CASTING</TechType>
+			</PrereqAndTechs>
 			<PrereqVicinityOrBonus>
 				<BonusType>BONUS_GOLD</BonusType>
 				<BonusType>BONUS_SILVER</BonusType>
@@ -7897,10 +7901,6 @@
 				<BonusType>BONUS_OBSIDIAN</BonusType>
 				<BonusType>BONUS_PEARLS</BonusType>
 			</PrereqVicinityOrBonus>
-			<ObsoleteTech>TECH_MOTION_PICTURES</ObsoleteTech>
-			<PrereqAndTechs>
-				<TechType>TECH_METAL_CASTING</TechType>
-			</PrereqAndTechs>
 			<iCost>80</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>75</iConquestProb>
@@ -7961,7 +7961,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Jewish Cathedral (Synagogue) -->
+		<BuildingInfo> <!-- Jewish Cathedral -->
 			<BuildingClass>BUILDINGCLASS_JEWISH_CATHEDRAL</BuildingClass>
 			<Type>BUILDING_JEWISH_CATHEDRAL</Type>
 			<SpecialBuildingType>SPECIALBUILDING_CATHEDRAL</SpecialBuildingType>
@@ -8019,7 +8019,7 @@
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
-				<BuildingClassType>BUILDINGCLASS_JEWISH_TEMPLE</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_JEWISH_TEMPLE</BuildingClassType>
 					<iNeeded>1</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
@@ -8137,10 +8137,10 @@
 					<BuildingClassType>BUILDINGCLASS_JEWISH_CATHEDRAL</BuildingClassType>
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers>				
+			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_JEWISH_CATHEDRAL</BuildingClassType>
-			</ReplacedByBuildingClasses>			
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -8658,7 +8658,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Lighthouse: Viking Trading Post 1 -->
+		<BuildingInfo> <!-- Lighthouse: Viking Trading Post -->
 			<BuildingClass>BUILDINGCLASS_LIGHTHOUSE</BuildingClass>
 			<Type>BUILDING_VIKING_TRADING_POST</Type>
 			<Description>TXT_KEY_BUILDING_VIKING_TRADING_POST</Description>
@@ -8704,10 +8704,11 @@
 			<Civilopedia>TXT_KEY_BUILDING_FREIGHT_YARD_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_BUILDING_LAND_TRADE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_MAGLEV_YARD</ArtDefineTag>			
+			<ArtDefineTag>ART_DEF_BUILDING_MAGLEV_YARD</ArtDefineTag>
 			<PrereqAndTechs>
 				<TechType>TECH_MAGNETIC_LEVITATION</TechType>
 			</PrereqAndTechs>
+			<bPrereqPower>1</bPrereqPower>
 			<ProductionTraits>
 				<ProductionTrait>
 					<TraitType>TRAIT_EXPANSIVE</TraitType>
@@ -8722,7 +8723,6 @@
 			<iTradeRoutes>2</iTradeRoutes>
 			<iTradeRouteModifier>50</iTradeRouteModifier>
 			<iAsset>4</iAsset>
-			<bPrereqPower>1</bPrereqPower>
 			<CommerceChanges>
 				<iCommerce>6</iCommerce>
 			</CommerceChanges>
@@ -8742,7 +8742,7 @@
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
-		</BuildingInfo>	
+		</BuildingInfo>
 		<BuildingInfo> <!-- Manor -->
 			<BuildingClass>BUILDINGCLASS_MANOR</BuildingClass>
 			<Type>BUILDING_MANOR</Type>
@@ -10112,7 +10112,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- National Courier System -->
+		<BuildingInfo> <!-- National Courier System: Courier System -->
 			<BuildingClass>BUILDINGCLASS_NATIONAL_COURIER_SYSTEM</BuildingClass>
 			<Type>BUILDING_COURIER_SYSTEM</Type>
 			<Description>TXT_KEY_BUILDING_NATIONAL_COURIER_SYSTEM</Description>
@@ -10210,14 +10210,14 @@
 			<Help>TXT_KEY_BUILDING_NATIONAL_MINT_HELP</Help>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_NATIONAL_MINT</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_METAL_CASTING</TechType>
+			</PrereqAndTechs>
 			<PrereqOrCivics>
 				<CivicType>CIVIC_COINAGE</CivicType>
 				<CivicType>CIVIC_LAISSEZ_FAIRE</CivicType>
 				<CivicType>CIVIC_MERCANTILISM</CivicType>
 			</PrereqOrCivics>
-			<PrereqAndTechs>
-				<TechType>TECH_METAL_CASTING</TechType>
-			</PrereqAndTechs>
 			<iCost>300</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMaintenanceModifier>10</iMaintenanceModifier>
@@ -10229,6 +10229,12 @@
 				<iYield>2</iYield>
 			</YieldChanges>
 			<ConstructSound>AS2D_BUILD_BANK</ConstructSound>
+			<PrereqNumOfBuildingClasses>
+				<PrereqNumOfBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
+					<iNeeded>5</iNeeded>
+				</PrereqNumOfBuildingClass>
+			</PrereqNumOfBuildingClasses>
 			<BonusYieldModifiers>
 				<BonusYieldModifier>
 					<BonusType>BONUS_GOLD</BonusType>
@@ -10255,12 +10261,6 @@
 					</YieldModifiers>
 				</BonusYieldModifier>
 			</BonusYieldModifiers>
-			<PrereqNumOfBuildingClasses>
-				<PrereqNumOfBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
-					<iNeeded>5</iNeeded>
-				</PrereqNumOfBuildingClass>
-			</PrereqNumOfBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
@@ -11444,7 +11444,7 @@
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<iCost>600</iCost>
 			<iHurryCostModifier>100</iHurryCostModifier>
-			<iHealRateChange>25</iHealRateChange>				
+			<iHealRateChange>25</iHealRateChange>
 			<iAsset>8</iAsset>
 			<iPower>4</iPower>
 			<ObsoleteSafeCommerceChanges>
@@ -11459,14 +11459,13 @@
 			</CommerceChangeDoubleTimes>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
-				<BuildingClassType>BUILDINGCLASS_HOSPITAL</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_HOSPITAL</BuildingClassType>
 					<iNeeded>4</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_HOSPITAL</BuildingClassType>
 			</PrereqAndBuildingClasses>
-			<Flavors/>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Research Institute -->
 			<BuildingClass>BUILDINGCLASS_RESEARCH_INSTITUTE</BuildingClass>
@@ -11614,7 +11613,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Riverside Piers -->
+		<BuildingInfo> <!-- Riverside Pier -->
 			<BuildingClass>BUILDINGCLASS_RIVERSIDE_PIER</BuildingClass>
 			<Type>BUILDING_RIVERSIDE_PIER</Type>
 			<Description>TXT_KEY_BUILDING_RIVERSIDE_PIER</Description>
@@ -11638,7 +11637,6 @@
 			<iConquestProb>100</iConquestProb>
 			<iTradeRouteModifier>30</iTradeRouteModifier>
 			<iAsset>4</iAsset>
-			<iPower>0</iPower>
 			<CommerceChanges>
 				<iCommerce>1</iCommerce>
 			</CommerceChanges>
@@ -11752,7 +11750,7 @@
 					<BuildingClassType>BUILDINGCLASS_TAOIST_TEMPLE</BuildingClassType>
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers>				
+			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_BUDDHIST_TEMPLE</BuildingClassType>
 				<BuildingClassType>BUILDINGCLASS_CHRISTIAN_TEMPLE</BuildingClassType>
@@ -11761,13 +11759,13 @@
 				<BuildingClassType>BUILDINGCLASS_ISLAMIC_TEMPLE</BuildingClassType>
 				<BuildingClassType>BUILDINGCLASS_JEWISH_TEMPLE</BuildingClassType>
 				<BuildingClassType>BUILDINGCLASS_TAOIST_TEMPLE</BuildingClassType>
-			</ReplacedByBuildingClasses>		
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
 					<iFlavor>5</iFlavor>
 				</Flavor>
-			</Flavors>	
+			</Flavors>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Sankore -->
 			<BuildingClass>BUILDINGCLASS_SANKORE</BuildingClass>
@@ -13120,7 +13118,7 @@
 			<Type>BUILDING_STRATEGIC_GRAIN_RESERVE</Type>
 			<Description>TXT_KEY_BUILDING_STRATEGIC_GRAIN_RESERVE</Description>
 			<Civilopedia>TXT_KEY_BUILDING_STRATEGIC_GRAIN_RESERVE_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_BUILDING_STRATEGIC_GRAIN_RESERVE_STRATEGY</Strategy>			
+			<Strategy>TXT_KEY_BUILDING_STRATEGIC_GRAIN_RESERVE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_STRATEGIC_GRAIN_RESERVE</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_STRATEGIC_GRAIN_RESERVE</MovieDefineTag>
@@ -13134,7 +13132,7 @@
 					<TraitType>TRAIT_ORGANIZED</TraitType>
 					<iChange>100</iChange>
 				</ProductionTrait>
-			</ProductionTraits>				
+			</ProductionTraits>
 			<GreatPeopleUnitClass>UNITCLASS_ENGINEER</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -13172,7 +13170,7 @@
 			</BonusHealthChanges>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
-				<BuildingClassType>BUILDINGCLASS_GRANARY</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_GRANARY</BuildingClassType>
 					<iNeeded>3</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
@@ -13184,7 +13182,7 @@
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
-			</Flavors>		
+			</Flavors>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Supercollider -->
 			<BuildingClass>BUILDINGCLASS_SUPERCOLLIDER</BuildingClass>
@@ -13817,6 +13815,10 @@
 			<Strategy>TXT_KEY_BUILDING_TANNERY_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_TANNERY</ArtDefineTag>
+			<ObsoleteTech>TECH_CHEMISTRY</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_ANIMAL_HUSBANDRY</TechType>
+			</PrereqAndTechs>
 			<PrereqVicinityOrBonus>
 				<BonusType>BONUS_BISON</BonusType>
 				<BonusType>BONUS_COW</BonusType>
@@ -13824,10 +13826,6 @@
 				<BonusType>BONUS_SHEEP</BonusType>
 				<BonusType>BONUS_DEER</BonusType>
 			</PrereqVicinityOrBonus>
-			<ObsoleteTech>TECH_CHEMISTRY</ObsoleteTech>
-			<PrereqAndTechs>
-				<TechType>TECH_ANIMAL_HUSBANDRY</TechType>
-			</PrereqAndTechs>
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iConquestProb>75</iConquestProb>
@@ -13842,6 +13840,9 @@
 				<iCommerce>2</iCommerce>
 			</CommerceChanges>
 			<ConstructSound>AS2D_BUILD_TANNERY</ConstructSound>
+			<PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_BUTCHERY</BuildingClassType>
+			</PrereqAndBuildingClasses>
 			<BonusYieldChanges>
 				<BonusYieldChange>
 					<BonusType>BONUS_SALT</BonusType>
@@ -13852,9 +13853,6 @@
 					</YieldChanges>
 				</BonusYieldChange>
 			</BonusYieldChanges>
-			<PrereqAndBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_BUTCHERY</BuildingClassType>
-			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
@@ -13862,7 +13860,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Taoist Cathedral (Pagoda) -->
+		<BuildingInfo> <!-- Taoist Cathedral -->
 			<BuildingClass>BUILDINGCLASS_TAOIST_CATHEDRAL</BuildingClass>
 			<Type>BUILDING_TAOIST_CATHEDRAL</Type>
 			<SpecialBuildingType>SPECIALBUILDING_CATHEDRAL</SpecialBuildingType>
@@ -13920,7 +13918,7 @@
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
-				<BuildingClassType>BUILDINGCLASS_TAOIST_TEMPLE</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_TAOIST_TEMPLE</BuildingClassType>
 					<iNeeded>1</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
@@ -14038,10 +14036,10 @@
 					<BuildingClassType>BUILDINGCLASS_TAOIST_CATHEDRAL</BuildingClassType>
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
-			</BuildingClassProductionModifiers>				
+			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_TAOIST_CATHEDRAL</BuildingClassType>
-			</ReplacedByBuildingClasses>			
+			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -14525,7 +14523,7 @@
 			<Civilopedia>TXT_KEY_BUILDING_FREIGHT_YARD_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_BUILDING_LAND_TRADE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_TRAIN_YARD</ArtDefineTag>			
+			<ArtDefineTag>ART_DEF_BUILDING_TRAIN_YARD</ArtDefineTag>
 			<PrereqAndTechs>
 				<TechType>TECH_RAILROAD</TechType>
 			</PrereqAndTechs>
@@ -14563,7 +14561,7 @@
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
-		</BuildingInfo>	
+		</BuildingInfo>
 		<BuildingInfo> <!-- Treadmill Crane -->
 			<BuildingClass>BUILDINGCLASS_TREADMILL_CRANE</BuildingClass>
 			<Type>BUILDING_TREADMILL_CRANE</Type>
@@ -14677,42 +14675,6 @@
 				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
 				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
 			</CommerceChangeOriginalOwners>
-		</BuildingInfo>
-		<BuildingInfo> <!-- Universal Health Care -->
-			<BuildingClass>BUILDINGCLASS_UNIVERSAL_HEALTH_CARE</BuildingClass>
-			<Type>BUILDING_UNIVERSAL_HEALTH_CARE</Type>
-			<Description>TXT_KEY_BUILDING_UNIVERSAL_HEALTH_CARE</Description>
-			<Civilopedia>TXT_KEY_BUILDING_UNIVERSAL_HEALTH_CARE_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_BUILDING_UNIVERSAL_HEALTH_CARE_STRATEGY</Strategy>
-			<Advisor>ADVISOR_GROWTH</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_UNIVERSAL_HEALTH_CARE</ArtDefineTag>
-			<MovieDefineTag>ART_DEF_MOVIE_UNIVERSAL_HEALTH_CARE</MovieDefineTag>
-			<PrereqAndTechs>
-				<TechType>TECH_LIBERALISM</TechType>
-			</PrereqAndTechs>
-			<GreatPeopleUnitClass>UNITCLASS_DOCTOR</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
-			<iConquestProb>100</iConquestProb>			
-			<iGlobalHealth>2</iGlobalHealth>
-			<iGlobalPopulationChange>1</iGlobalPopulationChange>
-			<iAsset>22</iAsset>			
-			<fVisibilityPriority>1.0</fVisibilityPriority>
-			<ObsoleteSafeCommerceChanges>
-				<iCommerce>0</iCommerce>
-				<iCommerce>2</iCommerce>
-				<iCommerce>0</iCommerce>
-			</ObsoleteSafeCommerceChanges>	
-			<CommerceChangeOriginalOwners>
-				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
-				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
-				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
-			</CommerceChangeOriginalOwners>						
-			<Flavors>
-				<Flavor>
-					<FlavorType>FLAVOR_GROWTH</FlavorType>
-					<iFlavor>10</iFlavor>
-				</Flavor>
-			</Flavors>
 		</BuildingInfo>
 		<BuildingInfo> <!-- University -->
 			<BuildingClass>BUILDINGCLASS_UNIVERSITY</BuildingClass>
@@ -15298,11 +15260,11 @@
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
 					<iFlavor>7</iFlavor>
-				</Flavor>				
+				</Flavor>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
 					<iFlavor>3</iFlavor>
-				</Flavor>					
+				</Flavor>
 			</Flavors>
 		</BuildingInfo>
 		<BuildingInfo> <!-- World Bank -->
@@ -16822,9 +16784,9 @@
 				<TechType>TECH_MEDICINE</TechType>
 			</PrereqAndTechs>
 			<FreePromotion>PROMOTION_MARCH</FreePromotion>
-			<bApplyFreePromotionOnMove>1</bApplyFreePromotionOnMove>
 			<GreatPeopleUnitClass>UNITCLASS_DOCTOR</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
+			<bApplyFreePromotionOnMove>1</bApplyFreePromotionOnMove>
 			<iCost>-1</iCost>
 			<iConquestProb>75</iConquestProb>
 			<iHealRateChange>25</iHealRateChange>
@@ -16915,6 +16877,42 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Universal Health Care -->
+			<BuildingClass>BUILDINGCLASS_UNIVERSAL_HEALTH_CARE</BuildingClass>
+			<Type>BUILDING_UNIVERSAL_HEALTH_CARE</Type>
+			<Description>TXT_KEY_BUILDING_UNIVERSAL_HEALTH_CARE</Description>
+			<Civilopedia>TXT_KEY_BUILDING_UNIVERSAL_HEALTH_CARE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_UNIVERSAL_HEALTH_CARE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_UNIVERSAL_HEALTH_CARE</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_UNIVERSAL_HEALTH_CARE</MovieDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_LIBERALISM</TechType>
+			</PrereqAndTechs>
+			<GreatPeopleUnitClass>UNITCLASS_DOCTOR</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
+			<iConquestProb>100</iConquestProb>
+			<iGlobalHealth>2</iGlobalHealth>
+			<iGlobalPopulationChange>1</iGlobalPopulationChange>
+			<iAsset>22</iAsset>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+				<iCommerce>0</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeOriginalOwners>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+			</CommerceChangeOriginalOwners>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
