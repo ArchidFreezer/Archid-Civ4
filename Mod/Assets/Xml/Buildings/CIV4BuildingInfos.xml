@@ -15226,6 +15226,49 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Walls of Troy -->
+			<BuildingClass>BUILDINGCLASS_WALLS_OF_TROY</BuildingClass>
+			<Type>BUILDING_WALLS_OF_TROY</Type>
+			<Description>TXT_KEY_BUILDING_WALLS_OF_TROY</Description>
+			<Civilopedia>TXT_KEY_BUILDING_WALLS_OF_TROY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_WALLS_OF_TROY_STRATEGY</Strategy>			
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_WALLS_OF_TROY</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_WALLS_OF_TROY</MovieDefineTag>
+			<MaxStartEra>ERA_MEDIEVAL</MaxStartEra>
+			<ObsoleteTech>TECH_RIFLING</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_SIEGE_WARFARE</TechType>
+			</PrereqAndTechs>
+			<FreeBuilding>BUILDINGCLASS_HIGH_WALLS</FreeBuilding>
+			<GreatPeopleUnitClass>UNITCLASS_ENGINEER</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
+			<bTeamShare>1</bTeamShare>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>500</iCost>
+			<iHurryCostModifier>100</iHurryCostModifier>
+			<iConquestProb>100</iConquestProb>
+			<iHappiness>1</iHappiness>
+			<iAsset>10</iAsset>
+			<CommerceChangeOriginalOwners>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
+			</CommerceChangeOriginalOwners>
+			<ConstructSound>AS2D_BUILD_OBELISK</ConstructSound>
+			<BonusProductionModifiers>
+				<BonusProductionModifier>
+					<BonusType>BONUS_STONE</BonusType>
+					<iModifier>100</iModifier>
+				</BonusProductionModifier>
+			</BonusProductionModifiers>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Water Treatment Plant -->
 			<BuildingClass>BUILDINGCLASS_WATER_TREATMENT_PLANT</BuildingClass>
 			<Type>BUILDING_WATER_TREATMENT_PLANT</Type>

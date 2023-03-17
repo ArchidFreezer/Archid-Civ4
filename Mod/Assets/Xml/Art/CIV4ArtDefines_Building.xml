@@ -3138,5 +3138,14 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/sphinx.dds</Button>
 		</BuildingArtInfo>
-	</BuildingArtInfos>
+		<BuildingArtInfo> <!-- Walls of Troy -->
+			<Type>ART_DEF_BUILDING_WALLS_OF_TROY</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.6</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/walls_of_troy/Walls of Troy.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/walls_of_troy.dds</Button>
+		</BuildingArtInfo>	</BuildingArtInfos>
 </Civ4ArtDefines>

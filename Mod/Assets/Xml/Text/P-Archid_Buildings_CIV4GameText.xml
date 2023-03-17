@@ -2134,6 +2134,18 @@
 		<English>Build Village Halls, Town Halls and City Councils to add free specialist in your cities.</English>
 		<French>Construisez Salle des fêtes, Hôtel de Ville, Conseil Municipal,... pour ajouter des spécialistes gratuitement dans vos Villes.</French>
 	</TEXT>
+	<TEXT> <!-- Walls of Troy -->	
+		<Tag>TXT_KEY_BUILDING_WALLS_OF_TROY</Tag>
+		<English>Walls of Troy</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WALLS_OF_TROY_PEDIA</Tag>
+		<English>[TAB]The legendary Walls of Troy was an unbreachable fortification that protected the city from invading forces. However, the city fell after the Greeks devised a ruse to circumvent the walls and gain entrance into the city.  Odysseus ordered a large wooden horse to be built, with hollow insides to allow army soldiers to hide within it.  The Trojans thought the horse was a religious gift and brought the horse inside the city of Troy.  The soldiers inside the horse waited until night when the Trojans were all asleep. These infiltrators opened the gates to the city, which allowed the Greek army to sack Troy.  This event led to the saying, "Beware Greeks bearing gifts."</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WALLS_OF_TROY_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Walls of Troy[COLOR_REVERT] provides Free High walls in ALL of your cities. The city in which the Walls of Troy is built is more likely to produce a Great Engineer and production speed with stone will double in this same city.</English>
+	</TEXT>
 	<TEXT> <!-- Water Treatment Plant -->
 		<Tag>TXT_KEY_BUILDING_WATER_TREATMENT_PLANT</Tag>
 		<English>Water Treatment Plant</English>

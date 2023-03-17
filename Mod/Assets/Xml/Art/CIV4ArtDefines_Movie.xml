@@ -367,5 +367,9 @@
 			<Type>ART_DEF_MOVIE_SPHINX</Type>
 			<Path>Art/Movies/Wonders/sphinx.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo> <!-- Walls of Troy -->
+			<Type>ART_DEF_MOVIE_WALLS_OF_TROY</Type>
+			<Path>Art/Movies/Wonders/walls_of_troy.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>
