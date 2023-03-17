@@ -10429,6 +10429,61 @@
 			</FreePromotions>
 		</UnitInfo>
 
+		
+<!-- ************	-->
+<!-- Trade        -->
+<!-- ************	-->
+		<UnitInfo> <!-- Trade Caravan -->
+			<Class>UNITCLASS_TRADE_CARAVAN</Class>
+			<Type>UNIT_TRADE_CARAVAN</Type>
+			<Special>SPECIALUNIT_PEOPLE</Special>
+			<Capture>UNITCLASS_TRADE_CARAVAN</Capture>
+			<Combat>UNITCOMBAT_TRADE</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_MERCHANT</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_TRADE_CARAVAN</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_TRADE_CARAVAN_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_GREAT_MERCHANT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<bOnlyDefensive>1</bOnlyDefensive>
+			<bNoCapture>1</bNoCapture>
+			<bRivalTerritory>1</bRivalTerritory>
+			<UnitAIs>
+				<UnitAIType>UNITAI_MERCHANT</UnitAIType>
+				<UnitAIType>UNITAI_ENGINEER</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_TRADE</TechType>
+			</PrereqTechs>
+			<Flavors>
+				<FlavorType>FLAVOR_GOLD</FlavorType>
+				<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+			</Flavors>
+			<iAIWeight>10</iAIWeight>
+			<iCost>60</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>2</iMoves>
+			<iBaseHurry>15</iBaseHurry>
+			<iBaseTrade>30</iBaseTrade>
+			<iTradeMultiplier>2</iTradeMultiplier>
+			<iCombat>2</iCombat>
+			<iAnimalCombat>100</iAnimalCombat>
+			<iAsset>1</iAsset>
+			<iPower>1</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_TRADE_CARAVAN</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+		</UnitInfo>
+
 
 <!-- ************	-->
 <!-- Worker -->

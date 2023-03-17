@@ -772,6 +772,17 @@
 			<DefaultUnit>UNIT_MODERN_ARMOR</DefaultUnit>
 		</UnitClassInfo>
 
+
+<!-- ************	-->
+<!-- Trade        -->
+<!-- ************	-->
+		<UnitClassInfo> <!-- Trade Caravan -->
+			<Type>UNITCLASS_TRADE_CARAVAN</Type>
+			<Description>TXT_KEY_UNIT_TRADE_CARAVAN</Description>
+			<iMaxPlayerInstances>3</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_TRADE_CARAVAN</DefaultUnit>
+		</UnitClassInfo>
+
 <!-- ************ -->
 <!-- Wheeled      -->
 <!-- ************ -->
