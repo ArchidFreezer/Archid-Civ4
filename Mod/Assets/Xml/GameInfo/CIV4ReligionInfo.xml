@@ -6,14 +6,15 @@
 <!-- Religion -->
 <Civ4ReligionInfo xmlns="x-schema:CIV4GameInfoSchema.xml">
 	<ReligionInfos>
-		<ReligionInfo>
+		<ReligionInfo> <!-- TGA 0 -->
 			<Type>RELIGION_JUDAISM</Type>
 			<Description>TXT_KEY_RELIGION_JUDAISM</Description>
 			<Adjective>TXT_KEY_RELIGION_JUDAISM_ADJECTIVE</Adjective>
 			<Civilopedia>TXT_KEY_RELIGION_JUDAISM_PEDIA</Civilopedia>
 			<TechPrereq>TECH_MONOTHEISM</TechPrereq>
 			<FreeUnitClass>UNITCLASS_JEWISH_MISSIONARY</FreeUnitClass>
-			<iSpreadFactor>100</iSpreadFactor>
+			<iFreeUnits>1</iFreeUnits>
+			<iSpreadFactor>50</iSpreadFactor>
 			<iTGAIndex>0</iTGAIndex>
 			<GlobalReligionCommerces>
 				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
@@ -21,21 +22,55 @@
 			<HolyCityCommerces>
 				<iHolyCityCommerce>0</iHolyCityCommerce>
 				<iHolyCityCommerce>0</iHolyCityCommerce>
-				<iHolyCityCommerce>4</iHolyCityCommerce>
+				<iHolyCityCommerce>3</iHolyCityCommerce>
 			</HolyCityCommerces>
 			<StateReligionCommerces>
 				<iStateReligionCommerce>0</iStateReligionCommerce>
 				<iStateReligionCommerce>0</iStateReligionCommerce>
-				<iStateReligionCommerce>1</iStateReligionCommerce>
+				<iStateReligionCommerce>2</iStateReligionCommerce>
 			</StateReligionCommerces>
 			<Button>Art/Interface/Buttons/Religions/Jewish.dds</Button>
-			<TechButton>Art/Interface/Buttons/TechTree/Judaism.dds</TechButton>
-			<GenericTechButton>,Art/Interface/Buttons/TechTree/Judaism.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,4,3</GenericTechButton>
+			<TechButton>Art/Interface/Buttons/TechTree/found_judaism.dds</TechButton>
+			<GenericTechButton>Art/Interface/Buttons/TechTree/found_judaism.dds</GenericTechButton>
 			<MovieFile>Art/Movies/Religion/Judaism/Jud_Found.nif</MovieFile>
 			<MovieSound>AS2D_BUILD_JEWISH_MOVIE</MovieSound>
 			<Sound>AS2D_BUILD_JEWISH</Sound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>3</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>3</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>3</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+			</Flavors>
 		</ReligionInfo>
-		<ReligionInfo>
+		<ReligionInfo> <!-- TGA 5 -->
 			<Type>RELIGION_CHRISTIANITY</Type>
 			<Description>TXT_KEY_RELIGION_CHRISTIANITY</Description>
 			<Adjective>TXT_KEY_RELIGION_CHRISTIANITY_ADJECTIVE</Adjective>
@@ -43,7 +78,7 @@
 			<TechPrereq>TECH_THEOLOGY</TechPrereq>
 			<FreeUnitClass>UNITCLASS_CHRISTIAN_MISSIONARY</FreeUnitClass>
 			<iFreeUnits>1</iFreeUnits>
-			<iSpreadFactor>100</iSpreadFactor>
+			<iSpreadFactor>50</iSpreadFactor>
 			<iTGAIndex>5</iTGAIndex>
 			<GlobalReligionCommerces>
 				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
@@ -51,58 +86,127 @@
 			<HolyCityCommerces>
 				<iHolyCityCommerce>0</iHolyCityCommerce>
 				<iHolyCityCommerce>0</iHolyCityCommerce>
-				<iHolyCityCommerce>4</iHolyCityCommerce>
+				<iHolyCityCommerce>2</iHolyCityCommerce>
 			</HolyCityCommerces>
 			<StateReligionCommerces>
 				<iStateReligionCommerce>0</iStateReligionCommerce>
 				<iStateReligionCommerce>0</iStateReligionCommerce>
-				<iStateReligionCommerce>1</iStateReligionCommerce>
+				<iStateReligionCommerce>2</iStateReligionCommerce>
 			</StateReligionCommerces>
 			<Button>Art/Interface/Buttons/Religions/Christian.dds</Button>
-			<TechButton>Art/Interface/Buttons/TechTree/Christianity.dds</TechButton>
-			<GenericTechButton>,Art/Interface/Buttons/TechTree/Christianity.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,1,3</GenericTechButton>
+			<TechButton>Art/Interface/Buttons/TechTree/found_christianity.dds</TechButton>
+			<GenericTechButton>Art/Interface/Buttons/TechTree/found_christianity.dds</GenericTechButton>
 			<MovieFile>Art/Movies/Religion/Christianity/Chr_Found.nif</MovieFile>
 			<MovieSound>AS2D_BUILD_CHRISTIAN_MOVIE</MovieSound>
 			<Sound>AS2D_BUILD_CHRISTIAN</Sound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>3</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>3</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>3</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+			</Flavors>
 		</ReligionInfo>
-		<ReligionInfo>
+		<ReligionInfo> <!-- TGA 9 -->
 			<Type>RELIGION_ISLAM</Type>
 			<Description>TXT_KEY_RELIGION_ISLAM</Description>
 			<Adjective>TXT_KEY_RELIGION_ISLAM_ADJECTIVE</Adjective>
 			<Civilopedia>TXT_KEY_RELIGION_ISLAM_PEDIA</Civilopedia>
-			<TechPrereq>TECH_DIVINE_RIGHT</TechPrereq>
+			<TechPrereq>TECH_EDUCATION</TechPrereq>
 			<FreeUnitClass>UNITCLASS_ISLAMIC_MISSIONARY</FreeUnitClass>
 			<iFreeUnits>1</iFreeUnits>
-			<iSpreadFactor>100</iSpreadFactor>
+			<iSpreadFactor>50</iSpreadFactor>
 			<iTGAIndex>9</iTGAIndex>
 			<GlobalReligionCommerces>
 				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
 			</GlobalReligionCommerces>
 			<HolyCityCommerces>
-				<iHolyCityCommerce>0</iHolyCityCommerce>
-				<iHolyCityCommerce>0</iHolyCityCommerce>
-				<iHolyCityCommerce>4</iHolyCityCommerce>
+				<iHolyCityCommerce>2</iHolyCityCommerce>
+				<iHolyCityCommerce>2</iHolyCityCommerce>
+				<iHolyCityCommerce>3</iHolyCityCommerce>
 			</HolyCityCommerces>
 			<StateReligionCommerces>
-				<iStateReligionCommerce>0</iStateReligionCommerce>
+				<iStateReligionCommerce>1</iStateReligionCommerce>
 				<iStateReligionCommerce>0</iStateReligionCommerce>
 				<iStateReligionCommerce>1</iStateReligionCommerce>
 			</StateReligionCommerces>
 			<Button>Art/Interface/Buttons/Religions/Islam.dds</Button>
-			<TechButton>Art/Interface/Buttons/TechTree/Islam.dds</TechButton>
-			<GenericTechButton>,Art/Interface/Buttons/TechTree/Islam.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,6,3</GenericTechButton>
+			<TechButton>Art/Interface/Buttons/TechTree/found_islam.dds</TechButton>
+			<GenericTechButton>Art/Interface/Buttons/TechTree/found_islam.dds</GenericTechButton>
 			<MovieFile>Art/Movies/Religion/Islam/Isl_Found.nif</MovieFile>
 			<MovieSound>AS2D_BUILD_ISLAMIC_MOVIE</MovieSound>
 			<Sound>AS2D_BUILD_ISLAMIC</Sound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>3</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>3</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+			</Flavors>
 		</ReligionInfo>
-		<ReligionInfo>
+		<ReligionInfo> <!-- TGA 16 -->
 			<Type>RELIGION_HINDUISM</Type>
 			<Description>TXT_KEY_RELIGION_HINDUISM</Description>
 			<Adjective>TXT_KEY_RELIGION_HINDUISM_ADJECTIVE</Adjective>
 			<Civilopedia>TXT_KEY_RELIGION_HINDUISM_PEDIA</Civilopedia>
 			<TechPrereq>TECH_POLYTHEISM</TechPrereq>
 			<FreeUnitClass>UNITCLASS_HINDU_MISSIONARY</FreeUnitClass>
-			<iSpreadFactor>100</iSpreadFactor>
+			<iFreeUnits>1</iFreeUnits>
+			<iSpreadFactor>30</iSpreadFactor>
 			<iTGAIndex>16</iTGAIndex>
 			<GlobalReligionCommerces>
 				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
@@ -110,50 +214,116 @@
 			<HolyCityCommerces>
 				<iHolyCityCommerce>0</iHolyCityCommerce>
 				<iHolyCityCommerce>0</iHolyCityCommerce>
-				<iHolyCityCommerce>4</iHolyCityCommerce>
+				<iHolyCityCommerce>3</iHolyCityCommerce>
 			</HolyCityCommerces>
 			<StateReligionCommerces>
 				<iStateReligionCommerce>0</iStateReligionCommerce>
 				<iStateReligionCommerce>0</iStateReligionCommerce>
-				<iStateReligionCommerce>1</iStateReligionCommerce>
+				<iStateReligionCommerce>3</iStateReligionCommerce>
 			</StateReligionCommerces>
 			<Button>Art/Interface/Buttons/Religions/Hinduism.dds</Button>
-			<TechButton>Art/Interface/Buttons/TechTree/Hinduism.dds</TechButton>
-			<GenericTechButton>,Art/Interface/Buttons/TechTree/Hinduism.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,2,3</GenericTechButton>
+			<TechButton>Art/Interface/Buttons/TechTree/found_hinduism.dds</TechButton>
+			<GenericTechButton>Art/Interface/Buttons/TechTree/found_hinduism.dds</GenericTechButton>
 			<MovieFile>Art/Movies/Religion/Hinduism/Hin_Found.nif</MovieFile>
 			<MovieSound>AS2D_BUILD_HINDU_MOVIE</MovieSound>
 			<Sound>AS2D_BUILD_HINDU</Sound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>4</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>3</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+			</Flavors>
 		</ReligionInfo>
-		<ReligionInfo>
+		<ReligionInfo> <!-- TGA 18 -->
 			<Type>RELIGION_BUDDHISM</Type>
 			<Description>TXT_KEY_RELIGION_BUDDHISM</Description>
 			<Adjective>TXT_KEY_RELIGION_BUDDHISM_ADJECTIVE</Adjective>
 			<Civilopedia>TXT_KEY_RELIGION_BUDDHISM_PEDIA</Civilopedia>
 			<TechPrereq>TECH_MEDITATION</TechPrereq>
 			<FreeUnitClass>UNITCLASS_BUDDHIST_MISSIONARY</FreeUnitClass>
-			<iSpreadFactor>100</iSpreadFactor>
+			<iFreeUnits>1</iFreeUnits>
+			<iSpreadFactor>50</iSpreadFactor>
 			<iTGAIndex>18</iTGAIndex>
 			<GlobalReligionCommerces>
 				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
+				<iGlobalReligionCommerce>0</iGlobalReligionCommerce>
+				<iGlobalReligionCommerce>2</iGlobalReligionCommerce>
 			</GlobalReligionCommerces>
 			<HolyCityCommerces>
 				<iHolyCityCommerce>0</iHolyCityCommerce>
 				<iHolyCityCommerce>0</iHolyCityCommerce>
-				<iHolyCityCommerce>4</iHolyCityCommerce>
+				<iHolyCityCommerce>3</iHolyCityCommerce>
 			</HolyCityCommerces>
-			<StateReligionCommerces>
-				<iStateReligionCommerce>0</iStateReligionCommerce>
-				<iStateReligionCommerce>0</iStateReligionCommerce>
-				<iStateReligionCommerce>1</iStateReligionCommerce>
-			</StateReligionCommerces>
 			<Button>Art/Interface/Buttons/Religions/Buddhism.dds</Button>
-			<TechButton>Art/Interface/Buttons/TechTree/Buddhism.dds</TechButton>
-			<GenericTechButton>,Art/Interface/Buttons/TechTree/Buddhism.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,5,3</GenericTechButton>
+			<TechButton>Art/Interface/Buttons/TechTree/found_buddhism.dds</TechButton>
+			<GenericTechButton>Art/Interface/Buttons/TechTree/found_buddhism.dds</GenericTechButton>
 			<MovieFile>Art/Movies/Religion/Buddhism/Bud_Found.nif</MovieFile>
 			<MovieSound>AS2D_BUILD_BUDDHIST_MOVIE</MovieSound>
 			<Sound>AS2D_BUILD_BUDDHIST</Sound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>4</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>3</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+			</Flavors>
 		</ReligionInfo>
-		<ReligionInfo>
+		<ReligionInfo> <!-- TGA 22 -->
 			<Type>RELIGION_CONFUCIANISM</Type>
 			<Description>TXT_KEY_RELIGION_CONFUCIANISM</Description>
 			<Adjective>TXT_KEY_RELIGION_CONFUCIANISM_ADJECTIVE</Adjective>
@@ -161,29 +331,65 @@
 			<TechPrereq>TECH_CODE_OF_LAWS</TechPrereq>
 			<FreeUnitClass>UNITCLASS_CONFUCIAN_MISSIONARY</FreeUnitClass>
 			<iFreeUnits>1</iFreeUnits>
-			<iSpreadFactor>100</iSpreadFactor>
+			<iSpreadFactor>50</iSpreadFactor>
 			<iTGAIndex>22</iTGAIndex>
 			<GlobalReligionCommerces>
 				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
+				<iGlobalReligionCommerce>0</iGlobalReligionCommerce>
+				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
 			</GlobalReligionCommerces>
 			<HolyCityCommerces>
-				<iHolyCityCommerce>0</iHolyCityCommerce>
-				<iHolyCityCommerce>0</iHolyCityCommerce>
-				<iHolyCityCommerce>4</iHolyCityCommerce>
+				<iHolyCityCommerce>3</iHolyCityCommerce>
+				<iHolyCityCommerce>1</iHolyCityCommerce>
+				<iHolyCityCommerce>3</iHolyCityCommerce>
 			</HolyCityCommerces>
 			<StateReligionCommerces>
-				<iStateReligionCommerce>0</iStateReligionCommerce>
+				<iStateReligionCommerce>1</iStateReligionCommerce>
 				<iStateReligionCommerce>0</iStateReligionCommerce>
 				<iStateReligionCommerce>1</iStateReligionCommerce>
 			</StateReligionCommerces>
 			<Button>Art/Interface/Buttons/Religions/Confuscianism.dds</Button>
-			<TechButton>Art/Interface/Buttons/TechTree/Confucianism.dds</TechButton>
-			<GenericTechButton>,Art/Interface/Buttons/TechTree/Confucianism.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,7,3</GenericTechButton>
+			<TechButton>Art/Interface/Buttons/TechTree/found_confucianism.dds</TechButton>
+			<GenericTechButton>Art/Interface/Buttons/TechTree/found_confucianism.dds</GenericTechButton>
 			<MovieFile>Art/Movies/Religion/Confucianism/Con_Found.nif</MovieFile>
 			<MovieSound>AS2D_BUILD_CONFUCIAN_MOVIE</MovieSound>
 			<Sound>AS2D_BUILD_CONFUCIAN</Sound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>4</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>3</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>5</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>3</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+			</Flavors>
 		</ReligionInfo>
-		<ReligionInfo>
+		<ReligionInfo> <!-- TGA 23 -->
 			<Type>RELIGION_TAOISM</Type>
 			<Description>TXT_KEY_RELIGION_TAOISM</Description>
 			<Adjective>TXT_KEY_RELIGION_TAOISM_ADJECTIVE</Adjective>
@@ -191,8 +397,328 @@
 			<TechPrereq>TECH_PHILOSOPHY</TechPrereq>
 			<FreeUnitClass>UNITCLASS_TAOIST_MISSIONARY</FreeUnitClass>
 			<iFreeUnits>1</iFreeUnits>
-			<iSpreadFactor>100</iSpreadFactor>
+			<iSpreadFactor>50</iSpreadFactor>
 			<iTGAIndex>23</iTGAIndex>
+			<GlobalReligionCommerces>
+				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
+			</GlobalReligionCommerces>
+			<HolyCityCommerces>
+				<iHolyCityCommerce>3</iHolyCityCommerce>
+				<iHolyCityCommerce>0</iHolyCityCommerce>
+				<iHolyCityCommerce>0</iHolyCityCommerce>
+			</HolyCityCommerces>
+			<StateReligionCommerces>
+				<iStateReligionCommerce>0</iStateReligionCommerce>
+				<iStateReligionCommerce>0</iStateReligionCommerce>
+				<iStateReligionCommerce>4</iStateReligionCommerce>
+			</StateReligionCommerces>
+			<Button>Art/Interface/Buttons/Religions/Taoism.dds</Button>
+			<TechButton>Art/Interface/Buttons/TechTree/found_taoism.dds</TechButton>
+			<GenericTechButton>Art/Interface/Buttons/TechTree/found_taoism.dds</GenericTechButton>
+			<MovieFile>Art/Movies/Religion/Taoism/Tao_Found.nif</MovieFile>
+			<MovieSound>AS2D_BUILD_TAOIST_MOVIE</MovieSound>
+			<Sound>AS2D_BUILD_TAOIST</Sound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>5</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>4</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>3</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+			</Flavors>
+		</ReligionInfo>
+		<ReligionInfo> <!-- TGA 26 -->
+			<Type>RELIGION_ZOROASTRIANISM</Type>
+			<Description>TXT_KEY_RELIGION_ZOROASTRIANISM</Description>
+			<Adjective>TXT_KEY_RELIGION_ZOROASTRIANISM_ADJECTIVE</Adjective>
+			<Civilopedia>TXT_KEY_RELIGION_ZOROASTRIANISM_PEDIA</Civilopedia>
+			<TechPrereq>TECH_DUALISM</TechPrereq>
+			<FreeUnitClass>UNITCLASS_ZOROASTRIAN_MISSIONARY</FreeUnitClass>
+			<iFreeUnits>1</iFreeUnits>
+			<iSpreadFactor>20</iSpreadFactor>
+			<iTGAIndex>26</iTGAIndex>
+			<GlobalReligionCommerces>
+				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
+			</GlobalReligionCommerces>
+			<HolyCityCommerces>
+				<iHolyCityCommerce>0</iHolyCityCommerce>
+				<iHolyCityCommerce>0</iHolyCityCommerce>
+				<iHolyCityCommerce>3</iHolyCityCommerce>
+			</HolyCityCommerces>
+			<StateReligionCommerces>
+				<iStateReligionCommerce>0</iStateReligionCommerce>
+				<iStateReligionCommerce>0</iStateReligionCommerce>
+				<iStateReligionCommerce>1</iStateReligionCommerce>
+			</StateReligionCommerces>
+			<Button>Art/Interface/Buttons/Religions/Zoroastrianism.dds</Button>
+			<TechButton>Art/Interface/Buttons/TechTree/found_zoroastrianism.dds</TechButton>
+			<GenericTechButton>Art/Interface/Buttons/TechTree/found_zoroastrianism.dds</GenericTechButton>
+			<MovieFile>Art/Movies/Religion/Zoroastrianism/Tao_Found.nif</MovieFile>
+			<MovieSound>AS2D_BUILD_ZORO_MOVIE</MovieSound>
+			<Sound>AS2D_BUILD_ZORO</Sound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+			</Flavors>
+		</ReligionInfo>
+		<ReligionInfo> <!-- TGA 46 -->
+			<Type>RELIGION_KEMETISM</Type>
+			<Description>TXT_KEY_RELIGION_KEMETISM</Description>
+			<Adjective/>
+			<Civilopedia>TXT_KEY_RELIGION_KEMETISM_PEDIA</Civilopedia>
+			<TechPrereq>TECH_CEREMONIAL_BURIAL</TechPrereq>
+			<FreeUnitClass>UNITCLASS_KEMETIC_MISSIONARY</FreeUnitClass>
+			<iFreeUnits>1</iFreeUnits>
+			<iSpreadFactor>20</iSpreadFactor>
+			<iTGAIndex>46</iTGAIndex>
+			<GlobalReligionCommerces>
+				<iGlobalReligionCommerce>0</iGlobalReligionCommerce>
+				<iGlobalReligionCommerce>0</iGlobalReligionCommerce>
+				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
+			</GlobalReligionCommerces>
+			<HolyCityCommerces>
+				<iHolyCityCommerce>0</iHolyCityCommerce>
+				<iHolyCityCommerce>1</iHolyCityCommerce>
+				<iHolyCityCommerce>1</iHolyCityCommerce>
+			</HolyCityCommerces>
+			<StateReligionCommerces>
+				<iStateReligionCommerce>0</iStateReligionCommerce>
+				<iStateReligionCommerce>0</iStateReligionCommerce>
+				<iStateReligionCommerce>1</iStateReligionCommerce>
+			</StateReligionCommerces>
+			<Button>Art/Interface/Buttons/Religions/Egypt.dds</Button>
+			<TechButton>Art/Interface/Buttons/TechTree/found_kemetism.dds</TechButton>
+			<GenericTechButton>Art/Interface/Buttons/TechTree/found_kemetism.dds</GenericTechButton>
+			<MovieFile>Art/Movies/Religion/Egyptian_Myth/Hin_Found.nif</MovieFile>
+			<MovieSound>AS2D_BUILD_RA_MOVIE</MovieSound>
+			<Sound>AS2D_BUILD_RA</Sound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>4</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>5</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+			</Flavors>
+		</ReligionInfo>
+		<ReligionInfo> <!-- TGA 50 -->
+			<Type>RELIGION_HELLENISM</Type>
+			<Description>TXT_KEY_RELIGION_HELLENISM</Description>
+			<Adjective>TXT_KEY_RELIGION_HELLENISM_ADJECTIVE</Adjective>
+			<Civilopedia>TXT_KEY_RELIGION_HELLENISM_PEDIA</Civilopedia>
+			<TechPrereq>TECH_AESTHETICS</TechPrereq>
+			<FreeUnitClass>UNITCLASS_HELLENIC_MISSIONARY</FreeUnitClass>
+			<iFreeUnits>1</iFreeUnits>
+			<iSpreadFactor>30</iSpreadFactor>
+			<iTGAIndex>50</iTGAIndex>
+			<GlobalReligionCommerces>
+				<iGlobalReligionCommerce>0</iGlobalReligionCommerce>
+				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
+			</GlobalReligionCommerces>
+			<HolyCityCommerces>
+				<iHolyCityCommerce>0</iHolyCityCommerce>
+				<iHolyCityCommerce>0</iHolyCityCommerce>
+				<iHolyCityCommerce>3</iHolyCityCommerce>
+			</HolyCityCommerces>
+			<StateReligionCommerces>
+				<iStateReligionCommerce>0</iStateReligionCommerce>
+				<iStateReligionCommerce>0</iStateReligionCommerce>
+				<iStateReligionCommerce>1</iStateReligionCommerce>
+			</StateReligionCommerces>
+			<Button>Art/Interface/Buttons/Religions/Hellenism.dds</Button>
+			<TechButton>Art/Interface/Buttons/TechTree/found_hellenism.dds</TechButton>
+			<GenericTechButton>Art/Interface/Buttons/TechTree/found_hellenism.dds</GenericTechButton>
+			<MovieFile>Art/Movies/Religion/Greek_Myth/Hin_Found.nif</MovieFile>
+			<MovieSound>AS2D_BUILD_OLYMP_MOVIE</MovieSound>
+			<Sound>AS2D_BUILD_OLYMP</Sound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>5</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+			</Flavors>
+		</ReligionInfo>
+		<ReligionInfo> <!-- TGA 54 -->
+			<Type>RELIGION_NAGUALISM</Type>
+			<Description>TXT_KEY_RELIGION_NAGUALISM</Description>
+			<Adjective/>
+			<Civilopedia>TXT_KEY_RELIGION_NAGUALISM_PEDIA</Civilopedia>
+			<TechPrereq>TECH_CALENDAR</TechPrereq>
+			<FreeUnitClass>UNITCLASS_NAGUALISM_MISSIONARY</FreeUnitClass>
+			<iFreeUnits>1</iFreeUnits>
+			<iSpreadFactor>50</iSpreadFactor>
+			<iTGAIndex>54</iTGAIndex>
+			<GlobalReligionCommerces>
+				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
+				<iGlobalReligionCommerce>0</iGlobalReligionCommerce>
+				<iGlobalReligionCommerce>2</iGlobalReligionCommerce>
+			</GlobalReligionCommerces>
+			<HolyCityCommerces>
+				<iHolyCityCommerce>0</iHolyCityCommerce>
+				<iHolyCityCommerce>0</iHolyCityCommerce>
+				<iHolyCityCommerce>3</iHolyCityCommerce>
+			</HolyCityCommerces>
+			<Button>Art/Interface/Buttons/religions/MesoAmerica.dds</Button>
+			<TechButton>Art/Interface/Buttons/TechTree/found_naghualism.dds</TechButton>
+			<GenericTechButton>Art/Interface/Buttons/TechTree/found_naghualism.dds</GenericTechButton>
+			<MovieFile>Art/Movies/Religion/nagualism/Mes_Found.nif</MovieFile>
+			<MovieSound>AS2D_BUILD_TOLTEC_MOVIE</MovieSound>
+			<Sound>AS2D_BUILD_TOLTEC</Sound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>5</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>3</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+			</Flavors>
+		</ReligionInfo>
+		<ReligionInfo> <!-- TGA 97 -->
+			<Type>RELIGION_ASATRU</Type>
+			<Description>TXT_KEY_RELIGION_ASATRU</Description>
+			<Adjective>TXT_KEY_RELIGION_ASATRU_ADJECTIVE</Adjective>
+			<Civilopedia>TXT_KEY_RELIGION_ASATRU_PEDIA</Civilopedia>
+			<TechPrereq>TECH_SEAFARING</TechPrereq>
+			<FreeUnitClass>UNITCLASS_ASATRU_MISSIONARY</FreeUnitClass>
+			<iFreeUnits>1</iFreeUnits>
+			<iSpreadFactor>20</iSpreadFactor>
+			<iTGAIndex>97</iTGAIndex>
 			<GlobalReligionCommerces>
 				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
 			</GlobalReligionCommerces>
@@ -204,14 +730,47 @@
 			<StateReligionCommerces>
 				<iStateReligionCommerce>0</iStateReligionCommerce>
 				<iStateReligionCommerce>0</iStateReligionCommerce>
-				<iStateReligionCommerce>1</iStateReligionCommerce>
+				<iStateReligionCommerce>2</iStateReligionCommerce>
 			</StateReligionCommerces>
-			<Button>Art/Interface/Buttons/Religions/Taoism.dds</Button>
-			<TechButton>Art/Interface/Buttons/TechTree/Taoism.dds</TechButton>
-			<GenericTechButton>,Art/Interface/Buttons/TechTree/Taoism.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,3,3</GenericTechButton>
-			<MovieFile>Art/Movies/Religion/Taoism/Tao_Found.nif</MovieFile>
-			<MovieSound>AS2D_BUILD_TAOIST_MOVIE</MovieSound>
-			<Sound>AS2D_BUILD_TAOIST</Sound>
+			<Button>Art/Interface/Buttons/Religions/Asatru.dds</Button>
+			<TechButton>Art/Interface/Buttons/TechTree/Found_Asatru.dds</TechButton>
+			<MovieFile>Art/Movies/Religion/Asatru/Nor_Found.nif</MovieFile>
+			<MovieSound>AS2D_BUILD_NORDIC_MOVIE</MovieSound>
+			<Sound>AS2D_BUILD_NORDIC</Sound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
+					<iFlavor>0</iFlavor>
+				</Flavor>
+			</Flavors>
 		</ReligionInfo>
 	</ReligionInfos>
 </Civ4ReligionInfo>

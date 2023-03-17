@@ -1278,13 +1278,6 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_STATUE_OF_LIBERTY</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Statue Of Zeus -->
-			<Type>BUILDINGCLASS_STATUE_OF_ZEUS</Type>
-			<Description>TXT_KEY_BUILDING_STATUE_OF_ZEUS</Description>
-			<iCategory>2</iCategory>
-			<iMaxGlobalInstances>1</iMaxGlobalInstances>
-			<DefaultBuilding>BUILDING_STATUE_OF_ZEUS</DefaultBuilding>
-		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Stonehenge -->
 			<Type>BUILDINGCLASS_STONEHENGE</Type>
 			<Description>TXT_KEY_BUILDING_STONEHENGE</Description>
@@ -1535,6 +1528,33 @@
 <!-- ************	-->
 <!-- Religious -->
 <!-- ************	-->
+		<BuildingClassInfo> <!-- Asatru Cathedral -->
+			<Type>BUILDINGCLASS_ASATRU_CATHEDRAL</Type>
+			<Description>TXT_KEY_BUILDING_ASATRU_CATHEDRAL</Description>
+			<iCategory>5</iCategory>
+			<bMonument>1</bMonument>
+			<DefaultBuilding>BUILDING_ASATRU_CATHEDRAL</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Asatru Monastry -->
+			<Type>BUILDINGCLASS_ASATRU_MONASTERY</Type>
+			<Description>TXT_KEY_BUILDING_ASATRU_MONASTERY</Description>
+			<iCategory>5</iCategory>
+			<DefaultBuilding>BUILDING_ASATRU_MONASTERY</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Asatru Shrine (Odin's Sanctuary) -->
+			<Type>BUILDINGCLASS_ASATRU_SHRINE</Type>
+			<Description>TTXT_KEY_BUILDING_ASATRU_SHRINE</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_ASATRU_SHRINE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Asatru Temple -->
+			<Type>BUILDINGCLASS_ASATRU_TEMPLE</Type>
+			<Description>TXT_KEY_BUILDING_ASATRU_TEMPLE</Description>
+			<iCategory>5</iCategory>
+			<bMonument>1</bMonument>
+			<DefaultBuilding>BUILDING_ASATRU_TEMPLE</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Buddhist Cathedral -->
 			<Type>BUILDINGCLASS_BUDDHIST_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_BUDDHIST_CATHEDRAL</Description>
@@ -1622,6 +1642,33 @@
 			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_CONFUCIAN_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Hellenic Cathedral (Pantheon) -->
+			<Type>BUILDINGCLASS_HELLENIC_CATHEDRAL</Type>
+			<Description>TXT_KEY_BUILDING_HELLENIC_CATHEDRAL</Description>
+			<iCategory>5</iCategory>
+			<bMonument>1</bMonument>
+			<DefaultBuilding>BUILDING_HELLENIC_CATHEDRAL</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Hellenic Monastry (Gymnasia) -->
+			<Type>BUILDINGCLASS_HELLENIC_MONASTERY</Type>
+			<Description>TXT_KEY_BUILDING_HELLENIC_MONASTERY</Description>
+			<iCategory>5</iCategory>
+			<DefaultBuilding>BUILDING_HELLENIC_MONASTERY</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Hellenic Shrine (Statue of Zeus) -->
+			<Type>BUILDINGCLASS_HELLENISTIC_SHRINE</Type>
+			<Description>TXT_KEY_BUILDING_HELLENISTIC_SHRINE</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_HELLENISTIC_SHRINE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Hellenic Temple -->
+			<Type>BUILDINGCLASS_HELLENIC_TEMPLE</Type>
+			<Description>TXT_KEY_BUILDING_HELLENIC_TEMPLE</Description>
+			<iCategory>5</iCategory>
+			<bMonument>1</bMonument>
+			<DefaultBuilding>BUILDING_HELLENIC_TEMPLE</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Hindu Cathedral -->
 			<Type>BUILDINGCLASS_HINDU_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_HINDU_CATHEDRAL</Description>
@@ -1703,6 +1750,60 @@
 			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_JEWISH_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
+ 		<BuildingClassInfo> <!-- Kemetic Cathedral (Mut) -->
+			<Type>BUILDINGCLASS_KEMETIC_CATHEDRAL</Type>
+			<Description>TXT_KEY_BUILDING_KEMETIC_CATHEDRAL</Description>
+			<iCategory>5</iCategory>
+			<bMonument>1</bMonument>
+			<DefaultBuilding>BUILDING_KEMETIC_CATHEDRAL</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Kemetic Monastry (Chons) -->
+			<Type>BUILDINGCLASS_KEMETIC_MONASTERY</Type>
+			<Description>TXT_KEY_BUILDING_KEMETIC_MONASTERY</Description>
+			<iCategory>5</iCategory>
+			<DefaultBuilding>BUILDING_KEMETIC_MONASTERY</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Kemetic Shrine (Karnak Temple Complex) -->
+			<Type>BUILDINGCLASS_KEMETIC_SHRINE</Type>
+			<Description>TXT_KEY_BUILDING_KEMETIC_SHRINE</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_KEMETIC_SHRINE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Kemetic Temple (Amun) -->
+			<Type>BUILDINGCLASS_KEMETIC_TEMPLE</Type>
+			<Description>TXT_KEY_BUILDING_KEMETIC_TEMPLE</Description>
+			<iCategory>5</iCategory>
+			<bMonument>1</bMonument>
+			<DefaultBuilding>BUILDING_KEMETIC_TEMPLE</DefaultBuilding>
+		</BuildingClassInfo>
+ 		<BuildingClassInfo> <!-- Nagualism Cathedral (Tlaloc) -->
+			<Type>BUILDINGCLASS_NAGUALISTIC_CATHEDRAL</Type>
+			<Description>TXT_KEY_BUILDING_NAGUALISTIC_CATHEDRAL</Description>
+			<iCategory>5</iCategory>
+			<bMonument>1</bMonument>
+			<DefaultBuilding>BUILDING_NAGUALISTIC_CATHEDRAL</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Nagualism Monastry (Calmacec) -->
+			<Type>BUILDINGCLASS_NAGUALISTIC_MONASTERY</Type>
+			<Description>TXT_KEY_BUILDING_NAGUALISTIC_MONASTERY</Description>
+			<iCategory>5</iCategory>
+			<DefaultBuilding>BUILDING_NAGUALISTIC_MONASTERY</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Nagualism Shrine (Teotihuacan) -->
+			<Type>BUILDINGCLASS_NAGUALISTIC_SHRINE</Type>
+			<Description>TXT_KEY_BUILDING_NAGUALISTIC_SHRINE</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_NAGUALISTIC_SHRINE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Nagualism Temple (Quetzalcoatl) -->
+			<Type>BUILDINGCLASS_NAGUALISTIC_TEMPLE</Type>
+			<Description>TXT_KEY_BUILDING_NAGUALISTIC_TEMPLE</Description>
+			<iCategory>5</iCategory>
+			<bMonument>1</bMonument>
+			<DefaultBuilding>BUILDING_NAGUALISTIC_TEMPLE</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Sacred Site -->
 			<Type>BUILDINGCLASS_SACRED_SITE</Type>
 			<Description>TXT_KEY_BUILDING_SACRED_SITE</Description>
@@ -1735,6 +1836,33 @@
 			<iCategory>5</iCategory>
 			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_TAOIST_TEMPLE</DefaultBuilding>
+		</BuildingClassInfo>
+ 		<BuildingClassInfo> <!-- Zoroastrian Cathedral (Pantheon) -->
+			<Type>BUILDINGCLASS_ZOROASTRIAN_CATHEDRAL</Type>
+			<Description>TXT_KEY_BUILDING_ZOROASTRIAN_CATHEDRAL</Description>
+			<iCategory>5</iCategory>
+			<bMonument>1</bMonument>
+			<DefaultBuilding>BUILDING_ZOROASTRIAN_CATHEDRAL</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Zoroastrian Monastry (Shrine) -->
+			<Type>BUILDINGCLASS_ZOROASTRIAN_MONASTERY</Type>
+			<Description>TXT_KEY_BUILDING_ZOROASTRIAN_MONASTERY</Description>
+			<iCategory>5</iCategory>
+			<DefaultBuilding>BUILDING_ZOROASTRIAN_MONASTERY</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Zoroastrian Shrine (Pir-e Sabz) -->
+			<Type>BUILDINGCLASS_ZOROASTRIAN_SHRINE</Type>
+			<Description>TXT_KEY_BUILDING_ZOROASTRIAN_SHRINE</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_ZOROASTRIAN_SHRINE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Zoroastrian Temple -->
+			<Type>BUILDINGCLASS_ZOROASTRIAN_TEMPLE</Type>
+			<Description>TXT_KEY_BUILDING_ZOROASTRIAN_TEMPLE</Description>
+			<iCategory>5</iCategory>
+			<bMonument>1</bMonument>
+			<DefaultBuilding>BUILDING_ZOROASTRIAN_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
 
 

@@ -1,0 +1,1194 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Alex Mantzaris (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Game Text - Original game objects that are renamed -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+<!-- +++ Asatru +++ -->
+	<TEXT> <!-- Religion Details -->
+		<Tag>TXT_KEY_RELIGION_ASATRU</Tag>
+		<English>Asatru</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_ASATRU_ADJECTIVE</Tag>
+		<English>Asatruism</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_ASATRU_PEDIA</Tag>
+		<English>[TAB]Germanic neopaganism, also known as Heathenry, Ásatrú, Odinism, Forn Siðr, Wotanism, Theodism, and other names, is the contemporary revival of historical polytheistic Germanic paganism.[2] Dedicated to the ancient gods and goddesses of the North, the focus of Germanic neopagans varies considerably, from strictly historical polytheistic reconstructionism to syncretist (eclectic), Jungian, occult or mysticist approaches. Germanic neopagan organizations cover a wide spectrum of belief and ideals.[PARAGRAPH:2]Much of Germanic Neopaganism's origins are in 19th century romanticism, as the aboriginal cultures of Northern Europe came to be glorified. In the early 20th century, organised groups emerged in Germany and Austria. In the 1970s, new Germanic Neopagan organisations grew up in Europe and North America, although a broad division in the movement emerged between the folkish movement, who saw it as the indigenous religion of the Nordic peoples, and the universalist movement, who opposed strictly racialist interpretations. As present, established Germanic Pagan communities exist in Europe, North America, South America, and Australasia. A few adherents can even be found in South Africa.</English>
+	</TEXT>
+	<TEXT> <!-- Temple -->
+		<Tag>TXT_KEY_BUILDING_ASATRU_TEMPLE</Tag>
+		<English>Asatru Temple</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ASATRU_TEMPLE_PEDIA</Tag>
+		<English>[TAB]In Civilization IV, a temple is defined as a building where the faithful come to worship. Christians call their temples "churches," while Muslims call theirs "mosques," and Jews call theirs, simply, "temples." Temples are far more common than cathedrals, but much less large and ornate. Even the smallest village can possess a temple.</English>
+		<French>[TAB]Dans Civilization IV, un petit lieu de culte est défini comme un édifice dans lequel les fidèles viennent pratiquer leur religion : "églises" pour les chrétiens, "petites mosquées" pour les musulmans et "petites synagogues" pour les juifs. Ces petits lieux de culte sont bien plus courants que les grands lieux de culte mais sont de taille plus réduite et sont bien moins richement ornés. Même le village le plus petit peut posséder un petit lieu de culte.</French>
+		<German>[TAB]In Civilization IV sind Tempel Gebäude, in denen Gläubige beten. Christen nennen ihre Tempel "Kirchen", Moslems "Moscheen". Es gibt deutlich mehr Tempel als Kathedralen. Allerdings sind sie wesentlich kleiner und schlichter. Selbst das kleinste Dorf kann einen Tempel besitzen.</German>
+		<Italian>[TAB]In Civilization IV, il tempio è un edificio all'interno del quale i fedeli si recano a pregare. I Cristiani chiamano i loro templi "chiese", i Musulmani "moschee", gli Ebrei semplicemente "templi". I templi sono più comuni delle cattedrali, ma sono più piccoli e poco fastosi. Anche il villaggio più piccolo ospita un tempio.</Italian>
+		<Spanish>[TAB]En Civilization IV, un templo se define como un lugar al que los fieles acuden a venerar. Los cristianos llaman a sus templos "iglesias", mientras que para los musulmanes son "mezquitas" y para los judíos, sencillamente, "templos". Son mucho más comunes que las catedrales, pero también mucho más pequeños y humildes. Hasta la más pequeña aldea puede poseer uno.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ASATRU_TEMPLE_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Temples[COLOR_REVERT] increase a city's happiness and culture. They are especially useful for expanding your civilization's borders during the early game.</English>
+		<French>Les [COLOR_BUILDING_TEXT]petites synagogues[COLOR_REVERT] améliorent le bonheur et la culture des villes. Elles sont notamment utiles pour agrandir vos frontières culturelles au début du jeu.</French>
+		<German>[COLOR_BUILDING_TEXT]Tempel[COLOR_REVERT] steigern die Zufriedenheit und Kultur einer Stadt. Sie eignen sich hervorragend, um Ihre Zivilisation bereits in der Frühphase des Spiels zu vergrößern.</German>
+		<Italian>I [COLOR_BUILDING_TEXT]templi[COLOR_REVERT] aumentano la felicità e la cultura della città. Sono particolarmente indicati per espandere i confini della tua civiltà durante le fasi iniziali della partita.</Italian>
+		<Spanish>Los [COLOR_BUILDING_TEXT]Templos[COLOR_REVERT] aumentan la felicidad y cultura de la ciudad. Son especialmente útiles para expandir las fronteras de la civilización al principio de la partida.</Spanish>
+	</TEXT>
+	<TEXT> <!-- Cathedral -->
+		<Tag>TXT_KEY_BUILDING_ASATRU_CATHEDRAL</Tag>
+		<English>Asatru Cathedral</English>
+		<French>Cathédrale Asatru</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ASATRU_CATHEDRAL_PEDIA</Tag>
+		<English>[TAB]In Civilization IV, a cathedral is defined as an especially large and ornate religious building where the faithful worship. Only the most prosperous cities can afford to create cathedrals, as they require huge amounts of raw material and years of dedicated labor by skilled craftsmen. For example, the Notre Dame Cathedral in Paris, France, took over two centuries to complete.</English>
+		<French>[TAB]Dans Civilization IV, un grand lieu de culte est défini comme un édifice religieux particulièrement grand et richement orné dans lequel les fidèles pratiquent leur religion : "cathédrales" pour les chrétiens, "mosquées" pour les musulmans et "synagogues" pour les juifs. Seules les villes les plus prospères ont les moyens de construire de tels édifices. En effet, ils nécessitent d'énormes quantités de matériaux bruts et des artisans spécialisés doivent y consacrer des années de travail. Ainsi, il a fallu plus de deux siècles pour terminer la cathédrale Notre-Dame à Paris.</French>
+		<German>[TAB]In Civilization IV sind Kathedralen große und prächtige Gotteshäuser, in denen Gläubige beten. Nur die reichsten aller Städte können sich den Bau einer Kathedrale leisten, da hierfür große Mengen an Baumaterial und die jahrelange Arbeit erfahrener Handwerker erforderlich sind. Die Kathedrale von Notre Dame in Paris wurde beispielsweise erst nach 200-jähriger Bauzeit fertig gestellt.</German>
+		<Italian>[TAB]In Civilization IV, viene definito cattedrale un edificio religioso particolarmente grande e sfarzoso adibito a luogo di culto per i fedeli. Solamente le città più prosperose possono permettersi l'edificazione di cattedrali poiché sono necessari un'enorme quantità di materiali e operai esperti. Per esempio, per completare la cattedrale di Notre-Dame de Paris, in Francia, ci sono voluti più di due secoli.</Italian>
+		<Spanish>[TAB]En Civilization IV, una catedral se define como un edificio religioso especialmente grande y ornamentado en el que se reúnen los fieles para celebrar sus ritos. Solo las ciudades más grandes pueden permitirse el lujo de crear catedrales, puesto que requieren enormes cantidades de materias primas y años de dedicación por parte de trabajadores especializados. Por ejemplo, la catedral de Notre Dame, Francia, tardó dos siglos en completarse.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ASATRU_CATHEDRAL_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Asatru Cathedral[COLOR_REVERT]) greatly increases a city's cultural output. It makes a city's citizens happy (if [COLOR_HIGHLIGHT_TEXT]Shinto[COLOR_REVERT] is the state religion).</English>
+		<German>Der [COLOR_BUILDING_TEXT]Asatru Kathedrale[COLOR_REVERT]) erhöht den kulturellen Ausstoß einer Stadt deutlich. Ist [COLOR_HIGHLIGHT_TEXT]Shinto[COLOR_REVERT] in einer Stadt Staatsreligion, steigt die Zufriedenheit der Bevölkerung.</German>
+	</TEXT>
+	<TEXT> <!-- Monastry -->
+		<Tag>TXT_KEY_BUILDING_ASATRU_MONASTERY</Tag>
+		<English>Asatru Monastery</English>
+		<French>Monastère Asatru</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ASATRU_MONASTERY_PEDIA</Tag>
+		<English>[TAB]A monastery is a building where monks can retreat from the world and concentrate upon the divine. Usually a monastery will have strict rules of conduct to protect its unworldly members from temptation. In some monasteries, the monks are totally silent; in others no visitors are allowed inside. Monasteries usually have many daily rituals and religious services. [PARAGRAPH:1] Throughout the ages monasteries have often been centers of learning. In remote areas the monks may be the only literate people for miles around. Monks have often been employed as scribes, copying out the words of their religion's sacred scripture. Monasteries frequently have extensive libraries, holding religious, scientific, medical and philosophical texts.</English>
+		<French>[TAB]Un monastère est un édifice dans lequel les moines peuvent se retirer du monde et se concentrer sur le divin. Généralement, les règles de conduite y sont strictes afin de protéger ses membres, détachés du monde, de la tentation. Dans certains monastères, les moines sont totalement silencieux ; dans d'autres, les visiteurs ne sont pas autorisés à pénétrer dans leur enceinte. Les monastères ont généralement de nombreux rituels et services religieux quotidiens. [PARAGRAPH:1]A travers les siècles, les monastères ont souvent été des centres d'érudition. Dans les zones retirées, les moines étaient parfois les seules personnes sachant lire et écrire à des kilomètres à la ronde. Ils ont souvent servi de scribes, recopiant les textes sacrés de leur religion. Les monastères ont généralement de grandes bibliothèques possédant des textes religieux, scientifiques, médicaux et philosophiques.</French>
+		<German>[TAB]Klöster sind Gebäude, in die sich Mönche zurückziehen, um sich auf Gott zu konzentrieren. In Klöstern gelten strenge Verhaltensregeln, die die Mönche vor Versuchungen bewahren sollen. In einigen Klöstern herrscht ein strenges Redeverbot, in anderen sind keine Besucher gestattet. Die Mönche selbst gehen täglich ihren religiösen Pflichten nach. [PARAGRAPH:1] In der Vergangenheit waren Klöster stets auch Zentren des Wissens. In abgelegenen Gegenden waren die Mönche oft die einzigen gebildeten Menschen, die als Schreiber ihre religiösen Schriften kopierten. Klöster haben nicht selten Bibliotheken, in denen unzählige religiöse, wissenschaftliche, medizinische und philosophische Texte aufbewahrt werden.</German>
+		<Italian>[TAB]Il monastero è un edificio nel quale i monaci possono ritirarsi dal mondo e concentrarsi sul Divino. In genere, nel monastero vige un regolamento ferreo per proteggere i membri della comunità dalle tentazioni. In alcuni monasteri, i monaci erano completamente silenziosi e non erano permesse visite dall'esterno per non interrompere i rituali quotidiani e le cerimonie religiose. [PARAGRAPH:1] Nel corso dei secoli, i monasteri sono stati spesso centro di insegnamento: in alcune zone, i monaci erano sovente gli unici in grado di leggere e scrivere nel giro di diversi chilometri. Da sempre, i monaci sono stati utilizzati come scribi per copiare le parole sacre della propria religione; i monasteri ospitavano spesso delle biblioteche che contenevano testi religiosi, scientifici, medici e filosofici.</Italian>
+		<Spanish>[TAB]Un monasterio es un edificio en el que los monjes pueden retirarse del mundo para concentrarse en los asuntos de la divinidad. Normalmente tienen estrictas reglas de comportamiento para proteger a sus miembros de la tentación. En algunos monasterios, los monjes guardan un silencio total, mientras que en otros no se permite el acceso a los visitantes. Lo habitual es que sus miembros tengan que celebrar a diario muchos rituales y servicios religiosos. [PARAGRAPH:1] A lo largo de la historia, los monasterios han sido muchas veces centros de estudio. En las regiones remotas, los monjes podían ser las únicas personas letradas en muchos kilómetros a la redonda. A menudo han sido empleados como escribas, y se han dedicado a copiar los textos sagrados de su religión. Normalmente cuentan con grandes bibliotecas, que contienen textos religiosos, científicos, médicos y filosóficos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ASATRU_MONASTERY_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Monasteries[COLOR_REVERT] allow you to create [COLOR_UNIT_TEXT]Missionaries[COLOR_REVERT], who can spread the faith in other cities. They also provide culture and a slight boost to research.</English>
+		<French>Les [COLOR_BUILDING_TEXT]monastères[COLOR_REVERT] permettent de former des [COLOR_UNIT_TEXT]missionnaires[COLOR_REVERT] qui peuvent propager la foi dans les autres villes. Ils améliorent aussi la culture d'une ville et accélèrent légèrement sa recherche.</French>
+		<German>[COLOR_BUILDING_TEXT]Klöster[COLOR_REVERT] ermöglichen die Ausbildung von [COLOR_UNIT_TEXT]Missionaren[COLOR_REVERT]. Diese verkünden in anderen Städten Ihren Glauben, steigern den kulturellen Wert und beschleunigen die Forschung.</German>
+		<Italian>I [COLOR_BUILDING_TEXT]monasteri[COLOR_REVERT] permettono la realizzazione dei [COLOR_UNIT_TEXT]missionari[COLOR_REVERT], in grado di diffondere la fede in altre città. Inoltre, forniscono cultura e un piccolo aumento di ricerca.</Italian>
+		<Spanish>Los [COLOR_BUILDING_TEXT]Monasterios[COLOR_REVERT] permiten crear [COLOR_UNIT_TEXT]Misioneros[COLOR_REVERT], que pueden propagar la fe por otras ciudades. También proporcionan cultura y un cierto empuje a la investigación.</Spanish>
+	</TEXT>
+	<TEXT> <!-- Shrine (Odin's Sanctuary) -->
+		<Tag>TXT_KEY_BUILDING_ASATRU_SHRINE</Tag>
+		<English>The Odin's Sanctuary</English>
+		<French>Le Sanctuaire d'Odin</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ASATRU_SHRINE_PEDIA</Tag>
+		<English>[TAB]Odin is considered the chief god in Norse paganism. His name is related to óðr, meaning "fury, excitation", besides "mind", or "poetry". His role, like many of the Norse gods, is complex. He is associated with wisdom, war, battle, and death, and also magic, poetry, prophecy, victory, and the hunt.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ASATRU_SHRINE_STRATEGY</Tag>
+		<English>[TAB]not yet available</English>
+		<German>[TABnot yet available</German>
+	</TEXT>
+	<TEXT> <!-- Thor's Alter -->
+		<Tag>TXT_KEY_BUILDING_THOR_ALTAR</Tag>
+		<English>Thor's Altar</English>
+		<French>Autel de Thor</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_THOR_ALTAR_PEDIA</Tag>
+		<English>[TAB]Thor is the god of thunder in Norse paganism,. Most surviving stories relating to Germanic mythology either mention Thor or center on Thor's exploits. Thor was a much revered god of the ancient Germanic peoples from at least the earliest surviving written accounts of the indigenous Germanic tribes to over a thousand years later in the late Viking Age. Thor was appealed to for protection on numerous objects found from various Germanic tribes. Miniature replicas of Mjolnir, the weapon of Thor, became a defiant symbol of Norse paganism during the Christianization of Scandinavia. </English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_THOR_ALTAR_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Thor's Altar provides melee units with the Mjolnir promotion[COLOR_REVERT] </English>
+	</TEXT>
+	<TEXT> <!-- Wonder (Loki Sanctuary) -->
+		<Tag>TXT_KEY_BUILDING_LOKI_SANCTUARY</Tag>
+		<English>Loki Sanctuary</English>
+		<French>Sanctuaire de Loki</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_LOKI_SANCTUARY_PEDIA</Tag>
+		<English>[TAB]In Norse mythology, Loki is a god or jötunn (giant), or both. Loki's relation with the gods varies by source. Loki assists the gods, and sometimes causes problems for them. Loki is a shape shifter and in separate incidents he appears in the form of a salmon and a mare. Loki's positive relations with the gods ends with his role in engineering the death of the god Baldr. Loki is eventually bound by the gods with the entrails of one of his sons. A serpent drips venom from above him that his wife Sigyn collects into a bowl. However, Sigyn must empty the bowl when it is full, and the venom that drops in the mean time causes Loki to writhe in pain. During the events of Ragnarök, Loki is foretold to fight against the gods among the forces of the jötnar. There, he will encounter the god Heimdallr and the two will slay one another.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_LOKI_SANCTUARY_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Loki Sanctuary[COLOR_REVERT] </English>
+	</TEXT>
+	<TEXT> <!-- Wonder (Freya Sanctuary) -->
+		<Tag>TXT_KEY_BUILDING_FREYA_SANCTUARY</Tag>
+		<English>Freya Sanctuary</English>
+		<French>Sanctuaire de Freya</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FREYA_SANCTUARY_PEDIA</Tag>
+		<English>[TAB]Freya is portrayed as a goddess of love, beauty, and fertility. Blonde, blue-eyed, and beautiful, Freyja is described as the fairest of all goddesses, and people prayed to her for happiness in love. She was also called on to assist childbirths and prayed to for good seasons. </English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FREYA_SANCTUARY_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Freya Sanctuary[COLOR_REVERT] </English>
+	</TEXT>
+	<TEXT> <!-- Wonder (Heimdall Sanctuary) -->
+		<Tag>TXT_KEY_BUILDING_HEIMDALL_SANCTUARY</Tag>
+		<English>Heimdall Sanctuary</English>
+		<French>Sanctuaire de Heimdall</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HEIMDALL_SANCTUARY_PEDIA</Tag>
+		<English>[TAB]Heimdall is the guardian of the gods and of the link between Midgard and Asgard, the Bifrost Bridge. Legends foretell that he will sound the Gjallarhorn, alerting the Æsir to the onset of Ragnarök where the world ends and is reborn. Heimdall, as guardian, is described as being able to hear grass growing and single leaves falling, able to see to the end of the world, and so alert that he requires no sleep at all. Heimdall is described as a son of Odin, perhaps a foster son. Heimdall was destined to be the last of the gods to perish at Ragnarök when he and Loki would slay one another.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HEIMDALL_SANCTUARY_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Heimdall Sanctuary[COLOR_REVERT] </English>
+	</TEXT>
+	<TEXT> <!-- Wonder (Thor Sanctuary) -->
+		<Tag>TXT_KEY_BUILDING_THOR_SANCTUARY</Tag>
+		<English>Thor Sanctuary</English>
+		<French>Sanctuaire de Thor</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_THOR_SANCTUARY_PEDIA</Tag>
+		<English>[TAB]Thor is the god of thunder in Norse paganism,. Most surviving stories relating to Germanic mythology either mention Thor or center on Thor's exploits. Thor was a much revered god of the ancient Germanic peoples from at least the earliest surviving written accounts of the indigenous Germanic tribes to over a thousand years later in the late Viking Age. Thor was appealed to for protection on numerous objects found from various Germanic tribes. Miniature replicas of Mjolnir, the weapon of Thor, became a defiant symbol of Norse paganism during the Christianization of Scandinavia. </English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_THOR_SANCTUARY_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Thor Sanctuary[COLOR_REVERT] </English>
+	</TEXT>
+
+<!-- +++ Buddhism +++ -->
+	<TEXT> <!-- Wonder (Palace of Potala) -->
+		<Tag>TXT_KEY_BUILDING_POTALA_PALACE</Tag>
+		<English>Palace of Potala</English>
+		<French>Palais de Potala</French>
+		<German>Potala-Palast</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_POTALA_PALACE_PEDIA</Tag>
+		<English>[TAB]The Potala Palace is located in Lhasa, Tibet Autonomous Region. It was named after Mount Potala, the abode of Chenresig or Avalokitesvara. The Potala Palace was the chief residence of the Dalai Lama until the 14th Dalai Lama fled to Dharamsala, India, after an invasion and failed uprising in 1959. Today the Potala Palace has been converted into a museum by the Chinese. [PARAGRAPH:2]The building measures 400 metres east-west and 350 metres north-south, with sloping stone walls averaging 3 m. thick, and 5 m. (more than 16 ft) thick at the base, and with copper poured into the foundations to help proof it against earthquakes. Thirteen stories of buildings – containing over 1,000 rooms, 10,000 shrines and about 200,000 statues – soar 117 metres (384 ft) on top of Marpo Ri, the "Red Hill", rising more than 300 m (about 1,000 ft) in total above the valley floor. Tradition has it that the three main hills of Lhasa represent the "Three Protectors of Tibet." Chokpori, just to the south of the Potala, is the soul-mountain (bla-ri) of Vajrapani, Pongwari that of Manjushri, and Marpori, the hill on which the Potala stands, represents Chenresig or Avalokiteshvara.[PARAGRAPH:2]The site was used as a meditation retreat by King Songtsen Gampo, who in 637 built the first palace there in order to greet his bride Princess Wen Cheng of the Tang Dynasty of China. Lozang Gyatso, the Great Fifth Dalai Lama, started the construction of the Potala Palace in 1645 after one of his spiritual advisers, Konchog Chophel (d. 1646), pointed out that the site was ideal as a seat of government, situated as it is between Drepung and Sera monasteries and the old city of Lhasa. The Dalai Lama and his government moved into the Potrang Karpo ('White Palace') in 1649. Construction lasted until 1694, some twelve years after his death. The Potala was used as a winter palace by the Dalai Lama from that time. The Potrang Marpo ('Red Palace') was added between 1690 and 1694.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_POTALA_PALACE_STRATEGY</Tag>
+		<English>Palace of Potal requires Buddhism and it increases happiness in all cities with State religion, but also increases War Weariness in all cities. It also increases wealth, science, culture and food output in the city where it's built.</English>
+	</TEXT>
+	<TEXT> <!-- Wonder (Kotoku-in) -->
+		<Tag>TXT_KEY_BUILDING_KOTOKU</Tag>
+		<English>Kotoku-in</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KOTOKU_PEDIA</Tag>
+		<English>The statue probably dates from 1252, in the Kamakura period, when temple records report the construction of a bronze statue. However, it is unclear whether that is the present statue. The statue was built inside a wooden temple, but that building washed away in the tsunami of September 20th, 1498 during the Muromachi period; the statue remains.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KOTOKU_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Kotoku-in[COLOR_REVERT] No Unhealthiness from Population and reduced Maintenance in city.  Spreads Buddhism.</English>
+	</TEXT>
+	<TEXT> <!-- Wonder (Bezeklik Caves) -->
+		<Tag>TXT_KEY_BUILDING_CAVES</Tag>
+		<English>Bezeklik Caves</English>
+		<French>Les Cavernes Bezeklik</French>
+		<Italian>
+			<Text>Grotte di Bezeklik</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CAVES_PEDIA</Tag>
+		<English>[TAB]The Bezeklik Thousand Buddha Caves are complex of Buddhist cave grottos dating from the  5th to the 9th centuries between the cities of Turpan and Shanshan (Loulan) at the north-east of the Taklamakan Desert, China. They are high on the cliffs of the west Mutou Valley under the Flaming Mountains. There are 77 rock-cut caves at the site. Most have rectangular spaces with rounded arch ceilings often divided into four sections, each with a mural of Buddha. The effect is of entire ceiling covers with hundreds of Buddha murals. Some ceilings are painted with a large Buddha surrounded by other figures, including Indians, Persians and Europeans. The quality of the murals vary with some being artistically naive while others are masterpieces of religious art.</English>
+		<Italian>[TAB]Le Grotte buddhiste di Bezeklik sono un complesso di grotte rupestri buddiste che risalgono ad un periodo tra il 5° e il 9° secolo, situate tra le città di Turfan e Shanshan (Loulan) a nord-est del deserto di Taklamakan, in Cina. Si trovano sulle pareti occidentali della valle di Mutou, sotto le montagne Fiammeggianti. Ci sono 77 grotte scavate nella roccia nel sito. La maggior parte hanno spazi rettangolari con soffitti ad arco arrotondati spesso divisi in quattro sezioni, ognuna con un murale di Buddha; come risultato, ci sono soffitti ricoperti da centinaia di immagini di Buddha. Alcuni soffitti sono dipinti con un grande Buddha circondato da altre figure, tra cui indiani, persiani ed europei. La qualità dei dipinti varia, da alcuni artisticamente ingenui a veri e propri capolavori di arte religiosa.</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CAVES_STRATEGY</Tag>
+		<English>Build Bezeklik Caves to get 2 free artists in your city, and to help spreading buddhism.</English>
+		<Italian>Costruisci le Grotte di Bezeklik per ottenere 2 artisti gratis nella tua città e per migliorare la diffusione del buddismo.</Italian>
+	</TEXT>
+	<TEXT> <!-- Wonder (Nara's Giant Buddha) -->
+		<Tag>TXT_KEY_BUILDING_NARA</Tag>
+		<English>Nara's Giant Buddha</English>
+		<French>Le Bouddha Géant de Nara</French>
+		<Italian>
+			<Text>Buddha giganti di Nara</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NARA_PEDIA</Tag>
+		<English>[TAB]In 743, Emperor Shomu issued a law in which he stated that the people should become directly involved with the establishment of new Buddha temples throughout Japan. His personal belief was that such piety would inspire Buddha to protect his country from further disaster. Gyoki, with his pupils, traveled the provinces asking for donations. According to records kept by Todai-ji, more than 2,600,000 people in total helped construct the Great Buddha and its Hall. The 16 m  high statue was built through eight castings over three years, the head and neck being cast together as a separate element. The making of the statue has started first in Shigaraki. After enduring multiple fires and earthquakes, the construction was eventually resumed in Nara in 745,  and the Buddha was finally completed in 751. A year later, in 752, the eye-opening ceremony was held with an attendance of 10,000 people to celebrate the completion of the Buddha. The Indian priest Bodhisena performed the eye-opening for Emperor Shomu. The project nearly bankrupted Japan's economy, consuming most of the available bronze of the time.</English>
+		<Italian>[TAB]Nel 743 l'imperatore Shomu emanò una legge in cui affermava che le persone dovevano essere direttamente coinvolte nella creazione di nuovi templi in onore di Buddha in tutto il Giappone. La sua convinzione personale era che tale pietà avrebbe spinto Buddha a proteggere il suo paese da ulteriori disastri. Gyoki, con i suoi allievi, viaggiò nelle province chiedendo donazioni. Secondo i registri tenuti da Todai-ji, più di 2.600.000 persone in totale contribuirono alla costruzione del Grande Buddha e della sua Sala. La statua, alta 16 metri, venne costruita per mezzo di otto getti in più di tre anni; la testa e il collo furono gettati insieme come elementi separati. La realizzazione della statua iniziò a Shigaraki. Dopo aver sopportato molteplici incendi e terremoti, la costruzione venne finalmente ripresa a Nara nel 745 e il Buddha è stato infine completato nel 751. Un anno dopo, nel 752, la cerimonia di inaugurazione si svolse con la partecipazione di 10.000 persone per festeggiare il completamento del Buddha. Il sacerdote indiano Bodhisena eseguì l'inaugurazione per l'imperatore Shomu. Il progetto portò quasi alla bancarotta l'economia del Giappone, consumando la maggior parte del bronzo a disposizione in quel periodo.</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NARA_STRATEGY</Tag>
+		<English>Build the Nara's Giant Buddha to decrease anarchy length and to increase Golden Age length.</English>
+		<Italian>Costruisci i Buddha giganti di Nara per diminuire la lunghezza dell'anarchia e per incrementare la lunghezza delle età dell'oro.</Italian>
+	</TEXT>
+
+<!-- +++ Christianity +++ -->
+	<TEXT> <!-- Wonder (King Richards Crusade) -->
+		<Tag>TXT_KEY_BUILDING_CRUSADE</Tag>
+		<English>King Richard's Crusade</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CRUSADE_PEDIA</Tag>
+		<English>[TAB]The Crusades were a series of religion-driven military campaigns waged by much of Christian Europe against external and internal opponents. Crusades were fought mainly against Muslims, though campaigns were also directed against pagan Slavs, Jews, Russian and Greek Orthodox Christians, Mongols, Cathars, Hussites, Waldensians, Old Prussians and political enemies of the popes. Crusaders took vows and were granted an indulgence for past sins.[NEWLINE][NEWLINE][TAB]The Crusades originally had the goal of recapturing Jerusalem and the Holy Land from Muslim rule and were launched in response to a call from the Eastern Orthodox Byzantine Empire for help against the expansion of the Muslim Seljuk Turks into Anatolia. The term is also used to describe contemporaneous and subsequent campaigns conducted through to the 16th century in territories outside the Levant usually against pagans, heretics, and peoples under the ban of excommunication for a mixture of religious, economic, and political reasons. Rivalries among both Christian and Muslim powers led also to alliances between religious factions against their opponents, such as the Christian alliance with the Sultanate of Rum during the Fifth Crusade.[NEWLINE][NEWLINE][TAB]The Crusades had far-reaching political, economic, and social impacts, some of which have lasted into contemporary times. Because of internal conflicts among Christian kingdoms and political powers, some of the crusade expeditions were diverted from their original aim, such as the Fourth Crusade, which resulted in the sack of Christian Constantinople and the partition of the Byzantine Empire between Venice and the Crusaders. The Sixth Crusade was the first crusade to set sail without the official blessing of the Pope. The Seventh, Eighth and Ninth Crusades resulted in Mamluk and Hafsid victories, as the Ninth Crusade marked the end of the Crusades in the Middle East.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CRUSADE_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]King Richard's Crusade[COLOR_REVERT] grants a free [COLOR_UNIT_TEXT]Crusader[COLOR_REVERT] upon completion and then every subsequent few turns until it obsoletes. The exact time frame scales depending on your game speed (roughly 4, 6, 8, and 12 turns for Quick, Normal, Epic, and Marathon respectively). Additionally, it increases the spread rate of your state [ICON_RELIGION] to your team owned cities.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CRUSADE_HELP</Tag>
+		<English>[ICON_BULLET]Free [COLOR_UNIT_TEXT]Crusader[COLOR_REVERT] Every Few Turns[NEWLINE][ICON_BULLET]Spreads State [ICON_RELIGION] to Team Owned Cities</English>
+	</TEXT>
+	<TEXT> <!-- Wonder (Holy See Library) -->
+		<Tag>TXT_KEY_BUILDING_VATICAN_LIBRARY</Tag>
+		<English>Holy See Library</English>
+		<French>La Bibliothèque de la Mert Morte</French>
+		<Italian>
+			<Text>Biblioteca Vaticana</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_VATICAN_LIBRARY_PEDIA</Tag>
+		<English>[TAB]The Vatican Library is the library of the Holy See, currently located in Vatican City. It is one of the oldest libraries in the world and contains one of the most significant collections of historical texts. Formally established in 1475, though in fact much older, it has 75,000 codices from throughout history.From July 2007 the library has been temporarily closed to the public for rebuilding, which is expected to be completed by September 2010.</English>
+		<Italian>[TAB]La Biblioteca Apostolica Vaticana è la biblioteca della Santa Sede, attualmente situata nella Città del Vaticano. Si tratta di una delle più antiche biblioteche del mondo e contiene una delle collezioni più significative di testi storici. Formalmente istituita nel 1475, in realtà è molto più antica; ha 75.000 codici rialenti a svariati periodi storici diversi. Dal luglio 2007 la biblioteca è stata temporaneamente chiusa al pubblico per la ricostruzione, che dovrebbe essere completato entro settembre 2010.</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_VATICAN_LIBRARY_STRATEGY</Tag>
+		<English>Build the Holy see library to increase your cities science, espionage and great people rate.</English>
+		<Italian>Costruisci la Biblioteca Vaticana per incrementare la scienza, lo spionaggio e il tasso di nascita dei grandi personaggi nella tua città.</Italian>
+	</TEXT>
+	<TEXT> <!-- Wonder (Saint Mark's Basilica) -->
+		<Tag>TXT_KEY_BUILDING_SAN_MARCOS_CATHEDRAL</Tag>
+		<English>Saint Mark's Basilica</English>
+		<French>La Basilique Saint Marc</French>
+		<Italian>
+			<Text>Basilica di San Marco</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SAN_MARCOS_CATHEDRAL_PEDIA</Tag>
+		<English>[TAB]Saint Mark's Basilica, the cathedral of Venice, is one of the best known examples of Byzantine architecture. It lies on St Mark's Square adjacent and connected to the Doge's Palace. Originally it was the "chapel" of the Venetian rulers, and not the city's cathedral. Since 1807 it has been the seat of the Patriarch of Venice, archbishop of the Roman Catholic Archdiocese of Venice. For its opulent design, gilded Byzantine mosaics, and its status as a symbol of Venetian wealth and power, from the 11th century on the building was known by the nickname Chiesa d'Oro (Church of gold).</English>
+		<Italian>[TAB]La Basilica di San Marco, la cattedrale di Venezia, è uno dei più noti esempi di architettura bizantina. Si trova sulla piazza adiacente e collegata al Palazzo Ducale di San Marco. In origine era la "cappella" dei governanti veneziani, e non la cattedrale della città. Dal 1807 è stata la sede del Patriarca di Venezia, arcivescovo dell'arcidiocesi cattolica di Venezia. Per il suo design opulento, i mosaici bizantini dorati e il suo status di simbolo di ricchezza e di potere veneziano, dall'11° secolo l'edificio è conosciuto con il soprannome di Chiesa d'Oro.</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SAN_MARCOS_CATHEDRAL_STRATEGY</Tag>
+		<English>Build the Saint Mark's Basilica to get a boost to production and gold to your water tiles, and to get a free merchant in your city.</English>
+		<Italian>Costruisci la Basilica di San Marco per ottenere un bonus alla produzione e al commercio per le tue caselle di mare, e per ottenere un mercante gratis nella tua città.</Italian>
+	</TEXT>
+
+<!-- +++ Confucianism +++ -->
+	<TEXT> <!-- Wonder (Dosan Seowon) -->
+		<Tag>TXT_KEY_BUILDING_DOSAN_SEOWON</Tag>
+		<English>Dosan Seowon</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_DOSAN_SEOWON_PEDIA</Tag>
+		<English>Dosan Seowon (alternatively, Tosansowon) was established in 1574 in what is present day Andong, South Korea, in memory of and four years after the death of Confucian scholar Yi Hwang by some of his disciples and other Confucian authorities. Yi Hwang had retired to the location in 1549 and begun construction on the facility, a private Confucian academy offering instruction in the classics and honouring the sages with regular memorial rites.  Like other Confucian academies, Dosan Seowon serves two purposes: education and commemoration. The site was well known in Korea as one of the leading academies and was home to the Toegye School of Thought for over 400 years. Although the educational function of the facility has long since ceased, the commemorative ceremonies have been and are still held twice a year.</English>
+		<French>Dosan Seowon (ou , Tosansowon) a été fondé en 1574 dans la ville nommé à présent Andong, et Corée de Sud, en mémoire, et quatre années après la mort de l'érudit Confucéen Yi Hwang par quelques-uns de ses disciples et les autorités Confucéennes. Yi Hwang s'est retiré à cet endroit en 1549 et a commencé à construire cette institution : une académie privée Confucéenne offrant l'instruction des doctrines et honorant les sages par des rites funéraires réguliers. Comme les autres académies Confucéennes, Dosan Seowon conserve les deux objectifs : l'éducation et la comémoration. Le Site était très connu en Corée comme une des meilleures académies, et a été le siège de l'Ecole de l'Esprit de Toegye pendant plus de 400 ans. Bien que la fonction d'éducattion de l'édifice a cessé depuis longtemps à présent, les cérémonies comémoratives sont encore célébrées deux fois par an..</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_DOSAN_SEOWON_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Dosan Seowon[COLOR_REVERT] Increases Science and Reduces Maintenance in city.</English>
+		<French>[COLOR_BUILDING_TEXT]Dosan Seowon[COLOR_REVERT] Augmente le Science et réduit l'entretien de la Ville.</French>
+		<German>[COLOR_BUILDING_TEXT]Dosan Seowon[COLOR_REVERT] Erh&#246;ht die Forschung und reduziert den Unterhalt der Stadt.</German>
+	</TEXT>
+	<TEXT> <!-- Wonder (San Kong) -->
+		<Tag>TXT_KEY_BUILDING_SAN_KONG</Tag>
+		<English>San Kong</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SAN_KONG_PEDIA</Tag>
+		<English>[TAB]The San Kong is the collective name for the three major Confucian sites at Qufu. These consist of the Temple and Cemetery of Confucius and the Kong Family Mansion. The temple complex is amongst the largest in China covering an area of 16,000 square meters. The mainpart of the temple consists of 9 courtyards arranged on a central axis, which is oriented in the north-south direction and is 1.3 km in length. The first three courtyards have small gates and are planted with tall pine trees, they serve an introductory function. The first (southernmost) gate is named "Lingxing Gate" after a star in the Great Bear constellation, the name suggests that Confucius is a star from heaven. The buildings in the remaining courtyards form the heart of the complex. They are impressive structures with yellow roof-tiles (otherwise reserved for the emperor) and red-painted walls, they are surrounded by dark-green pine trees to create a color contrast with complementary colors.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SAN_KONG_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]The School of Confucius[COLOR_REVERT] increases the science output of the city and provides a random great person.</English>
+	</TEXT>
+	<TEXT> <!-- Wonder (School of Conficius) -->
+		<Tag>TXT_KEY_SCHOOL_CONFUCIUS_HELP</Tag>
+		<English>[ICON_BULLET]Provides a Random Great Person</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SCHOOL_CONFUCIUS_PROPHET</Tag>
+		<English>[COLOR_BUILDING_TEXT]The School of Confucius[COLOR_SELECTED_TEXT] has inspired a [COLOR_UNIT_TEXT]Great Prophet[COLOR_SELECTED_TEXT]![COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SCHOOL_CONFUCIUS_ARTIST</Tag>
+		<English>[COLOR_BUILDING_TEXT]The School of Confucius[COLOR_SELECTED_TEXT] has inspired a [COLOR_UNIT_TEXT]Great Artist[COLOR_SELECTED_TEXT]![COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SCHOOL_CONFUCIUS_SCIENTIST</Tag>
+		<English>[COLOR_BUILDING_TEXT]The School of Confucius[COLOR_SELECTED_TEXT] has inspired a [COLOR_UNIT_TEXT]Great Scientist[COLOR_SELECTED_TEXT]![COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SCHOOL_CONFUCIUS_MERCHANT</Tag>
+		<English>[COLOR_BUILDING_TEXT]The School of Confucius[COLOR_SELECTED_TEXT] has inspired a [COLOR_UNIT_TEXT]Great Merchant[COLOR_SELECTED_TEXT]![COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SCHOOL_CONFUCIUS_ENGINEER</Tag>
+		<English>[COLOR_BUILDING_TEXT]The School of Confucius[COLOR_SELECTED_TEXT] has inspired a [COLOR_UNIT_TEXT]Great Engineer[COLOR_SELECTED_TEXT]![COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SCHOOL_CONFUCIUS_GENERAL</Tag>
+		<English>[COLOR_BUILDING_TEXT]The School of Confucius[COLOR_SELECTED_TEXT] has inspired a [COLOR_UNIT_TEXT]Great General[COLOR_SELECTED_TEXT]![COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SCHOOL_CONFUCIUS_SPY</Tag>
+		<English>[COLOR_BUILDING_TEXT]The School of Confucius[COLOR_SELECTED_TEXT] has inspired a [COLOR_UNIT_TEXT]Great Spy[COLOR_SELECTED_TEXT]![COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SCHOOL_CONFUCIUS_DOCTOR</Tag>
+		<English>[COLOR_BUILDING_TEXT]The School of Confucius[COLOR_SELECTED_TEXT] has inspired a [COLOR_UNIT_TEXT]Great Doctor[COLOR_SELECTED_TEXT]![COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SCHOOL_CONFUCIUS_GREAT_JESTER</Tag>
+		<English>[COLOR_BUILDING_TEXT]The School of Confucius[COLOR_SELECTED_TEXT] has inspired a [COLOR_UNIT_TEXT]Great Jester[COLOR_SELECTED_TEXT]![COLOR_REVERT]</English>
+	</TEXT>
+
+<!-- +++ Hellenism +++ -->
+	<TEXT> <!-- Religion Details -->
+		<Tag>TXT_KEY_RELIGION_HELLENISM</Tag>
+		<English>Hellenism</English>
+		<French>
+			<Text>Hell&#233;nisme</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Hellenismus</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Ellenismo</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Helenismo</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_HELLENISM_ADJECTIVE</Tag>
+		<English>Hellenistic</English>
+		<French>Helléniste</French>
+		<German>Hellenistisch</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_HELLENISM_PEDIA</Tag>
+		<English>[TAB]The Hellenic religion, also referred to as Greek mythology, comprises an enormous body of stories about gods, goddesses, and heroes. These stories date back many centuries, preserved in pre-literate Greece through oral tradition. The Hellenic religion was polytheistic in nature, with innumerable local nature deities in addition to the major Olympian gods and goddesses. The Greek gods were human in form but possessed supernatural powers; they were born from other gods but never aged, they were immortal, could travel enormous distances instantly, speak through humans with or without their knowledge, etc. Some gods were the personified aspects of natural forces (for example, Helios was literally the god of the sun) while others had complex personalities and multiple functions associated with them (Apollo is probably the best example). [PARAGRAPH:1]The gods and goddesses were all related to one another as part of one large family, but there were clear generations of gods, and their interactions with each other were sometimes violent. For example, the Olympian gods had reached their place of dominance by casting out an earlier generation of gods and goddesses known as the Titans. This may be a mythical reflection of the struggle between the Greeks and the earlier culture that they displaced when arriving in the Peloponnesus around roughly 1000 BC. [PARAGRAPH:1]In addition to stories about gods, the Hellenic religion was also full of great sagas about the deeds of heroes, many of whom possessed a divine parent. Stories abound about figures such as Heracles, Perseus, Jason, and the characters of the Iliad. These humans frequently interacted with gods and even bested them at times. Many of the heroes were held in great esteem by the Greeks, especially "noble" characters such as Achilles. [PARAGRAPH:1]Although some of the well-educated Greeks had their doubts about the existence of the gods, the vast majority of Greeks did not question the validity of the stories. The Greeks used their religion to explain the doings of the natural world and their own origins; it was a source of pride to trace one's lineage or the founding of one's city to the actions of a god. [PARAGRAPH:1]Archaeology and linguistic analysis suggests that the Hellenic religion was heavily influenced by other religions. For example, the Greek Zeus, Roman Jupiter, Germanic Tyr, and Sanskrit Dyaus are all sky gods that share a common Indo-European origin sometime in the distant past. Other gods were borrowed or influenced from Near Eastern religions; Aphrodite possessed a very similar function to the Semitic goddesses Ishtar and Astarte. During the Hellenic period and afterwards, the Greek religion spread across much of the Mediterranean and Near East, influencing many of the previously existing religions and giving rise to new syncretistic mystery cults. Although the Hellenic religion is no longer followed, it continues to provide inspiration for artists throughout the world.</English>
+		<French>[TAB]La religion hell&#233;nique, &#224; laquelle on fait le plus souvent r&#233;f&#233;rence sous l'appellation de mythologie grecque, comprend un grand nombre de l&#233;gendes sur les dieux, d&#233;esses et h&#233;ros. Certaines de ces l&#233;gendes remontent &#224; plusieurs si&#232;cles, ayant &#233;t&#233; transmises par la tradition orale. La religion hell&#233;nique est polyth&#233;iste, avec d'innombrables divinit&#233;s locales de la nature en plus des principaux dieux du panth&#233;on olympien. Les dieux grecs ont forme humaine mais poss&#232;dent des pouvoirs surnaturels, ont &#233;t&#233; engendr&#233;s par d'autres dieux mais ne vieillissent pas, ils sont immortels, peuvent voyager sur de tr&#232;s grandes distances instantan&#233;ment, parler &#224; travers les humains (parfois sans m&#234;me que ceux-ci s'en aper&#231;oivent), etc. Certains dieux sont les personnifications des forces de la nature (H&#233;lios &#233;tant litt&#233;ralement le dieu du soleil) alors que d'autres ont des personnalit&#233;s complexes et sont associ&#233;s &#224; de multiples fonctions (Apollon en &#233;tant le meilleur exemple). [PARAGRAPH:1]Dieux et d&#233;esses sont tous parents d'une m&#234;me grande famille, mais il existe des g&#233;n&#233;rations distinctes de dieux, et leurs interactions sont parfois tr&#232;s violentes. Le fait est que les dieux olympiens n'occupent leur position dominante qu'apr&#232;s avoir chass&#233; une premi&#232;re g&#233;n&#233;ration de dieux appel&#233;s les Titans. Cela refl&#232;te sans doute le chevauchement culturel mythologique existant entre les Grecs et la civilisation pr&#233;c&#233;dente, chass&#233;e &#224; leur arriv&#233;e dans le P&#233;loponn&#232;se aux alentours de 1000 av. J.-C.. [PARAGRAPH:1]Outre de nombreuses l&#233;gendes sur les dieux, la tradition orale hell&#233;nique est riche de grandes sagas relatant les hauts faits de h&#233;ros humains, dont un certain nombre ont une ascendance divine. On pense notamment aux l&#233;gendes d'H&#233;racl&#232;s, de Pers&#233;e, de Jason et des personnages de l'Iliade. Ces mortels entrent souvent en conflit avec des dieux et en triomphent parfois. Nombre d'entre eux, surtout s'ils sont nobles et puissants comme Achille, sont tenus en haute estime par les Grecs. [PARAGRAPH:1] M&#234;me si certains des Grecs &#233;duqu&#233;s entretiennent quelques doutes &#224; propos de la r&#233;alit&#233; dessin&#233;e par la religion hell&#233;nique, la grande majorit&#233; de la population accepte sans r&#233;serve la mythologie comme seule v&#233;rit&#233;. Les Grecs s'appuient sur leur religion pour expliquer les ph&#233;nom&#232;nes naturels et leurs propres origines, et c'est une source de grande fiert&#233; que de pouvoir associer une lign&#233;e ou la fondation d'une cit&#233; aux actions d'un dieu.[PARAGRAPH:1] Les r&#233;sultats des recherches arch&#233;ologiques et linguistiques laissent penser que la religion hell&#233;nique a &#233;t&#233; tr&#232;s influenc&#233;e par d'autres religions. C'est ainsi que le dieu grec Zeus, le dieu romain Jupiter, le dieu germain Tyr et le dieu sanskrit Dyaus sont tous des dieux du ciel, et il est probable qu'ils partagent tous une m&#234;me lointaine origine indo-europ&#233;enne. Les Grecs empruntent librement des dieux &#224; d'autres cultes du Proche-Orient, c'est ainsi qu'Aphrodite a des fonctions tr&#232;s proches de celles des d&#233;esses s&#233;mites Ishtar et Astart&#233;. Au cours de l'&#233;poque hell&#233;nique et par la suite, la religion grecque se r&#233;pand &#224; travers la plus grande partie de la M&#233;diterran&#233;e et du Proche-Orient, influen&#231;ant nombre des cultes d&#233;j&#224; existants et donnant naissance &#224; de nouveaux cultes syncr&#233;tistes. Bien que la religion grecque ne soit plus pratiqu&#233;e de nos jours, ses mythologies continuent d'enflammer les imaginations et d'illuminer les esprits.</French>
+		<German>[TAB]Die hellenistische Religion der Antike, auch als griechische Mythologie bezeichnet, umfasste einen enormen Fundus an G&#246;tter- und Heldensagen. Diese Geschichten datieren viele Jahrhunderte zur&#252;ck und blieben in der pr&#228;literarischen Zeit durch m&#252;ndliche &#220;berlieferung erhalten. Der hellenistische Glaube war angesichts der vielen G&#246;tter und G&#246;ttinnen des Olymps sowie zahlloser regionaler Naturgottheiten extrem polytheistisch gepr&#228;gt. Die griechischen G&#246;tter wurden in der Regel in menschlicher Form dargestellt, besa&#223;en allerdings &#252;bernat&#252;rliche Kr&#228;fte. Sie wurden von anderen Gottheiten geboren, alterten nicht, waren unsterblich, konnten im Nu enorme Entfernungen &#252;berwinden, sprachen durch die Menschen (mit oder ohne deren Wissen) etc. Einige G&#246;tter verk&#246;rperten Naturgewalten (zum Beispiel war Helios im w&#246;rtlichen Sinne der Gott der Sonne), w&#228;hrend andere komplexe Pers&#246;nlichkeitsstrukturen aufwiesen und zahlreiche Funktionen wahrnahmen (zum Beispiel Apollon). [PARAGRAPH:1]Als Teil einer gro&#223;en Familie waren die G&#246;tter und G&#246;ttinnen alle irgendwie miteinander verwandt, aber es gab eine klare Generationeneinteilung und manchmal bek&#228;mpften sie sich auch gegenseitig. Zum Beispiel sollen die G&#246;tter des Olymps ihre Vorherrschaft durch den Sturz der vorangehenden G&#246;ttergeneration, der so genannten Titanen, gesichert haben. Hierbei k&#246;nnte es sich um eine mythische Darstellung der kulturellen &#220;berschneidung zwischen den Griechen und der fr&#252;heren Population in dieser Region handeln, die sie bei der Ankunft auf dem Peleponnes um 1000 vor Christus vertrieben hatten. [PARAGRAPH:1]Neben den vielen G&#246;ttergeschichten wurde die griechische Religion auch von zahlreichen grandiosen Sagen &#252;ber die Abenteuer verschiedener Helden beeinflusst, von denen viele zumindest ein g&#246;ttliches Elternteil besa&#223;en. Die Erz&#228;hlungen handelten von heldenhaften Pers&#246;nlichkeiten wie Herakles, Perseus, Jason sowie den Charakteren der Ilias und inspirierten viele griechische K&#252;nstler sp&#228;terer Generationen. Diese Helden in Menschengestalt kamen h&#228;ufig mit den G&#246;ttern in Kontakt, &#252;bertrumpften sie bisweilen sogar und wurden von den Griechen meist hoch gesch&#228;tzt, insbesondere so ehrenhafte Pers&#246;nlichkeiten wie zum Beispiel Achilles. [PARAGRAPH:1]Einige der griechischen Gelehrten hatten durchaus Zweifel an dem Wahrheitsgehalt der griechischen Mythologie, dennoch stellte der &#252;berwiegende Teil der Bev&#246;lkerung die Stichhaltigkeit der &#252;berlieferten Legenden nicht in Frage. Die Griechen nutzten ihre Religion, um nat&#252;rliche Vorg&#228;nge und auch ihren eigenen Ursprung zu erkl&#228;ren. Man war stolz darauf, wenn man seine eigene Herkunft oder die Gr&#252;ndung seiner Heimatstadt auf das Einwirken eines Gottes zur&#252;ckf&#252;hren konnte. [PARAGRAPH:1]Arch&#228;ologische und sprachliche Untersuchungen haben ergeben, dass die griechische Religion stark von anderen Religionen beeinflusst war. Zum Beispiel stellen der griechische Gott Zeus, der r&#246;mische Gott Jupiter, der germanische Gott Tyr und der Sanskrit-Gott Dyaus allesamt Himmelsg&#246;tter dar, die irgendwann in der fernen Vergangenheit einen gemeinsamen indo-europ&#228;ischen Ursprung hatten. Andere G&#246;tter wurden von den Religionen im Nahen Osten "ausgeborgt" oder zumindest beeinflusst: Aphrodite besa&#223; frappierend &#228;hnliche Eigenschaften und Funktionen wie die semitischen G&#246;ttinnen Ishtar und Astarte. W&#228;hrend der hellenischen Periode und auch danach kam es zu einer starken Verbreitung der griechischen Mythologie &#252;ber gro&#223;e Teile des Mittelmeerraums und des Nahen Ostens. Sie beeinflusste viele der bereits existierenden Religionen und ebnete den Weg f&#252;r die Entstehung neuer synkretistischer Mysterienkulte. Obwohl die griechische Religion des hellenistischen Zeitalters heute nicht mehr in dieser Form praktiziert wird, lassen sich auch heute noch K&#252;nstler in aller Welt von ihr inspirieren.</German>
+		<Italian>[TAB]La religione ellenica, nota anche come "mitologia greca", &#232; composta da un'enorme serie di storie di dei, dee ed eroi, tramandate a lungo tempo oralmente nell'era pre-letteraria. La religione ellenica era politeistica e oltre agli dei e alle dee dell'Olimpo comprendeva innumerevoli divinit&#224; naturali locali. Le divinit&#224; greche avevano aspetto umano ma erano dotate di poteri soprannaturali; pur nascendo (da altre divinit&#224;) non invecchiavano ed erano immortali, potevano coprire enormi distanze istantaneamente, parlare attraverso gli uomini con o senza la loro consapevolezza, ecc. Alcune divinit&#224; erano la personificazione di forze naturali (per esempio, Elio era letteralmente il dio del sole), mentre altre avevano personalit&#224; complesse e numerose funzioni (Apollo ne &#232; forse il miglior esempio).  [PARAGRAPH:1]Le divinit&#224; avevano fra loro vincoli di parentela e formavano una grande famiglia, ma potevano distinguersi diverse generazioni, le cui interazioni con le altre avevano spesso esiti violenti. Per fare un esempio, gli dei olimpici avevano raggiunto la loro posizione di dominio estromettendo la precedente generazione dei Titani. Questo fenomeno potrebbe essere un riflesso culturale di ci&#242; che avvenne quando i Greci si sostituirono alla popolazione locale quando giunsero nel Peloponneso intorno al 1000 a.C. [PARAGRAPH:1]Oltre alle storie sugli dei, la mitologia greca &#232; piena di grandi saghe che narrano le gesta di eroi, molti dei quali avevano genitori divini. I miti di Ercole, Perseo, Giasone e le storie dei protagonisti dell'Iliade furono spesso oggetto di rielaborazione da parte degli artisti greci successivi. Si trattava di uomini che interagivano spesso con gli dei, a volte superandoli. Molti di loro erano enormemente stimati dai Greci, soprattutto se "nobili" come Achille.  [PARAGRAPH:1]Anche se i Greci meglio istruiti avevano i loro dubbi sul fondamento della religione ellenica, il popolo non metteva in dubbio la veridicit&#224; delle storie. I Greci usarono la loro religione per spiegare i fenomeni naturali e le proprie origini; era fonte di orgoglio il fatto che la propria ascendenza o la fondazione della propria citt&#224; potessero essere fatte risalire a un atto divino. [PARAGRAPH:1]Le analisi archeologiche e linguistiche suggeriscono che la religione ellenica abbia subito una pesante influenza da parte di altre religioni. Per esempio, il dio greco Zeus, il dio romano Giove, il dio germanico Tyr e il dio sanscrito Dyaus sono tutte divinit&#224; del cielo che condividono un'origine indo-europea risalente a chiss&#224; quando nel passato. Altre divinit&#224; furono prese in prestito o influenzate dalle religioni del Vicinio Oriente: Afrodite aveva una funzione simile a quella delle semitiche Ishtar e Astarte. Nel corso del periodo ellenico e anche dopo, la religione greca si diffuse nel Mediterraneo e nel Vicino Oriente, influenzando a sua volta molte religioni pre-esistenti e facendo nascere nuovi culti mistici sincretici. Anche se oggi si tratta di una religione morta, la mitologia greca ha ispirato gli artisti per migliaia di anni.</Italian>
+		<Spanish>[TAB]La religi&#243;n hel&#233;nica, tambi&#233;n conocida como mitolog&#237;a griega, comprende un cuerpo enorme de narraciones sobre los dioses y h&#233;roes. Estas historias ten&#237;an muchos siglos de antig&#252;edad y, hasta la aparici&#243;n de la escritura en Grecia, se conservaron mediante la tradici&#243;n oral. De naturaleza polite&#237;sta, contaba con un sinf&#237;n de deidades naturales locales, adem&#225;s de los principales dioses y diosas del Olimpo. Los dioses griegos ten&#237;an forma humana, pero pose&#237;an poderes sobrenaturales; eran engendrados por otros dioses, pero nunca envejec&#237;an, no pod&#237;an morir, pod&#237;an cruzar enormes distancias al instante, hablaban a trav&#233;s de los humanos con o sin su consentimiento, etc. Algunos de ellos eran los aspectos personificados de las fuerzas de la naturaleza (Helios, por ejemplo, era literalmente el dios del sol) mientras que otros pose&#237;an personalidades complejas y funciones m&#250;ltiples (seguramente Apolo sea el mejor ejemplo). [PARAGRAPH:1]Todos los dioses pertenec&#237;an a una gran familia, pero hab&#237;a varias generaciones diferenciadas y su interacci&#243;n era en muchas ocasiones violenta. Los dioses del Olimpo, por ejemplo, hab&#237;an alcanzado su posici&#243;n de predominio tras expulsar a una generaci&#243;n anterior de dioses y diosas (los titanes). Esto bien pudiera ser una transposici&#243;n mitol&#243;gica de la lucha entre los griegos y la cultura anterior, a la que desplazaron cuando llegaron al Peloponeso, alrededor del 1000 a. C. [PARAGRAPH:1]Adem&#225;s de las historias de los dioses, la religi&#243;n hel&#233;nica estaba repleta de grandes historias sobre las haza&#241;as de los h&#233;roes, muchos de los cuales estaban emparentados con los dioses. Abundan las narraciones acerca de figuras como H&#233;rcules, Perseo, Jas&#243;n y los personajes de la Il&#237;ada. Estos humanos sol&#237;an relacionarse con los dioses y, a veces, hasta los superaban. Los griegos sent&#237;an gran estima por estos h&#233;roes, especialmente por los personajes "nobles", como por ejemplo Aquiles. [PARAGRAPH:1]Aunque algunos griegos cultivados ten&#237;an sus dudas sobre la existencia de los dioses, la mayor&#237;a no cuestionaba la validez de las historias. Los griegos utilizaban su religi&#243;n para explicar el mundo natural y sus propios or&#237;genes. Desde trazar los or&#237;genes del propio linaje o la fundaci&#243;n de una ciudad hasta los actos de un dios era motivo de gran orgullo. [PARAGRAPH:1]La arqueolog&#237;a y el an&#225;lisis ling&#252;&#237;stico sugieren que la religi&#243;n hel&#233;nica estuvo muy influida por otras religiones. Por poner un ejemplo, el Zeus griego, el J&#250;piter romano, el Tyr germano y el Dyaus s&#225;nscrito son todos dioses del cielo que comparten un origen indoeuropeo com&#250;n en un pasado lejano. Otros dioses proced&#237;an de religiones de Oriente Pr&#243;ximo (o hab&#237;an recibido importantes influencias de ellas): Afrodita pose&#237;a una funci&#243;n muy similar a la de las diosas sem&#237;ticas Ishtar y Astart&#233;. Durante el per&#237;odo helen&#237;stico y despu&#233;s de &#233;l, la religi&#243;n griega se extendi&#243; por gran parte del Mediterr&#225;neo y Oriente Pr&#243;ximo, lo que influy&#243; en muchas de las religiones existentes y origin&#243; nuevos cultos mist&#233;ricos y sincr&#233;ticos. Aunque la religi&#243;n hel&#233;nica ya no cuenta con seguidores, sigue siendo una gran fuente de inspiraci&#243;n para artistas del mundo entero.</Spanish>
+	</TEXT>
+	<TEXT> <!-- Temple -->
+		<Tag>TXT_KEY_BUILDING_HELLENIC_TEMPLE</Tag>
+		<English>Hellenic Temple</English>
+		<French>
+			<Text>Temple hell&#233;nique</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Hellenistischer Tempel</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Tempio ellenico:Templi ellenici</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Templo hel&#233;nico:Templos hel&#233;nicos</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_NEW_GREEKWAR_BUILDING_HELLENIC_TEMPLE_PEDIA</Tag>
+		<English>[TAB]In Civilization IV, a temple is defined as a building where the faithful come to worship. Christians call their temples "churches," while Muslims call theirs "mosques," and Jews call theirs, simply, "temples." Temples are far more common than cathedrals, but much less large and ornate. Even the smallest village can possess a temple.</English>
+		<French>[TAB]Dans Civilization IV, un petit lieu de culte est d&#233;fini comme un &#233;difice dans lequel les fid&#232;les viennent pratiquer leur religion : "&#233;glises" pour les chr&#233;tiens, "petites mosqu&#233;es" pour les musulmans et "petites synagogues" pour les juifs. Ces petits lieux de culte sont bien plus courants que les grands lieux de culte mais sont de taille plus r&#233;duite et sont bien moins richement orn&#233;s. M&#234;me le village le plus petit peut poss&#233;der un petit lieu de culte.</French>
+		<German>[TAB]In Civilization IV sind Tempel Geb&#228;ude, in denen Gl&#228;ubige beten. Christen nennen ihre Tempel "Kirchen", Moslems "Moscheen". Es gibt deutlich mehr Tempel als Kathedralen. Allerdings sind sie wesentlich kleiner und schlichter. Selbst das kleinste Dorf kann einen Tempel besitzen.</German>
+		<Italian>[TAB]In Civilization IV, il tempio &#232; un edificio all'interno del quale i fedeli si recano a pregare. I Cristiani chiamano i loro templi "chiese", i Musulmani "moschee", gli Ebrei semplicemente "templi". I templi sono pi&#249; comuni delle cattedrali, ma sono pi&#249; piccoli e poco fastosi. Anche il villaggio pi&#249; piccolo ospita un tempio.</Italian>
+		<Spanish>[TAB]En Civilization IV, un templo se define como un lugar al que los fieles acuden a venerar. Los cristianos llaman a sus templos "iglesias", mientras que para los musulmanes son "mezquitas" y para los jud&#237;os, sencillamente, "templos". Son mucho m&#225;s comunes que las catedrales, pero tambi&#233;n mucho m&#225;s peque&#241;os y humildes. Hasta la m&#225;s peque&#241;a aldea puede poseer uno.</Spanish>
+	</TEXT>
+	<TEXT> <!-- Cathedral (Pantheon) -->
+		<Tag>TXT_KEY_BUILDING_HELLENIC_CATHEDRAL</Tag>
+		<English>Hellenic Pantheon</English>
+		<French>
+			<Text>Grand lieu de culte hell&#233;nique</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Hellenistisches Pantheon</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Cattedrale ellenica:Cattedrali elleniche</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Catedral hel&#233;nica:Catedrales hel&#233;nicas</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HELLENIC_CATHEDRAL_PEDIA</Tag>
+		<English>[TAB]In Civilization IV, a cathedral is defined as an especially large and ornate religious building where the faithful worship. Only the most prosperous cities can afford to create cathedrals, as they require huge amounts of raw material and years of dedicated labor by skilled craftsmen. For example, the Notre Dame Cathedral in Paris, France, took over two centuries to complete.</English>
+		<French>[TAB]Dans Civilization IV, un grand lieu de culte est d&#233;fini comme un &#233;difice religieux particuli&#232;rement grand et richement orn&#233; dans lequel les fid&#232;les pratiquent leur religion : "cath&#233;drales" pour les chr&#233;tiens, "mosqu&#233;es" pour les musulmans et "synagogues" pour les juifs. Seules les villes les plus prosp&#232;res ont les moyens de construire de tels &#233;difices. En effet, ils n&#233;cessitent d'&#233;normes quantit&#233;s de mat&#233;riaux bruts et des artisans sp&#233;cialis&#233;s doivent y consacrer des ann&#233;es de travail. Ainsi, il a fallu plus de deux si&#232;cles pour terminer la cath&#233;drale Notre-Dame &#224; Paris.</French>
+		<German>[TAB]In Civilization IV sind Kathedralen gro&#223;e und pr&#228;chtige Gottesh&#228;user, in denen Gl&#228;ubige beten. Nur die reichsten aller St&#228;dte k&#246;nnen sich den Bau einer Kathedrale leisten, da hierf&#252;r gro&#223;e Mengen an Baumaterial und die jahrelange Arbeit erfahrener Handwerker erforderlich sind. Die Kathedrale von Notre Dame in Paris wurde beispielsweise erst nach 200-j&#228;hriger Bauzeit fertig gestellt.</German>
+		<Italian>[TAB]In Civilization IV, viene definito cattedrale un edificio religioso particolarmente grande e sfarzoso adibito a luogo di culto per i fedeli. Solamente le citt&#224; pi&#249; prosperose possono permettersi l'edificazione di cattedrali poich&#233; sono necessari un'enorme quantit&#224; di materiali e operai esperti. Per esempio, per completare la cattedrale di Notre-Dame de Paris, in Francia, ci sono voluti pi&#249; di due secoli.</Italian>
+		<Spanish>[TAB]En Civilization IV, una catedral se define como un edificio religioso especialmente grande y ornamentado en el que se re&#250;nen los fieles para celebrar sus ritos. Solo las ciudades m&#225;s grandes pueden permitirse el lujo de crear catedrales, puesto que requieren enormes cantidades de materias primas y a&#241;os de dedicaci&#243;n por parte de trabajadores especializados. Por ejemplo, la catedral de Notre Dame, Francia, tard&#243; dos siglos en completarse.</Spanish>
+	</TEXT>
+	<TEXT> <!-- Monastry (Gymnasia) -->
+		<Tag>TXT_KEY_BUILDING_HELLENIC_MONASTERY</Tag>
+		<English>Hellenic Gymnasia</English>
+		<French>
+			<Text>Monast&#232;re hell&#233;nique</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Hellenistisches Gymnasium</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Monastero ellenico:Monasteri ellenici</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Monasterio hel&#233;nico:Monasterios hel&#233;nicos</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HELLENIC_MONASTERY_PEDIA</Tag>
+		<English>[TAB]A monastery is a building where monks can retreat from the world and concentrate upon the divine. Usually a monastery will have strict rules of conduct to protect its unworldly members from temptation. In some monasteries, the monks are totally silent; in others no visitors are allowed inside. Monasteries usually have many daily rituals and religious services. [PARAGRAPH:1] Throughout the ages monasteries have often been centers of learning. In remote areas the monks may be the only literate people for miles around. Monks have often been employed as scribes, copying out the words of their religion's sacred scripture. Monasteries frequently have extensive libraries, holding religious, scientific, medical and philosophical texts.</English>
+		<French>[TAB]Un monast&#232;re est un &#233;difice dans lequel les moines peuvent se retirer du monde et se concentrer sur le divin. G&#233;n&#233;ralement, les r&#232;gles de conduite y sont strictes afin de prot&#233;ger ses membres, d&#233;tach&#233;s du monde, de la tentation. Dans certains monast&#232;res, les moines sont totalement silencieux ; dans d'autres, les visiteurs ne sont pas autoris&#233;s &#224; p&#233;n&#233;trer dans leur enceinte. Les monast&#232;res ont g&#233;n&#233;ralement de nombreux rituels et services religieux quotidiens. [PARAGRAPH:1]A travers les si&#232;cles, les monast&#232;res ont souvent &#233;t&#233; des centres d'&#233;rudition. Dans les zones retir&#233;es, les moines &#233;taient parfois les seules personnes sachant lire et &#233;crire &#224; des kilom&#232;tres &#224; la ronde. Ils ont souvent servi de scribes, recopiant les textes sacr&#233;s de leur religion. Les monast&#232;res ont g&#233;n&#233;ralement de grandes biblioth&#232;ques poss&#233;dant des textes religieux, scientifiques, m&#233;dicaux et philosophiques.</French>
+		<German>[TAB]Kl&#246;ster sind Geb&#228;ude, in die sich M&#246;nche zur&#252;ckziehen, um sich auf Gott zu konzentrieren. In Kl&#246;stern gelten strenge Verhaltensregeln, die die M&#246;nche vor Versuchungen bewahren sollen. In einigen Kl&#246;stern herrscht ein strenges Redeverbot, in anderen sind keine Besucher gestattet. Die M&#246;nche selbst gehen t&#228;glich ihren religi&#246;sen Pflichten nach. [PARAGRAPH:1] In der Vergangenheit waren Kl&#246;ster stets auch Zentren des Wissens. In abgelegenen Gegenden waren die M&#246;nche oft die einzigen gebildeten Menschen, die als Schreiber ihre religi&#246;sen Schriften kopierten. Kl&#246;ster haben nicht selten Bibliotheken, in denen unz&#228;hlige religi&#246;se, wissenschaftliche, medizinische und philosophische Texte aufbewahrt werden.</German>
+		<Italian>[TAB]Il monastero &#232; un edificio nel quale i monaci possono ritirarsi dal mondo e concentrarsi sul Divino. In genere, nel monastero vige un regolamento ferreo per proteggere i membri della comunit&#224; dalle tentazioni. In alcuni monasteri, i monaci erano completamente silenziosi e non erano permesse visite dall'esterno per non interrompere i rituali quotidiani e le cerimonie religiose. [PARAGRAPH:1] Nel corso dei secoli, i monasteri sono stati spesso centro di insegnamento: in alcune zone, i monaci erano sovente gli unici in grado di leggere e scrivere nel giro di diversi chilometri. Da sempre, i monaci sono stati utilizzati come scribi per copiare le parole sacre della propria religione; i monasteri ospitavano spesso delle biblioteche che contenevano testi religiosi, scientifici, medici e filosofici.</Italian>
+		<Spanish>[TAB]Un monasterio es un edificio en el que los monjes pueden retirarse del mundo para concentrarse en los asuntos de la divinidad. Normalmente tienen estrictas reglas de comportamiento para proteger a sus miembros de la tentaci&#243;n. En algunos monasterios, los monjes guardan un silencio total, mientras que en otros no se permite el acceso a los visitantes. Lo habitual es que sus miembros tengan que celebrar a diario muchos rituales y servicios religiosos. [PARAGRAPH:1] A lo largo de la historia, los monasterios han sido muchas veces centros de estudio. En las regiones remotas, los monjes pod&#237;an ser las &#250;nicas personas letradas en muchos kil&#243;metros a la redonda. A menudo han sido empleados como escribas, y se han dedicado a copiar los textos sagrados de su religi&#243;n. Normalmente cuentan con grandes bibliotecas, que contienen textos religiosos, cient&#237;ficos, m&#233;dicos y filos&#243;ficos.</Spanish>
+	</TEXT>
+	<TEXT> <!-- Shrine (Statue of Zeus) -->
+		<Tag>TXT_KEY_BUILDING_HELLENIC_SHRINE</Tag>
+		<English>The Statue of Zeus</English>
+		<French>
+			<Text>Sanctuaire hell&#233;nique</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Zeus-Statue</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Santuario ellenico:Santuari ellenici</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Altar hel&#233;nico:Altares hel&#233;nicos</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HELLENIC_SHRINE_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT> <!-- Wonder (The Erechtheum) -->
+		<Tag>TXT_KEY_BUILDING_ERECHTHEUM</Tag>
+		<English>The Erechtheum</English>
+		<French>L'Erechtheum</French>
+		<Italian>
+			<Text>Eretteo</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ERECHTHEUM_PEDIA</Tag>
+		<English>[TAB]The Erechtheum is an ancient Greek temple on the north side of the Acropolis of Athens in Greece.The Erectheum was associated with some of the most ancient and holy relics of the Athenians: the Palladion, which was a xoanon (defined as a wooden effigy fallen from heaven - not man-made) of Athena Polias (Protectress of the City); the marks of Poseidon's trident and the salt water well (the "salt sea") that resulted from Poseidon's strike; the sacred olive tree that sprouted when Athena struck the rock with her spear in her successful rivalry with Poseidon for the city; the supposed burial places of the mythical kings Cecrops and Erechtheus; the sacred precincts of Cecrops' three daughters, Herse, Pandrosus and Aglaurus; and those of the tribal heroes Pandion and Boutes.</English>
+		<Italian>[TAB]L'Eretteo è un antico tempio greco sul lato nord dell'Acropoli di Atene, in Grecia. L'Eretteo è stato associato con alcuni dei reperti più antichi e santi degli Ateniesi: il Palladio, che era un xoanon (definita come una effigie di legno caduta dal cielo - non umana) di Atena Polia (protettrice della città); i segni del tridente di Poseidone e il pozzo di acqua salata (il "mare di sale"), il risultato del colpo di Poseidone; l'olivo sacro che spuntò quando Atena colpì la roccia con la sua lancia nella sua rivalità con Poseidone per la città; il presunto luogo di sepoltura del mitico re Cecrope ed Eretteo; i recinti sacri delle tre figlie di Cecrope, ovveri Erse, Pandrosus e Aglauro; e quelli degli eroi tribali Pandion e Boutes.</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ERECHTHEUM_STRATEGY</Tag>
+		<English>Build the Erechtheum to give a bonus to naval units built in this city.</English>
+		<Italian>Costruisci l'Eretteo per fornire un bonus alle unità navali addestrate in questa città.</Italian>
+	</TEXT>
+	<TEXT> <!-- Wonder (Phidias Statue Workshop) -->
+		<Tag>TXT_KEY_BUILDING_FIDIAS</Tag>
+		<English>Phidias Statue Workshop</English>
+		<French>Atelier de sculpture de Phidias</French>
+		<Italian>
+			<Text>Atelier delle sculture di Fidia</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FIDIAS_PEDIA</Tag>
+		<English>[TAB]Phidias was a Greek sculptor, painter and architect, who lived in the 5th century BC, and is commonly regarded as one of the greatest of all sculptors of Classical Greece: Phidias' Statue of Zeus at Olympia was one of the Seven Wonders of the Ancient World. Phidias also designed the statues of the goddess Athena on the Athenian Acropolis, namely the Athena Parthenos inside the Parthenon and the Athena Promachos, a colossal bronze statue of Athena which stood between it and the the Propylaea, a monumental gateway that served as the entrance to the Acropolis in Athens. Phidias was the son of a certain Charmides.</English>
+		<Italian>[TAB]Fidia è stato uno scultore, pittore e architetto greco, vissuto nel 5° secolo a.C.; è comunemente considerato uno dei più grandi di tutti gli scultori della Grecia classica: la Statua di Zeus realizzata da Fidia a Olimpia era una delle sette meraviglie del Mondo Antico. Fidia progettò anche le statue della dea Atena sull'Acropoli ateniese, ovvero l'Athena Parthenos dentro il Partenone e l'Athena Promachos, una colossale statua di bronzo di Atena che sorgeva tra di esso e i Propilei, l'ingresso monumentale che faceva da entrata all'Acropoli di Atene. Fidia era figlio di un certo Carmide.</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FIDIAS_STRATEGY</Tag>
+		<English>Build the Phidias workshop to get a boost to culture in all your cities.</English>
+		<Italian>Costruisci l'atelier di Fidia per ottenere un bonus alla cultura in tutte le tue città.</Italian>
+	</TEXT>
+	<TEXT> <!-- Wonder (The NecromanteionNecromanteion) -->
+		<Tag>TXT_KEY_BUILDING_NECROMANTEION</Tag>
+		<English>The Necromanteion</English>
+		<French>Le Nécromantéion</French>
+		<Italian>
+			<Text>Necromanteion</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NECROMANTEION_PEDIA</Tag>
+		<English>[TAB]The Nekromanteion is the ancient Greek temple of necromancy devoted to Hades and Persephone. It is situated on an archaeological site located in northwestern Greece (Ephyra) overlooking the Acheron river. This site was believed by devotees to be the door to Hades, the realm of the dead. The word Nekromanteion means "Oracle of Death", and the faithful came here to talk with their late ancestors.</English>
+		<Italian>[TAB]Il Nekromanteion è l'antico tempio greco della negromanzia, dedicato a Ade e Persefone. Si trova su un sito archeologico situato nella Grecia nord-occidentale (Efira) con vista sul fiume Acheronte. Secondo i fedeli, questo sito era la porta dell'Ade, il regno dei morti. La parola Nekromanteion significa "Oracolo della Morte", e i fedeli venivano qui per parlare con loro agli antenati.</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NECROMANTEION_STRATEGY</Tag>
+		<English>Build the Necromanteion to get a bonus from all your priests.</English>
+		<Italian>Costruisci il Necromanteion per fornire bonus a tutti i tuoi sacerdoti.</Italian>
+	</TEXT>
+
+<!-- +++ Hinduism +++ -->
+	<TEXT> <!-- Wonder (Akshardham) -->
+		<Tag>TXT_KEY_BUILDING_AKSHARDHAM</Tag>
+		<English>Akshardham</English>
+		<Italian>
+			<Text>Akshardham</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AKSHARDHAM_PEDIA</Tag>
+		<English>[TAB]Akshardham is a Hindu temple complex in Delhi, India. The complex displays centuries of traditional Indian and Hindu culture, spirituality, and architecture. The building was inspired and moderated by Pramukh Swami Maharaj, the spiritual head of the Bochasanwasi Shri Akshar Purushottam Swaminarayan Sanstha, whose 3,000 volunteers helped 7,000 artisans construct Akshardham. The temple, which attracts approximately 70 percent of all tourists who visit Delhi, was officially opened on 6 November 2005. It sits on the banks of the Yamuna adjacent to the proposed 2010 Commonwealth Games village. The monument at the center of the complex of built off of the Vastu Shastra and Pancharatra Shastra. The complex features a large central monument crafted entirely of stone, exhibitions on incidents from the life of Bhagwan Swaminarayan and the history of India, an IMAX feature, a musical fountain, and large landscaped gardens.</English>
+		<Italian>[TAB]Akshardham è un complesso di templi indù a Delhi, in India. Il complesso presenta secoli di tradizione indiana e cultura, spiritualità e architettura indù. L'edificio è stato ispirato e moderato da Pramukh Swami Maharaj, il capo spirituale della Bochasanwasi Shri Akshar Purushottam Swaminarayan Sanstha, i cui 3.000 volontari hanno aiutato 7.000 artigiani a costruire l'Akshardham. Il tempio, che attira circa il 70 per cento di tutti i turisti che visitano Delhi, è stato ufficialmente inaugurato il 6 novembre 2005. Si trova sulle rive della Yamuna adiacente al villaggio dei Giochi del Commonwealth del 2010. Il monumento al centro del complesso è costruito fuori del Vastu Shastra e Pancharatra Shastra. Il complesso dispone di un grande monumento centrale realizzato interamente in pietra, scenedi episodi della vita di Bhagwan Swaminarayan e la storia dell'India, una caratteristica IMAX, una fontana musicale e grandi giardini monumentali.</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AKSHARDHAM_STRATEGY</Tag>
+		<English>Akshardam gives your city a bonus to science, a free scientist, to increase the great people rate and to decrease whipping anger.</English>
+		<Italian>L'Akshardam fornisce alla tua città un bonus alla ricerca, uno scienziato gratuito, incrementa il ritmo di nascita dei grandi personaggi e diminuisce la lunghezza dell'anarchia.</Italian>
+	</TEXT>
+	<TEXT> <!-- Wonder (Brihadeeswarar) -->
+		<Tag>TXT_KEY_BUILDING_HINDU_BRIHADEESWARAR</Tag>
+		<English>The Brihadeeswarar Temple</English>
+		<French>Temple de Brihadisvara</French>
+		<German>Der Brihadeschwara-Tempel</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HINDU_BRIHADEESWARAR_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HINDU_BRIHADEESWARAR_PEDIA</Tag>
+		<English>[TAB]The Brihadeeswarar temple is an ancient Hindu temple located at Thanjavur in the state of Tamil Nadu, India. The temple is dedicated to Shiva and dates to the Chola dynasty rule in the 11th century CE. The temple is part of the UNESCO World Heritage Site "Great Living Chola Temples". This temple is one of India's most prized architectural sites. It depicts the amazing and outstanding efforts of the ancient Indians. The building that carries the main sanctum is known as the 'Periya Kovil'. This stands amidst fortified walls that were probably added in the 16th century. The 'Vimana' of the temple is about 70 meters and is among the tallest of its kind in the world. The 'Shikharam' (crown) of Brihadeswara temple is itself very large and heavy (81.25 tons) and has been carved out of a single stone.</English>
+		<French>[TAB]Le temple de Brihadisvara — appelé aussi temple de Râjarâjeshvaram, d'après le nom de son constructeur — situé dans la ville de Tanjavûr dans l'État du Tamil Nadu en Inde  est une réalisation exemplaire du style drâvidien d'architecture religieuse. Il fut construit par le roi Chola Râjarâja entre 1003 à 1010. Le 257e jour de la 25e année de son règne (1010), Râjarâja assiste à l'installation du pot de cuivre au sommet du vimâna de 13 étages, pour un total de 66 m, couronné d'un bloc monolithique de 80 tonnes. Cette cérémonie indique que la construction du temple est terminée et qu'il est en fonction. Le bâtiment, dédié à Shiva-Rudra, est entouré de deux enceintes rectangulaires, et il est lui-même, fait de blocs de granit. La légende disait qu'une rampe de terre de plus de 6 km avait été nécessaire pour monter le bulbe monolithique jusqu'à son emplacement au sommet du vimâna, une technique utilisée aussi dans l'Égypte antique, des archéologues ont, semble-t-il, découvert des vestiges attestant de cet artifice.</French>
+	</TEXT>
+	<TEXT> <!-- Wonder (Meenakshi Temple) -->
+		<Tag>TXT_KEY_BUILDING_MEENAKSHI</Tag>
+		<English>Meenakshi Temple</English>
+		<French>Le Temple de Meenakshi</French>
+		<Italian>
+			<Text>Tempio Meenakshi</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MEENAKSHI_PEDIA</Tag>
+		<English>[TAB]Meenakshi Sundareswarar Temple is a historic Hindu temple located in the holy city of Madurai. It is dedicated to Lord Shiva (in the form of Sundareswarar or Beautiful Lord) and his consort, Goddess Parvati (in the form of Meenakshi). The temple forms the heart and lifeline of the 2500 year old city of Madurai. This temple has a stunning architecture and a significant testimony for Vishwakarma Brahmins for their master architecture in sculpting this temple. The complex houses 14 magnificent Gopurams or towers including two golden Gopurams for the main deities, that are elaborately sculptured and painted. The temple is a significant symbol for the Tamil people, and has been mentioned since antiquity in Tamil literature, though the present structure is believed to have been built only recently in the early 17th century. This magnificient architectual wonder was a frontrunner in the election for the modern seven wonders of the world for its architectural importance.</English>
+		<Italian>[TAB]Il tempio di Sundareswarar Meenakshi è un tempio storico indù situato nella città santa di Madurai. E' dedicato a Shiva (nella forma di Sundareswarar, Signore Magnifico) e alla sua consorte, la dea Parvati (in forma di Meenakshi). Il tempio è il cuore e la linfa vitale della città di Madurai da più di 2500 anni. Questo tempio ha una splendida architettura e una testimonianza significativa per i bramini Vishwakarma, per la loro bravura nelle sculture di questo tempio. Il complesso ospita 14 splendide Gopurams (torri) di cui due Gopurams d'oro per le principali divinità, che sono riccamente scolpite e dipinte. Il tempio è un simbolo significativo per il popolo Tamil, ed è stato citato fin dall'antichità nella letteratura tamil, anche se la struttura attuale si ritiene sia stata costruita solo di recente, nei primi anni del 17° secolo. Questa meraviglia architettonica magnifica era un capofila nelle elezioni per le moderne sette meraviglie del mondo, per la sua importanza architettonica.</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MEENAKSHI_STRATEGY</Tag>
+		<English>Meenakshi Temple gives your city a free artist, a bonus to culture, increases your great people rate and decreases anarchy length.</English>
+		<Italian>Il Tempio Meenakshi fornisce alla tua città un artista gratuito e un bonus alla cultura, incrementa il tasso di nascita dei grandi personaggi e diminuisce la lunghezza dell'anarchia.</Italian>
+	</TEXT>
+
+<!-- +++ Islam +++ -->
+	<TEXT> <!-- Wonder (Alhambra) -->
+		<Tag>TXT_KEY_BUILDING_ALHAMBRA</Tag>
+		<English>Alhambra</English>
+		<French>Alhambra</French>
+		<German>Alhambra</German>
+		<Italian>Alhambra</Italian>
+		<Spanish>Alhambra</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ALHAMBRA_PEDIA</Tag>
+		<English>The Alhambra is a palace and fortress complex of the Moorish monarchs of Granada, in southern Spain (known as Al-Andalus when the fortress was constructed), occupying a hilly terrace on the south-eastern border of the city of Granada. It was the residence of the Muslim kings of Granada and their court, but is currently a museum exhibiting exquisite Islamic architecture. A Renaissance palace was also inserted by Charles V, Holy Roman Emperor.[PARAGRAPH:1]The name Alhambra, signifying in Arabic the red, derives from the colour of the red clay of the surroundings of which the fort is made. The buildings of the Alhambra were originally whitewashed; however, the buildings now seen today are reddish. The first reference to the Qal'at al Hamra was during the battles between the Arabs and the Muladies during the rule of the Abdallah (who reigned from 888-912). In one particularly fierce and bloody skirmish, the Muladies soundly defeated the Arabs who were then forced to take shelter in a primitive red castle located in the province of Elvira, nowadays located in Granada. According to surviving documents from the era, the red castle was quite small and its walls were not capable of deterring army intent on conquering. The castle was then largely ignored until the eleventh century when its ruins were renovated and rebuilt by Samuel ibn Naghralla, vizier to the King Badis of the Zirid Dynasty, in an attempt to preserve the small Jewish settlement also located on the Sabikah hill. However, evidence from Arab texts indicates that the fortress was easily penetrated and that the actual Alhambra that survives today was built during the Nasrid Dynasty. -Wikipedia</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ALHAMBRA_STRATEGY</Tag>
+		<English>Alhambra requires Islam and it grants +1 gold per city with Islam. It acts as government center and reduces maintenance in nearby cities. Increases defense in all cities.</English>
+	</TEXT>
+	<TEXT> <!-- Wonder (Blue Mosque) -->
+		<Tag>TXT_KEY_BUILDING_BLUE_MOSQUE</Tag>
+		<English>Blue Mosque</English>
+		<French>La Mosquée Bleue</French>
+		<Italian>
+			<Text>Moschea blu</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BLUE_MOSQUE_PEDIA</Tag>
+		<English>[TAB]The Sultan Ahmed Mosque is the national mosque of Turkey . The mosque is one of several mosques known as the Blue Mosque for the blue tiles adorning the walls of its interior. It was built between 1609 and 1616, during the rule of Ahmed I. Like many other mosques, it also comprises a tomb of the founder, a madrasah and a hospice. The Sultan Ahmed Mosque has become one of the most popular tourist attractions in Istanbul.</English>
+		<Italian>[TAB]La Moschea del Sultano Ahmed è la moschea nazionale della Turchia; fa parte di un complesso di moschee ed è mehlio nota come la Moschea Blu per le piastrelle blu che ornano le pareti del suo interno. E' stata costruita tra il 1609 e il 1616, durante il regno di Ahmed I. Come molte altre moschee che comprende anche una tomba del fondatore, una madrassa e un ospizio. La Moschea del Sultano Ahmed è diventata una delle più popolari attrazioni turistiche di Istanbul.</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BLUE_MOSQUE_STRATEGY</Tag>
+		<English>Blue mosque gives to your city a free merchant and a bonus to gold.</English>
+		<Italian>La Moschea blu fornisce alla tua città un mercante gratuito, oltre a un bonus alla produzione di oro.</Italian>
+	</TEXT>
+	<TEXT> <!-- Wonder (Great Mosque of Djenné) -->
+		<Tag>TXT_KEY_BUILDING_DJENNE</Tag>
+		<English>Great Mosque of Djenné</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_DJENNE_PEDIA</Tag>
+		<English>[TAB]The Great Mosque of Djenné is the largest mud brick or adobe building in the world and is considered by many architects to be the greatest achievement of the Sudano-Sahelian architectural style, albeit with definite Islamic influences. The mosque is located in the city of Djenné, Mali on the flood plain of the Bani River. The first mosque on the site was built in the 13th century, but the current structure dates from 1907. As well as being the centre of the community of Djenné, it is one of the most famous landmarks in Africa. Along with the "Old Towns of Djenné" it was designated a World Heritage Site by UNESCO in 1988.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_DJENNE_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]The Great Mosque of Djenné[COLOR_REVERT] provides +2[ICON_COMMERCE] on desert tiles in the owner city's radius in addition to reducing the cost of cathedrals by 50% in all cities.</English>
+	</TEXT>
+	<TEXT> <!-- Wonder (Sultan Qaboos Grand Mosque) -->
+		<Tag>TXT_KEY_BUILDING_QABOOS_MOSQUE</Tag>
+		<English>Sultan Qaboos Grand Mosque</English>
+		<French>La Grande Mosquée du Sultan Qaboos</French>
+		<Italian>
+			<Text>Grande moschea del sultano Qaboos</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_QABOOS_MOSQUE_PEDIA</Tag>
+		<English>[TAB]In 1992 Sultan Qaboos directed that his country of Oman should have a Grand Mosque. A competition for its design took place in 1993 and after a site was chosen at Bausher construction commenced in 1995. Building work, which was undertaken by Carillion Alawi took six years and four months. The Mosque is built from 300,000 tonnes of Indian sandstone. The main musalla (prayer hall) is square (external dimensions 74.4 x 74.4 metres) with a central dome rising to a height of fifty metres above the floor. The dome and the main minaret (90 metres) and four flanking minarets (45.5 metres) are the mosque’s chief visual features. The main musalla can hold over 6,500 worshippers, while the women’s musalla can accommodate 750 worshippers. The outer paved ground can hold 8,000 worshippers and there is additional space available in the interior courtyard and the passageways, making a total capacity of up to 20,000 worshippers.</English>
+		<Italian>[TAB]Nel 1992 il sultano Qaboos decise che il suo paese, l'Oman, doveva avere una grande moschea. Un concorso per il suo design vene indetto nel 1993; dopo che il sito venne scelto a Bausher, la costruzione iniziò nel 1995. I lavori di costruzione, che è stata intrapresa da Carillion Alawi, sono durati sei anni e quattro mesi. La moschea è stata costruita con 300.000 tonnellate di arenaria indiana. Il Musalla principale (sala di preghiera) è quadrato (dimensioni esterne 74,4 x 74,4 metri) con una cupola centrale che sale fino a un'altezza di cinquanta metri dal pavimento. La cupola, il minareto principale (90 metri) e i quattro minareti che li fiancheggiano (45.5 metri) sono le principali caratteristiche visive della moschea. Il Musalla principale può contenere oltre 6.500 fedeli, mentre la sala delle donne può ospitare 750 fedeli. Il terreno lastricato esterno può contenere 8.000 fedeli e vi è ulteriore spazio a disposizione nel cortile interno e nelle zone di passaggio, portando la capacità totale fino a 20.000 fedeli.</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_QABOOS_MOSQUE_STRATEGY</Tag>
+		<English>Sultan Qaboos Great Mosque increases your cities culture, adds a free engineer and gives a bonus to trade routes.</English>
+		<Italian>La grande moschea del sultano Qaboos incrementa la cultura della tua città, fornisce un ingegnere gratis e migliora la resa delle tue rotte commerciali.</Italian>
+	</TEXT>
+
+<!-- +++ Judaism +++ -->
+	<TEXT> <!-- Wonder (Masada) -->
+		<Tag>TXT_KEY_BUILDING_JEWISH_MASADA</Tag>
+		<English>Masada</English>
+		<French>Masada</French>
+		<German>Masada</German>
+		<Italian>Masada</Italian>
+		<Spanish>Masada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_JEWISH_MASADA_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_JEWISH_MASADA_PEDIA</Tag>
+		<English>[TAB]Masada is the name for a site of ancient palaces and fortifications in the South District of Israel on top of an isolated rock plateau, or large mesa, on the eastern edge of the Judean Desert overlooking the Dead Sea. Masada became famous after the First Jewish-Roman War (also known as the Great Jewish Revolt) when a siege of the fortress by troops of the Roman Empire led to a mass suicide of the site's Jewish Sicarii fugitives when defeat became imminent. Today, Masada is a very popular tourist destination.[PARAGRAPH:2]The cliffs on the east edge of Masada are about 1,300 feet (400 m) high and the cliffs on the west are about 300 feet (90 m) high; the natural approaches to the cliff top are very difficult. The top of the plateau is flat and rhomboid-shaped, about 1,800 feet (550 m) by 900 feet (275 m). There was a casemate wall around the top of the plateau totaling 4,300 feet (1.3 km) long and 12 feet (3.7 m) thick, with many towers, and the fortress included storehouses, barracks, an armory, the palace, and cisterns that were refilled by rainwater. Three narrow, winding paths led from below up to fortified gates.[PARAGRAPH:2]According to Josephus, a first-century Jewish Roman historian, Herod the Great fortified Masada between 37 and 31 BCE as a refuge for himself in the event of a revolt. In 66 CE, at the beginning of the First Jewish-Roman War against the Roman Empire, a group of Judaic extremist rebels called the Sicarii took Masada from the Roman garrison stationed there.[PARAGRAPH:2]In 72 CE, the Roman governor of Iudaea Lucius Flavius Silva marched against Masada with the Roman legion X Fretensis and laid siege to the fortress. After failed attempts to breach the wall, they built a circumvallation wall and then a rampart against the western face of the plateau, using thousands of tons of stones and beaten earth. The rampart was complete in the spring of 73, after approximately two to three months of siege, allowing the Romans to finally breach the wall of the fortress with a battering ram. When they entered the fortress, however, the Romans discovered that its 936 inhabitants had set all the buildings but the food storerooms ablaze and committed mass suicide rather than face certain capture, defeat, slavery or execution by their enemies.</English>
+	</TEXT>
+	<TEXT> <!-- Wonder (Cave of the Patriarchs) -->
+		<Tag>TXT_KEY_BUILDING_CAVE_PATRIARCHS</Tag>
+		<English>Cave of the Patriarchs</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CAVE_PATRIARCHS_PEDIA</Tag>
+		<English>[TAB]Cave of the Patriarchs, also known as the Cave of Machpelah by Jews and Ibrahimi Mosque by Muslims is situated beneath a Saladin-era mosque converted from a large rectangular Herodian-era structure, the series of subterranean chambers is located in the heart of the old city of Hebron (Al-Khalil) in the Hebron Hills. According to tradition that has been associated with both the Book of Genesis and the Quran, the cave and adjoining field were purchased by Abraham as a burial plot. Abraham, Isaac, Jacob, Sarah, Rebecca, and Leah, considered the Patriarchs and Matriarchs of the Jewish people, are all believed to be buried there. The only matriarch missing is Rachel, who is believed to be buried near Bethlehem where she died in childbirth. The Arabic name of the complex reflects the prominence given to Abraham, revered by Muslims as a Quranic prophet and patriarch through Ishmael..</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CAVE_PATRIARCHS_STRATEGY</Tag>
+		<English>Build the Cave of the Patriarchs to get a bonus to culture.</English>
+	</TEXT>
+
+<!-- +++ Kemetism +++ -->
+	<TEXT> <!-- Religion Details -->
+		<Tag>TXT_KEY_RELIGION_KEMETISM</Tag>
+		<English>Kemetism</English>
+		<French>Kémétisme</French>
+		<German>Kemetismus</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_KEMETISM_PEDIA</Tag>
+		<English>[TAB]The ancient Egyptian religion was not really a religion at all in the way that we would think of it, but an overlapping set of cults and rituals that together shared a common worldview. There was no unifying theology or set of canonical writings to the Egyptian religion. Instead, the religion was based upon a series of ritual interactions between the gods and their followers, the Egyptian priests, which had developed over a long period of time. This religion was very old, and dates back to at least 3000BC but possibly even earlier. Ancient Egyptian religion was a mixture of science, law, and philosophy acting together within the same framework; it would have been impossible for an Egyptian to stand outside of the religion. [PARAGRAPH:2:1]According to Egyptian mythology, before creation there was only the sea. The sun-god Re (or Ra) came from out of an egg, and the other gods were born from him who went on to become the sky, the earth, the land of the dead, etc. The most important myth in the Egyptian religion told the story of the murder and rebirth of Osiris, and the revenge gained by his son Horus on his murderer. The story not only explained the cycle of nature, but also served to highlight the importance of the sacred kingship for Egypt. As the legend suggests, Egyptian religion was polytheistic in nature and had as many as 80 major gods and goddesses. The Egyptian gods were mostly human in form, but some also took the form of animals, and others combined aspects of both, such as a human with the head of a jackal. An unusual feature of the Egyptian religion was that the gods were thought to need food and drink just like humans, which were provided by priests in daily rituals located in the temples of the gods. The statue of the deity, known as an image, would be bathed and fed multiple times daily by the priests in sacred rituals. In return for this care, the gods would watch over and protect the Egyptians from harm. [PARAGRAPH:2:1]State and religion were inextricably bound together in ancient Egypt. The pharaoh was considered to be not only the highest priest in the Egyptian religion, but also a living god on earth. Although it was the priests and not pharaoh who performed most of the religious ceremonies, his power was unquestioned, and massive temples that required enormous amounts of labor were built in order to serve as the final resting places of these rulers. As mentioned earlier, the Egyptian religion was a cult in which the ordinary people were not allowed to participate, beyond taking part in public festivals. There were many small shrines across Egypt that may have been frequented by the people, but the main cult was strictly off-limits and access to the major temples severely curtailed. [PARAGRAPH:2:1]In the last few centuries before the Roman conquest of Egypt, the religion began to be influenced by foreign deities. A number of different variations developed based on Hellenic practices, further complicating the already heterogeneous religion. The traditional Egyptian religion vanished later on in the wake of Christianity and Islam, and is a dead religion today. </English>
+		<French>[TAB]L'ancien culte &#233;gyptien n'est pas exactement une religion &#224; proprement parler. C'est plut&#244;t un enchev&#234;trement de croyances et rituels partageant une m&#234;me conception du monde, mais il n'existe pas de th&#233;ologie unificatrice ou d'&#233;critures canoniques : la religion s'appuie sur une s&#233;rie d'interactions rituelles entre les dieux et leurs disciples, les pr&#234;tres &#233;gyptiens, interactions d&#233;velopp&#233;es sur une tr&#232;s longue p&#233;riode. Cette religion est tr&#232;s ancienne, certains de ses principes remontent &#224; au moins 3000 av. J.-C., alors que d'autres sont apparus par la suite. Le culte associe les influences de la science, de la loi et de la philosophie dans un m&#234;me cadre. Il est impossible pour un Egyptien de se soustraire &#224; l'influence de la religion. [PARAGRAPH:2:1]Selon la mythologie &#233;gyptienne, avant la cr&#233;ation il n'y avait que la mer. Le dieu soleil Re (or Ra) est sorti d'un oeuf et a engendr&#233; les autres dieux. Ces dieux sont devenus le ciel, la terre, le monde des morts et ainsi de suite. La plus importante l&#233;gende de la mythologie &#233;gyptienne raconte l'histoire du meurtre et de la renaissance d'Osiris, dieu du monde des morts, et la vengeance contre son assassin accomplie par son fils Horus. L'histoire ne permet pas seulement d'expliquer le cycle de la nature, elle sert aussi &#224; mettre en lumi&#232;re l'importance d'une royaut&#233; sacr&#233;e en Egypte. Les Egyptiens ne v&#233;n&#232;rent pas moins de 80 principaux dieux ou d&#233;esses. La plupart des dieux &#233;gyptiens ont forme humaine, mais certains ont l'apparence d'un animal et d'autres combinent les deux formes, tels qu'un humain avec une t&#234;te de faucon. L'un des aspects particuliers de cette religion est la croyance en des dieux anim&#233;s de besoins vitaux et ayant besoin de se nourrir et s'abreuver comme les humains. Boisson et nourriture leur sont servies par les pr&#234;tres &#224; l'occasion de rituels quotidiens dans les temples des dieux. La statue du dieu, appel&#233;e "image", est baign&#233;e et nourrie plusieurs fois par jour par les pr&#234;tres avec des rituels sacr&#233;s. En r&#233;compense de cette attention, les dieux prot&#233;gent les Egyptiens. [PARAGRAPH:2:1]L'&#233;tat et la religion sont &#233;troitement li&#233;s dans l'ancienne Egypte. Le pharaon n'est pas seulement consid&#233;r&#233; comme le premier des pr&#234;tres, mais aussi comme un dieu vivant. M&#234;me si la plupart des c&#233;r&#233;monies religieuses se d&#233;roulent sous la responsabilit&#233; des pr&#234;tres et non du pharaon, l'autorit&#233; de celui-ci n'est pas remise en question et de gigantesques tombeaux requ&#233;rant une force de travail fabuleuse sont &#233;difi&#233;s comme derni&#232;res demeures pour ces rois. La religion &#233;gyptienne est un culte auquel le commun des mortels n'a pas le droit de participer, en dehors des c&#233;l&#233;brations publiques. Certes, l'Egypte compte de nombreux petits sanctuaires qui peuvent &#234;tre fr&#233;quent&#233;s par le peuple, mais le culte central est strictement interdit et l'acc&#232;s aux temples tr&#232;s restreint. [PARAGRAPH:2:1]Durant les derniers si&#232;cles avant la conqu&#234;te romaine de l'Egypte, la religion commence &#224; subir l'influence de divinit&#233;s &#233;trang&#232;res. Un certain nombre de variantes se d&#233;veloppent &#224; partir de pratiques hell&#233;niques, compliquant encore un culte d&#233;j&#224; tr&#232;s h&#233;t&#233;rog&#232;ne. Et, comme ce sera le cas pour de nombreux autres cultes anciens, l'&#233;mergence du Christianisme et de l'Islam scelle le sort final de la religion &#233;gyptienne.</French>
+		<German>[TAB]Der alt&#228;gyptische Glaube war nach heutigem Verst&#228;ndnis nicht wirklich eine Religion, sondern eine Mischung aus Kulten und Ritualen, kombiniert mit einer gemeinschaftlichen Weltanschauung. Es gab weder eine einheitliche theologische Lehre noch kanonische Schriften zur &#228;gyptischen Religion. Vielmehr basierte sie auf einem vielf&#228;ltigen rituellen Zusammenspiel zwischen den G&#246;ttern und ihren Anh&#228;ngern, den &#228;gyptischen Priestern, das sich &#252;ber einen sehr langen Zeitraum hinweg entwickelt hatte. Diese &#228;gyptische Glaubensform datiert mindestens auf das Jahr 3000 vor Christus zur&#252;ck, wenn nicht sogar noch fr&#252;her. Sie repr&#228;sentierte eine Mischung aus Wissenschaft, Gesetzgebung und Philosophie, die gemeinschaftlich im gleichen Rahmensystem angewandt wurden. F&#252;r einen &#196;gypter w&#228;re es somit unm&#246;glich gewesen, die Religion au&#223;en vor zu lassen. [PARAGRAPH:2:1]Gem&#228;&#223; der &#228;gyptischen Mythologie existierte vor der eigentlichen Sch&#246;pfung ausschlie&#223;lich das Meer. Der Sonnengott Ra (auch Re genannt) soll einem Ei entschl&#252;pft sein und die anderen G&#246;tter geboren haben, die dann zu Himmel, Erde, dem Reich der Toten etc. geworden sein sollen. Der wichtigste Mythos der &#228;gyptischen Religion beschreibt den Mord an Osiris, seine Wiedererweckung sowie die Rache, die sein Sohn Horus an seinem M&#246;rder nahm. Diese Geschichte erkl&#228;rte nicht nur den Lauf der Natur, sondern diente auch der Hervorhebung der Bedeutung der k&#246;niglichen Herrschaft f&#252;r &#196;gypten. Laut der &#220;berlieferungen war die &#228;gyptische Religion polytheistisch und an sage und schreibe 80 bedeutenden G&#246;ttern und G&#246;ttinnen orientiert. Diese waren zumeist menschlicher Gestalt, manche nahmen jedoch auch Tiergestalt an und andere erschienen in einer Kombination aus beidem, zum Beispiel mit einem menschlichen K&#246;rper und dem Kopf eines Schakals. Ein ungew&#246;hnliches Merkmal der &#228;gyptischen Religion war die Annahme, dass die G&#246;tter wie die Menschen Nahrung und Getr&#228;nke brauchten, welche die Priester ihnen tagt&#228;glich in den Tempeln darboten: Die Statue der Gottheit, das so genannte Abbild, wurde im Rahmen der von den Priestern abgehaltenen geheiligten Rituale gebadet, gesalbt und mehrfach am Tag verk&#246;stigt, damit die G&#246;tter &#252;ber die &#196;gypter wachen und Schaden von ihnen fernhalten mochten. [PARAGRAPH:2:1]Staat und Religion waren in der Antike in &#196;gypten untrennbar miteinander verbunden. Der Pharao wurde nicht nur als Hohepriester der &#228;gyptischen Religion betrachtet, sondern auch als die Personifizierung eines Gottes. Obwohl es die Priester waren, die den gr&#246;&#223;ten Teil der religi&#246;sen Zeremonien abhielten, und nicht der Pharao, war dessen Macht unumstritten. Aus diesem Grund wurde ihm auch in einem ungeheuren Arbeitsaufwand ein massiver Tempel als letzte Ruhest&#228;tte errichtet. Wie bereits erw&#228;hnt, war die &#228;gyptische Religion eher eine Art Kult, an dem die "normale" Bev&#246;lkerung, abgesehen von den &#246;ffentlichen Veranstaltungen, normalerweise nicht teilhaben durfte. Trotzdem gab es in ganz &#196;gypten viele kleine Schreine, die m&#246;glicherweise auch vom gemeinen Volk besucht wurden, doch der Hauptkult war tabu und der Zutritt zu den bedeutenden Tempeln stark eingeschr&#228;nkt. [PARAGRAPH:2:1]In den letzten Jahrhunderten vor der Eroberung &#196;gyptens durch die R&#246;mer wurde die &#228;gyptische Religion zunehmend von fremdl&#228;ndischen Gottheiten beeinflusst. Es entwickelten sich verschiedene Varianten, die vor allem auf den Praktiken der alten Griechen gr&#252;ndeten, wodurch sich die Struktur dieser ohnehin schon heterogenen Glaubensrichtung noch weiter verkomplizierte. Mit dem Aufkommen des Christentums und des Islams verschwand die traditionelle &#228;gyptische Religion sp&#228;ter immer mehr aus dem Blickfeld und ist heute g&#228;nzlich erloschen. </German>
+		<Italian>[TAB]L'antica religione egizia in effetti non &#232; una religione come siamo abituati a pensarla, ma piuttosto una sovrapposizione di culti e riti che avevano in comune una certa visione del mondo. Non esistevano scritti canonici o una teologia unificante, ma solo una serie di interazioni ritualistiche tra le divinit&#224; e i loro seguaci, ossia i sacerdoti egizi, sviluppatasi nel corso di un lunghissimo periodo. La religione egizia infatti &#232; molto antica e risale ad almeno al 3000 a.C. e forse anche prima. Essa era un misto di scienza, legge e filosofia operanti all'interno di una stessa cornice: sarebbe stato impossibile per un egizio vivere al di fuori della religione. [PARAGRAPH:2:1]Secondo la mitologia egizia, prima della creazione esisteva solo il mare. Il dio-sole, Ra (o Re) nacque da un uovo. Da lui nacquero altre divinit&#224;, che poi diventarono il cielo, la terra, la terra dei morti, ecc. Il mito pi&#249; importante della religione egizia narra la storia della morte e della rinascita di Osiride e la vendetta di suo figlio Horus nei confronti dell'assassino. La storia non solo spiegava il ciclo della natura, ma sottolineava anche l'importanza della dinastia sovrana per l'Egitto. Come pu&#242; capirsi dalla leggenda, la religione egizia era politeistica e comprendeva circa 80 fra dei e dee. Essi avevano per lo pi&#249; un aspetto umano, ma alcuni assumevano la forma di animali o un aspetto misto (es. corpo da uomo con testa di sciacallo). Una caratteristica inusuale della religione egizia era che le divinit&#224; avevano bisogno di cibo e bevande per sopravvivere, cose che erano loro fornite dai sacerdoti in riti che avevano luogo nei templi dedicati alle divinit&#224;. La statua della divinit&#224;, nota come la sua immagine, veniva lavata e unta e "nutrita" pi&#249; volte al giorno. In cambio, la divinit&#224; proteggeva l'Egitto da mali e calamit&#224;. [PARAGRAPH:2:1]Stato e religione erano connessi inestricabilmente nell'antico Egitto. Il faraone era non solo il pi&#249; alto sacerdote egizio, ma anche una divinit&#224; vivente in terra. Anche se la maggior parte delle cerimonie era compiuta dai sacerdoti e non dal faraone, il suo potere non era messo in dubbio e per custodire il sonno eterno del sovrano venivano eretti templi che richiedevano enormi quantit&#224; di forza lavoro. Si &#232; gi&#224; detto che la religione egizia era un culto al quale la popolazione ordinaria non aveva il permesso di partecipare, feste pubbliche a parte. Sparsi per l'Egitto vi erano numerosi piccoli santuari frequentati dalla gente, ma l'accesso di questa ai templi e al culto principale era notevolmente ridotto. [PARAGRAPH:2:1]Nei secoli precedenti la conquista romana dell'Egitto, la religione egizia cominci&#242; a essere influenzata da culti stranieri. Nacquero diverse varianti per via dell'influenza della religione ellenica, col risultato di complicare una religione gi&#224; abbastanza eterogenea. La religione egizia tradizionale spar&#236; pi&#249; tardi con l'avvento del cristianesimo e dell'islam e oggi &#232; una religione morta. </Italian>
+		<Spanish>[TAB]La religi&#243;n del antiguo Egipto no era realmente una religi&#243;n en el sentido en que nosotros lo entendemos hoy d&#237;a, sino una combinaci&#243;n de cultos y rituales que compart&#237;an una visi&#243;n del mundo. No exist&#237;a un cuerpo teol&#243;gico unificador ni unas escrituras can&#243;nicas. Se basaba en una serie de interacciones entre los dioses y sus adoradores, los sacerdotes egipcios, desarrolladas a lo largo de mucho tiempo. La religi&#243;n era muy antigua. Se remonta como m&#237;nimo hasta el 3000 a. C., y es posible que a&#250;n m&#225;s. Estaba formada por una mezcla de ciencia, derecho y filosof&#237;a que actuaban bajo una misma estructura; un egipcio nunca habr&#237;a podido escapar a su religi&#243;n. [PARAGRAPH:2:1]Seg&#250;n la mitolog&#237;a egipcia, antes de la creaci&#243;n solo exist&#237;a el mar. El dios del sol (Ra) naci&#243; de un huevo y los dem&#225;s dioses, engendrados por &#233;l, se convirtieron en el cielo, la tierra, el pa&#237;s de los muertos, etc. El mito m&#225;s importante de la religi&#243;n egipcia cuenta la historia del asesinato y renacimiento de Osiris y de la venganza cobrada por Horus, su hijo. Adem&#225;s de explicar el ciclo de la naturaleza, esta historia serv&#237;a para recalcar el car&#225;cter divino de la realeza en Egipto.  Seg&#250;n indican las leyendas, la religi&#243;n egipcia era de naturaleza polite&#237;sta y contaba con un total de ochenta dioses y diosas principales. En su mayor parte, los dioses ten&#237;an forma humana, pero algunos de ellos adoptaban forma de animales y otros una combinaci&#243;n de ambas, como por ejemplo un cuerpo humano con cabeza de chacal. Una caracter&#237;stica poco habitual de la religi&#243;n egipcia era que sus practicantes pensaban que los dioses necesitaban comida y bebida, igual que si fueran seres humanos, y los sacerdotes se encargaban de cubrir estas necesidades en rituales diarios realizados en los templos. La estatua de la deidad, conocida como imagen, era ba&#241;ada y alimentada muchas veces a lo largo del d&#237;a. A cambio de este cuidado, los dioses vigilaban y proteg&#237;an a los egipcios. [PARAGRAPH:2:1]Estado y religi&#243;n estaban unidos indisolublemente en el antiguo Egipto. Se consideraba que el fara&#243;n no era tan solo el sumo sacerdote de la religi&#243;n egipcia, sino adem&#225;s un dios que caminaba entre los mortales. Aunque eran los sacerdotes, y no el fara&#243;n, los que realizaban la mayor parte de las ceremonias religiosas, el poder de &#233;ste era incuestionable y se levantaban enormes templos (que requer&#237;an el trabajo de gran cantidad de hombres) como &#250;ltima morada para &#233;l. Como ya hemos dicho, la religi&#243;n egipcia era un tipo de culto del que el pueblo no participaba m&#225;s all&#225; de ciertos rituales p&#250;blicos. Exist&#237;an muchos peque&#241;os santuarios por todo Egipto y es muy posible que el pueblo acudiera a ellos, pero la parte principal del culto estaba estrictamente prohibida y el acceso a los templos principales, severamente restringido. [PARAGRAPH:2:1]En los siglos que precedieron a la conquista de Egipto por parte de los romanos, la religi&#243;n empez&#243; a recibir influencias extranjeras. Se desarrollaron diferentes variedades basadas en las pr&#225;cticas helen&#237;sticas, lo que contribuy&#243; a complicar a&#250;n m&#225;s una religi&#243;n ya de por s&#237; heterog&#233;nea. M&#225;s adelante, con el ascenso de cristianismo e islamismo, la religi&#243;n desaparecer&#237;a y en nuestros d&#237;as ya no existe. </Spanish>
+	</TEXT>
+	<TEXT> <!-- Temple -->
+		<Tag>TXT_KEY_BUILDING_KEMETIC_TEMPLE</Tag>
+		<English>Temple of Amun</English>
+		<French>Temple d'Amon</French>
+		<German>Amun-Tempel</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_TEMPLE_PEDIA</Tag>
+		<English>[TAB]In Civilization IV, a temple is defined as a building where the faithful come to worship. Christians call their temples "churches," while Muslims call theirs "mosques," and Jews call theirs, simply, "temples." Temples are far more common than cathedrals, but much less large and ornate. Even the smallest village can possess a temple.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_TEMPLE_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT> <!-- Cathedral -->
+		<Tag>TXT_KEY_BUILDING_KEMETIC_CATHEDRAL</Tag>
+		<English>Temple of Mut</English>
+		<French>Temple de Mut</French>
+		<German>Mut-Tempel</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_CATHEDRAL_PEDIA</Tag>
+		<English>[TAB]In Civilization IV, a cathedral is defined as an especially large and ornate religious building where the faithful worship. Only the most prosperous cities can afford to create pantheons, as they require huge amounts of raw material and years of dedicated labor by skilled craftsmen.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_CATHEDRAL_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT> <!-- Monastry -->
+		<Tag>TXT_KEY_BUILDING_KEMETIC_MONASTERY</Tag>
+		<English>Temple of Chons</English>
+		<French>Temple de Chons</French>
+		<German>Chons-Tempel</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_MONASTERY_PEDIA</Tag>
+		<English>[TAB]Chons is an ancient lunar deity, from before formal structure was given to a pantheon. His name reflects the fact that the Moon (referred to as Iah in Egyptian) travels across the night sky, for it means The Wanderer, and also had the titles Embracer, Pathfinder, and Defender, as he was thought to watch over night travelers. As the god of light in the night, Chons was invoked to protect against wild animals, increase male virility, and to aid with healing. It was said that when Chons caused the crescent moon to shine, women conceived, cattle became fertile, and all nostrils and every throat was filled with fresh air. can also be understood to mean king's placenta, and consequently in early times, he was considered to slay the king's (i.e. the pharaoh's) enemies, and extract their innards for the king's use, metaphorically creating something resembling a placenta for the king. This bloodthirsty aspect leads him to be referred to, in such as the Pyramid texts, as the (one who) lives on hearts. He also became associated with more literal placentas, becoming seen as a deification of the royal placenta, and so a god involved with childbirth.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_MONASTERY_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT> <!-- Shrine (Karnak)  -->
+		<Tag>TXT_KEY_BUILDING_KEMETIC_SHRINE</Tag>
+		<English>The Karnak Temple Complex</English>
+		<French>Le Complexe de Temples de Karnak</French>
+		<German>Der Tempelkomplex von Karnak</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_SHRINE_PEDIA</Tag>
+		<English>[TAB]The Karnak temple complex, universally known only as Karnak, describes a vast conglomeration of temples, chapels, pylons and other buildings. [PARAGRAPH:1]By the Eleventh Dynasty, the Theban kings had become rulers of all Egypt, and the tribal god of the region (Amun) consequently increased in power and wealth, gradually being merged with the sun god Re, to become Amun-Re. The White Chapel of Senusret I and the Middle Kingdom court are the earliest remains of buildings within the temple area. [PARAGRAPH:1]Major construction work took place during the Eighteenth dynasty. Thutmose I erected an enclosure wall connecting the Fourth and Fifth pylons, which comprise the earliest part of the temple still standing in situ. They contain fourteen papyrus columns and the two obelisks of Hatshepsut, which were later hidden from view by walls set up by Thutmose III. Under Hatshepsut and Thutmose III, another enclosure wall fortified with towers was erected, and the nearby Sacred Lake was either constructed or enlarged. During the reign of Thutmose III, the main temple itself was extended by 50% with the addition of a building called the Akh-menu ("the most glorious of monuments"), now know as the Festival Hall of Thutmose III, which is seemingly decorated to echo a huge tent shrine, complete with awnings and tent poles. In this temple, the Karnak king list, shows Thutmose III with some of the earlier kings that built parts of the temple complex. After a brief period of interruption during the Amarna period, when the Egyptian capital was moved to Akhetaten, construction resumed at Karnak under Tutankhamun and Horemheb. The Ninth pylon was erected along the southern axis using material known as talatat from the now demolished Akhetaten. Construction of the Hypostyle Hall may have also began during the eighteenth dynasty, though most building was undertaken under Seti I and Ramesses II. Merenptah commemorated his victories over the Sea Peoples on the walls of the Cachette Court, the start of the processional route to the Luxor Temple. This Great Inscription (which has now lost about a third of its content) shows the king's campaigns and eventual return with booty and prisoners. Next to this enscription is the Victory Stela, which is largely a copy of the more famous Israel Stela, which was found on the West Bank funerary complex of Merenptah. Merenptah's son Seti II added 2 small obelisks in front of the Second Pylon, and a triple bark-shrine to the north of the processional avenue in the same area. This was constructed of sandstone, with a chapel to Amun flanked by those of Mut and Khonsu.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_SHRINE_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT> <!-- Wonder (Osiris) -->
+		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_OSIRIS</Tag>
+		<English>Temple of Osiris</English>
+		<French>Temple d'Osiris</French>
+		<German>Osiris-Tempel</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_OSIRIS_PEDIA</Tag>
+		<English>[TAB]Osiris is the Egyptian god of life, death, and fertility. Osiris was not only the redeemer and merciful judge of the dead in the afterlife, but also the underworld agency that granted all life, including sprouting vegetation and the fertile flooding of the Nile River. The Kings of Egypt were associated with Osiris in death as Osiris rose from the dead they would, in union with him, inherit eternal life through a process of imitative magic. By the New Kingdom all people, not just pharaohs, were believed to be associated with Osiris at death if they incurred the costs of the assimilation rituals.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_OSIRIS_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT> <!-- Wonder (Isis) -->
+		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_ISIS</Tag>
+		<English>Temple of Isis</English>
+		<French>Temple d'Isis</French>
+		<German>Isis-Tempel</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_ISIS_PEDIA</Tag>
+		<English>[TAB]Isis Is the wife and sister of Osiris and the mother of Horus (Heru). Isis was worshipped as the archetypal wife and mother. Her name literally means "she of throne", that is, "Queen of the throne", which was portrayed by the emblem worn on her head, that of a throne. However, the hieroglyph of her name originally meant "she of flesh", i.e. mortal, and she may simply have represented deified, historical queens. She is also known as the goddess of magic and healing and the goddess from who all Beginnings arose, and was also known as the Lady of bread, of beer and of green fields. Ancient Egyptians believed that the Nile flooded every year because of her tears of sorrow for her dead husband, Osiris. He was killed by her other evil brother, Set, god of chaos and destruction. Set sliced Osiris into bits and flung them into the Nile River, letting the animals eat the remains of his body. However, all the pieces survived, except for his phallus.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_ISIS_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT> <!-- Wonder (Set) -->
+		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_SET</Tag>
+		<English>Temple of Set</English>
+		<French>Temple de Set</French>
+		<German>Seth-Tempel</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_SET_PEDIA</Tag>
+		<English>[TAB]Set (also spelled Seth, Sutekh or Seteh) is an ancient god, who was originally the god of the desert, storms, and chaos. Set was viewed as immensely powerful, and was regarded consequently as the chief god. Set carried the epithet, "His Majesty", shared only with Ra. Another common epithet was, of great of strength, and in one of the Pyramid Texts it states that the king's strength is that of Set. As chief god, he was patron of Upper Egypt (in the South- upstream), where he was worshiped, most notably at Ombos. Set was regarded as a fierce warrior. It was he who protected Ra on the solar barque, slaying the chaos serpent, Apep each day to allow the sun to rise. Combined with an association with the destructive and irresistible power of storms and the desert, Set became the patron deity of soldiers, who often wore Set amulets, hoping to acquire similar destructive force, or Set's infinite protection.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_SET_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT> <!-- Wonder (Ptah) -->
+		<Tag>TXT_KEY_BUILDING_PTAH</Tag>
+		<English>Temple of Ptah</English>
+		<French>Temple de Ptah</French>
+		<Italian>
+			<Text>Tempio di Ptah</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_PTAH_PEDIA</Tag>
+		<English>[TAB]Ptah was the ancient Egyptian god of scribes ,craftsmen and architects. In art, he is shown as a bearded mummified man, often wearing a skull cap, holding a djed. He was believed to be married to Sekhmet.</English>
+		<Italian>[TAB]Ptah era l'antico dio egizio degli scribi, degli artigiani e degli architetti. Nell'arte veniva rappresentato come un uomo mummificato barbuto, spesso indossando un berretto cranico, brandendo un djed. Si riteneva che fosse sposato con Sekhmet.</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_PTAH_STRATEGY</Tag>
+		<English>Build the Temple of Ptah to get a free School of scribes in all your cities.</English>
+		<Italian>Costruisci il tempio di Ptah to ottenere una scuola di scribi gratuita in tutte le tue città.</Italian>
+	</TEXT>
+	<TEXT> <!-- Wonder (Thoth) -->
+		<Tag>TXT_KEY_BUILDING_THOTH</Tag>
+		<English>Temple of Thoth</English>
+		<French>Temple de Toth</French>
+		<Italian>
+			<Text>Tempio di Toth</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_THOTH_PEDIA</Tag>
+		<English>[TAB]Thoth, was considered one of the more important deities of the Egyptian pantheon, often depicted with the head of an Ibis.He was considered the heart and tongue of Ra as well as the means by which Ra's will was translated into speech. In the Egyptian mythology, he has played many vital and prominent roles, including being one of the two deities (the other being Ma'at) who stood on either side of Ra's boat. He has further been involved in arbitration, magic, writing, science,and the judging of the dead.</English>
+		<Italian>[TAB]Toth era considerato una delle più importanti divinità del pantheon egizio, spesso raffigurato con la testa di un Ibis. Era considerato il cuore e la lingua di Ra, così come il mezzo con cui la volontà di Ra veniva trasformata in parole. Nella mitologia egizia, ha giocato molti ruoli vitali e importanti, tra cui l'essere una delle due divinità (l'altra era Ma'at) che stavano ai lati della barca di Ra. E' stato inoltre coinvolto negli arbitrati, nella magia, nella scrittura, nella scienza, e nel giudizio dei morti.</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_THOTH_STRATEGY</Tag>
+		<English>Build the Temple of Toth to get a boost to research in all your cities.</English>
+		<Italian>Costruisci il tempio di Toth per ottenere un bonus alla ricerca in tutte le tue città.</Italian>
+	</TEXT>
+
+<!-- ++++ Nagualism +++ -->
+	<TEXT> <!-- Religion Details -->
+		<Tag>TXT_KEY_RELIGION_NAGUALISM</Tag>
+		<English>Nagualism</English>
+		<French>Nagualisme</French>
+		<German>Nagualismus</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_NAGUALISM_PEDIA</Tag>
+		<English>[TAB]The Maya, Zapotec, Mixtec, and Aztec religions all had a concept of a vital force that separated living from nonliving matter. For the Maya this was expressed in the concept of "ik," or wind, breath, or life. For the Zapotecs it was "pee" or wind, breath, or spirit. For the Mixtec it was "yni" or "ini" or spirit, heart, or heat. For the Aztec it was "tona" or vital energy, or heat. As animists, the line drawn as to what was alive, was different from the Judeo-Christian tradition. They attributed life to many things which the Spaniards, for example, did not. The idea of human sacrifice was one of the more notable shared concepts of these religions which were concerned with keeping the cosmos in balance through human action. </English>
+	</TEXT>
+	<TEXT> <!-- Temple (Quetzalcoatl) -->
+		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_TEMPLE</Tag>
+		<English>Temple of Quetzalcoatl</English>
+		<French>Temple de Quetzalcoatl</French>
+		<German>Quetzalcoatl-Tempel</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_TEMPLE_PEDIA</Tag>
+		<English>[TAB]In Civilization IV, a temple is defined as a building where the faithful come to worship. Christians call their temples "churches," while Muslims call theirs "mosques," and Jews call theirs, simply, "temples." Temples are far more common than cathedrals, but much less large and ornate. Even the smallest village can possess a temple.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_TEMPLE_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Temples[COLOR_REVERT] increase a city's happiness and culture. They are especially useful for expanding your civilization's borders during the early game.</English>
+	</TEXT>
+	<TEXT> <!-- Cathedral (Temple of Tlaloc) -->
+		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_CATHEDRAL</Tag>
+		<English>Temple of Tlaloc</English>
+		<French>Temple de Tlaloc</French>
+		<German>Tlaloc-Tempel</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_CATHEDRAL_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_CATHEDRAL_PEDIA</Tag>
+		<English>[TAB]In Civilization IV, a religious pyramid is defined as an especially large and ornate religious building where the faithful worship. Only the most prosperous cities can afford to create pyramids, as they require huge amounts of raw material and years of dedicated labor by skilled craftsmen.</English>
+	</TEXT>
+	<TEXT> <!-- Monastry (Calmacec) -->
+		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_MONASTERY</Tag>
+		<English>Calmacec</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_MONASTERY_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_MONASTERY_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT> <!-- Shrine (Teotihuacan) -->
+		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_SHRINE</Tag>
+		<English>Teotihuacan</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_SHRINE_PEDIA</Tag>
+		<English>[TAB]The Aztecs believed Teotihuacan was where the Sun had been created and that the city was built by the gods.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_SHRINE_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT> <!-- Wonder (Pyramid of the Magician) -->
+		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_MAGICIAN_PYRAMID</Tag>
+		<English>Pyramid of the Magician</English>
+		<French>Pyramide du Mage</French>
+		<German>Pyramide des Magiers</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_MAGICIAN_PYRAMID_PEDIA</Tag>
+		<English>[TAB]The Pyramid of the Magician is a Mesoamerican step pyramid located in the ancient, Pre-Columbian city of Uxmal, Mexico. The structure is also referred to as the Pyramid of the Dwarf, Casa el Adivino, and the Pyramid of the Soothsayer. The pyramid is the tallest and most recognizable structure in Uxmal.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_MAGICIAN_PYRAMID_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT> <!-- Wonder (Pyramid of the Moon) -->
+		<Tag>TXT_KEY_BUILDING_PYRAMID_OF_THE_MOON</Tag>
+		<English>Pyramid of the Moon</English>
+		<French>Pyramide de la Lune</French>
+		<Italian>
+			<Text>Piramide della Luna</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_PYRAMID_OF_THE_MOON_PEDIA</Tag>
+		<English>[TAB]The Pyramid of the Moon is the second largest building in Teotihuacan after the Pyramid of the Sun. The Pyramid of the Moon is located in the northern part of Teotihuacan and it mimics the contours of Cerro Gordo. Some have called it Tenan which in Nahuatl means "mother or protective stone." The Pyramid of the Moon covers a structure older than the Pyramid of the Sun which existed prior to 200 A. D. The Pyramid's construction between 200 and 450 A.D. completed the bilateral symmetry of the temple complex. A slope in front of the staircase gives access to the Avenue of the Dead, a platform atop the pyramid was used to conduct ceremonies in honor of Chalchiuhtlicue, the goddess of water and of the moon. This platform and the sculpture found at the pyramid's bottom are thus dedicated to Chalchiuhtlicue.</English>
+		<Italian>[TAB]La Piramide della Luna è il secondo edificio più grande di Teotihuacan, dopo la Piramide del Sole. La Piramide della Luna si trova nella parte settentrionale di Teotihuacan e imita i contorni di Cerro Gordo. Alcuni l'hanno chiamata Tenan, che in lingua nahuatl significa "madre o pietra di protezione." La Piramide della Luna si estende su una struttura più antica della Piramide del Sole che esisteva prima del 200 d.C. La costruzione della piramide, effettuata tra il 200 e il 450 d.C., ha completato la simmetria bilaterale del complesso del tempio. Un pendio di fronte alla scalinata dà accesso al Viale dei Morti, una piattaforma in cima alla piramide che veniva utilizzata per condurre le cerimonie in onore di Chalchiuhtlicue, la dea dell'acqua e della luna. Questa piattaforma e la scultura trovata ai piedi della piramide sono quindi dedicate a Chalchiuhtlicue.</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_PYRAMID_OF_THE_MOON_STRATEGY</Tag>
+		<English>Build the Pyramid of the Moon to increase your cities science.</English>
+		<Italian>Costruisci la Piramide della Luna per incrementare la ricerca della tua città.</Italian>
+	</TEXT>
+	<TEXT> <!-- Wonder (Pyramid of the Sun) -->
+		<Tag>TXT_KEY_BUILDING_PYRAMID_OF_THE_SUN</Tag>
+		<English>Pyramid of the Sun</English>
+		<French>Pyramide du Soleil</French>
+		<Italian>
+			<Text>Piramide del Sole</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_PYRAMID_OF_THE_SUN_PEDIA</Tag>
+		<English>[TAB]The Pyramid of the Sun is the largest building in Teotihuacán and one of the largest in Mesoamerica. Found along the Avenue of the Dead, in between the Pyramid of the Moon and the Ciudadela, and in the shadow of the massive mountain Cerro Gordo, the pyramid is part of a large complex in the heart of the city.</English>
+		<Italian>[TAB]La Piramide del Sole è l'edificio più grande di Teotihuacán e uno dei più grandi di tutta la Mesoamerica. Situata lundo il Viale dei Morti, tra la Piramide della Luna e la Ciudadela e ai piedi dell'imponente montagna nota come Cerro Gordo, la piramide fa parte di un grande complesso al centro della città.</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_PYRAMID_OF_THE_SUN_STRATEGY</Tag>
+		<English>Build the Pyramid of the Sun to increase your cities gold.</English>
+		<Italian>Costruisci la Piramide del Sole per incrementare la produzione d'oro della tua città.</Italian>
+	</TEXT>
+
+<!-- +++ Taoism +++ -->
+	<TEXT> <!-- Wonder (Temple of Heaven) -->
+		<Tag>TXT_KEY_BUILDING_TAOIST_TEMPLE_OF_HEAVEN</Tag>
+		<English>The Temple of Heaven</English>
+		<French>Temple du Ciel</French>
+		<German>Der Himmelstempel</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TAOIST_TEMPLE_OF_HEAVEN_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TAOIST_TEMPLE_OF_HEAVEN_PEDIA</Tag>
+		<English>[TAB]The Temple of Heaven, literally the Altar of Heaven is a complex of Taoist buildings situated in southeastern urban Beijing, in Xuanwu District. The complex was visited by the Emperors of the Ming and Qing dynasties for annual ceremonies of prayer to Heaven for good harvest. It is regarded as a Taoist temple, although Chinese Heaven worship, especially by the reigning monarch of the day, pre-dates Taoism. [PARAGRAPH:2]The temple complex, initially called Temple of Heaven and Earth, was constructed from 1406 to 1420 during the reign of the Yongle Emperor, who was also responsible for the construction of the Forbidden City in Beijing. The complex was extended and renamed Temple of Heaven during the reign of the Jiajing Emperor in the 16th century. The Jiajing Emperor also built three other prominent temples in Beijing, the Temple of Sun in the east, the Temple of Earth in the north, and the Temple of Moon in the west. The Temple of Heaven was renovated in the 18th century under the Qianlong Emperor.[PARAGRAPH:2]In 1914, Yuan Shih-kai, then President of the Republic of China, performed a Ming prayer ceremony at the temple, as part of an effort to have himself declared Emperor of China.[PARAGRAPH:2]The Temple of Heaven was registered on the UNESCO World Heritage List in 1998.</English>
+	</TEXT>
+	<TEXT> <!-- Wonder (Quanzhen School) -->
+		<Tag>TXT_KEY_BUILDING_QUANZHEN</Tag>
+		<English>Quanzhen School</English>
+		<French>L'Ecole Quanzhen</French>
+		<Italian>
+			<Text>Scuola di Quanzhen</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_QUANZHEN_PEDIA</Tag>
+		<English>[TAB]The Quanzhen School, commonly called Complete Reality in English, is a major sect of Taoism that originated in Northern China. It was founded by the Taoist priest Wang Chongyang in the 12th century, during the rise of the Jin Dynasty. When the Mongols invaded the Northern Chinese in 1254, the Quanzhen Taoists were among those who exerted great effort in keeping the peace, thus saving thousands of lives, particularly those of Han Chinese descent. This branch of Taoism is also mentioned frequently in Jinyong's popular wuxia novels, including the Condor Trilogy. The meaning of Quanzhen can be translated literally to "All True" and for this reason, it is often called the "All True Religion" or the "Way of Completeness and Truth." In some texts, it is also referred to as the "Way of Complete Perfection."</English>
+		<Italian>[TAB]La Scuola di Quanzhen, comunemente chiamata Complete reality in inglese, è un importante setta del Taoismo che ha avuto origine nella Cina settentrionale. E' stata fondata dal sacerdote taoista Wang Chongyang nel 12° secolo, durante l'ascesa della dinastia Jin. Quando i Mongoli invasero la Cina del Nord nel 1254, i taoisti Quanzhen furono tra coloro che esercitarono grande sforzo nel mantenere la pace, salvando così migliaia di vite, in particolare ai cinesi di origine Han. Questo ramo del Taoismo è anche menzionato spesso in popolari romanzi wuxia del Jinyong, tra cui la trilogia di Condor. Il significato di Quanzhen può essere tradotto letteralmente in "All True" e per questo motivo, è spesso chiamata la "All True Religion" o la "Via di completezza e di Verità." In alcuni testi è indicata anche come il "Cammino di perfezione completa."</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_QUANZHEN_STRATEGY</Tag>
+		<English>Quanzhen school gives a bonus to culture to all your cities, adds a free priest to your city and improves health in all your empire.</English>
+		<Italian>La Scuola di Quanzhen fornisce un bonus alla cultura a tutte le tue città, fornisce un sacerdote gratuito nella città in cui viene costruita e migliora la salute in tutto il tuo impero.</Italian>
+	</TEXT>
+	<TEXT> <!-- Wonder (Wudang Mountain) -->
+		<Tag>TXT_KEY_BUILDING_WUDANG</Tag>
+		<English>Wudang Mountain</English>
+		<French>La Montagne Wudang</French>
+		<Italian>
+			<Text>Montagne di Wudang</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WUDANG_PEDIA</Tag>
+		<English>[TAB]In years past, the mountains of Wudang were known for the many Taoist monasteries to be found there, monasteries which became known as an academic centre for the research, teaching and practise of meditation, Chinese martial arts, traditional Chinese medicine, Taoist agriculture practises and related arts. As early as the Eastern Han Dynasty (25-220AD), the mountain attracted the Emperor's attention. During the Tang Dynasty (618-907), the first site of worship - the Five Dragon Temple - was constructed. The monasteries were emptied, damaged and then neglected during and after the Cultural Revolution of 1966–-1976, but the Wudang mountains have lately become increasingly popular with tourists from elsewhere in China and abroad due to their scenic location and historical interest. The monasteries and buildings were made a UNESCO World Heritage Site in 1994. The palaces and temples in Wudang, which was built as an organized complex during the Ming Dynasty (14th–17th centuries), contains Taoist buildings from as early as the 7th century. It represents the highest standards of Chinese art and architecture over a period of nearly 1,000 years.</English>
+		<Italian>[TAB]Negli anni passati, le montagne di Wudang erano note per i numerosi monasteri taoisti che si trovavano lì, monasteri che divennero famosi come centri accademici per la ricerca, l'insegnamento e la pratica della meditazione, delle arti marziali cinesi, della medicina tradizionale cinese, delle pratiche agricole taoiste e delle arti correlate. Già durante la Dinastia Han Orientale (25-220 d.C.), la montagna ha attirato l'attenzione dell'Imperatore. Durante la dinastia Tang (618-907) è stato costruito il primo luogo di culto - il Tempio dei Cinque Dragoni. I monasteri sono stati svuotati, danneggiati e quindi trascurati durante e dopo la Rivoluzione Culturale del periodo 1966-1976, ma le montagne Wudang sono ultimamente diventato sempre più popolari tra i turisti provenienti dalla Cina e dall'estero per la loro posizione panoramica e di interesse storico. I monasteri e gli edifici sono stati proclamati patrimonio mondiale dell'UNESCO nel 1994. I palazzi e i templi di Wudang, che sono stati costruiti come un complesso organizzato durante la dinastia Ming (14°-17° secolo), contengono edifici taoisti risalenti al 7° secolo. Rappresentò i più alti standard dell'arte e dell'architettura cinese per un periodo di circa 1000 anni.</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WUDANG_STRATEGY</Tag>
+		<English>Wudang Mountain adds a free priest to your city, and increases health and defence through all your empire.</English>
+		<Italian>Le montagne di Wudang forniscono un sacerdote gratuito alla tua città; inoltre incrementano la salute e la difesa in tutto il tuo impero.</Italian>
+	</TEXT>
+
+<!-- +++ Zoroastrianism +++ -->
+	<TEXT> <!-- Religion Details -->
+		<Tag>TXT_KEY_RELIGION_ZOROASTRIANISM</Tag>
+		<English>Zoroastrianism</English>
+		<French>Zoroastrisme</French>
+		<German>Zoroastrismus</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_ZOROASTRIANISM_ADJECTIVE</Tag>
+		<English>Zoroastrian</English>
+		<French>Zoroastrien</French>
+		<German>Zoroastrismusn</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_ZOROASTRIANISM_PEDIA</Tag>
+		<English>[TAB]Zoroastrianism was founded by Zarathushtra (Zoroaster) in Persia which followed an aboriginal polytheistic religion at the time. He preached what may have been the first monotheism with a single supreme god, Ahura Mazda. Zoroastrians belief in the dualism of good and evil as either a cosmic one between Ahura Mazda and an evil spirit of violence and death, Angra Mainyu, or as an ethical dualism within the human consciousness. The Zoroastrian holy book is called the Avesta which includes the teachings of Zarathushtra written in a series of five hymns called the Gathas. They are abstract sacred poetry directed towards the worship of the One God, understanding of righteousness and cosmic order, promotion of social justice, and individual choice between good and evil. The rest of the Avesta was written at a later date and deals with rituals, practice of worship, and other traditions of the faith.</English>
+		<French>[TAB]Bien que le zoroastrisme soit peu connu de nos jours, c'est l'une des religions qui a le plus influenc&#233; l'histoire du monde. Zarathushtra, ou Zoroastre en Occident, est le proph&#232;te de cette ancienne religion de l'empire perse. Le zoroastrisme pr&#233;sente certains &#233;l&#233;ments du monoth&#233;isme, mais est &#233;galement une religion dualiste. L'univers aurait &#233;t&#233; cr&#233; par un &#234;tre de lumi&#232;re supr&#234;me du nom d'Ahura Mazda, oppos&#233; &#224; une cr&#233;ature des t&#233;n&#232;bres du nom d'Angra Mainyu. Le symbole le plus important de la foi zoroastrienne est le feu, car il repr&#233;sente la lumi&#232;re et la chaleur d'Ahura Mazda, mais &#233;galement la puret&#233;. [PARAGRAPH:2:1]Les &#233;rudits ne s'accordent pas pr&#233;cis&#233;ment sur l'&#233;poque &#224; laquelle v&#233;cut Zoroastre, mais la situent entre l'an 1000 av. J.-C. et l'an 600 av. J.-C.. Les dates exactes de sa naissance et de sa mort restent un myst&#232;re, mais le zoroastrisme existe d&#233;j&#224; lorsque Cyrus II &#233;rige l'empire perse au cours du VIe si&#232;cle av. J.-C.. Selon la l&#233;gende zoroastrienne, Zoroastre se d&#233;marque comme un &#234;tre particulier d&#232;s sa naissance, et des esprits mal&#233;fiques tentent &#224; plusieurs reprises de le tuer au cours de son enfance. A l'&#226;ge de 20 ans, Zoroastre se retire dans une grotte et y passe les sept ann&#233;es qui suivent &#224; m&#233;diter. Une fois qu'il ressent que sa d&#233;votion envers Ahura Mazda a atteint son apog&#233;e, Zoroastre d&#233;cide de partir r&#233;pandre la bonne parole, sans grand succ&#232;s au d&#233;part. Son tout premier fid&#232;le est converti lorsqu'il parvient par miracle &#224; gu&#233;rir le cheval du roi Vishtaspa, qui apporte alors le soutien dont Zoroastre a tant besoin pour pr&#234;cher sa religion qui s'&#233;tend ensuite rapidement. Avant que les Grecs ne rencontrent les Perses et commencent &#224; &#233;crire sur ce peuple, le zoroastrisme s'est r&#233;pandu dans tout l'empire perse et dans une grande partie du Proche-Orient. [PARAGRAPH:2:1]Les zoroastriens pensent que le monde est fondamentalement un endroit bienfaisant cr&#233; par Ahura Mazda pour les hommes, mais qu'il s'agit &#233;galement d'un champ de bataille qui voit s'affronter les forces du bien et du mal. Les zoroastriens ne croient pas en la pr&#233;destination et accordent beaucoup d'importance aux choix que chaque individu doit faire afin de repousser les tentations et les corruptions d'Angra Mainyu. Les bonnes actions comme les mauvaises seront r&#233;compens&#233;es apr&#232;s la mort, et les &#234;tres malfaisants seront jug&#233;s et envoy&#233;s en enfer, m&#234;me si &#224; la fin des temps, ils seront purifi&#233;s pour rejoindre Ahura Mazda. Les zoroastriens ne reconnaissent aucun autre dieu qu'Ahura Mazda, mais ce dernier est repr&#233;sent&#233; de diff&#233;rentes fa&#231;ons, souvent d&#233;peint sous une forme ang&#233;lique, et porte des noms tels que Vohu Manah (la Bonne pens&#233;e) et Asha (la V&#233;rit&#233;). Le livre saint du zoroastrisme est l'Avesta. Il r&#233;unit toutes les traditions orales transcrites pour la premi&#232;re fois sous la dynastie perse des Sassanides. On pense qu'une petite partie de l'Avesta, un ensemble de po&#232;mes connus comme les Gathas, a &#233;t&#233; r&#233;dig&#233;e par Zoroastre en personne. Les temples zoroastriens sont con&#231;us de mani&#232;re &#224; pr&#233;server le feu sacr&#233;, symbole de la lumi&#232;re et de l'&#233;clat d'Ahura Mazda. Les zoroastriens accordent &#233;galement une grande importance &#224; la propret&#233;. C'est pourquoi ils doivent suivre plusieurs rites de purification &#224; chaque p&#233;ch&#233; commis. [PARAGRAPH:2:1]Le zoroastrisme est historiquement la religion de l'empire perse, bien qu'elle ne soit pas officiellement encourag&#233;e par les empereurs perses avant la dynastie des Sassanides au IIIe si&#232;cle de notre &#232;re. Cette religion croise le juda&#239;sme au cours de la captivit&#233;[NEWLINE]babylonienne au VIe si&#232;cle av. J.-C.. Plusieurs &#233;l&#233;ments laissent &#224; penser que les deux religions se sont influenc&#233;es mutuellement (concepts du monoth&#233;isme, du paradis et de l'enfer, de l'eschatologie...). On pense &#233;galement, mais sans certitude, que les trois hommes sages de la naissance du Christ &#233;taient des mages zoroastriens (pr&#234;tres). Au VIIe si&#232;cle, lorsque les Arabes envahissent et d&#233;truisent l'empire perse, le zoroastrisme devient une religion pers&#233;cut&#233;e et dispara&#238;t progressivement. Un petit nombre de zoroastriens fuient en Inde, o&#249; ils cr&#233;ent une nouvelle communaut&#233; connue sous le nom de Parsis. La population des zoroastriens est aujourd'hui estim&#233;e entre 2 et 3 millions de personnes, principalement en Inde, au Pakistan et en Iran, mais est &#233;galement pr&#233;sente dans les principaux centres urbains anglophones de la plan&#232;te.</French>
+		<German>[TAB]Auch wenn bis heute nur wenig &#252;ber den Zarathustrismus bekannt ist, z&#228;hlt er doch zu den einflussreichsten Religionen der Weltgeschichte. Von dem Propheten Zarathustra (im griechischen Sprachraum Zoroaster genannt) begr&#252;ndet, wurde diese Glaubensrichtung in der Antike im Persischen Reich praktiziert. Der Zarathustrismus beinhaltet zwar einige monotheistische Elemente, ist aber im Wesentlichen eine dualistische Religion, denn sie besagt, dass das Universum von Ahura Masda, dem Gott des Lichts, erschaffen wurde, dem ein Gott der Finsternis namens Angra Mainyu gegen&#252;bersteht. Das wichtigste Symbol des zarathustrischen Glaubens ist das Feuer, welches das Licht und den gl&#228;nzenden Schein des Ahura Masda repr&#228;sentiert und f&#252;r Reinheit steht. [PARAGRAPH:2:1]Wann genau Zarathustra gelebt hat, ist unter Historikern umstritten, man schr&#228;nkt den Zeitraum allerdings von etwa 1000 bis 600 vor Christus ein. Unabh&#228;ngig von seinen exakten Geburts- und Todesdaten ist jedoch belegt, dass der Zarathustrismus bereits bei der Gr&#252;ndung des Persischen Reiches durch Kyros II. im 6. Jahrhundert vor Christus existierte. &#220;berlieferungen zufolge soll Zarathustra schon von Geburt an ein besonderer Mensch gewesen sein, der in seiner Kindheit zahlreiche Anschl&#228;ge auf sein Leben &#252;berstanden haben soll, die b&#246;se Geister auf in ver&#252;bten. Im Alter von etwa 20 Jahren zog sich Zarathustra in die Einsamkeit zur&#252;ck und verbrachte die darauf folgenden sieben Jahre in Meditation. Als er schlie&#223;lich vollkommene Hingebung zu Ahura Masda versp&#252;rte, machte er sich auf den Weg, um seine &#220;berzeugungen unter das Volk zu bringen, zun&#228;chst jedoch erfolglos. Erst nachdem er auf wundersame Weise das Pferd des K&#246;nigs Vistaspa geheilt hatte, der sich daraufhin h&#246;chstpers&#246;nlich zu Zarathustras Lehren bekannte, wuchs seine Anh&#228;ngerschaft und seine Religion wurde zunehmend popul&#228;rer. Zu der Zeit, als die Griechen erstmals auf die Perser stie&#223;en und schriftliche Aufzeichnungen &#252;ber sie verfassten, war der Zarathustrismus bereits im ganzen Persischen Reich und auch in gro&#223;en Teilen des Nahen Ostens etabliert. [PARAGRAPH:2:1]Die Anh&#228;nger des Zarathustrismus vertreten die Auffassung, dass die Welt im Grunde ein guter Ort ist, den Ahura Masda f&#252;r die Menschen erschaffen hat, aber auch eine Art Schlachtfeld f&#252;r die Kr&#228;fte des Guten und des B&#246;sen. Sie glauben nicht an die Vorbestimmung, sondern sind &#252;berzeugt, dass jeder Einzelne eine Wahl treffen muss, um der Versuchung und Manipulation durch Angra Mainyu zu entgehen. Gute und b&#246;se Taten werden nach dem Tod gleicherma&#223;en bewertet, wobei alles &#220;bel verurteilt und zur H&#246;lle geschickt wird, doch am Ende der Zeit wird auch das B&#246;se gel&#228;utert werden und sich wieder Ahura Masda zuwenden. Der Zarathustrismus erkennt keinen anderen Gott an als Ahura Masda, der verschiedene Erscheinungsformen annehmen kann, h&#228;ufig die von engels&#228;hnlichen Wesen mit Namen wie Vohu Manah (guter Gedanke) und Asha (Wahrheit). Das Awesta, das Heilige Buch des zarathustrischen Glaubens, enth&#228;lt die urspr&#252;nglich m&#252;ndlichen &#220;berlieferungen, die w&#228;hrend der Sassaniden-Periode in Persien schriftlich niedergelegt wurden. Ein kleiner Teil des Awestas, eine Reihe von Hymnen bzw. Liedern, die so genannten Gathas, sollen von Zarathustra selbst verfasst worden sein. Der Hauptzweck der zarathustrischen Tempel ist die Bewahrung des heiligen Feuers, welches das Licht und den Glanz des Ahura Masda symbolisiert. Auch die Reinheit spielt im zarathustrischen Glauben eine sehr wichtige Rolle. So m&#252;ssen die Gl&#228;ubigen verschiedene Reinigungsrituale durchlaufen, wenn sie ges&#252;ndigt haben. [PARAGRAPH:2:1]Aus historischer Sicht war der Zarathustrismus die Hauptreligion im Persischen Reich, offiziell wurde sie jedoch erst w&#228;hrend der Sassaniden-Periode im 3. Jahrhundert nach Christus von den persischen Kaisern gef&#246;rdert. Ein erstes Aufeinandertreffen des Zarathustrismus und des j&#252;dischen Glaubens fand w&#228;hrend der babylonischen Besatzungszeit im 6. Jahrhundert vor Christus statt und vieles weist darauf hin, dass sich die beiden Religionen in der Folge gegenseitig beeinflussten (&#228;hnliche monotheistische Pr&#228;gung, Himmel und H&#246;lle, Eschatologie etc.). Es gibt kaum einen Zweifel daran, dass auch die drei Weisen, die bei der Geburt Jesu Christi anwesend waren, zarathustrische Magi (Priester) gewesen sind. Nach der Verw&#252;stung und Zerst&#246;rung des Persischen Reiches durch die Araber im 7. Jahrhundert nach Christus wurden die Glaubensanh&#228;nger des Zarathustrismus verfolgt und so nahm die Popularit&#228;t dieser Religion immer mehr ab. Einige Gl&#228;ubige fl&#252;chteten nach Indien, wo sie eine neue Gemeinde gr&#252;ndeten und sich fortan Parsen nannten. Auch heute gibt es noch etwa 2-3 Millionen Menschen, die den Zarathustrismus praktizieren, vorwiegend in Indien, Pakistan, im Iran sowie vereinzelt auch in den Gro&#223;st&#228;dten der englischsprachigen Welt. </German>
+		<Italian>[TAB]Anche se oggi &#232; poco noto, lo zoroastrismo &#232; stato una delle religioni pi&#249; influenti della storia. Esso fu la religione dell'antico Impero persiano e fu predicato dal profeta Zaratustra, noto in occidente come Zoroastro. Lo zoroastrismo contiene elementi di monoteismo ma &#232; in realt&#224; un culto dualistico: l'universo fu creato da un supremo essere di luce, Ahura Mazda, a cui si oppone l'essere supremo dell'oscurit&#224;, Angra Mainyu. Il simbolo pi&#249; importante della fede zoroastriana &#232; il fuoco, che simboleggia la luce e il calore di Ahura Mazda nonch&#233; la purezza. [PARAGRAPH:2:1]Gli studiosi non sono d'accordo sull'esatta collocazione temporale di Zoroastro. Le date variano dal 1000 a.C. al 600 a.C. Anche se il periodo di vita del suo profeta &#232; incerto, lo zoroastrismo certamente esisteva gi&#224; quando Ciro fond&#242; l'Impero persiano nel VI secolo a.C. Secondo la tradizione zoroastriana, Zoroastro sarebbe stato riconosciuto come persona speciale sin dalla nascita e gli spiriti maligni avrebbero tentato pi&#249; volte di ucciderlo. All'et&#224; di venti anni, Zoroastro si ritir&#242; in una caverna e trascorse i sette anni successivi in meditazione. Dopo aver raggiunto la devozione pi&#249; completa per Ahura Mazda, Zoroastro vag&#242; per diffondere la fede, ma con scarsi successi iniziali: ottenne le prime conversioni alla sua fede solo quando riusc&#236; a guarire il cavallo del re Vishtaspa: da allora, il re support&#242; la religione e questa si diffuse rapidamente. Quando gli intellettuali Greci conobbero i Persiani e cominciarono a scrivere opere su di loro, lo zoroastrismo era ormai diffuso in tutta la Persia e il Vicino Oriente. [PARAGRAPH:2:1]Lo zoroastrismo ritiene che il mondo sia sostanzialmente un bel posto creato per gli uomini da Ahura Mazda, ma anche che sia diventato il campo di battaglia tra le forze del bene e quelle del male. Gli zoroastriani non credono nella predestinazione e molta enfasi &#232; posta sulle scelte di ciascuno, che dovrebbero tendere a evitare la corruzione da parte di Angra Mainyu. Alle azioni in terra corrisponder&#224; un premio o una punizione nell'aldil&#224;: i malvagi saranno spediti all'inferno, anche se poi, alla fine dei tempi, tutti verranno purificati e si riuniranno ad Ahura Mazda. Gli zoroastriani non riconoscono altro dio al di fuori di Ahura Mazda, che per&#242; si manifesta in forme diverse, spesso angeliche, che assumono nomi quali Vohu Manah (Buon pensiero) e Asha (Verit&#224;). Il libro sacro del zoroastrismo &#232; l'Avesta, una raccolta delle tradizioni orali poi scritte al tempo della dinastia dei Sassanidi. Una piccola parte dell'Avesta, una serie di inni noti come Gatha, pare sia stata composta da Zoroastro in persona. I templi zoroastriani hanno la funzione di preservare il fuoco sacro, simbolo della luce e dello splendore di Ahura Mazda. Anche la pulizia &#232; importante e vi erano infatti diversi riti di purificazione da compiere dopo che si aveva peccato. [PARAGRAPH:2:1]Lo zoroastrismo &#232; storicamente la religione della Persia, anche se gli imperatori persiani non lo promossero ufficialmente fino al III secolo d.C., durante la dinastia dei Sassanidi. Esso venne a contatto con il giudaismo durante la cattivit&#224; babilonese del VI secolo a.C. e sembrano esserci le prove che le due religioni si siano influenzate reciprocamente (condivisione dei concetti di monoteismo, di paradiso e inferno, dell'escatologia, ecc.). Pare quasi certo anzi che i tre saggi presenti alla nascita di Cristo, fossero magi (sacerdoti) zoroastriani. Con la conquista da parte degli Arabi dell'Impero persiano nel VII secolo d.C., gli zoroastriani vennero perseguitati e la religione scomparve. Alcuni fedeli fuggirono in India, dove fondarono una nuova comunit&#224; nota come Parsis. Oggi vi sono al mondo circa 2-3 milioni di praticanti del zoroastrismo, concentrati per lo pi&#249; in India, Pakistan e Iran, ma sparsi anche nelle principali citt&#224; del mondo di lingua inglese. </Italian>
+		<Spanish>[TAB]Aunque no es muy conocido en nuestros d&#237;as, el zoroastrismo ha sido una de las religiones m&#225;s influyentes de la historia del mundo. Era la religi&#243;n del imperio persa, formulada por Zaratustra, conocido en el oeste como Zoroastro. El zoroastrismo tiene elementos monote&#237;stas, pero tambi&#233;n es una fe dualista: el universo es obra de un ser supremo de luz llamado Ahura Mazda, que est&#225; enfrentado a una criatura de oscuridad primigenia conocida como Angra Mainyu. El s&#237;mbolo m&#225;s importante de la fe zoroastrista es el fuego, que simboliza la luz y el calor de Ahura Mazda y sirve como s&#237;mbolo de pureza. [PARAGRAPH:2:1]Los estudiosos debaten cu&#225;ndo vivi&#243; Zoroastro, con fechas que oscilan entre el a&#241;o 1000 a. C. y el 600 a. C. Las fechas exactas de su nacimiento y su muerte se desconocen, pero en cualquier caso, el zoroastrismo exist&#237;a ya cuando Ciro II fund&#243; el imperio persa, en el siglo VI a. C. Seg&#250;n la tradici&#243;n zoroastrista, Zoroastro fue reconocido desde su nacimiento como un individuo especial, por lo que los esp&#237;ritus malignos intentaron asesinarlo varias veces siendo a&#250;n un ni&#241;o. Al cumplir los veinte a&#241;os, Zoroastro se retir&#243; a una cueva, donde pas&#243; los siete a&#241;os siguientes meditando. Cuando sinti&#243; que hab&#237;a alcanzado una devoci&#243;n completa hacia Ahura Mazda, Zoroastro parti&#243; a difundir su palabra por el mundo, tarea en la que inicialmente no le acompa&#241;&#243; el &#233;xito. No consigui&#243; sus primeros conversos hasta despu&#233;s de curar de manera milagrosa al caballo del rey Vishtaspa, pero despu&#233;s de este suceso su religi&#243;n conoci&#243; una r&#225;pida difusi&#243;n.  Cuando los griegos se encontraron con los persas por vez primera y empezaron a escribir sobre ellos, el zoroastrismo se hab&#237;a difundido por el imperio persa y ocupaba la mayor parte de Oriente Pr&#243;ximo. [PARAGRAPH:2:1]Los zoroastristas creen que el mundo es fundamentalmente un lugar bueno creado para los humanos por Ahura Mazda, pero que al mismo tiempo es el campo de batalla de una lucha entre el bien y el mal. No creen en la predestinaci&#243;n y ponen mucho &#233;nfasis en la elecci&#243;n que deben hacer los individuos para no verse tentados y corrompidos por Angra Mainyu. Las acciones, buenas y malas, recibir&#225;n su recompensa tras la muerte y los malvados ser&#225;n juzgados y enviados al Infierno, aunque al final de los tiempos hasta los perversos ser&#225;n purificados y se reunir&#225;n con Ahura Mazda. Los zoroastristas no reconocen a ning&#250;n otro dios que Ahura Mazda, pero &#233;ste se manifiesta a trav&#233;s de diferentes emanaciones, que a menudo adoptan forma de &#225;ngel y tienen nombres diferentes, como Vohu Manah (Buen Pensamiento) y Asha (Verdad). El libro sagrado de los zoroastristas, llamado Avesta, es una compilaci&#243;n de tradiciones orales que se puso por escrito en tiempos de la Persia sas&#225;nida. Se cree que una peque&#241;a secci&#243;n del Avesta, una serie de himnos conocida como "gathas", es obra del propio Zoroastro. La funci&#243;n fundamental de los templos zoroastristas es la preservaci&#243;n del fuego sagrado, s&#237;mbolo de la luz y la radiaci&#243;n de Ahura Mazda. La limpieza es tambi&#233;n muy importante, y existen varios rituales de purificaci&#243;n que se deben seguir cuando se ha pecado. [PARAGRAPH:2:1]Hist&#243;ricamente, el zoroastrismo fue la religi&#243;n del imperio persa, aunque no fue reconocido como tal por los emperadores hasta el per&#237;odo sas&#225;nida (siglo III d. C.). Entr&#243; en contacto con el juda&#237;smo durante el cautiverio en Babilonia (siglo VI a. C.) y existen numerosas evidencias que sugieren que ambas religiones se influenciaron mutuamente (conceptos similares del monote&#237;smo, el Cielo y el Infierno, la escatolog&#237;a, etc.). Adem&#225;s, hoy en d&#237;a se acepta que los tres reyes magos de la historia de Cristo eran magos (sacerdotes) zoroastristas. Cuando, en el siglo VII d. C., los &#225;rabes conquistaron y destruyeron el imperio persa, el zoroastrismo se convirti&#243; en una religi&#243;n perseguida y experiment&#243; un lento declive. Un peque&#241;o n&#250;mero de sus seguidores huy&#243; a la India y form&#243; una comunidad nueva, cuyos miembros ser&#237;an conocidos como "parsis". En la actualidad existen entre dos y tres millones de practicantes del zoroastrismo, concentrados principalmente en la India, Paquist&#225;n e Ir&#225;n, pero tambi&#233;n con cierta presencia en los principales centros urbanos del mundo anglosaj&#243;n. </Spanish>
+	</TEXT>
+	<TEXT> <!-- Temple -->
+		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_TEMPLE</Tag>
+		<English>Zoroastrian Fire Temple</English>
+		<French>Temple de Feu Zoroastrien</French>
+		<German>Zoroastrischer Feuertempel</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_TEMPLE_PEDIA</Tag>
+		<English>[TAB]In Civilization IV, a temple is defined as a building where the faithful come to worship. Christians call their temples "churches," while Muslims call theirs "mosques," and Jews call theirs, simply, "temples." Temples are far more common than cathedrals, but much less large and ornate. Even the smallest village can possess a temple.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_TEMPLE_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Temples[COLOR_REVERT] increase a city's happiness and culture. They are especially useful for expanding your civilization's borders during the early game.</English>
+	</TEXT>
+	<TEXT> <!-- Cathedral (Pantheon) -->
+		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_CATHEDRAL</Tag>
+		<English>Zoroastrian Pantheon</English>
+		<French>Panthéon Zoroastrien</French>
+		<German>Zoroastrisches Pantheon</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_CATHEDRAL_PEDIA</Tag>
+		<English>[TAB]In Civilization IV, a pantheon is defined as an especially large and ornate religious building where the faithful worship. Only the most prosperous cities can afford to create pantheons, as they require huge amounts of raw material and years of dedicated labor by skilled craftsmen.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_CATHEDRAL_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Zoroastrian Pantheon[COLOR_REVERT] greatly increases a city's cultural output. It makes a city's citizens happy (if [COLOR_HIGHLIGHT_TEXT]Zoroastrianism[COLOR_REVERT] is the state religion).</English>
+	</TEXT>
+	<TEXT> <!-- Monastry (Shrine) -->
+		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_MONASTERY</Tag>
+		<English>Zoroastrian Shrine</English>
+		<French>Mausolée Zoroastrien</French>
+		<German>Zoroastrischer Schrein</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_MONASTERY_PEDIA</Tag>
+		<English>[TAB]A Zoroastrian Shrine is a site where pilgrims can travel and concentrate upon the divine. </English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_MONASTERY_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Shrines[COLOR_REVERT] provide culture and a slight boost to research.</English>
+	</TEXT>
+	<TEXT> <!-- Shrine (Pir-e Sabz) -->
+		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_SHRINE</Tag>
+		<English>Pir-e Sabz</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_SHRINE_PEDIA</Tag>
+		<English>[TAB]Pir-e-Sabz is the holiest and most visited of the Zoroastrian mountain shrines. Shrine legends tell of a conquering Arab army that had pursued Nikbanoo, the daughter of the Sassanian Emperor Yazdgird III, to this region. Fearing capture, she prayed to Ahura Mazda to protect her from the enemy. In the nick of time the mountain miraculously opened up and gave her protection. This legendary site, where a holy spring issues from the towering cliff, is also called Chak-Chak, which means 'drop-drop' in Persian. Growing beside the source of the holy spring is an immense and ancient tree which legends says used to be Nikbanoo's cane, and the waters of the spring are believed to be tears of grief shed by the mountain for Lady Nikbanoo. The shrine enclosure, a man-made cave, is floored with marble and its walls are darkened by soot from the fires kept eternally burning in the sanctuary. Each year from June 14 to 18, many thousands of Zoroastrians from Iran, India and other countries flock to the temple of Pir-e Sabz. One of the pilgrim trails to Chak-Chak is a dirt road starting near the village of Elabad, north of Yazd. It is a time-honored tradition for pilgrims to stop the moment they see the sight of the shrine and continue the rest of their journey by foot. Several roofed pavilions have been constructed on the cliffs below the shrine and throughout the day and night these are tightly packed with pilgrims.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_SHRINE_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT> <!-- Wonder (Apadana Palace) -->
+		<Tag>TXT_KEY_BUILDING_APADANA_PALACE</Tag>
+		<English>Apadana Palace</English>
+		<French>Palais Apadana</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_APADANA_PALACE_PEDIA</Tag>
+		<English>Darius the Great built the greatest and most glorious palace at Persepolis in the western side. This palace was called the Apadana.  The King of Kings used it for official audiences. The work began in 515 BC. His son Xerxes I completed it 30 years later. The palace had a grand hall in the shape of a square, each side 60 m long with seventy-two columns, thirteen of which still stand on the enormous platform. Each column is 19 m high with a square Taurus and plinth. The columns carried the weight of the vast and heavy ceiling. The tops of the columns were made from animal sculptures such as two headed bulls, lions and eagles. The columns were joined to each other with the help of oak and cedar  beams, which were brought from Lebanon. The walls were covered with a layer of mud and stucco to a depth of 5 cm, which was used for bonding, and then covered with the greenish stucco which is found throughout the palaces. At the western, northern and eastern sides of the palace there was a rectangular veranda which had twelve columns in two rows of six. At the south of the grand hall a series of rooms were built for storage. Two grand Persepolitan stairways were built, symmetrical to each other and connected to the stone foundations. To protect the roof from erosion, vertical drains were built through the brick walls. In the four corners of Apadana, facing outwards, four towers were built.[PARAGRAPH:2]The walls were tiled and decorated with pictures of lions, bulls, and flowers. Darius ordered his name and the details of his empire to be written in gold and silver on plates, which were placed in covered stone boxes in the foundations under the Four Corners of the palace. Two Persepolitan style symmetrical stairways were built on the northern and eastern sides of Apadana to compensate for a difference in level. Two other stairways stood in the middle of the building. The external front views of the palace were embossed with pictures of the Immortals, the Kings' elite guards. The northern stairway was completed during Darius' reign, but the other stairway was completed much later.</English>
+		<French>Darius Ie (le Grand) a construit le plus Grand et glorieux Palais de la Perse. Le roi l'a fait bâtir durant les premières années de son règne. Le palais s'inspire de ceux de la période néo-babylonienne en ce qui concerne l'organisation des salles dans la Maison du Roi, avec sa succession de cours intérieures alignées, et le plan des salles. Mais il présente aussi des originalités, comme les salles carrées soutenues par quatre colonnes qui seront reprises ensuite à Persépolis. Du point de vue des matériaux, on voit le mélange de la technique mésopotamienne, donc susienne (briques crues, cuites, émaillées), et de celle des montagnards perses (bois et pierre). L’Apadana, salle d’audience royale, a été construit au nord du palais. Il s’agit d’un grand édifice (12 000 m²), de base carrée (109 mètres de côté) ; elle s’organise autour d’une salle centrale carrée (58 mètres de côté), dont le plafond est supporté par six rangées de six colonnes, qui ont une base carrée, et devaient s’élever à 19 mètres. Ces colonnes étaient couronnées d’un chapiteau à protomé de taureau, où s’encastraient les poutres du plafond. Les côtés ouest, nord et est de l'Apadana permettaient d'accéder par des portes à double battants à trois portiques (avec chacun deux rangées de six colonnes). Quatre tours avaient été bâties aux angles de l’édifice.</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_APADANA_PALACE_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Apadana Palace[COLOR_REVERT] reduces maintenance in nearby cities and gives the Order of Ormazd promotion to units produced in city.  This allows empire expansion by both improving your economy and military.</English>
+		<French>[COLOR_BUILDING_TEXT]Les Palais Apadana[COLOR_REVERT] réduit l'entretien des Villes à proximité et confère la promotion 'Ordre de Ormazd' aux unités entraînées dans la Ville. Cela permet ainsi une expansion de l'Empire, à la fois point de vue économique et militaire.</French>
+	</TEXT>
+	<TEXT> <!-- Wonder (Hammurabi Stele of Laws) -->
+		<Tag>TXT_KEY_BUILDING_HAMMURABI</Tag>
+		<English>Hammurabi Stele of Laws</English>
+		<French>Stèle des Lois d'Hammurabi</French>
+		<Italian>
+			<Text>Codice di Hammurabi</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HAMMURABI_PEDIA</Tag>
+		<English>[TAB]The Code of Hammurabi is a well-preserved ancient law code, created ca. 1760 BC (middle chronology) in ancient Babylon. It was enacted by the sixth Babylonian king, Hammurabi.Only one example of the Code survives today, inscribed on a seven foot, four inch tall basalt stone slab or stele. Originally, several stelae would have been displayed in temples around the empire.</English>
+		<Italian>[TAB]Il Codice di Hammurabi è un antico codice di leggi ben conservato, creato intorno al 1760 a.C. nell'antica Babilonia; fu redatto dal sesto re di Babilonia, Hammurabi. Attualmente esiste un solo esemplare del Codice, inciso in una stele di basalto alta all'incirca sette piedi; in origine esistevano invece molte steli, posizionate nei templi di tutto l'impero.</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HAMMURABI_STRATEGY</Tag>
+		<English>Build the Hammurabi stele of laws to get a free Courthouse in all your cities.</English>
+		<Italian>Costruisci il Codice di Hammurabi per ottenere un palazzo di giustizia gratuito in tutte le tue città.</Italian>
+	</TEXT>
+	<TEXT> <!-- Wonder (Nimrud Palace) -->
+		<Tag>TXT_KEY_BUILDING_NIMRUD_PALACE</Tag>
+		<English>Nimrud Palace</English>
+		<French>Palais de Nimrud</French>
+		<Italian>
+			<Text>Palazzo di Nimrud</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NIMRUD_PALACE_PEDIA</Tag>
+		<English>The site of Nimrud is located on the Tigris River southeast of Mosul in the north of modern day Iraq. Today the city lies some kilometers east of the Tigris, but in antiquity the river flowed along the northwest side of the acropolis. The site was occupied intermittently from the 6th millennium BC to at least the Hellenistic period, but the most significant period of occupation occurred during the Late Assyrian period, when Assurnasirpal II (883-859 BC) built Nimrud as the capital of his empire. The city remained the chief royal residence and administrative capital of the Assyrian empire until the reign of Sargon II (721-705 BC), though Esarhaddon (680-669 BC) later rebuilt much of the citadel. The Northwest Palace was probably completed between 865 and 869 BC. Its inauguration was celebrated with a large banquet, a description of which is preserved in an inscription on a large stone slab found in the palace. The text describes the building of the city of Kalhu, the settlement of peoples from all over the kingdom in the city, the irrigation of orchards and gardens in the city, the dedication of temples, and the hunting and capture of exotic animals. Finally, the inscription describes the lavish dedicatory celebration, which was attended by 69,574 invitees from all over Assyria. According to Assurnasirpal, they were provided with an enormous amount of food, including 1,500 ducks, 500 geese, 10,000 turtle doves, 10,000 loaves of bread, 10,000 jugs of beer, 10,000 skins of wine, and quantities of nuts, sheep, spices, and vegetables. The text concludes with Assurnasirpal expressing satisfaction in the event: "For ten days I gave them food, I gave them drink, I had them bathe, and I had them anointed. (Thus) did I honor them (and) send them back to their lands in peace and joy" (Grayson 1991: 293).</English>
+		<Italian>Il sito di Nimrud si trova sul fiume Tigri a sud est di Mosul, nel nord dell'odierno Iraq. Oggi la città si trova alcuni chilometri a est del Tigri, ma nell'antichità il fiume scorreva lungo il lato nord-ovest dell'acropoli. Il sito è stato abitato in modo discontinuo dal 6° millennio a.C. almeno fino al periodo ellenistico, ma il periodo più significativo di occupazione si è verificato durante il tardo periodo assiro, quando Assurnasirpal II (883-859 a.C.) scelse Nimrud come capitale del suo impero. La città rimase la residenza reale principale e capitale amministrativa dell'impero assiro fino al regno di Sargon II (721-705 a.C.), anche se Esarhaddon (680-669 a.C.) ricostruì gran parte della citadella. Il palazzo fu probabilmente completato tra l'865 e l'869 a.C. La sua inaugurazione è stata celebrata con un grande banchetto, la cui descrizione è conservata in un'iscrizione su una grande lastra di pietra trovata nel palazzo. Il testo descrive la costruzione della città di Kalhu, l'insediamento di popoli di tutto il regno in città, l'irrigazione di orti e giardini in città, la dedizione dei templi, la caccia e la cattura di animali esotici. Infine, l'iscrizione descrive la sontuosa cerimonia d'inaugurazione, a cui parteciparono 69.574 invitati da tutta l'Assiria. Secondo Assurnasirpal, vennero saziati da una quantità enorme di cibo, tra cui 1.500 anatre, 500 oche, 10000 tortore, 10.000 pagnotte di pane, 10.000 boccali di birra, 10.000 pelli di vino e grandi quantità di noci, pecore, spezie e verdure. Il testo si conclude con Assurnasirpal che esprime soddisfazione per la manifestazione: "Per dieci giorni ho dato loro da mangiare, ho dato loro da bere, li ho fatti lavari e li ho unti. (Così) ho fatto loro onore (e) li ho rimandati alle loro terre nella pace e nella gioia "(Grayson 1991: 293).</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NIMRUD_PALACE_STRATEGY</Tag>
+		<English>Build the Nimrud Palace to improve the military production of your city.</English>
+		<Italian>Costruisci il Palazzo di Nimrud per inrementare la produzione militare della tua città.</Italian>
+	</TEXT>
+
+</Civ4GameText>

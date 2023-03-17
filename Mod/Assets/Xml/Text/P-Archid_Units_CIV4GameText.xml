@@ -805,6 +805,81 @@
 		<English>The minuteman provides city defense and they have a first strike advantage.</English>
 	</TEXT>
 
+<!-- Missionaries -->
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ASATRU_MISSIONARY</Tag>
+		<English>Godhi</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ASATRU_MISSIONARY_STRATEGY</Tag>
+		<English>[TAB]Use this missionary to actively spread [COLOR_HIGHLIGHT_TEXT]Asatruism[COLOR_REVERT] in friendly cities (or rival cities with whom you have [COLOR_HIGHLIGHT_TEXT]Open Borders[COLOR_REVERT]).</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_JEWISH_MISSIONARY</Tag>
+		<English>Rabbi</English>
+		<French>Rabbin</French>
+		<German>Rabbi</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_CHRISTIAN_MISSIONARY</Tag>
+		<English>Priest</English>
+		<French>Prêtre</French>
+		<German>Priester</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ISLAMIC_MISSIONARY</Tag>
+		<English>Imam</English>
+		<French>Imam</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HELLENIC_MISSIONARY</Tag>
+		<English>Oracle</English>
+		<French>Oracle</French>
+		<German>Orakel</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HINDU_MISSIONARY</Tag>
+		<English>Yogi</English>
+		<French>Yogi</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_BUDDHIST_MISSIONARY</Tag>
+		<English>Bodhisattva</English>
+		<French>Bodhisattva</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_CONFUCIAN_MISSIONARY</Tag>
+		<English>Gentleman</English>
+		<French>Gentilhomme</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TAOIST_MISSIONARY</Tag>
+		<English>Alchemist</English>
+		<French>Alchimiste</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ZOROASTRIAN_MISSIONARY</Tag>
+		<English>Magi</English>
+		<French>Mage</French>
+		<German>Magi</German>
+		<Italian>Magi</Italian>
+		<Spanish>Magi</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_KEMETIC_MISSIONARY</Tag>
+		<English>Scribe</English>
+		<French>Scribe</French>
+		<German>Schreiber</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_NAGUALISM_MISSIONARY</Tag>
+		<English>Tlenamacac</English>
+		<French>Tlenamacac</French>
+		<German>Tlenamacac</German>
+		<Italian>Tlenamacac</Italian>
+		<Spanish>Tlenamacac</Spanish>
+	</TEXT>
+
 	<TEXT> <!-- Modern Medivac Helicopter -->
 		<Tag>TXT_KEY_UNIT_MODERN_MEDIVAC</Tag>
 		<English>Modern Medivac Helicopter</English>

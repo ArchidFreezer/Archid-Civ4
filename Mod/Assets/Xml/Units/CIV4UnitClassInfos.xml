@@ -443,6 +443,12 @@
 <!-- ************ -->
 <!-- Missionaries -->
 <!-- ************ -->
+		<UnitClassInfo> <!-- Asatru Missionary -->
+			<Type>UNITCLASS_ASATRU_MISSIONARY</Type>
+			<Description>TXT_KEY_UNIT_ASATRU_MISSIONARY</Description>
+			<iMaxPlayerInstances>3</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_ASATRU_MISSIONARY</DefaultUnit>
+		</UnitClassInfo>
 		<UnitClassInfo> <!-- Buddhist Missionary -->
 			<Type>UNITCLASS_BUDDHIST_MISSIONARY</Type>
 			<Description>TXT_KEY_UNIT_BUDDHIST_MISSIONARY</Description>
@@ -460,6 +466,12 @@
 			<Description>TXT_KEY_UNIT_CONFUCIAN_MISSIONARY</Description>
 			<iMaxPlayerInstances>3</iMaxPlayerInstances>
 			<DefaultUnit>UNIT_CONFUCIAN_MISSIONARY</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Hellenic Missionary -->
+			<Type>UNITCLASS_HELLENIC_MISSIONARY</Type>
+			<Description>TXT_KEY_UNIT_HELLENIC_MISSIONARY</Description>
+			<iMaxPlayerInstances>3</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_HELLENIC_MISSIONARY</DefaultUnit>
 		</UnitClassInfo>
 		<UnitClassInfo> <!-- Hindu Missionary -->
 			<Type>UNITCLASS_HINDU_MISSIONARY</Type>
@@ -479,11 +491,29 @@
 			<iMaxPlayerInstances>3</iMaxPlayerInstances>
 			<DefaultUnit>UNIT_JEWISH_MISSIONARY</DefaultUnit>
 		</UnitClassInfo>
+		<UnitClassInfo> <!-- Kemetic Missionary -->
+			<Type>UNITCLASS_KEMETIC_MISSIONARY</Type>
+			<Description>TXT_KEY_UNIT_KEMETIC_MISSIONARY</Description>
+			<iMaxPlayerInstances>3</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_KEMETIC_MISSIONARY</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Nagualism Missionary -->
+			<Type>UNITCLASS_NAGUALISM_MISSIONARY</Type>
+			<Description>TXT_KEY_UNIT_NAGUALISM_MISSIONARY</Description>
+			<iMaxPlayerInstances>3</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_NAGUALISM_MISSIONARY</DefaultUnit>
+		</UnitClassInfo>
 		<UnitClassInfo> <!-- Taoist Missionary -->
 			<Type>UNITCLASS_TAOIST_MISSIONARY</Type>
 			<Description>TXT_KEY_UNIT_TAOIST_MISSIONARY</Description>
 			<iMaxPlayerInstances>3</iMaxPlayerInstances>
 			<DefaultUnit>UNIT_TAOIST_MISSIONARY</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Zoroastrian Missionary -->
+			<Type>UNITCLASS_ZOROASTRIAN_MISSIONARY</Type>
+			<Description>TXT_KEY_UNIT_ZOROASTRIAN_MISSIONARY</Description>
+			<iMaxPlayerInstances>3</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_ZOROASTRIAN_MISSIONARY</DefaultUnit>
 		</UnitClassInfo>
 
 <!-- ************ -->

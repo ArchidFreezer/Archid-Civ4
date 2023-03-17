@@ -5734,12 +5734,51 @@
 
 
 <!-- ************	-->
-<!-- Missionaries -->
+<!-- Missionary   -->
 <!-- ************	-->
+		<UnitInfo> <!-- Asatru Missionary -->
+			<Class>UNITCLASS_ASATRU_MISSIONARY</Class>
+			<Type>UNIT_ASATRU_MISSIONARY</Type>
+			<Special>SPECIALUNIT_PEOPLE</Special>
+			<Capture>UNITCLASS_ASATRU_MISSIONARY</Capture>
+			<Combat>UNITCOMBAT_MISSIONARY</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_MISSIONARY</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_ASATRU_MISSIONARY</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_RELIGION_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ASATRU_MISSIONARY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_RELIGION</Advisor>
+			<ReligionSpreads>
+				<ReligionSpread>
+					<ReligionType>RELIGION_ASATRU</ReligionType>
+					<iReligionSpread>50</iReligionSpread>
+				</ReligionSpread>
+			</ReligionSpreads>
+			<PrereqReligion>RELIGION_ASATRU</PrereqReligion>
+			<PrereqBuilding>BUILDING_ASATRU_MONASTERY</PrereqBuilding>
+			<iCost>40</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMoves>2</iMoves>
+			<iExtraCost>1</iExtraCost>
+			<iAsset>1</iAsset>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_ASATRU_MISSIONARY</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+		</UnitInfo>
 		<UnitInfo> <!-- Buddhist Missionary -->
 			<Class>UNITCLASS_BUDDHIST_MISSIONARY</Class>
 			<Type>UNIT_BUDDHIST_MISSIONARY</Type>
 			<Special>SPECIALUNIT_PEOPLE</Special>
+			<Combat>UNITCOMBAT_MISSIONARY</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_MISSIONARY</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_BUDDHIST_MISSIONARY</Description>
@@ -5749,7 +5788,7 @@
 			<ReligionSpreads>
 				<ReligionSpread>
 					<ReligionType>RELIGION_BUDDHISM</ReligionType>
-					<iReligionSpread>20</iReligionSpread>
+					<iReligionSpread>40</iReligionSpread>
 				</ReligionSpread>
 			</ReligionSpreads>
 			<SlaveSpecialistType>SPECIALIST_PRIEST_SLAVE</SlaveSpecialistType>
@@ -5758,11 +5797,12 @@
 			<iCost>40</iCost>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iAsset>2</iAsset>
+			<iExtraCost>1</iExtraCost>
+			<iAsset>1</iAsset>
 			<UnitMeshGroups>
 				<iGroupSize>1</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
+				<fPadTime>1</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
@@ -5776,6 +5816,7 @@
 			<Class>UNITCLASS_CHRISTIAN_MISSIONARY</Class>
 			<Type>UNIT_CHRISTIAN_MISSIONARY</Type>
 			<Special>SPECIALUNIT_PEOPLE</Special>
+			<Combat>UNITCOMBAT_MISSIONARY</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_MISSIONARY</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_CHRISTIAN_MISSIONARY</Description>
@@ -5785,7 +5826,7 @@
 			<ReligionSpreads>
 				<ReligionSpread>
 					<ReligionType>RELIGION_CHRISTIANITY</ReligionType>
-					<iReligionSpread>20</iReligionSpread>
+					<iReligionSpread>40</iReligionSpread>
 				</ReligionSpread>
 			</ReligionSpreads>
 			<SlaveSpecialistType>SPECIALIST_PRIEST_SLAVE</SlaveSpecialistType>
@@ -5794,11 +5835,12 @@
 			<iCost>40</iCost>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iAsset>2</iAsset>
+			<iExtraCost>1</iExtraCost>
+			<iAsset>1</iAsset>
 			<UnitMeshGroups>
 				<iGroupSize>1</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
+				<fPadTime>1</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
@@ -5812,6 +5854,7 @@
 			<Class>UNITCLASS_CONFUCIAN_MISSIONARY</Class>
 			<Type>UNIT_CONFUCIAN_MISSIONARY</Type>
 			<Special>SPECIALUNIT_PEOPLE</Special>
+			<Combat>UNITCOMBAT_MISSIONARY</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_MISSIONARY</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_CONFUCIAN_MISSIONARY</Description>
@@ -5821,7 +5864,7 @@
 			<ReligionSpreads>
 				<ReligionSpread>
 					<ReligionType>RELIGION_CONFUCIANISM</ReligionType>
-					<iReligionSpread>20</iReligionSpread>
+					<iReligionSpread>40</iReligionSpread>
 				</ReligionSpread>
 			</ReligionSpreads>
 			<SlaveSpecialistType>SPECIALIST_PRIEST_SLAVE</SlaveSpecialistType>
@@ -5830,11 +5873,12 @@
 			<iCost>40</iCost>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iAsset>2</iAsset>
+			<iExtraCost>1</iExtraCost>
+			<iAsset>1</iAsset>
 			<UnitMeshGroups>
 				<iGroupSize>1</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
+				<fPadTime>1</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
@@ -5844,10 +5888,49 @@
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
 		</UnitInfo>
+		<UnitInfo> <!-- Hellenic Missionary -->
+			<Class>UNITCLASS_HELLENIC_MISSIONARY</Class>
+			<Type>UNIT_HELLENIC_MISSIONARY</Type>
+			<Special>SPECIALUNIT_PEOPLE</Special>
+			<Combat>UNITCOMBAT_MISSIONARY</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_MISSIONARY</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_HELLENIC_MISSIONARY</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_RELIGION_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_NEW_GREEKWAR_HELLENIC_MISSIONARY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_RELIGION</Advisor>
+			<ReligionSpreads>
+				<ReligionSpread>
+					<ReligionType>RELIGION_HELLENISM</ReligionType>
+					<iReligionSpread>40</iReligionSpread>
+				</ReligionSpread>
+			</ReligionSpreads>
+			<SlaveSpecialistType>SPECIALIST_PRIEST_SLAVE</SlaveSpecialistType>
+			<PrereqReligion>RELIGION_HELLENISM</PrereqReligion>
+			<PrereqBuilding>BUILDING_HELLENIC_MONASTERY</PrereqBuilding>
+			<iCost>40</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMoves>2</iMoves>
+			<iExtraCost>1</iExtraCost>
+			<iAsset>1</iAsset>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_HELLENIC_MISSIONARY</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+		</UnitInfo>
 		<UnitInfo> <!-- Hindu Missionary -->
 			<Class>UNITCLASS_HINDU_MISSIONARY</Class>
 			<Type>UNIT_HINDU_MISSIONARY</Type>
 			<Special>SPECIALUNIT_PEOPLE</Special>
+			<Combat>UNITCOMBAT_MISSIONARY</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_MISSIONARY</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_HINDU_MISSIONARY</Description>
@@ -5857,7 +5940,7 @@
 			<ReligionSpreads>
 				<ReligionSpread>
 					<ReligionType>RELIGION_HINDUISM</ReligionType>
-					<iReligionSpread>20</iReligionSpread>
+					<iReligionSpread>40</iReligionSpread>
 				</ReligionSpread>
 			</ReligionSpreads>
 			<SlaveSpecialistType>SPECIALIST_PRIEST_SLAVE</SlaveSpecialistType>
@@ -5866,11 +5949,12 @@
 			<iCost>40</iCost>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iAsset>2</iAsset>
+			<iExtraCost>1</iExtraCost>
+			<iAsset>1</iAsset>
 			<UnitMeshGroups>
 				<iGroupSize>1</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
+				<fPadTime>1</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
@@ -5884,6 +5968,7 @@
 			<Class>UNITCLASS_ISLAMIC_MISSIONARY</Class>
 			<Type>UNIT_ISLAMIC_MISSIONARY</Type>
 			<Special>SPECIALUNIT_PEOPLE</Special>
+			<Combat>UNITCOMBAT_MISSIONARY</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_MISSIONARY</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_ISLAMIC_MISSIONARY</Description>
@@ -5893,7 +5978,7 @@
 			<ReligionSpreads>
 				<ReligionSpread>
 					<ReligionType>RELIGION_ISLAM</ReligionType>
-					<iReligionSpread>20</iReligionSpread>
+					<iReligionSpread>40</iReligionSpread>
 				</ReligionSpread>
 			</ReligionSpreads>
 			<SlaveSpecialistType>SPECIALIST_PRIEST_SLAVE</SlaveSpecialistType>
@@ -5902,11 +5987,12 @@
 			<iCost>40</iCost>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iAsset>2</iAsset>
+			<iExtraCost>1</iExtraCost>
+			<iAsset>1</iAsset>
 			<UnitMeshGroups>
 				<iGroupSize>1</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
+				<fPadTime>1</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
@@ -5920,6 +6006,7 @@
 			<Class>UNITCLASS_JEWISH_MISSIONARY</Class>
 			<Type>UNIT_JEWISH_MISSIONARY</Type>
 			<Special>SPECIALUNIT_PEOPLE</Special>
+			<Combat>UNITCOMBAT_MISSIONARY</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_MISSIONARY</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_JEWISH_MISSIONARY</Description>
@@ -5929,7 +6016,7 @@
 			<ReligionSpreads>
 				<ReligionSpread>
 					<ReligionType>RELIGION_JUDAISM</ReligionType>
-					<iReligionSpread>20</iReligionSpread>
+					<iReligionSpread>40</iReligionSpread>
 				</ReligionSpread>
 			</ReligionSpreads>
 			<SlaveSpecialistType>SPECIALIST_PRIEST_SLAVE</SlaveSpecialistType>
@@ -5938,11 +6025,12 @@
 			<iCost>40</iCost>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iAsset>2</iAsset>
+			<iExtraCost>1</iExtraCost>
+			<iAsset>1</iAsset>
 			<UnitMeshGroups>
 				<iGroupSize>1</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
+				<fPadTime>1</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
@@ -5952,10 +6040,87 @@
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
 		</UnitInfo>
+		<UnitInfo> <!-- Kemetic Missionary -->
+			<Class>UNITCLASS_KEMETIC_MISSIONARY</Class>
+			<Type>UNIT_KEMETIC_MISSIONARY</Type>
+			<Special>SPECIALUNIT_PEOPLE</Special>
+			<Combat>UNITCOMBAT_MISSIONARY</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_MISSIONARY</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_KEMETIC_MISSIONARY</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_RELIGION_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_KEMETIC_MISSIONARY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_RELIGION</Advisor>
+			<ReligionSpreads>
+				<ReligionSpread>
+					<ReligionType>RELIGION_KEMETISM</ReligionType>
+					<iReligionSpread>30</iReligionSpread>
+				</ReligionSpread>
+			</ReligionSpreads>
+			<SlaveSpecialistType>SPECIALIST_PRIEST_SLAVE</SlaveSpecialistType>
+			<PrereqReligion>RELIGION_KEMETISM</PrereqReligion>
+			<PrereqBuilding>BUILDING_KEMETIC_MONASTERY</PrereqBuilding>
+			<iCost>40</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMoves>2</iMoves>
+			<iExtraCost>1</iExtraCost>
+			<iAsset>1</iAsset>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_KEMETIC_MISSIONARY</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+		</UnitInfo>
+		<UnitInfo> <!-- Nagualism Missionary -->
+			<Class>UNITCLASS_NAGUALISM_MISSIONARY</Class>
+			<Type>UNIT_NAGUALISM_MISSIONARY</Type>
+			<Special>SPECIALUNIT_PEOPLE</Special>
+			<Combat>UNITCOMBAT_MISSIONARY</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_MISSIONARY</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_NAGUALISM_MISSIONARY</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_RELIGION_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_NAGUALISM_MISSIONARY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_RELIGION</Advisor>
+			<ReligionSpreads>
+				<ReligionSpread>
+					<ReligionType>RELIGION_NAGUALISM</ReligionType>
+					<iReligionSpread>40</iReligionSpread>
+				</ReligionSpread>
+			</ReligionSpreads>
+			<SlaveSpecialistType>SPECIALIST_PRIEST_SLAVE</SlaveSpecialistType>
+			<PrereqReligion>RELIGION_NAGUALISM</PrereqReligion>
+			<PrereqBuilding>BUILDING_NAGUALISTIC_MONASTERY</PrereqBuilding>
+			<iCost>40</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMoves>2</iMoves>
+			<iExtraCost>1</iExtraCost>
+			<iAsset>1</iAsset>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_NAGUALISM_MISSIONARY</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+		</UnitInfo>
 		<UnitInfo> <!-- Taoist Missionary -->
 			<Class>UNITCLASS_TAOIST_MISSIONARY</Class>
 			<Type>UNIT_TAOIST_MISSIONARY</Type>
 			<Special>SPECIALUNIT_PEOPLE</Special>
+			<Combat>UNITCOMBAT_MISSIONARY</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_MISSIONARY</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_TAOIST_MISSIONARY</Description>
@@ -5965,7 +6130,7 @@
 			<ReligionSpreads>
 				<ReligionSpread>
 					<ReligionType>RELIGION_TAOISM</ReligionType>
-					<iReligionSpread>20</iReligionSpread>
+					<iReligionSpread>40</iReligionSpread>
 				</ReligionSpread>
 			</ReligionSpreads>
 			<SlaveSpecialistType>SPECIALIST_PRIEST_SLAVE</SlaveSpecialistType>
@@ -5974,16 +6139,55 @@
 			<iCost>40</iCost>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iAsset>2</iAsset>
+			<iExtraCost>1</iExtraCost>
+			<iAsset>1</iAsset>
 			<UnitMeshGroups>
 				<iGroupSize>1</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
+				<fPadTime>1</fPadTime>
 				<iMeleeWaveSize>1</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_TAOIST_MISSIONARY</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+		</UnitInfo>
+		<UnitInfo> <!-- Zoroastrian Missionary -->
+			<Class>UNITCLASS_ZOROASTRIAN_MISSIONARY</Class>
+			<Type>UNIT_ZOROASTRIAN_MISSIONARY</Type>
+			<Special>SPECIALUNIT_PEOPLE</Special>
+			<Combat>UNITCOMBAT_MISSIONARY</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_MISSIONARY</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_ZOROASTRIAN_MISSIONARY</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_RELIGION_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ZOROASTRIAN_MISSIONARY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_RELIGION</Advisor>
+			<ReligionSpreads>
+				<ReligionSpread>
+					<ReligionType>RELIGION_ZOROASTRIANISM</ReligionType>
+					<iReligionSpread>40</iReligionSpread>
+				</ReligionSpread>
+			</ReligionSpreads>
+			<SlaveSpecialistType>SPECIALIST_PRIEST_SLAVE</SlaveSpecialistType>
+			<PrereqReligion>RELIGION_ZOROASTRIANISM</PrereqReligion>
+			<PrereqBuilding>BUILDING_ZOROASTRIAN_MONASTERY</PrereqBuilding>
+			<iCost>40</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMoves>2</iMoves>
+			<iExtraCost>1</iExtraCost>
+			<iAsset>1</iAsset>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_ZOROASTRIAN_MISSIONARY</EarlyArtDefineTag>
 				</UnitMeshGroup>
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
