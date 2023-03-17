@@ -9040,6 +9040,11 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 		}
 	}
 
+	if (kBuilding.getGlobalWonderProductionModifier() != 0) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_WONDER_PRODUCTION_MODIFIER", kBuilding.getGlobalWonderProductionModifier()));
+	}
+
 	if (kBuilding.getStarSignMitigateChangePercent() != 0) {
 		szTempBuffer = kBuilding.getStarSignMitigateChangePercent() > 0 ? "TXT_KEY_STAR_SIGN_MITIGATE_GOOD" : "TXT_KEY_STAR_SIGN_MITIGATE_BAD";
 		szBuffer.append(NEWLINE);

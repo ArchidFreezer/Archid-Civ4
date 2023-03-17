@@ -1763,4 +1763,10 @@
 		<Tag>TXT_KEY_BUILDING_GLOBAL_FOUND_POP</Tag>
 		<English>[ICON_BULLET]%D1_Change Population in New Cities</English>
 	</TEXT>
+<!-- Building Wonder Production Modifier -->
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WONDER_PRODUCTION_MODIFIER</Tag>
+		<English>[ICON_BULLET]Wonder productioon changed by %d1_modifier%</English>
+	</TEXT>
+
 </Civ4GameText>

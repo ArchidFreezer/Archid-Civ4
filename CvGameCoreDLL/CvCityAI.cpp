@@ -3244,6 +3244,9 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 				// else: If there is nothing to research, a free tech is worthless.
 			}
 
+			// Not sure how to value wonder production modifiers as they give can a significant production boost, but only in specific cases
+			iValue += kBuilding.getGlobalWonderProductionModifier() * 4 / GC.getGameSpeedInfo(GC.getGame().getGameSpeedType()).getConstructPercent();
+
 			iValue += kBuilding.getEnemyWarWearinessModifier() / 2;
 
 			for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {

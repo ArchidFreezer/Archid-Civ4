@@ -2733,8 +2733,13 @@ int CvCity::getProductionModifier(BuildingTypes eBuilding) const {
 	int iMultiplier = kPlayer.getProductionModifier(eBuilding);
 	if (eBuilding != NO_BUILDING) {
 		const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
-		iMultiplier += getBuildingClassProductionModifier((BuildingClassTypes)kBuilding.getBuildingClassType());
-		iMultiplier += kPlayer.getBuildingClassProductionModifier((BuildingClassTypes)kBuilding.getBuildingClassType());
+		BuildingClassTypes eBuildingClass = (BuildingClassTypes)kBuilding.getBuildingClassType();
+		iMultiplier += getBuildingClassProductionModifier(eBuildingClass);
+		iMultiplier += kPlayer.getBuildingClassProductionModifier(eBuildingClass);
+
+		if (isLimitedWonderClass(eBuildingClass)) {
+			iMultiplier += kPlayer.getWonderProductionModifier();
+		}
 
 		for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
 			if (hasBonus(eBonus)) {

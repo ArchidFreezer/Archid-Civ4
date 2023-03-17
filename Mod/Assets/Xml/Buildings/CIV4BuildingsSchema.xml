@@ -478,6 +478,7 @@
 	<ElementType name="bUnitAllCityDeathCulture" content="textOnly" dt:type="boolean"/>
 	<ElementType name="FreeUnitClass" content="textOnly"/>
 	<ElementType name="CreateFeatureType" content="textOnly"/>
+	<ElementType name="iGlobalWonderProductionModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="BuildingInfo" content="eltOnly">
 		<element type="BuildingClass"/>
 		<element type="Type"/>
@@ -629,6 +630,7 @@
 		<element type="iEspionageDefense" minOccurs="0"/>
 		<element type="iAsset" minOccurs="0"/>
 		<element type="iPower" minOccurs="0"/>
+		<element type="iGlobalWonderProductionModifier" minOccurs="0"/>
 		<element type="fVisibilityPriority" minOccurs="0"/> <!-- Default: 1.0 -->
 		<element type="SeaPlotYieldChanges" minOccurs="0"/>
 		<element type="RiverPlotYieldChanges" minOccurs="0"/>

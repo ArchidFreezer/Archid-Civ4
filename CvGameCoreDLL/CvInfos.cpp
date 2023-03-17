@@ -6887,6 +6887,7 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_iBarbarianConversionCostModifier(0),
 	m_iFreeUnitClass(0),
 	m_iCreateFeatureType(0),
+	m_iGlobalWonderProductionModifier(0),
 	m_fVisibilityPriority(0.0f),
 	m_bTeamShare(false),
 	m_bWater(false),
@@ -7051,6 +7052,10 @@ CvBuildingInfo::~CvBuildingInfo() {
 		SAFE_DELETE_ARRAY(m_ppaiTechYieldChange);
 	}
 
+}
+
+int CvBuildingInfo::getGlobalWonderProductionModifier() const {
+	return m_iGlobalWonderProductionModifier;
 }
 
 int CvBuildingInfo::getCreateFeatureType() const {
@@ -8300,6 +8305,7 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iBarbarianConversionCostModifier);
 	stream->Read(&m_iFreeUnitClass);
 	stream->Read(&m_iCreateFeatureType);
+	stream->Read(&m_iGlobalWonderProductionModifier);
 
 	int iVal;
 	stream->Read(&iVal);
@@ -8850,6 +8856,7 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iBarbarianConversionCostModifier);
 	stream->Write(m_iFreeUnitClass);
 	stream->Write(m_iCreateFeatureType);
+	stream->Write(m_iGlobalWonderProductionModifier);
 
 	stream->Write(m_eMinCultureLevel);
 
@@ -9255,6 +9262,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iEspionageDefenseModifier, "iEspionageDefense");
 	pXML->GetChildXmlValByName(&m_iAssetValue, "iAsset");
 	pXML->GetChildXmlValByName(&m_iPowerValue, "iPower");
+	pXML->GetChildXmlValByName(&m_iGlobalWonderProductionModifier, "iGlobalWonderProductionModifier");
 	pXML->GetChildXmlValByName(&m_fVisibilityPriority, "fVisibilityPriority", 1.0f);
 	pXML->SetList(&m_piSeaPlotYieldChange, "SeaPlotYieldChanges", NUM_YIELD_TYPES);
 	pXML->SetList(&m_piRiverPlotYieldChange, "RiverPlotYieldChanges", NUM_YIELD_TYPES);

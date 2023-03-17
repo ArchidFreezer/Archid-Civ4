@@ -36,6 +36,9 @@ public:
 	CvPlayerAI* AI() { return (CvPlayerAI*)(this); }
 	const CvPlayerAI* AI() const { return (const CvPlayerAI*)(this); }
 
+	int getWonderProductionModifier() const;
+	void changeWonderProductionModifier(int iChange);
+
 	int getPlundered(PlayerTypes ePlayer, int iDesired);
 	int getPlunderBudget() const;
 	void resetPlunderBudget();
@@ -1445,6 +1448,7 @@ protected:
 	int m_iUnitAllCityDeathCultureCount;
 	int m_iMaxPlunderBudget;
 	int m_iCurrPlunderBudget;
+	int m_iWonderProductionModifier;
 
 	uint m_uiStartTime;  // XXX save these?
 
