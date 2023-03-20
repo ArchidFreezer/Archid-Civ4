@@ -4088,7 +4088,7 @@
 			<bInGeneric>1</bInGeneric>
 		</SoundData>
 		<SoundData>
-			<SoundID>SND_BUILD_PARTHENON</SoundID>
+			<SoundID>SND_BUILD_HELLENIC_PARTHENON</SoundID>
 			<Filename>Sounds/Buildings/Parthenon</Filename>
 			<LoadType>DYNAMIC_RES</LoadType>
 			<bIsCompressed>1</bIsCompressed>

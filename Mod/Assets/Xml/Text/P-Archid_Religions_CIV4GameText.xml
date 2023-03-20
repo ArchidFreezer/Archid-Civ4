@@ -79,7 +79,7 @@
 	</TEXT>
 	<TEXT> <!-- Shrine (Odin's Sanctuary) -->
 		<Tag>TXT_KEY_BUILDING_ASATRU_SHRINE</Tag>
-		<English>The Odin's Sanctuary</English>
+		<English>Asatru Shrine (Odin's Sanctuary)</English>
 		<French>Le Sanctuaire d'Odin</French>
 	</TEXT>
 	<TEXT>
@@ -93,7 +93,7 @@
 	</TEXT>
 	<TEXT> <!-- Thor's Alter -->
 		<Tag>TXT_KEY_BUILDING_THOR_ALTAR</Tag>
-		<English>Thor's Altar</English>
+		<English>Asatru Temple (Thor's Altar)</English>
 		<French>Autel de Thor</French>
 	</TEXT>
 	<TEXT>
@@ -106,7 +106,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Loki Sanctuary) -->
 		<Tag>TXT_KEY_BUILDING_LOKI_SANCTUARY</Tag>
-		<English>Loki Sanctuary</English>
+		<English>Asatru Wonder (Loki Sanctuary)</English>
 		<French>Sanctuaire de Loki</French>
 	</TEXT>
 	<TEXT>
@@ -119,7 +119,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Freya Sanctuary) -->
 		<Tag>TXT_KEY_BUILDING_FREYA_SANCTUARY</Tag>
-		<English>Freya Sanctuary</English>
+		<English>Asatru Wonder (Freya Sanctuary)</English>
 		<French>Sanctuaire de Freya</French>
 	</TEXT>
 	<TEXT>
@@ -132,7 +132,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Heimdall Sanctuary) -->
 		<Tag>TXT_KEY_BUILDING_HEIMDALL_SANCTUARY</Tag>
-		<English>Heimdall Sanctuary</English>
+		<English>Asatru Wonder (Heimdall Sanctuary)</English>
 		<French>Sanctuaire de Heimdall</French>
 	</TEXT>
 	<TEXT>
@@ -145,7 +145,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Thor Sanctuary) -->
 		<Tag>TXT_KEY_BUILDING_THOR_SANCTUARY</Tag>
-		<English>Thor Sanctuary</English>
+		<English>Asatru Wonder (Thor Sanctuary)</English>
 		<French>Sanctuaire de Thor</French>
 	</TEXT>
 	<TEXT>
@@ -158,9 +158,57 @@
 	</TEXT>
 
 <!-- +++ Buddhism +++ -->
+	<TEXT> <!-- Cathedral (Stupa) -->
+		<Tag>TXT_KEY_BUILDING_BUDDHIST_CATHEDRAL</Tag>
+		<English>Buddhist Cathedral (Stupa)</English>
+		<French>
+			<Text>Stupa bouddhiste</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Buddhistische Stupa</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Stupa Buddista:Stupa Buddisti</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Stupa budista:Stupas budistas</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT> <!-- Shrine (The Mahabodhi) -->
+		<Tag>TXT_KEY_BUILDING_BUDDHIST_SHRINE</Tag>
+		<English>Buddhist Shrine (The Mahabodhi)</English>
+		<French>
+			<Text>Mahabodhi</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Mahabodhi</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Il Mahabodhi</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Mahabodhi</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
 	<TEXT> <!-- Wonder (Palace of Potala) -->
 		<Tag>TXT_KEY_BUILDING_POTALA_PALACE</Tag>
-		<English>Palace of Potala</English>
+		<English>Buddhist Wonder (Palace of Potala)</English>
 		<French>Palais de Potala</French>
 		<German>Potala-Palast</German>
 	</TEXT>
@@ -174,7 +222,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Kotoku-in) -->
 		<Tag>TXT_KEY_BUILDING_KOTOKU</Tag>
-		<English>Kotoku-in</English>
+		<English>Buddhist Wonder (Kotoku-in)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_KOTOKU_PEDIA</Tag>
@@ -186,7 +234,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Bezeklik Caves) -->
 		<Tag>TXT_KEY_BUILDING_CAVES</Tag>
-		<English>Bezeklik Caves</English>
+		<English>Buddhist Wonder (Bezeklik Caves)</English>
 		<French>Les Cavernes Bezeklik</French>
 		<Italian>
 			<Text>Grotte di Bezeklik</Text>
@@ -206,7 +254,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Nara's Giant Buddha) -->
 		<Tag>TXT_KEY_BUILDING_NARA</Tag>
-		<English>Nara's Giant Buddha</English>
+		<English>Buddhist Wonder (Nara's Giant Buddha}</English>
 		<French>Le Bouddha Géant de Nara</French>
 		<Italian>
 			<Text>Buddha giganti di Nara</Text>
@@ -226,9 +274,33 @@
 	</TEXT>
 
 <!-- +++ Christianity +++ -->
+	<TEXT> <!-- Shrine (The Church of the Nativity) -->
+		<Tag>TXT_KEY_BUILDING_CHRISTIAN_SHRINE</Tag>
+		<English>Christian Shrine (The Church of the Nativity)</English>
+		<French>
+			<Text>Basilique de la Nativit&#233;</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Geburtskirche</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>La Chiesa della Nativit&#224;</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Iglesia de la Natividad</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
 	<TEXT> <!-- Wonder (King Richards Crusade) -->
 		<Tag>TXT_KEY_BUILDING_CRUSADE</Tag>
-		<English>King Richard's Crusade</English>
+		<English>Christian Wonder (King Richard's Crusade)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_CRUSADE_PEDIA</Tag>
@@ -244,7 +316,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Holy See Library) -->
 		<Tag>TXT_KEY_BUILDING_VATICAN_LIBRARY</Tag>
-		<English>Holy See Library</English>
+		<English>Christian Wonder (Holy See Library)</English>
 		<French>La Bibliothèque de la Mert Morte</French>
 		<Italian>
 			<Text>Biblioteca Vaticana</Text>
@@ -264,7 +336,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Saint Mark's Basilica) -->
 		<Tag>TXT_KEY_BUILDING_SAN_MARCOS_CATHEDRAL</Tag>
-		<English>Saint Mark's Basilica</English>
+		<English>Christian Wonder (Saint Mark's Basilica)</English>
 		<French>La Basilique Saint Marc</French>
 		<Italian>
 			<Text>Basilica di San Marco</Text>
@@ -284,9 +356,57 @@
 	</TEXT>
 
 <!-- +++ Confucianism +++ -->
+	<TEXT> <!-- Cathedral (Academy) -->
+		<Tag>TXT_KEY_BUILDING_CONFUCIAN_CATHEDRAL</Tag>
+		<English>Confucian Cathedral (Academy)</English>
+		<French>
+			<Text>Acad&#233;mie confucianiste</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Konfuzianische Akademie</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Accademia Confuciana:Accademie Confuciane</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Academia confuciana:Academias confucianas</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT> <!-- Shrine (The Kong Miao) -->
+		<Tag>TXT_KEY_BUILDING_CONFUCIAN_SHRINE</Tag>
+		<English>Confucian Shrine (The Kong Miao)</English>
+		<French>
+			<Text>Kong Miao</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Kong Miao</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Il Kong Miao</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Kong Miao</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
 	<TEXT> <!-- Wonder (Dosan Seowon) -->
 		<Tag>TXT_KEY_BUILDING_DOSAN_SEOWON</Tag>
-		<English>Dosan Seowon</English>
+		<English>Confucian Wonder (Dosan Seowon)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_DOSAN_SEOWON_PEDIA</Tag>
@@ -301,7 +421,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (San Kong) -->
 		<Tag>TXT_KEY_BUILDING_SAN_KONG</Tag>
-		<English>San Kong</English>
+		<English>Confucian Wonder (San Kong)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_SAN_KONG_PEDIA</Tag>
@@ -425,7 +545,7 @@
 	</TEXT>
 	<TEXT> <!-- Cathedral (Pantheon) -->
 		<Tag>TXT_KEY_BUILDING_HELLENIC_CATHEDRAL</Tag>
-		<English>Hellenic Pantheon</English>
+		<English>Hellenic Cathedral (Pantheon)</English>
 		<French>
 			<Text>Grand lieu de culte hell&#233;nique</Text>
 			<Gender>Male</Gender>
@@ -457,7 +577,7 @@
 	</TEXT>
 	<TEXT> <!-- Monastry (Gymnasia) -->
 		<Tag>TXT_KEY_BUILDING_HELLENIC_MONASTERY</Tag>
-		<English>Hellenic Gymnasia</English>
+		<English>Hellenic Monastry (Gymnasia)</English>
 		<French>
 			<Text>Monast&#232;re hell&#233;nique</Text>
 			<Gender>Male</Gender>
@@ -489,7 +609,7 @@
 	</TEXT>
 	<TEXT> <!-- Shrine (Statue of Zeus) -->
 		<Tag>TXT_KEY_BUILDING_HELLENIC_SHRINE</Tag>
-		<English>The Statue of Zeus</English>
+		<English>Hellenic Shrine (The Statue of Zeus)</English>
 		<French>
 			<Text>Sanctuaire hell&#233;nique</Text>
 			<Gender>Male</Gender>
@@ -513,11 +633,63 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_HELLENIC_SHRINE_PEDIA</Tag>
-		<English>.</English>
+		<English>[TAB]Many monuments were created to honor Zeus, King of the Greek Gods, yet none could be as impressive as the Statue of Zeus at Olympia. Over forty feet tall, the Statue filled the temple in which it was constructed from floor to ceiling. Created by the master artisan Phidias between 438 and 446BC, the whole statue rested on a wooden frame built upon a cedarwood throne of appropriate size for a forty-foot deity. The frame was then draped in ivory and gold (ivory for skin, gold for clothing) and covered from head to toe in jewels. Before Zeus' feet, a shallow lake of olive oil reflected light into the temple, illuminating the otherwise closed building. Every four years, when the Olympic Games would be held in the town, Olympic competitors would approach the statue and make sacrifices to the King of the Gods with the hope of assuring their victory.</English>
+		<French>[TAB]Beaucoup de monuments ont &#233;t&#233; &#233;rig&#233;s pour honorer Zeus, roi des dieux grecs. Cependant, aucun ne saurait &#234;tre aussi impressionnant que la statue de Zeus &#224; Olympie. Mesurant plus de 12 m&#232;tres de haut, la statue atteignait le plafond du temple dans lequel elle a &#233;t&#233; construite. Cr&#233;&#233;e par le ma&#238;tre artisan Phidias entre 438 et 446 av. J.C., la statue repose sur un cadre en bois construit sur un &#233;norme tr&#244;ne en c&#232;dre. Le cadre a ensuite &#233;t&#233; drap&#233; d'or et d'ivoire (ivoire pour la peau, or pour les v&#234;tements) et couvert de bijoux. Aux pieds de Zeus, un lac d'huile d'olive r&#233;fl&#233;chissait la lumi&#232;re, illuminant le temple. Tous les quatre ans, lorsque les jeux olympiques avaient lieu en ville, les concurrents s'approchaient de la statue et faisaient des sacrifices au roi des dieux dans l'espoir qu'il leur assurerait la victoire.</French>
+		<German>[TAB]Viele Monumente wurden zu Ehren des griechischen G&#246;tterk&#246;nigs Zeus erschaffen, aber keins war so beeindruckend wie die Zeus-Statue von Olympia. Mit &#252;ber zw&#246;lf Metern f&#252;llte die Statue die gesamte Raumh&#246;he des Tempels, in dem sie errichtet wurde. Sie wurde zwischen 446 und 438 v. Chr. vom Meistersteinmetz Phidias erschaffen und st&#252;tzte sich auf ein h&#246;lzernes Ger&#252;st, das auf einem in seinen Dimensionen der zw&#246;lf Meter hohen Gottheit angemessenen Thron aus Zedernholz fu&#223;te. Das Ger&#252;st wurde mit Elfenbein und Gold verziert (Elfenbein f&#252;r die Haut, Gold f&#252;r das Gewand) und von Kopf bis Fu&#223; mit Juwelen behangen. Vor Zeus' F&#252;&#223;en reflektierte ein seichter See aus Oliven&#246;l das Licht in das Innere des Tempels und erhellte das ansonsten geschlossene Geb&#228;ude. Alle vier Jahre, w&#228;hrend die Olympischen Spiele in der Stadt ausgetragen wurden, n&#228;herten sich die Wettk&#228;mpfer der Statue und brachten dem K&#246;nig der G&#246;tter Opfer dar, in der Hoffnung, er m&#246;ge ihnen daf&#252;r den Sieg schenken.</German>
+		<Italian>[TAB]Furono eretti molti monumenti per onorare Zeus, il signore degli dei greci, ma nessuno &#232; da considerarsi tanto maestoso quanto la Statua di Zeus a Olimpia. La Statua era alta pi&#249; di 12 metri, raggiungendo il soffitto del tempio in cui era stata costruita. Creata dal maestro artigiano Fidia tra il 438 e il 446 a.C., l'intera statua era composta da una struttura di legno costruita su un trono di cedro di dimensioni appropriate per una divinit&#224; alta 12 metri. La struttura era poi coperta di oro e avorio (avorio per la pelle, oro per i vestiti) e coperta dalla testa ai piedi di gioielli. Davanti ai piedi di Zeus un lago poco profondo di olio d'oliva rifletteva la luce nel tempio, illuminando l'edificio altrimenti chiuso. Ogni quattro anni, quando si tenevano in citt&#224; i Giochi Olimpici, i concorrenti si avvicinavano alla statua per fare sacrifici al Re degli Dei, nella speranza che concedesse loro la vittoria.</Italian>
+		<Spanish>[TAB]Hubo muchos monumentos consagrados a Zeus, rey de los dioses griegos, pero ninguno de ellos tan impresionante como la estatua de Olimpia. Con sus casi quince metros de altura, la estatua llenaba el templo en el que estaba construido desde el suelo hasta el techo. Creada por el maestro Fidias entre los a&#241;os 438 y 446 a. C., la estatua descansaba sobre una estructura de madera construida encima de un trono de cedro del tama&#241;o apropiado para una escultura de semejantes dimensiones. La estructura estaba luego revestida de marfil y oro (marfil para la piel, oro para la ropa) y cubierta de joyas de la cabeza a los pies. A los pies de Zeus, un estanque poco profundo de aceite de oliva reflejaba la luz hacia el interior del templo, que no contaba con otros medios de iluminaci&#243;n. Cada cuatro a&#241;os, cuando se celebraban los Juegos Ol&#237;mpicos en el la ciudad, los competidores se acercaban al rey de los dioses y depositaban sus ofrendas a sus pies con la esperanza de que les concediera la victoria.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HELLENIC_SHRINE_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Statue of Zeus[COLOR_REVERT] increases war weariness in the cities of those who go to war against its builder. It also increases the chances of a [COLOR_UNIT_TEXT]Great Artist[COLOR_REVERT] appearing.</English>
+		<French>La [COLOR_BUILDING_TEXT]Statue de Zeus[COLOR_REVERT] augmente la lassitude de guerre dans les villes des joueurs en guerre contre son constructeur. Elle augmente aussi les chances d'apparition d'un [COLOR_UNIT_TEXT]artiste illustre[COLOR_REVERT].</French>
+		<German>Die [COLOR_BUILDING_TEXT]Zeus-Statue[COLOR_REVERT] erh&#246;ht die Kriegsm&#252;digkeit in St&#228;dten, die gegen den Erbauer der Statue in den Krieg ziehen. Au&#223;erdem erh&#246;ht sie die Chancen auf den Erhalt eines [COLOR_UNIT_TEXT]Gro&#223;en K&#252;nstlers[COLOR_REVERT].</German>
+		<Italian>La [COLOR_BUILDING_TEXT]Statua di Zeus[COLOR_REVERT] aumenta la stanchezza della guerra in coloro che combattono contro il suo costruttore. Aumenta inoltre le probabilit&#224; che appaia un [COLOR_UNIT_TEXT]Grande Artista[COLOR_REVERT].</Italian>
+		<Spanish>La [COLOR_BUILDING_TEXT]Estatua de Zeus[COLOR_REVERT] aumenta el hast&#237;o b&#233;lico en las ciudades de quienes vayan contra quien la construya. Tambi&#233;n aumenta las posibilidades de que aparezca un [COLOR_UNIT_TEXT]gran artista[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT> <!-- Wonder (The Parthenon) -->
+		<Tag>TXT_KEY_BUILDING_HELLENIC_PARTHENON</Tag>
+		<English>Hellenic Wonder (The Parthenon)</English>
+		<French>
+			<Text>Parth&#233;non</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Der Parthenon</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Il Partenone</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>el Parten&#243;n:los Partenones</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HELLENIC_PARTHENON_PEDIA</Tag>
+		<English>[TAB]The Parthenon was constructed in 433 BC, in Athens, Greece, in honor of Athens' patron goddess, Athena. Measuring 100 feet by 225 feet, the Parthenon is constructed almost totally of marble. The exterior of the Parthenon is ringed with Doric-style columns more than 30 feet in height, and the center part of the temple, called the "cella," is a large open space which once held a statue of Athena. Much of the temple was decorated with beautiful marble statues and friezes celebrating Athena and the glories of Athens. [PARAGRAPH:2]The Parthenon has suffered much from the ravages of time. In the 5th century a Roman Emperor stole the statue of Athena and moved it to Constantinople, where it was subsequently destroyed. In the 13th century the Parthenon was converted to a Catholic church, which involved altering the internal structure and removing (and probably destroying) many statues dedicated to the old gods. In the 15th century Athens was captured by the Ottomans, and the temple was turned into a mosque. In the 17th century the Parthenon was partially destroyed during a war between the Ottomans and Venetians. Finally, in the 19th century, the British ambassador to Greece looted all of the surviving marble friezes from the building, which he subsequently sold to the British museum. [PARAGRAPH:2]Despite the centuries of neglect, mutilation and pillaging, the Parthenon still stands - a remarkably powerful and beautiful symbol of the glories of ancient Greece.</English>
+		<French>[TAB]Le Parth&#233;non a &#233;t&#233; construit en 433 av. J.-C. &#224; Ath&#232;nes, en Gr&#232;ce, en l'honneur de la d&#233;esse Ath&#233;na, patronne d'Ath&#232;nes. Mesurant 70 m sur 31 m, le Parth&#233;non est construit pratiquement enti&#232;rement en marbre. A l'ext&#233;rieur, il est entour&#233; de colonnes doriques mesurant plus de 9 m de haut et au centre du temple, appel&#233; "naos", se trouve un vaste espace abritant une statue d'Ath&#233;na. Une grande partie du temple &#233;tait d&#233;cor&#233;e de magnifiques statues de marbre et de frises c&#233;l&#233;brant Ath&#233;na et les gloires d'Ath&#232;nes. [PARAGRAPH:2]Le Parth&#233;non a beaucoup souffert des ravages du temps. Au Ve si&#232;cle, un empereur romain vola la statue d'Ath&#233;na et la transporta &#224; Constantinople, o&#249; elle fut d&#233;truite. Au XIIIe si&#232;cle, le Parth&#233;non fut transform&#233; en une &#233;glise catholique, ce qui entra&#238;na une modification de la structure interne ainsi que la suppression (et sans doute aussi la destruction) de nombreuses statues consacr&#233;es aux anciens dieux. Au XVe si&#232;cle, Ath&#232;nes fut prise par les Ottomans et le temple se trouva transform&#233; en mosqu&#233;e. Au XVIIe si&#232;cle, le Parth&#233;non fut partiellement d&#233;truit lors d'une guerre entre les Ottomans et les V&#233;nitiens. Enfin, au XIXe si&#232;cle, l'ambassadeur britannique en Gr&#232;ce pilla toutes les fresques de marbre subsistantes, dans le b&#226;timent, pour les vendre au British Museum. [PARAGRAPH:2]En d&#233;pit des si&#232;cles de n&#233;gligences, de mutilations et de pillages, le Parth&#233;non subsiste, symbole magnifique et remarquablement fort des gloires de la Gr&#232;ce antique.</French>
+		<German>[TAB]Der Parthenon wurde 433 vor Christus in Athen zu Ehren der G&#246;ttin Athene gebaut. Die S&#228;ulen des etwa 30 mal 70 Meter gro&#223;en, im dorischen Stil erbauten Tempels sind &#252;ber 8 Meter hoch. Der zentrale Teil des Tempels (Cella) ist eine gro&#223;e Fl&#228;che, auf der einst eine Athene-Statue stand. Ein Gro&#223;teil des Tempels war mit Marmorstatuen und -fresken verziert, die Athene und den Ruhm Athens symbolisierten. [PARAGRAPH:2]Der Parthenon hat im Laufe der Jahrhunderte sehr gelitten. Im 5. Jahrhundert stahl ein r&#246;mischer Kaiser die Statue der Athene und brachte sie nach Konstantinopel, wo sie schlie&#223;lich zerst&#246;rt wurde. Im 13. Jahrhundert wurde der Parthenon als katholische Kirche geweiht. Dabei wurden die inneren Strukturen ver&#228;ndert und viele heidnische G&#246;tterstatuen zerst&#246;rt. Im 15. Jahrhundert besetzten die Ottomanen Athen und nutzten den Parthenon als Moschee. Im 17. Jahrhundert wurde der Parthenon teilweise zerst&#246;rt. Schlie&#223;lich raubte der britische Botschafter in Griechenland die noch erhaltenen Marmorfresken und verkaufte diese an das British Museum. [PARAGRAPH:2]Trotz der Vernachl&#228;ssigung, Zerst&#246;rung und Pl&#252;nderung steht der Parthenon noch immer ... als m&#228;chtiges Symbol der Bl&#252;tezeit Griechenlands.</German>
+		<Italian>[TAB]Il Partenone fu costruito ad Atene, in Grecia, intorno al 433 a. C. in favore di Atena. Alto circa 30 metri e lungo 70, il Partenone &#232; completamente realizzato in marmo. L'esterno del Partenone &#232; ricco di colonne doriche alte pi&#249; di 10 metri e la parte centrale del tempio, chiamata la "cella", &#232; un grande spazio aperto dove una volta di trovava una statua di Atena. Buona parte del tempio &#232; decorato con meravigliose statue di marmo e fregi che celebrano Atena e la gloria di Atene. [PARAGRAPH:2]Il Partenone &#232; stato danneggiato con il passare del tempo: nel V secolo, un Imperatore Romano rub&#242; la statua di Atena e la spost&#242; a Costantinopoli dove venne successivamente distrutta. Nel XIII secolo il Partenone fu convertito a chiesa Cattolica: per questo motivo vennero apportate molte modifiche alla struttura e vennero rimosse (probabilmente distrutte) molte delle statue dedicate alle antiche divinit&#224;. Nel XV secolo, Atene venne conquistata dagli Ottomani e il tempio venne adibito a moschea: nel XVII secolo, il Partenone fu distrutto parzialmente dalla guerra tra Ottomani e Veneziani. Infine, nel XIX secolo, l'ambasciatore Britannico in Grecia saccheggi&#242; tutti i rimanenti fregi di marmo dall'edificio, che vennero successivamente venduti al British Museum. [PARAGRAPH:2]Malgrado secoli di trascuratezza, mutilazioni, saccheggi, il Partenone &#232; ancora al suo posto, un simbolo che ricorda la potenza e la bellezza dell'antica Grecia.</Italian>
+		<Spanish>[TAB]El Parten&#243;n se construy&#243; en el 433 a. C., en Atenas, Grecia, en honor a la diosa patrona de esta ciudad, Atenea. Mide unos 70 x 30 metros y est&#225; construido casi totalmente de m&#225;rmol. El exterior est&#225; rodeado por un peristilo de estilo d&#243;rico de m&#225;s de diez metros de altura y la parte central del templo, llamada "cella", es un espacio abierto en el que anta&#241;o se levant&#243; la estatua de Atenea. Gran parte del templo estaba decorada con preciosos frisos y estatuas de m&#225;rmol en honor de Atenea y las glorias de Atenas. [PARAGRAPH:2]El Parten&#243;n ha sufrido muchos pillajes con el paso del tiempo. En el s. V, un emperador romano rob&#243; la estatua de Atenea y se la llev&#243; a Constantinopla, donde posteriormente fue destruida. En el s. XIII se convirti&#243; en una iglesia cat&#243;lica, lo que supuso alterar su estructura interna y quitar (y probablemente destruir) muchas estatuas dedicadas a los antiguos dioses. En el s. XV, Atenas fue capturada por los otomanos, y el templo se convirti&#243; en una mezquita. En el s. XVII fue parcialmente destruido durante una guerra entre otomanos y venecianos. Finalmente, en el s. XIX, el embajador brit&#225;nico en Grecia saque&#243; todos los frisos de m&#225;rmol que quedaban y posteriormente se los vendi&#243; al British Museum. [PARAGRAPH:2]Pese a siglos de abandono, mutilaci&#243;n y pillaje, el Parten&#243;n a&#250;n se alza como un s&#237;mbolo excepcionalmente poderoso y bello de las glorias de la antigua Grecia.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HELLENIC_PARTHENON_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Parthenon[COLOR_REVERT] increases the rate at which your civilization generates [COLOR_HIGHLIGHT_TEXT]Great People[COLOR_REVERT], particularly [COLOR_UNIT_TEXT]Great Artists[COLOR_REVERT]. It also has a high cultural value.</English>
+		<French>Le [COLOR_BUILDING_TEXT]Parth&#233;non[COLOR_REVERT] augmente le taux d'apparition des [COLOR_HIGHLIGHT_TEXT]personnages illustres[COLOR_REVERT] dans votre civilisation, notamment des [COLOR_UNIT_TEXT]artistes illustres[COLOR_REVERT]. Il a &#233;galement un fort potentiel culturel.</French>
+		<German>Der [COLOR_BUILDING_TEXT]Parthenon[COLOR_REVERT] beschleunigt die Bildung [COLOR_HIGHLIGHT_TEXT]Gro&#223;er Pers&#246;nlichkeiten[COLOR_REVERT] (vor allem [COLOR_UNIT_TEXT]Gro&#223;er K&#252;nstler[COLOR_REVERT]). Dar&#252;ber hinaus wirkt er sich positiv auf die Kultur einer Stadt aus.</German>
+		<Italian>Il [COLOR_BUILDING_TEXT]Partenone[COLOR_REVERT] aumenta il ritmo di generazione dei [COLOR_HIGHLIGHT_TEXT]Grandi Personaggi[COLOR_REVERT] della tua civilt&#224;, in particolare dei [COLOR_UNIT_TEXT]Grandi Artisti[COLOR_REVERT]. Inoltre, ha un grande valore culturale.</Italian>
+		<Spanish>El [COLOR_BUILDING_TEXT]Parten&#243;n[COLOR_REVERT] aumenta el ritmo al que la civilizaci&#243;n genera [COLOR_HIGHLIGHT_TEXT]Grandes personajes[COLOR_REVERT], especialmente [COLOR_UNIT_TEXT]Grandes artistas[COLOR_REVERT]. Tambi&#233;n tiene un gran valor cultural.</Spanish>
 	</TEXT>
 	<TEXT> <!-- Wonder (The Erechtheum) -->
 		<Tag>TXT_KEY_BUILDING_ERECHTHEUM</Tag>
-		<English>The Erechtheum</English>
+		<English>Hellenic Wonder (The Erechtheum)</English>
 		<French>L'Erechtheum</French>
 		<Italian>
 			<Text>Eretteo</Text>
@@ -537,7 +709,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Phidias Statue Workshop) -->
 		<Tag>TXT_KEY_BUILDING_FIDIAS</Tag>
-		<English>Phidias Statue Workshop</English>
+		<English>Hellenic Wonder (Phidias Statue Workshop)</English>
 		<French>Atelier de sculpture de Phidias</French>
 		<Italian>
 			<Text>Atelier delle sculture di Fidia</Text>
@@ -557,7 +729,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (The NecromanteionNecromanteion) -->
 		<Tag>TXT_KEY_BUILDING_NECROMANTEION</Tag>
-		<English>The Necromanteion</English>
+		<English>Hellenic Wonder (The Necromanteion)</English>
 		<French>Le Nécromantéion</French>
 		<Italian>
 			<Text>Necromanteion</Text>
@@ -577,9 +749,57 @@
 	</TEXT>
 
 <!-- +++ Hinduism +++ -->
+	<TEXT> <!-- Cathedral (Mandir) -->
+		<Tag>TXT_KEY_BUILDING_HINDU_CATHEDRAL</Tag>
+		<English>Hindu Cathedral (Mandir)</English>
+		<French>
+			<Text>Mandir hindou</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Hinduistischer Mandir</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Mandir Ind&#249;:Mandir Ind&#249;</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Mandir hind&#250;:Mandir hind&#250;es</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT> <!-- Shrine (The Kashi Vishwanath) -->
+		<Tag>TXT_KEY_BUILDING_HINDU_SHRINE</Tag>
+		<English>Hindu Shrine (The Kashi Vishwanath)</English>
+		<French>
+			<Text>Kashi Vishwanath</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Kashi Vishwanath</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Il Kashi Vishwanath</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Kashi Vishwanath</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
 	<TEXT> <!-- Wonder (Akshardham) -->
 		<Tag>TXT_KEY_BUILDING_AKSHARDHAM</Tag>
-		<English>Akshardham</English>
+		<English>Hindu Wonder (Akshardham)</English>
 		<Italian>
 			<Text>Akshardham</Text>
 			<Gender>Male</Gender>
@@ -598,7 +818,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Brihadeeswarar) -->
 		<Tag>TXT_KEY_BUILDING_HINDU_BRIHADEESWARAR</Tag>
-		<English>The Brihadeeswarar Temple</English>
+		<English>Hindu Wonder (The Brihadeeswarar Temple)</English>
 		<French>Temple de Brihadisvara</French>
 		<German>Der Brihadeschwara-Tempel</German>
 	</TEXT>
@@ -613,7 +833,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Meenakshi Temple) -->
 		<Tag>TXT_KEY_BUILDING_MEENAKSHI</Tag>
-		<English>Meenakshi Temple</English>
+		<English>Hindu Wonder (Meenakshi Temple)</English>
 		<French>Le Temple de Meenakshi</French>
 		<Italian>
 			<Text>Tempio Meenakshi</Text>
@@ -633,9 +853,57 @@
 	</TEXT>
 
 <!-- +++ Islam +++ -->
+	<TEXT> <!-- Cathedral (Mosque) -->
+		<Tag>TXT_KEY_BUILDING_ISLAMIC_CATHEDRAL</Tag>
+		<English>Islamic Cathedral (Mosque)</English>
+		<French>
+			<Text>Mosqu&#233;e</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Islamische Moschee</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Moschea Islamica:Moschee Islamiche</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Mezquita isl&#225;mica:Mezquitas isl&#225;micas</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT> <!-- Shrine (The Masjid al-Haram) -->
+		<Tag>TXT_KEY_BUILDING_ISLAMIC_SHRINE</Tag>
+		<English>Islamic Shrine (The Masjid al-Haram)</English>
+		<French>
+			<Text>Al-Masjid al-Haraam</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Masjid al-Haram</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Il Masjid al-Haram</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Mezquita al-Haram</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
 	<TEXT> <!-- Wonder (Alhambra) -->
 		<Tag>TXT_KEY_BUILDING_ALHAMBRA</Tag>
-		<English>Alhambra</English>
+		<English>Islamic Wonder (Alhambra)</English>
 		<French>Alhambra</French>
 		<German>Alhambra</German>
 		<Italian>Alhambra</Italian>
@@ -651,7 +919,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Blue Mosque) -->
 		<Tag>TXT_KEY_BUILDING_BLUE_MOSQUE</Tag>
-		<English>Blue Mosque</English>
+		<English>Islamic Wonder (Blue Mosque)</English>
 		<French>La Mosquée Bleue</French>
 		<Italian>
 			<Text>Moschea blu</Text>
@@ -671,7 +939,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Great Mosque of Djenné) -->
 		<Tag>TXT_KEY_BUILDING_DJENNE</Tag>
-		<English>Great Mosque of Djenné</English>
+		<English>Islamic Wonder (Great Mosque of Djenné)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_DJENNE_PEDIA</Tag>
@@ -683,7 +951,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Sultan Qaboos Grand Mosque) -->
 		<Tag>TXT_KEY_BUILDING_QABOOS_MOSQUE</Tag>
-		<English>Sultan Qaboos Grand Mosque</English>
+		<English>Islamic Wonder (Sultan Qaboos Grand Mosque)</English>
 		<French>La Grande Mosquée du Sultan Qaboos</French>
 		<Italian>
 			<Text>Grande moschea del sultano Qaboos</Text>
@@ -703,9 +971,57 @@
 	</TEXT>
 
 <!-- +++ Judaism +++ -->
+	<TEXT> <!-- Cathedral (Synagogue) -->
+		<Tag>TXT_KEY_BUILDING_JEWISH_CATHEDRAL</Tag>
+		<English>Jewish Cathedral (Synagogue)</English>
+		<French>
+			<Text>Synagogue</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>J&#252;dische Synagoge</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Sinagoga Giudaica:Sinagoghe Giudaiche</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Sinagoga jud&#237;a:Sinagogas jud&#237;as</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT> <!-- Shrine (The Temple of Solomon) -->
+		<Tag>TXT_KEY_BUILDING_JEWISH_SHRINE</Tag>
+		<English>Jewish Shrine (The Temple of Solomon)</English>
+		<French>
+			<Text>Temple de Salomon</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Salomons Tempel</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Il Tempio di Salomone</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Templo de Salom&#243;n</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
 	<TEXT> <!-- Wonder (Masada) -->
 		<Tag>TXT_KEY_BUILDING_JEWISH_MASADA</Tag>
-		<English>Masada</English>
+		<English>Judaic Wonder (Masada)</English>
 		<French>Masada</French>
 		<German>Masada</German>
 		<Italian>Masada</Italian>
@@ -721,7 +1037,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Cave of the Patriarchs) -->
 		<Tag>TXT_KEY_BUILDING_CAVE_PATRIARCHS</Tag>
-		<English>Cave of the Patriarchs</English>
+		<English>Judaic Wonder (Cave of the Patriarchs)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_CAVE_PATRIARCHS_PEDIA</Tag>
@@ -749,7 +1065,7 @@
 	</TEXT>
 	<TEXT> <!-- Temple -->
 		<Tag>TXT_KEY_BUILDING_KEMETIC_TEMPLE</Tag>
-		<English>Temple of Amun</English>
+		<English>Kemetic Temple of Amun</English>
 		<French>Temple d'Amon</French>
 		<German>Amun-Tempel</German>
 	</TEXT>
@@ -763,7 +1079,7 @@
 	</TEXT>
 	<TEXT> <!-- Cathedral -->
 		<Tag>TXT_KEY_BUILDING_KEMETIC_CATHEDRAL</Tag>
-		<English>Temple of Mut</English>
+		<English>Kemetic Cathedral of Mut</English>
 		<French>Temple de Mut</French>
 		<German>Mut-Tempel</German>
 	</TEXT>
@@ -777,7 +1093,7 @@
 	</TEXT>
 	<TEXT> <!-- Monastry -->
 		<Tag>TXT_KEY_BUILDING_KEMETIC_MONASTERY</Tag>
-		<English>Temple of Chons</English>
+		<English>Kemetic Monastry of Chons</English>
 		<French>Temple de Chons</French>
 		<German>Chons-Tempel</German>
 	</TEXT>
@@ -791,7 +1107,7 @@
 	</TEXT>
 	<TEXT> <!-- Shrine (Karnak)  -->
 		<Tag>TXT_KEY_BUILDING_KEMETIC_SHRINE</Tag>
-		<English>The Karnak Temple Complex</English>
+		<English>Kemetic Shrine (Karnak Temple Complex)</English>
 		<French>Le Complexe de Temples de Karnak</French>
 		<German>Der Tempelkomplex von Karnak</German>
 	</TEXT>
@@ -805,7 +1121,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Osiris) -->
 		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_OSIRIS</Tag>
-		<English>Temple of Osiris</English>
+		<English>Kemetic Wonder (Temple of Osiris)</English>
 		<French>Temple d'Osiris</French>
 		<German>Osiris-Tempel</German>
 	</TEXT>
@@ -819,7 +1135,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Isis) -->
 		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_ISIS</Tag>
-		<English>Temple of Isis</English>
+		<English>Kemetic Wonder (Temple of Isis)</English>
 		<French>Temple d'Isis</French>
 		<German>Isis-Tempel</German>
 	</TEXT>
@@ -833,7 +1149,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Set) -->
 		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_SET</Tag>
-		<English>Temple of Set</English>
+		<English>Kemetic Wonder (Temple of Set)</English>
 		<French>Temple de Set</French>
 		<German>Seth-Tempel</German>
 	</TEXT>
@@ -847,7 +1163,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Ptah) -->
 		<Tag>TXT_KEY_BUILDING_PTAH</Tag>
-		<English>Temple of Ptah</English>
+		<English>Kemetic Wonder (Temple of Ptah)</English>
 		<French>Temple de Ptah</French>
 		<Italian>
 			<Text>Tempio di Ptah</Text>
@@ -867,7 +1183,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Thoth) -->
 		<Tag>TXT_KEY_BUILDING_THOTH</Tag>
-		<English>Temple of Thoth</English>
+		<English>Kemetic Wonder (Temple of Thoth)</English>
 		<French>Temple de Toth</French>
 		<Italian>
 			<Text>Tempio di Toth</Text>
@@ -899,7 +1215,7 @@
 	</TEXT>
 	<TEXT> <!-- Temple (Quetzalcoatl) -->
 		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_TEMPLE</Tag>
-		<English>Temple of Quetzalcoatl</English>
+		<English>Nagualistic Temple (Temple of Quetzalcoatl)</English>
 		<French>Temple de Quetzalcoatl</French>
 		<German>Quetzalcoatl-Tempel</German>
 	</TEXT>
@@ -913,7 +1229,7 @@
 	</TEXT>
 	<TEXT> <!-- Cathedral (Temple of Tlaloc) -->
 		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_CATHEDRAL</Tag>
-		<English>Temple of Tlaloc</English>
+		<English>Nagualistic Cathedral (Temple of Tlaloc)</English>
 		<French>Temple de Tlaloc</French>
 		<German>Tlaloc-Tempel</German>
 	</TEXT>
@@ -927,7 +1243,7 @@
 	</TEXT>
 	<TEXT> <!-- Monastry (Calmacec) -->
 		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_MONASTERY</Tag>
-		<English>Calmacec</English>
+		<English>Nagualistic Monastry (Calmacec)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_MONASTERY_STRATEGY</Tag>
@@ -939,7 +1255,7 @@
 	</TEXT>
 	<TEXT> <!-- Shrine (Teotihuacan) -->
 		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_SHRINE</Tag>
-		<English>Teotihuacan</English>
+		<English>Nagualistic Shrine (Teotihuacan)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_SHRINE_PEDIA</Tag>
@@ -951,7 +1267,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Pyramid of the Magician) -->
 		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_MAGICIAN_PYRAMID</Tag>
-		<English>Pyramid of the Magician</English>
+		<English>Nagualistic Wonder (Pyramid of the Magician)</English>
 		<French>Pyramide du Mage</French>
 		<German>Pyramide des Magiers</German>
 	</TEXT>
@@ -965,7 +1281,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Pyramid of the Moon) -->
 		<Tag>TXT_KEY_BUILDING_PYRAMID_OF_THE_MOON</Tag>
-		<English>Pyramid of the Moon</English>
+		<English>Nagualistic Wonder (Pyramid of the Moon)</English>
 		<French>Pyramide de la Lune</French>
 		<Italian>
 			<Text>Piramide della Luna</Text>
@@ -985,7 +1301,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Pyramid of the Sun) -->
 		<Tag>TXT_KEY_BUILDING_PYRAMID_OF_THE_SUN</Tag>
-		<English>Pyramid of the Sun</English>
+		<English>Nagualistic Wonder (Pyramid of the Sun)</English>
 		<French>Pyramide du Soleil</French>
 		<Italian>
 			<Text>Piramide del Sole</Text>
@@ -1005,9 +1321,57 @@
 	</TEXT>
 
 <!-- +++ Taoism +++ -->
+	<TEXT> <!-- Cathedral (Pagoda) -->
+		<Tag>TXT_KEY_BUILDING_TAOIST_CATHEDRAL</Tag>
+		<English>Taoist Cathedral (Pagoda)</English>
+		<French>
+			<Text>Pagode tao&#239;ste</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Taoistische Pagode</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Pagoda Taoista:Pagode Taoiste</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Pagoda tao&#237;sta:Pagodas tao&#237;stas</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT> <!-- Shrine (The Dai Miao) -->
+		<Tag>TXT_KEY_BUILDING_TAOIST_SHRINE</Tag>
+		<English>Taoist Shrine (The Dai Miao)</English>
+		<French>
+			<Text>Daimiao</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Dai Miao</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Il Dai Miao</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Dai Miao</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
 	<TEXT> <!-- Wonder (Temple of Heaven) -->
 		<Tag>TXT_KEY_BUILDING_TAOIST_TEMPLE_OF_HEAVEN</Tag>
-		<English>The Temple of Heaven</English>
+		<English>Taoist Wonder (The Temple of Heaven)</English>
 		<French>Temple du Ciel</French>
 		<German>Der Himmelstempel</German>
 	</TEXT>
@@ -1021,7 +1385,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Quanzhen School) -->
 		<Tag>TXT_KEY_BUILDING_QUANZHEN</Tag>
-		<English>Quanzhen School</English>
+		<English>Taoist Wonder (Quanzhen School)</English>
 		<French>L'Ecole Quanzhen</French>
 		<Italian>
 			<Text>Scuola di Quanzhen</Text>
@@ -1041,7 +1405,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Wudang Mountain) -->
 		<Tag>TXT_KEY_BUILDING_WUDANG</Tag>
-		<English>Wudang Mountain</English>
+		<English>Taoist Wonder (Wudang Mountain)</English>
 		<French>La Montagne Wudang</French>
 		<Italian>
 			<Text>Montagne di Wudang</Text>
@@ -1083,7 +1447,7 @@
 	</TEXT>
 	<TEXT> <!-- Temple -->
 		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_TEMPLE</Tag>
-		<English>Zoroastrian Fire Temple</English>
+		<English>Zoroastrian Temple (Fire Temple)</English>
 		<French>Temple de Feu Zoroastrien</French>
 		<German>Zoroastrischer Feuertempel</German>
 	</TEXT>
@@ -1097,7 +1461,7 @@
 	</TEXT>
 	<TEXT> <!-- Cathedral (Pantheon) -->
 		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_CATHEDRAL</Tag>
-		<English>Zoroastrian Pantheon</English>
+		<English>Zoroastrian Cathedral (Pantheon)</English>
 		<French>Panthéon Zoroastrien</French>
 		<German>Zoroastrisches Pantheon</German>
 	</TEXT>
@@ -1109,9 +1473,9 @@
 		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_CATHEDRAL_STRATEGY</Tag>
 		<English>The [COLOR_BUILDING_TEXT]Zoroastrian Pantheon[COLOR_REVERT] greatly increases a city's cultural output. It makes a city's citizens happy (if [COLOR_HIGHLIGHT_TEXT]Zoroastrianism[COLOR_REVERT] is the state religion).</English>
 	</TEXT>
-	<TEXT> <!-- Monastry (Shrine) -->
+	<TEXT> <!-- Monastry -->
 		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_MONASTERY</Tag>
-		<English>Zoroastrian Shrine</English>
+		<English>Zoroastrian Monastry</English>
 		<French>Mausolée Zoroastrien</French>
 		<German>Zoroastrischer Schrein</German>
 	</TEXT>
@@ -1125,7 +1489,7 @@
 	</TEXT>
 	<TEXT> <!-- Shrine (Pir-e Sabz) -->
 		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_SHRINE</Tag>
-		<English>Pir-e Sabz</English>
+		<English>Zoroastrian Shrine (Pir-e Sabz)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_SHRINE_PEDIA</Tag>
@@ -1137,7 +1501,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Apadana Palace) -->
 		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_APADANA_PALACE</Tag>
-		<English>Apadana Palace</English>
+		<English>Zoroastrian Wonder (Apadana Palace)</English>
 		<French>Palais Apadana</French>
 	</TEXT>
 	<TEXT>
@@ -1152,7 +1516,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Hammurabi Stele of Laws) -->
 		<Tag>TXT_KEY_BUILDING_HAMMURABI</Tag>
-		<English>Hammurabi Stele of Laws</English>
+		<English>Zoroastrian Wonder (Hammurabi Stele of Laws)</English>
 		<French>Stèle des Lois d'Hammurabi</French>
 		<Italian>
 			<Text>Codice di Hammurabi</Text>
@@ -1172,7 +1536,7 @@
 	</TEXT>
 	<TEXT> <!-- Wonder (Nimrud Palace) -->
 		<Tag>TXT_KEY_BUILDING_NIMRUD_PALACE</Tag>
-		<English>Nimrud Palace</English>
+		<English>Zoroastrian Wonder (Nimrud Palace)</English>
 		<French>Palais de Nimrud</French>
 		<Italian>
 			<Text>Palazzo di Nimrud</Text>

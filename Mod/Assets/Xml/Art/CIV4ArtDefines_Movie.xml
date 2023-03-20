@@ -83,7 +83,7 @@
 			<Path>Art/Movies/Wonders/Oracle.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
-			<Type>ART_DEF_MOVIE_PARTHENON</Type>
+			<Type>ART_DEF_MOVIE_HELLENIC_PARTHENON</Type>
 			<Path>Art/Movies/Wonders/Parthenon.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
@@ -200,7 +200,7 @@
 			<Path>Art/Movies/Wonders/Mausoleum.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
-			<Type>ART_DEF_MOVIE_HELLENISTIC_SHRINE</Type>
+			<Type>ART_DEF_MOVIE_HELLENIC_SHRINE</Type>
 			<Path>Art/Movies/Wonders/Zeus.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>

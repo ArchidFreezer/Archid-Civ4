@@ -8977,8 +8977,8 @@
 		<iNotPlayPercent>0</iNotPlayPercent>
 	</Script2DSound>
 	<Script2DSound>
-		<ScriptID>AS2D_BUILD_PARTHENON</ScriptID>
-		<SoundID>SND_BUILD_PARTHENON</SoundID>
+		<ScriptID>AS2D_BUILD_HELLENIC_PARTHENON</ScriptID>
+		<SoundID>SND_BUILD_HELLENIC_PARTHENON</SoundID>
 		<SoundType>GAME_SFX</SoundType>
 		<iMinVolume>90</iMinVolume>
 		<iMaxVolume>90</iMaxVolume>

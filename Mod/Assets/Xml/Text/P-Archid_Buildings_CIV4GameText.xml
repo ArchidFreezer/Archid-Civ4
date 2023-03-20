@@ -1913,46 +1913,6 @@
 		<Tag>TXT_KEY_BUILDING_STRATEGIC_GRAIN_RESERVE_STRATEGY</Tag>
 		<English>The [COLOR_BUILDING_TEXT]Strategic Grain Reserve[COLOR_REVERT] provides extra food and health for all cities.  It increases it's city's odds of generating a Great Engineer.</English>
 	</TEXT>	
-	<TEXT> <!-- Statue of Zeus -->
-		<Tag>TXT_KEY_BUILDING_HELLENISTIC_SHRINE</Tag>
-		<English>The Statue of Zeus</English>
-		<French>
-			<Text>La statue de Zeus</Text>
-			<Gender>Female</Gender>
-			<Plural>0</Plural>
-		</French>
-		<German>
-			<Text>Zeus-Statue</Text>
-			<Gender>Female</Gender>
-			<Plural>0</Plural>
-		</German>
-		<Italian>
-			<Text>La Statua di Zeus</Text>
-			<Gender>Female</Gender>
-			<Plural>0</Plural>
-		</Italian>
-		<Spanish>
-			<Text>La Estatua de Zeus</Text>
-			<Gender>Female</Gender>
-			<Plural>0</Plural>
-		</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_BUILDING_HELLENISTIC_SHRINE_PEDIA</Tag>
-		<English>[TAB]Many monuments were created to honor Zeus, King of the Greek Gods, yet none could be as impressive as the Statue of Zeus at Olympia. Over forty feet tall, the Statue filled the temple in which it was constructed from floor to ceiling. Created by the master artisan Phidias between 438 and 446BC, the whole statue rested on a wooden frame built upon a cedarwood throne of appropriate size for a forty-foot deity. The frame was then draped in ivory and gold (ivory for skin, gold for clothing) and covered from head to toe in jewels. Before Zeus' feet, a shallow lake of olive oil reflected light into the temple, illuminating the otherwise closed building. Every four years, when the Olympic Games would be held in the town, Olympic competitors would approach the statue and make sacrifices to the King of the Gods with the hope of assuring their victory.</English>
-		<French>[TAB]Beaucoup de monuments ont &#233;t&#233; &#233;rig&#233;s pour honorer Zeus, roi des dieux grecs. Cependant, aucun ne saurait &#234;tre aussi impressionnant que la statue de Zeus &#224; Olympie. Mesurant plus de 12 m&#232;tres de haut, la statue atteignait le plafond du temple dans lequel elle a &#233;t&#233; construite. Cr&#233;&#233;e par le ma&#238;tre artisan Phidias entre 438 et 446 av. J.C., la statue repose sur un cadre en bois construit sur un &#233;norme tr&#244;ne en c&#232;dre. Le cadre a ensuite &#233;t&#233; drap&#233; d'or et d'ivoire (ivoire pour la peau, or pour les v&#234;tements) et couvert de bijoux. Aux pieds de Zeus, un lac d'huile d'olive r&#233;fl&#233;chissait la lumi&#232;re, illuminant le temple. Tous les quatre ans, lorsque les jeux olympiques avaient lieu en ville, les concurrents s'approchaient de la statue et faisaient des sacrifices au roi des dieux dans l'espoir qu'il leur assurerait la victoire.</French>
-		<German>[TAB]Viele Monumente wurden zu Ehren des griechischen G&#246;tterk&#246;nigs Zeus erschaffen, aber keins war so beeindruckend wie die Zeus-Statue von Olympia. Mit &#252;ber zw&#246;lf Metern f&#252;llte die Statue die gesamte Raumh&#246;he des Tempels, in dem sie errichtet wurde. Sie wurde zwischen 446 und 438 v. Chr. vom Meistersteinmetz Phidias erschaffen und st&#252;tzte sich auf ein h&#246;lzernes Ger&#252;st, das auf einem in seinen Dimensionen der zw&#246;lf Meter hohen Gottheit angemessenen Thron aus Zedernholz fu&#223;te. Das Ger&#252;st wurde mit Elfenbein und Gold verziert (Elfenbein f&#252;r die Haut, Gold f&#252;r das Gewand) und von Kopf bis Fu&#223; mit Juwelen behangen. Vor Zeus' F&#252;&#223;en reflektierte ein seichter See aus Oliven&#246;l das Licht in das Innere des Tempels und erhellte das ansonsten geschlossene Geb&#228;ude. Alle vier Jahre, w&#228;hrend die Olympischen Spiele in der Stadt ausgetragen wurden, n&#228;herten sich die Wettk&#228;mpfer der Statue und brachten dem K&#246;nig der G&#246;tter Opfer dar, in der Hoffnung, er m&#246;ge ihnen daf&#252;r den Sieg schenken.</German>
-		<Italian>[TAB]Furono eretti molti monumenti per onorare Zeus, il signore degli dei greci, ma nessuno &#232; da considerarsi tanto maestoso quanto la Statua di Zeus a Olimpia. La Statua era alta pi&#249; di 12 metri, raggiungendo il soffitto del tempio in cui era stata costruita. Creata dal maestro artigiano Fidia tra il 438 e il 446 a.C., l'intera statua era composta da una struttura di legno costruita su un trono di cedro di dimensioni appropriate per una divinit&#224; alta 12 metri. La struttura era poi coperta di oro e avorio (avorio per la pelle, oro per i vestiti) e coperta dalla testa ai piedi di gioielli. Davanti ai piedi di Zeus un lago poco profondo di olio d'oliva rifletteva la luce nel tempio, illuminando l'edificio altrimenti chiuso. Ogni quattro anni, quando si tenevano in citt&#224; i Giochi Olimpici, i concorrenti si avvicinavano alla statua per fare sacrifici al Re degli Dei, nella speranza che concedesse loro la vittoria.</Italian>
-		<Spanish>[TAB]Hubo muchos monumentos consagrados a Zeus, rey de los dioses griegos, pero ninguno de ellos tan impresionante como la estatua de Olimpia. Con sus casi quince metros de altura, la estatua llenaba el templo en el que estaba construido desde el suelo hasta el techo. Creada por el maestro Fidias entre los a&#241;os 438 y 446 a. C., la estatua descansaba sobre una estructura de madera construida encima de un trono de cedro del tama&#241;o apropiado para una escultura de semejantes dimensiones. La estructura estaba luego revestida de marfil y oro (marfil para la piel, oro para la ropa) y cubierta de joyas de la cabeza a los pies. A los pies de Zeus, un estanque poco profundo de aceite de oliva reflejaba la luz hacia el interior del templo, que no contaba con otros medios de iluminaci&#243;n. Cada cuatro a&#241;os, cuando se celebraban los Juegos Ol&#237;mpicos en el la ciudad, los competidores se acercaban al rey de los dioses y depositaban sus ofrendas a sus pies con la esperanza de que les concediera la victoria.</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_BUILDING_HELLENISTIC_SHRINE_STRATEGY</Tag>
-		<English>The [COLOR_BUILDING_TEXT]Statue of Zeus[COLOR_REVERT] increases war weariness in the cities of those who go to war against its builder. It also increases the chances of a [COLOR_UNIT_TEXT]Great Artist[COLOR_REVERT] appearing.</English>
-		<French>La [COLOR_BUILDING_TEXT]Statue de Zeus[COLOR_REVERT] augmente la lassitude de guerre dans les villes des joueurs en guerre contre son constructeur. Elle augmente aussi les chances d'apparition d'un [COLOR_UNIT_TEXT]artiste illustre[COLOR_REVERT].</French>
-		<German>Die [COLOR_BUILDING_TEXT]Zeus-Statue[COLOR_REVERT] erh&#246;ht die Kriegsm&#252;digkeit in St&#228;dten, die gegen den Erbauer der Statue in den Krieg ziehen. Au&#223;erdem erh&#246;ht sie die Chancen auf den Erhalt eines [COLOR_UNIT_TEXT]Gro&#223;en K&#252;nstlers[COLOR_REVERT].</German>
-		<Italian>La [COLOR_BUILDING_TEXT]Statua di Zeus[COLOR_REVERT] aumenta la stanchezza della guerra in coloro che combattono contro il suo costruttore. Aumenta inoltre le probabilit&#224; che appaia un [COLOR_UNIT_TEXT]Grande Artista[COLOR_REVERT].</Italian>
-		<Spanish>La [COLOR_BUILDING_TEXT]Estatua de Zeus[COLOR_REVERT] aumenta el hast&#237;o b&#233;lico en las ciudades de quienes vayan contra quien la construya. Tambi&#233;n aumenta las posibilidades de que aparezca un [COLOR_UNIT_TEXT]gran artista[COLOR_REVERT].</Spanish>
-	</TEXT>
 	<TEXT> <!-- Supercollider -->
 		<Tag>TXT_KEY_BUILDING_SUPERCOLLIDER</Tag>
 		<English>Supercollider</English>

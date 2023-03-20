@@ -1208,7 +1208,7 @@
 			<Button>,Art/Interface/Buttons/Buildings/Oracle.dds,Art/Interface/Buttons/Buildings_Atlas.dds,4,5</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
-			<Type>ART_DEF_BUILDING_PARTHENON</Type>
+			<Type>ART_DEF_BUILDING_HELLENIC_PARTHENON</Type>
 			<LSystem>LSYSTEM_1x2</LSystem>
 			<bAnimated>0</bAnimated>
 			<fScale>2.25</fScale>
@@ -1508,7 +1508,7 @@
 			<Button>,Art/Interface/Buttons/Buildings/PoliceStation.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,1,5</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
-			<Type>ART_DEF_BUILDING_HELLENISTIC_SHRINE</Type>
+			<Type>ART_DEF_BUILDING_HELLENIC_SHRINE</Type>
 			<LSystem>LSYSTEM_2x3</LSystem>
 			<bAnimated>1</bAnimated>
 			<fScale>0.6</fScale>

@@ -6818,7 +6818,7 @@
 			</BonusProductionModifiers>
 			<BuildingClassProductionModifiers>
 				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_PARTHENON</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_HELLENIC_PARTHENON</BuildingClassType>
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
 			</BuildingClassProductionModifiers>
@@ -6946,13 +6946,13 @@
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
 				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_PARTHENON</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_HELLENIC_PARTHENON</BuildingClassType>
 					<iModifier>5</iModifier>
 				</BuildingClassProductionModifier>
 			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_HELLENIC_CATHEDRAL</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_PARTHENON</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_HELLENIC_PARTHENON</BuildingClassType>
 			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
@@ -11668,14 +11668,14 @@
 			</Flavors>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Parthenon -->
-			<BuildingClass>BUILDINGCLASS_PARTHENON</BuildingClass>
-			<Type>BUILDING_PARTHENON</Type>
-			<Description>TXT_KEY_BUILDING_PARTHENON</Description>
-			<Civilopedia>TXT_KEY_BUILDING_PARTHENON_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_BUILDING_PARTHENON_STRATEGY</Strategy>
+			<BuildingClass>BUILDINGCLASS_HELLENIC_PARTHENON</BuildingClass>
+			<Type>BUILDING_HELLENIC_PARTHENON</Type>
+			<Description>TXT_KEY_BUILDING_HELLENIC_PARTHENON</Description>
+			<Civilopedia>TXT_KEY_BUILDING_HELLENIC_PARTHENON_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_HELLENIC_PARTHENON_STRATEGY</Strategy>
 			<Advisor>ADVISOR_CULTURE</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_PARTHENON</ArtDefineTag>
-			<MovieDefineTag>ART_DEF_MOVIE_PARTHENON</MovieDefineTag>
+			<ArtDefineTag>ART_DEF_BUILDING_HELLENIC_PARTHENON</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_HELLENIC_PARTHENON</MovieDefineTag>
 			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
 			<ObsoleteTech>TECH_SCIENTIFIC_METHOD</ObsoleteTech>
 			<PrereqAndTechs>
@@ -11706,7 +11706,7 @@
 				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
 				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
 			</CommerceChangeOriginalOwners>
-			<ConstructSound>AS2D_BUILD_PARTHENON</ConstructSound>
+			<ConstructSound>AS2D_BUILD_HELLENIC_PARTHENON</ConstructSound>
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_MARBLE</BonusType>
@@ -17891,15 +17891,15 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Hellenistic Shrine -->
-			<BuildingClass>BUILDINGCLASS_HELLENISTIC_SHRINE</BuildingClass>
-			<Type>BUILDING_HELLENISTIC_SHRINE</Type>
-			<Description>TXT_KEY_BUILDING_HELLENISTIC_SHRINE</Description>
-			<Civilopedia>TXT_KEY_BUILDING_HELLENISTIC_SHRINE_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_BUILDING_HELLENISTIC_SHRINE_STRATEGY</Strategy>
+		<BuildingInfo> <!-- Hellenic Shrine -->
+			<BuildingClass>BUILDINGCLASS_HELLENIC_SHRINE</BuildingClass>
+			<Type>BUILDING_HELLENIC_SHRINE</Type>
+			<Description>TXT_KEY_BUILDING_HELLENIC_SHRINE</Description>
+			<Civilopedia>TXT_KEY_BUILDING_HELLENIC_SHRINE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_HELLENIC_SHRINE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_RELIGION</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_HELLENISTIC_SHRINE</ArtDefineTag>
-			<MovieDefineTag>ART_DEF_MOVIE_HELLENISTIC_SHRINE</MovieDefineTag>
+			<ArtDefineTag>ART_DEF_BUILDING_HELLENIC_SHRINE</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_HELLENIC_SHRINE</MovieDefineTag>
 			<HolyCity>RELIGION_HELLENISM</HolyCity>
 			<ReligionType>RELIGION_HELLENISM</ReligionType>
 			<GlobalReligionCommerce>RELIGION_HELLENISM</GlobalReligionCommerce>
