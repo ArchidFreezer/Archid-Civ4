@@ -3358,5 +3358,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/asatru_thor_altar.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NAGUALISTIC_MAGICIAN_PYRAMID</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/wonders/Step_Pyramid/chichenitza.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/nagualism_pyramid_magician.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
