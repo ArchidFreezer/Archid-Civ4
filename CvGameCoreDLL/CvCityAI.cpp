@@ -3074,25 +3074,29 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 				iValue -= kOwner.AI_bonusVal((BonusTypes)kBuilding.getNoBonus(), 0); // K-Mod
 			}
 
-			if (kBuilding.getFreePromotion() != NO_PROMOTION) {
+			if (kBuilding.getNumFreePromotions() > 0) {
 				// Ideally, we'd use AI_promotionValue to work out what the promotion is worth
 				// but unfortunately, that function requires a target unit, and I can't think of a good
 				// way to choose a suitable unit for evaluation.
 				// So.. I'm just going to do a really basic kludge to stop the Dun from being worth more than Red Cross
-				const CvPromotionInfo& kInfo = GC.getPromotionInfo((PromotionTypes)kBuilding.getFreePromotion());
-				bool bAdvanced = kInfo.getPrereqPromotion() != NO_PROMOTION || kInfo.getNumPrereqOrPromotions() > 0;
-				int iTemp = (bAdvanced ? 200 : 40);
-				int iProduction = getYieldRate(YIELD_PRODUCTION);
-				iTemp *= 2 * iProduction;
-				iTemp /= 30 + iProduction;
-				iTemp *= getFreeExperience() + 1;
-				iTemp /= getFreeExperience() + 2;
-				if (kBuilding.isApplyFreePromotionOnMove() || kBuilding.isApplyAllFreePromotionsOnMove()) {
-					iTemp *= 2;
-				}
+				for (int i = 0; i < kBuilding.getNumFreePromotions(); i++) {
+					PromotionTypes ePromotion = kBuilding.getFreePromotion(i);
+					if (ePromotion == NO_PROMOTION) continue;
+					const CvPromotionInfo& kInfo = GC.getPromotionInfo(ePromotion);
+					bool bAdvanced = kInfo.getPrereqPromotion() != NO_PROMOTION || kInfo.getNumPrereqOrPromotions() > 0;
+					int iTemp = (bAdvanced ? 200 : 40);
+					int iProduction = getYieldRate(YIELD_PRODUCTION);
+					iTemp *= 2 * iProduction;
+					iTemp /= 30 + iProduction;
+					iTemp *= getFreeExperience() + 1;
+					iTemp /= getFreeExperience() + 2;
+					if (kBuilding.isApplyFreePromotionOnMove() || kBuilding.isApplyAllFreePromotionsOnMove()) {
+						iTemp *= 2;
+					}
 
-				iValue += iTemp;
-				// cf. iValue += (kBuilding.getFreeExperience() * ((iHasMetCount > 0) ? 12 : 6));
+					iValue += iTemp;
+					// cf. iValue += (kBuilding.getFreeExperience() * ((iHasMetCount > 0) ? 12 : 6));
+				}
 			}
 
 			if (kBuilding.isApplyAllFreePromotionsOnMove()) {

@@ -9141,9 +9141,16 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_EXPANDS_WORKABLE_RADIUS", kBuilding.getWorkableRadius()));
 	}
 
-	if (kBuilding.getFreePromotion() != NO_PROMOTION) {
-		szBuffer.append(NEWLINE);
-		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_FREE_PROMOTION_START", GC.getPromotionInfo((PromotionTypes)(kBuilding.getFreePromotion())).getTextKeyWide()));
+	bool bFirst = true;
+	for (int iIndex = 0; iIndex < kBuilding.getNumFreePromotions(); ++iIndex) {
+		if (kBuilding.getFreePromotion(iIndex) != NO_PROMOTION) {
+			CvWString szTempBuffer;
+			szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_BULLET_FREE").c_str());
+			setListHelp(szBuffer, szTempBuffer, CvWString::format(L"<link=literal>%s</link>", GC.getPromotionInfo(kBuilding.getFreePromotion(iIndex)).getDescription()), L", ", bFirst);
+			bFirst = false;
+		}
+	}
+	if (!bFirst) {
 		szBuffer.append(gDLL->getText(kBuilding.isApplyFreePromotionOnMove() ? "TXT_KEY_BUILDING_FREE_PROMOTION_END_GARRISON" : "TXT_KEY_BUILDING_FREE_PROMOTION_END_BUILT"));
 	}
 
@@ -9723,7 +9730,7 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 		}
 	}
 
-	bool bFirst = true;
+	bFirst = true;
 	for (BuildingClassTypes eLoopBuildingClass = (BuildingClassTypes)0; eLoopBuildingClass < GC.getNumBuildingClassInfos(); eLoopBuildingClass = (BuildingClassTypes)(eLoopBuildingClass + 1)) {
 		BuildingTypes eLoopBuilding = NO_BUILDING;
 		if (ePlayer != NO_PLAYER) {

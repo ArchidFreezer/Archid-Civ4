@@ -1823,7 +1823,6 @@ public:
 	int getFreeBonus() const;				// Exposed to Python
 	int getNumFreeBonuses() const;				// Exposed to Python
 	int getFreeBuildingClass() const;				// Exposed to Python
-	int getFreePromotion() const;				// Exposed to Python
 	int getCivicOption() const;				// Exposed to Python
 	int getAIWeight() const;				// Exposed to Python
 	int getProductionCost() const;				// Exposed to Python
@@ -1929,6 +1928,7 @@ public:
 	int getCreateFeatureType() const;
 	int getGlobalFoundPopulationChange() const;
 	int getGlobalWonderProductionModifier() const;
+	int getNumFreePromotions() const;
 
 	float getVisibilityPriority() const;
 
@@ -2035,6 +2035,7 @@ public:
 	int getPrereqOrBuildingClass(int i) const;
 	int getPrereqNotBuildingClass(int i) const;
 	int getPrereqWorldView(int i) const;
+	PromotionTypes getFreePromotion(int i) const;
 	int getBuildingClassProductionModifier(BuildingClassTypes eBuildingClass) const;
 	int getUnitCombatProductionModifier(UnitCombatTypes eBuildingClass) const;
 
@@ -2053,6 +2054,7 @@ public:
 	bool isPrereqOrBuildingClass(int iBuildingClass) const;
 	bool isPrereqNotBuildingClass(BuildingClassTypes eBuildingClass) const;
 	bool isPrereqWorldView(int i) const;
+	bool isFreePromotion(PromotionTypes ePromotion) const;
 
 	int getSpecialistYieldChange(int i, int j) const;			// Exposed to Python
 	int* getSpecialistYieldChangeArray(int i) const;
@@ -2100,7 +2102,6 @@ protected:
 	int m_iFreeBonus;
 	int m_iNumFreeBonuses;
 	int m_iFreeBuildingClass;
-	int m_iFreePromotion;
 	int m_iCivicOption;
 	int m_iAIWeight;
 	int m_iProductionCost;
@@ -2298,6 +2299,7 @@ protected:
 	std::vector<int> m_viPrereqOrBuildingClasses;
 	std::vector<int> m_viPrereqNotBuildingClasses;
 	std::vector<int> m_viPrereqWorldViews;
+	std::vector<int> m_viFreePromotions;
 
 	// Maps
 	std::map<int, int> m_mBuildingClassProductionModifiers;

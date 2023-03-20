@@ -171,12 +171,15 @@
 	<ElementType name="iAsset" content="textOnly" dt:type="int"/>
 	<ElementType name="iPower" content="textOnly" dt:type="int"/>
 	<ElementType name="fVisibilityPriority" content="textOnly"/>
-	<ElementType name="FreePromotion" content="textOnly"/>
 	<ElementType name="CivicOption" content="textOnly"/>
 	<ElementType name="GreatPeopleUnitClass" content="textOnly"/>
 	<ElementType name="iGreatPeopleRateChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iHurryAngerModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="bBorderObstacle" content="textOnly" dt:type="boolean"/>
+	<ElementType name="PromotionType" content="textOnly"/>
+	<ElementType name="FreePromotions" content="eltOnly">
+		<element type="PromotionType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="iYield" content="textOnly" dt:type="int"/>
 	<ElementType name="SeaPlotYieldChanges" content="eltOnly">
 		<element type="iYield" minOccurs="0" maxOccurs="*"/>
@@ -527,7 +530,7 @@
 		<element type="FreeBonus" minOccurs="0"/>
 		<element type="iNumFreeBonuses" minOccurs="0"/>
 		<element type="FreeBuilding" minOccurs="0"/>
-		<element type="FreePromotion" minOccurs="0"/>
+		<element type="FreePromotions" minOccurs="0"/>
 		<element type="FreeUnitClass" minOccurs="0"/>
 		<element type="CreateFeatureType" minOccurs="0"/>
 		<element type="CivicOption" minOccurs="0"/>

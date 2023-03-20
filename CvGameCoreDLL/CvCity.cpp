@@ -3232,8 +3232,10 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 			changeFreeBonus(((BonusTypes)(kBuilding.getFreeBonus())), (GC.getGameINLINE().getNumFreeBonuses(eBuilding) * iChange));
 		}
 
-		if (kBuilding.getFreePromotion() != NO_PROMOTION) {
-			changeFreePromotionCount(((PromotionTypes)(kBuilding.getFreePromotion())), iChange);
+		if (kBuilding.getNumFreePromotions() > 0) {
+			for (int i = 0; i < kBuilding.getNumFreePromotions(); i++) {
+				changeFreePromotionCount(kBuilding.getFreePromotion(i), iChange);
+			}
 		}
 
 		if (kBuilding.getWorkableRadius() != 0) {
@@ -14117,10 +14119,12 @@ void CvCity::doPromotion(bool bIgnorePrereqs) {
 
 	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
 		const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
-		if (getNumBuilding(eBuilding) > 0 && kBuilding.getFreePromotion() != NO_PROMOTION) {
+		if (getNumBuilding(eBuilding) > 0 && kBuilding.getNumFreePromotions() > 0) {
 			if (kBuilding.isApplyFreePromotionOnMove() || isApplyAllFreePromotionsOnMove()) {
-				if (!(std::find(aAvailablePromotions.begin(), aAvailablePromotions.end(), kBuilding.getFreePromotion()) != aAvailablePromotions.end())) {
-					aAvailablePromotions.push_back((PromotionTypes)kBuilding.getFreePromotion());
+				for (int i = 0; i < kBuilding.getNumFreePromotions(); i++) {
+					if (!(std::find(aAvailablePromotions.begin(), aAvailablePromotions.end(), kBuilding.getFreePromotion(i)) != aAvailablePromotions.end())) {
+						aAvailablePromotions.push_back((PromotionTypes)kBuilding.getFreePromotion(i));
+					}
 				}
 			}
 		}

@@ -6798,7 +6798,6 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_iFreeBonus(NO_BONUS),
 	m_iNumFreeBonuses(0),
 	m_iFreeBuildingClass(NO_BUILDINGCLASS),
-	m_iFreePromotion(NO_PROMOTION),
 	m_iCivicOption(NO_CIVICOPTION),
 	m_iAIWeight(0),
 	m_iProductionCost(0),
@@ -7191,6 +7190,18 @@ bool CvBuildingInfo::isPrereqWorldView(int i) const {
 	return (std::find(m_viPrereqWorldViews.begin(), m_viPrereqWorldViews.end(), i) != m_viPrereqWorldViews.end());
 }
 
+PromotionTypes CvBuildingInfo::getFreePromotion(int i) const {
+	return (PromotionTypes)(getNumFreePromotions() > i ? m_viFreePromotions[i] : NO_PROMOTION);
+}
+
+int CvBuildingInfo::getNumFreePromotions() const {
+	return (int)m_viFreePromotions.size();
+}
+
+bool CvBuildingInfo::isFreePromotion(PromotionTypes ePromotion) const {
+	return (std::find(m_viFreePromotions.begin(), m_viFreePromotions.end(), ePromotion) != m_viFreePromotions.end());
+}
+
 bool CvBuildingInfo::isSlaveMarket() const {
 	return m_bSlaveMarket;
 }
@@ -7265,10 +7276,6 @@ int CvBuildingInfo::getNumFreeBonuses() const {
 
 int CvBuildingInfo::getFreeBuildingClass() const {
 	return m_iFreeBuildingClass;
-}
-
-int CvBuildingInfo::getFreePromotion() const {
-	return m_iFreePromotion;
 }
 
 int CvBuildingInfo::getCivicOption() const {
@@ -8216,7 +8223,6 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iFreeBonus);
 	stream->Read(&m_iNumFreeBonuses);
 	stream->Read(&m_iFreeBuildingClass);
-	stream->Read(&m_iFreePromotion);
 	stream->Read(&m_iCivicOption);
 	stream->Read(&m_iAIWeight);
 	stream->Read(&m_iProductionCost);
@@ -8454,6 +8460,13 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	for (int i = 0; i < iNumElements; ++i) {
 		stream->Read(&iElement);
 		m_viPrereqWorldViews.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viFreePromotions.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viFreePromotions.push_back(iElement);
 	}
 
 	stream->Read(&iNumElements);
@@ -8767,7 +8780,6 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iFreeBonus);
 	stream->Write(m_iNumFreeBonuses);
 	stream->Write(m_iFreeBuildingClass);
-	stream->Write(m_iFreePromotion);
 	stream->Write(m_iCivicOption);
 	stream->Write(m_iAIWeight);
 	stream->Write(m_iProductionCost);
@@ -8973,6 +8985,11 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 		stream->Write(*it);
 	}
 
+	stream->Write(m_viFreePromotions.size());
+	for (std::vector<int>::iterator it = m_viFreePromotions.begin(); it != m_viFreePromotions.end(); ++it) {
+		stream->Write(*it);
+	}
+
 	stream->Write(m_mBuildingClassProductionModifiers.size());
 	for (std::map<int, int>::iterator it = m_mBuildingClassProductionModifiers.begin(); it != m_mBuildingClassProductionModifiers.end(); ++it) {
 		stream->Write(it->first);
@@ -9145,8 +9162,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "FreeBuilding");
 	m_iFreeBuildingClass = pXML->FindInInfoClass(szTextVal);
 
-	pXML->GetChildXmlValByName(szTextVal, "FreePromotion");
-	m_iFreePromotion = pXML->FindInInfoClass(szTextVal);
+	pXML->SetVectorInfo(m_viFreePromotions, "FreePromotions");
 
 	pXML->GetChildXmlValByName(szTextVal, "FreeUnitClass");
 	m_iFreeUnitClass = pXML->FindInInfoClass(szTextVal);

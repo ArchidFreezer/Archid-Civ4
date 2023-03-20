@@ -6849,7 +6849,9 @@
 			<ArtDefineTag>ART_DEF_BUILDING_HELLENIC_MONASTERY</ArtDefineTag>
 			<ReligionType>RELIGION_HELLENISM</ReligionType>
 			<PrereqReligion>RELIGION_HELLENISM</PrereqReligion>
-			<FreePromotion>PROMOTION_PANKRATION</FreePromotion>
+			<FreePromotions>
+				<PromotionType>PROMOTION_PANKRATION</PromotionType>
+			</FreePromotions>
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
 			<iCost>140</iCost>
@@ -7351,7 +7353,9 @@
 			<PrereqAndTechs>
 				<TechType>TECH_SCAVENGING</TechType>
 			</PrereqAndTechs>
-			<FreePromotion>PROMOTION_HUNTER1</FreePromotion>
+			<FreePromotions>
+				<PromotionType>PROMOTION_HUNTER1</PromotionType>
+			</FreePromotions>
 			<bNeverCapture>1</bNeverCapture>
 			<iCost>15</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -9302,7 +9306,9 @@
 					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
-			<FreePromotion>PROMOTION_COASTAL_ASSAULT1</FreePromotion>
+			<FreePromotions>
+				<PromotionType>PROMOTION_COASTAL_ASSAULT1</PromotionType>
+			</FreePromotions>
 			<bWater>1</bWater>
 			<iCost>60</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -12307,7 +12313,9 @@
 					<iChange>1</iChange>
 				</HappinessTrait>
 			</HappinessTraits>
-			<FreePromotion>PROMOTION_MEDIC1</FreePromotion>
+			<FreePromotions>
+				<PromotionType>PROMOTION_MEDIC1</PromotionType>
+			</FreePromotions>
 			<GreatPeopleUnitClass>UNITCLASS_DOCTOR</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<iCost>600</iCost>
@@ -14871,7 +14879,9 @@
 			<ArtDefineTag>ART_DEF_BUILDING_TAOIST_MONASTERY</ArtDefineTag>
 			<ReligionType>RELIGION_TAOISM</ReligionType>
 			<PrereqReligion>RELIGION_TAOISM</PrereqReligion>
-			<FreePromotion>PROMOTION_MARTIAL_ARTS1</FreePromotion>
+			<FreePromotions>
+				<PromotionType>PROMOTION_MARTIAL_ARTS1</PromotionType>
+			</FreePromotions>
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
 			<iCost>140</iCost>
@@ -16014,7 +16024,9 @@
 					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
-			<FreePromotion>PROMOTION_GUERILLA1</FreePromotion>
+			<FreePromotions>
+				<PromotionType>PROMOTION_GUERILLA1</PromotionType>
+			</FreePromotions>
 			<bCenterInCity>1</bCenterInCity>
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
@@ -16751,7 +16763,9 @@
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_EVEREST</FeatureType>
 			</PrereqVicinityFeatures>
-			<FreePromotion>PROMOTION_GUERILLA2</FreePromotion>
+			<FreePromotions>
+				<PromotionType>PROMOTION_GUERILLA2</PromotionType>
+			</FreePromotions>
 			<GreatPeopleUnitClass>UNITCLASS_ENGINEER</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bMapCentering>1</bMapCentering>
@@ -17221,7 +17235,9 @@
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_VICTORIA_FALLS</FeatureType>
 			</PrereqVicinityFeatures>
-			<FreePromotion>PROMOTION_AMPHIBIOUS</FreePromotion>
+			<FreePromotions>
+				<PromotionType>PROMOTION_AMPHIBIOUS</PromotionType>
+			</FreePromotions>
 			<GreatPeopleUnitClass>UNITCLASS_MERCHANT</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<iCost>-1</iCost>
@@ -17420,7 +17436,9 @@
 			<HolyCity>RELIGION_CONFUCIANISM</HolyCity>
 			<ReligionType>RELIGION_CONFUCIANISM</ReligionType>
 			<GlobalReligionCommerce>RELIGION_CONFUCIANISM</GlobalReligionCommerce>
-			<FreePromotion>PROMOTION_MORALE</FreePromotion>
+			<FreePromotions>
+				<PromotionType>PROMOTION_MORALE</PromotionType>
+			</FreePromotions>
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bNukeImmune>1</bNukeImmune>
@@ -18140,7 +18158,9 @@
 			<PrereqAndTechs>
 				<TechType>TECH_MEDICINE</TechType>
 			</PrereqAndTechs>
-			<FreePromotion>PROMOTION_MARCH</FreePromotion>
+			<FreePromotions>
+				<PromotionType>PROMOTION_MARCH</PromotionType>
+			</FreePromotions>
 			<GreatPeopleUnitClass>UNITCLASS_DOCTOR</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bApplyFreePromotionOnMove>1</bApplyFreePromotionOnMove>
