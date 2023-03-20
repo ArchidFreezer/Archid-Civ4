@@ -45,7 +45,6 @@
     <tr><td><span class="tagoptional">FoundsCorporation</span><td>NO_CORPORATION<td>If set, the corporation that will be create din the city if this building is constructed
     <tr><td><span class="tagoptional">FreeBonus</span><td>NO_BONUS<td>Makes this bonus available to the city, the number of free bonuses is defined in iNumFreeBonuses
     <tr><td><span class="tagoptional">FreeBuilding</span><td>NO_BUILDING<td>Provides this building free to <em>every</em> city
-    <tr><td><span class="tagoptional">FreePromotion</span><td>NO_PROMOTION<td>Provides this promotion to every unit trained in the city if the unit can gain it
     <tr><td><span class="tagoptional">FreeStartEra</span><td>NO_ERA<td>Building is free if you start in this Era or later.
     <tr><td><span class="tagoptional"><b>FreeUnitClass</b></span><td>NO_UNITCLASS<td>On construction of this building a unit of this unit class will be created in the city
     <tr><td><span class="tagoptional">GlobalCorporationCommerce</span><td>NO_CORPORATION<td>Earns gold from every city with this corporation.
@@ -115,6 +114,7 @@
     <tr><td><span class="tagoptional"><b>iGlobalStarSignScaleChangePercent</b></span><td>0<td>A percentile multiplier that impacts the scale of any star sign applied to the players cities
     <tr><td><span class="tagoptional">iGlobalTradeRoutes</span><td>0<td>Change to the number of trade routes in all player cities
     <tr><td><span class="tagoptional">iGlobalWarWearinessModifier</span><td>0<td>Percentage change to war weariness in all player cities
+    <tr><td><span class="tagoptional"><b>iGlobalWonderProductionModifier</b></span><td>0<td>Percentage change in the production of any city when constructing a wonder
     <tr><td><span class="tagoptional">iGoldenAgeModifier</span><td>0<td>Percentage change in the duration of Golden Ages
     <tr><td><span class="tagoptional">iGreatGeneralRateModifier</span><td>0<td>The percentage change in the rate at which the city accumulates great general points
     <tr><td><span class="tagoptional">iGreatPeopleRateChange</span><td>0<td>The number of Great People points the building generates
@@ -267,6 +267,8 @@
     &lt;FlavorType&gt;&lt;/FlavorType&gt;
     &lt;iFlavor&gt;0&lt;/iFlavor&gt;
   &lt;/Flavor&gt;</pre>
+    <tr><td><span class="tagoptional"><b>FreePromotions</b></span><td><td>List of promotions that will be given free to any suitable unit that is trained in the city<br><pre class="code">
+  &lt;PromotionType&gt;&lt;/PromotionType&gt;</pre>
     <tr><td><span class="tagoptional"><b>FreeSpecialistCounts</b></span><td>NONE<td>Change to the number of free specialists of each type that the city gains<br><pre class="code">
   &lt;FreeSpecialistCount&gt;
     &lt;SpecialistType&gt;&lt;/SpecialistType&gt;
@@ -498,7 +500,9 @@
   &lt;FreeBonus&gt;&lt;/FreeBonus&gt;
   &lt;iNumFreeBonuses&gt;0&lt;/iNumFreeBonuses&gt;
   &lt;FreeBuilding&gt;&lt;/FreeBuilding&gt;
-  &lt;FreePromotion&gt;&lt;/FreePromotion&gt;
+  &lt;FreePromotions&gt;
+    &lt;PromotionType&gt;&lt;/PromotionType&gt;
+  &lt;/FreePromotions&gt;
   &lt;FreeUnitClass&gt;&lt;/FreeUnitClass&gt;
   &lt;CreateFeatureType&gt;&lt;/CreateFeatureType&gt;
   &lt;CivicOption&gt;&lt;/CivicOption&gt;
@@ -601,6 +605,7 @@
   &lt;iEspionageDefense&gt;0&lt;/iEspionageDefense&gt;
   &lt;iAsset&gt;0&lt;/iAsset&gt;
   &lt;iPower&gt;0&lt;/iPower&gt;
+  &lt;iGlobalWonderProductionModifier&gt;0&lt;/iGlobalWonderProductionModifier&gt;
   &lt;fVisibilityPriority&gt;1&lt;/fVisibilityPriority&gt;
   &lt;SeaPlotYieldChanges&gt;
     &lt;iYield&gt;0&lt;/iYield&gt;
