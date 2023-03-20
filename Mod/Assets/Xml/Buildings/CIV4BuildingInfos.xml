@@ -5945,6 +5945,9 @@
 				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
 			</CommerceChangeOriginalOwners>
 			<ConstructSound>AS2D_BUILD_LIGHTHOUSE</ConstructSound>
+			<PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_LIGHTHOUSE</BuildingClassType>
+			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
