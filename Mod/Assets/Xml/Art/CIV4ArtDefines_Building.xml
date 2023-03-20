@@ -3348,5 +3348,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/zoroastrian_apadana_palace.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ASATRU_THOR_ALTAR</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.45</fScale>
+			<fInterfaceScale>8.83</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/City/asatru_thor_altar/svarog_temple.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/asatru_thor_altar.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

@@ -91,17 +91,17 @@
 		<English>[TAB]not yet available</English>
 		<German>[TABnot yet available</German>
 	</TEXT>
-	<TEXT> <!-- Thor's Alter -->
-		<Tag>TXT_KEY_BUILDING_THOR_ALTAR</Tag>
-		<English>Asatru Temple (Thor's Altar)</English>
+	<TEXT> <!-- Thor's Altar -->
+		<Tag>TXT_KEY_BUILDING_ASATRU_THOR_ALTAR</Tag>
+		<English>Asatru Worship (Thor's Altar)</English>
 		<French>Autel de Thor</French>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_THOR_ALTAR_PEDIA</Tag>
+		<Tag>TXT_KEY_BUILDING_ASATRU_THOR_ALTAR_PEDIA</Tag>
 		<English>[TAB]Thor is the god of thunder in Norse paganism,. Most surviving stories relating to Germanic mythology either mention Thor or center on Thor's exploits. Thor was a much revered god of the ancient Germanic peoples from at least the earliest surviving written accounts of the indigenous Germanic tribes to over a thousand years later in the late Viking Age. Thor was appealed to for protection on numerous objects found from various Germanic tribes. Miniature replicas of Mjolnir, the weapon of Thor, became a defiant symbol of Norse paganism during the Christianization of Scandinavia. </English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_THOR_ALTAR_STRATEGY</Tag>
+		<Tag>TXT_KEY_BUILDING_ASATRU_THOR_ALTAR_STRATEGY</Tag>
 		<English>[COLOR_BUILDING_TEXT]Thor's Altar provides melee units with the Mjolnir promotion[COLOR_REVERT] </English>
 	</TEXT>
 	<TEXT> <!-- Wonder (Loki Sanctuary) -->

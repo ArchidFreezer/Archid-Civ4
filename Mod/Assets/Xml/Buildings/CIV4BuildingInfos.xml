@@ -1089,6 +1089,47 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Asatru (Thor Altar) -->
+			<BuildingClass>BUILDINGCLASS_ASATRU_THOR_ALTAR</BuildingClass>
+			<Type>BUILDING_ASATRU_THOR_ALTAR</Type>
+			<Description>TXT_KEY_BUILDING_ASATRU_THOR_ALTAR</Description>
+			<Civilopedia>TXT_KEY_BUILDING_ASATRU_THOR_ALTAR_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_ASATRU_THOR_ALTAR_STRATEGY</Strategy>
+			<Advisor>ADVISOR_CULTURE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_ASATRU_THOR_ALTAR</ArtDefineTag>
+			<ReligionType>RELIGION_ASATRU</ReligionType>
+			<StateReligion>RELIGION_ASATRU</StateReligion>
+			<bStateReligion>1</bStateReligion>
+			<PrereqReligion>RELIGION_ASATRU</PrereqReligion>
+			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra>
+			<PrereqAndTechs>
+				<TechType>TECH_NAVAL_WARFARE</TechType>
+			</PrereqAndTechs>
+			<FreePromotions>
+				<PromotionType>PROMOTION_MJOLNIR</PromotionType>
+			</FreePromotions>
+			<iCost>200</iCost>
+			<iHurryCostModifier>100</iHurryCostModifier>
+			<iAsset>2</iAsset>
+			<fVisibilityPriority>100.0</fVisibilityPriority>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_ASATRU</ReligionType>
+					<iChange>1</iChange>
+				</ReligionChange>
+			</ReligionChanges>
+			<ConstructSound>AS2D_BUILD_NORDIC</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Asklepieion Of Kos -->
 			<BuildingClass>BUILDINGCLASS_ASKLEPIEION_OF_KOS</BuildingClass>
 			<Type>BUILDING_ASKLEPIEION_OF_KOS</Type>
