@@ -2577,7 +2577,7 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
 	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
 	pXML->GetChildXmlValByName(&m_iUnitRangeModifier, "iUnitRangeModifier");
-	pXML->GetChildXmlValByName(&m_iExtraMorale, "iMoraleModifier");
+	pXML->GetChildXmlValByName(&m_iExtraMorale, "iExtraMorale");
 	pXML->GetChildXmlValByName(&m_iEnemyMoraleModifier, "iEnemyMoraleModifier");
 
 	pXML->SetListPairInfo(&m_piTerrainAttackPercent, "TerrainAttacks", GC.getNumTerrainInfos());

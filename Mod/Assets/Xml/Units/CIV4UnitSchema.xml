@@ -873,7 +873,7 @@
 	</ElementType>
 	<ElementType name="bCarryReligion" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iSalvageModifier" content="textOnly" dt:type="int"/>
-	<ElementType name="iMoraleModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="iExtraMorale" content="textOnly" dt:type="int"/>
 	<ElementType name="iEnemyMoraleModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iPlunderChange" content="textOnly" dt:type="int"/>
 	<ElementType name="PromotionInfo" content="eltOnly">
@@ -954,7 +954,7 @@
 		<element type="iPillageChange" minOccurs="0"/>
 		<element type="iPlunderChange" minOccurs="0"/>
 		<element type="iSalvageModifier" minOccurs="0"/>
-		<element type="iMoraleModifier" minOccurs="0"/>
+		<element type="iExtraMorale" minOccurs="0"/>
 		<element type="iEnemyMoraleModifier" minOccurs="0"/>
 		<element type="iUpgradeDiscount" minOccurs="0"/>
 		<element type="iExperiencePercent" minOccurs="0"/>
