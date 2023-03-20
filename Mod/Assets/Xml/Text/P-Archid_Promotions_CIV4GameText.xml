@@ -743,6 +743,13 @@
 		<English>Racing Crew</English>
 	</TEXT>
 
+	<TEXT> <!-- Crusader -->
+		<Tag>TXT_KEY_PROMOTION_CRUSADER</Tag>
+		<English>Crusader</English>
+		<French>Croisé</French>
+		<German>Kreuzritter</German>
+	</TEXT>
+
 <!-- +++ Defensive Protocols +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_DEFENSIVE_PROTOCOLS1</Tag>
@@ -979,6 +986,13 @@
 		</Spanish>
 	</TEXT>
 
+	<TEXT> <!-- Flower War -->
+		<Tag>TXT_KEY_PROMOTION_FLOWER_WAR</Tag>
+		<English>Flower War</English>
+		<French>Guerre des Fleurs</French>
+		<German>Blumenkrieg</German>
+	</TEXT>
+
 	<TEXT> <!-- Forced March -->
 		<Tag>TXT_KEY_PROMOTION_FORCED_MARCH</Tag>
 		<English>Forced March</English>
@@ -1068,6 +1082,13 @@
 	<TEXT> <!-- Fuzzy Logic -->
 		<Tag>TXT_KEY_PROMOTION_FUZZY_LOGIC</Tag>
 		<English>Fuzzy Logic</English>
+	</TEXT>
+
+	<TEXT> <!-- Gentlemen -->
+		<Tag>TXT_KEY_PROMOTION_GENTLEMEN</Tag>
+		<English>Gentlemen</English>
+		<French>Gentilhomme</French>
+		<German>Gentlemen</German>
 	</TEXT>
 
 	<TEXT> <!-- Global Awareness -->
@@ -1293,6 +1314,13 @@
 		<German>Heroisch</German>
 	</TEXT>
 
+	<TEXT> <!-- Holy Trinity -->
+		<Tag>TXT_KEY_PROMOTION_HOLY_TRINITY</Tag>
+		<English>Holy Trinity</English>
+		<French>Sainte Trinité</French>
+		<German>Heilige Dreifaltigkeit</German>
+	</TEXT>
+
 <!-- +++ Hunter +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_HUNTER1</Tag>
@@ -1430,6 +1458,15 @@
 		<French>Réacteurs Dorsaux</French>
 	</TEXT>
 
+	<TEXT> <!-- Kanai -->
+		<Tag>TXT_KEY_PROMOTION_KANAI</Tag>
+		<English>Kanai</English>
+		<French>Kanai</French>
+		<German>Kanai</German>
+		<Italian>Kanai</Italian>
+		<Spanish>Kanai</Spanish>
+	</TEXT>
+
 <!-- +++ Land Warrior +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_LAND_WARRIOR1</Tag>
@@ -1548,6 +1585,11 @@
 		<German>Kampfsport III</German>
 	</TEXT>
 
+	<TEXT> <!-- Mjolnir -->
+		<Tag>TXT_KEY_PROMOTION_MJOLNIR</Tag>
+		<English>Mjolnir</English>
+	</TEXT>
+
 	<TEXT> <!-- Mountaineer -->
 		<Tag>TXT_KEY_PROMOTION_MOUNTAINEER</Tag>
 		<English>Mountaineer</English>
@@ -1612,9 +1654,22 @@
 		<German>Offensives Protokoll 3.0</German>
 	</TEXT>
 
+	<TEXT> <!-- Order of Ormazd -->
+		<Tag>TXT_KEY_PROMOTION_ORDER_OF_ORMAZD</Tag>
+		<English>Order of Ormazd</English>
+		<French>Ordre de Ormazd</French>
+		<German>Orden von Ormazd</German>
+	</TEXT>
+
 	<TEXT> <!-- Pacification -->
 		<Tag>TXT_KEY_PROMOTION_PACIFICATION</Tag>
 		<English>Pacification</English>
+	</TEXT>
+
+	<TEXT> <!-- Pankration -->
+		<Tag>TXT_KEY_PROMOTION_PANKRATION</Tag>
+		<English>Pankration</English>
+		<French>Pancrace</French>
 	</TEXT>
 
 <!-- +++ Patrol +++ -->
@@ -1635,6 +1690,12 @@
 		<English>Patrol III</English>
 		<French>Patrouille III</French>
 		<German>Patroullieren III</German>
+	</TEXT>
+
+	<TEXT> <!-- Pharaoh's Propaganda -->
+		<Tag>TXT_KEY_PROMOTION_PHARAOH</Tag>
+		<English>Pharaoh's Propaganda</English>
+		<French>Propagande du Pharaon</French>
 	</TEXT>
 
 <!-- +++ Pinch +++ -->
@@ -2089,6 +2150,15 @@
 		<German>Veteranen-Pilot</German>
 	</TEXT>
 
+	<TEXT> <!-- Waidan -->
+		<Tag>TXT_KEY_PROMOTION_WAIDAN</Tag>
+		<English>Waidan</English>
+		<French>Waidan</French>
+		<German>Waidan</German>
+		<Italian>Waidan</Italian>
+		<Spanish>Waidan</Spanish>
+	</TEXT>
+
 <!-- +++ Weapon Upgrade +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_WEAPON_UPGRADE1</Tag>
@@ -2129,6 +2199,15 @@
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_WORKRATE5</Tag>
 		<English>Work Rate V</English>
+	</TEXT>
+
+	<TEXT> <!-- Zen -->
+		<Tag>TXT_KEY_PROMOTION_ZEN</Tag>
+		<English>Zen</English>
+		<French>Zen</French>
+		<German>Zen</German>
+		<Italian>Zen</Italian>
+		<Spanish>Zen</Spanish>
 	</TEXT>
 
 <!-- ************ -->

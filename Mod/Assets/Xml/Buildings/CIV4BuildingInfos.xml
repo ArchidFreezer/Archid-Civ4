@@ -17843,7 +17843,7 @@
 			<ReligionType>RELIGION_CONFUCIANISM</ReligionType>
 			<GlobalReligionCommerce>RELIGION_CONFUCIANISM</GlobalReligionCommerce>
 			<FreePromotions>
-				<PromotionType>PROMOTION_MORALE</PromotionType>
+				<PromotionType>PROMOTION_GENTLEMEN</PromotionType>
 			</FreePromotions>
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>

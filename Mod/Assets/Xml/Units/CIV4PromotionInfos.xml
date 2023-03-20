@@ -1965,6 +1965,26 @@
 			</OrUnitCombatTypes>
 			<Button>,Art/Interface/Buttons/Promotions/Naval_Units.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,7</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Crusader (Christianity) -->
+			<Type>PROMOTION_CRUSADER</Type>
+			<Description>TXT_KEY_PROMOTION_CRUSADER</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PromotionPrereq>PROMOTION_LEADER</PromotionPrereq>
+			<TechPrereq>TECH_HOLY_WAR</TechPrereq>
+			<StateReligionPrereq>RELIGION_CHRISTIANITY</StateReligionPrereq>
+			<bEnemyRoute>1</bEnemyRoute>
+			<iCityAttack>25</iCityAttack>
+			<iPillageChange>100</iPillageChange>
+			<iExtraMorale>10</iExtraMorale>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/christian_promo.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Defensive Protocols 1.0 -->
 			<Type>PROMOTION_DEFENSIVE_PROTOCOLS1</Type>
 			<Description>TXT_KEY_PROMOTION_DEFENSIVE_PROTOCOLS1</Description>
@@ -2650,6 +2670,35 @@
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/Flanking3.dds</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Flower War (Nagualism) -->
+			<Type>PROMOTION_FLOWER_WAR</Type>
+			<Description>TXT_KEY_PROMOTION_FLOWER_WAR</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PromotionPrereq>PROMOTION_LEADER</PromotionPrereq>
+			<StateReligionPrereq>RELIGION_NAGUALISM</StateReligionPrereq>
+			<iMoveDiscountChange>1</iMoveDiscountChange>
+			<iCollateralDamageProtection>25</iCollateralDamageProtection>
+			<iExtraMorale>100</iExtraMorale>
+			<FeatureAttacks>
+				<FeatureAttack>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureAttack>25</iFeatureAttack>
+				</FeatureAttack>
+				<FeatureAttack>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<iFeatureAttack>25</iFeatureAttack>
+				</FeatureAttack>
+			</FeatureAttacks>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/nagualism_promo.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Forced March -->
 			<Type>PROMOTION_FORCED_MARCH</Type>
 			<Description>TXT_KEY_PROMOTION_FORCED_MARCH</Description>
@@ -2776,6 +2825,36 @@
 				<UnitCombatType>UNITCOMBAT_ROBOT</UnitCombatType>
 			</OrUnitCombatTypes>
 			<Button>,Art/Interface/Buttons/Promotions/Drill1.dds,Art/Interface/Buttons/Afterworld_Atlas.dds,1,5</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Gentlemen (Confucianism) -->
+			<Type>PROMOTION_GENTLEMEN</Type>
+			<Description>TXT_KEY_PROMOTION_GENTLEMEN</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PromotionPrereq>PROMOTION_LEADER</PromotionPrereq>
+			<StateReligionPrereq>RELIGION_CONFUCIANISM</StateReligionPrereq>
+			<iCityAttack>-25</iCityAttack>
+			<iCityDefense>50</iCityDefense>
+			<iExtraMorale>100</iExtraMorale>
+			<UnitCombatMods>
+				<UnitCombatMod>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+					<iUnitCombatMod>25</iUnitCombatMod>
+				</UnitCombatMod>
+				<UnitCombatMod>
+				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+					<iUnitCombatMod>25</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/confucianism_promo.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Global Awareness -->
 			<Type>PROMOTION_GLOBAL_AWARENESS</Type>
@@ -3175,6 +3254,27 @@
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/Heroic.dds</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Holy Trinity (Hinduism) -->
+			<Type>PROMOTION_HOLY_TRINITY</Type>
+			<Description>TXT_KEY_PROMOTION_HOLY_TRINITY</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PromotionPrereq>PROMOTION_LEADER</PromotionPrereq>
+			<StateReligionPrereq>RELIGION_HINDUISM</StateReligionPrereq>
+			<bRiver>1</bRiver>
+			<iFriendlyHealChange>10</iFriendlyHealChange>
+			<iExperiencePercent>25</iExperiencePercent>
+			<iExtraMorale>100</iExtraMorale>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/hinduism_promo.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Hunter 1 -->
 			<Type>PROMOTION_HUNTER1</Type>
 			<Description>TXT_KEY_PROMOTION_HUNTER1</Description>
@@ -3464,6 +3564,25 @@
 				<UnitCombatType>UNITCOMBAT_ROBOT</UnitCombatType>
 			</OrUnitCombatTypes>
 			<Button>,Art/Interface/Buttons/Promotions/Amphibious.dds,Art/Interface/Buttons/Afterworld_Atlas.dds,8,11</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Kanai (Judaism) -->
+			<Type>PROMOTION_KANAI</Type>
+			<Description>TXT_KEY_PROMOTION_KANAI</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PromotionPrereq>PROMOTION_LEADER</PromotionPrereq>
+			<StateReligionPrereq>RELIGION_JUDAISM</StateReligionPrereq>
+			<bImmuneToFirstStrikes>1</bImmuneToFirstStrikes>
+			<iFirstStrikesChange>2</iFirstStrikesChange>
+			<iExtraMorale>100</iExtraMorale>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/judaism_promo.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Land Warrior I -->
 			<Type>PROMOTION_LAND_WARRIOR1</Type>
@@ -3986,6 +4105,24 @@
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/Mobility1.dds</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Mjolnir (Asatru) -->
+			<Type>PROMOTION_MJOLNIR</Type>
+			<Description>TXT_KEY_PROMOTION_MJOLNIR</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<StateReligionPrereq>RELIGION_ASATRU</StateReligionPrereq>
+			<iCityAttack>15</iCityAttack>
+			<iExperiencePercent>15</iExperiencePercent>
+			<iExtraMorale>100</iExtraMorale>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HITECH</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/asatru_promo.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Mountaineer -->
 			<Type>PROMOTION_MOUNTAINEER</Type>
 			<Description>TXT_KEY_PROMOTION_MOUNTAINEER</Description>
@@ -4208,6 +4345,26 @@
 			</OrUnitCombatTypes>
 			<Button>,Art/Interface/Buttons/Promotions/antitank3.dds,Art/Interface/Buttons/Afterworld_Atlas.dds,7,3</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Order of Ormadz (Zoroastrianism) -->
+			<Type>PROMOTION_ORDER_OF_ORMAZD</Type>
+			<Description>TXT_KEY_PROMOTION_ORDER_OF_ORMAZD</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PromotionPrereq>PROMOTION_LEADER</PromotionPrereq>
+			<StateReligionPrereq>RELIGION_ZOROASTRIANISM</StateReligionPrereq>
+			<iCityAttack>25</iCityAttack>
+			<iCityDefense>25</iCityDefense>
+			<iExtraMorale>100</iExtraMorale>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/zoroastrianism_promo.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Pacification -->
 			<Type>PROMOTION_PACIFICATION</Type>
 			<Description>TXT_KEY_PROMOTION_PACIFICATION</Description>
@@ -4229,6 +4386,44 @@
 				<UnitCombatType>UNITCOMBAT_DREADNOUGHT</UnitCombatType>
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/pacification.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Pankration (Hellenic) -->
+			<Type>PROMOTION_PANKRATION</Type>
+			<Description>TXT_KEY_PROMOTION_PANKRATION</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<TechPrereq>TECH_SPECIAL_PROMOTION</TechPrereq>
+			<StateReligionPrereq>RELIGION_HELLENISM</StateReligionPrereq>
+			<iCombatPercent>5</iCombatPercent>
+			<iUpgradeDiscount>20</iUpgradeDiscount>
+			<iExtraMorale>100</iExtraMorale>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+					<iUnitCombatMod>20</iUnitCombatMod>
+				</UnitCombatMod>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+					<iUnitCombatMod>10</iUnitCombatMod>
+				</UnitCombatMod>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+					<iUnitCombatMod>20</iUnitCombatMod>
+				</UnitCombatMod>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+					<iUnitCombatMod>10</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/hellenic_promo.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Patrol I -->
 			<Type>PROMOTION_PATROL1</Type>
@@ -4286,6 +4481,26 @@
 				<UnitCombatType>UNITCOMBAT_ASSAULT_MECH</UnitCombatType>
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/patrol3.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Pharaoh's Propaganda (Kemetic) -->
+			<Type>PROMOTION_PHARAOH</Type>
+			<Description>TXT_KEY_PROMOTION_PHARAOH</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PromotionPrereq>PROMOTION_LEADER</PromotionPrereq>
+			<StateReligionPrereq>RELIGION_KEMETISM</StateReligionPrereq>
+			<iChanceFirstStrikesChange>1</iChanceFirstStrikesChange>
+			<iRevoltProtection>30</iRevoltProtection>
+			<iExtraMorale>150</iExtraMorale>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/kemetic_promo.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Pinch I -->
 			<Type>PROMOTION_PINCH1</Type>
@@ -5779,6 +5994,25 @@
 			</OrUnitCombatTypes>
 			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,5,15</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Waidan (Taoism) -->
+			<Type>PROMOTION_WAIDAN</Type>
+			<Description>TXT_KEY_PROMOTION_WAIDAN</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<StateReligionPrereq>RELIGION_TAOISM</StateReligionPrereq>
+			<iCombatPercent>20</iCombatPercent>
+			<iUpgradeDiscount>25</iUpgradeDiscount>
+			<iExtraMorale>100</iExtraMorale>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/taoism_promo.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Weapon Upgrade Mk I -->
 			<Type>PROMOTION_WEAPON_UPGRADE1</Type>
 			<Description>TXT_KEY_PROMOTION_WEAPON_UPGRADE1</Description>
@@ -5963,6 +6197,27 @@
 				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/workrate5.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Zen (Buddhism) -->
+			<Type>PROMOTION_ZEN</Type>
+			<Description>TXT_KEY_PROMOTION_ZEN</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PromotionPrereq>PROMOTION_LEADER</PromotionPrereq>
+			<StateReligionPrereq>RELIGION_BUDDHISM</StateReligionPrereq>
+			<bAlwaysHeal>1</bAlwaysHeal>
+			<bImmuneToFirstStrikes>1</bImmuneToFirstStrikes>
+			<iVisibilityChange>1</iVisibilityChange>
+			<iExtraMorale>100</iExtraMorale>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/buddhism_promo.dds</Button>
 		</PromotionInfo>
 	</PromotionInfos>
 </Civ4PromotionInfos>
