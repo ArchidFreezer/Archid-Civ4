@@ -8689,15 +8689,15 @@
 			</BonusProductionModifiers>
 			<BuildingClassProductionModifiers>
 				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_TEMPLE_OF_OSIRIS</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_KEMETIC_TEMPLE_OF_OSIRIS</BuildingClassType>
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
 				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_TEMPLE_OF_ISIS</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_KEMETIC_TEMPLE_OF_ISIS</BuildingClassType>
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
 				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_TEMPLE_OF_SET</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_KEMETIC_TEMPLE_OF_SET</BuildingClassType>
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
 			</BuildingClassProductionModifiers>
@@ -8828,24 +8828,242 @@
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
 				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_TEMPLE_OF_OSIRIS</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_KEMETIC_TEMPLE_OF_OSIRIS</BuildingClassType>
 					<iModifier>5</iModifier>
 				</BuildingClassProductionModifier>
 				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_TEMPLE_OF_ISIS</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_KEMETIC_TEMPLE_OF_ISIS</BuildingClassType>
 					<iModifier>5</iModifier>
 				</BuildingClassProductionModifier>
 				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_TEMPLE_OF_SET</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_KEMETIC_TEMPLE_OF_SET</BuildingClassType>
 					<iModifier>5</iModifier>
 				</BuildingClassProductionModifier>
 			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_KEMETIC_CATHEDRAL</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_TEMPLE_OF_OSIRIS</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_TEMPLE_OF_ISIS</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_TEMPLE_OF_SET</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_KEMETIC_TEMPLE_OF_OSIRIS</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_KEMETIC_TEMPLE_OF_ISIS</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_KEMETIC_TEMPLE_OF_SET</BuildingClassType>
 			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Kemetic Wonder (Isis) -->
+			<BuildingClass>BUILDINGCLASS_KEMETIC_TEMPLE_OF_ISIS</BuildingClass>
+			<Type>BUILDING_KEMETIC_TEMPLE_OF_ISIS</Type>
+			<Description>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_ISIS</Description>
+			<Civilopedia>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_ISIS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_ISIS_STRATEGY</Strategy>
+			<Advisor>ADVISOR_RELIGION</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_KEMETIC_CATHEDRAL</ArtDefineTag>
+			<ReligionType>RELIGION_KEMETISM</ReligionType>
+			<StateReligion>RELIGION_KEMETISM</StateReligion>
+			<bStateReligion>1</bStateReligion>
+			<PrereqReligion>RELIGION_KEMETISM</PrereqReligion>
+			<PrereqAndTechs>
+				<TechType>TECH_PRIESTHOOD</TechType>
+			</PrereqAndTechs>
+			<FreePromotions>
+				<PromotionType>PROMOTION_SETTLER_DEVOTEE</PromotionType>
+			</FreePromotions>
+			<bNeverCapture>1</bNeverCapture>
+			<iCost>400</iCost>
+			<iAreaHealth>1</iAreaHealth>
+			<iHappiness>1</iHappiness>
+			<iStateReligionHappiness>7</iStateReligionHappiness>
+			<iAsset>6</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>1</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>50</iCommerce>
+			</CommerceModifiers>
+			<GlobalCommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>10</iCommerce>
+			</GlobalCommerceModifiers>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_KEMETISM</ReligionType>
+					<iChange>6</iChange>
+				</ReligionChange>
+			</ReligionChanges>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
+					<iCount>5</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_RA</ConstructSound>
+			<BonusProductionModifiers>
+				<BonusProductionModifier>
+					<BonusType>BONUS_STONE</BonusType>
+					<iModifier>100</iModifier>
+				</BonusProductionModifier>
+			</BonusProductionModifiers>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Kemetic Wonder (Osiris) -->
+			<BuildingClass>BUILDINGCLASS_KEMETIC_TEMPLE_OF_OSIRIS</BuildingClass>
+			<Type>BUILDING_KEMETIC_TEMPLE_OF_OSIRIS</Type>
+			<SpecialBuildingType>NONE</SpecialBuildingType>
+			<Description>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_OSIRIS</Description>
+			<Civilopedia>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_OSIRIS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_OSIRIS_STRATEGY</Strategy>
+			<Advisor>ADVISOR_RELIGION</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_KEMETIC_CATHEDRAL</ArtDefineTag>
+			<ReligionType>RELIGION_KEMETISM</ReligionType>
+			<StateReligion>RELIGION_KEMETISM</StateReligion>
+			<bStateReligion>1</bStateReligion>
+			<PrereqReligion>RELIGION_KEMETISM</PrereqReligion>
+			<PrereqAndTechs>
+				<TechType>TECH_WRITING</TechType>
+			</PrereqAndTechs>
+			<FreePromotions>
+				<PromotionType>PROMOTION_SETTLER_DEVOTEE</PromotionType>
+			</FreePromotions>
+			<bNeverCapture>1</bNeverCapture>
+			<iCost>400</iCost>
+			<iHappiness>1</iHappiness>
+			<iStateReligionHappiness>7</iStateReligionHappiness>
+			<iAsset>6</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>1</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>50</iCommerce>
+			</CommerceModifiers>
+			<GlobalCommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>10</iCommerce>
+			</GlobalCommerceModifiers>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_KEMETISM</ReligionType>
+					<iChange>6</iChange>
+				</ReligionChange>
+			</ReligionChanges>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
+					<iCount>5</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_RA</ConstructSound>
+			<BonusProductionModifiers>
+				<BonusProductionModifier>
+					<BonusType>BONUS_STONE</BonusType>
+					<iModifier>100</iModifier>
+				</BonusProductionModifier>
+			</BonusProductionModifiers>
+			<BonusYieldModifiers>
+				<BonusYieldModifier>
+					<BonusType>BONUS_WHEAT</BonusType>
+					<YieldModifiers>
+						<iYield>25</iYield>
+					</YieldModifiers>
+				</BonusYieldModifier>
+			</BonusYieldModifiers>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Kemetic Wonder (Set) -->
+			<BuildingClass>BUILDINGCLASS_KEMETIC_TEMPLE_OF_SET</BuildingClass>
+			<Type>BUILDING_KEMETIC_TEMPLE_OF_SET</Type>
+			<Description>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_SET</Description>
+			<Civilopedia>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_SET_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_SET_STRATEGY</Strategy>
+			<Advisor>ADVISOR_RELIGION</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_KEMETIC_CATHEDRAL</ArtDefineTag>
+			<ReligionType>RELIGION_KEMETISM</ReligionType>
+			<StateReligion>RELIGION_KEMETISM</StateReligion>
+			<bStateReligion>1</bStateReligion>
+			<PrereqReligion>RELIGION_KEMETISM</PrereqReligion>
+			<PrereqAndTechs>
+				<TechType>TECH_WARFARE</TechType>
+			</PrereqAndTechs>
+			<FreePromotions>
+				<PromotionType>PROMOTION_SETTLER_DEVOTEE</PromotionType>
+			</FreePromotions>
+			<iCost>400</iCost>
+			<iGreatGeneralRateModifier>10</iGreatGeneralRateModifier>
+			<iHappiness>1</iHappiness>
+			<iStateReligionHappiness>7</iStateReligionHappiness>
+			<iMilitaryProductionModifier>25</iMilitaryProductionModifier>
+			<iAsset>6</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>1</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<CommerceModifiers>
+				<iCommerce>50</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+			</CommerceModifiers>
+			<GlobalCommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>10</iCommerce>
+			</GlobalCommerceModifiers>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_KEMETISM</ReligionType>
+					<iChange>6</iChange>
+				</ReligionChange>
+			</ReligionChanges>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
+					<iCount>5</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_RA</ConstructSound>
+			<BonusProductionModifiers>
+				<BonusProductionModifier>
+					<BonusType>BONUS_STONE</BonusType>
+					<iModifier>100</iModifier>
+				</BonusProductionModifier>
+			</BonusProductionModifiers>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>

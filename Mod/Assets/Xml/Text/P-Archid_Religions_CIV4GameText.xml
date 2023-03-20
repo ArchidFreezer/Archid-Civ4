@@ -1120,45 +1120,45 @@
 		<English>.</English>
 	</TEXT>
 	<TEXT> <!-- Wonder (Osiris) -->
-		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_OSIRIS</Tag>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_OSIRIS</Tag>
 		<English>Kemetic Wonder (Temple of Osiris)</English>
 		<French>Temple d'Osiris</French>
 		<German>Osiris-Tempel</German>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_OSIRIS_PEDIA</Tag>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_OSIRIS_PEDIA</Tag>
 		<English>[TAB]Osiris is the Egyptian god of life, death, and fertility. Osiris was not only the redeemer and merciful judge of the dead in the afterlife, but also the underworld agency that granted all life, including sprouting vegetation and the fertile flooding of the Nile River. The Kings of Egypt were associated with Osiris in death as Osiris rose from the dead they would, in union with him, inherit eternal life through a process of imitative magic. By the New Kingdom all people, not just pharaohs, were believed to be associated with Osiris at death if they incurred the costs of the assimilation rituals.</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_OSIRIS_STRATEGY</Tag>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_OSIRIS_STRATEGY</Tag>
 		<English>.</English>
 	</TEXT>
 	<TEXT> <!-- Wonder (Isis) -->
-		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_ISIS</Tag>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_ISIS</Tag>
 		<English>Kemetic Wonder (Temple of Isis)</English>
 		<French>Temple d'Isis</French>
 		<German>Isis-Tempel</German>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_ISIS_PEDIA</Tag>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_ISIS_PEDIA</Tag>
 		<English>[TAB]Isis Is the wife and sister of Osiris and the mother of Horus (Heru). Isis was worshipped as the archetypal wife and mother. Her name literally means "she of throne", that is, "Queen of the throne", which was portrayed by the emblem worn on her head, that of a throne. However, the hieroglyph of her name originally meant "she of flesh", i.e. mortal, and she may simply have represented deified, historical queens. She is also known as the goddess of magic and healing and the goddess from who all Beginnings arose, and was also known as the Lady of bread, of beer and of green fields. Ancient Egyptians believed that the Nile flooded every year because of her tears of sorrow for her dead husband, Osiris. He was killed by her other evil brother, Set, god of chaos and destruction. Set sliced Osiris into bits and flung them into the Nile River, letting the animals eat the remains of his body. However, all the pieces survived, except for his phallus.</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_ISIS_STRATEGY</Tag>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_ISIS_STRATEGY</Tag>
 		<English>.</English>
 	</TEXT>
 	<TEXT> <!-- Wonder (Set) -->
-		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_SET</Tag>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_SET</Tag>
 		<English>Kemetic Wonder (Temple of Set)</English>
 		<French>Temple de Set</French>
 		<German>Seth-Tempel</German>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_SET_PEDIA</Tag>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_SET_PEDIA</Tag>
 		<English>[TAB]Set (also spelled Seth, Sutekh or Seteh) is an ancient god, who was originally the god of the desert, storms, and chaos. Set was viewed as immensely powerful, and was regarded consequently as the chief god. Set carried the epithet, "His Majesty", shared only with Ra. Another common epithet was, of great of strength, and in one of the Pyramid Texts it states that the king's strength is that of Set. As chief god, he was patron of Upper Egypt (in the South- upstream), where he was worshiped, most notably at Ombos. Set was regarded as a fierce warrior. It was he who protected Ra on the solar barque, slaying the chaos serpent, Apep each day to allow the sun to rise. Combined with an association with the destructive and irresistible power of storms and the desert, Set became the patron deity of soldiers, who often wore Set amulets, hoping to acquire similar destructive force, or Set's infinite protection.</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_SET_STRATEGY</Tag>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_SET_STRATEGY</Tag>
 		<English>.</English>
 	</TEXT>
 	<TEXT> <!-- Wonder (Ptah) -->

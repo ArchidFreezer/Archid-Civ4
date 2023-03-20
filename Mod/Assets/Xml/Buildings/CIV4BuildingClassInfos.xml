@@ -1783,6 +1783,27 @@
 			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_KEMETIC_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Kemetic Wonder (Isis) -->
+			<Type>BUILDINGCLASS_KEMETIC_TEMPLE_OF_ISIS</Type>
+			<Description>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_ISIS</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_KEMETIC_TEMPLE_OF_ISIS</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Kemetic Wonder (Osiris) -->
+			<Type>BUILDINGCLASS_KEMETIC_TEMPLE_OF_OSIRIS</Type>
+			<Description>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_OSIRIS</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_KEMETIC_TEMPLE_OF_OSIRIS</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Kemetic Wonder (Set) -->
+			<Type>BUILDINGCLASS_KEMETIC_TEMPLE_OF_SET</Type>
+			<Description>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_SET</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_KEMETIC_TEMPLE_OF_SET</DefaultBuilding>
+		</BuildingClassInfo>
  		<BuildingClassInfo> <!-- Nagualism Cathedral (Tlaloc) -->
 			<Type>BUILDINGCLASS_NAGUALISTIC_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_NAGUALISTIC_CATHEDRAL</Description>
