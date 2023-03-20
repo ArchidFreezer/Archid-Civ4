@@ -788,6 +788,11 @@
 		</Spanish>
 	</TEXT>
 
+	<TEXT> <!-- Devotee Retinue -->
+		<Tag>TXT_KEY_PROMOTION_DEVOTEE</Tag>
+		<English>Devotee Retinue</English>
+	</TEXT>
+
 	<TEXT> <!-- Disorganised (Barbarian Ships) -->
 		<Tag>TXT_KEY_PROMOTION_DISORGANIZED</Tag>
 		<English>Disorganized</English>
