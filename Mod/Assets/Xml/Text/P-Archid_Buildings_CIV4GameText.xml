@@ -1974,6 +1974,18 @@
 		<Tag>TXT_KEY_BUILDING_TANNERY_STRATEGY</Tag>
 		<English>Increases early production at a cost of health.</English>
 	</TEXT>
+	<TEXT> <!-- Tavern -->
+		<Tag>TXT_KEY_BUILDING_TAVERN</Tag>
+		<English>Tavern</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TAVERN_PEDIA</Tag>
+		<English>[TAB]A tavern or pot-house is, loosely, a place of business where people gather to drink alcoholic beverages and, more than likely, also be served food, though not licensed to put up guests. The word derives from the Latin taberna and the Greek taverna, whose original meaning was a shed or workshop. The distinction of a tavern from an inn, bar or pub varies by location, in some places being identical and in others being distinguished by traditions or by legal license. In Renaissance England, a tavern was distinguished from a public ale house by dint of being run as a private enterprise, where drinkers were "guests" rather than members of the public.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TAVERN_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Taverns[COLOR_REVERT] provide you with a bonus to culture and espionage.</English>
+	</TEXT>
 	<TEXT> <!-- Terracotta Army -->
 		<Tag>TXT_KEY_BUILDING_TERRACOTTA_ARMY</Tag>
 		<English>Terracotta Army</English>

@@ -3368,5 +3368,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/nagualism_pyramid_magician.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- Tavern -->
+			<Type>ART_DEF_BUILDING_TAVERN</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.9</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/City/tavern/Tavern.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/tavern.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

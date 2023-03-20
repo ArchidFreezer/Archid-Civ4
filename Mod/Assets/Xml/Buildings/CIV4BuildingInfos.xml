@@ -15324,6 +15324,46 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Tavern -->
+			<BuildingClass>BUILDINGCLASS_TAVERN</BuildingClass>
+			<Type>BUILDING_TAVERN</Type>
+			<Description>TXT_KEY_BUILDING_TAVERN</Description>
+			<Civilopedia>TXT_KEY_BUILDING_TAVERN_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_TAVERN_STRATEGY</Strategy>
+			<Advisor>ADVISOR_CULTURE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_TAVERN</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_FERMENTATION</TechType>
+			</PrereqAndTechs>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_ALCOHOL</BonusType>
+			</PrereqOrBonuses>
+			<iCost>100</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iAsset>3</iAsset>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+				<iCommerce>2</iCommerce>
+			</CommerceChanges>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_JESTER</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>5</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
+					<iFlavor>5</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Telephone Network -->
 			<BuildingClass>BUILDINGCLASS_TELEPHONE_NETWORK</BuildingClass>
 			<Type>BUILDING_TELEPHONE_NETWORK</Type>

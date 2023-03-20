@@ -371,6 +371,12 @@
 			<iCategory>22</iCategory>
 			<DefaultBuilding>BUILDING_NETWORK_NODE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Tavern -->
+			<Type>BUILDINGCLASS_TAVERN</Type>
+			<Description>TXT_KEY_BUILDING_TAVERN</Description>
+			<iCategory>22</iCategory>
+			<DefaultBuilding>BUILDING_TAVERN</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Courthouse -->                      <!-- City Maintenance -->
 			<Type>BUILDINGCLASS_COURTHOUSE</Type>
