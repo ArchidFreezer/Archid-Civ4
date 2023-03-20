@@ -6828,9 +6828,6 @@
 					<iNeeded>1</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_PARTHENON</BuildingClassType>
-			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -8669,11 +8666,6 @@
 					<iNeeded>1</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_TEMPLE_OF_OSIRIS</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_TEMPLE_OF_ISIS</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_TEMPLE_OF_SET</BuildingClassType>
-			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -10766,9 +10758,6 @@
 					<iNeeded>1</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_NAGUALISTIC_MAGICIAN_PYRAMID</BuildingClassType>
-			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -16363,7 +16352,7 @@
 			</BonusProductionModifiers>
 			<BuildingClassProductionModifiers>
 				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_APADANA_PALACE</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_ZOROASTRIAN_APADANA_PALACE</BuildingClassType>
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
 			</BuildingClassProductionModifiers>
@@ -16373,9 +16362,6 @@
 					<iNeeded>1</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_APADANA_PALACE</BuildingClassType>
-			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -16491,13 +16477,12 @@
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
 				<BuildingClassProductionModifier>
-					<BuildingClassType>BUILDINGCLASS_APADANA_PALACE</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_ZOROASTRIAN_APADANA_PALACE</BuildingClassType>
 					<iModifier>5</iModifier>
 				</BuildingClassProductionModifier>
 			</BuildingClassProductionModifiers>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_ZOROASTRIAN_CATHEDRAL</BuildingClassType>
-				<BuildingClassType>BUILDINGCLASS_APADANA_PALACE</BuildingClassType>
 			</ReplacedByBuildingClasses>
 			<Flavors>
 				<Flavor>
@@ -16506,6 +16491,84 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Zoroastrian Wonder (Apadana Palace) -->
+		<BuildingClass>BUILDINGCLASS_ZOROASTRIAN_APADANA_PALACE</BuildingClass>
+			<Type>BUILDING_ZOROASTRIAN_APADANA_PALACE</Type>
+			<Description>TXT_KEY_BUILDING_ZOROASTRIAN_APADANA_PALACE</Description>
+			<Civilopedia>TXT_KEY_BUILDING_ZOROASTRIAN_APADANA_PALACE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_ZOROASTRIAN_APADANA_PALACE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_ZOROASTRIAN_APADANA_PALACE</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_ZOROASTRIAN_APADANA_PALACE</MovieDefineTag>
+			<ReligionType>RELIGION_ZOROASTRIANISM</ReligionType>
+			<StateReligion>RELIGION_ZOROASTRIANISM</StateReligion>
+			<bStateReligion>1</bStateReligion>
+			<PrereqReligion>RELIGION_ZOROASTRIANISM</PrereqReligion>
+			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
+			<PrereqAndTechs>
+				<TechType>TECH_SCULPTURE</TechType>
+				<TechType>TECH_DUALISM</TechType>
+			</PrereqAndTechs>
+			<FreePromotions>
+				<PromotionType>PROMOTION_ORDER_OF_ORMAZD</PromotionType>
+				<PromotionType>PROMOTION_SETTLER_DEVOTEE</PromotionType>
+			</FreePromotions>
+			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
+			<bTeamShare>1</bTeamShare>
+			<bGovernmentCenter>1</bGovernmentCenter>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>660</iCost>
+			<iHurryCostModifier>100</iHurryCostModifier>
+			<iHappiness>1</iHappiness>
+			<iStateReligionHappiness>5</iStateReligionHappiness>
+			<iAsset>3</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>5</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_ZOROASTRIANISM</ReligionType>
+					<iChange>6</iChange>
+				</ReligionChange>
+			</ReligionChanges>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
+					<iCount>4</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<FreeSpecialistCounts>
+				<FreeSpecialistCount>
+					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
+					<iCount>2</iCount>
+				</FreeSpecialistCount>
+			</FreeSpecialistCounts>
+			<ConstructSound>AS2D_BUILD_ZORO</ConstructSound>
+			<BonusProductionModifiers>
+				<BonusProductionModifier>
+					<BonusType>BONUS_MARBLE</BonusType>
+					<iModifier>100</iModifier>
+				</BonusProductionModifier>
+			</BonusProductionModifiers>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>4</iFlavor>
+				</Flavor>
+			</Flavors>
+	</BuildingInfo>
 
 
 <!-- ************	-->

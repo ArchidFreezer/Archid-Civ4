@@ -1864,6 +1864,13 @@
 			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_ZOROASTRIAN_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Zoroastrian Wonder (Apadana Palace) -->
+			<Type>BUILDINGCLASS_ZOROASTRIAN_APADANA_PALACE</Type>
+			<Description>TXT_KEY_ZOROASTRIAN_APADANA_PALACE</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_ZOROASTRIAN_APADANA_PALACE</DefaultBuilding>
+		</BuildingClassInfo>
 
 
 <!-- ************	-->

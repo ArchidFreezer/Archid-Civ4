@@ -371,5 +371,9 @@
 			<Type>ART_DEF_MOVIE_WALLS_OF_TROY</Type>
 			<Path>Art/Movies/Wonders/walls_of_troy.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_ZOROASTRIAN_APADANA_PALACE</Type>
+			<Path>Art/Movies/Wonders/apadana_palace.dds</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

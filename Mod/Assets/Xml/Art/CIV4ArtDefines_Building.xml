@@ -3338,5 +3338,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/zoroastrian_temple.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ZOROASTRIAN_APADANA_PALACE</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.4</fScale>
+			<fInterfaceScale>0.28</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/Apadana_Palace/darius.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/zoroastrian_apadana_palace.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
