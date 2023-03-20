@@ -1352,6 +1352,13 @@
 			<iMaxPlayerInstances>1</iMaxPlayerInstances>
 			<DefaultBuilding>BUILDING_BARBARIAN_LODGE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Brewery -->
+			<Type>BUILDINGCLASS_BREWERY</Type>
+			<Description>TXT_KEY_BUILDING_BREWERY</Description>
+			<iCategory>3</iCategory>
+			<iMaxPlayerInstances>1</iMaxPlayerInstances>
+			<DefaultBuilding>BUILDING_BREWERY</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Capital Administration -->
 			<Type>BUILDINGCLASS_CAPITAL_ADMINISTRATION</Type>
 			<Description>TXT_KEY_BUILDING_CAPITAL_ADMINISTRATION</Description>

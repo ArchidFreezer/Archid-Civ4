@@ -3378,5 +3378,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/tavern.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- Brewery -->
+			<Type>ART_DEF_BUILDING_BREWERY</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.9</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/City/brewery/Brewery.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/brewery.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

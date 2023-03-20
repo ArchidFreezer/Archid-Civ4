@@ -302,6 +302,18 @@
 		<English>Build in cities with Fishing Boats nearby.</English>
 		<French>Construit dans les Villes près de bâteaux de pêche.</French>
 	</TEXT>
+	<TEXT> <!-- Brewery -->
+		<Tag>TXT_KEY_BUILDING_BREWERY</Tag>
+		<English>Brewery</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BREWERY_PEDIA</Tag>
+		<English>[TAB]A brewery is a dedicated building for the making of beer, though beer can be made in the home, and has been for much of beer's history. A company which makes beer is called either a brewery or a brewing company. [PARAGRAPH:1:1]The diversity of size in breweries is matched by the diversity of processes, degrees of automation, and kinds of beer produced in breweries. Typically a brewery is divided into distinct sections, with each section reserved for one part of the brewing process.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BREWERY_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Breweries[COLOR_REVERT] provide your civilization with [COLOR_HIGHLIGHT_TEXT]Beer[COLOR_REVERT] resources (which provide happiness if you build [COLOR_BUILDING_TEXT]Taverns[COLOR_REVERT]) and increase a city's commerce if that city has access to [COLOR_HIGHLIGHT_TEXT]Corn[COLOR_REVERT], [COLOR_HIGHLIGHT_TEXT]Rice[COLOR_REVERT] and/or [COLOR_HIGHLIGHT_TEXT]Wheat[COLOR_REVERT]. [COLOR_BUILDING_TEXT]Breweries[COLOR_REVERT] are required to build [COLOR_BUILDING_TEXT]Taverns[COLOR_REVERT].</English>
+	</TEXT>
 	<TEXT> <!-- Brightsmiths Hut -->
 		<Tag>TXT_KEY_BUILDING_BRIGHTSMITHS_HUT</Tag>
 		<English>Brightsmith's Hut</English>

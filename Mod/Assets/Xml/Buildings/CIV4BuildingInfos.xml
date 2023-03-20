@@ -1806,6 +1806,43 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Brewery -->
+			<BuildingClass>BUILDINGCLASS_BREWERY</BuildingClass>
+			<Type>BUILDING_BREWERY</Type>
+			<Description>TXT_KEY_BUILDING_BREWERY</Description>
+			<Civilopedia>TXT_KEY_BUILDING_BREWERY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_BREWERY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_BREWERY</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_FERMENTATION</TechType>
+			</PrereqAndTechs>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_APPLE</BonusType>
+				<BonusType>BONUS_CORN</BonusType>
+				<BonusType>BONUS_RICE</BonusType>
+				<BonusType>BONUS_WHEAT</BonusType>
+				<BonusType>BONUS_BARLEY</BonusType>
+			</PrereqOrBonuses>
+			<FreeBonus>BONUS_ALCOHOL</FreeBonus>
+			<iNumFreeBonuses>2</iNumFreeBonuses>
+			<iCost>100</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iAsset>3</iAsset>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_BREWERY</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Brightsmiths Hut -->
 			<BuildingClass>BUILDINGCLASS_BRIGHTSMITHS_HUT</BuildingClass>
 			<Type>BUILDING_BRIGHTSMITHS_HUT</Type>
