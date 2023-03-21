@@ -14,6 +14,7 @@
 			<Type>YIELD_FOOD</Type>
 			<Description>TXT_KEY_YIELD_FOOD</Description>
 			<iHillsChange>-1</iHillsChange>
+			<iPeakChange>-2</iPeakChange>
 			<iLakeChange>1</iLakeChange>
 			<iMinCity>3</iMinCity>
 			<ColorType>COLOR_YIELD_FOOD</ColorType>
@@ -29,6 +30,7 @@
 			<Type>YIELD_PRODUCTION</Type>
 			<Description>TXT_KEY_YIELD_PRODUCTION</Description>
 			<iHillsChange>1</iHillsChange>
+			<iPeakChange>1</iPeakChange>
 			<iMinCity>1</iMinCity>
 			<iGoldenAgeYield>1</iGoldenAgeYield>
 			<iGoldenAgeYieldThreshold>1</iGoldenAgeYieldThreshold>
