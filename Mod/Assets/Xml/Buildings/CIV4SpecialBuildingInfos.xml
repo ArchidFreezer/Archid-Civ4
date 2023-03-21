@@ -11,7 +11,7 @@
 			<Description>TXT_KEY_SPECIALBUILDING_BOMB_SHELTER</Description>
 			<ObsoleteTech>NONE</ObsoleteTech>
 			<TechPrereq>NONE</TechPrereq>
-			<TechPrereqAnyone>NONE</TechPrereqAnyone>
+			<TechPrereqAnyone>TECH_FISSION</TechPrereqAnyone>
 			<bValid>0</bValid>
 			<ProductionTraits/>
 			<Button>Art/Interface/Buttons/Buildings/BombShelters.dds</Button>
