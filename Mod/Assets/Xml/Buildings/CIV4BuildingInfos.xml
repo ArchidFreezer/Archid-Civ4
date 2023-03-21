@@ -460,6 +460,7 @@
 				<iYield>0</iYield>
 				<iYield>1</iYield>
 			</YieldChanges>
+			<ConstructSound>AS2D_BUILD_APIARY</ConstructSound>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
@@ -13397,7 +13398,7 @@
 			<Strategy>TXT_KEY_BUILDING_SHRINE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_SHRINE</ArtDefineTag>
-			<ObsoleteTech>TECH_PHILOSOPHY</ObsoleteTech>
+			<ObsoleteTech>TECH_MONOTHEISM</ObsoleteTech>
 			<PrereqAndTechs>
 				<TechType>TECH_RITUALISM</TechType>
 			</PrereqAndTechs>

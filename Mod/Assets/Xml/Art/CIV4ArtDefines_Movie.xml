@@ -164,32 +164,31 @@
 		</MovieArtInfo>
 		<MovieArtInfo>
 			<Type>ART_DEF_MOVIE_SHRINE_JEWISH</Type>
-			<Path>Art/Movies/Religion/Judaism/Shrine_Jud_dwg_512.dds</Path>
+			<Path>Art/Movies/Shrines/SolomonsTemple.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
 			<Type>ART_DEF_MOVIE_SHRINE_CHRISTIAN</Type>
-			<Path>Art/Movies/Religion/Christianity/Shrine_Chr_dwg_512.dds</Path>
+			<Path>Art/Movies/Shrines/NativityChurch.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
 			<Type>ART_DEF_MOVIE_SHRINE_ISLAMIC</Type>
-			<Path>Art/Movies/Religion/Islam/Shrine_Isl_dwg_512.dds</Path>
+			<Path>Art/Movies/Shrines/MasjidAlHaram.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
 			<Type>ART_DEF_MOVIE_SHRINE_HINDU</Type>
-			<Path>Art/Movies/Religion/Hinduism/Shrine_Hin_dwg_512.dds</Path>
+			<Path>Art/Movies/Shrines/KashiVishnawath.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
 			<Type>ART_DEF_MOVIE_SHRINE_BUDDHIST</Type>
-			<Path>Art/Movies/Religion/Buddhism/Shrine_Bud_Dwg_512.dds</Path>
+			<Path>Art/Movies/Shrines/Mahabodhi.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
 			<Type>ART_DEF_MOVIE_SHRINE_CONFUCIAN</Type>
-			<Path>Art/Movies/Religion/Confucianism/Shrine_Con_dwg_512.dds</Path>
+			<Path>Art/Movies/Shrines/KongMiao.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
 			<Type>ART_DEF_MOVIE_SHRINE_TAOIST</Type>
-			<Path>Art/Movies/Religion/Taoism/Shrine_Tao_dwg_512.dds</Path>
-			<KFM>None</KFM>
+			<Path>Art/Movies/Shrines/DaiMiao.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
 			<Type>ART_DEF_MOVIE_APOSTOLIC_PALACE</Type>
@@ -374,6 +373,18 @@
 		<MovieArtInfo>
 			<Type>ART_DEF_MOVIE_ZOROASTRIAN_APADANA_PALACE</Type>
 			<Path>Art/Movies/Wonders/apadana_palace.dds</Path>
+		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_SHRINE_ASATRU</Type>
+			<Path>Art/Movies/Shrines/Asatru_Shrine.dds</Path>
+		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_KEMETIC_SHRINE</Type>
+			<Path>Art/Movies/Shrines/shrine_egy_dwg_512.dds</Path>
+		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_TREASURY</Type>
+			<Path>Art/Movies/NWonders/Treasury.bik</Path>
 		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

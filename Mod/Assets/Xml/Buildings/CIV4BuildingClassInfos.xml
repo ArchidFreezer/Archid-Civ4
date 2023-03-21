@@ -107,7 +107,7 @@
 			<DefaultBuilding>BUILDING_NATIONAL_SECURITY</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Granary -->                         <!-- Food -->
+		<BuildingClassInfo> <!-- Apairy -->                         <!-- Food -->
 			<Type>BUILDINGCLASS_APIARY</Type>
 			<Description>TXT_KEY_BUILDING_APIARY</Description>
 			<iCategory>16</iCategory>
@@ -385,7 +385,7 @@
 			<DefaultBuilding>BUILDING_COURTHOUSE</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Construction Firm -->               <!-- Production -->
+		<BuildingClassInfo> <!-- Candlemaker -->               <!-- Production -->
 			<Type>BUILDINGCLASS_CANDLEMAKER</Type>
 			<Description>TXT_KEY_BUILDING_CANDLEMAKER</Description>
 			<iCategory>24</iCategory>
@@ -445,7 +445,7 @@
 			<iCategory>24</iCategory>
 			<DefaultBuilding>BUILDING_STONEWORKERS_HUT</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Toolmaker -->
+		<BuildingClassInfo> <!-- Tannery -->
 			<Type>BUILDINGCLASS_TANNERY</Type>
 			<Description>TXT_KEY_BUILDING_TANNERY</Description>
 			<iCategory>24</iCategory>
@@ -592,7 +592,7 @@
 			<iCategory>29</iCategory>
 			<DefaultBuilding>BUILDING_HYPERMARKET</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Market -->
+		<BuildingClassInfo> <!-- Jewellers -->
 			<Type>BUILDINGCLASS_JEWELLERS</Type>
 			<Description>TXT_KEY_BUILDING_JEWELLERS</Description>
 			<iCategory>29</iCategory>
@@ -846,7 +846,7 @@
 			<iCategory>37</iCategory>
 			<DefaultBuilding>BUILDING_DOCTORS_OFFICE</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Healers Hut -->
+		<BuildingClassInfo> <!-- Graveyard -->
 			<Type>BUILDINGCLASS_GRAVEYARD</Type>
 			<Description>TXT_KEY_BUILDING_GRAVEYARD</Description>
 			<iCategory>37</iCategory>
@@ -926,7 +926,7 @@
 			<iCategory>40</iCategory>
 			<DefaultBuilding>BUILDING_JUMPLANE_PORTAL</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Postal Service -->
+		<BuildingClassInfo> <!-- Maglev Yard -->
 			<Type>BUILDINGCLASS_MAGLEV_YARD</Type>
 			<Description>TXT_KEY_BUILDING_MAGLEV_YARD</Description>
 			<iCategory>40</iCategory>
