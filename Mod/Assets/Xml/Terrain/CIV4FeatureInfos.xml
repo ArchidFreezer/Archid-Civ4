@@ -356,16 +356,16 @@
 			<Description>TXT_KEY_FEATURE_JUNGLE</Description>
 			<Civilopedia>TXT_KEY_FEATURE_JUNGLE_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_FEATURE_JUNGLE</ArtDefineTag>
-			<YieldChanges>
-				<iYieldChange>-1</iYieldChange>
-				<iYieldChange>0</iYieldChange>
-				<iYieldChange>0</iYieldChange>
-			</YieldChanges>
+			<RiverYieldChange>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</RiverYieldChange>
 			<iMovement>2</iMovement>
 			<iSeeThrough>1</iSeeThrough>
 			<iHealthPercent>-25</iHealthPercent>
 			<iDefense>50</iDefense>
-			<iGrowth>16</iGrowth>
+			<iGrowth>24</iGrowth>
 			<iWarmingDefense>10</iWarmingDefense>
 			<TerrainBooleans>
 				<TerrainType>TERRAIN_GRASS</TerrainType>
