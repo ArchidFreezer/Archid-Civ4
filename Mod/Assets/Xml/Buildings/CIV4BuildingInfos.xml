@@ -11544,7 +11544,7 @@
 		</BuildingInfo>
 		<BuildingInfo> <!-- National Courier System: Courier System -->
 			<BuildingClass>BUILDINGCLASS_NATIONAL_COURIER_SYSTEM</BuildingClass>
-			<Type>BUILDING_COURIER_SYSTEM</Type>
+			<Type>BUILDING_NATIONAL_COURIER_SYSTEM</Type>
 			<Description>TXT_KEY_BUILDING_NATIONAL_COURIER_SYSTEM</Description>
 			<Civilopedia>TXT_KEY_BUILDING_NATIONAL_COURIER_SYSTEM_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_BUILDING_NATIONAL_COURIER_SYSTEM_STRATEGY</Strategy>
@@ -11553,8 +11553,7 @@
 			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra>
 			<ObsoleteTech>TECH_COMBUSTION</ObsoleteTech>
 			<PrereqAndTechs>
-				<TechType>TECH_WRITING</TechType>
-				<TechType>TECH_ANIMAL_HUSBANDRY</TechType>
+				<TechType>TECH_HORSE_BREEDING</TechType>
 			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_GREAT_SPY</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
