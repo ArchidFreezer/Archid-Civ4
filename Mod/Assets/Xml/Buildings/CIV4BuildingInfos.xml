@@ -10643,7 +10643,8 @@
 			<ArtDefineTag>ART_DEF_BUILDING_MOAI_STATUES</ArtDefineTag>
 			<MaxStartEra>ERA_ANCIENT</MaxStartEra>
 			<PrereqAndTechs>
-				<TechType>TECH_STONE_BUILDING</TechType>
+				<TechType>TECH_SCULPTURE</TechType>
+				<TechType>TECH_SEAFARING</TechType>
 			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
