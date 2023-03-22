@@ -49,7 +49,7 @@
 			<TechPrereqAnyone>NONE</TechPrereqAnyone>
 			<bValid>1</bValid>
 			<ProductionTraits/>
-			<Button>Art/Interface/Buttons/Buildings/Monastery_Hindu.dds</Button>
+			<Button>Art/Interface/Buttons/Buildings/monastery.dds</Button>
 		</SpecialBuildingInfo>
 		<SpecialBuildingInfo>
 			<Type>SPECIALBUILDING_CLONING_LABORATORY</Type>
