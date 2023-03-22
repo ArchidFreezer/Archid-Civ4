@@ -235,6 +235,18 @@
 			<iCategory>18</iCategory>
 			<DefaultBuilding>BUILDING_DRYDOCK</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Naval Yard -->
+			<Type>BUILDINGCLASS_NAVAL_YARD</Type>
+			<Description>TXT_KEY_BUILDING_NAVAL_YARD</Description>
+			<iCategory>18</iCategory>
+			<DefaultBuilding>BUILDING_NAVAL_YARD</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Shipyard -->
+			<Type>BUILDINGCLASS_SHIPYARD</Type>
+			<Description>TXT_KEY_BUILDING_SHIPYARD</Description>
+			<iCategory>18</iCategory>
+			<DefaultBuilding>BUILDING_SHIPYARD</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Siege Workshop -->
 			<Type>BUILDINGCLASS_SIEGE_WORKSHOP</Type>
 			<Description>TXT_KEY_BUILDING_SIEGE_WORKSHOP</Description>

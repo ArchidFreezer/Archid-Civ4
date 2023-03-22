@@ -1482,6 +1482,24 @@
 		<Tag>TXT_KEY_BUILDING_NETWORK_NODE_STRATEGY</Tag>
 		<English>.</English>
 	</TEXT>
+	<TEXT> <!-- Naval Yard -->
+		<Tag>TXT_KEY_BUILDING_NAVAL_YARD</Tag>
+		<English>Naval Yard</English>
+		<French>
+			<Text>Base Navale</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Flottenst&#252;tzpunkt</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NAVAL_YARD_PEDIA</Tag>
+		<English>[TAB]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NAVAL_YARD_STRATEGY</Tag>
+		<English>[SPACE]Increases city's naval production and gives 4 free experience for new ships.</English>
+	</TEXT>
 	<TEXT> <!-- Palisade -->
 		<Tag>TXT_KEY_BUILDING_PALISADE</Tag>
 		<English>Palisade</English>
@@ -1745,6 +1763,20 @@
 		<Tag>TXT_KEY_BUILDING_SHAMAN_TEMPLE_STRATEGY</Tag>
 		<English>Build a [COLOR_BUILDING_TEXT]Shaman Temple[COLOR_REVERT] to allow [COLOR_UNIT_TEXT]Shaman[COLOR_REVERT] training and to increase the research in your city.</English>
 		<Spanish>Construye un [COLOR_BUILDING_TEXT]Templo Cham&#225;n[COLOR_REVERT] para permitir la construcci&#243;n de [COLOR_UNIT_TEXT]Chamanes[COLOR_REVERT]. Tambi&#233;n sirve para incrementar la raz&#243; de cambio de oro en tus ciudades.</Spanish>
+	</TEXT>
+	<TEXT> <!-- Shipyard -->
+		<Tag>TXT_KEY_BUILDING_SHIPYARD</Tag>
+		<English>Shipyard</English>
+		<French>Chantier naval</French>
+		<German>Schiffswerft</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SHIPYARD_PEDIA</Tag>
+		<English>[TAB]The world's earliest dockyards were built in the Harappan port city of Lothal circa 2400 BC in Gujarat, India. Lothal's dockyards connected to an ancient course of the Sabarmati river on the trade route between Harappan cities in Sindh and the peninsula of Saurashtra when the surrounding Kutch desert was a part of the Arabian Sea.[PARAGRAPH:2]Lothal engineers accorded high priority to the creation of a dockyard and a warehouse to serve the purposes of naval trade. The dock was built on the eastern flank of the town, and is regarded by archaeologists as an engineering feat of the highest order. It was located away from the main current of the river to avoid silting, but provided access to ships in high tide as well.[PARAGRAPH:2]The name of the ancient Greek city of Naupactus means "shipyeard". Naupactus' repuation in this field extends to the time of legend, where it is depicted as the place where the Heraclidae built a fleet to invade the Peloponnesus.[PARAGRAPH:2]Ships were the first items to be manufactured in a factory, several hundred years before the Industrial Revolution, in the Venice Arsenal, Venice, Italy. The Arsenal apparently mass produced nearly one ship every day using pre-manufactured parts, and assembly lines and, at its height, employed 16,000 people.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SHIPYARD_STRATEGY</Tag>
+		<English>Shipyard allows your city to construct navy units faster buy also adds unhealthiness in the city.</English>
 	</TEXT>
 	<TEXT> <!-- Shopping District -->
 		<Tag>TXT_KEY_BUILDING_SHOPPING_DISTRICT</Tag>

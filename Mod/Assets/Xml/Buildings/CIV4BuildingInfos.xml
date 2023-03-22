@@ -4531,15 +4531,15 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
+					<TraitType>TRAIT_SEAFARING</TraitType>
 					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bWater>1</bWater>
-			<iCost>120</iCost>
+			<iCost>156</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
-			<iConquestProb>66</iConquestProb>
+			<iConquestProb>75</iConquestProb>
 			<iHealth>-1</iHealth>
 			<iAsset>1</iAsset>
 			<iPower>2</iPower>
@@ -4547,7 +4547,7 @@
 			<DomainFreeExperiences>
 				<DomainFreeExperience>
 					<DomainType>DOMAIN_SEA</DomainType>
-					<iExperience>4</iExperience>
+					<iExperience>2</iExperience>
 				</DomainFreeExperience>
 			</DomainFreeExperiences>
 			<DomainProductionModifiers>
@@ -12014,6 +12014,59 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Naval Yard -->
+			<BuildingClass>BUILDINGCLASS_NAVAL_YARD</BuildingClass>
+			<Type>BUILDING_NAVAL_YARD</Type>
+			<Description>TXT_KEY_BUILDING_NAVAL_YARD</Description>
+			<Civilopedia>TXT_KEY_BUILDING_NAVAL_YARD_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_NAVAL_YARD_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_NAVAL_YARD</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_METAMATERIALS</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_SEAFARING</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bWater>1</bWater>
+			<iCost>700</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>20</iMinAreaSize>
+			<iConquestProb>75</iConquestProb>
+			<iHealth>-1</iHealth>
+			<iAsset>2</iAsset>
+			<iPower>4</iPower>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<ConstructSound>AS2D_BUILD_DRYDOCK_NEW</ConstructSound>
+			<DomainFreeExperiences>
+				<DomainFreeExperience>
+					<DomainType>DOMAIN_SEA</DomainType>
+					<iExperience>4</iExperience>
+				</DomainFreeExperience>
+			</DomainFreeExperiences>
+			<DomainProductionModifiers>
+				<DomainProductionModifier>
+					<DomainType>DOMAIN_SEA</DomainType>
+					<iModifier>50</iModifier>
+				</DomainProductionModifier>
+			</DomainProductionModifiers>
+			<PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_CONTAINER_PORT</BuildingClassType>
+			</PrereqAndBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Network Node -->
 			<BuildingClass>BUILDINGCLASS_NETWORK_NODE</BuildingClass>
 			<Type>BUILDING_NETWORK_NODE</Type>
@@ -13659,6 +13712,50 @@
 				</Flavor>
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Shipyard -->
+			<BuildingClass>BUILDINGCLASS_SHIPYARD</BuildingClass>
+			<Type>BUILDING_SHIPYARD</Type>
+			<Description>TXT_KEY_BUILDING_SHIPYARD</Description>
+			<Civilopedia>TXT_KEY_BUILDING_SHIPYARD_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_SHIPYARD_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_SHIPYARD</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_SHIP_BUILDING</TechType>
+			</PrereqAndTechs>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_SEAFARING</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<bWater>1</bWater>
+			<iCost>60</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>20</iMinAreaSize>
+			<iConquestProb>75</iConquestProb>
+			<iHealth>-1</iHealth>
+			<iAsset>1</iAsset>
+			<iPower>2</iPower>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<ConstructSound>AS2D_BUILD_DRYDOCK</ConstructSound>
+			<DomainProductionModifiers>
+				<DomainProductionModifier>
+					<DomainType>DOMAIN_SEA</DomainType>
+					<iModifier>50</iModifier>
+				</DomainProductionModifier>
+			</DomainProductionModifiers>
+			<ReplacedByBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_DRYDOCK</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_NAVAL_YARD</BuildingClassType>
+			</ReplacedByBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
