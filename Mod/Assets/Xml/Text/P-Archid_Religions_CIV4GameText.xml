@@ -1535,7 +1535,7 @@
 		<Italian>Costruisci il Codice di Hammurabi per ottenere un palazzo di giustizia gratuito in tutte le tue città.</Italian>
 	</TEXT>
 	<TEXT> <!-- Wonder (Nimrud Palace) -->
-		<Tag>TXT_KEY_BUILDING_NIMRUD_PALACE</Tag>
+		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_NIMRUD_PALACE</Tag>
 		<English>Zoroastrian Wonder (Nimrud Palace)</English>
 		<French>Palais de Nimrud</French>
 		<Italian>
@@ -1545,12 +1545,12 @@
 		</Italian>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_NIMRUD_PALACE_PEDIA</Tag>
+		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_NIMRUD_PALACE_PEDIA</Tag>
 		<English>The site of Nimrud is located on the Tigris River southeast of Mosul in the north of modern day Iraq. Today the city lies some kilometers east of the Tigris, but in antiquity the river flowed along the northwest side of the acropolis. The site was occupied intermittently from the 6th millennium BC to at least the Hellenistic period, but the most significant period of occupation occurred during the Late Assyrian period, when Assurnasirpal II (883-859 BC) built Nimrud as the capital of his empire. The city remained the chief royal residence and administrative capital of the Assyrian empire until the reign of Sargon II (721-705 BC), though Esarhaddon (680-669 BC) later rebuilt much of the citadel. The Northwest Palace was probably completed between 865 and 869 BC. Its inauguration was celebrated with a large banquet, a description of which is preserved in an inscription on a large stone slab found in the palace. The text describes the building of the city of Kalhu, the settlement of peoples from all over the kingdom in the city, the irrigation of orchards and gardens in the city, the dedication of temples, and the hunting and capture of exotic animals. Finally, the inscription describes the lavish dedicatory celebration, which was attended by 69,574 invitees from all over Assyria. According to Assurnasirpal, they were provided with an enormous amount of food, including 1,500 ducks, 500 geese, 10,000 turtle doves, 10,000 loaves of bread, 10,000 jugs of beer, 10,000 skins of wine, and quantities of nuts, sheep, spices, and vegetables. The text concludes with Assurnasirpal expressing satisfaction in the event: "For ten days I gave them food, I gave them drink, I had them bathe, and I had them anointed. (Thus) did I honor them (and) send them back to their lands in peace and joy" (Grayson 1991: 293).</English>
 		<Italian>Il sito di Nimrud si trova sul fiume Tigri a sud est di Mosul, nel nord dell'odierno Iraq. Oggi la città si trova alcuni chilometri a est del Tigri, ma nell'antichità il fiume scorreva lungo il lato nord-ovest dell'acropoli. Il sito è stato abitato in modo discontinuo dal 6° millennio a.C. almeno fino al periodo ellenistico, ma il periodo più significativo di occupazione si è verificato durante il tardo periodo assiro, quando Assurnasirpal II (883-859 a.C.) scelse Nimrud come capitale del suo impero. La città rimase la residenza reale principale e capitale amministrativa dell'impero assiro fino al regno di Sargon II (721-705 a.C.), anche se Esarhaddon (680-669 a.C.) ricostruì gran parte della citadella. Il palazzo fu probabilmente completato tra l'865 e l'869 a.C. La sua inaugurazione è stata celebrata con un grande banchetto, la cui descrizione è conservata in un'iscrizione su una grande lastra di pietra trovata nel palazzo. Il testo descrive la costruzione della città di Kalhu, l'insediamento di popoli di tutto il regno in città, l'irrigazione di orti e giardini in città, la dedizione dei templi, la caccia e la cattura di animali esotici. Infine, l'iscrizione descrive la sontuosa cerimonia d'inaugurazione, a cui parteciparono 69.574 invitati da tutta l'Assiria. Secondo Assurnasirpal, vennero saziati da una quantità enorme di cibo, tra cui 1.500 anatre, 500 oche, 10000 tortore, 10.000 pagnotte di pane, 10.000 boccali di birra, 10.000 pelli di vino e grandi quantità di noci, pecore, spezie e verdure. Il testo si conclude con Assurnasirpal che esprime soddisfazione per la manifestazione: "Per dieci giorni ho dato loro da mangiare, ho dato loro da bere, li ho fatti lavari e li ho unti. (Così) ho fatto loro onore (e) li ho rimandati alle loro terre nella pace e nella gioia "(Grayson 1991: 293).</Italian>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_NIMRUD_PALACE_STRATEGY</Tag>
+		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_NIMRUD_PALACE_STRATEGY</Tag>
 		<English>Build the Nimrud Palace to improve the military production of your city.</English>
 		<Italian>Costruisci il Palazzo di Nimrud per inrementare la produzione militare della tua città.</Italian>
 	</TEXT>

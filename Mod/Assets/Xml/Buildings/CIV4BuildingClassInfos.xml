@@ -1908,6 +1908,12 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_ZOROASTRIAN_HAMMURABI_STELE_LAWS</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Zoroastrian Wonder (Nimrud Palace) -->
+			<Type>BUILDINGCLASS_ZOROASTRIAN_NIMRUD_PALACE</Type>
+			<Description>TXT_KEY_BUILDING_ZOROASTRIAN_NIMRUD_PALACE</Description>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_ZOROASTRIAN_NIMRUD_PALACE</DefaultBuilding>
+		</BuildingClassInfo>
 
 
 <!-- ************	-->

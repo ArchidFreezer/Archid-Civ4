@@ -394,5 +394,9 @@
 			<Type>ART_DEF_MOVIE_ZOROASTRIAN_HAMMURABI_STELE_LAWS</Type>
 			<Path>Art/Movies/Wonders/Hammurabi.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_ZOROASTRIAN_NIMRUD_PALACE</Type>
+			<Path>Art/Movies/Wonders/Nimrud.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>
