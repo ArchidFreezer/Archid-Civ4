@@ -1133,7 +1133,7 @@
 			<Civilopedia>TXT_KEY_BONUS_COFFEE_PEDIA</Civilopedia>
 			<BonusClassType>BONUSCLASS_LUXURY</BonusClassType>
 			<ArtDefineTag>ART_DEF_BONUS_COFFEE</ArtDefineTag>
-			<TechReveal>TECH_WRITING</TechReveal>
+			<TechReveal>TECH_NATUROPATHY</TechReveal>
 			<TechCityTrade>TECH_CALENDAR</TechCityTrade>
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
@@ -1531,7 +1531,7 @@
 			<Civilopedia>TXT_KEY_BONUS_TEA_PEDIA</Civilopedia>
 			<BonusClassType>BONUSCLASS_LUXURY</BonusClassType>
 			<ArtDefineTag>ART_DEF_BONUS_TEA</ArtDefineTag>
-			<TechReveal>TECH_WRITING</TechReveal>
+			<TechReveal>TECH_NATUROPATHY</TechReveal>
 			<TechCityTrade>TECH_CALENDAR</TechCityTrade>
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
