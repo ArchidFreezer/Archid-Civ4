@@ -13298,7 +13298,7 @@
 			<ArtDefineTag>ART_DEF_BUILDING_SCHOOL_OF_SCRIBES</ArtDefineTag>
 			<ObsoleteTech>TECH_PRINTING_PRESS</ObsoleteTech>
 			<PrereqAndTechs>
-				<TechType>TECH_WRITING</TechType>
+				<TechType>TECH_SCRIPTURES</TechType>
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
