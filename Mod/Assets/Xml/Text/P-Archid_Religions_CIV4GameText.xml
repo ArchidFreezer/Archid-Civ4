@@ -1182,7 +1182,7 @@
 		<Italian>Costruisci il tempio di Ptah to ottenere una scuola di scribi gratuita in tutte le tue città.</Italian>
 	</TEXT>
 	<TEXT> <!-- Wonder (Thoth) -->
-		<Tag>TXT_KEY_BUILDING_THOTH</Tag>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_THOTH</Tag>
 		<English>Kemetic Wonder (Temple of Thoth)</English>
 		<French>Temple de Toth</French>
 		<Italian>
@@ -1192,12 +1192,12 @@
 		</Italian>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_THOTH_PEDIA</Tag>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_THOTH_PEDIA</Tag>
 		<English>[TAB]Thoth, was considered one of the more important deities of the Egyptian pantheon, often depicted with the head of an Ibis.He was considered the heart and tongue of Ra as well as the means by which Ra's will was translated into speech. In the Egyptian mythology, he has played many vital and prominent roles, including being one of the two deities (the other being Ma'at) who stood on either side of Ra's boat. He has further been involved in arbitration, magic, writing, science,and the judging of the dead.</English>
 		<Italian>[TAB]Toth era considerato una delle più importanti divinità del pantheon egizio, spesso raffigurato con la testa di un Ibis. Era considerato il cuore e la lingua di Ra, così come il mezzo con cui la volontà di Ra veniva trasformata in parole. Nella mitologia egizia, ha giocato molti ruoli vitali e importanti, tra cui l'essere una delle due divinità (l'altra era Ma'at) che stavano ai lati della barca di Ra. E' stato inoltre coinvolto negli arbitrati, nella magia, nella scrittura, nella scienza, e nel giudizio dei morti.</Italian>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_THOTH_STRATEGY</Tag>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_THOTH_STRATEGY</Tag>
 		<English>Build the Temple of Toth to get a boost to research in all your cities.</English>
 		<Italian>Costruisci il tempio di Toth per ottenere un bonus alla ricerca in tutte le tue città.</Italian>
 	</TEXT>

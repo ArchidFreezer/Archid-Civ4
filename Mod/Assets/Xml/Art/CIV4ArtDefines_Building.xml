@@ -3458,5 +3458,15 @@
 			<KFM />
 			<Button>Art/Interface/Buttons/Buildings/kemetic_temple_of_ptah.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_KEMETIC_TEMPLE_OF_THOTH</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>1.30</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/temple_ptah/Ptah.nif</NIF>
+			<KFM />
+			<Button>Art/Interface/Buttons/Buildings/kemetic_temple_of_thoth.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

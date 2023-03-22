@@ -9384,6 +9384,80 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Kemetic Wonder (Thoth) -->
+			<BuildingClass>BUILDINGCLASS_KEMETIC_TEMPLE_OF_THOTH</BuildingClass>
+			<Type>BUILDING_KEMETIC_TEMPLE_OF_THOTH</Type>
+			<Description>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_THOTH</Description>
+			<Civilopedia>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_THOTH_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_THOTH_STRATEGY</Strategy>
+			<Advisor>ADVISOR_RELIGION</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_KEMETIC_TEMPLE_OF_THOTH</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_KEMETIC_TEMPLE_OF_THOTH</MovieDefineTag>
+			<ReligionType>RELIGION_KEMETISM</ReligionType>
+			<StateReligion>RELIGION_KEMETISM</StateReligion>
+			<bStateReligion>1</bStateReligion>
+			<PrereqReligion>RELIGION_KEMETISM</PrereqReligion>
+			<PrereqAndTechs>
+				<TechType>TECH_SCRIPTURES</TechType>
+			</PrereqAndTechs>
+			<FreePromotions>
+				<PromotionType>PROMOTION_SETTLER_DEVOTEE</PromotionType>
+			</FreePromotions>
+			<iCost>370</iCost>
+			<iHurryCostModifier>50</iHurryCostModifier>
+			<iStateReligionHappiness>3</iStateReligionHappiness>
+			<iAsset>2</iAsset>
+			<fVisibilityPriority>100.0</fVisibilityPriority>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>3</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>50</iCommerce>
+			</CommerceModifiers>
+			<GlobalCommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>10</iCommerce>
+			</GlobalCommerceModifiers>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_KEMETISM</ReligionType>
+					<iChange>4</iChange>
+				</ReligionChange>
+			</ReligionChanges>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+					<iCount>2</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<FreeSpecialistCounts>
+				<FreeSpecialistCount>
+					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+					<iCount>1</iCount>
+				</FreeSpecialistCount>
+			</FreeSpecialistCounts>
+			<ConstructSound>AS2D_BUILD_RA</ConstructSound>
+			<BonusProductionModifiers>
+				<BonusProductionModifier>
+					<BonusType>BONUS_STONE</BonusType>
+					<iModifier>100</iModifier>
+				</BonusProductionModifier>
+			</BonusProductionModifiers>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Knowledge Inheritance -->
 			<BuildingClass>BUILDINGCLASS_KNOWLEDGE_INHERITANCE</BuildingClass>
 			<Type>BUILDING_KNOWLEDGE_INHERITANCE</Type>

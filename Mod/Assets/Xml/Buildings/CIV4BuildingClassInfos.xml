@@ -1835,6 +1835,13 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_KEMETIC_TEMPLE_OF_SET</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Kemetic Wonder (Thoth) -->
+			<Type>BUILDINGCLASS_KEMETIC_TEMPLE_OF_THOTH</Type>
+			<Description>TXT_KEY_BUILDING_KEMETIC_TEMPLE_OF_THOTH</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_KEMETIC_TEMPLE_OF_THOTH</DefaultBuilding>
+		</BuildingClassInfo>
  		<BuildingClassInfo> <!-- Nagualism Cathedral (Tlaloc) -->
 			<Type>BUILDINGCLASS_NAGUALISTIC_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_NAGUALISTIC_CATHEDRAL</Description>

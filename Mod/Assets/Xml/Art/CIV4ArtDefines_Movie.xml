@@ -414,5 +414,9 @@
 			<Type>ART_DEF_MOVIE_KEMETIC_TEMPLE_OF_PTAH</Type>
 			<Path>Art/Movies/Wonders/Ptah.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_KEMETIC_TEMPLE_OF_THOTH</Type>
+			<Path>Art/Movies/Wonders/Thoth.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>
