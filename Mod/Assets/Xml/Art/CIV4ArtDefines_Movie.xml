@@ -410,5 +410,9 @@
 			<Type>ART_DEF_MOVIE_SUN_TZU_ART_OF_WAR</Type>
 			<Path>Art/Movies/Wonders/sun_tzu_art_war.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_KEMETIC_TEMPLE_OF_PTAH</Type>
+			<Path>Art/Movies/Wonders/Ptah.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>
