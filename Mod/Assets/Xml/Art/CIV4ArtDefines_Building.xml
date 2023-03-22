@@ -3388,5 +3388,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/brewery.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Ark of the Covenant -->
+			<Type>ART_DEF_BUILDING_ARK_OF_THE_COVENANT</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>7</fScale>
+			<fInterfaceScale>5</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/ark_covenant/Ark.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/ark_covenant.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

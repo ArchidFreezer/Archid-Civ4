@@ -386,5 +386,9 @@
 			<Type>ART_DEF_MOVIE_TREASURY</Type>
 			<Path>Art/Movies/NWonders/Treasury.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo> <!-- Ark of the Covenant -->
+			<Type>ART_DEF_MOVIE_ARK_OF_THE_COVENANT</Type>
+			<Path>Art/Movies/Wonders/ark_covenant.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

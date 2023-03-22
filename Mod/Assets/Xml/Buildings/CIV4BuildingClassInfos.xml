@@ -969,6 +969,12 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_APOSTOLIC_PALACE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Ark of the Covenant -->
+			<Type>BUILDINGCLASS_ARK_OF_THE_COVENANT</Type>
+			<Description>TXT_KEY_BUILDING_ARK_OF_THE_COVENANT</Description>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_ARK_OF_THE_COVENANT</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Artemis -->
 			<Type>BUILDINGCLASS_ARTEMIS</Type>
 			<Description>TXT_KEY_BUILDING_ARTEMIS</Description>

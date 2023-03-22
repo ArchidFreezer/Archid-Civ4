@@ -129,6 +129,18 @@
 		<Tag>TXT_KEY_BUILDING_ARENA_STRATEGY</Tag>
 		<English>Arenas entertain the people, providing happiness to your city. Arenas are required to build the Circus Maximus world Wonder or the Statue of Champion national Wonder.</English>
 	</TEXT>
+	<TEXT> <!-- Ark of the Covenant -->
+		<Tag>TXT_KEY_BUILDING_ARK_OF_THE_COVENANT</Tag>
+		<English>Ark of the Covenant</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ARK_OF_THE_COVENANT_PEDIA</Tag>
+		<English>[TAB]The Ark of the Covenant was a vessel described in the Bible as containing the Tablets of Stone on which the Ten Commandments were inscribed, along with Aaron's rod and manna.  The Ark was built at the command of God, in accord with the prophetic vision of Moses on Mount Sinai. God communicated with Moses, from between the two cherubim, on the Ark's cover.  The Ark was carried by the priests some 2,000 cubits in advance of the Israelite people and their army, or host. When the Ark was borne by priests into the bed of the Jordan, water in the river separated, opening a pathway for the entire host to pass through. The city of Jericho was taken with no more than a shout after the Ark of Covenant was paraded for seven days around its wall by seven priests sounding seven trumpets of rams' horns. When carried, the Ark was always wrapped in a veil, in tachash skins and a blue cloth, and was carefully concealed, even from the eyes of the priests who carried it.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ARK_OF_THE_COVENANT_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Ark of the Covenant[COLOR_REVERT] has no unhappiness in the city in which it is built and provides +1 happines in all cities.  It also provides +1 gold from ALL state religious buildings and it increases it's city's odds of generating a Great Prophet.</English>
+	</TEXT>
 	<TEXT> <!-- Armaments Industry -->
 		<Tag>TXT_KEY_BUILDING_ARMAMENTS_INDUSTRY</Tag>
 		<English>Armaments Industry</English>
