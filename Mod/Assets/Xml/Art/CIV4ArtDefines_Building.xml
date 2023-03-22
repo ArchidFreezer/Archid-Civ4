@@ -3438,5 +3438,15 @@
 			<KFM />
 			<Button>Art/Interface/Buttons/Buildings/hellenic_phidias.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Sun Tzu's Art of War -->
+			<Type>ART_DEF_BUILDING_SUN_TZU_ART_OF_WAR</Type>
+			<LSystem>LSYSTEM_2x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>.5</fScale>
+			<fInterfaceScale>3.5</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/sun_tzu_art_war/POK_BOOK.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/sun_tzu_art_war.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

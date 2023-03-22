@@ -1952,6 +1952,19 @@
 		<Tag>TXT_KEY_BUILDING_STRATEGIC_GRAIN_RESERVE_STRATEGY</Tag>
 		<English>The [COLOR_BUILDING_TEXT]Strategic Grain Reserve[COLOR_REVERT] provides extra food and health for all cities.  It increases it's city's odds of generating a Great Engineer.</English>
 	</TEXT>	
+	<TEXT> <!-- Sun Tzu's Art of War -->
+		<Tag>TXT_KEY_BUILDING_SUN_TZU_ART_OF_WAR</Tag>
+		<English>Sun Tzu's Art of War</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SUN_TZU_ART_OF_WAR_PEDIA</Tag>
+		<English>[TAB]Sun Tzu, both as an author of the Art of War and a legendary figure, had an immense impact on Chinese and Asian history and culture. During the 19th and 20th centuries, the Art of War gained popularity and saw practical use in Western society. He remains highly influential in both Asian and Western culture and politics.
+</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SUN_TZU_ART_OF_WAR_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Sun Tzu's Art of War[COLOR_REVERT] provides a free Barracks in all of your cities and provides a 25% increase in military production.  It increases it's city's odds of generating a Great General.</English>
+	</TEXT>	
 	<TEXT> <!-- Supercollider -->
 		<Tag>TXT_KEY_BUILDING_SUPERCOLLIDER</Tag>
 		<English>Supercollider</English>

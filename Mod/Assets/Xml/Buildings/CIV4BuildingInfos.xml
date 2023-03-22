@@ -14791,6 +14791,53 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Sun Tzu's Art of War -->
+			<BuildingClass>BUILDINGCLASS_SUN_TZU_ART_OF_WAR</BuildingClass>
+			<Type>BUILDING_SUN_TZU_ART_OF_WAR</Type>
+			<Description>TXT_KEY_BUILDING_SUN_TZU_ART_OF_WAR</Description>
+			<Civilopedia>TXT_KEY_BUILDING_SUN_TZU_ART_OF_WAR_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_SUN_TZU_ART_OF_WAR_STRATEGY</Strategy>			
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_SUN_TZU_ART_OF_WAR</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_SUN_TZU_ART_OF_WAR</MovieDefineTag>
+			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
+			<ObsoleteTech>TECH_MILITARY_TRADITION</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_WRITING</TechType>
+			</PrereqAndTechs>
+			<FreeBuilding>BUILDINGCLASS_BARRACKS</FreeBuilding>
+			<GreatPeopleUnitClass>UNITCLASS_GREAT_GENERAL</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
+			<bTeamShare>1</bTeamShare>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>120</iCost>
+			<iHurryCostModifier>100</iHurryCostModifier>
+			<iConquestProb>100</iConquestProb>
+			<iMilitaryProductionModifier>25</iMilitaryProductionModifier>
+			<iAsset>10</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>6</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<CommerceChangeOriginalOwners>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
+			</CommerceChangeOriginalOwners>
+			<ConstructSound>AS2D_TECH_MILITARY_SCIENCE</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>4</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Supercollider -->
 			<BuildingClass>BUILDINGCLASS_SUPERCOLLIDER</BuildingClass>
 			<Type>BUILDING_SUPERCOLLIDER</Type>

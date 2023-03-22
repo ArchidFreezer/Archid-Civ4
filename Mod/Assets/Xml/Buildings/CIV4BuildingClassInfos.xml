@@ -1301,6 +1301,13 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_STONEHENGE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Sun Tzu's Art of War -->
+			<Type>BUILDINGCLASS_SUN_TZU_ART_OF_WAR</Type>
+			<Description>TXT_KEY_BUILDING_SUN_TZU_ART_OF_WAR</Description>
+			<iCategory>2</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_SUN_TZU_ART_OF_WAR</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Taj Mahal -->
 			<Type>BUILDINGCLASS_TAJ_MAHAL</Type>
 			<Description>TXT_KEY_BUILDING_TAJ_MAHAL</Description>

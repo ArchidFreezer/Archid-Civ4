@@ -406,5 +406,9 @@
 			<Type>ART_DEF_MOVIE_HELLENIC_PHIDIAS_WORKSHOP</Type>
 			<Path>Art/Movies/Wonders/phidias_workshop.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo> <!-- Sun Tzu's Art of War -->
+			<Type>ART_DEF_MOVIE_SUN_TZU_ART_OF_WAR</Type>
+			<Path>Art/Movies/Wonders/sun_tzu_art_war.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>
