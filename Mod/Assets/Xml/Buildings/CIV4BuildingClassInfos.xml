@@ -1896,6 +1896,12 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_ZOROASTRIAN_APADANA_PALACE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Zoroastrian Wonder (Hammurabi Stele of Laws) -->
+			<Type>BUILDINGCLASS_ZOROASTRIAN_HAMMURABI_STELE_LAWS</Type>
+			<Description>TXT_KEY_BUILDING_ZOROASTRIAN_HAMMURABI_STELE_LAWS</Description>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_ZOROASTRIAN_HAMMURABI_STELE_LAWS</DefaultBuilding>
+		</BuildingClassInfo>
 
 
 <!-- ************	-->

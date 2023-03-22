@@ -3398,5 +3398,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/ark_covenant.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ZOROASTRIAN_HAMMURABI_STELE_LAWS</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.61</fScale>
+			<fInterfaceScale>0.80</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/hammurabi_stele/CodeofHammurabi.nif</NIF>
+			<KFM />
+			<Button>Art/Interface/Buttons/Buildings/zoroastrian_hammurabi_stele.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

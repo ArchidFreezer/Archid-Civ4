@@ -390,5 +390,9 @@
 			<Type>ART_DEF_MOVIE_ARK_OF_THE_COVENANT</Type>
 			<Path>Art/Movies/Wonders/ark_covenant.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_ZOROASTRIAN_HAMMURABI_STELE_LAWS</Type>
+			<Path>Art/Movies/Wonders/Hammurabi.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

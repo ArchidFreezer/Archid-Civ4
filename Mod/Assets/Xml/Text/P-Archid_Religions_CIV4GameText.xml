@@ -1515,7 +1515,7 @@
 		<French>[COLOR_BUILDING_TEXT]Les Palais Apadana[COLOR_REVERT] réduit l'entretien des Villes à proximité et confère la promotion 'Ordre de Ormazd' aux unités entraînées dans la Ville. Cela permet ainsi une expansion de l'Empire, à la fois point de vue économique et militaire.</French>
 	</TEXT>
 	<TEXT> <!-- Wonder (Hammurabi Stele of Laws) -->
-		<Tag>TXT_KEY_BUILDING_HAMMURABI</Tag>
+		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_HAMMURABI_STELE_LAWS</Tag>
 		<English>Zoroastrian Wonder (Hammurabi Stele of Laws)</English>
 		<French>Stèle des Lois d'Hammurabi</French>
 		<Italian>
@@ -1525,12 +1525,12 @@
 		</Italian>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_HAMMURABI_PEDIA</Tag>
+		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_HAMMURABI_STELE_LAWS_PEDIA</Tag>
 		<English>[TAB]The Code of Hammurabi is a well-preserved ancient law code, created ca. 1760 BC (middle chronology) in ancient Babylon. It was enacted by the sixth Babylonian king, Hammurabi.Only one example of the Code survives today, inscribed on a seven foot, four inch tall basalt stone slab or stele. Originally, several stelae would have been displayed in temples around the empire.</English>
 		<Italian>[TAB]Il Codice di Hammurabi è un antico codice di leggi ben conservato, creato intorno al 1760 a.C. nell'antica Babilonia; fu redatto dal sesto re di Babilonia, Hammurabi. Attualmente esiste un solo esemplare del Codice, inciso in una stele di basalto alta all'incirca sette piedi; in origine esistevano invece molte steli, posizionate nei templi di tutto l'impero.</Italian>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_HAMMURABI_STRATEGY</Tag>
+		<Tag>TXT_KEY_BUILDING_ZOROASTRIAN_HAMMURABI_STELE_LAWS_STRATEGY</Tag>
 		<English>Build the Hammurabi stele of laws to get a free Courthouse in all your cities.</English>
 		<Italian>Costruisci il Codice di Hammurabi per ottenere un palazzo di giustizia gratuito in tutte le tue città.</Italian>
 	</TEXT>
