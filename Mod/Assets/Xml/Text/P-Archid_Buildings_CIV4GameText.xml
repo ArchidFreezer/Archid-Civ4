@@ -1703,6 +1703,21 @@
 		<Tag>TXT_KEY_BUILDING_SCHOOL_OF_SCRIBES_STRATEGY</Tag>
 		<English>Increases city's science output and generates some culture as well. Required before you can build Plato's Academy.</English>
 	</TEXT>
+	<TEXT> <!-- Sculptor's Workshop -->
+		<Tag>TXT_KEY_BUILDING_SCULPTORS_WORKSHOP</Tag>
+		<English>Sculptor's Workshop</English>
+		<French>Atelier de Sculpteur</French>
+		<German>Bildhauerwerkstatt</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SCULPTORS_WORKSHOP_PEDIA</Tag>
+		<English>A sculptor is a person who models or carves figures of clay, stone, metal, wood, or any similar material to create three-dimensional representations.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SCULPTORS_WORKSHOP_STRATEGY</Tag>
+		<English>Provides Gold and Culture.  Allows for an Artist specialist early on.</English>
+		<French>Procure de L'Or et de la Culture.  Permet également très tôt un spécialiste Artiste.</French>
+	</TEXT>
 	<TEXT> <!-- Sewer System -->
 		<Tag>TXT_KEY_BUILDING_SEWER_SYSTEM</Tag>
 		<English>Sewer System</English>

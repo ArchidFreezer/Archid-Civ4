@@ -13290,6 +13290,84 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Sculptor's Workshop -->
+			<BuildingClass>BUILDINGCLASS_SCULPTORS_WORKSHOP</BuildingClass>
+			<Type>BUILDING_SCULPTORS_WORKSHOP</Type>
+			<Description>TXT_KEY_BUILDING_SCULPTORS_WORKSHOP</Description>
+			<Civilopedia>TXT_KEY_BUILDING_SCULPTORS_WORKSHOP_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_SCULPTORS_WORKSHOP_STRATEGY</Strategy>
+			<Advisor>ADVISOR_CULTURE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_SCULPTORS_WORKSHOP</ArtDefineTag>
+			<PrereqVicinityOrBonus>
+				<BonusType>BONUS_STONE</BonusType>
+				<BonusType>BONUS_MARBLE</BonusType>
+				<BonusType>BONUS_TIMBER</BonusType>
+			</PrereqVicinityOrBonus>
+			<ObsoleteTech>TECH_REALISM</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_SCULPTURE</TechType>
+			</PrereqAndTechs>
+			<HappinessTraits>
+				<HappinessTrait>
+					<TraitType>TRAIT_CREATIVE</TraitType>
+					<iChange>1</iChange>
+				</HappinessTrait>
+			</HappinessTraits>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>35</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iAdvancedStartCostIncrease>-1</iAdvancedStartCostIncrease>
+			<iConquestProb>80</iConquestProb>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<CommerceChanges>
+				<iCommerce>1</iCommerce>
+			</CommerceChanges>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_ARTIST</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_FORGE</ConstructSound>
+			<TechCommerceChanges>
+				<TechCommerceChange>
+					<TechType>TECH_AESTHETICS</TechType>
+					<CommerceChanges>
+						<iCommerce>0</iCommerce>
+						<iCommerce>0</iCommerce>
+						<iCommerce>1</iCommerce>
+					</CommerceChanges>
+				</TechCommerceChange>
+				<TechCommerceChange>
+					<TechType>TECH_FREE_ARTISTRY</TechType>
+					<CommerceChanges>
+						<iCommerce>0</iCommerce>
+						<iCommerce>0</iCommerce>
+						<iCommerce>1</iCommerce>
+					</CommerceChanges>
+				</TechCommerceChange>
+			</TechCommerceChanges>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>4</iFlavor>
+				</Flavor>				
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Sewer System -->
 			<BuildingClass>BUILDINGCLASS_SEWER_SYSTEM</BuildingClass>
 			<Type>BUILDING_SEWER_SYSTEM</Type>

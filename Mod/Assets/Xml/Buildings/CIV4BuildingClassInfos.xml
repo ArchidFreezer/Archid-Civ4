@@ -672,6 +672,12 @@
 			<iCategory>31</iCategory>
 			<DefaultBuilding>BUILDING_MONUMENT</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Sculptor's Workshop -->
+			<Type>BUILDINGCLASS_SCULPTORS_WORKSHOP</Type>
+			<Description>TXT_KEY_BUILDING_SCULPTORS_WORKSHOP</Description>
+			<iCategory>31</iCategory>
+			<DefaultBuilding>BUILDING_SCULPTORS_WORKSHOP</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Theatre -->
 			<Type>BUILDINGCLASS_THEATRE</Type>
 			<Description>TXT_KEY_BUILDING_THEATRE</Description>

@@ -3418,5 +3418,15 @@
 			<KFM />
 			<Button>Art/Interface/Buttons/Buildings/zoroastrian_nimrud_palace.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SCULPTORS_WORKSHOP</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.4</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/stonemasons_workshop/Leonardo.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/sculptors_workshop.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
