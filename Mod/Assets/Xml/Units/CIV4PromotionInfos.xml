@@ -4085,6 +4085,24 @@
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/Medic3.dds</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Mjolnir (Asatru) -->
+			<Type>PROMOTION_MJOLNIR</Type>
+			<Description>TXT_KEY_PROMOTION_MJOLNIR</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<StateReligionPrereq>RELIGION_ASATRU</StateReligionPrereq>
+			<iCityAttack>15</iCityAttack>
+			<iExperiencePercent>15</iExperiencePercent>
+			<iExtraMorale>100</iExtraMorale>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HITECH</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/asatru_promo.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Mobility -->
 			<Type>PROMOTION_MOBILITY</Type>
 			<Description>TXT_KEY_PROMOTION_MOBILITY</Description>
@@ -4104,24 +4122,6 @@
 				<UnitCombatType>UNITCOMBAT_DREADNOUGHT</UnitCombatType>
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/Mobility1.dds</Button>
-		</PromotionInfo>
-		<PromotionInfo> <!-- Mjolnir (Asatru) -->
-			<Type>PROMOTION_MJOLNIR</Type>
-			<Description>TXT_KEY_PROMOTION_MJOLNIR</Description>
-			<Sound>AS2D_IF_LEVELUP</Sound>
-			<StateReligionPrereq>RELIGION_ASATRU</StateReligionPrereq>
-			<iCityAttack>15</iCityAttack>
-			<iExperiencePercent>15</iExperiencePercent>
-			<iExtraMorale>100</iExtraMorale>
-			<OrUnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_HITECH</UnitCombatType>
-			</OrUnitCombatTypes>
-			<Button>Art/Interface/Buttons/Promotions/asatru_promo.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Mountaineer -->
 			<Type>PROMOTION_MOUNTAINEER</Type>
@@ -4144,6 +4144,35 @@
 				<UnitCombatType>UNITCOMBAT_HUNTER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/mountaineer.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Mujahid (Islamic) -->
+			<Type>PROMOTION_MUJAHID</Type>
+			<Description>TXT_KEY_PROMOTION_MUJAHID</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PromotionPrereq>PROMOTION_LEADER</PromotionPrereq>
+			<StateReligionPrereq>RELIGION_ISLAM</StateReligionPrereq>
+			<iCombatPercent>15</iCombatPercent>
+			<iRevoltProtection>50</iRevoltProtection>
+			<iExtraMorale>100</iExtraMorale>
+			<UnitCombatMods>
+				<UnitCombatMod>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+					<iUnitCombatMod>15</iUnitCombatMod>
+				</UnitCombatMod>
+				<UnitCombatMod>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+					<iUnitCombatMod>15</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/islam_promo.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Nanoids -->
 			<Type>PROMOTION_NANOIDS</Type>
