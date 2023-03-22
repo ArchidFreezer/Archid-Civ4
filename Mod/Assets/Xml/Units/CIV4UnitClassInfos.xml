@@ -430,6 +430,12 @@
 			<Description>TXT_KEY_UNIT_MACEMAN</Description>
 			<DefaultUnit>UNIT_MACEMAN</DefaultUnit>
 		</UnitClassInfo>
+		<UnitClassInfo> <!-- Loki Fist -->
+			<Type>UNITCLASS_ASATRU_LOKI_FIST</Type>
+			<Description>TXT_KEY_UNIT_ASATRU_LOKI_FIST</Description>
+			<iMaxPlayerInstances>15</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_ASATRU_LOKI_FIST</DefaultUnit>
+		</UnitClassInfo>
 
 <!-- ************ -->
 <!-- Missile      -->

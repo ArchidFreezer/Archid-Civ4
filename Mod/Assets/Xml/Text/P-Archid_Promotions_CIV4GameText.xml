@@ -383,6 +383,80 @@
 		<German>Automatik-Reparatur MK III</German>
 	</TEXT>
 	
+<!-- +++ Berzerker +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_BERZERKER1</Tag>
+		<English>Berzerker I</English>
+		<French>
+			<Text>Barbare I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Berserker I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Berzerker I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Berzerker I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_BERZERKER2</Tag>
+		<English>Berzerker II</English>
+		<French>
+			<Text>Barbare II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Berserker II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Berzerker II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Berzerker II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_BERZERKER3</Tag>
+		<English>Berzerker III</English>
+		<French>
+			<Text>Barbare III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Berserker III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Berzerker III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Berzerker III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	
 <!-- +++ Bombarding +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_BOMBARDING1</Tag>

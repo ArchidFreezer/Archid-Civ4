@@ -755,6 +755,20 @@
 		<English>Pride of Lions</English>
 	</TEXT>
 
+	<TEXT> <!-- Loki Fist -->
+		<Tag>TXT_KEY_UNIT_ASATRU_LOKI_FIST</Tag>
+		<English>Loki Fist</English>
+		<French>Poing de Loki</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ASATRU_LOKI_PEDIA</Tag>
+		<English>TXT_KEY_UNIT_VIKING_BESERKER_PEDIA</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ASATRU_LOKI_STRATEGY</Tag>
+		<English>TXT_KEY_UNIT_VIKING_BESERKER_STRATEGY</English>
+	</TEXT>
+
 	<TEXT> <!-- Mailed Knight -->
 		<Tag>TXT_KEY_UNIT_MAILED_KNIGHT</Tag>
 		<English>Mailed Knight</English>

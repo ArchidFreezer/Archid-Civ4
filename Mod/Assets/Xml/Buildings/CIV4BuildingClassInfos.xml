@@ -1593,11 +1593,18 @@
 			<iCategory>5</iCategory>
 			<DefaultBuilding>BUILDING_ASATRU_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Asatru Temple 2 (Thor Altar) -->
+		<BuildingClassInfo> <!-- Asatru Thor's Altar -->
 			<Type>BUILDINGCLASS_ASATRU_THOR_ALTAR</Type>
 			<Description>TXT_KEY_BUILDING_ASATRU_THOR_ALTAR</Description>
 			<iCategory>5</iCategory>
 			<DefaultBuilding>BUILDING_ASATRU_THOR_ALTAR</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Asatru Wonder (Loki Sanctuary) -->
+			<Type>BUILDINGCLASS_ASATRU_LOKI_SANCTUARY</Type>
+			<Description>TXT_KEY_BUILDING_ASATRU_LOKI_SANCTUARY</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_ASATRU_LOKI_SANCTUARY</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Buddhist Cathedral -->
 			<Type>BUILDINGCLASS_BUDDHIST_CATHEDRAL</Type>

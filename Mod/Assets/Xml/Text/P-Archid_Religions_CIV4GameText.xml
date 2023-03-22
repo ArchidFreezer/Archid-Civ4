@@ -105,16 +105,16 @@
 		<English>[COLOR_BUILDING_TEXT]Thor's Altar provides melee units with the Mjolnir promotion[COLOR_REVERT] </English>
 	</TEXT>
 	<TEXT> <!-- Wonder (Loki Sanctuary) -->
-		<Tag>TXT_KEY_BUILDING_LOKI_SANCTUARY</Tag>
+		<Tag>TXT_KEY_BUILDING_ASATRU_LOKI_SANCTUARY</Tag>
 		<English>Asatru Wonder (Loki Sanctuary)</English>
 		<French>Sanctuaire de Loki</French>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_LOKI_SANCTUARY_PEDIA</Tag>
+		<Tag>TXT_KEY_BUILDING_ASATRU_LOKI_SANCTUARY_PEDIA</Tag>
 		<English>[TAB]In Norse mythology, Loki is a god or jötunn (giant), or both. Loki's relation with the gods varies by source. Loki assists the gods, and sometimes causes problems for them. Loki is a shape shifter and in separate incidents he appears in the form of a salmon and a mare. Loki's positive relations with the gods ends with his role in engineering the death of the god Baldr. Loki is eventually bound by the gods with the entrails of one of his sons. A serpent drips venom from above him that his wife Sigyn collects into a bowl. However, Sigyn must empty the bowl when it is full, and the venom that drops in the mean time causes Loki to writhe in pain. During the events of Ragnarök, Loki is foretold to fight against the gods among the forces of the jötnar. There, he will encounter the god Heimdallr and the two will slay one another.</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_LOKI_SANCTUARY_STRATEGY</Tag>
+		<Tag>TXT_KEY_BUILDING_ASATRU_LOKI_SANCTUARY_STRATEGY</Tag>
 		<English>[COLOR_BUILDING_TEXT]Loki Sanctuary[COLOR_REVERT] </English>
 	</TEXT>
 	<TEXT> <!-- Wonder (Freya Sanctuary) -->
