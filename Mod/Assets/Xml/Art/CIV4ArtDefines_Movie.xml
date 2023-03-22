@@ -199,7 +199,7 @@
 			<Path>Art/Movies/Wonders/Mausoleum.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
-			<Type>ART_DEF_MOVIE_HELLENIC_SHRINE</Type>
+			<Type>ART_DEF_MOVIE_SHRINE_HELLENIC</Type>
 			<Path>Art/Movies/Wonders/Zeus.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
@@ -379,7 +379,7 @@
 			<Path>Art/Movies/Shrines/Asatru_Shrine.dds</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
-			<Type>ART_DEF_MOVIE_KEMETIC_SHRINE</Type>
+			<Type>ART_DEF_MOVIE_SHRINE_KEMETIC</Type>
 			<Path>Art/Movies/Shrines/shrine_egy_dwg_512.dds</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
@@ -397,6 +397,10 @@
 		<MovieArtInfo>
 			<Type>ART_DEF_MOVIE_ZOROASTRIAN_NIMRUD_PALACE</Type>
 			<Path>Art/Movies/Wonders/Nimrud.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_SHRINE_NAGUALISTIC</Type>
+			<Path>Art/Movies/Shrines/teotihuacan.bik</Path>
 		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

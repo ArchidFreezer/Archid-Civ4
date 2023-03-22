@@ -18588,7 +18588,7 @@
 			<Strategy>TXT_KEY_BUILDING_HELLENIC_SHRINE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_RELIGION</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_HELLENIC_SHRINE</ArtDefineTag>
-			<MovieDefineTag>ART_DEF_MOVIE_HELLENIC_SHRINE</MovieDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_SHRINE_HELLENIC</MovieDefineTag>
 			<HolyCity>RELIGION_HELLENISM</HolyCity>
 			<ReligionType>RELIGION_HELLENISM</ReligionType>
 			<GlobalReligionCommerce>RELIGION_HELLENISM</GlobalReligionCommerce>
@@ -18814,7 +18814,7 @@
 			<Strategy>TXT_KEY_BUILDING_KEMETIC_SHRINE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_RELIGION</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_KEMETIC_SHRINE</ArtDefineTag>
-			<MovieDefineTag>ART_DEF_MOVIE_KEMETIC_SHRINE</MovieDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_SHRINE_KEMETIC</MovieDefineTag>
 			<HolyCity>RELIGION_KEMETISM</HolyCity>
 			<ReligionType>RELIGION_KEMETISM</ReligionType>
 			<GlobalReligionCommerce>RELIGION_KEMETISM</GlobalReligionCommerce>
@@ -18938,7 +18938,7 @@
 			<Strategy>TXT_KEY_BUILDING_NAGUALISTIC_SHRINE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_RELIGION</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_NAGUALISTIC_SHRINE</ArtDefineTag>
-			<MovieDefineTag>ART_DEF_MOVIE_NAGUALISTIC_SHRINE</MovieDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_SHRINE_NAGUALISTIC</MovieDefineTag>
 			<HolyCity>RELIGION_NAGUALISM</HolyCity>
 			<ReligionType>RELIGION_NAGUALISM</ReligionType>
 			<GlobalReligionCommerce>RELIGION_NAGUALISM</GlobalReligionCommerce>
