@@ -402,5 +402,9 @@
 			<Type>ART_DEF_MOVIE_SHRINE_NAGUALISTIC</Type>
 			<Path>Art/Movies/Shrines/teotihuacan.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_HELLENIC_PHIDIAS_WORKSHOP</Type>
+			<Path>Art/Movies/Wonders/phidias_workshop.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

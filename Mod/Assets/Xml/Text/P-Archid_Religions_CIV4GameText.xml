@@ -708,7 +708,7 @@
 		<Italian>Costruisci l'Eretteo per fornire un bonus alle unità navali addestrate in questa città.</Italian>
 	</TEXT>
 	<TEXT> <!-- Wonder (Phidias Statue Workshop) -->
-		<Tag>TXT_KEY_BUILDING_FIDIAS</Tag>
+		<Tag>TXT_KEY_BUILDING_HELLENIC_PHIDIAS_WORKSHOP</Tag>
 		<English>Hellenic Wonder (Phidias Statue Workshop)</English>
 		<French>Atelier de sculpture de Phidias</French>
 		<Italian>
@@ -718,12 +718,12 @@
 		</Italian>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_FIDIAS_PEDIA</Tag>
+		<Tag>TXT_KEY_BUILDING_HELLENIC_PHIDIAS_WORKSHOP_PEDIA</Tag>
 		<English>[TAB]Phidias was a Greek sculptor, painter and architect, who lived in the 5th century BC, and is commonly regarded as one of the greatest of all sculptors of Classical Greece: Phidias' Statue of Zeus at Olympia was one of the Seven Wonders of the Ancient World. Phidias also designed the statues of the goddess Athena on the Athenian Acropolis, namely the Athena Parthenos inside the Parthenon and the Athena Promachos, a colossal bronze statue of Athena which stood between it and the the Propylaea, a monumental gateway that served as the entrance to the Acropolis in Athens. Phidias was the son of a certain Charmides.</English>
 		<Italian>[TAB]Fidia è stato uno scultore, pittore e architetto greco, vissuto nel 5° secolo a.C.; è comunemente considerato uno dei più grandi di tutti gli scultori della Grecia classica: la Statua di Zeus realizzata da Fidia a Olimpia era una delle sette meraviglie del Mondo Antico. Fidia progettò anche le statue della dea Atena sull'Acropoli ateniese, ovvero l'Athena Parthenos dentro il Partenone e l'Athena Promachos, una colossale statua di bronzo di Atena che sorgeva tra di esso e i Propilei, l'ingresso monumentale che faceva da entrata all'Acropoli di Atene. Fidia era figlio di un certo Carmide.</Italian>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_FIDIAS_STRATEGY</Tag>
+		<Tag>TXT_KEY_BUILDING_HELLENIC_PHIDIAS_WORKSHOP_STRATEGY</Tag>
 		<English>Build the Phidias workshop to get a boost to culture in all your cities.</English>
 		<Italian>Costruisci l'atelier di Fidia per ottenere un bonus alla cultura in tutte le tue città.</Italian>
 	</TEXT>
