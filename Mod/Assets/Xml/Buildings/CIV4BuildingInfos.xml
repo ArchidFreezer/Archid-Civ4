@@ -1538,7 +1538,7 @@
 			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
 			<ObsoleteTech>TECH_APPLIED_ECONOMICS</ObsoleteTech>
 			<PrereqAndTechs>
-				<TechType>TECH_WARFARE</TechType>
+				<TechType>TECH_TRADE</TechType>
 			</PrereqAndTechs>
 			<PrereqOrBonuses>
 				<BonusType>BONUS_SILK</BonusType>
