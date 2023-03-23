@@ -74,6 +74,12 @@
 			<iCategory>13</iCategory>
 			<DefaultBuilding>BUILDING_CASTLE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Castle Garden -->
+			<Type>BUILDINGCLASS_CASTLE_GARDEN</Type>
+			<Description>TXT_KEY_BUILDING_CASTLE_GARDEN</Description>
+			<iCategory>13</iCategory>
+			<DefaultBuilding>BUILDING_CASTLE_GARDEN</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Bomb Shelter -->                    <!-- City Defence -->
 			<Type>BUILDINGCLASS_BOMB_SHELTER</Type>
@@ -880,6 +886,12 @@
 			<iCategory>37</iCategory>
 			<DefaultBuilding>BUILDING_CHEMIST</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- City Park -->
+			<Type>BUILDINGCLASS_CITY_PARK</Type>
+			<Description>TXT_KEY_BUILDING_CITY_PARK</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_CITY_PARK</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Doctors Office -->
 			<Type>BUILDINGCLASS_DOCTORS_OFFICE</Type>
 			<Description>TXT_KEY_BUILDING_DOCTORS_OFFICE</Description>
@@ -891,6 +903,12 @@
 			<Description>TXT_KEY_BUILDING_GRAVEYARD</Description>
 			<iCategory>37</iCategory>
 			<DefaultBuilding>BUILDING_GRAVEYARD</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Grove -->
+			<Type>BUILDINGCLASS_GROVE</Type>
+			<Description>TXT_KEY_BUILDING_GROVE</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_GROVE</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Healers Hut -->
 			<Type>BUILDINGCLASS_HEALERS_HUT</Type>

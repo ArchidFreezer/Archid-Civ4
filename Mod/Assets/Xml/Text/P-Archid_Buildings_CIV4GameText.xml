@@ -443,6 +443,20 @@
 		<Tag>TXT_KEY_BUILDING_CASINO_STRATEGY</Tag>
 		<English>Casino increases city's wealth.</English>
 	</TEXT>
+	<TEXT> <!-- Castle Garden -->
+		<Tag>TXT_KEY_BUILDING_CASTLE_GARDEN</Tag>
+		<English>Castle Garden</English>
+		<French>Jardins du Château</French>
+		<German>Burggarten</German>
+	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CASTLE_GARDEN_STRATEGY</Tag>
+		<English>Use elaborate Castle Garden's to awe citizen's and create a peaceful and calming aura around your city.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CASTLE_GARDEN_PEDIA</Tag>
+		<English>A garden is a planned space, usually outdoors, set aside for the display, cultivation, and enjoyment of plants and other forms of nature. The garden can incorporate both natural and man-made materials. </English>
+	</TEXT>
 	<TEXT> <!-- Cave Painting -->
 		<Tag>TXT_KEY_BUILDING_CAVE_PAINTING</Tag>
 		<English>Cave Painting</English>
@@ -545,6 +559,20 @@
 		<Tag>TXT_KEY_BUILDING_CITY_COUNCIL_PEDIA</Tag>
 		<English>.</English>
 	</TEXT>	
+	<TEXT> <!-- City Park -->
+		<Tag>TXT_KEY_BUILDING_CITY_PARK</Tag>
+		<English>City Park</English>
+		<French>Parc citadin</French>
+		<German>Stadtpark</German>
+	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CITY_PARK_STRATEGY</Tag>
+		<English>City Parks allow denizens of your cities to relax in the most modern outdoor facilities. They also make excelland protest grounds.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CITY_PARK_PEDIA</Tag>
+		<English>A City Park is a park in cities and other incorporated places to offer recreation and green space to residents of and visitors to the municipality. The design, operation and maintenance is usually done by government, typically on the local level, but may occasionally be contracted out to a private sector company. [NEWLINE] [TAB] Common features of municipal parks include playgrounds, hiking, running and mixed use trails or paths, bridle paths, sports field and courts, public restrooms, boat ramps and/or picnic facilities, depending on the budget and natural features available.</English>
+	</TEXT>
 	<TEXT> <!-- Cloning Laboratory -->
 		<Tag>TXT_KEY_BUILDING_CLONING_LABORATORY</Tag>
 		<English>Cloning Laboratory</English>
@@ -894,6 +922,20 @@
 	<TEXT>
 		<Tag>TXT_KEY_GREAT_BATH_OF_MOHENJO_DARO_HELP</Tag>
 		<English>[ICON_BULLET]Creates a Source of Fresh Water[NEWLINE][ICON_BULLET]New Cities Built with +1 Population[NEWLINE][COLOR_NEGATIVE_TEXT]Fresh Water Bonus does not Obsolete[COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT> <!-- Grove -->
+		<Tag>TXT_KEY_BUILDING_GROVE</Tag>
+		<English>Grove</English>
+		<French>Bosquet</French>
+		<German>Hain</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GROVE_STRATEGY</Tag>
+		<English>Groves provide early cities a place for citizens to relax in forests with safety.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GROVE_PEDIA</Tag>
+		<English>A grove is typically a small wood or forest with little or no underbrush.</English>
 	</TEXT>
 	<TEXT> <!-- Guild Hall -->
 		<Tag>TXT_KEY_BUILDING_GUILDHALL</Tag>
