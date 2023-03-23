@@ -426,5 +426,9 @@
 			<Type>ART_DEF_MOVIE_FREYA</Type>
 			<Path>Art/Movies/Wonders/Freya.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_ASATRU_HEIMDALL</Type>
+			<Path>Art/Movies/Wonders/Heimdall.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

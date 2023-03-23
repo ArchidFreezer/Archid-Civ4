@@ -131,16 +131,16 @@
 		<English>[COLOR_BUILDING_TEXT]Freya Sanctuary[COLOR_REVERT] </English>
 	</TEXT>
 	<TEXT> <!-- Wonder (Heimdall Sanctuary) -->
-		<Tag>TXT_KEY_BUILDING_HEIMDALL_SANCTUARY</Tag>
+		<Tag>TXT_KEY_BUILDING_ASATRU_HEIMDALL_SANCTUARY</Tag>
 		<English>Asatru Wonder (Heimdall Sanctuary)</English>
 		<French>Sanctuaire de Heimdall</French>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_HEIMDALL_SANCTUARY_PEDIA</Tag>
+		<Tag>TXT_KEY_BUILDING_ASATRU_HEIMDALL_SANCTUARY_PEDIA</Tag>
 		<English>[TAB]Heimdall is the guardian of the gods and of the link between Midgard and Asgard, the Bifrost Bridge. Legends foretell that he will sound the Gjallarhorn, alerting the Æsir to the onset of Ragnarök where the world ends and is reborn. Heimdall, as guardian, is described as being able to hear grass growing and single leaves falling, able to see to the end of the world, and so alert that he requires no sleep at all. Heimdall is described as a son of Odin, perhaps a foster son. Heimdall was destined to be the last of the gods to perish at Ragnarök when he and Loki would slay one another.</English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_HEIMDALL_SANCTUARY_STRATEGY</Tag>
+		<Tag>TXT_KEY_BUILDING_ASATRU_HEIMDALL_SANCTUARY_STRATEGY</Tag>
 		<English>[COLOR_BUILDING_TEXT]Heimdall Sanctuary[COLOR_REVERT] </English>
 	</TEXT>
 	<TEXT> <!-- Wonder (Thor Sanctuary) -->

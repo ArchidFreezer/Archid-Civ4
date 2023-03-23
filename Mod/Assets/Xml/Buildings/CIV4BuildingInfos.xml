@@ -1307,6 +1307,67 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Asatru Wonder (Heimdall Sanctuary) -->
+			<BuildingClass>BUILDINGCLASS_ASATRU_HEIMDALL_SANCTUARY</BuildingClass>
+			<Type>BUILDING_ASATRU_HEIMDALL_SANCTUARY</Type>
+			<Description>TXT_KEY_BUILDING_ASATRU_HEIMDALL_SANCTUARY</Description>
+			<Civilopedia>TXT_KEY_BUILDING_ASATRU_HEIMDALL_SANCTUARY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_ASATRU_HEIMDALL_SANCTUARY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_CULTURE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_ASATRU_HEIMDALL</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_ASATRU_HEIMDALL</MovieDefineTag>
+			<ReligionType>RELIGION_ASATRU</ReligionType>
+			<StateReligion>RELIGION_ASATRU</StateReligion>
+			<bStateReligion>1</bStateReligion>
+			<PrereqReligion>RELIGION_ASATRU</PrereqReligion>
+			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra>
+			<PrereqAndTechs>
+				<TechType>TECH_SHIP_BUILDING</TechType>
+			</PrereqAndTechs>
+			<GreatPeopleUnitClass>UNITCLASS_GREAT_GENERAL</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
+			<bTeamShare>1</bTeamShare>
+			<iCost>550</iCost>
+			<iHurryCostModifier>100</iHurryCostModifier>
+			<iStateReligionHappiness>1</iStateReligionHappiness>
+			<iDefense>100</iDefense>
+			<iAllCityDefense>20</iAllCityDefense>
+			<iAsset>2</iAsset>
+			<fVisibilityPriority>100.0</fVisibilityPriority>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>3</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_ASATRU</ReligionType>
+					<iChange>2</iChange>
+				</ReligionChange>
+			</ReligionChanges>
+			<ConstructSound>AS2D_BUILD_NORDIC</ConstructSound>
+			<BonusProductionModifiers>
+				<BonusProductionModifier>
+					<BonusType>BONUS_STONE</BonusType>
+					<iModifier>100</iModifier>
+				</BonusProductionModifier>
+			</BonusProductionModifiers>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Asklepieion Of Kos -->
 			<BuildingClass>BUILDINGCLASS_ASKLEPIEION_OF_KOS</BuildingClass>
 			<Type>BUILDING_ASKLEPIEION_OF_KOS</Type>
