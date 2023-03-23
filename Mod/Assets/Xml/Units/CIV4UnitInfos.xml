@@ -4563,8 +4563,9 @@
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
 			<PrereqTechs>
-				<TechType>TECH_GUNPOWDER</TechType>
+				<TechType>TECH_FLINTLOCK</TechType>
 			</PrereqTechs>
+			<BonusType>BONUS_SULPHUR</BonusType>
 			<iCost>150</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
