@@ -957,6 +957,16 @@
 		<Tag>TXT_KEY_SLAVER_RENAME</Tag>
 		<English>Slaver</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INVISIBLE_CAMOUFLAGE</Tag>
+		<English>Special Hi-Tech units</English>
+		<French>
+			<Text>Unités Spéciales Hi-Tech</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Hi-Tech-Spezialeinheiten</German>
+	</TEXT>
 <!-- Automations -->
 	<TEXT>
 		<Tag>TXT_KEY_ACTION_AUTOMATE_PROTECT</Tag>

@@ -211,6 +211,28 @@
 			<Description>TXT_KEY_UNIT_SPY</Description>
 			<DefaultUnit>UNIT_SPY</DefaultUnit>
 		</UnitClassInfo>
+		<UnitClassInfo> <!-- Agent -->
+			<Type>UNITCLASS_AGENT</Type>
+			<Description>TXT_KEY_UNIT_AGENT</Description>
+			<DefaultUnit>UNIT_AGENT</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Special Agent -->
+			<Type>UNITCLASS_SPECIAL_AGENT</Type>
+			<Description>TXT_KEY_UNIT_SPECIAL_AGENT</Description>
+			<iMaxPlayerInstances>5</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_SPECIAL_AGENT</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Top Secret Agent -->
+			<Type>UNITCLASS_007</Type>
+			<Description>TXT_KEY_UNIT_007</Description>
+			<iMaxPlayerInstances>1</iMaxPlayerInstances>
+			<DefaultUnit>UNIT_007</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Nanite Spy -->
+			<Type>UNITCLASS_NANITE_SPY</Type>
+			<Description>TXT_KEY_UNIT_NANITE_SPY</Description>
+			<DefaultUnit>UNIT_NANITE_SPY</DefaultUnit>
+		</UnitClassInfo>
 
 <!-- ************ -->
 <!-- Great People -->

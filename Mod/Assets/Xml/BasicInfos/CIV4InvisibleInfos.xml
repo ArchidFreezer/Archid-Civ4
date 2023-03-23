@@ -7,6 +7,10 @@
 <Civ4InvisibleInfos xmlns="x-schema:CIV4BasicInfoSchema.xml">
 	<InvisibleInfos>
 		<InvisibleInfo>
+			<Type>INVISIBLE_CAMOUFLAGE</Type>
+			<Description>TXT_KEY_INVISIBLE_CAMOUFLAGE</Description>
+		</InvisibleInfo>
+		<InvisibleInfo>
 			<Type>INVISIBLE_SUBMARINE</Type>
 			<Description>TXT_KEY_INVISIBLE_SUBMARINE</Description>
 		</InvisibleInfo>
