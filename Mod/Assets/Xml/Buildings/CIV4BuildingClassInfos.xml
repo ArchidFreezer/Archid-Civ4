@@ -87,6 +87,12 @@
 			<iCategory>14</iCategory>
 			<DefaultBuilding>BUILDING_BUNKER</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Town Watch -->									
+			<Type>BUILDINGCLASS_TOWN_WATCH</Type>
+			<Description>TXT_KEY_BUILDING_TOWN_WATCH</Description>
+			<iCategory>14</iCategory>
+			<DefaultBuilding>BUILDING_TOWN_WATCH</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Intelligence Agency -->             <!-- Security -->
 			<Type>BUILDINGCLASS_INTELLIGENCE_AGENCY</Type>

@@ -1931,6 +1931,7 @@ public:
 	int getGlobalFoundPopulationChange() const;
 	int getGlobalWonderProductionModifier() const;
 	int getNumFreePromotions() const;
+	int getNumSeeInvisibles() const;
 
 	float getVisibilityPriority() const;
 
@@ -2040,6 +2041,7 @@ public:
 	PromotionTypes getFreePromotion(int i) const;
 	int getBuildingClassProductionModifier(BuildingClassTypes eBuildingClass) const;
 	int getUnitCombatProductionModifier(UnitCombatTypes eBuildingClass) const;
+	InvisibleTypes getSeeInvisible(int i) const;
 
 	bool isCommerceFlexible(int i) const;				// Exposed to Python
 	bool isCommerceChangeOriginalOwner(int i) const;				// Exposed to Python
@@ -2057,6 +2059,7 @@ public:
 	bool isPrereqNotBuildingClass(BuildingClassTypes eBuildingClass) const;
 	bool isPrereqWorldView(int i) const;
 	bool isFreePromotion(PromotionTypes ePromotion) const;
+	bool isSeeInvisible(InvisibleTypes eInvisible) const;
 
 	int getSpecialistYieldChange(int i, int j) const;			// Exposed to Python
 	int* getSpecialistYieldChangeArray(int i) const;
@@ -2302,6 +2305,7 @@ protected:
 	std::vector<int> m_viPrereqNotBuildingClasses;
 	std::vector<int> m_viPrereqWorldViews;
 	std::vector<int> m_viFreePromotions;
+	std::vector<int> m_viSeeInvisibles;
 
 	// Maps
 	std::map<int, int> m_mBuildingClassProductionModifiers;

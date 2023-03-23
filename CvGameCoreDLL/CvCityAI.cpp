@@ -2751,6 +2751,7 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 			}
 
 			iValue += -kBuilding.getNukeModifier() / (GC.getGameINLINE().isNukesValid() && !GC.getGameINLINE().isNoNukes() ? 4 : 40);
+			iValue += kBuilding.getNumSeeInvisibles() * 5;
 		}
 
 		if ((iFocusFlags & BUILDINGFOCUS_ESPIONAGE) || (iPass > 0)) {
@@ -2996,6 +2997,13 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 			iValue += std::max(0, std::max(0, m_iWorkersNeeded - m_iWorkersHave));
 			// If this is the capital we really should have a slave market if we are a slaver
 			if (isCapital()) {
+				iValue += 250;
+			}
+		}
+
+		// Slavery specific - if we have been hit with slavers lets see them
+		for (int iI = 0; iI < kBuilding.getNumSeeInvisibles(); iI++) {
+			if (kBuilding.getSeeInvisible(iI) == GC.getInfoTypeForString("INVISIBLE_SLAVER") && area()->getSlaveMemoryPerPlayer(getOwnerINLINE()) > 0) {
 				iValue += 250;
 			}
 		}

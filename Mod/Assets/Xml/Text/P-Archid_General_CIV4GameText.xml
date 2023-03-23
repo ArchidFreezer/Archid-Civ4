@@ -1645,6 +1645,10 @@
 		<Tag>TXT_KEY_BULLET_FREE</Tag>
 		<English>[ICON_BULLET]Free[SPACE]</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BULLET_SEE_INVISIBLE</Tag>
+		<English>[ICON_BULLET]Can see invisible units:[SPACE]</English>
+	</TEXT>
 	<TEXT>	<!-- Civic - game text -->
 		<Tag>TXT_KEY_CIVIC_FOREIGN_TRADE_ROUTE_MOD</Tag>
 		<English>[ICON_BULLET]%D1_Mod%% Foreign Trade Route Yield in All Cities</English>

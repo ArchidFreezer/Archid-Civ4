@@ -3548,5 +3548,15 @@
 			<KFM/>
 			<Button>,Art/Interface/Buttons/Buildings/HeroicEpic.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,3,5</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TOWN_WATCH</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.05</fScale>
+			<fInterfaceScale>0.05</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Monument/Monument.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/town_watch.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

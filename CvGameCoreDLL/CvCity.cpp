@@ -3224,6 +3224,17 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 			}
 		}
 
+		for (int iLoopPlot = 0; iLoopPlot < getNumCityPlots(); iLoopPlot++) {
+			CvPlot* pLoopPlot = getCityIndexPlot(iLoopPlot);
+
+			if (pLoopPlot != NULL) {
+				for (int i = 0; i < kBuilding.getNumSeeInvisibles(); i++) {
+					pLoopPlot->changeInvisibleVisibilityCount(getTeam(), (InvisibleTypes)kBuilding.getSeeInvisible(i), iChange);
+				}
+
+			}
+		}
+
 		if (kBuilding.getNoBonus() != NO_BONUS) {
 			changeNoBonusCount(((BonusTypes)(kBuilding.getNoBonus())), iChange);
 		}

@@ -482,6 +482,10 @@
 	<ElementType name="FreeUnitClass" content="textOnly"/>
 	<ElementType name="CreateFeatureType" content="textOnly"/>
 	<ElementType name="iGlobalWonderProductionModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="InvisibleType" content="textOnly"/>
+	<ElementType name="SeeInvisibles" content="eltOnly">
+		<element type="InvisibleType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="BuildingInfo" content="eltOnly">
 		<element type="BuildingClass"/>
 		<element type="Type"/>
@@ -532,6 +536,7 @@
 		<element type="FreeBuilding" minOccurs="0"/>
 		<element type="FreePromotions" minOccurs="0"/>
 		<element type="FreeUnitClass" minOccurs="0"/>
+		<element type="SeeInvisibles" minOccurs="0"/>
 		<element type="CreateFeatureType" minOccurs="0"/>
 		<element type="CivicOption" minOccurs="0"/>
 		<element type="GreatPeopleUnitClass" minOccurs="0"/>

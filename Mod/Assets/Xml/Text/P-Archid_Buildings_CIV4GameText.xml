@@ -2141,6 +2141,25 @@
 		<Tag>TXT_KEY_BUILDING_TOWN_HALL_PEDIA</Tag>
 		<English>.</English>
 	</TEXT>
+	<TEXT> <!-- Town Watch -->
+		<Tag>TXT_KEY_BUILDING_TOWN_WATCH</Tag>
+		<English>Town Watch</English>
+		<French>
+			<Text>Patrouille de Ville</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Stadtwache</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TOWN_WATCH_PEDIA</Tag>
+		<English>As communities grew, they had more to defend and more resources with which to defend.  The town watch grew into a town patrol usually provided by the local lord as part of his responsibility for the community's protection.  Town patrols ranged far from the community to crossing points or passes where enemies might appear.  Longer ranged patrols meant earlier warnings and more time for preparation against attack.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TOWN_WATCH_STRATEGY</Tag>
+		<English>Who knew that keeping watch for intruders could keep out spies?</English>
+		<French>Qui sait que de constament surveiller les envahisseurs peut garder les espions à l'écart?</French>
+	</TEXT>
 	<TEXT> <!-- Townclock -->
 		<Tag>TXT_KEY_BUILDING_TOWNCLOCK</Tag>
 		<English>Townclock</English>

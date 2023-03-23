@@ -16716,6 +16716,55 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Town Watch -->
+			<BuildingClass>BUILDINGCLASS_TOWN_WATCH</BuildingClass>
+			<Type>BUILDING_TOWN_WATCH</Type>
+			<Description>TXT_KEY_BUILDING_TOWN_WATCH</Description>
+			<Civilopedia>TXT_KEY_BUILDING_TOWN_WATCH_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_TOWN_WATCH_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_TOWN_WATCH</ArtDefineTag>
+			<ObsoleteTech>TECH_MASS_MEDIA</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MONARCHY</TechType>
+			</PrereqAndTechs>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
+			</SeeInvisibles>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>30</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iAdvancedStartCostIncrease>-1</iAdvancedStartCostIncrease>
+			<iMaintenanceModifier>5</iMaintenanceModifier>
+			<iDefense>5</iDefense>
+			<iEspionageDefense>10</iEspionageDefense>
+			<iPower>2</iPower>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommerceChanges>
+			<ConstructSound>AS2D_BUILD_TOWNCLOCK</ConstructSound>
+			<TechCommerceChanges>
+				<TechCommerceChange>
+					<TechType>TECH_DIVINE_RIGHT</TechType>
+					<CommerceChanges>
+						<iCommerce>0</iCommerce>
+						<iCommerce>0</iCommerce>
+						<iCommerce>0</iCommerce>
+						<iCommerce>1</iCommerce>
+					</CommerceChanges>
+				</TechCommerceChange>
+			</TechCommerceChanges>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_ESPIONAGE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>				
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Townclock -->
 			<BuildingClass>BUILDINGCLASS_TOWNCLOCK</BuildingClass>
 			<Type>BUILDING_TOWNCLOCK</Type>

@@ -7210,6 +7210,18 @@ bool CvBuildingInfo::isFreePromotion(PromotionTypes ePromotion) const {
 	return (std::find(m_viFreePromotions.begin(), m_viFreePromotions.end(), ePromotion) != m_viFreePromotions.end());
 }
 
+InvisibleTypes CvBuildingInfo::getSeeInvisible(int i) const {
+	return (InvisibleTypes)(getNumSeeInvisibles() > i ? m_viSeeInvisibles[i] : NO_INVISIBLE);
+}
+
+int CvBuildingInfo::getNumSeeInvisibles() const {
+	return (int)m_viSeeInvisibles.size();
+}
+
+bool CvBuildingInfo::isSeeInvisible(InvisibleTypes eInvisble) const {
+	return (std::find(m_viSeeInvisibles.begin(), m_viSeeInvisibles.end(), eInvisble) != m_viSeeInvisibles.end());
+}
+
 bool CvBuildingInfo::isSlaveMarket() const {
 	return m_bSlaveMarket;
 }
@@ -8478,6 +8490,13 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	}
 
 	stream->Read(&iNumElements);
+	m_viSeeInvisibles.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viSeeInvisibles.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
 	m_mBuildingClassProductionModifiers.clear();
 	for (int i = 0; i < iNumElements; ++i) {
 		stream->Read(&iKey);
@@ -8998,6 +9017,11 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 		stream->Write(*it);
 	}
 
+	stream->Write(m_viSeeInvisibles.size());
+	for (std::vector<int>::iterator it = m_viSeeInvisibles.begin(); it != m_viSeeInvisibles.end(); ++it) {
+		stream->Write(*it);
+	}
+
 	stream->Write(m_mBuildingClassProductionModifiers.size());
 	for (std::map<int, int>::iterator it = m_mBuildingClassProductionModifiers.begin(); it != m_mBuildingClassProductionModifiers.end(); ++it) {
 		stream->Write(it->first);
@@ -9174,6 +9198,8 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(szTextVal, "FreeUnitClass");
 	m_iFreeUnitClass = pXML->FindInInfoClass(szTextVal);
+
+	pXML->SetVectorInfo(m_viSeeInvisibles, "SeeInvisibles");
 
 	pXML->GetChildXmlValByName(szTextVal, "CreateFeatureType");
 	m_iCreateFeatureType = pXML->FindInInfoClass(szTextVal);
