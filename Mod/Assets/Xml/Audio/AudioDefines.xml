@@ -7,6 +7,13 @@
 <AudioDefines xmlns="x-schema:AudioDefinesSchema.xml">
 	<SoundDatas>
 		<SoundData>
+			<SoundID>SND_BUILD_OLYMPICS</SoundID>
+			<Filename>Sounds/Buildings/Olympics</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
 			<SoundID>SND_BUILD_DRYDOCK_NEW</SoundID>
 			<Filename>Sounds/Buildings/NewDrydock</Filename>
 			<LoadType>DYNAMIC_RES</LoadType>

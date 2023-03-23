@@ -1194,6 +1194,13 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_NOTRE_DAME</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Olympic Games -->
+			<Type>BUILDINGCLASS_OLYMPIC_GAMES</Type>
+			<Description>TXT_KEY_BUILDING_OLYMPIC_GAMES</Description>
+			<iCategory>2</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_OLYMPIC_GAMES</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Oracle -->
 			<Type>BUILDINGCLASS_ORACLE</Type>
 			<Description>TXT_KEY_BUILDING_ORACLE</Description>

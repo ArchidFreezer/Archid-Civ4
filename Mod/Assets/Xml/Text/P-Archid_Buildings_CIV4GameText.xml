@@ -1500,6 +1500,20 @@
 		<Tag>TXT_KEY_BUILDING_NAVAL_YARD_STRATEGY</Tag>
 		<English>[SPACE]Increases city's naval production and gives 4 free experience for new ships.</English>
 	</TEXT>
+	<TEXT> <!-- Olympic Games -->
+		<Tag>TXT_KEY_BUILDING_OLYMPIC_GAMES</Tag>
+		<English>Olympic Games</English>
+		<French>Jeux Olympiques</French>
+		<German>Olympische Spiele</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_OLYMPIC_GAMES_PEDIA</Tag>
+		<English>[TAB]The Olympic Games were a Greek festival to Zeus with an accepted starting date of 776 BCE. The contestants were originally limited to male free Greeks, but as time progressed and inter-marriages occured these rules were relaxed, with some Roman emperoros competing in their time. The winners of the games would receive an olive wreath and were considered heroes.[PARAGRAPH:1]The first Olympics consisted of a single event called the stadion and was a running race that went the length of the stadium, or around 200 meters. It wasn't until the 14th Olympics that they added in a second event. It was another running event that was one lap around the stadium; around 400 meters.[PARAGRAPH:1]More events were added over the next several Olympics. These events included more running races of different lengths, wrestling, chariot racing, boxing, and the pentathlon. The pentathlon combined the total scores of five events: long jump, discus throw, javelin throw, a stadion race, and wrestling.[PARAGRAPH:1]Some of the events had similar names to events we have today, but had different rules and requirements. For example, in the long jump, jumpers used hand weights to help propel their bodies forward. Also, boxing and wrestling were very dangerous events with few rules. In boxing you could hit the opponent while they were down and the match didn't stop until one fighter gave up or died. It wasn't a good idea to kill your opponent, however, as the dead boxer was given the victory. </English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_OLYMPIC_GAMES_STRATEGY</Tag>
+		<English>Olympic Games grants free Arena in all cities and increases culture and happiness in the city where it's built.</English>
+	</TEXT>
 	<TEXT> <!-- Palisade -->
 		<Tag>TXT_KEY_BUILDING_PALISADE</Tag>
 		<English>Palisade</English>
