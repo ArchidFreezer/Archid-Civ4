@@ -4875,6 +4875,10 @@ bool CvUnit::found() {
 		}
 	}
 
+	int iOldPop = pCity->getPopulation();
+	int iNewPop = std::max(1, iOldPop + getFoundPopChange());
+	if (iNewPop != iOldPop) pCity->setPopulation(iNewPop);
+
 	if (plot()->isActiveVisible(false)) {
 		NotifyEntity(MISSION_FOUND);
 	}
@@ -13804,4 +13808,14 @@ void CvUnit::setPlunderValue(int iValue) {
 
 void CvUnit::changePlunderValue(int iChange) {
 	setPlunderValue(getPlunderValue() + iChange);
+}
+
+int CvUnit::getFoundPopChange() const {
+	int iExtraPop = 0;
+	for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumBonusInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
+		if (isHasPromotion(ePromotion) && GC.getPromotionInfo(ePromotion).getFoundPopChange() != 0) {
+			iExtraPop += GC.getPromotionInfo(ePromotion).getFoundPopChange();
+		}
+	}
+	return iExtraPop;
 }

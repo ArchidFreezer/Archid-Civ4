@@ -3498,5 +3498,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/asatru_loki_sanctuary.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_FREYA</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.11</fScale>
+			<fInterfaceScale>0.50</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/freya_sanctuary/statue.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/asatru_freya_sanctuary.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

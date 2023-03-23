@@ -5347,7 +5347,7 @@
 		</PromotionInfo>
 		<PromotionInfo> <!-- Settler Devotee -->
 			<Type>PROMOTION_SETTLER_DEVOTEE</Type>
-			<Description>TXT_KEY_PROMOTION_DEVOTEE</Description>
+			<Description>TXT_KEY_PROMOTION_SETTLER_DEVOTEE</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<TechPrereq>TECH_SPECIAL_PROMOTION</TechPrereq>
 			<bCarryReligion>1</bCarryReligion>
@@ -5355,6 +5355,17 @@
 				<UnitCombatType>UNITCOMBAT_SETTLER</UnitCombatType>
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/MainScreen/CityScreen/Priest.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Settler Healthcare -->
+			<Type>PROMOTION_SETTLER_HEALTHCARE</Type>
+			<Description>TXT_KEY_PROMOTION_SETTLER_HEALTHCARE</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<TechPrereq>TECH_SPECIAL_PROMOTION</TechPrereq>
+			<iFoundPopChange>1</iFoundPopChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SETTLER</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/MainScreen/CityScreen/Doctor.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Shielding I -->
 			<Type>PROMOTION_SHIELDING1</Type>

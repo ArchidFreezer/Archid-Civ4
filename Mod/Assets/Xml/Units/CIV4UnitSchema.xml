@@ -876,6 +876,7 @@
 	<ElementType name="iExtraMorale" content="textOnly" dt:type="int"/>
 	<ElementType name="iEnemyMoraleModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iPlunderChange" content="textOnly" dt:type="int"/>
+	<ElementType name="iFoundPopChange" content="textOnly" dt:type="int"/>
 	<ElementType name="PromotionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -956,6 +957,7 @@
 		<element type="iSalvageModifier" minOccurs="0"/>
 		<element type="iExtraMorale" minOccurs="0"/>
 		<element type="iEnemyMoraleModifier" minOccurs="0"/>
+		<element type="iFoundPopChange" minOccurs="0"/>
 		<element type="iUpgradeDiscount" minOccurs="0"/>
 		<element type="iExperiencePercent" minOccurs="0"/>
 		<element type="iWorkRateModifier" minOccurs="0"/>

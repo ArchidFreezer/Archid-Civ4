@@ -88,6 +88,8 @@ public:
 	void reset(int iID = 0, UnitTypes eUnit = NO_UNIT, PlayerTypes eOwner = NO_PLAYER, bool bConstructorCall = false);
 	void setupGraphical();
 
+	int getFoundPopChange() const;
+
 	bool processRout(int iExtraDamage, int iMoraleModifier);
 	int getPlunderValue() const;
 	void changePlunderValue(int iChange);

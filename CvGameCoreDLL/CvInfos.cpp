@@ -1692,6 +1692,7 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_iExtraMorale(0),
 	m_iEnemyMoraleModifier(0),
 	m_iPlunderChange(0),
+	m_iFoundPopChange(0),
 	m_eObsoleteTech(NO_TECH),
 	m_bLeader(false),
 	m_bBlitz(false),
@@ -1735,6 +1736,10 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_piDomainModifierPercent);
 	SAFE_DELETE_ARRAY(m_pbTerrainDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
+}
+
+int CvPromotionInfo::getFoundPopChange() const {
+	return m_iFoundPopChange;
 }
 
 int CvPromotionInfo::getPlunderChange() const {
@@ -2248,6 +2253,7 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iExtraMorale);
 	stream->Read(&m_iEnemyMoraleModifier);
 	stream->Read(&m_iPlunderChange);
+	stream->Read(&m_iFoundPopChange);
 
 	int iTemp;
 	stream->Read(&iTemp);
@@ -2417,6 +2423,7 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iExtraMorale);
 	stream->Write(m_iEnemyMoraleModifier);
 	stream->Write(m_iPlunderChange);
+	stream->Write(m_iFoundPopChange);
 
 	stream->Write(m_eObsoleteTech);
 
@@ -2579,6 +2586,7 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iUnitRangeModifier, "iUnitRangeModifier");
 	pXML->GetChildXmlValByName(&m_iExtraMorale, "iExtraMorale");
 	pXML->GetChildXmlValByName(&m_iEnemyMoraleModifier, "iEnemyMoraleModifier");
+	pXML->GetChildXmlValByName(&m_iFoundPopChange, "iFoundPopChange");
 
 	pXML->SetListPairInfo(&m_piTerrainAttackPercent, "TerrainAttacks", GC.getNumTerrainInfos());
 	pXML->SetListPairInfo(&m_piTerrainDefensePercent, "TerrainDefenses", GC.getNumTerrainInfos());

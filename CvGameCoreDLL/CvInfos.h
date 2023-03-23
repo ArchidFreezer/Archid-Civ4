@@ -570,6 +570,7 @@ public:
 	int getExtraMorale() const;
 	int getEnemyMoraleModifier() const;
 	int getPlunderChange() const;
+	int getFoundPopChange() const;
 
 	TechTypes getObsoleteTech() const;
 
@@ -689,6 +690,7 @@ protected:
 	int m_iExtraMorale;
 	int m_iEnemyMoraleModifier;
 	int m_iPlunderChange;
+	int m_iFoundPopChange;
 
 	bool m_bLeader;
 	bool m_bBlitz;

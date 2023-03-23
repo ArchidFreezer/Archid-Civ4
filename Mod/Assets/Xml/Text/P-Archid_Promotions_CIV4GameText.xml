@@ -869,11 +869,6 @@
 		</Spanish>
 	</TEXT>
 
-	<TEXT> <!-- Devotee Retinue -->
-		<Tag>TXT_KEY_PROMOTION_DEVOTEE</Tag>
-		<English>Devotee Retinue</English>
-	</TEXT>
-
 	<TEXT> <!-- Disorganised (Barbarian Ships) -->
 		<Tag>TXT_KEY_PROMOTION_DISORGANIZED</Tag>
 		<English>Disorganized</English>
@@ -1993,6 +1988,15 @@
 		<English>Sentry III</English>
 	</TEXT>
 
+	<TEXT> <!-- Settler Devotee -->
+		<Tag>TXT_KEY_PROMOTION_SETTLER_DEVOTEE</Tag>
+		<English>Settler Devotee Retinue</English>
+	</TEXT>
+	<TEXT> <!-- Settler Healthcare -->
+		<Tag>TXT_KEY_PROMOTION_SETTLER_HEALTHCARE</Tag>
+		<English>Settler Healthcare Retinue</English>
+	</TEXT>
+
 <!-- +++ Shielding +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_SHIELDING1</Tag>
@@ -2513,7 +2517,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_CARRY_RELIGION</Tag>
-		<English>[ICON_BULLET]Unit Carries State [ICON_RELIGION][NEWLINE]</English>
+		<English>[ICON_BULLET]Unit Carries State [ICON_RELIGION]</English>
 	</TEXT>
 	<TEXT> <!-- Morale -->
 		<Tag>TXT_KEY_PROMOTION_EXTRA_MORALE</Tag>
@@ -2526,5 +2530,9 @@
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_PLUNDER_CHANGE_TEXT</Tag>
 		<English>[ICON_BULLET]Plunders %d1 [ICON_GOLD] from a civ on combat victory</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_FOUND_POP_CHANGE_TEXT</Tag>
+		<English>[ICON_BULLET]New cities have %d1 [ICON_CITIZEN] change</English>
 	</TEXT>
 </Civ4GameText>

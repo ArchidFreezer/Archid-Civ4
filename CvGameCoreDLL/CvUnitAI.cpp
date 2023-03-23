@@ -7966,6 +7966,12 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		iValue += (iTemp / 16);
 	}
 
+	iTemp = kPromotion.getFoundPopChange();
+	if (AI_getUnitAIType() == UNITAI_SETTLE) {
+		iValue += (iTemp * 8);
+	}
+
+
 	iTemp = kPromotion.getPlunderChange();
 	if ((AI_getUnitAIType() == UNITAI_ATTACK) ||
 		(AI_getUnitAIType() == UNITAI_SLAVER) ||

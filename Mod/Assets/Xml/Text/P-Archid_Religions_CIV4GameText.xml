@@ -118,16 +118,16 @@
 		<English>[COLOR_BUILDING_TEXT]Loki Sanctuary[COLOR_REVERT] </English>
 	</TEXT>
 	<TEXT> <!-- Wonder (Freya Sanctuary) -->
-		<Tag>TXT_KEY_BUILDING_FREYA_SANCTUARY</Tag>
+		<Tag>TXT_KEY_BUILDING_ASATRU_FREYA_SANCTUARY</Tag>
 		<English>Asatru Wonder (Freya Sanctuary)</English>
 		<French>Sanctuaire de Freya</French>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_FREYA_SANCTUARY_PEDIA</Tag>
+		<Tag>TXT_KEY_BUILDING_ASATRU_FREYA_SANCTUARY_PEDIA</Tag>
 		<English>[TAB]Freya is portrayed as a goddess of love, beauty, and fertility. Blonde, blue-eyed, and beautiful, Freyja is described as the fairest of all goddesses, and people prayed to her for happiness in love. She was also called on to assist childbirths and prayed to for good seasons. </English>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_BUILDING_FREYA_SANCTUARY_STRATEGY</Tag>
+		<Tag>TXT_KEY_BUILDING_ASATRU_FREYA_SANCTUARY_STRATEGY</Tag>
 		<English>[COLOR_BUILDING_TEXT]Freya Sanctuary[COLOR_REVERT] </English>
 	</TEXT>
 	<TEXT> <!-- Wonder (Heimdall Sanctuary) -->

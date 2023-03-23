@@ -6263,6 +6263,11 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_PLUNDER_CHANGE_TEXT", kPromotion.getPlunderChange()));
 	}
 
+	if (kPromotion.getFoundPopChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_FOUND_POP_CHANGE_TEXT", kPromotion.getFoundPopChange()));
+	}
+
 	if (kPromotion.getSalvageModifier() != 0) {
 		szBuffer.append(pcNewline);
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SALVAGE_MODIFIER_TEXT", kPromotion.getSalvageModifier()));
