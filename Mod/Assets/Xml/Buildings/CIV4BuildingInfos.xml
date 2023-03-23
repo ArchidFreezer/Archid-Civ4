@@ -5761,6 +5761,36 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Foundling Hospital -->
+			<BuildingClass>BUILDINGCLASS_FOUNDLING_HOSPITAL</BuildingClass>
+			<Type>BUILDING_FOUNDLING_HOSPITAL</Type>
+			<Description>TXT_KEY_BUILDING_FOUNDLING_HOSPITAL</Description>
+			<Civilopedia>TXT_KEY_BUILDING_FOUNDLING_HOSPITAL_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_FOUNDLING_HOSPITAL_STRATEGY</Strategy>
+			<Help><!--TXT_KEY_BUILDING_FOUNDLING_HOSPITAL_HELP--></Help>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_FOUNDLING_HOSPITAL</ArtDefineTag>
+			<PrereqAndCivics>
+				<CivicType>CIVIC_CHURCH</CivicType>
+			</PrereqAndCivics>
+			<ObsoleteTech>TECH_MEDICINE</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MEDITATION</TechType>
+			</PrereqAndTechs>
+			<iCost>500</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iHealth>1</iHealth>
+			<iGlobalHealth>1</iGlobalHealth>
+			<iGlobalPopulationChange>1</iGlobalPopulationChange>
+			<iAsset>8</iAsset>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Foundry -->
 			<BuildingClass>BUILDINGCLASS_FOUNDRY</BuildingClass>
 			<Type>BUILDING_FOUNDRY</Type>

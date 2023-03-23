@@ -820,6 +820,21 @@
 		<Tag>TXT_KEY_BUILDING_FISHERMAN_HUTS_STRATEGY</Tag>
 		<English>Fisherman's Hut increases city's food production if city has access to Fish, Crab and Whale resources.</English>
 	</TEXT>
+	<TEXT> <!-- Foundling Hospital -->
+		<Tag>TXT_KEY_BUILDING_FOUNDLING_HOSPITAL</Tag>
+		<English>Foundling Hospital</English>
+		<French>Orphelinat</French>
+		<German>Findelhaus</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FOUNDLING_HOSPITAL_STRATEGY</Tag>
+		<English>Increases population in all cities; make sure to check food production in all cities.  This building requires Church civic.</English>
+		<French>Augmente la population de toutes les Villes; (vérifier que la production de Nourriture soit suffisante). Requiert la Doctrine 'Eglise'.</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FOUNDLING_HOSPITAL_PEDIA</Tag>
+		<English>[TAB]A foundling hospital was originally an institution for the reception of foundlings, i.e., children who had been abandoned or exposed, and left for the public to find and save. A foundling hospital was not necessarily a medical hospital, but more commonly a children's home, offering shelter and education to foundlings.  The early history of such institutions is connected with the practice of infanticide, and in Western Europe where social disorder was rife and famine of frequent occurrence, exposure and extensive sales of children were the necessary consequences. Against these evils the church provided a rough system of relief, children being deposited in marble shells at the church doors, and tended first by the matricularii or male nurses, and then by the nutricarii or foster parents.</English>
+	</TEXT>
 	<TEXT> <!-- Foundry -->
 		<Tag>TXT_KEY_BUILDING_FOUNDRY</Tag>
 		<English>Foundry</English>

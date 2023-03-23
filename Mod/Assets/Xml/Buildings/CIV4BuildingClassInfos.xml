@@ -1451,6 +1451,13 @@
 			<iMaxPlayerInstances>1</iMaxPlayerInstances>
 			<DefaultBuilding>BUILDING_CENTRAL_BANK</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Foundling Hospital -->
+			<Type>BUILDINGCLASS_FOUNDLING_HOSPITAL</Type>
+			<Description>TXT_KEY_BUILDING_FOUNDLING_HOSPITAL</Description>
+			<iCategory>3</iCategory>
+			<iMaxPlayerInstances>1</iMaxPlayerInstances>
+			<DefaultBuilding>BUILDING_FOUNDLING_HOSPITAL</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Globe Theatre -->
 			<Type>BUILDINGCLASS_GLOBE_THEATRE</Type>
 			<Description>TXT_KEY_BUILDING_GLOBE_THEATRE</Description>

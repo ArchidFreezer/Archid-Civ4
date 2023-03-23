@@ -3618,5 +3618,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/city_park.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_FOUNDLING_HOSPITAL</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Senate/Senate.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/foundling_hospital.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
