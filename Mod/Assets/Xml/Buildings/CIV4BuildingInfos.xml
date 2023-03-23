@@ -6011,6 +6011,53 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Glasssmith -->
+			<BuildingClass>BUILDINGCLASS_GLASSSMITH</BuildingClass>
+			<Type>BUILDING_GLASSSMITH</Type>
+			<Description>TXT_KEY_BUILDING_GLASSSMITH</Description>
+			<Civilopedia>TXT_KEY_BUILDING_GLASSSMITH_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_GLASSSMITH_STRATEGY</Strategy>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_GLASSSMITH</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_GLASS_BLOWING</TechType>
+			</PrereqAndTechs>
+			<PrereqBonus>BONUS_STONE</PrereqBonus>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_SALT</BonusType>
+			</PrereqOrBonuses>
+			<ProductionTraits>
+				<ProductionTrait>
+					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+					<iChange>100</iChange>
+				</ProductionTrait>
+			</ProductionTraits>
+			<FreeBonus>BONUS_GLASS</FreeBonus>
+			<iNumFreeBonuses>1</iNumFreeBonuses>
+			<iCost>140</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iConquestProb>75</iConquestProb>
+			<iHealth>-1</iHealth>
+			<iAsset>4</iAsset>
+			<iPower>2</iPower>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_ENGINEER</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_GLASSMITH</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Globe Theatre -->
 			<BuildingClass>BUILDINGCLASS_GLOBE_THEATRE</BuildingClass>
 			<Type>BUILDING_GLOBE_THEATRE</Type>

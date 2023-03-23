@@ -901,6 +901,24 @@
 		<English>Cheap gold building, but angers citizens</English>
 		<French>Bâtiment générant de l'Or, mais rend certains citoyens mécontents</French>
 	</TEXT>
+	<TEXT> <!-- Glasssmith -->
+		<Tag>TXT_KEY_BUILDING_GLASSSMITH</Tag>
+		<English>Glasssmith</English>
+		<French>
+			<Text>Verrerie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Glaswerkstatt</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GLASSSMITH_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GLASSSMITH_STRATEGY</Tag>
+		<English>Glasssmith manufactures Glasswares from stone and salt. Glassware is great resource to sell to others who do not have access to those resources. Glass is required for Alchemist's Labs and Observatories.</English>
+	</TEXT>
 	<TEXT> <!-- Graveyard -->
 		<Tag>TXT_KEY_BUILDING_GRAVEYARD</Tag>
 		<English>Graveyard</English>

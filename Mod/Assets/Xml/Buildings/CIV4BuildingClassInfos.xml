@@ -855,7 +855,13 @@
 			<DefaultBuilding>BUILDING_UNIVERSITY</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Hydro Plant -->                     <!-- Resources -->
+		<BuildingClassInfo> <!-- Glasssmith -->                      <!-- Resources -->
+			<Type>BUILDINGCLASS_GLASSSMITH</Type>
+			<Description>TXT_KEY_BUILDING_GLASSSMITH</Description>
+			<iCategory>36</iCategory>
+			<DefaultBuilding>BUILDING_GLASSSMITH</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Hydro Plant -->
 			<Type>BUILDINGCLASS_HYDRO_PLANT</Type>
 			<Description>TXT_KEY_BUILDING_HYDRO_PLANT</Description>
 			<iCategory>36</iCategory>

@@ -3628,5 +3628,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/foundling_hospital.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_GLASSSMITH</Type>
+			<LSystem>LSYSTEM_2x1</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/glasssmith/alchemist.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/glasssmith.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
