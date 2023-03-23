@@ -1923,6 +1923,24 @@
 		<Tag>TXT_KEY_BUILDING_STATE_SCHOOL_STRATEGY</Tag>
 		<English>Increases city's science and culture output in city. Extra happiness from science and culture every 20%</English>
 		</TEXT>
+	<TEXT> <!-- Statue of the Champion -->
+		<Tag>TXT_KEY_BUILDING_STATUE_OF_CHAMPION</Tag>
+		<English>Statue of the Champion</English>
+		<French>
+			<Text>Statue de Champion</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Siegerstatue</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_STATUE_OF_CHAMPION_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_STATUE_OF_CHAMPION_STRATEGY</Tag>
+		<English>This national wonder increases happiness in city and city is less likely to suffer from war weariness. Generates some culture too.</English>
+	</TEXT>
 	<TEXT> <!-- Steel Mill -->
 		<Tag>TXT_KEY_BUILDING_STEEL_MILL</Tag>
 		<English>Steel Mill</English>

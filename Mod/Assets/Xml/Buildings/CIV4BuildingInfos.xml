@@ -14931,6 +14931,65 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Statue of the Champion -->
+			<BuildingClass>BUILDINGCLASS_STATUE_OF_CHAMPION</BuildingClass>
+			<Type>BUILDING_STATUE_OF_CHAMPION</Type>
+			<Description>TXT_KEY_BUILDING_STATUE_OF_CHAMPION</Description>
+			<Civilopedia>TXT_KEY_BUILDING_STATUE_OF_CHAMPION_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_STATUE_OF_CHAMPION_STRATEGY</Strategy>
+			<Advisor>ADVISOR_CULTURE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_STATUE_OF_CHAMPION</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_ATHLETICS</TechType>
+				<TechType>TECH_SCULPTURE</TechType>
+			</PrereqAndTechs>
+			<HappinessTraits>
+				<HappinessTrait>
+					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<iChange>1</iChange>
+				</HappinessTrait>
+			</HappinessTraits>
+			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
+			<iCost>150</iCost>
+			<iHurryCostModifier>50</iHurryCostModifier>
+			<iLevelPrereq>4</iLevelPrereq>
+			<iWarWearinessModifier>-50</iWarWearinessModifier>
+			<iHappiness>4</iHappiness>
+			<iAsset>2</iAsset>
+			<fVisibilityPriority>100.0</fVisibilityPriority>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>10</iCommerce>
+			</CommerceModifiers>
+			<ConstructSound>AS2D_BUILD_OBELISK</ConstructSound>
+			<BonusProductionModifiers>
+				<BonusProductionModifier>
+					<BonusType>BONUS_MARBLE</BonusType>
+					<iModifier>100</iModifier>
+				</BonusProductionModifier>
+			</BonusProductionModifiers>
+			<PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_ARENA</BuildingClassType>
+			</PrereqAndBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Steel Mill -->
 			<BuildingClass>BUILDINGCLASS_STEEL_MILL</BuildingClass>
 			<Type>BUILDING_STEEL_MILL</Type>

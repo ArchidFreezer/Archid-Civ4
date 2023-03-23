@@ -1521,6 +1521,13 @@
 			<iMaxPlayerInstances>1</iMaxPlayerInstances>
 			<DefaultBuilding>BUILDING_RED_CROSS</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Statue of the Champion -->
+			<Type>BUILDINGCLASS_STATUE_OF_CHAMPION</Type>
+			<Description>TXT_KEY_BUILDING_STATUE_OF_CHAMPION</Description>
+			<iCategory>3</iCategory>
+			<iMaxPlayerInstances>1</iMaxPlayerInstances>
+			<DefaultBuilding>BUILDING_STATUE_OF_CHAMPION</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Strategic Grain Reserve -->
 			<Type>BUILDINGCLASS_STRATEGIC_GRAIN_RESERVE</Type>
 			<Description>TXT_KEY_BUILDING_STRATEGIC_GRAIN_RESERVE</Description>
