@@ -2291,6 +2291,25 @@
 		<Tag>TXT_KEY_BUILDING_UTILITY_FOG_STRATEGY</Tag>
 		<English>[SPACE]Utility Fog increases city's production and defense.</English>
 	</TEXT>
+	<TEXT> <!-- Villa -->
+		<Tag>TXT_KEY_BUILDING_VILLA</Tag>
+		<English>Villa</English>
+		<French>
+			<Text>Villa</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Villa</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_VILLA_STRATEGY</Tag>
+		<English>Houses Elite Citizens, encouraging foreign trade and commerce, but at the cost of food.</English>
+		<French>Abrite des Citoyens de l'Elite, encouragent les échanges avec l'étranger et le commerce, mais pour un coût en Nourriture</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_VILLA_PEDIA</Tag>
+		<English>[TAB]A Villa was originally an upper-class country house, though since its origins in Roman times the idea and function of a villa has evolved considerably. After the fall of the Republic, a villa became a small, fortified farming compound, gradually re-evolving through the Middle Ages into luxurious, upper-class country homes. In modern parlance it can refer to a specific type of detached suburban dwelling.</English>
+	</TEXT>
 	<TEXT> <!-- Village Hall -->
 		<Tag>TXT_KEY_BUILDING_VILLAGE_HALL</Tag>
 		<English>Village Hall</English>

@@ -579,6 +579,12 @@
 			<iCategory>28</iCategory>
 			<DefaultBuilding>BUILDING_TOWNCLOCK</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Villa -->
+			<Type>BUILDINGCLASS_VILLA</Type>
+			<Description>TXT_KEY_BUILDING_VILLA</Description>
+			<iCategory>28</iCategory>
+			<DefaultBuilding>BUILDING_VILLA</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Weavers Hut -->
 			<Type>BUILDINGCLASS_WEAVERS_HUT</Type>
 			<Description>TXT_KEY_BUILDING_WEAVERS_HUT</Description>
