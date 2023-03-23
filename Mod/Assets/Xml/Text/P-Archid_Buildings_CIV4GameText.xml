@@ -1267,6 +1267,20 @@
 		<Tag>TXT_KEY_BUILDING_MASONS_GUILD_PEDIA</Tag>
 		<English>.</English>
 	</TEXT>
+	<TEXT> <!-- Meeting Hall -->
+		<Tag>TXT_KEY_BUILDING_MEETING_HALL</Tag>
+		<English>Meeting Hall</English>
+		<French>Bar pour Vétérans</French>
+		<German>Sitzungssaal</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MEETING_HALL_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MEETING_HALL_STRATEGY</Tag>
+		<English>A Meeting Hall is a place for veteran units to share their experiences with new recruits.</English>
+	</TEXT>
 	<TEXT> <!-- Metropolitan Administration -->
 		<Tag>TXT_KEY_BUILDING_METROPOLITAN_ADMINISTRATION</Tag>
 		<English>Metropolitan Administration</English>

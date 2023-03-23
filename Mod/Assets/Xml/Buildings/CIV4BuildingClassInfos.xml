@@ -192,6 +192,12 @@
 			<iCategory>17</iCategory>
 			<DefaultBuilding>BUILDING_HUNTING_INSTRUCTION</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Meeting Hall -->
+			<Type>BUILDINGCLASS_MEETING_HALL</Type>
+			<Description>TXT_KEY_BUILDING_MEETING_HALL</Description>
+			<iCategory>17</iCategory>
+			<DefaultBuilding>BUILDING_MEETING_HALL</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Military Airbase -->
 			<Type>BUILDINGCLASS_MILITARY_AIRBASE</Type>
 			<Description>TXT_KEY_BUILDING_MILITARY_AIRBASE</Description>

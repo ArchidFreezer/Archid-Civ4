@@ -10913,6 +10913,53 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Meeting Hall -->
+			<BuildingClass>BUILDINGCLASS_MEETING_HALL</BuildingClass>
+			<Type>BUILDING_MEETING_HALL</Type>
+			<Description>TXT_KEY_BUILDING_MEETING_HALL</Description>
+			<Civilopedia>TXT_KEY_BUILDING_MEETING_HALL_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_MEETING_HALL_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_MEETING_HALL</ArtDefineTag>
+			<ObsoleteTech>TECH_RADAR</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_MONARCHY</TechType>
+			</PrereqAndTechs>
+			<iCost>50</iCost>
+			<iLevelPrereq>4</iLevelPrereq>
+			<iAsset>2</iAsset>
+			<iPower>3</iPower>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<ConstructSound>AS2D_BUILD_BARRACKS</ConstructSound>
+			<BonusHealthChanges>
+				<BonusHealthChange>
+					<BonusType>BONUS_ALCOHOL</BonusType>
+					<iChange>-1</iChange>
+				</BonusHealthChange>
+			</BonusHealthChanges>
+			<UnitCombatFreeExperiences>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+					<iExperience>1</iExperience>
+				</UnitCombatFreeExperience>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+					<iExperience>1</iExperience>
+				</UnitCombatFreeExperience>
+			</UnitCombatFreeExperiences>
+			<DomainFreeExperiences>
+				<DomainFreeExperience>
+					<DomainType>DOMAIN_SEA</DomainType>
+					<iExperience>2</iExperience>
+				</DomainFreeExperience>
+			</DomainFreeExperiences>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Mausoleum Of Maussollos -->
 			<BuildingClass>BUILDINGCLASS_MAUSOLEUM_OF_MAUSSOLLOS</BuildingClass>
 			<Type>BUILDING_MAUSOLEUM_OF_MAUSSOLLOS</Type>
