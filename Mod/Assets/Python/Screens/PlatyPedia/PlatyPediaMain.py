@@ -131,7 +131,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		self.iSortTechs = 2		#	[Alphabetic Order, Cost, Era, Advisor, Abilities]
 		self.iSortUnits = 3		#	[Alphabetic Order, Cost, Combat Class, Era, Domain, Limit Class, Advisor, Special Class]
 		self.iSortPromotions = 0	#	[Alphabetic Order, Combat Class, Era]
-		self.iSortBuildings = 2		#	[Alphabetic Order, Cost, Era, Advisor]
+		self.iSortBuildings = 0		#	[Alphabetic Order, Cost, Era, Advisor]
 		self.iSortWonders = 2		#	[Alphabetic Order, Cost, Limit Class, Era, Great People, Advisor]
 		self.iSortProjects = 2		#	[Alphabetic Order, Cost, Limit Class, Era]
 		self.iSortTerrains = 1		#	[Alphabetic Order, Domain]
