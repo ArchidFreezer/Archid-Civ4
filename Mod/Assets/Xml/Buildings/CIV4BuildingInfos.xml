@@ -3469,10 +3469,9 @@
 			<iCost>400</iCost>
 			<iHurryCostModifier>100</iHurryCostModifier>
 			<iConquestProb>100</iConquestProb>
-			<iAreaHappiness>1</iAreaHappiness>
 			<iAsset>4</iAsset>
 			<CommerceChanges>
-				<iCommerce>6</iCommerce>
+				<iCommerce>2</iCommerce>
 			</CommerceChanges>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
