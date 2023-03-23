@@ -3494,7 +3494,7 @@
 			<bAnimated>0</bAnimated>
 			<fScale>0.00</fScale>
 			<fInterfaceScale>0.00</fInterfaceScale>
-			<NIF>Art/Empty.nif</NIF>
+			<NIF>Art/Structures/Buildings/City/asatru_shrine/AsenShrine.nif</NIF>
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/asatru_loki_sanctuary.dds</Button>
 		</BuildingArtInfo>
@@ -3517,6 +3517,16 @@
 			<NIF>Art/Structures/Buildings/City/asatru_shrine/AsenShrine.nif</NIF>
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/asatru_heimdall_sanctuary.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THOR_SANCTUARY</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.45</fScale>
+			<fInterfaceScale>0.83</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/City/asatru_shrine/AsenShrine.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/asatru_thor_sanctuary.dds</Button>
 		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

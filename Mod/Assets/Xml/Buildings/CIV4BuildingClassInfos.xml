@@ -1620,6 +1620,13 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_ASATRU_HEIMDALL_SANCTUARY</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Asatru Wonder (Thor Sanctuary) -->
+			<Type>BUILDINGCLASS_ASATRU_THOR_SANCTUARY</Type>
+			<Description>TXT_KEY_BUILDING_ASATRU_THOR_SANCTUARY</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_ASATRU_THOR_SANCTUARY</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Buddhist Cathedral -->
 			<Type>BUILDINGCLASS_BUDDHIST_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_BUDDHIST_CATHEDRAL</Description>

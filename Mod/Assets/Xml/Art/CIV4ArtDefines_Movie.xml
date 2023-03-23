@@ -430,5 +430,9 @@
 			<Type>ART_DEF_MOVIE_ASATRU_HEIMDALL</Type>
 			<Path>Art/Movies/Wonders/Heimdall.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_THOR_SANCTUARY</Type>
+			<Path>Art/Movies/Wonders/Thor.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>
