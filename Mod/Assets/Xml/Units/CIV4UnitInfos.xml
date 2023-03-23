@@ -4184,9 +4184,6 @@
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_HUNTER</DefaultUnitAI>
 			<bFixedAI>1</bFixedAI>
-			<SeeInvisibles>
-				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
-			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_ATLATL</Description>
 			<Civilopedia>TXT_KEY_UNIT_ATLATL_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ATLATL_STRATEGY</Strategy>
