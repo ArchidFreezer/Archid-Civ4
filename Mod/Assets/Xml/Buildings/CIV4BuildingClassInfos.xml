@@ -696,6 +696,12 @@
 			<iCategory>31</iCategory>
 			<DefaultBuilding>BUILDING_MONUMENT</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Royal Monument -->
+			<Type>BUILDINGCLASS_ROYAL_MONUMENT</Type>
+			<Description>TXT_KEY_BUILDING_ROYAL_MONUMENT</Description>
+			<iCategory>31</iCategory>
+			<DefaultBuilding>BUILDING_ROYAL_MONUMENT</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Sculptor's Workshop -->
 			<Type>BUILDINGCLASS_SCULPTORS_WORKSHOP</Type>
 			<Description>TXT_KEY_BUILDING_SCULPTORS_WORKSHOP</Description>

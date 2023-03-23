@@ -1717,6 +1717,21 @@
 		<Tag>TXT_KEY_BUILDING_RIVERSIDE_PIER_STRATEGY</Tag>
 		<English>Gives 30% bonus for trade routes. Can be built in cities which have access to river. Building Harbor in the same city disables this building.</English>
 	</TEXT>
+	<TEXT> <!-- Royal Monument -->
+		<Tag>TXT_KEY_BUILDING_ROYAL_MONUMENT</Tag>
+		<English>Royal Monument</English>
+		<French>Monument Royal</French>
+		<German>K&#246;nigsdenkmal</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ROYAL_MONUMENT_STRATEGY</Tag>
+		<English>Provides a little Culture and lowers war weariness</English>
+		<French>Procure un peu de Culture et réduit le mécontentement lié à la Guerre.</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ROYAL_MONUMENT_PEDIA</Tag>
+		<English>[TAB]Monuments built to monarchs serve the purpose of securing a legacy for the monarch and their dynasty.  They are commonly built to remember great conquerors and reformer, who intern, help preserve or expand the kingdom.</English>
+	</TEXT>
 	<TEXT> <!-- Sacred Site -->
 		<Tag>TXT_KEY_BUILDING_SACRED_SITE</Tag>
 		<English>Sacred Site</English>
