@@ -437,6 +437,11 @@
 			<Description>TXT_KEY_UNIT_AXEMAN</Description>
 			<DefaultUnit>UNIT_AXEMAN</DefaultUnit>
 		</UnitClassInfo>
+		<UnitClassInfo> <!-- Light Swordsman -->
+			<Type>UNITCLASS_LIGHT_SWORDSMAN</Type>
+			<Description>TXT_KEY_UNIT_LIGHT_SWORDSMAN</Description>
+			<DefaultUnit>UNIT_LIGHT_SWORDSMAN</DefaultUnit>
+		</UnitClassInfo>
 		<UnitClassInfo> <!-- Pikeman -->
 			<Type>UNITCLASS_PIKEMAN</Type>
 			<Description>TXT_KEY_UNIT_PIKEMAN</Description>
@@ -447,10 +452,20 @@
 			<Description>TXT_KEY_UNIT_SWORDSMAN</Description>
 			<DefaultUnit>UNIT_SWORDSMAN</DefaultUnit>
 		</UnitClassInfo>
-		<UnitClassInfo> <!-- Maceman -->
-			<Type>UNITCLASS_MACEMAN</Type>
-			<Description>TXT_KEY_UNIT_MACEMAN</Description>
-			<DefaultUnit>UNIT_MACEMAN</DefaultUnit>
+		<UnitClassInfo> <!-- Heavy Footman -->
+			<Type>UNITCLASS_HEAVY_FOOTMAN</Type>
+			<Description>TXT_KEY_UNIT_HEAVY_FOOTMAN</Description>
+			<DefaultUnit>UNIT_HEAVY_FOOTMAN</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Heavy Pikeman -->
+			<Type>UNITCLASS_HEAVY_PIKEMAN</Type>
+			<Description>TXT_KEY_UNIT_HEAVY_PIKEMAN</Description>
+			<DefaultUnit>UNIT_HEAVY_PIKEMAN</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Heavy Swordsman -->
+			<Type>UNITCLASS_HEAVY_SWORDSMAN</Type>
+			<Description>TXT_KEY_UNIT_HEAVY_SWORDSMAN</Description>
+			<DefaultUnit>UNIT_HEAVY_SWORDSMAN</DefaultUnit>
 		</UnitClassInfo>
 		<UnitClassInfo> <!-- Loki Fist -->
 			<Type>UNITCLASS_ASATRU_LOKI_FIST</Type>

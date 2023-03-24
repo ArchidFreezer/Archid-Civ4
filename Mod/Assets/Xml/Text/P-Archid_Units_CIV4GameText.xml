@@ -619,6 +619,31 @@
 		</Spanish>
 	</TEXT>
 
+	<TEXT> <!-- Heavy Footman -->
+		<Tag>TXT_KEY_UNIT_HEAVY_FOOTMAN</Tag>
+		<English>Heavy Footman</English>
+		<French>
+			<Text>Fantassin lourd</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schwerer Lakai</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Fante pesante</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Lacayo pesado</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>		
+	</TEXT>		
+
 	<TEXT> <!-- Heavy Frigate -->
 		<Tag>TXT_KEY_UNIT_HEAVY_FRIGATE</Tag>
 		<English>Heavy Frigate</English>
@@ -630,6 +655,53 @@
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_HEAVY_FRIGATE_PEDIA</Tag>
 		<English>[TAB]The heavy frigate first built by the Unoted States Navy and could carry up to sixty guns on two decks. These were so welll armed that they were sometimes considered to be equal to Ships of the Line.  Constitution and her sister ships President and United States were created in a response to deal with the Barbary Coast pirates and in conjunction with the Naval Act of 1794. The three big frigates, when built, had a distinctive building pattern which minimised "hogging" (in which the centre of the keel rises while both ends drop) and improves hydrodynamic efficiency.</English>
+	</TEXT>
+
+	<TEXT> <!-- Heavy Pikeman -->
+		<Tag>TXT_KEY_UNIT_HEAVY_PIKEMAN</Tag>
+		<English>Heavy Pikeman</English>
+		<French>Piquier Lourd</French>
+		<German>Schwerer Pikenier</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HEAVY_PIKEMAN_PEDIA</Tag>
+		<English>[BOLD]Strategy:[\BOLD][PARAGRAPH:1]These powerful units are particularly adept at battling mounted foes; they are also good at city-defense.[NEWLINE][NEWLINE][BOLD]Background:[\BOLD][PARAGRAPH:1]With the failure of the Western Roman Empire, the city of Rome was nominally under the protection of Byzantium. However, the Byzantines did little to support Rome, and the Pope had to field his own army to defend the Holy City.[PARAGRAPH:1]Papal Pikemen are heavy spearmen. They are loosely based upon the Swiss Guard mercenary units that have defended the Vatican for the past five centuries (although the Guard actually appeared some 700 years after the events in this scenario).</English>
+		<French>
+			<Text>[BOLD]Strat&#233;gie :[\BOLD][PARAGRAPH:1]Ces puissantes unit&#233;s pontificales sont expertes dans l'art d'affronter les ennemis mont&#233;s. Elles sont aussi efficaces pour d&#233;fendre les villes.[NEWLINE][NEWLINE][BOLD]Histoire :[\BOLD][PARAGRAPH:1]Apr&#232;s l'effondrement de l'Empire romain d'Occident, la ville de Rome se retrouva plac&#233;e sous la protection des Byzantins. Toutefois, les Byzantins ne firent pas grand-chose pour aider Rome, et le pape dut former sa propre arm&#233;e pour d&#233;fendre la ville sainte.[PARAGRAPH:1]Les piquiers pontificaux sont des lanciers lourds. Ils sont inspir&#233;s des mercenaires de la garde suisse du Vatican, m&#234;me si cette garde apparut en fait sept si&#232;cles apr&#232;s les &#233;v&#233;nements de ce sc&#233;nario.</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>[BOLD]Strategie:[\BOLD][PARAGRAPH:1]Diese starken p&#228;pstlichen Einheiten sind besonders geschickt im Kampf gegen berittene Feinde, und auch in der St&#228;dteverteidigung sind sie recht effektiv.[NEWLINE][NEWLINE][BOLD]Hintergrund:[\BOLD][PARAGRAPH:1]Mit dem Scheitern des R&#246;mischen Reiches stand die Stadt Rom theoretisch unter dem Schutze Konstantinopels. Die Byzantiner waren taten jedoch recht wenig, um Rom zu unterst&#252;tzen, und der Papst sah sich gezwungen, eine eigene Armee aufzubauen, um die Heilige Stadt zu verteidigen.[PARAGRAPH:1]P&#228;pstliche Pikeniere sind schwere Speerk&#228;mpfer. Sie basieren lose auf der Schweizer Garde, die den Vatikan in den letzten f&#252;nf Jahrhunderten verteidigt hat (auch wenn die Garde eigentlich erst etwa 700 Jahre nach den Ereignissen dieses Szenarios in Erscheinung trat).</German>
+		<Italian>
+			<Text>[BOLD]Strategia:[\BOLD][PARAGRAPH:1]Queste potenti unit&#224; papali sono particolarmente adatte a combattere nemici a cavallo; vanno inoltre bene per difendere le citt&#224;.[NEWLINE][NEWLINE][BOLD]Informazioni:[\BOLD][PARAGRAPH:1]Con la caduta dell'Impero Romano d'Occidente, la citt&#224; di Roma era nominalmente sotto la protezione di Bisanzio. I Bizantini per&#242; fecero ben poco per supportare Roma e il papa dovette creare un proprio esercito per difendere la Citt&#224; Santa.[PARAGRAPH:1]I picchieri papali sono lancieri pesanti. Si basano indicativamente sulle unit&#224; mercenarie della Guardia Svizzera che hanno difeso il Vaticano negli ultimi cinque secoli (anche se la Guardia &#232; apparsa circa 700 anni dopo gli eventi di questo scenario).</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>[BOLD]Estrategia:[\BOLD][PARAGRAPH:1]Estas poderosas unidades pontificias son especialmente eficaces contra las unidades montadas, as&#237; como para defender ciudades.[NEWLINE][NEWLINE][BOLD]Historia:[\BOLD][PARAGRAPH:1]Con la desaparici&#243;n del Imperio Romano de occidente, la ciudad de Roma qued&#243; nominalmente bajo la protecci&#243;n de Bizancio. Sin embargo, los bizantinos no hicieron gran cosa para proteger Roma, y los Papas tuvieron que reclutar sus propios ej&#233;rcitos para defender la Ciudad Santa.[PARAGRAPH:1]Los piqueros papales son lanceros pesados. Estas unidades se basan en los mercenarios de la Guardia Suiza que llevan cinco siglos defendiendo la ciudad del Vaticano (a pesar de que la aut&#233;ntica Guardia no apareci&#243; hasta 700 a&#241;os despu&#233;s de los sucesos de este escenario).</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HEAVY_PIKEMAN_STRATEGY</Tag>
+		<English>These powerful units are particularly adept at battling mounted foes; they are also good at city-defense.</English>
+		<French>
+			<Text>Ces puissantes unit&#233;s pontificales sont expertes dans l'art d'affronter les ennemis mont&#233;s. Elles sont aussi efficaces pour d&#233;fendre les villes.</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Diese starken p&#228;pstlichen Einheiten sind besonders geschickt im Kampf gegen berittene Feinde, und auch in der St&#228;dteverteidigung sind sie recht effektiv.</German>
+		<Italian>
+			<Text>Queste potenti unit&#224; papali sono particolarmente adatte a combattere nemici a cavallo; vanno inoltre bene per difendere le citt&#224;.</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Estas poderosas unidades pontificias son especialmente eficaces contra las unidades montadas, as&#237; como para defender ciudades.</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
 	</TEXT>
 
 	<TEXT> <!-- Heavy Privateer -->
@@ -663,6 +735,67 @@
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_HEAVY_PRIVATEER_PEDIA</Tag>
 		<English>[TAB] The heaviest privateer ship being capable to withstanding the attentions of the Sloops of War that are the bane of the standard privateers and being able to outrun the Ship of the Line. </English>
+	</TEXT>
+
+	<TEXT> <!-- Heavy Swordsman -->
+		<Tag>TXT_KEY_UNIT_HEAVY_SWORDSMAN</Tag>
+		<English>Heavy Swordsman</English>
+		<French>
+			<Text>Spadassin lourd</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Schwerer Schwertk&#228;mpfer</German>
+		<Italian>
+			<Text>Spadaccino pesante:Spadaccini pesanti</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Soldado con espada pesada:Soldados con espada pesada</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CHARL_UNIT_HEAVY_SWORDSMAN_PEDIA</Tag>
+		<English>[BOLD]Strategy:[\BOLD][PARAGRAPH:1]These more powerful sword units can take on moderately-defended cities when backed up by siege units.[NEWLINE][NEWLINE][BOLD]Background:[\BOLD][PARAGRAPH:1]Heavy swords tend to be longer and heavier (of course) than light swords. They often require two hands to wield, and are typically employed as slashing weapons. A Heavy Swordsman will generally be better-armored than a Light Swordsman, and thus able to both dish out and take more damage.</English>
+		<French>
+			<Text>[BOLD]Strat&#233;gie :[\BOLD][PARAGRAPH:1]Ces unit&#233;s de spadassins plus puissantes peuvent attaquer des villes moyennement d&#233;fendues avec l'appui d'unit&#233;s de si&#232;ge.[NEWLINE][NEWLINE][BOLD]Histoire :[\BOLD][PARAGRAPH:1]Les &#233;p&#233;es lourdes sont g&#233;n&#233;ralement plus longues et &#233;videmment plus lourdes que les &#233;p&#233;es l&#233;g&#232;res. Elles se manient souvent &#224; deux mains et servent g&#233;n&#233;ralement &#224; porter des coups de taille. Un spadassin lourd a g&#233;n&#233;ralement une meilleure armure qu'un spadassin l&#233;ger, ce qui lui permet d'infliger et de recevoir plus de d&#233;g&#226;ts.</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>[BOLD]Strategie:[\BOLD][PARAGRAPH:1]Diese m&#228;chtigeren Schwerteinheiten k&#246;nnen m&#228;&#223;ig befestigte St&#228;dte einnehmen, wenn sie von Belagerungseinheiten unterst&#252;tzt werden.[NEWLINE][NEWLINE][BOLD]Hintergrund:[\BOLD][PARAGRAPH:1]Schwere Schwerter sind l&#228;nger und (nat&#252;rlich) schwerer als leichte Schwerter. Man braucht oft beide H&#228;nde, um sie zu schwingen, und sie werden als Hiebwaffe eingesetzt. Ein schwerer Schwertk&#228;mpfer wird generell besser gepanzert sein als ein leichter und kann dadurch mehr Schaden einstecken und anrichten.</German>
+		<Italian>
+			<Text>[BOLD]Strategia:[\BOLD][PARAGRAPH:1]Queste unit&#224; armate con spada, pi&#249; potenti di quelle normali, possono conquistare citt&#224; moderatamente difese, con l'aiuto di unit&#224; d'assedio.[NEWLINE][NEWLINE][BOLD]Informazioni:[\BOLD][PARAGRAPH:1]Le spade pesanti tendono a essere pi&#249; lunghe e pesanti (chiaramente) di quelle leggere. Di solito devono essere impugnate a due mani e sono tipicamente usate come armi da fendenti. Uno spadaccino pesante sar&#224; generalmente pi&#249; corazzato di uno leggero, e quindi in grado di causare e ricevere pi&#249; danni.</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>[BOLD]Estrategia:[\BOLD][PARAGRAPH:1]Estas unidades son m&#225;s poderosas que los espadachines normales y, si cuentan con el respaldo de unidades de asedio, pueden conquistar ciudades no demasiado bien defendidas.[NEWLINE][NEWLINE][BOLD]Historia:[\BOLD][PARAGRAPH:1]Las espadas pesadas eran m&#225;s largas y, l&#243;gicamente,m&#225;s pesadas que las normales. A menudo deb&#237;an empu&#241;arse con las dos manos, y normalmente se empleaban como armas cortantes. Normalmente los soldados con espada pesada llevaban mejor armadura que sus equivalentes m&#225;s ligeros, lo que significa que pod&#237;an tanto recibir como infligir m&#225;s da&#241;o.</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CHARL_UNIT_HEAVY_SWORDSMAN_STRATEGY</Tag>
+		<English>These more powerful sword units can take on moderately-defended cities when backed up by siege units.</English>
+		<French>
+			<Text>Ces unit&#233;s de spadassins plus puissantes peuvent attaquer des villes moyennement d&#233;fendues avec l'appui d'unit&#233;s de si&#232;ge.</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>Diese m&#228;chtigeren Schwerteinheiten k&#246;nnen m&#228;&#223;ig befestigte St&#228;dte einnehmen, wenn sie von Belagerungseinheiten unterst&#252;tzt werden.</German>
+		<Italian>
+			<Text>Queste unit&#224; armate con spada, pi&#249; potenti di quelle normali, possono conquistare citt&#224; moderatamente difese, con l'aiuto di unit&#224; d'assedio.</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Estas unidades son m&#225;s poderosas que los espadachines normales y, si cuentan con el respaldo de unidades de asedio, pueden conquistar ciudades no demasiado bien defendidas.</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
 	</TEXT>
 
 	<TEXT> <!-- Horse -->
@@ -757,6 +890,27 @@
 			<Text>Estas unidades pueden ser especialmente eficaces frente a arqueros o a unidades de cuerpo a cuerpo a campo abierto. </Text>
 			<Gender>Male:Female:Male:Female</Gender>
 			<Plural>0:0:1:1</Plural>
+		</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Light Swordsman -->
+		<Tag>TXT_KEY_UNIT_LIGHT_SWORDSMAN</Tag>
+		<English>Light Swordsman</English>
+		<French>
+			<Text>Spadassin l&#233;ger</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Leichter Schwertk&#228;mpfer</German>
+		<Italian>
+			<Text>Spadaccino leggero:Spadaccini leggeri</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Soldado con espada ligera:Soldados con espada ligera</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
 		</Spanish>
 	</TEXT>
 

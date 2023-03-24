@@ -5082,7 +5082,7 @@
 			<bInGeneric>1</bInGeneric>
 		</SoundData>
 		<SoundData>
-			<SoundID>SND_BUILD_MACEMAN</SoundID>
+			<SoundID>SND_BUILD_HEAVY_FOOTMAN</SoundID>
 			<Filename>Sounds/Units/BuildMaceman</Filename>
 			<LoadType>DYNAMIC_RES</LoadType>
 			<bIsCompressed>1</bIsCompressed>

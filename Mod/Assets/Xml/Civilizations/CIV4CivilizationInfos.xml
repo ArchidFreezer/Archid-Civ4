@@ -1752,7 +1752,7 @@
 			</Buildings>
 			<Units>
 				<Unit>
-					<UnitClassType>UNITCLASS_MACEMAN</UnitClassType>
+					<UnitClassType>UNITCLASS_HEAVY_FOOTMAN</UnitClassType>
 					<UnitType>UNIT_JAPAN_SAMURAI</UnitType>
 				</Unit>
 			</Units>
@@ -3167,7 +3167,7 @@
 			</Buildings>
 			<Units>
 				<Unit>
-					<UnitClassType>UNITCLASS_MACEMAN</UnitClassType>
+					<UnitClassType>UNITCLASS_HEAVY_FOOTMAN</UnitClassType>
 					<UnitType>UNIT_VIKING_BESERKER</UnitType>
 				</Unit>
 			</Units>
