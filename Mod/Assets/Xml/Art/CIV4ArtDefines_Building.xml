@@ -3638,5 +3638,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/glasssmith.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_POLIS_COUNCIL</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.0</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/polis_council/Parthenon.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/polis_council.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

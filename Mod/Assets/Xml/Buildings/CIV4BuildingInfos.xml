@@ -13192,6 +13192,44 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Polis Council -->
+			<BuildingClass>BUILDINGCLASS_POLIS_COUNCIL</BuildingClass>
+			<Type>BUILDING_POLIS_COUNCIL</Type>
+			<Description>TXT_KEY_BUILDING_POLIS_COUNCIL</Description>
+			<Civilopedia>TXT_KEY_BUILDING_POLIS_COUNCIL_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_POLIS_COUNCIL_STRATEGY</Strategy>
+			<Help><!--TXT_KEY_BUILDING_POLIS_COUNCIL_HELP--></Help>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_POLIS_COUNCIL</ArtDefineTag>
+			<PrereqAndCivics>
+				<CivicType>CIVIC_SENATE</CivicType>
+			</PrereqAndCivics>
+			<ObsoleteTech>TECH_REPRESENTATIVE_DEMOCRACY</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_CODE_OF_LAWS</TechType>
+			</PrereqAndTechs>
+			<iCost>120</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMaintenanceModifier>-10</iMaintenanceModifier>
+			<iHappiness>1</iHappiness>
+			<iAsset>2</iAsset>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<ConstructSound>AS2D_BUILD_AGORA</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GOLD</FlavorType>
+					<iFlavor>4</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>4</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Pont Du Gard Aqueduct -->
 			<BuildingClass>BUILDINGCLASS_PONT_DU_GARD_AQUEDUCT</BuildingClass>
 			<Type>BUILDING_PONT_DU_GARD_AQUEDUCT</Type>

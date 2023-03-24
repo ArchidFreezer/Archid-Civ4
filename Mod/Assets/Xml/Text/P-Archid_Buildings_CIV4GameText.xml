@@ -1648,6 +1648,25 @@
 		<Tag>TXT_KEY_BUILDING_PLAGUE_HOSPITAL_PEDIA</Tag>
 		<English>[TAB]A plague hospital is an old institution where victims of various contagions are quarantined.  The Abbassids realized that disease spread from person to person, and wrote the first accurate descriptions of measles and smallpox. To respond to this, they built clean hospitals to treat victims of disease.  Lazzaretti in Italy where used to quarantine sailors to stop the spread of the Bubonic Plague; eventually, any plague victims where placed there.  Lazzaretti were also used as a model for quarantining syphilitics after it spread to Italy in 1494.</English>
 	</TEXT>
+	<TEXT> <!-- Polis Council -->
+		<Tag>TXT_KEY_BUILDING_POLIS_COUNCIL</Tag>
+		<English>Polis Council</English>
+		<French>
+			<Text>Conseil de la Polis</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Rat der Polis</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_POLIS_COUNCIL_STRATEGY</Tag>
+		<English>Increases Happiness and decreases city Maintenance</English>
+		<French>Augmente le Bonheur et réduit le coût d'entretien de la Ville</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_POLIS_COUNCIL_PEDIA</Tag>
+		<English>[TAB]A polis is a city, a city-state and also citizenship and body of citizens. When used to describe Classical Athens and its contemporaries, polis is often translated as "city-state."  The word originates from the ancient Greek city-states, which developed during the Archaic period, the ancestor of city, state and citizenship, and persisted well into Roman times, when the equivalent Latin word was civitas, also meaning 'citizenhood', while municipium applied to a non-sovereign local entity. The term city-state which originated in English does not fully translate the Greek term. The poleis were not like other primordial ancient city-states like Tyre or Sidon, which were ruled by a king or a small oligarchy, but rather a political entity ruled by its body of citizens.</English>
+	</TEXT>
 	<TEXT> <!-- Pont du Gard -->
 		<Tag>TXT_KEY_BUILDING_PONT_DU_GARD_AQUEDUCT</Tag>
 		<English>Pont du Gard</English>

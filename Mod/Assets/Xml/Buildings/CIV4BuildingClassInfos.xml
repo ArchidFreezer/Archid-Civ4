@@ -414,6 +414,12 @@
 			<iCategory>23</iCategory>
 			<DefaultBuilding>BUILDING_COURTHOUSE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Polis Council -->
+			<Type>BUILDINGCLASS_POLIS_COUNCIL</Type>
+			<Description>TXT_KEY_BUILDING_POLIS_COUNCIL</Description>
+			<iCategory>23</iCategory>
+			<DefaultBuilding>BUILDING_POLIS_COUNCIL</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Candlemaker -->               <!-- Production -->
 			<Type>BUILDINGCLASS_CANDLEMAKER</Type>
