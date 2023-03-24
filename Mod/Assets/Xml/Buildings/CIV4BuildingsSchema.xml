@@ -486,6 +486,8 @@
 	<ElementType name="SeeInvisibles" content="eltOnly">
 		<element type="InvisibleType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="iPopulationGrowthRateModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="iGlobalPopulationGrowthRateModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="BuildingInfo" content="eltOnly">
 		<element type="BuildingClass"/>
 		<element type="Type"/>
@@ -628,6 +630,8 @@
 		<element type="iGlobalTradeRoutes" minOccurs="0"/>
 		<element type="iTradeRouteModifier" minOccurs="0"/>
 		<element type="iForeignTradeRouteModifier" minOccurs="0"/>
+		<element type="iPopulationGrowthRateModifier" minOccurs="0"/>
+		<element type="iGlobalPopulationGrowthRateModifier" minOccurs="0"/>
 		<element type="iGlobalPopulationChange" minOccurs="0"/>
 		<element type="iGlobalFoundPopulationChange" minOccurs="0"/>
 		<element type="iFreeTechs" minOccurs="0"/>

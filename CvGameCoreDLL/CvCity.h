@@ -34,6 +34,9 @@ public:
 
 	void kill(bool bUpdatePlotGroups);																								// Exposed to Python
 
+	int getPopulationGrowthRateModifier() const;
+	void changePopulationGrowthRateModifier(int iChange);
+
 	bool isUnitCityDeathCulture() const;
 	void changeUnitCityDeathCultureCount(int iChange);
 
@@ -1183,6 +1186,7 @@ protected:
 	int m_iImprovementGoodHealth;
 	int m_iApplyFreePromotionsOnMoveCount;
 	int m_iUnitCityDeathCultureCount;
+	int m_iPopulationGrowthRateModifier;
 
 	bool m_bNeverLost;
 	bool m_bBombarded;

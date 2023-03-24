@@ -1782,5 +1782,23 @@
 		<Tag>TXT_KEY_BUILDING_WONDER_PRODUCTION_MODIFIER</Tag>
 		<English>[ICON_BULLET]Wonder productioon changed by %d1_modifier%</English>
 	</TEXT>
+<!-- Populaton Growth Modifers -->
+	<Text>
+		<Tag>TXT_KEY_BUILDING_CITY_SLOW_GROWTH_SPEED</Tag>
+		<English>[ICON_BULLET]City requires %d1%% More [ICON_FOOD] to Grow</English>
+   </Text>
+	<Text>
+		<Tag>TXT_KEY_BUILDING_CITY_FAST_GROWTH_SPEED</Tag>
+		<English>[ICON_BULLET]City requires %d1%% Less [ICON_FOOD] to Grow</English>
+   </Text>
+	<Text>
+		<Tag>TXT_KEY_BUILDING_PLAYER_SLOW_GROWTH_SPEED</Tag>
+		<English>[ICON_BULLET]All cities require %d1%% More [ICON_FOOD] to Grow</English>
+   </Text>
+	<Text>
+		<Tag>TXT_KEY_BUILDING_PLAYER_FAST_GROWTH_SPEED</Tag>
+		<English>[ICON_BULLET]All cities require %d1%% Less [ICON_FOOD] to Grow</English>
+   </Text>
+
 
 </Civ4GameText>

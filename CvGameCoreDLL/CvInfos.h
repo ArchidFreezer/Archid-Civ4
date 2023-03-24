@@ -1932,6 +1932,8 @@ public:
 	int getGlobalWonderProductionModifier() const;
 	int getNumFreePromotions() const;
 	int getNumSeeInvisibles() const;
+	int getPopulationGrowthRateModifier() const;
+	int getGlobalPopulationGrowthRateModifier() const;
 
 	float getVisibilityPriority() const;
 
@@ -2197,6 +2199,8 @@ protected:
 	int m_iCreateFeatureType;
 	int m_iGlobalFoundPopulationChange;
 	int m_iGlobalWonderProductionModifier;
+	int m_iPopulationGrowthRateModifier;
+	int m_iGlobalPopulationGrowthRateModifier;
 
 	float m_fVisibilityPriority;
 

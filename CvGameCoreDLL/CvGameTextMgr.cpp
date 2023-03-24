@@ -9146,6 +9146,22 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_EXPANDS_WORKABLE_RADIUS", kBuilding.getWorkableRadius()));
 	}
 
+	if (kBuilding.getPopulationGrowthRateModifier() > 0) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_CITY_FAST_GROWTH_SPEED", kBuilding.getPopulationGrowthRateModifier()));
+	} else if (kBuilding.getPopulationGrowthRateModifier() < 0) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_CITY_SLOW_GROWTH_SPEED", -kBuilding.getPopulationGrowthRateModifier()));
+	}
+
+	if (kBuilding.getGlobalPopulationGrowthRateModifier() > 0) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_PLAYER_FAST_GROWTH_SPEED", kBuilding.getGlobalPopulationGrowthRateModifier()));
+	} else if (kBuilding.getGlobalPopulationGrowthRateModifier() < 0) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_PLAYER_SLOW_GROWTH_SPEED", -kBuilding.getGlobalPopulationGrowthRateModifier()));
+	}
+
 	bool bFirst = true;
 	for (int iIndex = 0; iIndex < kBuilding.getNumSeeInvisibles(); ++iIndex) {
 		if (kBuilding.getSeeInvisible(iIndex) != NO_INVISIBLE) {
