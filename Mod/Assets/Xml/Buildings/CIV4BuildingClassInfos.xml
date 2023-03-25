@@ -1783,6 +1783,13 @@
 			<iCategory>5</iCategory>
 			<DefaultBuilding>BUILDING_CONFUCIAN_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Confucian Wonder (San Kong) -->
+			<Type>BUILDINGCLASS_CONFUCIAN_SAN_KONG</Type>
+			<Description>TXT_KEY_CONFUCIAN_SAN_KONG</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_CONFUCIAN_SAN_KONG</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Hellenic Cathedral (Pantheon) -->
 			<Type>BUILDINGCLASS_HELLENIC_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_HELLENIC_CATHEDRAL</Description>

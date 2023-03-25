@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+	Reminder
+	by eotinb, EmperorFool, Ruff_Hi
+
+	Copyright (c) 2008 The BUG Mod.
+-->
+<mod id="SanKongWonder" name="San Kong Wonder" module="SanKongUtils">
+
+	<event type="buildingBuilt" module="SanKongUtils" function="onBuildingBuilt"/>
+	
+</mod>

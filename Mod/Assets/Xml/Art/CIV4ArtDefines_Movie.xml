@@ -434,5 +434,9 @@
 			<Type>ART_DEF_MOVIE_THOR_SANCTUARY</Type>
 			<Path>Art/Movies/Wonders/Thor.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_CONFUCIAN_SAN_KONG</Type>
+			<Path>Art/Movies/Wonders/san_kong.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

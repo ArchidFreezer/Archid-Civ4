@@ -81,6 +81,7 @@
 	<load mod="MigratingGP"/>
 	<load mod="MiscHovers"/>
 	<load mod="NationalMintWonder"/>
+	<load mod="SanKongWonder"/>
 	<load mod="StrategyOverlay"/>
 	<load mod="UnitActions"/>
 	<load mod="UnitAutomations"/>
