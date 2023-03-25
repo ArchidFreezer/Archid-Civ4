@@ -2871,13 +2871,18 @@
 			</GreatPeoples>
 			<SlaveSpecialistType>SPECIALIST_PRIEST_SLAVE</SlaveSpecialistType>
 			<Buildings>
-				<BuildingType>BUILDING_JEWISH_SHRINE</BuildingType>
-				<BuildingType>BUILDING_CHRISTIAN_SHRINE</BuildingType>
-				<BuildingType>BUILDING_ISLAMIC_SHRINE</BuildingType>
-				<BuildingType>BUILDING_HINDU_SHRINE</BuildingType>
+				<BuildingType>BUILDING_ASATRU_SHRINE</BuildingType>
 				<BuildingType>BUILDING_BUDDHIST_SHRINE</BuildingType>
+				<BuildingType>BUILDING_CHRISTIAN_SHRINE</BuildingType>
 				<BuildingType>BUILDING_CONFUCIAN_SHRINE</BuildingType>
+				<BuildingType>BUILDING_HELLENIC_SHRINE</BuildingType>
+				<BuildingType>BUILDING_HINDU_SHRINE</BuildingType>
+				<BuildingType>BUILDING_ISLAMIC_SHRINE</BuildingType>
+				<BuildingType>BUILDING_JEWISH_SHRINE</BuildingType>
+				<BuildingType>BUILDING_KEMETIC_SHRINE</BuildingType>
+				<BuildingType>BUILDING_NAGUALISTIC_SHRINE</BuildingType>
 				<BuildingType>BUILDING_TAOIST_SHRINE</BuildingType>
+				<BuildingType>BUILDING_ZOROASTRIAN_SHRINE</BuildingType>
 			</Buildings>
 			<Flavors>
 				<Flavor>
