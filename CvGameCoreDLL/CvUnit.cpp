@@ -1504,7 +1504,8 @@ void CvUnit::updateCombat(bool bQuick) {
 
 			CvWString szBuffer;
 			// Check if any slaves have been taken
-			if (enslaveUnit(this, pDefender)) {
+			bool bEnslaved = enslaveUnit(this, pDefender);
+			if (bEnslaved) {
 				szBuffer = gDLL->getText("TXT_KEY_SLAVERY_ATTACK_YOU_ENSLAVED_ENEMY_UNIT", pDefender->getNameKey());
 			} else if (pDefender->isRout()) {
 				szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_UNIT_ROUTED_ENEMY", getNameKey(), pDefender->getNameKey());
@@ -1561,7 +1562,7 @@ void CvUnit::updateCombat(bool bQuick) {
 			} else {
 				bAdvance = canAdvance(pPlot, ((pDefender->canDefend()) ? 1 : 0));
 
-				if (bAdvance) {
+				if (bAdvance && !bEnslaved) {
 					if (!isNoCapture() || (pDefender->isRout() && pDefender->isMechUnit())) {
 						pDefender->setCapturingPlayer(getOwnerINLINE());
 					}
