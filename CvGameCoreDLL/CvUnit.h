@@ -88,6 +88,8 @@ public:
 	void reset(int iID = 0, UnitTypes eUnit = NO_UNIT, PlayerTypes eOwner = NO_PLAYER, bool bConstructorCall = false);
 	void setupGraphical();
 
+	void addUnitCombatType(UnitCombatTypes eUnitCombat);
+
 	int getFoundPopChange() const;
 
 	bool processRout(int iExtraDamage, int iMoraleModifier);
@@ -1129,6 +1131,8 @@ protected:
 	int* m_paiExtraUnitCombatModifier;
 	int* m_paiEnslavedCount;
 	int* m_paiSeeInvisibleCount;
+
+	std::vector<UnitCombatTypes> m_vExtraUnitCombatTypes;
 
 	std::map<BuildTypes, std::map< FeatureTypes, int> > m_mmBuildLeavesFeatures;
 

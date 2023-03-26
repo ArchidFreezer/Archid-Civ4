@@ -8099,7 +8099,7 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 	int iSameCombat = 0;
 
 	for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
-		if (eUnitCombat == getUnitCombatType()) {
+		if (isUnitCombatType(eUnitCombat)) {
 			iSameCombat += unitCombatModifier(eUnitCombat);
 		} else {
 			iOtherCombat += unitCombatModifier(eUnitCombat);
@@ -8110,7 +8110,7 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		iTemp = kPromotion.getUnitCombatModifierPercent(eUnitCombat);
 		int iCombatWeight = 0;
 		//Fighting their own kind
-		if (eUnitCombat == getUnitCombatType()) {
+		if (isUnitCombatType(eUnitCombat)) {
 			if (iSameCombat >= iOtherCombat) {
 				iCombatWeight = 70;//"axeman takes formation"
 			} else {

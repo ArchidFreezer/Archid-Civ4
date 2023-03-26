@@ -16318,16 +16318,16 @@ void CvPlayer::applyEvent(EventTypes eEvent, int iEventTriggeredId, bool bUpdate
 		pUnit->applyEvent(eEvent);   // might kill the unit
 	}
 
-	for (int i = 0; i < GC.getNumUnitCombatInfos(); ++i) {
-		if (NO_PROMOTION != kEvent.getUnitCombatPromotion(i)) {
+	for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+		if (NO_PROMOTION != kEvent.getUnitCombatPromotion(eUnitCombat)) {
 			int iLoop;
 			for (CvUnit* pLoopUnit = firstUnit(&iLoop); NULL != pLoopUnit; pLoopUnit = nextUnit(&iLoop)) {
-				if (pLoopUnit->getUnitCombatType() == i) {
-					pLoopUnit->setHasPromotion((PromotionTypes)kEvent.getUnitCombatPromotion(i), true);
+				if (pLoopUnit->isUnitCombatType(eUnitCombat)) {
+					pLoopUnit->setHasPromotion((PromotionTypes)kEvent.getUnitCombatPromotion(eUnitCombat), true);
 				}
 			}
 
-			setFreePromotion((UnitCombatTypes)i, (PromotionTypes)kEvent.getUnitCombatPromotion(i), true);
+			setFreePromotion(eUnitCombat, (PromotionTypes)kEvent.getUnitCombatPromotion(eUnitCombat), true);
 		}
 	}
 

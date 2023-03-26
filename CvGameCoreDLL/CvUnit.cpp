@@ -184,18 +184,22 @@ void CvUnit::init(int iID, UnitTypes eUnit, UnitAITypes eUnitAI, PlayerTypes eOw
 			const CvTraitInfo& kTrait = GC.getTraitInfo(eTrait);
 			for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumPromotionInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
 				if (kTrait.isFreePromotion(ePromotion)) {
-					if ((getUnitCombatType() != NO_UNITCOMBAT) && kTrait.isFreePromotionUnitCombat(getUnitCombatType())) {
-						setHasPromotion(ePromotion, true);
+					for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+						if (isUnitCombatType(eUnitCombat) && kTrait.isFreePromotionUnitCombat(eUnitCombat)) {
+							setHasPromotion(ePromotion, true);
+						}
 					}
 				}
 			}
 		}
 	}
 
-	if (NO_UNITCOMBAT != getUnitCombatType()) {
-		for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumPromotionInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
-			if (kOwner.isFreePromotion(getUnitCombatType(), ePromotion)) {
-				setHasPromotion(ePromotion, true);
+	for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+		if (isUnitCombatType(eUnitCombat)) {
+			for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumPromotionInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
+				if (kOwner.isFreePromotion(eUnitCombat, ePromotion)) {
+					setHasPromotion(ePromotion, true);
+				}
 			}
 		}
 	}
@@ -438,6 +442,8 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 		for (InvisibleTypes eInvisible = (InvisibleTypes)0; eInvisible < GC.getNumInvisibleInfos(); eInvisible = (InvisibleTypes)(eInvisible + 1)) {
 			m_paiSeeInvisibleCount[eInvisible] = 0;
 		}
+
+		m_vExtraUnitCombatTypes.clear();
 
 		m_mmBuildLeavesFeatures.clear();
 
@@ -6609,6 +6615,9 @@ bool CvUnit::isUnitCombatType(UnitCombatTypes eUnitCombat) const {
 	if (getUnitCombatType() == eUnitCombat)
 		return true;
 
+	if (std::find(m_vExtraUnitCombatTypes.begin(), m_vExtraUnitCombatTypes.end(), eUnitCombat) != m_vExtraUnitCombatTypes.end())
+		return true;
+
 	// In some case the units combat class does not match its unitinfo class and in
 	// those cases we don't want to to check the unitinfo
 	if (getUnitCombatType() == m_pUnitInfo->getUnitCombatType())
@@ -7228,18 +7237,23 @@ int CvUnit::maxCombatStr(const CvPlot* pPlot, const CvUnit* pAttacker, CombatDet
 				pCombatDetails->iClassAttackModifier = iExtraModifier;
 			}
 
-			if (pAttacker->getUnitCombatType() != NO_UNITCOMBAT) {
-				iExtraModifier = unitCombatModifier(pAttacker->getUnitCombatType());
-				iTempModifier += iExtraModifier;
-				if (pCombatDetails != NULL) {
-					pCombatDetails->iCombatModifierA = iExtraModifier;
+			for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+				if (pAttacker->isUnitCombatType(eUnitCombat)) {
+					iExtraModifier = unitCombatModifier(eUnitCombat);
+					iTempModifier += iExtraModifier;
+					if (pCombatDetails != NULL) {
+						pCombatDetails->iCombatModifierA = iExtraModifier;
+					}
 				}
 			}
-			if (getUnitCombatType() != NO_UNITCOMBAT) {
-				iExtraModifier = -pAttacker->unitCombatModifier(getUnitCombatType());
-				iTempModifier += iExtraModifier;
-				if (pCombatDetails != NULL) {
-					pCombatDetails->iCombatModifierT = iExtraModifier;
+
+			for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+				if (isUnitCombatType(eUnitCombat)) {
+					iExtraModifier = -pAttacker->unitCombatModifier(eUnitCombat);
+					iTempModifier += iExtraModifier;
+					if (pCombatDetails != NULL) {
+						pCombatDetails->iCombatModifierT = iExtraModifier;
+					}
 				}
 			}
 
@@ -7458,8 +7472,10 @@ int CvUnit::airMaxCombatStr(const CvUnit* pOther) const {
 	}
 
 	if (NULL != pOther) {
-		if (pOther->getUnitCombatType() != NO_UNITCOMBAT) {
-			iModifier += unitCombatModifier(pOther->getUnitCombatType());
+		for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+			if (pOther->isUnitCombatType(eUnitCombat)) {
+				iModifier += unitCombatModifier(eUnitCombat);
+			}
 		}
 
 		iModifier += domainModifier(pOther->getDomainType());
@@ -10318,6 +10334,15 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(GC.getNumSpecialistInfos(), m_paiEnslavedCount);
 	pStream->Read(GC.getNumInvisibleInfos(), m_paiSeeInvisibleCount);
 
+	int iNumElements;
+	int iElement;
+	pStream->Read(&iNumElements);
+	m_vExtraUnitCombatTypes.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		pStream->Read(&iElement);
+		m_vExtraUnitCombatTypes.push_back((UnitCombatTypes)iElement);
+	}
+
 	int iOuterMapCount;
 	pStream->Read(&iOuterMapCount);
 	for (int i = 0; i < iOuterMapCount; i++) {
@@ -10479,6 +10504,11 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(GC.getNumSpecialistInfos(), m_paiEnslavedCount);
 	pStream->Write(GC.getNumInvisibleInfos(), m_paiSeeInvisibleCount);
 
+	pStream->Write(m_vExtraUnitCombatTypes.size());
+	for (std::vector<UnitCombatTypes>::iterator it = m_vExtraUnitCombatTypes.begin(); it != m_vExtraUnitCombatTypes.end(); ++it) {
+		pStream->Write(*it);
+	}
+
 	pStream->Write(m_mmBuildLeavesFeatures.size());
 	for (std::map<BuildTypes, std::map< FeatureTypes, int> >::iterator itB = m_mmBuildLeavesFeatures.begin(); itB != m_mmBuildLeavesFeatures.end(); itB++) {
 		pStream->Write(itB->first);
@@ -10553,31 +10583,33 @@ void CvUnit::collateralCombat(const CvPlot* pPlot, CvUnit* pSkipUnit) {
 		CvUnit* pTargetUnit = ::getUnit(targetUnits[i].second);
 		FAssert(pTargetUnit);
 
-		if (NO_UNITCOMBAT == getUnitCombatType() || !pTargetUnit->getUnitInfo().getUnitCombatCollateralImmune(getUnitCombatType())) {
-			int iTheirStrength = pTargetUnit->baseCombatStr();
+		for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+			if (NO_UNITCOMBAT == getUnitCombatType() || !(isUnitCombatType(eUnitCombat) && pTargetUnit->getUnitInfo().getUnitCombatCollateralImmune(eUnitCombat))) {
+				int iTheirStrength = pTargetUnit->baseCombatStr();
 
-			int iStrengthFactor = ((iCollateralStrength + iTheirStrength + 1) / 2);
+				int iStrengthFactor = ((iCollateralStrength + iTheirStrength + 1) / 2);
 
-			int iCollateralDamage = (GC.getDefineINT("COLLATERAL_COMBAT_DAMAGE") * (iCollateralStrength + iStrengthFactor)) / (iTheirStrength + iStrengthFactor);
+				int iCollateralDamage = (GC.getDefineINT("COLLATERAL_COMBAT_DAMAGE") * (iCollateralStrength + iStrengthFactor)) / (iTheirStrength + iStrengthFactor);
 
-			iCollateralDamage *= 100 + getExtraCollateralDamage();
+				iCollateralDamage *= 100 + getExtraCollateralDamage();
 
-			iCollateralDamage *= std::max(0, 100 - pTargetUnit->getCollateralDamageProtection());
-			iCollateralDamage /= 100;
-
-			if (pCity != NULL) {
-				iCollateralDamage *= 100 + pCity->getAirModifier();
+				iCollateralDamage *= std::max(0, 100 - pTargetUnit->getCollateralDamageProtection());
 				iCollateralDamage /= 100;
-			}
 
-			iCollateralDamage = std::max(0, iCollateralDamage / 100);
+				if (pCity != NULL) {
+					iCollateralDamage *= 100 + pCity->getAirModifier();
+					iCollateralDamage /= 100;
+				}
 
-			int iMaxDamage = std::min(collateralDamageLimit(), (collateralDamageLimit() * (iCollateralStrength + iStrengthFactor)) / (iTheirStrength + iStrengthFactor));
-			int iUnitDamage = std::max(pTargetUnit->getDamage(), std::min(pTargetUnit->getDamage() + iCollateralDamage, iMaxDamage));
+				iCollateralDamage = std::max(0, iCollateralDamage / 100);
 
-			if (pTargetUnit->getDamage() != iUnitDamage) {
-				pTargetUnit->setDamage(iUnitDamage, getOwnerINLINE());
-				iDamageCount++;
+				int iMaxDamage = std::min(collateralDamageLimit(), (collateralDamageLimit() * (iCollateralStrength + iStrengthFactor)) / (iTheirStrength + iStrengthFactor));
+				int iUnitDamage = std::max(pTargetUnit->getDamage(), std::min(pTargetUnit->getDamage() + iCollateralDamage, iMaxDamage));
+
+				if (pTargetUnit->getDamage() != iUnitDamage) {
+					pTargetUnit->setDamage(iUnitDamage, getOwnerINLINE());
+					iDamageCount++;
+				}
 			}
 		}
 	}
@@ -12081,11 +12113,13 @@ void CvUnit::doFieldPromotions(CombatData* data, CvUnit* pDefender, CvPlot* pPlo
 				aAttackerAvailablePromotions.push_back(ePromotion);
 			}
 			//* unit combat mod
-			else if (kPromotion.getUnitCombatModifierPercent(pDefender->getUnitCombatType()) > 0) {
-				aAttackerAvailablePromotions.push_back(ePromotion);
+			for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+				if (pDefender->isUnitCombatType(eUnitCombat) && kPromotion.getUnitCombatModifierPercent(eUnitCombat) > 0) {
+					aAttackerAvailablePromotions.push_back(ePromotion);
+				}
 			}
 			//* combat strength promotions
-			else if (kPromotion.getCombatPercent() > 0) {
+			if (kPromotion.getCombatPercent() > 0) {
 				aAttackerAvailablePromotions.push_back(ePromotion);
 			}
 			//* domain mod
@@ -12145,11 +12179,13 @@ void CvUnit::doFieldPromotions(CombatData* data, CvUnit* pDefender, CvPlot* pPlo
 				aDefenderAvailablePromotions.push_back(ePromotion);
 			}
 			//* unit combat mod vs attacker unit type
-			else if (kPromotion.getUnitCombatModifierPercent(getUnitCombatType()) > 0) {
-				aDefenderAvailablePromotions.push_back(ePromotion);
+			for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+				if (isUnitCombatType(eUnitCombat) && kPromotion.getUnitCombatModifierPercent(eUnitCombat) > 0) {
+					aDefenderAvailablePromotions.push_back(ePromotion);
+				}
 			}
 			//* combat strength promotions
-			else if (kPromotion.getCombatPercent() > 0) {
+			if (kPromotion.getCombatPercent() > 0) {
 				aDefenderAvailablePromotions.push_back(ePromotion);
 			}
 			//* domain mod
@@ -13347,7 +13383,12 @@ void CvUnit::becomeSlaver() {
 
 	setName(gDLL->getText("TXT_KEY_SLAVER_RENAME", getName().GetCString()));
 	setBaseCombatStr(std::max(0, iNewCombat));
+	// We retain the original combat type so that it can be used for combat modifiers. We
+	//  don't want Axemen with thier melee combat bonus to be less effective against a unit
+	//  because it became a slaver.
+	UnitCombatTypes eOrigUnitCombatType = getUnitCombatType();
 	setUnitCombatType((UnitCombatTypes)GC.getInfoTypeForString("UNITCOMBAT_SLAVER", true));
+	addUnitCombatType(eOrigUnitCombatType);
 	setInvisibleType((InvisibleTypes)GC.getInfoTypeForString("INVISIBLE_SLAVER", true));
 	AI_setUnitAIType(UNITAI_SLAVER);
 	// Units can manage 1 slave for every 8 combat or part thereof
@@ -13819,4 +13860,10 @@ int CvUnit::getFoundPopChange() const {
 		}
 	}
 	return iExtraPop;
+}
+
+void CvUnit::addUnitCombatType(UnitCombatTypes eUnitCombat) {
+	if (!isUnitCombatType(eUnitCombat)) {
+		m_vExtraUnitCombatTypes.push_back(eUnitCombat);
+	}
 }

@@ -472,7 +472,11 @@ void CvPlayerAI::AI_doTurnUnitsPost() {
 							int iCityExp = 0;
 							iCityExp += pPlotCity->getFreeExperience();
 							iCityExp += pPlotCity->getDomainFreeExperience(pLoopUnit->getDomainType());
-							iCityExp += pPlotCity->getUnitCombatFreeExperience(pLoopUnit->getUnitCombatType());
+							for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+								if (pLoopUnit->isUnitCombatType(eUnitCombat)) {
+									iCityExp += pPlotCity->getUnitCombatFreeExperience(eUnitCombat);
+								}
+							}
 							if (iCityExp > 0) {
 								if (iExp < iCityExp && GC.getGameINLINE().getGameTurn() - pLoopUnit->getGameTurnCreated() > 8) {
 									int iDefenders = pLoopUnit->plot()->plotCount(PUF_canDefendGroupHead, -1, -1, getID(), NO_TEAM, PUF_isCityAIType);
@@ -14613,12 +14617,12 @@ int CvPlayerAI::AI_eventValue(EventTypes eEvent, const EventTriggeredData& kTrig
 	{
 		int iPromotionValue = 0;
 
-		for (int i = 0; i < GC.getNumUnitCombatInfos(); ++i) {
-			if (NO_PROMOTION != kEvent.getUnitCombatPromotion(i)) {
+		for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+			if (NO_PROMOTION != kEvent.getUnitCombatPromotion(eUnitCombat)) {
 				int iLoop;
 				for (CvUnit* pLoopUnit = firstUnit(&iLoop); NULL != pLoopUnit; pLoopUnit = nextUnit(&iLoop)) {
-					if (pLoopUnit->getUnitCombatType() == i) {
-						if (!pLoopUnit->isHasPromotion((PromotionTypes)kEvent.getUnitCombatPromotion(i))) {
+					if (pLoopUnit->isUnitCombatType(eUnitCombat)) {
+						if (!pLoopUnit->isHasPromotion((PromotionTypes)kEvent.getUnitCombatPromotion(eUnitCombat))) {
 							iPromotionValue += 5 * pLoopUnit->baseCombatStr();
 						}
 					}

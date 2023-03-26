@@ -240,17 +240,23 @@ int groupCycleDistance(const CvSelectionGroup* pFirstGroup, const CvSelectionGro
 	return iDistance + iPenalty;
 }
 
-// This is a wrapper that allows us to check for units where the UnitCombat has been forced such as slavers so the value in
-// the base unit type is incorrect
+// This is a wrapper that allows us to check for multiple UnitCombats on a unit, such as the case for Slavers where the
+// base unit combat has been changed, but the original is retained.
 bool isPromotionValid(PromotionTypes ePromotion, const CvUnit* pUnit, bool bLeader) {
 
 	if (pUnit == NULL)
 		return false;
 
-	if (!isPromotionValid(ePromotion, pUnit->getUnitCombatType()))
+	bool bValid = false;
+	for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos() && !bValid; eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+		if (pUnit->isUnitCombatType(eUnitCombat)) {
+			bValid = isPromotionValid(ePromotion, eUnitCombat);
+		}
+	}
+	if (!bValid)
 		return false;
 
-	return  isPromotionValid(ePromotion, pUnit->getUnitType(), bLeader, false);
+	return isPromotionValid(ePromotion, pUnit->getUnitType(), bLeader, false);
 }
 
 bool isPromotionValid(PromotionTypes ePromotion, UnitTypes eUnit, bool bLeader, bool bCheckUnitCombat) {
