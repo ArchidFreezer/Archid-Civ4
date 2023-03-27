@@ -728,8 +728,8 @@
 			<Type>BUILD_SEED_CAMP</Type>
 			<Description>TXT_KEY_BUILD_SEED_CAMP</Description>
 			<PrereqTech>TECH_GRAIN_GATHERING</PrereqTech>
+			<ObsoleteTech>TECH_AGRICULTURE</ObsoleteTech>
 			<iTime>200</iTime>
-			<bKill>1</bKill>
 			<ImprovementType>IMPROVEMENT_SEED_CAMP</ImprovementType>
 			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<HotKey>KB_S</HotKey>
@@ -757,8 +757,8 @@
 			<Type>BUILD_STONE_TOOLS_CAMP</Type>
 			<Description>TXT_KEY_BUILD_STONE_TOOLS_CAMP</Description>
 			<PrereqTech>TECH_STONE_TOOLS</PrereqTech>
+			<ObsoleteTech>TECH_MINING</ObsoleteTech>
 			<iTime>200</iTime>
-			<bKill>1</bKill>
 			<ImprovementType>IMPROVEMENT_STONE_TOOLS_CAMP</ImprovementType>
 			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<HotKey>KB_S</HotKey>
@@ -788,7 +788,6 @@
 			<Description>TXT_KEY_BUILD_TIMBER_CAMP</Description>
 			<PrereqTech>TECH_EARLY_WOODWORKING</PrereqTech>
 			<iTime>200</iTime>
-			<bKill>1</bKill>
 			<ImprovementType>IMPROVEMENT_TIMBER_CAMP</ImprovementType>
 			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<HotKey>KB_L</HotKey>
