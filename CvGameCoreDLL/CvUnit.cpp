@@ -11897,8 +11897,8 @@ void CvUnit::salvage(CvUnit* pDeadUnit) {
 	const CvPlayer& kDeadOwner = GET_PLAYER(pDeadUnit->getOwnerINLINE());
 	const CvUnitInfo& kDeadUnit = GC.getUnitInfo(pDeadUnit->getUnitType());
 
-	// Only get salvage from animals in the pre-settled stage
-	if (kDeadUnit.isAnimal() && kOwner.isCivSettled())
+	// Only get salvage from animals in the settled stage from hunters
+	if (kDeadUnit.isAnimal() && kOwner.isCivSettled() && !isUnitCombatType((UnitCombatTypes)GC.getInfoTypeForString("UNITCOMBAT_HUNTER")))
 		return;
 
 	CvCity* pSalvageCity = getHomeCity() != NULL ? getHomeCity() : kOwner.findCity(getX_INLINE(), getY_INLINE());
