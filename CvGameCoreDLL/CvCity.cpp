@@ -638,6 +638,7 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 
 		m_mBuildingClassProductionModifiers.clear();
 		m_mUnitCombatProductionModifiers.clear();
+		m_mUnitHomeTurns.clear();
 	}
 
 	if (!bConstructorCall) {
@@ -884,6 +885,7 @@ void CvCity::doTurn() {
 
 	doAutoBuild();
 	doPromotion(false);
+	doUnitHomeTurns();
 
 	if (getCultureUpdateTimer() > 0) {
 		changeCultureUpdateTimer(-1);
@@ -11322,6 +11324,16 @@ void CvCity::read(FDataStreamBase* pStream) {
 		m_aGreatJests.push_back(std::make_pair(iHappiness, iDuration));
 	}
 
+	pStream->Read(&iNumElts);
+	m_mUnitHomeTurns.clear();
+	for (int i = 0; i < iNumElts; ++i) {
+		int iUnitID;
+		pStream->Read(&iUnitID);
+		int iTurns;
+		pStream->Read(&iTurns);
+		m_mUnitHomeTurns.insert(std::make_pair((UnitCombatTypes)iUnitID, iTurns));
+	}
+
 }
 
 void CvCity::write(FDataStreamBase* pStream) {
@@ -11570,6 +11582,13 @@ void CvCity::write(FDataStreamBase* pStream) {
 		pStream->Write(it->first);
 		pStream->Write(it->second);
 	}
+
+	pStream->Write(m_mUnitHomeTurns.size());
+	for (std::map<int, int>::iterator it = m_mUnitHomeTurns.begin(); it != m_mUnitHomeTurns.end(); ++it) {
+		pStream->Write((*it).first);
+		pStream->Write((*it).second);
+	}
+
 }
 
 
@@ -14190,3 +14209,49 @@ void CvCity::changePopulationGrowthRateModifier(int iChange) {
 	m_iPopulationGrowthRateModifier += iChange;
 }
 
+// We are checking to see how many consecutive turns a unit has ended its turn in the city
+void CvCity::doUnitHomeTurns() {
+	std::vector<int> vUnitIDs;
+	// Check for units that are in the city now
+	CLLNode<IDInfo>* pUnitNode = plot()->headUnitNode();
+	while (pUnitNode != NULL) {
+		CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+		pUnitNode = plot()->nextUnitNode(pUnitNode);
+		vUnitIDs.push_back(pLoopUnit->getID());
+		incrementUnitHomeTurn(pLoopUnit->getID());
+	}
+
+	// Check if we have any units in the map that are no longer in the city
+	if (vUnitIDs.size() < m_mUnitHomeTurns.size()) {
+		for (std::map<int, int>::iterator it = m_mUnitHomeTurns.begin(); it != m_mUnitHomeTurns.end(); it++) {
+			int iUnitID = (*it).first;
+			if (std::find(vUnitIDs.begin(), vUnitIDs.end(), iUnitID) == vUnitIDs.end()) {
+				m_mUnitHomeTurns.erase(it);
+			}
+		}
+	}
+}
+
+void CvCity::incrementUnitHomeTurn(int iUnitID) {
+	bool bFound = false;
+	for (std::map<int, int>::iterator it = m_mUnitHomeTurns.begin(); it != m_mUnitHomeTurns.end() && !bFound; ++it) {
+		if ((*it).first == iUnitID) {
+			int iTurns = (*it).second;
+			(*it).second = (iTurns < MAX_INT ? ++iTurns : MAX_INT);
+			bFound = true;
+		}
+	}
+	if (!bFound) {
+		m_mUnitHomeTurns.insert(std::make_pair(iUnitID, 1));
+	}
+}
+
+int CvCity::getUnitHomeTurns(int iUnitID) const {
+	int iTurns = 0;
+	for (std::map<int, int>::const_iterator it = m_mUnitHomeTurns.begin(); it != m_mUnitHomeTurns.end() && iTurns == 0; ++it) {
+		if ((*it).first == iUnitID) {
+			iTurns = (*it).second;
+		}
+	}
+	return iTurns;
+}

@@ -32,7 +32,11 @@ public:
 	void reset(int iID = 0, PlayerTypes eOwner = NO_PLAYER, int iX = 0, int iY = 0, bool bConstructorCall = false);
 	void setupGraphical();
 
-	void kill(bool bUpdatePlotGroups);																								// Exposed to Python
+	void kill(bool bUpdatePlotGroups);		// Exposed to Python
+
+	int getUnitHomeTurns(int iUnitID) const;
+	void doUnitHomeTurns();
+	void incrementUnitHomeTurn(int iUnitID);
 
 	int getPopulationGrowthRateModifier() const;
 	void changePopulationGrowthRateModifier(int iChange);
@@ -1283,6 +1287,7 @@ protected:
 
 	std::map<BuildingClassTypes, int> m_mBuildingClassProductionModifiers;
 	std::map<UnitCombatTypes, int> m_mUnitCombatProductionModifiers;
+	std::map<int, int> m_mUnitHomeTurns;
 
 	// CACHE: cache frequently used values
 	mutable int	m_iPopulationRank;
