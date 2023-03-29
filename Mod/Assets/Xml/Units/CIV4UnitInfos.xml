@@ -4462,7 +4462,7 @@
 			<ObsoleteTech>TECH_POULTRY_FARMING</ObsoleteTech>
 			<iCost>15</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMoves>1</iMoves>
+			<iMoves>2</iMoves>
 			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
 			<iCombat>2</iCombat>
 			<iCombatLimit>100</iCombatLimit>
