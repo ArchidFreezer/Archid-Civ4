@@ -659,11 +659,11 @@
 	</Define>
 	<Define>
 		<DefineName>ANIMAL_MAX_XP_VALUE_PRE_SETTLE</DefineName>
-		<iDefineIntVal>50</iDefineIntVal>
+		<iDefineIntVal>150</iDefineIntVal>
 	</Define>
 	<Define>
 		<DefineName>BARBARIAN_MAX_XP_VALUE_PRE_SETTLE</DefineName>
-		<iDefineIntVal>50</iDefineIntVal>
+		<iDefineIntVal>150</iDefineIntVal>
 	</Define>
 	<Define>
 		<DefineName>BARBARIAN_EXPERIENCE_THRESHOLD</DefineName>
