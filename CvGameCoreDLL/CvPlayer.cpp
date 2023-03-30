@@ -4791,6 +4791,14 @@ bool CvPlayer::canTrain(UnitTypes eUnit, bool bContinue, bool bTestVisible, bool
 		return false;
 	}
 
+	// In the Stone Age limit the number of military support units to the total pop plus 1 for every city to prevent the AI spamming
+	//   them and crippling its research by requiring the research slider be diverted to gold to pay for them.
+	if (!isCivSettled() && kUnit.isMilitarySupport()) {
+		if (getNumMilitaryUnits() >= (getTotalPopulation() + getNumCities())) {
+			return false;
+		}
+	}
+
 	if (!bIgnoreCost && kUnit.getProductionCost() == -1) {
 		return false;
 	}
